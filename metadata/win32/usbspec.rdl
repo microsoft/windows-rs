@@ -1,0 +1,747 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BMREQUEST_CLASS: u32 = 1;
+        const BMREQUEST_DEVICE_TO_HOST: u32 = 1;
+        const BMREQUEST_HOST_TO_DEVICE: u32 = 0;
+        const BMREQUEST_STANDARD: u32 = 0;
+        const BMREQUEST_TO_DEVICE: u32 = 0;
+        const BMREQUEST_TO_ENDPOINT: u32 = 2;
+        const BMREQUEST_TO_INTERFACE: u32 = 1;
+        const BMREQUEST_TO_OTHER: u32 = 3;
+        const BMREQUEST_VENDOR: u32 = 2;
+        union BM_REQUEST_TYPE {
+            s: BM_REQUEST_TYPE_0,
+            B: u8,
+        }
+        struct BM_REQUEST_TYPE_0 {
+            _bitfield: u8,
+        }
+        #[packed(1)]
+        struct EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            wMaxPacketSize: u16,
+            dwBytesPerInterval: u32,
+        }
+        const EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 18;
+        const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: GUID = 0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f;
+        const MAXIMUM_USB_STRING_LENGTH: u32 = 255;
+        type PBM_REQUEST_TYPE = *mut BM_REQUEST_TYPE;
+        type PEUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR = *mut EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR;
+        const PORT_LINK_STATE_COMPLIANCE_MODE: u32 = 10;
+        const PORT_LINK_STATE_DISABLED: u32 = 4;
+        const PORT_LINK_STATE_HOT_RESET: u32 = 9;
+        const PORT_LINK_STATE_INACTIVE: u32 = 6;
+        const PORT_LINK_STATE_LOOPBACK: u32 = 11;
+        const PORT_LINK_STATE_POLLING: u32 = 7;
+        const PORT_LINK_STATE_RECOVERY: u32 = 8;
+        const PORT_LINK_STATE_RX_DETECT: u32 = 5;
+        const PORT_LINK_STATE_TEST_MODE: u32 = 11;
+        const PORT_LINK_STATE_U0: u32 = 0;
+        const PORT_LINK_STATE_U1: u32 = 1;
+        const PORT_LINK_STATE_U2: u32 = 2;
+        const PORT_LINK_STATE_U3: u32 = 3;
+        type PUSB_20_PORT_CHANGE = *mut USB_20_PORT_CHANGE;
+        type PUSB_20_PORT_STATUS = *mut USB_20_PORT_STATUS;
+        type PUSB_30_HUB_DESCRIPTOR = *mut USB_30_HUB_DESCRIPTOR;
+        type PUSB_30_PORT_CHANGE = *mut USB_30_PORT_CHANGE;
+        type PUSB_30_PORT_STATUS = *mut USB_30_PORT_STATUS;
+        type PUSB_BOS_DESCRIPTOR = *mut USB_BOS_DESCRIPTOR;
+        type PUSB_COMMON_DESCRIPTOR = *mut USB_COMMON_DESCRIPTOR;
+        type PUSB_CONFIGURATION_DESCRIPTOR = *mut USB_CONFIGURATION_DESCRIPTOR;
+        type PUSB_CONFIGURATION_POWER_DESCRIPTOR = *mut USB_CONFIGURATION_POWER_DESCRIPTOR;
+        type PUSB_DEFAULT_PIPE_SETUP_PACKET = *mut USB_DEFAULT_PIPE_SETUP_PACKET;
+        type PUSB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR = *mut USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR;
+        type PUSB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR = *mut USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR;
+        type PUSB_DEVICE_CAPABILITY_DESCRIPTOR = *mut USB_DEVICE_CAPABILITY_DESCRIPTOR;
+        type PUSB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR = *mut USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR;
+        type PUSB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR = *mut USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR;
+        type PUSB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR = *mut USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR;
+        type PUSB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR = *mut USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR;
+        type PUSB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED = *mut USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED;
+        type PUSB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR = *mut USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR;
+        type PUSB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR = *mut USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR;
+        type PUSB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR = *mut USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR;
+        type PUSB_DEVICE_DESCRIPTOR = *mut USB_DEVICE_DESCRIPTOR;
+        type PUSB_DEVICE_QUALIFIER_DESCRIPTOR = *mut USB_DEVICE_QUALIFIER_DESCRIPTOR;
+        type PUSB_DEVICE_STATUS = *mut USB_DEVICE_STATUS;
+        type PUSB_ENDPOINT_DESCRIPTOR = *mut USB_ENDPOINT_DESCRIPTOR;
+        type PUSB_ENDPOINT_STATUS = *mut USB_ENDPOINT_STATUS;
+        type PUSB_FUNCTION_SUSPEND_OPTIONS = *mut USB_FUNCTION_SUSPEND_OPTIONS;
+        type PUSB_HIGH_SPEED_MAXPACKET = *mut USB_HIGH_SPEED_MAXPACKET;
+        type PUSB_HUB_30_PORT_REMOTE_WAKE_MASK = *mut USB_HUB_30_PORT_REMOTE_WAKE_MASK;
+        type PUSB_HUB_CHANGE = *mut USB_HUB_CHANGE;
+        type PUSB_HUB_DESCRIPTOR = *mut USB_HUB_DESCRIPTOR;
+        type PUSB_HUB_STATUS = *mut USB_HUB_STATUS;
+        type PUSB_HUB_STATUS_AND_CHANGE = *mut USB_HUB_STATUS_AND_CHANGE;
+        type PUSB_INTERFACE_ASSOCIATION_DESCRIPTOR = *mut USB_INTERFACE_ASSOCIATION_DESCRIPTOR;
+        type PUSB_INTERFACE_DESCRIPTOR = *mut USB_INTERFACE_DESCRIPTOR;
+        type PUSB_INTERFACE_POWER_DESCRIPTOR = *mut USB_INTERFACE_POWER_DESCRIPTOR;
+        type PUSB_INTERFACE_STATUS = *mut USB_INTERFACE_STATUS;
+        type PUSB_PORT_CHANGE = *mut USB_PORT_CHANGE;
+        type PUSB_PORT_EXT_STATUS = *mut USB_PORT_EXT_STATUS;
+        type PUSB_PORT_EXT_STATUS_AND_CHANGE = *mut USB_PORT_EXT_STATUS_AND_CHANGE;
+        type PUSB_PORT_STATUS = *mut USB_PORT_STATUS;
+        type PUSB_PORT_STATUS_AND_CHANGE = *mut USB_PORT_STATUS_AND_CHANGE;
+        type PUSB_STRING_DESCRIPTOR = *mut USB_STRING_DESCRIPTOR;
+        type PUSB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR = *mut USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR;
+        type PUSB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR = *mut USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR;
+        const USB_20_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 252;
+        const USB_20_HUB_DESCRIPTOR_TYPE: u32 = 41;
+        #[packed(1)]
+        union USB_20_PORT_CHANGE {
+            AsUshort16: u16,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+        }
+        #[packed(1)]
+        union USB_20_PORT_STATUS {
+            AsUshort16: u16,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+        }
+        const USB_30_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 204;
+        const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_MASK: u32 = 48;
+        const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_NOTIFICATION: u32 = 16;
+        const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_PERIODIC: u32 = 0;
+        const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED10: u32 = 32;
+        const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED11: u32 = 48;
+        #[packed(1)]
+        struct USB_30_HUB_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bNumberOfPorts: u8,
+            wHubCharacteristics: u16,
+            bPowerOnToPowerGood: u8,
+            bHubControlCurrent: u8,
+            bHubHdrDecLat: u8,
+            wHubDelay: u16,
+            DeviceRemovable: u16,
+        }
+        const USB_30_HUB_DESCRIPTOR_TYPE: u32 = 42;
+        #[packed(1)]
+        union USB_30_PORT_CHANGE {
+            AsUshort16: u16,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+        }
+        #[packed(1)]
+        union USB_30_PORT_STATUS {
+            AsUshort16: u16,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+        }
+        const USB_ALLOW_FIRMWARE_UPDATE: u32 = 1;
+        #[packed(1)]
+        struct USB_BOS_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            wTotalLength: u16,
+            bNumDeviceCaps: u8,
+        }
+        const USB_BOS_DESCRIPTOR_TYPE: u32 = 15;
+        const USB_CHARGING_POLICY_DEFAULT: u32 = 0;
+        const USB_CHARGING_POLICY_ICCHPF: u32 = 1;
+        const USB_CHARGING_POLICY_ICCLPF: u32 = 2;
+        const USB_CHARGING_POLICY_NO_POWER: u32 = 3;
+        struct USB_COMMON_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+        }
+        #[packed(1)]
+        struct USB_CONFIGURATION_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            wTotalLength: u16,
+            bNumInterfaces: u8,
+            bConfigurationValue: u8,
+            iConfiguration: u8,
+            bmAttributes: u8,
+            MaxPower: u8,
+        }
+        const USB_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 2;
+        #[packed(1)]
+        struct USB_CONFIGURATION_POWER_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            SelfPowerConsumedD0: [u8; 3],
+            bPowerSummaryId: u8,
+            bBusPowerSavingD1: u8,
+            bSelfPowerSavingD1: u8,
+            bBusPowerSavingD2: u8,
+            bSelfPowerSavingD2: u8,
+            bBusPowerSavingD3: u8,
+            bSelfPowerSavingD3: u8,
+            TransitionTimeFromD1: u16,
+            TransitionTimeFromD2: u16,
+            TransitionTimeFromD3: u16,
+        }
+        const USB_CONFIG_BUS_POWERED: u32 = 128;
+        const USB_CONFIG_POWERED_MASK: u32 = 192;
+        const USB_CONFIG_POWER_DESCRIPTOR_TYPE: u32 = 7;
+        const USB_CONFIG_REMOTE_WAKEUP: u32 = 32;
+        const USB_CONFIG_RESERVED: u32 = 31;
+        const USB_CONFIG_SELF_POWERED: u32 = 64;
+        const USB_DEBUG_DESCRIPTOR_TYPE: u32 = 10;
+        #[packed(1)]
+        struct USB_DEFAULT_PIPE_SETUP_PACKET {
+            bmRequestType: BM_REQUEST_TYPE,
+            bRequest: u8,
+            wValue: USB_DEFAULT_PIPE_SETUP_PACKET_0,
+            wIndex: USB_DEFAULT_PIPE_SETUP_PACKET_1,
+            wLength: u16,
+        }
+        #[packed(1)]
+        union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
+            Anonymous: struct {
+                LowByte: u8,
+                HiByte: u8,
+            },
+            W: u16,
+        }
+        #[packed(1)]
+        union USB_DEFAULT_PIPE_SETUP_PACKET_1 {
+            Anonymous: struct {
+                LowByte: u8,
+                HiByte: u8,
+            },
+            W: u16,
+        }
+        const USB_DEVICE_CAPABILITY_BATTERY_INFO: u32 = 7;
+        const USB_DEVICE_CAPABILITY_BILLBOARD: u32 = 13;
+        #[packed(1)]
+        struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bDevCapabilityType: u8,
+            iAddtionalInfoURL: u8,
+            bNumberOfAlternateModes: u8,
+            bPreferredAlternateMode: u8,
+            VconnPower: #[packed(1)] union {
+                AsUshort: u16,
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16,
+                },
+            },
+            bmConfigured: [u8; 32],
+            bReserved: u32,
+            AlternateMode: [USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1; 1],
+        }
+        #[packed(1)]
+        struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
+            wSVID: u16,
+            bAlternateMode: u8,
+            iAlternateModeSetting: u8,
+        }
+        const USB_DEVICE_CAPABILITY_CONTAINER_ID: u32 = 4;
+        struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bDevCapabilityType: u8,
+            bReserved: u8,
+            ContainerID: [u8; 16],
+        }
+        struct USB_DEVICE_CAPABILITY_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bDevCapabilityType: u8,
+        }
+        const USB_DEVICE_CAPABILITY_DESCRIPTOR_TYPE: u32 = 16;
+        const USB_DEVICE_CAPABILITY_FIRMWARE_STATUS: u32 = 17;
+        struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bDevCapabilityType: u8,
+            bcdDescriptorVersion: u8,
+            bmAttributes: #[packed(1)] union {
+                AsUlong: u32,
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+            },
+        }
+        const USB_DEVICE_CAPABILITY_MAX_U1_LATENCY: u32 = 10;
+        const USB_DEVICE_CAPABILITY_MAX_U2_LATENCY: u32 = 2047;
+        const USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT: u32 = 8;
+        #[packed(1)]
+        struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bDevCapabilityType: u8,
+            bReserved: u8,
+            bmCapabilities: #[packed(1)] union {
+                AsUshort: u16,
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16,
+                },
+            },
+            wMinVoltage: u16,
+            wMaxVoltage: u16,
+            wReserved: u16,
+            dwMaxOperatingPower: u32,
+            dwMaxPeakPower: u32,
+            dwMaxPeakPowerTime: u32,
+        }
+        const USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT: u32 = 9;
+        const USB_DEVICE_CAPABILITY_PLATFORM: u32 = 5;
+        #[packed(1)]
+        struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bDevCapabilityType: u8,
+            bReserved: u8,
+            PlatformCapabilityUuid: GUID,
+            CapabililityData: [u8; 1],
+        }
+        const USB_DEVICE_CAPABILITY_POWER_DELIVERY: u32 = 6;
+        #[packed(1)]
+        struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bDevCapabilityType: u8,
+            bReserved: u8,
+            bmAttributes: #[packed(1)] union {
+                AsUlong: u32,
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+            },
+            bmProviderPorts: u16,
+            bmConsumerPorts: u16,
+            bcdBCVersion: u16,
+            bcdPDVersion: u16,
+            bcdUSBTypeCVersion: u16,
+        }
+        const USB_DEVICE_CAPABILITY_PRECISION_TIME_MEASUREMENT: u32 = 11;
+        #[packed(1)]
+        union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
+            AsUlong32: u32,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u32,
+            },
+        }
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_RX: u32 = 0;
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_TX: u32 = 1;
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_BPS: u32 = 0;
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_GBPS: u32 = 3;
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_KBPS: u32 = 1;
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_MBPS: u32 = 2;
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_ASYMMETRIC: u32 = 1;
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_SYMMETRIC: u32 = 0;
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SS: u32 = 0;
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SSP: u32 = 1;
+        const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB: u32 = 10;
+        #[packed(1)]
+        struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bDevCapabilityType: u8,
+            bReserved: u8,
+            bmAttributes: #[packed(1)] union {
+                AsUlong: u32,
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+            },
+            wFunctionalitySupport: #[packed(1)] union {
+                AsUshort: u16,
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16,
+                },
+            },
+            wReserved: u16,
+            bmSublinkSpeedAttr: [USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED; 1],
+        }
+        const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_LTM_CAPABLE: u32 = 2;
+        const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_RESERVED_MASK: u32 = 253;
+        const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_FULL: u32 = 2;
+        const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_HIGH: u32 = 4;
+        const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_LOW: u32 = 1;
+        const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_RESERVED_MASK: u32 = 65520;
+        const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_SUPER: u32 = 8;
+        const USB_DEVICE_CAPABILITY_SUPERSPEED_U1_DEVICE_EXIT_MAX_VALUE: u32 = 10;
+        const USB_DEVICE_CAPABILITY_SUPERSPEED_U2_DEVICE_EXIT_MAX_VALUE: u32 = 2047;
+        const USB_DEVICE_CAPABILITY_SUPERSPEED_USB: u32 = 3;
+        #[packed(1)]
+        struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bDevCapabilityType: u8,
+            bmAttributes: u8,
+            wSpeedsSupported: u16,
+            bFunctionalitySupport: u8,
+            bU1DevExitLat: u8,
+            wU2DevExitLat: u16,
+        }
+        const USB_DEVICE_CAPABILITY_USB20_EXTENSION: u32 = 2;
+        const USB_DEVICE_CAPABILITY_USB20_EXTENSION_BMATTRIBUTES_RESERVED_MASK: u32 = 4294901985;
+        struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bDevCapabilityType: u8,
+            bmAttributes: #[packed(1)] union {
+                AsUlong: u32,
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+            },
+        }
+        const USB_DEVICE_CAPABILITY_WIRELESS_USB: u32 = 1;
+        const USB_DEVICE_CLASS_APPLICATION_SPECIFIC: u32 = 254;
+        const USB_DEVICE_CLASS_AUDIO: u32 = 1;
+        const USB_DEVICE_CLASS_AUDIO_VIDEO: u32 = 16;
+        const USB_DEVICE_CLASS_BILLBOARD: u32 = 17;
+        const USB_DEVICE_CLASS_CDC_DATA: u32 = 10;
+        const USB_DEVICE_CLASS_COMMUNICATIONS: u32 = 2;
+        const USB_DEVICE_CLASS_CONTENT_SECURITY: u32 = 13;
+        const USB_DEVICE_CLASS_DIAGNOSTIC_DEVICE: u32 = 220;
+        const USB_DEVICE_CLASS_HUB: u32 = 9;
+        const USB_DEVICE_CLASS_HUMAN_INTERFACE: u32 = 3;
+        const USB_DEVICE_CLASS_IMAGE: u32 = 6;
+        const USB_DEVICE_CLASS_MISCELLANEOUS: u32 = 239;
+        const USB_DEVICE_CLASS_MONITOR: u32 = 4;
+        const USB_DEVICE_CLASS_PERSONAL_HEALTHCARE: u32 = 15;
+        const USB_DEVICE_CLASS_PHYSICAL_INTERFACE: u32 = 5;
+        const USB_DEVICE_CLASS_POWER: u32 = 6;
+        const USB_DEVICE_CLASS_PRINTER: u32 = 7;
+        const USB_DEVICE_CLASS_RESERVED: u32 = 0;
+        const USB_DEVICE_CLASS_SMART_CARD: u32 = 11;
+        const USB_DEVICE_CLASS_STORAGE: u32 = 8;
+        const USB_DEVICE_CLASS_VENDOR_SPECIFIC: u32 = 255;
+        const USB_DEVICE_CLASS_VIDEO: u32 = 14;
+        const USB_DEVICE_CLASS_WIRELESS_CONTROLLER: u32 = 224;
+        #[packed(1)]
+        struct USB_DEVICE_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bcdUSB: u16,
+            bDeviceClass: u8,
+            bDeviceSubClass: u8,
+            bDeviceProtocol: u8,
+            bMaxPacketSize0: u8,
+            idVendor: u16,
+            idProduct: u16,
+            bcdDevice: u16,
+            iManufacturer: u8,
+            iProduct: u8,
+            iSerialNumber: u8,
+            bNumConfigurations: u8,
+        }
+        const USB_DEVICE_DESCRIPTOR_TYPE: u32 = 1;
+        const USB_DEVICE_FIRMWARE_HASH_LENGTH: u32 = 32;
+        #[packed(1)]
+        struct USB_DEVICE_QUALIFIER_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bcdUSB: u16,
+            bDeviceClass: u8,
+            bDeviceSubClass: u8,
+            bDeviceProtocol: u8,
+            bMaxPacketSize0: u8,
+            bNumConfigurations: u8,
+            bReserved: u8,
+        }
+        const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: u32 = 6;
+        #[repr(i32)]
+        enum USB_DEVICE_SPEED {
+            UsbLowSpeed = 0,
+            UsbFullSpeed = 1,
+            UsbHighSpeed = 2,
+            UsbSuperSpeed = 3,
+        }
+        #[packed(1)]
+        union USB_DEVICE_STATUS {
+            AsUshort16: u16,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+        }
+        #[repr(i32)]
+        enum USB_DEVICE_TYPE {
+            Usb11Device = 0,
+            Usb20Device = 1,
+        }
+        const USB_DISALLOW_FIRMWARE_UPDATE: u32 = 0;
+        const USB_ENDPOINT_ADDRESS_MASK: u32 = 15;
+        #[packed(1)]
+        struct USB_ENDPOINT_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bEndpointAddress: u8,
+            bmAttributes: u8,
+            wMaxPacketSize: u16,
+            bInterval: u8,
+        }
+        const USB_ENDPOINT_DESCRIPTOR_TYPE: u32 = 5;
+        const USB_ENDPOINT_DIRECTION_MASK: u32 = 128;
+        #[packed(1)]
+        union USB_ENDPOINT_STATUS {
+            AsUshort16: u16,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+        }
+        const USB_ENDPOINT_SUPERSPEED_BULK_MAX_PACKET_SIZE: u32 = 1024;
+        const USB_ENDPOINT_SUPERSPEED_CONTROL_MAX_PACKET_SIZE: u32 = 512;
+        const USB_ENDPOINT_SUPERSPEED_INTERRUPT_MAX_PACKET_SIZE: u32 = 1024;
+        const USB_ENDPOINT_SUPERSPEED_ISO_MAX_PACKET_SIZE: u32 = 1024;
+        const USB_ENDPOINT_TYPE_BULK: u32 = 2;
+        const USB_ENDPOINT_TYPE_BULK_RESERVED_MASK: u32 = 252;
+        const USB_ENDPOINT_TYPE_CONTROL: u32 = 0;
+        const USB_ENDPOINT_TYPE_CONTROL_RESERVED_MASK: u32 = 252;
+        const USB_ENDPOINT_TYPE_INTERRUPT: u32 = 3;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS: u32 = 1;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_RESERVED_MASK: u32 = 192;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ADAPTIVE: u32 = 8;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ASYNCHRONOUS: u32 = 4;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_MASK: u32 = 12;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_NO_SYNCHRONIZATION: u32 = 0;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_SYNCHRONOUS: u32 = 12;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_DATA_ENDOINT: u32 = 0;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_FEEDBACK_ENDPOINT: u32 = 16;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_IMPLICIT_FEEDBACK_DATA_ENDPOINT: u32 = 32;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_MASK: u32 = 48;
+        const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_RESERVED: u32 = 48;
+        const USB_ENDPOINT_TYPE_MASK: u32 = 3;
+        const USB_FEATURE_BATTERY_WAKE_MASK: u32 = 40;
+        const USB_FEATURE_CHARGING_POLICY: u32 = 54;
+        const USB_FEATURE_ENDPOINT_STALL: u32 = 0;
+        const USB_FEATURE_FUNCTION_SUSPEND: u32 = 0;
+        const USB_FEATURE_INTERFACE_POWER_D0: u32 = 2;
+        const USB_FEATURE_INTERFACE_POWER_D1: u32 = 3;
+        const USB_FEATURE_INTERFACE_POWER_D2: u32 = 4;
+        const USB_FEATURE_INTERFACE_POWER_D3: u32 = 5;
+        const USB_FEATURE_LDM_ENABLE: u32 = 53;
+        const USB_FEATURE_LTM_ENABLE: u32 = 50;
+        const USB_FEATURE_OS_IS_PD_AWARE: u32 = 41;
+        const USB_FEATURE_POLICY_MODE: u32 = 42;
+        const USB_FEATURE_REMOTE_WAKEUP: u32 = 1;
+        const USB_FEATURE_TEST_MODE: u32 = 2;
+        const USB_FEATURE_U1_ENABLE: u32 = 48;
+        const USB_FEATURE_U2_ENABLE: u32 = 49;
+        union USB_FUNCTION_SUSPEND_OPTIONS {
+            AsUchar: u8,
+            Anonymous: struct {
+                _bitfield: u8,
+            },
+        }
+        const USB_GETSTATUS_LTM_ENABLE: u32 = 16;
+        const USB_GETSTATUS_REMOTE_WAKEUP_ENABLED: u32 = 2;
+        const USB_GETSTATUS_SELF_POWERED: u32 = 1;
+        const USB_GETSTATUS_U1_ENABLE: u32 = 4;
+        const USB_GETSTATUS_U2_ENABLE: u32 = 8;
+        const USB_GET_FIRMWARE_ALLOWED_OR_DISALLOWED_STATE: u32 = 0;
+        const USB_GET_FIRMWARE_HASH: u32 = 1;
+        const USB_HIGHSPEED_EUSB2_ISOCHRONOUS_MAX_BYTESPERINTERVAL: u32 = 6144;
+        const USB_HIGHSPEED_EUSB2_ISOCHRONOUS_MIN_BYTESPERINTERVAL: u32 = 3073;
+        #[packed(1)]
+        union USB_HIGH_SPEED_MAXPACKET {
+            us: u16,
+        }
+        #[packed(1)]
+        struct USB_HIGH_SPEED_MAXPACKET_0 {
+            _bitfield: u16,
+        }
+        union USB_HUB_30_PORT_REMOTE_WAKE_MASK {
+            AsUchar8: u8,
+            Anonymous: struct {
+                _bitfield: u8,
+            },
+        }
+        #[packed(1)]
+        union USB_HUB_CHANGE {
+            AsUshort16: u16,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+        }
+        #[packed(1)]
+        struct USB_HUB_DESCRIPTOR {
+            bDescriptorLength: u8,
+            bDescriptorType: u8,
+            bNumberOfPorts: u8,
+            wHubCharacteristics: u16,
+            bPowerOnToPowerGood: u8,
+            bHubControlCurrent: u8,
+            bRemoveAndPowerMask: [u8; 64],
+        }
+        #[packed(1)]
+        union USB_HUB_STATUS {
+            AsUshort16: u16,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+        }
+        #[packed(1)]
+        union USB_HUB_STATUS_AND_CHANGE {
+            AsUlong32: u32,
+            Anonymous: struct {
+                HubStatus: USB_HUB_STATUS,
+                HubChange: USB_HUB_CHANGE,
+            },
+        }
+        struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bFirstInterface: u8,
+            bInterfaceCount: u8,
+            bFunctionClass: u8,
+            bFunctionSubClass: u8,
+            bFunctionProtocol: u8,
+            iFunction: u8,
+        }
+        const USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE: u32 = 11;
+        struct USB_INTERFACE_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bInterfaceNumber: u8,
+            bAlternateSetting: u8,
+            bNumEndpoints: u8,
+            bInterfaceClass: u8,
+            bInterfaceSubClass: u8,
+            bInterfaceProtocol: u8,
+            iInterface: u8,
+        }
+        const USB_INTERFACE_DESCRIPTOR_TYPE: u32 = 4;
+        #[packed(1)]
+        struct USB_INTERFACE_POWER_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bmCapabilitiesFlags: u8,
+            bBusPowerSavingD1: u8,
+            bSelfPowerSavingD1: u8,
+            bBusPowerSavingD2: u8,
+            bSelfPowerSavingD2: u8,
+            bBusPowerSavingD3: u8,
+            bSelfPowerSavingD3: u8,
+            TransitionTimeFromD1: u16,
+            TransitionTimeFromD2: u16,
+            TransitionTimeFromD3: u16,
+        }
+        const USB_INTERFACE_POWER_DESCRIPTOR_TYPE: u32 = 8;
+        #[packed(1)]
+        union USB_INTERFACE_STATUS {
+            AsUshort16: u16,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+        }
+        const USB_OTG_DESCRIPTOR_TYPE: u32 = 9;
+        const USB_OTHER_SPEED_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 7;
+        #[packed(1)]
+        union USB_PORT_CHANGE {
+            AsUshort16: u16,
+            Usb20PortChange: USB_20_PORT_CHANGE,
+            Usb30PortChange: USB_30_PORT_CHANGE,
+        }
+        #[packed(1)]
+        union USB_PORT_EXT_STATUS {
+            AsUlong32: u32,
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u32,
+            },
+        }
+        #[packed(1)]
+        union USB_PORT_EXT_STATUS_AND_CHANGE {
+            AsUlong64: u64,
+            Anonymous: struct {
+                PortStatusChange: USB_PORT_STATUS_AND_CHANGE,
+                PortExtStatus: USB_PORT_EXT_STATUS,
+            },
+        }
+        #[packed(1)]
+        union USB_PORT_STATUS {
+            AsUshort16: u16,
+            Usb20PortStatus: USB_20_PORT_STATUS,
+            Usb30PortStatus: USB_30_PORT_STATUS,
+        }
+        #[packed(1)]
+        union USB_PORT_STATUS_AND_CHANGE {
+            AsUlong32: u32,
+            Anonymous: struct {
+                PortStatus: USB_PORT_STATUS,
+                PortChange: USB_PORT_CHANGE,
+            },
+        }
+        const USB_PORT_STATUS_CONNECT: u32 = 1;
+        const USB_PORT_STATUS_ENABLE: u32 = 2;
+        const USB_PORT_STATUS_HIGH_SPEED: u32 = 1024;
+        const USB_PORT_STATUS_LOW_SPEED: u32 = 512;
+        const USB_PORT_STATUS_OVER_CURRENT: u32 = 8;
+        const USB_PORT_STATUS_POWER: u32 = 256;
+        const USB_PORT_STATUS_RESET: u32 = 16;
+        const USB_PORT_STATUS_SUSPEND: u32 = 4;
+        const USB_REQUEST_CLEAR_FEATURE: u32 = 1;
+        const USB_REQUEST_CLEAR_TT_BUFFER: u32 = 8;
+        const USB_REQUEST_GET_CONFIGURATION: u32 = 8;
+        const USB_REQUEST_GET_DESCRIPTOR: u32 = 6;
+        const USB_REQUEST_GET_FIRMWARE_STATUS: u32 = 26;
+        const USB_REQUEST_GET_INTERFACE: u32 = 10;
+        const USB_REQUEST_GET_PORT_ERR_COUNT: u32 = 13;
+        const USB_REQUEST_GET_STATE: u32 = 2;
+        const USB_REQUEST_GET_STATUS: u32 = 0;
+        const USB_REQUEST_GET_TT_STATE: u32 = 10;
+        const USB_REQUEST_ISOCH_DELAY: u32 = 49;
+        const USB_REQUEST_RESET_TT: u32 = 9;
+        const USB_REQUEST_SET_ADDRESS: u32 = 5;
+        const USB_REQUEST_SET_CONFIGURATION: u32 = 9;
+        const USB_REQUEST_SET_DESCRIPTOR: u32 = 7;
+        const USB_REQUEST_SET_FEATURE: u32 = 3;
+        const USB_REQUEST_SET_FIRMWARE_STATUS: u32 = 27;
+        const USB_REQUEST_SET_HUB_DEPTH: u32 = 12;
+        const USB_REQUEST_SET_INTERFACE: u32 = 11;
+        const USB_REQUEST_SET_SEL: u32 = 48;
+        const USB_REQUEST_STOP_TT: u32 = 11;
+        const USB_REQUEST_SYNC_FRAME: u32 = 12;
+        const USB_RESERVED_DESCRIPTOR_TYPE: u32 = 6;
+        const USB_STATUS_EXT_PORT_STATUS: u32 = 2;
+        const USB_STATUS_PD_STATUS: u32 = 1;
+        const USB_STATUS_PORT_STATUS: u32 = 0;
+        #[packed(1)]
+        struct USB_STRING_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bString: [u16; 1],
+        }
+        const USB_STRING_DESCRIPTOR_TYPE: u32 = 3;
+        const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MAX_BYTESPERINTERVAL: u32 = 16777215;
+        const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MIN_BYTESPERINTERVAL: u32 = 49153;
+        #[packed(1)]
+        struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            wReserved: u16,
+            dwBytesPerInterval: u32,
+        }
+        const USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 49;
+        #[packed(1)]
+        struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
+            bLength: u8,
+            bDescriptorType: u8,
+            bMaxBurst: u8,
+            bmAttributes: union {
+                AsUchar: u8,
+                Bulk: struct {
+                    _bitfield: u8,
+                },
+                Isochronous: struct {
+                    _bitfield: u8,
+                },
+            },
+            wBytesPerInterval: u16,
+        }
+        const USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 48;
+        const USB_SUPERSPEED_ISOCHRONOUS_MAX_MULTIPLIER: u32 = 2;
+        const USB_SUPPORT_D0_COMMAND: u32 = 1;
+        const USB_SUPPORT_D1_COMMAND: u32 = 2;
+        const USB_SUPPORT_D1_WAKEUP: u32 = 16;
+        const USB_SUPPORT_D2_COMMAND: u32 = 4;
+        const USB_SUPPORT_D2_WAKEUP: u32 = 32;
+        const USB_SUPPORT_D3_COMMAND: u32 = 8;
+    }
+}

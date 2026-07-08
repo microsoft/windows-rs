@@ -1,0 +1,165 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ETW_PROVIDER_TRAIT_TYPE {
+            EtwProviderTraitTypeGroup = 1,
+            EtwProviderTraitDecodeGuid = 2,
+            EtwProviderTraitTypeMax = 3,
+        }
+        #[repr(i32)]
+        enum EVENTSECURITYOPERATION {
+            EventSecuritySetDACL = 0,
+            EventSecuritySetSACL = 1,
+            EventSecurityAddDACL = 2,
+            EventSecurityAddSACL = 3,
+            EventSecurityMax = 4,
+        }
+        const EVENT_ENABLE_PROPERTY_ENABLE_KEYWORD_0: u32 = 64;
+        const EVENT_ENABLE_PROPERTY_ENABLE_SILOS: u32 = 1024;
+        const EVENT_ENABLE_PROPERTY_EVENT_KEY: u32 = 256;
+        const EVENT_ENABLE_PROPERTY_EXCLUDE_INPRIVATE: u32 = 512;
+        const EVENT_ENABLE_PROPERTY_IGNORE_KEYWORD_0: u32 = 16;
+        const EVENT_ENABLE_PROPERTY_PROCESS_START_KEY: u32 = 128;
+        const EVENT_ENABLE_PROPERTY_PROVIDER_GROUP: u32 = 32;
+        const EVENT_ENABLE_PROPERTY_PSM_KEY: u32 = 8;
+        const EVENT_ENABLE_PROPERTY_SID: u32 = 1;
+        const EVENT_ENABLE_PROPERTY_SOURCE_CONTAINER_TRACKING: u32 = 2048;
+        const EVENT_ENABLE_PROPERTY_STACK_TRACE: u32 = 4;
+        const EVENT_ENABLE_PROPERTY_TS_ID: u32 = 2;
+        struct EVENT_EXTENDED_ITEM_EVENT_KEY {
+            Key: u64,
+        }
+        struct EVENT_EXTENDED_ITEM_INSTANCE {
+            InstanceId: u32,
+            ParentInstanceId: u32,
+            ParentGuid: GUID,
+        }
+        struct EVENT_EXTENDED_ITEM_PEBS_INDEX {
+            PebsIndex: u64,
+        }
+        struct EVENT_EXTENDED_ITEM_PMC_COUNTERS {
+            Counter: [u64; 1],
+        }
+        struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
+            ProcessStartKey: u64,
+        }
+        struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
+            RelatedActivityId: GUID,
+        }
+        struct EVENT_EXTENDED_ITEM_STACK_KEY32 {
+            MatchId: u64,
+            StackKey: u32,
+            Padding: u32,
+        }
+        struct EVENT_EXTENDED_ITEM_STACK_KEY64 {
+            MatchId: u64,
+            StackKey: u64,
+        }
+        struct EVENT_EXTENDED_ITEM_STACK_TRACE32 {
+            MatchId: u64,
+            Address: [u32; 1],
+        }
+        struct EVENT_EXTENDED_ITEM_STACK_TRACE64 {
+            MatchId: u64,
+            Address: [u64; 1],
+        }
+        struct EVENT_EXTENDED_ITEM_TS_ID {
+            SessionId: u32,
+        }
+        struct EVENT_HEADER {
+            Size: u16,
+            HeaderType: u16,
+            Flags: u16,
+            EventProperty: u16,
+            ThreadId: u32,
+            ProcessId: u32,
+            TimeStamp: LARGE_INTEGER,
+            ProviderId: GUID,
+            EventDescriptor: EVENT_DESCRIPTOR,
+            Anonymous: union {
+                Anonymous: struct {
+                    KernelTime: u32,
+                    UserTime: u32,
+                },
+                ProcessorTime: u64,
+            },
+            ActivityId: GUID,
+        }
+        struct EVENT_HEADER_EXTENDED_DATA_ITEM {
+            Reserved1: u16,
+            ExtType: u16,
+            Anonymous: struct {
+                _bitfield: u16,
+            },
+            DataSize: u16,
+            DataPtr: u64,
+        }
+        const EVENT_HEADER_EXT_TYPE_CONTAINER_ID: u32 = 16;
+        const EVENT_HEADER_EXT_TYPE_CONTROL_GUID: u32 = 14;
+        const EVENT_HEADER_EXT_TYPE_EVENT_KEY: u32 = 10;
+        const EVENT_HEADER_EXT_TYPE_EVENT_SCHEMA_TL: u32 = 11;
+        const EVENT_HEADER_EXT_TYPE_INSTANCE_INFO: u32 = 4;
+        const EVENT_HEADER_EXT_TYPE_MAX: u32 = 19;
+        const EVENT_HEADER_EXT_TYPE_PEBS_INDEX: u32 = 7;
+        const EVENT_HEADER_EXT_TYPE_PMC_COUNTERS: u32 = 8;
+        const EVENT_HEADER_EXT_TYPE_PROCESS_START_KEY: u32 = 13;
+        const EVENT_HEADER_EXT_TYPE_PROV_TRAITS: u32 = 12;
+        const EVENT_HEADER_EXT_TYPE_PSM_KEY: u32 = 9;
+        const EVENT_HEADER_EXT_TYPE_QPC_DELTA: u32 = 15;
+        const EVENT_HEADER_EXT_TYPE_RELATED_ACTIVITYID: u32 = 1;
+        const EVENT_HEADER_EXT_TYPE_SID: u32 = 2;
+        const EVENT_HEADER_EXT_TYPE_STACK_KEY32: u32 = 17;
+        const EVENT_HEADER_EXT_TYPE_STACK_KEY64: u32 = 18;
+        const EVENT_HEADER_EXT_TYPE_STACK_TRACE32: u32 = 5;
+        const EVENT_HEADER_EXT_TYPE_STACK_TRACE64: u32 = 6;
+        const EVENT_HEADER_EXT_TYPE_TS_ID: u32 = 3;
+        const EVENT_HEADER_FLAG_32_BIT_HEADER: u32 = 32;
+        const EVENT_HEADER_FLAG_64_BIT_HEADER: u32 = 64;
+        const EVENT_HEADER_FLAG_CLASSIC_HEADER: u32 = 256;
+        const EVENT_HEADER_FLAG_DECODE_GUID: u32 = 128;
+        const EVENT_HEADER_FLAG_EXTENDED_INFO: u32 = 1;
+        const EVENT_HEADER_FLAG_NO_CPUTIME: u32 = 16;
+        const EVENT_HEADER_FLAG_PRIVATE_SESSION: u32 = 2;
+        const EVENT_HEADER_FLAG_PROCESSOR_INDEX: u32 = 512;
+        const EVENT_HEADER_FLAG_RESERVED1: u32 = 1024;
+        const EVENT_HEADER_FLAG_STRING_ONLY: u32 = 4;
+        const EVENT_HEADER_FLAG_TRACE_MESSAGE: u32 = 8;
+        const EVENT_HEADER_PROPERTY_FORWARDED_XML: u32 = 2;
+        const EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG: u32 = 4;
+        const EVENT_HEADER_PROPERTY_RELOGGABLE: u32 = 8;
+        const EVENT_HEADER_PROPERTY_XML: u32 = 1;
+        struct EVENT_RECORD {
+            EventHeader: EVENT_HEADER,
+            BufferContext: ETW_BUFFER_CONTEXT,
+            ExtendedDataCount: u16,
+            UserDataLength: u16,
+            ExtendedData: PEVENT_HEADER_EXTENDED_DATA_ITEM,
+            UserData: *mut void,
+            UserContext: *mut void,
+        }
+        #[library("ADVAPI32.dll")]
+        extern fn EventAccessControl(Guid: *const GUID, Operation: u32, Sid: PSID, Rights: u32, AllowOrDeny: BOOLEAN) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn EventAccessQuery(Guid: *const GUID, #[size_param(2)] #[out] #[opt] Buffer: PSECURITY_DESCRIPTOR, #[in] #[out] BufferSize: *mut u32) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn EventAccessRemove(Guid: *const GUID) -> u32;
+        type PCEVENT_RECORD = *const EVENT_RECORD;
+        type PEVENT_EXTENDED_ITEM_EVENT_KEY = *mut EVENT_EXTENDED_ITEM_EVENT_KEY;
+        type PEVENT_EXTENDED_ITEM_INSTANCE = *mut EVENT_EXTENDED_ITEM_INSTANCE;
+        type PEVENT_EXTENDED_ITEM_PEBS_INDEX = *mut EVENT_EXTENDED_ITEM_PEBS_INDEX;
+        type PEVENT_EXTENDED_ITEM_PMC_COUNTERS = *mut EVENT_EXTENDED_ITEM_PMC_COUNTERS;
+        type PEVENT_EXTENDED_ITEM_PROCESS_START_KEY = *mut EVENT_EXTENDED_ITEM_PROCESS_START_KEY;
+        type PEVENT_EXTENDED_ITEM_RELATED_ACTIVITYID = *mut EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID;
+        type PEVENT_EXTENDED_ITEM_STACK_KEY32 = *mut EVENT_EXTENDED_ITEM_STACK_KEY32;
+        type PEVENT_EXTENDED_ITEM_STACK_KEY64 = *mut EVENT_EXTENDED_ITEM_STACK_KEY64;
+        type PEVENT_EXTENDED_ITEM_STACK_TRACE32 = *mut EVENT_EXTENDED_ITEM_STACK_TRACE32;
+        type PEVENT_EXTENDED_ITEM_STACK_TRACE64 = *mut EVENT_EXTENDED_ITEM_STACK_TRACE64;
+        type PEVENT_EXTENDED_ITEM_TS_ID = *mut EVENT_EXTENDED_ITEM_TS_ID;
+        type PEVENT_HEADER = *mut EVENT_HEADER;
+        type PEVENT_HEADER_EXTENDED_DATA_ITEM = *mut EVENT_HEADER_EXTENDED_DATA_ITEM;
+        const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456;
+        const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096;
+        const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256;
+    }
+}

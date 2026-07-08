@@ -1,0 +1,72 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const DISPATCH_CONSTRUCT: u32 = 16384;
+        const DISPID_STARTENUM: i32 = -1;
+        #[guid(0xc5598e60_b307_11d1_b27d_006008c3fbfb)]
+        interface ICanHandleException: IUnknown {
+            fn CanHandleException(&self, pExcepInfo: *const EXCEPINFO, pvar: *const VARIANT) -> HRESULT;
+        }
+        #[guid(0xa6ef9861_c720_11d0_9337_00a0c90dcaa9)]
+        interface IDispError: IUnknown {
+            fn QueryErrorInfo(&self, guidErrorType: GUID, ppde: *mut IDispError) -> HRESULT;
+            fn GetNext(&self, ppde: *mut IDispError) -> HRESULT;
+            fn GetHresult(&self, phr: *mut HRESULT) -> HRESULT;
+            fn GetSource(&self, pbstrSource: *mut BSTR) -> HRESULT;
+            fn GetHelpInfo(&self, pbstrFileName: *mut BSTR, pdwContext: *mut u32) -> HRESULT;
+            fn GetDescription(&self, pbstrDescription: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xa6ef9860_c720_11d0_9337_00a0c90dcaa9)]
+        interface IDispatchEx: IDispatch {
+            fn GetDispID(&self, bstrName: BSTR, grfdex: u32, pid: *mut DISPID) -> HRESULT;
+            fn InvokeEx(&self, id: DISPID, lcid: LCID, wFlags: u16, pdp: *const DISPPARAMS, #[opt] pvarRes: *mut VARIANT, #[opt] pei: *mut EXCEPINFO, #[opt] pspCaller: IServiceProvider) -> HRESULT;
+            fn DeleteMemberByName(&self, bstrName: BSTR, grfdex: u32) -> HRESULT;
+            fn DeleteMemberByDispID(&self, id: DISPID) -> HRESULT;
+            fn GetMemberProperties(&self, id: DISPID, grfdexFetch: u32, pgrfdex: *mut u32) -> HRESULT;
+            fn GetMemberName(&self, id: DISPID, pbstrName: *mut BSTR) -> HRESULT;
+            fn GetNextDispID(&self, grfdex: u32, id: DISPID, pid: *mut DISPID) -> HRESULT;
+            fn GetNameSpaceParent(&self, ppunk: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xca04b7e6_0d21_11d1_8cc5_00c04fc2b085)]
+        interface IObjectIdentity: IUnknown {
+            fn IsEqualObject(&self, punk: IUnknown) -> HRESULT;
+        }
+        #[guid(0x10e2414a_ec59_49d2_bc51_5add2c36febc)]
+        interface IProvideRuntimeContext: IUnknown {
+            fn GetCurrentSourceContext(&self, pdwContext: *mut usize, pfExecutingGlobalCode: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xa6ef9862_c720_11d0_9337_00a0c90dcaa9)]
+        interface IVariantChangeType: IUnknown {
+            fn ChangeType(&self, #[in] #[out] pvarDst: *mut VARIANT, pvarSrc: *const VARIANT, lcid: LCID, vtNew: VARTYPE) -> HRESULT;
+        }
+        const SID_GetCaller: GUID = 0x4717cc40_bcb9_11d0_9336_00a0c90dcaa9;
+        const SID_ProvideRuntimeContext: GUID = 0x74a5040c_dd0c_48f0_ac85_194c3259180a;
+        const SID_VariantConversion: GUID = 0x1f101481_bccd_11d0_9336_00a0c90dcaa9;
+        const fdexEnumAll: u32 = 2;
+        const fdexEnumDefault: u32 = 1;
+        const fdexNameCaseInsensitive: u32 = 8;
+        const fdexNameCaseSensitive: u32 = 1;
+        const fdexNameEnsure: u32 = 2;
+        const fdexNameImplicit: u32 = 4;
+        const fdexNameInternal: u32 = 16;
+        const fdexNameNoDynamicProperties: u32 = 32;
+        const fdexPropCanCall: u32 = 256;
+        const fdexPropCanConstruct: u32 = 1024;
+        const fdexPropCanGet: u32 = 1;
+        const fdexPropCanPut: u32 = 4;
+        const fdexPropCanPutRef: u32 = 16;
+        const fdexPropCanSourceEvents: u32 = 4096;
+        const fdexPropCannotCall: u32 = 512;
+        const fdexPropCannotConstruct: u32 = 2048;
+        const fdexPropCannotGet: u32 = 2;
+        const fdexPropCannotPut: u32 = 8;
+        const fdexPropCannotPutRef: u32 = 32;
+        const fdexPropCannotSourceEvents: u32 = 8192;
+        const fdexPropDynamicType: u32 = 128;
+        const fdexPropNoSideEffects: u32 = 64;
+        const grfdexPropAll: u32 = 16383;
+        const grfdexPropCanAll: u32 = 5397;
+        const grfdexPropCannotAll: u32 = 10794;
+        const grfdexPropExtraAll: u32 = 192;
+    }
+}

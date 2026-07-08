@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    extern fn MyCallbackFn(a: i32, b: i32) -> i32;
+    struct Table {
+        Op: MyCallbackFn,
+        Bytes: *mut u8,
+    }
+}

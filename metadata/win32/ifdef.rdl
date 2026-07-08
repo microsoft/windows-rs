@@ -1,0 +1,228 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const IFI_UNSPECIFIED: u32 = 0;
+        #[repr(i32)]
+        enum IF_ADMINISTRATIVE_STATE {
+            IF_ADMINISTRATIVE_DISABLED = 0,
+            IF_ADMINISTRATIVE_ENABLED = 1,
+            IF_ADMINISTRATIVE_DEMANDDIAL = 2,
+        }
+        type IF_COUNTED_STRING = IF_COUNTED_STRING_LH;
+        struct IF_COUNTED_STRING_LH {
+            Length: u16,
+            String: [u16; 257],
+        }
+        type IF_INDEX = NET_IFINDEX;
+        type IF_LUID = NET_LUID;
+        const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32;
+        const IF_MAX_STRING_SIZE: u32 = 256;
+        #[repr(i32)]
+        enum IF_OPER_STATUS {
+            IfOperStatusUp = 1,
+            IfOperStatusDown = 2,
+            IfOperStatusTesting = 3,
+            IfOperStatusUnknown = 4,
+            IfOperStatusDormant = 5,
+            IfOperStatusNotPresent = 6,
+            IfOperStatusLowerLayerDown = 7,
+        }
+        type IF_PHYSICAL_ADDRESS = IF_PHYSICAL_ADDRESS_LH;
+        struct IF_PHYSICAL_ADDRESS_LH {
+            Length: u16,
+            Address: [u8; 32],
+        }
+        struct NDIS_INTERFACE_INFORMATION {
+            ifOperStatus: NET_IF_OPER_STATUS,
+            ifOperStatusFlags: u32,
+            MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+            MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
+            ifMtu: u32,
+            ifPromiscuousMode: BOOLEAN,
+            ifDeviceWakeUpEnable: BOOLEAN,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
+            ifLastChange: u64,
+            ifCounterDiscontinuityTime: u64,
+            ifInUnknownProtos: u64,
+            ifInDiscards: u64,
+            ifInErrors: u64,
+            ifHCInOctets: u64,
+            ifHCInUcastPkts: u64,
+            ifHCInMulticastPkts: u64,
+            ifHCInBroadcastPkts: u64,
+            ifHCOutOctets: u64,
+            ifHCOutUcastPkts: u64,
+            ifHCOutMulticastPkts: u64,
+            ifHCOutBroadcastPkts: u64,
+            ifOutErrors: u64,
+            ifOutDiscards: u64,
+            ifHCInUcastOctets: u64,
+            ifHCInMulticastOctets: u64,
+            ifHCInBroadcastOctets: u64,
+            ifHCOutUcastOctets: u64,
+            ifHCOutMulticastOctets: u64,
+            ifHCOutBroadcastOctets: u64,
+            CompartmentId: NET_IF_COMPARTMENT_ID,
+            SupportedStatistics: u32,
+        }
+        type NET_IFINDEX = u32;
+        const NET_IFINDEX_UNSPECIFIED: u32 = 0;
+        const NET_IFLUID_UNSPECIFIED: u32 = 0;
+        type NET_IFTYPE = u16;
+        #[repr(i32)]
+        enum NET_IF_ACCESS_TYPE {
+            NET_IF_ACCESS_LOOPBACK = 1,
+            NET_IF_ACCESS_BROADCAST = 2,
+            NET_IF_ACCESS_POINT_TO_POINT = 3,
+            NET_IF_ACCESS_POINT_TO_MULTI_POINT = 4,
+            NET_IF_ACCESS_MAXIMUM = 5,
+        }
+        #[repr(i32)]
+        enum NET_IF_ADMIN_STATUS {
+            NET_IF_ADMIN_STATUS_UP = 1,
+            NET_IF_ADMIN_STATUS_DOWN = 2,
+            NET_IF_ADMIN_STATUS_TESTING = 3,
+        }
+        type NET_IF_ALIAS = NET_IF_ALIAS_LH;
+        struct NET_IF_ALIAS_LH {
+            ifAliasLength: u16,
+            ifAliasOffset: u16,
+        }
+        type NET_IF_COMPARTMENT_ID = u32;
+        const NET_IF_COMPARTMENT_ID_PRIMARY: NET_IF_COMPARTMENT_ID = 1;
+        const NET_IF_COMPARTMENT_ID_UNSPECIFIED: NET_IF_COMPARTMENT_ID = 0;
+        type NET_IF_COMPARTMENT_SCOPE = u32;
+        const NET_IF_COMPARTMENT_SCOPE_ALL: NET_IF_COMPARTMENT_SCOPE = 4294967295;
+        const NET_IF_COMPARTMENT_SCOPE_UNSPECIFIED: NET_IF_COMPARTMENT_SCOPE = 0;
+        #[repr(i32)]
+        enum NET_IF_CONNECTION_TYPE {
+            NET_IF_CONNECTION_DEDICATED = 1,
+            NET_IF_CONNECTION_PASSIVE = 2,
+            NET_IF_CONNECTION_DEMAND = 3,
+            NET_IF_CONNECTION_MAXIMUM = 4,
+        }
+        #[repr(i32)]
+        enum NET_IF_DIRECTION_TYPE {
+            NET_IF_DIRECTION_SENDRECEIVE = 0,
+            NET_IF_DIRECTION_SENDONLY = 1,
+            NET_IF_DIRECTION_RECEIVEONLY = 2,
+            NET_IF_DIRECTION_MAXIMUM = 3,
+        }
+        const NET_IF_LINK_SPEED_UNKNOWN: i32 = -1;
+        #[repr(i32)]
+        enum NET_IF_MEDIA_CONNECT_STATE {
+            MediaConnectStateUnknown = 0,
+            MediaConnectStateConnected = 1,
+            MediaConnectStateDisconnected = 2,
+        }
+        #[repr(i32)]
+        enum NET_IF_MEDIA_DUPLEX_STATE {
+            MediaDuplexStateUnknown = 0,
+            MediaDuplexStateHalf = 1,
+            MediaDuplexStateFull = 2,
+        }
+        type NET_IF_NETWORK_GUID = GUID;
+        type NET_IF_OBJECT_ID = u32;
+        const NET_IF_OID_COMPARTMENT_ID: u32 = 2;
+        const NET_IF_OID_IF_ALIAS: u32 = 1;
+        const NET_IF_OID_IF_ENTRY: u32 = 4;
+        const NET_IF_OID_NETWORK_GUID: u32 = 3;
+        #[repr(i32)]
+        enum NET_IF_OPER_STATUS {
+            NET_IF_OPER_STATUS_UP = 1,
+            NET_IF_OPER_STATUS_DOWN = 2,
+            NET_IF_OPER_STATUS_TESTING = 3,
+            NET_IF_OPER_STATUS_UNKNOWN = 4,
+            NET_IF_OPER_STATUS_DORMANT = 5,
+            NET_IF_OPER_STATUS_NOT_PRESENT = 6,
+            NET_IF_OPER_STATUS_LOWER_LAYER_DOWN = 7,
+        }
+        const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: u32 = 8;
+        const NET_IF_OPER_STATUS_DORMANT_PAUSED: u32 = 4;
+        const NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED: u32 = 1;
+        const NET_IF_OPER_STATUS_DOWN_NOT_MEDIA_CONNECTED: u32 = 2;
+        type NET_IF_RCV_ADDRESS = NET_IF_RCV_ADDRESS_LH;
+        struct NET_IF_RCV_ADDRESS_LH {
+            ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
+            ifRcvAddressLength: u16,
+            ifRcvAddressOffset: u16,
+        }
+        #[repr(i32)]
+        enum NET_IF_RCV_ADDRESS_TYPE {
+            NET_IF_RCV_ADDRESS_TYPE_OTHER = 1,
+            NET_IF_RCV_ADDRESS_TYPE_VOLATILE = 2,
+            NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE = 3,
+        }
+        type NET_LUID = NET_LUID_LH;
+        union NET_LUID_LH {
+            Value: u64,
+            Info: struct {
+                _bitfield: u64,
+            },
+        }
+        type NET_PHYSICAL_LOCATION = NET_PHYSICAL_LOCATION_LH;
+        struct NET_PHYSICAL_LOCATION_LH {
+            BusNumber: u32,
+            SlotNumber: u32,
+            FunctionNumber: u32,
+        }
+        const NET_SITEID_MAXSYSTEM: u32 = 268435455;
+        const NET_SITEID_MAXUSER: u32 = 134217727;
+        const NET_SITEID_UNSPECIFIED: u32 = 0;
+        const NIIF_BUS_NUMBER_UNKNOWN: i32 = -1;
+        const NIIF_FILTER_INTERFACE: u32 = 2;
+        const NIIF_FUNCTION_NUMBER_UNKNOWN: i32 = -1;
+        const NIIF_HARDWARE_INTERFACE: u32 = 1;
+        const NIIF_NDIS_ENDPOINT_INTERFACE: u32 = 64;
+        const NIIF_NDIS_ISCSI_INTERFACE: u32 = 128;
+        const NIIF_NDIS_RESERVED1: u32 = 4;
+        const NIIF_NDIS_RESERVED2: u32 = 8;
+        const NIIF_NDIS_RESERVED3: u32 = 16;
+        const NIIF_NDIS_RESERVED4: u32 = 256;
+        const NIIF_NDIS_WDM_INTERFACE: u32 = 32;
+        const NIIF_SLOT_NUMBER_UNKNOWN: i32 = -1;
+        const NIIF_WAN_TUNNEL_TYPE_UNKNOWN: i32 = -1;
+        type PIF_ADMINISTRATIVE_STATE = *mut IF_ADMINISTRATIVE_STATE;
+        type PIF_COUNTED_STRING = *mut IF_COUNTED_STRING;
+        type PIF_COUNTED_STRING_LH = *mut IF_COUNTED_STRING_LH;
+        type PIF_INDEX = *mut NET_IFINDEX;
+        type PIF_LUID = *mut NET_LUID;
+        type PIF_PHYSICAL_ADDRESS = *mut IF_PHYSICAL_ADDRESS;
+        type PIF_PHYSICAL_ADDRESS_LH = *mut IF_PHYSICAL_ADDRESS_LH;
+        type PNDIS_INTERFACE_INFORMATION = *mut NDIS_INTERFACE_INFORMATION;
+        type PNET_IFINDEX = *mut u32;
+        type PNET_IFTYPE = *mut u16;
+        type PNET_IF_ACCESS_TYPE = *mut NET_IF_ACCESS_TYPE;
+        type PNET_IF_ADMIN_STATUS = *mut NET_IF_ADMIN_STATUS;
+        type PNET_IF_ALIAS = *mut NET_IF_ALIAS;
+        type PNET_IF_ALIAS_LH = *mut NET_IF_ALIAS_LH;
+        type PNET_IF_COMPARTMENT_ID = *mut u32;
+        type PNET_IF_COMPARTMENT_SCOPE = *mut u32;
+        type PNET_IF_CONNECTION_TYPE = *mut NET_IF_CONNECTION_TYPE;
+        type PNET_IF_DIRECTION_TYPE = *mut NET_IF_DIRECTION_TYPE;
+        type PNET_IF_MEDIA_CONNECT_STATE = *mut NET_IF_MEDIA_CONNECT_STATE;
+        type PNET_IF_MEDIA_DUPLEX_STATE = *mut NET_IF_MEDIA_DUPLEX_STATE;
+        type PNET_IF_NETWORK_GUID = *mut GUID;
+        type PNET_IF_OBJECT_ID = *mut u32;
+        type PNET_IF_OPER_STATUS = *mut NET_IF_OPER_STATUS;
+        type PNET_IF_RCV_ADDRESS = *mut NET_IF_RCV_ADDRESS;
+        type PNET_IF_RCV_ADDRESS_LH = *mut NET_IF_RCV_ADDRESS_LH;
+        type PNET_IF_RCV_ADDRESS_TYPE = *mut NET_IF_RCV_ADDRESS_TYPE;
+        type PNET_LUID = *mut NET_LUID;
+        type PNET_LUID_LH = *mut NET_LUID_LH;
+        type PNET_PHYSICAL_LOCATION = *mut NET_PHYSICAL_LOCATION;
+        type PNET_PHYSICAL_LOCATION_LH = *mut NET_PHYSICAL_LOCATION_LH;
+        type PTUNNEL_TYPE = *mut TUNNEL_TYPE;
+        #[repr(i32)]
+        enum TUNNEL_TYPE {
+            TUNNEL_TYPE_NONE = 0,
+            TUNNEL_TYPE_OTHER = 1,
+            TUNNEL_TYPE_DIRECT = 2,
+            TUNNEL_TYPE_6TO4 = 11,
+            TUNNEL_TYPE_ISATAP = 13,
+            TUNNEL_TYPE_TEREDO = 14,
+            TUNNEL_TYPE_IPHTTPS = 15,
+        }
+    }
+}

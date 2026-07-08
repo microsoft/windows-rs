@@ -1,0 +1,209 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("MSWSOCK.dll")]
+        extern fn AcceptEx(sListenSocket: SOCKET, sAcceptSocket: SOCKET, lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, lpdwBytesReceived: *mut u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        const DE_REUSE_SOCKET: u32 = 2;
+        #[library("MSWSOCK.dll")]
+        extern fn GetAcceptExSockaddrs(lpOutputBuffer: *const void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, LocalSockaddr: *mut *mut SOCKADDR, LocalSockaddrLength: *mut i32, RemoteSockaddr: *mut *mut SOCKADDR, RemoteSockaddrLength: *mut i32);
+        extern fn LPFN_ACCEPTEX(sListenSocket: SOCKET, sAcceptSocket: SOCKET, lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, lpdwBytesReceived: *mut u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn LPFN_CONNECTEX(s: SOCKET, #[size_param(2)] name: *const SOCKADDR, namelen: i32, #[size_param(4)] #[opt] lpSendBuffer: *const void, dwSendDataLength: u32, lpdwBytesSent: *mut u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn LPFN_DISCONNECTEX(s: SOCKET, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, dwFlags: u32, dwReserved: u32) -> BOOL;
+        extern fn LPFN_GETACCEPTEXSOCKADDRS(lpOutputBuffer: *const void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, LocalSockaddr: *mut *mut SOCKADDR, LocalSockaddrLength: *mut i32, RemoteSockaddr: *mut *mut SOCKADDR, RemoteSockaddrLength: *mut i32);
+        extern fn LPFN_RIOCLOSECOMPLETIONQUEUE(CQ: *const RIO_CQ_t);
+        extern fn LPFN_RIOCREATECOMPLETIONQUEUE(QueueSize: u32, #[opt] NotificationCompletion: *const RIO_NOTIFICATION_COMPLETION) -> RIO_CQ;
+        extern fn LPFN_RIOCREATEREQUESTQUEUE(Socket: SOCKET, MaxOutstandingReceive: u32, MaxReceiveDataBuffers: u32, MaxOutstandingSend: u32, MaxSendDataBuffers: u32, ReceiveCQ: *const RIO_CQ_t, SendCQ: *const RIO_CQ_t, #[opt] SocketContext: *const void) -> RIO_RQ;
+        extern fn LPFN_RIODEQUEUECOMPLETION(CQ: *const RIO_CQ_t, #[len_param(2)] Array: *mut RIORESULT, ArraySize: u32) -> u32;
+        extern fn LPFN_RIODEREGISTERBUFFER(BufferId: *const RIO_BUFFERID_t);
+        extern fn LPFN_RIONOTIFY(CQ: *const RIO_CQ_t) -> i32;
+        extern fn LPFN_RIORECEIVE(SocketQueue: *const RIO_RQ_t, #[len_param(2)] pData: *const RIO_BUF, DataBufferCount: u32, Flags: u32, #[opt] RequestContext: *const void) -> BOOL;
+        extern fn LPFN_RIORECEIVEEX(SocketQueue: *const RIO_RQ_t, #[len_param(2)] pData: *const RIO_BUF, DataBufferCount: u32, #[opt] pLocalAddress: *const RIO_BUF, #[opt] pRemoteAddress: *const RIO_BUF, #[opt] pControlContext: *const RIO_BUF, #[opt] pFlags: *const RIO_BUF, Flags: u32, #[opt] RequestContext: *const void) -> i32;
+        extern fn LPFN_RIOREGISTERBUFFER(DataBuffer: *const i8, DataLength: u32) -> RIO_BUFFERID;
+        extern fn LPFN_RIORESIZECOMPLETIONQUEUE(CQ: *const RIO_CQ_t, QueueSize: u32) -> BOOL;
+        extern fn LPFN_RIORESIZEREQUESTQUEUE(RQ: *const RIO_RQ_t, MaxOutstandingReceive: u32, MaxOutstandingSend: u32) -> BOOL;
+        extern fn LPFN_RIOSEND(SocketQueue: *const RIO_RQ_t, #[len_param(2)] pData: *const RIO_BUF, DataBufferCount: u32, Flags: u32, #[opt] RequestContext: *const void) -> BOOL;
+        extern fn LPFN_RIOSENDEX(SocketQueue: *const RIO_RQ_t, #[len_param(2)] pData: *const RIO_BUF, DataBufferCount: u32, #[opt] pLocalAddress: *const RIO_BUF, #[opt] pRemoteAddress: *const RIO_BUF, #[opt] pControlContext: *const RIO_BUF, #[opt] pFlags: *const RIO_BUF, Flags: u32, #[opt] RequestContext: *const void) -> BOOL;
+        extern fn LPFN_TRANSMITFILE(hSocket: SOCKET, hFile: HANDLE, nNumberOfBytesToWrite: u32, nNumberOfBytesPerSend: u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpTransmitBuffers: *const TRANSMIT_FILE_BUFFERS, dwReserved: u32) -> BOOL;
+        extern fn LPFN_TRANSMITPACKETS(hSocket: SOCKET, #[opt] lpPacketArray: *const TRANSMIT_PACKETS_ELEMENT, nElementCount: u32, nSendSize: u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, dwFlags: u32) -> BOOL;
+        extern fn LPFN_WSAPOLL(#[in] #[out] fdarray: *mut WSAPOLLFD, nfds: u32, timeout: i32) -> i32;
+        extern fn LPFN_WSARECVMSG(s: SOCKET, #[in] #[out] lpMsg: *mut WSAMSG, #[opt] lpdwNumberOfBytesRecvd: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn LPFN_WSASENDMSG(s: SOCKET, lpMsg: *const WSAMSG, dwFlags: u32, #[opt] lpNumberOfBytesSent: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        type LPNLA_BLOB = *mut NLA_BLOB;
+        type LPTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
+        type LPTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
+        type LPWSAPOLLDATA = *mut WSAPOLLDATA;
+        type LPWSASENDMSG = *mut WSASENDMSG;
+        const NLA_ALLUSERS_NETWORK: u32 = 1;
+        struct NLA_BLOB {
+            header: struct {
+                r#type: NLA_BLOB_DATA_TYPE,
+                dwSize: u32,
+                nextOffset: u32,
+            },
+            data: union {
+                rawData: [i8; 1],
+                interfaceData: struct {
+                    dwType: u32,
+                    dwSpeed: u32,
+                    adapterName: [i8; 1],
+                },
+                locationData: struct {
+                    information: [i8; 1],
+                },
+                connectivity: struct {
+                    r#type: NLA_CONNECTIVITY_TYPE,
+                    internet: NLA_INTERNET,
+                },
+                ICS: struct {
+                    remote: struct {
+                        speed: u32,
+                        r#type: u32,
+                        state: u32,
+                        machineName: [u16; 256],
+                        sharedAdapterName: [u16; 256],
+                    },
+                },
+            },
+        }
+        #[repr(i32)]
+        enum NLA_BLOB_DATA_TYPE {
+            NLA_RAW_DATA = 0,
+            NLA_INTERFACE = 1,
+            NLA_802_1X_LOCATION = 2,
+            NLA_CONNECTIVITY = 3,
+            NLA_ICS = 4,
+        }
+        #[repr(i32)]
+        enum NLA_CONNECTIVITY_TYPE {
+            NLA_NETWORK_AD_HOC = 0,
+            NLA_NETWORK_MANAGED = 1,
+            NLA_NETWORK_UNMANAGED = 2,
+            NLA_NETWORK_UNKNOWN = 3,
+        }
+        const NLA_FRIENDLY_NAME: u32 = 2;
+        #[repr(i32)]
+        enum NLA_INTERNET {
+            NLA_INTERNET_UNKNOWN = 0,
+            NLA_INTERNET_NO = 1,
+            NLA_INTERNET_YES = 2,
+        }
+        type PNLA_BLOB = *mut NLA_BLOB;
+        type PNLA_BLOB_DATA_TYPE = *mut NLA_BLOB_DATA_TYPE;
+        type PNLA_CONNECTIVITY_TYPE = *mut NLA_CONNECTIVITY_TYPE;
+        type PNLA_INTERNET = *mut NLA_INTERNET;
+        type PRIO_EXTENSION_FUNCTION_TABLE = *mut RIO_EXTENSION_FUNCTION_TABLE;
+        type PRIO_NOTIFICATION_COMPLETION = *mut RIO_NOTIFICATION_COMPLETION;
+        type PRIO_NOTIFICATION_COMPLETION_TYPE = *mut RIO_NOTIFICATION_COMPLETION_TYPE;
+        type PTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
+        type PTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
+        struct RIO_EXTENSION_FUNCTION_TABLE {
+            cbSize: u32,
+            RIOReceive: LPFN_RIORECEIVE,
+            RIOReceiveEx: LPFN_RIORECEIVEEX,
+            RIOSend: LPFN_RIOSEND,
+            RIOSendEx: LPFN_RIOSENDEX,
+            RIOCloseCompletionQueue: LPFN_RIOCLOSECOMPLETIONQUEUE,
+            RIOCreateCompletionQueue: LPFN_RIOCREATECOMPLETIONQUEUE,
+            RIOCreateRequestQueue: LPFN_RIOCREATEREQUESTQUEUE,
+            RIODequeueCompletion: LPFN_RIODEQUEUECOMPLETION,
+            RIODeregisterBuffer: LPFN_RIODEREGISTERBUFFER,
+            RIONotify: LPFN_RIONOTIFY,
+            RIORegisterBuffer: LPFN_RIOREGISTERBUFFER,
+            RIOResizeCompletionQueue: LPFN_RIORESIZECOMPLETIONQUEUE,
+            RIOResizeRequestQueue: LPFN_RIORESIZEREQUESTQUEUE,
+        }
+        struct RIO_NOTIFICATION_COMPLETION {
+            Type: RIO_NOTIFICATION_COMPLETION_TYPE,
+            Anonymous: union {
+                Event: struct {
+                    EventHandle: HANDLE,
+                    NotifyReset: BOOL,
+                },
+                Iocp: struct {
+                    IocpHandle: HANDLE,
+                    CompletionKey: *mut void,
+                    Overlapped: *mut void,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum RIO_NOTIFICATION_COMPLETION_TYPE {
+            RIO_EVENT_COMPLETION = 1,
+            RIO_IOCP_COMPLETION = 2,
+        }
+        const SIO_BASE_HANDLE: u32 = 1207959586;
+        const SIO_BSP_HANDLE: u32 = 1207959579;
+        const SIO_BSP_HANDLE_POLL: u32 = 1207959581;
+        const SIO_BSP_HANDLE_SELECT: u32 = 1207959580;
+        const SIO_EXT_POLL: i32 = -939524065;
+        const SIO_EXT_SELECT: i32 = -939524066;
+        const SIO_EXT_SENDMSG: i32 = -939524064;
+        const SIO_UDP_CONNRESET: i32 = -1744830452;
+        const SIO_UDP_NETRESET: i32 = -1744830449;
+        const SO_CONNDATA: u32 = 28672;
+        const SO_CONNDATALEN: u32 = 28676;
+        const SO_CONNECT_TIME: u32 = 28684;
+        const SO_CONNOPT: u32 = 28673;
+        const SO_CONNOPTLEN: u32 = 28677;
+        const SO_DISCDATA: u32 = 28674;
+        const SO_DISCDATALEN: u32 = 28678;
+        const SO_DISCOPT: u32 = 28675;
+        const SO_DISCOPTLEN: u32 = 28679;
+        const SO_MAXDG: u32 = 28681;
+        const SO_MAXPATHDG: u32 = 28682;
+        const SO_OPENTYPE: u32 = 28680;
+        const SO_SYNCHRONOUS_ALERT: u32 = 16;
+        const SO_SYNCHRONOUS_NONALERT: u32 = 32;
+        const SO_UPDATE_ACCEPT_CONTEXT: u32 = 28683;
+        const SO_UPDATE_CONNECT_CONTEXT: u32 = 28688;
+        const TCP_BSDURGENT: u32 = 28672;
+        const TF_DISCONNECT: u32 = 1;
+        const TF_REUSE_SOCKET: u32 = 2;
+        const TF_USE_DEFAULT_WORKER: u32 = 0;
+        const TF_USE_KERNEL_APC: u32 = 32;
+        const TF_USE_SYSTEM_THREAD: u32 = 16;
+        const TF_WRITE_BEHIND: u32 = 4;
+        const TP_DISCONNECT: u32 = 1;
+        const TP_ELEMENT_EOP: u32 = 4;
+        const TP_ELEMENT_FILE: u32 = 2;
+        const TP_ELEMENT_MEMORY: u32 = 1;
+        const TP_REUSE_SOCKET: u32 = 2;
+        const TP_USE_DEFAULT_WORKER: u32 = 0;
+        const TP_USE_KERNEL_APC: u32 = 32;
+        const TP_USE_SYSTEM_THREAD: u32 = 16;
+        struct TRANSMIT_FILE_BUFFERS {
+            Head: *mut void,
+            HeadLength: u32,
+            Tail: *mut void,
+            TailLength: u32,
+        }
+        struct TRANSMIT_PACKETS_ELEMENT {
+            dwElFlags: u32,
+            cLength: u32,
+            Anonymous: union {
+                Anonymous: struct {
+                    nFileOffset: LARGE_INTEGER,
+                    hFile: HANDLE,
+                },
+                pBuffer: *mut void,
+            },
+        }
+        #[library("MSWSOCK.dll")]
+        extern fn TransmitFile(hSocket: SOCKET, hFile: HANDLE, nNumberOfBytesToWrite: u32, nNumberOfBytesPerSend: u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpTransmitBuffers: *const TRANSMIT_FILE_BUFFERS, dwReserved: u32) -> BOOL;
+        struct WSAPOLLDATA {
+            result: i32,
+            fds: u32,
+            timeout: i32,
+            fdArray: [WSAPOLLFD; 0],
+        }
+        #[library("MSWSOCK.dll")]
+        extern fn WSARecvEx(s: SOCKET, #[size_param(2)] buf: *mut i8, len: i32, #[in] #[out] flags: *mut i32) -> i32;
+        struct WSASENDMSG {
+            lpMsg: LPWSAMSG,
+            dwFlags: u32,
+            lpNumberOfBytesSent: LPDWORD,
+            lpOverlapped: LPWSAOVERLAPPED,
+            lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
+        }
+    }
+}

@@ -1,0 +1,224 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: GUID = 0x8c47866b_7583_450d_f0f0_6bada895af4b;
+        const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: GUID = 0x248e2800_a793_4724_abaa_23a6de1be090;
+        const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GENERIC_MEDIA: GUID = 0x8eb2c848_82f6_4b49_aa87_aecfcf0174c6;
+        const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GENERIC_ML: GUID = 0xb71b0d41_1088_422f_a27c_0250b7d3a988;
+        const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: GUID = 0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1;
+        const DXCORE_HARDWARE_TYPE_ATTRIBUTE_COMPUTE_ACCELERATOR: GUID = 0xe0b195da_58ef_4a22_90f1_1f28169cab8d;
+        const DXCORE_HARDWARE_TYPE_ATTRIBUTE_GPU: GUID = 0xb69eb219_3ded_4464_979f_a00bd4687006;
+        const DXCORE_HARDWARE_TYPE_ATTRIBUTE_MEDIA_ACCELERATOR: GUID = 0x66bdb96a_050b_44c7_a4fd_d144ce0ab443;
+        const DXCORE_HARDWARE_TYPE_ATTRIBUTE_NPU: GUID = 0xd46140c4_add7_451b_9e56_06fe8c3b58ed;
+        struct DXCoreAdapterEngineIndex {
+            physicalAdapterIndex: u32,
+            engineIndex: u32,
+        }
+        struct DXCoreAdapterMemoryBudget {
+            budget: u64,
+            currentUsage: u64,
+            availableForReservation: u64,
+            currentReservation: u64,
+        }
+        struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+            nodeIndex: u32,
+            segmentGroup: DXCoreSegmentGroup,
+        }
+        #[repr(i32)]
+        #[scoped]
+        enum DXCoreAdapterPreference {
+            Hardware = 0,
+            MinimumPower = 1,
+            HighPerformance = 2,
+        }
+        struct DXCoreAdapterProcessSetQueryInput {
+            arraySize: u32,
+            processIds: *mut u32,
+        }
+        struct DXCoreAdapterProcessSetQueryOutput {
+            processesWritten: u32,
+            processesTotal: u32,
+        }
+        #[repr(i32)]
+        #[scoped]
+        enum DXCoreAdapterProperty {
+            InstanceLuid = 0,
+            DriverVersion = 1,
+            DriverDescription = 2,
+            HardwareID = 3,
+            KmdModelVersion = 4,
+            ComputePreemptionGranularity = 5,
+            GraphicsPreemptionGranularity = 6,
+            DedicatedAdapterMemory = 7,
+            DedicatedSystemMemory = 8,
+            SharedSystemMemory = 9,
+            AcgCompatible = 10,
+            IsHardware = 11,
+            IsIntegrated = 12,
+            IsDetachable = 13,
+            HardwareIDParts = 14,
+            PhysicalAdapterCount = 15,
+            AdapterEngineCount = 16,
+            AdapterEngineName = 17,
+        }
+        #[repr(i32)]
+        #[scoped]
+        enum DXCoreAdapterState {
+            IsDriverUpdateInProgress = 0,
+            AdapterMemoryBudget = 1,
+            AdapterMemoryUsageBytes = 2,
+            AdapterMemoryUsageByProcessBytes = 3,
+            AdapterEngineRunningTimeMicroseconds = 4,
+            AdapterEngineRunningTimeByProcessMicroseconds = 5,
+            AdapterTemperatureCelsius = 6,
+            AdapterInUseProcessCount = 7,
+            AdapterInUseProcessSet = 8,
+            AdapterEngineFrequencyHertz = 9,
+            AdapterMemoryFrequencyHertz = 10,
+            SingleAdapterHybridMode = 11,
+        }
+        struct DXCoreEngineNamePropertyInput {
+            adapterEngineIndex: DXCoreAdapterEngineIndex,
+            engineNameLength: u32,
+            engineName: *mut u16,
+        }
+        struct DXCoreEngineNamePropertyOutput {
+            engineNameLength: u32,
+        }
+        struct DXCoreEngineQueryInput {
+            adapterEngineIndex: DXCoreAdapterEngineIndex,
+            processId: u32,
+        }
+        struct DXCoreEngineQueryOutput {
+            runningTime: u64,
+            processQuerySucceeded: bool,
+        }
+        struct DXCoreFrequencyQueryOutput {
+            frequency: u64,
+            maxFrequency: u64,
+            maxOverclockedFrequency: u64,
+        }
+        struct DXCoreHardwareID {
+            vendorID: u32,
+            deviceID: u32,
+            subSysID: u32,
+            revision: u32,
+        }
+        struct DXCoreHardwareIDParts {
+            vendorID: u32,
+            deviceID: u32,
+            subSystemID: u32,
+            subVendorID: u32,
+            revisionID: u32,
+        }
+        #[repr(u32)]
+        #[flags]
+        #[scoped]
+        enum DXCoreHardwareTypeFilterFlags {
+            None = 0,
+            GPU = 1,
+            ComputeAccelerator = 2,
+            NPU = 4,
+            MediaAccelerator = 8,
+        }
+        struct DXCoreMemoryQueryInput {
+            physicalAdapterIndex: u32,
+            memoryType: DXCoreMemoryType,
+        }
+        #[repr(i32)]
+        #[scoped]
+        enum DXCoreMemoryType {
+            Dedicated = 0,
+            Shared = 1,
+        }
+        struct DXCoreMemoryUsage {
+            committed: u64,
+            resident: u64,
+        }
+        #[repr(i32)]
+        #[scoped]
+        enum DXCoreNotificationType {
+            AdapterListStale = 0,
+            AdapterNoLongerValid = 1,
+            AdapterBudgetChange = 2,
+            AdapterHardwareContentProtectionTeardown = 3,
+        }
+        struct DXCoreProcessMemoryQueryInput {
+            physicalAdapterIndex: u32,
+            memoryType: DXCoreMemoryType,
+            processId: u32,
+        }
+        struct DXCoreProcessMemoryQueryOutput {
+            memoryUsage: DXCoreMemoryUsage,
+            processQuerySucceeded: bool,
+        }
+        #[repr(u32)]
+        #[flags]
+        #[scoped]
+        enum DXCoreRuntimeFilterFlags {
+            None = 0,
+            D3D11 = 1,
+            D3D12 = 2,
+        }
+        #[repr(i32)]
+        #[scoped]
+        enum DXCoreSegmentGroup {
+            Local = 0,
+            NonLocal = 1,
+        }
+        #[repr(i32)]
+        #[scoped]
+        enum DXCoreSingleAdapterHybridMode {
+            Unspecified = 0,
+            MinimumPower = 1,
+            HighPerformance = 2,
+        }
+        #[repr(i32)]
+        #[scoped]
+        enum DXCoreWorkload {
+            Graphics = 0,
+            Compute = 1,
+            Media = 2,
+            MachineLearning = 3,
+        }
+        #[guid(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e)]
+        interface IDXCoreAdapter: IUnknown {
+            fn IsValid(&self) -> bool;
+            fn IsAttributeSupported(&self, attributeGUID: *const GUID) -> bool;
+            fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool;
+            fn GetProperty(&self, property: DXCoreAdapterProperty, bufferSize: usize, #[size_param(1)] propertyData: *mut void) -> HRESULT;
+            fn GetPropertySize(&self, property: DXCoreAdapterProperty, bufferSize: *mut usize) -> HRESULT;
+            fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool;
+            fn QueryState(&self, state: DXCoreAdapterState, inputStateDetailsSize: usize, #[size_param(1)] #[opt] inputStateDetails: *const void, outputBufferSize: usize, #[size_param(3)] outputBuffer: *mut void) -> HRESULT;
+            fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool;
+            fn SetState(&self, state: DXCoreAdapterState, inputStateDetailsSize: usize, #[size_param(1)] #[opt] inputStateDetails: *const void, inputDataSize: usize, #[size_param(3)] inputData: *const void) -> HRESULT;
+            fn GetFactory(&self, riid: *const GUID, #[iid_is] ppvFactory: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xa0783366_cfa3_43be_9d79_55b2da97c63c)]
+        interface IDXCoreAdapter1: IDXCoreAdapter {
+            fn GetPropertyWithInput(&self, property: DXCoreAdapterProperty, inputPropertyDetailsSize: usize, #[size_param(1)] #[opt] inputPropertyDetails: *const void, outputBufferSize: usize, #[size_param(3)] outputBuffer: *mut void) -> HRESULT;
+        }
+        #[guid(0x78ee5945_c36e_4b13_a669_005dd11c0f06)]
+        interface IDXCoreAdapterFactory: IUnknown {
+            fn CreateAdapterList(&self, numAttributes: u32, #[len_param(0)] filterAttributes: *const GUID, riid: *const GUID, #[iid_is] ppvAdapterList: *mut *mut void) -> HRESULT;
+            fn GetAdapterByLuid(&self, adapterLUID: *const LUID, riid: *const GUID, #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+            fn IsNotificationTypeSupported(&self, notificationType: DXCoreNotificationType) -> bool;
+            fn RegisterEventNotification(&self, dxCoreObject: IUnknown, notificationType: DXCoreNotificationType, callbackFunction: PFN_DXCORE_NOTIFICATION_CALLBACK, #[opt] callbackContext: *const void, eventCookie: *mut u32) -> HRESULT;
+            fn UnregisterEventNotification(&self, eventCookie: u32) -> HRESULT;
+        }
+        #[guid(0xd5682e19_6d21_401c_827a_9a51a4ea35d7)]
+        interface IDXCoreAdapterFactory1: IDXCoreAdapterFactory {
+            fn CreateAdapterListByWorkload(&self, workload: DXCoreWorkload, runtimeFilter: DXCoreRuntimeFilterFlags, hardwareTypeFilter: DXCoreHardwareTypeFilterFlags, riid: *const GUID, #[iid_is] ppvAdapterList: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x526c7776_40e9_459b_b711_f32ad76dfc28)]
+        interface IDXCoreAdapterList: IUnknown {
+            fn GetAdapter(&self, index: u32, riid: *const GUID, #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+            fn GetAdapterCount(&self) -> u32;
+            fn IsStale(&self) -> bool;
+            fn GetFactory(&self, riid: *const GUID, #[iid_is] ppvFactory: *mut *mut void) -> HRESULT;
+            fn Sort(&self, numPreferences: u32, #[len_param(0)] preferences: *const DXCoreAdapterPreference) -> HRESULT;
+            fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool;
+        }
+        extern fn PFN_DXCORE_NOTIFICATION_CALLBACK(notificationType: DXCoreNotificationType, object: IUnknown, #[opt] context: *const void);
+    }
+}

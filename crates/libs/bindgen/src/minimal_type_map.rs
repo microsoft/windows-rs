@@ -154,6 +154,36 @@ impl CombineMinimal for Type {
             return;
         }
 
+        // Fan out to architecture-split siblings. An arch-divergent Win32 type
+        // (e.g. `FARPROC` = `isize` on 64-bit / `i32` on x86, or a per-arch
+        // `CONTEXT`) is emitted as one TypeDef per architecture sharing a name.
+        // A referencing signature only resolves to a single variant, so the
+        // others must be pulled in explicitly or the target architectures that
+        // use them would be left with an undefined type. This mirrors the
+        // arch-sibling walk in the full `Dependencies::combine`, extended to
+        // cover delegates as well. Each sibling carries its own
+        // `#[cfg(target_arch = ...)]` gate in codegen.
+        let siblings: Vec<Self> = match &ty_inner {
+            Self::CppStruct(s) => reader
+                .with_full_name(s.def.namespace(), s.def.name())
+                .collect(),
+            Self::CppDelegate(d) => reader
+                .with_full_name(d.def.namespace(), d.def.name())
+                .collect(),
+            Self::CppEnum(e) => reader
+                .with_full_name(e.def.namespace(), e.def.name())
+                .collect(),
+            Self::CppFn(f) => reader
+                .with_full_name(f.namespace, f.method.name())
+                .collect(),
+            _ => Vec::new(),
+        };
+        for sibling in siblings {
+            if sibling != ty_inner {
+                sibling.combine_minimal(types, reader, references);
+            }
+        }
+
         match &ty_inner {
             Self::Struct(s) => {
                 for field in s.def.fields() {
@@ -213,7 +243,14 @@ impl CombineMinimal for Type {
                         .combine_minimal(types, reader, references);
                 }
             }
-            Self::CppConst(_) => {}
+            Self::CppConst(c) => {
+                // Pull in the constant's declared type. Non-scoped enum variants
+                // are surfaced as standalone constants whose type is the owning
+                // enum; without this the enum's type alias (e.g. `pub type CLSCTX
+                // = u32;`) is never emitted, leaving the constant dangling.
+                let field_ty = c.field.field_type(None, reader);
+                field_ty.combine_minimal(types, reader, references);
+            }
             Self::Class(c) => {
                 // In minimal mode, only pull in the default interface (needed for
                 // Deref and class identity). All other instance/base interfaces are

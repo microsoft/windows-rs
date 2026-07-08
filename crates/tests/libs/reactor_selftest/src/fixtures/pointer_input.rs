@@ -70,10 +70,10 @@ fn inject_at(
 ) -> Result<()> {
     let (vx, vy, vw, vh) = unsafe {
         (
-            GetSystemMetrics(SM_XVIRTUALSCREEN),
-            GetSystemMetrics(SM_YVIRTUALSCREEN),
-            GetSystemMetrics(SM_CXVIRTUALSCREEN).max(2),
-            GetSystemMetrics(SM_CYVIRTUALSCREEN).max(2),
+            GetSystemMetrics(SM_XVIRTUALSCREEN as i32),
+            GetSystemMetrics(SM_YVIRTUALSCREEN as i32),
+            GetSystemMetrics(SM_CXVIRTUALSCREEN as i32).max(2),
+            GetSystemMetrics(SM_CYVIRTUALSCREEN as i32).max(2),
         )
     };
     let nx = (((sx - vx) as f64) * 65535.0 / ((vw - 1) as f64)).round() as i32;
@@ -227,8 +227,8 @@ pub fn pointer_injection_gesture(h: Harness) -> FixtureFuture {
         // Move far outside the window: PointerExited.
         let (vx, vy) = unsafe {
             (
-                GetSystemMetrics(SM_XVIRTUALSCREEN),
-                GetSystemMetrics(SM_YVIRTUALSCREEN),
+                GetSystemMetrics(SM_XVIRTUALSCREEN as i32),
+                GetSystemMetrics(SM_YVIRTUALSCREEN as i32),
             )
         };
         let _ = inject_at(&injector, vx, vy, InjectedInputMouseOptions::Move);

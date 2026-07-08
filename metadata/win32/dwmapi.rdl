@@ -1,0 +1,285 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DWMFLIP3DWINDOWPOLICY {
+            DWMFLIP3D_DEFAULT = 0,
+            DWMFLIP3D_EXCLUDEBELOW = 1,
+            DWMFLIP3D_EXCLUDEABOVE = 2,
+            DWMFLIP3D_LAST = 3,
+        }
+        #[repr(i32)]
+        enum DWMNCRENDERINGPOLICY {
+            DWMNCRP_USEWINDOWSTYLE = 0,
+            DWMNCRP_DISABLED = 1,
+            DWMNCRP_ENABLED = 2,
+            DWMNCRP_LAST = 3,
+        }
+        #[repr(i32)]
+        enum DWMTRANSITION_OWNEDWINDOW_TARGET {
+            DWMTRANSITION_OWNEDWINDOW_NULL = -1,
+            DWMTRANSITION_OWNEDWINDOW_REPOSITION = 0,
+        }
+        const DWMWA_COLOR_DEFAULT: u32 = 4294967295;
+        const DWMWA_COLOR_NONE: u32 = 4294967294;
+        #[repr(i32)]
+        enum DWMWINDOWATTRIBUTE {
+            DWMWA_NCRENDERING_ENABLED = 1,
+            DWMWA_NCRENDERING_POLICY = 2,
+            DWMWA_TRANSITIONS_FORCEDISABLED = 3,
+            DWMWA_ALLOW_NCPAINT = 4,
+            DWMWA_CAPTION_BUTTON_BOUNDS = 5,
+            DWMWA_NONCLIENT_RTL_LAYOUT = 6,
+            DWMWA_FORCE_ICONIC_REPRESENTATION = 7,
+            DWMWA_FLIP3D_POLICY = 8,
+            DWMWA_EXTENDED_FRAME_BOUNDS = 9,
+            DWMWA_HAS_ICONIC_BITMAP = 10,
+            DWMWA_DISALLOW_PEEK = 11,
+            DWMWA_EXCLUDED_FROM_PEEK = 12,
+            DWMWA_CLOAK = 13,
+            DWMWA_CLOAKED = 14,
+            DWMWA_FREEZE_REPRESENTATION = 15,
+            DWMWA_PASSIVE_UPDATE_MODE = 16,
+            DWMWA_USE_HOSTBACKDROPBRUSH = 17,
+            DWMWA_USE_IMMERSIVE_DARK_MODE = 20,
+            DWMWA_WINDOW_CORNER_PREFERENCE = 33,
+            DWMWA_BORDER_COLOR = 34,
+            DWMWA_CAPTION_COLOR = 35,
+            DWMWA_TEXT_COLOR = 36,
+            DWMWA_VISIBLE_FRAME_BORDER_THICKNESS = 37,
+            DWMWA_SYSTEMBACKDROP_TYPE = 38,
+            DWMWA_REDIRECTIONBITMAP_ALPHA = 39,
+            DWMWA_BORDER_MARGINS = 40,
+            DWMWA_LAST = 41,
+        }
+        const DWM_BB_BLURREGION: u32 = 2;
+        const DWM_BB_ENABLE: u32 = 1;
+        const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4;
+        #[packed(1)]
+        struct DWM_BLURBEHIND {
+            dwFlags: u32,
+            fEnable: BOOL,
+            hRgnBlur: HRGN,
+            fTransitionOnMaximized: BOOL,
+        }
+        const DWM_CLOAKED_APP: u32 = 1;
+        const DWM_CLOAKED_INHERITED: u32 = 4;
+        const DWM_CLOAKED_SHELL: u32 = 2;
+        const DWM_EC_DISABLECOMPOSITION: u32 = 0;
+        const DWM_EC_ENABLECOMPOSITION: u32 = 1;
+        type DWM_FRAME_COUNT = u64;
+        const DWM_FRAME_DURATION_DEFAULT: i32 = -1;
+        #[packed(1)]
+        struct DWM_PRESENT_PARAMETERS {
+            cbSize: u32,
+            fQueue: BOOL,
+            cRefreshStart: DWM_FRAME_COUNT,
+            cBuffer: u32,
+            fUseSourceRate: BOOL,
+            rateSource: UNSIGNED_RATIO,
+            cRefreshesPerFrame: u32,
+            eSampling: DWM_SOURCE_FRAME_SAMPLING,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum DWM_SHOWCONTACT {
+            DWMSC_DOWN = 1,
+            DWMSC_UP = 2,
+            DWMSC_DRAG = 4,
+            DWMSC_HOLD = 8,
+            DWMSC_PENBARREL = 16,
+            DWMSC_NONE = 0,
+            DWMSC_ALL = 4294967295,
+        }
+        const DWM_SIT_DISPLAYFRAME: u32 = 1;
+        #[repr(i32)]
+        enum DWM_SOURCE_FRAME_SAMPLING {
+            DWM_SOURCE_FRAME_SAMPLING_POINT = 0,
+            DWM_SOURCE_FRAME_SAMPLING_COVERAGE = 1,
+            DWM_SOURCE_FRAME_SAMPLING_LAST = 2,
+        }
+        #[repr(i32)]
+        enum DWM_SYSTEMBACKDROP_TYPE {
+            DWMSBT_AUTO = 0,
+            DWMSBT_NONE = 1,
+            DWMSBT_MAINWINDOW = 2,
+            DWMSBT_TRANSIENTWINDOW = 3,
+            DWMSBT_TABBEDWINDOW = 4,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum DWM_TAB_WINDOW_REQUIREMENTS {
+            DWMTWR_NONE = 0,
+            DWMTWR_IMPLEMENTED_BY_SYSTEM = 1,
+            DWMTWR_WINDOW_RELATIONSHIP = 2,
+            DWMTWR_WINDOW_STYLES = 4,
+            DWMTWR_WINDOW_REGION = 8,
+            DWMTWR_WINDOW_DWM_ATTRIBUTES = 16,
+            DWMTWR_WINDOW_MARGINS = 32,
+            DWMTWR_TABBING_ENABLED = 64,
+            DWMTWR_USER_POLICY = 128,
+            DWMTWR_GROUP_POLICY = 256,
+            DWMTWR_APP_COMPAT = 512,
+        }
+        #[packed(1)]
+        struct DWM_THUMBNAIL_PROPERTIES {
+            dwFlags: u32,
+            rcDestination: RECT,
+            rcSource: RECT,
+            opacity: u8,
+            fVisible: BOOL,
+            fSourceClientAreaOnly: BOOL,
+        }
+        #[packed(1)]
+        struct DWM_TIMING_INFO {
+            cbSize: u32,
+            rateRefresh: UNSIGNED_RATIO,
+            qpcRefreshPeriod: QPC_TIME,
+            rateCompose: UNSIGNED_RATIO,
+            qpcVBlank: QPC_TIME,
+            cRefresh: DWM_FRAME_COUNT,
+            cDXRefresh: u32,
+            qpcCompose: QPC_TIME,
+            cFrame: DWM_FRAME_COUNT,
+            cDXPresent: u32,
+            cRefreshFrame: DWM_FRAME_COUNT,
+            cFrameSubmitted: DWM_FRAME_COUNT,
+            cDXPresentSubmitted: u32,
+            cFrameConfirmed: DWM_FRAME_COUNT,
+            cDXPresentConfirmed: u32,
+            cRefreshConfirmed: DWM_FRAME_COUNT,
+            cDXRefreshConfirmed: u32,
+            cFramesLate: DWM_FRAME_COUNT,
+            cFramesOutstanding: u32,
+            cFrameDisplayed: DWM_FRAME_COUNT,
+            qpcFrameDisplayed: QPC_TIME,
+            cRefreshFrameDisplayed: DWM_FRAME_COUNT,
+            cFrameComplete: DWM_FRAME_COUNT,
+            qpcFrameComplete: QPC_TIME,
+            cFramePending: DWM_FRAME_COUNT,
+            qpcFramePending: QPC_TIME,
+            cFramesDisplayed: DWM_FRAME_COUNT,
+            cFramesComplete: DWM_FRAME_COUNT,
+            cFramesPending: DWM_FRAME_COUNT,
+            cFramesAvailable: DWM_FRAME_COUNT,
+            cFramesDropped: DWM_FRAME_COUNT,
+            cFramesMissed: DWM_FRAME_COUNT,
+            cRefreshNextDisplayed: DWM_FRAME_COUNT,
+            cRefreshNextPresented: DWM_FRAME_COUNT,
+            cRefreshesDisplayed: DWM_FRAME_COUNT,
+            cRefreshesPresented: DWM_FRAME_COUNT,
+            cRefreshStarted: DWM_FRAME_COUNT,
+            cPixelsReceived: u64,
+            cPixelsDrawn: u64,
+            cBuffersEmpty: DWM_FRAME_COUNT,
+        }
+        const DWM_TNP_OPACITY: u32 = 4;
+        const DWM_TNP_RECTDESTINATION: u32 = 1;
+        const DWM_TNP_RECTSOURCE: u32 = 2;
+        const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16;
+        const DWM_TNP_VISIBLE: u32 = 8;
+        #[repr(i32)]
+        enum DWM_WINDOW_CORNER_PREFERENCE {
+            DWMWCP_DEFAULT = 0,
+            DWMWCP_DONOTROUND = 1,
+            DWMWCP_ROUND = 2,
+            DWMWCP_ROUNDSMALL = 3,
+        }
+        #[library("dwmapi.dll")]
+        extern fn DwmAttachMilContent(hwnd: HWND) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmDefWindowProc(hWnd: HWND, msg: u32, wParam: WPARAM, lParam: LPARAM, plResult: *mut LRESULT) -> BOOL;
+        #[library("dwmapi.dll")]
+        extern fn DwmDetachMilContent(hwnd: HWND) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmEnableBlurBehindWindow(hWnd: HWND, pBlurBehind: *const DWM_BLURBEHIND) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmEnableComposition(uCompositionAction: u32) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmEnableMMCSS(fEnableMMCSS: BOOL) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmExtendFrameIntoClientArea(hWnd: HWND, pMarInset: *const MARGINS) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmFlush() -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmGetColorizationColor(pcrColorization: *mut u32, pfOpaqueBlend: *mut BOOL) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmGetCompositionTimingInfo(hwnd: HWND, pTimingInfo: *mut DWM_TIMING_INFO) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmGetGraphicsStreamClient(uIndex: u32, pClientUuid: *mut GUID) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmGetGraphicsStreamTransformHint(uIndex: u32, pTransform: *mut MilMatrix3x2D) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmGetTransportAttributes(#[len_const(1)] pfIsRemoting: *mut BOOL, #[len_const(1)] pfIsConnected: *mut BOOL, #[len_const(1)] pDwGeneration: *mut u32) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmGetUnmetTabRequirements(#[opt] appWindow: HWND, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmGetWindowAttribute(hwnd: HWND, dwAttribute: u32, #[size_param(3)] pvAttribute: *mut void, cbAttribute: u32) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmInvalidateIconicBitmaps(hwnd: HWND) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmIsCompositionEnabled(pfEnabled: *mut BOOL) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmModifyPreviousDxFrameDuration(hwnd: HWND, cRefreshes: i32, fRelative: BOOL) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmQueryThumbnailSourceSize(hThumbnail: HTHUMBNAIL, pSize: *mut SIZE) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmRegisterThumbnail(hwndDestination: HWND, hwndSource: HWND, phThumbnailId: *mut HTHUMBNAIL) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmRenderGesture(gt: GESTURE_TYPE, cContacts: u32, #[len_param(1)] pdwPointerID: *const u32, #[len_param(1)] pPoints: *const POINT) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmSetDxFrameDuration(hwnd: HWND, cRefreshes: i32) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmSetIconicLivePreviewBitmap(hwnd: HWND, hbmp: HBITMAP, #[opt] pptClient: *const POINT, dwSITFlags: u32) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmSetIconicThumbnail(hwnd: HWND, hbmp: HBITMAP, dwSITFlags: u32) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmSetPresentParameters(hwnd: HWND, #[in] #[out] pPresentParams: *mut DWM_PRESENT_PARAMETERS) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmSetWindowAttribute(hwnd: HWND, dwAttribute: u32, #[size_param(3)] pvAttribute: *const void, cbAttribute: u32) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmShowContact(dwPointerID: u32, eShowContact: DWM_SHOWCONTACT) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmTetherContact(dwPointerID: u32, fEnable: BOOL, ptTether: POINT) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmTransitionOwnedWindow(hwnd: HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmUnregisterThumbnail(hThumbnailId: HTHUMBNAIL) -> HRESULT;
+        #[library("dwmapi.dll")]
+        extern fn DwmUpdateThumbnailProperties(hThumbnailId: HTHUMBNAIL, ptnProperties: *const DWM_THUMBNAIL_PROPERTIES) -> HRESULT;
+        #[repr(i32)]
+        enum GESTURE_TYPE {
+            GT_PEN_TAP = 0,
+            GT_PEN_DOUBLETAP = 1,
+            GT_PEN_RIGHTTAP = 2,
+            GT_PEN_PRESSANDHOLD = 3,
+            GT_PEN_PRESSANDHOLDABORT = 4,
+            GT_TOUCH_TAP = 5,
+            GT_TOUCH_DOUBLETAP = 6,
+            GT_TOUCH_RIGHTTAP = 7,
+            GT_TOUCH_PRESSANDHOLD = 8,
+            GT_TOUCH_PRESSANDHOLDABORT = 9,
+            GT_TOUCH_PRESSANDTAP = 10,
+        }
+        type HTHUMBNAIL = HANDLE;
+        type MIL_MATRIX3X2D = MilMatrix3x2D;
+        #[packed(1)]
+        struct MilMatrix3x2D {
+            S_11: f64,
+            S_12: f64,
+            S_21: f64,
+            S_22: f64,
+            DX: f64,
+            DY: f64,
+        }
+        type PDWM_BLURBEHIND = *mut DWM_BLURBEHIND;
+        type PDWM_THUMBNAIL_PROPERTIES = *mut DWM_THUMBNAIL_PROPERTIES;
+        type PHTHUMBNAIL = *mut HTHUMBNAIL;
+        type QPC_TIME = u64;
+        #[packed(1)]
+        struct UNSIGNED_RATIO {
+            uiNumerator: u32,
+            uiDenominator: u32,
+        }
+    }
+}

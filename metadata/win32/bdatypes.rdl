@@ -1,0 +1,724 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ATSCComponentTypeFlags {
+            ATSCCT_AC3 = 1,
+        }
+        #[repr(i32)]
+        enum ApplicationTypeType {
+            SCTE28_ConditionalAccess = 0,
+            SCTE28_POD_Host_Binding_Information = 1,
+            SCTE28_IPService = 2,
+            SCTE28_NetworkInterface_SCTE55_2 = 3,
+            SCTE28_NetworkInterface_SCTE55_1 = 4,
+            SCTE28_CopyProtection = 5,
+            SCTE28_Diagnostic = 6,
+            SCTE28_Undesignated = 7,
+            SCTE28_Reserved = 8,
+        }
+        struct BDANODE_DESCRIPTOR {
+            ulBdaNodeType: u32,
+            guidFunction: GUID,
+            guidName: GUID,
+        }
+        struct BDA_BUFFER {
+            lResult: PBDARESULT,
+            ulBufferSize: u32,
+            argbBuffer: [u8; 1],
+        }
+        struct BDA_CAS_CHECK_ENTITLEMENTTOKEN {
+            lResult: PBDARESULT,
+            ulDescrambleStatus: u32,
+        }
+        struct BDA_CAS_CLOSEMMIDATA {
+            ulDialogNumber: u32,
+        }
+        struct BDA_CAS_CLOSE_MMIDIALOG {
+            lResult: PBDARESULT,
+            SessionResult: u32,
+        }
+        struct BDA_CAS_OPENMMIDATA {
+            ulDialogNumber: u32,
+            ulDialogRequest: u32,
+            uuidDialogType: GUID,
+            usDialogDataLength: u16,
+            argbDialogData: [u8; 1],
+        }
+        struct BDA_CAS_REQUESTTUNERDATA {
+            ucRequestPriority: u8,
+            ucRequestReason: u8,
+            ucRequestConsequences: u8,
+            ulEstimatedTime: u32,
+        }
+        struct BDA_CA_MODULE_UI {
+            ulFormat: u32,
+            ulbcDesc: u32,
+            ulDesc: [u32; 1],
+        }
+        #[repr(i32)]
+        enum BDA_CHANGE_STATE {
+            BDA_CHANGES_COMPLETE = 0,
+            BDA_CHANGES_PENDING = 1,
+        }
+        #[repr(i32)]
+        enum BDA_CONDITIONALACCESS_MMICLOSEREASON {
+            CONDITIONALACCESS_UNSPECIFIED = 0,
+            CONDITIONALACCESS_CLOSED_ITSELF = 1,
+            CONDITIONALACCESS_TUNER_REQUESTED_CLOSE = 2,
+            CONDITIONALACCESS_DIALOG_TIMEOUT = 3,
+            CONDITIONALACCESS_DIALOG_FOCUS_CHANGE = 4,
+            CONDITIONALACCESS_DIALOG_USER_DISMISSED = 5,
+            CONDITIONALACCESS_DIALOG_USER_NOT_AVAILABLE = 6,
+        }
+        #[repr(i32)]
+        enum BDA_CONDITIONALACCESS_REQUESTTYPE {
+            CONDITIONALACCESS_ACCESS_UNSPECIFIED = 0,
+            CONDITIONALACCESS_ACCESS_NOT_POSSIBLE = 1,
+            CONDITIONALACCESS_ACCESS_POSSIBLE = 2,
+            CONDITIONALACCESS_ACCESS_POSSIBLE_NO_STREAMING_DISRUPTION = 3,
+        }
+        #[repr(i32)]
+        enum BDA_CONDITIONALACCESS_SESSION_RESULT {
+            CONDITIONALACCESS_SUCCESSFULL = 0,
+            CONDITIONALACCESS_ENDED_NOCHANGE = 1,
+            CONDITIONALACCESS_ABORTED = 2,
+        }
+        #[repr(i32)]
+        enum BDA_Channel {
+            BDA_UNDEFINED_CHANNEL = -1,
+        }
+        #[repr(i32)]
+        enum BDA_Channel_Bandwidth {
+            BDA_CHAN_BANDWITH_NOT_SET = -1,
+            BDA_CHAN_BANDWITH_NOT_DEFINED = 0,
+        }
+        #[repr(i32)]
+        enum BDA_Comp_Flags {
+            BDACOMP_NOT_DEFINED = 0,
+            BDACOMP_EXCLUDE_TS_FROM_TR = 1,
+            BDACOMP_INCLUDE_LOCATOR_IN_TR = 2,
+            BDACOMP_INCLUDE_COMPONENTS_IN_TR = 4,
+        }
+        #[repr(i32)]
+        enum BDA_DISCOVERY_STATE {
+            BDA_DISCOVERY_UNSPECIFIED = 0,
+            BDA_DISCOVERY_REQUIRED = 1,
+            BDA_DISCOVERY_COMPLETE = 2,
+        }
+        struct BDA_DISEQC_RESPONSE {
+            ulRequestId: u32,
+            ulPacketLength: u32,
+            argbPacketData: [u8; 8],
+        }
+        struct BDA_DISEQC_SEND {
+            ulRequestId: u32,
+            ulPacketLength: u32,
+            argbPacketData: [u8; 8],
+        }
+        struct BDA_DRM_DRMSTATUS {
+            lResult: PBDARESULT,
+            DRMuuid: GUID,
+            ulDrmUuidListStringSize: u32,
+            argbDrmUuidListString: [GUID; 1],
+        }
+        struct BDA_DVBT2_L1_SIGNALLING_DATA {
+            L1Pre_TYPE: u8,
+            L1Pre_BWT_S1_S2: u8,
+            L1Pre_REPETITION_GUARD_PAPR: u8,
+            L1Pre_MOD_COD_FEC: u8,
+            L1Pre_POSTSIZE_INFO_PILOT: [u8; 5],
+            L1Pre_TX_ID_AVAIL: u8,
+            L1Pre_CELL_ID: [u8; 2],
+            L1Pre_NETWORK_ID: [u8; 2],
+            L1Pre_T2SYSTEM_ID: [u8; 2],
+            L1Pre_NUM_T2_FRAMES: u8,
+            L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT: [u8; 2],
+            L1Pre_NUMRF_CURRENTRF_RESERVED: [u8; 2],
+            L1Pre_CRC32: [u8; 4],
+            L1PostData: [u8; 1],
+        }
+        struct BDA_ETHERNET_ADDRESS {
+            rgbAddress: [u8; 6],
+        }
+        struct BDA_ETHERNET_ADDRESS_LIST {
+            ulcAddresses: u32,
+            rgAddressl: [BDA_ETHERNET_ADDRESS; 1],
+        }
+        #[repr(i32)]
+        enum BDA_EVENT_ID {
+            BDA_EVENT_SIGNAL_LOSS = 0,
+            BDA_EVENT_SIGNAL_LOCK = 1,
+            BDA_EVENT_DATA_START = 2,
+            BDA_EVENT_DATA_STOP = 3,
+            BDA_EVENT_CHANNEL_ACQUIRED = 4,
+            BDA_EVENT_CHANNEL_LOST = 5,
+            BDA_EVENT_CHANNEL_SOURCE_CHANGED = 6,
+            BDA_EVENT_CHANNEL_ACTIVATED = 7,
+            BDA_EVENT_CHANNEL_DEACTIVATED = 8,
+            BDA_EVENT_SUBCHANNEL_ACQUIRED = 9,
+            BDA_EVENT_SUBCHANNEL_LOST = 10,
+            BDA_EVENT_SUBCHANNEL_SOURCE_CHANGED = 11,
+            BDA_EVENT_SUBCHANNEL_ACTIVATED = 12,
+            BDA_EVENT_SUBCHANNEL_DEACTIVATED = 13,
+            BDA_EVENT_ACCESS_GRANTED = 14,
+            BDA_EVENT_ACCESS_DENIED = 15,
+            BDA_EVENT_OFFER_EXTENDED = 16,
+            BDA_EVENT_PURCHASE_COMPLETED = 17,
+            BDA_EVENT_SMART_CARD_INSERTED = 18,
+            BDA_EVENT_SMART_CARD_REMOVED = 19,
+        }
+        #[repr(i32)]
+        enum BDA_Frequency {
+            BDA_FREQUENCY_NOT_SET = -1,
+            BDA_FREQUENCY_NOT_DEFINED = 0,
+        }
+        #[repr(i32)]
+        enum BDA_Frequency_Multiplier {
+            BDA_FREQUENCY_MULTIPLIER_NOT_SET = -1,
+            BDA_FREQUENCY_MULTIPLIER_NOT_DEFINED = 0,
+        }
+        struct BDA_GDDS_DATA {
+            lResult: PBDARESULT,
+            ulDataLength: u32,
+            ulPercentageProgress: u32,
+            argbData: [u8; 1],
+        }
+        struct BDA_GDDS_DATATYPE {
+            lResult: PBDARESULT,
+            uuidDataType: GUID,
+        }
+        struct BDA_IPv4_ADDRESS {
+            rgbAddress: [u8; 4],
+        }
+        struct BDA_IPv4_ADDRESS_LIST {
+            ulcAddresses: u32,
+            rgAddressl: [BDA_IPv4_ADDRESS; 1],
+        }
+        struct BDA_IPv6_ADDRESS {
+            rgbAddress: [u8; 6],
+        }
+        struct BDA_IPv6_ADDRESS_LIST {
+            ulcAddresses: u32,
+            rgAddressl: [BDA_IPv6_ADDRESS; 1],
+        }
+        struct BDA_ISDBCAS_EMG_REQ {
+            bCLA: u8,
+            bINS: u8,
+            bP1: u8,
+            bP2: u8,
+            bLC: u8,
+            bCardId: [u8; 6],
+            bProtocol: u8,
+            bCABroadcasterGroupId: u8,
+            bMessageControl: u8,
+            bMessageCode: [u8; 1],
+        }
+        #[packed(1)]
+        struct BDA_ISDBCAS_REQUESTHEADER {
+            bInstruction: u8,
+            bReserved: [u8; 3],
+            ulDataLength: u32,
+            argbIsdbCommand: [u8; 1],
+        }
+        #[packed(1)]
+        struct BDA_ISDBCAS_RESPONSEDATA {
+            lResult: PBDARESULT,
+            ulRequestID: u32,
+            ulIsdbStatus: u32,
+            ulIsdbDataSize: u32,
+            argbIsdbCommandData: [u8; 1],
+        }
+        #[repr(i32)]
+        enum BDA_MULTICAST_MODE {
+            BDA_PROMISCUOUS_MULTICAST = 0,
+            BDA_FILTERED_MULTICAST = 1,
+            BDA_NO_MULTICAST = 2,
+        }
+        #[packed(2)]
+        struct BDA_MUX_PIDLISTITEM {
+            usPIDNumber: u16,
+            usProgramNumber: u16,
+            ePIDType: MUX_PID_TYPE,
+        }
+        struct BDA_PID_MAP {
+            MediaSampleContent: MEDIA_SAMPLE_CONTENT,
+            ulcPIDs: u32,
+            aulPIDs: [u32; 1],
+        }
+        struct BDA_PID_UNMAP {
+            ulcPIDs: u32,
+            aulPIDs: [u32; 1],
+        }
+        const BDA_PLP_ID_NOT_SET: i32 = -1;
+        struct BDA_PROGRAM_PID_LIST {
+            ulProgramNumber: u32,
+            ulcPIDs: u32,
+            ulPID: [u32; 1],
+        }
+        struct BDA_RATING_PINRESET {
+            bPinLength: u8,
+            argbNewPin: [u8; 1],
+        }
+        #[repr(i32)]
+        enum BDA_Range {
+            BDA_RANGE_NOT_SET = -1,
+            BDA_RANGE_NOT_DEFINED = 0,
+        }
+        struct BDA_SCAN_CAPABILTIES {
+            lResult: PBDARESULT,
+            ul64AnalogStandardsSupported: u64,
+        }
+        struct BDA_SCAN_START {
+            lResult: PBDARESULT,
+            LowerFrequency: u32,
+            HigerFrequency: u32,
+        }
+        struct BDA_SCAN_STATE {
+            lResult: PBDARESULT,
+            ulSignalLock: u32,
+            ulSecondsLeft: u32,
+            ulCurrentFrequency: u32,
+        }
+        #[repr(i32)]
+        enum BDA_SIGNAL_STATE {
+            BDA_SIGNAL_UNAVAILABLE = 0,
+            BDA_SIGNAL_INACTIVE = 1,
+            BDA_SIGNAL_ACTIVE = 2,
+        }
+        struct BDA_SIGNAL_TIMEOUTS {
+            ulCarrierTimeoutMs: u32,
+            ulScanningTimeoutMs: u32,
+            ulTuningTimeoutMs: u32,
+        }
+        struct BDA_STRING {
+            lResult: PBDARESULT,
+            ulStringSize: u32,
+            argbString: [u8; 1],
+        }
+        struct BDA_TABLE_SECTION {
+            ulPrimarySectionId: u32,
+            ulSecondarySectionId: u32,
+            ulcbSectionLength: u32,
+            argbSectionData: [u32; 1],
+        }
+        struct BDA_TEMPLATE_CONNECTION {
+            FromNodeType: u32,
+            FromNodePinType: u32,
+            ToNodeType: u32,
+            ToNodePinType: u32,
+        }
+        struct BDA_TEMPLATE_PIN_JOINT {
+            uliTemplateConnection: u32,
+            ulcInstancesMax: u32,
+        }
+        #[packed(1)]
+        struct BDA_TS_SELECTORINFO {
+            bTSInfolength: u8,
+            bReserved: [u8; 2],
+            guidNetworkType: GUID,
+            bTSIDCount: u8,
+            usTSID: [u16; 1],
+        }
+        struct BDA_TS_SELECTORINFO_ISDBS_EXT {
+            bTMCC: [u8; 48],
+        }
+        struct BDA_TUNER_DIAGNOSTICS {
+            lResult: PBDARESULT,
+            ulSignalLevel: u32,
+            ulSignalLevelQuality: u32,
+            ulSignalNoiseRatio: u32,
+        }
+        struct BDA_TUNER_TUNERSTATE {
+            lResult: PBDARESULT,
+            ulTuneLength: u32,
+            argbTuneData: [u8; 1],
+        }
+        struct BDA_USERACTIVITY_INTERVAL {
+            lResult: PBDARESULT,
+            ulActivityInterval: u32,
+        }
+        struct BDA_WMDRMTUNER_PIDPROTECTION {
+            lResult: PBDARESULT,
+            uuidKeyID: GUID,
+        }
+        struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
+            lResult: PBDARESULT,
+            ulDescrambleStatus: u32,
+            ulCaptureTokenLength: u32,
+            argbCaptureTokenBuffer: [u8; 1],
+        }
+        struct BDA_WMDRM_KEYINFOLIST {
+            lResult: PBDARESULT,
+            ulKeyuuidBufferLen: u32,
+            argKeyuuidBuffer: [GUID; 1],
+        }
+        struct BDA_WMDRM_RENEWLICENSE {
+            lResult: PBDARESULT,
+            ulDescrambleStatus: u32,
+            ulXmrLicenseOutputLength: u32,
+            argbXmrLicenceOutputBuffer: [u8; 1],
+        }
+        struct BDA_WMDRM_STATUS {
+            lResult: PBDARESULT,
+            ulMaxCaptureTokenSize: u32,
+            uMaxStreamingPid: u32,
+            ulMaxLicense: u32,
+            ulMinSecurityLevel: u32,
+            ulRevInfoSequenceNumber: u32,
+            ulRevInfoIssuedTime: u64,
+            ulRevListVersion: u32,
+            ulRevInfoTTL: u32,
+            ulState: u32,
+        }
+        #[repr(i32)]
+        enum BinaryConvolutionCodeRate {
+            BDA_BCC_RATE_NOT_SET = -1,
+            BDA_BCC_RATE_NOT_DEFINED = 0,
+            BDA_BCC_RATE_1_2 = 1,
+            BDA_BCC_RATE_2_3 = 2,
+            BDA_BCC_RATE_3_4 = 3,
+            BDA_BCC_RATE_3_5 = 4,
+            BDA_BCC_RATE_4_5 = 5,
+            BDA_BCC_RATE_5_6 = 6,
+            BDA_BCC_RATE_5_11 = 7,
+            BDA_BCC_RATE_7_8 = 8,
+            BDA_BCC_RATE_1_4 = 9,
+            BDA_BCC_RATE_1_3 = 10,
+            BDA_BCC_RATE_2_5 = 11,
+            BDA_BCC_RATE_6_7 = 12,
+            BDA_BCC_RATE_8_9 = 13,
+            BDA_BCC_RATE_9_10 = 14,
+            BDA_BCC_RATE_MAX = 15,
+        }
+        #[repr(i32)]
+        enum ComponentCategory {
+            CategoryNotSet = -1,
+            CategoryOther = 0,
+            CategoryVideo = 1,
+            CategoryAudio = 2,
+            CategoryText = 3,
+            CategorySubtitles = 4,
+            CategoryCaptions = 5,
+            CategorySuperimpose = 6,
+            CategoryData = 7,
+            CATEGORY_COUNT = 8,
+        }
+        #[repr(i32)]
+        enum ComponentStatus {
+            StatusActive = 0,
+            StatusInactive = 1,
+            StatusUnavailable = 2,
+        }
+        #[repr(i32)]
+        enum DVBSystemType {
+            DVB_Cable = 0,
+            DVB_Terrestrial = 1,
+            DVB_Satellite = 2,
+            ISDB_Terrestrial = 3,
+            ISDB_Satellite = 4,
+        }
+        #[repr(i32)]
+        enum FECMethod {
+            BDA_FEC_METHOD_NOT_SET = -1,
+            BDA_FEC_METHOD_NOT_DEFINED = 0,
+            BDA_FEC_VITERBI = 1,
+            BDA_FEC_RS_204_188 = 2,
+            BDA_FEC_LDPC = 3,
+            BDA_FEC_BCH = 4,
+            BDA_FEC_RS_147_130 = 5,
+            BDA_FEC_MAX = 6,
+        }
+        #[repr(i32)]
+        enum GuardInterval {
+            BDA_GUARD_NOT_SET = -1,
+            BDA_GUARD_NOT_DEFINED = 0,
+            BDA_GUARD_1_32 = 1,
+            BDA_GUARD_1_16 = 2,
+            BDA_GUARD_1_8 = 3,
+            BDA_GUARD_1_4 = 4,
+            BDA_GUARD_1_128 = 5,
+            BDA_GUARD_19_128 = 6,
+            BDA_GUARD_19_256 = 7,
+            BDA_GUARD_MAX = 8,
+        }
+        #[repr(i32)]
+        enum HierarchyAlpha {
+            BDA_HALPHA_NOT_SET = -1,
+            BDA_HALPHA_NOT_DEFINED = 0,
+            BDA_HALPHA_1 = 1,
+            BDA_HALPHA_2 = 2,
+            BDA_HALPHA_4 = 3,
+            BDA_HALPHA_MAX = 4,
+        }
+        #[repr(i32)]
+        enum ISDBCAS_REQUEST_ID {
+            ISDBCAS_REQUEST_ID_EMG = 56,
+            ISDBCAS_REQUEST_ID_EMD = 58,
+        }
+        struct KS_BDA_FRAME_INFO {
+            ExtendedHeaderSize: u32,
+            dwFrameFlags: u32,
+            ulEvent: u32,
+            ulChannelNumber: u32,
+            ulSubchannelNumber: u32,
+            ulReason: u32,
+        }
+        #[repr(i32)]
+        enum LNB_Source {
+            BDA_LNB_SOURCE_NOT_SET = -1,
+            BDA_LNB_SOURCE_NOT_DEFINED = 0,
+            BDA_LNB_SOURCE_A = 1,
+            BDA_LNB_SOURCE_B = 2,
+            BDA_LNB_SOURCE_C = 3,
+            BDA_LNB_SOURCE_D = 4,
+            BDA_LNB_SOURCE_MAX = 5,
+        }
+        #[repr(i32)]
+        enum MEDIA_SAMPLE_CONTENT {
+            MEDIA_TRANSPORT_PACKET = 0,
+            MEDIA_ELEMENTARY_STREAM = 1,
+            MEDIA_MPEG2_PSI = 2,
+            MEDIA_TRANSPORT_PAYLOAD = 3,
+        }
+        const MIN_DIMENSION: u32 = 1;
+        #[repr(i32)]
+        enum MPEG2StreamType {
+            BDA_UNITIALIZED_MPEG2STREAMTYPE = -1,
+            Reserved1 = 0,
+            ISO_IEC_11172_2_VIDEO = 1,
+            ISO_IEC_13818_2_VIDEO = 2,
+            ISO_IEC_11172_3_AUDIO = 3,
+            ISO_IEC_13818_3_AUDIO = 4,
+            ISO_IEC_13818_1_PRIVATE_SECTION = 5,
+            ISO_IEC_13818_1_PES = 6,
+            ISO_IEC_13522_MHEG = 7,
+            ANNEX_A_DSM_CC = 8,
+            ITU_T_REC_H_222_1 = 9,
+            ISO_IEC_13818_6_TYPE_A = 10,
+            ISO_IEC_13818_6_TYPE_B = 11,
+            ISO_IEC_13818_6_TYPE_C = 12,
+            ISO_IEC_13818_6_TYPE_D = 13,
+            ISO_IEC_13818_1_AUXILIARY = 14,
+            ISO_IEC_13818_7_AUDIO = 15,
+            ISO_IEC_14496_2_VISUAL = 16,
+            ISO_IEC_14496_3_AUDIO = 17,
+            ISO_IEC_14496_1_IN_PES = 18,
+            ISO_IEC_14496_1_IN_SECTION = 19,
+            ISO_IEC_13818_6_DOWNLOAD = 20,
+            METADATA_IN_PES = 21,
+            METADATA_IN_SECTION = 22,
+            METADATA_IN_DATA_CAROUSEL = 23,
+            METADATA_IN_OBJECT_CAROUSEL = 24,
+            METADATA_IN_DOWNLOAD_PROTOCOL = 25,
+            IRPM_STREAMM = 26,
+            ITU_T_H264 = 27,
+            ISO_IEC_13818_1_RESERVED = 28,
+            USER_PRIVATE = 16,
+            HEVC_VIDEO_OR_TEMPORAL_VIDEO = 36,
+            HEVC_TEMPORAL_VIDEO_SUBSET = 37,
+            MPEG_H_AUDIO = 45,
+            MPEG_H_AUDIO_MS = 46,
+            ISO_IEC_USER_PRIVATE = 128,
+            DOLBY_AC3_AUDIO = 129,
+            DOLBY_DIGITAL_PLUS_AUDIO_ATSC = 135,
+        }
+        struct MPEG2_TRANSPORT_STRIDE {
+            dwOffset: u32,
+            dwPacketLength: u32,
+            dwStride: u32,
+        }
+        #[repr(i32)]
+        enum MUX_PID_TYPE {
+            PID_OTHER = -1,
+            PID_ELEMENTARY_STREAM = 0,
+            PID_MPEG2_SECTION_PSI_SI = 1,
+        }
+        #[repr(i32)]
+        enum ModulationType {
+            BDA_MOD_NOT_SET = -1,
+            BDA_MOD_NOT_DEFINED = 0,
+            BDA_MOD_16QAM = 1,
+            BDA_MOD_32QAM = 2,
+            BDA_MOD_64QAM = 3,
+            BDA_MOD_80QAM = 4,
+            BDA_MOD_96QAM = 5,
+            BDA_MOD_112QAM = 6,
+            BDA_MOD_128QAM = 7,
+            BDA_MOD_160QAM = 8,
+            BDA_MOD_192QAM = 9,
+            BDA_MOD_224QAM = 10,
+            BDA_MOD_256QAM = 11,
+            BDA_MOD_320QAM = 12,
+            BDA_MOD_384QAM = 13,
+            BDA_MOD_448QAM = 14,
+            BDA_MOD_512QAM = 15,
+            BDA_MOD_640QAM = 16,
+            BDA_MOD_768QAM = 17,
+            BDA_MOD_896QAM = 18,
+            BDA_MOD_1024QAM = 19,
+            BDA_MOD_QPSK = 20,
+            BDA_MOD_BPSK = 21,
+            BDA_MOD_OQPSK = 22,
+            BDA_MOD_8VSB = 23,
+            BDA_MOD_16VSB = 24,
+            BDA_MOD_ANALOG_AMPLITUDE = 25,
+            BDA_MOD_ANALOG_FREQUENCY = 26,
+            BDA_MOD_8PSK = 27,
+            BDA_MOD_RF = 28,
+            BDA_MOD_16APSK = 29,
+            BDA_MOD_32APSK = 30,
+            BDA_MOD_NBC_QPSK = 31,
+            BDA_MOD_NBC_8PSK = 32,
+            BDA_MOD_DIRECTV = 33,
+            BDA_MOD_ISDB_T_TMCC = 34,
+            BDA_MOD_ISDB_S_TMCC = 35,
+            BDA_MOD_MAX = 36,
+        }
+        type PBDANODE_DESCRIPTOR = *mut BDANODE_DESCRIPTOR;
+        type PBDARESULT = i32;
+        type PBDA_BUFFER = *mut BDA_BUFFER;
+        type PBDA_CAS_CHECK_ENTITLEMENTTOKEN = *mut BDA_CAS_CHECK_ENTITLEMENTTOKEN;
+        type PBDA_CAS_CLOSEMMIDATA = *mut BDA_CAS_CLOSEMMIDATA;
+        type PBDA_CAS_CLOSE_MMIDIALOG = *mut BDA_CAS_CLOSE_MMIDIALOG;
+        type PBDA_CAS_OPENMMIDATA = *mut BDA_CAS_OPENMMIDATA;
+        type PBDA_CAS_REQUESTTUNERDATA = *mut BDA_CAS_REQUESTTUNERDATA;
+        type PBDA_CA_MODULE_UI = *mut BDA_CA_MODULE_UI;
+        type PBDA_CHANGE_STATE = *mut BDA_CHANGE_STATE;
+        type PBDA_DISEQC_RESPONSE = *mut BDA_DISEQC_RESPONSE;
+        type PBDA_DISEQC_SEND = *mut BDA_DISEQC_SEND;
+        type PBDA_DRM_DRMSTATUS = *mut BDA_DRM_DRMSTATUS;
+        type PBDA_DVBT2_L1_SIGNALLING_DATA = *mut BDA_DVBT2_L1_SIGNALLING_DATA;
+        type PBDA_ETHERNET_ADDRESS = *mut BDA_ETHERNET_ADDRESS;
+        type PBDA_ETHERNET_ADDRESS_LIST = *mut BDA_ETHERNET_ADDRESS_LIST;
+        type PBDA_EVENT_ID = *mut BDA_EVENT_ID;
+        type PBDA_IPv4_ADDRESS = *mut BDA_IPv4_ADDRESS;
+        type PBDA_IPv4_ADDRESS_LIST = *mut BDA_IPv4_ADDRESS_LIST;
+        type PBDA_IPv6_ADDRESS = *mut BDA_IPv6_ADDRESS;
+        type PBDA_IPv6_ADDRESS_LIST = *mut BDA_IPv6_ADDRESS_LIST;
+        type PBDA_ISDBCAS_EMG_REQ = *mut BDA_ISDBCAS_EMG_REQ;
+        type PBDA_ISDBCAS_REQUESTHEADER = *mut BDA_ISDBCAS_REQUESTHEADER;
+        type PBDA_ISDBCAS_RESPONSEDATA = *mut BDA_ISDBCAS_RESPONSEDATA;
+        type PBDA_MULTICAST_MODE = *mut BDA_MULTICAST_MODE;
+        type PBDA_MUX_PIDLISTITEM = *mut BDA_MUX_PIDLISTITEM;
+        type PBDA_PID_MAP = *mut BDA_PID_MAP;
+        type PBDA_PID_UNMAP = *mut BDA_PID_UNMAP;
+        type PBDA_PROGRAM_PID_LIST = *mut BDA_PROGRAM_PID_LIST;
+        type PBDA_RATING_PINRESET = *mut BDA_RATING_PINRESET;
+        type PBDA_SCAN_CAPABILTIES = *mut BDA_SCAN_CAPABILTIES;
+        type PBDA_SCAN_START = *mut BDA_SCAN_START;
+        type PBDA_SCAN_STATE = *mut BDA_SCAN_STATE;
+        type PBDA_SIGNAL_STATE = *mut BDA_SIGNAL_STATE;
+        type PBDA_SIGNAL_TIMEOUTS = *mut BDA_SIGNAL_TIMEOUTS;
+        type PBDA_STRING = *mut BDA_STRING;
+        type PBDA_TABLE_SECTION = *mut BDA_TABLE_SECTION;
+        type PBDA_TEMPLATE_CONNECTION = *mut BDA_TEMPLATE_CONNECTION;
+        type PBDA_TEMPLATE_PIN_JOINT = *mut BDA_TEMPLATE_PIN_JOINT;
+        type PBDA_TS_SELECTORINFO = *mut BDA_TS_SELECTORINFO;
+        type PBDA_TS_SELECTORINFO_ISDBS_EXT = *mut BDA_TS_SELECTORINFO_ISDBS_EXT;
+        type PBDA_TUNER_DIAGNOSTICS = *mut BDA_TUNER_DIAGNOSTICS;
+        type PBDA_TUNER_TUNERSTATE = *mut BDA_TUNER_TUNERSTATE;
+        type PBDA_WMDRMTUNER_PIDPROTECTION = *mut BDA_WMDRMTUNER_PIDPROTECTION;
+        type PBDA_WMDRMTUNER_PURCHASEENTITLEMENT = *mut BDA_WMDRMTUNER_PURCHASEENTITLEMENT;
+        type PBDA_WMDRM_KEYINFOLIST = *mut BDA_WMDRM_KEYINFOLIST;
+        type PBDA_WMDRM_RENEWLICENSE = *mut BDA_WMDRM_RENEWLICENSE;
+        type PBDA_WMDRM_STATUS = *mut BDA_WMDRM_STATUS;
+        struct PID_MAP {
+            ulPID: u32,
+            MediaSampleContent: MEDIA_SAMPLE_CONTENT,
+        }
+        type PKS_BDA_FRAME_INFO = *mut KS_BDA_FRAME_INFO;
+        type PMPEG2_TRANSPORT_STRIDE = *mut MPEG2_TRANSPORT_STRIDE;
+        type P_BDA_GDDS_DATA = *mut BDA_GDDS_DATA;
+        type P_BDA_GDDS_DATATYPE = *mut BDA_GDDS_DATATYPE;
+        type P_BDA_USERACTIVITY_INTERVAL = *mut BDA_USERACTIVITY_INTERVAL;
+        #[repr(i32)]
+        enum Pilot {
+            BDA_PILOT_NOT_SET = -1,
+            BDA_PILOT_NOT_DEFINED = 0,
+            BDA_PILOT_OFF = 1,
+            BDA_PILOT_ON = 2,
+            BDA_PILOT_MAX = 3,
+        }
+        #[repr(i32)]
+        enum Polarisation {
+            BDA_POLARISATION_NOT_SET = -1,
+            BDA_POLARISATION_NOT_DEFINED = 0,
+            BDA_POLARISATION_LINEAR_H = 1,
+            BDA_POLARISATION_LINEAR_V = 2,
+            BDA_POLARISATION_CIRCULAR_L = 3,
+            BDA_POLARISATION_CIRCULAR_R = 4,
+            BDA_POLARISATION_MAX = 5,
+        }
+        #[repr(i32)]
+        enum RollOff {
+            BDA_ROLL_OFF_NOT_SET = -1,
+            BDA_ROLL_OFF_NOT_DEFINED = 0,
+            BDA_ROLL_OFF_20 = 1,
+            BDA_ROLL_OFF_25 = 2,
+            BDA_ROLL_OFF_35 = 3,
+            BDA_ROLL_OFF_MAX = 4,
+        }
+        #[repr(i32)]
+        enum ScanModulationTypes {
+            BDA_SCAN_MOD_16QAM = 1,
+            BDA_SCAN_MOD_32QAM = 2,
+            BDA_SCAN_MOD_64QAM = 4,
+            BDA_SCAN_MOD_80QAM = 8,
+            BDA_SCAN_MOD_96QAM = 16,
+            BDA_SCAN_MOD_112QAM = 32,
+            BDA_SCAN_MOD_128QAM = 64,
+            BDA_SCAN_MOD_160QAM = 128,
+            BDA_SCAN_MOD_192QAM = 256,
+            BDA_SCAN_MOD_224QAM = 512,
+            BDA_SCAN_MOD_256QAM = 1024,
+            BDA_SCAN_MOD_320QAM = 2048,
+            BDA_SCAN_MOD_384QAM = 4096,
+            BDA_SCAN_MOD_448QAM = 8192,
+            BDA_SCAN_MOD_512QAM = 16384,
+            BDA_SCAN_MOD_640QAM = 32768,
+            BDA_SCAN_MOD_768QAM = 65536,
+            BDA_SCAN_MOD_896QAM = 131072,
+            BDA_SCAN_MOD_1024QAM = 262144,
+            BDA_SCAN_MOD_QPSK = 524288,
+            BDA_SCAN_MOD_BPSK = 1048576,
+            BDA_SCAN_MOD_OQPSK = 2097152,
+            BDA_SCAN_MOD_8VSB = 4194304,
+            BDA_SCAN_MOD_16VSB = 8388608,
+            BDA_SCAN_MOD_AM_RADIO = 16777216,
+            BDA_SCAN_MOD_FM_RADIO = 33554432,
+            BDA_SCAN_MOD_8PSK = 67108864,
+            BDA_SCAN_MOD_RF = 134217728,
+            ScanModulationTypesMask_MCE_DigitalCable = 11,
+            ScanModulationTypesMask_MCE_TerrestrialATSC = 23,
+            ScanModulationTypesMask_MCE_AnalogTv = 28,
+            ScanModulationTypesMask_MCE_All_TV = -1,
+            ScanModulationTypesMask_DVBC = 75,
+            BDA_SCAN_MOD_16APSK = 268435456,
+            BDA_SCAN_MOD_32APSK = 536870912,
+        }
+        #[repr(i32)]
+        enum SpectralInversion {
+            BDA_SPECTRAL_INVERSION_NOT_SET = -1,
+            BDA_SPECTRAL_INVERSION_NOT_DEFINED = 0,
+            BDA_SPECTRAL_INVERSION_AUTOMATIC = 1,
+            BDA_SPECTRAL_INVERSION_NORMAL = 2,
+            BDA_SPECTRAL_INVERSION_INVERTED = 3,
+            BDA_SPECTRAL_INVERSION_MAX = 4,
+        }
+        #[repr(i32)]
+        enum TransmissionMode {
+            BDA_XMIT_MODE_NOT_SET = -1,
+            BDA_XMIT_MODE_NOT_DEFINED = 0,
+            BDA_XMIT_MODE_2K = 1,
+            BDA_XMIT_MODE_8K = 2,
+            BDA_XMIT_MODE_4K = 3,
+            BDA_XMIT_MODE_2K_INTERLEAVED = 4,
+            BDA_XMIT_MODE_4K_INTERLEAVED = 5,
+            BDA_XMIT_MODE_1K = 6,
+            BDA_XMIT_MODE_16K = 7,
+            BDA_XMIT_MODE_32K = 8,
+            BDA_XMIT_MODE_MAX = 9,
+        }
+    }
+}

@@ -1,0 +1,19 @@
+[package]
+name = "test_win32_metadata"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies]
+windows-link = { workspace = true }
+
+[dev-dependencies]
+windows-bindgen = { workspace = true }
+windows-rdl = { workspace = true }
+
+[lints]
+workspace = true

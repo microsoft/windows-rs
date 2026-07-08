@@ -1,0 +1,16 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn CloseHandle(hObject: HANDLE) -> BOOL;
+        #[library("api-ms-win-core-handle-l1-1-0.dll")]
+        extern fn CompareObjectHandles(hFirstObjectHandle: HANDLE, hSecondObjectHandle: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DuplicateHandle(hSourceProcessHandle: HANDLE, hSourceHandle: HANDLE, hTargetProcessHandle: HANDLE, lpTargetHandle: *mut HANDLE, dwDesiredAccess: u32, bInheritHandle: BOOL, dwOptions: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetHandleInformation(hObject: HANDLE, lpdwFlags: *mut u32) -> BOOL;
+        const INVALID_HANDLE_VALUE: HANDLE = -1;
+        #[library("KERNEL32.dll")]
+        extern fn SetHandleInformation(hObject: HANDLE, dwMask: u32, dwFlags: u32) -> BOOL;
+    }
+}

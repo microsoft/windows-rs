@@ -1,0 +1,21 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type HSTRING = *mut void;
+        type HSTRING_BUFFER = *mut void;
+        #[arch(X64 | Arm64)]
+        struct HSTRING_HEADER {
+            Reserved: union {
+                Reserved1: *mut void,
+                Reserved2: [i8; 24],
+            },
+        }
+        #[arch(X86)]
+        struct HSTRING_HEADER {
+            Reserved: union {
+                Reserved1: *mut void,
+                Reserved2: [i8; 20],
+            },
+        }
+    }
+}

@@ -1,0 +1,124 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BACKGROUND_BLUE: u32 = 16;
+        const BACKGROUND_GREEN: u32 = 32;
+        const BACKGROUND_INTENSITY: u32 = 128;
+        const BACKGROUND_RED: u32 = 64;
+        const COMMON_LVB_GRID_HORIZONTAL: u32 = 1024;
+        const COMMON_LVB_GRID_LVERTICAL: u32 = 2048;
+        const COMMON_LVB_GRID_RVERTICAL: u32 = 4096;
+        const COMMON_LVB_LEADING_BYTE: u32 = 256;
+        const COMMON_LVB_REVERSE_VIDEO: u32 = 16384;
+        const COMMON_LVB_SBCSDBCS: u32 = 768;
+        const COMMON_LVB_TRAILING_BYTE: u32 = 512;
+        const COMMON_LVB_UNDERSCORE: u32 = 32768;
+        struct CONSOLE_CURSOR_INFO {
+            dwSize: u32,
+            bVisible: BOOL,
+        }
+        struct CONSOLE_SCREEN_BUFFER_INFO {
+            dwSize: COORD,
+            dwCursorPosition: COORD,
+            wAttributes: u16,
+            srWindow: SMALL_RECT,
+            dwMaximumWindowSize: COORD,
+        }
+        struct CONSOLE_SCREEN_BUFFER_INFOEX {
+            cbSize: u32,
+            dwSize: COORD,
+            dwCursorPosition: COORD,
+            wAttributes: u16,
+            srWindow: SMALL_RECT,
+            dwMaximumWindowSize: COORD,
+            wPopupAttributes: u16,
+            bFullscreenSupported: BOOL,
+            ColorTable: [COLORREF; 16],
+        }
+        #[library("KERNEL32.dll")]
+        extern fn CreateConsoleScreenBuffer(dwDesiredAccess: u32, dwShareMode: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, dwFlags: u32, #[reserved] lpScreenBufferData: *const void) -> HANDLE;
+        const FOREGROUND_BLUE: u32 = 1;
+        const FOREGROUND_GREEN: u32 = 2;
+        const FOREGROUND_INTENSITY: u32 = 8;
+        const FOREGROUND_RED: u32 = 4;
+        #[library("KERNEL32.dll")]
+        extern fn FillConsoleOutputAttribute(hConsoleOutput: HANDLE, wAttribute: u16, nLength: u32, dwWriteCoord: COORD, lpNumberOfAttrsWritten: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FillConsoleOutputCharacterA(hConsoleOutput: HANDLE, cCharacter: i8, nLength: u32, dwWriteCoord: COORD, lpNumberOfCharsWritten: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FillConsoleOutputCharacterW(hConsoleOutput: HANDLE, cCharacter: u16, nLength: u32, dwWriteCoord: COORD, lpNumberOfCharsWritten: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FlushConsoleInputBuffer(hConsoleInput: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GenerateConsoleCtrlEvent(dwCtrlEvent: u32, dwProcessGroupId: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleCursorInfo(hConsoleOutput: HANDLE, lpConsoleCursorInfo: *mut CONSOLE_CURSOR_INFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleOriginalTitleA(#[len_param(1)] #[out] lpConsoleTitle: PSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleOriginalTitleW(#[len_param(1)] #[out] lpConsoleTitle: PWSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleScreenBufferInfo(hConsoleOutput: HANDLE, lpConsoleScreenBufferInfo: *mut CONSOLE_SCREEN_BUFFER_INFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleScreenBufferInfoEx(hConsoleOutput: HANDLE, #[in] #[out] lpConsoleScreenBufferInfoEx: *mut CONSOLE_SCREEN_BUFFER_INFOEX) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleTitleA(#[len_param(1)] #[out] lpConsoleTitle: PSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleTitleW(#[len_param(1)] #[out] lpConsoleTitle: PWSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetLargestConsoleWindowSize(hConsoleOutput: HANDLE) -> COORD;
+        type PCONSOLE_CURSOR_INFO = *mut CONSOLE_CURSOR_INFO;
+        type PCONSOLE_SCREEN_BUFFER_INFO = *mut CONSOLE_SCREEN_BUFFER_INFO;
+        type PCONSOLE_SCREEN_BUFFER_INFOEX = *mut CONSOLE_SCREEN_BUFFER_INFOEX;
+        #[library("KERNEL32.dll")]
+        extern fn ReadConsoleOutputA(hConsoleOutput: HANDLE, lpBuffer: *mut CHAR_INFO, dwBufferSize: COORD, dwBufferCoord: COORD, #[in] #[out] lpReadRegion: *mut SMALL_RECT) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReadConsoleOutputAttribute(hConsoleOutput: HANDLE, #[len_param(2)] lpAttribute: *mut u16, nLength: u32, dwReadCoord: COORD, lpNumberOfAttrsRead: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReadConsoleOutputCharacterA(hConsoleOutput: HANDLE, #[len_param(2)] #[out] lpCharacter: PSTR, nLength: u32, dwReadCoord: COORD, lpNumberOfCharsRead: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReadConsoleOutputCharacterW(hConsoleOutput: HANDLE, #[len_param(2)] #[out] lpCharacter: PWSTR, nLength: u32, dwReadCoord: COORD, lpNumberOfCharsRead: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReadConsoleOutputW(hConsoleOutput: HANDLE, lpBuffer: *mut CHAR_INFO, dwBufferSize: COORD, dwBufferCoord: COORD, #[in] #[out] lpReadRegion: *mut SMALL_RECT) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ScrollConsoleScreenBufferA(hConsoleOutput: HANDLE, lpScrollRectangle: *const SMALL_RECT, #[opt] lpClipRectangle: *const SMALL_RECT, dwDestinationOrigin: COORD, lpFill: *const CHAR_INFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ScrollConsoleScreenBufferW(hConsoleOutput: HANDLE, lpScrollRectangle: *const SMALL_RECT, #[opt] lpClipRectangle: *const SMALL_RECT, dwDestinationOrigin: COORD, lpFill: *const CHAR_INFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleActiveScreenBuffer(hConsoleOutput: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleCP(wCodePageID: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleCursorInfo(hConsoleOutput: HANDLE, lpConsoleCursorInfo: *const CONSOLE_CURSOR_INFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleCursorPosition(hConsoleOutput: HANDLE, dwCursorPosition: COORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleOutputCP(wCodePageID: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleScreenBufferInfoEx(hConsoleOutput: HANDLE, lpConsoleScreenBufferInfoEx: *const CONSOLE_SCREEN_BUFFER_INFOEX) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleScreenBufferSize(hConsoleOutput: HANDLE, dwSize: COORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleTextAttribute(hConsoleOutput: HANDLE, wAttributes: u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleTitleA(lpConsoleTitle: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleTitleW(lpConsoleTitle: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleWindowInfo(hConsoleOutput: HANDLE, bAbsolute: BOOL, lpConsoleWindow: *const SMALL_RECT) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteConsoleInputA(hConsoleInput: HANDLE, #[len_param(2)] lpBuffer: *const INPUT_RECORD, nLength: u32, lpNumberOfEventsWritten: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteConsoleInputW(hConsoleInput: HANDLE, #[len_param(2)] lpBuffer: *const INPUT_RECORD, nLength: u32, lpNumberOfEventsWritten: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteConsoleOutputA(hConsoleOutput: HANDLE, lpBuffer: *const CHAR_INFO, dwBufferSize: COORD, dwBufferCoord: COORD, #[in] #[out] lpWriteRegion: *mut SMALL_RECT) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteConsoleOutputAttribute(hConsoleOutput: HANDLE, #[len_param(2)] lpAttribute: *const u16, nLength: u32, dwWriteCoord: COORD, lpNumberOfAttrsWritten: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteConsoleOutputCharacterA(hConsoleOutput: HANDLE, #[len_param(2)] lpCharacter: PCSTR, nLength: u32, dwWriteCoord: COORD, lpNumberOfCharsWritten: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteConsoleOutputCharacterW(hConsoleOutput: HANDLE, #[len_param(2)] lpCharacter: PCWSTR, nLength: u32, dwWriteCoord: COORD, lpNumberOfCharsWritten: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteConsoleOutputW(hConsoleOutput: HANDLE, lpBuffer: *const CHAR_INFO, dwBufferSize: COORD, dwBufferCoord: COORD, #[in] #[out] lpWriteRegion: *mut SMALL_RECT) -> BOOL;
+    }
+}

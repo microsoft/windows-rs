@@ -1,0 +1,321 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CONTROL_C_EXIT: i32 = -1073741510;
+        const CREATE_PROCESS_DEBUG_EVENT: u32 = 3;
+        struct CREATE_PROCESS_DEBUG_INFO {
+            hFile: HANDLE,
+            hProcess: HANDLE,
+            hThread: HANDLE,
+            lpBaseOfImage: *mut void,
+            dwDebugInfoFileOffset: u32,
+            nDebugInfoSize: u32,
+            lpThreadLocalBase: *mut void,
+            lpStartAddress: LPTHREAD_START_ROUTINE,
+            lpImageName: *mut void,
+            fUnicode: u16,
+        }
+        const CREATE_THREAD_DEBUG_EVENT: u32 = 2;
+        struct CREATE_THREAD_DEBUG_INFO {
+            hThread: HANDLE,
+            lpThreadLocalBase: *mut void,
+            lpStartAddress: LPTHREAD_START_ROUTINE,
+        }
+        type CRITICAL_SECTION = RTL_CRITICAL_SECTION;
+        type CRITICAL_SECTION_DEBUG = RTL_CRITICAL_SECTION_DEBUG;
+        struct DEBUG_EVENT {
+            dwDebugEventCode: u32,
+            dwProcessId: u32,
+            dwThreadId: u32,
+            u: union {
+                Exception: EXCEPTION_DEBUG_INFO,
+                CreateThread: CREATE_THREAD_DEBUG_INFO,
+                CreateProcessInfo: CREATE_PROCESS_DEBUG_INFO,
+                ExitThread: EXIT_THREAD_DEBUG_INFO,
+                ExitProcess: EXIT_PROCESS_DEBUG_INFO,
+                LoadDll: LOAD_DLL_DEBUG_INFO,
+                UnloadDll: UNLOAD_DLL_DEBUG_INFO,
+                DebugString: OUTPUT_DEBUG_STRING_INFO,
+                RipInfo: RIP_INFO,
+            },
+        }
+        const EXCEPTION_ACCESS_VIOLATION: i32 = -1073741819;
+        const EXCEPTION_ARRAY_BOUNDS_EXCEEDED: i32 = -1073741684;
+        const EXCEPTION_BREAKPOINT: i32 = -2147483645;
+        const EXCEPTION_DATATYPE_MISALIGNMENT: i32 = -2147483646;
+        const EXCEPTION_DEBUG_EVENT: u32 = 1;
+        struct EXCEPTION_DEBUG_INFO {
+            ExceptionRecord: EXCEPTION_RECORD,
+            dwFirstChance: u32,
+        }
+        const EXCEPTION_FLT_DENORMAL_OPERAND: i32 = -1073741683;
+        const EXCEPTION_FLT_DIVIDE_BY_ZERO: i32 = -1073741682;
+        const EXCEPTION_FLT_INEXACT_RESULT: i32 = -1073741681;
+        const EXCEPTION_FLT_INVALID_OPERATION: i32 = -1073741680;
+        const EXCEPTION_FLT_OVERFLOW: i32 = -1073741679;
+        const EXCEPTION_FLT_STACK_CHECK: i32 = -1073741678;
+        const EXCEPTION_FLT_UNDERFLOW: i32 = -1073741677;
+        const EXCEPTION_GUARD_PAGE: i32 = -2147483647;
+        const EXCEPTION_ILLEGAL_INSTRUCTION: i32 = -1073741795;
+        const EXCEPTION_INT_DIVIDE_BY_ZERO: i32 = -1073741676;
+        const EXCEPTION_INT_OVERFLOW: i32 = -1073741675;
+        const EXCEPTION_INVALID_DISPOSITION: i32 = -1073741786;
+        const EXCEPTION_INVALID_HANDLE: i32 = -1073741816;
+        const EXCEPTION_IN_PAGE_ERROR: i32 = -1073741818;
+        const EXCEPTION_NONCONTINUABLE_EXCEPTION: i32 = -1073741787;
+        const EXCEPTION_POSSIBLE_DEADLOCK: i32 = -1073741420;
+        const EXCEPTION_PRIV_INSTRUCTION: i32 = -1073741674;
+        const EXCEPTION_SINGLE_STEP: i32 = -2147483644;
+        const EXCEPTION_STACK_OVERFLOW: i32 = -1073741571;
+        const EXIT_PROCESS_DEBUG_EVENT: u32 = 5;
+        struct EXIT_PROCESS_DEBUG_INFO {
+            dwExitCode: u32,
+        }
+        const EXIT_THREAD_DEBUG_EVENT: u32 = 4;
+        struct EXIT_THREAD_DEBUG_INFO {
+            dwExitCode: u32,
+        }
+        #[repr(i32)]
+        enum FILE_INFO_BY_HANDLE_CLASS {
+            FileBasicInfo = 0,
+            FileStandardInfo = 1,
+            FileNameInfo = 2,
+            FileRenameInfo = 3,
+            FileDispositionInfo = 4,
+            FileAllocationInfo = 5,
+            FileEndOfFileInfo = 6,
+            FileStreamInfo = 7,
+            FileCompressionInfo = 8,
+            FileAttributeTagInfo = 9,
+            FileIdBothDirectoryInfo = 10,
+            FileIdBothDirectoryRestartInfo = 11,
+            FileIoPriorityHintInfo = 12,
+            FileRemoteProtocolInfo = 13,
+            FileFullDirectoryInfo = 14,
+            FileFullDirectoryRestartInfo = 15,
+            FileStorageInfo = 16,
+            FileAlignmentInfo = 17,
+            FileIdInfo = 18,
+            FileIdExtdDirectoryInfo = 19,
+            FileIdExtdDirectoryRestartInfo = 20,
+            FileDispositionInfoEx = 21,
+            FileRenameInfoEx = 22,
+            FileCaseSensitiveInfo = 23,
+            FileNormalizedNameInfo = 24,
+            MaximumFileInfoByHandleClass = 25,
+        }
+        #[repr(i32)]
+        enum FILE_INFO_BY_NAME_CLASS {
+            FileStatByNameInfo = 0,
+            FileStatLxByNameInfo = 1,
+            FileCaseSensitiveByNameInfo = 2,
+            FileStatBasicByNameInfo = 3,
+            MaximumFileInfoByNameClass = 4,
+        }
+        #[repr(i32)]
+        enum FINDEX_INFO_LEVELS {
+            FindExInfoStandard = 0,
+            FindExInfoBasic = 1,
+            FindExInfoMaxInfoLevel = 2,
+        }
+        #[repr(i32)]
+        enum FINDEX_SEARCH_OPS {
+            FindExSearchNameMatch = 0,
+            FindExSearchLimitToDirectories = 1,
+            FindExSearchLimitToDevices = 2,
+            FindExSearchMaxSearchOp = 3,
+        }
+        const FIND_FIRST_EX_CASE_SENSITIVE: u32 = 1;
+        const FIND_FIRST_EX_LARGE_FETCH: u32 = 2;
+        const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: u32 = 4;
+        #[repr(i32)]
+        enum GET_FILEEX_INFO_LEVELS {
+            GetFileExInfoStandard = 0,
+            GetFileExMaxInfoLevel = 1,
+        }
+        const LHND: u32 = 66;
+        const LMEM_DISCARDABLE: u32 = 3840;
+        const LMEM_DISCARDED: u32 = 16384;
+        const LMEM_FIXED: u32 = 0;
+        const LMEM_INVALID_HANDLE: u32 = 32768;
+        const LMEM_LOCKCOUNT: u32 = 255;
+        const LMEM_MODIFY: u32 = 128;
+        const LMEM_MOVEABLE: u32 = 2;
+        const LMEM_NOCOMPACT: u32 = 16;
+        const LMEM_NODISCARD: u32 = 32;
+        const LMEM_VALID_FLAGS: u32 = 3954;
+        const LMEM_ZEROINIT: u32 = 64;
+        const LOAD_DLL_DEBUG_EVENT: u32 = 6;
+        struct LOAD_DLL_DEBUG_INFO {
+            hFile: HANDLE,
+            lpBaseOfDll: *mut void,
+            dwDebugInfoFileOffset: u32,
+            nDebugInfoSize: u32,
+            lpImageName: *mut void,
+            fUnicode: u16,
+        }
+        const LOCKFILE_EXCLUSIVE_LOCK: u32 = 2;
+        const LOCKFILE_FAIL_IMMEDIATELY: u32 = 1;
+        type LPCONTEXT = PCONTEXT;
+        type LPCREATE_PROCESS_DEBUG_INFO = *mut CREATE_PROCESS_DEBUG_INFO;
+        type LPCREATE_THREAD_DEBUG_INFO = *mut CREATE_THREAD_DEBUG_INFO;
+        type LPCRITICAL_SECTION = PRTL_CRITICAL_SECTION;
+        type LPCRITICAL_SECTION_DEBUG = PRTL_CRITICAL_SECTION_DEBUG;
+        type LPDEBUG_EVENT = *mut DEBUG_EVENT;
+        type LPENCLAVE_ROUTINE = PENCLAVE_ROUTINE;
+        type LPEXCEPTION_DEBUG_INFO = *mut EXCEPTION_DEBUG_INFO;
+        type LPEXIT_PROCESS_DEBUG_INFO = *mut EXIT_PROCESS_DEBUG_INFO;
+        type LPEXIT_THREAD_DEBUG_INFO = *mut EXIT_THREAD_DEBUG_INFO;
+        type LPLOAD_DLL_DEBUG_INFO = *mut LOAD_DLL_DEBUG_INFO;
+        type LPOUTPUT_DEBUG_STRING_INFO = *mut OUTPUT_DEBUG_STRING_INFO;
+        type LPOVERLAPPED = *mut OVERLAPPED;
+        extern fn LPOVERLAPPED_COMPLETION_ROUTINE(dwErrorCode: u32, dwNumberOfBytesTransfered: u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED);
+        type LPOVERLAPPED_ENTRY = *mut OVERLAPPED_ENTRY;
+        type LPPROCESS_HEAP_ENTRY = *mut PROCESS_HEAP_ENTRY;
+        type LPRIP_INFO = *mut RIP_INFO;
+        type LPSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
+        type LPSYSTEMTIME = *mut SYSTEMTIME;
+        type LPTHREAD_START_ROUTINE = PTHREAD_START_ROUTINE;
+        const LPTR: u32 = 64;
+        type LPUNLOAD_DLL_DEBUG_INFO = *mut UNLOAD_DLL_DEBUG_INFO;
+        type LPWIN32_FIND_DATA = LPWIN32_FIND_DATAA;
+        type LPWIN32_FIND_DATAA = *mut WIN32_FIND_DATAA;
+        type LPWIN32_FIND_DATAW = *mut WIN32_FIND_DATAW;
+        const NONZEROLHND: u32 = 2;
+        const NONZEROLPTR: u32 = 0;
+        const NUMA_NO_PREFERRED_NODE: u32 = 4294967295;
+        const OUTPUT_DEBUG_STRING_EVENT: u32 = 8;
+        struct OUTPUT_DEBUG_STRING_INFO {
+            lpDebugStringData: PSTR,
+            fUnicode: u16,
+            nDebugStringLength: u16,
+        }
+        struct OVERLAPPED {
+            Internal: usize,
+            InternalHigh: usize,
+            Anonymous: union {
+                Anonymous: struct {
+                    Offset: u32,
+                    OffsetHigh: u32,
+                },
+                Pointer: *mut void,
+            },
+            hEvent: HANDLE,
+        }
+        struct OVERLAPPED_ENTRY {
+            lpCompletionKey: usize,
+            lpOverlapped: LPOVERLAPPED,
+            Internal: usize,
+            dwNumberOfBytesTransferred: u32,
+        }
+        type PCRITICAL_SECTION = PRTL_CRITICAL_SECTION;
+        type PCRITICAL_SECTION_DEBUG = PRTL_CRITICAL_SECTION_DEBUG;
+        extern fn PENCLAVE_ROUTINE(lpThreadParameter: *mut void) -> *mut void;
+        type PFILE_INFO_BY_HANDLE_CLASS = *mut FILE_INFO_BY_HANDLE_CLASS;
+        type PFILE_INFO_BY_NAME_CLASS = *mut FILE_INFO_BY_NAME_CLASS;
+        type PPROCESS_HEAP_ENTRY = *mut PROCESS_HEAP_ENTRY;
+        type PREAD_DIRECTORY_NOTIFY_INFORMATION_CLASS = *mut READ_DIRECTORY_NOTIFY_INFORMATION_CLASS;
+        type PREASON_CONTEXT = *mut REASON_CONTEXT;
+        struct PROCESS_HEAP_ENTRY {
+            lpData: *mut void,
+            cbData: u32,
+            cbOverhead: u8,
+            iRegionIndex: u8,
+            wFlags: u16,
+            Anonymous: union {
+                Block: struct {
+                    hMem: HANDLE,
+                    dwReserved: [u32; 3],
+                },
+                Region: struct {
+                    dwCommittedSize: u32,
+                    dwUnCommittedSize: u32,
+                    lpFirstBlock: *mut void,
+                    lpLastBlock: *mut void,
+                },
+            },
+        }
+        const PROCESS_HEAP_ENTRY_BUSY: u32 = 4;
+        const PROCESS_HEAP_ENTRY_DDESHARE: u32 = 32;
+        const PROCESS_HEAP_ENTRY_MOVEABLE: u32 = 16;
+        const PROCESS_HEAP_REGION: u32 = 1;
+        const PROCESS_HEAP_SEG_ALLOC: u32 = 8;
+        const PROCESS_HEAP_UNCOMMITTED_RANGE: u32 = 2;
+        type PSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
+        type PSYSTEMTIME = *mut SYSTEMTIME;
+        extern fn PTHREAD_START_ROUTINE(lpThreadParameter: *mut void) -> u32;
+        type PWIN32_FIND_DATA = PWIN32_FIND_DATAA;
+        type PWIN32_FIND_DATAA = *mut WIN32_FIND_DATAA;
+        type PWIN32_FIND_DATAW = *mut WIN32_FIND_DATAW;
+        #[repr(i32)]
+        enum READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
+            ReadDirectoryNotifyInformation = 1,
+            ReadDirectoryNotifyExtendedInformation = 2,
+            ReadDirectoryNotifyFullInformation = 3,
+            ReadDirectoryNotifyMaximumInformation = 4,
+        }
+        struct REASON_CONTEXT {
+            Version: u32,
+            Flags: u32,
+            Reason: union {
+                Detailed: struct {
+                    LocalizedReasonModule: HMODULE,
+                    LocalizedReasonId: u32,
+                    ReasonStringCount: u32,
+                    ReasonStrings: *mut PWSTR,
+                },
+                SimpleReasonString: PWSTR,
+            },
+        }
+        const RIP_EVENT: u32 = 9;
+        struct RIP_INFO {
+            dwError: u32,
+            dwType: u32,
+        }
+        struct SECURITY_ATTRIBUTES {
+            nLength: u32,
+            lpSecurityDescriptor: *mut void,
+            bInheritHandle: BOOL,
+        }
+        const STILL_ACTIVE: u32 = 259;
+        struct SYSTEMTIME {
+            wYear: u16,
+            wMonth: u16,
+            wDayOfWeek: u16,
+            wDay: u16,
+            wHour: u16,
+            wMinute: u16,
+            wSecond: u16,
+            wMilliseconds: u16,
+        }
+        const UNLOAD_DLL_DEBUG_EVENT: u32 = 7;
+        struct UNLOAD_DLL_DEBUG_INFO {
+            lpBaseOfDll: *mut void,
+        }
+        type WIN32_FIND_DATA = WIN32_FIND_DATAA;
+        struct WIN32_FIND_DATAA {
+            dwFileAttributes: u32,
+            ftCreationTime: FILETIME,
+            ftLastAccessTime: FILETIME,
+            ftLastWriteTime: FILETIME,
+            nFileSizeHigh: u32,
+            nFileSizeLow: u32,
+            dwReserved0: u32,
+            dwReserved1: u32,
+            cFileName: [i8; 260],
+            cAlternateFileName: [i8; 14],
+        }
+        struct WIN32_FIND_DATAW {
+            dwFileAttributes: u32,
+            ftCreationTime: FILETIME,
+            ftLastAccessTime: FILETIME,
+            ftLastWriteTime: FILETIME,
+            nFileSizeHigh: u32,
+            nFileSizeLow: u32,
+            dwReserved0: u32,
+            dwReserved1: u32,
+            cFileName: [u16; 260],
+            cAlternateFileName: [u16; 14],
+        }
+    }
+}

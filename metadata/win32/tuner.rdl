@@ -1,0 +1,910 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ATSCChannelTuneRequest: GUID = 0x0369b4e6_45b6_11d3_b650_00c04f79498e;
+        const ATSCComponentType: GUID = 0xa8dcf3d5_0780_4ef4_8a83_2cffaacb8ace;
+        const ATSCLocator: GUID = 0x8872ff1b_98fa_4d7a_8d93_c9f1055f85bb;
+        const ATSCTuningSpace: GUID = 0xa2e30750_6c3d_11d3_b653_00c04f79498e;
+        const AnalogAudioComponentType: GUID = 0x28ab0005_e845_4ffa_aa9b_f4665236141c;
+        const AnalogLocator: GUID = 0x49638b91_48ab_48b7_a47a_7d0e75a08ede;
+        const AnalogRadioTuningSpace: GUID = 0x8a674b4c_1f63_11d3_b64c_00c04f79498e;
+        const AnalogTVTuningSpace: GUID = 0x8a674b4d_1f63_11d3_b64c_00c04f79498e;
+        const AuxInTuningSpace: GUID = 0xf9769a06_7aca_4e39_9cfb_97bb35f0e77e;
+        const BroadcastEventService: GUID = 0x0b3ffb92_0919_4934_9d5b_619c719d0202;
+        const ChannelIDTuneRequest: GUID = 0x3a9428a7_31a4_45e9_9efb_e055bf7bb3db;
+        const ChannelIDTuningSpace: GUID = 0xcc829a2f_3365_463f_af13_81dbb6f3a555;
+        const ChannelTuneRequest: GUID = 0x0369b4e5_45b6_11d3_b650_00c04f79498e;
+        const Component: GUID = 0x59dc47a8_116c_11d3_9d8e_00c04f72d980;
+        const ComponentType: GUID = 0x823535a0_0318_11d3_9d8e_00c04f72d980;
+        const ComponentTypes: GUID = 0xa1a2b1c4_0e3a_11d3_9d8e_00c04f72d980;
+        const Components: GUID = 0x809b6661_94c4_49e6_b6ec_3f0f862215aa;
+        const CreatePropBagOnRegKey: GUID = 0x8a674b49_1f63_11d3_b64c_00c04f79498e;
+        const DISPID_CHTUNER_ACTR_MINOR_CHANNEL: i32 = 201;
+        const DISPID_CHTUNER_ATVAC_CHANNEL: i32 = 101;
+        const DISPID_CHTUNER_ATVDC_CONTENT: i32 = 102;
+        const DISPID_CHTUNER_ATVDC_SYSTEM: i32 = 101;
+        const DISPID_CHTUNER_CIDTR_CHANNELID: i32 = 101;
+        const DISPID_CHTUNER_CTR_CHANNEL: i32 = 101;
+        const DISPID_CHTUNER_DCTR_MAJOR_CHANNEL: i32 = 301;
+        const DISPID_CHTUNER_DCTR_SRCID: i32 = 302;
+        const DISPID_DVBTUNER_DVBC_ATTRIBUTESVALID: i32 = 101;
+        const DISPID_DVBTUNER_DVBC_COMPONENTTYPE: i32 = 104;
+        const DISPID_DVBTUNER_DVBC_PID: i32 = 102;
+        const DISPID_DVBTUNER_DVBC_TAG: i32 = 103;
+        const DISPID_DVBTUNER_ONID: i32 = 101;
+        const DISPID_DVBTUNER_SID: i32 = 103;
+        const DISPID_DVBTUNER_TSID: i32 = 102;
+        const DISPID_MP2TUNERFACTORY_CREATETUNEREQUEST: i32 = 1;
+        const DISPID_MP2TUNER_PROGNO: i32 = 102;
+        const DISPID_MP2TUNER_TSID: i32 = 101;
+        const DISPID_TUNER_ATSCCT_FLAGS: i32 = 300;
+        const DISPID_TUNER_CT_CATEGORY: i32 = 1;
+        const DISPID_TUNER_CT_CLONE: i32 = 9;
+        const DISPID_TUNER_CT_MEDIAFORMATTYPE: i32 = 6;
+        const DISPID_TUNER_CT_MEDIAMAJORTYPE: i32 = 2;
+        const DISPID_TUNER_CT_MEDIASUBTYPE: i32 = 4;
+        const DISPID_TUNER_CT_MEDIATYPE: i32 = 8;
+        const DISPID_TUNER_CT__MEDIAFORMATTYPE: i32 = 7;
+        const DISPID_TUNER_CT__MEDIAMAJORTYPE: i32 = 3;
+        const DISPID_TUNER_CT__MEDIASUBTYPE: i32 = 5;
+        const DISPID_TUNER_C_ANALOG_AUDIO: i32 = 201;
+        const DISPID_TUNER_C_CLONE: i32 = 5;
+        const DISPID_TUNER_C_DESCRIPTION: i32 = 4;
+        const DISPID_TUNER_C_LANGID: i32 = 3;
+        const DISPID_TUNER_C_MP2_PCRPID: i32 = 102;
+        const DISPID_TUNER_C_MP2_PID: i32 = 101;
+        const DISPID_TUNER_C_MP2_PROGNO: i32 = 103;
+        const DISPID_TUNER_C_STATUS: i32 = 2;
+        const DISPID_TUNER_C_TYPE: i32 = 1;
+        const DISPID_TUNER_LCT_LANGID: i32 = 100;
+        const DISPID_TUNER_L_ANALOG_STANDARD: i32 = 601;
+        const DISPID_TUNER_L_ATSC_MP2_PROGNO: i32 = 203;
+        const DISPID_TUNER_L_ATSC_PHYS_CHANNEL: i32 = 201;
+        const DISPID_TUNER_L_ATSC_TSID: i32 = 202;
+        const DISPID_TUNER_L_CARRFREQ: i32 = 1;
+        const DISPID_TUNER_L_CLONE: i32 = 8;
+        const DISPID_TUNER_L_DTV_O_MAJOR_CHANNEL: i32 = 701;
+        const DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE: i32 = 406;
+        const DISPID_TUNER_L_DVBS2_PILOT: i32 = 412;
+        const DISPID_TUNER_L_DVBS2_ROLLOFF: i32 = 411;
+        const DISPID_TUNER_L_DVBS_AZIMUTH: i32 = 404;
+        const DISPID_TUNER_L_DVBS_ELEVATION: i32 = 405;
+        const DISPID_TUNER_L_DVBS_ORBITAL: i32 = 403;
+        const DISPID_TUNER_L_DVBS_POLARISATION: i32 = 401;
+        const DISPID_TUNER_L_DVBS_WEST: i32 = 402;
+        const DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID: i32 = 351;
+        const DISPID_TUNER_L_DVBT_BANDWIDTH: i32 = 301;
+        const DISPID_TUNER_L_DVBT_GUARDINTERVAL: i32 = 304;
+        const DISPID_TUNER_L_DVBT_HALPHA: i32 = 305;
+        const DISPID_TUNER_L_DVBT_INUSE: i32 = 307;
+        const DISPID_TUNER_L_DVBT_LPINNERFECMETHOD: i32 = 302;
+        const DISPID_TUNER_L_DVBT_LPINNERFECRATE: i32 = 303;
+        const DISPID_TUNER_L_DVBT_TRANSMISSIONMODE: i32 = 306;
+        const DISPID_TUNER_L_INNERFECMETHOD: i32 = 2;
+        const DISPID_TUNER_L_INNERFECRATE: i32 = 3;
+        const DISPID_TUNER_L_MOD: i32 = 6;
+        const DISPID_TUNER_L_OUTERFECMETHOD: i32 = 4;
+        const DISPID_TUNER_L_OUTERFECRATE: i32 = 5;
+        const DISPID_TUNER_L_SYMRATE: i32 = 7;
+        const DISPID_TUNER_MP2CT_TYPE: i32 = 200;
+        const DISPID_TUNER_TR_CLONE: i32 = 3;
+        const DISPID_TUNER_TR_COMPONENTS: i32 = 2;
+        const DISPID_TUNER_TR_LOCATOR: i32 = 4;
+        const DISPID_TUNER_TR_TUNINGSPACE: i32 = 1;
+        const DISPID_TUNER_TS_AR_COUNTRYCODE: i32 = 104;
+        const DISPID_TUNER_TS_AR_MAXFREQUENCY: i32 = 102;
+        const DISPID_TUNER_TS_AR_MINFREQUENCY: i32 = 101;
+        const DISPID_TUNER_TS_AR_STEP: i32 = 103;
+        const DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL: i32 = 202;
+        const DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL: i32 = 204;
+        const DISPID_TUNER_TS_ATSC_MINMINORCHANNEL: i32 = 201;
+        const DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL: i32 = 203;
+        const DISPID_TUNER_TS_ATV_COUNTRYCODE: i32 = 104;
+        const DISPID_TUNER_TS_ATV_INPUTTYPE: i32 = 103;
+        const DISPID_TUNER_TS_ATV_MAXCHANNEL: i32 = 102;
+        const DISPID_TUNER_TS_ATV_MINCHANNEL: i32 = 101;
+        const DISPID_TUNER_TS_AUX_COUNTRYCODE: i32 = 101;
+        const DISPID_TUNER_TS_CLONE: i32 = 12;
+        const DISPID_TUNER_TS_CLSID: i32 = 3;
+        const DISPID_TUNER_TS_CREATETUNEREQUEST: i32 = 6;
+        const DISPID_TUNER_TS_DC_MAXMAJORCHANNEL: i32 = 302;
+        const DISPID_TUNER_TS_DC_MAXSOURCEID: i32 = 304;
+        const DISPID_TUNER_TS_DC_MINMAJORCHANNEL: i32 = 301;
+        const DISPID_TUNER_TS_DC_MINSOURCEID: i32 = 303;
+        const DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES: i32 = 9;
+        const DISPID_TUNER_TS_DEFLOCATOR: i32 = 11;
+        const DISPID_TUNER_TS_DVB2_NETWORK_ID: i32 = 102;
+        const DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE: i32 = 408;
+        const DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE: i32 = 409;
+        const DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE: i32 = 407;
+        const DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE: i32 = 410;
+        const DISPID_TUNER_TS_DVBS_HI_OSC_FREQ: i32 = 1002;
+        const DISPID_TUNER_TS_DVBS_INPUT_RANGE: i32 = 1004;
+        const DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ: i32 = 1003;
+        const DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ: i32 = 1001;
+        const DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION: i32 = 1005;
+        const DISPID_TUNER_TS_DVB_SYSTEMTYPE: i32 = 101;
+        const DISPID_TUNER_TS_ENUMCATEGORYGUIDS: i32 = 7;
+        const DISPID_TUNER_TS_ENUMDEVICEMONIKERS: i32 = 8;
+        const DISPID_TUNER_TS_FREQMAP: i32 = 10;
+        const DISPID_TUNER_TS_FRIENDLYNAME: i32 = 2;
+        const DISPID_TUNER_TS_NETWORKTYPE: i32 = 4;
+        const DISPID_TUNER_TS_UNIQUENAME: i32 = 1;
+        const DISPID_TUNER_TS__NETWORKTYPE: i32 = 5;
+        const DVBCLocator: GUID = 0xc531d9fd_9685_4028_8b68_6e1232079f1e;
+        const DVBSLocator: GUID = 0x1df7d126_4050_47f0_a7cf_4c4ca9241333;
+        const DVBSTuningSpace: GUID = 0xb64016f3_c9a2_4066_96f0_bd9563314726;
+        const DVBTLocator: GUID = 0x9cd64701_bdf3_4d14_8e03_f12983d86664;
+        const DVBTLocator2: GUID = 0xefe3fa02_45d7_4920_be96_53fa7f35b0e6;
+        const DVBTuneRequest: GUID = 0x15d6504a_5494_499c_886c_973c9e53b9f1;
+        const DVBTuningSpace: GUID = 0xc6b14b32_76aa_4a86_a7ac_5c79aaf58da7;
+        const DigitalCableLocator: GUID = 0x03c06416_d127_407a_ab4c_fdd279abbe5d;
+        const DigitalCableTuneRequest: GUID = 0x26ec0b63_aa90_458a_8df4_5659f2c8a18a;
+        const DigitalCableTuningSpace: GUID = 0xd9bb4cee_b87a_47f1_ac92_b08d9c7813fc;
+        const DigitalLocator: GUID = 0x6e50cc0d_c19b_4bf6_810b_5bd60761f5cc;
+        const ESEventFactory: GUID = 0x8e8a07da_71f8_40c1_a929_5e3a868ac2c6;
+        const ESEventService: GUID = 0xc20447fc_ec60_475e_813f_d2b0a6decefe;
+        #[guid(0x0369b4e1_45b6_11d3_b650_00c04f79498e)]
+        interface IATSCChannelTuneRequest: IChannelTuneRequest {
+            #[special]
+            fn get_MinorChannel(&self, #[retval] MinorChannel: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinorChannel(&self, MinorChannel: i32) -> HRESULT;
+        }
+        #[guid(0xfc189e4d_7bd4_4125_b3b3_3a76a332cc96)]
+        interface IATSCComponentType: IMPEG2ComponentType {
+            #[special]
+            fn get_Flags(&self, #[retval] Flags: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Flags(&self, flags: i32) -> HRESULT;
+        }
+        #[guid(0xbf8d986f_8c2b_4131_94d7_4d3d9fcc21ef)]
+        interface IATSCLocator: IDigitalLocator {
+            #[special]
+            fn get_PhysicalChannel(&self, #[retval] PhysicalChannel: *mut i32) -> HRESULT;
+            #[special]
+            fn put_PhysicalChannel(&self, PhysicalChannel: i32) -> HRESULT;
+            #[special]
+            fn get_TSID(&self, #[retval] TSID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_TSID(&self, TSID: i32) -> HRESULT;
+        }
+        #[guid(0x612aa885_66cf_4090_ba0a_566f5312e4ca)]
+        interface IATSCLocator2: IATSCLocator {
+            #[special]
+            fn get_ProgramNumber(&self, #[retval] ProgramNumber: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ProgramNumber(&self, ProgramNumber: i32) -> HRESULT;
+        }
+        #[guid(0x0369b4e2_45b6_11d3_b650_00c04f79498e)]
+        interface IATSCTuningSpace: IAnalogTVTuningSpace {
+            #[special]
+            fn get_MinMinorChannel(&self, #[retval] MinMinorChannelVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinMinorChannel(&self, NewMinMinorChannelVal: i32) -> HRESULT;
+            #[special]
+            fn get_MaxMinorChannel(&self, #[retval] MaxMinorChannelVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxMinorChannel(&self, NewMaxMinorChannelVal: i32) -> HRESULT;
+            #[special]
+            fn get_MinPhysicalChannel(&self, #[retval] MinPhysicalChannelVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinPhysicalChannel(&self, NewMinPhysicalChannelVal: i32) -> HRESULT;
+            #[special]
+            fn get_MaxPhysicalChannel(&self, #[retval] MaxPhysicalChannelVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxPhysicalChannel(&self, NewMaxPhysicalChannelVal: i32) -> HRESULT;
+        }
+        #[guid(0x2cfeb2a8_1787_4a24_a941_c6eaec39c842)]
+        interface IAnalogAudioComponentType: IComponentType {
+            #[special]
+            fn get_AnalogAudioMode(&self, #[retval] Mode: *mut TVAudioMode) -> HRESULT;
+            #[special]
+            fn put_AnalogAudioMode(&self, Mode: TVAudioMode) -> HRESULT;
+        }
+        #[guid(0x34d1f26b_e339_430d_abce_738cb48984dc)]
+        interface IAnalogLocator: ILocator {
+            #[special]
+            fn get_VideoStandard(&self, #[retval] AVS: *mut AnalogVideoStandard) -> HRESULT;
+            #[special]
+            fn put_VideoStandard(&self, AVS: AnalogVideoStandard) -> HRESULT;
+        }
+        #[guid(0x2a6e293b_2595_11d3_b64c_00c04f79498e)]
+        interface IAnalogRadioTuningSpace: ITuningSpace {
+            #[special]
+            fn get_MinFrequency(&self, #[retval] MinFrequencyVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinFrequency(&self, NewMinFrequencyVal: i32) -> HRESULT;
+            #[special]
+            fn get_MaxFrequency(&self, #[retval] MaxFrequencyVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxFrequency(&self, NewMaxFrequencyVal: i32) -> HRESULT;
+            #[special]
+            fn get_Step(&self, #[retval] StepVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Step(&self, NewStepVal: i32) -> HRESULT;
+        }
+        #[guid(0x39dd45da_2da8_46ba_8a8a_87e2b73d983a)]
+        interface IAnalogRadioTuningSpace2: IAnalogRadioTuningSpace {
+            #[special]
+            fn get_CountryCode(&self, #[retval] CountryCodeVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_CountryCode(&self, NewCountryCodeVal: i32) -> HRESULT;
+        }
+        #[guid(0x2a6e293c_2595_11d3_b64c_00c04f79498e)]
+        interface IAnalogTVTuningSpace: ITuningSpace {
+            #[special]
+            fn get_MinChannel(&self, #[retval] MinChannelVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinChannel(&self, NewMinChannelVal: i32) -> HRESULT;
+            #[special]
+            fn get_MaxChannel(&self, #[retval] MaxChannelVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxChannel(&self, NewMaxChannelVal: i32) -> HRESULT;
+            #[special]
+            fn get_InputType(&self, #[retval] InputTypeVal: *mut TunerInputType) -> HRESULT;
+            #[special]
+            fn put_InputType(&self, NewInputTypeVal: TunerInputType) -> HRESULT;
+            #[special]
+            fn get_CountryCode(&self, #[retval] CountryCodeVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_CountryCode(&self, NewCountryCodeVal: i32) -> HRESULT;
+        }
+        #[guid(0xe48244b8_7e17_4f76_a763_5090ff1e2f30)]
+        interface IAuxInTuningSpace: ITuningSpace {}
+        #[guid(0xb10931ed_8bfe_4ab0_9dce_e469c29a9729)]
+        interface IAuxInTuningSpace2: IAuxInTuningSpace {
+            #[special]
+            fn get_CountryCode(&self, #[retval] CountryCodeVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_CountryCode(&self, NewCountryCodeVal: i32) -> HRESULT;
+        }
+        #[guid(0xb34505e0_2f0e_497b_80bc_d43f3b24ed7f)]
+        interface IBDAComparable: IUnknown {
+            fn CompareExact(&self, CompareTo: IDispatch, #[retval] Result: *mut i32) -> HRESULT;
+            fn CompareEquivalent(&self, CompareTo: IDispatch, dwFlags: u32, #[retval] Result: *mut i32) -> HRESULT;
+            fn HashExact(&self, #[retval] Result: *mut i64) -> HRESULT;
+            fn HashExactIncremental(&self, PartialResult: i64, #[retval] Result: *mut i64) -> HRESULT;
+            fn HashEquivalent(&self, dwFlags: u32, #[retval] Result: *mut i64) -> HRESULT;
+            fn HashEquivalentIncremental(&self, PartialResult: i64, dwFlags: u32, #[retval] Result: *mut i64) -> HRESULT;
+        }
+        #[guid(0xc0a4a1d4_2b3c_491a_ba22_499fbadd4d12)]
+        interface IBDACreateTuneRequestEx: IUnknown {
+            fn CreateTuneRequestEx(&self, TuneRequestIID: *const GUID, #[retval] TuneRequest: *mut ITuneRequest) -> HRESULT;
+        }
+        #[guid(0x156eff60_86f4_4e28_89fc_109799fd57ee)]
+        interface IChannelIDTuneRequest: ITuneRequest {
+            #[special]
+            fn get_ChannelID(&self, #[retval] ChannelID: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ChannelID(&self, ChannelID: BSTR) -> HRESULT;
+        }
+        #[guid(0x0369b4e0_45b6_11d3_b650_00c04f79498e)]
+        interface IChannelTuneRequest: ITuneRequest {
+            #[special]
+            fn get_Channel(&self, #[retval] Channel: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Channel(&self, Channel: i32) -> HRESULT;
+        }
+        #[guid(0x1a5576fc_0e19_11d3_9d8e_00c04f72d980)]
+        interface IComponent: IDispatch {
+            #[special]
+            fn get_Type(&self, #[retval] CT: *mut IComponentType) -> HRESULT;
+            #[special]
+            fn put_Type(&self, CT: IComponentType) -> HRESULT;
+            #[special]
+            fn get_DescLangID(&self, #[retval] LangID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_DescLangID(&self, LangID: i32) -> HRESULT;
+            #[special]
+            fn get_Status(&self, #[retval] Status: *mut ComponentStatus) -> HRESULT;
+            #[special]
+            fn put_Status(&self, Status: ComponentStatus) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] Description: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, Description: BSTR) -> HRESULT;
+            fn Clone(&self, #[retval] NewComponent: *mut IComponent) -> HRESULT;
+        }
+        #[guid(0x6a340dc0_0311_11d3_9d8e_00c04f72d980)]
+        interface IComponentType: IDispatch {
+            #[special]
+            fn get_Category(&self, #[retval] Category: *mut ComponentCategory) -> HRESULT;
+            #[special]
+            fn put_Category(&self, Category: ComponentCategory) -> HRESULT;
+            #[special]
+            fn get_MediaMajorType(&self, #[retval] MediaMajorType: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_MediaMajorType(&self, MediaMajorType: BSTR) -> HRESULT;
+            #[special]
+            fn get__MediaMajorType(&self, #[retval] MediaMajorTypeGuid: *mut GUID) -> HRESULT;
+            #[special]
+            fn put__MediaMajorType(&self, MediaMajorTypeGuid: *const GUID) -> HRESULT;
+            #[special]
+            fn get_MediaSubType(&self, #[retval] MediaSubType: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_MediaSubType(&self, MediaSubType: BSTR) -> HRESULT;
+            #[special]
+            fn get__MediaSubType(&self, #[retval] MediaSubTypeGuid: *mut GUID) -> HRESULT;
+            #[special]
+            fn put__MediaSubType(&self, MediaSubTypeGuid: *const GUID) -> HRESULT;
+            #[special]
+            fn get_MediaFormatType(&self, #[retval] MediaFormatType: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_MediaFormatType(&self, MediaFormatType: BSTR) -> HRESULT;
+            #[special]
+            fn get__MediaFormatType(&self, #[retval] MediaFormatTypeGuid: *mut GUID) -> HRESULT;
+            #[special]
+            fn put__MediaFormatType(&self, MediaFormatTypeGuid: *const GUID) -> HRESULT;
+            #[special]
+            fn get_MediaType(&self, #[retval] MediaType: *mut AM_MEDIA_TYPE) -> HRESULT;
+            #[special]
+            fn put_MediaType(&self, MediaType: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn Clone(&self, #[retval] NewCT: *mut IComponentType) -> HRESULT;
+        }
+        #[guid(0x0dc13d4a_0313_11d3_9d8e_00c04f72d980)]
+        interface IComponentTypes: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppNewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn EnumComponentTypes(&self, #[retval] ppNewEnum: *mut IEnumComponentTypes) -> HRESULT;
+            #[special]
+            fn get_Item(&self, Index: VARIANT, #[retval] ComponentType: *mut IComponentType) -> HRESULT;
+            #[special]
+            fn put_Item(&self, Index: VARIANT, ComponentType: IComponentType) -> HRESULT;
+            fn Add(&self, ComponentType: IComponentType, #[retval] NewIndex: *mut VARIANT) -> HRESULT;
+            fn Remove(&self, Index: VARIANT) -> HRESULT;
+            fn Clone(&self, #[retval] NewList: *mut IComponentTypes) -> HRESULT;
+        }
+        #[guid(0x39a48091_fffe_4182_a161_3ff802640e26)]
+        interface IComponents: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppNewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn EnumComponents(&self, #[retval] ppNewEnum: *mut IEnumComponents) -> HRESULT;
+            #[special]
+            fn get_Item(&self, Index: VARIANT, #[retval] ppComponent: *mut IComponent) -> HRESULT;
+            fn Add(&self, Component: IComponent, #[retval] NewIndex: *mut VARIANT) -> HRESULT;
+            fn Remove(&self, Index: VARIANT) -> HRESULT;
+            fn Clone(&self, #[retval] NewList: *mut IComponents) -> HRESULT;
+            #[special]
+            fn put_Item(&self, Index: VARIANT, ppComponent: IComponent) -> HRESULT;
+        }
+        #[guid(0xfcd01846_0e19_11d3_9d8e_00c04f72d980)]
+        interface IComponentsOld: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppNewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn EnumComponents(&self, #[retval] ppNewEnum: *mut IEnumComponents) -> HRESULT;
+            #[special]
+            fn get_Item(&self, Index: VARIANT, #[retval] ppComponent: *mut IComponent) -> HRESULT;
+            fn Add(&self, Component: IComponent, #[retval] NewIndex: *mut VARIANT) -> HRESULT;
+            fn Remove(&self, Index: VARIANT) -> HRESULT;
+            fn Clone(&self, #[retval] NewList: *mut IComponents) -> HRESULT;
+        }
+        #[guid(0x6e42f36e_1dd2_43c4_9f78_69d25ae39034)]
+        interface IDVBCLocator: IDigitalLocator {}
+        #[guid(0x3d7c353c_0d04_45f1_a742_f97cc1188dc8)]
+        interface IDVBSLocator: IDigitalLocator {
+            #[special]
+            fn get_SignalPolarisation(&self, #[retval] PolarisationVal: *mut Polarisation) -> HRESULT;
+            #[special]
+            fn put_SignalPolarisation(&self, PolarisationVal: Polarisation) -> HRESULT;
+            #[special]
+            fn get_WestPosition(&self, #[retval] WestLongitude: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_WestPosition(&self, WestLongitude: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_OrbitalPosition(&self, #[retval] longitude: *mut i32) -> HRESULT;
+            #[special]
+            fn put_OrbitalPosition(&self, longitude: i32) -> HRESULT;
+            #[special]
+            fn get_Azimuth(&self, #[retval] Azimuth: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Azimuth(&self, Azimuth: i32) -> HRESULT;
+            #[special]
+            fn get_Elevation(&self, #[retval] Elevation: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Elevation(&self, Elevation: i32) -> HRESULT;
+        }
+        #[guid(0x6044634a_1733_4f99_b982_5fb12afce4f0)]
+        interface IDVBSLocator2: IDVBSLocator {
+            #[special]
+            fn get_DiseqLNBSource(&self, #[retval] DiseqLNBSourceVal: *mut LNB_Source) -> HRESULT;
+            #[special]
+            fn put_DiseqLNBSource(&self, DiseqLNBSourceVal: LNB_Source) -> HRESULT;
+            #[special]
+            fn get_LocalOscillatorOverrideLow(&self, #[retval] LocalOscillatorOverrideLowVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_LocalOscillatorOverrideLow(&self, LocalOscillatorOverrideLowVal: i32) -> HRESULT;
+            #[special]
+            fn get_LocalOscillatorOverrideHigh(&self, #[retval] LocalOscillatorOverrideHighVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_LocalOscillatorOverrideHigh(&self, LocalOscillatorOverrideHighVal: i32) -> HRESULT;
+            #[special]
+            fn get_LocalLNBSwitchOverride(&self, #[retval] LocalLNBSwitchOverrideVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_LocalLNBSwitchOverride(&self, LocalLNBSwitchOverrideVal: i32) -> HRESULT;
+            #[special]
+            fn get_LocalSpectralInversionOverride(&self, #[retval] LocalSpectralInversionOverrideVal: *mut SpectralInversion) -> HRESULT;
+            #[special]
+            fn put_LocalSpectralInversionOverride(&self, LocalSpectralInversionOverrideVal: SpectralInversion) -> HRESULT;
+            #[special]
+            fn get_SignalRollOff(&self, #[retval] RollOffVal: *mut RollOff) -> HRESULT;
+            #[special]
+            fn put_SignalRollOff(&self, RollOffVal: RollOff) -> HRESULT;
+            #[special]
+            fn get_SignalPilot(&self, #[retval] PilotVal: *mut Pilot) -> HRESULT;
+            #[special]
+            fn put_SignalPilot(&self, PilotVal: Pilot) -> HRESULT;
+        }
+        #[guid(0xcdf7be60_d954_42fd_a972_78971958e470)]
+        interface IDVBSTuningSpace: IDVBTuningSpace2 {
+            #[special]
+            fn get_LowOscillator(&self, #[retval] LowOscillator: *mut i32) -> HRESULT;
+            #[special]
+            fn put_LowOscillator(&self, LowOscillator: i32) -> HRESULT;
+            #[special]
+            fn get_HighOscillator(&self, #[retval] HighOscillator: *mut i32) -> HRESULT;
+            #[special]
+            fn put_HighOscillator(&self, HighOscillator: i32) -> HRESULT;
+            #[special]
+            fn get_LNBSwitch(&self, #[retval] LNBSwitch: *mut i32) -> HRESULT;
+            #[special]
+            fn put_LNBSwitch(&self, LNBSwitch: i32) -> HRESULT;
+            #[special]
+            fn get_InputRange(&self, #[retval] InputRange: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_InputRange(&self, InputRange: BSTR) -> HRESULT;
+            #[special]
+            fn get_SpectralInversion(&self, #[retval] SpectralInversionVal: *mut SpectralInversion) -> HRESULT;
+            #[special]
+            fn put_SpectralInversion(&self, SpectralInversionVal: SpectralInversion) -> HRESULT;
+        }
+        #[guid(0x8664da16_dda2_42ac_926a_c18f9127c302)]
+        interface IDVBTLocator: IDigitalLocator {
+            #[special]
+            fn get_Bandwidth(&self, #[retval] BandWidthVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Bandwidth(&self, BandwidthVal: i32) -> HRESULT;
+            #[special]
+            fn get_LPInnerFEC(&self, #[retval] FEC: *mut FECMethod) -> HRESULT;
+            #[special]
+            fn put_LPInnerFEC(&self, FEC: FECMethod) -> HRESULT;
+            #[special]
+            fn get_LPInnerFECRate(&self, #[retval] FEC: *mut BinaryConvolutionCodeRate) -> HRESULT;
+            #[special]
+            fn put_LPInnerFECRate(&self, FEC: BinaryConvolutionCodeRate) -> HRESULT;
+            #[special]
+            fn get_HAlpha(&self, #[retval] Alpha: *mut HierarchyAlpha) -> HRESULT;
+            #[special]
+            fn put_HAlpha(&self, Alpha: HierarchyAlpha) -> HRESULT;
+            #[special]
+            fn get_Guard(&self, #[retval] GI: *mut GuardInterval) -> HRESULT;
+            #[special]
+            fn put_Guard(&self, GI: GuardInterval) -> HRESULT;
+            #[special]
+            fn get_Mode(&self, #[retval] mode: *mut TransmissionMode) -> HRESULT;
+            #[special]
+            fn put_Mode(&self, mode: TransmissionMode) -> HRESULT;
+            #[special]
+            fn get_OtherFrequencyInUse(&self, #[retval] OtherFrequencyInUseVal: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_OtherFrequencyInUse(&self, OtherFrequencyInUseVal: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x448a2edf_ae95_4b43_a3cc_747843c453d4)]
+        interface IDVBTLocator2: IDVBTLocator {
+            #[special]
+            fn get_PhysicalLayerPipeId(&self, #[retval] PhysicalLayerPipeIdVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_PhysicalLayerPipeId(&self, PhysicalLayerPipeIdVal: i32) -> HRESULT;
+        }
+        #[guid(0x0d6f567e_a636_42bb_83ba_ce4c1704afa2)]
+        interface IDVBTuneRequest: ITuneRequest {
+            #[special]
+            fn get_ONID(&self, #[retval] ONID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ONID(&self, ONID: i32) -> HRESULT;
+            #[special]
+            fn get_TSID(&self, #[retval] TSID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_TSID(&self, TSID: i32) -> HRESULT;
+            #[special]
+            fn get_SID(&self, #[retval] SID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SID(&self, SID: i32) -> HRESULT;
+        }
+        #[guid(0xada0b268_3b19_4e5b_acc4_49f852be13ba)]
+        interface IDVBTuningSpace: ITuningSpace {
+            #[special]
+            fn get_SystemType(&self, #[retval] SysType: *mut DVBSystemType) -> HRESULT;
+            #[special]
+            fn put_SystemType(&self, SysType: DVBSystemType) -> HRESULT;
+        }
+        #[guid(0x843188b4_ce62_43db_966b_8145a094e040)]
+        interface IDVBTuningSpace2: IDVBTuningSpace {
+            #[special]
+            fn get_NetworkID(&self, #[retval] NetworkID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_NetworkID(&self, NetworkID: i32) -> HRESULT;
+        }
+        #[guid(0x48f66a11_171a_419a_9525_beeecd51584c)]
+        interface IDigitalCableLocator: IATSCLocator2 {}
+        #[guid(0xbad7753b_6b37_4810_ae57_3ce0c4a9e6cb)]
+        interface IDigitalCableTuneRequest: IATSCChannelTuneRequest {
+            #[special]
+            fn get_MajorChannel(&self, #[retval] pMajorChannel: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MajorChannel(&self, MajorChannel: i32) -> HRESULT;
+            #[special]
+            fn get_SourceID(&self, #[retval] pSourceID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SourceID(&self, SourceID: i32) -> HRESULT;
+        }
+        #[guid(0x013f9f9c_b449_4ec7_a6d2_9d4f2fc70ae5)]
+        interface IDigitalCableTuningSpace: IATSCTuningSpace {
+            #[special]
+            fn get_MinMajorChannel(&self, #[retval] MinMajorChannelVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinMajorChannel(&self, NewMinMajorChannelVal: i32) -> HRESULT;
+            #[special]
+            fn get_MaxMajorChannel(&self, #[retval] MaxMajorChannelVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxMajorChannel(&self, NewMaxMajorChannelVal: i32) -> HRESULT;
+            #[special]
+            fn get_MinSourceID(&self, #[retval] MinSourceIDVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinSourceID(&self, NewMinSourceIDVal: i32) -> HRESULT;
+            #[special]
+            fn get_MaxSourceID(&self, #[retval] MaxSourceIDVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxSourceID(&self, NewMaxSourceIDVal: i32) -> HRESULT;
+        }
+        #[guid(0x19b595d8_839a_47f0_96df_4f194f3c768c)]
+        interface IDigitalLocator: ILocator {}
+        #[guid(0x6b80e96f_55e2_45aa_b754_0c23c8e7d5c1)]
+        interface IESCloseMmiEvent: IESEvent {
+            fn GetDialogNumber(&self, #[retval] pDialogNumber: *mut u32) -> HRESULT;
+        }
+        #[guid(0x506a09b8_7f86_4e04_ac05_3303bfe8fc49)]
+        interface IESEventFactory: IUnknown {
+            fn CreateESEvent(&self, pServiceProvider: IUnknown, dwEventId: u32, guidEventType: GUID, dwEventDataLength: u32, pEventData: *const u8, bstrBaseUrl: BSTR, pInitContext: IUnknown, #[retval] ppESEvent: *mut IESEvent) -> HRESULT;
+        }
+        #[guid(0xed89a619_4c06_4b2f_99eb_c7669b13047c)]
+        interface IESEventService: IUnknown {
+            fn FireESEvent(&self, pESEvent: IESEvent) -> HRESULT;
+        }
+        #[guid(0x33b9daae_9309_491d_a051_bcad2a70cd66)]
+        interface IESEventServiceConfiguration: IUnknown {
+            fn SetParent(&self, pEventService: IESEventService) -> HRESULT;
+            fn RemoveParent(&self) -> HRESULT;
+            fn SetOwner(&self, pESEvents: IESEvents) -> HRESULT;
+            fn RemoveOwner(&self) -> HRESULT;
+            fn SetGraph(&self, pGraph: IFilterGraph) -> HRESULT;
+            fn RemoveGraph(&self, pGraph: IFilterGraph) -> HRESULT;
+        }
+        #[guid(0xba9edcb6_4d36_4cfe_8c56_87a6b0ca48e1)]
+        interface IESFileExpiryDateEvent: IESEvent {
+            fn GetTunerId(&self, #[retval] pguidTunerId: *mut GUID) -> HRESULT;
+            fn GetExpiryDate(&self, #[retval] pqwExpiryDate: *mut u64) -> HRESULT;
+            fn GetFinalExpiryDate(&self, #[retval] pqwExpiryDate: *mut u64) -> HRESULT;
+            fn GetMaxRenewalCount(&self, #[retval] dwMaxRenewalCount: *mut u32) -> HRESULT;
+            fn IsEntitlementTokenPresent(&self, #[retval] pfEntTokenPresent: *mut BOOL) -> HRESULT;
+            fn DoesExpireAfterFirstUse(&self, #[retval] pfExpireAfterFirstUse: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x2017cb03_dc0f_4c24_83ca_36307b2cd19f)]
+        interface IESIsdbCasResponseEvent: IESEvent {
+            fn GetRequestId(&self, #[retval] pRequestId: *mut u32) -> HRESULT;
+            fn GetStatus(&self, #[retval] pStatus: *mut u32) -> HRESULT;
+            fn GetDataLength(&self, #[retval] pRequestLength: *mut u32) -> HRESULT;
+            fn GetResponseData(&self, #[retval] pbData: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0xd5a48ef5_a81b_4df0_acaa_5e35e7ea45d4)]
+        interface IESLicenseRenewalResultEvent: IESEvent {
+            fn GetCallersId(&self, #[retval] pdwCallersId: *mut u32) -> HRESULT;
+            fn GetFileName(&self, #[retval] pbstrFilename: *mut BSTR) -> HRESULT;
+            fn IsRenewalSuccessful(&self, #[retval] pfRenewalSuccessful: *mut BOOL) -> HRESULT;
+            fn IsCheckEntitlementCallRequired(&self, #[retval] pfCheckEntTokenCallNeeded: *mut BOOL) -> HRESULT;
+            fn GetDescrambledStatus(&self, #[retval] pDescrambledStatus: *mut u32) -> HRESULT;
+            fn GetRenewalResultCode(&self, #[retval] pdwRenewalResultCode: *mut u32) -> HRESULT;
+            fn GetCASFailureCode(&self, #[retval] pdwCASFailureCode: *mut u32) -> HRESULT;
+            fn GetRenewalHResult(&self, #[retval] phr: *mut HRESULT) -> HRESULT;
+            fn GetEntitlementTokenLength(&self, #[retval] pdwLength: *mut u32) -> HRESULT;
+            fn GetEntitlementToken(&self, #[retval] pbData: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetExpiryDate(&self, #[retval] pqwExpiryDate: *mut u64) -> HRESULT;
+        }
+        #[guid(0xba4b6526_1a35_4635_8b56_3ec612746a8c)]
+        interface IESOpenMmiEvent: IESEvent {
+            fn GetDialogNumber(&self, pDialogRequest: *mut u32, #[retval] pDialogNumber: *mut u32) -> HRESULT;
+            fn GetDialogType(&self, #[retval] guidDialogType: *mut GUID) -> HRESULT;
+            fn GetDialogData(&self, #[retval] pbData: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetDialogStringData(&self, pbstrBaseUrl: *mut BSTR, #[retval] pbstrData: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x54c7a5e8_c3bb_4f51_af14_e0e2c0e34c6d)]
+        interface IESRequestTunerEvent: IESEvent {
+            fn GetPriority(&self, #[retval] pbyPriority: *mut u8) -> HRESULT;
+            fn GetReason(&self, #[retval] pbyReason: *mut u8) -> HRESULT;
+            fn GetConsequences(&self, #[retval] pbyConsequences: *mut u8) -> HRESULT;
+            fn GetEstimatedTime(&self, #[retval] pdwEstimatedTime: *mut u32) -> HRESULT;
+        }
+        #[guid(0x8a24c46e_bb63_4664_8602_5d9c718c146d)]
+        interface IESValueUpdatedEvent: IESEvent {
+            fn GetValueNames(&self, #[retval] pbstrNames: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x8a674b4a_1f63_11d3_b64c_00c04f79498e)]
+        interface IEnumComponentTypes: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut IComponentType, pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumComponentTypes) -> HRESULT;
+        }
+        #[guid(0x2a6e2939_2595_11d3_b64c_00c04f79498e)]
+        interface IEnumComponents: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut IComponent, pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumComponents) -> HRESULT;
+        }
+        #[guid(0x8b8eb248_fc2b_11d2_9d8c_00c04f72d980)]
+        interface IEnumTuningSpaces: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut ITuningSpace, pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumTuningSpaces) -> HRESULT;
+        }
+        #[guid(0x907e0b5c_e42d_4f04_91f0_26f401f36907)]
+        interface IGpnvsCommonBase: IUnknown {
+            fn GetValueUpdateName(&self, #[retval] pbstrName: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xc9897087_e29c_473f_9e4b_7072123dea14)]
+        interface IISDBSLocator: IDVBSLocator {}
+        #[guid(0xb874c8ba_0fa2_11d3_9d8e_00c04f72d980)]
+        interface ILanguageComponentType: IComponentType {
+            #[special]
+            fn get_LangID(&self, #[retval] LangID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_LangID(&self, LangID: i32) -> HRESULT;
+        }
+        #[guid(0x286d7f89_760c_4f89_80c4_66841d2507aa)]
+        interface ILocator: IDispatch {
+            #[special]
+            fn get_CarrierFrequency(&self, #[retval] Frequency: *mut i32) -> HRESULT;
+            #[special]
+            fn put_CarrierFrequency(&self, Frequency: i32) -> HRESULT;
+            #[special]
+            fn get_InnerFEC(&self, #[retval] FEC: *mut FECMethod) -> HRESULT;
+            #[special]
+            fn put_InnerFEC(&self, FEC: FECMethod) -> HRESULT;
+            #[special]
+            fn get_InnerFECRate(&self, #[retval] FEC: *mut BinaryConvolutionCodeRate) -> HRESULT;
+            #[special]
+            fn put_InnerFECRate(&self, FEC: BinaryConvolutionCodeRate) -> HRESULT;
+            #[special]
+            fn get_OuterFEC(&self, #[retval] FEC: *mut FECMethod) -> HRESULT;
+            #[special]
+            fn put_OuterFEC(&self, FEC: FECMethod) -> HRESULT;
+            #[special]
+            fn get_OuterFECRate(&self, #[retval] FEC: *mut BinaryConvolutionCodeRate) -> HRESULT;
+            #[special]
+            fn put_OuterFECRate(&self, FEC: BinaryConvolutionCodeRate) -> HRESULT;
+            #[special]
+            fn get_Modulation(&self, #[retval] Modulation: *mut ModulationType) -> HRESULT;
+            #[special]
+            fn put_Modulation(&self, Modulation: ModulationType) -> HRESULT;
+            #[special]
+            fn get_SymbolRate(&self, #[retval] Rate: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SymbolRate(&self, Rate: i32) -> HRESULT;
+            fn Clone(&self, #[retval] NewLocator: *mut ILocator) -> HRESULT;
+        }
+        #[guid(0x1493e353_1eb6_473c_802d_8e6b8ec9d2a9)]
+        interface IMPEG2Component: IComponent {
+            #[special]
+            fn get_PID(&self, #[retval] PID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_PID(&self, PID: i32) -> HRESULT;
+            #[special]
+            fn get_PCRPID(&self, #[retval] PCRPID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_PCRPID(&self, PCRPID: i32) -> HRESULT;
+            #[special]
+            fn get_ProgramNumber(&self, #[retval] ProgramNumber: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ProgramNumber(&self, ProgramNumber: i32) -> HRESULT;
+        }
+        #[guid(0x2c073d84_b51c_48c9_aa9f_68971e1f6e38)]
+        interface IMPEG2ComponentType: ILanguageComponentType {
+            #[special]
+            fn get_StreamType(&self, #[retval] MP2StreamType: *mut MPEG2StreamType) -> HRESULT;
+            #[special]
+            fn put_StreamType(&self, MP2StreamType: MPEG2StreamType) -> HRESULT;
+        }
+        #[guid(0xeb7d987f_8a01_42ad_b8ae_574deee44d1a)]
+        interface IMPEG2TuneRequest: ITuneRequest {
+            #[special]
+            fn get_TSID(&self, #[retval] TSID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_TSID(&self, TSID: i32) -> HRESULT;
+            #[special]
+            fn get_ProgNo(&self, #[retval] ProgNo: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ProgNo(&self, ProgNo: i32) -> HRESULT;
+        }
+        #[guid(0x14e11abd_ee37_4893_9ea1_6964de933e39)]
+        interface IMPEG2TuneRequestFactory: IDispatch {
+            fn CreateTuneRequest(&self, TuningSpace: ITuningSpace, #[retval] TuneRequest: *mut IMPEG2TuneRequest) -> HRESULT;
+        }
+        #[guid(0x1b9d5fc3_5bbc_4b6c_bb18_b9d10e3eeebf)]
+        interface IMPEG2TuneRequestSupport: IUnknown {}
+        #[guid(0x0754cd31_8d15_47a9_8215_d20064157244)]
+        interface IPersistTuneXml: IPersist {
+            fn InitNew(&self) -> HRESULT;
+            fn Load(&self, varValue: VARIANT) -> HRESULT;
+            fn Save(&self, pvarFragment: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x990237ae_ac11_4614_be8f_dd217a4cb4cb)]
+        interface IPersistTuneXmlUtility: IUnknown {
+            fn Deserialize(&self, varValue: VARIANT, #[retval] ppObject: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x992e165f_ea24_4b2f_9a1d_009d92120451)]
+        interface IPersistTuneXmlUtility2: IPersistTuneXmlUtility {
+            fn Serialize(&self, piTuneRequest: ITuneRequest, #[retval] pString: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x359b3901_572c_4854_bb49_cdef66606a25)]
+        interface IRegisterTuner: IUnknown {
+            fn Register(&self, pTuner: ITuner, pGraph: IGraphBuilder) -> HRESULT;
+            fn Unregister(&self) -> HRESULT;
+        }
+        const ISDBSLocator: GUID = 0x6504afed_a629_455c_a7f1_04964dea5cc4;
+        #[guid(0x1dfd0a5c_0284_11d3_9d8e_00c04f72d980)]
+        interface IScanningTuner: ITuner {
+            fn SeekUp(&self) -> HRESULT;
+            fn SeekDown(&self) -> HRESULT;
+            fn ScanUp(&self, MillisecondsPause: i32) -> HRESULT;
+            fn ScanDown(&self, MillisecondsPause: i32) -> HRESULT;
+            fn AutoProgram(&self) -> HRESULT;
+        }
+        #[guid(0x04bbd195_0e2d_4593_9bd5_4f908bc33cf5)]
+        interface IScanningTunerEx: IScanningTuner {
+            fn GetCurrentLocator(&self, pILocator: *mut ILocator) -> HRESULT;
+            fn PerformExhaustiveScan(&self, dwLowerFreq: i32, dwHigherFreq: i32, bFineTune: VARIANT_BOOL, hEvent: HEVENT) -> HRESULT;
+            fn TerminateCurrentScan(&self, #[retval] pcurrentFreq: *mut i32) -> HRESULT;
+            fn ResumeCurrentScan(&self, hEvent: HEVENT) -> HRESULT;
+            fn GetTunerScanningCapability(&self, HardwareAssistedScanning: *mut i32, NumStandardsSupported: *mut i32, BroadcastStandards: *mut GUID) -> HRESULT;
+            fn GetTunerStatus(&self, SecondsLeft: *mut i32, CurrentLockType: *mut i32, AutoDetect: *mut i32, CurrentFreq: *mut i32) -> HRESULT;
+            fn GetCurrentTunerStandardCapability(&self, CurrentBroadcastStandard: GUID, SettlingTime: *mut i32, TvStandardsSupported: *mut i32) -> HRESULT;
+            fn SetScanSignalTypeFilter(&self, ScanModulationTypes: i32, AnalogVideoStandard: i32) -> HRESULT;
+        }
+        #[guid(0x07ddc146_fc3d_11d2_9d8c_00c04f72d980)]
+        interface ITuneRequest: IDispatch {
+            #[special]
+            fn get_TuningSpace(&self, #[retval] TuningSpace: *mut ITuningSpace) -> HRESULT;
+            #[special]
+            fn get_Components(&self, #[retval] Components: *mut IComponents) -> HRESULT;
+            fn Clone(&self, #[retval] NewTuneRequest: *mut ITuneRequest) -> HRESULT;
+            #[special]
+            fn get_Locator(&self, #[retval] Locator: *mut ILocator) -> HRESULT;
+            #[special]
+            fn put_Locator(&self, Locator: ILocator) -> HRESULT;
+        }
+        #[guid(0x28c52640_018a_11d3_9d8e_00c04f72d980)]
+        interface ITuner: IUnknown {
+            #[special]
+            fn get_TuningSpace(&self, #[retval] TuningSpace: *mut ITuningSpace) -> HRESULT;
+            #[special]
+            fn put_TuningSpace(&self, TuningSpace: ITuningSpace) -> HRESULT;
+            fn EnumTuningSpaces(&self, #[retval] ppEnum: *mut IEnumTuningSpaces) -> HRESULT;
+            #[special]
+            fn get_TuneRequest(&self, #[retval] TuneRequest: *mut ITuneRequest) -> HRESULT;
+            #[special]
+            fn put_TuneRequest(&self, TuneRequest: ITuneRequest) -> HRESULT;
+            fn Validate(&self, TuneRequest: ITuneRequest) -> HRESULT;
+            #[special]
+            fn get_PreferredComponentTypes(&self, #[retval] ComponentTypes: *mut IComponentTypes) -> HRESULT;
+            #[special]
+            fn put_PreferredComponentTypes(&self, ComponentTypes: IComponentTypes) -> HRESULT;
+            #[special]
+            fn get_SignalStrength(&self, #[retval] Strength: *mut i32) -> HRESULT;
+            fn TriggerSignalEvents(&self, Interval: i32) -> HRESULT;
+        }
+        #[guid(0xe60dfa45_8d56_4e65_a8ab_d6be9412c249)]
+        interface ITunerCap: IUnknown {
+            #[special]
+            fn get_SupportedNetworkTypes(&self, ulcNetworkTypesMax: u32, pulcNetworkTypes: *mut u32, #[in] #[out] pguidNetworkTypes: *mut GUID) -> HRESULT;
+            #[special]
+            fn get_SupportedVideoFormats(&self, pulAMTunerModeType: *mut u32, pulAnalogVideoStandard: *mut u32) -> HRESULT;
+            #[special]
+            fn get_AuxInputCount(&self, #[in] #[out] pulCompositeCount: *mut u32, #[in] #[out] pulSvideoCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0xed3e0c66_18c8_4ea6_9300_f6841fdd35dc)]
+        interface ITunerCapEx: IUnknown {
+            #[special]
+            fn get_Has608_708Caption(&self, #[retval] pbHasCaption: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x061c6e30_e622_11d2_9493_00c04f72d980)]
+        interface ITuningSpace: IDispatch {
+            #[special]
+            fn get_UniqueName(&self, #[retval] Name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_UniqueName(&self, Name: BSTR) -> HRESULT;
+            #[special]
+            fn get_FriendlyName(&self, #[retval] Name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FriendlyName(&self, Name: BSTR) -> HRESULT;
+            #[special]
+            fn get_CLSID(&self, #[retval] SpaceCLSID: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_NetworkType(&self, #[retval] NetworkTypeGuid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_NetworkType(&self, NetworkTypeGuid: BSTR) -> HRESULT;
+            #[special]
+            fn get__NetworkType(&self, #[retval] NetworkTypeGuid: *mut GUID) -> HRESULT;
+            #[special]
+            fn put__NetworkType(&self, NetworkTypeGuid: *const GUID) -> HRESULT;
+            fn CreateTuneRequest(&self, #[retval] TuneRequest: *mut ITuneRequest) -> HRESULT;
+            fn EnumCategoryGUIDs(&self, #[retval] ppEnum: *mut IEnumGUID) -> HRESULT;
+            fn EnumDeviceMonikers(&self, #[retval] ppEnum: *mut IEnumMoniker) -> HRESULT;
+            #[special]
+            fn get_DefaultPreferredComponentTypes(&self, #[retval] ComponentTypes: *mut IComponentTypes) -> HRESULT;
+            #[special]
+            fn put_DefaultPreferredComponentTypes(&self, NewComponentTypes: IComponentTypes) -> HRESULT;
+            #[special]
+            fn get_FrequencyMapping(&self, #[retval] pMapping: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FrequencyMapping(&self, Mapping: BSTR) -> HRESULT;
+            #[special]
+            fn get_DefaultLocator(&self, #[retval] LocatorVal: *mut ILocator) -> HRESULT;
+            #[special]
+            fn put_DefaultLocator(&self, LocatorVal: ILocator) -> HRESULT;
+            fn Clone(&self, #[retval] NewTS: *mut ITuningSpace) -> HRESULT;
+        }
+        #[guid(0x5b692e84_e2f1_11d2_9493_00c04f72d980)]
+        interface ITuningSpaceContainer: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] NewEnum: *mut IEnumVARIANT) -> HRESULT;
+            #[special]
+            fn get_Item(&self, varIndex: VARIANT, #[retval] TuningSpace: *mut ITuningSpace) -> HRESULT;
+            #[special]
+            fn put_Item(&self, varIndex: VARIANT, TuningSpace: ITuningSpace) -> HRESULT;
+            fn TuningSpacesForCLSID(&self, SpaceCLSID: BSTR, #[retval] NewColl: *mut ITuningSpaces) -> HRESULT;
+            fn _TuningSpacesForCLSID(&self, SpaceCLSID: *const GUID, #[retval] NewColl: *mut ITuningSpaces) -> HRESULT;
+            fn TuningSpacesForName(&self, Name: BSTR, #[retval] NewColl: *mut ITuningSpaces) -> HRESULT;
+            fn FindID(&self, TuningSpace: ITuningSpace, #[retval] ID: *mut i32) -> HRESULT;
+            fn Add(&self, TuningSpace: ITuningSpace, #[retval] NewIndex: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_EnumTuningSpaces(&self, #[retval] ppEnum: *mut IEnumTuningSpaces) -> HRESULT;
+            fn Remove(&self, Index: VARIANT) -> HRESULT;
+            #[special]
+            fn get_MaxCount(&self, #[retval] MaxCount: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxCount(&self, MaxCount: i32) -> HRESULT;
+        }
+        #[guid(0x901284e4_33fe_4b69_8d63_634a596f3756)]
+        interface ITuningSpaces: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] NewEnum: *mut IEnumVARIANT) -> HRESULT;
+            #[special]
+            fn get_Item(&self, varIndex: VARIANT, #[retval] TuningSpace: *mut ITuningSpace) -> HRESULT;
+            #[special]
+            fn get_EnumTuningSpaces(&self, #[retval] NewEnum: *mut IEnumTuningSpaces) -> HRESULT;
+        }
+        const LanguageComponentType: GUID = 0x1be49f30_0e1b_11d3_9d8e_00c04f72d980;
+        const Locator: GUID = 0x0888c883_ac4f_4943_b516_2c38d9b34562;
+        const MPEG2Component: GUID = 0x055cb2d7_2969_45cd_914b_76890722f112;
+        const MPEG2ComponentType: GUID = 0x418008f3_cf67_4668_9628_10dc52be1d08;
+        const MPEG2TuneRequest: GUID = 0x0955ac62_bf2e_4cba_a2b9_a63f772d46cf;
+        const MPEG2TuneRequestFactory: GUID = 0x2c63e4eb_4cea_41b8_919c_e947ea19a77c;
+        const PersistTuneXmlUtility: GUID = 0xe77026b0_b97f_4cbb_b7fb_f4f03ad69f11;
+        const SystemTuningSpaces: GUID = 0xd02aac50_027e_11d3_9d8e_00c04f72d980;
+        const TuneRequest: GUID = 0xb46e0d38_ab35_4a06_a137_70576b01b39f;
+        const TunerMarshaler: GUID = 0x6438570b_0c08_4a25_9504_8012bb4d50cf;
+        const TuningSpace: GUID = 0x5ffdc5e6_b83a_4b55_b6e8_c69e765fe9db;
+    }
+}

@@ -1,0 +1,43 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum AVRT_PRIORITY {
+            AVRT_PRIORITY_VERYLOW = -2,
+            AVRT_PRIORITY_LOW = -1,
+            AVRT_PRIORITY_NORMAL = 0,
+            AVRT_PRIORITY_HIGH = 1,
+            AVRT_PRIORITY_CRITICAL = 2,
+        }
+        #[library("AVRT.dll")]
+        extern fn AvQuerySystemResponsiveness(AvrtHandle: HANDLE, SystemResponsivenessValue: *mut u32) -> BOOL;
+        #[library("AVRT.dll")]
+        extern fn AvRevertMmThreadCharacteristics(AvrtHandle: HANDLE) -> BOOL;
+        #[library("AVRT.dll")]
+        extern fn AvRtCreateThreadOrderingGroup(Context: *mut HANDLE, Period: *const LARGE_INTEGER, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[opt] Timeout: *const LARGE_INTEGER) -> BOOL;
+        #[library("AVRT.dll")]
+        extern fn AvRtCreateThreadOrderingGroupExA(Context: *mut HANDLE, Period: *const LARGE_INTEGER, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[opt] Timeout: *const LARGE_INTEGER, TaskName: PCSTR) -> BOOL;
+        #[library("AVRT.dll")]
+        extern fn AvRtCreateThreadOrderingGroupExW(Context: *mut HANDLE, Period: *const LARGE_INTEGER, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[opt] Timeout: *const LARGE_INTEGER, TaskName: PCWSTR) -> BOOL;
+        #[library("AVRT.dll")]
+        extern fn AvRtDeleteThreadOrderingGroup(Context: HANDLE) -> BOOL;
+        #[library("AVRT.dll")]
+        extern fn AvRtJoinThreadOrderingGroup(Context: *mut HANDLE, ThreadOrderingGuid: *const GUID, Before: BOOL) -> BOOL;
+        #[library("AVRT.dll")]
+        extern fn AvRtLeaveThreadOrderingGroup(Context: HANDLE) -> BOOL;
+        #[library("AVRT.dll")]
+        extern fn AvRtWaitOnThreadOrderingGroup(Context: HANDLE) -> BOOL;
+        #[library("AVRT.dll")]
+        extern fn AvSetMmMaxThreadCharacteristicsA(FirstTask: PCSTR, SecondTask: PCSTR, #[in] #[out] TaskIndex: *mut u32) -> HANDLE;
+        #[library("AVRT.dll")]
+        extern fn AvSetMmMaxThreadCharacteristicsW(FirstTask: PCWSTR, SecondTask: PCWSTR, #[in] #[out] TaskIndex: *mut u32) -> HANDLE;
+        #[library("AVRT.dll")]
+        extern fn AvSetMmThreadCharacteristicsA(TaskName: PCSTR, #[in] #[out] TaskIndex: *mut u32) -> HANDLE;
+        #[library("AVRT.dll")]
+        extern fn AvSetMmThreadCharacteristicsW(TaskName: PCWSTR, #[in] #[out] TaskIndex: *mut u32) -> HANDLE;
+        #[library("AVRT.dll")]
+        extern fn AvSetMmThreadPriority(AvrtHandle: HANDLE, Priority: AVRT_PRIORITY) -> BOOL;
+        type PAVRT_PRIORITY = *mut AVRT_PRIORITY;
+        const THREAD_ORDER_GROUP_INFINITE_TIMEOUT: i32 = -1;
+    }
+}

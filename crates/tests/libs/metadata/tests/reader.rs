@@ -24,8 +24,8 @@ fn type_index() {
 fn item_index() {
     let index = reader::Index::new(vec![
         reader::File::read("../../../libs/bindgen/default/Windows.winmd").unwrap(),
-        reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap(),
-        reader::File::read("../../../libs/bindgen/default/Windows.Wdk.winmd").unwrap(),
+        reader::File::read("../../../tools/package/reference/Windows.Win32.winmd").unwrap(),
+        reader::File::read("../../../tools/package/reference/Windows.Wdk.winmd").unwrap(),
     ]);
 
     let reader::Item::Type(ty) = index.expect_item("Windows.Foundation", "Point") else {
@@ -51,7 +51,8 @@ fn item_index() {
 
 #[test]
 fn array() {
-    let index = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let index =
+        reader::Index::read("../../../tools/package/reference/Windows.Win32.winmd").unwrap();
     let def = index
         .types()
         .find(|def| def.name() == "VDMCONTEXT")
@@ -67,7 +68,8 @@ fn array() {
 
 #[test]
 fn nested() {
-    let index = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let index =
+        reader::Index::read("../../../tools/package/reference/Windows.Win32.winmd").unwrap();
 
     let def = index
         .types()

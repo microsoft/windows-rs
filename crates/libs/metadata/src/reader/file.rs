@@ -22,7 +22,7 @@ impl File {
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0)?;
 
-        if dos.e_magic != IMAGE_DOS_SIGNATURE
+        if dos.e_magic != IMAGE_DOS_SIGNATURE as u16
             || result.bytes.copy_as::<u32>(dos.e_lfanew as usize)? != IMAGE_NT_SIGNATURE
         {
             return None;
@@ -33,35 +33,36 @@ impl File {
 
         let optional_offset = file_offset + size_of::<IMAGE_FILE_HEADER>();
 
-        let (com_virtual_address, sections) = match result.bytes.copy_as::<u16>(optional_offset)? {
-            IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
-                let optional = result
-                    .bytes
-                    .view_as::<IMAGE_OPTIONAL_HEADER32>(optional_offset)?;
-                (
-                    optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
-                        .VirtualAddress,
-                    result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
-                        optional_offset + size_of::<IMAGE_OPTIONAL_HEADER32>(),
-                        file.NumberOfSections as usize,
-                    )?,
-                )
-            }
-            IMAGE_NT_OPTIONAL_HDR64_MAGIC => {
-                let optional = result
-                    .bytes
-                    .view_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset)?;
-                (
-                    optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
-                        .VirtualAddress,
-                    result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
-                        optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(),
-                        file.NumberOfSections as usize,
-                    )?,
-                )
-            }
-            _ => return None,
-        };
+        let (com_virtual_address, sections) =
+            match result.bytes.copy_as::<u16>(optional_offset)? as u32 {
+                IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
+                    let optional = result
+                        .bytes
+                        .view_as::<IMAGE_OPTIONAL_HEADER32>(optional_offset)?;
+                    (
+                        optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
+                            .VirtualAddress,
+                        result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
+                            optional_offset + size_of::<IMAGE_OPTIONAL_HEADER32>(),
+                            file.NumberOfSections as usize,
+                        )?,
+                    )
+                }
+                IMAGE_NT_OPTIONAL_HDR64_MAGIC => {
+                    let optional = result
+                        .bytes
+                        .view_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset)?;
+                    (
+                        optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
+                            .VirtualAddress,
+                        result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
+                            optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(),
+                            file.NumberOfSections as usize,
+                        )?,
+                    )
+                }
+                _ => return None,
+            };
 
         let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(
             section_from_rva(sections, com_virtual_address)?,

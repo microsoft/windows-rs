@@ -1,0 +1,1273 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ALLOW_NO_AUTH: u32 = 1;
+        const ATADDRESSLEN: u32 = 32;
+        struct AUTH_VALIDATION_EX {
+            Header: MPRAPI_OBJECT_HEADER,
+            hRasConnection: HANDLE,
+            wszUserName: [u16; 257],
+            wszLogonDomain: [u16; 16],
+            AuthInfoSize: u32,
+            AuthInfo: [u8; 1],
+        }
+        const DO_NOT_ALLOW_NO_AUTH: u32 = 0;
+        struct GRE_CONFIG_PARAMS0 {
+            dwNumPorts: u32,
+            dwPortFlags: u32,
+        }
+        struct IKEV2_CONFIG_PARAMS {
+            dwNumPorts: u32,
+            dwPortFlags: u32,
+            dwTunnelConfigParamFlags: u32,
+            TunnelConfigParams: IKEV2_TUNNEL_CONFIG_PARAMS4,
+        }
+        struct IKEV2_PROJECTION_INFO {
+            dwIPv4NegotiationError: u32,
+            wszAddress: [u16; 16],
+            wszRemoteAddress: [u16; 16],
+            IPv4SubInterfaceIndex: u64,
+            dwIPv6NegotiationError: u32,
+            bInterfaceIdentifier: [u8; 8],
+            bRemoteInterfaceIdentifier: [u8; 8],
+            bPrefix: [u8; 8],
+            dwPrefixLength: u32,
+            IPv6SubInterfaceIndex: u64,
+            dwOptions: u32,
+            dwAuthenticationProtocol: u32,
+            dwEapTypeId: u32,
+            dwCompressionAlgorithm: u32,
+            dwEncryptionMethod: u32,
+        }
+        struct IKEV2_PROJECTION_INFO2 {
+            dwIPv4NegotiationError: u32,
+            wszAddress: [u16; 16],
+            wszRemoteAddress: [u16; 16],
+            IPv4SubInterfaceIndex: u64,
+            dwIPv6NegotiationError: u32,
+            bInterfaceIdentifier: [u8; 8],
+            bRemoteInterfaceIdentifier: [u8; 8],
+            bPrefix: [u8; 8],
+            dwPrefixLength: u32,
+            IPv6SubInterfaceIndex: u64,
+            dwOptions: u32,
+            dwAuthenticationProtocol: u32,
+            dwEapTypeId: u32,
+            dwEmbeddedEAPTypeId: u32,
+            dwCompressionAlgorithm: u32,
+            dwEncryptionMethod: u32,
+        }
+        struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
+            dwIdleTimeout: u32,
+            dwNetworkBlackoutTime: u32,
+            dwSaLifeTime: u32,
+            dwSaDataSizeForRenegotiation: u32,
+            dwConfigOptions: u32,
+            dwTotalCertificates: u32,
+            certificateNames: *mut CERT_NAME_BLOB,
+            machineCertificateName: CERT_NAME_BLOB,
+            dwEncryptionType: u32,
+            customPolicy: PROUTER_CUSTOM_IKEv2_POLICY0,
+        }
+        struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
+            dwIdleTimeout: u32,
+            dwNetworkBlackoutTime: u32,
+            dwSaLifeTime: u32,
+            dwSaDataSizeForRenegotiation: u32,
+            dwConfigOptions: u32,
+            dwTotalCertificates: u32,
+            certificateNames: *mut CERT_NAME_BLOB,
+            machineCertificateName: CERT_NAME_BLOB,
+            dwEncryptionType: u32,
+            customPolicy: PROUTER_CUSTOM_IKEv2_POLICY0,
+            dwTotalEkus: u32,
+            certificateEKUs: PMPR_CERT_EKU,
+            machineCertificateHash: CRYPT_HASH_BLOB,
+        }
+        struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
+            dwIdleTimeout: u32,
+            dwNetworkBlackoutTime: u32,
+            dwSaLifeTime: u32,
+            dwSaDataSizeForRenegotiation: u32,
+            dwConfigOptions: u32,
+            dwTotalCertificates: u32,
+            certificateNames: *mut CERT_NAME_BLOB,
+            machineCertificateName: CERT_NAME_BLOB,
+            dwEncryptionType: u32,
+            customPolicy: PROUTER_CUSTOM_IKEv2_POLICY0,
+            dwTotalEkus: u32,
+            certificateEKUs: PMPR_CERT_EKU,
+            machineCertificateHash: CRYPT_HASH_BLOB,
+            dwMmSaLifeTime: u32,
+        }
+        const IPADDRESSLEN: u32 = 15;
+        const IPXADDRESSLEN: u32 = 22;
+        struct L2TP_CONFIG_PARAMS0 {
+            dwNumPorts: u32,
+            dwPortFlags: u32,
+        }
+        struct L2TP_CONFIG_PARAMS1 {
+            dwNumPorts: u32,
+            dwPortFlags: u32,
+            dwTunnelConfigParamFlags: u32,
+            TunnelConfigParams: L2TP_TUNNEL_CONFIG_PARAMS2,
+        }
+        struct L2TP_TUNNEL_CONFIG_PARAMS1 {
+            dwIdleTimeout: u32,
+            dwEncryptionType: u32,
+            dwSaLifeTime: u32,
+            dwSaDataSizeForRenegotiation: u32,
+            customPolicy: PROUTER_CUSTOM_L2TP_POLICY0,
+        }
+        struct L2TP_TUNNEL_CONFIG_PARAMS2 {
+            dwIdleTimeout: u32,
+            dwEncryptionType: u32,
+            dwSaLifeTime: u32,
+            dwSaDataSizeForRenegotiation: u32,
+            customPolicy: PROUTER_CUSTOM_L2TP_POLICY0,
+            dwMmSaLifeTime: u32,
+        }
+        const MAXIPADRESSLEN: u32 = 64;
+        const MAX_SSTP_HASH_SIZE: u32 = 32;
+        type MIB_SERVER_HANDLE = HANDLE;
+        struct MPRAPI_ADMIN_DLL_CALLBACKS {
+            revision: u8,
+            lpfnMprAdminGetIpAddressForUser: PMPRADMINGETIPADDRESSFORUSER,
+            lpfnMprAdminReleaseIpAddress: PMPRADMINRELEASEIPADRESS,
+            lpfnMprAdminGetIpv6AddressForUser: PMPRADMINGETIPV6ADDRESSFORUSER,
+            lpfnMprAdminReleaseIpV6AddressForUser: PMPRADMINRELEASEIPV6ADDRESSFORUSER,
+            lpfnRasAdminAcceptNewLink: PMPRADMINACCEPTNEWLINK,
+            lpfnRasAdminLinkHangupNotification: PMPRADMINLINKHANGUPNOTIFICATION,
+            lpfnRasAdminTerminateDll: PMPRADMINTERMINATEDLL,
+            lpfnRasAdminAcceptNewConnectionEx: PMPRADMINACCEPTNEWCONNECTIONEX,
+            lpfnRasAdminAcceptEndpointChangeEx: PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX,
+            lpfnRasAdminAcceptReauthenticationEx: PMPRADMINACCEPTREAUTHENTICATIONEX,
+            lpfnRasAdminConnectionHangupNotificationEx: PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX,
+            lpfnRASValidatePreAuthenticatedConnectionEx: PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX,
+        }
+        const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1;
+        const MPRAPI_ADMIN_DLL_VERSION_2: u32 = 2;
+        const MPRAPI_IF_CUSTOM_CONFIG_FOR_IKEV2: u32 = 1;
+        const MPRAPI_IKEV2_AUTH_USING_CERT: u32 = 1;
+        const MPRAPI_IKEV2_AUTH_USING_EAP: u32 = 2;
+        const MPRAPI_IKEV2_PROJECTION_INFO_TYPE: u32 = 2;
+        const MPRAPI_IKEV2_SET_TUNNEL_CONFIG_PARAMS: u32 = 1;
+        const MPRAPI_L2TP_SET_TUNNEL_CONFIG_PARAMS: u32 = 1;
+        const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_1: u32 = 1;
+        const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_2: u32 = 2;
+        const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_3: u32 = 3;
+        const MPRAPI_MPR_SERVER_OBJECT_REVISION_1: u32 = 1;
+        const MPRAPI_MPR_SERVER_OBJECT_REVISION_2: u32 = 2;
+        const MPRAPI_MPR_SERVER_OBJECT_REVISION_3: u32 = 3;
+        const MPRAPI_MPR_SERVER_OBJECT_REVISION_4: u32 = 4;
+        const MPRAPI_MPR_SERVER_OBJECT_REVISION_5: u32 = 5;
+        const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_1: u32 = 1;
+        const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_2: u32 = 2;
+        const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: u32 = 3;
+        const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: u32 = 4;
+        const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: u32 = 5;
+        struct MPRAPI_OBJECT_HEADER {
+            revision: u8,
+            r#type: u8,
+            size: u16,
+        }
+        #[repr(i32)]
+        enum MPRAPI_OBJECT_TYPE {
+            MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT = 1,
+            MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT = 2,
+            MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT = 3,
+            MPRAPI_OBJECT_TYPE_AUTH_VALIDATION_OBJECT = 4,
+            MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT = 5,
+            MPRAPI_OBJECT_TYPE_IF_CUSTOM_CONFIG_OBJECT = 6,
+        }
+        const MPRAPI_PPP_PROJECTION_INFO_TYPE: u32 = 1;
+        const MPRAPI_RAS_CONNECTION_OBJECT_REVISION_1: u32 = 1;
+        const MPRAPI_RAS_UPDATE_CONNECTION_OBJECT_REVISION_1: u32 = 1;
+        const MPRAPI_SET_CONFIG_PROTOCOL_FOR_GRE: u32 = 16;
+        const MPRAPI_SET_CONFIG_PROTOCOL_FOR_IKEV2: u32 = 8;
+        const MPRAPI_SET_CONFIG_PROTOCOL_FOR_L2TP: u32 = 2;
+        const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1;
+        const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4;
+        struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
+            IkeConfigParams: IKEV2_CONFIG_PARAMS,
+            PptpConfigParams: PPTP_CONFIG_PARAMS,
+            L2tpConfigParams: L2TP_CONFIG_PARAMS1,
+            SstpConfigParams: SSTP_CONFIG_PARAMS,
+        }
+        struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
+            IkeConfigParams: IKEV2_CONFIG_PARAMS,
+            PptpConfigParams: PPTP_CONFIG_PARAMS,
+            L2tpConfigParams: L2TP_CONFIG_PARAMS1,
+            SstpConfigParams: SSTP_CONFIG_PARAMS,
+            GREConfigParams: GRE_CONFIG_PARAMS0,
+        }
+        const MPRDM_DialAll: u32 = 1;
+        const MPRDM_DialAsNeeded: u32 = 2;
+        const MPRDM_DialFirst: u32 = 0;
+        const MPRET_Phone: u32 = 1;
+        const MPRET_Vpn: u32 = 2;
+        const MPRIDS_Disabled: i32 = -1;
+        const MPRIDS_UseGlobalValue: u32 = 0;
+        const MPRIO_DisableLcpExtensions: u32 = 32;
+        const MPRIO_IpHeaderCompression: u32 = 8;
+        const MPRIO_IpSecPreSharedKey: u32 = 2147483648;
+        const MPRIO_NetworkLogon: u32 = 8192;
+        const MPRIO_PromoteAlternates: u32 = 32768;
+        const MPRIO_RemoteDefaultGateway: u32 = 16;
+        const MPRIO_RequireCHAP: u32 = 134217728;
+        const MPRIO_RequireDataEncryption: u32 = 4096;
+        const MPRIO_RequireEAP: u32 = 131072;
+        const MPRIO_RequireEncryptedPw: u32 = 1024;
+        const MPRIO_RequireMachineCertificates: u32 = 16777216;
+        const MPRIO_RequireMsCHAP: u32 = 268435456;
+        const MPRIO_RequireMsCHAP2: u32 = 536870912;
+        const MPRIO_RequireMsEncryptedPw: u32 = 2048;
+        const MPRIO_RequirePAP: u32 = 262144;
+        const MPRIO_RequireSPAP: u32 = 524288;
+        const MPRIO_SecureLocalFiles: u32 = 65536;
+        const MPRIO_SharedPhoneNumbers: u32 = 8388608;
+        const MPRIO_SpecificIpAddr: u32 = 2;
+        const MPRIO_SpecificNameServers: u32 = 4;
+        const MPRIO_SwCompression: u32 = 512;
+        const MPRIO_UsePreSharedKeyForIkev2Initiator: u32 = 33554432;
+        const MPRIO_UsePreSharedKeyForIkev2Responder: u32 = 67108864;
+        const MPRNP_Ip: u32 = 4;
+        const MPRNP_Ipv6: u32 = 8;
+        const MPRNP_Ipx: u32 = 2;
+        struct MPR_CERT_EKU {
+            dwSize: u32,
+            IsEKUOID: BOOL,
+            pwszEKU: *mut u16,
+        }
+        struct MPR_CREDENTIALSEX_0 {
+            dwSize: u32,
+            lpbCredentialsInfo: LPBYTE,
+        }
+        struct MPR_CREDENTIALSEX_1 {
+            dwSize: u32,
+            lpbCredentialsInfo: LPBYTE,
+        }
+        struct MPR_DEVICE_0 {
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+        }
+        struct MPR_DEVICE_1 {
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szLocalPhoneNumber: [u16; 129],
+            szAlternates: PWCHAR,
+        }
+        const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1;
+        const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2;
+        const MPR_ET_None: u32 = 0;
+        const MPR_ET_Optional: u32 = 3;
+        const MPR_ET_Require: u32 = 1;
+        const MPR_ET_RequireMax: u32 = 2;
+        struct MPR_FILTER_0 {
+            fEnable: BOOL,
+        }
+        struct MPR_IFTRANSPORT_0 {
+            dwTransportId: u32,
+            hIfTransport: HANDLE,
+            wszIfTransportName: [u16; 41],
+        }
+        struct MPR_IF_CUSTOMINFOEX0 {
+            Header: MPRAPI_OBJECT_HEADER,
+            dwFlags: u32,
+            customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG0,
+        }
+        struct MPR_IF_CUSTOMINFOEX1 {
+            Header: MPRAPI_OBJECT_HEADER,
+            dwFlags: u32,
+            customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG1,
+        }
+        struct MPR_IF_CUSTOMINFOEX2 {
+            Header: MPRAPI_OBJECT_HEADER,
+            dwFlags: u32,
+            customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG2,
+        }
+        struct MPR_INTERFACE_0 {
+            wszInterfaceName: [u16; 257],
+            hInterface: HANDLE,
+            fEnabled: BOOL,
+            dwIfType: ROUTER_INTERFACE_TYPE,
+            dwConnectionState: ROUTER_CONNECTION_STATE,
+            fUnReachabilityReasons: u32,
+            dwLastError: u32,
+        }
+        struct MPR_INTERFACE_1 {
+            wszInterfaceName: [u16; 257],
+            hInterface: HANDLE,
+            fEnabled: BOOL,
+            dwIfType: ROUTER_INTERFACE_TYPE,
+            dwConnectionState: ROUTER_CONNECTION_STATE,
+            fUnReachabilityReasons: u32,
+            dwLastError: u32,
+            lpwsDialoutHoursRestriction: PWSTR,
+        }
+        struct MPR_INTERFACE_2 {
+            wszInterfaceName: [u16; 257],
+            hInterface: HANDLE,
+            fEnabled: BOOL,
+            dwIfType: ROUTER_INTERFACE_TYPE,
+            dwConnectionState: ROUTER_CONNECTION_STATE,
+            fUnReachabilityReasons: u32,
+            dwLastError: u32,
+            dwfOptions: u32,
+            szLocalPhoneNumber: [u16; 129],
+            szAlternates: PWCHAR,
+            ipaddr: u32,
+            ipaddrDns: u32,
+            ipaddrDnsAlt: u32,
+            ipaddrWins: u32,
+            ipaddrWinsAlt: u32,
+            dwfNetProtocols: u32,
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szX25PadType: [u16; 33],
+            szX25Address: [u16; 201],
+            szX25Facilities: [u16; 201],
+            szX25UserData: [u16; 201],
+            dwChannels: u32,
+            dwSubEntries: u32,
+            dwDialMode: u32,
+            dwDialExtraPercent: u32,
+            dwDialExtraSampleSeconds: u32,
+            dwHangUpExtraPercent: u32,
+            dwHangUpExtraSampleSeconds: u32,
+            dwIdleDisconnectSeconds: u32,
+            dwType: u32,
+            dwEncryptionType: u32,
+            dwCustomAuthKey: u32,
+            dwCustomAuthDataSize: u32,
+            lpbCustomAuthData: LPBYTE,
+            guidId: GUID,
+            dwVpnStrategy: u32,
+        }
+        struct MPR_INTERFACE_3 {
+            wszInterfaceName: [u16; 257],
+            hInterface: HANDLE,
+            fEnabled: BOOL,
+            dwIfType: ROUTER_INTERFACE_TYPE,
+            dwConnectionState: ROUTER_CONNECTION_STATE,
+            fUnReachabilityReasons: u32,
+            dwLastError: u32,
+            dwfOptions: u32,
+            szLocalPhoneNumber: [u16; 129],
+            szAlternates: PWCHAR,
+            ipaddr: u32,
+            ipaddrDns: u32,
+            ipaddrDnsAlt: u32,
+            ipaddrWins: u32,
+            ipaddrWinsAlt: u32,
+            dwfNetProtocols: u32,
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szX25PadType: [u16; 33],
+            szX25Address: [u16; 201],
+            szX25Facilities: [u16; 201],
+            szX25UserData: [u16; 201],
+            dwChannels: u32,
+            dwSubEntries: u32,
+            dwDialMode: u32,
+            dwDialExtraPercent: u32,
+            dwDialExtraSampleSeconds: u32,
+            dwHangUpExtraPercent: u32,
+            dwHangUpExtraSampleSeconds: u32,
+            dwIdleDisconnectSeconds: u32,
+            dwType: u32,
+            dwEncryptionType: u32,
+            dwCustomAuthKey: u32,
+            dwCustomAuthDataSize: u32,
+            lpbCustomAuthData: LPBYTE,
+            guidId: GUID,
+            dwVpnStrategy: u32,
+            AddressCount: u32,
+            ipv6addrDns: IN6_ADDR,
+            ipv6addrDnsAlt: IN6_ADDR,
+            ipv6addr: *mut IN6_ADDR,
+        }
+        const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2;
+        const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4;
+        const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16;
+        const MPR_INTERFACE_NO_DEVICE: u32 = 64;
+        const MPR_INTERFACE_NO_MEDIA_SENSE: u32 = 32;
+        const MPR_INTERFACE_OUT_OF_RESOURCES: u32 = 1;
+        const MPR_INTERFACE_SERVICE_PAUSED: u32 = 8;
+        struct MPR_IPINIP_INTERFACE_0 {
+            wszFriendlyName: [u16; 257],
+            Guid: GUID,
+        }
+        const MPR_MaxAreaCode: u32 = 10;
+        const MPR_MaxCallbackNumber: u32 = 128;
+        const MPR_MaxDeviceName: u32 = 128;
+        const MPR_MaxDeviceType: u32 = 16;
+        const MPR_MaxEntryName: u32 = 256;
+        const MPR_MaxFacilities: u32 = 200;
+        const MPR_MaxIpAddress: u32 = 15;
+        const MPR_MaxIpxAddress: u32 = 21;
+        const MPR_MaxPadType: u32 = 32;
+        const MPR_MaxPhoneNumber: u32 = 128;
+        const MPR_MaxUserData: u32 = 200;
+        const MPR_MaxX25Address: u32 = 200;
+        struct MPR_SERVER_0 {
+            fLanOnlyMode: BOOL,
+            dwUpTime: u32,
+            dwTotalPorts: u32,
+            dwPortsInUse: u32,
+        }
+        struct MPR_SERVER_1 {
+            dwNumPptpPorts: u32,
+            dwPptpPortFlags: u32,
+            dwNumL2tpPorts: u32,
+            dwL2tpPortFlags: u32,
+        }
+        struct MPR_SERVER_2 {
+            dwNumPptpPorts: u32,
+            dwPptpPortFlags: u32,
+            dwNumL2tpPorts: u32,
+            dwL2tpPortFlags: u32,
+            dwNumSstpPorts: u32,
+            dwSstpPortFlags: u32,
+        }
+        struct MPR_SERVER_EX0 {
+            Header: MPRAPI_OBJECT_HEADER,
+            fLanOnlyMode: u32,
+            dwUpTime: u32,
+            dwTotalPorts: u32,
+            dwPortsInUse: u32,
+            Reserved: u32,
+            ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS0,
+        }
+        struct MPR_SERVER_EX1 {
+            Header: MPRAPI_OBJECT_HEADER,
+            fLanOnlyMode: u32,
+            dwUpTime: u32,
+            dwTotalPorts: u32,
+            dwPortsInUse: u32,
+            Reserved: u32,
+            ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
+        }
+        type MPR_SERVER_HANDLE = HANDLE;
+        struct MPR_SERVER_SET_CONFIG_EX0 {
+            Header: MPRAPI_OBJECT_HEADER,
+            setConfigForProtocols: u32,
+            ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS0,
+        }
+        struct MPR_SERVER_SET_CONFIG_EX1 {
+            Header: MPRAPI_OBJECT_HEADER,
+            setConfigForProtocols: u32,
+            ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
+        }
+        struct MPR_TRANSPORT_0 {
+            dwTransportId: u32,
+            hTransport: HANDLE,
+            wszTransportName: [u16; 41],
+        }
+        struct MPR_VPN_TRAFFIC_SELECTOR {
+            r#type: MPR_VPN_TS_TYPE,
+            protocolId: u8,
+            portStart: u16,
+            portEnd: u16,
+            tsPayloadId: u16,
+            addrStart: VPN_TS_IP_ADDRESS,
+            addrEnd: VPN_TS_IP_ADDRESS,
+        }
+        struct MPR_VPN_TRAFFIC_SELECTORS {
+            numTsi: u32,
+            numTsr: u32,
+            tsI: PMPR_VPN_TRAFFIC_SELECTOR,
+            tsR: PMPR_VPN_TRAFFIC_SELECTOR,
+        }
+        #[repr(i32)]
+        enum MPR_VPN_TS_TYPE {
+            MPR_VPN_TS_IPv4_ADDR_RANGE = 7,
+            MPR_VPN_TS_IPv6_ADDR_RANGE = 8,
+        }
+        const MPR_VS_Default: u32 = 0;
+        const MPR_VS_Ikev2First: u32 = 8;
+        const MPR_VS_Ikev2Only: u32 = 7;
+        const MPR_VS_L2tpFirst: u32 = 4;
+        const MPR_VS_L2tpOnly: u32 = 3;
+        const MPR_VS_PptpFirst: u32 = 2;
+        const MPR_VS_PptpOnly: u32 = 1;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminBufferFree(pBuffer: *const void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminConnectionClearStats(hRasServer: RAS_SERVER_HANDLE, hRasConnection: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminConnectionEnum(hRasServer: RAS_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[opt] lpdwResumeHandle: *const u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminConnectionEnumEx(hRasServer: RAS_SERVER_HANDLE, pObjectHeader: *const MPRAPI_OBJECT_HEADER, dwPreferedMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, ppRasConn: *mut PRAS_CONNECTION_EX, lpdwResumeHandle: *const u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminConnectionGetInfo(hRasServer: RAS_SERVER_HANDLE, dwLevel: u32, hRasConnection: HANDLE, lplpbBuffer: *mut LPBYTE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminConnectionGetInfoEx(hRasServer: RAS_SERVER_HANDLE, hRasConnection: HANDLE, pRasConnection: *mut RAS_CONNECTION_EX) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminConnectionRemoveQuarantine(hRasServer: HANDLE, hRasConnection: HANDLE, fIsIpAddress: BOOL) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminDeregisterConnectionNotification(hMprServer: MPR_SERVER_HANDLE, hEventNotification: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminDeviceEnum(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE, lpdwTotalEntries: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminEstablishDomainRasServer(pszDomain: PCWSTR, pszMachine: PCWSTR, bEnable: BOOL) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminGetErrorString(dwError: u32, lplpwsErrorString: *mut PWSTR) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminGetPDCServer(lpszDomain: PCWSTR, lpszServer: PCWSTR, #[out] lpszPDCServer: PWSTR) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceConnect(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, hEvent: HANDLE, fSynchronous: BOOL) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceCreate(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: *const u8, phInterface: *mut HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceDelete(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceDeviceGetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwIndex: u32, dwLevel: u32, lplpBuffer: *mut LPBYTE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceDeviceSetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwIndex: u32, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceDisconnect(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceEnum(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[opt] lpdwResumeHandle: *const u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceGetCredentials(#[opt] lpwsServer: PCWSTR, lpwsInterfaceName: PCWSTR, #[out] #[opt] lpwsUserName: PWSTR, #[out] #[opt] lpwsPassword: PWSTR, #[out] #[opt] lpwsDomainName: PWSTR) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceGetCredentialsEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceGetCustomInfoEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, pCustomInfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceGetHandle(hMprServer: MPR_SERVER_HANDLE, lpwsInterfaceName: PCWSTR, phInterface: *mut HANDLE, fIncludeClientInterfaces: BOOL) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceGetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, lplpbBuffer: *const LPBYTE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceQueryUpdateResult(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwProtocolId: u32, lpdwUpdateResult: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceSetCredentials(#[opt] lpwsServer: PCWSTR, lpwsInterfaceName: PCWSTR, #[opt] lpwsUserName: PCWSTR, #[opt] lpwsDomainName: PCWSTR, #[opt] lpwsPassword: PCWSTR) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceSetCredentialsEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceSetCustomInfoEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, pCustomInfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceSetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceTransportAdd(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32, pInterfaceInfo: *const u8, dwInterfaceInfoSize: u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceTransportGetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32, ppInterfaceInfo: *mut LPBYTE, #[opt] lpdwInterfaceInfoSize: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceTransportRemove(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceTransportSetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32, pInterfaceInfo: *const u8, dwInterfaceInfoSize: u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceUpdatePhonebookInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminInterfaceUpdateRoutes(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwProtocolId: u32, hEvent: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminIsDomainRasServer(pszDomain: PCWSTR, pszMachine: PCWSTR, pbIsRasServer: *mut BOOL) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminIsServiceInitialized(lpwsServerName: PCWSTR, fIsServiceInitialized: *const BOOL) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminIsServiceRunning(lpwsServerName: PCWSTR) -> BOOL;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminMIBBufferFree(pBuffer: *const void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminMIBEntryCreate(hMibServer: MIB_SERVER_HANDLE, dwPid: u32, dwRoutingPid: u32, lpEntry: *const void, dwEntrySize: u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminMIBEntryDelete(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, lpEntry: *const void, dwEntrySize: u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminMIBEntryGet(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, lpInEntry: *const void, dwInEntrySize: u32, lplpOutEntry: *mut *mut void, lpOutEntrySize: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminMIBEntryGetFirst(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, lpInEntry: *const void, dwInEntrySize: u32, lplpOutEntry: *mut *mut void, lpOutEntrySize: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminMIBEntryGetNext(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, lpInEntry: *const void, dwInEntrySize: u32, lplpOutEntry: *mut *mut void, lpOutEntrySize: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminMIBEntrySet(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, lpEntry: *const void, dwEntrySize: u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminMIBServerConnect(#[opt] lpwsServerName: PCWSTR, phMibServer: *mut MIB_SERVER_HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminMIBServerDisconnect(hMibServer: MIB_SERVER_HANDLE);
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminPortClearStats(hRasServer: RAS_SERVER_HANDLE, hPort: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminPortDisconnect(hRasServer: RAS_SERVER_HANDLE, hPort: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminPortEnum(hRasServer: RAS_SERVER_HANDLE, dwLevel: u32, hRasConnection: HANDLE, lplpbBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[opt] lpdwResumeHandle: *const u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminPortGetInfo(hRasServer: RAS_SERVER_HANDLE, dwLevel: u32, hPort: HANDLE, lplpbBuffer: *mut LPBYTE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminPortReset(hRasServer: RAS_SERVER_HANDLE, hPort: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminRegisterConnectionNotification(hMprServer: MPR_SERVER_HANDLE, hEventNotification: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminSendUserMessage(hMprServer: MPR_SERVER_HANDLE, hConnection: HANDLE, lpwszMessage: PCWSTR) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminServerConnect(#[opt] lpwsServerName: PCWSTR, phMprServer: *mut MPR_SERVER_HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminServerDisconnect(hMprServer: MPR_SERVER_HANDLE);
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminServerGetCredentials(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *const LPBYTE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminServerGetInfo(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminServerGetInfoEx(hMprServer: MPR_SERVER_HANDLE, pServerInfo: *mut MPR_SERVER_EX1) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminServerSetCredentials(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminServerSetInfo(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminServerSetInfoEx(hMprServer: MPR_SERVER_HANDLE, pServerInfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminTransportCreate(hMprServer: MPR_SERVER_HANDLE, dwTransportId: u32, #[opt] lpwsTransportName: PCWSTR, pGlobalInfo: *const u8, dwGlobalInfoSize: u32, #[opt] pClientInterfaceInfo: *const u8, #[opt] dwClientInterfaceInfoSize: u32, lpwsDLLPath: PCWSTR) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminTransportGetInfo(hMprServer: MPR_SERVER_HANDLE, dwTransportId: u32, #[opt] ppGlobalInfo: *mut LPBYTE, #[opt] lpdwGlobalInfoSize: *mut u32, #[opt] ppClientInterfaceInfo: *mut LPBYTE, #[opt] lpdwClientInterfaceInfoSize: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminTransportSetInfo(hMprServer: MPR_SERVER_HANDLE, dwTransportId: u32, #[opt] pGlobalInfo: *const u8, dwGlobalInfoSize: u32, #[opt] pClientInterfaceInfo: *const u8, dwClientInterfaceInfoSize: u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminUpdateConnection(hRasServer: RAS_SERVER_HANDLE, hRasConnection: HANDLE, pRasUpdateConnection: *const RAS_UPDATE_CONNECTION) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminUserGetInfo(lpszServer: PCWSTR, lpszUser: PCWSTR, dwLevel: u32, lpbBuffer: *mut u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprAdminUserSetInfo(lpszServer: PCWSTR, lpszUser: PCWSTR, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigBufferFree(pBuffer: *const void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigFilterGetInfo(hMprConfig: HANDLE, dwLevel: u32, dwTransportId: u32, #[in] #[out] lpBuffer: *mut u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigFilterSetInfo(hMprConfig: HANDLE, dwLevel: u32, dwTransportId: u32, lpBuffer: *const u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigGetFriendlyName(hMprConfig: HANDLE, pszGuidName: PCWSTR, #[size_param(3)] pszBuffer: *mut u16, dwBufferSize: u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigGetGuidName(hMprConfig: HANDLE, pszFriendlyName: PCWSTR, #[size_param(3)] pszBuffer: *mut u16, dwBufferSize: u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceCreate(hMprConfig: HANDLE, dwLevel: u32, lpbBuffer: *const u8, phRouterInterface: *mut HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceDelete(hMprConfig: HANDLE, hRouterInterface: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceEnum(hMprConfig: HANDLE, dwLevel: u32, lplpBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[in] #[out] #[opt] lpdwResumeHandle: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceGetCustomInfoEx(hMprConfig: HANDLE, hRouterInterface: HANDLE, pCustomInfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceGetHandle(hMprConfig: HANDLE, lpwsInterfaceName: PCWSTR, phRouterInterface: *mut HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceGetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwLevel: u32, #[in] #[out] lplpBuffer: *mut LPBYTE, lpdwBufferSize: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceSetCustomInfoEx(hMprConfig: HANDLE, hRouterInterface: HANDLE, pCustomInfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceSetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceTransportAdd(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwTransportId: u32, #[opt] lpwsTransportName: PCWSTR, #[size_param(5)] pInterfaceInfo: *const u8, dwInterfaceInfoSize: u32, phRouterIfTransport: *mut HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceTransportEnum(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwLevel: u32, lplpBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[in] #[out] #[opt] lpdwResumeHandle: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceTransportGetHandle(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwTransportId: u32, phRouterIfTransport: *mut HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceTransportGetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, hRouterIfTransport: HANDLE, ppInterfaceInfo: *mut LPBYTE, #[opt] lpdwInterfaceInfoSize: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceTransportRemove(hMprConfig: HANDLE, hRouterInterface: HANDLE, hRouterIfTransport: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigInterfaceTransportSetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, hRouterIfTransport: HANDLE, #[size_param(4)] #[opt] pInterfaceInfo: *const u8, dwInterfaceInfoSize: u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigServerBackup(hMprConfig: HANDLE, lpwsPath: PCWSTR) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigServerConnect(#[opt] lpwsServerName: PCWSTR, phMprConfig: *mut HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigServerDisconnect(hMprConfig: HANDLE);
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigServerGetInfo(hMprConfig: HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigServerGetInfoEx(hMprConfig: HANDLE, pServerInfo: *mut MPR_SERVER_EX1) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigServerInstall(dwLevel: u32, pBuffer: *const void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigServerRefresh(hMprConfig: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigServerRestore(hMprConfig: HANDLE, lpwsPath: PCWSTR) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigServerSetInfo(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigServerSetInfoEx(hMprConfig: HANDLE, pSetServerConfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigTransportCreate(hMprConfig: HANDLE, dwTransportId: u32, #[opt] lpwsTransportName: PCWSTR, #[size_param(4)] pGlobalInfo: *const u8, dwGlobalInfoSize: u32, #[size_param(6)] #[opt] pClientInterfaceInfo: *const u8, #[opt] dwClientInterfaceInfoSize: u32, #[opt] lpwsDLLPath: PCWSTR, phRouterTransport: *mut HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigTransportDelete(hMprConfig: HANDLE, hRouterTransport: HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigTransportEnum(hMprConfig: HANDLE, dwLevel: u32, lplpBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[in] #[out] #[opt] lpdwResumeHandle: *mut u32) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigTransportGetHandle(hMprConfig: HANDLE, dwTransportId: u32, phRouterTransport: *mut HANDLE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigTransportGetInfo(hMprConfig: HANDLE, hRouterTransport: HANDLE, #[in] #[out] #[opt] ppGlobalInfo: *mut LPBYTE, #[opt] lpdwGlobalInfoSize: *mut u32, #[in] #[out] #[opt] ppClientInterfaceInfo: *mut LPBYTE, #[opt] lpdwClientInterfaceInfoSize: *mut u32, #[in] #[out] lplpwsDLLPath: *mut PWSTR) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprConfigTransportSetInfo(hMprConfig: HANDLE, hRouterTransport: HANDLE, #[size_param(3)] #[opt] pGlobalInfo: *const u8, #[opt] dwGlobalInfoSize: u32, #[size_param(5)] #[opt] pClientInterfaceInfo: *const u8, #[opt] dwClientInterfaceInfoSize: u32, #[opt] lpwsDLLPath: PCWSTR) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprInfoBlockAdd(lpHeader: *const void, dwInfoType: u32, dwItemSize: u32, dwItemCount: u32, lpItemData: *const u8, lplpNewHeader: *mut *mut void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprInfoBlockFind(lpHeader: *const void, dwInfoType: u32, lpdwItemSize: *mut u32, lpdwItemCount: *mut u32, lplpItemData: *mut LPBYTE) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprInfoBlockQuerySize(lpHeader: *const void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprInfoBlockRemove(lpHeader: *const void, dwInfoType: u32, lplpNewHeader: *mut *mut void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprInfoBlockSet(lpHeader: *const void, dwInfoType: u32, dwItemSize: u32, dwItemCount: u32, lpItemData: *const u8, lplpNewHeader: *mut *mut void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprInfoCreate(dwVersion: u32, lplpNewHeader: *mut *mut void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprInfoDelete(lpHeader: *const void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprInfoDuplicate(lpHeader: *const void, lplpNewHeader: *mut *mut void) -> u32;
+        #[library("MPRAPI.dll")]
+        extern fn MprInfoRemoveAll(lpHeader: *const void, lplpNewHeader: *mut *mut void) -> u32;
+        type PGRE_CONFIG_PARAMS0 = *mut GRE_CONFIG_PARAMS0;
+        const PID_ATALK: u32 = 41;
+        const PID_IP: u32 = 33;
+        const PID_IPV6: u32 = 87;
+        const PID_IPX: u32 = 43;
+        const PID_NBF: u32 = 63;
+        type PIKEV2_CONFIG_PARAMS = *mut IKEV2_CONFIG_PARAMS;
+        type PIKEV2_PROJECTION_INFO = *mut IKEV2_PROJECTION_INFO;
+        type PIKEV2_PROJECTION_INFO2 = *mut IKEV2_PROJECTION_INFO2;
+        type PIKEV2_TUNNEL_CONFIG_PARAMS2 = *mut IKEV2_TUNNEL_CONFIG_PARAMS2;
+        type PIKEV2_TUNNEL_CONFIG_PARAMS3 = *mut IKEV2_TUNNEL_CONFIG_PARAMS3;
+        type PIKEV2_TUNNEL_CONFIG_PARAMS4 = *mut IKEV2_TUNNEL_CONFIG_PARAMS4;
+        type PL2TP_CONFIG_PARAMS0 = *mut L2TP_CONFIG_PARAMS0;
+        type PL2TP_CONFIG_PARAMS1 = *mut L2TP_CONFIG_PARAMS1;
+        type PL2TP_TUNNEL_CONFIG_PARAMS1 = *mut L2TP_TUNNEL_CONFIG_PARAMS1;
+        type PL2TP_TUNNEL_CONFIG_PARAMS2 = *mut L2TP_TUNNEL_CONFIG_PARAMS2;
+        extern fn PMPRADMINACCEPTNEWCONNECTION(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1) -> BOOL;
+        extern fn PMPRADMINACCEPTNEWCONNECTION2(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2) -> BOOL;
+        extern fn PMPRADMINACCEPTNEWCONNECTION3(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> BOOL;
+        extern fn PMPRADMINACCEPTNEWCONNECTIONEX(param0: *mut RAS_CONNECTION_EX) -> BOOL;
+        extern fn PMPRADMINACCEPTNEWLINK(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1) -> BOOL;
+        extern fn PMPRADMINACCEPTREAUTHENTICATION(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> BOOL;
+        extern fn PMPRADMINACCEPTREAUTHENTICATIONEX(param0: *mut RAS_CONNECTION_EX) -> BOOL;
+        extern fn PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX(param0: *mut RAS_CONNECTION_EX) -> BOOL;
+        extern fn PMPRADMINCONNECTIONHANGUPNOTIFICATION(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1);
+        extern fn PMPRADMINCONNECTIONHANGUPNOTIFICATION2(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2);
+        extern fn PMPRADMINCONNECTIONHANGUPNOTIFICATION3(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: RAS_CONNECTION_3);
+        extern fn PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX(param0: *mut RAS_CONNECTION_EX);
+        extern fn PMPRADMINGETIPADDRESSFORUSER(param0: *mut u16, param1: *mut u16, param2: *mut u32, param3: *mut BOOL) -> u32;
+        extern fn PMPRADMINGETIPV6ADDRESSFORUSER(param0: *mut u16, param1: *mut u16, param2: *mut IN6_ADDR, param3: *mut BOOL) -> u32;
+        extern fn PMPRADMINLINKHANGUPNOTIFICATION(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1);
+        extern fn PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX(param0: *mut AUTH_VALIDATION_EX) -> u32;
+        extern fn PMPRADMINRELEASEIPADRESS(param0: *mut u16, param1: *mut u16, param2: *mut u32);
+        extern fn PMPRADMINRELEASEIPV6ADDRESSFORUSER(param0: *mut u16, param1: *mut u16, param2: *mut IN6_ADDR);
+        extern fn PMPRADMINTERMINATEDLL() -> u32;
+        type PMPRAPI_ADMIN_DLL_CALLBACKS = *mut MPRAPI_ADMIN_DLL_CALLBACKS;
+        type PMPRAPI_OBJECT_HEADER = *mut MPRAPI_OBJECT_HEADER;
+        type PMPRAPI_OBJECT_TYPE = *mut MPRAPI_OBJECT_TYPE;
+        type PMPRAPI_TUNNEL_CONFIG_PARAMS0 = *mut MPRAPI_TUNNEL_CONFIG_PARAMS0;
+        type PMPRAPI_TUNNEL_CONFIG_PARAMS1 = *mut MPRAPI_TUNNEL_CONFIG_PARAMS1;
+        type PMPR_CERT_EKU = *mut MPR_CERT_EKU;
+        type PMPR_CREDENTIALSEX_0 = *mut MPR_CREDENTIALSEX_0;
+        type PMPR_CREDENTIALSEX_1 = *mut MPR_CREDENTIALSEX_1;
+        type PMPR_DEVICE_0 = *mut MPR_DEVICE_0;
+        type PMPR_DEVICE_1 = *mut MPR_DEVICE_1;
+        type PMPR_FILTER_0 = *mut MPR_FILTER_0;
+        type PMPR_IFTRANSPORT_0 = *mut MPR_IFTRANSPORT_0;
+        type PMPR_IF_CUSTOMINFOEX0 = *mut MPR_IF_CUSTOMINFOEX0;
+        type PMPR_IF_CUSTOMINFOEX1 = *mut MPR_IF_CUSTOMINFOEX1;
+        type PMPR_IF_CUSTOMINFOEX2 = *mut MPR_IF_CUSTOMINFOEX2;
+        type PMPR_INTERFACE_0 = *mut MPR_INTERFACE_0;
+        type PMPR_INTERFACE_1 = *mut MPR_INTERFACE_1;
+        type PMPR_INTERFACE_2 = *mut MPR_INTERFACE_2;
+        type PMPR_INTERFACE_3 = *mut MPR_INTERFACE_3;
+        type PMPR_IPINIP_INTERFACE_0 = *mut MPR_IPINIP_INTERFACE_0;
+        type PMPR_SERVER_0 = *mut MPR_SERVER_0;
+        type PMPR_SERVER_1 = *mut MPR_SERVER_1;
+        type PMPR_SERVER_2 = *mut MPR_SERVER_2;
+        type PMPR_SERVER_EX0 = *mut MPR_SERVER_EX0;
+        type PMPR_SERVER_EX1 = *mut MPR_SERVER_EX1;
+        type PMPR_SERVER_SET_CONFIG_EX0 = *mut MPR_SERVER_SET_CONFIG_EX0;
+        type PMPR_SERVER_SET_CONFIG_EX1 = *mut MPR_SERVER_SET_CONFIG_EX1;
+        type PMPR_TRANSPORT_0 = *mut MPR_TRANSPORT_0;
+        type PMPR_VPN_TRAFFIC_SELECTOR = *mut MPR_VPN_TRAFFIC_SELECTOR;
+        type PMPR_VPN_TRAFFIC_SELECTORS = *mut MPR_VPN_TRAFFIC_SELECTORS;
+        type PPPP_PROJECTION_INFO = *mut PPP_PROJECTION_INFO;
+        type PPPP_PROJECTION_INFO2 = *mut PPP_PROJECTION_INFO2;
+        type PPPTP_CONFIG_PARAMS = *mut PPTP_CONFIG_PARAMS;
+        struct PPP_ATCP_INFO {
+            dwError: u32,
+            wszAddress: [u16; 33],
+        }
+        const PPP_CCP_COMPRESSION: u32 = 1;
+        const PPP_CCP_ENCRYPTION128BIT: u32 = 64;
+        const PPP_CCP_ENCRYPTION40BIT: u32 = 32;
+        const PPP_CCP_ENCRYPTION40BITOLD: u32 = 16;
+        const PPP_CCP_ENCRYPTION56BIT: u32 = 128;
+        const PPP_CCP_HISTORYLESS: u32 = 16777216;
+        struct PPP_CCP_INFO {
+            dwError: u32,
+            dwCompressionAlgorithm: u32,
+            dwOptions: u32,
+            dwRemoteCompressionAlgorithm: u32,
+            dwRemoteOptions: u32,
+        }
+        struct PPP_INFO {
+            nbf: PPP_NBFCP_INFO,
+            ip: PPP_IPCP_INFO,
+            ipx: PPP_IPXCP_INFO,
+            at: PPP_ATCP_INFO,
+        }
+        struct PPP_INFO_2 {
+            nbf: PPP_NBFCP_INFO,
+            ip: PPP_IPCP_INFO2,
+            ipx: PPP_IPXCP_INFO,
+            at: PPP_ATCP_INFO,
+            ccp: PPP_CCP_INFO,
+            lcp: PPP_LCP_INFO,
+        }
+        struct PPP_INFO_3 {
+            nbf: PPP_NBFCP_INFO,
+            ip: PPP_IPCP_INFO2,
+            ipv6: PPP_IPV6_CP_INFO,
+            ccp: PPP_CCP_INFO,
+            lcp: PPP_LCP_INFO,
+        }
+        struct PPP_IPCP_INFO {
+            dwError: u32,
+            wszAddress: [u16; 16],
+            wszRemoteAddress: [u16; 16],
+        }
+        struct PPP_IPCP_INFO2 {
+            dwError: u32,
+            wszAddress: [u16; 16],
+            wszRemoteAddress: [u16; 16],
+            dwOptions: u32,
+            dwRemoteOptions: u32,
+        }
+        const PPP_IPCP_VJ: u32 = 1;
+        struct PPP_IPV6_CP_INFO {
+            dwVersion: u32,
+            dwSize: u32,
+            dwError: u32,
+            bInterfaceIdentifier: [u8; 8],
+            bRemoteInterfaceIdentifier: [u8; 8],
+            dwOptions: u32,
+            dwRemoteOptions: u32,
+            bPrefix: [u8; 8],
+            dwPrefixLength: u32,
+        }
+        struct PPP_IPXCP_INFO {
+            dwError: u32,
+            wszAddress: [u16; 23],
+        }
+        const PPP_LCP_3_DES: u32 = 32;
+        const PPP_LCP_ACFC: u32 = 4;
+        const PPP_LCP_AES_128: u32 = 64;
+        const PPP_LCP_AES_192: u32 = 256;
+        const PPP_LCP_AES_256: u32 = 128;
+        const PPP_LCP_CHAP: u32 = 49699;
+        const PPP_LCP_CHAP_MD5: u32 = 5;
+        const PPP_LCP_CHAP_MS: u32 = 128;
+        const PPP_LCP_CHAP_MSV2: u32 = 129;
+        const PPP_LCP_DES_56: u32 = 16;
+        const PPP_LCP_EAP: u32 = 49703;
+        const PPP_LCP_GCM_AES_128: u32 = 512;
+        const PPP_LCP_GCM_AES_192: u32 = 1024;
+        const PPP_LCP_GCM_AES_256: u32 = 2048;
+        struct PPP_LCP_INFO {
+            dwError: u32,
+            dwAuthenticationProtocol: u32,
+            dwAuthenticationData: u32,
+            dwRemoteAuthenticationProtocol: u32,
+            dwRemoteAuthenticationData: u32,
+            dwTerminateReason: u32,
+            dwRemoteTerminateReason: u32,
+            dwOptions: u32,
+            dwRemoteOptions: u32,
+            dwEapTypeId: u32,
+            dwRemoteEapTypeId: u32,
+        }
+        const PPP_LCP_MULTILINK_FRAMING: u32 = 1;
+        const PPP_LCP_PAP: u32 = 49187;
+        const PPP_LCP_PFC: u32 = 2;
+        const PPP_LCP_SPAP: u32 = 49191;
+        const PPP_LCP_SSHF: u32 = 8;
+        struct PPP_NBFCP_INFO {
+            dwError: u32,
+            wszWksta: [u16; 17],
+        }
+        struct PPP_PROJECTION_INFO {
+            dwIPv4NegotiationError: u32,
+            wszAddress: [u16; 16],
+            wszRemoteAddress: [u16; 16],
+            dwIPv4Options: u32,
+            dwIPv4RemoteOptions: u32,
+            IPv4SubInterfaceIndex: u64,
+            dwIPv6NegotiationError: u32,
+            bInterfaceIdentifier: [u8; 8],
+            bRemoteInterfaceIdentifier: [u8; 8],
+            bPrefix: [u8; 8],
+            dwPrefixLength: u32,
+            IPv6SubInterfaceIndex: u64,
+            dwLcpError: u32,
+            dwAuthenticationProtocol: u32,
+            dwAuthenticationData: u32,
+            dwRemoteAuthenticationProtocol: u32,
+            dwRemoteAuthenticationData: u32,
+            dwLcpTerminateReason: u32,
+            dwLcpRemoteTerminateReason: u32,
+            dwLcpOptions: u32,
+            dwLcpRemoteOptions: u32,
+            dwEapTypeId: u32,
+            dwRemoteEapTypeId: u32,
+            dwCcpError: u32,
+            dwCompressionAlgorithm: u32,
+            dwCcpOptions: u32,
+            dwRemoteCompressionAlgorithm: u32,
+            dwCcpRemoteOptions: u32,
+        }
+        struct PPP_PROJECTION_INFO2 {
+            dwIPv4NegotiationError: u32,
+            wszAddress: [u16; 16],
+            wszRemoteAddress: [u16; 16],
+            dwIPv4Options: u32,
+            dwIPv4RemoteOptions: u32,
+            IPv4SubInterfaceIndex: u64,
+            dwIPv6NegotiationError: u32,
+            bInterfaceIdentifier: [u8; 8],
+            bRemoteInterfaceIdentifier: [u8; 8],
+            bPrefix: [u8; 8],
+            dwPrefixLength: u32,
+            IPv6SubInterfaceIndex: u64,
+            dwLcpError: u32,
+            dwAuthenticationProtocol: u32,
+            dwAuthenticationData: u32,
+            dwRemoteAuthenticationProtocol: u32,
+            dwRemoteAuthenticationData: u32,
+            dwLcpTerminateReason: u32,
+            dwLcpRemoteTerminateReason: u32,
+            dwLcpOptions: u32,
+            dwLcpRemoteOptions: u32,
+            dwEapTypeId: u32,
+            dwEmbeddedEAPTypeId: u32,
+            dwRemoteEapTypeId: u32,
+            dwCcpError: u32,
+            dwCompressionAlgorithm: u32,
+            dwCcpOptions: u32,
+            dwRemoteCompressionAlgorithm: u32,
+            dwCcpRemoteOptions: u32,
+        }
+        type PPROJECTION_INFO = *mut PROJECTION_INFO;
+        type PPROJECTION_INFO2 = *mut PROJECTION_INFO2;
+        struct PPTP_CONFIG_PARAMS {
+            dwNumPorts: u32,
+            dwPortFlags: u32,
+        }
+        type PRAS_CONNECTION_0 = *mut RAS_CONNECTION_0;
+        type PRAS_CONNECTION_1 = *mut RAS_CONNECTION_1;
+        type PRAS_CONNECTION_2 = *mut RAS_CONNECTION_2;
+        type PRAS_CONNECTION_3 = *mut RAS_CONNECTION_3;
+        type PRAS_CONNECTION_4 = *mut RAS_CONNECTION_4;
+        type PRAS_CONNECTION_EX = *mut RAS_CONNECTION_EX;
+        type PRAS_PORT_0 = *mut RAS_PORT_0;
+        type PRAS_PORT_1 = *mut RAS_PORT_1;
+        type PRAS_PORT_2 = *mut RAS_PORT_2;
+        type PRAS_UPDATE_CONNECTION = *mut RAS_UPDATE_CONNECTION;
+        type PRAS_USER_0 = *mut RAS_USER_0;
+        type PRAS_USER_1 = *mut RAS_USER_1;
+        struct PROJECTION_INFO {
+            projectionInfoType: u8,
+            Anonymous: union {
+                PppProjectionInfo: PPP_PROJECTION_INFO,
+                Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO,
+            },
+        }
+        struct PROJECTION_INFO2 {
+            projectionInfoType: u8,
+            Anonymous: union {
+                PppProjectionInfo: PPP_PROJECTION_INFO2,
+                Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO2,
+            },
+        }
+        type PROUTER_CUSTOM_IKEv2_POLICY0 = *mut ROUTER_CUSTOM_IKEv2_POLICY0;
+        type PROUTER_CUSTOM_L2TP_POLICY0 = *mut ROUTER_CUSTOM_IKEv2_POLICY0;
+        type PROUTER_IKEv2_IF_CUSTOM_CONFIG0 = *mut ROUTER_IKEv2_IF_CUSTOM_CONFIG0;
+        type PROUTER_IKEv2_IF_CUSTOM_CONFIG1 = *mut ROUTER_IKEv2_IF_CUSTOM_CONFIG1;
+        type PROUTER_IKEv2_IF_CUSTOM_CONFIG2 = *mut ROUTER_IKEv2_IF_CUSTOM_CONFIG2;
+        type PSSTP_CERT_INFO = *mut SSTP_CERT_INFO;
+        type PSSTP_CONFIG_PARAMS = *mut SSTP_CONFIG_PARAMS;
+        type PVPN_TS_IP_ADDRESS = *mut VPN_TS_IP_ADDRESS;
+        const RASPRIV2_DialinPolicy: u32 = 1;
+        const RASPRIV_AdminSetCallback: u32 = 2;
+        const RASPRIV_CallbackType: u32 = 7;
+        const RASPRIV_CallerSetCallback: u32 = 4;
+        const RASPRIV_DialinPrivilege: u32 = 8;
+        const RASPRIV_NoCallback: u32 = 1;
+        struct RAS_CONNECTION_0 {
+            hConnection: HANDLE,
+            hInterface: HANDLE,
+            dwConnectDuration: u32,
+            dwInterfaceType: ROUTER_INTERFACE_TYPE,
+            dwConnectionFlags: u32,
+            wszInterfaceName: [u16; 257],
+            wszUserName: [u16; 257],
+            wszLogonDomain: [u16; 16],
+            wszRemoteComputer: [u16; 17],
+        }
+        struct RAS_CONNECTION_1 {
+            hConnection: HANDLE,
+            hInterface: HANDLE,
+            PppInfo: PPP_INFO,
+            dwBytesXmited: u32,
+            dwBytesRcved: u32,
+            dwFramesXmited: u32,
+            dwFramesRcved: u32,
+            dwCrcErr: u32,
+            dwTimeoutErr: u32,
+            dwAlignmentErr: u32,
+            dwHardwareOverrunErr: u32,
+            dwFramingErr: u32,
+            dwBufferOverrunErr: u32,
+            dwCompressionRatioIn: u32,
+            dwCompressionRatioOut: u32,
+        }
+        struct RAS_CONNECTION_2 {
+            hConnection: HANDLE,
+            wszUserName: [u16; 257],
+            dwInterfaceType: ROUTER_INTERFACE_TYPE,
+            guid: GUID,
+            PppInfo2: PPP_INFO_2,
+        }
+        struct RAS_CONNECTION_3 {
+            dwVersion: u32,
+            dwSize: u32,
+            hConnection: HANDLE,
+            wszUserName: [u16; 257],
+            dwInterfaceType: ROUTER_INTERFACE_TYPE,
+            guid: GUID,
+            PppInfo3: PPP_INFO_3,
+            rasQuarState: RAS_QUARANTINE_STATE,
+            timer: FILETIME,
+        }
+        struct RAS_CONNECTION_4 {
+            dwConnectDuration: u32,
+            dwInterfaceType: ROUTER_INTERFACE_TYPE,
+            dwConnectionFlags: u32,
+            wszInterfaceName: [u16; 257],
+            wszUserName: [u16; 257],
+            wszLogonDomain: [u16; 16],
+            wszRemoteComputer: [u16; 17],
+            guid: GUID,
+            rasQuarState: RAS_QUARANTINE_STATE,
+            probationTime: FILETIME,
+            connectionStartTime: FILETIME,
+            ullBytesXmited: u64,
+            ullBytesRcved: u64,
+            dwFramesXmited: u32,
+            dwFramesRcved: u32,
+            dwCrcErr: u32,
+            dwTimeoutErr: u32,
+            dwAlignmentErr: u32,
+            dwHardwareOverrunErr: u32,
+            dwFramingErr: u32,
+            dwBufferOverrunErr: u32,
+            dwCompressionRatioIn: u32,
+            dwCompressionRatioOut: u32,
+            dwNumSwitchOvers: u32,
+            wszRemoteEndpointAddress: [u16; 65],
+            wszLocalEndpointAddress: [u16; 65],
+            ProjectionInfo: PROJECTION_INFO2,
+            hConnection: HANDLE,
+            hInterface: HANDLE,
+            dwDeviceType: u32,
+        }
+        struct RAS_CONNECTION_EX {
+            Header: MPRAPI_OBJECT_HEADER,
+            dwConnectDuration: u32,
+            dwInterfaceType: ROUTER_INTERFACE_TYPE,
+            dwConnectionFlags: u32,
+            wszInterfaceName: [u16; 257],
+            wszUserName: [u16; 257],
+            wszLogonDomain: [u16; 16],
+            wszRemoteComputer: [u16; 17],
+            guid: GUID,
+            rasQuarState: RAS_QUARANTINE_STATE,
+            probationTime: FILETIME,
+            dwBytesXmited: u32,
+            dwBytesRcved: u32,
+            dwFramesXmited: u32,
+            dwFramesRcved: u32,
+            dwCrcErr: u32,
+            dwTimeoutErr: u32,
+            dwAlignmentErr: u32,
+            dwHardwareOverrunErr: u32,
+            dwFramingErr: u32,
+            dwBufferOverrunErr: u32,
+            dwCompressionRatioIn: u32,
+            dwCompressionRatioOut: u32,
+            dwNumSwitchOvers: u32,
+            wszRemoteEndpointAddress: [u16; 65],
+            wszLocalEndpointAddress: [u16; 65],
+            ProjectionInfo: PROJECTION_INFO,
+            hConnection: HANDLE,
+            hInterface: HANDLE,
+        }
+        const RAS_FLAGS_DORMANT: u32 = 32;
+        const RAS_FLAGS_MESSENGER_PRESENT: u32 = 2;
+        const RAS_FLAGS_PPP_CONNECTION: u32 = 1;
+        const RAS_FLAGS_QUARANTINE_PRESENT: u32 = 8;
+        #[repr(i32)]
+        enum RAS_HARDWARE_CONDITION {
+            RAS_HARDWARE_OPERATIONAL = 0,
+            RAS_HARDWARE_FAILURE = 1,
+        }
+        struct RAS_PORT_0 {
+            hPort: HANDLE,
+            hConnection: HANDLE,
+            dwPortCondition: RAS_PORT_CONDITION,
+            dwTotalNumberOfCalls: u32,
+            dwConnectDuration: u32,
+            wszPortName: [u16; 17],
+            wszMediaName: [u16; 17],
+            wszDeviceName: [u16; 129],
+            wszDeviceType: [u16; 17],
+        }
+        struct RAS_PORT_1 {
+            hPort: HANDLE,
+            hConnection: HANDLE,
+            dwHardwareCondition: RAS_HARDWARE_CONDITION,
+            dwLineSpeed: u32,
+            dwBytesXmited: u32,
+            dwBytesRcved: u32,
+            dwFramesXmited: u32,
+            dwFramesRcved: u32,
+            dwCrcErr: u32,
+            dwTimeoutErr: u32,
+            dwAlignmentErr: u32,
+            dwHardwareOverrunErr: u32,
+            dwFramingErr: u32,
+            dwBufferOverrunErr: u32,
+            dwCompressionRatioIn: u32,
+            dwCompressionRatioOut: u32,
+        }
+        struct RAS_PORT_2 {
+            hPort: HANDLE,
+            hConnection: HANDLE,
+            dwConn_State: u32,
+            wszPortName: [u16; 17],
+            wszMediaName: [u16; 17],
+            wszDeviceName: [u16; 129],
+            wszDeviceType: [u16; 17],
+            dwHardwareCondition: RAS_HARDWARE_CONDITION,
+            dwLineSpeed: u32,
+            dwCrcErr: u32,
+            dwSerialOverRunErrs: u32,
+            dwTimeoutErr: u32,
+            dwAlignmentErr: u32,
+            dwHardwareOverrunErr: u32,
+            dwFramingErr: u32,
+            dwBufferOverrunErr: u32,
+            dwCompressionRatioIn: u32,
+            dwCompressionRatioOut: u32,
+            dwTotalErrors: u32,
+            ullBytesXmited: u64,
+            ullBytesRcved: u64,
+            ullFramesXmited: u64,
+            ullFramesRcved: u64,
+            ullBytesTxUncompressed: u64,
+            ullBytesTxCompressed: u64,
+            ullBytesRcvUncompressed: u64,
+            ullBytesRcvCompressed: u64,
+        }
+        #[repr(i32)]
+        enum RAS_PORT_CONDITION {
+            RAS_PORT_NON_OPERATIONAL = 0,
+            RAS_PORT_DISCONNECTED = 1,
+            RAS_PORT_CALLING_BACK = 2,
+            RAS_PORT_LISTENING = 3,
+            RAS_PORT_AUTHENTICATING = 4,
+            RAS_PORT_AUTHENTICATED = 5,
+            RAS_PORT_INITIALIZING = 6,
+        }
+        #[repr(i32)]
+        enum RAS_QUARANTINE_STATE {
+            RAS_QUAR_STATE_NORMAL = 0,
+            RAS_QUAR_STATE_QUARANTINE = 1,
+            RAS_QUAR_STATE_PROBATION = 2,
+            RAS_QUAR_STATE_NOT_CAPABLE = 3,
+        }
+        type RAS_SERVER_HANDLE = HANDLE;
+        struct RAS_UPDATE_CONNECTION {
+            Header: MPRAPI_OBJECT_HEADER,
+            dwIfIndex: u32,
+            wszLocalEndpointAddress: [u16; 65],
+            wszRemoteEndpointAddress: [u16; 65],
+        }
+        struct RAS_USER_0 {
+            bfPrivilege: u8,
+            wszPhoneNumber: [u16; 129],
+        }
+        struct RAS_USER_1 {
+            bfPrivilege: u8,
+            wszPhoneNumber: [u16; 129],
+            bfPrivilege2: u8,
+        }
+        #[repr(i32)]
+        enum ROUTER_CONNECTION_STATE {
+            ROUTER_IF_STATE_UNREACHABLE = 0,
+            ROUTER_IF_STATE_DISCONNECTED = 1,
+            ROUTER_IF_STATE_CONNECTING = 2,
+            ROUTER_IF_STATE_CONNECTED = 3,
+        }
+        struct ROUTER_CUSTOM_IKEv2_POLICY0 {
+            dwIntegrityMethod: u32,
+            dwEncryptionMethod: u32,
+            dwCipherTransformConstant: u32,
+            dwAuthTransformConstant: u32,
+            dwPfsGroup: u32,
+            dwDhGroup: u32,
+        }
+        type ROUTER_CUSTOM_L2TP_POLICY0 = ROUTER_CUSTOM_IKEv2_POLICY0;
+        struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
+            dwSaLifeTime: u32,
+            dwSaDataSize: u32,
+            certificateName: CERT_NAME_BLOB,
+            customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
+        }
+        struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
+            dwSaLifeTime: u32,
+            dwSaDataSize: u32,
+            certificateName: CERT_NAME_BLOB,
+            customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
+            certificateHash: CRYPT_HASH_BLOB,
+        }
+        struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
+            dwSaLifeTime: u32,
+            dwSaDataSize: u32,
+            certificateName: CERT_NAME_BLOB,
+            customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
+            certificateHash: CRYPT_HASH_BLOB,
+            dwMmSaLifeTime: u32,
+            vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
+        }
+        #[repr(i32)]
+        enum ROUTER_INTERFACE_TYPE {
+            ROUTER_IF_TYPE_CLIENT = 0,
+            ROUTER_IF_TYPE_HOME_ROUTER = 1,
+            ROUTER_IF_TYPE_FULL_ROUTER = 2,
+            ROUTER_IF_TYPE_DEDICATED = 3,
+            ROUTER_IF_TYPE_INTERNAL = 4,
+            ROUTER_IF_TYPE_LOOPBACK = 5,
+            ROUTER_IF_TYPE_TUNNEL1 = 6,
+            ROUTER_IF_TYPE_DIALOUT = 7,
+            ROUTER_IF_TYPE_MAX = 8,
+        }
+        struct SSTP_CERT_INFO {
+            isDefault: BOOL,
+            certBlob: CRYPT_HASH_BLOB,
+        }
+        struct SSTP_CONFIG_PARAMS {
+            dwNumPorts: u32,
+            dwPortFlags: u32,
+            isUseHttps: BOOL,
+            certAlgorithm: u32,
+            sstpCertDetails: SSTP_CERT_INFO,
+        }
+        struct VPN_TS_IP_ADDRESS {
+            Type: u16,
+            Anonymous: union {
+                v4: IN_ADDR,
+                v6: IN6_ADDR,
+            },
+        }
+    }
+}

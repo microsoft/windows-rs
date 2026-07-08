@@ -97,8 +97,8 @@ impl Settings {
     /// Overrides the user-agent string sent with requests and reported to script.
     pub fn set_user_agent(&self, user_agent: &str) -> Result<()> {
         let source: ICoreWebView2Settings2 = self.0.cast()?;
-        let user_agent = string::encode(user_agent);
-        unsafe { source.SetUserAgent(user_agent.as_ptr()) }
+        let user_agent = HSTRING::from(user_agent);
+        unsafe { source.SetUserAgent(&user_agent) }
     }
 
     settings_versioned_bool! {

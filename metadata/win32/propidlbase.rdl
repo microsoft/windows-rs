@@ -1,0 +1,266 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct CABOOL {
+            cElems: u32,
+            pElems: *mut VARIANT_BOOL,
+        }
+        struct CABSTR {
+            cElems: u32,
+            pElems: *mut BSTR,
+        }
+        struct CABSTRBLOB {
+            cElems: u32,
+            pElems: *mut BSTRBLOB,
+        }
+        struct CAC {
+            cElems: u32,
+            pElems: *mut i8,
+        }
+        struct CACLIPDATA {
+            cElems: u32,
+            pElems: *mut CLIPDATA,
+        }
+        struct CACLSID {
+            cElems: u32,
+            pElems: *mut GUID,
+        }
+        struct CACY {
+            cElems: u32,
+            pElems: *mut CY,
+        }
+        struct CADATE {
+            cElems: u32,
+            pElems: *mut f64,
+        }
+        struct CADBL {
+            cElems: u32,
+            pElems: *mut f64,
+        }
+        struct CAFILETIME {
+            cElems: u32,
+            pElems: *mut FILETIME,
+        }
+        struct CAFLT {
+            cElems: u32,
+            pElems: *mut f32,
+        }
+        struct CAH {
+            cElems: u32,
+            pElems: *mut LARGE_INTEGER,
+        }
+        struct CAI {
+            cElems: u32,
+            pElems: *mut i16,
+        }
+        struct CAL {
+            cElems: u32,
+            pElems: *mut i32,
+        }
+        struct CALPSTR {
+            cElems: u32,
+            pElems: *mut PSTR,
+        }
+        struct CALPWSTR {
+            cElems: u32,
+            pElems: *mut PWSTR,
+        }
+        struct CAPROPVARIANT {
+            cElems: u32,
+            pElems: *mut PROPVARIANT,
+        }
+        struct CASCODE {
+            cElems: u32,
+            pElems: *mut SCODE,
+        }
+        struct CAUB {
+            cElems: u32,
+            pElems: *mut u8,
+        }
+        struct CAUH {
+            cElems: u32,
+            pElems: *mut ULARGE_INTEGER,
+        }
+        struct CAUI {
+            cElems: u32,
+            pElems: *mut u16,
+        }
+        struct CAUL {
+            cElems: u32,
+            pElems: *mut u32,
+        }
+        #[guid(0x0000013b_0000_0000_c000_000000000046)]
+        interface IEnumSTATPROPSETSTG: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut STATPROPSETSTG, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumSTATPROPSETSTG) -> HRESULT;
+        }
+        #[guid(0x00000139_0000_0000_c000_000000000046)]
+        interface IEnumSTATPROPSTG: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut STATPROPSTG, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumSTATPROPSTG) -> HRESULT;
+        }
+        #[guid(0x0000013a_0000_0000_c000_000000000046)]
+        interface IPropertySetStorage: IUnknown {
+            fn Create(&self, rfmtid: *const GUID, pclsid: *const GUID, grfFlags: u32, grfMode: u32, ppprstg: *mut IPropertyStorage) -> HRESULT;
+            fn Open(&self, rfmtid: *const GUID, grfMode: u32, ppprstg: *mut IPropertyStorage) -> HRESULT;
+            fn Delete(&self, rfmtid: *const GUID) -> HRESULT;
+            fn Enum(&self, ppenum: *mut IEnumSTATPROPSETSTG) -> HRESULT;
+        }
+        #[guid(0x00000138_0000_0000_c000_000000000046)]
+        interface IPropertyStorage: IUnknown {
+            fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> HRESULT;
+            fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidNameFirst: PROPID) -> HRESULT;
+            fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> HRESULT;
+            fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *mut PWSTR) -> HRESULT;
+            fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *const PWSTR) -> HRESULT;
+            fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID) -> HRESULT;
+            fn Commit(&self, grfCommitFlags: u32) -> HRESULT;
+            fn Revert(&self) -> HRESULT;
+            fn Enum(&self, ppenum: *mut IEnumSTATPROPSTG) -> HRESULT;
+            fn SetTimes(&self, pctime: *const FILETIME, patime: *const FILETIME, pmtime: *const FILETIME) -> HRESULT;
+            fn SetClass(&self, clsid: *const GUID) -> HRESULT;
+            fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> HRESULT;
+        }
+        type LPPROPVARIANT = *mut PROPVARIANT;
+        type LPVERSIONEDSTREAM = *mut VERSIONEDSTREAM;
+        const PID_BEHAVIOR: u32 = 2147483651;
+        const PID_CODEPAGE: u32 = 1;
+        const PID_DICTIONARY: u32 = 0;
+        const PID_FIRST_NAME_DEFAULT: u32 = 4095;
+        const PID_FIRST_USABLE: u32 = 2;
+        const PID_ILLEGAL: u32 = 4294967295;
+        const PID_LOCALE: u32 = 2147483648;
+        const PID_MAX_READONLY: u32 = 3221225471;
+        const PID_MIN_READONLY: u32 = 2147483648;
+        const PID_MODIFY_TIME: u32 = 2147483649;
+        const PID_SECURITY: u32 = 2147483650;
+        const PROPSETFLAG_ANSI: u32 = 2;
+        const PROPSETFLAG_CASE_SENSITIVE: u32 = 8;
+        const PROPSETFLAG_DEFAULT: u32 = 0;
+        const PROPSETFLAG_NONSIMPLE: u32 = 1;
+        const PROPSETFLAG_UNBUFFERED: u32 = 4;
+        const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295;
+        const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1;
+        struct PROPSPEC {
+            ulKind: u32,
+            Anonymous: union {
+                propid: PROPID,
+                lpwstr: PWSTR,
+            },
+        }
+        struct PROPVARIANT {
+            Anonymous: union {
+                Anonymous: struct {
+                    vt: VARTYPE,
+                    wReserved1: PROPVAR_PAD1,
+                    wReserved2: PROPVAR_PAD2,
+                    wReserved3: PROPVAR_PAD3,
+                    Anonymous: union {
+                        cVal: i8,
+                        bVal: u8,
+                        iVal: i16,
+                        uiVal: u16,
+                        lVal: i32,
+                        ulVal: u32,
+                        intVal: i32,
+                        uintVal: u32,
+                        hVal: LARGE_INTEGER,
+                        uhVal: ULARGE_INTEGER,
+                        fltVal: f32,
+                        dblVal: f64,
+                        boolVal: VARIANT_BOOL,
+                        __OBSOLETE__VARIANT_BOOL: VARIANT_BOOL,
+                        scode: SCODE,
+                        cyVal: CY,
+                        date: f64,
+                        filetime: FILETIME,
+                        puuid: *mut GUID,
+                        pclipdata: *mut CLIPDATA,
+                        bstrVal: BSTR,
+                        bstrblobVal: BSTRBLOB,
+                        blob: BLOB,
+                        pszVal: PSTR,
+                        pwszVal: PWSTR,
+                        punkVal: IUnknown,
+                        pdispVal: IDispatch,
+                        pStream: IStream,
+                        pStorage: IStorage,
+                        pVersionedStream: LPVERSIONEDSTREAM,
+                        parray: LPSAFEARRAY,
+                        cac: CAC,
+                        caub: CAUB,
+                        cai: CAI,
+                        caui: CAUI,
+                        cal: CAL,
+                        caul: CAUL,
+                        cah: CAH,
+                        cauh: CAUH,
+                        caflt: CAFLT,
+                        cadbl: CADBL,
+                        cabool: CABOOL,
+                        cascode: CASCODE,
+                        cacy: CACY,
+                        cadate: CADATE,
+                        cafiletime: CAFILETIME,
+                        cauuid: CACLSID,
+                        caclipdata: CACLIPDATA,
+                        cabstr: CABSTR,
+                        cabstrblob: CABSTRBLOB,
+                        calpstr: CALPSTR,
+                        calpwstr: CALPWSTR,
+                        capropvar: CAPROPVARIANT,
+                        pcVal: *mut i8,
+                        pbVal: *mut u8,
+                        piVal: *mut i16,
+                        puiVal: *mut u16,
+                        plVal: *mut i32,
+                        pulVal: *mut u32,
+                        pintVal: *mut i32,
+                        puintVal: *mut u32,
+                        pfltVal: *mut f32,
+                        pdblVal: *mut f64,
+                        pboolVal: *mut VARIANT_BOOL,
+                        pdecVal: *mut DECIMAL,
+                        pscode: *mut SCODE,
+                        pcyVal: *mut CY,
+                        pdate: *mut f64,
+                        pbstrVal: *mut BSTR,
+                        ppunkVal: *mut IUnknown,
+                        ppdispVal: *mut IDispatch,
+                        pparray: *mut LPSAFEARRAY,
+                        pvarVal: *mut PROPVARIANT,
+                    },
+                },
+                decVal: DECIMAL,
+            },
+        }
+        type PROPVAR_PAD1 = u16;
+        type PROPVAR_PAD2 = u16;
+        type PROPVAR_PAD3 = u16;
+        const PRSPEC_INVALID: u32 = 4294967295;
+        const PRSPEC_LPWSTR: u32 = 0;
+        const PRSPEC_PROPID: u32 = 1;
+        struct STATPROPSETSTG {
+            fmtid: GUID,
+            clsid: GUID,
+            grfFlags: u32,
+            mtime: FILETIME,
+            ctime: FILETIME,
+            atime: FILETIME,
+            dwOSVersion: u32,
+        }
+        struct STATPROPSTG {
+            lpwstrName: PWSTR,
+            propid: PROPID,
+            vt: VARTYPE,
+        }
+        struct VERSIONEDSTREAM {
+            guidVersion: GUID,
+            pStream: IStream,
+        }
+    }
+}

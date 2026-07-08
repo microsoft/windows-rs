@@ -1,0 +1,87 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const COMPOSITIONOBJECT_ALL_ACCESS: u32 = 3;
+        const COMPOSITIONOBJECT_READ: u32 = 1;
+        const COMPOSITIONOBJECT_WRITE: u32 = 2;
+        type COMPOSITION_FRAME_ID = u64;
+        #[repr(i32)]
+        enum COMPOSITION_FRAME_ID_TYPE {
+            COMPOSITION_FRAME_ID_CREATED = 0,
+            COMPOSITION_FRAME_ID_CONFIRMED = 1,
+            COMPOSITION_FRAME_ID_COMPLETED = 2,
+        }
+        struct COMPOSITION_FRAME_STATS {
+            startTime: u64,
+            targetTime: u64,
+            framePeriod: u64,
+        }
+        struct COMPOSITION_STATS {
+            presentCount: u32,
+            refreshCount: u32,
+            virtualRefreshCount: u32,
+            time: u64,
+        }
+        const COMPOSITION_STATS_MAX_TARGETS: u32 = 256;
+        struct COMPOSITION_TARGET_ID {
+            displayAdapterLuid: LUID,
+            renderAdapterLuid: LUID,
+            vidPnSourceId: u32,
+            vidPnTargetId: u32,
+            uniqueId: u32,
+        }
+        struct COMPOSITION_TARGET_STATS {
+            outstandingPresents: u32,
+            presentTime: u64,
+            vblankDuration: u64,
+            presentedStats: COMPOSITION_STATS,
+            completedStats: COMPOSITION_STATS,
+        }
+        #[repr(i32)]
+        enum DCOMPOSITION_BACKFACE_VISIBILITY {
+            DCOMPOSITION_BACKFACE_VISIBILITY_VISIBLE = 0,
+            DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN = 1,
+            DCOMPOSITION_BACKFACE_VISIBILITY_INHERIT = -1,
+        }
+        #[repr(i32)]
+        enum DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
+            DCOMPOSITION_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR = 0,
+            DCOMPOSITION_BITMAP_INTERPOLATION_MODE_LINEAR = 1,
+            DCOMPOSITION_BITMAP_INTERPOLATION_MODE_INHERIT = -1,
+        }
+        #[repr(i32)]
+        enum DCOMPOSITION_BORDER_MODE {
+            DCOMPOSITION_BORDER_MODE_SOFT = 0,
+            DCOMPOSITION_BORDER_MODE_HARD = 1,
+            DCOMPOSITION_BORDER_MODE_INHERIT = -1,
+        }
+        #[repr(i32)]
+        enum DCOMPOSITION_COMPOSITE_MODE {
+            DCOMPOSITION_COMPOSITE_MODE_SOURCE_OVER = 0,
+            DCOMPOSITION_COMPOSITE_MODE_DESTINATION_INVERT = 1,
+            DCOMPOSITION_COMPOSITE_MODE_MIN_BLEND = 2,
+            DCOMPOSITION_COMPOSITE_MODE_INHERIT = -1,
+        }
+        #[repr(i32)]
+        enum DCOMPOSITION_DEPTH_MODE {
+            DCOMPOSITION_DEPTH_MODE_TREE = 0,
+            DCOMPOSITION_DEPTH_MODE_SPATIAL = 1,
+            DCOMPOSITION_DEPTH_MODE_SORTED = 3,
+            DCOMPOSITION_DEPTH_MODE_INHERIT = -1,
+        }
+        struct DCOMPOSITION_FRAME_STATISTICS {
+            lastFrameTime: LARGE_INTEGER,
+            currentCompositionRate: DXGI_RATIONAL,
+            currentTime: LARGE_INTEGER,
+            timeFrequency: LARGE_INTEGER,
+            nextEstimatedFrameTime: LARGE_INTEGER,
+        }
+        const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32;
+        #[repr(i32)]
+        enum DCOMPOSITION_OPACITY_MODE {
+            DCOMPOSITION_OPACITY_MODE_LAYER = 0,
+            DCOMPOSITION_OPACITY_MODE_MULTIPLY = 1,
+            DCOMPOSITION_OPACITY_MODE_INHERIT = -1,
+        }
+    }
+}

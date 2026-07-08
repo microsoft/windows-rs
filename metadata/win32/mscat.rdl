@@ -1,0 +1,164 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct CATALOG_INFO {
+            cbStruct: u32,
+            wszCatalogFile: [u16; 260],
+        }
+        struct CRYPTCATATTRIBUTE {
+            cbStruct: u32,
+            pwszReferenceTag: PWSTR,
+            dwAttrTypeAndAction: u32,
+            cbValue: u32,
+            pbValue: *mut u8,
+            dwReserved: u32,
+        }
+        struct CRYPTCATCDF {
+            cbStruct: u32,
+            hFile: HANDLE,
+            dwCurFilePos: u32,
+            dwLastMemberOffset: u32,
+            fEOF: BOOL,
+            pwszResultDir: PWSTR,
+            hCATStore: HANDLE,
+        }
+        struct CRYPTCATMEMBER {
+            cbStruct: u32,
+            pwszReferenceTag: PWSTR,
+            pwszFileName: PWSTR,
+            gSubjectType: GUID,
+            fdwMemberFlags: u32,
+            pIndirectData: *mut SIP_INDIRECT_DATA,
+            dwCertVersion: u32,
+            dwReserved: u32,
+            hReserved: HANDLE,
+            sEncodedIndirectData: CRYPT_ATTR_BLOB,
+            sEncodedMemberInfo: CRYPT_ATTR_BLOB,
+        }
+        struct CRYPTCATSTORE {
+            cbStruct: u32,
+            dwPublicVersion: u32,
+            pwszP7File: PWSTR,
+            hProv: HCRYPTPROV,
+            dwEncodingType: u32,
+            fdwStoreFlags: u32,
+            hReserved: HANDLE,
+            hAttrs: HANDLE,
+            hCryptMsg: HCRYPTMSG,
+            hSorted: HANDLE,
+        }
+        const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1;
+        const CRYPTCAT_ADDCATALOG_NONE: u32 = 0;
+        const CRYPTCAT_ATTR_AUTHENTICATED: u32 = 268435456;
+        const CRYPTCAT_ATTR_DATAASCII: u32 = 65536;
+        const CRYPTCAT_ATTR_DATABASE64: u32 = 131072;
+        const CRYPTCAT_ATTR_DATAREPLACE: u32 = 262144;
+        const CRYPTCAT_ATTR_NAMEASCII: u32 = 1;
+        const CRYPTCAT_ATTR_NAMEOBJID: u32 = 2;
+        const CRYPTCAT_ATTR_NO_AUTO_COMPAT_ENTRY: u32 = 16777216;
+        const CRYPTCAT_ATTR_UNAUTHENTICATED: u32 = 536870912;
+        const CRYPTCAT_E_AREA_ATTRIBUTE: u32 = 131072;
+        const CRYPTCAT_E_AREA_HEADER: u32 = 0;
+        const CRYPTCAT_E_AREA_MEMBER: u32 = 65536;
+        const CRYPTCAT_E_CDF_ATTR_TOOFEWVALUES: u32 = 131074;
+        const CRYPTCAT_E_CDF_ATTR_TYPECOMBO: u32 = 131076;
+        const CRYPTCAT_E_CDF_BAD_GUID_CONV: u32 = 131073;
+        const CRYPTCAT_E_CDF_DUPLICATE: u32 = 2;
+        const CRYPTCAT_E_CDF_MEMBER_FILENOTFOUND: u32 = 65540;
+        const CRYPTCAT_E_CDF_MEMBER_FILE_PATH: u32 = 65537;
+        const CRYPTCAT_E_CDF_MEMBER_INDIRECTDATA: u32 = 65538;
+        const CRYPTCAT_E_CDF_TAGNOTFOUND: u32 = 4;
+        const CRYPTCAT_E_CDF_UNSUPPORTED: u32 = 1;
+        #[encoding("utf-16")]
+        const CRYPTCAT_FILEEXT: String = "CAT";
+        const CRYPTCAT_MAX_MEMBERTAG: u32 = 128;
+        const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824;
+        const CRYPTCAT_OPEN_ALWAYS: u32 = 2;
+        const CRYPTCAT_OPEN_CREATENEW: u32 = 1;
+        const CRYPTCAT_OPEN_EXCLUDE_PAGE_HASHES: u32 = 65536;
+        const CRYPTCAT_OPEN_EXISTING: u32 = 4;
+        const CRYPTCAT_OPEN_FLAGS_MASK: u32 = 4294901760;
+        const CRYPTCAT_OPEN_INCLUDE_PAGE_HASHES: u32 = 131072;
+        const CRYPTCAT_OPEN_NO_CONTENT_HCRYPTMSG: u32 = 536870912;
+        const CRYPTCAT_OPEN_SORTED: u32 = 1073741824;
+        const CRYPTCAT_OPEN_VERIFYSIGHASH: u32 = 268435456;
+        const CRYPTCAT_VERSION_1: u32 = 256;
+        const CRYPTCAT_VERSION_2: u32 = 512;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminAcquireContext(phCatAdmin: *mut HCATADMIN, #[opt] pgSubsystem: *const GUID, #[reserved] dwFlags: u32) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminAcquireContext2(phCatAdmin: *mut HCATADMIN, #[opt] pgSubsystem: *const GUID, #[opt] pwszHashAlgorithm: PCWSTR, #[opt] pStrongHashPolicy: *const CERT_STRONG_SIGN_PARA, #[reserved] dwFlags: u32) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminAddCatalog(hCatAdmin: HCATADMIN, pwszCatalogFile: PCWSTR, #[opt] pwszSelectBaseName: PCWSTR, dwFlags: u32) -> HCATINFO;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminCalcHashFromFileHandle(hFile: HANDLE, #[in] #[out] pcbHash: *mut u32, #[size_param(1)] #[opt] pbHash: *mut u8, #[reserved] dwFlags: u32) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminCalcHashFromFileHandle2(hCatAdmin: HCATADMIN, hFile: HANDLE, #[in] #[out] pcbHash: *mut u32, #[size_param(2)] #[opt] pbHash: *mut u8, #[reserved] dwFlags: u32) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminEnumCatalogFromHash(hCatAdmin: HCATADMIN, #[size_param(2)] pbHash: *const u8, cbHash: u32, #[reserved] dwFlags: u32, #[in] #[out] #[opt] phPrevCatInfo: *mut HCATINFO) -> HCATINFO;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminPauseServiceForBackup(dwFlags: u32, fResume: BOOL) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminReleaseCatalogContext(hCatAdmin: HCATADMIN, hCatInfo: HCATINFO, dwFlags: u32) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminReleaseContext(hCatAdmin: HCATADMIN, dwFlags: u32) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminRemoveCatalog(hCatAdmin: HCATADMIN, pwszCatalogFile: PCWSTR, dwFlags: u32) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAdminResolveCatalogPath(hCatAdmin: HCATADMIN, pwszCatalogFile: PCWSTR, #[in] #[out] psCatInfo: *mut CATALOG_INFO, dwFlags: u32) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATAllocSortedMemberInfo(hCatalog: HANDLE, pwszReferenceTag: PCWSTR) -> *mut CRYPTCATMEMBER;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATCDFClose(pCDF: *mut CRYPTCATCDF) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATCDFEnumAttributes(pCDF: *mut CRYPTCATCDF, pMember: *mut CRYPTCATMEMBER, pPrevAttr: *mut CRYPTCATATTRIBUTE, pfnParseError: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATCDFEnumCatAttributes(pCDF: *mut CRYPTCATCDF, pPrevAttr: *mut CRYPTCATATTRIBUTE, pfnParseError: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATCDFEnumMembers(pCDF: *mut CRYPTCATCDF, pPrevMember: *mut CRYPTCATMEMBER, pfnParseError: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATMEMBER;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATCDFOpen(pwszFilePath: PCWSTR, #[opt] pfnParseError: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATCDF;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATCatalogInfoFromContext(hCatInfo: HCATINFO, #[in] #[out] psCatInfo: *mut CATALOG_INFO, dwFlags: u32) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATClose(hCatalog: HANDLE) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATEnumerateAttr(hCatalog: HANDLE, pCatMember: *mut CRYPTCATMEMBER, pPrevAttr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATEnumerateCatAttr(hCatalog: HANDLE, pPrevAttr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATEnumerateMember(hCatalog: HANDLE, pPrevMember: *mut CRYPTCATMEMBER) -> *mut CRYPTCATMEMBER;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATFreeSortedMemberInfo(hCatalog: HANDLE, pCatMember: *mut CRYPTCATMEMBER);
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATGetAttrInfo(hCatalog: HANDLE, pCatMember: *mut CRYPTCATMEMBER, pwszReferenceTag: PCWSTR) -> *mut CRYPTCATATTRIBUTE;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATGetCatAttrInfo(hCatalog: HANDLE, pwszReferenceTag: PCWSTR) -> *mut CRYPTCATATTRIBUTE;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATGetMemberInfo(hCatalog: HANDLE, pwszReferenceTag: PCWSTR) -> *mut CRYPTCATMEMBER;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATHandleFromStore(pCatStore: *mut CRYPTCATSTORE) -> HANDLE;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATOpen(pwszFileName: PCWSTR, fdwOpenFlags: u32, hProv: HCRYPTPROV, dwPublicVersion: u32, dwEncodingType: u32) -> HANDLE;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATPersistStore(hCatalog: HANDLE) -> BOOL;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATPutAttrInfo(hCatalog: HANDLE, pCatMember: *mut CRYPTCATMEMBER, pwszReferenceTag: PCWSTR, dwAttrTypeAndAction: u32, cbData: u32, pbData: *mut u8) -> *mut CRYPTCATATTRIBUTE;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATPutCatAttrInfo(hCatalog: HANDLE, pwszReferenceTag: PCWSTR, dwAttrTypeAndAction: u32, cbData: u32, pbData: *mut u8) -> *mut CRYPTCATATTRIBUTE;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATPutMemberInfo(hCatalog: HANDLE, #[opt] pwszFileName: PCWSTR, pwszReferenceTag: PCWSTR, pgSubjectType: *mut GUID, dwCertVersion: u32, cbSIPIndirectData: u32, pbSIPIndirectData: *mut u8) -> *mut CRYPTCATMEMBER;
+        #[library("WINTRUST.dll")]
+        extern fn CryptCATStoreFromHandle(hCatalog: HANDLE) -> *mut CRYPTCATSTORE;
+        type HCATINFO = HANDLE;
+        #[library("WINTRUST.dll")]
+        extern fn IsCatalogFile(hFile: HANDLE, #[opt] pwszFileName: PCWSTR) -> BOOL;
+        extern fn PFN_CDF_PARSE_ERROR_CALLBACK(dwErrorArea: u32, dwLocalError: u32, pwszLine: *mut u16);
+        #[encoding("ansi")]
+        const szOID_CATALOG_LIST: String = "1.3.6.1.4.1.311.12.1.1";
+        #[encoding("ansi")]
+        const szOID_CATALOG_LIST_MEMBER: String = "1.3.6.1.4.1.311.12.1.2";
+        #[encoding("ansi")]
+        const szOID_CATALOG_LIST_MEMBER2: String = "1.3.6.1.4.1.311.12.1.3";
+    }
+}

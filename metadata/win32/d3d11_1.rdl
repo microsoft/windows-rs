@@ -1,0 +1,219 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct CD3D11_BLEND_DESC1 {
+            Base: D3D11_BLEND_DESC1,
+        }
+        struct CD3D11_RASTERIZER_DESC1 {
+            Base: D3D11_RASTERIZER_DESC1,
+        }
+        #[repr(i32)]
+        enum D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
+            D3D11_1_CREATE_DEVICE_CONTEXT_STATE_SINGLETHREADED = 1,
+        }
+        struct D3D11_BLEND_DESC1 {
+            AlphaToCoverageEnable: BOOL,
+            IndependentBlendEnable: BOOL,
+            RenderTarget: [D3D11_RENDER_TARGET_BLEND_DESC1; 8],
+        }
+        #[repr(i32)]
+        enum D3D11_COPY_FLAGS {
+            D3D11_COPY_NO_OVERWRITE = 1,
+            D3D11_COPY_DISCARD = 2,
+        }
+        #[repr(i32)]
+        enum D3D11_CRYPTO_SESSION_STATUS {
+            D3D11_CRYPTO_SESSION_STATUS_OK = 0,
+            D3D11_CRYPTO_SESSION_STATUS_KEY_LOST = 1,
+            D3D11_CRYPTO_SESSION_STATUS_KEY_AND_CONTENT_LOST = 2,
+        }
+        struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
+            HWProtectionFunctionID: u32,
+            pInputData: *mut D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA,
+            pOutputData: *mut D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA,
+            Status: HRESULT,
+        }
+        struct D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
+            PrivateDataSize: u32,
+            HWProtectionDataSize: u32,
+            pbInput: [u8; 4],
+        }
+        struct D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
+            PrivateDataSize: u32,
+            MaxHWProtectionDataSize: u32,
+            HWProtectionDataSize: u32,
+            TransportTime: u64,
+            ExecutionTime: u64,
+            pbOutput: [u8; 4],
+        }
+        #[repr(i32)]
+        enum D3D11_LOGIC_OP {
+            D3D11_LOGIC_OP_CLEAR = 0,
+            D3D11_LOGIC_OP_SET = 1,
+            D3D11_LOGIC_OP_COPY = 2,
+            D3D11_LOGIC_OP_COPY_INVERTED = 3,
+            D3D11_LOGIC_OP_NOOP = 4,
+            D3D11_LOGIC_OP_INVERT = 5,
+            D3D11_LOGIC_OP_AND = 6,
+            D3D11_LOGIC_OP_NAND = 7,
+            D3D11_LOGIC_OP_OR = 8,
+            D3D11_LOGIC_OP_NOR = 9,
+            D3D11_LOGIC_OP_XOR = 10,
+            D3D11_LOGIC_OP_EQUIV = 11,
+            D3D11_LOGIC_OP_AND_REVERSE = 12,
+            D3D11_LOGIC_OP_AND_INVERTED = 13,
+            D3D11_LOGIC_OP_OR_REVERSE = 14,
+            D3D11_LOGIC_OP_OR_INVERTED = 15,
+        }
+        struct D3D11_RASTERIZER_DESC1 {
+            FillMode: D3D11_FILL_MODE,
+            CullMode: D3D11_CULL_MODE,
+            FrontCounterClockwise: BOOL,
+            DepthBias: i32,
+            DepthBiasClamp: f32,
+            SlopeScaledDepthBias: f32,
+            DepthClipEnable: BOOL,
+            ScissorEnable: BOOL,
+            MultisampleEnable: BOOL,
+            AntialiasedLineEnable: BOOL,
+            ForcedSampleCount: u32,
+        }
+        struct D3D11_RENDER_TARGET_BLEND_DESC1 {
+            BlendEnable: BOOL,
+            LogicOpEnable: BOOL,
+            SrcBlend: D3D11_BLEND,
+            DestBlend: D3D11_BLEND,
+            BlendOp: D3D11_BLEND_OP,
+            SrcBlendAlpha: D3D11_BLEND,
+            DestBlendAlpha: D3D11_BLEND,
+            BlendOpAlpha: D3D11_BLEND_OP,
+            LogicOp: D3D11_LOGIC_OP,
+            RenderTargetWriteMask: u8,
+        }
+        struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
+            pCryptoSession: ID3D11CryptoSession,
+            BlobSize: u32,
+            pBlob: *mut void,
+            pKeyInfoId: *mut GUID,
+            PrivateDataSize: u32,
+            pPrivateData: *mut void,
+        }
+        struct D3D11_VIDEO_DECODER_BUFFER_DESC1 {
+            BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
+            DataOffset: u32,
+            DataSize: u32,
+            pIV: *mut void,
+            IVSize: u32,
+            pSubSampleMappingBlock: *mut D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK,
+            SubSampleMappingCount: u32,
+        }
+        #[repr(i32)]
+        enum D3D11_VIDEO_DECODER_CAPS {
+            D3D11_VIDEO_DECODER_CAPS_DOWNSAMPLE = 1,
+            D3D11_VIDEO_DECODER_CAPS_NON_REAL_TIME = 2,
+            D3D11_VIDEO_DECODER_CAPS_DOWNSAMPLE_DYNAMIC = 4,
+            D3D11_VIDEO_DECODER_CAPS_DOWNSAMPLE_REQUIRED = 8,
+            D3D11_VIDEO_DECODER_CAPS_UNSUPPORTED = 16,
+        }
+        struct D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
+            ClearSize: u32,
+            EncryptedSize: u32,
+        }
+        #[repr(i32)]
+        enum D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
+            D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_ROTATION = 1,
+            D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_RESIZE = 2,
+            D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_COLOR_SPACE_CONVERSION = 4,
+            D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_TRIPLE_BUFFER_OUTPUT = 8,
+        }
+        struct D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
+            Enable: BOOL,
+            Width: u32,
+            Height: u32,
+            Format: DXGI_FORMAT,
+        }
+        struct D3D11_VIDEO_SAMPLE_DESC {
+            Width: u32,
+            Height: u32,
+            Format: DXGI_FORMAT,
+            ColorSpace: DXGI_COLOR_SPACE_TYPE,
+        }
+        #[guid(0xcc86fabe_da55_401d_85e7_e3c9de2877e9)]
+        interface ID3D11BlendState1: ID3D11BlendState {
+            fn GetDesc1(&self, pDesc: *mut D3D11_BLEND_DESC1);
+        }
+        #[guid(0xa04bfb29_08ef_43d6_a49c_a9bdbdcbe686)]
+        interface ID3D11Device1: ID3D11Device {
+            fn GetImmediateContext1(&self, ppImmediateContext: *mut ID3D11DeviceContext1);
+            fn CreateDeferredContext1(&self, ContextFlags: u32, ppDeferredContext: *mut ID3D11DeviceContext1) -> HRESULT;
+            fn CreateBlendState1(&self, pBlendStateDesc: *const D3D11_BLEND_DESC1, ppBlendState: *mut ID3D11BlendState1) -> HRESULT;
+            fn CreateRasterizerState1(&self, pRasterizerDesc: *const D3D11_RASTERIZER_DESC1, ppRasterizerState: *mut ID3D11RasterizerState1) -> HRESULT;
+            fn CreateDeviceContextState(&self, Flags: u32, #[len_param(2)] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, SDKVersion: u32, EmulatedInterface: *const GUID, #[opt] pChosenFeatureLevel: *mut D3D_FEATURE_LEVEL, #[opt] ppContextState: *mut ID3DDeviceContextState) -> HRESULT;
+            fn OpenSharedResource1(&self, hResource: HANDLE, returnedInterface: *const GUID, #[iid_is] ppResource: *mut *mut void) -> HRESULT;
+            fn OpenSharedResourceByName(&self, lpName: PCWSTR, dwDesiredAccess: u32, returnedInterface: *const GUID, #[iid_is] ppResource: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xbb2c6faa_b5fb_4082_8e6b_388b8cfa90e1)]
+        interface ID3D11DeviceContext1: ID3D11DeviceContext {
+            fn CopySubresourceRegion1(&self, pDstResource: ID3D11Resource, DstSubresource: u32, DstX: u32, DstY: u32, DstZ: u32, pSrcResource: ID3D11Resource, SrcSubresource: u32, #[opt] pSrcBox: *const D3D11_BOX, CopyFlags: u32);
+            fn UpdateSubresource1(&self, pDstResource: ID3D11Resource, DstSubresource: u32, #[opt] pDstBox: *const D3D11_BOX, pSrcData: *const void, SrcRowPitch: u32, SrcDepthPitch: u32, CopyFlags: u32);
+            fn DiscardResource(&self, pResource: ID3D11Resource);
+            fn DiscardView(&self, pResourceView: ID3D11View);
+            fn VSSetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *const u32, #[len_param(1)] #[opt] pNumConstants: *const u32);
+            fn HSSetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *const u32, #[len_param(1)] #[opt] pNumConstants: *const u32);
+            fn DSSetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *const u32, #[len_param(1)] #[opt] pNumConstants: *const u32);
+            fn GSSetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *const u32, #[len_param(1)] #[opt] pNumConstants: *const u32);
+            fn PSSetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *const u32, #[len_param(1)] #[opt] pNumConstants: *const u32);
+            fn CSSetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *const u32, #[len_param(1)] #[opt] pNumConstants: *const u32);
+            fn VSGetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *mut u32, #[len_param(1)] #[opt] pNumConstants: *mut u32);
+            fn HSGetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *mut u32, #[len_param(1)] #[opt] pNumConstants: *mut u32);
+            fn DSGetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *mut u32, #[len_param(1)] #[opt] pNumConstants: *mut u32);
+            fn GSGetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *mut u32, #[len_param(1)] #[opt] pNumConstants: *mut u32);
+            fn PSGetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *mut u32, #[len_param(1)] #[opt] pNumConstants: *mut u32);
+            fn CSGetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *mut u32, #[len_param(1)] #[opt] pNumConstants: *mut u32);
+            fn SwapDeviceContextState(&self, pState: ID3DDeviceContextState, ppPreviousState: *mut ID3DDeviceContextState);
+            fn ClearView(&self, pView: ID3D11View, #[len_const(4)] Color: *const f32, #[len_param(3)] #[opt] pRect: *const D3D11_RECT, NumRects: u32);
+            fn DiscardView1(&self, pResourceView: ID3D11View, #[len_param(2)] #[opt] pRects: *const D3D11_RECT, NumRects: u32);
+        }
+        #[guid(0x1217d7a6_5039_418c_b042_9cbe256afd6e)]
+        interface ID3D11RasterizerState1: ID3D11RasterizerState {
+            fn GetDesc1(&self, pDesc: *mut D3D11_RASTERIZER_DESC1);
+        }
+        #[guid(0xa7f026da_a5f8_4487_a564_15e34357651e)]
+        interface ID3D11VideoContext1: ID3D11VideoContext {
+            fn SubmitDecoderBuffers1(&self, pDecoder: ID3D11VideoDecoder, NumBuffers: u32, #[len_param(1)] pBufferDesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> HRESULT;
+            fn GetDataForNewHardwareKey(&self, pCryptoSession: ID3D11CryptoSession, PrivateInputSize: u32, #[len_param(1)] pPrivatInputData: *const void, pPrivateOutputData: *mut u64) -> HRESULT;
+            fn CheckCryptoSessionStatus(&self, pCryptoSession: ID3D11CryptoSession, pStatus: *mut D3D11_CRYPTO_SESSION_STATUS) -> HRESULT;
+            fn DecoderEnableDownsampling(&self, pDecoder: ID3D11VideoDecoder, InputColorSpace: DXGI_COLOR_SPACE_TYPE, pOutputDesc: *const D3D11_VIDEO_SAMPLE_DESC, ReferenceFrameCount: u32) -> HRESULT;
+            fn DecoderUpdateDownsampling(&self, pDecoder: ID3D11VideoDecoder, pOutputDesc: *const D3D11_VIDEO_SAMPLE_DESC) -> HRESULT;
+            fn VideoProcessorSetOutputColorSpace1(&self, pVideoProcessor: ID3D11VideoProcessor, ColorSpace: DXGI_COLOR_SPACE_TYPE);
+            fn VideoProcessorSetOutputShaderUsage(&self, pVideoProcessor: ID3D11VideoProcessor, ShaderUsage: BOOL);
+            fn VideoProcessorGetOutputColorSpace1(&self, pVideoProcessor: ID3D11VideoProcessor, pColorSpace: *mut DXGI_COLOR_SPACE_TYPE);
+            fn VideoProcessorGetOutputShaderUsage(&self, pVideoProcessor: ID3D11VideoProcessor, pShaderUsage: *mut BOOL);
+            fn VideoProcessorSetStreamColorSpace1(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, ColorSpace: DXGI_COLOR_SPACE_TYPE);
+            fn VideoProcessorSetStreamMirror(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, FlipHorizontal: BOOL, FlipVertical: BOOL);
+            fn VideoProcessorGetStreamColorSpace1(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pColorSpace: *mut DXGI_COLOR_SPACE_TYPE);
+            fn VideoProcessorGetStreamMirror(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnable: *mut BOOL, pFlipHorizontal: *mut BOOL, pFlipVertical: *mut BOOL);
+            fn VideoProcessorGetBehaviorHints(&self, pVideoProcessor: ID3D11VideoProcessor, OutputWidth: u32, OutputHeight: u32, OutputFormat: DXGI_FORMAT, StreamCount: u32, #[len_param(4)] pStreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT, pBehaviorHints: *mut u32) -> HRESULT;
+        }
+        #[guid(0x29da1d51_1321_4454_804b_f5fc9f861f0f)]
+        interface ID3D11VideoDevice1: ID3D11VideoDevice {
+            fn GetCryptoSessionPrivateDataSize(&self, pCryptoType: *const GUID, #[opt] pDecoderProfile: *const GUID, pKeyExchangeType: *const GUID, pPrivateInputSize: *mut u32, pPrivateOutputSize: *mut u32) -> HRESULT;
+            fn GetVideoDecoderCaps(&self, pDecoderProfile: *const GUID, SampleWidth: u32, SampleHeight: u32, pFrameRate: *const DXGI_RATIONAL, BitRate: u32, #[opt] pCryptoType: *const GUID, pDecoderCaps: *mut u32) -> HRESULT;
+            fn CheckVideoDecoderDownsampling(&self, pInputDesc: *const D3D11_VIDEO_DECODER_DESC, InputColorSpace: DXGI_COLOR_SPACE_TYPE, pInputConfig: *const D3D11_VIDEO_DECODER_CONFIG, pFrameRate: *const DXGI_RATIONAL, pOutputDesc: *const D3D11_VIDEO_SAMPLE_DESC, pSupported: *mut BOOL, pRealTimeHint: *mut BOOL) -> HRESULT;
+            fn RecommendVideoDecoderDownsampleParameters(&self, pInputDesc: *const D3D11_VIDEO_DECODER_DESC, InputColorSpace: DXGI_COLOR_SPACE_TYPE, pInputConfig: *const D3D11_VIDEO_DECODER_CONFIG, pFrameRate: *const DXGI_RATIONAL, pRecommendedOutputDesc: *mut D3D11_VIDEO_SAMPLE_DESC) -> HRESULT;
+        }
+        #[guid(0x465217f2_5568_43cf_b5b9_f61d54531ca1)]
+        interface ID3D11VideoProcessorEnumerator1: ID3D11VideoProcessorEnumerator {
+            fn CheckVideoProcessorFormatConversion(&self, InputFormat: DXGI_FORMAT, InputColorSpace: DXGI_COLOR_SPACE_TYPE, OutputFormat: DXGI_FORMAT, OutputColorSpace: DXGI_COLOR_SPACE_TYPE, pSupported: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x5c1e0d8a_7c23_48f9_8c59_a92958ceff11)]
+        interface ID3DDeviceContextState: ID3D11DeviceChild {}
+        #[guid(0xb2daad8b_03d4_4dbf_95eb_32ab4b63d0ab)]
+        interface ID3DUserDefinedAnnotation: IUnknown {
+            fn BeginEvent(&self, Name: PCWSTR) -> i32;
+            fn EndEvent(&self) -> i32;
+            fn SetMarker(&self, Name: PCWSTR);
+            fn GetStatus(&self) -> BOOL;
+        }
+    }
+}

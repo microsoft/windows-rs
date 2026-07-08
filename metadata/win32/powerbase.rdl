@@ -1,0 +1,15 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("POWRPROF.dll")]
+        extern fn CallNtPowerInformation(InformationLevel: POWER_INFORMATION_LEVEL, #[size_param(2)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(4)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> i32;
+        #[library("POWRPROF.dll")]
+        extern fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn PowerDeterminePlatformRoleEx(Version: u32) -> POWER_PLATFORM_ROLE;
+        #[library("POWRPROF.dll")]
+        extern fn PowerRegisterSuspendResumeNotification(Flags: u32, Recipient: HANDLE, RegistrationHandle: *mut HPOWERNOTIFY) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerUnregisterSuspendResumeNotification(#[in] #[out] RegistrationHandle: HPOWERNOTIFY) -> u32;
+    }
+}

@@ -1,0 +1,904 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x5efd22ba_7838_46cb_88e2_cadb14124f8f)]
+        interface IEnumITfCompositionView: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumITfCompositionView) -> HRESULT;
+            fn Next(&self, ulCount: u32, rgCompositionView: *mut ITfCompositionView, pcFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0xf0c0f8dd_cf38_44e1_bb0f_68cf0d551c78)]
+        interface IEnumTfContextViews: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfContextViews) -> HRESULT;
+            fn Next(&self, ulCount: u32, rgViews: *mut ITfContextView, pcFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0x8f1a7ea6_1654_4502_a86e_b2902344d507)]
+        interface IEnumTfContexts: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfContexts) -> HRESULT;
+            fn Next(&self, ulCount: u32, rgContext: *mut ITfContext, pcFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0x7cef04d7_cb75_4e80_a7ab_5f5bc7d332de)]
+        interface IEnumTfDisplayAttributeInfo: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfDisplayAttributeInfo) -> HRESULT;
+            fn Next(&self, ulCount: u32, rgInfo: *mut ITfDisplayAttributeInfo, pcFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0xaa80e808_2021_11d2_93e0_0060b067b86e)]
+        interface IEnumTfDocumentMgrs: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfDocumentMgrs) -> HRESULT;
+            fn Next(&self, ulCount: u32, rgDocumentMgr: *mut ITfDocumentMgr, pcFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0xe4b24db0_0990_11d3_8df0_00105a2799b5)]
+        interface IEnumTfFunctionProviders: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfFunctionProviders) -> HRESULT;
+            fn Next(&self, ulCount: u32, ppCmdobj: *mut ITfFunctionProvider, pcFetch: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0x71c6e74d_0f28_11d8_a82a_00065b84435c)]
+        interface IEnumTfInputProcessorProfiles: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfInputProcessorProfiles) -> HRESULT;
+            fn Next(&self, ulCount: u32, pProfile: *mut TF_INPUTPROCESSORPROFILE, pcFetch: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0x3d61bf11_ac5f_42c8_a4cb_931bcc28c744)]
+        interface IEnumTfLanguageProfiles: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfLanguageProfiles) -> HRESULT;
+            fn Next(&self, ulCount: u32, pProfile: *mut TF_LANGUAGEPROFILE, pcFetch: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0x19188cb0_aca9_11d2_afc5_00105a2799b5)]
+        interface IEnumTfProperties: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfProperties) -> HRESULT;
+            fn Next(&self, ulCount: u32, ppProp: *mut ITfProperty, pcFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0x8ed8981b_7c10_4d7d_9fb3_ab72e9c75f72)]
+        interface IEnumTfPropertyValue: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfPropertyValue) -> HRESULT;
+            fn Next(&self, ulCount: u32, rgValues: *mut TF_PROPERTYVAL, pcFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0xf99d3f40_8e32_11d2_bf46_00105a2799b5)]
+        interface IEnumTfRanges: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfRanges) -> HRESULT;
+            fn Next(&self, ulCount: u32, ppRange: *mut ITfRange, pcFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0x887aa91e_acba_4931_84da_3c5208cf543f)]
+        interface IEnumTfUIElements: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfUIElements) -> HRESULT;
+            fn Next(&self, ulCount: u32, ppElement: *mut ITfUIElement, pcFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0xaa80e901_2021_11d2_93e0_0060b067b86e)]
+        interface ITextStoreACPServices: IUnknown {
+            fn Serialize(&self, pProp: ITfProperty, pRange: ITfRange, pHdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pStream: IStream) -> HRESULT;
+            fn Unserialize(&self, pProp: ITfProperty, pHdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pStream: IStream, pLoader: ITfPersistentPropertyLoaderACP) -> HRESULT;
+            fn ForceLoadProperty(&self, pProp: ITfProperty) -> HRESULT;
+            fn CreateRange(&self, acpStart: i32, acpEnd: i32, ppRange: *mut ITfRangeACP) -> HRESULT;
+        }
+        #[guid(0xb246cb75_a93e_4652_bf8c_b3fe0cfd7e57)]
+        interface ITfActiveLanguageProfileNotifySink: IUnknown {
+            fn OnActivated(&self, clsid: *const GUID, guidProfile: *const GUID, fActivated: BOOL) -> HRESULT;
+        }
+        #[guid(0xea1ea138_19df_11d7_a6d2_00065b84435c)]
+        interface ITfCandidateListUIElement: ITfUIElement {
+            fn GetUpdatedFlags(&self, pdwFlags: *mut u32) -> HRESULT;
+            fn GetDocumentMgr(&self, ppdim: *mut ITfDocumentMgr) -> HRESULT;
+            fn GetCount(&self, puCount: *mut u32) -> HRESULT;
+            fn GetSelection(&self, puIndex: *mut u32) -> HRESULT;
+            fn GetString(&self, uIndex: u32, pstr: *mut BSTR) -> HRESULT;
+            fn GetPageIndex(&self, pIndex: *mut u32, uSize: u32, puPageCnt: *mut u32) -> HRESULT;
+            fn SetPageIndex(&self, pIndex: *const u32, uPageCnt: u32) -> HRESULT;
+            fn GetCurrentPage(&self, puPage: *mut u32) -> HRESULT;
+        }
+        #[guid(0x85fad185_58ce_497a_9460_355366b64b9a)]
+        interface ITfCandidateListUIElementBehavior: ITfCandidateListUIElement {
+            fn SetSelection(&self, nIndex: u32) -> HRESULT;
+            fn Finalize(&self) -> HRESULT;
+            fn Abort(&self) -> HRESULT;
+        }
+        #[guid(0xc3acefb5_f69d_4905_938f_fcadcf4be830)]
+        interface ITfCategoryMgr: IUnknown {
+            fn RegisterCategory(&self, rclsid: *const GUID, rcatid: *const GUID, rguid: *const GUID) -> HRESULT;
+            fn UnregisterCategory(&self, rclsid: *const GUID, rcatid: *const GUID, rguid: *const GUID) -> HRESULT;
+            fn EnumCategoriesInItem(&self, rguid: *const GUID, ppEnum: *mut IEnumGUID) -> HRESULT;
+            fn EnumItemsInCategory(&self, rcatid: *const GUID, ppEnum: *mut IEnumGUID) -> HRESULT;
+            fn FindClosestCategory(&self, rguid: *const GUID, pcatid: *mut GUID, ppcatidList: *const *const GUID, ulCount: u32) -> HRESULT;
+            fn RegisterGUIDDescription(&self, rclsid: *const GUID, rguid: *const GUID, pchDesc: *const u16, cch: u32) -> HRESULT;
+            fn UnregisterGUIDDescription(&self, rclsid: *const GUID, rguid: *const GUID) -> HRESULT;
+            fn GetGUIDDescription(&self, rguid: *const GUID, pbstrDesc: *mut BSTR) -> HRESULT;
+            fn RegisterGUIDDWORD(&self, rclsid: *const GUID, rguid: *const GUID, dw: u32) -> HRESULT;
+            fn UnregisterGUIDDWORD(&self, rclsid: *const GUID, rguid: *const GUID) -> HRESULT;
+            fn GetGUIDDWORD(&self, rguid: *const GUID, pdw: *mut u32) -> HRESULT;
+            fn RegisterGUID(&self, rguid: *const GUID, pguidatom: *mut TfGuidAtom) -> HRESULT;
+            fn GetGUID(&self, guidatom: TfGuidAtom, pguid: *mut GUID) -> HRESULT;
+            fn IsEqualTfGuidAtom(&self, guidatom: TfGuidAtom, rguid: *const GUID, pfEqual: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x45c35144_154e_4797_bed8_d33ae7bf8794)]
+        interface ITfCleanupContextDurationSink: IUnknown {
+            fn OnStartCleanupContext(&self) -> HRESULT;
+            fn OnEndCleanupContext(&self) -> HRESULT;
+        }
+        #[guid(0x01689689_7acb_4e9b_ab7c_7ea46b12b522)]
+        interface ITfCleanupContextSink: IUnknown {
+            fn OnCleanupContext(&self, ecWrite: TfEditCookie, pic: ITfContext) -> HRESULT;
+        }
+        #[guid(0xd60a7b49_1b9f_4be2_b702_47e9dc05dec3)]
+        interface ITfClientId: IUnknown {
+            fn GetClientId(&self, rclsid: *const GUID, ptid: *mut TfClientId) -> HRESULT;
+        }
+        #[guid(0xbb08f7a9_607a_4384_8623_056892b64371)]
+        interface ITfCompartment: IUnknown {
+            fn SetValue(&self, tid: TfClientId, pvarValue: *const VARIANT) -> HRESULT;
+            fn GetValue(&self, pvarValue: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x743abd5f_f26d_48df_8cc5_238492419b64)]
+        interface ITfCompartmentEventSink: IUnknown {
+            fn OnChange(&self, rguid: *const GUID) -> HRESULT;
+        }
+        #[guid(0x7dcf57ac_18ad_438b_824d_979bffb74b7c)]
+        interface ITfCompartmentMgr: IUnknown {
+            fn GetCompartment(&self, rguid: *const GUID, ppcomp: *mut ITfCompartment) -> HRESULT;
+            fn ClearCompartment(&self, tid: TfClientId, rguid: *const GUID) -> HRESULT;
+            fn EnumCompartments(&self, ppEnum: *mut IEnumGUID) -> HRESULT;
+        }
+        #[guid(0x20168d64_5a8f_4a5a_b7bd_cfa29f4d0fd9)]
+        interface ITfComposition: IUnknown {
+            fn GetRange(&self, ppRange: *mut ITfRange) -> HRESULT;
+            fn ShiftStart(&self, ecWrite: TfEditCookie, pNewStart: ITfRange) -> HRESULT;
+            fn ShiftEnd(&self, ecWrite: TfEditCookie, pNewEnd: ITfRange) -> HRESULT;
+            fn EndComposition(&self, ecWrite: TfEditCookie) -> HRESULT;
+        }
+        #[guid(0xa781718c_579a_4b15_a280_32b8577acc5e)]
+        interface ITfCompositionSink: IUnknown {
+            fn OnCompositionTerminated(&self, ecWrite: TfEditCookie, pComposition: ITfComposition) -> HRESULT;
+        }
+        #[guid(0xd7540241_f9a1_4364_befc_dbcd2c4395b7)]
+        interface ITfCompositionView: IUnknown {
+            fn GetOwnerClsid(&self, pclsid: *mut GUID) -> HRESULT;
+            fn GetRange(&self, ppRange: *mut ITfRange) -> HRESULT;
+        }
+        #[guid(0x0d2c969a_bc9c_437c_84ee_951c49b1a764)]
+        interface ITfConfigureSystemKeystrokeFeed: IUnknown {
+            fn DisableSystemKeystrokeFeed(&self) -> HRESULT;
+            fn EnableSystemKeystrokeFeed(&self) -> HRESULT;
+        }
+        #[guid(0xaa80e7fd_2021_11d2_93e0_0060b067b86e)]
+        interface ITfContext: IUnknown {
+            fn RequestEditSession(&self, tid: TfClientId, pes: ITfEditSession, dwFlags: u32, phrSession: *mut HRESULT) -> HRESULT;
+            fn InWriteSession(&self, tid: TfClientId, pfWriteSession: *mut BOOL) -> HRESULT;
+            fn GetSelection(&self, ec: TfEditCookie, ulIndex: u32, ulCount: u32, pSelection: *mut TF_SELECTION, pcFetched: *mut u32) -> HRESULT;
+            fn SetSelection(&self, ec: TfEditCookie, ulCount: u32, pSelection: *const TF_SELECTION) -> HRESULT;
+            fn GetStart(&self, ec: TfEditCookie, ppStart: *mut ITfRange) -> HRESULT;
+            fn GetEnd(&self, ec: TfEditCookie, ppEnd: *mut ITfRange) -> HRESULT;
+            fn GetActiveView(&self, ppView: *mut ITfContextView) -> HRESULT;
+            fn EnumViews(&self, ppEnum: *mut IEnumTfContextViews) -> HRESULT;
+            fn GetStatus(&self, pdcs: *mut TF_STATUS) -> HRESULT;
+            fn GetProperty(&self, guidProp: *const GUID, ppProp: *mut ITfProperty) -> HRESULT;
+            fn GetAppProperty(&self, guidProp: *const GUID, ppProp: *mut ITfReadOnlyProperty) -> HRESULT;
+            fn TrackProperties(&self, prgProp: *const *const GUID, cProp: u32, prgAppProp: *const *const GUID, cAppProp: u32, ppProperty: *mut ITfReadOnlyProperty) -> HRESULT;
+            fn EnumProperties(&self, ppEnum: *mut IEnumTfProperties) -> HRESULT;
+            fn GetDocumentMgr(&self, ppDm: *mut ITfDocumentMgr) -> HRESULT;
+            fn CreateRangeBackup(&self, ec: TfEditCookie, pRange: ITfRange, ppBackup: *mut ITfRangeBackup) -> HRESULT;
+        }
+        #[guid(0xd40c8aae_ac92_4fc7_9a11_0ee0e23aa39b)]
+        interface ITfContextComposition: IUnknown {
+            fn StartComposition(&self, ecWrite: TfEditCookie, pCompositionRange: ITfRange, pSink: ITfCompositionSink, ppComposition: *mut ITfComposition) -> HRESULT;
+            fn EnumCompositions(&self, ppEnum: *mut IEnumITfCompositionView) -> HRESULT;
+            fn FindComposition(&self, ecRead: TfEditCookie, pTestRange: ITfRange, ppEnum: *mut IEnumITfCompositionView) -> HRESULT;
+            fn TakeOwnership(&self, ecWrite: TfEditCookie, pComposition: ITfCompositionView, pSink: ITfCompositionSink, ppComposition: *mut ITfComposition) -> HRESULT;
+        }
+        #[guid(0x0552ba5d_c835_4934_bf50_846aaa67432f)]
+        interface ITfContextKeyEventSink: IUnknown {
+            fn OnKeyDown(&self, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn OnKeyUp(&self, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn OnTestKeyDown(&self, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn OnTestKeyUp(&self, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xaa80e80c_2021_11d2_93e0_0060b067b86e)]
+        interface ITfContextOwner: IUnknown {
+            fn GetACPFromPoint(&self, ptScreen: *const POINT, dwFlags: u32, pacp: *mut i32) -> HRESULT;
+            fn GetTextExt(&self, acpStart: i32, acpEnd: i32, prc: *mut RECT, pfClipped: *mut BOOL) -> HRESULT;
+            fn GetScreenExt(&self, prc: *mut RECT) -> HRESULT;
+            fn GetStatus(&self, pdcs: *mut TF_STATUS) -> HRESULT;
+            fn GetWnd(&self, phwnd: *mut HWND) -> HRESULT;
+            fn GetAttribute(&self, rguidAttribute: *const GUID, pvarValue: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x86462810_593b_4916_9764_19c08e9ce110)]
+        interface ITfContextOwnerCompositionServices: ITfContextComposition {
+            fn TerminateComposition(&self, pComposition: ITfCompositionView) -> HRESULT;
+        }
+        #[guid(0x5f20aa40_b57a_4f34_96ab_3576f377cc79)]
+        interface ITfContextOwnerCompositionSink: IUnknown {
+            fn OnStartComposition(&self, pComposition: ITfCompositionView, pfOk: *mut BOOL) -> HRESULT;
+            fn OnUpdateComposition(&self, pComposition: ITfCompositionView, pRangeNew: ITfRange) -> HRESULT;
+            fn OnEndComposition(&self, pComposition: ITfCompositionView) -> HRESULT;
+        }
+        #[guid(0xb23eb630_3e1c_11d3_a745_0050040ab407)]
+        interface ITfContextOwnerServices: IUnknown {
+            fn OnLayoutChange(&self) -> HRESULT;
+            fn OnStatusChange(&self, dwFlags: u32) -> HRESULT;
+            fn OnAttributeChange(&self, rguidAttribute: *const GUID) -> HRESULT;
+            fn Serialize(&self, pProp: ITfProperty, pRange: ITfRange, pHdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pStream: IStream) -> HRESULT;
+            fn Unserialize(&self, pProp: ITfProperty, pHdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pStream: IStream, pLoader: ITfPersistentPropertyLoaderACP) -> HRESULT;
+            fn ForceLoadProperty(&self, pProp: ITfProperty) -> HRESULT;
+            fn CreateRange(&self, acpStart: i32, acpEnd: i32, ppRange: *mut ITfRangeACP) -> HRESULT;
+        }
+        #[guid(0x2433bf8e_0f9b_435c_ba2c_180611978c30)]
+        interface ITfContextView: IUnknown {
+            fn GetRangeFromPoint(&self, ec: TfEditCookie, ppt: *const POINT, dwFlags: u32, ppRange: *mut ITfRange) -> HRESULT;
+            fn GetTextExt(&self, ec: TfEditCookie, pRange: ITfRange, prc: *mut RECT, pfClipped: *mut BOOL) -> HRESULT;
+            fn GetScreenExt(&self, prc: *mut RECT) -> HRESULT;
+            fn GetWnd(&self, phwnd: *mut HWND) -> HRESULT;
+        }
+        #[guid(0x2463fbf0_b0af_11d2_afc5_00105a2799b5)]
+        interface ITfCreatePropertyStore: IUnknown {
+            fn IsStoreSerializable(&self, guidProp: *const GUID, pRange: ITfRange, pPropStore: ITfPropertyStore, pfSerializable: *mut BOOL) -> HRESULT;
+            fn CreatePropertyStore(&self, guidProp: *const GUID, pRange: ITfRange, cb: u32, pStream: IStream, ppStore: *mut ITfPropertyStore) -> HRESULT;
+        }
+        #[guid(0x70528852_2f26_4aea_8c96_215150578932)]
+        interface ITfDisplayAttributeInfo: IUnknown {
+            fn GetGUID(&self, pguid: *mut GUID) -> HRESULT;
+            fn GetDescription(&self, pbstrDesc: *mut BSTR) -> HRESULT;
+            fn GetAttributeInfo(&self, pda: *mut TF_DISPLAYATTRIBUTE) -> HRESULT;
+            fn SetAttributeInfo(&self, pda: *const TF_DISPLAYATTRIBUTE) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+        }
+        #[guid(0x8ded7393_5db1_475c_9e71_a39111b0ff67)]
+        interface ITfDisplayAttributeMgr: IUnknown {
+            fn OnUpdateInfo(&self) -> HRESULT;
+            fn EnumDisplayAttributeInfo(&self, ppEnum: *mut IEnumTfDisplayAttributeInfo) -> HRESULT;
+            fn GetDisplayAttributeInfo(&self, guid: *const GUID, ppInfo: *mut ITfDisplayAttributeInfo, pclsidOwner: *mut GUID) -> HRESULT;
+        }
+        #[guid(0xad56f402_e162_4f25_908f_7d577cf9bda9)]
+        interface ITfDisplayAttributeNotifySink: IUnknown {
+            fn OnUpdateInfo(&self) -> HRESULT;
+        }
+        #[guid(0xfee47777_163c_4769_996a_6e9c50ad8f54)]
+        interface ITfDisplayAttributeProvider: IUnknown {
+            fn EnumDisplayAttributeInfo(&self, ppEnum: *mut IEnumTfDisplayAttributeInfo) -> HRESULT;
+            fn GetDisplayAttributeInfo(&self, guid: *const GUID, ppInfo: *mut ITfDisplayAttributeInfo) -> HRESULT;
+        }
+        #[guid(0xaa80e7f4_2021_11d2_93e0_0060b067b86e)]
+        interface ITfDocumentMgr: IUnknown {
+            fn CreateContext(&self, tidOwner: TfClientId, dwFlags: u32, punk: IUnknown, ppic: *mut ITfContext, pecTextStore: *mut TfEditCookie) -> HRESULT;
+            fn Push(&self, pic: ITfContext) -> HRESULT;
+            fn Pop(&self, dwFlags: u32) -> HRESULT;
+            fn GetTop(&self, ppic: *mut ITfContext) -> HRESULT;
+            fn GetBase(&self, ppic: *mut ITfContext) -> HRESULT;
+            fn EnumContexts(&self, ppEnum: *mut IEnumTfContexts) -> HRESULT;
+        }
+        #[guid(0x42d4d099_7c1a_4a89_b836_6c6f22160df0)]
+        interface ITfEditRecord: IUnknown {
+            fn GetSelectionStatus(&self, pfChanged: *mut BOOL) -> HRESULT;
+            fn GetTextAndPropertyUpdates(&self, dwFlags: u32, prgProperties: *const *const GUID, cProperties: u32, ppEnum: *mut IEnumTfRanges) -> HRESULT;
+        }
+        #[guid(0xaa80e803_2021_11d2_93e0_0060b067b86e)]
+        interface ITfEditSession: IUnknown {
+            fn DoEditSession(&self, ec: TfEditCookie) -> HRESULT;
+        }
+        #[guid(0x708fbf70_b520_416b_b06c_2c41ab44f8ba)]
+        interface ITfEditTransactionSink: IUnknown {
+            fn OnStartEditTransaction(&self, pic: ITfContext) -> HRESULT;
+            fn OnEndEditTransaction(&self, pic: ITfContext) -> HRESULT;
+        }
+        #[guid(0xdb593490_098f_11d3_8df0_00105a2799b5)]
+        interface ITfFunction: IUnknown {
+            fn GetDisplayName(&self, pbstrName: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x101d6610_0990_11d3_8df0_00105a2799b5)]
+        interface ITfFunctionProvider: IUnknown {
+            fn GetType(&self, pguid: *mut GUID) -> HRESULT;
+            fn GetDescription(&self, pbstrDesc: *mut BSTR) -> HRESULT;
+            fn GetFunction(&self, rguid: *const GUID, riid: *const GUID, #[iid_is] ppunk: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x71c6e74e_0f28_11d8_a82a_00065b84435c)]
+        interface ITfInputProcessorProfileActivationSink: IUnknown {
+            fn OnActivated(&self, dwProfileType: u32, langid: LANGID, clsid: *const GUID, catid: *const GUID, guidProfile: *const GUID, hkl: HKL, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x71c6e74c_0f28_11d8_a82a_00065b84435c)]
+        interface ITfInputProcessorProfileMgr: IUnknown {
+            fn ActivateProfile(&self, dwProfileType: u32, langid: LANGID, clsid: *const GUID, guidProfile: *const GUID, hkl: HKL, dwFlags: u32) -> HRESULT;
+            fn DeactivateProfile(&self, dwProfileType: u32, langid: LANGID, clsid: *const GUID, guidProfile: *const GUID, hkl: HKL, dwFlags: u32) -> HRESULT;
+            fn GetProfile(&self, dwProfileType: u32, langid: LANGID, clsid: *const GUID, guidProfile: *const GUID, hkl: HKL, pProfile: *mut TF_INPUTPROCESSORPROFILE) -> HRESULT;
+            fn EnumProfiles(&self, langid: LANGID, ppEnum: *mut IEnumTfInputProcessorProfiles) -> HRESULT;
+            fn ReleaseInputProcessor(&self, rclsid: *const GUID, dwFlags: u32) -> HRESULT;
+            fn RegisterProfile(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID, pchDesc: *const u16, cchDesc: u32, pchIconFile: *const u16, cchFile: u32, uIconIndex: u32, hklsubstitute: HKL, dwPreferredLayout: u32, bEnabledByDefault: BOOL, dwFlags: u32) -> HRESULT;
+            fn UnregisterProfile(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID, dwFlags: u32) -> HRESULT;
+            fn GetActiveProfile(&self, catid: *const GUID, pProfile: *mut TF_INPUTPROCESSORPROFILE) -> HRESULT;
+        }
+        #[guid(0x4fd67194_1002_4513_bff2_c0ddf6258552)]
+        interface ITfInputProcessorProfileSubstituteLayout: IUnknown {
+            fn GetSubstituteKeyboardLayout(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID, phKL: *mut HKL) -> HRESULT;
+        }
+        #[guid(0x1f02b6c5_7842_4ee6_8a0b_9a24183a95ca)]
+        interface ITfInputProcessorProfiles: IUnknown {
+            fn Register(&self, rclsid: *const GUID) -> HRESULT;
+            fn Unregister(&self, rclsid: *const GUID) -> HRESULT;
+            fn AddLanguageProfile(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID, pchDesc: *const u16, cchDesc: u32, pchIconFile: *const u16, cchFile: u32, uIconIndex: u32) -> HRESULT;
+            fn RemoveLanguageProfile(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID) -> HRESULT;
+            fn EnumInputProcessorInfo(&self, ppEnum: *mut IEnumGUID) -> HRESULT;
+            fn GetDefaultLanguageProfile(&self, langid: LANGID, catid: *const GUID, pclsid: *mut GUID, pguidProfile: *mut GUID) -> HRESULT;
+            fn SetDefaultLanguageProfile(&self, langid: LANGID, rclsid: *const GUID, guidProfiles: *const GUID) -> HRESULT;
+            fn ActivateLanguageProfile(&self, rclsid: *const GUID, langid: LANGID, guidProfiles: *const GUID) -> HRESULT;
+            fn GetActiveLanguageProfile(&self, rclsid: *const GUID, plangid: *mut LANGID, pguidProfile: *mut GUID) -> HRESULT;
+            fn GetLanguageProfileDescription(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID, pbstrProfile: *mut BSTR) -> HRESULT;
+            fn GetCurrentLanguage(&self, plangid: *mut LANGID) -> HRESULT;
+            fn ChangeCurrentLanguage(&self, langid: LANGID) -> HRESULT;
+            fn GetLanguageList(&self, ppLangId: *mut *mut LANGID, pulCount: *mut u32) -> HRESULT;
+            fn EnumLanguageProfiles(&self, langid: LANGID, ppEnum: *mut IEnumTfLanguageProfiles) -> HRESULT;
+            fn EnableLanguageProfile(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID, fEnable: BOOL) -> HRESULT;
+            fn IsEnabledLanguageProfile(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID, pfEnable: *mut BOOL) -> HRESULT;
+            fn EnableLanguageProfileByDefault(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID, fEnable: BOOL) -> HRESULT;
+            fn SubstituteKeyboardLayout(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID, hKL: HKL) -> HRESULT;
+        }
+        #[guid(0x892f230f_fe00_4a41_a98e_fcd6de0d35ef)]
+        interface ITfInputProcessorProfilesEx: ITfInputProcessorProfiles {
+            fn SetLanguageProfileDisplayName(&self, rclsid: *const GUID, langid: LANGID, guidProfile: *const GUID, pchFile: *const u16, cchFile: u32, uResId: u32) -> HRESULT;
+        }
+        #[guid(0x55ce16ba_3014_41c1_9ceb_fade1446ac6c)]
+        interface ITfInsertAtSelection: IUnknown {
+            fn InsertTextAtSelection(&self, ec: TfEditCookie, dwFlags: u32, pchText: *const u16, cch: i32, ppRange: *mut ITfRange) -> HRESULT;
+            fn InsertEmbeddedAtSelection(&self, ec: TfEditCookie, dwFlags: u32, pDataObject: IDataObject, ppRange: *mut ITfRange) -> HRESULT;
+        }
+        #[guid(0xaa80e7f5_2021_11d2_93e0_0060b067b86e)]
+        interface ITfKeyEventSink: IUnknown {
+            fn OnSetFocus(&self, fForeground: BOOL) -> HRESULT;
+            fn OnTestKeyDown(&self, pic: ITfContext, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn OnTestKeyUp(&self, pic: ITfContext, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn OnKeyDown(&self, pic: ITfContext, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn OnKeyUp(&self, pic: ITfContext, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn OnPreservedKey(&self, pic: ITfContext, rguid: *const GUID, pfEaten: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x1cd4c13b_1c36_4191_a70a_7f3e611f367d)]
+        interface ITfKeyTraceEventSink: IUnknown {
+            fn OnKeyTraceDown(&self, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+            fn OnKeyTraceUp(&self, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+        }
+        #[guid(0xaa80e7f0_2021_11d2_93e0_0060b067b86e)]
+        interface ITfKeystrokeMgr: IUnknown {
+            fn AdviseKeyEventSink(&self, tid: TfClientId, pSink: ITfKeyEventSink, fForeground: BOOL) -> HRESULT;
+            fn UnadviseKeyEventSink(&self, tid: TfClientId) -> HRESULT;
+            fn GetForeground(&self, pclsid: *mut GUID) -> HRESULT;
+            fn TestKeyDown(&self, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn TestKeyUp(&self, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn KeyDown(&self, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn KeyUp(&self, wParam: WPARAM, lParam: LPARAM, pfEaten: *mut BOOL) -> HRESULT;
+            fn GetPreservedKey(&self, pic: ITfContext, pprekey: *const TF_PRESERVEDKEY, pguid: *mut GUID) -> HRESULT;
+            fn IsPreservedKey(&self, rguid: *const GUID, pprekey: *const TF_PRESERVEDKEY, pfRegistered: *mut BOOL) -> HRESULT;
+            fn PreserveKey(&self, tid: TfClientId, rguid: *const GUID, prekey: *const TF_PRESERVEDKEY, pchDesc: *const u16, cchDesc: u32) -> HRESULT;
+            fn UnpreserveKey(&self, rguid: *const GUID, pprekey: *const TF_PRESERVEDKEY) -> HRESULT;
+            fn SetPreservedKeyDescription(&self, rguid: *const GUID, pchDesc: *const u16, cchDesc: u32) -> HRESULT;
+            fn GetPreservedKeyDescription(&self, rguid: *const GUID, pbstrDesc: *mut BSTR) -> HRESULT;
+            fn SimulatePreservedKey(&self, pic: ITfContext, rguid: *const GUID, pfEaten: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x43c9fe15_f494_4c17_9de2_b8a4ac350aa8)]
+        interface ITfLanguageProfileNotifySink: IUnknown {
+            fn OnLanguageChange(&self, langid: LANGID, pfAccept: *mut BOOL) -> HRESULT;
+            fn OnLanguageChanged(&self) -> HRESULT;
+        }
+        #[guid(0x8f1b8ad8_0b6b_4874_90c5_bd76011e8f7c)]
+        interface ITfMessagePump: IUnknown {
+            fn PeekMessage(&self, pMsg: *mut MSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, wRemoveMsg: u32, pfResult: *mut BOOL) -> HRESULT;
+            fn GetMessage(&self, pMsg: *mut MSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, pfResult: *mut BOOL) -> HRESULT;
+            fn PeekMessageW(&self, pMsg: *mut MSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, wRemoveMsg: u32, pfResult: *mut BOOL) -> HRESULT;
+            fn GetMessageW(&self, pMsg: *mut MSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, pfResult: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xa1adaaa2_3a24_449d_ac96_5183e7f5c217)]
+        interface ITfMouseSink: IUnknown {
+            fn OnMouseEvent(&self, uEdge: u32, uQuadrant: u32, dwBtnStatus: u32, pfEaten: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x09d146cd_a544_4132_925b_7afa8ef322d0)]
+        interface ITfMouseTracker: IUnknown {
+            fn AdviseMouseSink(&self, range: ITfRange, pSink: ITfMouseSink, pdwCookie: *mut u32) -> HRESULT;
+            fn UnadviseMouseSink(&self, dwCookie: u32) -> HRESULT;
+        }
+        #[guid(0x3bdd78e2_c16e_47fd_b883_ce6facc1a208)]
+        interface ITfMouseTrackerACP: IUnknown {
+            fn AdviseMouseSink(&self, range: ITfRangeACP, pSink: ITfMouseSink, pdwCookie: *mut u32) -> HRESULT;
+            fn UnadviseMouseSink(&self, dwCookie: u32) -> HRESULT;
+        }
+        #[guid(0x4ef89150_0807_11d3_8df0_00105a2799b5)]
+        interface ITfPersistentPropertyLoaderACP: IUnknown {
+            fn LoadProperty(&self, pHdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, ppStream: *mut IStream) -> HRESULT;
+        }
+        #[guid(0x6f77c993_d2b1_446e_853e_5912efc8a286)]
+        interface ITfPreservedKeyNotifySink: IUnknown {
+            fn OnUpdated(&self, pprekey: *const TF_PRESERVEDKEY) -> HRESULT;
+        }
+        #[guid(0xe2449660_9542_11d2_bf46_00105a2799b5)]
+        interface ITfProperty: ITfReadOnlyProperty {
+            fn FindRange(&self, ec: TfEditCookie, pRange: ITfRange, ppRange: *mut ITfRange, aPos: TfAnchor) -> HRESULT;
+            fn SetValueStore(&self, ec: TfEditCookie, pRange: ITfRange, pPropStore: ITfPropertyStore) -> HRESULT;
+            fn SetValue(&self, ec: TfEditCookie, pRange: ITfRange, pvarValue: *const VARIANT) -> HRESULT;
+            fn Clear(&self, ec: TfEditCookie, pRange: ITfRange) -> HRESULT;
+        }
+        #[guid(0x6834b120_88cb_11d2_bf45_00105a2799b5)]
+        interface ITfPropertyStore: IUnknown {
+            fn GetType(&self, pguid: *mut GUID) -> HRESULT;
+            fn GetDataType(&self, pdwReserved: *mut u32) -> HRESULT;
+            fn GetData(&self, pvarValue: *mut VARIANT) -> HRESULT;
+            fn OnTextUpdated(&self, dwFlags: u32, pRangeNew: ITfRange, pfAccept: *mut BOOL) -> HRESULT;
+            fn Shrink(&self, pRangeNew: ITfRange, pfFree: *mut BOOL) -> HRESULT;
+            fn Divide(&self, pRangeThis: ITfRange, pRangeNew: ITfRange, ppPropStore: *mut ITfPropertyStore) -> HRESULT;
+            fn Clone(&self, pPropStore: *mut ITfPropertyStore) -> HRESULT;
+            fn GetPropertyRangeCreator(&self, pclsid: *mut GUID) -> HRESULT;
+            fn Serialize(&self, pStream: IStream, pcb: *mut u32) -> HRESULT;
+        }
+        #[guid(0x0fab9bdb_d250_4169_84e5_6be118fdd7a8)]
+        interface ITfQueryEmbedded: IUnknown {
+            fn QueryInsertEmbedded(&self, pguidService: *const GUID, pFormatEtc: *const FORMATETC, pfInsertable: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xaa80e7ff_2021_11d2_93e0_0060b067b86e)]
+        interface ITfRange: IUnknown {
+            fn GetText(&self, ec: TfEditCookie, dwFlags: u32, pchText: *mut u16, cchMax: u32, pcch: *mut u32) -> HRESULT;
+            fn SetText(&self, ec: TfEditCookie, dwFlags: u32, pchText: *const u16, cch: i32) -> HRESULT;
+            fn GetFormattedText(&self, ec: TfEditCookie, ppDataObject: *mut IDataObject) -> HRESULT;
+            fn GetEmbedded(&self, ec: TfEditCookie, rguidService: *const GUID, riid: *const GUID, #[iid_is] ppunk: *mut *mut void) -> HRESULT;
+            fn InsertEmbedded(&self, ec: TfEditCookie, dwFlags: u32, pDataObject: IDataObject) -> HRESULT;
+            fn ShiftStart(&self, ec: TfEditCookie, cchReq: i32, pcch: *mut i32, pHalt: *const TF_HALTCOND) -> HRESULT;
+            fn ShiftEnd(&self, ec: TfEditCookie, cchReq: i32, pcch: *mut i32, pHalt: *const TF_HALTCOND) -> HRESULT;
+            fn ShiftStartToRange(&self, ec: TfEditCookie, pRange: ITfRange, aPos: TfAnchor) -> HRESULT;
+            fn ShiftEndToRange(&self, ec: TfEditCookie, pRange: ITfRange, aPos: TfAnchor) -> HRESULT;
+            fn ShiftStartRegion(&self, ec: TfEditCookie, dir: TfShiftDir, pfNoRegion: *mut BOOL) -> HRESULT;
+            fn ShiftEndRegion(&self, ec: TfEditCookie, dir: TfShiftDir, pfNoRegion: *mut BOOL) -> HRESULT;
+            fn IsEmpty(&self, ec: TfEditCookie, pfEmpty: *mut BOOL) -> HRESULT;
+            fn Collapse(&self, ec: TfEditCookie, aPos: TfAnchor) -> HRESULT;
+            fn IsEqualStart(&self, ec: TfEditCookie, pWith: ITfRange, aPos: TfAnchor, pfEqual: *mut BOOL) -> HRESULT;
+            fn IsEqualEnd(&self, ec: TfEditCookie, pWith: ITfRange, aPos: TfAnchor, pfEqual: *mut BOOL) -> HRESULT;
+            fn CompareStart(&self, ec: TfEditCookie, pWith: ITfRange, aPos: TfAnchor, plResult: *mut i32) -> HRESULT;
+            fn CompareEnd(&self, ec: TfEditCookie, pWith: ITfRange, aPos: TfAnchor, plResult: *mut i32) -> HRESULT;
+            fn AdjustForInsert(&self, ec: TfEditCookie, cchInsert: u32, pfInsertOk: *mut BOOL) -> HRESULT;
+            fn GetGravity(&self, pgStart: *mut TfGravity, pgEnd: *mut TfGravity) -> HRESULT;
+            fn SetGravity(&self, ec: TfEditCookie, gStart: TfGravity, gEnd: TfGravity) -> HRESULT;
+            fn Clone(&self, ppClone: *mut ITfRange) -> HRESULT;
+            fn GetContext(&self, ppContext: *mut ITfContext) -> HRESULT;
+        }
+        #[guid(0x057a6296_029b_4154_b79a_0d461d4ea94c)]
+        interface ITfRangeACP: ITfRange {
+            fn GetExtent(&self, pacpAnchor: *mut i32, pcch: *mut i32) -> HRESULT;
+            fn SetExtent(&self, acpAnchor: i32, cch: i32) -> HRESULT;
+        }
+        #[guid(0x463a506d_6992_49d2_9b88_93d55e70bb16)]
+        interface ITfRangeBackup: IUnknown {
+            fn Restore(&self, ec: TfEditCookie, pRange: ITfRange) -> HRESULT;
+        }
+        #[guid(0x17d49a3d_f8b8_4b2f_b254_52319dd64c53)]
+        interface ITfReadOnlyProperty: IUnknown {
+            fn GetType(&self, pguid: *mut GUID) -> HRESULT;
+            fn EnumRanges(&self, ec: TfEditCookie, ppEnum: *mut IEnumTfRanges, pTargetRange: ITfRange) -> HRESULT;
+            fn GetValue(&self, ec: TfEditCookie, pRange: ITfRange, pvarValue: *mut VARIANT) -> HRESULT;
+            fn GetContext(&self, ppContext: *mut ITfContext) -> HRESULT;
+        }
+        #[guid(0xea1ea139_19df_11d7_a6d2_00065b84435c)]
+        interface ITfReadingInformationUIElement: ITfUIElement {
+            fn GetUpdatedFlags(&self, pdwFlags: *mut u32) -> HRESULT;
+            fn GetContext(&self, ppic: *mut ITfContext) -> HRESULT;
+            fn GetString(&self, pstr: *mut BSTR) -> HRESULT;
+            fn GetMaxReadingStringLength(&self, pcchMax: *mut u32) -> HRESULT;
+            fn GetErrorIndex(&self, pErrorIndex: *mut u32) -> HRESULT;
+            fn IsVerticalOrderPreferred(&self, pfVertical: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xa415e162_157d_417d_8a8c_0ab26c7d2781)]
+        interface ITfReverseConversion: IUnknown {
+            fn DoReverseConversion(&self, lpstr: PCWSTR, ppList: *mut ITfReverseConversionList) -> HRESULT;
+        }
+        #[guid(0x151d69f0_86f4_4674_b721_56911e797f47)]
+        interface ITfReverseConversionList: IUnknown {
+            fn GetLength(&self, puIndex: *mut u32) -> HRESULT;
+            fn GetString(&self, uIndex: u32, pbstr: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xb643c236_c493_41b6_abb3_692412775cc4)]
+        interface ITfReverseConversionMgr: IUnknown {
+            fn GetReverseConversion(&self, langid: LANGID, guidProfile: *const GUID, dwflag: u32, ppReverseConversion: *mut ITfReverseConversion) -> HRESULT;
+        }
+        #[guid(0x4ea48a35_60ae_446f_8fd6_e6a8d82459f7)]
+        interface ITfSource: IUnknown {
+            fn AdviseSink(&self, riid: *const GUID, punk: IUnknown, pdwCookie: *mut u32) -> HRESULT;
+            fn UnadviseSink(&self, dwCookie: u32) -> HRESULT;
+        }
+        #[guid(0x73131f9c_56a9_49dd_b0ee_d046633f7528)]
+        interface ITfSourceSingle: IUnknown {
+            fn AdviseSingleSink(&self, tid: TfClientId, riid: *const GUID, punk: IUnknown) -> HRESULT;
+            fn UnadviseSingleSink(&self, tid: TfClientId, riid: *const GUID) -> HRESULT;
+        }
+        #[guid(0x6b7d8d73_b267_4f69_b32e_1ca321ce4f45)]
+        interface ITfStatusSink: IUnknown {
+            fn OnStatusChange(&self, pic: ITfContext, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x8127d409_ccd3_4683_967a_b43d5b482bf7)]
+        interface ITfTextEditSink: IUnknown {
+            fn OnEndEdit(&self, pic: ITfContext, ecReadOnly: TfEditCookie, pEditRecord: ITfEditRecord) -> HRESULT;
+        }
+        #[guid(0xaa80e7f7_2021_11d2_93e0_0060b067b86e)]
+        interface ITfTextInputProcessor: IUnknown {
+            fn Activate(&self, ptim: ITfThreadMgr, tid: TfClientId) -> HRESULT;
+            fn Deactivate(&self) -> HRESULT;
+        }
+        #[guid(0x6e4e2102_f9cd_433d_b496_303ce03a6507)]
+        interface ITfTextInputProcessorEx: ITfTextInputProcessor {
+            fn ActivateEx(&self, ptim: ITfThreadMgr, tid: TfClientId, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x2af2d06a_dd5b_4927_a0b4_54f19c91fade)]
+        interface ITfTextLayoutSink: IUnknown {
+            fn OnLayoutChange(&self, pic: ITfContext, lcode: TfLayoutCode, pView: ITfContextView) -> HRESULT;
+        }
+        #[guid(0xc0f1db0c_3a20_405c_a303_96b6010a885f)]
+        interface ITfThreadFocusSink: IUnknown {
+            fn OnSetThreadFocus(&self) -> HRESULT;
+            fn OnKillThreadFocus(&self) -> HRESULT;
+        }
+        #[guid(0xaa80e801_2021_11d2_93e0_0060b067b86e)]
+        interface ITfThreadMgr: IUnknown {
+            fn Activate(&self, ptid: *mut TfClientId) -> HRESULT;
+            fn Deactivate(&self) -> HRESULT;
+            fn CreateDocumentMgr(&self, ppdim: *mut ITfDocumentMgr) -> HRESULT;
+            fn EnumDocumentMgrs(&self, ppEnum: *mut IEnumTfDocumentMgrs) -> HRESULT;
+            fn GetFocus(&self, ppdimFocus: *mut ITfDocumentMgr) -> HRESULT;
+            fn SetFocus(&self, pdimFocus: ITfDocumentMgr) -> HRESULT;
+            fn AssociateFocus(&self, hwnd: HWND, pdimNew: ITfDocumentMgr, ppdimPrev: *mut ITfDocumentMgr) -> HRESULT;
+            fn IsThreadFocus(&self, pfThreadFocus: *mut BOOL) -> HRESULT;
+            fn GetFunctionProvider(&self, clsid: *const GUID, ppFuncProv: *mut ITfFunctionProvider) -> HRESULT;
+            fn EnumFunctionProviders(&self, ppEnum: *mut IEnumTfFunctionProviders) -> HRESULT;
+            fn GetGlobalCompartment(&self, ppCompMgr: *mut ITfCompartmentMgr) -> HRESULT;
+        }
+        #[guid(0x0ab198ef_6477_4ee8_8812_6780edb82d5e)]
+        interface ITfThreadMgr2: IUnknown {
+            fn Activate(&self, ptid: *mut TfClientId) -> HRESULT;
+            fn Deactivate(&self) -> HRESULT;
+            fn CreateDocumentMgr(&self, ppdim: *mut ITfDocumentMgr) -> HRESULT;
+            fn EnumDocumentMgrs(&self, ppEnum: *mut IEnumTfDocumentMgrs) -> HRESULT;
+            fn GetFocus(&self, ppdimFocus: *mut ITfDocumentMgr) -> HRESULT;
+            fn SetFocus(&self, pdimFocus: ITfDocumentMgr) -> HRESULT;
+            fn IsThreadFocus(&self, pfThreadFocus: *mut BOOL) -> HRESULT;
+            fn GetFunctionProvider(&self, clsid: *const GUID, ppFuncProv: *mut ITfFunctionProvider) -> HRESULT;
+            fn EnumFunctionProviders(&self, ppEnum: *mut IEnumTfFunctionProviders) -> HRESULT;
+            fn GetGlobalCompartment(&self, ppCompMgr: *mut ITfCompartmentMgr) -> HRESULT;
+            fn ActivateEx(&self, ptid: *mut TfClientId, dwFlags: u32) -> HRESULT;
+            fn GetActiveFlags(&self, lpdwFlags: *mut u32) -> HRESULT;
+            fn SuspendKeystrokeHandling(&self) -> HRESULT;
+            fn ResumeKeystrokeHandling(&self) -> HRESULT;
+        }
+        #[guid(0xaa80e80e_2021_11d2_93e0_0060b067b86e)]
+        interface ITfThreadMgrEventSink: IUnknown {
+            fn OnInitDocumentMgr(&self, pdim: ITfDocumentMgr) -> HRESULT;
+            fn OnUninitDocumentMgr(&self, pdim: ITfDocumentMgr) -> HRESULT;
+            fn OnSetFocus(&self, pdimFocus: ITfDocumentMgr, pdimPrevFocus: ITfDocumentMgr) -> HRESULT;
+            fn OnPushContext(&self, pic: ITfContext) -> HRESULT;
+            fn OnPopContext(&self, pic: ITfContext) -> HRESULT;
+        }
+        #[guid(0x3e90ade3_7594_4cb0_bb58_69628f5f458c)]
+        interface ITfThreadMgrEx: ITfThreadMgr {
+            fn ActivateEx(&self, ptid: *mut TfClientId, dwFlags: u32) -> HRESULT;
+            fn GetActiveFlags(&self, lpdwFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0x52b18b5c_555d_46b2_b00a_fa680144fbdb)]
+        interface ITfToolTipUIElement: ITfUIElement {
+            fn GetString(&self, pstr: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xa615096f_1c57_4813_8a15_55ee6e5a839c)]
+        interface ITfTransitoryExtensionSink: IUnknown {
+            fn OnTransitoryExtensionUpdated(&self, pic: ITfContext, ecReadOnly: TfEditCookie, pResultRange: ITfRange, pCompositionRange: ITfRange, pfDeleteResultRange: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x858f956a_972f_42a2_a2f2_0321e1abe209)]
+        interface ITfTransitoryExtensionUIElement: ITfUIElement {
+            fn GetDocumentMgr(&self, ppdim: *mut ITfDocumentMgr) -> HRESULT;
+        }
+        #[guid(0xea1ea137_19df_11d7_a6d2_00065b84435c)]
+        interface ITfUIElement: IUnknown {
+            fn GetDescription(&self, pbstrDescription: *mut BSTR) -> HRESULT;
+            fn GetGUID(&self, pguid: *mut GUID) -> HRESULT;
+            fn Show(&self, bShow: BOOL) -> HRESULT;
+            fn IsShown(&self, pbShow: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xea1ea135_19df_11d7_a6d2_00065b84435c)]
+        interface ITfUIElementMgr: IUnknown {
+            fn BeginUIElement(&self, pElement: ITfUIElement, #[in] #[out] pbShow: *mut BOOL, pdwUIElementId: *mut u32) -> HRESULT;
+            fn UpdateUIElement(&self, dwUIElementId: u32) -> HRESULT;
+            fn EndUIElement(&self, dwUIElementId: u32) -> HRESULT;
+            fn GetUIElement(&self, dwUIELementId: u32, ppElement: *mut ITfUIElement) -> HRESULT;
+            fn EnumUIElements(&self, ppEnum: *mut IEnumTfUIElements) -> HRESULT;
+        }
+        #[guid(0xea1ea136_19df_11d7_a6d2_00065b84435c)]
+        interface ITfUIElementSink: IUnknown {
+            fn BeginUIElement(&self, dwUIElementId: u32, #[in] #[out] pbShow: *mut BOOL) -> HRESULT;
+            fn UpdateUIElement(&self, dwUIElementId: u32) -> HRESULT;
+            fn EndUIElement(&self, dwUIElementId: u32) -> HRESULT;
+        }
+        const TF_CHAR_EMBEDDED: u32 = 65532;
+        const TF_CLIENTID_NULL: TfClientId = 0;
+        const TF_CLUIE_COUNT: u32 = 2;
+        const TF_CLUIE_CURRENTPAGE: u32 = 32;
+        const TF_CLUIE_DOCUMENTMGR: u32 = 1;
+        const TF_CLUIE_PAGEINDEX: u32 = 16;
+        const TF_CLUIE_SELECTION: u32 = 4;
+        const TF_CLUIE_STRING: u32 = 8;
+        const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0;
+        const TF_CONVERSIONMODE_CHARCODE: u32 = 32;
+        const TF_CONVERSIONMODE_EUDC: u32 = 512;
+        const TF_CONVERSIONMODE_FIXED: u32 = 2048;
+        const TF_CONVERSIONMODE_FULLSHAPE: u32 = 8;
+        const TF_CONVERSIONMODE_KATAKANA: u32 = 2;
+        const TF_CONVERSIONMODE_NATIVE: u32 = 1;
+        const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256;
+        const TF_CONVERSIONMODE_ROMAN: u32 = 16;
+        const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128;
+        const TF_CONVERSIONMODE_SYMBOL: u32 = 1024;
+        #[repr(i32)]
+        enum TF_DA_ATTR_INFO {
+            TF_ATTR_INPUT = 0,
+            TF_ATTR_TARGET_CONVERTED = 1,
+            TF_ATTR_CONVERTED = 2,
+            TF_ATTR_TARGET_NOTCONVERTED = 3,
+            TF_ATTR_INPUT_ERROR = 4,
+            TF_ATTR_FIXEDCONVERTED = 5,
+            TF_ATTR_OTHER = -1,
+        }
+        struct TF_DA_COLOR {
+            r#type: TF_DA_COLORTYPE,
+            Anonymous: union {
+                nIndex: i32,
+                cr: COLORREF,
+            },
+        }
+        #[repr(i32)]
+        enum TF_DA_COLORTYPE {
+            TF_CT_NONE = 0,
+            TF_CT_SYSCOLOR = 1,
+            TF_CT_COLORREF = 2,
+        }
+        #[repr(i32)]
+        enum TF_DA_LINESTYLE {
+            TF_LS_NONE = 0,
+            TF_LS_SOLID = 1,
+            TF_LS_DOT = 2,
+            TF_LS_DASH = 3,
+            TF_LS_SQUIGGLE = 4,
+        }
+        const TF_DEFAULT_SELECTION: i32 = -1;
+        const TF_DISABLE_COMMANDING: u32 = 4;
+        const TF_DISABLE_DICTATION: u32 = 2;
+        const TF_DISABLE_SPEECH: u32 = 1;
+        struct TF_DISPLAYATTRIBUTE {
+            crText: TF_DA_COLOR,
+            crBk: TF_DA_COLOR,
+            lsStyle: TF_DA_LINESTYLE,
+            fBoldLine: BOOL,
+            crLine: TF_DA_COLOR,
+            bAttr: TF_DA_ATTR_INFO,
+        }
+        const TF_ES_ASYNC: u32 = 8;
+        const TF_ES_ASYNCDONTCARE: u32 = 0;
+        const TF_ES_READ: u32 = 2;
+        const TF_ES_READWRITE: u32 = 6;
+        const TF_ES_SYNC: u32 = 1;
+        const TF_E_ALREADY_EXISTS: i32 = -2147220218;
+        const TF_E_COMPOSITION_REJECTED: i32 = -2147220216;
+        const TF_E_DISCONNECTED: i32 = -2147220220;
+        const TF_E_EMPTYCONTEXT: i32 = -2147220215;
+        const TF_E_FORMAT: i32 = -2147220982;
+        const TF_E_INVALIDPOINT: i32 = -2147220985;
+        const TF_E_INVALIDPOS: i32 = -2147220992;
+        const TF_E_INVALIDVIEW: i32 = -2147220219;
+        const TF_E_LOCKED: i32 = -2147220224;
+        const TF_E_NOINTERFACE: i32 = -2147220988;
+        const TF_E_NOLAYOUT: i32 = -2147220986;
+        const TF_E_NOLOCK: i32 = -2147220991;
+        const TF_E_NOOBJECT: i32 = -2147220990;
+        const TF_E_NOPROVIDER: i32 = -2147220221;
+        const TF_E_NOSELECTION: i32 = -2147220987;
+        const TF_E_NOSERVICE: i32 = -2147220989;
+        const TF_E_NOTOWNEDRANGE: i32 = -2147220222;
+        const TF_E_RANGE_NOT_COVERED: i32 = -2147220217;
+        const TF_E_READONLY: i32 = -2147220983;
+        const TF_E_STACKFULL: i32 = -2147220223;
+        const TF_E_SYNCHRONOUS: i32 = -2147220984;
+        const TF_GTP_INCL_TEXT: u32 = 1;
+        struct TF_HALTCOND {
+            pHaltRange: ITfRange,
+            aHaltPos: TfAnchor,
+            dwFlags: u32,
+        }
+        const TF_HF_OBJECT: u32 = 1;
+        const TF_IAS_NOQUERY: u32 = 1;
+        const TF_IAS_NO_DEFAULT_COMPOSITION: u32 = 2147483648;
+        const TF_IAS_QUERYONLY: u32 = 2;
+        const TF_IE_CORRECTION: u32 = 1;
+        struct TF_INPUTPROCESSORPROFILE {
+            dwProfileType: u32,
+            langid: LANGID,
+            clsid: GUID,
+            guidProfile: GUID,
+            catid: GUID,
+            hklSubstitute: HKL,
+            dwCaps: u32,
+            hkl: HKL,
+            dwFlags: u32,
+        }
+        const TF_INVALID_COOKIE: u32 = 4294967295;
+        const TF_INVALID_EDIT_COOKIE: u32 = 0;
+        const TF_INVALID_GUIDATOM: TfGuidAtom = 0;
+        const TF_INVALID_UIELEMENTID: i32 = -1;
+        const TF_IPPMF_DISABLEPROFILE: u32 = 2;
+        const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: u32 = 4;
+        const TF_IPPMF_ENABLEPROFILE: u32 = 1;
+        const TF_IPPMF_FORPROCESS: u32 = 268435456;
+        const TF_IPPMF_FORSESSION: u32 = 536870912;
+        const TF_IPPMF_FORSYSTEMALL: u32 = 1073741824;
+        const TF_IPP_CAPS_COMLESSSUPPORT: u32 = 8;
+        const TF_IPP_CAPS_DISABLEONTRANSITORY: u32 = 1;
+        const TF_IPP_CAPS_IMMERSIVESUPPORT: u32 = 65536;
+        const TF_IPP_CAPS_SECUREMODESUPPORT: u32 = 2;
+        const TF_IPP_CAPS_SYSTRAYSUPPORT: u32 = 131072;
+        const TF_IPP_CAPS_UIELEMENTENABLED: u32 = 4;
+        const TF_IPP_CAPS_WOW16SUPPORT: u32 = 16;
+        const TF_IPP_FLAG_ACTIVE: u32 = 1;
+        const TF_IPP_FLAG_ENABLED: u32 = 2;
+        const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4;
+        const TF_IPSINK_FLAG_ACTIVE: u32 = 1;
+        struct TF_LANGUAGEPROFILE {
+            clsid: GUID,
+            langid: LANGID,
+            catid: GUID,
+            fActive: BOOL,
+            guidProfile: GUID,
+        }
+        const TF_MOD_ALT: u32 = 1;
+        const TF_MOD_CONTROL: u32 = 2;
+        const TF_MOD_IGNORE_ALL_MODIFIER: u32 = 1024;
+        const TF_MOD_LALT: u32 = 64;
+        const TF_MOD_LCONTROL: u32 = 128;
+        const TF_MOD_LSHIFT: u32 = 256;
+        const TF_MOD_ON_KEYUP: u32 = 512;
+        const TF_MOD_RALT: u32 = 8;
+        const TF_MOD_RCONTROL: u32 = 16;
+        const TF_MOD_RSHIFT: u32 = 32;
+        const TF_MOD_SHIFT: u32 = 4;
+        struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
+            guidType: GUID,
+            ichStart: i32,
+            cch: i32,
+            cb: u32,
+            dwPrivate: u32,
+            clsidTIP: GUID,
+        }
+        const TF_POPF_ALL: u32 = 1;
+        struct TF_PRESERVEDKEY {
+            uVKey: u32,
+            uModifiers: u32,
+        }
+        const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1;
+        const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2;
+        const TF_PROFILE_ARRAY: GUID = 0xd38eff65_aa46_4fd5_91a7_67845fb02f5b;
+        const TF_PROFILE_CANTONESE: GUID = 0x0aec109c_7e96_11d4_b2ef_0080c882687e;
+        const TF_PROFILE_CHANGJIE: GUID = 0x4bdf9f03_c7d3_11d4_b2ab_0080c882687e;
+        const TF_PROFILE_DAYI: GUID = 0x037b2c25_480c_4d7f_b027_d6ca6b69788a;
+        const TF_PROFILE_NEWCHANGJIE: GUID = 0xf3ba907a_6c7e_11d4_97fa_0080c882687e;
+        const TF_PROFILE_NEWPHONETIC: GUID = 0xb2f9c502_1742_11d4_9790_0080c882687e;
+        const TF_PROFILE_NEWQUICK: GUID = 0x0b883ba0_c1c7_11d4_87f9_0080c882687e;
+        const TF_PROFILE_PHONETIC: GUID = 0x761309de_317a_11d4_9b5d_0080c882687e;
+        const TF_PROFILE_PINYIN: GUID = 0xf3ba9077_6c7e_11d4_97fa_0080c882687e;
+        const TF_PROFILE_QUICK: GUID = 0x6024b45f_5c54_11d4_b921_0080c882687e;
+        const TF_PROFILE_SIMPLEFAST: GUID = 0xfa550b04_5ad7_411f_a5ac_ca038ec515d7;
+        const TF_PROFILE_TIGRINYA: GUID = 0x3cab88b7_cc3e_46a6_9765_b772ad7761ff;
+        const TF_PROFILE_WUBI: GUID = 0x82590c13_f4dd_44f4_ba1d_8667246fdf8e;
+        const TF_PROFILE_YI: GUID = 0x409c8376_007b_4357_ae8e_26316ee3fb0d;
+        struct TF_PROPERTYVAL {
+            guidId: GUID,
+            varValue: VARIANT,
+        }
+        const TF_RCM_COMLESS: u32 = 1;
+        const TF_RCM_HINT_COLLISION: u32 = 8;
+        const TF_RCM_HINT_READING_LENGTH: u32 = 4;
+        const TF_RCM_VKEY: u32 = 2;
+        const TF_RIP_FLAG_FREEUNUSEDLIBRARIES: u32 = 1;
+        const TF_RIUIE_CONTEXT: u32 = 1;
+        const TF_RIUIE_ERRORINDEX: u32 = 8;
+        const TF_RIUIE_MAXREADINGSTRINGLENGTH: u32 = 4;
+        const TF_RIUIE_STRING: u32 = 2;
+        const TF_RIUIE_VERTICALORDER: u32 = 16;
+        const TF_RP_HIDDENINSETTINGUI: u32 = 2;
+        const TF_RP_LOCALPROCESS: u32 = 4;
+        const TF_RP_LOCALTHREAD: u32 = 8;
+        const TF_RP_SUBITEMINSETTINGUI: u32 = 16;
+        const TF_SD_LOADING: u32 = 2;
+        const TF_SD_READONLY: u32 = 1;
+        struct TF_SELECTION {
+            range: ITfRange,
+            style: TF_SELECTIONSTYLE,
+        }
+        struct TF_SELECTIONSTYLE {
+            ase: TfActiveSelEnd,
+            fInterimChar: BOOL,
+        }
+        const TF_SENTENCEMODE_AUTOMATIC: u32 = 4;
+        const TF_SENTENCEMODE_CONVERSATION: u32 = 16;
+        const TF_SENTENCEMODE_NONE: u32 = 0;
+        const TF_SENTENCEMODE_PHRASEPREDICT: u32 = 8;
+        const TF_SENTENCEMODE_PLAURALCLAUSE: u32 = 1;
+        const TF_SENTENCEMODE_SINGLECONVERT: u32 = 2;
+        const TF_SS_DISJOINTSEL: u32 = 1;
+        const TF_SS_REGIONS: u32 = 2;
+        const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16;
+        const TF_SS_TKBPREDICTIONENABLE: u32 = 32;
+        const TF_SS_TRANSITORY: u32 = 4;
+        type TF_STATUS = TS_STATUS;
+        const TF_ST_CORRECTION: u32 = 1;
+        const TF_S_ASYNC: u32 = 262912;
+        const TF_TF_IGNOREEND: u32 = 2;
+        const TF_TF_MOVESTART: u32 = 1;
+        const TF_TMAE_COMLESS: u32 = 8;
+        const TF_TMAE_CONSOLE: u32 = 64;
+        const TF_TMAE_NOACTIVATEKEYBOARDLAYOUT: u32 = 32;
+        const TF_TMAE_NOACTIVATETIP: u32 = 1;
+        const TF_TMAE_SECUREMODE: u32 = 2;
+        const TF_TMAE_UIELEMENTENABLEDONLY: u32 = 4;
+        const TF_TMAE_WOW16: u32 = 16;
+        const TF_TMF_ACTIVATED: u32 = 2147483648;
+        const TF_TMF_COMLESS: u32 = 8;
+        const TF_TMF_CONSOLE: u32 = 64;
+        const TF_TMF_IMMERSIVEMODE: u32 = 1073741824;
+        const TF_TMF_NOACTIVATETIP: u32 = 1;
+        const TF_TMF_SECUREMODE: u32 = 2;
+        const TF_TMF_UIELEMENTENABLEDONLY: u32 = 4;
+        const TF_TMF_WOW16: u32 = 16;
+        const TF_TRANSITORYEXTENSION_ATSELECTION: u32 = 2;
+        const TF_TRANSITORYEXTENSION_FLOATING: u32 = 1;
+        const TF_TRANSITORYEXTENSION_NONE: u32 = 0;
+        const TF_TU_CORRECTION: u32 = 1;
+        const TF_URP_ALLPROFILES: u32 = 2;
+        const TF_URP_LOCALPROCESS: u32 = 4;
+        const TF_URP_LOCALTHREAD: u32 = 8;
+        const TF_US_HIDETIPUI: u32 = 1;
+        const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4;
+        const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2;
+        const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3;
+        const TKB_ALTERNATES_STANDARD: u32 = 1;
+        #[repr(i32)]
+        enum TfActiveSelEnd {
+            TF_AE_NONE = 0,
+            TF_AE_START = 1,
+            TF_AE_END = 2,
+        }
+        #[repr(i32)]
+        enum TfAnchor {
+            TF_ANCHOR_START = 0,
+            TF_ANCHOR_END = 1,
+        }
+        type TfClientId = u32;
+        type TfEditCookie = u32;
+        #[repr(i32)]
+        enum TfGravity {
+            TF_GRAVITY_BACKWARD = 0,
+            TF_GRAVITY_FORWARD = 1,
+        }
+        type TfGuidAtom = u32;
+        #[repr(i32)]
+        enum TfLayoutCode {
+            TF_LC_CREATE = 0,
+            TF_LC_CHANGE = 1,
+            TF_LC_DESTROY = 2,
+        }
+        #[repr(i32)]
+        enum TfShiftDir {
+            TF_SD_BACKWARD = 0,
+            TF_SD_FORWARD = 1,
+        }
+    }
+}

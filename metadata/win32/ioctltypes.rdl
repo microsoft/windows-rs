@@ -1,0 +1,7 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[encoding("utf-16")]
+        const DD_NDIS_DEVICE_NAME: String = "\\Device\\NDIS";
+    }
+}

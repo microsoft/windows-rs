@@ -1,0 +1,338 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BlockRange: GUID = 0xb507ca27_2204_11dd_966a_001aa01bbc58;
+        const BlockRangeList: GUID = 0xb507ca28_2204_11dd_966a_001aa01bbc58;
+        const BootOptions: GUID = 0x2c941fce_975b_59be_a960_9a2a262853a5;
+        #[guid(0x2c941fdf_975b_59be_a960_9a2a262853a5)]
+        interface DFileSystemImageEvents: IDispatch {
+            fn Update(&self, object: IDispatch, currentFile: BSTR, copiedSectors: i32, totalSectors: i32) -> HRESULT;
+        }
+        #[guid(0xd25c30f9_4087_4366_9e24_e55be286424b)]
+        interface DFileSystemImageImportEvents: IDispatch {
+            fn UpdateImport(&self, object: IDispatch, fileSystem: FsiFileSystems, currentItem: BSTR, importedDirectoryItems: i32, totalDirectoryItems: i32, importedFileItems: i32, totalFileItems: i32) -> HRESULT;
+        }
+        const DISPID_DFILESYSTEMIMAGEEVENTS_UPDATE: u32 = 256;
+        const DISPID_DFILESYSTEMIMAGEIMPORTEVENTS_UPDATEIMPORT: u32 = 257;
+        #[repr(i32)]
+        enum EmulationType {
+            EmulationNone = 0,
+            Emulation12MFloppy = 1,
+            Emulation144MFloppy = 2,
+            Emulation288MFloppy = 3,
+            EmulationHardDisk = 4,
+        }
+        const EnumFsiItems: GUID = 0x2c941fc6_975b_59be_a960_9a2a262853a5;
+        const EnumProgressItems: GUID = 0x2c941fca_975b_59be_a960_9a2a262853a5;
+        const FileSystemImageResult: GUID = 0x2c941fcc_975b_59be_a960_9a2a262853a5;
+        const FsiDirectoryItem: GUID = 0x2c941fc8_975b_59be_a960_9a2a262853a5;
+        const FsiFileItem: GUID = 0x2c941fc7_975b_59be_a960_9a2a262853a5;
+        #[repr(i32)]
+        enum FsiFileSystems {
+            FsiFileSystemNone = 0,
+            FsiFileSystemISO9660 = 1,
+            FsiFileSystemJoliet = 2,
+            FsiFileSystemUDF = 4,
+            FsiFileSystemUnknown = 1073741824,
+        }
+        #[repr(i32)]
+        enum FsiItemType {
+            FsiItemNotFound = 0,
+            FsiItemDirectory = 1,
+            FsiItemFile = 2,
+        }
+        const FsiNamedStreams: GUID = 0xc6b6f8ed_6d19_44b4_b539_b159b793a32d;
+        const FsiStream: GUID = 0x2c941fcd_975b_59be_a960_9a2a262853a5;
+        #[guid(0x2c941fd4_975b_59be_a960_9a2a262853a5)]
+        interface IBootOptions: IDispatch {
+            #[special]
+            fn get_BootImage(&self, #[retval] pVal: *mut IStream) -> HRESULT;
+            #[special]
+            fn get_Manufacturer(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Manufacturer(&self, newVal: BSTR) -> HRESULT;
+            #[special]
+            fn get_PlatformId(&self, #[retval] pVal: *mut PlatformId) -> HRESULT;
+            #[special]
+            fn put_PlatformId(&self, newVal: PlatformId) -> HRESULT;
+            #[special]
+            fn get_Emulation(&self, #[retval] pVal: *mut EmulationType) -> HRESULT;
+            #[special]
+            fn put_Emulation(&self, newVal: EmulationType) -> HRESULT;
+            #[special]
+            fn get_ImageSize(&self, #[retval] pVal: *mut u32) -> HRESULT;
+            fn AssignBootImage(&self, newVal: IStream) -> HRESULT;
+        }
+        #[guid(0x2c941fda_975b_59be_a960_9a2a262853a5)]
+        interface IEnumFsiItems: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut IFsiItem, pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumFsiItems) -> HRESULT;
+        }
+        #[guid(0x2c941fd6_975b_59be_a960_9a2a262853a5)]
+        interface IEnumProgressItems: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut IProgressItem, pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumProgressItems) -> HRESULT;
+        }
+        #[guid(0x2c941fe1_975b_59be_a960_9a2a262853a5)]
+        interface IFileSystemImage: IDispatch {
+            #[special]
+            fn get_Root(&self, #[retval] pVal: *mut IFsiDirectoryItem) -> HRESULT;
+            #[special]
+            fn get_SessionStartBlock(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SessionStartBlock(&self, newVal: i32) -> HRESULT;
+            #[special]
+            fn get_FreeMediaBlocks(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_FreeMediaBlocks(&self, newVal: i32) -> HRESULT;
+            fn SetMaxMediaBlocksFromDevice(&self, discRecorder: IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn get_UsedBlocks(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_VolumeName(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_VolumeName(&self, newVal: BSTR) -> HRESULT;
+            #[special]
+            fn get_ImportedVolumeName(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_BootImageOptions(&self, #[retval] pVal: *mut IBootOptions) -> HRESULT;
+            #[special]
+            fn put_BootImageOptions(&self, newVal: IBootOptions) -> HRESULT;
+            #[special]
+            fn get_FileCount(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_DirectoryCount(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_WorkingDirectory(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_WorkingDirectory(&self, newVal: BSTR) -> HRESULT;
+            #[special]
+            fn get_ChangePoint(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_StrictFileSystemCompliance(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_StrictFileSystemCompliance(&self, newVal: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UseRestrictedCharacterSet(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_UseRestrictedCharacterSet(&self, newVal: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_FileSystemsToCreate(&self, #[retval] pVal: *mut FsiFileSystems) -> HRESULT;
+            #[special]
+            fn put_FileSystemsToCreate(&self, newVal: FsiFileSystems) -> HRESULT;
+            #[special]
+            fn get_FileSystemsSupported(&self, #[retval] pVal: *mut FsiFileSystems) -> HRESULT;
+            #[special]
+            fn put_UDFRevision(&self, newVal: i32) -> HRESULT;
+            #[special]
+            fn get_UDFRevision(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_UDFRevisionsSupported(&self, #[retval] pVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn ChooseImageDefaults(&self, discRecorder: IDiscRecorder2) -> HRESULT;
+            fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn put_ISO9660InterchangeLevel(&self, newVal: i32) -> HRESULT;
+            #[special]
+            fn get_ISO9660InterchangeLevel(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ISO9660InterchangeLevelsSupported(&self, #[retval] pVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn CreateResultImage(&self, #[retval] resultStream: *mut IFileSystemImageResult) -> HRESULT;
+            fn Exists(&self, fullPath: BSTR, #[retval] itemType: *mut FsiItemType) -> HRESULT;
+            fn CalculateDiscIdentifier(&self, #[retval] discIdentifier: *mut BSTR) -> HRESULT;
+            fn IdentifyFileSystemsOnDisc(&self, discRecorder: IDiscRecorder2, #[retval] fileSystems: *mut FsiFileSystems) -> HRESULT;
+            fn GetDefaultFileSystemForImport(&self, fileSystems: FsiFileSystems, #[retval] importDefault: *mut FsiFileSystems) -> HRESULT;
+            fn ImportFileSystem(&self, #[retval] importedFileSystem: *mut FsiFileSystems) -> HRESULT;
+            fn ImportSpecificFileSystem(&self, fileSystemToUse: FsiFileSystems) -> HRESULT;
+            fn RollbackToChangePoint(&self, changePoint: i32) -> HRESULT;
+            fn LockInChangePoint(&self) -> HRESULT;
+            fn CreateDirectoryItem(&self, name: BSTR, #[retval] newItem: *mut IFsiDirectoryItem) -> HRESULT;
+            fn CreateFileItem(&self, name: BSTR, #[retval] newItem: *mut IFsiFileItem) -> HRESULT;
+            #[special]
+            fn get_VolumeNameUDF(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VolumeNameJoliet(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VolumeNameISO9660(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_StageFiles(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_StageFiles(&self, newVal: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MultisessionInterfaces(&self, #[retval] pVal: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_MultisessionInterfaces(&self, newVal: *const SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0xd7644b2c_1537_4767_b62f_f1387b02ddfd)]
+        interface IFileSystemImage2: IFileSystemImage {
+            #[special]
+            fn get_BootImageOptionsArray(&self, #[retval] pVal: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_BootImageOptionsArray(&self, newVal: *const SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x7cff842c_7e97_4807_8304_910dd8f7c051)]
+        interface IFileSystemImage3: IFileSystemImage2 {
+            #[special]
+            fn get_CreateRedundantUdfMetadataFiles(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_CreateRedundantUdfMetadataFiles(&self, newVal: VARIANT_BOOL) -> HRESULT;
+            fn ProbeSpecificFileSystem(&self, fileSystemToProbe: FsiFileSystems, #[retval] isAppendable: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x2c941fd8_975b_59be_a960_9a2a262853a5)]
+        interface IFileSystemImageResult: IDispatch {
+            #[special]
+            fn get_ImageStream(&self, #[retval] pVal: *mut IStream) -> HRESULT;
+            #[special]
+            fn get_ProgressItems(&self, #[retval] pVal: *mut IProgressItems) -> HRESULT;
+            #[special]
+            fn get_TotalBlocks(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_BlockSize(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_DiscId(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xb507ca29_2204_11dd_966a_001aa01bbc58)]
+        interface IFileSystemImageResult2: IFileSystemImageResult {
+            #[special]
+            fn get_ModifiedBlocks(&self, #[retval] pVal: *mut IBlockRangeList) -> HRESULT;
+        }
+        #[guid(0x2c941fdc_975b_59be_a960_9a2a262853a5)]
+        interface IFsiDirectoryItem: IFsiItem {
+            #[special]
+            fn get__NewEnum(&self, #[retval] NewEnum: *mut IEnumVARIANT) -> HRESULT;
+            #[special]
+            fn get_Item(&self, path: BSTR, #[retval] item: *mut IFsiItem) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            #[special]
+            fn get_EnumFsiItems(&self, #[retval] NewEnum: *mut IEnumFsiItems) -> HRESULT;
+            fn AddDirectory(&self, path: BSTR) -> HRESULT;
+            fn AddFile(&self, path: BSTR, fileData: IStream) -> HRESULT;
+            fn AddTree(&self, sourceDirectory: BSTR, includeBaseDirectory: VARIANT_BOOL) -> HRESULT;
+            fn Add(&self, item: IFsiItem) -> HRESULT;
+            fn Remove(&self, path: BSTR) -> HRESULT;
+            fn RemoveTree(&self, path: BSTR) -> HRESULT;
+        }
+        #[guid(0xf7fb4b9b_6d96_4d7b_9115_201b144811ef)]
+        interface IFsiDirectoryItem2: IFsiDirectoryItem {
+            fn AddTreeWithNamedStreams(&self, sourceDirectory: BSTR, includeBaseDirectory: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x2c941fdb_975b_59be_a960_9a2a262853a5)]
+        interface IFsiFileItem: IFsiItem {
+            #[special]
+            fn get_DataSize(&self, #[retval] pVal: *mut i64) -> HRESULT;
+            #[special]
+            fn get_DataSize32BitLow(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_DataSize32BitHigh(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Data(&self, #[retval] pVal: *mut IStream) -> HRESULT;
+            #[special]
+            fn put_Data(&self, newVal: IStream) -> HRESULT;
+        }
+        #[guid(0x199d0c19_11e1_40eb_8ec2_c8c822a07792)]
+        interface IFsiFileItem2: IFsiFileItem {
+            #[special]
+            fn get_FsiNamedStreams(&self, #[retval] streams: *mut IFsiNamedStreams) -> HRESULT;
+            #[special]
+            fn get_IsNamedStream(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            fn AddStream(&self, name: BSTR, streamData: IStream) -> HRESULT;
+            fn RemoveStream(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_IsRealTime(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_IsRealTime(&self, newVal: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x2c941fd9_975b_59be_a960_9a2a262853a5)]
+        interface IFsiItem: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_FullPath(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_CreationTime(&self, #[retval] pVal: *mut f64) -> HRESULT;
+            #[special]
+            fn put_CreationTime(&self, newVal: f64) -> HRESULT;
+            #[special]
+            fn get_LastAccessedTime(&self, #[retval] pVal: *mut f64) -> HRESULT;
+            #[special]
+            fn put_LastAccessedTime(&self, newVal: f64) -> HRESULT;
+            #[special]
+            fn get_LastModifiedTime(&self, #[retval] pVal: *mut f64) -> HRESULT;
+            #[special]
+            fn put_LastModifiedTime(&self, newVal: f64) -> HRESULT;
+            #[special]
+            fn get_IsHidden(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_IsHidden(&self, newVal: VARIANT_BOOL) -> HRESULT;
+            fn FileSystemName(&self, fileSystem: FsiFileSystems, #[retval] pVal: *mut BSTR) -> HRESULT;
+            fn FileSystemPath(&self, fileSystem: FsiFileSystems, #[retval] pVal: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xed79ba56_5294_4250_8d46_f9aecee23459)]
+        interface IFsiNamedStreams: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] NewEnum: *mut IEnumVARIANT) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] item: *mut IFsiFileItem2) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] count: *mut i32) -> HRESULT;
+            #[special]
+            fn get_EnumNamedStreams(&self, #[retval] NewEnum: *mut IEnumFsiItems) -> HRESULT;
+        }
+        #[guid(0x6ca38be5_fbbb_4800_95a1_a438865eb0d4)]
+        interface IIsoImageManager: IDispatch {
+            #[special]
+            fn get_Path(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Stream(&self, #[retval] data: *mut IStream) -> HRESULT;
+            fn SetPath(&self, Val: BSTR) -> HRESULT;
+            fn SetStream(&self, data: IStream) -> HRESULT;
+            fn Validate(&self) -> HRESULT;
+        }
+        const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32;
+        #[encoding("ansi")]
+        const IMAPI2FS_FullVersion_STR: String = "1.0";
+        #[encoding("utf-16")]
+        const IMAPI2FS_FullVersion_WSTR: String = "1.0";
+        const IMAPI2FS_MajorVersion: u32 = 1;
+        const IMAPI2FS_MinorVersion: u32 = 0;
+        #[guid(0x2c941fd5_975b_59be_a960_9a2a262853a5)]
+        interface IProgressItem: IDispatch {
+            #[special]
+            fn get_Description(&self, #[retval] desc: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_FirstBlock(&self, #[retval] block: *mut u32) -> HRESULT;
+            #[special]
+            fn get_LastBlock(&self, #[retval] block: *mut u32) -> HRESULT;
+            #[special]
+            fn get_BlockCount(&self, #[retval] blocks: *mut u32) -> HRESULT;
+        }
+        #[guid(0x2c941fd7_975b_59be_a960_9a2a262853a5)]
+        interface IProgressItems: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] NewEnum: *mut IEnumVARIANT) -> HRESULT;
+            #[special]
+            fn get_Item(&self, Index: i32, #[retval] item: *mut IProgressItem) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn ProgressItemFromBlock(&self, block: u32, #[retval] item: *mut IProgressItem) -> HRESULT;
+            fn ProgressItemFromDescription(&self, description: BSTR, #[retval] item: *mut IProgressItem) -> HRESULT;
+            #[special]
+            fn get_EnumProgressItems(&self, #[retval] NewEnum: *mut IEnumProgressItems) -> HRESULT;
+        }
+        const MsftFileSystemImage: GUID = 0x2c941fc5_975b_59be_a960_9a2a262853a5;
+        const MsftIsoImageManager: GUID = 0xceee3b62_8f56_4056_869b_ef16917e3efc;
+        #[repr(i32)]
+        enum PlatformId {
+            PlatformX86 = 0,
+            PlatformPowerPC = 1,
+            PlatformMac = 2,
+            PlatformEFI = 239,
+        }
+        const ProgressItem: GUID = 0x2c941fcb_975b_59be_a960_9a2a262853a5;
+        const ProgressItems: GUID = 0x2c941fc9_975b_59be_a960_9a2a262853a5;
+    }
+}

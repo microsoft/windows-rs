@@ -1,0 +1,387 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DOCMISC {
+            DOCMISC_CANCREATEMULTIPLEVIEWS = 1,
+            DOCMISC_SUPPORTCOMPLEXRECTANGLES = 2,
+            DOCMISC_CANTOPENEDIT = 4,
+            DOCMISC_NOFILESUPPORT = 8,
+        }
+        #[guid(0xb722bcca_4e68_101b_a2bc_00aa00404770)]
+        interface IContinueCallback: IUnknown {
+            fn FContinue(&self) -> HRESULT;
+            fn FContinuePrinting(&self, nCntPrinted: i32, nCurPage: i32, pwszPrintStatus: *const u16) -> HRESULT;
+        }
+        #[guid(0xb722bcc8_4e68_101b_a2bc_00aa00404770)]
+        interface IEnumOleDocumentViews: IUnknown {
+            fn Next(&self, cViews: u32, rgpView: *mut IOleDocumentView, pcFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, cViews: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumOleDocumentViews) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum IGNOREMIME {
+            IGNOREMIME_PROMPT = 1,
+            IGNOREMIME_TEXT = 2,
+        }
+        const INSTALL_SCOPE_INVALID: u32 = 0;
+        const INSTALL_SCOPE_MACHINE: u32 = 1;
+        const INSTALL_SCOPE_USER: u32 = 2;
+        #[guid(0xb722bccb_4e68_101b_a2bc_00aa00404770)]
+        interface IOleCommandTarget: IUnknown {
+            fn QueryStatus(&self, pguidCmdGroup: *const GUID, cCmds: u32, #[in] #[out] prgCmds: *mut OLECMD, #[in] #[out] pCmdText: *mut OLECMDTEXT) -> HRESULT;
+            fn Exec(&self, pguidCmdGroup: *const GUID, nCmdID: u32, nCmdexecopt: u32, pvaIn: *const VARIANT, #[in] #[out] pvaOut: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xb722bcc5_4e68_101b_a2bc_00aa00404770)]
+        interface IOleDocument: IUnknown {
+            fn CreateView(&self, pIPSite: IOleInPlaceSite, pstm: IStream, dwReserved: u32, ppView: *mut IOleDocumentView) -> HRESULT;
+            fn GetDocMiscStatus(&self, pdwStatus: *mut u32) -> HRESULT;
+            fn EnumViews(&self, ppEnum: *mut IEnumOleDocumentViews, ppView: *mut IOleDocumentView) -> HRESULT;
+        }
+        #[guid(0xb722bcc7_4e68_101b_a2bc_00aa00404770)]
+        interface IOleDocumentSite: IUnknown {
+            fn ActivateMe(&self, pViewToActivate: IOleDocumentView) -> HRESULT;
+        }
+        #[guid(0xb722bcc6_4e68_101b_a2bc_00aa00404770)]
+        interface IOleDocumentView: IUnknown {
+            fn SetInPlaceSite(&self, pIPSite: IOleInPlaceSite) -> HRESULT;
+            fn GetInPlaceSite(&self, ppIPSite: *mut IOleInPlaceSite) -> HRESULT;
+            fn GetDocument(&self, ppunk: *mut IUnknown) -> HRESULT;
+            fn SetRect(&self, prcView: *const RECT) -> HRESULT;
+            fn GetRect(&self, prcView: *mut RECT) -> HRESULT;
+            fn SetRectComplex(&self, prcView: *const RECT, prcHScroll: *const RECT, prcVScroll: *const RECT, prcSizeBox: *const RECT) -> HRESULT;
+            fn Show(&self, fShow: BOOL) -> HRESULT;
+            fn UIActivate(&self, fUIActivate: BOOL) -> HRESULT;
+            fn Open(&self) -> HRESULT;
+            fn CloseView(&self, dwReserved: u32) -> HRESULT;
+            fn SaveViewState(&self, pstm: IStream) -> HRESULT;
+            fn ApplyViewState(&self, pstm: IStream) -> HRESULT;
+            fn Clone(&self, pIPSiteNew: IOleInPlaceSite, ppViewNew: *mut IOleDocumentView) -> HRESULT;
+        }
+        #[guid(0xb722bcc9_4e68_101b_a2bc_00aa00404770)]
+        interface IPrint: IUnknown {
+            fn SetInitialPageNum(&self, nFirstPage: i32) -> HRESULT;
+            fn GetPageInfo(&self, pnFirstPage: *mut i32, pcPages: *mut i32) -> HRESULT;
+            fn Print(&self, grfFlags: u32, #[in] #[out] pptd: *mut *mut DVTARGETDEVICE, #[in] #[out] ppPageSet: *mut *mut PAGESET, #[in] #[out] pstgmOptions: *mut STGMEDIUM, pcallback: IContinueCallback, nFirstPage: i32, pcPagesPrinted: *mut i32, pnLastPage: *mut i32) -> HRESULT;
+        }
+        #[guid(0xd81f90a3_8156_44f7_ad28_5abb87003274)]
+        interface IProtectFocus: IUnknown {
+            fn AllowFocusChange(&self, pfAllow: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x73c105ee_9dff_4a07_b83c_7eff290c266e)]
+        interface IProtectedModeMenuServices: IUnknown {
+            fn CreateMenu(&self, phMenu: *mut HMENU) -> HRESULT;
+            fn LoadMenu(&self, pszModuleName: PCWSTR, pszMenuName: PCWSTR, phMenu: *mut HMENU) -> HRESULT;
+            fn LoadMenuID(&self, pszModuleName: PCWSTR, wResourceID: u16, phMenu: *mut HMENU) -> HRESULT;
+        }
+        #[guid(0x41b68150_904c_4e17_a0ba_a438182e359d)]
+        interface IZoomEvents: IUnknown {
+            fn OnZoomPercentChanged(&self, ulZoomPercent: u32) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum MEDIAPLAYBACK_STATE {
+            MEDIAPLAYBACK_RESUME = 0,
+            MEDIAPLAYBACK_PAUSE = 1,
+            MEDIAPLAYBACK_PAUSE_AND_SUSPEND = 2,
+            MEDIAPLAYBACK_RESUME_FROM_SUSPEND = 3,
+        }
+        const MSOCMDERR_E_CANCELED: i32 = -2147221245;
+        const MSOCMDERR_E_DISABLED: i32 = -2147221247;
+        const MSOCMDERR_E_FIRST: i32 = -2147221248;
+        const MSOCMDERR_E_NOHELP: i32 = -2147221246;
+        const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248;
+        const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244;
+        const MSOCMDEXECOPT_DODEFAULT: u32 = 0;
+        const MSOCMDEXECOPT_DONTPROMPTUSER: u32 = 2;
+        const MSOCMDEXECOPT_PROMPTUSER: u32 = 1;
+        const MSOCMDEXECOPT_SHOWHELP: u32 = 3;
+        const MSOCMDF_ENABLED: u32 = 2;
+        const MSOCMDF_LATCHED: u32 = 4;
+        const MSOCMDF_NINCHED: u32 = 8;
+        const MSOCMDF_SUPPORTED: u32 = 1;
+        const MSOCMDID_CLEARSELECTION: u32 = 18;
+        const MSOCMDID_COPY: u32 = 12;
+        const MSOCMDID_CUT: u32 = 11;
+        const MSOCMDID_GETZOOMRANGE: u32 = 20;
+        const MSOCMDID_NEW: u32 = 2;
+        const MSOCMDID_OPEN: u32 = 1;
+        const MSOCMDID_PAGESETUP: u32 = 8;
+        const MSOCMDID_PASTE: u32 = 13;
+        const MSOCMDID_PASTESPECIAL: u32 = 14;
+        const MSOCMDID_PRINT: u32 = 6;
+        const MSOCMDID_PRINTPREVIEW: u32 = 7;
+        const MSOCMDID_PROPERTIES: u32 = 10;
+        const MSOCMDID_REDO: u32 = 16;
+        const MSOCMDID_SAVE: u32 = 3;
+        const MSOCMDID_SAVEAS: u32 = 4;
+        const MSOCMDID_SAVECOPYAS: u32 = 5;
+        const MSOCMDID_SELECTALL: u32 = 17;
+        const MSOCMDID_SPELL: u32 = 9;
+        const MSOCMDID_UNDO: u32 = 15;
+        const MSOCMDID_ZOOM: u32 = 19;
+        const MSOCMDTEXTF_NAME: u32 = 1;
+        const MSOCMDTEXTF_NONE: u32 = 0;
+        const MSOCMDTEXTF_STATUS: u32 = 2;
+        struct OLECMD {
+            cmdID: u32,
+            cmdf: u32,
+        }
+        const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: u32 = 2;
+        const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: u32 = 1;
+        const OLECMDARGINDEX_ACTIVEXINSTALL_INSTALLSCOPE: u32 = 3;
+        const OLECMDARGINDEX_ACTIVEXINSTALL_PUBLISHER: u32 = 0;
+        const OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL: u32 = 4;
+        const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: u32 = 0;
+        const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: u32 = 1;
+        const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: u32 = 2;
+        const OLECMDERR_E_CANCELED: i32 = -2147221245;
+        const OLECMDERR_E_DISABLED: i32 = -2147221247;
+        const OLECMDERR_E_FIRST: i32 = -2147221248;
+        const OLECMDERR_E_NOHELP: i32 = -2147221246;
+        const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248;
+        const OLECMDERR_E_UNKNOWNGROUP: i32 = -2147221244;
+        #[repr(i32)]
+        enum OLECMDEXECOPT {
+            OLECMDEXECOPT_DODEFAULT = 0,
+            OLECMDEXECOPT_PROMPTUSER = 1,
+            OLECMDEXECOPT_DONTPROMPTUSER = 2,
+            OLECMDEXECOPT_SHOWHELP = 3,
+        }
+        #[repr(i32)]
+        enum OLECMDF {
+            OLECMDF_SUPPORTED = 1,
+            OLECMDF_ENABLED = 2,
+            OLECMDF_LATCHED = 4,
+            OLECMDF_NINCHED = 8,
+            OLECMDF_INVISIBLE = 16,
+            OLECMDF_DEFHIDEONCTXTMENU = 32,
+        }
+        #[repr(i32)]
+        enum OLECMDID {
+            OLECMDID_OPEN = 1,
+            OLECMDID_NEW = 2,
+            OLECMDID_SAVE = 3,
+            OLECMDID_SAVEAS = 4,
+            OLECMDID_SAVECOPYAS = 5,
+            OLECMDID_PRINT = 6,
+            OLECMDID_PRINTPREVIEW = 7,
+            OLECMDID_PAGESETUP = 8,
+            OLECMDID_SPELL = 9,
+            OLECMDID_PROPERTIES = 10,
+            OLECMDID_CUT = 11,
+            OLECMDID_COPY = 12,
+            OLECMDID_PASTE = 13,
+            OLECMDID_PASTESPECIAL = 14,
+            OLECMDID_UNDO = 15,
+            OLECMDID_REDO = 16,
+            OLECMDID_SELECTALL = 17,
+            OLECMDID_CLEARSELECTION = 18,
+            OLECMDID_ZOOM = 19,
+            OLECMDID_GETZOOMRANGE = 20,
+            OLECMDID_UPDATECOMMANDS = 21,
+            OLECMDID_REFRESH = 22,
+            OLECMDID_STOP = 23,
+            OLECMDID_HIDETOOLBARS = 24,
+            OLECMDID_SETPROGRESSMAX = 25,
+            OLECMDID_SETPROGRESSPOS = 26,
+            OLECMDID_SETPROGRESSTEXT = 27,
+            OLECMDID_SETTITLE = 28,
+            OLECMDID_SETDOWNLOADSTATE = 29,
+            OLECMDID_STOPDOWNLOAD = 30,
+            OLECMDID_ONTOOLBARACTIVATED = 31,
+            OLECMDID_FIND = 32,
+            OLECMDID_DELETE = 33,
+            OLECMDID_HTTPEQUIV = 34,
+            OLECMDID_HTTPEQUIV_DONE = 35,
+            OLECMDID_ENABLE_INTERACTION = 36,
+            OLECMDID_ONUNLOAD = 37,
+            OLECMDID_PROPERTYBAG2 = 38,
+            OLECMDID_PREREFRESH = 39,
+            OLECMDID_SHOWSCRIPTERROR = 40,
+            OLECMDID_SHOWMESSAGE = 41,
+            OLECMDID_SHOWFIND = 42,
+            OLECMDID_SHOWPAGESETUP = 43,
+            OLECMDID_SHOWPRINT = 44,
+            OLECMDID_CLOSE = 45,
+            OLECMDID_ALLOWUILESSSAVEAS = 46,
+            OLECMDID_DONTDOWNLOADCSS = 47,
+            OLECMDID_UPDATEPAGESTATUS = 48,
+            OLECMDID_PRINT2 = 49,
+            OLECMDID_PRINTPREVIEW2 = 50,
+            OLECMDID_SETPRINTTEMPLATE = 51,
+            OLECMDID_GETPRINTTEMPLATE = 52,
+            OLECMDID_PAGEACTIONBLOCKED = 55,
+            OLECMDID_PAGEACTIONUIQUERY = 56,
+            OLECMDID_FOCUSVIEWCONTROLS = 57,
+            OLECMDID_FOCUSVIEWCONTROLSQUERY = 58,
+            OLECMDID_SHOWPAGEACTIONMENU = 59,
+            OLECMDID_ADDTRAVELENTRY = 60,
+            OLECMDID_UPDATETRAVELENTRY = 61,
+            OLECMDID_UPDATEBACKFORWARDSTATE = 62,
+            OLECMDID_OPTICAL_ZOOM = 63,
+            OLECMDID_OPTICAL_GETZOOMRANGE = 64,
+            OLECMDID_WINDOWSTATECHANGED = 65,
+            OLECMDID_ACTIVEXINSTALLSCOPE = 66,
+            OLECMDID_UPDATETRAVELENTRY_DATARECOVERY = 67,
+            OLECMDID_SHOWTASKDLG = 68,
+            OLECMDID_POPSTATEEVENT = 69,
+            OLECMDID_VIEWPORT_MODE = 70,
+            OLECMDID_LAYOUT_VIEWPORT_WIDTH = 71,
+            OLECMDID_VISUAL_VIEWPORT_EXCLUDE_BOTTOM = 72,
+            OLECMDID_USER_OPTICAL_ZOOM = 73,
+            OLECMDID_PAGEAVAILABLE = 74,
+            OLECMDID_GETUSERSCALABLE = 75,
+            OLECMDID_UPDATE_CARET = 76,
+            OLECMDID_ENABLE_VISIBILITY = 77,
+            OLECMDID_MEDIA_PLAYBACK = 78,
+            OLECMDID_SETFAVICON = 79,
+            OLECMDID_SET_HOST_FULLSCREENMODE = 80,
+            OLECMDID_EXITFULLSCREEN = 81,
+            OLECMDID_SCROLLCOMPLETE = 82,
+            OLECMDID_ONBEFOREUNLOAD = 83,
+            OLECMDID_SHOWMESSAGE_BLOCKABLE = 84,
+            OLECMDID_SHOWTASKDLG_BLOCKABLE = 85,
+        }
+        #[repr(i32)]
+        enum OLECMDID_BROWSERSTATEFLAG {
+            OLECMDIDF_BROWSERSTATE_EXTENSIONSOFF = 1,
+            OLECMDIDF_BROWSERSTATE_IESECURITY = 2,
+            OLECMDIDF_BROWSERSTATE_PROTECTEDMODE_OFF = 4,
+            OLECMDIDF_BROWSERSTATE_RESET = 8,
+            OLECMDIDF_BROWSERSTATE_REQUIRESACTIVEX = 16,
+            OLECMDIDF_BROWSERSTATE_DESKTOPHTMLDIALOG = 32,
+            OLECMDIDF_BROWSERSTATE_BLOCKEDVERSION = 64,
+        }
+        #[repr(i32)]
+        enum OLECMDID_OPTICAL_ZOOMFLAG {
+            OLECMDIDF_OPTICAL_ZOOM_NOPERSIST = 1,
+            OLECMDIDF_OPTICAL_ZOOM_NOLAYOUT = 16,
+            OLECMDIDF_OPTICAL_ZOOM_NOTRANSIENT = 32,
+            OLECMDIDF_OPTICAL_ZOOM_RELOADFORNEWTAB = 64,
+        }
+        #[repr(i32)]
+        enum OLECMDID_PAGEACTIONFLAG {
+            OLECMDIDF_PAGEACTION_FILEDOWNLOAD = 1,
+            OLECMDIDF_PAGEACTION_ACTIVEXINSTALL = 2,
+            OLECMDIDF_PAGEACTION_ACTIVEXTRUSTFAIL = 4,
+            OLECMDIDF_PAGEACTION_ACTIVEXUSERDISABLE = 8,
+            OLECMDIDF_PAGEACTION_ACTIVEXDISALLOW = 16,
+            OLECMDIDF_PAGEACTION_ACTIVEXUNSAFE = 32,
+            OLECMDIDF_PAGEACTION_POPUPWINDOW = 64,
+            OLECMDIDF_PAGEACTION_LOCALMACHINE = 128,
+            OLECMDIDF_PAGEACTION_MIMETEXTPLAIN = 256,
+            OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE = 512,
+            OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXINSTALL = 512,
+            OLECMDIDF_PAGEACTION_PROTLOCKDOWNLOCALMACHINE = 1024,
+            OLECMDIDF_PAGEACTION_PROTLOCKDOWNTRUSTED = 2048,
+            OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTRANET = 4096,
+            OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTERNET = 8192,
+            OLECMDIDF_PAGEACTION_PROTLOCKDOWNRESTRICTED = 16384,
+            OLECMDIDF_PAGEACTION_PROTLOCKDOWNDENY = 32768,
+            OLECMDIDF_PAGEACTION_POPUPALLOWED = 65536,
+            OLECMDIDF_PAGEACTION_SCRIPTPROMPT = 131072,
+            OLECMDIDF_PAGEACTION_ACTIVEXUSERAPPROVAL = 262144,
+            OLECMDIDF_PAGEACTION_MIXEDCONTENT = 524288,
+            OLECMDIDF_PAGEACTION_INVALID_CERT = 1048576,
+            OLECMDIDF_PAGEACTION_INTRANETZONEREQUEST = 2097152,
+            OLECMDIDF_PAGEACTION_XSSFILTERED = 4194304,
+            OLECMDIDF_PAGEACTION_SPOOFABLEIDNHOST = 8388608,
+            OLECMDIDF_PAGEACTION_ACTIVEX_EPM_INCOMPATIBLE = 16777216,
+            OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXUSERAPPROVAL = 33554432,
+            OLECMDIDF_PAGEACTION_WPCBLOCKED = 67108864,
+            OLECMDIDF_PAGEACTION_WPCBLOCKED_ACTIVEX = 134217728,
+            OLECMDIDF_PAGEACTION_EXTENSION_COMPAT_BLOCKED = 268435456,
+            OLECMDIDF_PAGEACTION_NORESETACTIVEX = 536870912,
+            OLECMDIDF_PAGEACTION_GENERIC_STATE = 1073741824,
+            OLECMDIDF_PAGEACTION_RESET = -2147483648,
+        }
+        #[repr(i32)]
+        enum OLECMDID_REFRESHFLAG {
+            OLECMDIDF_REFRESH_NORMAL = 0,
+            OLECMDIDF_REFRESH_IFEXPIRED = 1,
+            OLECMDIDF_REFRESH_CONTINUE = 2,
+            OLECMDIDF_REFRESH_COMPLETELY = 3,
+            OLECMDIDF_REFRESH_NO_CACHE = 4,
+            OLECMDIDF_REFRESH_RELOAD = 5,
+            OLECMDIDF_REFRESH_LEVELMASK = 255,
+            OLECMDIDF_REFRESH_CLEARUSERINPUT = 4096,
+            OLECMDIDF_REFRESH_PROMPTIFOFFLINE = 8192,
+            OLECMDIDF_REFRESH_THROUGHSCRIPT = 16384,
+            OLECMDIDF_REFRESH_SKIPBEFOREUNLOADEVENT = 32768,
+            OLECMDIDF_REFRESH_PAGEACTION_ACTIVEXINSTALL = 65536,
+            OLECMDIDF_REFRESH_PAGEACTION_FILEDOWNLOAD = 131072,
+            OLECMDIDF_REFRESH_PAGEACTION_LOCALMACHINE = 262144,
+            OLECMDIDF_REFRESH_PAGEACTION_POPUPWINDOW = 524288,
+            OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNLOCALMACHINE = 1048576,
+            OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNTRUSTED = 2097152,
+            OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTRANET = 4194304,
+            OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTERNET = 8388608,
+            OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNRESTRICTED = 16777216,
+            OLECMDIDF_REFRESH_PAGEACTION_MIXEDCONTENT = 33554432,
+            OLECMDIDF_REFRESH_PAGEACTION_INVALID_CERT = 67108864,
+            OLECMDIDF_REFRESH_PAGEACTION_ALLOW_VERSION = 134217728,
+        }
+        #[repr(i32)]
+        enum OLECMDID_VIEWPORT_MODE_FLAG {
+            OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH = 1,
+            OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM = 2,
+            OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH_VALID = 65536,
+            OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM_VALID = 131072,
+        }
+        #[repr(i32)]
+        enum OLECMDID_WINDOWSTATE_FLAG {
+            OLECMDIDF_WINDOWSTATE_USERVISIBLE = 1,
+            OLECMDIDF_WINDOWSTATE_ENABLED = 2,
+            OLECMDIDF_WINDOWSTATE_USERVISIBLE_VALID = 65536,
+            OLECMDIDF_WINDOWSTATE_ENABLED_VALID = 131072,
+        }
+        struct OLECMDTEXT {
+            cmdtextf: u32,
+            cwActual: u32,
+            cwBuf: u32,
+            rgwz: [u16; 1],
+        }
+        #[repr(i32)]
+        enum OLECMDTEXTF {
+            OLECMDTEXTF_NONE = 0,
+            OLECMDTEXTF_NAME = 1,
+            OLECMDTEXTF_STATUS = 2,
+        }
+        const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1;
+        #[repr(i32)]
+        enum PAGEACTION_UI {
+            PAGEACTION_UI_DEFAULT = 0,
+            PAGEACTION_UI_MODAL = 1,
+            PAGEACTION_UI_MODELESS = 2,
+            PAGEACTION_UI_SILENT = 3,
+        }
+        struct PAGERANGE {
+            nFromPage: i32,
+            nToPage: i32,
+        }
+        struct PAGESET {
+            cbStruct: u32,
+            fOddPages: BOOL,
+            fEvenPages: BOOL,
+            cPageRange: u32,
+            rgPages: [PAGERANGE; 1],
+        }
+        const PAGESET_TOLASTPAGE: u32 = 65535;
+        #[repr(i32)]
+        enum PRINTFLAG {
+            PRINTFLAG_MAYBOTHERUSER = 1,
+            PRINTFLAG_PROMPTUSER = 2,
+            PRINTFLAG_USERMAYCHANGEPRINTER = 4,
+            PRINTFLAG_RECOMPOSETODEVICE = 8,
+            PRINTFLAG_DONTACTUALLYPRINT = 16,
+            PRINTFLAG_FORCEPROPERTIES = 32,
+            PRINTFLAG_PRINTTOFILE = 64,
+        }
+        #[repr(i32)]
+        enum WPCSETTING {
+            WPCSETTING_LOGGING_ENABLED = 1,
+            WPCSETTING_FILEDOWNLOAD_BLOCKED = 2,
+        }
+    }
+}

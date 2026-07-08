@@ -1,0 +1,48 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct BG_AUTH_CREDENTIALS {
+            Target: BG_AUTH_TARGET,
+            Scheme: BG_AUTH_SCHEME,
+            Credentials: BG_AUTH_CREDENTIALS_UNION,
+        }
+        union BG_AUTH_CREDENTIALS_UNION {
+            Basic: BG_BASIC_CREDENTIALS,
+        }
+        #[repr(i32)]
+        enum BG_AUTH_SCHEME {
+            BG_AUTH_SCHEME_BASIC = 1,
+            BG_AUTH_SCHEME_DIGEST = 2,
+            BG_AUTH_SCHEME_NTLM = 3,
+            BG_AUTH_SCHEME_NEGOTIATE = 4,
+            BG_AUTH_SCHEME_PASSPORT = 5,
+        }
+        #[repr(i32)]
+        enum BG_AUTH_TARGET {
+            BG_AUTH_TARGET_SERVER = 1,
+            BG_AUTH_TARGET_PROXY = 2,
+        }
+        struct BG_BASIC_CREDENTIALS {
+            UserName: PWSTR,
+            Password: PWSTR,
+        }
+        struct BG_JOB_REPLY_PROGRESS {
+            BytesTotal: u64,
+            BytesTransferred: u64,
+        }
+        const BackgroundCopyManager1_5: GUID = 0xf087771f_d74f_4c1a_bb8a_e16aca9124ea;
+        #[guid(0x54b50739_686f_45eb_9dff_d6a9a0faa9af)]
+        interface IBackgroundCopyJob2: IBackgroundCopyJob {
+            fn SetNotifyCmdLine(&self, Program: PCWSTR, Parameters: PCWSTR) -> HRESULT;
+            fn GetNotifyCmdLine(&self, pProgram: *mut PWSTR, pParameters: *mut PWSTR) -> HRESULT;
+            fn GetReplyProgress(&self, #[in] #[out] pProgress: *mut BG_JOB_REPLY_PROGRESS) -> HRESULT;
+            fn GetReplyData(&self, ppBuffer: *mut *mut byte, #[in] #[out] pLength: *mut u64) -> HRESULT;
+            fn SetReplyFileName(&self, ReplyFileName: PCWSTR) -> HRESULT;
+            fn GetReplyFileName(&self, pReplyFileName: *mut PWSTR) -> HRESULT;
+            fn SetCredentials(&self, credentials: *mut BG_AUTH_CREDENTIALS) -> HRESULT;
+            fn RemoveCredentials(&self, Target: BG_AUTH_TARGET, Scheme: BG_AUTH_SCHEME) -> HRESULT;
+        }
+        type PBG_AUTH_CREDENTIALS = *mut BG_AUTH_CREDENTIALS;
+        type PBG_BASIC_CREDENTIALS = *mut BG_BASIC_CREDENTIALS;
+    }
+}

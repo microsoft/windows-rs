@@ -1,0 +1,164 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DRMATTESTTYPE {
+            DRMATTESTTYPE_FULLENVIRONMENT = 0,
+            DRMATTESTTYPE_HASHONLY = 1,
+        }
+        struct DRMBOUNDLICENSEPARAMS {
+            uVersion: u32,
+            hEnablingPrincipal: DRMHANDLE,
+            hSecureStore: DRMHANDLE,
+            wszRightsRequested: PWSTR,
+            wszRightsGroup: PWSTR,
+            idResource: DRMID,
+            cAuthenticatorCount: u32,
+            rghAuthenticators: *mut DRMHANDLE,
+            wszDefaultEnablingPrincipalCredentials: PWSTR,
+            dwFlags: u32,
+        }
+        extern fn DRMCALLBACK(param0: DRM_STATUS_MSG, param1: HRESULT, param2: *mut void, param3: *mut void) -> HRESULT;
+        #[repr(i32)]
+        enum DRMENCODINGTYPE {
+            DRMENCODINGTYPE_BASE64 = 0,
+            DRMENCODINGTYPE_STRING = 1,
+            DRMENCODINGTYPE_LONG = 2,
+            DRMENCODINGTYPE_TIME = 3,
+            DRMENCODINGTYPE_UINT = 4,
+            DRMENCODINGTYPE_RAW = 5,
+        }
+        type DRMENVHANDLE = u32;
+        const DRMENVHANDLE_INVALID: u32 = 0;
+        #[repr(i32)]
+        enum DRMGLOBALOPTIONS {
+            DRMGLOBALOPTIONS_USE_WINHTTP = 0,
+            DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR = 1,
+        }
+        type DRMHANDLE = u32;
+        const DRMHANDLE_INVALID: u32 = 0;
+        type DRMHSESSION = u32;
+        const DRMHSESSION_INVALID: u32 = 0;
+        struct DRMID {
+            uVersion: u32,
+            wszIDType: PWSTR,
+            wszID: PWSTR,
+        }
+        type DRMPUBHANDLE = u32;
+        const DRMPUBHANDLE_INVALID: u32 = 0;
+        type DRMQUERYHANDLE = u32;
+        const DRMQUERYHANDLE_INVALID: u32 = 0;
+        #[repr(i32)]
+        enum DRMSECURITYPROVIDERTYPE {
+            DRMSECURITYPROVIDERTYPE_SOFTWARESECREP = 0,
+        }
+        #[repr(i32)]
+        enum DRMSPECTYPE {
+            DRMSPECTYPE_UNKNOWN = 0,
+            DRMSPECTYPE_FILENAME = 1,
+        }
+        #[repr(i32)]
+        enum DRMTIMETYPE {
+            DRMTIMETYPE_SYSTEMUTC = 0,
+            DRMTIMETYPE_SYSTEMLOCAL = 1,
+        }
+        const DRM_ACTIVATE_CANCEL: u32 = 8;
+        const DRM_ACTIVATE_DELAYED: u32 = 64;
+        const DRM_ACTIVATE_GROUPIDENTITY: u32 = 2;
+        const DRM_ACTIVATE_MACHINE: u32 = 1;
+        const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32;
+        const DRM_ACTIVATE_SILENT: u32 = 16;
+        const DRM_ACTIVATE_TEMPORARY: u32 = 4;
+        struct DRM_ACTSERV_INFO {
+            uVersion: u32,
+            wszPubKey: PWSTR,
+            wszURL: PWSTR,
+        }
+        const DRM_ADD_LICENSE_NOPERSIST: u32 = 0;
+        const DRM_ADD_LICENSE_PERSIST: u32 = 1;
+        const DRM_AILT_CANCEL: u32 = 4;
+        const DRM_AILT_NONSILENT: u32 = 1;
+        const DRM_AILT_OBTAIN_ALL: u32 = 2;
+        const DRM_AL_CANCEL: u32 = 4;
+        const DRM_AL_FETCHNOADVISORY: u32 = 8;
+        const DRM_AL_NONSILENT: u32 = 1;
+        const DRM_AL_NOPERSIST: u32 = 2;
+        const DRM_AL_NOUI: u32 = 16;
+        const DRM_AUTO_GENERATE_KEY: u32 = 16;
+        struct DRM_CLIENT_VERSION_INFO {
+            uStructVersion: u32,
+            dwVersion: [u32; 4],
+            wszHierarchy: [u16; 256],
+            wszProductId: [u16; 256],
+            wszProductDescription: [u16; 256],
+        }
+        #[encoding("utf-16")]
+        const DRM_DEFAULTGROUPIDTYPE_PASSPORT: String = "PassportAuthProvider";
+        #[encoding("utf-16")]
+        const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: String = "WindowsAuthProvider";
+        #[repr(i32)]
+        enum DRM_DISTRIBUTION_POINT_INFO {
+            DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION = 0,
+            DRM_DISTRIBUTION_POINT_PUBLISHING = 1,
+            DRM_DISTRIBUTION_POINT_REFERRAL_INFO = 2,
+        }
+        const DRM_EL_CLIENTLICENSOR: u32 = 128;
+        const DRM_EL_CLIENTLICENSOR_LID: u32 = 256;
+        const DRM_EL_EUL: u32 = 32;
+        const DRM_EL_EUL_LID: u32 = 64;
+        const DRM_EL_EXPIRED: u32 = 4096;
+        const DRM_EL_GROUPIDENTITY: u32 = 2;
+        const DRM_EL_GROUPIDENTITY_LID: u32 = 8;
+        const DRM_EL_GROUPIDENTITY_NAME: u32 = 4;
+        const DRM_EL_ISSUANCELICENSE_TEMPLATE: u32 = 16384;
+        const DRM_EL_ISSUANCELICENSE_TEMPLATE_LID: u32 = 32768;
+        const DRM_EL_ISSUERNAME: u32 = 8192;
+        const DRM_EL_MACHINE: u32 = 1;
+        const DRM_EL_REVOCATIONLIST: u32 = 1024;
+        const DRM_EL_REVOCATIONLIST_LID: u32 = 2048;
+        const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512;
+        const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16;
+        struct DRM_LICENSE_ACQ_DATA {
+            uVersion: u32,
+            wszURL: PWSTR,
+            wszLocalFilename: PWSTR,
+            pbPostData: *mut u8,
+            dwPostDataSize: u32,
+            wszFriendlyName: PWSTR,
+        }
+        const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2;
+        const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2;
+        const DRM_LOCKBOXTYPE_NONE: u32 = 0;
+        const DRM_LOCKBOXTYPE_WHITEBOX: u32 = 1;
+        const DRM_OWNER_LICENSE_NOPERSIST: u32 = 32;
+        const DRM_REUSE_KEY: u32 = 64;
+        const DRM_SERVER_ISSUANCELICENSE: u32 = 8;
+        const DRM_SERVICE_LOCATION_ENTERPRISE: u32 = 2;
+        const DRM_SERVICE_LOCATION_INTERNET: u32 = 1;
+        const DRM_SERVICE_TYPE_ACTIVATION: u32 = 1;
+        const DRM_SERVICE_TYPE_CERTIFICATION: u32 = 2;
+        const DRM_SERVICE_TYPE_CLIENTLICENSOR: u32 = 8;
+        const DRM_SERVICE_TYPE_PUBLISHING: u32 = 4;
+        const DRM_SERVICE_TYPE_SILENT: u32 = 16;
+        const DRM_SIGN_CANCEL: u32 = 4;
+        const DRM_SIGN_OFFLINE: u32 = 2;
+        const DRM_SIGN_ONLINE: u32 = 1;
+        #[repr(i32)]
+        enum DRM_STATUS_MSG {
+            DRM_MSG_ACTIVATE_MACHINE = 0,
+            DRM_MSG_ACTIVATE_GROUPIDENTITY = 1,
+            DRM_MSG_ACQUIRE_LICENSE = 2,
+            DRM_MSG_ACQUIRE_ADVISORY = 3,
+            DRM_MSG_SIGN_ISSUANCE_LICENSE = 4,
+            DRM_MSG_ACQUIRE_CLIENTLICENSOR = 5,
+            DRM_MSG_ACQUIRE_ISSUANCE_LICENSE_TEMPLATE = 6,
+        }
+        #[repr(i32)]
+        enum DRM_USAGEPOLICY_TYPE {
+            DRM_USAGEPOLICY_TYPE_BYNAME = 0,
+            DRM_USAGEPOLICY_TYPE_BYPUBLICKEY = 1,
+            DRM_USAGEPOLICY_TYPE_BYDIGEST = 2,
+            DRM_USAGEPOLICY_TYPE_OSEXCLUSION = 3,
+        }
+    }
+}

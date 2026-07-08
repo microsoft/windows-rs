@@ -1,0 +1,393 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121;
+        struct BINARY_BLOB_CREDENTIAL_INFO {
+            cbBlob: u32,
+            pbBlob: LPBYTE,
+        }
+        struct CERT_CREDENTIAL_INFO {
+            cbSize: u32,
+            rgbHashOfCert: [u8; 20],
+        }
+        const CERT_HASH_LENGTH: u32 = 20;
+        type CREDENTIAL = CREDENTIALA;
+        struct CREDENTIALA {
+            Flags: u32,
+            Type: u32,
+            TargetName: PSTR,
+            Comment: PSTR,
+            LastWritten: FILETIME,
+            CredentialBlobSize: u32,
+            CredentialBlob: LPBYTE,
+            Persist: u32,
+            AttributeCount: u32,
+            Attributes: PCREDENTIAL_ATTRIBUTEA,
+            TargetAlias: PSTR,
+            UserName: PSTR,
+        }
+        struct CREDENTIALW {
+            Flags: u32,
+            Type: u32,
+            TargetName: PWSTR,
+            Comment: PWSTR,
+            LastWritten: FILETIME,
+            CredentialBlobSize: u32,
+            CredentialBlob: LPBYTE,
+            Persist: u32,
+            AttributeCount: u32,
+            Attributes: PCREDENTIAL_ATTRIBUTEW,
+            TargetAlias: PWSTR,
+            UserName: PWSTR,
+        }
+        type CREDENTIAL_ATTRIBUTE = CREDENTIAL_ATTRIBUTEA;
+        struct CREDENTIAL_ATTRIBUTEA {
+            Keyword: PSTR,
+            Flags: u32,
+            ValueSize: u32,
+            Value: LPBYTE,
+        }
+        struct CREDENTIAL_ATTRIBUTEW {
+            Keyword: PWSTR,
+            Flags: u32,
+            ValueSize: u32,
+            Value: LPBYTE,
+        }
+        type CREDENTIAL_TARGET_INFORMATION = CREDENTIAL_TARGET_INFORMATIONA;
+        struct CREDENTIAL_TARGET_INFORMATIONA {
+            TargetName: PSTR,
+            NetbiosServerName: PSTR,
+            DnsServerName: PSTR,
+            NetbiosDomainName: PSTR,
+            DnsDomainName: PSTR,
+            DnsTreeName: PSTR,
+            PackageName: PSTR,
+            Flags: u32,
+            CredTypeCount: u32,
+            CredTypes: LPDWORD,
+        }
+        struct CREDENTIAL_TARGET_INFORMATIONW {
+            TargetName: PWSTR,
+            NetbiosServerName: PWSTR,
+            DnsServerName: PWSTR,
+            NetbiosDomainName: PWSTR,
+            DnsDomainName: PWSTR,
+            DnsTreeName: PWSTR,
+            PackageName: PWSTR,
+            Flags: u32,
+            CredTypeCount: u32,
+            CredTypes: LPDWORD,
+        }
+        const CREDUIWIN_AUTHPACKAGE_ONLY: u32 = 16;
+        const CREDUIWIN_CHECKBOX: u32 = 2;
+        const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648;
+        const CREDUIWIN_ENUMERATE_ADMINS: u32 = 256;
+        const CREDUIWIN_ENUMERATE_CURRENT_USER: u32 = 512;
+        const CREDUIWIN_GENERIC: u32 = 1;
+        const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144;
+        const CREDUIWIN_IN_CRED_ONLY: u32 = 32;
+        const CREDUIWIN_PACK_32_WOW: u32 = 268435456;
+        const CREDUIWIN_PREPROMPTING: u32 = 8192;
+        const CREDUIWIN_SECURE_PROMPT: u32 = 4096;
+        const CREDUIWIN_USE_V2: u32 = 64;
+        const CREDUIWIN_VALID_FLAGS: i32 = -1878772941;
+        const CREDUI_FLAGS_ALWAYS_SHOW_UI: u32 = 128;
+        const CREDUI_FLAGS_COMPLETE_USERNAME: u32 = 2048;
+        const CREDUI_FLAGS_DO_NOT_PERSIST: u32 = 2;
+        const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: u32 = 8;
+        const CREDUI_FLAGS_EXPECT_CONFIRMATION: u32 = 131072;
+        const CREDUI_FLAGS_GENERIC_CREDENTIALS: u32 = 262144;
+        const CREDUI_FLAGS_INCORRECT_PASSWORD: u32 = 1;
+        const CREDUI_FLAGS_KEEP_USERNAME: u32 = 1048576;
+        const CREDUI_FLAGS_PASSWORD_ONLY_OK: u32 = 512;
+        const CREDUI_FLAGS_PERSIST: u32 = 4096;
+        const CREDUI_FLAGS_PROMPT_VALID: u32 = 1990623;
+        const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: u32 = 4;
+        const CREDUI_FLAGS_REQUIRE_CERTIFICATE: u32 = 16;
+        const CREDUI_FLAGS_REQUIRE_SMARTCARD: u32 = 256;
+        const CREDUI_FLAGS_SERVER_CREDENTIAL: u32 = 16384;
+        const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: u32 = 64;
+        const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: u32 = 524288;
+        const CREDUI_FLAGS_VALIDATE_USERNAME: u32 = 1024;
+        const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: u32 = 212664322;
+        type CREDUI_INFO = CREDUI_INFOA;
+        struct CREDUI_INFOA {
+            cbSize: u32,
+            hwndParent: HWND,
+            pszMessageText: PCSTR,
+            pszCaptionText: PCSTR,
+            hbmBanner: HBITMAP,
+        }
+        struct CREDUI_INFOW {
+            cbSize: u32,
+            hwndParent: HWND,
+            pszMessageText: PCWSTR,
+            pszCaptionText: PCWSTR,
+            hbmBanner: HBITMAP,
+        }
+        const CREDUI_MAX_CAPTION_LENGTH: u32 = 128;
+        const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337;
+        const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767;
+        const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024;
+        const CREDUI_MAX_PASSWORD_LENGTH: u32 = 256;
+        const CREDUI_MAX_USERNAME_LENGTH: u32 = 513;
+        const CREDUI_PICKERSCREEN_AUTHPACKAGE_ID: u32 = 212664323;
+        const CRED_ALLOW_NAME_RESOLUTION: u32 = 1;
+        const CRED_CACHE_TARGET_INFORMATION: u32 = 1;
+        const CRED_ENUMERATE_ALL_CREDENTIALS: u32 = 1;
+        const CRED_FLAGS_NGC_CERT: u32 = 128;
+        const CRED_FLAGS_OWF_CRED_BLOB: u32 = 8;
+        const CRED_FLAGS_PASSWORD_FOR_CERT: u32 = 1;
+        const CRED_FLAGS_PROMPT_NOW: u32 = 2;
+        const CRED_FLAGS_REQUIRE_CONFIRMATION: u32 = 16;
+        const CRED_FLAGS_USERNAME_TARGET: u32 = 4;
+        const CRED_FLAGS_VALID_FLAGS: u32 = 61695;
+        const CRED_FLAGS_VALID_INPUT_FLAGS: u32 = 61599;
+        const CRED_FLAGS_VSM_PROTECTED: u32 = 64;
+        const CRED_FLAGS_WILDCARD_MATCH: u32 = 32;
+        const CRED_LOGON_TYPES_MASK: u32 = 61440;
+        #[repr(i32)]
+        enum CRED_MARSHAL_TYPE {
+            CertCredential = 1,
+            UsernameTargetCredential = 2,
+            BinaryBlobCredential = 3,
+            UsernameForPackedCredentials = 4,
+            BinaryBlobForSystem = 5,
+        }
+        const CRED_MAX_ATTRIBUTES: u32 = 64;
+        const CRED_MAX_CREDENTIAL_BLOB_SIZE: u32 = 2560;
+        const CRED_MAX_DOMAIN_TARGET_NAME_LENGTH: u32 = 337;
+        const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767;
+        const CRED_MAX_STRING_LENGTH: u32 = 256;
+        const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256;
+        const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256;
+        const CRED_MAX_USERNAME_LENGTH: u32 = 513;
+        const CRED_MAX_VALUE_SIZE: u32 = 256;
+        const CRED_PACK_GENERIC_CREDENTIALS: u32 = 4;
+        const CRED_PACK_ID_PROVIDER_CREDENTIALS: u32 = 8;
+        const CRED_PACK_PROTECTED_CREDENTIALS: u32 = 1;
+        const CRED_PACK_WOW_BUFFER: u32 = 2;
+        const CRED_PERSIST_ENTERPRISE: u32 = 3;
+        const CRED_PERSIST_LOCAL_MACHINE: u32 = 2;
+        const CRED_PERSIST_NONE: u32 = 0;
+        const CRED_PERSIST_SESSION: u32 = 1;
+        const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1;
+        #[repr(i32)]
+        enum CRED_PROTECTION_TYPE {
+            CredUnprotected = 0,
+            CredUserProtection = 1,
+            CredTrustedProtection = 2,
+            CredForSystemProtection = 3,
+        }
+        const CRED_PROTECT_AS_SELF: u32 = 1;
+        const CRED_PROTECT_TO_SYSTEM: u32 = 2;
+        const CRED_PROTECT_VALID_FLAGS: u32 = 3;
+        #[encoding("ansi")]
+        const CRED_SESSION_WILDCARD_NAME_A: String = "*Session";
+        #[encoding("utf-16")]
+        const CRED_SESSION_WILDCARD_NAME_W: String = "*Session";
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_ATTRIBUTE_BATCH_A: String = "batch";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_ATTRIBUTE_BATCH_W: String = "batch";
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_A: String = "cachedinteractive";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_W: String = "cachedinteractive";
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_A: String = "interactive";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_W: String = "interactive";
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_ATTRIBUTE_NAME_A: String = "name";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_ATTRIBUTE_NAME_W: String = "name";
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_A: String = "networkcleartext";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_W: String = "networkcleartext";
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_ATTRIBUTE_NETWORK_A: String = "network";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_ATTRIBUTE_NETWORK_W: String = "network";
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_A: String = "remoteinteractive";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_W: String = "remoteinteractive";
+        const CRED_TARGETNAME_ATTRIBUTE_SEPERATOR_A: u32 = 61;
+        const CRED_TARGETNAME_ATTRIBUTE_SEPERATOR_W: u32 = 61;
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_ATTRIBUTE_SERVICE_A: String = "service";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_ATTRIBUTE_SERVICE_W: String = "service";
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_ATTRIBUTE_TARGET_A: String = "target";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_ATTRIBUTE_TARGET_W: String = "target";
+        const CRED_TARGETNAME_DOMAIN_EXTENDED_USERNAME_SEPARATOR_A: u32 = 124;
+        const CRED_TARGETNAME_DOMAIN_EXTENDED_USERNAME_SEPARATOR_W: u32 = 124;
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_DOMAIN_NAMESPACE_A: String = "Domain";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_DOMAIN_NAMESPACE_W: String = "Domain";
+        #[encoding("ansi")]
+        const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_A: String = "LegacyGeneric";
+        #[encoding("utf-16")]
+        const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_W: String = "LegacyGeneric";
+        const CRED_TARGETNAME_NAMESPACE_SEPERATOR_A: u32 = 58;
+        const CRED_TARGETNAME_NAMESPACE_SEPERATOR_W: u32 = 58;
+        const CRED_TI_CREATE_EXPLICIT_CRED: u32 = 16;
+        const CRED_TI_DNSTREE_IS_DFS_SERVER: u32 = 64;
+        const CRED_TI_DOMAIN_FORMAT_UNKNOWN: u32 = 2;
+        const CRED_TI_ONLY_PASSWORD_REQUIRED: u32 = 4;
+        const CRED_TI_SERVER_FORMAT_UNKNOWN: u32 = 1;
+        const CRED_TI_USERNAME_TARGET: u32 = 8;
+        const CRED_TI_VALID_FLAGS: u32 = 61567;
+        const CRED_TI_WORKGROUP_MEMBER: u32 = 32;
+        const CRED_TYPE_DOMAIN_CERTIFICATE: u32 = 3;
+        const CRED_TYPE_DOMAIN_EXTENDED: u32 = 6;
+        const CRED_TYPE_DOMAIN_PASSWORD: u32 = 2;
+        const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: u32 = 4;
+        const CRED_TYPE_GENERIC: u32 = 1;
+        const CRED_TYPE_GENERIC_CERTIFICATE: u32 = 5;
+        const CRED_TYPE_MAXIMUM: u32 = 7;
+        const CRED_TYPE_MAXIMUM_EX: u32 = 1007;
+        const CRED_UNIVERSAL_WILDCARD_A: u32 = 42;
+        const CRED_UNIVERSAL_WILDCARD_W: u32 = 42;
+        const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2;
+        const CRED_UNPROTECT_AS_SELF: u32 = 1;
+        const CRED_UNPROTECT_VALID_FLAGS: u32 = 3;
+        #[library("ADVAPI32.dll")]
+        extern fn CredDeleteA(TargetName: PCSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredDeleteW(TargetName: PCWSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredEnumerateA(#[opt] Filter: PCSTR, #[reserved] Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALA) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredEnumerateW(#[opt] Filter: PCWSTR, #[reserved] Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALW) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredFindBestCredentialA(TargetName: PCSTR, Type: u32, Flags: u32, Credential: *mut PCREDENTIALA) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredFindBestCredentialW(TargetName: PCWSTR, Type: u32, Flags: u32, Credential: *mut PCREDENTIALW) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredFree(Buffer: *const void);
+        #[library("ADVAPI32.dll")]
+        extern fn CredGetSessionTypes(MaximumPersistCount: u32, #[len_param(0)] MaximumPersist: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredGetTargetInfoA(TargetName: PCSTR, Flags: u32, TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONA) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredGetTargetInfoW(TargetName: PCWSTR, Flags: u32, TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONW) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredIsMarshaledCredentialA(MarshaledCredential: PCSTR) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredIsMarshaledCredentialW(MarshaledCredential: PCWSTR) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredIsProtectedA(pszProtectedCredentials: PCSTR, pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredIsProtectedW(pszProtectedCredentials: PCWSTR, pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredMarshalCredentialA(CredType: CRED_MARSHAL_TYPE, Credential: *const void, MarshaledCredential: *mut PSTR) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredMarshalCredentialW(CredType: CRED_MARSHAL_TYPE, Credential: *const void, MarshaledCredential: *mut PWSTR) -> BOOL;
+        #[library("credui.dll")]
+        extern fn CredPackAuthenticationBufferA(dwFlags: u32, pszUserName: PCSTR, pszPassword: PCSTR, #[size_param(4)] #[opt] pPackedCredentials: *mut u8, #[in] #[out] pcbPackedCredentials: *mut u32) -> BOOL;
+        #[library("credui.dll")]
+        extern fn CredPackAuthenticationBufferW(dwFlags: u32, pszUserName: PCWSTR, pszPassword: PCWSTR, #[size_param(4)] #[opt] pPackedCredentials: *mut u8, #[in] #[out] pcbPackedCredentials: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredProtectA(fAsSelf: BOOL, #[len_param(2)] pszCredentials: PCSTR, cchCredentials: u32, #[len_param(4)] #[out] pszProtectedCredentials: PSTR, #[in] #[out] pcchMaxChars: *mut u32, #[opt] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredProtectW(fAsSelf: BOOL, #[len_param(2)] pszCredentials: PCWSTR, cchCredentials: u32, #[len_param(4)] #[out] pszProtectedCredentials: PWSTR, #[in] #[out] pcchMaxChars: *mut u32, #[opt] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredReadA(TargetName: PCSTR, Type: u32, #[reserved] Flags: u32, Credential: *mut PCREDENTIALA) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredReadDomainCredentialsA(TargetInfo: *const CREDENTIAL_TARGET_INFORMATIONA, Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALA) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredReadDomainCredentialsW(TargetInfo: *const CREDENTIAL_TARGET_INFORMATIONW, Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALW) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredReadW(TargetName: PCWSTR, Type: u32, #[reserved] Flags: u32, Credential: *mut PCREDENTIALW) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredRenameA(OldTargetName: PCSTR, NewTargetName: PCSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredRenameW(OldTargetName: PCWSTR, NewTargetName: PCWSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
+        #[library("credui.dll")]
+        extern fn CredUICmdLinePromptForCredentialsA(#[opt] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(4)] #[in] #[out] UserName: PSTR, ulUserBufferSize: u32, #[len_param(6)] #[in] #[out] pszPassword: PSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] pfSave: *mut BOOL, dwFlags: u32) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUICmdLinePromptForCredentialsW(#[opt] pszTargetName: PCWSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(4)] #[in] #[out] UserName: PWSTR, ulUserBufferSize: u32, #[len_param(6)] #[in] #[out] pszPassword: PWSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] pfSave: *mut BOOL, dwFlags: u32) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUIConfirmCredentialsA(pszTargetName: PCSTR, bConfirm: BOOL) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUIConfirmCredentialsW(pszTargetName: PCWSTR, bConfirm: BOOL) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUIParseUserNameA(userName: PCSTR, #[len_param(2)] user: *mut i8, userBufferSize: u32, #[len_param(4)] domain: *mut i8, domainBufferSize: u32) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUIParseUserNameW(UserName: PCWSTR, #[len_param(2)] user: *mut u16, userBufferSize: u32, #[len_param(4)] domain: *mut u16, domainBufferSize: u32) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUIPromptForCredentialsA(#[opt] pUiInfo: *const CREDUI_INFOA, #[opt] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(5)] #[in] #[out] pszUserName: PSTR, ulUserNameBufferSize: u32, #[len_param(7)] #[in] #[out] pszPassword: PSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] save: *mut BOOL, dwFlags: u32) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUIPromptForCredentialsW(#[opt] pUiInfo: *const CREDUI_INFOW, #[opt] pszTargetName: PCWSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(5)] #[in] #[out] pszUserName: PWSTR, ulUserNameBufferSize: u32, #[len_param(7)] #[in] #[out] pszPassword: PWSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] save: *mut BOOL, dwFlags: u32) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUIPromptForWindowsCredentialsA(#[opt] pUiInfo: *const CREDUI_INFOA, dwAuthError: u32, #[in] #[out] pulAuthPackage: *mut u32, #[size_param(4)] #[opt] pvInAuthBuffer: *const void, ulInAuthBufferSize: u32, ppvOutAuthBuffer: *mut *mut void, pulOutAuthBufferSize: *mut u32, #[in] #[out] #[opt] pfSave: *mut BOOL, dwFlags: u32) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUIPromptForWindowsCredentialsW(#[opt] pUiInfo: *const CREDUI_INFOW, dwAuthError: u32, #[in] #[out] pulAuthPackage: *mut u32, #[size_param(4)] #[opt] pvInAuthBuffer: *const void, ulInAuthBufferSize: u32, ppvOutAuthBuffer: *mut *mut void, pulOutAuthBufferSize: *mut u32, #[in] #[out] #[opt] pfSave: *mut BOOL, dwFlags: u32) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUIReadSSOCredW(#[opt] pszRealm: PCWSTR, ppszUsername: *mut PWSTR) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUIStoreSSOCredW(#[opt] pszRealm: PCWSTR, pszUsername: PCWSTR, pszPassword: PCWSTR, bPersist: BOOL) -> u32;
+        #[library("credui.dll")]
+        extern fn CredUnPackAuthenticationBufferA(dwFlags: u32, #[size_param(2)] pAuthBuffer: *const void, cbAuthBuffer: u32, #[len_param(4)] #[out] #[opt] pszUserName: PSTR, #[in] #[out] pcchlMaxUserName: *mut u32, #[len_param(6)] #[out] #[opt] pszDomainName: PSTR, #[in] #[out] #[opt] pcchMaxDomainName: *mut u32, #[len_param(8)] #[out] #[opt] pszPassword: PSTR, #[in] #[out] pcchMaxPassword: *mut u32) -> BOOL;
+        #[library("credui.dll")]
+        extern fn CredUnPackAuthenticationBufferW(dwFlags: u32, #[size_param(2)] pAuthBuffer: *const void, cbAuthBuffer: u32, #[len_param(4)] #[out] #[opt] pszUserName: PWSTR, #[in] #[out] pcchMaxUserName: *mut u32, #[len_param(6)] #[out] #[opt] pszDomainName: PWSTR, #[in] #[out] #[opt] pcchMaxDomainName: *mut u32, #[len_param(8)] #[out] #[opt] pszPassword: PWSTR, #[in] #[out] pcchMaxPassword: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredUnmarshalCredentialA(MarshaledCredential: PCSTR, CredType: *mut CRED_MARSHAL_TYPE, Credential: *mut *mut void) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredUnmarshalCredentialW(MarshaledCredential: PCWSTR, CredType: *mut CRED_MARSHAL_TYPE, Credential: *mut *mut void) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredUnprotectA(fAsSelf: BOOL, #[len_param(2)] pszProtectedCredentials: PCSTR, cchProtectedCredentials: u32, #[len_param(4)] #[out] #[opt] pszCredentials: PSTR, #[in] #[out] pcchMaxChars: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredUnprotectW(fAsSelf: BOOL, #[len_param(2)] pszProtectedCredentials: PCWSTR, cchProtectedCredentials: u32, #[len_param(4)] #[out] #[opt] pszCredentials: PWSTR, #[in] #[out] pcchMaxChars: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredWriteA(Credential: *const CREDENTIALA, Flags: u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredWriteDomainCredentialsA(TargetInfo: *const CREDENTIAL_TARGET_INFORMATIONA, Credential: *const CREDENTIALA, Flags: u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredWriteDomainCredentialsW(TargetInfo: *const CREDENTIAL_TARGET_INFORMATIONW, Credential: *const CREDENTIALW, Flags: u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CredWriteW(Credential: *const CREDENTIALW, Flags: u32) -> BOOL;
+        const NERR_BASE: u32 = 2100;
+        const NERR_PasswordExpired: u32 = 2242;
+        type PBINARY_BLOB_CREDENTIAL_INFO = *mut BINARY_BLOB_CREDENTIAL_INFO;
+        type PCERT_CREDENTIAL_INFO = *mut CERT_CREDENTIAL_INFO;
+        type PCREDENTIAL = PCREDENTIALA;
+        type PCREDENTIALA = *mut CREDENTIALA;
+        type PCREDENTIALW = *mut CREDENTIALW;
+        type PCREDENTIAL_ATTRIBUTE = PCREDENTIAL_ATTRIBUTEA;
+        type PCREDENTIAL_ATTRIBUTEA = *mut CREDENTIAL_ATTRIBUTEA;
+        type PCREDENTIAL_ATTRIBUTEW = *mut CREDENTIAL_ATTRIBUTEW;
+        type PCREDENTIAL_TARGET_INFORMATION = PCREDENTIAL_TARGET_INFORMATIONA;
+        type PCREDENTIAL_TARGET_INFORMATIONA = *mut CREDENTIAL_TARGET_INFORMATIONA;
+        type PCREDENTIAL_TARGET_INFORMATIONW = *mut CREDENTIAL_TARGET_INFORMATIONW;
+        type PCREDUI_INFO = PCREDUI_INFOA;
+        type PCREDUI_INFOA = *mut CREDUI_INFOA;
+        type PCREDUI_INFOW = *mut CREDUI_INFOW;
+        type PCRED_MARSHAL_TYPE = *mut CRED_MARSHAL_TYPE;
+        type PCRED_PROTECTION_TYPE = *mut CRED_PROTECTION_TYPE;
+        type PUSERNAME_TARGET_CREDENTIAL_INFO = *mut USERNAME_TARGET_CREDENTIAL_INFO;
+        const STATUS_ACCESS_DENIED: NTSTATUS = -1073741790;
+        const STATUS_ACCOUNT_DISABLED: NTSTATUS = -1073741710;
+        const STATUS_ACCOUNT_EXPIRED: NTSTATUS = -1073741421;
+        const STATUS_ACCOUNT_LOCKED_OUT: NTSTATUS = -1073741260;
+        const STATUS_ACCOUNT_RESTRICTION: NTSTATUS = -1073741714;
+        const STATUS_AUTHENTICATION_FIREWALL_FAILED: NTSTATUS = -1073740781;
+        const STATUS_DOWNGRADE_DETECTED: NTSTATUS = -1073740920;
+        const STATUS_LOGON_FAILURE: NTSTATUS = -1073741715;
+        const STATUS_LOGON_TYPE_NOT_GRANTED: NTSTATUS = -1073741477;
+        const STATUS_NO_SUCH_LOGON_SESSION: NTSTATUS = -1073741729;
+        const STATUS_NO_SUCH_USER: NTSTATUS = -1073741724;
+        const STATUS_PASSWORD_EXPIRED: NTSTATUS = -1073741711;
+        const STATUS_PASSWORD_MUST_CHANGE: NTSTATUS = -1073741276;
+        const STATUS_WRONG_PASSWORD: NTSTATUS = -1073741718;
+        struct USERNAME_TARGET_CREDENTIAL_INFO {
+            UserName: PWSTR,
+        }
+    }
+}

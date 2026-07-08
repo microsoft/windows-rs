@@ -1,0 +1,831 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xbae54997_48b1_4cbe_9965_d6be263ebea4)]
+        interface IAction: IDispatch {
+            #[special]
+            fn get_Id(&self, #[retval] pId: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Id(&self, Id: BSTR) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] pType: *mut TASK_ACTION_TYPE) -> HRESULT;
+        }
+        #[guid(0x02820e19_7b98_4ed2_b2e8_fdccceff619b)]
+        interface IActionCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] ppAction: *mut IAction) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_XmlText(&self, #[retval] pText: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_XmlText(&self, text: BSTR) -> HRESULT;
+            fn Create(&self, r#type: TASK_ACTION_TYPE, #[retval] ppAction: *mut IAction) -> HRESULT;
+            fn Remove(&self, index: VARIANT) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            #[special]
+            fn get_Context(&self, #[retval] pContext: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Context(&self, context: BSTR) -> HRESULT;
+        }
+        #[guid(0x2a9c35da_d357_41f4_bbc1_207ac1b1f3cb)]
+        interface IBootTrigger: ITrigger {
+            #[special]
+            fn get_Delay(&self, #[retval] pDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Delay(&self, delay: BSTR) -> HRESULT;
+        }
+        #[guid(0x6d2fd252_75c5_4f66_90ba_2a7d8cc3039f)]
+        interface IComHandlerAction: IAction {
+            #[special]
+            fn get_ClassId(&self, #[retval] pClsid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ClassId(&self, clsid: BSTR) -> HRESULT;
+            #[special]
+            fn get_Data(&self, #[retval] pData: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Data(&self, data: BSTR) -> HRESULT;
+        }
+        #[guid(0x126c5cd8_b288_41d5_8dbf_e491446adc5c)]
+        interface IDailyTrigger: ITrigger {
+            #[special]
+            fn get_DaysInterval(&self, #[retval] pDays: *mut i16) -> HRESULT;
+            #[special]
+            fn put_DaysInterval(&self, days: i16) -> HRESULT;
+            #[special]
+            fn get_RandomDelay(&self, #[retval] pRandomDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RandomDelay(&self, randomDelay: BSTR) -> HRESULT;
+        }
+        #[guid(0x10f62c64_7e16_4314_a0c2_0c3683f99d40)]
+        interface IEmailAction: IAction {
+            #[special]
+            fn get_Server(&self, #[retval] pServer: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Server(&self, server: BSTR) -> HRESULT;
+            #[special]
+            fn get_Subject(&self, #[retval] pSubject: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Subject(&self, subject: BSTR) -> HRESULT;
+            #[special]
+            fn get_To(&self, #[retval] pTo: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_To(&self, to: BSTR) -> HRESULT;
+            #[special]
+            fn get_Cc(&self, #[retval] pCc: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Cc(&self, cc: BSTR) -> HRESULT;
+            #[special]
+            fn get_Bcc(&self, #[retval] pBcc: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Bcc(&self, bcc: BSTR) -> HRESULT;
+            #[special]
+            fn get_ReplyTo(&self, #[retval] pReplyTo: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ReplyTo(&self, replyTo: BSTR) -> HRESULT;
+            #[special]
+            fn get_From(&self, #[retval] pFrom: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_From(&self, from: BSTR) -> HRESULT;
+            #[special]
+            fn get_HeaderFields(&self, #[retval] ppHeaderFields: *mut ITaskNamedValueCollection) -> HRESULT;
+            #[special]
+            fn put_HeaderFields(&self, pHeaderFields: ITaskNamedValueCollection) -> HRESULT;
+            #[special]
+            fn get_Body(&self, #[retval] pBody: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Body(&self, body: BSTR) -> HRESULT;
+            #[special]
+            fn get_Attachments(&self, #[retval] pAttachements: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_Attachments(&self, pAttachements: *const SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0xd45b0167_9653_4eef_b94f_0732ca7af251)]
+        interface IEventTrigger: ITrigger {
+            #[special]
+            fn get_Subscription(&self, #[retval] pQuery: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Subscription(&self, query: BSTR) -> HRESULT;
+            #[special]
+            fn get_Delay(&self, #[retval] pDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Delay(&self, delay: BSTR) -> HRESULT;
+            #[special]
+            fn get_ValueQueries(&self, #[retval] ppNamedXPaths: *mut ITaskNamedValueCollection) -> HRESULT;
+            #[special]
+            fn put_ValueQueries(&self, pNamedXPaths: ITaskNamedValueCollection) -> HRESULT;
+        }
+        #[guid(0x4c3d624d_fd6b_49a3_b9b7_09cb3cd3f047)]
+        interface IExecAction: IAction {
+            #[special]
+            fn get_Path(&self, #[retval] pPath: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Path(&self, path: BSTR) -> HRESULT;
+            #[special]
+            fn get_Arguments(&self, #[retval] pArgument: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Arguments(&self, argument: BSTR) -> HRESULT;
+            #[special]
+            fn get_WorkingDirectory(&self, #[retval] pWorkingDirectory: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_WorkingDirectory(&self, workingDirectory: BSTR) -> HRESULT;
+        }
+        #[guid(0xf2a82542_bda5_4e6b_9143_e2bf4f8987b6)]
+        interface IExecAction2: IExecAction {
+            #[special]
+            fn get_HideAppWindow(&self, #[retval] pHideAppWindow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_HideAppWindow(&self, hideAppWindow: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x84594461_0053_4342_a8fd_088fabf11f32)]
+        interface IIdleSettings: IDispatch {
+            #[special]
+            fn get_IdleDuration(&self, #[retval] pDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_IdleDuration(&self, delay: BSTR) -> HRESULT;
+            #[special]
+            fn get_WaitTimeout(&self, #[retval] pTimeout: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_WaitTimeout(&self, timeout: BSTR) -> HRESULT;
+            #[special]
+            fn get_StopOnIdleEnd(&self, #[retval] pStop: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_StopOnIdleEnd(&self, stop: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RestartOnIdle(&self, #[retval] pRestart: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_RestartOnIdle(&self, restart: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xd537d2b0_9fb3_4d34_9739_1ff5ce7b1ef3)]
+        interface IIdleTrigger: ITrigger {}
+        #[guid(0x72dade38_fae4_4b3e_baf4_5d009af02b1c)]
+        interface ILogonTrigger: ITrigger {
+            #[special]
+            fn get_Delay(&self, #[retval] pDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Delay(&self, delay: BSTR) -> HRESULT;
+            #[special]
+            fn get_UserId(&self, #[retval] pUser: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_UserId(&self, user: BSTR) -> HRESULT;
+        }
+        #[guid(0xa6024fa8_9652_4adb_a6bf_5cfcd877a7ba)]
+        interface IMaintenanceSettings: IDispatch {
+            #[special]
+            fn put_Period(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_Period(&self, #[retval] target: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Deadline(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_Deadline(&self, #[retval] target: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Exclusive(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Exclusive(&self, #[retval] target: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x77d025a3_90fa_43aa_b52e_cda5499b946a)]
+        interface IMonthlyDOWTrigger: ITrigger {
+            #[special]
+            fn get_DaysOfWeek(&self, #[retval] pDays: *mut i16) -> HRESULT;
+            #[special]
+            fn put_DaysOfWeek(&self, days: i16) -> HRESULT;
+            #[special]
+            fn get_WeeksOfMonth(&self, #[retval] pWeeks: *mut i16) -> HRESULT;
+            #[special]
+            fn put_WeeksOfMonth(&self, weeks: i16) -> HRESULT;
+            #[special]
+            fn get_MonthsOfYear(&self, #[retval] pMonths: *mut i16) -> HRESULT;
+            #[special]
+            fn put_MonthsOfYear(&self, months: i16) -> HRESULT;
+            #[special]
+            fn get_RunOnLastWeekOfMonth(&self, #[retval] pLastWeek: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_RunOnLastWeekOfMonth(&self, lastWeek: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RandomDelay(&self, #[retval] pRandomDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RandomDelay(&self, randomDelay: BSTR) -> HRESULT;
+        }
+        #[guid(0x97c45ef1_6b02_4a1a_9c0e_1ebfba1500ac)]
+        interface IMonthlyTrigger: ITrigger {
+            #[special]
+            fn get_DaysOfMonth(&self, #[retval] pDays: *mut i32) -> HRESULT;
+            #[special]
+            fn put_DaysOfMonth(&self, days: i32) -> HRESULT;
+            #[special]
+            fn get_MonthsOfYear(&self, #[retval] pMonths: *mut i16) -> HRESULT;
+            #[special]
+            fn put_MonthsOfYear(&self, months: i16) -> HRESULT;
+            #[special]
+            fn get_RunOnLastDayOfMonth(&self, #[retval] pLastDay: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_RunOnLastDayOfMonth(&self, lastDay: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RandomDelay(&self, #[retval] pRandomDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RandomDelay(&self, randomDelay: BSTR) -> HRESULT;
+        }
+        #[guid(0x9f7dea84_c30b_4245_80b6_00e9f646f1b4)]
+        interface INetworkSettings: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] pName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_Id(&self, #[retval] pId: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Id(&self, id: BSTR) -> HRESULT;
+        }
+        #[guid(0xd98d51e5_c9b4_496a_a9c1_18980261cf0f)]
+        interface IPrincipal: IDispatch {
+            #[special]
+            fn get_Id(&self, #[retval] pId: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Id(&self, Id: BSTR) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] pName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DisplayName(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_UserId(&self, #[retval] pUser: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_UserId(&self, user: BSTR) -> HRESULT;
+            #[special]
+            fn get_LogonType(&self, #[retval] pLogon: *mut TASK_LOGON_TYPE) -> HRESULT;
+            #[special]
+            fn put_LogonType(&self, logon: TASK_LOGON_TYPE) -> HRESULT;
+            #[special]
+            fn get_GroupId(&self, #[retval] pGroup: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_GroupId(&self, group: BSTR) -> HRESULT;
+            #[special]
+            fn get_RunLevel(&self, #[retval] pRunLevel: *mut TASK_RUNLEVEL_TYPE) -> HRESULT;
+            #[special]
+            fn put_RunLevel(&self, runLevel: TASK_RUNLEVEL_TYPE) -> HRESULT;
+        }
+        #[guid(0x248919ae_e345_4a6d_8aeb_e0d3165c904e)]
+        interface IPrincipal2: IDispatch {
+            #[special]
+            fn get_ProcessTokenSidType(&self, #[retval] pProcessTokenSidType: *mut TASK_PROCESSTOKENSID_TYPE) -> HRESULT;
+            #[special]
+            fn put_ProcessTokenSidType(&self, processTokenSidType: TASK_PROCESSTOKENSID_TYPE) -> HRESULT;
+            #[special]
+            fn get_RequiredPrivilegeCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RequiredPrivilege(&self, index: i32, #[retval] pPrivilege: *mut BSTR) -> HRESULT;
+            fn AddRequiredPrivilege(&self, privilege: BSTR) -> HRESULT;
+        }
+        #[guid(0x9c86f320_dee3_4dd1_b972_a303f26b061e)]
+        interface IRegisteredTask: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] pName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Path(&self, #[retval] pPath: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_State(&self, #[retval] pState: *mut TASK_STATE) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] pEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+            fn Run(&self, params: VARIANT, #[retval] ppRunningTask: *mut IRunningTask) -> HRESULT;
+            fn RunEx(&self, params: VARIANT, flags: i32, sessionID: i32, user: BSTR, #[retval] ppRunningTask: *mut IRunningTask) -> HRESULT;
+            fn GetInstances(&self, flags: i32, #[retval] ppRunningTasks: *mut IRunningTaskCollection) -> HRESULT;
+            #[special]
+            fn get_LastRunTime(&self, #[retval] pLastRunTime: *mut f64) -> HRESULT;
+            #[special]
+            fn get_LastTaskResult(&self, #[retval] pLastTaskResult: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NumberOfMissedRuns(&self, #[retval] pNumberOfMissedRuns: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NextRunTime(&self, #[retval] pNextRunTime: *mut f64) -> HRESULT;
+            #[special]
+            fn get_Definition(&self, #[retval] ppDefinition: *mut ITaskDefinition) -> HRESULT;
+            #[special]
+            fn get_Xml(&self, #[retval] pXml: *mut BSTR) -> HRESULT;
+            fn GetSecurityDescriptor(&self, securityInformation: i32, #[retval] pSddl: *mut BSTR) -> HRESULT;
+            fn SetSecurityDescriptor(&self, sddl: BSTR, flags: i32) -> HRESULT;
+            fn Stop(&self, flags: i32) -> HRESULT;
+            fn GetRunTimes(&self, pstStart: *const SYSTEMTIME, pstEnd: *const SYSTEMTIME, #[in] #[out] pCount: *mut u32, pRunTimes: *mut LPSYSTEMTIME) -> HRESULT;
+        }
+        #[guid(0x86627eb4_42a7_41e4_a4d9_ac33a72f2d52)]
+        interface IRegisteredTaskCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: VARIANT, #[retval] ppRegisteredTask: *mut IRegisteredTask) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x416d8b73_cb41_4ea1_805c_9be9a5ac4a74)]
+        interface IRegistrationInfo: IDispatch {
+            #[special]
+            fn get_Description(&self, #[retval] pDescription: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, description: BSTR) -> HRESULT;
+            #[special]
+            fn get_Author(&self, #[retval] pAuthor: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Author(&self, author: BSTR) -> HRESULT;
+            #[special]
+            fn get_Version(&self, #[retval] pVersion: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Version(&self, version: BSTR) -> HRESULT;
+            #[special]
+            fn get_Date(&self, #[retval] pDate: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Date(&self, date: BSTR) -> HRESULT;
+            #[special]
+            fn get_Documentation(&self, #[retval] pDocumentation: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Documentation(&self, documentation: BSTR) -> HRESULT;
+            #[special]
+            fn get_XmlText(&self, #[retval] pText: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_XmlText(&self, text: BSTR) -> HRESULT;
+            #[special]
+            fn get_URI(&self, #[retval] pUri: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_URI(&self, uri: BSTR) -> HRESULT;
+            #[special]
+            fn get_SecurityDescriptor(&self, #[retval] pSddl: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_SecurityDescriptor(&self, sddl: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Source(&self, #[retval] pSource: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Source(&self, source: BSTR) -> HRESULT;
+        }
+        #[guid(0x4c8fec3a_c218_4e0c_b23d_629024db91a2)]
+        interface IRegistrationTrigger: ITrigger {
+            #[special]
+            fn get_Delay(&self, #[retval] pDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Delay(&self, delay: BSTR) -> HRESULT;
+        }
+        #[guid(0x7fb9acf1_26be_400e_85b5_294b9c75dfd6)]
+        interface IRepetitionPattern: IDispatch {
+            #[special]
+            fn get_Interval(&self, #[retval] pInterval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Interval(&self, interval: BSTR) -> HRESULT;
+            #[special]
+            fn get_Duration(&self, #[retval] pDuration: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Duration(&self, duration: BSTR) -> HRESULT;
+            #[special]
+            fn get_StopAtDurationEnd(&self, #[retval] pStop: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_StopAtDurationEnd(&self, stop: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x653758fb_7b9a_4f1e_a471_beeb8e9b834e)]
+        interface IRunningTask: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] pName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_InstanceGuid(&self, #[retval] pGuid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Path(&self, #[retval] pPath: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_State(&self, #[retval] pState: *mut TASK_STATE) -> HRESULT;
+            #[special]
+            fn get_CurrentAction(&self, #[retval] pName: *mut BSTR) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Refresh(&self) -> HRESULT;
+            #[special]
+            fn get_EnginePID(&self, #[retval] pPID: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6a67614b_6828_4fec_aa54_6d52e8f1f2db)]
+        interface IRunningTaskCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: VARIANT, #[retval] ppRunningTask: *mut IRunningTask) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x754da71b_4385_4475_9dd9_598294fa3641)]
+        interface ISessionStateChangeTrigger: ITrigger {
+            #[special]
+            fn get_Delay(&self, #[retval] pDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Delay(&self, delay: BSTR) -> HRESULT;
+            #[special]
+            fn get_UserId(&self, #[retval] pUser: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_UserId(&self, user: BSTR) -> HRESULT;
+            #[special]
+            fn get_StateChange(&self, #[retval] pType: *mut TASK_SESSION_STATE_CHANGE_TYPE) -> HRESULT;
+            #[special]
+            fn put_StateChange(&self, r#type: TASK_SESSION_STATE_CHANGE_TYPE) -> HRESULT;
+        }
+        #[guid(0x505e9e68_af89_46b8_a30f_56162a83d537)]
+        interface IShowMessageAction: IAction {
+            #[special]
+            fn get_Title(&self, #[retval] pTitle: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Title(&self, title: BSTR) -> HRESULT;
+            #[special]
+            fn get_MessageBody(&self, #[retval] pMessageBody: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_MessageBody(&self, messageBody: BSTR) -> HRESULT;
+        }
+        #[guid(0xf5bc8fc5_536d_4f77_b852_fbc1356fdeb6)]
+        interface ITaskDefinition: IDispatch {
+            #[special]
+            fn get_RegistrationInfo(&self, #[retval] ppRegistrationInfo: *mut IRegistrationInfo) -> HRESULT;
+            #[special]
+            fn put_RegistrationInfo(&self, pRegistrationInfo: IRegistrationInfo) -> HRESULT;
+            #[special]
+            fn get_Triggers(&self, #[retval] ppTriggers: *mut ITriggerCollection) -> HRESULT;
+            #[special]
+            fn put_Triggers(&self, pTriggers: ITriggerCollection) -> HRESULT;
+            #[special]
+            fn get_Settings(&self, #[retval] ppSettings: *mut ITaskSettings) -> HRESULT;
+            #[special]
+            fn put_Settings(&self, pSettings: ITaskSettings) -> HRESULT;
+            #[special]
+            fn get_Data(&self, #[retval] pData: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Data(&self, data: BSTR) -> HRESULT;
+            #[special]
+            fn get_Principal(&self, #[retval] ppPrincipal: *mut IPrincipal) -> HRESULT;
+            #[special]
+            fn put_Principal(&self, pPrincipal: IPrincipal) -> HRESULT;
+            #[special]
+            fn get_Actions(&self, #[retval] ppActions: *mut IActionCollection) -> HRESULT;
+            #[special]
+            fn put_Actions(&self, pActions: IActionCollection) -> HRESULT;
+            #[special]
+            fn get_XmlText(&self, #[retval] pXml: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_XmlText(&self, xml: BSTR) -> HRESULT;
+        }
+        #[guid(0x8cfac062_a080_4c15_9a88_aa7c2af80dfc)]
+        interface ITaskFolder: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] pName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Path(&self, #[retval] pPath: *mut BSTR) -> HRESULT;
+            fn GetFolder(&self, path: BSTR, #[retval] ppFolder: *mut ITaskFolder) -> HRESULT;
+            fn GetFolders(&self, flags: i32, #[retval] ppFolders: *mut ITaskFolderCollection) -> HRESULT;
+            fn CreateFolder(&self, subFolderName: BSTR, #[opt] sddl: VARIANT, #[retval] ppFolder: *mut ITaskFolder) -> HRESULT;
+            fn DeleteFolder(&self, subFolderName: BSTR, flags: i32) -> HRESULT;
+            fn GetTask(&self, path: BSTR, #[retval] ppTask: *mut IRegisteredTask) -> HRESULT;
+            fn GetTasks(&self, flags: i32, #[retval] ppTasks: *mut IRegisteredTaskCollection) -> HRESULT;
+            fn DeleteTask(&self, name: BSTR, flags: i32) -> HRESULT;
+            fn RegisterTask(&self, path: BSTR, xmlText: BSTR, flags: i32, userId: VARIANT, password: VARIANT, logonType: TASK_LOGON_TYPE, #[opt] sddl: VARIANT, #[retval] ppTask: *mut IRegisteredTask) -> HRESULT;
+            fn RegisterTaskDefinition(&self, path: BSTR, pDefinition: ITaskDefinition, flags: i32, userId: VARIANT, password: VARIANT, logonType: TASK_LOGON_TYPE, #[opt] sddl: VARIANT, #[retval] ppTask: *mut IRegisteredTask) -> HRESULT;
+            fn GetSecurityDescriptor(&self, securityInformation: i32, #[retval] pSddl: *mut BSTR) -> HRESULT;
+            fn SetSecurityDescriptor(&self, sddl: BSTR, flags: i32) -> HRESULT;
+        }
+        #[guid(0x79184a66_8664_423f_97f1_637356a5d812)]
+        interface ITaskFolderCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: VARIANT, #[retval] ppFolder: *mut ITaskFolder) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x839d7762_5121_4009_9234_4f0d19394f04)]
+        interface ITaskHandler: IUnknown {
+            fn Start(&self, pHandlerServices: IUnknown, data: BSTR) -> HRESULT;
+            fn Stop(&self, pRetCode: *mut HRESULT) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+        }
+        #[guid(0xeaec7a8f_27a0_4ddc_8675_14726a01a38a)]
+        interface ITaskHandlerStatus: IUnknown {
+            fn UpdateStatus(&self, percentComplete: i16, statusMessage: BSTR) -> HRESULT;
+            fn TaskCompleted(&self, taskErrCode: HRESULT) -> HRESULT;
+        }
+        #[guid(0xb4ef826b_63c3_46e4_a504_ef69e4f7ea4d)]
+        interface ITaskNamedValueCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] ppPair: *mut ITaskNamedValuePair) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+            fn Create(&self, name: BSTR, value: BSTR, #[retval] ppPair: *mut ITaskNamedValuePair) -> HRESULT;
+            fn Remove(&self, index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x39038068_2b46_4afd_8662_7bb6f868d221)]
+        interface ITaskNamedValuePair: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] pName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Value(&self, value: BSTR) -> HRESULT;
+        }
+        #[guid(0x2faba4c7_4da9_4013_9697_20cc3fd40f85)]
+        interface ITaskService: IDispatch {
+            fn GetFolder(&self, path: BSTR, #[retval] ppFolder: *mut ITaskFolder) -> HRESULT;
+            fn GetRunningTasks(&self, flags: i32, #[retval] ppRunningTasks: *mut IRunningTaskCollection) -> HRESULT;
+            fn NewTask(&self, flags: u32, #[retval] ppDefinition: *mut ITaskDefinition) -> HRESULT;
+            fn Connect(&self, #[opt] serverName: VARIANT, #[opt] user: VARIANT, #[opt] domain: VARIANT, #[opt] password: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Connected(&self, #[retval] pConnected: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_TargetServer(&self, #[retval] pServer: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ConnectedUser(&self, #[retval] pUser: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ConnectedDomain(&self, #[retval] pDomain: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_HighestVersion(&self, #[retval] pVersion: *mut u32) -> HRESULT;
+        }
+        #[guid(0x8fd4711d_2d02_4c8c_87e3_eff699de127e)]
+        interface ITaskSettings: IDispatch {
+            #[special]
+            fn get_AllowDemandStart(&self, #[retval] pAllowDemandStart: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowDemandStart(&self, allowDemandStart: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RestartInterval(&self, #[retval] pRestartInterval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RestartInterval(&self, restartInterval: BSTR) -> HRESULT;
+            #[special]
+            fn get_RestartCount(&self, #[retval] pRestartCount: *mut i32) -> HRESULT;
+            #[special]
+            fn put_RestartCount(&self, restartCount: i32) -> HRESULT;
+            #[special]
+            fn get_MultipleInstances(&self, #[retval] pPolicy: *mut TASK_INSTANCES_POLICY) -> HRESULT;
+            #[special]
+            fn put_MultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> HRESULT;
+            #[special]
+            fn get_StopIfGoingOnBatteries(&self, #[retval] pStopIfOnBatteries: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_StopIfGoingOnBatteries(&self, stopIfOnBatteries: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_DisallowStartIfOnBatteries(&self, #[retval] pDisallowStart: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_DisallowStartIfOnBatteries(&self, disallowStart: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowHardTerminate(&self, #[retval] pAllowHardTerminate: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowHardTerminate(&self, allowHardTerminate: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_StartWhenAvailable(&self, #[retval] pStartWhenAvailable: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_StartWhenAvailable(&self, startWhenAvailable: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_XmlText(&self, #[retval] pText: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_XmlText(&self, text: BSTR) -> HRESULT;
+            #[special]
+            fn get_RunOnlyIfNetworkAvailable(&self, #[retval] pRunOnlyIfNetworkAvailable: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_RunOnlyIfNetworkAvailable(&self, runOnlyIfNetworkAvailable: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ExecutionTimeLimit(&self, #[retval] pExecutionTimeLimit: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ExecutionTimeLimit(&self, executionTimeLimit: BSTR) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] pEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_DeleteExpiredTaskAfter(&self, #[retval] pExpirationDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DeleteExpiredTaskAfter(&self, expirationDelay: BSTR) -> HRESULT;
+            #[special]
+            fn get_Priority(&self, #[retval] pPriority: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Priority(&self, priority: i32) -> HRESULT;
+            #[special]
+            fn get_Compatibility(&self, #[retval] pCompatLevel: *mut TASK_COMPATIBILITY) -> HRESULT;
+            #[special]
+            fn put_Compatibility(&self, compatLevel: TASK_COMPATIBILITY) -> HRESULT;
+            #[special]
+            fn get_Hidden(&self, #[retval] pHidden: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Hidden(&self, hidden: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IdleSettings(&self, #[retval] ppIdleSettings: *mut IIdleSettings) -> HRESULT;
+            #[special]
+            fn put_IdleSettings(&self, pIdleSettings: IIdleSettings) -> HRESULT;
+            #[special]
+            fn get_RunOnlyIfIdle(&self, #[retval] pRunOnlyIfIdle: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_RunOnlyIfIdle(&self, runOnlyIfIdle: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_WakeToRun(&self, #[retval] pWake: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_WakeToRun(&self, wake: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_NetworkSettings(&self, #[retval] ppNetworkSettings: *mut INetworkSettings) -> HRESULT;
+            #[special]
+            fn put_NetworkSettings(&self, pNetworkSettings: INetworkSettings) -> HRESULT;
+        }
+        #[guid(0x2c05c3f0_6eed_4c05_a15f_ed7d7a98a369)]
+        interface ITaskSettings2: IDispatch {
+            #[special]
+            fn get_DisallowStartOnRemoteAppSession(&self, #[retval] pDisallowStart: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_DisallowStartOnRemoteAppSession(&self, disallowStart: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UseUnifiedSchedulingEngine(&self, #[retval] pUseUnifiedEngine: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_UseUnifiedSchedulingEngine(&self, useUnifiedEngine: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x0ad9d0d7_0c7f_4ebb_9a5f_d1c648dca528)]
+        interface ITaskSettings3: ITaskSettings {
+            #[special]
+            fn get_DisallowStartOnRemoteAppSession(&self, #[retval] pDisallowStart: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_DisallowStartOnRemoteAppSession(&self, disallowStart: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UseUnifiedSchedulingEngine(&self, #[retval] pUseUnifiedEngine: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_UseUnifiedSchedulingEngine(&self, useUnifiedEngine: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MaintenanceSettings(&self, #[retval] ppMaintenanceSettings: *mut IMaintenanceSettings) -> HRESULT;
+            #[special]
+            fn put_MaintenanceSettings(&self, pMaintenanceSettings: IMaintenanceSettings) -> HRESULT;
+            fn CreateMaintenanceSettings(&self, #[retval] ppMaintenanceSettings: *mut IMaintenanceSettings) -> HRESULT;
+            #[special]
+            fn get_Volatile(&self, #[retval] pVolatile: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Volatile(&self, Volatile: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x3e4c9351_d966_4b8b_bb87_ceba68bb0107)]
+        interface ITaskVariables: IUnknown {
+            fn GetInput(&self, #[retval] pInput: *mut BSTR) -> HRESULT;
+            fn SetOutput(&self, input: BSTR) -> HRESULT;
+            fn GetContext(&self, #[retval] pContext: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xb45747e0_eba7_4276_9f29_85c5bb300006)]
+        interface ITimeTrigger: ITrigger {
+            #[special]
+            fn get_RandomDelay(&self, #[retval] pRandomDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RandomDelay(&self, randomDelay: BSTR) -> HRESULT;
+        }
+        #[guid(0x09941815_ea89_4b5b_89e0_2a773801fac3)]
+        interface ITrigger: IDispatch {
+            #[special]
+            fn get_Type(&self, #[retval] pType: *mut TASK_TRIGGER_TYPE2) -> HRESULT;
+            #[special]
+            fn get_Id(&self, #[retval] pId: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Id(&self, id: BSTR) -> HRESULT;
+            #[special]
+            fn get_Repetition(&self, #[retval] ppRepeat: *mut IRepetitionPattern) -> HRESULT;
+            #[special]
+            fn put_Repetition(&self, pRepeat: IRepetitionPattern) -> HRESULT;
+            #[special]
+            fn get_ExecutionTimeLimit(&self, #[retval] pTimeLimit: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ExecutionTimeLimit(&self, timelimit: BSTR) -> HRESULT;
+            #[special]
+            fn get_StartBoundary(&self, #[retval] pStart: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_StartBoundary(&self, start: BSTR) -> HRESULT;
+            #[special]
+            fn get_EndBoundary(&self, #[retval] pEnd: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_EndBoundary(&self, end: BSTR) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] pEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x85df5081_1b24_4f32_878a_d9d14df4cb77)]
+        interface ITriggerCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] ppTrigger: *mut ITrigger) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+            fn Create(&self, r#type: TASK_TRIGGER_TYPE2, #[retval] ppTrigger: *mut ITrigger) -> HRESULT;
+            fn Remove(&self, index: VARIANT) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x5038fc98_82ff_436d_8728_a512a57c9dc1)]
+        interface IWeeklyTrigger: ITrigger {
+            #[special]
+            fn get_DaysOfWeek(&self, #[retval] pDays: *mut i16) -> HRESULT;
+            #[special]
+            fn put_DaysOfWeek(&self, days: i16) -> HRESULT;
+            #[special]
+            fn get_WeeksInterval(&self, #[retval] pWeeks: *mut i16) -> HRESULT;
+            #[special]
+            fn put_WeeksInterval(&self, weeks: i16) -> HRESULT;
+            #[special]
+            fn get_RandomDelay(&self, #[retval] pRandomDelay: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RandomDelay(&self, randomDelay: BSTR) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum TASK_ACTION_TYPE {
+            TASK_ACTION_EXEC = 0,
+            TASK_ACTION_COM_HANDLER = 5,
+            TASK_ACTION_SEND_EMAIL = 6,
+            TASK_ACTION_SHOW_MESSAGE = 7,
+        }
+        #[repr(i32)]
+        enum TASK_COMPATIBILITY {
+            TASK_COMPATIBILITY_AT = 0,
+            TASK_COMPATIBILITY_V1 = 1,
+            TASK_COMPATIBILITY_V2 = 2,
+            TASK_COMPATIBILITY_V2_1 = 3,
+            TASK_COMPATIBILITY_V2_2 = 4,
+            TASK_COMPATIBILITY_V2_3 = 5,
+            TASK_COMPATIBILITY_V2_4 = 6,
+        }
+        #[repr(i32)]
+        enum TASK_CREATION {
+            TASK_VALIDATE_ONLY = 1,
+            TASK_CREATE = 2,
+            TASK_UPDATE = 4,
+            TASK_CREATE_OR_UPDATE = 6,
+            TASK_DISABLE = 8,
+            TASK_DONT_ADD_PRINCIPAL_ACE = 16,
+            TASK_IGNORE_REGISTRATION_TRIGGERS = 32,
+        }
+        #[repr(i32)]
+        enum TASK_ENUM_FLAGS {
+            TASK_ENUM_HIDDEN = 1,
+        }
+        #[repr(i32)]
+        enum TASK_INSTANCES_POLICY {
+            TASK_INSTANCES_PARALLEL = 0,
+            TASK_INSTANCES_QUEUE = 1,
+            TASK_INSTANCES_IGNORE_NEW = 2,
+            TASK_INSTANCES_STOP_EXISTING = 3,
+        }
+        #[repr(i32)]
+        enum TASK_LOGON_TYPE {
+            TASK_LOGON_NONE = 0,
+            TASK_LOGON_PASSWORD = 1,
+            TASK_LOGON_S4U = 2,
+            TASK_LOGON_INTERACTIVE_TOKEN = 3,
+            TASK_LOGON_GROUP = 4,
+            TASK_LOGON_SERVICE_ACCOUNT = 5,
+            TASK_LOGON_INTERACTIVE_TOKEN_OR_PASSWORD = 6,
+        }
+        #[repr(i32)]
+        enum TASK_PROCESSTOKENSID_TYPE {
+            TASK_PROCESSTOKENSID_NONE = 0,
+            TASK_PROCESSTOKENSID_UNRESTRICTED = 1,
+            TASK_PROCESSTOKENSID_DEFAULT = 2,
+        }
+        #[repr(i32)]
+        enum TASK_RUNLEVEL_TYPE {
+            TASK_RUNLEVEL_LUA = 0,
+            TASK_RUNLEVEL_HIGHEST = 1,
+        }
+        #[repr(i32)]
+        enum TASK_RUN_FLAGS {
+            TASK_RUN_NO_FLAGS = 0,
+            TASK_RUN_AS_SELF = 1,
+            TASK_RUN_IGNORE_CONSTRAINTS = 2,
+            TASK_RUN_USE_SESSION_ID = 4,
+            TASK_RUN_USER_SID = 8,
+        }
+        #[repr(i32)]
+        enum TASK_SESSION_STATE_CHANGE_TYPE {
+            TASK_CONSOLE_CONNECT = 1,
+            TASK_CONSOLE_DISCONNECT = 2,
+            TASK_REMOTE_CONNECT = 3,
+            TASK_REMOTE_DISCONNECT = 4,
+            TASK_SESSION_LOCK = 7,
+            TASK_SESSION_UNLOCK = 8,
+        }
+        #[repr(i32)]
+        enum TASK_STATE {
+            TASK_STATE_UNKNOWN = 0,
+            TASK_STATE_DISABLED = 1,
+            TASK_STATE_QUEUED = 2,
+            TASK_STATE_READY = 3,
+            TASK_STATE_RUNNING = 4,
+        }
+        #[repr(i32)]
+        enum TASK_TRIGGER_TYPE2 {
+            TASK_TRIGGER_EVENT = 0,
+            TASK_TRIGGER_TIME = 1,
+            TASK_TRIGGER_DAILY = 2,
+            TASK_TRIGGER_WEEKLY = 3,
+            TASK_TRIGGER_MONTHLY = 4,
+            TASK_TRIGGER_MONTHLYDOW = 5,
+            TASK_TRIGGER_IDLE = 6,
+            TASK_TRIGGER_REGISTRATION = 7,
+            TASK_TRIGGER_BOOT = 8,
+            TASK_TRIGGER_LOGON = 9,
+            TASK_TRIGGER_SESSION_STATE_CHANGE = 11,
+            TASK_TRIGGER_CUSTOM_TRIGGER_01 = 12,
+        }
+        const TaskHandlerPS: GUID = 0xf2a69db7_da2c_4352_9066_86fee6dacac9;
+        const TaskHandlerStatusPS: GUID = 0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac;
+        const TaskScheduler: GUID = 0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd;
+    }
+}

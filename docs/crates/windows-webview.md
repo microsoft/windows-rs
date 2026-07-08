@@ -358,7 +358,7 @@ start from the headers and run the full pipeline. This is driven by a dedicated
 
 | Stage | Tool | Output |
 |-------|------|--------|
-| `WebView2*.h` → `.rdl` | `windows_rdl::clang()` (libclang) | `target/webview/WebView2.rdl` |
+| `WebView2*.h` → `.rdl` | `windows_clang::clang()` (libclang) | `target/webview/WebView2.rdl` |
 | `.rdl` → `.winmd` | `windows_rdl::reader()` | `target/webview/WebView2.winmd` |
 | `.winmd` → `bindings.rs` | `windows_bindgen` | `crates/libs/webview/src/bindings.rs` |
 
@@ -656,6 +656,23 @@ browser context menu with a native one), the authentication flows
 
 `ICoreWebView2Frame` (iframe navigation and events) and `TrySuspend`/`Resume` (the
 crate currently exposes only the `MemoryUsageTargetLevel` hint).
+
+#### 7. Runtime provisioning — a `windows-webview-setup` equivalent *(low)*
+
+Present: [`windows-reactor-setup`](windows-reactor.md) already deploys the WinRT
+`Microsoft.Web.WebView2.Core.dll` next to the executable for the reactor-hosted
+XAML `WebView2` control (its `deploy_webview2`), and `tool_win32` now
+self-provisions its own scrape toolchain (libclang + the SDK packages) on demand
+(see [`windows-rdl`](windows-rdl.md)).
+
+Missing: an equivalent that provisions the **WebView2 runtime itself** for the
+plain HWND `Controller` path — the Evergreen bootstrapper detection/download, or
+staging a fixed-version runtime — so a fresh app "just works" without the developer
+manually ensuring the Evergreen runtime is installed. This is a developer-experience
+/ deployment concern rather than an API-surface gap: it would follow the same
+`curl` + `tar` NuGet-fetch pattern the family's other setup/tooling helpers already
+use, and could either extend `windows-reactor-setup` or ship as a small
+`windows-webview-setup` companion.
 
 #### How it fits with reactor and canvas
 

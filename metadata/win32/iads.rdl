@@ -1,0 +1,1899 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ADSI_DIALECT_ENUM {
+            ADSI_DIALECT_LDAP = 0,
+            ADSI_DIALECT_SQL = 1,
+        }
+        type ADSTYPE = ADSTYPEENUM;
+        #[repr(i32)]
+        enum ADSTYPEENUM {
+            ADSTYPE_INVALID = 0,
+            ADSTYPE_DN_STRING = 1,
+            ADSTYPE_CASE_EXACT_STRING = 2,
+            ADSTYPE_CASE_IGNORE_STRING = 3,
+            ADSTYPE_PRINTABLE_STRING = 4,
+            ADSTYPE_NUMERIC_STRING = 5,
+            ADSTYPE_BOOLEAN = 6,
+            ADSTYPE_INTEGER = 7,
+            ADSTYPE_OCTET_STRING = 8,
+            ADSTYPE_UTC_TIME = 9,
+            ADSTYPE_LARGE_INTEGER = 10,
+            ADSTYPE_PROV_SPECIFIC = 11,
+            ADSTYPE_OBJECT_CLASS = 12,
+            ADSTYPE_CASEIGNORE_LIST = 13,
+            ADSTYPE_OCTET_LIST = 14,
+            ADSTYPE_PATH = 15,
+            ADSTYPE_POSTALADDRESS = 16,
+            ADSTYPE_TIMESTAMP = 17,
+            ADSTYPE_BACKLINK = 18,
+            ADSTYPE_TYPEDNAME = 19,
+            ADSTYPE_HOLD = 20,
+            ADSTYPE_NETADDRESS = 21,
+            ADSTYPE_REPLICAPOINTER = 22,
+            ADSTYPE_FAXNUMBER = 23,
+            ADSTYPE_EMAIL = 24,
+            ADSTYPE_NT_SECURITY_DESCRIPTOR = 25,
+            ADSTYPE_UNKNOWN = 26,
+            ADSTYPE_DN_WITH_BINARY = 27,
+            ADSTYPE_DN_WITH_STRING = 28,
+        }
+        struct ADSVALUE {
+            dwType: ADSTYPE,
+            Anonymous: union {
+                DNString: ADS_DN_STRING,
+                CaseExactString: ADS_CASE_EXACT_STRING,
+                CaseIgnoreString: ADS_CASE_IGNORE_STRING,
+                PrintableString: ADS_PRINTABLE_STRING,
+                NumericString: ADS_NUMERIC_STRING,
+                Boolean: ADS_BOOLEAN,
+                Integer: ADS_INTEGER,
+                OctetString: ADS_OCTET_STRING,
+                UTCTime: ADS_UTC_TIME,
+                LargeInteger: ADS_LARGE_INTEGER,
+                ClassName: ADS_OBJECT_CLASS,
+                ProviderSpecific: ADS_PROV_SPECIFIC,
+                pCaseIgnoreList: PADS_CASEIGNORE_LIST,
+                pOctetList: PADS_OCTET_LIST,
+                pPath: PADS_PATH,
+                pPostalAddress: PADS_POSTALADDRESS,
+                Timestamp: ADS_TIMESTAMP,
+                BackLink: ADS_BACKLINK,
+                pTypedName: PADS_TYPEDNAME,
+                Hold: ADS_HOLD,
+                pNetAddress: PADS_NETADDRESS,
+                pReplicaPointer: PADS_REPLICAPOINTER,
+                pFaxNumber: PADS_FAXNUMBER,
+                Email: ADS_EMAIL,
+                SecurityDescriptor: ADS_NT_SECURITY_DESCRIPTOR,
+                pDNWithBinary: PADS_DN_WITH_BINARY,
+                pDNWithString: PADS_DN_WITH_STRING,
+            },
+        }
+        #[repr(i32)]
+        enum ADS_ACEFLAG_ENUM {
+            ADS_ACEFLAG_INHERIT_ACE = 2,
+            ADS_ACEFLAG_NO_PROPAGATE_INHERIT_ACE = 4,
+            ADS_ACEFLAG_INHERIT_ONLY_ACE = 8,
+            ADS_ACEFLAG_INHERITED_ACE = 16,
+            ADS_ACEFLAG_VALID_INHERIT_FLAGS = 31,
+            ADS_ACEFLAG_SUCCESSFUL_ACCESS = 64,
+            ADS_ACEFLAG_FAILED_ACCESS = 128,
+        }
+        #[repr(i32)]
+        enum ADS_ACETYPE_ENUM {
+            ADS_ACETYPE_ACCESS_ALLOWED = 0,
+            ADS_ACETYPE_ACCESS_DENIED = 1,
+            ADS_ACETYPE_SYSTEM_AUDIT = 2,
+            ADS_ACETYPE_ACCESS_ALLOWED_OBJECT = 5,
+            ADS_ACETYPE_ACCESS_DENIED_OBJECT = 6,
+            ADS_ACETYPE_SYSTEM_AUDIT_OBJECT = 7,
+            ADS_ACETYPE_SYSTEM_ALARM_OBJECT = 8,
+            ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK = 9,
+            ADS_ACETYPE_ACCESS_DENIED_CALLBACK = 10,
+            ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK_OBJECT = 11,
+            ADS_ACETYPE_ACCESS_DENIED_CALLBACK_OBJECT = 12,
+            ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK = 13,
+            ADS_ACETYPE_SYSTEM_ALARM_CALLBACK = 14,
+            ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT = 15,
+            ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT = 16,
+        }
+        const ADS_ATTR_APPEND: u32 = 3;
+        const ADS_ATTR_CLEAR: u32 = 1;
+        struct ADS_ATTR_DEF {
+            pszAttrName: PWSTR,
+            dwADsType: ADSTYPE,
+            dwMinRange: u32,
+            dwMaxRange: u32,
+            fMultiValued: BOOL,
+        }
+        const ADS_ATTR_DELETE: u32 = 4;
+        struct ADS_ATTR_INFO {
+            pszAttrName: PWSTR,
+            dwControlCode: u32,
+            dwADsType: ADSTYPE,
+            pADsValues: PADSVALUE,
+            dwNumValues: u32,
+        }
+        const ADS_ATTR_UPDATE: u32 = 2;
+        #[repr(i32)]
+        enum ADS_AUTHENTICATION_ENUM {
+            ADS_SECURE_AUTHENTICATION = 1,
+            ADS_USE_ENCRYPTION = 2,
+            ADS_USE_SSL = 2,
+            ADS_READONLY_SERVER = 4,
+            ADS_PROMPT_CREDENTIALS = 8,
+            ADS_NO_AUTHENTICATION = 16,
+            ADS_FAST_BIND = 32,
+            ADS_USE_SIGNING = 64,
+            ADS_USE_SEALING = 128,
+            ADS_USE_DELEGATION = 256,
+            ADS_SERVER_BIND = 512,
+            ADS_NO_REFERRAL_CHASING = 1024,
+            ADS_AUTH_RESERVED = -2147483648,
+        }
+        struct ADS_BACKLINK {
+            RemoteID: u32,
+            ObjectName: PWSTR,
+        }
+        type ADS_BOOLEAN = u32;
+        struct ADS_CASEIGNORE_LIST {
+            Next: *mut ADS_CASEIGNORE_LIST,
+            String: PWSTR,
+        }
+        type ADS_CASE_EXACT_STRING = PWSTR;
+        type ADS_CASE_IGNORE_STRING = PWSTR;
+        #[repr(i32)]
+        enum ADS_CHASE_REFERRALS_ENUM {
+            ADS_CHASE_REFERRALS_NEVER = 0,
+            ADS_CHASE_REFERRALS_SUBORDINATE = 32,
+            ADS_CHASE_REFERRALS_EXTERNAL = 64,
+            ADS_CHASE_REFERRALS_ALWAYS = 96,
+        }
+        struct ADS_CLASS_DEF {
+            pszClassName: PWSTR,
+            dwMandatoryAttrs: u32,
+            ppszMandatoryAttrs: *mut PWSTR,
+            optionalAttrs: u32,
+            ppszOptionalAttrs: *mut *mut PWSTR,
+            dwNamingAttrs: u32,
+            ppszNamingAttrs: *mut *mut PWSTR,
+            dwSuperClasses: u32,
+            ppszSuperClasses: *mut *mut PWSTR,
+            fIsContainer: BOOL,
+        }
+        #[repr(i32)]
+        enum ADS_DEREFENUM {
+            ADS_DEREF_NEVER = 0,
+            ADS_DEREF_SEARCHING = 1,
+            ADS_DEREF_FINDING = 2,
+            ADS_DEREF_ALWAYS = 3,
+        }
+        #[encoding("utf-16")]
+        const ADS_DIRSYNC_COOKIE: String = "fc8cb04d-311d-406c-8cb9-1ae8b843b418";
+        #[repr(i32)]
+        enum ADS_DISPLAY_ENUM {
+            ADS_DISPLAY_FULL = 1,
+            ADS_DISPLAY_VALUE_ONLY = 2,
+        }
+        type ADS_DN_STRING = PWSTR;
+        struct ADS_DN_WITH_BINARY {
+            dwLength: u32,
+            lpBinaryValue: LPBYTE,
+            pszDNString: PWSTR,
+        }
+        struct ADS_DN_WITH_STRING {
+            pszStringValue: PWSTR,
+            pszDNString: PWSTR,
+        }
+        struct ADS_EMAIL {
+            Address: PWSTR,
+            Type: u32,
+        }
+        #[repr(i32)]
+        enum ADS_ESCAPE_MODE_ENUM {
+            ADS_ESCAPEDMODE_DEFAULT = 1,
+            ADS_ESCAPEDMODE_ON = 2,
+            ADS_ESCAPEDMODE_OFF = 3,
+            ADS_ESCAPEDMODE_OFF_EX = 4,
+        }
+        const ADS_EXT_INITCREDENTIALS: u32 = 1;
+        const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2;
+        const ADS_EXT_MAXEXTDISPID: u32 = 16777215;
+        const ADS_EXT_MINEXTDISPID: u32 = 1;
+        struct ADS_FAXNUMBER {
+            TelephoneNumber: PWSTR,
+            NumberOfBits: u32,
+            Parameters: LPBYTE,
+        }
+        #[repr(i32)]
+        enum ADS_FLAGTYPE_ENUM {
+            ADS_FLAG_OBJECT_TYPE_PRESENT = 1,
+            ADS_FLAG_INHERITED_OBJECT_TYPE_PRESENT = 2,
+        }
+        #[repr(i32)]
+        enum ADS_FORMAT_ENUM {
+            ADS_FORMAT_WINDOWS = 1,
+            ADS_FORMAT_WINDOWS_NO_SERVER = 2,
+            ADS_FORMAT_WINDOWS_DN = 3,
+            ADS_FORMAT_WINDOWS_PARENT = 4,
+            ADS_FORMAT_X500 = 5,
+            ADS_FORMAT_X500_NO_SERVER = 6,
+            ADS_FORMAT_X500_DN = 7,
+            ADS_FORMAT_X500_PARENT = 8,
+            ADS_FORMAT_SERVER = 9,
+            ADS_FORMAT_PROVIDER = 10,
+            ADS_FORMAT_LEAF = 11,
+        }
+        #[repr(i32)]
+        enum ADS_GROUP_TYPE_ENUM {
+            ADS_GROUP_TYPE_GLOBAL_GROUP = 2,
+            ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP = 4,
+            ADS_GROUP_TYPE_LOCAL_GROUP = 4,
+            ADS_GROUP_TYPE_UNIVERSAL_GROUP = 8,
+            ADS_GROUP_TYPE_SECURITY_ENABLED = -2147483648,
+        }
+        struct ADS_HOLD {
+            ObjectName: PWSTR,
+            Amount: u32,
+        }
+        type ADS_INTEGER = u32;
+        type ADS_LARGE_INTEGER = LARGE_INTEGER;
+        #[repr(i32)]
+        enum ADS_NAME_INITTYPE_ENUM {
+            ADS_NAME_INITTYPE_DOMAIN = 1,
+            ADS_NAME_INITTYPE_SERVER = 2,
+            ADS_NAME_INITTYPE_GC = 3,
+        }
+        #[repr(i32)]
+        enum ADS_NAME_TYPE_ENUM {
+            ADS_NAME_TYPE_1779 = 1,
+            ADS_NAME_TYPE_CANONICAL = 2,
+            ADS_NAME_TYPE_NT4 = 3,
+            ADS_NAME_TYPE_DISPLAY = 4,
+            ADS_NAME_TYPE_DOMAIN_SIMPLE = 5,
+            ADS_NAME_TYPE_ENTERPRISE_SIMPLE = 6,
+            ADS_NAME_TYPE_GUID = 7,
+            ADS_NAME_TYPE_UNKNOWN = 8,
+            ADS_NAME_TYPE_USER_PRINCIPAL_NAME = 9,
+            ADS_NAME_TYPE_CANONICAL_EX = 10,
+            ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME = 11,
+            ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME = 12,
+        }
+        struct ADS_NETADDRESS {
+            AddressType: u32,
+            AddressLength: u32,
+            Address: *mut u8,
+        }
+        struct ADS_NT_SECURITY_DESCRIPTOR {
+            dwLength: u32,
+            lpValue: LPBYTE,
+        }
+        type ADS_NUMERIC_STRING = PWSTR;
+        type ADS_OBJECT_CLASS = PWSTR;
+        struct ADS_OBJECT_INFO {
+            pszRDN: PWSTR,
+            pszObjectDN: PWSTR,
+            pszParentDN: PWSTR,
+            pszSchemaDN: PWSTR,
+            pszClassName: PWSTR,
+        }
+        struct ADS_OCTET_LIST {
+            Next: *mut ADS_OCTET_LIST,
+            Length: u32,
+            Data: *mut u8,
+        }
+        struct ADS_OCTET_STRING {
+            dwLength: u32,
+            lpValue: LPBYTE,
+        }
+        #[repr(i32)]
+        enum ADS_OPTION_ENUM {
+            ADS_OPTION_SERVERNAME = 0,
+            ADS_OPTION_REFERRALS = 1,
+            ADS_OPTION_PAGE_SIZE = 2,
+            ADS_OPTION_SECURITY_MASK = 3,
+            ADS_OPTION_MUTUAL_AUTH_STATUS = 4,
+            ADS_OPTION_QUOTA = 5,
+            ADS_OPTION_PASSWORD_PORTNUMBER = 6,
+            ADS_OPTION_PASSWORD_METHOD = 7,
+            ADS_OPTION_ACCUMULATIVE_MODIFICATION = 8,
+            ADS_OPTION_SKIP_SID_LOOKUP = 9,
+        }
+        #[repr(i32)]
+        enum ADS_PASSWORD_ENCODING_ENUM {
+            ADS_PASSWORD_ENCODE_REQUIRE_SSL = 0,
+            ADS_PASSWORD_ENCODE_CLEAR = 1,
+        }
+        struct ADS_PATH {
+            Type: u32,
+            VolumeName: PWSTR,
+            Path: PWSTR,
+        }
+        #[repr(i32)]
+        enum ADS_PATHTYPE_ENUM {
+            ADS_PATH_FILE = 1,
+            ADS_PATH_FILESHARE = 2,
+            ADS_PATH_REGISTRY = 3,
+        }
+        struct ADS_POSTALADDRESS {
+            PostalAddress: [PWSTR; 6],
+        }
+        #[repr(i32)]
+        enum ADS_PREFERENCES_ENUM {
+            ADSIPROP_ASYNCHRONOUS = 0,
+            ADSIPROP_DEREF_ALIASES = 1,
+            ADSIPROP_SIZE_LIMIT = 2,
+            ADSIPROP_TIME_LIMIT = 3,
+            ADSIPROP_ATTRIBTYPES_ONLY = 4,
+            ADSIPROP_SEARCH_SCOPE = 5,
+            ADSIPROP_TIMEOUT = 6,
+            ADSIPROP_PAGESIZE = 7,
+            ADSIPROP_PAGED_TIME_LIMIT = 8,
+            ADSIPROP_CHASE_REFERRALS = 9,
+            ADSIPROP_SORT_ON = 10,
+            ADSIPROP_CACHE_RESULTS = 11,
+            ADSIPROP_ADSIFLAG = 12,
+        }
+        type ADS_PRINTABLE_STRING = PWSTR;
+        #[repr(i32)]
+        enum ADS_PROPERTY_OPERATION_ENUM {
+            ADS_PROPERTY_CLEAR = 1,
+            ADS_PROPERTY_UPDATE = 2,
+            ADS_PROPERTY_APPEND = 3,
+            ADS_PROPERTY_DELETE = 4,
+        }
+        struct ADS_PROV_SPECIFIC {
+            dwLength: u32,
+            lpValue: LPBYTE,
+        }
+        struct ADS_REPLICAPOINTER {
+            ServerName: PWSTR,
+            ReplicaType: u32,
+            ReplicaNumber: u32,
+            Count: u32,
+            ReplicaAddressHints: PADS_NETADDRESS,
+        }
+        #[repr(i32)]
+        enum ADS_RIGHTS_ENUM {
+            ADS_RIGHT_DELETE = 65536,
+            ADS_RIGHT_READ_CONTROL = 131072,
+            ADS_RIGHT_WRITE_DAC = 262144,
+            ADS_RIGHT_WRITE_OWNER = 524288,
+            ADS_RIGHT_SYNCHRONIZE = 1048576,
+            ADS_RIGHT_ACCESS_SYSTEM_SECURITY = 16777216,
+            ADS_RIGHT_GENERIC_READ = -2147483648,
+            ADS_RIGHT_GENERIC_WRITE = 1073741824,
+            ADS_RIGHT_GENERIC_EXECUTE = 536870912,
+            ADS_RIGHT_GENERIC_ALL = 268435456,
+            ADS_RIGHT_DS_CREATE_CHILD = 1,
+            ADS_RIGHT_DS_DELETE_CHILD = 2,
+            ADS_RIGHT_ACTRL_DS_LIST = 4,
+            ADS_RIGHT_DS_SELF = 8,
+            ADS_RIGHT_DS_READ_PROP = 16,
+            ADS_RIGHT_DS_WRITE_PROP = 32,
+            ADS_RIGHT_DS_DELETE_TREE = 64,
+            ADS_RIGHT_DS_LIST_OBJECT = 128,
+            ADS_RIGHT_DS_CONTROL_ACCESS = 256,
+        }
+        #[repr(i32)]
+        enum ADS_SCOPEENUM {
+            ADS_SCOPE_BASE = 0,
+            ADS_SCOPE_ONELEVEL = 1,
+            ADS_SCOPE_SUBTREE = 2,
+        }
+        #[repr(i32)]
+        enum ADS_SD_CONTROL_ENUM {
+            ADS_SD_CONTROL_SE_OWNER_DEFAULTED = 1,
+            ADS_SD_CONTROL_SE_GROUP_DEFAULTED = 2,
+            ADS_SD_CONTROL_SE_DACL_PRESENT = 4,
+            ADS_SD_CONTROL_SE_DACL_DEFAULTED = 8,
+            ADS_SD_CONTROL_SE_SACL_PRESENT = 16,
+            ADS_SD_CONTROL_SE_SACL_DEFAULTED = 32,
+            ADS_SD_CONTROL_SE_DACL_AUTO_INHERIT_REQ = 256,
+            ADS_SD_CONTROL_SE_SACL_AUTO_INHERIT_REQ = 512,
+            ADS_SD_CONTROL_SE_DACL_AUTO_INHERITED = 1024,
+            ADS_SD_CONTROL_SE_SACL_AUTO_INHERITED = 2048,
+            ADS_SD_CONTROL_SE_DACL_PROTECTED = 4096,
+            ADS_SD_CONTROL_SE_SACL_PROTECTED = 8192,
+            ADS_SD_CONTROL_SE_SELF_RELATIVE = 32768,
+        }
+        #[repr(i32)]
+        enum ADS_SD_FORMAT_ENUM {
+            ADS_SD_FORMAT_IID = 1,
+            ADS_SD_FORMAT_RAW = 2,
+            ADS_SD_FORMAT_HEXSTRING = 3,
+        }
+        #[repr(i32)]
+        enum ADS_SD_REVISION_ENUM {
+            ADS_SD_REVISION_DS = 4,
+        }
+        type ADS_SEARCHPREF = ADS_SEARCHPREF_ENUM;
+        #[repr(i32)]
+        enum ADS_SEARCHPREF_ENUM {
+            ADS_SEARCHPREF_ASYNCHRONOUS = 0,
+            ADS_SEARCHPREF_DEREF_ALIASES = 1,
+            ADS_SEARCHPREF_SIZE_LIMIT = 2,
+            ADS_SEARCHPREF_TIME_LIMIT = 3,
+            ADS_SEARCHPREF_ATTRIBTYPES_ONLY = 4,
+            ADS_SEARCHPREF_SEARCH_SCOPE = 5,
+            ADS_SEARCHPREF_TIMEOUT = 6,
+            ADS_SEARCHPREF_PAGESIZE = 7,
+            ADS_SEARCHPREF_PAGED_TIME_LIMIT = 8,
+            ADS_SEARCHPREF_CHASE_REFERRALS = 9,
+            ADS_SEARCHPREF_SORT_ON = 10,
+            ADS_SEARCHPREF_CACHE_RESULTS = 11,
+            ADS_SEARCHPREF_DIRSYNC = 12,
+            ADS_SEARCHPREF_TOMBSTONE = 13,
+            ADS_SEARCHPREF_VLV = 14,
+            ADS_SEARCHPREF_ATTRIBUTE_QUERY = 15,
+            ADS_SEARCHPREF_SECURITY_MASK = 16,
+            ADS_SEARCHPREF_DIRSYNC_FLAG = 17,
+            ADS_SEARCHPREF_EXTENDED_DN = 18,
+        }
+        struct ADS_SEARCHPREF_INFO {
+            dwSearchPref: ADS_SEARCHPREF,
+            vValue: ADSVALUE,
+            dwStatus: ADS_STATUS,
+        }
+        struct ADS_SEARCH_COLUMN {
+            pszAttrName: PWSTR,
+            dwADsType: ADSTYPE,
+            pADsValues: PADSVALUE,
+            dwNumValues: u32,
+            hReserved: HANDLE,
+        }
+        type ADS_SEARCH_HANDLE = HANDLE;
+        #[repr(i32)]
+        enum ADS_SECURITY_INFO_ENUM {
+            ADS_SECURITY_INFO_OWNER = 1,
+            ADS_SECURITY_INFO_GROUP = 2,
+            ADS_SECURITY_INFO_DACL = 4,
+            ADS_SECURITY_INFO_SACL = 8,
+        }
+        #[repr(i32)]
+        enum ADS_SETTYPE_ENUM {
+            ADS_SETTYPE_FULL = 1,
+            ADS_SETTYPE_PROVIDER = 2,
+            ADS_SETTYPE_SERVER = 3,
+            ADS_SETTYPE_DN = 4,
+        }
+        struct ADS_SORTKEY {
+            pszAttrType: PWSTR,
+            pszReserved: PWSTR,
+            fReverseorder: BOOLEAN,
+        }
+        type ADS_STATUS = ADS_STATUSENUM;
+        #[repr(i32)]
+        enum ADS_STATUSENUM {
+            ADS_STATUS_S_OK = 0,
+            ADS_STATUS_INVALID_SEARCHPREF = 1,
+            ADS_STATUS_INVALID_SEARCHPREFVALUE = 2,
+        }
+        #[repr(i32)]
+        enum ADS_SYSTEMFLAG_ENUM {
+            ADS_SYSTEMFLAG_DISALLOW_DELETE = -2147483648,
+            ADS_SYSTEMFLAG_CONFIG_ALLOW_RENAME = 1073741824,
+            ADS_SYSTEMFLAG_CONFIG_ALLOW_MOVE = 536870912,
+            ADS_SYSTEMFLAG_CONFIG_ALLOW_LIMITED_MOVE = 268435456,
+            ADS_SYSTEMFLAG_DOMAIN_DISALLOW_RENAME = 134217728,
+            ADS_SYSTEMFLAG_DOMAIN_DISALLOW_MOVE = 67108864,
+            ADS_SYSTEMFLAG_CR_NTDS_NC = 1,
+            ADS_SYSTEMFLAG_CR_NTDS_DOMAIN = 2,
+            ADS_SYSTEMFLAG_ATTR_NOT_REPLICATED = 1,
+            ADS_SYSTEMFLAG_ATTR_IS_CONSTRUCTED = 4,
+        }
+        struct ADS_TIMESTAMP {
+            WholeSeconds: u32,
+            EventID: u32,
+        }
+        struct ADS_TYPEDNAME {
+            ObjectName: PWSTR,
+            Level: u32,
+            Interval: u32,
+        }
+        #[repr(i32)]
+        enum ADS_USER_FLAG_ENUM {
+            ADS_UF_SCRIPT = 1,
+            ADS_UF_ACCOUNTDISABLE = 2,
+            ADS_UF_HOMEDIR_REQUIRED = 8,
+            ADS_UF_LOCKOUT = 16,
+            ADS_UF_PASSWD_NOTREQD = 32,
+            ADS_UF_PASSWD_CANT_CHANGE = 64,
+            ADS_UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED = 128,
+            ADS_UF_TEMP_DUPLICATE_ACCOUNT = 256,
+            ADS_UF_NORMAL_ACCOUNT = 512,
+            ADS_UF_INTERDOMAIN_TRUST_ACCOUNT = 2048,
+            ADS_UF_WORKSTATION_TRUST_ACCOUNT = 4096,
+            ADS_UF_SERVER_TRUST_ACCOUNT = 8192,
+            ADS_UF_DONT_EXPIRE_PASSWD = 65536,
+            ADS_UF_MNS_LOGON_ACCOUNT = 131072,
+            ADS_UF_SMARTCARD_REQUIRED = 262144,
+            ADS_UF_TRUSTED_FOR_DELEGATION = 524288,
+            ADS_UF_NOT_DELEGATED = 1048576,
+            ADS_UF_USE_DES_KEY_ONLY = 2097152,
+            ADS_UF_DONT_REQUIRE_PREAUTH = 4194304,
+            ADS_UF_PASSWORD_EXPIRED = 8388608,
+            ADS_UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION = 16777216,
+        }
+        type ADS_UTC_TIME = SYSTEMTIME;
+        struct ADS_VLV {
+            dwBeforeCount: u32,
+            dwAfterCount: u32,
+            dwOffset: u32,
+            dwContentCount: u32,
+            pszTarget: PWSTR,
+            dwContextIDLength: u32,
+            lpContextID: LPBYTE,
+        }
+        #[encoding("utf-16")]
+        const ADS_VLV_RESPONSE: String = "fc8cb04d-311d-406c-8cb9-1ae8b843b419";
+        const ADSystemInfo: GUID = 0x50b6327f_afd1_11d2_9cb9_0000f87a369e;
+        const ADsSecurityUtility: GUID = 0xf270c64a_ffb8_4ae4_85fe_3a75e5347966;
+        const AccessControlEntry: GUID = 0xb75ac000_9bdd_11d0_852c_00c04fd8d503;
+        const AccessControlList: GUID = 0xb85ea052_9bdd_11d0_852c_00c04fd8d503;
+        const BackLink: GUID = 0xfcbf906f_4080_11d1_a3ac_00c04fb950dc;
+        const CaseIgnoreList: GUID = 0x15f88a55_4680_11d1_a3b4_00c04fb950dc;
+        const DNWithBinary: GUID = 0x7e99c0a3_f935_11d2_ba96_00c04fb6d0d1;
+        const DNWithString: GUID = 0x334857cc_f934_11d2_ba96_00c04fb6d0d1;
+        const Email: GUID = 0x8f92a857_478e_11d1_a3b4_00c04fb950dc;
+        const FaxNumber: GUID = 0xa5062215_4681_11d1_a3b4_00c04fb950dc;
+        const Hold: GUID = 0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc;
+        #[guid(0xfd8256d0_fd15_11ce_abc4_02608c9e7553)]
+        interface IADs: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Class(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_GUID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ADsPath(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Schema(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            fn GetInfo(&self) -> HRESULT;
+            fn SetInfo(&self) -> HRESULT;
+            fn Get(&self, bstrName: BSTR, #[retval] pvProp: *mut VARIANT) -> HRESULT;
+            fn Put(&self, bstrName: BSTR, vProp: VARIANT) -> HRESULT;
+            fn GetEx(&self, bstrName: BSTR, #[retval] pvProp: *mut VARIANT) -> HRESULT;
+            fn PutEx(&self, lnControlCode: i32, bstrName: BSTR, vProp: VARIANT) -> HRESULT;
+            fn GetInfoEx(&self, vProperties: VARIANT, lnReserved: i32) -> HRESULT;
+        }
+        #[guid(0x5bb11929_afd1_11d2_9cb9_0000f87a369e)]
+        interface IADsADSystemInfo: IDispatch {
+            #[special]
+            fn get_UserName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ComputerName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_SiteName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DomainShortName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DomainDNSName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ForestDNSName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_PDCRoleOwner(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_SchemaRoleOwner(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_IsNativeMode(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetAnyDCName(&self, #[retval] pszDCName: *mut BSTR) -> HRESULT;
+            fn GetDCSiteName(&self, szServer: BSTR, #[retval] pszSiteName: *mut BSTR) -> HRESULT;
+            fn RefreshSchemaCache(&self) -> HRESULT;
+            fn GetTrees(&self, #[retval] pvTrees: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xb4f3a14c_9bdd_11d0_852c_00c04fd8d503)]
+        interface IADsAccessControlEntry: IDispatch {
+            #[special]
+            fn get_AccessMask(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AccessMask(&self, lnAccessMask: i32) -> HRESULT;
+            #[special]
+            fn get_AceType(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AceType(&self, lnAceType: i32) -> HRESULT;
+            #[special]
+            fn get_AceFlags(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AceFlags(&self, lnAceFlags: i32) -> HRESULT;
+            #[special]
+            fn get_Flags(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Flags(&self, lnFlags: i32) -> HRESULT;
+            #[special]
+            fn get_ObjectType(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ObjectType(&self, bstrObjectType: BSTR) -> HRESULT;
+            #[special]
+            fn get_InheritedObjectType(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_InheritedObjectType(&self, bstrInheritedObjectType: BSTR) -> HRESULT;
+            #[special]
+            fn get_Trustee(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Trustee(&self, bstrTrustee: BSTR) -> HRESULT;
+        }
+        #[guid(0xb7ee91cc_9bdd_11d0_852c_00c04fd8d503)]
+        interface IADsAccessControlList: IDispatch {
+            #[special]
+            fn get_AclRevision(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AclRevision(&self, lnAclRevision: i32) -> HRESULT;
+            #[special]
+            fn get_AceCount(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AceCount(&self, lnAceCount: i32) -> HRESULT;
+            fn AddAce(&self, pAccessControlEntry: IDispatch) -> HRESULT;
+            fn RemoveAce(&self, pAccessControlEntry: IDispatch) -> HRESULT;
+            fn CopyAccessList(&self, #[retval] ppAccessControlList: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x8452d3ab_0869_11d1_a377_00c04fb950dc)]
+        interface IADsAcl: IDispatch {
+            #[special]
+            fn get_ProtectedAttrName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ProtectedAttrName(&self, bstrProtectedAttrName: BSTR) -> HRESULT;
+            #[special]
+            fn get_SubjectName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SubjectName(&self, bstrSubjectName: BSTR) -> HRESULT;
+            #[special]
+            fn get_Privileges(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Privileges(&self, lnPrivileges: i32) -> HRESULT;
+            fn CopyAcl(&self, #[retval] ppAcl: *mut IDispatch) -> HRESULT;
+        }
+        #[guid(0x1346ce8c_9039_11d0_8528_00c04fd8d503)]
+        interface IADsAggregatee: IUnknown {
+            fn ConnectAsAggregatee(&self, pOuterUnknown: IUnknown) -> HRESULT;
+            fn DisconnectAsAggregatee(&self) -> HRESULT;
+            fn RelinquishInterface(&self, riid: *const GUID) -> HRESULT;
+            fn RestoreInterface(&self, riid: *const GUID) -> HRESULT;
+        }
+        #[guid(0x52db5fb0_941f_11d0_8529_00c04fd8d503)]
+        interface IADsAggregator: IUnknown {
+            fn ConnectAsAggregator(&self, pAggregatee: IUnknown) -> HRESULT;
+            fn DisconnectAsAggregator(&self) -> HRESULT;
+        }
+        #[guid(0xfd1302bd_4080_11d1_a3ac_00c04fb950dc)]
+        interface IADsBackLink: IDispatch {
+            #[special]
+            fn get_RemoteID(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_RemoteID(&self, lnRemoteID: i32) -> HRESULT;
+            #[special]
+            fn get_ObjectName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ObjectName(&self, bstrObjectName: BSTR) -> HRESULT;
+        }
+        #[guid(0x7b66b533_4680_11d1_a3b4_00c04fb950dc)]
+        interface IADsCaseIgnoreList: IDispatch {
+            #[special]
+            fn get_CaseIgnoreList(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_CaseIgnoreList(&self, vCaseIgnoreList: VARIANT) -> HRESULT;
+        }
+        #[guid(0xc8f93dd0_4ae0_11cf_9e73_00aa004a5691)]
+        interface IADsClass: IADs {
+            #[special]
+            fn get_PrimaryInterface(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_CLSID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_CLSID(&self, bstrCLSID: BSTR) -> HRESULT;
+            #[special]
+            fn get_OID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_OID(&self, bstrOID: BSTR) -> HRESULT;
+            #[special]
+            fn get_Abstract(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Abstract(&self, fAbstract: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Auxiliary(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Auxiliary(&self, fAuxiliary: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MandatoryProperties(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_MandatoryProperties(&self, vMandatoryProperties: VARIANT) -> HRESULT;
+            #[special]
+            fn get_OptionalProperties(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_OptionalProperties(&self, vOptionalProperties: VARIANT) -> HRESULT;
+            #[special]
+            fn get_NamingProperties(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_NamingProperties(&self, vNamingProperties: VARIANT) -> HRESULT;
+            #[special]
+            fn get_DerivedFrom(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_DerivedFrom(&self, vDerivedFrom: VARIANT) -> HRESULT;
+            #[special]
+            fn get_AuxDerivedFrom(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_AuxDerivedFrom(&self, vAuxDerivedFrom: VARIANT) -> HRESULT;
+            #[special]
+            fn get_PossibleSuperiors(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_PossibleSuperiors(&self, vPossibleSuperiors: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Containment(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Containment(&self, vContainment: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Container(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Container(&self, fContainer: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_HelpFileName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_HelpFileName(&self, bstrHelpFileName: BSTR) -> HRESULT;
+            #[special]
+            fn get_HelpFileContext(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_HelpFileContext(&self, lnHelpFileContext: i32) -> HRESULT;
+            fn Qualifiers(&self, #[retval] ppQualifiers: *mut IADsCollection) -> HRESULT;
+        }
+        #[guid(0x72b945e0_253b_11cf_a988_00aa006bc149)]
+        interface IADsCollection: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnumerator: *mut IUnknown) -> HRESULT;
+            fn Add(&self, bstrName: BSTR, vItem: VARIANT) -> HRESULT;
+            fn Remove(&self, bstrItemToBeRemoved: BSTR) -> HRESULT;
+            fn GetObject(&self, bstrName: BSTR, #[retval] pvItem: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xefe3cc70_1d9f_11cf_b1f3_02608c9e7553)]
+        interface IADsComputer: IADs {
+            #[special]
+            fn get_ComputerID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Site(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bstrDescription: BSTR) -> HRESULT;
+            #[special]
+            fn get_Location(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Location(&self, bstrLocation: BSTR) -> HRESULT;
+            #[special]
+            fn get_PrimaryUser(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_PrimaryUser(&self, bstrPrimaryUser: BSTR) -> HRESULT;
+            #[special]
+            fn get_Owner(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Owner(&self, bstrOwner: BSTR) -> HRESULT;
+            #[special]
+            fn get_Division(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Division(&self, bstrDivision: BSTR) -> HRESULT;
+            #[special]
+            fn get_Department(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Department(&self, bstrDepartment: BSTR) -> HRESULT;
+            #[special]
+            fn get_Role(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Role(&self, bstrRole: BSTR) -> HRESULT;
+            #[special]
+            fn get_OperatingSystem(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_OperatingSystem(&self, bstrOperatingSystem: BSTR) -> HRESULT;
+            #[special]
+            fn get_OperatingSystemVersion(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_OperatingSystemVersion(&self, bstrOperatingSystemVersion: BSTR) -> HRESULT;
+            #[special]
+            fn get_Model(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Model(&self, bstrModel: BSTR) -> HRESULT;
+            #[special]
+            fn get_Processor(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Processor(&self, bstrProcessor: BSTR) -> HRESULT;
+            #[special]
+            fn get_ProcessorCount(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ProcessorCount(&self, bstrProcessorCount: BSTR) -> HRESULT;
+            #[special]
+            fn get_MemorySize(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_MemorySize(&self, bstrMemorySize: BSTR) -> HRESULT;
+            #[special]
+            fn get_StorageCapacity(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_StorageCapacity(&self, bstrStorageCapacity: BSTR) -> HRESULT;
+            #[special]
+            fn get_NetAddresses(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_NetAddresses(&self, vNetAddresses: VARIANT) -> HRESULT;
+        }
+        #[guid(0xef497680_1d9f_11cf_b1f3_02608c9e7553)]
+        interface IADsComputerOperations: IADs {
+            fn Status(&self, #[retval] ppObject: *mut IDispatch) -> HRESULT;
+            fn Shutdown(&self, bReboot: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x001677d0_fd16_11ce_abc4_02608c9e7553)]
+        interface IADsContainer: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Filter(&self, #[retval] pVar: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Filter(&self, Var: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Hints(&self, #[retval] pvFilter: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Hints(&self, vHints: VARIANT) -> HRESULT;
+            fn GetObject(&self, ClassName: BSTR, RelativeName: BSTR, #[retval] ppObject: *mut IDispatch) -> HRESULT;
+            fn Create(&self, ClassName: BSTR, RelativeName: BSTR, #[retval] ppObject: *mut IDispatch) -> HRESULT;
+            fn Delete(&self, bstrClassName: BSTR, bstrRelativeName: BSTR) -> HRESULT;
+            fn CopyHere(&self, SourceName: BSTR, NewName: BSTR, #[retval] ppObject: *mut IDispatch) -> HRESULT;
+            fn MoveHere(&self, SourceName: BSTR, NewName: BSTR, #[retval] ppObject: *mut IDispatch) -> HRESULT;
+        }
+        #[guid(0x7e99c0a2_f935_11d2_ba96_00c04fb6d0d1)]
+        interface IADsDNWithBinary: IDispatch {
+            #[special]
+            fn get_BinaryValue(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_BinaryValue(&self, vBinaryValue: VARIANT) -> HRESULT;
+            #[special]
+            fn get_DNString(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DNString(&self, bstrDNString: BSTR) -> HRESULT;
+        }
+        #[guid(0x370df02e_f934_11d2_ba96_00c04fb6d0d1)]
+        interface IADsDNWithString: IDispatch {
+            #[special]
+            fn get_StringValue(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_StringValue(&self, bstrStringValue: BSTR) -> HRESULT;
+            #[special]
+            fn get_DNString(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DNString(&self, bstrDNString: BSTR) -> HRESULT;
+        }
+        #[guid(0xb2bd0902_8878_11d1_8c21_00c04fd8d503)]
+        interface IADsDeleteOps: IDispatch {
+            fn DeleteObject(&self, lnFlags: i32) -> HRESULT;
+        }
+        #[guid(0x00e4c220_fd16_11ce_abc4_02608c9e7553)]
+        interface IADsDomain: IADs {
+            #[special]
+            fn get_IsWorkgroup(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MinPasswordLength(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinPasswordLength(&self, lnMinPasswordLength: i32) -> HRESULT;
+            #[special]
+            fn get_MinPasswordAge(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinPasswordAge(&self, lnMinPasswordAge: i32) -> HRESULT;
+            #[special]
+            fn get_MaxPasswordAge(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxPasswordAge(&self, lnMaxPasswordAge: i32) -> HRESULT;
+            #[special]
+            fn get_MaxBadPasswordsAllowed(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxBadPasswordsAllowed(&self, lnMaxBadPasswordsAllowed: i32) -> HRESULT;
+            #[special]
+            fn get_PasswordHistoryLength(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_PasswordHistoryLength(&self, lnPasswordHistoryLength: i32) -> HRESULT;
+            #[special]
+            fn get_PasswordAttributes(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_PasswordAttributes(&self, lnPasswordAttributes: i32) -> HRESULT;
+            #[special]
+            fn get_AutoUnlockInterval(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AutoUnlockInterval(&self, lnAutoUnlockInterval: i32) -> HRESULT;
+            #[special]
+            fn get_LockoutObservationInterval(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_LockoutObservationInterval(&self, lnLockoutObservationInterval: i32) -> HRESULT;
+        }
+        #[guid(0x97af011a_478e_11d1_a3b4_00c04fb950dc)]
+        interface IADsEmail: IDispatch {
+            #[special]
+            fn get_Type(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Type(&self, lnType: i32) -> HRESULT;
+            #[special]
+            fn get_Address(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Address(&self, bstrAddress: BSTR) -> HRESULT;
+        }
+        #[guid(0x3d35553c_d2b0_11d1_b17b_0000f87593a0)]
+        interface IADsExtension: IUnknown {
+            fn Operate(&self, dwCode: u32, varData1: VARIANT, varData2: VARIANT, varData3: VARIANT) -> HRESULT;
+            fn PrivateGetIDsOfNames(&self, riid: *const GUID, rgszNames: *const *const OLECHAR, cNames: u32, lcid: LCID, rgDispid: *mut DISPID) -> HRESULT;
+            fn PrivateInvoke(&self, dispidMember: DISPID, riid: *const GUID, lcid: LCID, wFlags: u16, pdispparams: *const DISPPARAMS, pvarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
+        }
+        #[guid(0xa910dea9_4680_11d1_a3b4_00c04fb950dc)]
+        interface IADsFaxNumber: IDispatch {
+            #[special]
+            fn get_TelephoneNumber(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_TelephoneNumber(&self, bstrTelephoneNumber: BSTR) -> HRESULT;
+            #[special]
+            fn get_Parameters(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Parameters(&self, vParameters: VARIANT) -> HRESULT;
+        }
+        #[guid(0xa89d1900_31ca_11cf_a98a_00aa006bc149)]
+        interface IADsFileService: IADsService {
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bstrDescription: BSTR) -> HRESULT;
+            #[special]
+            fn get_MaxUserCount(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxUserCount(&self, lnMaxUserCount: i32) -> HRESULT;
+        }
+        #[guid(0xa02ded10_31ca_11cf_a98a_00aa006bc149)]
+        interface IADsFileServiceOperations: IADsServiceOperations {
+            fn Sessions(&self, #[retval] ppSessions: *mut IADsCollection) -> HRESULT;
+            fn Resources(&self, #[retval] ppResources: *mut IADsCollection) -> HRESULT;
+        }
+        #[guid(0xeb6dcaf0_4b83_11cf_a995_00aa006bc149)]
+        interface IADsFileShare: IADs {
+            #[special]
+            fn get_CurrentUserCount(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bstrDescription: BSTR) -> HRESULT;
+            #[special]
+            fn get_HostComputer(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_HostComputer(&self, bstrHostComputer: BSTR) -> HRESULT;
+            #[special]
+            fn get_Path(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Path(&self, bstrPath: BSTR) -> HRESULT;
+            #[special]
+            fn get_MaxUserCount(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxUserCount(&self, lnMaxUserCount: i32) -> HRESULT;
+        }
+        #[guid(0x27636b00_410f_11cf_b1ff_02608c9e7553)]
+        interface IADsGroup: IADs {
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bstrDescription: BSTR) -> HRESULT;
+            fn Members(&self, #[retval] ppMembers: *mut IADsMembers) -> HRESULT;
+            fn IsMember(&self, bstrMember: BSTR, #[retval] bMember: *mut VARIANT_BOOL) -> HRESULT;
+            fn Add(&self, bstrNewItem: BSTR) -> HRESULT;
+            fn Remove(&self, bstrItemToBeRemoved: BSTR) -> HRESULT;
+        }
+        #[guid(0xb3eb3b37_4080_11d1_a3ac_00c04fb950dc)]
+        interface IADsHold: IDispatch {
+            #[special]
+            fn get_ObjectName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ObjectName(&self, bstrObjectName: BSTR) -> HRESULT;
+            #[special]
+            fn get_Amount(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Amount(&self, lnAmount: i32) -> HRESULT;
+        }
+        #[guid(0x9068270b_0939_11d1_8be1_00c04fd8d503)]
+        interface IADsLargeInteger: IDispatch {
+            #[special]
+            fn get_HighPart(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_HighPart(&self, lnHighPart: i32) -> HRESULT;
+            #[special]
+            fn get_LowPart(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_LowPart(&self, lnLowPart: i32) -> HRESULT;
+        }
+        #[guid(0xa05e03a2_effe_11cf_8abc_00c04fd8d503)]
+        interface IADsLocality: IADs {
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bstrDescription: BSTR) -> HRESULT;
+            #[special]
+            fn get_LocalityName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LocalityName(&self, bstrLocalityName: BSTR) -> HRESULT;
+            #[special]
+            fn get_PostalAddress(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_PostalAddress(&self, bstrPostalAddress: BSTR) -> HRESULT;
+            #[special]
+            fn get_SeeAlso(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_SeeAlso(&self, vSeeAlso: VARIANT) -> HRESULT;
+        }
+        #[guid(0x451a0030_72ec_11cf_b03b_00aa006e0975)]
+        interface IADsMembers: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnumerator: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Filter(&self, #[retval] pvFilter: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Filter(&self, pvFilter: VARIANT) -> HRESULT;
+        }
+        #[guid(0xb1b272a3_3625_11d1_a3a4_00c04fb950dc)]
+        interface IADsNameTranslate: IDispatch {
+            #[special]
+            fn put_ChaseReferral(&self, lnChaseReferral: i32) -> HRESULT;
+            fn Init(&self, lnSetType: i32, bstrADsPath: BSTR) -> HRESULT;
+            fn InitEx(&self, lnSetType: i32, bstrADsPath: BSTR, bstrUserID: BSTR, bstrDomain: BSTR, bstrPassword: BSTR) -> HRESULT;
+            fn Set(&self, lnSetType: i32, bstrADsPath: BSTR) -> HRESULT;
+            fn Get(&self, lnFormatType: i32, #[retval] pbstrADsPath: *mut BSTR) -> HRESULT;
+            fn SetEx(&self, lnFormatType: i32, pvar: VARIANT) -> HRESULT;
+            fn GetEx(&self, lnFormatType: i32, #[retval] pvar: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x28b96ba0_b330_11cf_a9ad_00aa006bc149)]
+        interface IADsNamespaces: IADs {
+            #[special]
+            fn get_DefaultContainer(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DefaultContainer(&self, bstrDefaultContainer: BSTR) -> HRESULT;
+        }
+        #[guid(0xb21a50a9_4080_11d1_a3ac_00c04fb950dc)]
+        interface IADsNetAddress: IDispatch {
+            #[special]
+            fn get_AddressType(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AddressType(&self, lnAddressType: i32) -> HRESULT;
+            #[special]
+            fn get_Address(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Address(&self, vAddress: VARIANT) -> HRESULT;
+        }
+        #[guid(0xa1cd2dc6_effe_11cf_8abc_00c04fd8d503)]
+        interface IADsO: IADs {
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bstrDescription: BSTR) -> HRESULT;
+            #[special]
+            fn get_LocalityName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LocalityName(&self, bstrLocalityName: BSTR) -> HRESULT;
+            #[special]
+            fn get_PostalAddress(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_PostalAddress(&self, bstrPostalAddress: BSTR) -> HRESULT;
+            #[special]
+            fn get_TelephoneNumber(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_TelephoneNumber(&self, bstrTelephoneNumber: BSTR) -> HRESULT;
+            #[special]
+            fn get_FaxNumber(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FaxNumber(&self, bstrFaxNumber: BSTR) -> HRESULT;
+            #[special]
+            fn get_SeeAlso(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_SeeAlso(&self, vSeeAlso: VARIANT) -> HRESULT;
+        }
+        #[guid(0xa2f733b8_effe_11cf_8abc_00c04fd8d503)]
+        interface IADsOU: IADs {
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bstrDescription: BSTR) -> HRESULT;
+            #[special]
+            fn get_LocalityName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LocalityName(&self, bstrLocalityName: BSTR) -> HRESULT;
+            #[special]
+            fn get_PostalAddress(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_PostalAddress(&self, bstrPostalAddress: BSTR) -> HRESULT;
+            #[special]
+            fn get_TelephoneNumber(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_TelephoneNumber(&self, bstrTelephoneNumber: BSTR) -> HRESULT;
+            #[special]
+            fn get_FaxNumber(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FaxNumber(&self, bstrFaxNumber: BSTR) -> HRESULT;
+            #[special]
+            fn get_SeeAlso(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_SeeAlso(&self, vSeeAlso: VARIANT) -> HRESULT;
+            #[special]
+            fn get_BusinessCategory(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_BusinessCategory(&self, bstrBusinessCategory: BSTR) -> HRESULT;
+        }
+        #[guid(0x46f14fda_232b_11d1_a808_00c04fd8d5a8)]
+        interface IADsObjectOptions: IDispatch {
+            fn GetOption(&self, lnOption: i32, #[retval] pvValue: *mut VARIANT) -> HRESULT;
+            fn SetOption(&self, lnOption: i32, vValue: VARIANT) -> HRESULT;
+        }
+        #[guid(0x7b28b80f_4680_11d1_a3b4_00c04fb950dc)]
+        interface IADsOctetList: IDispatch {
+            #[special]
+            fn get_OctetList(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_OctetList(&self, vOctetList: VARIANT) -> HRESULT;
+        }
+        #[guid(0xddf2891e_0f9c_11d0_8ad4_00c04fd8d503)]
+        interface IADsOpenDSObject: IDispatch {
+            fn OpenDSObject(&self, lpszDNName: BSTR, lpszUserName: BSTR, lpszPassword: BSTR, lnReserved: i32, #[retval] ppOleDsObj: *mut IDispatch) -> HRESULT;
+        }
+        #[guid(0xb287fcd5_4080_11d1_a3ac_00c04fb950dc)]
+        interface IADsPath: IDispatch {
+            #[special]
+            fn get_Type(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Type(&self, lnType: i32) -> HRESULT;
+            #[special]
+            fn get_VolumeName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_VolumeName(&self, bstrVolumeName: BSTR) -> HRESULT;
+            #[special]
+            fn get_Path(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Path(&self, bstrPath: BSTR) -> HRESULT;
+        }
+        #[guid(0xd592aed4_f420_11d0_a36e_00c04fb950dc)]
+        interface IADsPathname: IDispatch {
+            fn Set(&self, bstrADsPath: BSTR, lnSetType: i32) -> HRESULT;
+            fn SetDisplayType(&self, lnDisplayType: i32) -> HRESULT;
+            fn Retrieve(&self, lnFormatType: i32, #[retval] pbstrADsPath: *mut BSTR) -> HRESULT;
+            fn GetNumElements(&self, #[retval] plnNumPathElements: *mut i32) -> HRESULT;
+            fn GetElement(&self, lnElementIndex: i32, #[retval] pbstrElement: *mut BSTR) -> HRESULT;
+            fn AddLeafElement(&self, bstrLeafElement: BSTR) -> HRESULT;
+            fn RemoveLeafElement(&self) -> HRESULT;
+            fn CopyPath(&self, #[retval] ppAdsPath: *mut IDispatch) -> HRESULT;
+            fn GetEscapedElement(&self, lnReserved: i32, bstrInStr: BSTR, #[retval] pbstrOutStr: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_EscapedMode(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_EscapedMode(&self, lnEscapedMode: i32) -> HRESULT;
+        }
+        #[guid(0x7adecf29_4680_11d1_a3b4_00c04fb950dc)]
+        interface IADsPostalAddress: IDispatch {
+            #[special]
+            fn get_PostalAddress(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_PostalAddress(&self, vPostalAddress: VARIANT) -> HRESULT;
+        }
+        #[guid(0x32fb6780_1ed0_11cf_a988_00aa006bc149)]
+        interface IADsPrintJob: IADs {
+            #[special]
+            fn get_HostPrintQueue(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_User(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_UserPath(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_TimeSubmitted(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn get_TotalPages(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Size(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bstrDescription: BSTR) -> HRESULT;
+            #[special]
+            fn get_Priority(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Priority(&self, lnPriority: i32) -> HRESULT;
+            #[special]
+            fn get_StartTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn put_StartTime(&self, daStartTime: f64) -> HRESULT;
+            #[special]
+            fn get_UntilTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn put_UntilTime(&self, daUntilTime: f64) -> HRESULT;
+            #[special]
+            fn get_Notify(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Notify(&self, bstrNotify: BSTR) -> HRESULT;
+            #[special]
+            fn get_NotifyPath(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_NotifyPath(&self, bstrNotifyPath: BSTR) -> HRESULT;
+        }
+        #[guid(0x9a52db30_1ecf_11cf_a988_00aa006bc149)]
+        interface IADsPrintJobOperations: IADs {
+            #[special]
+            fn get_Status(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TimeElapsed(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_PagesPrinted(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Position(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Position(&self, lnPosition: i32) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+        }
+        #[guid(0xb15160d0_1226_11cf_a985_00aa006bc149)]
+        interface IADsPrintQueue: IADs {
+            #[special]
+            fn get_PrinterPath(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_PrinterPath(&self, bstrPrinterPath: BSTR) -> HRESULT;
+            #[special]
+            fn get_Model(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Model(&self, bstrModel: BSTR) -> HRESULT;
+            #[special]
+            fn get_Datatype(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Datatype(&self, bstrDatatype: BSTR) -> HRESULT;
+            #[special]
+            fn get_PrintProcessor(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_PrintProcessor(&self, bstrPrintProcessor: BSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bstrDescription: BSTR) -> HRESULT;
+            #[special]
+            fn get_Location(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Location(&self, bstrLocation: BSTR) -> HRESULT;
+            #[special]
+            fn get_StartTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn put_StartTime(&self, daStartTime: f64) -> HRESULT;
+            #[special]
+            fn get_UntilTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn put_UntilTime(&self, daUntilTime: f64) -> HRESULT;
+            #[special]
+            fn get_DefaultJobPriority(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_DefaultJobPriority(&self, lnDefaultJobPriority: i32) -> HRESULT;
+            #[special]
+            fn get_Priority(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Priority(&self, lnPriority: i32) -> HRESULT;
+            #[special]
+            fn get_BannerPage(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_BannerPage(&self, bstrBannerPage: BSTR) -> HRESULT;
+            #[special]
+            fn get_PrintDevices(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_PrintDevices(&self, vPrintDevices: VARIANT) -> HRESULT;
+            #[special]
+            fn get_NetAddresses(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_NetAddresses(&self, vNetAddresses: VARIANT) -> HRESULT;
+        }
+        #[guid(0x124be5c0_156e_11cf_a986_00aa006bc149)]
+        interface IADsPrintQueueOperations: IADs {
+            #[special]
+            fn get_Status(&self, #[retval] retval: *mut i32) -> HRESULT;
+            fn PrintJobs(&self, #[retval] pObject: *mut IADsCollection) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+            fn Purge(&self) -> HRESULT;
+        }
+        #[guid(0xc8f93dd3_4ae0_11cf_9e73_00aa004a5691)]
+        interface IADsProperty: IADs {
+            #[special]
+            fn get_OID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_OID(&self, bstrOID: BSTR) -> HRESULT;
+            #[special]
+            fn get_Syntax(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Syntax(&self, bstrSyntax: BSTR) -> HRESULT;
+            #[special]
+            fn get_MaxRange(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxRange(&self, lnMaxRange: i32) -> HRESULT;
+            #[special]
+            fn get_MinRange(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinRange(&self, lnMinRange: i32) -> HRESULT;
+            #[special]
+            fn get_MultiValued(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_MultiValued(&self, fMultiValued: VARIANT_BOOL) -> HRESULT;
+            fn Qualifiers(&self, #[retval] ppQualifiers: *mut IADsCollection) -> HRESULT;
+        }
+        #[guid(0x05792c8e_941f_11d0_8529_00c04fd8d503)]
+        interface IADsPropertyEntry: IDispatch {
+            fn Clear(&self) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, bstrName: BSTR) -> HRESULT;
+            #[special]
+            fn get_ADsType(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ADsType(&self, lnADsType: i32) -> HRESULT;
+            #[special]
+            fn get_ControlCode(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ControlCode(&self, lnControlCode: i32) -> HRESULT;
+            #[special]
+            fn get_Values(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Values(&self, vValues: VARIANT) -> HRESULT;
+        }
+        #[guid(0xc6f602b6_8f69_11d0_8528_00c04fd8d503)]
+        interface IADsPropertyList: IDispatch {
+            #[special]
+            fn get_PropertyCount(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn Next(&self, #[retval] pVariant: *mut VARIANT) -> HRESULT;
+            fn Skip(&self, cElements: i32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Item(&self, varIndex: VARIANT, #[retval] pVariant: *mut VARIANT) -> HRESULT;
+            fn GetPropertyItem(&self, bstrName: BSTR, lnADsType: i32, #[retval] pVariant: *mut VARIANT) -> HRESULT;
+            fn PutPropertyItem(&self, varData: VARIANT) -> HRESULT;
+            fn ResetPropertyItem(&self, varEntry: VARIANT) -> HRESULT;
+            fn PurgePropertyList(&self) -> HRESULT;
+        }
+        #[guid(0x79fa9ad0_a97c_11d0_8534_00c04fd8d503)]
+        interface IADsPropertyValue: IDispatch {
+            fn Clear(&self) -> HRESULT;
+            #[special]
+            fn get_ADsType(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ADsType(&self, lnADsType: i32) -> HRESULT;
+            #[special]
+            fn get_DNString(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DNString(&self, bstrDNString: BSTR) -> HRESULT;
+            #[special]
+            fn get_CaseExactString(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_CaseExactString(&self, bstrCaseExactString: BSTR) -> HRESULT;
+            #[special]
+            fn get_CaseIgnoreString(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_CaseIgnoreString(&self, bstrCaseIgnoreString: BSTR) -> HRESULT;
+            #[special]
+            fn get_PrintableString(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_PrintableString(&self, bstrPrintableString: BSTR) -> HRESULT;
+            #[special]
+            fn get_NumericString(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_NumericString(&self, bstrNumericString: BSTR) -> HRESULT;
+            #[special]
+            fn get_Boolean(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Boolean(&self, lnBoolean: i32) -> HRESULT;
+            #[special]
+            fn get_Integer(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Integer(&self, lnInteger: i32) -> HRESULT;
+            #[special]
+            fn get_OctetString(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_OctetString(&self, vOctetString: VARIANT) -> HRESULT;
+            #[special]
+            fn get_SecurityDescriptor(&self, #[retval] retval: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn put_SecurityDescriptor(&self, pSecurityDescriptor: IDispatch) -> HRESULT;
+            #[special]
+            fn get_LargeInteger(&self, #[retval] retval: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn put_LargeInteger(&self, pLargeInteger: IDispatch) -> HRESULT;
+            #[special]
+            fn get_UTCTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn put_UTCTime(&self, daUTCTime: f64) -> HRESULT;
+        }
+        #[guid(0x306e831c_5bc7_11d1_a3b8_00c04fb950dc)]
+        interface IADsPropertyValue2: IDispatch {
+            fn GetObjectProperty(&self, #[in] #[out] lnADsType: *mut i32, #[retval] pvProp: *mut VARIANT) -> HRESULT;
+            fn PutObjectProperty(&self, lnADsType: i32, vProp: VARIANT) -> HRESULT;
+        }
+        #[guid(0xf60fb803_4080_11d1_a3ac_00c04fb950dc)]
+        interface IADsReplicaPointer: IDispatch {
+            #[special]
+            fn get_ServerName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ServerName(&self, bstrServerName: BSTR) -> HRESULT;
+            #[special]
+            fn get_ReplicaType(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ReplicaType(&self, lnReplicaType: i32) -> HRESULT;
+            #[special]
+            fn get_ReplicaNumber(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ReplicaNumber(&self, lnReplicaNumber: i32) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Count(&self, lnCount: i32) -> HRESULT;
+            #[special]
+            fn get_ReplicaAddressHints(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_ReplicaAddressHints(&self, vReplicaAddressHints: VARIANT) -> HRESULT;
+        }
+        #[guid(0x34a05b20_4aab_11cf_ae2c_00aa006ebfb9)]
+        interface IADsResource: IADs {
+            #[special]
+            fn get_User(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_UserPath(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Path(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_LockCount(&self, #[retval] retval: *mut i32) -> HRESULT;
+        }
+        #[guid(0xb8c787ca_9bdd_11d0_852c_00c04fd8d503)]
+        interface IADsSecurityDescriptor: IDispatch {
+            #[special]
+            fn get_Revision(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Revision(&self, lnRevision: i32) -> HRESULT;
+            #[special]
+            fn get_Control(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Control(&self, lnControl: i32) -> HRESULT;
+            #[special]
+            fn get_Owner(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Owner(&self, bstrOwner: BSTR) -> HRESULT;
+            #[special]
+            fn get_OwnerDefaulted(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_OwnerDefaulted(&self, fOwnerDefaulted: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Group(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Group(&self, bstrGroup: BSTR) -> HRESULT;
+            #[special]
+            fn get_GroupDefaulted(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_GroupDefaulted(&self, fGroupDefaulted: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_DiscretionaryAcl(&self, #[retval] retval: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn put_DiscretionaryAcl(&self, pDiscretionaryAcl: IDispatch) -> HRESULT;
+            #[special]
+            fn get_DaclDefaulted(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_DaclDefaulted(&self, fDaclDefaulted: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SystemAcl(&self, #[retval] retval: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn put_SystemAcl(&self, pSystemAcl: IDispatch) -> HRESULT;
+            #[special]
+            fn get_SaclDefaulted(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_SaclDefaulted(&self, fSaclDefaulted: VARIANT_BOOL) -> HRESULT;
+            fn CopySecurityDescriptor(&self, #[retval] ppSecurityDescriptor: *mut IDispatch) -> HRESULT;
+        }
+        #[guid(0xa63251b2_5f21_474b_ab52_4a8efad10895)]
+        interface IADsSecurityUtility: IDispatch {
+            fn GetSecurityDescriptor(&self, varPath: VARIANT, lPathFormat: i32, lFormat: i32, #[retval] pVariant: *mut VARIANT) -> HRESULT;
+            fn SetSecurityDescriptor(&self, varPath: VARIANT, lPathFormat: i32, varData: VARIANT, lDataFormat: i32) -> HRESULT;
+            fn ConvertSecurityDescriptor(&self, varSD: VARIANT, lDataFormat: i32, lOutFormat: i32, #[retval] pResult: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_SecurityMask(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SecurityMask(&self, lnSecurityMask: i32) -> HRESULT;
+        }
+        #[guid(0x68af66e0_31ca_11cf_a98a_00aa006bc149)]
+        interface IADsService: IADs {
+            #[special]
+            fn get_HostComputer(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_HostComputer(&self, bstrHostComputer: BSTR) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DisplayName(&self, bstrDisplayName: BSTR) -> HRESULT;
+            #[special]
+            fn get_Version(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Version(&self, bstrVersion: BSTR) -> HRESULT;
+            #[special]
+            fn get_ServiceType(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ServiceType(&self, lnServiceType: i32) -> HRESULT;
+            #[special]
+            fn get_StartType(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_StartType(&self, lnStartType: i32) -> HRESULT;
+            #[special]
+            fn get_Path(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Path(&self, bstrPath: BSTR) -> HRESULT;
+            #[special]
+            fn get_StartupParameters(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_StartupParameters(&self, bstrStartupParameters: BSTR) -> HRESULT;
+            #[special]
+            fn get_ErrorControl(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ErrorControl(&self, lnErrorControl: i32) -> HRESULT;
+            #[special]
+            fn get_LoadOrderGroup(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LoadOrderGroup(&self, bstrLoadOrderGroup: BSTR) -> HRESULT;
+            #[special]
+            fn get_ServiceAccountName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ServiceAccountName(&self, bstrServiceAccountName: BSTR) -> HRESULT;
+            #[special]
+            fn get_ServiceAccountPath(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ServiceAccountPath(&self, bstrServiceAccountPath: BSTR) -> HRESULT;
+            #[special]
+            fn get_Dependencies(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Dependencies(&self, vDependencies: VARIANT) -> HRESULT;
+        }
+        #[guid(0x5d7b33f0_31ca_11cf_a98a_00aa006bc149)]
+        interface IADsServiceOperations: IADs {
+            #[special]
+            fn get_Status(&self, #[retval] retval: *mut i32) -> HRESULT;
+            fn Start(&self) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Continue(&self) -> HRESULT;
+            fn SetPassword(&self, bstrNewPassword: BSTR) -> HRESULT;
+        }
+        #[guid(0x398b7da0_4aab_11cf_ae2c_00aa006ebfb9)]
+        interface IADsSession: IADs {
+            #[special]
+            fn get_User(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_UserPath(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Computer(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ComputerPath(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ConnectTime(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_IdleTime(&self, #[retval] retval: *mut i32) -> HRESULT;
+        }
+        #[guid(0xc8f93dd2_4ae0_11cf_9e73_00aa004a5691)]
+        interface IADsSyntax: IADs {
+            #[special]
+            fn get_OleAutoDataType(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_OleAutoDataType(&self, lnOleAutoDataType: i32) -> HRESULT;
+        }
+        #[guid(0xb2f5a901_4080_11d1_a3ac_00c04fb950dc)]
+        interface IADsTimestamp: IDispatch {
+            #[special]
+            fn get_WholeSeconds(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_WholeSeconds(&self, lnWholeSeconds: i32) -> HRESULT;
+            #[special]
+            fn get_EventID(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_EventID(&self, lnEventID: i32) -> HRESULT;
+        }
+        #[guid(0xb371a349_4080_11d1_a3ac_00c04fb950dc)]
+        interface IADsTypedName: IDispatch {
+            #[special]
+            fn get_ObjectName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ObjectName(&self, bstrObjectName: BSTR) -> HRESULT;
+            #[special]
+            fn get_Level(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Level(&self, lnLevel: i32) -> HRESULT;
+            #[special]
+            fn get_Interval(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Interval(&self, lnInterval: i32) -> HRESULT;
+        }
+        #[guid(0x3e37e320_17e2_11cf_abc4_02608c9e7553)]
+        interface IADsUser: IADs {
+            #[special]
+            fn get_BadLoginAddress(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_BadLoginCount(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastLogin(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn get_LastLogoff(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn get_LastFailedLogin(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn get_PasswordLastChanged(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bstrDescription: BSTR) -> HRESULT;
+            #[special]
+            fn get_Division(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Division(&self, bstrDivision: BSTR) -> HRESULT;
+            #[special]
+            fn get_Department(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Department(&self, bstrDepartment: BSTR) -> HRESULT;
+            #[special]
+            fn get_EmployeeID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_EmployeeID(&self, bstrEmployeeID: BSTR) -> HRESULT;
+            #[special]
+            fn get_FullName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FullName(&self, bstrFullName: BSTR) -> HRESULT;
+            #[special]
+            fn get_FirstName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FirstName(&self, bstrFirstName: BSTR) -> HRESULT;
+            #[special]
+            fn get_LastName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LastName(&self, bstrLastName: BSTR) -> HRESULT;
+            #[special]
+            fn get_OtherName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_OtherName(&self, bstrOtherName: BSTR) -> HRESULT;
+            #[special]
+            fn get_NamePrefix(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_NamePrefix(&self, bstrNamePrefix: BSTR) -> HRESULT;
+            #[special]
+            fn get_NameSuffix(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_NameSuffix(&self, bstrNameSuffix: BSTR) -> HRESULT;
+            #[special]
+            fn get_Title(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Title(&self, bstrTitle: BSTR) -> HRESULT;
+            #[special]
+            fn get_Manager(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Manager(&self, bstrManager: BSTR) -> HRESULT;
+            #[special]
+            fn get_TelephoneHome(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_TelephoneHome(&self, vTelephoneHome: VARIANT) -> HRESULT;
+            #[special]
+            fn get_TelephoneMobile(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_TelephoneMobile(&self, vTelephoneMobile: VARIANT) -> HRESULT;
+            #[special]
+            fn get_TelephoneNumber(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_TelephoneNumber(&self, vTelephoneNumber: VARIANT) -> HRESULT;
+            #[special]
+            fn get_TelephonePager(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_TelephonePager(&self, vTelephonePager: VARIANT) -> HRESULT;
+            #[special]
+            fn get_FaxNumber(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_FaxNumber(&self, vFaxNumber: VARIANT) -> HRESULT;
+            #[special]
+            fn get_OfficeLocations(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_OfficeLocations(&self, vOfficeLocations: VARIANT) -> HRESULT;
+            #[special]
+            fn get_PostalAddresses(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_PostalAddresses(&self, vPostalAddresses: VARIANT) -> HRESULT;
+            #[special]
+            fn get_PostalCodes(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_PostalCodes(&self, vPostalCodes: VARIANT) -> HRESULT;
+            #[special]
+            fn get_SeeAlso(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_SeeAlso(&self, vSeeAlso: VARIANT) -> HRESULT;
+            #[special]
+            fn get_AccountDisabled(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AccountDisabled(&self, fAccountDisabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AccountExpirationDate(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn put_AccountExpirationDate(&self, daAccountExpirationDate: f64) -> HRESULT;
+            #[special]
+            fn get_GraceLoginsAllowed(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_GraceLoginsAllowed(&self, lnGraceLoginsAllowed: i32) -> HRESULT;
+            #[special]
+            fn get_GraceLoginsRemaining(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_GraceLoginsRemaining(&self, lnGraceLoginsRemaining: i32) -> HRESULT;
+            #[special]
+            fn get_IsAccountLocked(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_IsAccountLocked(&self, fIsAccountLocked: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_LoginHours(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_LoginHours(&self, vLoginHours: VARIANT) -> HRESULT;
+            #[special]
+            fn get_LoginWorkstations(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_LoginWorkstations(&self, vLoginWorkstations: VARIANT) -> HRESULT;
+            #[special]
+            fn get_MaxLogins(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxLogins(&self, lnMaxLogins: i32) -> HRESULT;
+            #[special]
+            fn get_MaxStorage(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MaxStorage(&self, lnMaxStorage: i32) -> HRESULT;
+            #[special]
+            fn get_PasswordExpirationDate(&self, #[retval] retval: *mut f64) -> HRESULT;
+            #[special]
+            fn put_PasswordExpirationDate(&self, daPasswordExpirationDate: f64) -> HRESULT;
+            #[special]
+            fn get_PasswordMinimumLength(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_PasswordMinimumLength(&self, lnPasswordMinimumLength: i32) -> HRESULT;
+            #[special]
+            fn get_PasswordRequired(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_PasswordRequired(&self, fPasswordRequired: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RequireUniquePassword(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_RequireUniquePassword(&self, fRequireUniquePassword: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_EmailAddress(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_EmailAddress(&self, bstrEmailAddress: BSTR) -> HRESULT;
+            #[special]
+            fn get_HomeDirectory(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_HomeDirectory(&self, bstrHomeDirectory: BSTR) -> HRESULT;
+            #[special]
+            fn get_Languages(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Languages(&self, vLanguages: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Profile(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Profile(&self, bstrProfile: BSTR) -> HRESULT;
+            #[special]
+            fn get_LoginScript(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LoginScript(&self, bstrLoginScript: BSTR) -> HRESULT;
+            #[special]
+            fn get_Picture(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Picture(&self, vPicture: VARIANT) -> HRESULT;
+            #[special]
+            fn get_HomePage(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_HomePage(&self, bstrHomePage: BSTR) -> HRESULT;
+            fn Groups(&self, #[retval] ppGroups: *mut IADsMembers) -> HRESULT;
+            fn SetPassword(&self, NewPassword: BSTR) -> HRESULT;
+            fn ChangePassword(&self, bstrOldPassword: BSTR, bstrNewPassword: BSTR) -> HRESULT;
+        }
+        #[guid(0x6c6d65dc_afd1_11d2_9cb9_0000f87a369e)]
+        interface IADsWinNTSystemInfo: IDispatch {
+            #[special]
+            fn get_UserName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ComputerName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DomainName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_PDC(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xe798de2c_22e4_11d0_84fe_00c04fd8d503)]
+        interface IDirectoryObject: IUnknown {
+            fn GetObjectInformation(&self, ppObjInfo: *mut PADS_OBJECT_INFO) -> HRESULT;
+            fn GetObjectAttributes(&self, pAttributeNames: *const PWSTR, dwNumberAttributes: u32, ppAttributeEntries: *mut PADS_ATTR_INFO, pdwNumAttributesReturned: *mut u32) -> HRESULT;
+            fn SetObjectAttributes(&self, pAttributeEntries: *const ADS_ATTR_INFO, dwNumAttributes: u32, pdwNumAttributesModified: *mut u32) -> HRESULT;
+            fn CreateDSObject(&self, pszRDNName: PCWSTR, pAttributeEntries: *const ADS_ATTR_INFO, dwNumAttributes: u32, ppObject: *mut IDispatch) -> HRESULT;
+            fn DeleteDSObject(&self, pszRDNName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x75db3b9c_a4d8_11d0_a79c_00c04fd8d5a8)]
+        interface IDirectorySchemaMgmt: IUnknown {
+            fn EnumAttributes(&self, ppszAttrNames: *mut PWSTR, dwNumAttributes: u32, ppAttrDefinition: *mut PADS_ATTR_DEF, pdwNumAttributes: *mut u32) -> HRESULT;
+            fn CreateAttributeDefinition(&self, pszAttributeName: PWSTR, pAttributeDefinition: *mut ADS_ATTR_DEF) -> HRESULT;
+            fn WriteAttributeDefinition(&self, pszAttributeName: PWSTR, pAttributeDefinition: *mut ADS_ATTR_DEF) -> HRESULT;
+            fn DeleteAttributeDefinition(&self, pszAttributeName: PWSTR) -> HRESULT;
+            fn EnumClasses(&self, ppszClassNames: *mut PWSTR, dwNumClasses: u32, ppClassDefinition: *mut PADS_CLASS_DEF, pdwNumClasses: *mut u32) -> HRESULT;
+            fn WriteClassDefinition(&self, pszClassName: PWSTR, pClassDefinition: *mut ADS_CLASS_DEF) -> HRESULT;
+            fn CreateClassDefinition(&self, pszClassName: PWSTR, pClassDefinition: *mut ADS_CLASS_DEF) -> HRESULT;
+            fn DeleteClassDefinition(&self, pszClassName: PWSTR) -> HRESULT;
+        }
+        #[guid(0x109ba8ec_92f0_11d0_a790_00c04fd8d5a8)]
+        interface IDirectorySearch: IUnknown {
+            fn SetSearchPreference(&self, pSearchPrefs: *const ADS_SEARCHPREF_INFO, dwNumPrefs: u32) -> HRESULT;
+            fn ExecuteSearch(&self, pszSearchFilter: PCWSTR, pAttributeNames: *const PWSTR, dwNumberAttributes: u32, phSearchResult: *mut HANDLE) -> HRESULT;
+            fn AbandonSearch(&self, phSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
+            fn GetFirstRow(&self, hSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
+            fn GetNextRow(&self, hSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
+            fn GetPreviousRow(&self, hSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
+            fn GetNextColumnName(&self, hSearchHandle: ADS_SEARCH_HANDLE, ppszColumnName: *mut PWSTR) -> HRESULT;
+            fn GetColumn(&self, hSearchResult: ADS_SEARCH_HANDLE, szColumnName: PCWSTR, pSearchColumn: *mut ADS_SEARCH_COLUMN) -> HRESULT;
+            fn FreeColumn(&self, pSearchColumn: *const ADS_SEARCH_COLUMN) -> HRESULT;
+            fn CloseSearchHandle(&self, hSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
+        }
+        #[guid(0x86ab4bbe_65f6_11d1_8c13_00c04fd8d503)]
+        interface IPrivateDispatch: IUnknown {
+            fn ADSIInitializeDispatchManager(&self, dwExtensionId: i32) -> HRESULT;
+            fn ADSIGetTypeInfoCount(&self, pctinfo: *mut u32) -> HRESULT;
+            fn ADSIGetTypeInfo(&self, itinfo: u32, lcid: LCID, pptinfo: *mut ITypeInfo) -> HRESULT;
+            fn ADSIGetIDsOfNames(&self, riid: *const GUID, rgszNames: *const *const OLECHAR, cNames: u32, lcid: LCID, rgdispid: *mut DISPID) -> HRESULT;
+            fn ADSIInvoke(&self, dispidMember: DISPID, riid: *const GUID, lcid: LCID, wFlags: u16, pdispparams: *const DISPPARAMS, pvarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
+        }
+        #[guid(0x89126bab_6ead_11d1_8c18_00c04fd8d503)]
+        interface IPrivateUnknown: IUnknown {
+            fn ADSIInitializeObject(&self, lpszUserName: BSTR, lpszPassword: BSTR, lnReserved: i32) -> HRESULT;
+            fn ADSIReleaseObject(&self) -> HRESULT;
+        }
+        type LPADSVALUE = *mut ADSVALUE;
+        type LPADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
+        type LPNDS_BOOLEAN = *mut u32;
+        const LargeInteger: GUID = 0x927971f5_0939_11d1_8be1_00c04fd8d503;
+        const NameTranslate: GUID = 0x274fae1f_3626_11d1_a3a4_00c04fb950dc;
+        const NetAddress: GUID = 0xb0b71247_4080_11d1_a3ac_00c04fb950dc;
+        const OctetList: GUID = 0x1241400f_4680_11d1_a3b4_00c04fb950dc;
+        type PADSVALUE = *mut ADSVALUE;
+        type PADS_ATTR_DEF = *mut ADS_ATTR_DEF;
+        type PADS_ATTR_INFO = *mut ADS_ATTR_INFO;
+        type PADS_BACKLINK = *mut ADS_BACKLINK;
+        type PADS_CASEIGNORE_LIST = *mut ADS_CASEIGNORE_LIST;
+        type PADS_CASE_EXACT_STRING = *mut PWSTR;
+        type PADS_CASE_IGNORE_STRING = *mut PWSTR;
+        type PADS_CLASS_DEF = *mut ADS_CLASS_DEF;
+        type PADS_DN_STRING = *mut PWSTR;
+        type PADS_DN_WITH_BINARY = *mut ADS_DN_WITH_BINARY;
+        type PADS_DN_WITH_STRING = *mut ADS_DN_WITH_STRING;
+        type PADS_EMAIL = *mut ADS_EMAIL;
+        type PADS_FAXNUMBER = *mut ADS_FAXNUMBER;
+        type PADS_HOLD = *mut ADS_HOLD;
+        type PADS_INTEGER = *mut u32;
+        type PADS_LARGE_INTEGER = *mut LARGE_INTEGER;
+        type PADS_NETADDRESS = *mut ADS_NETADDRESS;
+        type PADS_NT_SECURITY_DESCRIPTOR = *mut ADS_NT_SECURITY_DESCRIPTOR;
+        type PADS_NUMERIC_STRING = *mut PWSTR;
+        type PADS_OBJECT_CLASS = *mut PWSTR;
+        type PADS_OBJECT_INFO = *mut ADS_OBJECT_INFO;
+        type PADS_OCTET_LIST = *mut ADS_OCTET_LIST;
+        type PADS_OCTET_STRING = *mut ADS_OCTET_STRING;
+        type PADS_PATH = *mut ADS_PATH;
+        type PADS_POSTALADDRESS = *mut ADS_POSTALADDRESS;
+        type PADS_PRINTABLE_STRING = *mut PWSTR;
+        type PADS_PROV_SPECIFIC = *mut ADS_PROV_SPECIFIC;
+        type PADS_REPLICAPOINTER = *mut ADS_REPLICAPOINTER;
+        type PADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
+        type PADS_SEARCH_COLUMN = *mut ADS_SEARCH_COLUMN;
+        type PADS_SEARCH_HANDLE = *mut HANDLE;
+        type PADS_SORTKEY = *mut ADS_SORTKEY;
+        type PADS_STATUS = *mut ADS_STATUSENUM;
+        type PADS_TIMESTAMP = *mut ADS_TIMESTAMP;
+        type PADS_TYPEDNAME = *mut ADS_TYPEDNAME;
+        type PADS_UTC_TIME = *mut SYSTEMTIME;
+        type PADS_VLV = *mut ADS_VLV;
+        const Path: GUID = 0xb2538919_4080_11d1_a3ac_00c04fb950dc;
+        const Pathname: GUID = 0x080d0d78_f421_11d0_a36e_00c04fb950dc;
+        const PostalAddress: GUID = 0x0a75afcd_4680_11d1_a3b4_00c04fb950dc;
+        const PropertyEntry: GUID = 0x72d3edc2_a4c4_11d0_8533_00c04fd8d503;
+        const PropertyValue: GUID = 0x7b9e38b0_a97c_11d0_8534_00c04fd8d503;
+        const ReplicaPointer: GUID = 0xf5d1badf_4080_11d1_a3ac_00c04fb950dc;
+        const SecurityDescriptor: GUID = 0xb958f73c_9bdd_11d0_852c_00c04fd8d503;
+        const Timestamp: GUID = 0xb2bed2eb_4080_11d1_a3ac_00c04fb950dc;
+        const TypedName: GUID = 0xb33143cb_4080_11d1_a3ac_00c04fb950dc;
+        const WinNTSystemInfo: GUID = 0x66182ec4_afd1_11d2_9cb9_0000f87a369e;
+    }
+}

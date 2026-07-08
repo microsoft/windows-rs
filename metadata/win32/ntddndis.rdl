@@ -1,0 +1,2253 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct BSSID_INFO {
+            BSSID: NDIS_802_11_MAC_ADDRESS,
+            PMKID: NDIS_802_11_PMKID_VALUE,
+        }
+        const CLOCK_NETWORK_DERIVED: u32 = 2;
+        const CLOCK_PRECISION: u32 = 4;
+        struct GEN_GET_NETCARD_TIME {
+            ReadTime: u64,
+        }
+        struct GEN_GET_TIME_CAPS {
+            Flags: u32,
+            ClockPrecision: u32,
+        }
+        const IOCTL_NDIS_ADD_TDI_DEVICE: u32 = 1507348;
+        const IOCTL_NDIS_DO_PNP_OPERATION: u32 = 1507336;
+        const IOCTL_NDIS_ENUMERATE_INTERFACES: u32 = 1507344;
+        const IOCTL_NDIS_GET_LOG_DATA: u32 = 1507358;
+        const IOCTL_NDIS_GET_VERSION: u32 = 1507360;
+        const IOCTL_NDIS_QUERY_ALL_STATS: u32 = 1507334;
+        const IOCTL_NDIS_QUERY_GLOBAL_STATS: u32 = 1507330;
+        const IOCTL_NDIS_QUERY_SELECTED_STATS: u32 = 1507342;
+        const IOCTL_NDIS_RESERVED1: u32 = 1507364;
+        const IOCTL_NDIS_RESERVED10: u32 = 1507400;
+        const IOCTL_NDIS_RESERVED11: u32 = 1507404;
+        const IOCTL_NDIS_RESERVED12: u32 = 1507408;
+        const IOCTL_NDIS_RESERVED13: u32 = 1507412;
+        const IOCTL_NDIS_RESERVED14: u32 = 1507416;
+        const IOCTL_NDIS_RESERVED15: u32 = 1507420;
+        const IOCTL_NDIS_RESERVED16: u32 = 1507424;
+        const IOCTL_NDIS_RESERVED17: u32 = 1507428;
+        const IOCTL_NDIS_RESERVED18: u32 = 1507432;
+        const IOCTL_NDIS_RESERVED19: u32 = 1507436;
+        const IOCTL_NDIS_RESERVED2: u32 = 1507368;
+        const IOCTL_NDIS_RESERVED20: u32 = 1507440;
+        const IOCTL_NDIS_RESERVED21: u32 = 1507444;
+        const IOCTL_NDIS_RESERVED22: u32 = 1507448;
+        const IOCTL_NDIS_RESERVED23: u32 = 1507452;
+        const IOCTL_NDIS_RESERVED24: u32 = 1507456;
+        const IOCTL_NDIS_RESERVED25: u32 = 1507460;
+        const IOCTL_NDIS_RESERVED26: u32 = 1507464;
+        const IOCTL_NDIS_RESERVED27: u32 = 1507468;
+        const IOCTL_NDIS_RESERVED28: u32 = 1507472;
+        const IOCTL_NDIS_RESERVED29: u32 = 1507476;
+        const IOCTL_NDIS_RESERVED3: u32 = 1507372;
+        const IOCTL_NDIS_RESERVED30: u32 = 1507480;
+        const IOCTL_NDIS_RESERVED4: u32 = 1507376;
+        const IOCTL_NDIS_RESERVED5: u32 = 1507380;
+        const IOCTL_NDIS_RESERVED6: u32 = 1540152;
+        const IOCTL_NDIS_RESERVED7: u32 = 1507390;
+        const IOCTL_NDIS_RESERVED8: u32 = 1507392;
+        const IOCTL_NDIS_RESERVED9: u32 = 1507396;
+        type IPAddr = u32;
+        type IPMask = u32;
+        const MAXIMUM_IP_OPER_STATUS_ADDRESS_FAMILIES_SUPPORTED: u32 = 32;
+        struct NDIS_802_11_AI_REQFI {
+            Capabilities: u16,
+            ListenInterval: u16,
+            CurrentAPAddress: NDIS_802_11_MAC_ADDRESS,
+        }
+        const NDIS_802_11_AI_REQFI_CAPABILITIES: u32 = 1;
+        const NDIS_802_11_AI_REQFI_CURRENTAPADDRESS: u32 = 4;
+        const NDIS_802_11_AI_REQFI_LISTENINTERVAL: u32 = 2;
+        struct NDIS_802_11_AI_RESFI {
+            Capabilities: u16,
+            StatusCode: u16,
+            AssociationId: u16,
+        }
+        const NDIS_802_11_AI_RESFI_ASSOCIATIONID: u32 = 4;
+        const NDIS_802_11_AI_RESFI_CAPABILITIES: u32 = 1;
+        const NDIS_802_11_AI_RESFI_STATUSCODE: u32 = 2;
+        type NDIS_802_11_ANTENNA = u32;
+        struct NDIS_802_11_ASSOCIATION_INFORMATION {
+            Length: u32,
+            AvailableRequestFixedIEs: u16,
+            RequestFixedIEs: NDIS_802_11_AI_REQFI,
+            RequestIELength: u32,
+            OffsetRequestIEs: u32,
+            AvailableResponseFixedIEs: u16,
+            ResponseFixedIEs: NDIS_802_11_AI_RESFI,
+            ResponseIELength: u32,
+            OffsetResponseIEs: u32,
+        }
+        struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+            AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
+            EncryptStatusSupported: NDIS_802_11_ENCRYPTION_STATUS,
+        }
+        struct NDIS_802_11_AUTHENTICATION_EVENT {
+            Status: NDIS_802_11_STATUS_INDICATION,
+            Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
+        }
+        #[repr(i32)]
+        enum NDIS_802_11_AUTHENTICATION_MODE {
+            Ndis802_11AuthModeOpen = 0,
+            Ndis802_11AuthModeShared = 1,
+            Ndis802_11AuthModeAutoSwitch = 2,
+            Ndis802_11AuthModeWPA = 3,
+            Ndis802_11AuthModeWPAPSK = 4,
+            Ndis802_11AuthModeWPANone = 5,
+            Ndis802_11AuthModeWPA2 = 6,
+            Ndis802_11AuthModeWPA2PSK = 7,
+            Ndis802_11AuthModeWPA3 = 8,
+            Ndis802_11AuthModeWPA3Ent192 = 8,
+            Ndis802_11AuthModeWPA3SAE = 9,
+            Ndis802_11AuthModeWPA3Ent = 10,
+            Ndis802_11AuthModeMax = 11,
+        }
+        struct NDIS_802_11_AUTHENTICATION_REQUEST {
+            Length: u32,
+            Bssid: NDIS_802_11_MAC_ADDRESS,
+            Flags: u32,
+        }
+        const NDIS_802_11_AUTH_REQUEST_AUTH_FIELDS: u32 = 15;
+        const NDIS_802_11_AUTH_REQUEST_GROUP_ERROR: u32 = 14;
+        const NDIS_802_11_AUTH_REQUEST_KEYUPDATE: u32 = 2;
+        const NDIS_802_11_AUTH_REQUEST_PAIRWISE_ERROR: u32 = 6;
+        const NDIS_802_11_AUTH_REQUEST_REAUTH: u32 = 1;
+        struct NDIS_802_11_BSSID_LIST {
+            NumberOfItems: u32,
+            Bssid: [NDIS_WLAN_BSSID; 1],
+        }
+        struct NDIS_802_11_BSSID_LIST_EX {
+            NumberOfItems: u32,
+            Bssid: [NDIS_WLAN_BSSID_EX; 1],
+        }
+        struct NDIS_802_11_CAPABILITY {
+            Length: u32,
+            Version: u32,
+            NoOfPMKIDs: u32,
+            NoOfAuthEncryptPairsSupported: u32,
+            AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
+        }
+        struct NDIS_802_11_CONFIGURATION {
+            Length: u32,
+            BeaconPeriod: u32,
+            ATIMWindow: u32,
+            DSConfig: u32,
+            FHConfig: NDIS_802_11_CONFIGURATION_FH,
+        }
+        struct NDIS_802_11_CONFIGURATION_FH {
+            Length: u32,
+            HopPattern: u32,
+            HopSet: u32,
+            DwellTime: u32,
+        }
+        type NDIS_802_11_ENCRYPTION_STATUS = NDIS_802_11_WEP_STATUS;
+        struct NDIS_802_11_FIXED_IEs {
+            Timestamp: [u8; 8],
+            BeaconInterval: u16,
+            Capabilities: u16,
+        }
+        type NDIS_802_11_FRAGMENTATION_THRESHOLD = u32;
+        struct NDIS_802_11_KEY {
+            Length: u32,
+            KeyIndex: u32,
+            KeyLength: u32,
+            BSSID: NDIS_802_11_MAC_ADDRESS,
+            KeyRSC: NDIS_802_11_KEY_RSC,
+            KeyMaterial: [u8; 1],
+        }
+        type NDIS_802_11_KEY_INDEX = u32;
+        type NDIS_802_11_KEY_RSC = u64;
+        const NDIS_802_11_LENGTH_RATES: u32 = 8;
+        const NDIS_802_11_LENGTH_RATES_EX: u32 = 16;
+        const NDIS_802_11_LENGTH_SSID: u32 = 32;
+        type NDIS_802_11_MAC_ADDRESS = [u8; 6];
+        #[repr(i32)]
+        enum NDIS_802_11_MEDIA_STREAM_MODE {
+            Ndis802_11MediaStreamOff = 0,
+            Ndis802_11MediaStreamOn = 1,
+        }
+        #[repr(i32)]
+        enum NDIS_802_11_NETWORK_INFRASTRUCTURE {
+            Ndis802_11IBSS = 0,
+            Ndis802_11Infrastructure = 1,
+            Ndis802_11AutoUnknown = 2,
+            Ndis802_11InfrastructureMax = 3,
+        }
+        #[repr(i32)]
+        enum NDIS_802_11_NETWORK_TYPE {
+            Ndis802_11FH = 0,
+            Ndis802_11DS = 1,
+            Ndis802_11OFDM5 = 2,
+            Ndis802_11OFDM24 = 3,
+            Ndis802_11Automode = 4,
+            Ndis802_11NetworkTypeMax = 5,
+        }
+        struct NDIS_802_11_NETWORK_TYPE_LIST {
+            NumberOfItems: u32,
+            NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
+        }
+        struct NDIS_802_11_NON_BCAST_SSID_LIST {
+            NumberOfItems: u32,
+            Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
+        }
+        struct NDIS_802_11_PMKID {
+            Length: u32,
+            BSSIDInfoCount: u32,
+            BSSIDInfo: [BSSID_INFO; 1],
+        }
+        struct NDIS_802_11_PMKID_CANDIDATE_LIST {
+            Version: u32,
+            NumCandidates: u32,
+            CandidateList: [PMKID_CANDIDATE; 1],
+        }
+        const NDIS_802_11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1;
+        type NDIS_802_11_PMKID_VALUE = [u8; 16];
+        #[repr(i32)]
+        enum NDIS_802_11_POWER_MODE {
+            Ndis802_11PowerModeCAM = 0,
+            Ndis802_11PowerModeMAX_PSP = 1,
+            Ndis802_11PowerModeFast_PSP = 2,
+            Ndis802_11PowerModeMax = 3,
+        }
+        #[repr(i32)]
+        enum NDIS_802_11_PRIVACY_FILTER {
+            Ndis802_11PrivFilterAcceptAll = 0,
+            Ndis802_11PrivFilter8021xWEP = 1,
+        }
+        #[repr(i32)]
+        enum NDIS_802_11_RADIO_STATUS {
+            Ndis802_11RadioStatusOn = 0,
+            Ndis802_11RadioStatusHardwareOff = 1,
+            Ndis802_11RadioStatusSoftwareOff = 2,
+            Ndis802_11RadioStatusHardwareSoftwareOff = 3,
+            Ndis802_11RadioStatusMax = 4,
+        }
+        type NDIS_802_11_RATES = [u8; 8];
+        type NDIS_802_11_RATES_EX = [u8; 16];
+        #[repr(i32)]
+        enum NDIS_802_11_RELOAD_DEFAULTS {
+            Ndis802_11ReloadWEPKeys = 0,
+        }
+        struct NDIS_802_11_REMOVE_KEY {
+            Length: u32,
+            KeyIndex: u32,
+            BSSID: NDIS_802_11_MAC_ADDRESS,
+        }
+        type NDIS_802_11_RSSI = i32;
+        type NDIS_802_11_RTS_THRESHOLD = u32;
+        struct NDIS_802_11_SSID {
+            SsidLength: u32,
+            Ssid: [u8; 32],
+        }
+        struct NDIS_802_11_STATISTICS {
+            Length: u32,
+            TransmittedFragmentCount: LARGE_INTEGER,
+            MulticastTransmittedFrameCount: LARGE_INTEGER,
+            FailedCount: LARGE_INTEGER,
+            RetryCount: LARGE_INTEGER,
+            MultipleRetryCount: LARGE_INTEGER,
+            RTSSuccessCount: LARGE_INTEGER,
+            RTSFailureCount: LARGE_INTEGER,
+            ACKFailureCount: LARGE_INTEGER,
+            FrameDuplicateCount: LARGE_INTEGER,
+            ReceivedFragmentCount: LARGE_INTEGER,
+            MulticastReceivedFrameCount: LARGE_INTEGER,
+            FCSErrorCount: LARGE_INTEGER,
+            TKIPLocalMICFailures: LARGE_INTEGER,
+            TKIPICVErrorCount: LARGE_INTEGER,
+            TKIPCounterMeasuresInvoked: LARGE_INTEGER,
+            TKIPReplays: LARGE_INTEGER,
+            CCMPFormatErrors: LARGE_INTEGER,
+            CCMPReplays: LARGE_INTEGER,
+            CCMPDecryptErrors: LARGE_INTEGER,
+            FourWayHandshakeFailures: LARGE_INTEGER,
+            WEPUndecryptableCount: LARGE_INTEGER,
+            WEPICVErrorCount: LARGE_INTEGER,
+            DecryptSuccessCount: LARGE_INTEGER,
+            DecryptFailureCount: LARGE_INTEGER,
+        }
+        struct NDIS_802_11_STATUS_INDICATION {
+            StatusType: NDIS_802_11_STATUS_TYPE,
+        }
+        #[repr(i32)]
+        enum NDIS_802_11_STATUS_TYPE {
+            Ndis802_11StatusType_Authentication = 0,
+            Ndis802_11StatusType_MediaStreamMode = 1,
+            Ndis802_11StatusType_PMKID_CandidateList = 2,
+            Ndis802_11StatusTypeMax = 3,
+        }
+        struct NDIS_802_11_TEST {
+            Length: u32,
+            Type: u32,
+            Anonymous: union {
+                AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
+                RssiTrigger: NDIS_802_11_RSSI,
+            },
+        }
+        type NDIS_802_11_TX_POWER_LEVEL = u32;
+        struct NDIS_802_11_VARIABLE_IEs {
+            ElementID: u8,
+            Length: u8,
+            data: [u8; 1],
+        }
+        struct NDIS_802_11_WEP {
+            Length: u32,
+            KeyIndex: u32,
+            KeyLength: u32,
+            KeyMaterial: [u8; 1],
+        }
+        #[repr(i32)]
+        enum NDIS_802_11_WEP_STATUS {
+            Ndis802_11WEPEnabled = 0,
+            Ndis802_11Encryption1Enabled = 0,
+            Ndis802_11WEPDisabled = 1,
+            Ndis802_11EncryptionDisabled = 1,
+            Ndis802_11WEPKeyAbsent = 2,
+            Ndis802_11Encryption1KeyAbsent = 2,
+            Ndis802_11WEPNotSupported = 3,
+            Ndis802_11EncryptionNotSupported = 3,
+            Ndis802_11Encryption2Enabled = 4,
+            Ndis802_11Encryption2KeyAbsent = 5,
+            Ndis802_11Encryption3Enabled = 6,
+            Ndis802_11Encryption3KeyAbsent = 7,
+        }
+        const NDIS_802_3_MAC_OPTION_PRIORITY: u32 = 1;
+        #[repr(i32)]
+        enum NDIS_802_5_RING_STATE {
+            NdisRingStateOpened = 1,
+            NdisRingStateClosed = 2,
+            NdisRingStateOpening = 3,
+            NdisRingStateClosing = 4,
+            NdisRingStateOpenFailure = 5,
+            NdisRingStateRingFailure = 6,
+        }
+        struct NDIS_CO_DEVICE_PROFILE {
+            DeviceDescription: NDIS_VAR_DATA_DESC,
+            DevSpecificInfo: NDIS_VAR_DATA_DESC,
+            ulTAPISupplementaryPassThru: u32,
+            ulAddressModes: u32,
+            ulNumAddresses: u32,
+            ulBearerModes: u32,
+            ulMaxTxRate: u32,
+            ulMinTxRate: u32,
+            ulMaxRxRate: u32,
+            ulMinRxRate: u32,
+            ulMediaModes: u32,
+            ulGenerateToneModes: u32,
+            ulGenerateToneMaxNumFreq: u32,
+            ulGenerateDigitModes: u32,
+            ulMonitorToneMaxNumFreq: u32,
+            ulMonitorToneMaxNumEntries: u32,
+            ulMonitorDigitModes: u32,
+            ulGatherDigitsMinTimeout: u32,
+            ulGatherDigitsMaxTimeout: u32,
+            ulDevCapFlags: u32,
+            ulMaxNumActiveCalls: u32,
+            ulAnswerMode: u32,
+            ulUUIAcceptSize: u32,
+            ulUUIAnswerSize: u32,
+            ulUUIMakeCallSize: u32,
+            ulUUIDropSize: u32,
+            ulUUISendUserUserInfoSize: u32,
+            ulUUICallInfoSize: u32,
+        }
+        struct NDIS_CO_LINK_SPEED {
+            Outbound: u32,
+            Inbound: u32,
+        }
+        const NDIS_CO_MAC_OPTION_DYNAMIC_LINK_SPEED: u32 = 1;
+        #[repr(i32)]
+        enum NDIS_DEVICE_POWER_STATE {
+            NdisDeviceStateUnspecified = 0,
+            NdisDeviceStateD0 = 1,
+            NdisDeviceStateD1 = 2,
+            NdisDeviceStateD2 = 3,
+            NdisDeviceStateD3 = 4,
+            NdisDeviceStateMaximum = 5,
+        }
+        const NDIS_DEVICE_TYPE_ENDPOINT: u32 = 1;
+        const NDIS_DEVICE_WAKE_ON_MAGIC_PACKET_ENABLE: u32 = 4;
+        const NDIS_DEVICE_WAKE_ON_PATTERN_MATCH_ENABLE: u32 = 2;
+        const NDIS_DEVICE_WAKE_UP_ENABLE: u32 = 1;
+        const NDIS_ETH_TYPE_802_1Q: u32 = 33024;
+        const NDIS_ETH_TYPE_802_1X: u32 = 34958;
+        const NDIS_ETH_TYPE_ARP: u32 = 2054;
+        const NDIS_ETH_TYPE_IPV4: u32 = 2048;
+        const NDIS_ETH_TYPE_IPV6: u32 = 34525;
+        const NDIS_ETH_TYPE_SLOW_PROTOCOL: u32 = 34825;
+        #[repr(i32)]
+        enum NDIS_FDDI_ATTACHMENT_TYPE {
+            NdisFddiTypeIsolated = 1,
+            NdisFddiTypeLocalA = 2,
+            NdisFddiTypeLocalB = 3,
+            NdisFddiTypeLocalAB = 4,
+            NdisFddiTypeLocalS = 5,
+            NdisFddiTypeWrapA = 6,
+            NdisFddiTypeWrapB = 7,
+            NdisFddiTypeWrapAB = 8,
+            NdisFddiTypeWrapS = 9,
+            NdisFddiTypeCWrapA = 10,
+            NdisFddiTypeCWrapB = 11,
+            NdisFddiTypeCWrapS = 12,
+            NdisFddiTypeThrough = 13,
+        }
+        #[repr(i32)]
+        enum NDIS_FDDI_LCONNECTION_STATE {
+            NdisFddiStateOff = 1,
+            NdisFddiStateBreak = 2,
+            NdisFddiStateTrace = 3,
+            NdisFddiStateConnect = 4,
+            NdisFddiStateNext = 5,
+            NdisFddiStateSignal = 6,
+            NdisFddiStateJoin = 7,
+            NdisFddiStateVerify = 8,
+            NdisFddiStateActive = 9,
+            NdisFddiStateMaintenance = 10,
+        }
+        #[repr(i32)]
+        enum NDIS_FDDI_RING_MGT_STATE {
+            NdisFddiRingIsolated = 1,
+            NdisFddiRingNonOperational = 2,
+            NdisFddiRingOperational = 3,
+            NdisFddiRingDetect = 4,
+            NdisFddiRingNonOperationalDup = 5,
+            NdisFddiRingOperationalDup = 6,
+            NdisFddiRingDirected = 7,
+            NdisFddiRingTrace = 8,
+        }
+        struct NDIS_GUID {
+            Guid: GUID,
+            Anonymous: union {
+                Oid: NDIS_OID,
+                Status: NDIS_STATUS,
+            },
+            Size: u32,
+            Flags: u32,
+        }
+        struct NDIS_HARDWARE_CROSSTIMESTAMP {
+            Header: NDIS_OBJECT_HEADER,
+            Flags: u32,
+            SystemTimestamp1: u64,
+            HardwareClockTimestamp: u64,
+            SystemTimestamp2: u64,
+        }
+        const NDIS_HARDWARE_CROSSTIMESTAMP_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum NDIS_HARDWARE_STATUS {
+            NdisHardwareStatusReady = 0,
+            NdisHardwareStatusInitializing = 1,
+            NdisHardwareStatusReset = 2,
+            NdisHardwareStatusClosing = 3,
+            NdisHardwareStatusNotReady = 4,
+        }
+        type NDIS_IF_COUNTED_STRING = IF_COUNTED_STRING;
+        const NDIS_IF_MAX_STRING_SIZE: u32 = 256;
+        type NDIS_IF_PHYSICAL_ADDRESS = IF_PHYSICAL_ADDRESS;
+        #[repr(i32)]
+        enum NDIS_INTERRUPT_MODERATION {
+            NdisInterruptModerationUnknown = 0,
+            NdisInterruptModerationNotSupported = 1,
+            NdisInterruptModerationEnabled = 2,
+            NdisInterruptModerationDisabled = 3,
+        }
+        const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_REINITIALIZE: u32 = 2;
+        const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_RESET: u32 = 1;
+        struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            Flags: u32,
+            InterruptModeration: NDIS_INTERRUPT_MODERATION,
+        }
+        const NDIS_INTERRUPT_MODERATION_PARAMETERS_REVISION_1: u32 = 1;
+        struct NDIS_IPSEC_OFFLOAD_V1 {
+            Supported: struct {
+                Encapsulation: u32,
+                AhEspCombined: u32,
+                TransportTunnelCombined: u32,
+                IPv4Options: u32,
+                Flags: u32,
+            },
+            IPv4AH: struct {
+                _bitfield: u32,
+            },
+            IPv4ESP: struct {
+                _bitfield: u32,
+            },
+        }
+        struct NDIS_IP_OPER_STATE {
+            Header: NDIS_OBJECT_HEADER,
+            Flags: u32,
+            IpOperationalStatus: NDIS_IP_OPER_STATUS,
+        }
+        const NDIS_IP_OPER_STATE_REVISION_1: u32 = 1;
+        struct NDIS_IP_OPER_STATUS {
+            AddressFamily: u32,
+            OperationalStatus: NET_IF_OPER_STATUS,
+            OperationalStatusFlags: u32,
+        }
+        struct NDIS_IP_OPER_STATUS_INFO {
+            Header: NDIS_OBJECT_HEADER,
+            Flags: u32,
+            NumberofAddressFamiliesReturned: u32,
+            IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
+        }
+        const NDIS_IP_OPER_STATUS_INFO_REVISION_1: u32 = 1;
+        struct NDIS_IRDA_PACKET_INFO {
+            ExtraBOFs: u32,
+            MinTurnAroundTime: u32,
+        }
+        struct NDIS_LINK_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            MediaDuplexState: NDIS_MEDIA_DUPLEX_STATE,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
+            PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
+            AutoNegotiationFlags: u32,
+        }
+        const NDIS_LINK_PARAMETERS_REVISION_1: u32 = 1;
+        struct NDIS_LINK_SPEED {
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
+        }
+        const NDIS_LINK_SPEED_UNKNOWN: i32 = -1;
+        struct NDIS_LINK_STATE {
+            Header: NDIS_OBJECT_HEADER,
+            MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
+            MediaDuplexState: NDIS_MEDIA_DUPLEX_STATE,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
+            PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
+            AutoNegotiationFlags: u32,
+        }
+        const NDIS_LINK_STATE_DUPLEX_AUTO_NEGOTIATED: u32 = 4;
+        const NDIS_LINK_STATE_PAUSE_FUNCTIONS_AUTO_NEGOTIATED: u32 = 8;
+        const NDIS_LINK_STATE_RCV_LINK_SPEED_AUTO_NEGOTIATED: u32 = 2;
+        const NDIS_LINK_STATE_REVISION_1: u32 = 1;
+        const NDIS_LINK_STATE_XMIT_LINK_SPEED_AUTO_NEGOTIATED: u32 = 1;
+        const NDIS_MAC_OPTION_8021P_PRIORITY: u32 = 64;
+        const NDIS_MAC_OPTION_8021Q_VLAN: u32 = 512;
+        const NDIS_MAC_OPTION_COPY_LOOKAHEAD_DATA: u32 = 1;
+        const NDIS_MAC_OPTION_EOTX_INDICATION: u32 = 32;
+        const NDIS_MAC_OPTION_FULL_DUPLEX: u32 = 16;
+        const NDIS_MAC_OPTION_NO_LOOPBACK: u32 = 8;
+        const NDIS_MAC_OPTION_RECEIVE_AT_DPC: u32 = 256;
+        const NDIS_MAC_OPTION_RECEIVE_SERIALIZED: u32 = 2;
+        const NDIS_MAC_OPTION_RESERVED: u32 = 2147483648;
+        const NDIS_MAC_OPTION_SUPPORTS_MAC_ADDRESS_OVERWRITE: u32 = 128;
+        const NDIS_MAC_OPTION_TRANSFERS_NOT_PEND: u32 = 4;
+        const NDIS_MAX_PHYS_ADDRESS_LENGTH: u32 = 32;
+        const NDIS_MEDIA_CAP_RECEIVE: u32 = 2;
+        const NDIS_MEDIA_CAP_TRANSMIT: u32 = 1;
+        type NDIS_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE;
+        type NDIS_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE;
+        #[repr(i32)]
+        enum NDIS_MEDIA_STATE {
+            NdisMediaStateConnected = 0,
+            NdisMediaStateDisconnected = 1,
+        }
+        #[repr(i32)]
+        enum NDIS_MEDIUM {
+            NdisMedium802_3 = 0,
+            NdisMedium802_5 = 1,
+            NdisMediumFddi = 2,
+            NdisMediumWan = 3,
+            NdisMediumLocalTalk = 4,
+            NdisMediumDix = 5,
+            NdisMediumArcnetRaw = 6,
+            NdisMediumArcnet878_2 = 7,
+            NdisMediumAtm = 8,
+            NdisMediumWirelessWan = 9,
+            NdisMediumIrda = 10,
+            NdisMediumBpc = 11,
+            NdisMediumCoWan = 12,
+            NdisMedium1394 = 13,
+            NdisMediumInfiniBand = 14,
+            NdisMediumTunnel = 15,
+            NdisMediumNative802_11 = 16,
+            NdisMediumLoopback = 17,
+            NdisMediumWiMAX = 18,
+            NdisMediumIP = 19,
+            NdisMediumMax = 20,
+        }
+        #[repr(i32)]
+        enum NDIS_NETWORK_CHANGE_TYPE {
+            NdisPossibleNetworkChange = 1,
+            NdisDefinitelyNetworkChange = 2,
+            NdisNetworkChangeFromMediaConnect = 3,
+            NdisNetworkChangeMax = 4,
+        }
+        const NDIS_OBJECT_TYPE_BIND_PARAMETERS: u32 = 134;
+        const NDIS_OBJECT_TYPE_CLIENT_CHIMNEY_OFFLOAD_CHARACTERISTICS: u32 = 147;
+        const NDIS_OBJECT_TYPE_CLIENT_CHIMNEY_OFFLOAD_GENERIC_CHARACTERISTICS: u32 = 142;
+        const NDIS_OBJECT_TYPE_CONFIGURATION_OBJECT: u32 = 169;
+        const NDIS_OBJECT_TYPE_CO_CALL_MANAGER_OPTIONAL_HANDLERS: u32 = 165;
+        const NDIS_OBJECT_TYPE_CO_CLIENT_OPTIONAL_HANDLERS: u32 = 166;
+        const NDIS_OBJECT_TYPE_CO_MINIPORT_CHARACTERISTICS: u32 = 145;
+        const NDIS_OBJECT_TYPE_CO_PROTOCOL_CHARACTERISTICS: u32 = 144;
+        const NDIS_OBJECT_TYPE_DEFAULT: u32 = 128;
+        const NDIS_OBJECT_TYPE_DEVICE_OBJECT_ATTRIBUTES: u32 = 133;
+        const NDIS_OBJECT_TYPE_DRIVER_WRAPPER_OBJECT: u32 = 170;
+        const NDIS_OBJECT_TYPE_FILTER_ATTACH_PARAMETERS: u32 = 153;
+        const NDIS_OBJECT_TYPE_FILTER_ATTRIBUTES: u32 = 141;
+        const NDIS_OBJECT_TYPE_FILTER_DRIVER_CHARACTERISTICS: u32 = 139;
+        const NDIS_OBJECT_TYPE_FILTER_PARTIAL_CHARACTERISTICS: u32 = 140;
+        const NDIS_OBJECT_TYPE_FILTER_PAUSE_PARAMETERS: u32 = 154;
+        const NDIS_OBJECT_TYPE_FILTER_RESTART_PARAMETERS: u32 = 155;
+        const NDIS_OBJECT_TYPE_MINIPORT_ADAPTER_GENERAL_ATTRIBUTES: u32 = 159;
+        const NDIS_OBJECT_TYPE_MINIPORT_ADAPTER_NATIVE_802_11_ATTRIBUTES: u32 = 161;
+        const NDIS_OBJECT_TYPE_MINIPORT_ADAPTER_OFFLOAD_ATTRIBUTES: u32 = 160;
+        const NDIS_OBJECT_TYPE_MINIPORT_ADAPTER_REGISTRATION_ATTRIBUTES: u32 = 158;
+        const NDIS_OBJECT_TYPE_MINIPORT_ADD_DEVICE_REGISTRATION_ATTRIBUTES: u32 = 164;
+        const NDIS_OBJECT_TYPE_MINIPORT_DRIVER_CHARACTERISTICS: u32 = 138;
+        const NDIS_OBJECT_TYPE_MINIPORT_INIT_PARAMETERS: u32 = 129;
+        const NDIS_OBJECT_TYPE_MINIPORT_INTERRUPT: u32 = 132;
+        const NDIS_OBJECT_TYPE_MINIPORT_PNP_CHARACTERISTICS: u32 = 146;
+        const NDIS_OBJECT_TYPE_NSI_COMPARTMENT_RW_STRUCT: u32 = 173;
+        const NDIS_OBJECT_TYPE_NSI_INTERFACE_PERSIST_RW_STRUCT: u32 = 174;
+        const NDIS_OBJECT_TYPE_NSI_NETWORK_RW_STRUCT: u32 = 172;
+        const NDIS_OBJECT_TYPE_OFFLOAD: u32 = 167;
+        const NDIS_OBJECT_TYPE_OFFLOAD_ENCAPSULATION: u32 = 168;
+        const NDIS_OBJECT_TYPE_OPEN_PARAMETERS: u32 = 135;
+        const NDIS_OBJECT_TYPE_PCI_DEVICE_CUSTOM_PROPERTIES_REVISION_1: u32 = 1;
+        const NDIS_OBJECT_TYPE_PCI_DEVICE_CUSTOM_PROPERTIES_REVISION_2: u32 = 2;
+        const NDIS_OBJECT_TYPE_PORT_CHARACTERISTICS: u32 = 156;
+        const NDIS_OBJECT_TYPE_PORT_STATE: u32 = 157;
+        const NDIS_OBJECT_TYPE_PROTOCOL_DRIVER_CHARACTERISTICS: u32 = 149;
+        const NDIS_OBJECT_TYPE_PROTOCOL_RESTART_PARAMETERS: u32 = 163;
+        const NDIS_OBJECT_TYPE_PROVIDER_CHIMNEY_OFFLOAD_CHARACTERISTICS: u32 = 148;
+        const NDIS_OBJECT_TYPE_PROVIDER_CHIMNEY_OFFLOAD_GENERIC_CHARACTERISTICS: u32 = 143;
+        const NDIS_OBJECT_TYPE_REQUEST_EX: u32 = 150;
+        const NDIS_OBJECT_TYPE_RESTART_GENERAL_ATTRIBUTES: u32 = 162;
+        const NDIS_OBJECT_TYPE_RSS_CAPABILITIES: u32 = 136;
+        const NDIS_OBJECT_TYPE_RSS_PARAMETERS: u32 = 137;
+        const NDIS_OBJECT_TYPE_RSS_PARAMETERS_V2: u32 = 200;
+        const NDIS_OBJECT_TYPE_RSS_SET_INDIRECTION_ENTRIES: u32 = 201;
+        const NDIS_OBJECT_TYPE_SG_DMA_DESCRIPTION: u32 = 131;
+        const NDIS_OBJECT_TYPE_STATUS_INDICATION: u32 = 152;
+        const NDIS_OBJECT_TYPE_TIMER_CHARACTERISTICS: u32 = 151;
+        struct NDIS_OFFLOAD {
+            Header: NDIS_OBJECT_HEADER,
+            Checksum: NDIS_TCP_IP_CHECKSUM_OFFLOAD,
+            LsoV1: NDIS_TCP_LARGE_SEND_OFFLOAD_V1,
+            IPsecV1: NDIS_IPSEC_OFFLOAD_V1,
+            LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
+            Flags: u32,
+        }
+        const NDIS_OFFLOAD_FLAGS_GROUP_CHECKSUM_CAPABILITIES: u32 = 1;
+        struct NDIS_OFFLOAD_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            IPv4Checksum: u8,
+            TCPIPv4Checksum: u8,
+            UDPIPv4Checksum: u8,
+            TCPIPv6Checksum: u8,
+            UDPIPv6Checksum: u8,
+            LsoV1: u8,
+            IPsecV1: u8,
+            LsoV2IPv4: u8,
+            LsoV2IPv6: u8,
+            TcpConnectionIPv4: u8,
+            TcpConnectionIPv6: u8,
+            Flags: u32,
+        }
+        const NDIS_OFFLOAD_PARAMETERS_CONNECTION_OFFLOAD_DISABLED: u32 = 1;
+        const NDIS_OFFLOAD_PARAMETERS_CONNECTION_OFFLOAD_ENABLED: u32 = 2;
+        const NDIS_OFFLOAD_PARAMETERS_IPSECV1_AH_AND_ESP_ENABLED: u32 = 4;
+        const NDIS_OFFLOAD_PARAMETERS_IPSECV1_AH_ENABLED: u32 = 2;
+        const NDIS_OFFLOAD_PARAMETERS_IPSECV1_DISABLED: u32 = 1;
+        const NDIS_OFFLOAD_PARAMETERS_IPSECV1_ESP_ENABLED: u32 = 3;
+        const NDIS_OFFLOAD_PARAMETERS_LSOV1_DISABLED: u32 = 1;
+        const NDIS_OFFLOAD_PARAMETERS_LSOV1_ENABLED: u32 = 2;
+        const NDIS_OFFLOAD_PARAMETERS_LSOV2_DISABLED: u32 = 1;
+        const NDIS_OFFLOAD_PARAMETERS_LSOV2_ENABLED: u32 = 2;
+        const NDIS_OFFLOAD_PARAMETERS_NO_CHANGE: u32 = 0;
+        const NDIS_OFFLOAD_PARAMETERS_REVISION_1: u32 = 1;
+        const NDIS_OFFLOAD_PARAMETERS_RX_ENABLED_TX_DISABLED: u32 = 3;
+        const NDIS_OFFLOAD_PARAMETERS_TX_ENABLED_RX_DISABLED: u32 = 2;
+        const NDIS_OFFLOAD_PARAMETERS_TX_RX_DISABLED: u32 = 1;
+        const NDIS_OFFLOAD_PARAMETERS_TX_RX_ENABLED: u32 = 4;
+        const NDIS_OFFLOAD_REVISION_1: u32 = 1;
+        struct NDIS_OPER_STATE {
+            Header: NDIS_OBJECT_HEADER,
+            OperationalStatus: NET_IF_OPER_STATUS,
+            OperationalStatusFlags: u32,
+        }
+        const NDIS_OPER_STATE_REVISION_1: u32 = 1;
+        const NDIS_PACKET_TYPE_ALL_FUNCTIONAL: u32 = 8192;
+        const NDIS_PACKET_TYPE_ALL_LOCAL: u32 = 128;
+        const NDIS_PACKET_TYPE_ALL_MULTICAST: u32 = 4;
+        const NDIS_PACKET_TYPE_BROADCAST: u32 = 8;
+        const NDIS_PACKET_TYPE_DIRECTED: u32 = 1;
+        const NDIS_PACKET_TYPE_FUNCTIONAL: u32 = 16384;
+        const NDIS_PACKET_TYPE_GROUP: u32 = 4096;
+        const NDIS_PACKET_TYPE_MAC_FRAME: u32 = 32768;
+        const NDIS_PACKET_TYPE_MULTICAST: u32 = 2;
+        const NDIS_PACKET_TYPE_NO_LOCAL: u32 = 65536;
+        const NDIS_PACKET_TYPE_PROMISCUOUS: u32 = 32;
+        const NDIS_PACKET_TYPE_SMT: u32 = 64;
+        const NDIS_PACKET_TYPE_SOURCE_ROUTING: u32 = 16;
+        struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+            Header: NDIS_OBJECT_HEADER,
+            DeviceType: u32,
+            CurrentSpeedAndMode: u32,
+            CurrentPayloadSize: u32,
+            MaxPayloadSize: u32,
+            MaxReadRequestSize: u32,
+            CurrentLinkSpeed: u32,
+            CurrentLinkWidth: u32,
+            MaxLinkSpeed: u32,
+            MaxLinkWidth: u32,
+            PciExpressVersion: u32,
+            InterruptType: u32,
+            MaxInterruptMessages: u32,
+        }
+        #[repr(i32)]
+        enum NDIS_PHYSICAL_MEDIUM {
+            NdisPhysicalMediumUnspecified = 0,
+            NdisPhysicalMediumWirelessLan = 1,
+            NdisPhysicalMediumCableModem = 2,
+            NdisPhysicalMediumPhoneLine = 3,
+            NdisPhysicalMediumPowerLine = 4,
+            NdisPhysicalMediumDSL = 5,
+            NdisPhysicalMediumFibreChannel = 6,
+            NdisPhysicalMedium1394 = 7,
+            NdisPhysicalMediumWirelessWan = 8,
+            NdisPhysicalMediumNative802_11 = 9,
+            NdisPhysicalMediumBluetooth = 10,
+            NdisPhysicalMediumInfiniband = 11,
+            NdisPhysicalMediumWiMax = 12,
+            NdisPhysicalMediumUWB = 13,
+            NdisPhysicalMedium802_3 = 14,
+            NdisPhysicalMedium802_5 = 15,
+            NdisPhysicalMediumIrda = 16,
+            NdisPhysicalMediumWiredWAN = 17,
+            NdisPhysicalMediumWiredCoWan = 18,
+            NdisPhysicalMediumOther = 19,
+            NdisPhysicalMediumNative802_15_4 = 20,
+            NdisPhysicalMediumMax = 21,
+        }
+        struct NDIS_PM_PACKET_PATTERN {
+            Priority: u32,
+            Reserved: u32,
+            MaskSize: u32,
+            PatternOffset: u32,
+            PatternSize: u32,
+            PatternFlags: u32,
+        }
+        struct NDIS_PM_WAKE_UP_CAPABILITIES {
+            MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE,
+            MinPatternWakeUp: NDIS_DEVICE_POWER_STATE,
+            MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
+        }
+        struct NDIS_PNP_CAPABILITIES {
+            Flags: u32,
+            WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
+        }
+        const NDIS_PNP_WAKE_UP_LINK_CHANGE: u32 = 4;
+        const NDIS_PNP_WAKE_UP_MAGIC_PACKET: u32 = 1;
+        const NDIS_PNP_WAKE_UP_PATTERN_MATCH: u32 = 2;
+        struct NDIS_PORT {
+            Next: PNDIS_PORT,
+            NdisReserved: *mut void,
+            MiniportReserved: *mut void,
+            ProtocolReserved: *mut void,
+            PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
+        }
+        struct NDIS_PORT_ARRAY {
+            Header: NDIS_OBJECT_HEADER,
+            NumberOfPorts: u32,
+            OffsetFirstPort: u32,
+            ElementSize: u32,
+            Ports: [NDIS_PORT_CHARACTERISTICS; 1],
+        }
+        const NDIS_PORT_ARRAY_REVISION_1: u32 = 1;
+        struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            SendControlState: NDIS_PORT_CONTROL_STATE,
+            RcvControlState: NDIS_PORT_CONTROL_STATE,
+            SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+            RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+        }
+        const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum NDIS_PORT_AUTHORIZATION_STATE {
+            NdisPortAuthorizationUnknown = 0,
+            NdisPortAuthorized = 1,
+            NdisPortUnauthorized = 2,
+            NdisPortReauthorizing = 3,
+        }
+        struct NDIS_PORT_CHARACTERISTICS {
+            Header: NDIS_OBJECT_HEADER,
+            PortNumber: NDIS_PORT_NUMBER,
+            Flags: u32,
+            Type: NDIS_PORT_TYPE,
+            MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
+            Direction: NET_IF_DIRECTION_TYPE,
+            SendControlState: NDIS_PORT_CONTROL_STATE,
+            RcvControlState: NDIS_PORT_CONTROL_STATE,
+            SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+            RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+        }
+        const NDIS_PORT_CHARACTERISTICS_REVISION_1: u32 = 1;
+        const NDIS_PORT_CHAR_USE_DEFAULT_AUTH_SETTINGS: u32 = 1;
+        type NDIS_PORT_CONTROLL_STATE = NDIS_PORT_CONTROL_STATE;
+        #[repr(i32)]
+        enum NDIS_PORT_CONTROL_STATE {
+            NdisPortControlStateUnknown = 0,
+            NdisPortControlStateControlled = 1,
+            NdisPortControlStateUncontrolled = 2,
+        }
+        struct NDIS_PORT_STATE {
+            Header: NDIS_OBJECT_HEADER,
+            MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
+            Direction: NET_IF_DIRECTION_TYPE,
+            SendControlState: NDIS_PORT_CONTROL_STATE,
+            RcvControlState: NDIS_PORT_CONTROL_STATE,
+            SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+            RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+            Flags: u32,
+        }
+        const NDIS_PORT_STATE_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum NDIS_PROCESSOR_VENDOR {
+            NdisProcessorVendorUnknown = 0,
+            NdisProcessorVendorGenuinIntel = 1,
+            NdisProcessorVendorGenuineIntel = 1,
+            NdisProcessorVendorAuthenticAMD = 2,
+        }
+        const NDIS_PROTOCOL_ID_DEFAULT: u32 = 0;
+        const NDIS_PROTOCOL_ID_IP6: u32 = 3;
+        const NDIS_PROTOCOL_ID_IPX: u32 = 6;
+        const NDIS_PROTOCOL_ID_MASK: u32 = 15;
+        const NDIS_PROTOCOL_ID_MAX: u32 = 15;
+        const NDIS_PROTOCOL_ID_NBF: u32 = 7;
+        const NDIS_PROTOCOL_ID_TCP_IP: u32 = 2;
+        const NDIS_PROT_OPTION_ESTIMATED_LENGTH: u32 = 1;
+        const NDIS_PROT_OPTION_NO_LOOPBACK: u32 = 2;
+        const NDIS_PROT_OPTION_NO_RSVD_ON_RCVPKT: u32 = 4;
+        const NDIS_PROT_OPTION_SEND_RESTRICTED: u32 = 8;
+        const NDIS_RECEIVE_HASH_FLAG_ENABLE_HASH: u32 = 1;
+        const NDIS_RECEIVE_HASH_FLAG_HASH_INFO_UNCHANGED: u32 = 2;
+        const NDIS_RECEIVE_HASH_FLAG_HASH_KEY_UNCHANGED: u32 = 4;
+        struct NDIS_RECEIVE_HASH_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            Flags: u32,
+            HashInformation: u32,
+            HashSecretKeySize: u16,
+            HashSecretKeyOffset: u32,
+        }
+        const NDIS_RECEIVE_HASH_PARAMETERS_REVISION_1: u32 = 1;
+        struct NDIS_RECEIVE_SCALE_CAPABILITIES {
+            Header: NDIS_OBJECT_HEADER,
+            CapabilitiesFlags: NDIS_RSS_CAPS_FLAGS,
+            NumberOfInterruptMessages: u32,
+            NumberOfReceiveQueues: u32,
+        }
+        const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_1: u32 = 1;
+        struct NDIS_RECEIVE_SCALE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            Flags: u16,
+            BaseCpuNumber: u16,
+            HashInformation: u32,
+            IndirectionTableSize: u16,
+            IndirectionTableOffset: u32,
+            HashSecretKeySize: u16,
+            HashSecretKeyOffset: u32,
+        }
+        const NDIS_RECEIVE_SCALE_PARAMETERS_REVISION_1: u32 = 1;
+        const NDIS_RING_AUTO_REMOVAL_ERROR: u32 = 1024;
+        const NDIS_RING_COUNTER_OVERFLOW: u32 = 256;
+        const NDIS_RING_HARD_ERROR: u32 = 16384;
+        const NDIS_RING_LOBE_WIRE_FAULT: u32 = 2048;
+        const NDIS_RING_REMOVE_RECEIVED: u32 = 512;
+        const NDIS_RING_RING_RECOVERY: u32 = 64;
+        const NDIS_RING_SIGNAL_LOSS: u32 = 32768;
+        const NDIS_RING_SINGLE_STATION: u32 = 128;
+        const NDIS_RING_SOFT_ERROR: u32 = 8192;
+        const NDIS_RING_TRANSMIT_BEACON: u32 = 4096;
+        const NDIS_RSS_CAPS_CLASSIFICATION_AT_DPC: u32 = 67108864;
+        const NDIS_RSS_CAPS_CLASSIFICATION_AT_ISR: u32 = 33554432;
+        type NDIS_RSS_CAPS_FLAGS = u32;
+        const NDIS_RSS_CAPS_HASH_TYPE_TCP_IPV4: u32 = 256;
+        const NDIS_RSS_CAPS_HASH_TYPE_TCP_IPV6: u32 = 512;
+        const NDIS_RSS_CAPS_HASH_TYPE_TCP_IPV6_EX: u32 = 1024;
+        const NDIS_RSS_CAPS_MESSAGE_SIGNALED_INTERRUPTS: u32 = 16777216;
+        const NDIS_RSS_HASH_SECRET_KEY_MAX_SIZE_REVISION_1: u32 = 40;
+        const NDIS_RSS_HASH_SECRET_KEY_SIZE_REVISION_1: u32 = 40;
+        const NDIS_RSS_INDIRECTION_TABLE_MAX_SIZE_REVISION_1: u32 = 128;
+        const NDIS_RSS_INDIRECTION_TABLE_SIZE_REVISION_1: u32 = 128;
+        const NDIS_RSS_PARAM_FLAG_BASE_CPU_UNCHANGED: u32 = 1;
+        const NDIS_RSS_PARAM_FLAG_DISABLE_RSS: u32 = 16;
+        const NDIS_RSS_PARAM_FLAG_HASH_INFO_UNCHANGED: u32 = 2;
+        const NDIS_RSS_PARAM_FLAG_HASH_KEY_UNCHANGED: u32 = 8;
+        const NDIS_RSS_PARAM_FLAG_ITABLE_UNCHANGED: u32 = 4;
+        const NDIS_SIZEOF_HARDWARE_CROSSTIMESTAMP_REVISION_1: u32 = 32;
+        const NDIS_SIZEOF_INTERRUPT_MODERATION_PARAMETERS_REVISION_1: u32 = 12;
+        const NDIS_SIZEOF_IP_OPER_STATE_REVISION_1: u32 = 20;
+        const NDIS_SIZEOF_LINK_PARAMETERS_REVISION_1: u32 = 32;
+        const NDIS_SIZEOF_LINK_STATE_REVISION_1: u32 = 40;
+        const NDIS_SIZEOF_NDIS_OFFLOAD_REVISION_1: u32 = 112;
+        const NDIS_SIZEOF_NDIS_WMI_OFFLOAD_REVISION_1: u32 = 224;
+        const NDIS_SIZEOF_OFFLOAD_PARAMETERS_REVISION_1: u32 = 20;
+        const NDIS_SIZEOF_OPER_STATE_REVISION_1: u32 = 12;
+        const NDIS_SIZEOF_PCI_DEVICE_CUSTOM_PROPERTIES_REVISION_1: u32 = 40;
+        const NDIS_SIZEOF_PCI_DEVICE_CUSTOM_PROPERTIES_REVISION_2: u32 = 52;
+        const NDIS_SIZEOF_PORT_ARRAY_REVISION_1: u32 = 80;
+        const NDIS_SIZEOF_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 20;
+        const NDIS_SIZEOF_PORT_CHARACTERISTICS_REVISION_1: u32 = 60;
+        const NDIS_SIZEOF_PORT_STATE_REVISION_1: u32 = 48;
+        const NDIS_SIZEOF_RECEIVE_HASH_PARAMETERS_REVISION_1: u32 = 20;
+        const NDIS_SIZEOF_RECEIVE_SCALE_CAPABILITIES_REVISION_1: u32 = 16;
+        const NDIS_SIZEOF_RECEIVE_SCALE_PARAMETERS_REVISION_1: u32 = 28;
+        const NDIS_SIZEOF_STATISTICS_INFO_REVISION_1: u32 = 152;
+        const NDIS_SIZEOF_TCP_CONNECTION_OFFLOAD_REVISION_1: u32 = 20;
+        const NDIS_SIZEOF_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: u32 = 16;
+        const NDIS_SIZEOF_TIMESTAMP_CAPABILITIES_REVISION_1: u32 = 54;
+        const NDIS_SIZEOF_WMI_ENUM_ADAPTER_REVISION_1: u32 = 19;
+        const NDIS_SIZEOF_WMI_EVENT_HEADER_REVISION_1: u32 = 40;
+        const NDIS_SIZEOF_WMI_METHOD_HEADER_REVISION_1: u32 = 32;
+        const NDIS_SIZEOF_WMI_OUTPUT_INFO_REVISION_1: u32 = 16;
+        const NDIS_SIZEOF_WMI_SET_HEADER_REVISION_1: u32 = 32;
+        const NDIS_SIZEOF_WMI_TCP_CONNECTION_OFFLOAD_REVISION_1: u32 = 32;
+        const NDIS_STATISTICS_FLAGS_VALID_BROADCAST_BYTES_RCV: u32 = 262144;
+        const NDIS_STATISTICS_FLAGS_VALID_BROADCAST_BYTES_XMIT: u32 = 2097152;
+        const NDIS_STATISTICS_FLAGS_VALID_BROADCAST_FRAMES_RCV: u32 = 4;
+        const NDIS_STATISTICS_FLAGS_VALID_BROADCAST_FRAMES_XMIT: u32 = 256;
+        const NDIS_STATISTICS_FLAGS_VALID_BYTES_RCV: u32 = 8;
+        const NDIS_STATISTICS_FLAGS_VALID_BYTES_XMIT: u32 = 512;
+        const NDIS_STATISTICS_FLAGS_VALID_DIRECTED_BYTES_RCV: u32 = 65536;
+        const NDIS_STATISTICS_FLAGS_VALID_DIRECTED_BYTES_XMIT: u32 = 524288;
+        const NDIS_STATISTICS_FLAGS_VALID_DIRECTED_FRAMES_RCV: u32 = 1;
+        const NDIS_STATISTICS_FLAGS_VALID_DIRECTED_FRAMES_XMIT: u32 = 64;
+        const NDIS_STATISTICS_FLAGS_VALID_MULTICAST_BYTES_RCV: u32 = 131072;
+        const NDIS_STATISTICS_FLAGS_VALID_MULTICAST_BYTES_XMIT: u32 = 1048576;
+        const NDIS_STATISTICS_FLAGS_VALID_MULTICAST_FRAMES_RCV: u32 = 2;
+        const NDIS_STATISTICS_FLAGS_VALID_MULTICAST_FRAMES_XMIT: u32 = 128;
+        const NDIS_STATISTICS_FLAGS_VALID_RCV_DISCARDS: u32 = 16;
+        const NDIS_STATISTICS_FLAGS_VALID_RCV_ERROR: u32 = 32;
+        const NDIS_STATISTICS_FLAGS_VALID_XMIT_DISCARDS: u32 = 32768;
+        const NDIS_STATISTICS_FLAGS_VALID_XMIT_ERROR: u32 = 1024;
+        struct NDIS_STATISTICS_INFO {
+            Header: NDIS_OBJECT_HEADER,
+            SupportedStatistics: u32,
+            ifInDiscards: u64,
+            ifInErrors: u64,
+            ifHCInOctets: u64,
+            ifHCInUcastPkts: u64,
+            ifHCInMulticastPkts: u64,
+            ifHCInBroadcastPkts: u64,
+            ifHCOutOctets: u64,
+            ifHCOutUcastPkts: u64,
+            ifHCOutMulticastPkts: u64,
+            ifHCOutBroadcastPkts: u64,
+            ifOutErrors: u64,
+            ifOutDiscards: u64,
+            ifHCInUcastOctets: u64,
+            ifHCInMulticastOctets: u64,
+            ifHCInBroadcastOctets: u64,
+            ifHCOutUcastOctets: u64,
+            ifHCOutMulticastOctets: u64,
+            ifHCOutBroadcastOctets: u64,
+        }
+        const NDIS_STATISTICS_INFO_REVISION_1: u32 = 1;
+        struct NDIS_STATISTICS_VALUE {
+            Oid: NDIS_OID,
+            DataLength: u32,
+            Data: [u8; 1],
+        }
+        struct NDIS_STATISTICS_VALUE_EX {
+            Oid: NDIS_OID,
+            DataLength: u32,
+            Length: u32,
+            Data: [u8; 1],
+        }
+        #[repr(i32)]
+        enum NDIS_SUPPORTED_PAUSE_FUNCTIONS {
+            NdisPauseFunctionsUnsupported = 0,
+            NdisPauseFunctionsSendOnly = 1,
+            NdisPauseFunctionsReceiveOnly = 2,
+            NdisPauseFunctionsSendAndReceive = 3,
+            NdisPauseFunctionsUnknown = 4,
+        }
+        struct NDIS_TCP_CONNECTION_OFFLOAD {
+            Header: NDIS_OBJECT_HEADER,
+            Encapsulation: u32,
+            _bitfield: u32,
+            TcpConnectionOffloadCapacity: u32,
+            Flags: u32,
+        }
+        const NDIS_TCP_CONNECTION_OFFLOAD_REVISION_1: u32 = 1;
+        struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+            IPv4Transmit: struct {
+                Encapsulation: u32,
+                _bitfield: u32,
+            },
+            IPv4Receive: struct {
+                Encapsulation: u32,
+                _bitfield: u32,
+            },
+            IPv6Transmit: struct {
+                Encapsulation: u32,
+                _bitfield: u32,
+            },
+            IPv6Receive: struct {
+                Encapsulation: u32,
+                _bitfield: u32,
+            },
+        }
+        struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+            IPv4: struct {
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
+                _bitfield: u32,
+            },
+        }
+        struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+            IPv4: struct {
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
+            },
+            IPv6: struct {
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
+                _bitfield: u32,
+            },
+        }
+        struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+            Header: NDIS_OBJECT_HEADER,
+            Flags: u32,
+            TimeoutArrayLength: u32,
+            TimeoutArray: [u32; 1],
+        }
+        const NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: u32 = 1;
+        struct NDIS_TIMESTAMP_CAPABILITIES {
+            Header: NDIS_OBJECT_HEADER,
+            HardwareClockFrequencyHz: u64,
+            CrossTimestamp: BOOLEAN,
+            Reserved1: u64,
+            Reserved2: u64,
+            TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
+        }
+        const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: u32 = 1;
+        struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+            PtpV2OverUdpIPv4EventMsgReceiveHw: BOOLEAN,
+            PtpV2OverUdpIPv4AllMsgReceiveHw: BOOLEAN,
+            PtpV2OverUdpIPv4EventMsgTransmitHw: BOOLEAN,
+            PtpV2OverUdpIPv4AllMsgTransmitHw: BOOLEAN,
+            PtpV2OverUdpIPv6EventMsgReceiveHw: BOOLEAN,
+            PtpV2OverUdpIPv6AllMsgReceiveHw: BOOLEAN,
+            PtpV2OverUdpIPv6EventMsgTransmitHw: BOOLEAN,
+            PtpV2OverUdpIPv6AllMsgTransmitHw: BOOLEAN,
+            AllReceiveHw: BOOLEAN,
+            AllTransmitHw: BOOLEAN,
+            TaggedTransmitHw: BOOLEAN,
+            AllReceiveSw: BOOLEAN,
+            AllTransmitSw: BOOLEAN,
+            TaggedTransmitSw: BOOLEAN,
+        }
+        struct NDIS_VAR_DATA_DESC {
+            Length: u16,
+            MaximumLength: u16,
+            Offset: usize,
+        }
+        type NDIS_VLAN_ID = u32;
+        #[repr(i32)]
+        enum NDIS_WAN_HEADER_FORMAT {
+            NdisWanHeaderNative = 0,
+            NdisWanHeaderEthernet = 1,
+        }
+        #[repr(i32)]
+        enum NDIS_WAN_MEDIUM_SUBTYPE {
+            NdisWanMediumHub = 0,
+            NdisWanMediumX_25 = 1,
+            NdisWanMediumIsdn = 2,
+            NdisWanMediumSerial = 3,
+            NdisWanMediumFrameRelay = 4,
+            NdisWanMediumAtm = 5,
+            NdisWanMediumSonet = 6,
+            NdisWanMediumSW56K = 7,
+            NdisWanMediumPPTP = 8,
+            NdisWanMediumL2TP = 9,
+            NdisWanMediumIrda = 10,
+            NdisWanMediumParallel = 11,
+            NdisWanMediumPppoe = 12,
+            NdisWanMediumSSTP = 13,
+            NdisWanMediumAgileVPN = 14,
+            NdisWanMediumGre = 15,
+            NdisWanMediumSubTypeMax = 16,
+        }
+        struct NDIS_WAN_PROTOCOL_CAPS {
+            Flags: u32,
+            Reserved: u32,
+        }
+        #[repr(i32)]
+        enum NDIS_WAN_QUALITY {
+            NdisWanRaw = 0,
+            NdisWanErrorControl = 1,
+            NdisWanReliable = 2,
+        }
+        struct NDIS_WLAN_BSSID {
+            Length: u32,
+            MacAddress: NDIS_802_11_MAC_ADDRESS,
+            Reserved: [u8; 2],
+            Ssid: NDIS_802_11_SSID,
+            Privacy: u32,
+            Rssi: NDIS_802_11_RSSI,
+            NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
+            Configuration: NDIS_802_11_CONFIGURATION,
+            InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
+            SupportedRates: NDIS_802_11_RATES,
+        }
+        struct NDIS_WLAN_BSSID_EX {
+            Length: u32,
+            MacAddress: NDIS_802_11_MAC_ADDRESS,
+            Reserved: [u8; 2],
+            Ssid: NDIS_802_11_SSID,
+            Privacy: u32,
+            Rssi: NDIS_802_11_RSSI,
+            NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
+            Configuration: NDIS_802_11_CONFIGURATION,
+            InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
+            SupportedRates: NDIS_802_11_RATES_EX,
+            IELength: u32,
+            IEs: [u8; 1],
+        }
+        const NDIS_WMI_DEFAULT_METHOD_ID: u32 = 1;
+        struct NDIS_WMI_ENUM_ADAPTER {
+            Header: NDIS_OBJECT_HEADER,
+            IfIndex: NET_IFINDEX,
+            NetLuid: NET_LUID,
+            DeviceNameLength: u16,
+            DeviceName: [i8; 1],
+        }
+        const NDIS_WMI_ENUM_ADAPTER_REVISION_1: u32 = 1;
+        struct NDIS_WMI_EVENT_HEADER {
+            Header: NDIS_OBJECT_HEADER,
+            IfIndex: NET_IFINDEX,
+            NetLuid: NET_LUID,
+            RequestId: u64,
+            PortNumber: NDIS_PORT_NUMBER,
+            DeviceNameLength: u32,
+            DeviceNameOffset: u32,
+            Padding: [u8; 4],
+        }
+        const NDIS_WMI_EVENT_HEADER_REVISION_1: u32 = 1;
+        struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
+            Supported: struct {
+                Encapsulation: u32,
+                AhEspCombined: u32,
+                TransportTunnelCombined: u32,
+                IPv4Options: u32,
+                Flags: u32,
+            },
+            IPv4AH: struct {
+                Md5: u32,
+                Sha_1: u32,
+                Transport: u32,
+                Tunnel: u32,
+                Send: u32,
+                Receive: u32,
+            },
+            IPv4ESP: struct {
+                Des: u32,
+                Reserved: u32,
+                TripleDes: u32,
+                NullEsp: u32,
+                Transport: u32,
+                Tunnel: u32,
+                Send: u32,
+                Receive: u32,
+            },
+        }
+        struct NDIS_WMI_METHOD_HEADER {
+            Header: NDIS_OBJECT_HEADER,
+            PortNumber: NDIS_PORT_NUMBER,
+            NetLuid: NET_LUID,
+            RequestId: u64,
+            Timeout: u32,
+            Padding: [u8; 4],
+        }
+        const NDIS_WMI_METHOD_HEADER_REVISION_1: u32 = 1;
+        const NDIS_WMI_OBJECT_TYPE_ENUM_ADAPTER: u32 = 4;
+        const NDIS_WMI_OBJECT_TYPE_EVENT: u32 = 3;
+        const NDIS_WMI_OBJECT_TYPE_METHOD: u32 = 2;
+        const NDIS_WMI_OBJECT_TYPE_OUTPUT_INFO: u32 = 5;
+        const NDIS_WMI_OBJECT_TYPE_SET: u32 = 1;
+        struct NDIS_WMI_OFFLOAD {
+            Header: NDIS_OBJECT_HEADER,
+            Checksum: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD,
+            LsoV1: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1,
+            IPsecV1: NDIS_WMI_IPSEC_OFFLOAD_V1,
+            LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
+            Flags: u32,
+        }
+        struct NDIS_WMI_OUTPUT_INFO {
+            Header: NDIS_OBJECT_HEADER,
+            Flags: u32,
+            SupportedRevision: u8,
+            DataOffset: u32,
+        }
+        const NDIS_WMI_OUTPUT_INFO_REVISION_1: u32 = 1;
+        struct NDIS_WMI_SET_HEADER {
+            Header: NDIS_OBJECT_HEADER,
+            PortNumber: NDIS_PORT_NUMBER,
+            NetLuid: NET_LUID,
+            RequestId: u64,
+            Timeout: u32,
+            Padding: [u8; 4],
+        }
+        const NDIS_WMI_SET_HEADER_REVISION_1: u32 = 1;
+        struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+            Header: NDIS_OBJECT_HEADER,
+            Encapsulation: u32,
+            SupportIPv4: u32,
+            SupportIPv6: u32,
+            SupportIPv6ExtensionHeaders: u32,
+            SupportSack: u32,
+            TcpConnectionOffloadCapacity: u32,
+            Flags: u32,
+        }
+        struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+            IPv4Transmit: struct {
+                Encapsulation: u32,
+                IpOptionsSupported: u32,
+                TcpOptionsSupported: u32,
+                TcpChecksum: u32,
+                UdpChecksum: u32,
+                IpChecksum: u32,
+            },
+            IPv4Receive: struct {
+                Encapsulation: u32,
+                IpOptionsSupported: u32,
+                TcpOptionsSupported: u32,
+                TcpChecksum: u32,
+                UdpChecksum: u32,
+                IpChecksum: u32,
+            },
+            IPv6Transmit: struct {
+                Encapsulation: u32,
+                IpExtensionHeadersSupported: u32,
+                TcpOptionsSupported: u32,
+                TcpChecksum: u32,
+                UdpChecksum: u32,
+            },
+            IPv6Receive: struct {
+                Encapsulation: u32,
+                IpExtensionHeadersSupported: u32,
+                TcpOptionsSupported: u32,
+                TcpChecksum: u32,
+                UdpChecksum: u32,
+            },
+        }
+        struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+            IPv4: struct {
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
+                TcpOptions: u32,
+                IpOptions: u32,
+            },
+        }
+        struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+            IPv4: struct {
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
+            },
+            IPv6: struct {
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
+                IpExtensionHeadersSupported: u32,
+                TcpOptionsSupported: u32,
+            },
+        }
+        struct NETWORK_ADDRESS {
+            AddressLength: u16,
+            AddressType: u16,
+            Address: [u8; 1],
+        }
+        struct NETWORK_ADDRESS_IP {
+            sin_port: u16,
+            in_addr: u32,
+            sin_zero: [u8; 8],
+        }
+        struct NETWORK_ADDRESS_IP6 {
+            sin6_port: u16,
+            sin6_flowinfo: u32,
+            sin6_addr: [u16; 8],
+            sin6_scope_id: u32,
+        }
+        struct NETWORK_ADDRESS_IPX {
+            NetworkAddress: u32,
+            NodeAddress: [u8; 6],
+            Socket: u16,
+        }
+        struct NETWORK_ADDRESS_LIST {
+            AddressCount: i32,
+            AddressType: u16,
+            Address: [NETWORK_ADDRESS; 1],
+        }
+        struct OFFLOAD_ALGO_INFO {
+            algoIdentifier: u32,
+            algoKeylen: u32,
+            algoRounds: u32,
+        }
+        #[repr(i32)]
+        enum OFFLOAD_CONF_ALGO {
+            OFFLOAD_IPSEC_CONF_NONE = 0,
+            OFFLOAD_IPSEC_CONF_DES = 1,
+            OFFLOAD_IPSEC_CONF_RESERVED = 2,
+            OFFLOAD_IPSEC_CONF_3_DES = 3,
+            OFFLOAD_IPSEC_CONF_MAX = 4,
+        }
+        const OFFLOAD_INBOUND_SA: u32 = 1;
+        #[repr(i32)]
+        enum OFFLOAD_INTEGRITY_ALGO {
+            OFFLOAD_IPSEC_INTEGRITY_NONE = 0,
+            OFFLOAD_IPSEC_INTEGRITY_MD5 = 1,
+            OFFLOAD_IPSEC_INTEGRITY_SHA = 2,
+            OFFLOAD_IPSEC_INTEGRITY_MAX = 3,
+        }
+        struct OFFLOAD_IPSEC_ADD_SA {
+            SrcAddr: IPAddr,
+            SrcMask: IPMask,
+            DestAddr: IPAddr,
+            DestMask: IPMask,
+            Protocol: u32,
+            SrcPort: u16,
+            DestPort: u16,
+            SrcTunnelAddr: IPAddr,
+            DestTunnelAddr: IPAddr,
+            Flags: u16,
+            NumSAs: i16,
+            SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
+            OffloadHandle: HANDLE,
+            KeyLen: u32,
+            KeyMat: [u8; 1],
+        }
+        struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
+            SrcAddr: IPAddr,
+            SrcMask: IPMask,
+            DstAddr: IPAddr,
+            DstMask: IPMask,
+            Protocol: u32,
+            SrcPort: u16,
+            DstPort: u16,
+            SrcTunnelAddr: IPAddr,
+            DstTunnelAddr: IPAddr,
+            Flags: u16,
+            NumSAs: i16,
+            SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
+            OffloadHandle: HANDLE,
+            EncapTypeEntry: OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY,
+            EncapTypeEntryOffldHandle: HANDLE,
+            KeyLen: u32,
+            KeyMat: [u8; 1],
+        }
+        struct OFFLOAD_IPSEC_DELETE_SA {
+            OffloadHandle: HANDLE,
+        }
+        struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+            OffloadHandle: HANDLE,
+            EncapTypeEntryOffldHandle: HANDLE,
+        }
+        struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+            UdpEncapType: UDP_ENCAP_TYPE,
+            DstEncapPort: u16,
+        }
+        const OFFLOAD_MAX_SAS: u32 = 3;
+        #[repr(i32)]
+        enum OFFLOAD_OPERATION_E {
+            AUTHENTICATE = 1,
+            ENCRYPT = 2,
+        }
+        const OFFLOAD_OUTBOUND_SA: u32 = 2;
+        struct OFFLOAD_SECURITY_ASSOCIATION {
+            Operation: OFFLOAD_OPERATION_E,
+            SPI: SPI_TYPE,
+            IntegrityAlgo: OFFLOAD_ALGO_INFO,
+            ConfAlgo: OFFLOAD_ALGO_INFO,
+            Reserved: OFFLOAD_ALGO_INFO,
+        }
+        const OID_1394_LOCAL_NODE_INFO: u32 = 201392385;
+        const OID_1394_VC_INFO: u32 = 201392386;
+        const OID_802_11_ADD_KEY: u32 = 218169629;
+        const OID_802_11_ADD_WEP: u32 = 218169619;
+        const OID_802_11_ASSOCIATION_INFORMATION: u32 = 218169631;
+        const OID_802_11_AUTHENTICATION_MODE: u32 = 218169624;
+        const OID_802_11_BSSID: u32 = 218169601;
+        const OID_802_11_BSSID_LIST: u32 = 218169879;
+        const OID_802_11_BSSID_LIST_SCAN: u32 = 218169626;
+        const OID_802_11_CAPABILITY: u32 = 218169634;
+        const OID_802_11_CONFIGURATION: u32 = 218169873;
+        const OID_802_11_DESIRED_RATES: u32 = 218169872;
+        const OID_802_11_DISASSOCIATE: u32 = 218169621;
+        const OID_802_11_ENCRYPTION_STATUS: u32 = 218169627;
+        const OID_802_11_FRAGMENTATION_THRESHOLD: u32 = 218169865;
+        const OID_802_11_INFRASTRUCTURE_MODE: u32 = 218169608;
+        const OID_802_11_MEDIA_STREAM_MODE: u32 = 218169633;
+        const OID_802_11_NETWORK_TYPES_SUPPORTED: u32 = 218169859;
+        const OID_802_11_NETWORK_TYPE_IN_USE: u32 = 218169860;
+        const OID_802_11_NON_BCAST_SSID_LIST: u32 = 218169636;
+        const OID_802_11_NUMBER_OF_ANTENNAS: u32 = 218169867;
+        const OID_802_11_PMKID: u32 = 218169635;
+        const OID_802_11_POWER_MODE: u32 = 218169878;
+        const OID_802_11_PRIVACY_FILTER: u32 = 218169625;
+        const OID_802_11_RADIO_STATUS: u32 = 218169637;
+        const OID_802_11_RELOAD_DEFAULTS: u32 = 218169628;
+        const OID_802_11_REMOVE_KEY: u32 = 218169630;
+        const OID_802_11_REMOVE_WEP: u32 = 218169620;
+        const OID_802_11_RSSI: u32 = 218169862;
+        const OID_802_11_RSSI_TRIGGER: u32 = 218169863;
+        const OID_802_11_RTS_THRESHOLD: u32 = 218169866;
+        const OID_802_11_RX_ANTENNA_SELECTED: u32 = 218169868;
+        const OID_802_11_SSID: u32 = 218169602;
+        const OID_802_11_STATISTICS: u32 = 218235410;
+        const OID_802_11_SUPPORTED_RATES: u32 = 218169870;
+        const OID_802_11_TEST: u32 = 218169632;
+        const OID_802_11_TX_ANTENNA_SELECTED: u32 = 218169869;
+        const OID_802_11_TX_POWER_LEVEL: u32 = 218169861;
+        const OID_802_11_WEP_STATUS: u32 = 218169627;
+        const OID_802_3_ADD_MULTICAST_ADDRESS: u32 = 16843272;
+        const OID_802_3_CURRENT_ADDRESS: u32 = 16843010;
+        const OID_802_3_DELETE_MULTICAST_ADDRESS: u32 = 16843273;
+        const OID_802_3_MAC_OPTIONS: u32 = 16843013;
+        const OID_802_3_MAXIMUM_LIST_SIZE: u32 = 16843012;
+        const OID_802_3_MULTICAST_LIST: u32 = 16843011;
+        const OID_802_3_PERMANENT_ADDRESS: u32 = 16843009;
+        const OID_802_3_RCV_ERROR_ALIGNMENT: u32 = 16908545;
+        const OID_802_3_RCV_OVERRUN: u32 = 16908803;
+        const OID_802_3_XMIT_DEFERRED: u32 = 16908801;
+        const OID_802_3_XMIT_HEARTBEAT_FAILURE: u32 = 16908805;
+        const OID_802_3_XMIT_LATE_COLLISIONS: u32 = 16908807;
+        const OID_802_3_XMIT_MAX_COLLISIONS: u32 = 16908802;
+        const OID_802_3_XMIT_MORE_COLLISIONS: u32 = 16908547;
+        const OID_802_3_XMIT_ONE_COLLISION: u32 = 16908546;
+        const OID_802_3_XMIT_TIMES_CRS_LOST: u32 = 16908806;
+        const OID_802_3_XMIT_UNDERRUN: u32 = 16908804;
+        const OID_802_5_ABORT_DELIMETERS: u32 = 33686019;
+        const OID_802_5_AC_ERRORS: u32 = 33686018;
+        const OID_802_5_BURST_ERRORS: u32 = 33686017;
+        const OID_802_5_CURRENT_ADDRESS: u32 = 33620226;
+        const OID_802_5_CURRENT_FUNCTIONAL: u32 = 33620227;
+        const OID_802_5_CURRENT_GROUP: u32 = 33620228;
+        const OID_802_5_CURRENT_RING_STATE: u32 = 33620231;
+        const OID_802_5_CURRENT_RING_STATUS: u32 = 33620230;
+        const OID_802_5_FRAME_COPIED_ERRORS: u32 = 33686020;
+        const OID_802_5_FREQUENCY_ERRORS: u32 = 33686021;
+        const OID_802_5_INTERNAL_ERRORS: u32 = 33686023;
+        const OID_802_5_LAST_OPEN_STATUS: u32 = 33620229;
+        const OID_802_5_LINE_ERRORS: u32 = 33685761;
+        const OID_802_5_LOST_FRAMES: u32 = 33685762;
+        const OID_802_5_PERMANENT_ADDRESS: u32 = 33620225;
+        const OID_802_5_TOKEN_ERRORS: u32 = 33686022;
+        const OID_ARCNET_CURRENT_ADDRESS: u32 = 100729090;
+        const OID_ARCNET_PERMANENT_ADDRESS: u32 = 100729089;
+        const OID_ARCNET_RECONFIGURATIONS: u32 = 100794881;
+        const OID_ATM_ACQUIRE_ACCESS_NET_RESOURCES: u32 = 134283779;
+        const OID_ATM_ALIGNMENT_REQUIRED: u32 = 134283784;
+        const OID_ATM_ASSIGNED_VPI: u32 = 134283778;
+        const OID_ATM_CALL_ALERTING: u32 = 134283788;
+        const OID_ATM_CALL_NOTIFY: u32 = 134283790;
+        const OID_ATM_CALL_PROCEEDING: u32 = 134283787;
+        const OID_ATM_CELLS_HEC_ERROR: u32 = 134349314;
+        const OID_ATM_DIGITAL_BROADCAST_VPIVCI: u32 = 134283782;
+        const OID_ATM_GET_NEAREST_FLOW: u32 = 134283783;
+        const OID_ATM_HW_CURRENT_ADDRESS: u32 = 134283524;
+        const OID_ATM_ILMI_VPIVCI: u32 = 134283781;
+        const OID_ATM_LECS_ADDRESS: u32 = 134283785;
+        const OID_ATM_MAX_AAL0_PACKET_SIZE: u32 = 134283528;
+        const OID_ATM_MAX_AAL1_PACKET_SIZE: u32 = 134283529;
+        const OID_ATM_MAX_AAL34_PACKET_SIZE: u32 = 134283530;
+        const OID_ATM_MAX_AAL5_PACKET_SIZE: u32 = 134283531;
+        const OID_ATM_MAX_ACTIVE_VCI_BITS: u32 = 134283526;
+        const OID_ATM_MAX_ACTIVE_VCS: u32 = 134283525;
+        const OID_ATM_MAX_ACTIVE_VPI_BITS: u32 = 134283527;
+        const OID_ATM_MY_IP_NM_ADDRESS: u32 = 134283791;
+        const OID_ATM_PARTY_ALERTING: u32 = 134283789;
+        const OID_ATM_RCV_CELLS_DROPPED: u32 = 134349059;
+        const OID_ATM_RCV_CELLS_OK: u32 = 134349057;
+        const OID_ATM_RCV_INVALID_VPI_VCI: u32 = 134349313;
+        const OID_ATM_RCV_REASSEMBLY_ERROR: u32 = 134349315;
+        const OID_ATM_RELEASE_ACCESS_NET_RESOURCES: u32 = 134283780;
+        const OID_ATM_SERVICE_ADDRESS: u32 = 134283786;
+        const OID_ATM_SIGNALING_VPIVCI: u32 = 134283777;
+        const OID_ATM_SUPPORTED_AAL_TYPES: u32 = 134283523;
+        const OID_ATM_SUPPORTED_SERVICE_CATEGORY: u32 = 134283522;
+        const OID_ATM_SUPPORTED_VC_RATES: u32 = 134283521;
+        const OID_ATM_XMIT_CELLS_OK: u32 = 134349058;
+        const OID_CO_ADDRESS_CHANGE: u32 = 4261412871;
+        const OID_CO_ADD_ADDRESS: u32 = 4261412868;
+        const OID_CO_ADD_PVC: u32 = 4261412865;
+        const OID_CO_AF_CLOSE: u32 = 4261412874;
+        const OID_CO_DELETE_ADDRESS: u32 = 4261412869;
+        const OID_CO_DELETE_PVC: u32 = 4261412866;
+        const OID_CO_GET_ADDRESSES: u32 = 4261412870;
+        const OID_CO_GET_CALL_INFORMATION: u32 = 4261412867;
+        const OID_CO_SIGNALING_DISABLED: u32 = 4261412873;
+        const OID_CO_SIGNALING_ENABLED: u32 = 4261412872;
+        const OID_CO_TAPI_ADDRESS_CAPS: u32 = 4261416963;
+        const OID_CO_TAPI_CM_CAPS: u32 = 4261416961;
+        const OID_CO_TAPI_DONT_REPORT_DIGITS: u32 = 4261416969;
+        const OID_CO_TAPI_GET_CALL_DIAGNOSTICS: u32 = 4261416967;
+        const OID_CO_TAPI_LINE_CAPS: u32 = 4261416962;
+        const OID_CO_TAPI_REPORT_DIGITS: u32 = 4261416968;
+        const OID_CO_TAPI_TRANSLATE_NDIS_CALLPARAMS: u32 = 4261416965;
+        const OID_CO_TAPI_TRANSLATE_TAPI_CALLPARAMS: u32 = 4261416964;
+        const OID_CO_TAPI_TRANSLATE_TAPI_SAP: u32 = 4261416966;
+        const OID_FDDI_ATTACHMENT_TYPE: u32 = 50462977;
+        const OID_FDDI_DOWNSTREAM_NODE_LONG: u32 = 50462979;
+        const OID_FDDI_FRAMES_LOST: u32 = 50462981;
+        const OID_FDDI_FRAME_ERRORS: u32 = 50462980;
+        const OID_FDDI_IF_ADMIN_STATUS: u32 = 50528894;
+        const OID_FDDI_IF_DESCR: u32 = 50528889;
+        const OID_FDDI_IF_IN_DISCARDS: u32 = 50528900;
+        const OID_FDDI_IF_IN_ERRORS: u32 = 50528901;
+        const OID_FDDI_IF_IN_NUCAST_PKTS: u32 = 50528899;
+        const OID_FDDI_IF_IN_OCTETS: u32 = 50528897;
+        const OID_FDDI_IF_IN_UCAST_PKTS: u32 = 50528898;
+        const OID_FDDI_IF_IN_UNKNOWN_PROTOS: u32 = 50528902;
+        const OID_FDDI_IF_LAST_CHANGE: u32 = 50528896;
+        const OID_FDDI_IF_MTU: u32 = 50528891;
+        const OID_FDDI_IF_OPER_STATUS: u32 = 50528895;
+        const OID_FDDI_IF_OUT_DISCARDS: u32 = 50528906;
+        const OID_FDDI_IF_OUT_ERRORS: u32 = 50528907;
+        const OID_FDDI_IF_OUT_NUCAST_PKTS: u32 = 50528905;
+        const OID_FDDI_IF_OUT_OCTETS: u32 = 50528903;
+        const OID_FDDI_IF_OUT_QLEN: u32 = 50528908;
+        const OID_FDDI_IF_OUT_UCAST_PKTS: u32 = 50528904;
+        const OID_FDDI_IF_PHYS_ADDRESS: u32 = 50528893;
+        const OID_FDDI_IF_SPECIFIC: u32 = 50528909;
+        const OID_FDDI_IF_SPEED: u32 = 50528892;
+        const OID_FDDI_IF_TYPE: u32 = 50528890;
+        const OID_FDDI_LCONNECTION_STATE: u32 = 50462985;
+        const OID_FDDI_LCT_FAILURES: u32 = 50462983;
+        const OID_FDDI_LEM_REJECTS: u32 = 50462984;
+        const OID_FDDI_LONG_CURRENT_ADDR: u32 = 50397442;
+        const OID_FDDI_LONG_MAX_LIST_SIZE: u32 = 50397444;
+        const OID_FDDI_LONG_MULTICAST_LIST: u32 = 50397443;
+        const OID_FDDI_LONG_PERMANENT_ADDR: u32 = 50397441;
+        const OID_FDDI_MAC_AVAILABLE_PATHS: u32 = 50528803;
+        const OID_FDDI_MAC_BRIDGE_FUNCTIONS: u32 = 50528800;
+        const OID_FDDI_MAC_COPIED_CT: u32 = 50528828;
+        const OID_FDDI_MAC_CURRENT_PATH: u32 = 50528804;
+        const OID_FDDI_MAC_DA_FLAG: u32 = 50528842;
+        const OID_FDDI_MAC_DOWNSTREAM_NBR: u32 = 50528806;
+        const OID_FDDI_MAC_DOWNSTREAM_PORT_TYPE: u32 = 50528811;
+        const OID_FDDI_MAC_DUP_ADDRESS_TEST: u32 = 50528809;
+        const OID_FDDI_MAC_ERROR_CT: u32 = 50528831;
+        const OID_FDDI_MAC_FRAME_CT: u32 = 50528827;
+        const OID_FDDI_MAC_FRAME_ERROR_FLAG: u32 = 50528844;
+        const OID_FDDI_MAC_FRAME_ERROR_RATIO: u32 = 50528838;
+        const OID_FDDI_MAC_FRAME_ERROR_THRESHOLD: u32 = 50528837;
+        const OID_FDDI_MAC_FRAME_STATUS_FUNCTIONS: u32 = 50528799;
+        const OID_FDDI_MAC_HARDWARE_PRESENT: u32 = 50528847;
+        const OID_FDDI_MAC_INDEX: u32 = 50528812;
+        const OID_FDDI_MAC_LATE_CT: u32 = 50528835;
+        const OID_FDDI_MAC_LONG_GRP_ADDRESS: u32 = 50528814;
+        const OID_FDDI_MAC_LOST_CT: u32 = 50528832;
+        const OID_FDDI_MAC_MA_UNITDATA_AVAILABLE: u32 = 50528846;
+        const OID_FDDI_MAC_MA_UNITDATA_ENABLE: u32 = 50528848;
+        const OID_FDDI_MAC_NOT_COPIED_CT: u32 = 50528834;
+        const OID_FDDI_MAC_NOT_COPIED_FLAG: u32 = 50528845;
+        const OID_FDDI_MAC_NOT_COPIED_RATIO: u32 = 50528840;
+        const OID_FDDI_MAC_NOT_COPIED_THRESHOLD: u32 = 50528839;
+        const OID_FDDI_MAC_OLD_DOWNSTREAM_NBR: u32 = 50528808;
+        const OID_FDDI_MAC_OLD_UPSTREAM_NBR: u32 = 50528807;
+        const OID_FDDI_MAC_REQUESTED_PATHS: u32 = 50528810;
+        const OID_FDDI_MAC_RING_OP_CT: u32 = 50528836;
+        const OID_FDDI_MAC_RMT_STATE: u32 = 50528841;
+        const OID_FDDI_MAC_SHORT_GRP_ADDRESS: u32 = 50528815;
+        const OID_FDDI_MAC_SMT_ADDRESS: u32 = 50528813;
+        const OID_FDDI_MAC_TOKEN_CT: u32 = 50528830;
+        const OID_FDDI_MAC_TRANSMIT_CT: u32 = 50528829;
+        const OID_FDDI_MAC_TVX_CAPABILITY: u32 = 50528802;
+        const OID_FDDI_MAC_TVX_EXPIRED_CT: u32 = 50528833;
+        const OID_FDDI_MAC_TVX_VALUE: u32 = 50528819;
+        const OID_FDDI_MAC_T_MAX: u32 = 50528818;
+        const OID_FDDI_MAC_T_MAX_CAPABILITY: u32 = 50528801;
+        const OID_FDDI_MAC_T_NEG: u32 = 50528817;
+        const OID_FDDI_MAC_T_PRI0: u32 = 50528820;
+        const OID_FDDI_MAC_T_PRI1: u32 = 50528821;
+        const OID_FDDI_MAC_T_PRI2: u32 = 50528822;
+        const OID_FDDI_MAC_T_PRI3: u32 = 50528823;
+        const OID_FDDI_MAC_T_PRI4: u32 = 50528824;
+        const OID_FDDI_MAC_T_PRI5: u32 = 50528825;
+        const OID_FDDI_MAC_T_PRI6: u32 = 50528826;
+        const OID_FDDI_MAC_T_REQ: u32 = 50528816;
+        const OID_FDDI_MAC_UNDA_FLAG: u32 = 50528843;
+        const OID_FDDI_MAC_UPSTREAM_NBR: u32 = 50528805;
+        const OID_FDDI_PATH_CONFIGURATION: u32 = 50528854;
+        const OID_FDDI_PATH_INDEX: u32 = 50528849;
+        const OID_FDDI_PATH_MAX_T_REQ: u32 = 50528859;
+        const OID_FDDI_PATH_RING_LATENCY: u32 = 50528850;
+        const OID_FDDI_PATH_SBA_AVAILABLE: u32 = 50528856;
+        const OID_FDDI_PATH_SBA_OVERHEAD: u32 = 50528853;
+        const OID_FDDI_PATH_SBA_PAYLOAD: u32 = 50528852;
+        const OID_FDDI_PATH_TRACE_STATUS: u32 = 50528851;
+        const OID_FDDI_PATH_TVX_LOWER_BOUND: u32 = 50528857;
+        const OID_FDDI_PATH_T_MAX_LOWER_BOUND: u32 = 50528858;
+        const OID_FDDI_PATH_T_R_MODE: u32 = 50528855;
+        const OID_FDDI_PORT_ACTION: u32 = 50528888;
+        const OID_FDDI_PORT_AVAILABLE_PATHS: u32 = 50528867;
+        const OID_FDDI_PORT_BS_FLAG: u32 = 50528873;
+        const OID_FDDI_PORT_CONNECTION_CAPABILITIES: u32 = 50528870;
+        const OID_FDDI_PORT_CONNECTION_POLICIES: u32 = 50528862;
+        const OID_FDDI_PORT_CONNNECT_STATE: u32 = 50528882;
+        const OID_FDDI_PORT_CURRENT_PATH: u32 = 50528864;
+        const OID_FDDI_PORT_EB_ERROR_CT: u32 = 50528875;
+        const OID_FDDI_PORT_HARDWARE_PRESENT: u32 = 50528886;
+        const OID_FDDI_PORT_INDEX: u32 = 50528871;
+        const OID_FDDI_PORT_LCT_FAIL_CT: u32 = 50528876;
+        const OID_FDDI_PORT_LEM_CT: u32 = 50528879;
+        const OID_FDDI_PORT_LEM_REJECT_CT: u32 = 50528878;
+        const OID_FDDI_PORT_LER_ALARM: u32 = 50528881;
+        const OID_FDDI_PORT_LER_CUTOFF: u32 = 50528880;
+        const OID_FDDI_PORT_LER_ESTIMATE: u32 = 50528877;
+        const OID_FDDI_PORT_LER_FLAG: u32 = 50528885;
+        const OID_FDDI_PORT_MAC_INDICATED: u32 = 50528863;
+        const OID_FDDI_PORT_MAC_LOOP_TIME: u32 = 50528868;
+        const OID_FDDI_PORT_MAC_PLACEMENT: u32 = 50528866;
+        const OID_FDDI_PORT_MAINT_LS: u32 = 50528872;
+        const OID_FDDI_PORT_MY_TYPE: u32 = 50528860;
+        const OID_FDDI_PORT_NEIGHBOR_TYPE: u32 = 50528861;
+        const OID_FDDI_PORT_PCM_STATE: u32 = 50528883;
+        const OID_FDDI_PORT_PC_LS: u32 = 50528874;
+        const OID_FDDI_PORT_PC_WITHHOLD: u32 = 50528884;
+        const OID_FDDI_PORT_PMD_CLASS: u32 = 50528869;
+        const OID_FDDI_PORT_REQUESTED_PATHS: u32 = 50528865;
+        const OID_FDDI_RING_MGT_STATE: u32 = 50462982;
+        const OID_FDDI_SHORT_CURRENT_ADDR: u32 = 50397446;
+        const OID_FDDI_SHORT_MAX_LIST_SIZE: u32 = 50397448;
+        const OID_FDDI_SHORT_MULTICAST_LIST: u32 = 50397447;
+        const OID_FDDI_SHORT_PERMANENT_ADDR: u32 = 50397445;
+        const OID_FDDI_SMT_AVAILABLE_PATHS: u32 = 50528779;
+        const OID_FDDI_SMT_BYPASS_PRESENT: u32 = 50528788;
+        const OID_FDDI_SMT_CF_STATE: u32 = 50528790;
+        const OID_FDDI_SMT_CONFIG_CAPABILITIES: u32 = 50528780;
+        const OID_FDDI_SMT_CONFIG_POLICY: u32 = 50528781;
+        const OID_FDDI_SMT_CONNECTION_POLICY: u32 = 50528782;
+        const OID_FDDI_SMT_ECM_STATE: u32 = 50528789;
+        const OID_FDDI_SMT_HI_VERSION_ID: u32 = 50528771;
+        const OID_FDDI_SMT_HOLD_STATE: u32 = 50528791;
+        const OID_FDDI_SMT_LAST_SET_STATION_ID: u32 = 50528798;
+        const OID_FDDI_SMT_LO_VERSION_ID: u32 = 50528772;
+        const OID_FDDI_SMT_MAC_CT: u32 = 50528776;
+        const OID_FDDI_SMT_MAC_INDEXES: u32 = 50528787;
+        const OID_FDDI_SMT_MANUFACTURER_DATA: u32 = 50528773;
+        const OID_FDDI_SMT_MASTER_CT: u32 = 50528778;
+        const OID_FDDI_SMT_MIB_VERSION_ID: u32 = 50528775;
+        const OID_FDDI_SMT_MSG_TIME_STAMP: u32 = 50528795;
+        const OID_FDDI_SMT_NON_MASTER_CT: u32 = 50528777;
+        const OID_FDDI_SMT_OP_VERSION_ID: u32 = 50528770;
+        const OID_FDDI_SMT_PEER_WRAP_FLAG: u32 = 50528794;
+        const OID_FDDI_SMT_PORT_INDEXES: u32 = 50528786;
+        const OID_FDDI_SMT_REMOTE_DISCONNECT_FLAG: u32 = 50528792;
+        const OID_FDDI_SMT_SET_COUNT: u32 = 50528797;
+        const OID_FDDI_SMT_STATION_ACTION: u32 = 50528887;
+        const OID_FDDI_SMT_STATION_ID: u32 = 50528769;
+        const OID_FDDI_SMT_STATION_STATUS: u32 = 50528793;
+        const OID_FDDI_SMT_STAT_RPT_POLICY: u32 = 50528784;
+        const OID_FDDI_SMT_TRACE_MAX_EXPIRATION: u32 = 50528785;
+        const OID_FDDI_SMT_TRANSITION_TIME_STAMP: u32 = 50528796;
+        const OID_FDDI_SMT_T_NOTIFY: u32 = 50528783;
+        const OID_FDDI_SMT_USER_DATA: u32 = 50528774;
+        const OID_FDDI_UPSTREAM_NODE_LONG: u32 = 50462978;
+        const OID_FFP_ADAPTER_STATS: u32 = 4227990033;
+        const OID_FFP_CONTROL: u32 = 4227924498;
+        const OID_FFP_DATA: u32 = 4227924500;
+        const OID_FFP_DRIVER_STATS: u32 = 4227990032;
+        const OID_FFP_FLUSH: u32 = 4227924497;
+        const OID_FFP_PARAMS: u32 = 4227924499;
+        const OID_FFP_SUPPORT: u32 = 4227924496;
+        const OID_GEN_ADMIN_STATUS: u32 = 66184;
+        const OID_GEN_ALIAS: u32 = 66185;
+        const OID_GEN_BROADCAST_BYTES_RCV: u32 = 131595;
+        const OID_GEN_BROADCAST_BYTES_XMIT: u32 = 131589;
+        const OID_GEN_BROADCAST_FRAMES_RCV: u32 = 131596;
+        const OID_GEN_BROADCAST_FRAMES_XMIT: u32 = 131590;
+        const OID_GEN_BYTES_RCV: u32 = 131609;
+        const OID_GEN_BYTES_XMIT: u32 = 131610;
+        const OID_GEN_CO_BYTES_RCV: u32 = 131591;
+        const OID_GEN_CO_BYTES_XMIT: u32 = 131585;
+        const OID_GEN_CO_BYTES_XMIT_OUTSTANDING: u32 = 131617;
+        const OID_GEN_CO_DEVICE_PROFILE: u32 = 131602;
+        const OID_GEN_CO_DRIVER_VERSION: u32 = 65808;
+        const OID_GEN_CO_GET_NETCARD_TIME: u32 = 131600;
+        const OID_GEN_CO_GET_TIME_CAPS: u32 = 131599;
+        const OID_GEN_CO_HARDWARE_STATUS: u32 = 65794;
+        const OID_GEN_CO_LINK_SPEED: u32 = 65799;
+        const OID_GEN_CO_MAC_OPTIONS: u32 = 65811;
+        const OID_GEN_CO_MEDIA_CONNECT_STATUS: u32 = 65812;
+        const OID_GEN_CO_MEDIA_IN_USE: u32 = 65796;
+        const OID_GEN_CO_MEDIA_SUPPORTED: u32 = 65795;
+        const OID_GEN_CO_MINIMUM_LINK_SPEED: u32 = 131360;
+        const OID_GEN_CO_NETCARD_LOAD: u32 = 131601;
+        const OID_GEN_CO_PROTOCOL_OPTIONS: u32 = 65810;
+        const OID_GEN_CO_RCV_CRC_ERROR: u32 = 131597;
+        const OID_GEN_CO_RCV_PDUS_ERROR: u32 = 131332;
+        const OID_GEN_CO_RCV_PDUS_NO_BUFFER: u32 = 131333;
+        const OID_GEN_CO_RCV_PDUS_OK: u32 = 131330;
+        const OID_GEN_CO_SUPPORTED_GUIDS: u32 = 65815;
+        const OID_GEN_CO_SUPPORTED_LIST: u32 = 65793;
+        const OID_GEN_CO_TRANSMIT_QUEUE_LENGTH: u32 = 131598;
+        const OID_GEN_CO_VENDOR_DESCRIPTION: u32 = 65805;
+        const OID_GEN_CO_VENDOR_DRIVER_VERSION: u32 = 65814;
+        const OID_GEN_CO_VENDOR_ID: u32 = 65804;
+        const OID_GEN_CO_XMIT_PDUS_ERROR: u32 = 131331;
+        const OID_GEN_CO_XMIT_PDUS_OK: u32 = 131329;
+        const OID_GEN_CURRENT_LOOKAHEAD: u32 = 65807;
+        const OID_GEN_CURRENT_PACKET_FILTER: u32 = 65806;
+        const OID_GEN_DEVICE_PROFILE: u32 = 131602;
+        const OID_GEN_DIRECTED_BYTES_RCV: u32 = 131591;
+        const OID_GEN_DIRECTED_BYTES_XMIT: u32 = 131585;
+        const OID_GEN_DIRECTED_FRAMES_RCV: u32 = 131592;
+        const OID_GEN_DIRECTED_FRAMES_XMIT: u32 = 131586;
+        const OID_GEN_DISCONTINUITY_TIME: u32 = 66178;
+        const OID_GEN_DRIVER_VERSION: u32 = 65808;
+        const OID_GEN_ENUMERATE_PORTS: u32 = 66061;
+        const OID_GEN_FRIENDLY_NAME: u32 = 131606;
+        const OID_GEN_GET_NETCARD_TIME: u32 = 131600;
+        const OID_GEN_GET_TIME_CAPS: u32 = 131599;
+        const OID_GEN_HARDWARE_STATUS: u32 = 65794;
+        const OID_GEN_INIT_TIME_MS: u32 = 131603;
+        const OID_GEN_INTERFACE_INFO: u32 = 66183;
+        const OID_GEN_INTERRUPT_MODERATION: u32 = 66057;
+        const OID_GEN_IP_OPER_STATUS: u32 = 66189;
+        const OID_GEN_ISOLATION_PARAMETERS: u32 = 66304;
+        const OID_GEN_LAST_CHANGE: u32 = 66177;
+        const OID_GEN_LINK_PARAMETERS: u32 = 66056;
+        const OID_GEN_LINK_SPEED: u32 = 65799;
+        const OID_GEN_LINK_SPEED_EX: u32 = 66187;
+        const OID_GEN_LINK_STATE: u32 = 66055;
+        const OID_GEN_MACHINE_NAME: u32 = 66074;
+        const OID_GEN_MAC_ADDRESS: u32 = 66053;
+        const OID_GEN_MAC_OPTIONS: u32 = 65811;
+        const OID_GEN_MAXIMUM_FRAME_SIZE: u32 = 65798;
+        const OID_GEN_MAXIMUM_LOOKAHEAD: u32 = 65797;
+        const OID_GEN_MAXIMUM_SEND_PACKETS: u32 = 65813;
+        const OID_GEN_MAXIMUM_TOTAL_SIZE: u32 = 65809;
+        const OID_GEN_MAX_LINK_SPEED: u32 = 66054;
+        const OID_GEN_MEDIA_CAPABILITIES: u32 = 66049;
+        const OID_GEN_MEDIA_CONNECT_STATUS: u32 = 65812;
+        const OID_GEN_MEDIA_CONNECT_STATUS_EX: u32 = 66186;
+        const OID_GEN_MEDIA_DUPLEX_STATE: u32 = 66188;
+        const OID_GEN_MEDIA_IN_USE: u32 = 65796;
+        const OID_GEN_MEDIA_SENSE_COUNTS: u32 = 131605;
+        const OID_GEN_MEDIA_SUPPORTED: u32 = 65795;
+        const OID_GEN_MINIPORT_RESTART_ATTRIBUTES: u32 = 66077;
+        const OID_GEN_MULTICAST_BYTES_RCV: u32 = 131593;
+        const OID_GEN_MULTICAST_BYTES_XMIT: u32 = 131587;
+        const OID_GEN_MULTICAST_FRAMES_RCV: u32 = 131594;
+        const OID_GEN_MULTICAST_FRAMES_XMIT: u32 = 131588;
+        const OID_GEN_NDIS_RESERVED_1: u32 = 131607;
+        const OID_GEN_NDIS_RESERVED_2: u32 = 131608;
+        const OID_GEN_NDIS_RESERVED_3: u32 = 66058;
+        const OID_GEN_NDIS_RESERVED_4: u32 = 66059;
+        const OID_GEN_NDIS_RESERVED_5: u32 = 66060;
+        const OID_GEN_NDIS_RESERVED_6: u32 = 66066;
+        const OID_GEN_NDIS_RESERVED_7: u32 = 131614;
+        const OID_GEN_NETCARD_LOAD: u32 = 131601;
+        const OID_GEN_NETWORK_LAYER_ADDRESSES: u32 = 65816;
+        const OID_GEN_OPERATIONAL_STATUS: u32 = 66179;
+        const OID_GEN_PCI_DEVICE_CUSTOM_PROPERTIES: u32 = 66065;
+        const OID_GEN_PHYSICAL_MEDIUM: u32 = 66050;
+        const OID_GEN_PHYSICAL_MEDIUM_EX: u32 = 66067;
+        const OID_GEN_PORT_AUTHENTICATION_PARAMETERS: u32 = 66063;
+        const OID_GEN_PORT_STATE: u32 = 66062;
+        const OID_GEN_PROMISCUOUS_MODE: u32 = 66176;
+        const OID_GEN_PROTOCOL_OPTIONS: u32 = 65810;
+        const OID_GEN_RCV_CRC_ERROR: u32 = 131597;
+        const OID_GEN_RCV_DISCARDS: u32 = 131611;
+        const OID_GEN_RCV_ERROR: u32 = 131332;
+        const OID_GEN_RCV_LINK_SPEED: u32 = 66181;
+        const OID_GEN_RCV_NO_BUFFER: u32 = 131333;
+        const OID_GEN_RCV_OK: u32 = 131330;
+        const OID_GEN_RECEIVE_BLOCK_SIZE: u32 = 65803;
+        const OID_GEN_RECEIVE_BUFFER_SPACE: u32 = 65801;
+        const OID_GEN_RECEIVE_HASH: u32 = 66079;
+        const OID_GEN_RECEIVE_SCALE_CAPABILITIES: u32 = 66051;
+        const OID_GEN_RECEIVE_SCALE_PARAMETERS: u32 = 66052;
+        const OID_GEN_RECEIVE_SCALE_PARAMETERS_V2: u32 = 66068;
+        const OID_GEN_RESET_COUNTS: u32 = 131604;
+        const OID_GEN_RNDIS_CONFIG_PARAMETER: u32 = 66075;
+        const OID_GEN_RSS_SET_INDIRECTION_TABLE_ENTRIES: u32 = 66240;
+        const OID_GEN_STATISTICS: u32 = 131334;
+        const OID_GEN_SUPPORTED_GUIDS: u32 = 65815;
+        const OID_GEN_SUPPORTED_LIST: u32 = 65793;
+        const OID_GEN_TIMEOUT_DPC_REQUEST_CAPABILITIES: u32 = 66064;
+        const OID_GEN_TRANSMIT_BLOCK_SIZE: u32 = 65802;
+        const OID_GEN_TRANSMIT_BUFFER_SPACE: u32 = 65800;
+        const OID_GEN_TRANSMIT_QUEUE_LENGTH: u32 = 131598;
+        const OID_GEN_TRANSPORT_HEADER_OFFSET: u32 = 65817;
+        const OID_GEN_UNKNOWN_PROTOS: u32 = 66182;
+        const OID_GEN_VENDOR_DESCRIPTION: u32 = 65805;
+        const OID_GEN_VENDOR_DRIVER_VERSION: u32 = 65814;
+        const OID_GEN_VENDOR_ID: u32 = 65804;
+        const OID_GEN_VLAN_ID: u32 = 66076;
+        const OID_GEN_XMIT_DISCARDS: u32 = 131612;
+        const OID_GEN_XMIT_ERROR: u32 = 131331;
+        const OID_GEN_XMIT_LINK_SPEED: u32 = 66180;
+        const OID_GEN_XMIT_OK: u32 = 131329;
+        const OID_IP4_OFFLOAD_STATS: u32 = 4227924489;
+        const OID_IP6_OFFLOAD_STATS: u32 = 4227924490;
+        const OID_IRDA_EXTRA_RCV_BOFS: u32 = 167838208;
+        const OID_IRDA_LINK_SPEED: u32 = 167837955;
+        const OID_IRDA_MAX_RECEIVE_WINDOW_SIZE: u32 = 167838212;
+        const OID_IRDA_MAX_SEND_WINDOW_SIZE: u32 = 167838213;
+        const OID_IRDA_MAX_UNICAST_LIST_SIZE: u32 = 167838211;
+        const OID_IRDA_MEDIA_BUSY: u32 = 167837956;
+        const OID_IRDA_RATE_SNIFF: u32 = 167838209;
+        const OID_IRDA_RECEIVING: u32 = 167837952;
+        const OID_IRDA_RESERVED1: u32 = 167838218;
+        const OID_IRDA_RESERVED2: u32 = 167838223;
+        const OID_IRDA_SUPPORTED_SPEEDS: u32 = 167837954;
+        const OID_IRDA_TURNAROUND_TIME: u32 = 167837953;
+        const OID_IRDA_UNICAST_LIST: u32 = 167838210;
+        const OID_LTALK_COLLISIONS: u32 = 84017666;
+        const OID_LTALK_CURRENT_NODE_ID: u32 = 83951874;
+        const OID_LTALK_DEFERS: u32 = 84017667;
+        const OID_LTALK_FCS_ERRORS: u32 = 84017670;
+        const OID_LTALK_IN_BROADCASTS: u32 = 84017409;
+        const OID_LTALK_IN_LENGTH_ERRORS: u32 = 84017410;
+        const OID_LTALK_NO_DATA_ERRORS: u32 = 84017668;
+        const OID_LTALK_OUT_NO_HANDLERS: u32 = 84017665;
+        const OID_LTALK_RANDOM_CTS_ERRORS: u32 = 84017669;
+        const OID_NIC_SWITCH_ALLOCATE_VF: u32 = 66117;
+        const OID_NIC_SWITCH_CREATE_SWITCH: u32 = 66103;
+        const OID_NIC_SWITCH_CREATE_VPORT: u32 = 66113;
+        const OID_NIC_SWITCH_CURRENT_CAPABILITIES: u32 = 66095;
+        const OID_NIC_SWITCH_DELETE_SWITCH: u32 = 66105;
+        const OID_NIC_SWITCH_DELETE_VPORT: u32 = 66116;
+        const OID_NIC_SWITCH_ENUM_SWITCHES: u32 = 66112;
+        const OID_NIC_SWITCH_ENUM_VFS: u32 = 66120;
+        const OID_NIC_SWITCH_ENUM_VPORTS: u32 = 66115;
+        const OID_NIC_SWITCH_FREE_VF: u32 = 66118;
+        const OID_NIC_SWITCH_HARDWARE_CAPABILITIES: u32 = 66094;
+        const OID_NIC_SWITCH_PARAMETERS: u32 = 66104;
+        const OID_NIC_SWITCH_VF_PARAMETERS: u32 = 66119;
+        const OID_NIC_SWITCH_VPORT_PARAMETERS: u32 = 66114;
+        const OID_OFFLOAD_ENCAPSULATION: u32 = 16843018;
+        const OID_PM_ADD_PROTOCOL_OFFLOAD: u32 = 4244701453;
+        const OID_PM_ADD_WOL_PATTERN: u32 = 4244701450;
+        const OID_PM_CURRENT_CAPABILITIES: u32 = 4244701447;
+        const OID_PM_GET_PROTOCOL_OFFLOAD: u32 = 4244701454;
+        const OID_PM_HARDWARE_CAPABILITIES: u32 = 4244701448;
+        const OID_PM_PARAMETERS: u32 = 4244701449;
+        const OID_PM_PROTOCOL_OFFLOAD_LIST: u32 = 4244701456;
+        const OID_PM_REMOVE_PROTOCOL_OFFLOAD: u32 = 4244701455;
+        const OID_PM_REMOVE_WOL_PATTERN: u32 = 4244701451;
+        const OID_PM_RESERVED_1: u32 = 4244701457;
+        const OID_PM_WOL_PATTERN_LIST: u32 = 4244701452;
+        const OID_PNP_ADD_WAKE_UP_PATTERN: u32 = 4244701443;
+        const OID_PNP_CAPABILITIES: u32 = 4244701440;
+        const OID_PNP_ENABLE_WAKE_UP: u32 = 4244701446;
+        const OID_PNP_QUERY_POWER: u32 = 4244701442;
+        const OID_PNP_REMOVE_WAKE_UP_PATTERN: u32 = 4244701444;
+        const OID_PNP_SET_POWER: u32 = 4244701441;
+        const OID_PNP_WAKE_UP_ERROR: u32 = 4244767233;
+        const OID_PNP_WAKE_UP_OK: u32 = 4244767232;
+        const OID_PNP_WAKE_UP_PATTERN_LIST: u32 = 4244701445;
+        const OID_QOS_RESERVED1: u32 = 4211147008;
+        const OID_QOS_RESERVED10: u32 = 4211147017;
+        const OID_QOS_RESERVED11: u32 = 4211147018;
+        const OID_QOS_RESERVED12: u32 = 4211147019;
+        const OID_QOS_RESERVED13: u32 = 4211147020;
+        const OID_QOS_RESERVED14: u32 = 4211147021;
+        const OID_QOS_RESERVED15: u32 = 4211147022;
+        const OID_QOS_RESERVED16: u32 = 4211147023;
+        const OID_QOS_RESERVED17: u32 = 4211147024;
+        const OID_QOS_RESERVED18: u32 = 4211147025;
+        const OID_QOS_RESERVED19: u32 = 4211147026;
+        const OID_QOS_RESERVED2: u32 = 4211147009;
+        const OID_QOS_RESERVED20: u32 = 4211147027;
+        const OID_QOS_RESERVED3: u32 = 4211147010;
+        const OID_QOS_RESERVED4: u32 = 4211147011;
+        const OID_QOS_RESERVED5: u32 = 4211147012;
+        const OID_QOS_RESERVED6: u32 = 4211147013;
+        const OID_QOS_RESERVED7: u32 = 4211147014;
+        const OID_QOS_RESERVED8: u32 = 4211147015;
+        const OID_QOS_RESERVED9: u32 = 4211147016;
+        const OID_RECEIVE_FILTER_ALLOCATE_QUEUE: u32 = 66083;
+        const OID_RECEIVE_FILTER_CLEAR_FILTER: u32 = 66088;
+        const OID_RECEIVE_FILTER_CURRENT_CAPABILITIES: u32 = 66093;
+        const OID_RECEIVE_FILTER_ENUM_FILTERS: u32 = 66089;
+        const OID_RECEIVE_FILTER_ENUM_QUEUES: u32 = 66085;
+        const OID_RECEIVE_FILTER_FREE_QUEUE: u32 = 66084;
+        const OID_RECEIVE_FILTER_GLOBAL_PARAMETERS: u32 = 66082;
+        const OID_RECEIVE_FILTER_HARDWARE_CAPABILITIES: u32 = 66081;
+        const OID_RECEIVE_FILTER_PARAMETERS: u32 = 66090;
+        const OID_RECEIVE_FILTER_QUEUE_ALLOCATION_COMPLETE: u32 = 66091;
+        const OID_RECEIVE_FILTER_QUEUE_PARAMETERS: u32 = 66086;
+        const OID_RECEIVE_FILTER_SET_FILTER: u32 = 66087;
+        const OID_SRIOV_BAR_RESOURCES: u32 = 66137;
+        const OID_SRIOV_CONFIG_STATE: u32 = 66145;
+        const OID_SRIOV_CURRENT_CAPABILITIES: u32 = 66128;
+        const OID_SRIOV_HARDWARE_CAPABILITIES: u32 = 66121;
+        const OID_SRIOV_PF_LUID: u32 = 66144;
+        const OID_SRIOV_PROBED_BARS: u32 = 66136;
+        const OID_SRIOV_READ_VF_CONFIG_BLOCK: u32 = 66131;
+        const OID_SRIOV_READ_VF_CONFIG_SPACE: u32 = 66129;
+        const OID_SRIOV_RESET_VF: u32 = 66133;
+        const OID_SRIOV_SET_VF_POWER_STATE: u32 = 66134;
+        const OID_SRIOV_VF_INVALIDATE_CONFIG_BLOCK: u32 = 66153;
+        const OID_SRIOV_VF_SERIAL_NUMBER: u32 = 66146;
+        const OID_SRIOV_VF_VENDOR_DEVICE_ID: u32 = 66135;
+        const OID_SRIOV_WRITE_VF_CONFIG_BLOCK: u32 = 66132;
+        const OID_SRIOV_WRITE_VF_CONFIG_SPACE: u32 = 66130;
+        const OID_SWITCH_FEATURE_STATUS_QUERY: u32 = 66151;
+        const OID_SWITCH_NIC_ARRAY: u32 = 66167;
+        const OID_SWITCH_NIC_CONNECT: u32 = 66171;
+        const OID_SWITCH_NIC_CREATE: u32 = 66170;
+        const OID_SWITCH_NIC_DELETE: u32 = 66173;
+        const OID_SWITCH_NIC_DISCONNECT: u32 = 66172;
+        const OID_SWITCH_NIC_REQUEST: u32 = 66160;
+        const OID_SWITCH_NIC_RESTORE: u32 = 66194;
+        const OID_SWITCH_NIC_RESTORE_COMPLETE: u32 = 66195;
+        const OID_SWITCH_NIC_SAVE: u32 = 66192;
+        const OID_SWITCH_NIC_SAVE_COMPLETE: u32 = 66193;
+        const OID_SWITCH_NIC_SUSPENDED_LM_SOURCE_FINISHED: u32 = 66202;
+        const OID_SWITCH_NIC_SUSPENDED_LM_SOURCE_STARTED: u32 = 66201;
+        const OID_SWITCH_NIC_UPDATED: u32 = 66196;
+        const OID_SWITCH_PARAMETERS: u32 = 66165;
+        const OID_SWITCH_PORT_ARRAY: u32 = 66166;
+        const OID_SWITCH_PORT_CREATE: u32 = 66168;
+        const OID_SWITCH_PORT_DELETE: u32 = 66169;
+        const OID_SWITCH_PORT_FEATURE_STATUS_QUERY: u32 = 66174;
+        const OID_SWITCH_PORT_PROPERTY_ADD: u32 = 66161;
+        const OID_SWITCH_PORT_PROPERTY_DELETE: u32 = 66163;
+        const OID_SWITCH_PORT_PROPERTY_ENUM: u32 = 66164;
+        const OID_SWITCH_PORT_PROPERTY_UPDATE: u32 = 66162;
+        const OID_SWITCH_PORT_TEARDOWN: u32 = 66175;
+        const OID_SWITCH_PORT_UPDATED: u32 = 66197;
+        const OID_SWITCH_PROPERTY_ADD: u32 = 66147;
+        const OID_SWITCH_PROPERTY_DELETE: u32 = 66149;
+        const OID_SWITCH_PROPERTY_ENUM: u32 = 66150;
+        const OID_SWITCH_PROPERTY_UPDATE: u32 = 66148;
+        const OID_TAPI_ACCEPT: u32 = 117637377;
+        const OID_TAPI_ANSWER: u32 = 117637378;
+        const OID_TAPI_CLOSE: u32 = 117637379;
+        const OID_TAPI_CLOSE_CALL: u32 = 117637380;
+        const OID_TAPI_CONDITIONAL_MEDIA_DETECTION: u32 = 117637381;
+        const OID_TAPI_CONFIG_DIALOG: u32 = 117637382;
+        const OID_TAPI_DEV_SPECIFIC: u32 = 117637383;
+        const OID_TAPI_DIAL: u32 = 117637384;
+        const OID_TAPI_DROP: u32 = 117637385;
+        const OID_TAPI_GATHER_DIGITS: u32 = 117637411;
+        const OID_TAPI_GET_ADDRESS_CAPS: u32 = 117637386;
+        const OID_TAPI_GET_ADDRESS_ID: u32 = 117637387;
+        const OID_TAPI_GET_ADDRESS_STATUS: u32 = 117637388;
+        const OID_TAPI_GET_CALL_ADDRESS_ID: u32 = 117637389;
+        const OID_TAPI_GET_CALL_INFO: u32 = 117637390;
+        const OID_TAPI_GET_CALL_STATUS: u32 = 117637391;
+        const OID_TAPI_GET_DEV_CAPS: u32 = 117637392;
+        const OID_TAPI_GET_DEV_CONFIG: u32 = 117637393;
+        const OID_TAPI_GET_EXTENSION_ID: u32 = 117637394;
+        const OID_TAPI_GET_ID: u32 = 117637395;
+        const OID_TAPI_GET_LINE_DEV_STATUS: u32 = 117637396;
+        const OID_TAPI_MAKE_CALL: u32 = 117637397;
+        const OID_TAPI_MONITOR_DIGITS: u32 = 117637412;
+        const OID_TAPI_NEGOTIATE_EXT_VERSION: u32 = 117637398;
+        const OID_TAPI_OPEN: u32 = 117637399;
+        const OID_TAPI_PROVIDER_INITIALIZE: u32 = 117637400;
+        const OID_TAPI_PROVIDER_SHUTDOWN: u32 = 117637401;
+        const OID_TAPI_SECURE_CALL: u32 = 117637402;
+        const OID_TAPI_SELECT_EXT_VERSION: u32 = 117637403;
+        const OID_TAPI_SEND_USER_USER_INFO: u32 = 117637404;
+        const OID_TAPI_SET_APP_SPECIFIC: u32 = 117637405;
+        const OID_TAPI_SET_CALL_PARAMS: u32 = 117637406;
+        const OID_TAPI_SET_DEFAULT_MEDIA_DETECTION: u32 = 117637407;
+        const OID_TAPI_SET_DEV_CONFIG: u32 = 117637408;
+        const OID_TAPI_SET_MEDIA_MODE: u32 = 117637409;
+        const OID_TAPI_SET_STATUS_MESSAGES: u32 = 117637410;
+        const OID_TCP4_OFFLOAD_STATS: u32 = 4227924487;
+        const OID_TCP6_OFFLOAD_STATS: u32 = 4227924488;
+        const OID_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: u32 = 4227924494;
+        const OID_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: u32 = 4227924495;
+        const OID_TCP_CONNECTION_OFFLOAD_PARAMETERS: u32 = 4228055553;
+        const OID_TCP_OFFLOAD_CURRENT_CONFIG: u32 = 4227924491;
+        const OID_TCP_OFFLOAD_HARDWARE_CAPABILITIES: u32 = 4227924493;
+        const OID_TCP_OFFLOAD_PARAMETERS: u32 = 4227924492;
+        const OID_TCP_RSC_STATISTICS: u32 = 131613;
+        const OID_TCP_SAN_SUPPORT: u32 = 4227924484;
+        const OID_TCP_TASK_IPSEC_ADD_SA: u32 = 4227924482;
+        const OID_TCP_TASK_IPSEC_ADD_UDPESP_SA: u32 = 4227924485;
+        const OID_TCP_TASK_IPSEC_DELETE_SA: u32 = 4227924483;
+        const OID_TCP_TASK_IPSEC_DELETE_UDPESP_SA: u32 = 4227924486;
+        const OID_TCP_TASK_OFFLOAD: u32 = 4227924481;
+        const OID_TIMESTAMP_CAPABILITY: u32 = 10485761;
+        const OID_TIMESTAMP_CURRENT_CONFIG: u32 = 10485762;
+        const OID_TIMESTAMP_GET_CROSSTIMESTAMP: u32 = 10485763;
+        const OID_TUNNEL_INTERFACE_RELEASE_OID: u32 = 251724039;
+        const OID_TUNNEL_INTERFACE_SET_OID: u32 = 251724038;
+        const OID_VLAN_RESERVED1: u32 = 66097;
+        const OID_VLAN_RESERVED2: u32 = 66098;
+        const OID_VLAN_RESERVED3: u32 = 66099;
+        const OID_VLAN_RESERVED4: u32 = 66100;
+        const OID_WAN_CO_GET_COMP_INFO: u32 = 67175040;
+        const OID_WAN_CO_GET_INFO: u32 = 67174784;
+        const OID_WAN_CO_GET_LINK_INFO: u32 = 67174786;
+        const OID_WAN_CO_GET_STATS_INFO: u32 = 67175042;
+        const OID_WAN_CO_SET_COMP_INFO: u32 = 67175041;
+        const OID_WAN_CO_SET_LINK_INFO: u32 = 67174785;
+        const OID_WAN_CURRENT_ADDRESS: u32 = 67174658;
+        const OID_WAN_GET_BRIDGE_INFO: u32 = 67174922;
+        const OID_WAN_GET_COMP_INFO: u32 = 67174924;
+        const OID_WAN_GET_INFO: u32 = 67174663;
+        const OID_WAN_GET_LINK_INFO: u32 = 67174665;
+        const OID_WAN_GET_STATS_INFO: u32 = 67174926;
+        const OID_WAN_HEADER_FORMAT: u32 = 67174662;
+        const OID_WAN_LINE_COUNT: u32 = 67174666;
+        const OID_WAN_MEDIUM_SUBTYPE: u32 = 67174661;
+        const OID_WAN_PERMANENT_ADDRESS: u32 = 67174657;
+        const OID_WAN_PROTOCOL_CAPS: u32 = 67174667;
+        const OID_WAN_PROTOCOL_TYPE: u32 = 67174660;
+        const OID_WAN_QUALITY_OF_SERVICE: u32 = 67174659;
+        const OID_WAN_SET_BRIDGE_INFO: u32 = 67174923;
+        const OID_WAN_SET_COMP_INFO: u32 = 67174925;
+        const OID_WAN_SET_LINK_INFO: u32 = 67174664;
+        const OID_WWAN_AUTH_CHALLENGE: u32 = 234946837;
+        const OID_WWAN_BASE_STATIONS_INFO: u32 = 234946888;
+        const OID_WWAN_CONNECT: u32 = 234946828;
+        const OID_WWAN_CREATE_MAC: u32 = 234946854;
+        const OID_WWAN_DELETE_MAC: u32 = 234946855;
+        const OID_WWAN_DEVICE_BINDINGS: u32 = 234946865;
+        const OID_WWAN_DEVICE_CAPS: u32 = 234946817;
+        const OID_WWAN_DEVICE_CAPS_EX: u32 = 234946862;
+        const OID_WWAN_DEVICE_RESET: u32 = 234946887;
+        const OID_WWAN_DEVICE_SERVICE_COMMAND: u32 = 234946840;
+        const OID_WWAN_DEVICE_SERVICE_SESSION: u32 = 234946851;
+        const OID_WWAN_DEVICE_SERVICE_SESSION_WRITE: u32 = 234946852;
+        const OID_WWAN_DRIVER_CAPS: u32 = 234946816;
+        const OID_WWAN_ENUMERATE_DEVICE_SERVICES: u32 = 234946838;
+        const OID_WWAN_ENUMERATE_DEVICE_SERVICE_COMMANDS: u32 = 234946850;
+        const OID_WWAN_HOME_PROVIDER: u32 = 234946822;
+        const OID_WWAN_IMS_VOICE_STATE: u32 = 234946867;
+        const OID_WWAN_LOCATION_STATE: u32 = 234946869;
+        const OID_WWAN_LTE_ATTACH_CONFIG: u32 = 234946882;
+        const OID_WWAN_LTE_ATTACH_STATUS: u32 = 234946883;
+        const OID_WWAN_MBIM_VERSION: u32 = 234946860;
+        const OID_WWAN_MODEM_CONFIG_INFO: u32 = 234946884;
+        const OID_WWAN_MODEM_LOGGING_CONFIG: u32 = 234946891;
+        const OID_WWAN_MPDP: u32 = 234946889;
+        const OID_WWAN_NETWORK_BLACKLIST: u32 = 234946881;
+        const OID_WWAN_NETWORK_IDLE_HINT: u32 = 234946871;
+        const OID_WWAN_NETWORK_PARAMS: u32 = 234946893;
+        const OID_WWAN_NITZ: u32 = 234946870;
+        const OID_WWAN_PACKET_SERVICE: u32 = 234946826;
+        const OID_WWAN_PCO: u32 = 234946885;
+        const OID_WWAN_PIN: u32 = 234946820;
+        const OID_WWAN_PIN_EX: u32 = 234946849;
+        const OID_WWAN_PIN_EX2: u32 = 234946859;
+        const OID_WWAN_PIN_LIST: u32 = 234946821;
+        const OID_WWAN_PREFERRED_MULTICARRIER_PROVIDERS: u32 = 234946853;
+        const OID_WWAN_PREFERRED_PROVIDERS: u32 = 234946823;
+        const OID_WWAN_PRESHUTDOWN: u32 = 234946872;
+        const OID_WWAN_PROVISIONED_CONTEXTS: u32 = 234946829;
+        const OID_WWAN_PS_MEDIA_CONFIG: u32 = 234946878;
+        const OID_WWAN_RADIO_STATE: u32 = 234946819;
+        const OID_WWAN_READY_INFO: u32 = 234946818;
+        const OID_WWAN_REGISTER_PARAMS: u32 = 234946892;
+        const OID_WWAN_REGISTER_STATE: u32 = 234946825;
+        const OID_WWAN_REGISTER_STATE_EX: u32 = 234946866;
+        const OID_WWAN_SAR_CONFIG: u32 = 234946879;
+        const OID_WWAN_SAR_TRANSMISSION_STATUS: u32 = 234946880;
+        const OID_WWAN_SERVICE_ACTIVATION: u32 = 234946830;
+        const OID_WWAN_SIGNAL_STATE: u32 = 234946827;
+        const OID_WWAN_SIGNAL_STATE_EX: u32 = 234946868;
+        const OID_WWAN_SLOT_INFO_STATUS: u32 = 234946864;
+        const OID_WWAN_SMS_CONFIGURATION: u32 = 234946831;
+        const OID_WWAN_SMS_DELETE: u32 = 234946834;
+        const OID_WWAN_SMS_READ: u32 = 234946832;
+        const OID_WWAN_SMS_SEND: u32 = 234946833;
+        const OID_WWAN_SMS_STATUS: u32 = 234946835;
+        const OID_WWAN_SUBSCRIBE_DEVICE_SERVICE_EVENTS: u32 = 234946839;
+        const OID_WWAN_SYS_CAPS: u32 = 234946861;
+        const OID_WWAN_SYS_SLOTMAPPINGS: u32 = 234946863;
+        const OID_WWAN_UE_POLICY: u32 = 234946894;
+        const OID_WWAN_UICC_ACCESS_BINARY: u32 = 234946857;
+        const OID_WWAN_UICC_ACCESS_RECORD: u32 = 234946858;
+        const OID_WWAN_UICC_APDU: u32 = 234946876;
+        const OID_WWAN_UICC_APP_LIST: u32 = 234946890;
+        const OID_WWAN_UICC_ATR: u32 = 234946873;
+        const OID_WWAN_UICC_CLOSE_CHANNEL: u32 = 234946875;
+        const OID_WWAN_UICC_FILE_STATUS: u32 = 234946856;
+        const OID_WWAN_UICC_OPEN_CHANNEL: u32 = 234946874;
+        const OID_WWAN_UICC_RESET: u32 = 234946886;
+        const OID_WWAN_UICC_TERMINAL_CAPABILITY: u32 = 234946877;
+        const OID_WWAN_USSD: u32 = 234946841;
+        const OID_WWAN_VENDOR_SPECIFIC: u32 = 234946836;
+        const OID_WWAN_VISIBLE_PROVIDERS: u32 = 234946824;
+        const OID_XBOX_ACC_RESERVED0: u32 = 4194304000;
+        type PBSSID_INFO = *mut BSSID_INFO;
+        type PGEN_GET_NETCARD_TIME = *mut GEN_GET_NETCARD_TIME;
+        type PGEN_GET_TIME_CAPS = *mut GEN_GET_TIME_CAPS;
+        struct PMKID_CANDIDATE {
+            BSSID: NDIS_802_11_MAC_ADDRESS,
+            Flags: u32,
+        }
+        type PNDIS_802_11_AI_REQFI = *mut NDIS_802_11_AI_REQFI;
+        type PNDIS_802_11_AI_RESFI = *mut NDIS_802_11_AI_RESFI;
+        type PNDIS_802_11_ASSOCIATION_INFORMATION = *mut NDIS_802_11_ASSOCIATION_INFORMATION;
+        type PNDIS_802_11_AUTHENTICATION_ENCRYPTION = *mut NDIS_802_11_AUTHENTICATION_ENCRYPTION;
+        type PNDIS_802_11_AUTHENTICATION_EVENT = *mut NDIS_802_11_AUTHENTICATION_EVENT;
+        type PNDIS_802_11_AUTHENTICATION_MODE = *mut NDIS_802_11_AUTHENTICATION_MODE;
+        type PNDIS_802_11_AUTHENTICATION_REQUEST = *mut NDIS_802_11_AUTHENTICATION_REQUEST;
+        type PNDIS_802_11_BSSID_LIST = *mut NDIS_802_11_BSSID_LIST;
+        type PNDIS_802_11_BSSID_LIST_EX = *mut NDIS_802_11_BSSID_LIST_EX;
+        type PNDIS_802_11_CAPABILITY = *mut NDIS_802_11_CAPABILITY;
+        type PNDIS_802_11_CONFIGURATION = *mut NDIS_802_11_CONFIGURATION;
+        type PNDIS_802_11_CONFIGURATION_FH = *mut NDIS_802_11_CONFIGURATION_FH;
+        type PNDIS_802_11_ENCRYPTION_STATUS = *mut NDIS_802_11_WEP_STATUS;
+        type PNDIS_802_11_FIXED_IEs = *mut NDIS_802_11_FIXED_IEs;
+        type PNDIS_802_11_KEY = *mut NDIS_802_11_KEY;
+        type PNDIS_802_11_MEDIA_STREAM_MODE = *mut NDIS_802_11_MEDIA_STREAM_MODE;
+        type PNDIS_802_11_NETWORK_INFRASTRUCTURE = *mut NDIS_802_11_NETWORK_INFRASTRUCTURE;
+        type PNDIS_802_11_NETWORK_TYPE = *mut NDIS_802_11_NETWORK_TYPE;
+        type PNDIS_802_11_NETWORK_TYPE_LIST = *mut NDIS_802_11_NETWORK_TYPE_LIST;
+        type PNDIS_802_11_NON_BCAST_SSID_LIST = *mut NDIS_802_11_NON_BCAST_SSID_LIST;
+        type PNDIS_802_11_PMKID = *mut NDIS_802_11_PMKID;
+        type PNDIS_802_11_PMKID_CANDIDATE_LIST = *mut NDIS_802_11_PMKID_CANDIDATE_LIST;
+        type PNDIS_802_11_POWER_MODE = *mut NDIS_802_11_POWER_MODE;
+        type PNDIS_802_11_PRIVACY_FILTER = *mut NDIS_802_11_PRIVACY_FILTER;
+        type PNDIS_802_11_RADIO_STATUS = *mut NDIS_802_11_RADIO_STATUS;
+        type PNDIS_802_11_RELOAD_DEFAULTS = *mut NDIS_802_11_RELOAD_DEFAULTS;
+        type PNDIS_802_11_REMOVE_KEY = *mut NDIS_802_11_REMOVE_KEY;
+        type PNDIS_802_11_SSID = *mut NDIS_802_11_SSID;
+        type PNDIS_802_11_STATISTICS = *mut NDIS_802_11_STATISTICS;
+        type PNDIS_802_11_STATUS_INDICATION = *mut NDIS_802_11_STATUS_INDICATION;
+        type PNDIS_802_11_STATUS_TYPE = *mut NDIS_802_11_STATUS_TYPE;
+        type PNDIS_802_11_TEST = *mut NDIS_802_11_TEST;
+        type PNDIS_802_11_VARIABLE_IEs = *mut NDIS_802_11_VARIABLE_IEs;
+        type PNDIS_802_11_WEP = *mut NDIS_802_11_WEP;
+        type PNDIS_802_11_WEP_STATUS = *mut NDIS_802_11_WEP_STATUS;
+        type PNDIS_802_5_RING_STATE = *mut NDIS_802_5_RING_STATE;
+        type PNDIS_CO_DEVICE_PROFILE = *mut NDIS_CO_DEVICE_PROFILE;
+        type PNDIS_CO_LINK_SPEED = *mut NDIS_CO_LINK_SPEED;
+        type PNDIS_DEVICE_POWER_STATE = *mut NDIS_DEVICE_POWER_STATE;
+        type PNDIS_FDDI_ATTACHMENT_TYPE = *mut NDIS_FDDI_ATTACHMENT_TYPE;
+        type PNDIS_FDDI_LCONNECTION_STATE = *mut NDIS_FDDI_LCONNECTION_STATE;
+        type PNDIS_FDDI_RING_MGT_STATE = *mut NDIS_FDDI_RING_MGT_STATE;
+        type PNDIS_GUID = *mut NDIS_GUID;
+        type PNDIS_HARDWARE_CROSSTIMESTAMP = *mut NDIS_HARDWARE_CROSSTIMESTAMP;
+        type PNDIS_HARDWARE_STATUS = *mut NDIS_HARDWARE_STATUS;
+        type PNDIS_IF_COUNTED_STRING = *mut IF_COUNTED_STRING;
+        type PNDIS_IF_PHYSICAL_ADDRESS = *mut IF_PHYSICAL_ADDRESS;
+        type PNDIS_INTERRUPT_MODERATION = *mut NDIS_INTERRUPT_MODERATION;
+        type PNDIS_INTERRUPT_MODERATION_PARAMETERS = *mut NDIS_INTERRUPT_MODERATION_PARAMETERS;
+        type PNDIS_IPSEC_OFFLOAD_V1 = *mut NDIS_IPSEC_OFFLOAD_V1;
+        type PNDIS_IP_OPER_STATE = *mut NDIS_IP_OPER_STATE;
+        type PNDIS_IP_OPER_STATUS = *mut NDIS_IP_OPER_STATUS;
+        type PNDIS_IP_OPER_STATUS_INFO = *mut NDIS_IP_OPER_STATUS_INFO;
+        type PNDIS_IRDA_PACKET_INFO = *mut NDIS_IRDA_PACKET_INFO;
+        type PNDIS_LINK_PARAMETERS = *mut NDIS_LINK_PARAMETERS;
+        type PNDIS_LINK_SPEED = *mut NDIS_LINK_SPEED;
+        type PNDIS_LINK_STATE = *mut NDIS_LINK_STATE;
+        type PNDIS_MEDIA_CONNECT_STATE = *mut NET_IF_MEDIA_CONNECT_STATE;
+        type PNDIS_MEDIA_DUPLEX_STATE = *mut NET_IF_MEDIA_DUPLEX_STATE;
+        type PNDIS_MEDIA_STATE = *mut NDIS_MEDIA_STATE;
+        type PNDIS_MEDIUM = *mut NDIS_MEDIUM;
+        type PNDIS_NETWORK_CHANGE_TYPE = *mut NDIS_NETWORK_CHANGE_TYPE;
+        type PNDIS_OFFLOAD = *mut NDIS_OFFLOAD;
+        type PNDIS_OFFLOAD_PARAMETERS = *mut NDIS_OFFLOAD_PARAMETERS;
+        type PNDIS_OPER_STATE = *mut NDIS_OPER_STATE;
+        type PNDIS_PCI_DEVICE_CUSTOM_PROPERTIES = *mut NDIS_PCI_DEVICE_CUSTOM_PROPERTIES;
+        type PNDIS_PHYSICAL_MEDIUM = *mut NDIS_PHYSICAL_MEDIUM;
+        type PNDIS_PM_PACKET_PATTERN = *mut NDIS_PM_PACKET_PATTERN;
+        type PNDIS_PM_WAKE_UP_CAPABILITIES = *mut NDIS_PM_WAKE_UP_CAPABILITIES;
+        type PNDIS_PNP_CAPABILITIES = *mut NDIS_PNP_CAPABILITIES;
+        type PNDIS_PORT = *mut NDIS_PORT;
+        type PNDIS_PORT_ARRAY = *mut NDIS_PORT_ARRAY;
+        type PNDIS_PORT_AUTHENTICATION_PARAMETERS = *mut NDIS_PORT_AUTHENTICATION_PARAMETERS;
+        type PNDIS_PORT_AUTHORIZATION_STATE = *mut NDIS_PORT_AUTHORIZATION_STATE;
+        type PNDIS_PORT_CHARACTERISTICS = *mut NDIS_PORT_CHARACTERISTICS;
+        type PNDIS_PORT_CONTROLL_STATE = PNDIS_PORT_CONTROL_STATE;
+        type PNDIS_PORT_CONTROL_STATE = *mut NDIS_PORT_CONTROL_STATE;
+        type PNDIS_PORT_STATE = *mut NDIS_PORT_STATE;
+        type PNDIS_PROCESSOR_VENDOR = *mut NDIS_PROCESSOR_VENDOR;
+        type PNDIS_RECEIVE_HASH_PARAMETERS = *mut NDIS_RECEIVE_HASH_PARAMETERS;
+        type PNDIS_RECEIVE_SCALE_CAPABILITIES = *mut NDIS_RECEIVE_SCALE_CAPABILITIES;
+        type PNDIS_RECEIVE_SCALE_PARAMETERS = *mut NDIS_RECEIVE_SCALE_PARAMETERS;
+        type PNDIS_STATISTICS_INFO = *mut NDIS_STATISTICS_INFO;
+        type PNDIS_STATISTICS_VALUE = *mut NDIS_STATISTICS_VALUE;
+        type PNDIS_STATISTICS_VALUE_EX = *mut NDIS_STATISTICS_VALUE_EX;
+        type PNDIS_SUPPORTED_PAUSE_FUNCTIONS = *mut NDIS_SUPPORTED_PAUSE_FUNCTIONS;
+        type PNDIS_TCP_CONNECTION_OFFLOAD = *mut NDIS_TCP_CONNECTION_OFFLOAD;
+        type PNDIS_TCP_IP_CHECKSUM_OFFLOAD = *mut NDIS_TCP_IP_CHECKSUM_OFFLOAD;
+        type PNDIS_TCP_LARGE_SEND_OFFLOAD_V1 = *mut NDIS_TCP_LARGE_SEND_OFFLOAD_V1;
+        type PNDIS_TCP_LARGE_SEND_OFFLOAD_V2 = *mut NDIS_TCP_LARGE_SEND_OFFLOAD_V2;
+        type PNDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES = *mut NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES;
+        type PNDIS_TIMESTAMP_CAPABILITIES = *mut NDIS_TIMESTAMP_CAPABILITIES;
+        type PNDIS_TIMESTAMP_CAPABILITY_FLAGS = *mut NDIS_TIMESTAMP_CAPABILITY_FLAGS;
+        type PNDIS_VAR_DATA_DESC = *mut NDIS_VAR_DATA_DESC;
+        type PNDIS_WAN_HEADER_FORMAT = *mut NDIS_WAN_HEADER_FORMAT;
+        type PNDIS_WAN_MEDIUM_SUBTYPE = *mut NDIS_WAN_MEDIUM_SUBTYPE;
+        type PNDIS_WAN_PROTOCOL_CAPS = *mut NDIS_WAN_PROTOCOL_CAPS;
+        type PNDIS_WAN_QUALITY = *mut NDIS_WAN_QUALITY;
+        type PNDIS_WLAN_BSSID = *mut NDIS_WLAN_BSSID;
+        type PNDIS_WLAN_BSSID_EX = *mut NDIS_WLAN_BSSID_EX;
+        type PNDIS_WMI_ENUM_ADAPTER = *mut NDIS_WMI_ENUM_ADAPTER;
+        type PNDIS_WMI_EVENT_HEADER = *mut NDIS_WMI_EVENT_HEADER;
+        type PNDIS_WMI_IPSEC_OFFLOAD_V1 = *mut NDIS_WMI_IPSEC_OFFLOAD_V1;
+        type PNDIS_WMI_METHOD_HEADER = *mut NDIS_WMI_METHOD_HEADER;
+        type PNDIS_WMI_OFFLOAD = *mut NDIS_WMI_OFFLOAD;
+        type PNDIS_WMI_OUTPUT_INFO = *mut NDIS_WMI_OUTPUT_INFO;
+        type PNDIS_WMI_SET_HEADER = *mut NDIS_WMI_SET_HEADER;
+        type PNDIS_WMI_TCP_CONNECTION_OFFLOAD = *mut NDIS_WMI_TCP_CONNECTION_OFFLOAD;
+        type PNDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD = *mut NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD;
+        type PNDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 = *mut NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1;
+        type PNDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 = *mut NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2;
+        type PNETWORK_ADDRESS = *mut NETWORK_ADDRESS;
+        type PNETWORK_ADDRESS_IP = *mut NETWORK_ADDRESS_IP;
+        type PNETWORK_ADDRESS_IP6 = *mut NETWORK_ADDRESS_IP6;
+        type PNETWORK_ADDRESS_IPX = *mut NETWORK_ADDRESS_IPX;
+        type PNETWORK_ADDRESS_LIST = *mut NETWORK_ADDRESS_LIST;
+        type POFFLOAD_ALGO_INFO = *mut OFFLOAD_ALGO_INFO;
+        type POFFLOAD_IPSEC_ADD_SA = *mut OFFLOAD_IPSEC_ADD_SA;
+        type POFFLOAD_IPSEC_ADD_UDPESP_SA = *mut OFFLOAD_IPSEC_ADD_UDPESP_SA;
+        type POFFLOAD_IPSEC_DELETE_SA = *mut OFFLOAD_IPSEC_DELETE_SA;
+        type POFFLOAD_IPSEC_DELETE_UDPESP_SA = *mut OFFLOAD_IPSEC_DELETE_UDPESP_SA;
+        type POFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY = *mut OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY;
+        type POFFLOAD_SECURITY_ASSOCIATION = *mut OFFLOAD_SECURITY_ASSOCIATION;
+        type PPMKID_CANDIDATE = *mut PMKID_CANDIDATE;
+        type PTRANSPORT_HEADER_OFFSET = *mut TRANSPORT_HEADER_OFFSET;
+        type PUDP_ENCAP_TYPE = *mut UDP_ENCAP_TYPE;
+        type Priority_802_3 = u32;
+        const READABLE_LOCAL_CLOCK: u32 = 1;
+        const RECEIVE_TIME_INDICATION_CAPABLE: u32 = 8;
+        type SPI_TYPE = u32;
+        const TIMED_SEND_CAPABLE: u32 = 16;
+        const TIME_STAMP_CAPABLE: u32 = 32;
+        struct TRANSPORT_HEADER_OFFSET {
+            ProtocolType: u16,
+            HeaderOffset: u16,
+        }
+        #[repr(i32)]
+        enum UDP_ENCAP_TYPE {
+            OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE = 0,
+            OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_OTHER = 1,
+        }
+        const WAN_PROTOCOL_KEEPS_STATS: u32 = 1;
+        const fNDIS_GUID_ALLOW_READ: u32 = 32;
+        const fNDIS_GUID_ALLOW_WRITE: u32 = 64;
+        const fNDIS_GUID_ANSI_STRING: u32 = 4;
+        const fNDIS_GUID_ARRAY: u32 = 16;
+        const fNDIS_GUID_METHOD: u32 = 128;
+        const fNDIS_GUID_NDIS_RESERVED: u32 = 256;
+        const fNDIS_GUID_SUPPORT_COMMON_HEADER: u32 = 512;
+        const fNDIS_GUID_TO_OID: u32 = 1;
+        const fNDIS_GUID_TO_STATUS: u32 = 2;
+        const fNDIS_GUID_UNICODE_STRING: u32 = 8;
+    }
+}

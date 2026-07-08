@@ -1,0 +1,74 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[encoding("utf-16")]
+        const MS_KEY_PROTECTION_PROVIDER: String = "Microsoft Key Protection Provider";
+        type NCRYPT_DESCRIPTOR_HANDLE = *mut void;
+        #[encoding("utf-16")]
+        const NCRYPT_DESCR_DELIMITER_AND: String = "AND";
+        #[encoding("utf-16")]
+        const NCRYPT_DESCR_DELIMITER_OR: String = "OR";
+        #[encoding("utf-16")]
+        const NCRYPT_DESCR_EQUAL: String = "=";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_ALGORITHM_CERTIFICATE: String = "CERTIFICATE";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_ALGORITHM_LOCAL: String = "LOCAL";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_ALGORITHM_LOCKEDCREDENTIALS: String = "LOCKEDCREDENTIALS";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_ALGORITHM_SDDL: String = "SDDL";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_ALGORITHM_SID: String = "SID";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_ALGORITHM_WEBCREDENTIALS: String = "WEBCREDENTIALS";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_CERT_CERTBLOB: String = "CertBlob";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_CERT_HASHID: String = "HashId";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_LOCAL_LOGON: String = "logon";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_LOCAL_MACHINE: String = "machine";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_PROTECTION_LOCAL_USER: String = "user";
+        const NCRYPT_NAMED_DESCRIPTOR_FLAG: u32 = 1;
+        const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: u32 = 1;
+        struct NCRYPT_PROTECT_STREAM_INFO {
+            pfnStreamOutput: PFNCryptStreamOutputCallback,
+            pvCallbackCtxt: *mut void,
+        }
+        struct NCRYPT_PROTECT_STREAM_INFO_EX {
+            pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
+            pvCallbackCtxt: *mut void,
+        }
+        type NCRYPT_STREAM_HANDLE = *mut void;
+        const NCRYPT_UNPROTECT_NO_DECRYPT: u32 = 1;
+        #[library("ncrypt.dll")]
+        extern fn NCryptCloseProtectionDescriptor(hDescriptor: NCRYPT_DESCRIPTOR_HANDLE) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptCreateProtectionDescriptor(pwszDescriptorString: PCWSTR, dwFlags: u32, phDescriptor: *mut NCRYPT_DESCRIPTOR_HANDLE) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptGetProtectionDescriptorInfo(hDescriptor: NCRYPT_DESCRIPTOR_HANDLE, #[opt] pMemPara: *const NCRYPT_ALLOC_PARA, dwInfoType: u32, ppvInfo: *mut *mut void) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptProtectSecret(hDescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwFlags: u32, #[size_param(3)] pbData: *const u8, cbData: u32, #[opt] pMemPara: *const NCRYPT_ALLOC_PARA, #[opt] hWnd: HWND, ppbProtectedBlob: *mut *mut u8, pcbProtectedBlob: *mut u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptQueryProtectionDescriptorName(pwszName: PCWSTR, #[len_param(2)] #[out] #[opt] pwszDescriptorString: PWSTR, #[in] #[out] pcDescriptorString: *mut usize, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptRegisterProtectionDescriptorName(pwszName: PCWSTR, #[opt] pwszDescriptorString: PCWSTR, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptStreamClose(hStream: NCRYPT_STREAM_HANDLE) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptStreamOpenToProtect(hDescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwFlags: u32, #[opt] hWnd: HWND, pStreamInfo: *const NCRYPT_PROTECT_STREAM_INFO, phStream: *mut NCRYPT_STREAM_HANDLE) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptStreamOpenToUnprotect(pStreamInfo: *const NCRYPT_PROTECT_STREAM_INFO, dwFlags: u32, #[opt] hWnd: HWND, phStream: *mut NCRYPT_STREAM_HANDLE) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptStreamOpenToUnprotectEx(pStreamInfo: *const NCRYPT_PROTECT_STREAM_INFO_EX, dwFlags: u32, #[opt] hWnd: HWND, phStream: *mut NCRYPT_STREAM_HANDLE) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptStreamUpdate(hStream: NCRYPT_STREAM_HANDLE, #[size_param(2)] pbData: *const u8, cbData: usize, fFinal: BOOL) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptUnprotectSecret(#[opt] phDescriptor: *mut NCRYPT_DESCRIPTOR_HANDLE, dwFlags: u32, #[size_param(3)] pbProtectedBlob: *const u8, cbProtectedBlob: u32, #[opt] pMemPara: *const NCRYPT_ALLOC_PARA, #[opt] hWnd: HWND, ppbData: *mut *mut u8, pcbData: *mut u32) -> SECURITY_STATUS;
+        extern fn PFNCryptStreamOutputCallback(pvCallbackCtxt: *const void, #[size_param(2)] pbData: *const u8, cbData: usize, fFinal: BOOL) -> SECURITY_STATUS;
+        extern fn PFNCryptStreamOutputCallbackEx(pvCallbackCtxt: *const void, #[size_param(2)] #[opt] pbData: *const u8, cbData: usize, hDescriptor: NCRYPT_DESCRIPTOR_HANDLE, fFinal: BOOL) -> SECURITY_STATUS;
+    }
+}

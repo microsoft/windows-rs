@@ -1,0 +1,104 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CVRC_COLUMN_MASK: u32 = 4095;
+        const CVRC_COLUMN_RESULT: u32 = 1;
+        const CVRC_COLUMN_SCHEMA: u32 = 0;
+        const CVRC_COLUMN_VALUE: u32 = 2;
+        const CVRC_TABLE_ATTRIBUTES: u32 = 16384;
+        const CVRC_TABLE_CRL: u32 = 20480;
+        const CVRC_TABLE_EXTENSIONS: u32 = 12288;
+        const CVRC_TABLE_MASK: u32 = 61440;
+        const CVRC_TABLE_REQCERT: u32 = 0;
+        const CVRC_TABLE_SHIFT: u32 = 12;
+        const CVR_SEEK_EQ: u32 = 1;
+        const CVR_SEEK_GE: u32 = 8;
+        const CVR_SEEK_GT: u32 = 16;
+        const CVR_SEEK_LE: u32 = 4;
+        const CVR_SEEK_LT: u32 = 2;
+        const CVR_SEEK_MASK: u32 = 255;
+        const CVR_SEEK_NODELTA: u32 = 4096;
+        const CVR_SEEK_NONE: u32 = 0;
+        const CVR_SORT_ASCEND: u32 = 1;
+        const CVR_SORT_DESCEND: u32 = 2;
+        const CVR_SORT_NONE: u32 = 0;
+        const CV_COLUMN_ATTRIBUTE_DEFAULT: i32 = -5;
+        const CV_COLUMN_CRL_DEFAULT: i32 = -6;
+        const CV_COLUMN_EXTENSION_DEFAULT: i32 = -4;
+        const CV_COLUMN_LOG_DEFAULT: i32 = -2;
+        const CV_COLUMN_LOG_FAILED_DEFAULT: i32 = -3;
+        const CV_COLUMN_LOG_REVOKED_DEFAULT: i32 = -7;
+        const CV_COLUMN_QUEUE_DEFAULT: i32 = -1;
+        const CV_OUT_BASE64: u32 = 1;
+        const CV_OUT_BASE64HEADER: u32 = 0;
+        const CV_OUT_BASE64REQUESTHEADER: u32 = 3;
+        const CV_OUT_BASE64X509CRLHEADER: u32 = 9;
+        const CV_OUT_BINARY: u32 = 2;
+        const CV_OUT_ENCODEMASK: u32 = 255;
+        const CV_OUT_HEX: u32 = 4;
+        const CV_OUT_HEXADDR: u32 = 10;
+        const CV_OUT_HEXASCII: u32 = 5;
+        const CV_OUT_HEXASCIIADDR: u32 = 11;
+        const CV_OUT_HEXRAW: u32 = 12;
+        const CV_OUT_NOCR: u32 = 2147483648;
+        const CV_OUT_NOCRLF: u32 = 1073741824;
+        #[guid(0xc3fac344_1e84_11d1_9bd6_00c04fb683fa)]
+        interface ICertView: IDispatch {
+            fn OpenConnection(&self, strConfig: BSTR) -> HRESULT;
+            fn EnumCertViewColumn(&self, fResultColumn: i32, #[retval] ppenum: *mut IEnumCERTVIEWCOLUMN) -> HRESULT;
+            fn GetColumnCount(&self, fResultColumn: i32, #[retval] pcColumn: *mut i32) -> HRESULT;
+            fn GetColumnIndex(&self, fResultColumn: i32, strColumnName: BSTR, #[retval] pColumnIndex: *mut i32) -> HRESULT;
+            fn SetResultColumnCount(&self, cResultColumn: i32) -> HRESULT;
+            fn SetResultColumn(&self, ColumnIndex: i32) -> HRESULT;
+            fn SetRestriction(&self, ColumnIndex: i32, SeekOperator: i32, SortOrder: i32, pvarValue: *const VARIANT) -> HRESULT;
+            fn OpenView(&self, #[retval] ppenum: *mut IEnumCERTVIEWROW) -> HRESULT;
+        }
+        #[guid(0xd594b282_8851_4b61_9c66_3edadf848863)]
+        interface ICertView2: ICertView {
+            fn SetTable(&self, Table: i32) -> HRESULT;
+        }
+        #[guid(0xe77db656_7653_11d1_9bde_00c04fb683fa)]
+        interface IEnumCERTVIEWATTRIBUTE: IDispatch {
+            fn Next(&self, #[retval] pIndex: *mut i32) -> HRESULT;
+            fn GetName(&self, #[retval] pstrOut: *mut BSTR) -> HRESULT;
+            fn GetValue(&self, #[retval] pstrOut: *mut BSTR) -> HRESULT;
+            fn Skip(&self, celt: i32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, #[retval] ppenum: *mut IEnumCERTVIEWATTRIBUTE) -> HRESULT;
+        }
+        #[guid(0x9c735be2_57a5_11d1_9bdb_00c04fb683fa)]
+        interface IEnumCERTVIEWCOLUMN: IDispatch {
+            fn Next(&self, #[retval] pIndex: *mut i32) -> HRESULT;
+            fn GetName(&self, #[retval] pstrOut: *mut BSTR) -> HRESULT;
+            fn GetDisplayName(&self, #[retval] pstrOut: *mut BSTR) -> HRESULT;
+            fn GetType(&self, #[retval] pType: *mut i32) -> HRESULT;
+            fn IsIndexed(&self, #[retval] pIndexed: *mut i32) -> HRESULT;
+            fn GetMaxLength(&self, #[retval] pMaxLength: *mut i32) -> HRESULT;
+            fn GetValue(&self, Flags: i32, #[retval] pvarValue: *mut VARIANT) -> HRESULT;
+            fn Skip(&self, celt: i32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, #[retval] ppenum: *mut IEnumCERTVIEWCOLUMN) -> HRESULT;
+        }
+        #[guid(0xe7dd1466_7653_11d1_9bde_00c04fb683fa)]
+        interface IEnumCERTVIEWEXTENSION: IDispatch {
+            fn Next(&self, #[retval] pIndex: *mut i32) -> HRESULT;
+            fn GetName(&self, #[retval] pstrOut: *mut BSTR) -> HRESULT;
+            fn GetFlags(&self, #[retval] pFlags: *mut i32) -> HRESULT;
+            fn GetValue(&self, Type: i32, Flags: i32, #[retval] pvarValue: *mut VARIANT) -> HRESULT;
+            fn Skip(&self, celt: i32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, #[retval] ppenum: *mut IEnumCERTVIEWEXTENSION) -> HRESULT;
+        }
+        #[guid(0xd1157f4c_5af2_11d1_9bdc_00c04fb683fa)]
+        interface IEnumCERTVIEWROW: IDispatch {
+            fn Next(&self, #[retval] pIndex: *mut i32) -> HRESULT;
+            fn EnumCertViewColumn(&self, #[retval] ppenum: *mut IEnumCERTVIEWCOLUMN) -> HRESULT;
+            fn EnumCertViewAttribute(&self, Flags: i32, #[retval] ppenum: *mut IEnumCERTVIEWATTRIBUTE) -> HRESULT;
+            fn EnumCertViewExtension(&self, Flags: i32, #[retval] ppenum: *mut IEnumCERTVIEWEXTENSION) -> HRESULT;
+            fn Skip(&self, celt: i32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, #[retval] ppenum: *mut IEnumCERTVIEWROW) -> HRESULT;
+            fn GetMaxIndex(&self, #[retval] pIndex: *mut i32) -> HRESULT;
+        }
+    }
+}

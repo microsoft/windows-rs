@@ -1,0 +1,19 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("RPCNS4.dll")]
+        extern fn I_RpcNsGetBuffer(Message: *mut RPC_MESSAGE) -> RPC_STATUS;
+        #[library("RPCNS4.dll")]
+        extern fn I_RpcNsRaiseException(Message: *mut RPC_MESSAGE, Status: RPC_STATUS);
+        #[library("RPCNS4.dll")]
+        extern fn I_RpcNsSendReceive(Message: *mut RPC_MESSAGE, Handle: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[library("RPCNS4.dll")]
+        extern fn I_RpcReBindBuffer(Message: *mut RPC_MESSAGE) -> RPC_STATUS;
+        type PRPC_IMPORT_CONTEXT_P = *mut RPC_IMPORT_CONTEXT_P;
+        struct RPC_IMPORT_CONTEXT_P {
+            LookupContext: RPC_NS_HANDLE,
+            ProposedHandle: RPC_BINDING_HANDLE,
+            Bindings: *mut RPC_BINDING_VECTOR,
+        }
+    }
+}

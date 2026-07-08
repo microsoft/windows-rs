@@ -1,0 +1,51 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x38bb5a00_7636_11d0_b413_00a0c91bbf8c)]
+        interface ICertPolicy: IDispatch {
+            fn Initialize(&self, strConfig: BSTR) -> HRESULT;
+            fn VerifyRequest(&self, strConfig: BSTR, Context: i32, bNewRequest: i32, Flags: i32, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn GetDescription(&self, #[retval] pstrDescription: *mut BSTR) -> HRESULT;
+            fn ShutDown(&self) -> HRESULT;
+        }
+        #[guid(0x3db4910e_8001_4bf1_aa1b_f43a808317a0)]
+        interface ICertPolicy2: ICertPolicy {
+            fn GetManageModule(&self, #[retval] ppManageModule: *mut ICertManageModule) -> HRESULT;
+        }
+        #[guid(0x13ca515d_431d_46cc_8c2e_1da269bbd625)]
+        interface INDESPolicy: IUnknown {
+            fn Initialize(&self) -> HRESULT;
+            fn Uninitialize(&self) -> HRESULT;
+            fn GenerateChallenge(&self, pwszTemplate: PCWSTR, pwszParams: PCWSTR, #[retval] ppwszResponse: *mut PWSTR) -> HRESULT;
+            fn VerifyRequest(&self, pctbRequest: *const CERTTRANSBLOB, pctbSigningCertEncoded: *const CERTTRANSBLOB, pwszTemplate: PCWSTR, pwszTransactionId: PCWSTR, #[retval] pfVerified: *mut BOOL) -> HRESULT;
+            fn Notify(&self, pwszChallenge: PCWSTR, pwszTransactionId: PCWSTR, disposition: X509SCEPDisposition, lastHResult: i32, pctbIssuedCertEncoded: *const CERTTRANSBLOB) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum X509SCEPDisposition {
+            SCEPDispositionUnknown = -1,
+            SCEPDispositionSuccess = 0,
+            SCEPDispositionFailure = 2,
+            SCEPDispositionPending = 3,
+            SCEPDispositionPendingChallenge = 11,
+        }
+        #[repr(i32)]
+        enum X509SCEPFailInfo {
+            SCEPFailUnknown = -1,
+            SCEPFailBadAlgorithm = 0,
+            SCEPFailBadMessageCheck = 1,
+            SCEPFailBadRequest = 2,
+            SCEPFailBadTime = 3,
+            SCEPFailBadCertId = 4,
+        }
+        #[repr(i32)]
+        enum X509SCEPMessageType {
+            SCEPMessageUnknown = -1,
+            SCEPMessageCertResponse = 3,
+            SCEPMessagePKCSRequest = 19,
+            SCEPMessageGetCertInitial = 20,
+            SCEPMessageGetCert = 21,
+            SCEPMessageGetCRL = 22,
+            SCEPMessageClaimChallengeAnswer = 41,
+        }
+    }
+}

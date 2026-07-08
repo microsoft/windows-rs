@@ -1,0 +1,163 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct DOMAIN_CONTROLLER_INFOA {
+            DomainControllerName: PSTR,
+            DomainControllerAddress: PSTR,
+            DomainControllerAddressType: u32,
+            DomainGuid: GUID,
+            DomainName: PSTR,
+            DnsForestName: PSTR,
+            Flags: u32,
+            DcSiteName: PSTR,
+            ClientSiteName: PSTR,
+        }
+        struct DOMAIN_CONTROLLER_INFOW {
+            DomainControllerName: PWSTR,
+            DomainControllerAddress: PWSTR,
+            DomainControllerAddressType: u32,
+            DomainGuid: GUID,
+            DomainName: PWSTR,
+            DnsForestName: PWSTR,
+            Flags: u32,
+            DcSiteName: PWSTR,
+            ClientSiteName: PWSTR,
+        }
+        const DSGETDC_VALID_FLAGS: i32 = -939524111;
+        const DS_AVOID_SELF: u32 = 16384;
+        const DS_BACKGROUND_ONLY: u32 = 256;
+        const DS_CLOSEST_FLAG: u32 = 128;
+        const DS_DIRECTORY_SERVICE_10_REQUIRED: u32 = 8388608;
+        const DS_DIRECTORY_SERVICE_12_REQUIRED: u32 = 67108864;
+        const DS_DIRECTORY_SERVICE_13_REQUIRED: u32 = 33554432;
+        const DS_DIRECTORY_SERVICE_6_REQUIRED: u32 = 524288;
+        const DS_DIRECTORY_SERVICE_8_REQUIRED: u32 = 2097152;
+        const DS_DIRECTORY_SERVICE_9_REQUIRED: u32 = 4194304;
+        const DS_DIRECTORY_SERVICE_ALL_VERSIONS: u32 = 115867664;
+        const DS_DIRECTORY_SERVICE_PREFERRED: u32 = 32;
+        const DS_DIRECTORY_SERVICE_REQUIRED: u32 = 16;
+        const DS_DNS_CONTROLLER_FLAG: u32 = 536870912;
+        const DS_DNS_DOMAIN_FLAG: u32 = 1073741824;
+        const DS_DNS_FOREST_FLAG: u32 = 2147483648;
+        const DS_DOMAIN_DIRECT_INBOUND: u32 = 32;
+        const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2;
+        const DS_DOMAIN_IN_FOREST: u32 = 1;
+        const DS_DOMAIN_NATIVE_MODE: u32 = 16;
+        const DS_DOMAIN_PRIMARY: u32 = 8;
+        const DS_DOMAIN_TREE_ROOT: u32 = 4;
+        struct DS_DOMAIN_TRUSTSA {
+            NetbiosDomainName: PSTR,
+            DnsDomainName: PSTR,
+            Flags: u32,
+            ParentIndex: u32,
+            TrustType: u32,
+            TrustAttributes: u32,
+            DomainSid: PSID,
+            DomainGuid: GUID,
+        }
+        struct DS_DOMAIN_TRUSTSW {
+            NetbiosDomainName: PWSTR,
+            DnsDomainName: PWSTR,
+            Flags: u32,
+            ParentIndex: u32,
+            TrustType: u32,
+            TrustAttributes: u32,
+            DomainSid: PSID,
+            DomainGuid: GUID,
+        }
+        const DS_DOMAIN_VALID_FLAGS: u32 = 63;
+        const DS_DS_10_FLAG: u32 = 65536;
+        const DS_DS_12_FLAG: u32 = 524288;
+        const DS_DS_13_FLAG: u32 = 262144;
+        const DS_DS_8_FLAG: u32 = 16384;
+        const DS_DS_9_FLAG: u32 = 32768;
+        const DS_DS_FLAG: u32 = 16;
+        const DS_FORCE_REDISCOVERY: u32 = 1;
+        const DS_FULL_SECRET_DOMAIN_6_FLAG: u32 = 4096;
+        const DS_GC_FLAG: u32 = 4;
+        const DS_GC_SERVER_REQUIRED: u32 = 64;
+        const DS_GFTI_UPDATE_TDO: u32 = 1;
+        const DS_GFTI_VALID_FLAGS: u32 = 1;
+        const DS_GOOD_TIMESERV_FLAG: u32 = 512;
+        const DS_GOOD_TIMESERV_PREFERRED: u32 = 8192;
+        const DS_INET_ADDRESS: u32 = 1;
+        const DS_IP_REQUIRED: u32 = 512;
+        const DS_IS_DNS_NAME: u32 = 131072;
+        const DS_IS_FLAT_NAME: u32 = 65536;
+        const DS_KDC_FLAG: u32 = 32;
+        const DS_KDC_REQUIRED: u32 = 1024;
+        const DS_KEY_LIST_FLAG: u32 = 131072;
+        const DS_KEY_LIST_SUPPORT_REQUIRED: u32 = 16777216;
+        const DS_LDAP_FLAG: u32 = 8;
+        const DS_NDNC_FLAG: u32 = 1024;
+        const DS_NETBIOS_ADDRESS: u32 = 2;
+        const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2;
+        const DS_ONLY_DO_SITE_NAME: u32 = 1;
+        const DS_ONLY_LDAP_NEEDED: u32 = 32768;
+        const DS_OPEN_VALID_FLAGS: u32 = 38081;
+        const DS_OPEN_VALID_OPTION_FLAGS: u32 = 3;
+        const DS_PDC_FLAG: u32 = 1;
+        const DS_PDC_REQUIRED: u32 = 128;
+        const DS_PING_FLAGS: u32 = 1048575;
+        const DS_RETURN_DNS_NAME: u32 = 1073741824;
+        const DS_RETURN_FLAT_NAME: u32 = 2147483648;
+        const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048;
+        const DS_TIMESERV_FLAG: u32 = 64;
+        const DS_TIMESERV_REQUIRED: u32 = 2048;
+        const DS_TRY_NEXTCLOSEST_SITE: u32 = 262144;
+        const DS_WEB_SERVICE_REQUIRED: u32 = 1048576;
+        const DS_WRITABLE_FLAG: u32 = 256;
+        const DS_WRITABLE_REQUIRED: u32 = 4096;
+        const DS_WS_FLAG: u32 = 8192;
+        #[library("NETAPI32.dll")]
+        extern fn DsAddressToSiteNamesA(#[opt] ComputerName: PCSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: *const SOCKET_ADDRESS, SiteNames: *mut *mut PSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsAddressToSiteNamesExA(#[opt] ComputerName: PCSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: *const SOCKET_ADDRESS, SiteNames: *mut *mut PSTR, SubnetNames: *mut *mut PSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsAddressToSiteNamesExW(#[opt] ComputerName: PCWSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: *const SOCKET_ADDRESS, SiteNames: *mut *mut PWSTR, SubnetNames: *mut *mut PWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsAddressToSiteNamesW(#[opt] ComputerName: PCWSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: *const SOCKET_ADDRESS, SiteNames: *mut *mut PWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsDeregisterDnsHostRecordsA(#[opt] ServerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] DomainGuid: *const GUID, #[opt] DsaGuid: *const GUID, DnsHostName: PCSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsDeregisterDnsHostRecordsW(#[opt] ServerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] DomainGuid: *const GUID, #[opt] DsaGuid: *const GUID, DnsHostName: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsEnumerateDomainTrustsA(#[opt] ServerName: PCSTR, Flags: u32, Domains: *mut PDS_DOMAIN_TRUSTSA, DomainCount: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsEnumerateDomainTrustsW(#[opt] ServerName: PCWSTR, Flags: u32, Domains: *mut PDS_DOMAIN_TRUSTSW, DomainCount: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetDcCloseW(GetDcContextHandle: HANDLE);
+        #[library("NETAPI32.dll")]
+        extern fn DsGetDcNameA(#[opt] ComputerName: PCSTR, #[opt] DomainName: PCSTR, #[opt] DomainGuid: *const GUID, #[opt] SiteName: PCSTR, Flags: u32, DomainControllerInfo: *mut PDOMAIN_CONTROLLER_INFOA) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetDcNameW(#[opt] ComputerName: PCWSTR, #[opt] DomainName: PCWSTR, #[opt] DomainGuid: *const GUID, #[opt] SiteName: PCWSTR, Flags: u32, DomainControllerInfo: *mut PDOMAIN_CONTROLLER_INFOW) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetDcNextA(GetDcContextHandle: HANDLE, #[opt] SockAddressCount: *mut u32, SockAddresses: *mut LPSOCKET_ADDRESS, DnsHostName: *mut PSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetDcNextW(GetDcContextHandle: HANDLE, #[opt] SockAddressCount: *mut u32, SockAddresses: *mut LPSOCKET_ADDRESS, DnsHostName: *mut PWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetDcOpenA(DnsName: PCSTR, OptionFlags: u32, #[opt] SiteName: PCSTR, #[opt] DomainGuid: *const GUID, #[opt] DnsForestName: PCSTR, DcFlags: u32, RetGetDcContext: *mut HANDLE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetDcOpenW(DnsName: PCWSTR, OptionFlags: u32, #[opt] SiteName: PCWSTR, #[opt] DomainGuid: *const GUID, #[opt] DnsForestName: PCWSTR, DcFlags: u32, RetGetDcContext: *mut HANDLE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetDcSiteCoverageA(#[opt] ServerName: PCSTR, EntryCount: *mut u32, SiteNames: *mut *mut PSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetDcSiteCoverageW(#[opt] ServerName: PCWSTR, EntryCount: *mut u32, SiteNames: *mut *mut PWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetForestTrustInformationW(#[opt] ServerName: PCWSTR, #[opt] TrustedDomainName: PCWSTR, Flags: u32, ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetSiteNameA(#[opt] ComputerName: PCSTR, SiteName: *mut PSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsGetSiteNameW(#[opt] ComputerName: PCWSTR, SiteName: *mut PWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsMergeForestTrustInformationW(DomainName: PCWSTR, NewForestTrustInfo: *const LSA_FOREST_TRUST_INFORMATION, #[opt] OldForestTrustInfo: *const LSA_FOREST_TRUST_INFORMATION, MergedForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsValidateSubnetNameA(SubnetName: PCSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn DsValidateSubnetNameW(SubnetName: PCWSTR) -> u32;
+        type PDOMAIN_CONTROLLER_INFOA = *mut DOMAIN_CONTROLLER_INFOA;
+        type PDOMAIN_CONTROLLER_INFOW = *mut DOMAIN_CONTROLLER_INFOW;
+        type PDS_DOMAIN_TRUSTSA = *mut DS_DOMAIN_TRUSTSA;
+        type PDS_DOMAIN_TRUSTSW = *mut DS_DOMAIN_TRUSTSW;
+    }
+}

@@ -1,0 +1,268 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x1fcc4287_aca6_11d2_a093_00c04f72dc3c)]
+        interface IEnumWIA_DEV_CAPS: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut WIA_DEV_CAP, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppIEnum: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
+            fn GetCount(&self, pcelt: *mut u32) -> HRESULT;
+        }
+        #[guid(0x5e38b83c_8cf1_11d1_bf92_0060081ed811)]
+        interface IEnumWIA_DEV_INFO: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut IWiaPropertyStorage, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppIEnum: *mut IEnumWIA_DEV_INFO) -> HRESULT;
+            fn GetCount(&self, celt: *mut u32) -> HRESULT;
+        }
+        #[guid(0x81befc5b_656d_44f1_b24c_d41d51b4dc81)]
+        interface IEnumWIA_FORMAT_INFO: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut WIA_FORMAT_INFO, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppIEnum: *mut IEnumWIA_FORMAT_INFO) -> HRESULT;
+            fn GetCount(&self, pcelt: *mut u32) -> HRESULT;
+        }
+        #[guid(0x5e8383fc_3391_11d2_9a33_00c04fa36145)]
+        interface IEnumWiaItem: IUnknown {
+            fn Next(&self, celt: u32, ppIWiaItem: *mut IWiaItem, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppIEnum: *mut IEnumWiaItem) -> HRESULT;
+            fn GetCount(&self, celt: *mut u32) -> HRESULT;
+        }
+        #[guid(0x59970af4_cd0d_44d9_ab24_52295630e582)]
+        interface IEnumWiaItem2: IUnknown {
+            fn Next(&self, cElt: u32, ppIWiaItem2: *mut IWiaItem2, #[in] #[out] pcEltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, cElt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppIEnum: *mut IEnumWiaItem2) -> HRESULT;
+            fn GetCount(&self, cElt: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6c16186c_d0a6_400c_80f4_d26986a0e734)]
+        interface IWiaAppErrorHandler: IUnknown {
+            fn GetWindow(&self, phwnd: *mut HWND) -> HRESULT;
+            fn ReportStatus(&self, lFlags: i32, pWiaItem2: IWiaItem2, hrStatus: HRESULT, lPercentComplete: i32) -> HRESULT;
+        }
+        #[guid(0xa558a866_a5b0_11d2_a08f_00c04f72dc3c)]
+        interface IWiaDataCallback: IUnknown {
+            fn BandedDataCallback(&self, lMessage: i32, lStatus: i32, lPercentComplete: i32, lOffset: i32, lLength: i32, lReserved: i32, lResLength: i32, pbBuffer: *const u8) -> HRESULT;
+        }
+        #[guid(0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c)]
+        interface IWiaDataTransfer: IUnknown {
+            fn idtGetData(&self, #[in] #[out] pMedium: *mut STGMEDIUM, pIWiaDataCallback: IWiaDataCallback) -> HRESULT;
+            fn idtGetBandedData(&self, pWiaDataTransInfo: *const WIA_DATA_TRANSFER_INFO, pIWiaDataCallback: IWiaDataCallback) -> HRESULT;
+            fn idtQueryGetData(&self, pfe: *const WIA_FORMAT_INFO) -> HRESULT;
+            fn idtEnumWIA_FORMAT_INFO(&self, ppEnum: *mut IEnumWIA_FORMAT_INFO) -> HRESULT;
+            fn idtGetExtendedTransferInfo(&self, pExtendedTransferInfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> HRESULT;
+        }
+        #[guid(0x5eb2502a_8cf1_11d1_bf92_0060081ed811)]
+        interface IWiaDevMgr: IUnknown {
+            fn EnumDeviceInfo(&self, lFlag: i32, #[retval] ppIEnum: *mut IEnumWIA_DEV_INFO) -> HRESULT;
+            fn CreateDevice(&self, bstrDeviceID: BSTR, ppWiaItemRoot: *mut IWiaItem) -> HRESULT;
+            fn SelectDeviceDlg(&self, hwndParent: HWND, lDeviceType: i32, lFlags: i32, #[in] #[out] pbstrDeviceID: *mut BSTR, #[retval] ppItemRoot: *mut IWiaItem) -> HRESULT;
+            fn SelectDeviceDlgID(&self, hwndParent: HWND, lDeviceType: i32, lFlags: i32, #[retval] pbstrDeviceID: *mut BSTR) -> HRESULT;
+            fn GetImageDlg(&self, hwndParent: HWND, lDeviceType: i32, lFlags: i32, lIntent: i32, pItemRoot: IWiaItem, bstrFilename: BSTR, #[in] #[out] pguidFormat: *mut GUID) -> HRESULT;
+            fn RegisterEventCallbackProgram(&self, lFlags: i32, bstrDeviceID: BSTR, pEventGUID: *const GUID, bstrCommandline: BSTR, bstrName: BSTR, bstrDescription: BSTR, bstrIcon: BSTR) -> HRESULT;
+            fn RegisterEventCallbackInterface(&self, lFlags: i32, bstrDeviceID: BSTR, pEventGUID: *const GUID, pIWiaEventCallback: IWiaEventCallback, pEventObject: *mut IUnknown) -> HRESULT;
+            fn RegisterEventCallbackCLSID(&self, lFlags: i32, bstrDeviceID: BSTR, pEventGUID: *const GUID, pClsID: *const GUID, bstrName: BSTR, bstrDescription: BSTR, bstrIcon: BSTR) -> HRESULT;
+            fn AddDeviceDlg(&self, hwndParent: HWND, lFlags: i32) -> HRESULT;
+        }
+        #[guid(0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a)]
+        interface IWiaDevMgr2: IUnknown {
+            fn EnumDeviceInfo(&self, lFlags: i32, #[retval] ppIEnum: *mut IEnumWIA_DEV_INFO) -> HRESULT;
+            fn CreateDevice(&self, lFlags: i32, bstrDeviceID: BSTR, ppWiaItem2Root: *mut IWiaItem2) -> HRESULT;
+            fn SelectDeviceDlg(&self, hwndParent: HWND, lDeviceType: i32, lFlags: i32, #[in] #[out] pbstrDeviceID: *mut BSTR, #[retval] ppItemRoot: *mut IWiaItem2) -> HRESULT;
+            fn SelectDeviceDlgID(&self, hwndParent: HWND, lDeviceType: i32, lFlags: i32, #[retval] pbstrDeviceID: *mut BSTR) -> HRESULT;
+            fn RegisterEventCallbackInterface(&self, lFlags: i32, bstrDeviceID: BSTR, pEventGUID: *const GUID, pIWiaEventCallback: IWiaEventCallback, pEventObject: *mut IUnknown) -> HRESULT;
+            fn RegisterEventCallbackProgram(&self, lFlags: i32, bstrDeviceID: BSTR, pEventGUID: *const GUID, bstrFullAppName: BSTR, bstrCommandLineArg: BSTR, bstrName: BSTR, bstrDescription: BSTR, bstrIcon: BSTR) -> HRESULT;
+            fn RegisterEventCallbackCLSID(&self, lFlags: i32, bstrDeviceID: BSTR, pEventGUID: *const GUID, pClsID: *const GUID, bstrName: BSTR, bstrDescription: BSTR, bstrIcon: BSTR) -> HRESULT;
+            fn GetImageDlg(&self, lFlags: i32, bstrDeviceID: BSTR, hwndParent: HWND, bstrFolderName: BSTR, bstrFilename: BSTR, plNumFiles: *mut i32, ppbstrFilePaths: *mut *mut BSTR, #[in] #[out] ppItem: *mut IWiaItem2) -> HRESULT;
+        }
+        #[guid(0x0e4a51b1_bc1f_443d_a835_72e890759ef3)]
+        interface IWiaErrorHandler: IUnknown {
+            fn ReportStatus(&self, lFlags: i32, hwndParent: HWND, pWiaItem2: IWiaItem2, hrStatus: HRESULT, lPercentComplete: i32) -> HRESULT;
+            fn GetStatusDescription(&self, lFlags: i32, pWiaItem2: IWiaItem2, hrStatus: HRESULT, pbstrDescription: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xae6287b0_0084_11d2_973b_00a0c9068f2e)]
+        interface IWiaEventCallback: IUnknown {
+            fn ImageEventCallback(&self, pEventGUID: *const GUID, bstrEventDescription: BSTR, bstrDeviceID: BSTR, bstrDeviceDescription: BSTR, dwDeviceType: u32, bstrFullItemName: BSTR, #[in] #[out] pulEventType: *mut u32, ulReserved: u32) -> HRESULT;
+        }
+        #[guid(0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6)]
+        interface IWiaImageFilter: IUnknown {
+            fn InitializeFilter(&self, pWiaItem2: IWiaItem2, pWiaTransferCallback: IWiaTransferCallback) -> HRESULT;
+            fn SetNewCallback(&self, pWiaTransferCallback: IWiaTransferCallback) -> HRESULT;
+            fn FilterPreviewImage(&self, lFlags: i32, pWiaChildItem2: IWiaItem2, InputImageExtents: RECT, pInputStream: IStream) -> HRESULT;
+            fn ApplyProperties(&self, pWiaPropertyStorage: IWiaPropertyStorage) -> HRESULT;
+        }
+        #[guid(0x4db1ad10_3391_11d2_9a33_00c04fa36145)]
+        interface IWiaItem: IUnknown {
+            fn GetItemType(&self, pItemType: *mut i32) -> HRESULT;
+            fn AnalyzeItem(&self, lFlags: i32) -> HRESULT;
+            fn EnumChildItems(&self, ppIEnumWiaItem: *mut IEnumWiaItem) -> HRESULT;
+            fn DeleteItem(&self, lFlags: i32) -> HRESULT;
+            fn CreateChildItem(&self, lFlags: i32, bstrItemName: BSTR, bstrFullItemName: BSTR, ppIWiaItem: *mut IWiaItem) -> HRESULT;
+            fn EnumRegisterEventInfo(&self, lFlags: i32, pEventGUID: *const GUID, ppIEnum: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
+            fn FindItemByName(&self, lFlags: i32, bstrFullItemName: BSTR, ppIWiaItem: *mut IWiaItem) -> HRESULT;
+            fn DeviceDlg(&self, hwndParent: HWND, lFlags: i32, lIntent: i32, plItemCount: *mut i32, ppIWiaItem: *mut *mut IWiaItem) -> HRESULT;
+            fn DeviceCommand(&self, lFlags: i32, pCmdGUID: *const GUID, #[in] #[out] pIWiaItem: *mut IWiaItem) -> HRESULT;
+            fn GetRootItem(&self, ppIWiaItem: *mut IWiaItem) -> HRESULT;
+            fn EnumDeviceCapabilities(&self, lFlags: i32, ppIEnumWIA_DEV_CAPS: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
+            fn DumpItemData(&self, bstrData: *mut BSTR) -> HRESULT;
+            fn DumpDrvItemData(&self, bstrData: *mut BSTR) -> HRESULT;
+            fn DumpTreeItemData(&self, bstrData: *mut BSTR) -> HRESULT;
+            fn Diagnostic(&self, ulSize: u32, pBuffer: *const u8) -> HRESULT;
+        }
+        #[guid(0x6cba0075_1287_407d_9b77_cf0e030435cc)]
+        interface IWiaItem2: IUnknown {
+            fn CreateChildItem(&self, lItemFlags: i32, lCreationFlags: i32, bstrItemName: BSTR, ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
+            fn DeleteItem(&self, lFlags: i32) -> HRESULT;
+            fn EnumChildItems(&self, pCategoryGUID: *const GUID, ppIEnumWiaItem2: *mut IEnumWiaItem2) -> HRESULT;
+            fn FindItemByName(&self, lFlags: i32, bstrFullItemName: BSTR, ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
+            fn GetItemCategory(&self, pItemCategoryGUID: *mut GUID) -> HRESULT;
+            fn GetItemType(&self, pItemType: *mut i32) -> HRESULT;
+            fn DeviceDlg(&self, lFlags: i32, hwndParent: HWND, bstrFolderName: BSTR, bstrFilename: BSTR, plNumFiles: *mut i32, ppbstrFilePaths: *mut *mut BSTR, #[opt] ppItem: *mut IWiaItem2) -> HRESULT;
+            fn DeviceCommand(&self, lFlags: i32, pCmdGUID: *const GUID, #[in] #[out] ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
+            fn EnumDeviceCapabilities(&self, lFlags: i32, ppIEnumWIA_DEV_CAPS: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
+            fn CheckExtension(&self, lFlags: i32, bstrName: BSTR, riidExtensionInterface: *const GUID, pbExtensionExists: *mut BOOL) -> HRESULT;
+            fn GetExtension(&self, lFlags: i32, bstrName: BSTR, riidExtensionInterface: *const GUID, #[iid_is] ppOut: *mut *mut void) -> HRESULT;
+            fn GetParentItem(&self, ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
+            fn GetRootItem(&self, ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
+            fn GetPreviewComponent(&self, lFlags: i32, ppWiaPreview: *mut IWiaPreview) -> HRESULT;
+            fn EnumRegisterEventInfo(&self, lFlags: i32, pEventGUID: *const GUID, ppIEnum: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
+            fn Diagnostic(&self, ulSize: u32, pBuffer: *const u8) -> HRESULT;
+        }
+        #[guid(0x6291ef2c_36ef_4532_876a_8e132593778d)]
+        interface IWiaItemExtras: IUnknown {
+            fn GetExtendedErrorInfo(&self, bstrErrorText: *mut BSTR) -> HRESULT;
+            fn Escape(&self, dwEscapeCode: u32, lpInData: *const u8, cbInDataSize: u32, pOutData: *mut u8, dwOutDataSize: u32, pdwActualDataSize: *mut u32) -> HRESULT;
+            fn CancelPendingIO(&self) -> HRESULT;
+        }
+        #[guid(0xa00c10b6_82a1_452f_8b6c_86062aad6890)]
+        interface IWiaLog: IUnknown {
+            fn InitializeLog(&self, hInstance: i32) -> HRESULT;
+            fn hResult(&self, hResult: HRESULT) -> HRESULT;
+            fn Log(&self, lFlags: i32, lResID: i32, lDetail: i32, bstrText: BSTR) -> HRESULT;
+        }
+        #[guid(0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b)]
+        interface IWiaLogEx: IUnknown {
+            fn InitializeLogEx(&self, hInstance: *const u8) -> HRESULT;
+            fn hResult(&self, hResult: HRESULT) -> HRESULT;
+            fn Log(&self, lFlags: i32, lResID: i32, lDetail: i32, bstrText: BSTR) -> HRESULT;
+            fn hResultEx(&self, lMethodId: i32, hResult: HRESULT) -> HRESULT;
+            fn LogEx(&self, lMethodId: i32, lFlags: i32, lResID: i32, lDetail: i32, bstrText: BSTR) -> HRESULT;
+        }
+        #[guid(0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e)]
+        interface IWiaNotifyDevMgr: IUnknown {
+            fn NewDeviceArrival(&self) -> HRESULT;
+        }
+        #[guid(0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7)]
+        interface IWiaPreview: IUnknown {
+            fn GetNewPreview(&self, lFlags: i32, pWiaItem2: IWiaItem2, pWiaTransferCallback: IWiaTransferCallback) -> HRESULT;
+            fn UpdatePreview(&self, lFlags: i32, pChildWiaItem2: IWiaItem2, pWiaTransferCallback: IWiaTransferCallback) -> HRESULT;
+            fn DetectRegions(&self, lFlags: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6)]
+        interface IWiaPropertyStorage: IUnknown {
+            fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> HRESULT;
+            fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidNameFirst: PROPID) -> HRESULT;
+            fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> HRESULT;
+            fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *mut PWSTR) -> HRESULT;
+            fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *const PWSTR) -> HRESULT;
+            fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID) -> HRESULT;
+            fn Commit(&self, grfCommitFlags: u32) -> HRESULT;
+            fn Revert(&self) -> HRESULT;
+            fn Enum(&self, ppenum: *mut IEnumSTATPROPSTG) -> HRESULT;
+            fn SetTimes(&self, pctime: *const FILETIME, patime: *const FILETIME, pmtime: *const FILETIME) -> HRESULT;
+            fn SetClass(&self, clsid: *const GUID) -> HRESULT;
+            fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> HRESULT;
+            fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgflags: *mut u32, rgpropvar: *mut PROPVARIANT) -> HRESULT;
+            fn GetCount(&self, pulNumProps: *mut u32) -> HRESULT;
+            fn GetPropertyStream(&self, pCompatibilityId: *mut GUID, ppIStream: *mut IStream) -> HRESULT;
+            fn SetPropertyStream(&self, pCompatibilityId: *const GUID, pIStream: IStream) -> HRESULT;
+        }
+        #[guid(0xec46a697_ac04_4447_8f65_ff63d5154b21)]
+        interface IWiaSegmentationFilter: IUnknown {
+            fn DetectRegions(&self, lFlags: i32, pInputStream: IStream, pWiaItem2: IWiaItem2) -> HRESULT;
+        }
+        #[guid(0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a)]
+        interface IWiaTransfer: IUnknown {
+            fn Download(&self, lFlags: i32, pIWiaTransferCallback: IWiaTransferCallback) -> HRESULT;
+            fn Upload(&self, lFlags: i32, pSource: IStream, pIWiaTransferCallback: IWiaTransferCallback) -> HRESULT;
+            fn Cancel(&self) -> HRESULT;
+            fn EnumWIA_FORMAT_INFO(&self, ppEnum: *mut IEnumWIA_FORMAT_INFO) -> HRESULT;
+        }
+        #[guid(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527)]
+        interface IWiaTransferCallback: IUnknown {
+            fn TransferCallback(&self, lFlags: i32, pWiaTransferParams: *const WiaTransferParams) -> HRESULT;
+            fn GetNextStream(&self, lFlags: i32, bstrItemName: BSTR, bstrFullItemName: BSTR, ppDestination: *mut IStream) -> HRESULT;
+        }
+        type PWIA_DATA_CALLBACK_HEADER = *mut WIA_DATA_CALLBACK_HEADER;
+        type PWIA_DATA_TRANSFER_INFO = *mut WIA_DATA_TRANSFER_INFO;
+        type PWIA_DEV_CAP = *mut WIA_DEV_CAP;
+        type PWIA_DITHER_PATTERN_DATA = *mut WIA_DITHER_PATTERN_DATA;
+        type PWIA_EVENT_HANDLER = *mut WIA_DEV_CAP;
+        type PWIA_EXTENDED_TRANSFER_INFO = *mut WIA_EXTENDED_TRANSFER_INFO;
+        type PWIA_FORMAT_INFO = *mut WIA_FORMAT_INFO;
+        type PWIA_PROPID_TO_NAME = *mut WIA_PROPID_TO_NAME;
+        struct WIA_DATA_CALLBACK_HEADER {
+            lSize: i32,
+            guidFormatID: GUID,
+            lBufferSize: i32,
+            lPageCount: i32,
+        }
+        struct WIA_DATA_TRANSFER_INFO {
+            ulSize: u32,
+            ulSection: u32,
+            ulBufferSize: u32,
+            bDoubleBuffer: BOOL,
+            ulReserved1: u32,
+            ulReserved2: u32,
+            ulReserved3: u32,
+        }
+        struct WIA_DEV_CAP {
+            guid: GUID,
+            ulFlags: u32,
+            bstrName: BSTR,
+            bstrDescription: BSTR,
+            bstrIcon: BSTR,
+            bstrCommandline: BSTR,
+        }
+        struct WIA_DITHER_PATTERN_DATA {
+            lSize: i32,
+            bstrPatternName: BSTR,
+            lPatternWidth: i32,
+            lPatternLength: i32,
+            cbPattern: i32,
+            pbPattern: *mut u8,
+        }
+        type WIA_EVENT_HANDLER = WIA_DEV_CAP;
+        struct WIA_EXTENDED_TRANSFER_INFO {
+            ulSize: u32,
+            ulMinBufferSize: u32,
+            ulOptimalBufferSize: u32,
+            ulMaxBufferSize: u32,
+            ulNumBuffers: u32,
+        }
+        struct WIA_FORMAT_INFO {
+            guidFormatID: GUID,
+            lTymed: i32,
+        }
+        struct WIA_PROPID_TO_NAME {
+            propid: PROPID,
+            pszName: PWSTR,
+        }
+        const WiaDevMgr: GUID = 0xa1f4e726_8cf1_11d1_bf92_0060081ed811;
+        const WiaDevMgr2: GUID = 0xb6c292bc_7c88_41ee_8b54_8ec92617e599;
+        const WiaLog: GUID = 0xa1e75357_881a_419e_83e2_bb16db197c68;
+        struct WiaTransferParams {
+            lMessage: i32,
+            lPercentComplete: i32,
+            ulTransferredBytes: u64,
+            hrErrorStatus: HRESULT,
+        }
+    }
+}

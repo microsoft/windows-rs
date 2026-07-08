@@ -1,0 +1,279 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct FWPM_DISPLAY_DATA0 {
+            name: *mut u16,
+            description: *mut u16,
+        }
+        const FWP_ACTION_BLOCK: u32 = 4097;
+        const FWP_ACTION_CALLOUT_INSPECTION: u32 = 24580;
+        const FWP_ACTION_CALLOUT_TERMINATING: u32 = 20483;
+        const FWP_ACTION_CALLOUT_UNKNOWN: u32 = 16389;
+        const FWP_ACTION_CONTINUE: u32 = 8198;
+        const FWP_ACTION_FLAG_CALLOUT: u32 = 16384;
+        const FWP_ACTION_FLAG_NON_TERMINATING: u32 = 8192;
+        const FWP_ACTION_FLAG_TERMINATING: u32 = 4096;
+        const FWP_ACTION_NONE: u32 = 7;
+        const FWP_ACTION_NONE_NO_MATCH: u32 = 8;
+        const FWP_ACTION_PERMIT: u32 = 4098;
+        type FWP_ACTION_TYPE = u32;
+        const FWP_ACTRL_MATCH_FILTER: u32 = 1;
+        #[repr(i32)]
+        enum FWP_AF {
+            FWP_AF_INET = 0,
+            FWP_AF_INET6 = 1,
+            FWP_AF_ETHER = 2,
+            FWP_AF_NONE = 3,
+        }
+        const FWP_BYTEMAP_ARRAY64_SIZE: u32 = 8;
+        struct FWP_BYTE_ARRAY16 {
+            byteArray16: [u8; 16],
+        }
+        struct FWP_BYTE_ARRAY6 {
+            byteArray6: [u8; 6],
+        }
+        const FWP_BYTE_ARRAY6_SIZE: u32 = 6;
+        struct FWP_BYTE_BLOB {
+            size: u32,
+            data: *mut u8,
+        }
+        const FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY: u32 = 128;
+        const FWP_CALLOUT_FLAG_ALLOW_MID_STREAM_INSPECTION: u32 = 8;
+        const FWP_CALLOUT_FLAG_ALLOW_OFFLOAD: u32 = 2;
+        const FWP_CALLOUT_FLAG_ALLOW_RECLASSIFY: u32 = 16;
+        const FWP_CALLOUT_FLAG_ALLOW_RSC: u32 = 64;
+        const FWP_CALLOUT_FLAG_ALLOW_URO: u32 = 512;
+        const FWP_CALLOUT_FLAG_ALLOW_USO: u32 = 256;
+        const FWP_CALLOUT_FLAG_CONDITIONAL_ON_FLOW: u32 = 1;
+        const FWP_CALLOUT_FLAG_ENABLE_COMMIT_ADD_NOTIFY: u32 = 4;
+        const FWP_CALLOUT_FLAG_RESERVED1: u32 = 32;
+        const FWP_CALLOUT_FLAG_RESERVED2: u32 = 1024;
+        #[repr(i32)]
+        enum FWP_CLASSIFY_OPTION_TYPE {
+            FWP_CLASSIFY_OPTION_MULTICAST_STATE = 0,
+            FWP_CLASSIFY_OPTION_LOOSE_SOURCE_MAPPING = 1,
+            FWP_CLASSIFY_OPTION_UNICAST_LIFETIME = 2,
+            FWP_CLASSIFY_OPTION_MCAST_BCAST_LIFETIME = 3,
+            FWP_CLASSIFY_OPTION_SECURE_SOCKET_SECURITY_FLAGS = 4,
+            FWP_CLASSIFY_OPTION_SECURE_SOCKET_AUTHIP_MM_POLICY_KEY = 5,
+            FWP_CLASSIFY_OPTION_SECURE_SOCKET_AUTHIP_QM_POLICY_KEY = 6,
+            FWP_CLASSIFY_OPTION_LOCAL_ONLY_MAPPING = 7,
+            FWP_CLASSIFY_OPTION_MAX = 8,
+        }
+        const FWP_CONDITION_FLAG_IS_APPCONTAINER_LOOPBACK: u32 = 4194304;
+        const FWP_CONDITION_FLAG_IS_AUTH_FW: u32 = 65536;
+        const FWP_CONDITION_FLAG_IS_CONNECTION_REDIRECTED: u32 = 1048576;
+        const FWP_CONDITION_FLAG_IS_FRAGMENT: u32 = 32;
+        const FWP_CONDITION_FLAG_IS_FRAGMENT_GROUP: u32 = 64;
+        const FWP_CONDITION_FLAG_IS_HONORING_POLICY_AUTHORIZE: u32 = 33554432;
+        const FWP_CONDITION_FLAG_IS_IMPLICIT_BIND: u32 = 512;
+        const FWP_CONDITION_FLAG_IS_INBOUND_PASS_THRU: u32 = 524288;
+        const FWP_CONDITION_FLAG_IS_IPSEC_NATT_RECLASSIFY: u32 = 128;
+        const FWP_CONDITION_FLAG_IS_IPSEC_SECURED: u32 = 2;
+        const FWP_CONDITION_FLAG_IS_LOOPBACK: u32 = 1;
+        const FWP_CONDITION_FLAG_IS_NAME_APP_SPECIFIED: u32 = 16384;
+        const FWP_CONDITION_FLAG_IS_NON_APPCONTAINER_LOOPBACK: u32 = 8388608;
+        const FWP_CONDITION_FLAG_IS_OUTBOUND_PASS_THRU: u32 = 262144;
+        const FWP_CONDITION_FLAG_IS_PROMISCUOUS: u32 = 32768;
+        const FWP_CONDITION_FLAG_IS_PROXY_CONNECTION: u32 = 2097152;
+        const FWP_CONDITION_FLAG_IS_RAW_ENDPOINT: u32 = 16;
+        const FWP_CONDITION_FLAG_IS_REASSEMBLED: u32 = 1024;
+        const FWP_CONDITION_FLAG_IS_REAUTHORIZE: u32 = 4;
+        const FWP_CONDITION_FLAG_IS_RECLASSIFY: u32 = 131072;
+        const FWP_CONDITION_FLAG_IS_RESERVED: u32 = 16777216;
+        const FWP_CONDITION_FLAG_IS_WILDCARD_BIND: u32 = 8;
+        const FWP_CONDITION_FLAG_REQUIRES_ALE_CLASSIFY: u32 = 256;
+        const FWP_CONDITION_L2_IF_CONNECTOR_PRESENT: u32 = 128;
+        const FWP_CONDITION_L2_IS_IP_FRAGMENT_GROUP: u32 = 64;
+        const FWP_CONDITION_L2_IS_MALFORMED_PACKET: u32 = 32;
+        const FWP_CONDITION_L2_IS_MOBILE_BROADBAND: u32 = 4;
+        const FWP_CONDITION_L2_IS_NATIVE_ETHERNET: u32 = 1;
+        const FWP_CONDITION_L2_IS_VM2VM: u32 = 16;
+        const FWP_CONDITION_L2_IS_WIFI: u32 = 2;
+        const FWP_CONDITION_L2_IS_WIFI_DIRECT_DATA: u32 = 8;
+        const FWP_CONDITION_REAUTHORIZE_REASON_CHECK_OFFLOAD: u32 = 65536;
+        const FWP_CONDITION_REAUTHORIZE_REASON_CLASSIFY_COMPLETION: u32 = 16;
+        const FWP_CONDITION_REAUTHORIZE_REASON_EDP_POLICY_CHANGED: u32 = 512;
+        const FWP_CONDITION_REAUTHORIZE_REASON_IPSEC_PROPERTIES_CHANGED: u32 = 32;
+        const FWP_CONDITION_REAUTHORIZE_REASON_MID_STREAM_INSPECTION: u32 = 64;
+        const FWP_CONDITION_REAUTHORIZE_REASON_NEW_ARRIVAL_INTERFACE: u32 = 2;
+        const FWP_CONDITION_REAUTHORIZE_REASON_NEW_INBOUND_MCAST_BCAST_PACKET: u32 = 256;
+        const FWP_CONDITION_REAUTHORIZE_REASON_NEW_NEXTHOP_INTERFACE: u32 = 4;
+        const FWP_CONDITION_REAUTHORIZE_REASON_POLICY_CHANGE: u32 = 1;
+        const FWP_CONDITION_REAUTHORIZE_REASON_PROFILE_CROSSING: u32 = 8;
+        const FWP_CONDITION_REAUTHORIZE_REASON_PROXY_HANDLE_CHANGED: u32 = 16384;
+        const FWP_CONDITION_REAUTHORIZE_REASON_SOCKET_PROPERTY_CHANGED: u32 = 128;
+        const FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC: u32 = 2;
+        const FWP_CONDITION_SOCKET_PROPERTY_FLAG_DENY_EDGE_TRAFFIC: u32 = 4;
+        const FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC: u32 = 1;
+        struct FWP_CONDITION_VALUE0 {
+            r#type: FWP_DATA_TYPE,
+            Anonymous: union {
+                uint8: u8,
+                uint16: u16,
+                uint32: u32,
+                uint64: *mut u64,
+                int8: i8,
+                int16: i16,
+                int32: i32,
+                int64: *mut i64,
+                float32: f32,
+                double64: *mut f64,
+                byteArray16: *mut FWP_BYTE_ARRAY16,
+                byteBlob: *mut FWP_BYTE_BLOB,
+                sid: *mut SID,
+                sd: *mut FWP_BYTE_BLOB,
+                tokenInformation: *mut FWP_TOKEN_INFORMATION,
+                tokenAccessInformation: *mut FWP_BYTE_BLOB,
+                unicodeString: PWSTR,
+                byteArray6: *mut FWP_BYTE_ARRAY6,
+                v4AddrMask: *mut FWP_V4_ADDR_AND_MASK,
+                v6AddrMask: *mut FWP_V6_ADDR_AND_MASK,
+                rangeValue: *mut FWP_RANGE0,
+            },
+        }
+        #[repr(i32)]
+        enum FWP_DATA_TYPE {
+            FWP_EMPTY = 0,
+            FWP_UINT8 = 1,
+            FWP_UINT16 = 2,
+            FWP_UINT32 = 3,
+            FWP_UINT64 = 4,
+            FWP_INT8 = 5,
+            FWP_INT16 = 6,
+            FWP_INT32 = 7,
+            FWP_INT64 = 8,
+            FWP_FLOAT = 9,
+            FWP_DOUBLE = 10,
+            FWP_BYTE_ARRAY16_TYPE = 11,
+            FWP_BYTE_BLOB_TYPE = 12,
+            FWP_SID = 13,
+            FWP_SECURITY_DESCRIPTOR_TYPE = 14,
+            FWP_TOKEN_INFORMATION_TYPE = 15,
+            FWP_TOKEN_ACCESS_INFORMATION_TYPE = 16,
+            FWP_UNICODE_STRING_TYPE = 17,
+            FWP_BYTE_ARRAY6_TYPE = 18,
+            FWP_SINGLE_DATA_TYPE_MAX = 255,
+            FWP_V4_ADDR_MASK = 256,
+            FWP_V6_ADDR_MASK = 257,
+            FWP_RANGE_TYPE = 258,
+            FWP_DATA_TYPE_MAX = 259,
+        }
+        #[repr(i32)]
+        enum FWP_DIRECTION {
+            FWP_DIRECTION_OUTBOUND = 0,
+            FWP_DIRECTION_INBOUND = 1,
+            FWP_DIRECTION_MAX = 2,
+        }
+        #[repr(i32)]
+        enum FWP_ETHER_ENCAP_METHOD {
+            FWP_ETHER_ENCAP_METHOD_ETHER_V2 = 0,
+            FWP_ETHER_ENCAP_METHOD_SNAP = 1,
+            FWP_ETHER_ENCAP_METHOD_SNAP_W_OUI_ZERO = 3,
+        }
+        const FWP_FILTER_ENUM_FLAG_BEST_TERMINATING_MATCH: u32 = 1;
+        const FWP_FILTER_ENUM_FLAG_BOOTTIME_ONLY: u32 = 4;
+        const FWP_FILTER_ENUM_FLAG_INCLUDE_BOOTTIME: u32 = 8;
+        const FWP_FILTER_ENUM_FLAG_INCLUDE_DISABLED: u32 = 16;
+        const FWP_FILTER_ENUM_FLAG_RESERVED1: u32 = 32;
+        const FWP_FILTER_ENUM_FLAG_SORTED: u32 = 2;
+        #[repr(i32)]
+        enum FWP_FILTER_ENUM_TYPE {
+            FWP_FILTER_ENUM_FULLY_CONTAINED = 0,
+            FWP_FILTER_ENUM_OVERLAPPING = 1,
+            FWP_FILTER_ENUM_TYPE_MAX = 2,
+        }
+        const FWP_FILTER_ENUM_VALID_FLAGS: u32 = 3;
+        #[repr(i32)]
+        enum FWP_IP_VERSION {
+            FWP_IP_VERSION_V4 = 0,
+            FWP_IP_VERSION_V6 = 1,
+            FWP_IP_VERSION_NONE = 2,
+            FWP_IP_VERSION_MAX = 3,
+        }
+        #[repr(i32)]
+        enum FWP_MATCH_TYPE {
+            FWP_MATCH_EQUAL = 0,
+            FWP_MATCH_GREATER = 1,
+            FWP_MATCH_LESS = 2,
+            FWP_MATCH_GREATER_OR_EQUAL = 3,
+            FWP_MATCH_LESS_OR_EQUAL = 4,
+            FWP_MATCH_RANGE = 5,
+            FWP_MATCH_FLAGS_ALL_SET = 6,
+            FWP_MATCH_FLAGS_ANY_SET = 7,
+            FWP_MATCH_FLAGS_NONE_SET = 8,
+            FWP_MATCH_EQUAL_CASE_INSENSITIVE = 9,
+            FWP_MATCH_NOT_EQUAL = 10,
+            FWP_MATCH_PREFIX = 11,
+            FWP_MATCH_NOT_PREFIX = 12,
+            FWP_MATCH_TYPE_MAX = 13,
+        }
+        #[repr(i32)]
+        enum FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE {
+            FWP_NETWORK_CONNECTION_POLICY_SOURCE_ADDRESS = 0,
+            FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP_INTERFACE = 1,
+            FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP = 2,
+            FWP_NETWORK_CONNECTION_POLICY_MAX = 3,
+        }
+        const FWP_OPTION_VALUE_ALLOW_GLOBAL_MULTICAST_STATE: u32 = 2;
+        const FWP_OPTION_VALUE_ALLOW_MULTICAST_STATE: u32 = 0;
+        const FWP_OPTION_VALUE_DENY_MULTICAST_STATE: u32 = 1;
+        const FWP_OPTION_VALUE_DISABLE_LOCAL_ONLY_MAPPING: u32 = 0;
+        const FWP_OPTION_VALUE_DISABLE_LOOSE_SOURCE: u32 = 0;
+        const FWP_OPTION_VALUE_ENABLE_LOCAL_ONLY_MAPPING: u32 = 1;
+        const FWP_OPTION_VALUE_ENABLE_LOOSE_SOURCE: u32 = 1;
+        struct FWP_RANGE0 {
+            valueLow: FWP_VALUE0,
+            valueHigh: FWP_VALUE0,
+        }
+        struct FWP_TOKEN_INFORMATION {
+            sidCount: u32,
+            sids: PSID_AND_ATTRIBUTES,
+            restrictedSidCount: u32,
+            restrictedSids: PSID_AND_ATTRIBUTES,
+        }
+        struct FWP_V4_ADDR_AND_MASK {
+            addr: u32,
+            mask: u32,
+        }
+        struct FWP_V6_ADDR_AND_MASK {
+            addr: [u8; 16],
+            prefixLength: u8,
+        }
+        const FWP_V6_ADDR_SIZE: u32 = 16;
+        struct FWP_VALUE0 {
+            r#type: FWP_DATA_TYPE,
+            Anonymous: union {
+                uint8: u8,
+                uint16: u16,
+                uint32: u32,
+                uint64: *mut u64,
+                int8: i8,
+                int16: i16,
+                int32: i32,
+                int64: *mut i64,
+                float32: f32,
+                double64: *mut f64,
+                byteArray16: *mut FWP_BYTE_ARRAY16,
+                byteBlob: *mut FWP_BYTE_BLOB,
+                sid: *mut SID,
+                sd: *mut FWP_BYTE_BLOB,
+                tokenInformation: *mut FWP_TOKEN_INFORMATION,
+                tokenAccessInformation: *mut FWP_BYTE_BLOB,
+                unicodeString: PWSTR,
+                byteArray6: *mut FWP_BYTE_ARRAY6,
+            },
+        }
+        #[repr(i32)]
+        enum FWP_VSWITCH_NETWORK_TYPE {
+            FWP_VSWITCH_NETWORK_TYPE_UNKNOWN = 0,
+            FWP_VSWITCH_NETWORK_TYPE_PRIVATE = 1,
+            FWP_VSWITCH_NETWORK_TYPE_INTERNAL = 2,
+            FWP_VSWITCH_NETWORK_TYPE_EXTERNAL = 3,
+        }
+        struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
+            virtualIfTunnelId: u64,
+            trafficSelectorId: u64,
+        }
+    }
+}

@@ -1,0 +1,33 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xe1cd3524_03d7_11d2_9eed_006097d2d7cf)]
+        interface INSSBuffer: IUnknown {
+            fn GetLength(&self, pdwLength: *mut u32) -> HRESULT;
+            fn SetLength(&self, dwLength: u32) -> HRESULT;
+            fn GetMaxLength(&self, pdwLength: *mut u32) -> HRESULT;
+            fn GetBuffer(&self, ppdwBuffer: *mut *mut u8) -> HRESULT;
+            fn GetBufferAndLength(&self, ppdwBuffer: *mut *mut u8, pdwLength: *mut u32) -> HRESULT;
+        }
+        #[guid(0x4f528693_1035_43fe_b428_757561ad3a68)]
+        interface INSSBuffer2: INSSBuffer {
+            fn GetSampleProperties(&self, cbProperties: u32, pbProperties: *mut u8) -> HRESULT;
+            fn SetSampleProperties(&self, cbProperties: u32, pbProperties: *const u8) -> HRESULT;
+        }
+        #[guid(0xc87ceaaf_75be_4bc4_84eb_ac2798507672)]
+        interface INSSBuffer3: INSSBuffer2 {
+            fn SetProperty(&self, guidBufferProperty: GUID, pvBufferProperty: *const void, dwBufferPropertySize: u32) -> HRESULT;
+            fn GetProperty(&self, guidBufferProperty: GUID, pvBufferProperty: *mut void, #[in] #[out] pdwBufferPropertySize: *mut u32) -> HRESULT;
+        }
+        #[guid(0xb6b8fd5a_32e2_49d4_a910_c26cc85465ed)]
+        interface INSSBuffer4: INSSBuffer3 {
+            fn GetPropertyCount(&self, pcBufferProperties: *mut u32) -> HRESULT;
+            fn GetPropertyByIndex(&self, dwBufferPropertyIndex: u32, pguidBufferProperty: *mut GUID, pvBufferProperty: *mut void, #[in] #[out] pdwBufferPropertySize: *mut u32) -> HRESULT;
+        }
+        #[guid(0x61103ca4_2033_11d2_9ef1_006097d2d7cf)]
+        interface IWMSBufferAllocator: IUnknown {
+            fn AllocateBuffer(&self, dwMaxBufferSize: u32, ppBuffer: *mut INSSBuffer) -> HRESULT;
+            fn AllocatePageSizeBuffer(&self, dwMaxBufferSize: u32, ppBuffer: *mut INSSBuffer) -> HRESULT;
+        }
+    }
+}

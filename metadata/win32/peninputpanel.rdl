@@ -1,0 +1,241 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum CorrectionMode {
+            CorrectionMode_NotVisible = 0,
+            CorrectionMode_PreInsertion = 1,
+            CorrectionMode_PostInsertionCollapsed = 2,
+            CorrectionMode_PostInsertionExpanded = 3,
+        }
+        #[repr(i32)]
+        enum CorrectionPosition {
+            CorrectionPosition_Auto = 0,
+            CorrectionPosition_Bottom = 1,
+            CorrectionPosition_Top = 2,
+        }
+        #[repr(i32)]
+        enum DISPID_PenInputPanel {
+            DISPID_PIPAttachedEditWindow = 0,
+            DISPID_PIPFactoid = 1,
+            DISPID_PIPCurrentPanel = 2,
+            DISPID_PIPDefaultPanel = 3,
+            DISPID_PIPVisible = 4,
+            DISPID_PIPTop = 5,
+            DISPID_PIPLeft = 6,
+            DISPID_PIPWidth = 7,
+            DISPID_PIPHeight = 8,
+            DISPID_PIPMoveTo = 9,
+            DISPID_PIPCommitPendingInput = 10,
+            DISPID_PIPRefresh = 11,
+            DISPID_PIPBusy = 12,
+            DISPID_PIPVerticalOffset = 13,
+            DISPID_PIPHorizontalOffset = 14,
+            DISPID_PIPEnableTsf = 15,
+            DISPID_PIPAutoShow = 16,
+        }
+        #[repr(i32)]
+        enum DISPID_PenInputPanelEvents {
+            DISPID_PIPEVisibleChanged = 0,
+            DISPID_PIPEPanelChanged = 1,
+            DISPID_PIPEInputFailed = 2,
+            DISPID_PIPEPanelMoving = 3,
+        }
+        #[repr(i32)]
+        enum EventMask {
+            EventMask_InPlaceStateChanging = 1,
+            EventMask_InPlaceStateChanged = 2,
+            EventMask_InPlaceSizeChanging = 4,
+            EventMask_InPlaceSizeChanged = 8,
+            EventMask_InputAreaChanging = 16,
+            EventMask_InputAreaChanged = 32,
+            EventMask_CorrectionModeChanging = 64,
+            EventMask_CorrectionModeChanged = 128,
+            EventMask_InPlaceVisibilityChanging = 256,
+            EventMask_InPlaceVisibilityChanged = 512,
+            EventMask_TextInserting = 1024,
+            EventMask_TextInserted = 2048,
+            EventMask_All = 4095,
+        }
+        const HandwrittenTextInsertion: GUID = 0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da;
+        #[guid(0x56fdea97_ecd6_43e7_aa3a_816be7785860)]
+        interface IHandwrittenTextInsertion: IUnknown {
+            fn InsertRecognitionResultsArray(&self, psaAlternates: *const SAFEARRAY, locale: LCID, fAlternateContainsAutoSpacingInformation: BOOL) -> HRESULT;
+            fn InsertInkRecognitionResult(&self, pIInkRecoResult: IInkRecognitionResult, locale: LCID, fAlternateContainsAutoSpacingInformation: BOOL) -> HRESULT;
+        }
+        #[guid(0x4af81847_fdc4_4fc3_ad0b_422479c1b935)]
+        interface IInputPanelWindowHandle: IUnknown {
+            #[special]
+            fn get_AttachedEditWindow32(&self, #[retval] AttachedEditWindow: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AttachedEditWindow32(&self, AttachedEditWindow: i32) -> HRESULT;
+            #[special]
+            fn get_AttachedEditWindow64(&self, #[retval] AttachedEditWindow: *mut i64) -> HRESULT;
+            #[special]
+            fn put_AttachedEditWindow64(&self, AttachedEditWindow: i64) -> HRESULT;
+        }
+        #[guid(0xfa7a4083_5747_4040_a182_0b0e9fd4fac7)]
+        interface IPenInputPanel: IDispatch {
+            #[special]
+            fn get_Busy(&self, #[retval] Busy: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Factoid(&self, #[retval] Factoid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Factoid(&self, Factoid: BSTR) -> HRESULT;
+            #[special]
+            fn get_AttachedEditWindow(&self, #[retval] AttachedEditWindow: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AttachedEditWindow(&self, AttachedEditWindow: i32) -> HRESULT;
+            #[special]
+            fn get_CurrentPanel(&self, #[retval] CurrentPanel: *mut PanelType) -> HRESULT;
+            #[special]
+            fn put_CurrentPanel(&self, CurrentPanel: PanelType) -> HRESULT;
+            #[special]
+            fn get_DefaultPanel(&self, #[retval] pDefaultPanel: *mut PanelType) -> HRESULT;
+            #[special]
+            fn put_DefaultPanel(&self, DefaultPanel: PanelType) -> HRESULT;
+            #[special]
+            fn get_Visible(&self, #[retval] Visible: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Visible(&self, Visible: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Top(&self, #[retval] Top: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Left(&self, #[retval] Left: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Width(&self, #[retval] Width: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Height(&self, #[retval] Height: *mut i32) -> HRESULT;
+            #[special]
+            fn get_VerticalOffset(&self, #[retval] VerticalOffset: *mut i32) -> HRESULT;
+            #[special]
+            fn put_VerticalOffset(&self, VerticalOffset: i32) -> HRESULT;
+            #[special]
+            fn get_HorizontalOffset(&self, #[retval] HorizontalOffset: *mut i32) -> HRESULT;
+            #[special]
+            fn put_HorizontalOffset(&self, HorizontalOffset: i32) -> HRESULT;
+            #[special]
+            fn get_AutoShow(&self, #[retval] pAutoShow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AutoShow(&self, AutoShow: VARIANT_BOOL) -> HRESULT;
+            fn MoveTo(&self, Left: i32, Top: i32) -> HRESULT;
+            fn CommitPendingInput(&self) -> HRESULT;
+            fn Refresh(&self) -> HRESULT;
+            fn EnableTsf(&self, Enable: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71)]
+        interface ITextInputPanel: IUnknown {
+            #[special]
+            fn get_AttachedEditWindow(&self, #[retval] AttachedEditWindow: *mut HWND) -> HRESULT;
+            #[special]
+            fn put_AttachedEditWindow(&self, AttachedEditWindow: HWND) -> HRESULT;
+            #[special]
+            fn get_CurrentInteractionMode(&self, #[retval] CurrentInteractionMode: *mut InteractionMode) -> HRESULT;
+            #[special]
+            fn get_DefaultInPlaceState(&self, #[retval] State: *mut InPlaceState) -> HRESULT;
+            #[special]
+            fn put_DefaultInPlaceState(&self, State: InPlaceState) -> HRESULT;
+            #[special]
+            fn get_CurrentInPlaceState(&self, #[retval] State: *mut InPlaceState) -> HRESULT;
+            #[special]
+            fn get_DefaultInputArea(&self, #[retval] Area: *mut PanelInputArea) -> HRESULT;
+            #[special]
+            fn put_DefaultInputArea(&self, Area: PanelInputArea) -> HRESULT;
+            #[special]
+            fn get_CurrentInputArea(&self, #[retval] Area: *mut PanelInputArea) -> HRESULT;
+            #[special]
+            fn get_CurrentCorrectionMode(&self, #[retval] Mode: *mut CorrectionMode) -> HRESULT;
+            #[special]
+            fn get_PreferredInPlaceDirection(&self, #[retval] Direction: *mut InPlaceDirection) -> HRESULT;
+            #[special]
+            fn put_PreferredInPlaceDirection(&self, Direction: InPlaceDirection) -> HRESULT;
+            #[special]
+            fn get_ExpandPostInsertionCorrection(&self, #[retval] Expand: *mut BOOL) -> HRESULT;
+            #[special]
+            fn put_ExpandPostInsertionCorrection(&self, Expand: BOOL) -> HRESULT;
+            #[special]
+            fn get_InPlaceVisibleOnFocus(&self, #[retval] Visible: *mut BOOL) -> HRESULT;
+            #[special]
+            fn put_InPlaceVisibleOnFocus(&self, Visible: BOOL) -> HRESULT;
+            #[special]
+            fn get_InPlaceBoundingRectangle(&self, #[retval] BoundingRectangle: *mut RECT) -> HRESULT;
+            #[special]
+            fn get_PopUpCorrectionHeight(&self, #[retval] Height: *mut i32) -> HRESULT;
+            #[special]
+            fn get_PopDownCorrectionHeight(&self, #[retval] Height: *mut i32) -> HRESULT;
+            fn CommitPendingInput(&self) -> HRESULT;
+            fn SetInPlaceVisibility(&self, Visible: BOOL) -> HRESULT;
+            fn SetInPlacePosition(&self, xPosition: i32, yPosition: i32, position: CorrectionPosition) -> HRESULT;
+            fn SetInPlaceHoverTargetPosition(&self, xPosition: i32, yPosition: i32) -> HRESULT;
+            fn Advise(&self, EventSink: ITextInputPanelEventSink, EventMask: u32) -> HRESULT;
+            fn Unadvise(&self, EventSink: ITextInputPanelEventSink) -> HRESULT;
+        }
+        #[guid(0x27560408_8e64_4fe1_804e_421201584b31)]
+        interface ITextInputPanelEventSink: IUnknown {
+            fn InPlaceStateChanging(&self, oldInPlaceState: InPlaceState, newInPlaceState: InPlaceState) -> HRESULT;
+            fn InPlaceStateChanged(&self, oldInPlaceState: InPlaceState, newInPlaceState: InPlaceState) -> HRESULT;
+            fn InPlaceSizeChanging(&self, oldBoundingRectangle: RECT, newBoundingRectangle: RECT) -> HRESULT;
+            fn InPlaceSizeChanged(&self, oldBoundingRectangle: RECT, newBoundingRectangle: RECT) -> HRESULT;
+            fn InputAreaChanging(&self, oldInputArea: PanelInputArea, newInputArea: PanelInputArea) -> HRESULT;
+            fn InputAreaChanged(&self, oldInputArea: PanelInputArea, newInputArea: PanelInputArea) -> HRESULT;
+            fn CorrectionModeChanging(&self, oldCorrectionMode: CorrectionMode, newCorrectionMode: CorrectionMode) -> HRESULT;
+            fn CorrectionModeChanged(&self, oldCorrectionMode: CorrectionMode, newCorrectionMode: CorrectionMode) -> HRESULT;
+            fn InPlaceVisibilityChanging(&self, oldVisible: BOOL, newVisible: BOOL) -> HRESULT;
+            fn InPlaceVisibilityChanged(&self, oldVisible: BOOL, newVisible: BOOL) -> HRESULT;
+            fn TextInserting(&self, Ink: *const SAFEARRAY) -> HRESULT;
+            fn TextInserted(&self, Ink: *const SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x9f424568_1920_48cc_9811_a993cbf5adba)]
+        interface ITextInputPanelRunInfo: IUnknown {
+            fn IsTipRunning(&self, pfRunning: *mut BOOL) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum InPlaceDirection {
+            InPlaceDirection_Auto = 0,
+            InPlaceDirection_Bottom = 1,
+            InPlaceDirection_Top = 2,
+        }
+        #[repr(i32)]
+        enum InPlaceState {
+            InPlaceState_Auto = 0,
+            InPlaceState_HoverTarget = 1,
+            InPlaceState_Expanded = 2,
+        }
+        #[repr(i32)]
+        enum InteractionMode {
+            InteractionMode_InPlace = 0,
+            InteractionMode_Floating = 1,
+            InteractionMode_DockedTop = 2,
+            InteractionMode_DockedBottom = 3,
+        }
+        #[encoding("utf-16")]
+        const MICROSOFT_PENINPUT_PANEL_PROPERTY_T: String = "Microsoft PenInputPanel 1.5";
+        #[repr(i32)]
+        enum PanelInputArea {
+            PanelInputArea_Auto = 0,
+            PanelInputArea_Keyboard = 1,
+            PanelInputArea_WritingPad = 2,
+            PanelInputArea_CharacterPad = 3,
+        }
+        #[repr(i32)]
+        enum PanelType {
+            PT_Default = 0,
+            PT_Inactive = 1,
+            PT_Handwriting = 2,
+            PT_Keyboard = 3,
+        }
+        const PenInputPanel: GUID = 0xf744e496_1b5a_489e_81dc_fbd7ac6298a8;
+        const PenInputPanel_Internal: GUID = 0x802b1fb9_056b_4720_b0cc_80d23b71171e;
+        const TextInputPanel: GUID = 0xf9b189d7_228b_4f2b_8650_b97f59e02c8c;
+        #[repr(i32)]
+        enum VisualState {
+            InPlace = 0,
+            Floating = 1,
+            DockedTop = 2,
+            DockedBottom = 3,
+            Closed = 4,
+        }
+        #[guid(0xb7e489da_3719_439f_848f_e7acbd820f17)]
+        interface _IPenInputPanelEvents: IDispatch {}
+    }
+}

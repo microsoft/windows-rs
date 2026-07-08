@@ -1,0 +1,4369 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct ABC {
+            abcA: i32,
+            abcB: u32,
+            abcC: i32,
+        }
+        struct ABCFLOAT {
+            abcfA: f32,
+            abcfB: f32,
+            abcfC: f32,
+        }
+        const ABORTDOC: u32 = 2;
+        extern fn ABORTPROC(param0: HDC, param1: i32) -> BOOL;
+        const ABSOLUTE: u32 = 1;
+        const AC_SRC_ALPHA: u32 = 1;
+        const AC_SRC_OVER: u32 = 0;
+        const AD_CLOCKWISE: u32 = 2;
+        const AD_COUNTERCLOCKWISE: u32 = 1;
+        const ALTERNATE: u32 = 1;
+        const ANSI_CHARSET: u32 = 0;
+        const ANSI_FIXED_FONT: u32 = 11;
+        const ANSI_VAR_FONT: u32 = 12;
+        const ANTIALIASED_QUALITY: u32 = 4;
+        const ARABIC_CHARSET: u32 = 178;
+        const ASPECTX: u32 = 40;
+        const ASPECTXY: u32 = 44;
+        const ASPECTY: u32 = 42;
+        const ASPECT_FILTERING: u32 = 1;
+        type AXESLIST = AXESLISTA;
+        struct AXESLISTA {
+            axlReserved: u32,
+            axlNumAxes: u32,
+            axlAxisInfo: [AXISINFOA; 16],
+        }
+        struct AXESLISTW {
+            axlReserved: u32,
+            axlNumAxes: u32,
+            axlAxisInfo: [AXISINFOW; 16],
+        }
+        type AXISINFO = AXISINFOA;
+        struct AXISINFOA {
+            axMinValue: i32,
+            axMaxValue: i32,
+            axAxisName: [u8; 16],
+        }
+        struct AXISINFOW {
+            axMinValue: i32,
+            axMaxValue: i32,
+            axAxisName: [u16; 16],
+        }
+        #[library("GDI32.dll")]
+        extern fn AbortDoc(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn AbortPath(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn AddFontMemResourceEx(#[size_param(1)] pFileView: *const void, cjSize: u32, #[reserved] pvResrved: *const void, pNumFonts: *const u32) -> HANDLE;
+        #[library("GDI32.dll")]
+        extern fn AddFontResourceA(param0: PCSTR) -> i32;
+        #[library("GDI32.dll")]
+        extern fn AddFontResourceExA(name: PCSTR, fl: u32, #[reserved] res: *const void) -> i32;
+        #[library("GDI32.dll")]
+        extern fn AddFontResourceExW(name: PCWSTR, fl: u32, #[reserved] res: *const void) -> i32;
+        #[library("GDI32.dll")]
+        extern fn AddFontResourceW(param0: PCWSTR) -> i32;
+        #[library("MSIMG32.dll")]
+        extern fn AlphaBlend(hdcDest: HDC, xoriginDest: i32, yoriginDest: i32, wDest: i32, hDest: i32, hdcSrc: HDC, xoriginSrc: i32, yoriginSrc: i32, wSrc: i32, hSrc: i32, ftn: BLENDFUNCTION) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn AngleArc(hdc: HDC, x: i32, y: i32, r: u32, StartAngle: f32, SweepAngle: f32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn AnimatePalette(hPal: HPALETTE, iStartIndex: u32, cEntries: u32, #[len_param(2)] ppe: *const PALETTEENTRY) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn Arc(hdc: HDC, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn ArcTo(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> BOOL;
+        const BALTIC_CHARSET: u32 = 186;
+        const BANDINFO: u32 = 24;
+        type BCHAR = u8;
+        const BEGIN_PATH: u32 = 4096;
+        struct BITMAP {
+            bmType: i32,
+            bmWidth: i32,
+            bmHeight: i32,
+            bmWidthBytes: i32,
+            bmPlanes: u16,
+            bmBitsPixel: u16,
+            bmBits: *mut void,
+        }
+        struct BITMAPCOREHEADER {
+            bcSize: u32,
+            bcWidth: u16,
+            bcHeight: u16,
+            bcPlanes: u16,
+            bcBitCount: u16,
+        }
+        struct BITMAPCOREINFO {
+            bmciHeader: BITMAPCOREHEADER,
+            bmciColors: [RGBTRIPLE; 1],
+        }
+        #[packed(2)]
+        struct BITMAPFILEHEADER {
+            bfType: u16,
+            bfSize: u32,
+            bfReserved1: u16,
+            bfReserved2: u16,
+            bfOffBits: u32,
+        }
+        struct BITMAPINFO {
+            bmiHeader: BITMAPINFOHEADER,
+            bmiColors: [RGBQUAD; 1],
+        }
+        struct BITMAPINFOHEADER {
+            biSize: u32,
+            biWidth: i32,
+            biHeight: i32,
+            biPlanes: u16,
+            biBitCount: u16,
+            biCompression: u32,
+            biSizeImage: u32,
+            biXPelsPerMeter: i32,
+            biYPelsPerMeter: i32,
+            biClrUsed: u32,
+            biClrImportant: u32,
+        }
+        struct BITMAPV4HEADER {
+            bV4Size: u32,
+            bV4Width: i32,
+            bV4Height: i32,
+            bV4Planes: u16,
+            bV4BitCount: u16,
+            bV4V4Compression: u32,
+            bV4SizeImage: u32,
+            bV4XPelsPerMeter: i32,
+            bV4YPelsPerMeter: i32,
+            bV4ClrUsed: u32,
+            bV4ClrImportant: u32,
+            bV4RedMask: u32,
+            bV4GreenMask: u32,
+            bV4BlueMask: u32,
+            bV4AlphaMask: u32,
+            bV4CSType: u32,
+            bV4Endpoints: CIEXYZTRIPLE,
+            bV4GammaRed: u32,
+            bV4GammaGreen: u32,
+            bV4GammaBlue: u32,
+        }
+        struct BITMAPV5HEADER {
+            bV5Size: u32,
+            bV5Width: i32,
+            bV5Height: i32,
+            bV5Planes: u16,
+            bV5BitCount: u16,
+            bV5Compression: u32,
+            bV5SizeImage: u32,
+            bV5XPelsPerMeter: i32,
+            bV5YPelsPerMeter: i32,
+            bV5ClrUsed: u32,
+            bV5ClrImportant: u32,
+            bV5RedMask: u32,
+            bV5GreenMask: u32,
+            bV5BlueMask: u32,
+            bV5AlphaMask: u32,
+            bV5CSType: u32,
+            bV5Endpoints: CIEXYZTRIPLE,
+            bV5GammaRed: u32,
+            bV5GammaGreen: u32,
+            bV5GammaBlue: u32,
+            bV5Intent: u32,
+            bV5ProfileData: u32,
+            bV5ProfileSize: u32,
+            bV5Reserved: u32,
+        }
+        const BITSPIXEL: u32 = 12;
+        const BI_BITFIELDS: u32 = 3;
+        const BI_JPEG: u32 = 4;
+        const BI_PNG: u32 = 5;
+        const BI_RGB: u32 = 0;
+        const BI_RLE4: u32 = 2;
+        const BI_RLE8: u32 = 1;
+        const BKMODE_LAST: u32 = 2;
+        const BLACKNESS: u32 = 66;
+        const BLACKONWHITE: u32 = 1;
+        const BLACK_BRUSH: u32 = 4;
+        const BLACK_PEN: u32 = 7;
+        struct BLENDFUNCTION {
+            BlendOp: u8,
+            BlendFlags: u8,
+            SourceConstantAlpha: u8,
+            AlphaFormat: u8,
+        }
+        const BLTALIGNMENT: u32 = 119;
+        const BS_DIBPATTERN: u32 = 5;
+        const BS_DIBPATTERN8X8: u32 = 8;
+        const BS_DIBPATTERNPT: u32 = 6;
+        const BS_HATCHED: u32 = 2;
+        const BS_HOLLOW: u32 = 1;
+        const BS_INDEXED: u32 = 4;
+        const BS_MONOPATTERN: u32 = 9;
+        const BS_NULL: u32 = 1;
+        const BS_PATTERN: u32 = 3;
+        const BS_PATTERN8X8: u32 = 7;
+        const BS_SOLID: u32 = 0;
+        #[library("GDI32.dll")]
+        extern fn BeginPath(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn BitBlt(hdc: HDC, x: i32, y: i32, cx: i32, cy: i32, #[opt] hdcSrc: HDC, x1: i32, y1: i32, rop: u32) -> BOOL;
+        const CAPTUREBLT: u32 = 1073741824;
+        const CA_LOG_FILTER: u32 = 2;
+        const CA_NEGATIVE: u32 = 1;
+        const CBM_INIT: u32 = 4;
+        const CCHDEVICENAME: u32 = 32;
+        const CCHFORMNAME: u32 = 32;
+        const CC_CHORD: u32 = 4;
+        const CC_CIRCLES: u32 = 1;
+        const CC_ELLIPSES: u32 = 8;
+        const CC_INTERIORS: u32 = 128;
+        const CC_NONE: u32 = 0;
+        const CC_PIE: u32 = 2;
+        const CC_ROUNDRECT: u32 = 256;
+        const CC_STYLED: u32 = 32;
+        const CC_WIDE: u32 = 16;
+        const CC_WIDESTYLED: u32 = 64;
+        struct CHARSETINFO {
+            ciCharset: u32,
+            ciACP: u32,
+            fs: FONTSIGNATURE,
+        }
+        const CHECKJPEGFORMAT: u32 = 4119;
+        const CHECKPNGFORMAT: u32 = 4120;
+        const CHINESEBIG5_CHARSET: u32 = 136;
+        struct CIEXYZ {
+            ciexyzX: FXPT2DOT30,
+            ciexyzY: FXPT2DOT30,
+            ciexyzZ: FXPT2DOT30,
+        }
+        struct CIEXYZTRIPLE {
+            ciexyzRed: CIEXYZ,
+            ciexyzGreen: CIEXYZ,
+            ciexyzBlue: CIEXYZ,
+        }
+        const CLEARTYPE_NATURAL_QUALITY: u32 = 6;
+        const CLEARTYPE_QUALITY: u32 = 5;
+        const CLIPCAPS: u32 = 36;
+        const CLIP_CHARACTER_PRECIS: u32 = 1;
+        const CLIP_DEFAULT_PRECIS: u32 = 0;
+        const CLIP_DFA_DISABLE: u32 = 64;
+        const CLIP_EMBEDDED: u32 = 128;
+        const CLIP_LH_ANGLES: u32 = 16;
+        const CLIP_MASK: u32 = 15;
+        const CLIP_STROKE_PRECIS: u32 = 2;
+        const CLIP_TO_PATH: u32 = 4097;
+        const CLIP_TT_ALWAYS: u32 = 32;
+        const CLOSECHANNEL: u32 = 4112;
+        const CLR_INVALID: u32 = 4294967295;
+        const CM_CMYK_COLOR: u32 = 4;
+        const CM_DEVICE_ICM: u32 = 1;
+        const CM_GAMMA_RAMP: u32 = 2;
+        const CM_IN_GAMUT: u32 = 0;
+        const CM_NONE: u32 = 0;
+        const CM_OUT_OF_GAMUT: u32 = 255;
+        type COLOR16 = u16;
+        struct COLORADJUSTMENT {
+            caSize: u16,
+            caFlags: u16,
+            caIlluminantIndex: u16,
+            caRedGamma: u16,
+            caGreenGamma: u16,
+            caBlueGamma: u16,
+            caReferenceBlack: u16,
+            caReferenceWhite: u16,
+            caContrast: i16,
+            caBrightness: i16,
+            caColorfulness: i16,
+            caRedGreenTint: i16,
+        }
+        const COLORMATCHTOTARGET_EMBEDED: u32 = 1;
+        const COLORMGMTCAPS: u32 = 121;
+        const COLORONCOLOR: u32 = 3;
+        const COLORRES: u32 = 108;
+        const COLOR_ADJ_MAX: i16 = 100;
+        const COLOR_ADJ_MIN: i16 = -100;
+        const COMPLEXREGION: u32 = 3;
+        const CP_NONE: u32 = 0;
+        const CP_RECTANGLE: u32 = 1;
+        const CP_REGION: u32 = 2;
+        const CREATECOLORSPACE_EMBEDED: u32 = 1;
+        const CS_DELETE_TRANSFORM: u32 = 3;
+        const CS_DISABLE: u32 = 2;
+        const CS_ENABLE: u32 = 1;
+        const CURVECAPS: u32 = 28;
+        #[library("GDI32.dll")]
+        extern fn CancelDC(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn CheckColorsInGamut(hdc: HDC, #[len_param(3)] lpRGBTriple: *const RGBTRIPLE, #[size_param(3)] dlpBuffer: *mut void, nCount: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn ChoosePixelFormat(hdc: HDC, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32;
+        #[library("GDI32.dll")]
+        extern fn Chord(hdc: HDC, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn CloseEnhMetaFile(hdc: HDC) -> HENHMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn CloseFigure(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn CloseMetaFile(hdc: HDC) -> HMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn ColorCorrectPalette(hdc: HDC, hPal: HPALETTE, deFirst: u32, num: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn ColorMatchToTarget(hdc: HDC, hdcTarget: HDC, action: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn CombineRgn(#[opt] hrgnDst: HRGN, #[opt] hrgnSrc1: HRGN, #[opt] hrgnSrc2: HRGN, iMode: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn CombineTransform(lpxfOut: *mut XFORM, lpxf1: *const XFORM, lpxf2: *const XFORM) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn CopyEnhMetaFileA(hEnh: HENHMETAFILE, #[opt] lpFileName: PCSTR) -> HENHMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn CopyEnhMetaFileW(hEnh: HENHMETAFILE, #[opt] lpFileName: PCWSTR) -> HENHMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn CopyMetaFileA(param0: HMETAFILE, #[opt] param1: PCSTR) -> HMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn CopyMetaFileW(param0: HMETAFILE, #[opt] param1: PCWSTR) -> HMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn CreateBitmap(nWidth: i32, nHeight: i32, nPlanes: u32, nBitCount: u32, #[opt] lpBits: *const void) -> HBITMAP;
+        #[library("GDI32.dll")]
+        extern fn CreateBitmapIndirect(pbm: *const BITMAP) -> HBITMAP;
+        #[library("GDI32.dll")]
+        extern fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> HBRUSH;
+        #[library("GDI32.dll")]
+        extern fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE;
+        #[library("GDI32.dll")]
+        extern fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE;
+        #[library("GDI32.dll")]
+        extern fn CreateCompatibleBitmap(hdc: HDC, cx: i32, cy: i32) -> HBITMAP;
+        #[library("GDI32.dll")]
+        extern fn CreateCompatibleDC(#[opt] hdc: HDC) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn CreateDCA(#[opt] pwszDriver: PCSTR, #[opt] pwszDevice: PCSTR, #[opt] pszPort: PCSTR, #[opt] pdm: *const DEVMODEA) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn CreateDCW(#[opt] pwszDriver: PCWSTR, #[opt] pwszDevice: PCWSTR, #[opt] pszPort: PCWSTR, #[opt] pdm: *const DEVMODEW) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn CreateDIBPatternBrush(h: HGLOBAL, iUsage: u32) -> HBRUSH;
+        #[library("GDI32.dll")]
+        extern fn CreateDIBPatternBrushPt(lpPackedDIB: *const void, iUsage: u32) -> HBRUSH;
+        #[library("GDI32.dll")]
+        extern fn CreateDIBSection(#[opt] hdc: HDC, pbmi: *const BITMAPINFO, usage: u32, ppvBits: *mut *mut void, #[opt] hSection: HANDLE, offset: u32) -> HBITMAP;
+        #[library("GDI32.dll")]
+        extern fn CreateDIBitmap(hdc: HDC, #[opt] pbmih: *const BITMAPINFOHEADER, flInit: u32, #[opt] pjBits: *const void, #[opt] pbmi: *const BITMAPINFO, iUsage: u32) -> HBITMAP;
+        #[library("GDI32.dll")]
+        extern fn CreateDiscardableBitmap(hdc: HDC, cx: i32, cy: i32) -> HBITMAP;
+        #[library("GDI32.dll")]
+        extern fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN;
+        #[library("GDI32.dll")]
+        extern fn CreateEllipticRgnIndirect(lprect: *const RECT) -> HRGN;
+        #[library("GDI32.dll")]
+        extern fn CreateEnhMetaFileA(#[opt] hdc: HDC, #[opt] lpFilename: PCSTR, #[opt] lprc: *const RECT, #[opt] lpDesc: PCSTR) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn CreateEnhMetaFileW(#[opt] hdc: HDC, #[opt] lpFilename: PCWSTR, #[opt] lprc: *const RECT, #[opt] lpDesc: PCWSTR) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn CreateFontA(cHeight: i32, cWidth: i32, cEscapement: i32, cOrientation: i32, cWeight: i32, bItalic: u32, bUnderline: u32, bStrikeOut: u32, iCharSet: u32, iOutPrecision: u32, iClipPrecision: u32, iQuality: u32, iPitchAndFamily: u32, #[opt] pszFaceName: PCSTR) -> HFONT;
+        #[library("GDI32.dll")]
+        extern fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT;
+        #[library("GDI32.dll")]
+        extern fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT;
+        #[library("GDI32.dll")]
+        extern fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT;
+        #[library("GDI32.dll")]
+        extern fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT;
+        #[library("GDI32.dll")]
+        extern fn CreateFontW(cHeight: i32, cWidth: i32, cEscapement: i32, cOrientation: i32, cWeight: i32, bItalic: u32, bUnderline: u32, bStrikeOut: u32, iCharSet: u32, iOutPrecision: u32, iClipPrecision: u32, iQuality: u32, iPitchAndFamily: u32, #[opt] pszFaceName: PCWSTR) -> HFONT;
+        #[library("GDI32.dll")]
+        extern fn CreateHalftonePalette(#[opt] hdc: HDC) -> HPALETTE;
+        #[library("GDI32.dll")]
+        extern fn CreateHatchBrush(iHatch: i32, color: COLORREF) -> HBRUSH;
+        #[library("GDI32.dll")]
+        extern fn CreateICA(#[opt] pszDriver: PCSTR, #[opt] pszDevice: PCSTR, #[opt] pszPort: PCSTR, #[opt] pdm: *const DEVMODEA) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn CreateICW(#[opt] pszDriver: PCWSTR, #[opt] pszDevice: PCWSTR, #[opt] pszPort: PCWSTR, #[opt] pdm: *const DEVMODEW) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn CreateMetaFileA(#[opt] pszFile: PCSTR) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn CreateMetaFileW(#[opt] pszFile: PCWSTR) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn CreatePalette(plpal: *const LOGPALETTE) -> HPALETTE;
+        #[library("GDI32.dll")]
+        extern fn CreatePatternBrush(hbm: HBITMAP) -> HBRUSH;
+        #[library("GDI32.dll")]
+        extern fn CreatePen(iStyle: i32, cWidth: i32, color: COLORREF) -> HPEN;
+        #[library("GDI32.dll")]
+        extern fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN;
+        #[library("GDI32.dll")]
+        extern fn CreatePolyPolygonRgn(pptl: *const POINT, #[len_param(2)] pc: *const i32, cPoly: i32, iMode: i32) -> HRGN;
+        #[library("GDI32.dll")]
+        extern fn CreatePolygonRgn(#[len_param(1)] pptl: *const POINT, cPoint: i32, iMode: i32) -> HRGN;
+        #[library("GDI32.dll")]
+        extern fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN;
+        #[library("GDI32.dll")]
+        extern fn CreateRectRgnIndirect(lprect: *const RECT) -> HRGN;
+        #[library("GDI32.dll")]
+        extern fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: i32) -> HRGN;
+        #[library("GDI32.dll")]
+        extern fn CreateScalableFontResourceA(fdwHidden: u32, lpszFont: PCSTR, lpszFile: PCSTR, #[opt] lpszPath: PCSTR) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn CreateScalableFontResourceW(fdwHidden: u32, lpszFont: PCWSTR, lpszFile: PCWSTR, #[opt] lpszPath: PCWSTR) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn CreateSolidBrush(color: COLORREF) -> HBRUSH;
+        const DCBA_FACEDOWNCENTER: u32 = 257;
+        const DCBA_FACEDOWNLEFT: u32 = 258;
+        const DCBA_FACEDOWNNONE: u32 = 256;
+        const DCBA_FACEDOWNRIGHT: u32 = 259;
+        const DCBA_FACEUPCENTER: u32 = 1;
+        const DCBA_FACEUPLEFT: u32 = 2;
+        const DCBA_FACEUPNONE: u32 = 0;
+        const DCBA_FACEUPRIGHT: u32 = 3;
+        const DCB_ACCUMULATE: u32 = 2;
+        const DCB_DIRTY: u32 = 2;
+        const DCB_DISABLE: u32 = 8;
+        const DCB_ENABLE: u32 = 4;
+        const DCB_RESET: u32 = 1;
+        const DCB_SET: u32 = 3;
+        const DCTT_BITMAP: u32 = 1;
+        const DCTT_DOWNLOAD: u32 = 2;
+        const DCTT_DOWNLOAD_OUTLINE: u32 = 8;
+        const DCTT_SUBDEV: u32 = 4;
+        const DC_BINADJUST: u32 = 19;
+        const DC_BRUSH: u32 = 18;
+        const DC_COLLATE: u32 = 22;
+        const DC_COLORDEVICE: u32 = 32;
+        const DC_DATATYPE_PRODUCED: u32 = 21;
+        const DC_EMF_COMPLIANT: u32 = 20;
+        const DC_MANUFACTURER: u32 = 23;
+        const DC_MEDIAREADY: u32 = 29;
+        const DC_MEDIATYPENAMES: u32 = 34;
+        const DC_MEDIATYPES: u32 = 35;
+        const DC_MODEL: u32 = 24;
+        const DC_NUP: u32 = 33;
+        const DC_PEN: u32 = 19;
+        const DC_PERSONALITY: u32 = 25;
+        const DC_PRINTERMEM: u32 = 28;
+        const DC_PRINTRATE: u32 = 26;
+        const DC_PRINTRATEPPM: u32 = 31;
+        const DC_PRINTRATEUNIT: u32 = 27;
+        const DC_STAPLE: u32 = 30;
+        const DEFAULT_CHARSET: u32 = 1;
+        const DEFAULT_GUI_FONT: u32 = 17;
+        const DEFAULT_PALETTE: u32 = 15;
+        const DEFAULT_PITCH: u32 = 0;
+        const DEFAULT_QUALITY: u32 = 0;
+        struct DESIGNVECTOR {
+            dvReserved: u32,
+            dvNumAxes: u32,
+            dvValues: [i32; 16],
+        }
+        const DESKTOPHORZRES: u32 = 118;
+        const DESKTOPVERTRES: u32 = 117;
+        const DEVICEDATA: u32 = 19;
+        const DEVICE_DEFAULT_FONT: u32 = 14;
+        const DEVICE_FONTTYPE: u32 = 2;
+        type DEVMODE = DEVMODEA;
+        struct DEVMODEA {
+            dmDeviceName: [u8; 32],
+            dmSpecVersion: u16,
+            dmDriverVersion: u16,
+            dmSize: u16,
+            dmDriverExtra: u16,
+            dmFields: u32,
+            Anonymous: union {
+                Anonymous: struct {
+                    dmOrientation: i16,
+                    dmPaperSize: i16,
+                    dmPaperLength: i16,
+                    dmPaperWidth: i16,
+                    dmScale: i16,
+                    dmCopies: i16,
+                    dmDefaultSource: i16,
+                    dmPrintQuality: i16,
+                },
+                Anonymous2: struct {
+                    dmPosition: POINTL,
+                    dmDisplayOrientation: u32,
+                    dmDisplayFixedOutput: u32,
+                },
+            },
+            dmColor: i16,
+            dmDuplex: i16,
+            dmYResolution: i16,
+            dmTTOption: i16,
+            dmCollate: i16,
+            dmFormName: [u8; 32],
+            dmLogPixels: u16,
+            dmBitsPerPel: u32,
+            dmPelsWidth: u32,
+            dmPelsHeight: u32,
+            Anonymous2: union {
+                dmDisplayFlags: u32,
+                dmNup: u32,
+            },
+            dmDisplayFrequency: u32,
+            dmICMMethod: u32,
+            dmICMIntent: u32,
+            dmMediaType: u32,
+            dmDitherType: u32,
+            dmReserved1: u32,
+            dmReserved2: u32,
+            dmPanningWidth: u32,
+            dmPanningHeight: u32,
+        }
+        struct DEVMODEW {
+            dmDeviceName: [u16; 32],
+            dmSpecVersion: u16,
+            dmDriverVersion: u16,
+            dmSize: u16,
+            dmDriverExtra: u16,
+            dmFields: u32,
+            Anonymous: union {
+                Anonymous: struct {
+                    dmOrientation: i16,
+                    dmPaperSize: i16,
+                    dmPaperLength: i16,
+                    dmPaperWidth: i16,
+                    dmScale: i16,
+                    dmCopies: i16,
+                    dmDefaultSource: i16,
+                    dmPrintQuality: i16,
+                },
+                Anonymous2: struct {
+                    dmPosition: POINTL,
+                    dmDisplayOrientation: u32,
+                    dmDisplayFixedOutput: u32,
+                },
+            },
+            dmColor: i16,
+            dmDuplex: i16,
+            dmYResolution: i16,
+            dmTTOption: i16,
+            dmCollate: i16,
+            dmFormName: [u16; 32],
+            dmLogPixels: u16,
+            dmBitsPerPel: u32,
+            dmPelsWidth: u32,
+            dmPelsHeight: u32,
+            Anonymous2: union {
+                dmDisplayFlags: u32,
+                dmNup: u32,
+            },
+            dmDisplayFrequency: u32,
+            dmICMMethod: u32,
+            dmICMIntent: u32,
+            dmMediaType: u32,
+            dmDitherType: u32,
+            dmReserved1: u32,
+            dmReserved2: u32,
+            dmPanningWidth: u32,
+            dmPanningHeight: u32,
+        }
+        struct DIBSECTION {
+            dsBm: BITMAP,
+            dsBmih: BITMAPINFOHEADER,
+            dsBitfields: [u32; 3],
+            dshSection: HANDLE,
+            dsOffset: u32,
+        }
+        const DIB_PAL_COLORS: u32 = 1;
+        const DIB_RGB_COLORS: u32 = 0;
+        struct DISPLAYCONFIG_2DREGION {
+            cx: u32,
+            cy: u32,
+        }
+        struct DISPLAYCONFIG_ADAPTER_NAME {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            adapterDevicePath: [u16; 128],
+        }
+        #[repr(i32)]
+        enum DISPLAYCONFIG_ADVANCED_COLOR_MODE {
+            DISPLAYCONFIG_ADVANCED_COLOR_MODE_SDR = 0,
+            DISPLAYCONFIG_ADVANCED_COLOR_MODE_WCG = 1,
+            DISPLAYCONFIG_ADVANCED_COLOR_MODE_HDR = 2,
+        }
+        #[repr(i32)]
+        enum DISPLAYCONFIG_COLOR_ENCODING {
+            DISPLAYCONFIG_COLOR_ENCODING_RGB = 0,
+            DISPLAYCONFIG_COLOR_ENCODING_YCBCR444 = 1,
+            DISPLAYCONFIG_COLOR_ENCODING_YCBCR422 = 2,
+            DISPLAYCONFIG_COLOR_ENCODING_YCBCR420 = 3,
+            DISPLAYCONFIG_COLOR_ENCODING_INTENSITY = 4,
+            DISPLAYCONFIG_COLOR_ENCODING_FORCE_UINT32 = -1,
+        }
+        struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
+            PathSourceSize: POINTL,
+            DesktopImageRegion: RECTL,
+            DesktopImageClip: RECTL,
+        }
+        struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
+            r#type: DISPLAYCONFIG_DEVICE_INFO_TYPE,
+            size: u32,
+            adapterId: LUID,
+            id: u32,
+        }
+        #[repr(i32)]
+        enum DISPLAYCONFIG_DEVICE_INFO_TYPE {
+            DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME = 1,
+            DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME = 2,
+            DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE = 3,
+            DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME = 4,
+            DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE = 5,
+            DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE = 6,
+            DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION = 7,
+            DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION = 8,
+            DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO = 9,
+            DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE = 10,
+            DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL = 11,
+            DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION = 12,
+            DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION = 13,
+            DISPLAYCONFIG_DEVICE_INFO_SET_RESERVED1 = 14,
+            DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO_2 = 15,
+            DISPLAYCONFIG_DEVICE_INFO_SET_HDR_STATE = 16,
+            DISPLAYCONFIG_DEVICE_INFO_SET_WCG_STATE = 17,
+            DISPLAYCONFIG_DEVICE_INFO_FORCE_UINT32 = -1,
+        }
+        struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                value: u32,
+            },
+            colorEncoding: DISPLAYCONFIG_COLOR_ENCODING,
+            bitsPerColorChannel: u32,
+        }
+        struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2 {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                value: u32,
+            },
+            colorEncoding: DISPLAYCONFIG_COLOR_ENCODING,
+            bitsPerColorChannel: u32,
+            activeColorMode: DISPLAYCONFIG_ADVANCED_COLOR_MODE,
+        }
+        struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                value: u32,
+            },
+        }
+        const DISPLAYCONFIG_MAXPATH: u32 = 1024;
+        struct DISPLAYCONFIG_MODE_INFO {
+            infoType: DISPLAYCONFIG_MODE_INFO_TYPE,
+            id: u32,
+            adapterId: LUID,
+            Anonymous: union {
+                targetMode: DISPLAYCONFIG_TARGET_MODE,
+                sourceMode: DISPLAYCONFIG_SOURCE_MODE,
+                desktopImageInfo: DISPLAYCONFIG_DESKTOP_IMAGE_INFO,
+            },
+        }
+        #[repr(i32)]
+        enum DISPLAYCONFIG_MODE_INFO_TYPE {
+            DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE = 1,
+            DISPLAYCONFIG_MODE_INFO_TYPE_TARGET = 2,
+            DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE = 3,
+            DISPLAYCONFIG_MODE_INFO_TYPE_FORCE_UINT32 = -1,
+        }
+        const DISPLAYCONFIG_PATH_ACTIVE: u32 = 1;
+        const DISPLAYCONFIG_PATH_BOOST_REFRESH_RATE: u32 = 16;
+        const DISPLAYCONFIG_PATH_CLONE_GROUP_INVALID: u32 = 65535;
+        const DISPLAYCONFIG_PATH_DESKTOP_IMAGE_IDX_INVALID: u32 = 65535;
+        struct DISPLAYCONFIG_PATH_INFO {
+            sourceInfo: DISPLAYCONFIG_PATH_SOURCE_INFO,
+            targetInfo: DISPLAYCONFIG_PATH_TARGET_INFO,
+            flags: u32,
+        }
+        const DISPLAYCONFIG_PATH_MODE_IDX_INVALID: u32 = 4294967295;
+        const DISPLAYCONFIG_PATH_PREFERRED_UNSCALED: u32 = 4;
+        struct DISPLAYCONFIG_PATH_SOURCE_INFO {
+            adapterId: LUID,
+            id: u32,
+            Anonymous: union {
+                modeInfoIdx: u32,
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+            },
+            statusFlags: u32,
+        }
+        const DISPLAYCONFIG_PATH_SOURCE_MODE_IDX_INVALID: u32 = 65535;
+        const DISPLAYCONFIG_PATH_SUPPORT_VIRTUAL_MODE: u32 = 8;
+        struct DISPLAYCONFIG_PATH_TARGET_INFO {
+            adapterId: LUID,
+            id: u32,
+            Anonymous: union {
+                modeInfoIdx: u32,
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+            },
+            outputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
+            rotation: DISPLAYCONFIG_ROTATION,
+            scaling: DISPLAYCONFIG_SCALING,
+            refreshRate: DISPLAYCONFIG_RATIONAL,
+            scanLineOrdering: DISPLAYCONFIG_SCANLINE_ORDERING,
+            targetAvailable: BOOL,
+            statusFlags: u32,
+        }
+        const DISPLAYCONFIG_PATH_TARGET_MODE_IDX_INVALID: u32 = 65535;
+        const DISPLAYCONFIG_PATH_VALID_FLAGS: u32 = 29;
+        #[repr(i32)]
+        enum DISPLAYCONFIG_PIXELFORMAT {
+            DISPLAYCONFIG_PIXELFORMAT_8BPP = 1,
+            DISPLAYCONFIG_PIXELFORMAT_16BPP = 2,
+            DISPLAYCONFIG_PIXELFORMAT_24BPP = 3,
+            DISPLAYCONFIG_PIXELFORMAT_32BPP = 4,
+            DISPLAYCONFIG_PIXELFORMAT_NONGDI = 5,
+            DISPLAYCONFIG_PIXELFORMAT_FORCE_UINT32 = -1,
+        }
+        struct DISPLAYCONFIG_RATIONAL {
+            Numerator: u32,
+            Denominator: u32,
+        }
+        #[repr(i32)]
+        enum DISPLAYCONFIG_ROTATION {
+            DISPLAYCONFIG_ROTATION_IDENTITY = 1,
+            DISPLAYCONFIG_ROTATION_ROTATE90 = 2,
+            DISPLAYCONFIG_ROTATION_ROTATE180 = 3,
+            DISPLAYCONFIG_ROTATION_ROTATE270 = 4,
+            DISPLAYCONFIG_ROTATION_FORCE_UINT32 = -1,
+        }
+        #[repr(i32)]
+        enum DISPLAYCONFIG_SCALING {
+            DISPLAYCONFIG_SCALING_IDENTITY = 1,
+            DISPLAYCONFIG_SCALING_CENTERED = 2,
+            DISPLAYCONFIG_SCALING_STRETCHED = 3,
+            DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX = 4,
+            DISPLAYCONFIG_SCALING_CUSTOM = 5,
+            DISPLAYCONFIG_SCALING_PREFERRED = 128,
+            DISPLAYCONFIG_SCALING_FORCE_UINT32 = -1,
+        }
+        #[repr(i32)]
+        enum DISPLAYCONFIG_SCANLINE_ORDERING {
+            DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED = 0,
+            DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE = 1,
+            DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED = 2,
+            DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST = 2,
+            DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST = 3,
+            DISPLAYCONFIG_SCANLINE_ORDERING_FORCE_UINT32 = -1,
+        }
+        struct DISPLAYCONFIG_SDR_WHITE_LEVEL {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            SDRWhiteLevel: u32,
+        }
+        struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                value: u32,
+            },
+        }
+        struct DISPLAYCONFIG_SET_HDR_STATE {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                value: u32,
+            },
+        }
+        struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                value: u32,
+            },
+            specializationType: GUID,
+            specializationSubType: GUID,
+            specializationApplicationName: [u16; 128],
+        }
+        struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                value: u32,
+            },
+        }
+        struct DISPLAYCONFIG_SET_WCG_STATE {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                value: u32,
+            },
+        }
+        struct DISPLAYCONFIG_SOURCE_DEVICE_NAME {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            viewGdiDeviceName: [u16; 32],
+        }
+        const DISPLAYCONFIG_SOURCE_IN_USE: u32 = 1;
+        struct DISPLAYCONFIG_SOURCE_MODE {
+            width: u32,
+            height: u32,
+            pixelFormat: DISPLAYCONFIG_PIXELFORMAT,
+            position: POINTL,
+        }
+        struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                value: u32,
+            },
+        }
+        struct DISPLAYCONFIG_TARGET_BASE_TYPE {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            baseOutputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
+        }
+        struct DISPLAYCONFIG_TARGET_DEVICE_NAME {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            flags: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS,
+            outputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
+            edidManufactureId: u16,
+            edidProductCodeId: u16,
+            connectorInstance: u32,
+            monitorFriendlyDeviceName: [u16; 64],
+            monitorDevicePath: [u16; 128],
+        }
+        struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                value: u32,
+            },
+        }
+        const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_BOOT: u32 = 4;
+        const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_PATH: u32 = 8;
+        const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_SYSTEM: u32 = 16;
+        const DISPLAYCONFIG_TARGET_FORCIBLE: u32 = 2;
+        const DISPLAYCONFIG_TARGET_IN_USE: u32 = 1;
+        const DISPLAYCONFIG_TARGET_IS_HMD: u32 = 32;
+        struct DISPLAYCONFIG_TARGET_MODE {
+            targetVideoSignalInfo: DISPLAYCONFIG_VIDEO_SIGNAL_INFO,
+        }
+        struct DISPLAYCONFIG_TARGET_PREFERRED_MODE {
+            header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+            width: u32,
+            height: u32,
+            targetMode: DISPLAYCONFIG_TARGET_MODE,
+        }
+        #[repr(i32)]
+        enum DISPLAYCONFIG_TOPOLOGY_ID {
+            DISPLAYCONFIG_TOPOLOGY_INTERNAL = 1,
+            DISPLAYCONFIG_TOPOLOGY_CLONE = 2,
+            DISPLAYCONFIG_TOPOLOGY_EXTEND = 4,
+            DISPLAYCONFIG_TOPOLOGY_EXTERNAL = 8,
+            DISPLAYCONFIG_TOPOLOGY_FORCE_UINT32 = -1,
+        }
+        #[repr(i32)]
+        enum DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER = -1,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15 = 0,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO = 1,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO = 2,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO = 3,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI = 4,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI = 5,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS = 6,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN = 8,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI = 9,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL = 10,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED = 11,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL = 12,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED = 13,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE = 14,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST = 15,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED = 16,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL = 17,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL = 18,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL = -2147483648,
+            DISPLAYCONFIG_OUTPUT_TECHNOLOGY_FORCE_UINT32 = -1,
+        }
+        struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
+            pixelRate: u64,
+            hSyncFreq: DISPLAYCONFIG_RATIONAL,
+            vSyncFreq: DISPLAYCONFIG_RATIONAL,
+            activeSize: DISPLAYCONFIG_2DREGION,
+            totalSize: DISPLAYCONFIG_2DREGION,
+            Anonymous: union {
+                AdditionalSignalInfo: struct {
+                    _bitfield: u32,
+                },
+                videoStandard: u32,
+            },
+            scanLineOrdering: DISPLAYCONFIG_SCANLINE_ORDERING,
+        }
+        type DISPLAY_DEVICE = DISPLAY_DEVICEA;
+        struct DISPLAY_DEVICEA {
+            cb: u32,
+            DeviceName: [i8; 32],
+            DeviceString: [i8; 128],
+            StateFlags: u32,
+            DeviceID: [i8; 128],
+            DeviceKey: [i8; 128],
+        }
+        struct DISPLAY_DEVICEW {
+            cb: u32,
+            DeviceName: [u16; 32],
+            DeviceString: [u16; 128],
+            StateFlags: u32,
+            DeviceID: [u16; 128],
+            DeviceKey: [u16; 128],
+        }
+        const DISPLAY_DEVICE_ACC_DRIVER: u32 = 64;
+        const DISPLAY_DEVICE_ACTIVE: u32 = 1;
+        const DISPLAY_DEVICE_ATTACHED: u32 = 2;
+        const DISPLAY_DEVICE_ATTACHED_TO_DESKTOP: u32 = 1;
+        const DISPLAY_DEVICE_DISCONNECT: u32 = 33554432;
+        const DISPLAY_DEVICE_MIRRORING_DRIVER: u32 = 8;
+        const DISPLAY_DEVICE_MODESPRUNED: u32 = 134217728;
+        const DISPLAY_DEVICE_MULTI_DRIVER: u32 = 2;
+        const DISPLAY_DEVICE_PRIMARY_DEVICE: u32 = 4;
+        const DISPLAY_DEVICE_RDPUDD: u32 = 16777216;
+        const DISPLAY_DEVICE_REMOTE: u32 = 67108864;
+        const DISPLAY_DEVICE_REMOVABLE: u32 = 32;
+        const DISPLAY_DEVICE_TS_COMPATIBLE: u32 = 2097152;
+        const DISPLAY_DEVICE_UNSAFE_MODES_ON: u32 = 524288;
+        const DISPLAY_DEVICE_VGA_COMPATIBLE: u32 = 16;
+        const DI_APPBANDING: u32 = 1;
+        const DI_ROPS_READ_DESTINATION: u32 = 2;
+        const DKGRAY_BRUSH: u32 = 3;
+        const DMBIN_AUTO: u32 = 7;
+        const DMBIN_CASSETTE: u32 = 14;
+        const DMBIN_ENVELOPE: u32 = 5;
+        const DMBIN_ENVMANUAL: u32 = 6;
+        const DMBIN_FIRST: u32 = 1;
+        const DMBIN_FORMSOURCE: u32 = 15;
+        const DMBIN_LARGECAPACITY: u32 = 11;
+        const DMBIN_LARGEFMT: u32 = 10;
+        const DMBIN_LAST: u32 = 15;
+        const DMBIN_LOWER: u32 = 2;
+        const DMBIN_MANUAL: u32 = 4;
+        const DMBIN_MIDDLE: u32 = 3;
+        const DMBIN_ONLYONE: u32 = 1;
+        const DMBIN_SMALLFMT: u32 = 9;
+        const DMBIN_TRACTOR: u32 = 8;
+        const DMBIN_UPPER: u32 = 1;
+        const DMBIN_USER: u32 = 256;
+        const DMCOLLATE_FALSE: u32 = 0;
+        const DMCOLLATE_TRUE: u32 = 1;
+        const DMCOLOR_COLOR: u32 = 2;
+        const DMCOLOR_MONOCHROME: u32 = 1;
+        const DMDFO_CENTER: u32 = 2;
+        const DMDFO_DEFAULT: u32 = 0;
+        const DMDFO_STRETCH: u32 = 1;
+        const DMDISPLAYFLAGS_TEXTMODE: u32 = 4;
+        const DMDITHER_COARSE: u32 = 2;
+        const DMDITHER_ERRORDIFFUSION: u32 = 5;
+        const DMDITHER_FINE: u32 = 3;
+        const DMDITHER_GRAYSCALE: u32 = 10;
+        const DMDITHER_LINEART: u32 = 4;
+        const DMDITHER_NONE: u32 = 1;
+        const DMDITHER_RESERVED6: u32 = 6;
+        const DMDITHER_RESERVED7: u32 = 7;
+        const DMDITHER_RESERVED8: u32 = 8;
+        const DMDITHER_RESERVED9: u32 = 9;
+        const DMDITHER_USER: u32 = 256;
+        const DMDO_180: u32 = 2;
+        const DMDO_270: u32 = 3;
+        const DMDO_90: u32 = 1;
+        const DMDO_DEFAULT: u32 = 0;
+        const DMDUP_HORIZONTAL: u32 = 3;
+        const DMDUP_SIMPLEX: u32 = 1;
+        const DMDUP_VERTICAL: u32 = 2;
+        const DMICMMETHOD_DEVICE: u32 = 4;
+        const DMICMMETHOD_DRIVER: u32 = 3;
+        const DMICMMETHOD_NONE: u32 = 1;
+        const DMICMMETHOD_SYSTEM: u32 = 2;
+        const DMICMMETHOD_USER: u32 = 256;
+        const DMICM_ABS_COLORIMETRIC: u32 = 4;
+        const DMICM_COLORIMETRIC: u32 = 3;
+        const DMICM_CONTRAST: u32 = 2;
+        const DMICM_SATURATE: u32 = 1;
+        const DMICM_USER: u32 = 256;
+        const DMMEDIA_GLOSSY: u32 = 3;
+        const DMMEDIA_STANDARD: u32 = 1;
+        const DMMEDIA_TRANSPARENCY: u32 = 2;
+        const DMMEDIA_USER: u32 = 256;
+        const DMNUP_ONEUP: u32 = 2;
+        const DMNUP_SYSTEM: u32 = 1;
+        const DMORIENT_LANDSCAPE: u32 = 2;
+        const DMORIENT_PORTRAIT: u32 = 1;
+        const DMPAPER_10X11: u32 = 45;
+        const DMPAPER_10X14: u32 = 16;
+        const DMPAPER_11X17: u32 = 17;
+        const DMPAPER_12X11: u32 = 90;
+        const DMPAPER_15X11: u32 = 46;
+        const DMPAPER_9X11: u32 = 44;
+        const DMPAPER_A2: u32 = 66;
+        const DMPAPER_A3: u32 = 8;
+        const DMPAPER_A3_EXTRA: u32 = 63;
+        const DMPAPER_A3_EXTRA_TRANSVERSE: u32 = 68;
+        const DMPAPER_A3_ROTATED: u32 = 76;
+        const DMPAPER_A3_TRANSVERSE: u32 = 67;
+        const DMPAPER_A4: u32 = 9;
+        const DMPAPER_A4SMALL: u32 = 10;
+        const DMPAPER_A4_EXTRA: u32 = 53;
+        const DMPAPER_A4_PLUS: u32 = 60;
+        const DMPAPER_A4_ROTATED: u32 = 77;
+        const DMPAPER_A4_TRANSVERSE: u32 = 55;
+        const DMPAPER_A5: u32 = 11;
+        const DMPAPER_A5_EXTRA: u32 = 64;
+        const DMPAPER_A5_ROTATED: u32 = 78;
+        const DMPAPER_A5_TRANSVERSE: u32 = 61;
+        const DMPAPER_A6: u32 = 70;
+        const DMPAPER_A6_ROTATED: u32 = 83;
+        const DMPAPER_A_PLUS: u32 = 57;
+        const DMPAPER_B4: u32 = 12;
+        const DMPAPER_B4_JIS_ROTATED: u32 = 79;
+        const DMPAPER_B5: u32 = 13;
+        const DMPAPER_B5_EXTRA: u32 = 65;
+        const DMPAPER_B5_JIS_ROTATED: u32 = 80;
+        const DMPAPER_B5_TRANSVERSE: u32 = 62;
+        const DMPAPER_B6_JIS: u32 = 88;
+        const DMPAPER_B6_JIS_ROTATED: u32 = 89;
+        const DMPAPER_B_PLUS: u32 = 58;
+        const DMPAPER_CSHEET: u32 = 24;
+        const DMPAPER_DBL_JAPANESE_POSTCARD: u32 = 69;
+        const DMPAPER_DBL_JAPANESE_POSTCARD_ROTATED: u32 = 82;
+        const DMPAPER_DSHEET: u32 = 25;
+        const DMPAPER_ENV_10: u32 = 20;
+        const DMPAPER_ENV_11: u32 = 21;
+        const DMPAPER_ENV_12: u32 = 22;
+        const DMPAPER_ENV_14: u32 = 23;
+        const DMPAPER_ENV_9: u32 = 19;
+        const DMPAPER_ENV_B4: u32 = 33;
+        const DMPAPER_ENV_B5: u32 = 34;
+        const DMPAPER_ENV_B6: u32 = 35;
+        const DMPAPER_ENV_C3: u32 = 29;
+        const DMPAPER_ENV_C4: u32 = 30;
+        const DMPAPER_ENV_C5: u32 = 28;
+        const DMPAPER_ENV_C6: u32 = 31;
+        const DMPAPER_ENV_C65: u32 = 32;
+        const DMPAPER_ENV_DL: u32 = 27;
+        const DMPAPER_ENV_INVITE: u32 = 47;
+        const DMPAPER_ENV_ITALY: u32 = 36;
+        const DMPAPER_ENV_MONARCH: u32 = 37;
+        const DMPAPER_ENV_PERSONAL: u32 = 38;
+        const DMPAPER_ESHEET: u32 = 26;
+        const DMPAPER_EXECUTIVE: u32 = 7;
+        const DMPAPER_FANFOLD_LGL_GERMAN: u32 = 41;
+        const DMPAPER_FANFOLD_STD_GERMAN: u32 = 40;
+        const DMPAPER_FANFOLD_US: u32 = 39;
+        const DMPAPER_FIRST: u32 = 1;
+        const DMPAPER_FOLIO: u32 = 14;
+        const DMPAPER_ISO_B4: u32 = 42;
+        const DMPAPER_JAPANESE_POSTCARD: u32 = 43;
+        const DMPAPER_JAPANESE_POSTCARD_ROTATED: u32 = 81;
+        const DMPAPER_JENV_CHOU3: u32 = 73;
+        const DMPAPER_JENV_CHOU3_ROTATED: u32 = 86;
+        const DMPAPER_JENV_CHOU4: u32 = 74;
+        const DMPAPER_JENV_CHOU4_ROTATED: u32 = 87;
+        const DMPAPER_JENV_KAKU2: u32 = 71;
+        const DMPAPER_JENV_KAKU2_ROTATED: u32 = 84;
+        const DMPAPER_JENV_KAKU3: u32 = 72;
+        const DMPAPER_JENV_KAKU3_ROTATED: u32 = 85;
+        const DMPAPER_JENV_YOU4: u32 = 91;
+        const DMPAPER_JENV_YOU4_ROTATED: u32 = 92;
+        const DMPAPER_LAST: u32 = 118;
+        const DMPAPER_LEDGER: u32 = 4;
+        const DMPAPER_LEGAL: u32 = 5;
+        const DMPAPER_LEGAL_EXTRA: u32 = 51;
+        const DMPAPER_LETTER: u32 = 1;
+        const DMPAPER_LETTERSMALL: u32 = 2;
+        const DMPAPER_LETTER_EXTRA: u32 = 50;
+        const DMPAPER_LETTER_EXTRA_TRANSVERSE: u32 = 56;
+        const DMPAPER_LETTER_PLUS: u32 = 59;
+        const DMPAPER_LETTER_ROTATED: u32 = 75;
+        const DMPAPER_LETTER_TRANSVERSE: u32 = 54;
+        const DMPAPER_NOTE: u32 = 18;
+        const DMPAPER_P16K: u32 = 93;
+        const DMPAPER_P16K_ROTATED: u32 = 106;
+        const DMPAPER_P32K: u32 = 94;
+        const DMPAPER_P32KBIG: u32 = 95;
+        const DMPAPER_P32KBIG_ROTATED: u32 = 108;
+        const DMPAPER_P32K_ROTATED: u32 = 107;
+        const DMPAPER_PENV_1: u32 = 96;
+        const DMPAPER_PENV_10: u32 = 105;
+        const DMPAPER_PENV_10_ROTATED: u32 = 118;
+        const DMPAPER_PENV_1_ROTATED: u32 = 109;
+        const DMPAPER_PENV_2: u32 = 97;
+        const DMPAPER_PENV_2_ROTATED: u32 = 110;
+        const DMPAPER_PENV_3: u32 = 98;
+        const DMPAPER_PENV_3_ROTATED: u32 = 111;
+        const DMPAPER_PENV_4: u32 = 99;
+        const DMPAPER_PENV_4_ROTATED: u32 = 112;
+        const DMPAPER_PENV_5: u32 = 100;
+        const DMPAPER_PENV_5_ROTATED: u32 = 113;
+        const DMPAPER_PENV_6: u32 = 101;
+        const DMPAPER_PENV_6_ROTATED: u32 = 114;
+        const DMPAPER_PENV_7: u32 = 102;
+        const DMPAPER_PENV_7_ROTATED: u32 = 115;
+        const DMPAPER_PENV_8: u32 = 103;
+        const DMPAPER_PENV_8_ROTATED: u32 = 116;
+        const DMPAPER_PENV_9: u32 = 104;
+        const DMPAPER_PENV_9_ROTATED: u32 = 117;
+        const DMPAPER_QUARTO: u32 = 15;
+        const DMPAPER_RESERVED_48: u32 = 48;
+        const DMPAPER_RESERVED_49: u32 = 49;
+        const DMPAPER_STATEMENT: u32 = 6;
+        const DMPAPER_TABLOID: u32 = 3;
+        const DMPAPER_TABLOID_EXTRA: u32 = 52;
+        const DMPAPER_USER: u32 = 256;
+        const DMRES_DRAFT: i32 = -1;
+        const DMRES_HIGH: i32 = -4;
+        const DMRES_LOW: i32 = -2;
+        const DMRES_MEDIUM: i32 = -3;
+        const DMTT_BITMAP: u32 = 1;
+        const DMTT_DOWNLOAD: u32 = 2;
+        const DMTT_DOWNLOAD_OUTLINE: u32 = 4;
+        const DMTT_SUBDEV: u32 = 3;
+        const DM_BITSPERPEL: u32 = 262144;
+        const DM_COLLATE: u32 = 32768;
+        const DM_COLOR: u32 = 2048;
+        const DM_COPIES: u32 = 256;
+        const DM_DEFAULTSOURCE: u32 = 512;
+        const DM_DISPLAYFIXEDOUTPUT: u32 = 536870912;
+        const DM_DISPLAYFLAGS: u32 = 2097152;
+        const DM_DISPLAYFREQUENCY: u32 = 4194304;
+        const DM_DISPLAYORIENTATION: u32 = 128;
+        const DM_DITHERTYPE: u32 = 67108864;
+        const DM_DUPLEX: u32 = 4096;
+        const DM_FORMNAME: u32 = 65536;
+        const DM_ICMINTENT: u32 = 16777216;
+        const DM_ICMMETHOD: u32 = 8388608;
+        const DM_INTERLACED: u32 = 2;
+        const DM_LOGPIXELS: u32 = 131072;
+        const DM_MEDIATYPE: u32 = 33554432;
+        const DM_NUP: u32 = 64;
+        const DM_ORIENTATION: u32 = 1;
+        const DM_PANNINGHEIGHT: u32 = 268435456;
+        const DM_PANNINGWIDTH: u32 = 134217728;
+        const DM_PAPERLENGTH: u32 = 4;
+        const DM_PAPERSIZE: u32 = 2;
+        const DM_PAPERWIDTH: u32 = 8;
+        const DM_PELSHEIGHT: u32 = 1048576;
+        const DM_PELSWIDTH: u32 = 524288;
+        const DM_POSITION: u32 = 32;
+        const DM_PRINTQUALITY: u32 = 1024;
+        const DM_SCALE: u32 = 16;
+        const DM_SPECVERSION: u32 = 1025;
+        const DM_TTOPTION: u32 = 16384;
+        const DM_YRESOLUTION: u32 = 8192;
+        type DOCINFO = DOCINFOA;
+        struct DOCINFOA {
+            cbSize: i32,
+            lpszDocName: PCSTR,
+            lpszOutput: PCSTR,
+            lpszDatatype: PCSTR,
+            fwType: u32,
+        }
+        struct DOCINFOW {
+            cbSize: i32,
+            lpszDocName: PCWSTR,
+            lpszOutput: PCWSTR,
+            lpszDatatype: PCWSTR,
+            fwType: u32,
+        }
+        const DOWNLOADFACE: u32 = 514;
+        const DOWNLOADHEADER: u32 = 4111;
+        #[library("GDI32.dll")]
+        extern fn DPtoLP(hdc: HDC, #[len_param(2)] #[in] #[out] lppt: *mut POINT, c: i32) -> BOOL;
+        const DRAFTMODE: u32 = 7;
+        const DRAFT_QUALITY: u32 = 1;
+        struct DRAWPATRECT {
+            ptPosition: POINT,
+            ptSize: POINT,
+            wStyle: u16,
+            wPattern: u16,
+        }
+        const DRAWPATTERNRECT: u32 = 25;
+        const DRIVERVERSION: u32 = 0;
+        const DSTINVERT: u32 = 5570569;
+        const DT_CHARSTREAM: u32 = 4;
+        const DT_DISPFILE: u32 = 6;
+        const DT_METAFILE: u32 = 5;
+        const DT_PLOTTER: u32 = 0;
+        const DT_RASCAMERA: u32 = 3;
+        const DT_RASDISPLAY: u32 = 1;
+        const DT_RASPRINTER: u32 = 2;
+        #[library("GDI32.dll")]
+        extern fn DeleteColorSpace(hcs: HCOLORSPACE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn DeleteDC(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn DeleteEnhMetaFile(#[opt] hmf: HENHMETAFILE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn DeleteMetaFile(hmf: HMETAFILE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn DeleteObject(ho: HGDIOBJ) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn DescribePixelFormat(hdc: HDC, iPixelFormat: i32, nBytes: u32, #[size_param(2)] #[opt] ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32;
+        #[library("WINSPOOL.DRV")]
+        extern fn DeviceCapabilitiesA(pDevice: PCSTR, #[opt] pPort: PCSTR, fwCapability: u16, #[out] #[opt] pOutput: PSTR, #[opt] pDevMode: *const DEVMODEA) -> i32;
+        #[library("WINSPOOL.DRV")]
+        extern fn DeviceCapabilitiesW(pDevice: PCWSTR, #[opt] pPort: PCWSTR, fwCapability: u16, #[out] #[opt] pOutput: PWSTR, #[opt] pDevMode: *const DEVMODEW) -> i32;
+        #[library("GDI32.dll")]
+        extern fn DrawEscape(hdc: HDC, iEscape: i32, cjIn: i32, #[size_param(2)] #[opt] lpIn: PCSTR) -> i32;
+        const EASTEUROPE_CHARSET: u32 = 238;
+        const ELF_CULTURE_LATIN: u32 = 0;
+        const ELF_VENDOR_SIZE: u32 = 4;
+        const ELF_VERSION: u32 = 0;
+        struct EMR {
+            iType: u32,
+            nSize: u32,
+        }
+        struct EMRABORTPATH {
+            emr: EMR,
+        }
+        struct EMRALPHABLEND {
+            emr: EMR,
+            rclBounds: RECTL,
+            xDest: i32,
+            yDest: i32,
+            cxDest: i32,
+            cyDest: i32,
+            dwRop: u32,
+            xSrc: i32,
+            ySrc: i32,
+            xformSrc: XFORM,
+            crBkColorSrc: COLORREF,
+            iUsageSrc: u32,
+            offBmiSrc: u32,
+            cbBmiSrc: u32,
+            offBitsSrc: u32,
+            cbBitsSrc: u32,
+            cxSrc: i32,
+            cySrc: i32,
+        }
+        struct EMRANGLEARC {
+            emr: EMR,
+            ptlCenter: POINTL,
+            nRadius: u32,
+            eStartAngle: f32,
+            eSweepAngle: f32,
+        }
+        struct EMRARC {
+            emr: EMR,
+            rclBox: RECTL,
+            ptlStart: POINTL,
+            ptlEnd: POINTL,
+        }
+        type EMRARCTO = EMRARC;
+        type EMRBEGINPATH = EMRABORTPATH;
+        struct EMRBITBLT {
+            emr: EMR,
+            rclBounds: RECTL,
+            xDest: i32,
+            yDest: i32,
+            cxDest: i32,
+            cyDest: i32,
+            dwRop: u32,
+            xSrc: i32,
+            ySrc: i32,
+            xformSrc: XFORM,
+            crBkColorSrc: COLORREF,
+            iUsageSrc: u32,
+            offBmiSrc: u32,
+            cbBmiSrc: u32,
+            offBitsSrc: u32,
+            cbBitsSrc: u32,
+        }
+        type EMRCHORD = EMRARC;
+        type EMRCLOSEFIGURE = EMRABORTPATH;
+        struct EMRCOLORCORRECTPALETTE {
+            emr: EMR,
+            ihPalette: u32,
+            nFirstEntry: u32,
+            nPalEntries: u32,
+            nReserved: u32,
+        }
+        struct EMRCOLORMATCHTOTARGET {
+            emr: EMR,
+            dwAction: u32,
+            dwFlags: u32,
+            cbName: u32,
+            cbData: u32,
+            Data: [u8; 1],
+        }
+        struct EMRCREATEBRUSHINDIRECT {
+            emr: EMR,
+            ihBrush: u32,
+            lb: LOGBRUSH32,
+        }
+        struct EMRCREATECOLORSPACE {
+            emr: EMR,
+            ihCS: u32,
+            lcs: LOGCOLORSPACEA,
+        }
+        struct EMRCREATECOLORSPACEW {
+            emr: EMR,
+            ihCS: u32,
+            lcs: LOGCOLORSPACEW,
+            dwFlags: u32,
+            cbData: u32,
+            Data: [u8; 1],
+        }
+        struct EMRCREATEDIBPATTERNBRUSHPT {
+            emr: EMR,
+            ihBrush: u32,
+            iUsage: u32,
+            offBmi: u32,
+            cbBmi: u32,
+            offBits: u32,
+            cbBits: u32,
+        }
+        struct EMRCREATEMONOBRUSH {
+            emr: EMR,
+            ihBrush: u32,
+            iUsage: u32,
+            offBmi: u32,
+            cbBmi: u32,
+            offBits: u32,
+            cbBits: u32,
+        }
+        struct EMRCREATEPALETTE {
+            emr: EMR,
+            ihPal: u32,
+            lgpl: LOGPALETTE,
+        }
+        struct EMRCREATEPEN {
+            emr: EMR,
+            ihPen: u32,
+            lopn: LOGPEN,
+        }
+        type EMRDELETECOLORSPACE = EMRSETCOLORSPACE;
+        type EMRDELETEOBJECT = EMRSELECTOBJECT;
+        type EMRDRAWESCAPE = EMREXTESCAPE;
+        struct EMRELLIPSE {
+            emr: EMR,
+            rclBox: RECTL,
+        }
+        type EMRENDPATH = EMRABORTPATH;
+        struct EMREOF {
+            emr: EMR,
+            nPalEntries: u32,
+            offPalEntries: u32,
+            nSizeLast: u32,
+        }
+        struct EMREXCLUDECLIPRECT {
+            emr: EMR,
+            rclClip: RECTL,
+        }
+        struct EMREXTCREATEFONTINDIRECTW {
+            emr: EMR,
+            ihFont: u32,
+            elfw: EXTLOGFONTW,
+        }
+        struct EMREXTCREATEPEN {
+            emr: EMR,
+            ihPen: u32,
+            offBmi: u32,
+            cbBmi: u32,
+            offBits: u32,
+            cbBits: u32,
+            elp: EXTLOGPEN32,
+        }
+        struct EMREXTESCAPE {
+            emr: EMR,
+            iEscape: i32,
+            cbEscData: i32,
+            EscData: [u8; 1],
+        }
+        struct EMREXTFLOODFILL {
+            emr: EMR,
+            ptlStart: POINTL,
+            crColor: COLORREF,
+            iMode: u32,
+        }
+        struct EMREXTSELECTCLIPRGN {
+            emr: EMR,
+            cbRgnData: u32,
+            iMode: u32,
+            RgnData: [u8; 1],
+        }
+        struct EMREXTTEXTOUTA {
+            emr: EMR,
+            rclBounds: RECTL,
+            iGraphicsMode: u32,
+            exScale: f32,
+            eyScale: f32,
+            emrtext: EMRTEXT,
+        }
+        type EMREXTTEXTOUTW = EMREXTTEXTOUTA;
+        struct EMRFILLPATH {
+            emr: EMR,
+            rclBounds: RECTL,
+        }
+        struct EMRFILLRGN {
+            emr: EMR,
+            rclBounds: RECTL,
+            cbRgnData: u32,
+            ihBrush: u32,
+            RgnData: [u8; 1],
+        }
+        type EMRFLATTENPATH = EMRABORTPATH;
+        struct EMRFORMAT {
+            dSignature: u32,
+            nVersion: u32,
+            cbData: u32,
+            offData: u32,
+        }
+        struct EMRFRAMERGN {
+            emr: EMR,
+            rclBounds: RECTL,
+            cbRgnData: u32,
+            ihBrush: u32,
+            szlStroke: SIZEL,
+            RgnData: [u8; 1],
+        }
+        struct EMRGDICOMMENT {
+            emr: EMR,
+            cbData: u32,
+            Data: [u8; 1],
+        }
+        struct EMRGLSBOUNDEDRECORD {
+            emr: EMR,
+            rclBounds: RECTL,
+            cbData: u32,
+            Data: [u8; 1],
+        }
+        struct EMRGLSRECORD {
+            emr: EMR,
+            cbData: u32,
+            Data: [u8; 1],
+        }
+        struct EMRGRADIENTFILL {
+            emr: EMR,
+            rclBounds: RECTL,
+            nVer: u32,
+            nTri: u32,
+            ulMode: u32,
+            Ver: [TRIVERTEX; 1],
+        }
+        type EMRINTERSECTCLIPRECT = EMREXCLUDECLIPRECT;
+        struct EMRINVERTRGN {
+            emr: EMR,
+            rclBounds: RECTL,
+            cbRgnData: u32,
+            RgnData: [u8; 1],
+        }
+        struct EMRLINETO {
+            emr: EMR,
+            ptl: POINTL,
+        }
+        struct EMRMASKBLT {
+            emr: EMR,
+            rclBounds: RECTL,
+            xDest: i32,
+            yDest: i32,
+            cxDest: i32,
+            cyDest: i32,
+            dwRop: u32,
+            xSrc: i32,
+            ySrc: i32,
+            xformSrc: XFORM,
+            crBkColorSrc: COLORREF,
+            iUsageSrc: u32,
+            offBmiSrc: u32,
+            cbBmiSrc: u32,
+            offBitsSrc: u32,
+            cbBitsSrc: u32,
+            xMask: i32,
+            yMask: i32,
+            iUsageMask: u32,
+            offBmiMask: u32,
+            cbBmiMask: u32,
+            offBitsMask: u32,
+            cbBitsMask: u32,
+        }
+        struct EMRMODIFYWORLDTRANSFORM {
+            emr: EMR,
+            xform: XFORM,
+            iMode: u32,
+        }
+        type EMRMOVETOEX = EMRLINETO;
+        struct EMRNAMEDESCAPE {
+            emr: EMR,
+            iEscape: i32,
+            cbDriver: i32,
+            cbEscData: i32,
+            EscData: [u8; 1],
+        }
+        struct EMROFFSETCLIPRGN {
+            emr: EMR,
+            ptlOffset: POINTL,
+        }
+        type EMRPAINTRGN = EMRINVERTRGN;
+        type EMRPIE = EMRARC;
+        struct EMRPIXELFORMAT {
+            emr: EMR,
+            pfd: PIXELFORMATDESCRIPTOR,
+        }
+        struct EMRPLGBLT {
+            emr: EMR,
+            rclBounds: RECTL,
+            aptlDest: [POINTL; 3],
+            xSrc: i32,
+            ySrc: i32,
+            cxSrc: i32,
+            cySrc: i32,
+            xformSrc: XFORM,
+            crBkColorSrc: COLORREF,
+            iUsageSrc: u32,
+            offBmiSrc: u32,
+            cbBmiSrc: u32,
+            offBitsSrc: u32,
+            cbBitsSrc: u32,
+            xMask: i32,
+            yMask: i32,
+            iUsageMask: u32,
+            offBmiMask: u32,
+            cbBmiMask: u32,
+            offBitsMask: u32,
+            cbBitsMask: u32,
+        }
+        type EMRPOLYBEZIER = EMRPOLYLINE;
+        type EMRPOLYBEZIER16 = EMRPOLYLINE16;
+        type EMRPOLYBEZIERTO = EMRPOLYLINE;
+        type EMRPOLYBEZIERTO16 = EMRPOLYLINE16;
+        struct EMRPOLYDRAW {
+            emr: EMR,
+            rclBounds: RECTL,
+            cptl: u32,
+            aptl: [POINTL; 1],
+            abTypes: [u8; 1],
+        }
+        struct EMRPOLYDRAW16 {
+            emr: EMR,
+            rclBounds: RECTL,
+            cpts: u32,
+            apts: [POINTS; 1],
+            abTypes: [u8; 1],
+        }
+        type EMRPOLYGON = EMRPOLYLINE;
+        type EMRPOLYGON16 = EMRPOLYLINE16;
+        struct EMRPOLYLINE {
+            emr: EMR,
+            rclBounds: RECTL,
+            cptl: u32,
+            aptl: [POINTL; 1],
+        }
+        struct EMRPOLYLINE16 {
+            emr: EMR,
+            rclBounds: RECTL,
+            cpts: u32,
+            apts: [POINTS; 1],
+        }
+        type EMRPOLYLINETO = EMRPOLYLINE;
+        type EMRPOLYLINETO16 = EMRPOLYLINE16;
+        type EMRPOLYPOLYGON = EMRPOLYPOLYLINE;
+        type EMRPOLYPOLYGON16 = EMRPOLYPOLYLINE16;
+        struct EMRPOLYPOLYLINE {
+            emr: EMR,
+            rclBounds: RECTL,
+            nPolys: u32,
+            cptl: u32,
+            aPolyCounts: [u32; 1],
+            aptl: [POINTL; 1],
+        }
+        struct EMRPOLYPOLYLINE16 {
+            emr: EMR,
+            rclBounds: RECTL,
+            nPolys: u32,
+            cpts: u32,
+            aPolyCounts: [u32; 1],
+            apts: [POINTS; 1],
+        }
+        struct EMRPOLYTEXTOUTA {
+            emr: EMR,
+            rclBounds: RECTL,
+            iGraphicsMode: u32,
+            exScale: f32,
+            eyScale: f32,
+            cStrings: i32,
+            aemrtext: [EMRTEXT; 1],
+        }
+        type EMRPOLYTEXTOUTW = EMRPOLYTEXTOUTA;
+        type EMRREALIZEPALETTE = EMRABORTPATH;
+        type EMRRECTANGLE = EMRELLIPSE;
+        struct EMRRESIZEPALETTE {
+            emr: EMR,
+            ihPal: u32,
+            cEntries: u32,
+        }
+        struct EMRRESTOREDC {
+            emr: EMR,
+            iRelative: i32,
+        }
+        struct EMRROUNDRECT {
+            emr: EMR,
+            rclBox: RECTL,
+            szlCorner: SIZEL,
+        }
+        type EMRSAVEDC = EMRABORTPATH;
+        struct EMRSCALEVIEWPORTEXTEX {
+            emr: EMR,
+            xNum: i32,
+            xDenom: i32,
+            yNum: i32,
+            yDenom: i32,
+        }
+        type EMRSCALEWINDOWEXTEX = EMRSCALEVIEWPORTEXTEX;
+        struct EMRSELECTCLIPPATH {
+            emr: EMR,
+            iMode: u32,
+        }
+        type EMRSELECTCOLORSPACE = EMRSETCOLORSPACE;
+        struct EMRSELECTOBJECT {
+            emr: EMR,
+            ihObject: u32,
+        }
+        struct EMRSELECTPALETTE {
+            emr: EMR,
+            ihPal: u32,
+        }
+        struct EMRSETARCDIRECTION {
+            emr: EMR,
+            iArcDirection: u32,
+        }
+        struct EMRSETBKCOLOR {
+            emr: EMR,
+            crColor: COLORREF,
+        }
+        type EMRSETBKMODE = EMRSELECTCLIPPATH;
+        type EMRSETBRUSHORGEX = EMRSETVIEWPORTORGEX;
+        struct EMRSETCOLORADJUSTMENT {
+            emr: EMR,
+            ColorAdjustment: COLORADJUSTMENT,
+        }
+        struct EMRSETCOLORSPACE {
+            emr: EMR,
+            ihCS: u32,
+        }
+        struct EMRSETDIBITSTODEVICE {
+            emr: EMR,
+            rclBounds: RECTL,
+            xDest: i32,
+            yDest: i32,
+            xSrc: i32,
+            ySrc: i32,
+            cxSrc: i32,
+            cySrc: i32,
+            offBmiSrc: u32,
+            cbBmiSrc: u32,
+            offBitsSrc: u32,
+            cbBitsSrc: u32,
+            iUsageSrc: u32,
+            iStartScan: u32,
+            cScans: u32,
+        }
+        type EMRSETICMMODE = EMRSELECTCLIPPATH;
+        struct EMRSETICMPROFILE {
+            emr: EMR,
+            dwFlags: u32,
+            cbName: u32,
+            cbData: u32,
+            Data: [u8; 1],
+        }
+        type EMRSETICMPROFILEA = EMRSETICMPROFILE;
+        type EMRSETICMPROFILEW = EMRSETICMPROFILE;
+        type EMRSETLAYOUT = EMRSELECTCLIPPATH;
+        type EMRSETMAPMODE = EMRSELECTCLIPPATH;
+        struct EMRSETMAPPERFLAGS {
+            emr: EMR,
+            dwFlags: u32,
+        }
+        type EMRSETMETARGN = EMRABORTPATH;
+        struct EMRSETMITERLIMIT {
+            emr: EMR,
+            eMiterLimit: f32,
+        }
+        struct EMRSETPALETTEENTRIES {
+            emr: EMR,
+            ihPal: u32,
+            iStart: u32,
+            cEntries: u32,
+            aPalEntries: [PALETTEENTRY; 1],
+        }
+        struct EMRSETPIXELV {
+            emr: EMR,
+            ptlPixel: POINTL,
+            crColor: COLORREF,
+        }
+        type EMRSETPOLYFILLMODE = EMRSELECTCLIPPATH;
+        type EMRSETROP2 = EMRSELECTCLIPPATH;
+        type EMRSETSTRETCHBLTMODE = EMRSELECTCLIPPATH;
+        type EMRSETTEXTALIGN = EMRSELECTCLIPPATH;
+        type EMRSETTEXTCOLOR = EMRSETBKCOLOR;
+        struct EMRSETVIEWPORTEXTEX {
+            emr: EMR,
+            szlExtent: SIZEL,
+        }
+        struct EMRSETVIEWPORTORGEX {
+            emr: EMR,
+            ptlOrigin: POINTL,
+        }
+        type EMRSETWINDOWEXTEX = EMRSETVIEWPORTEXTEX;
+        type EMRSETWINDOWORGEX = EMRSETVIEWPORTORGEX;
+        struct EMRSETWORLDTRANSFORM {
+            emr: EMR,
+            xform: XFORM,
+        }
+        struct EMRSTRETCHBLT {
+            emr: EMR,
+            rclBounds: RECTL,
+            xDest: i32,
+            yDest: i32,
+            cxDest: i32,
+            cyDest: i32,
+            dwRop: u32,
+            xSrc: i32,
+            ySrc: i32,
+            xformSrc: XFORM,
+            crBkColorSrc: COLORREF,
+            iUsageSrc: u32,
+            offBmiSrc: u32,
+            cbBmiSrc: u32,
+            offBitsSrc: u32,
+            cbBitsSrc: u32,
+            cxSrc: i32,
+            cySrc: i32,
+        }
+        struct EMRSTRETCHDIBITS {
+            emr: EMR,
+            rclBounds: RECTL,
+            xDest: i32,
+            yDest: i32,
+            xSrc: i32,
+            ySrc: i32,
+            cxSrc: i32,
+            cySrc: i32,
+            offBmiSrc: u32,
+            cbBmiSrc: u32,
+            offBitsSrc: u32,
+            cbBitsSrc: u32,
+            iUsageSrc: u32,
+            dwRop: u32,
+            cxDest: i32,
+            cyDest: i32,
+        }
+        type EMRSTROKEANDFILLPATH = EMRFILLPATH;
+        type EMRSTROKEPATH = EMRFILLPATH;
+        struct EMRTEXT {
+            ptlReference: POINTL,
+            nChars: u32,
+            offString: u32,
+            fOptions: u32,
+            rcl: RECTL,
+            offDx: u32,
+        }
+        struct EMRTRANSPARENTBLT {
+            emr: EMR,
+            rclBounds: RECTL,
+            xDest: i32,
+            yDest: i32,
+            cxDest: i32,
+            cyDest: i32,
+            dwRop: u32,
+            xSrc: i32,
+            ySrc: i32,
+            xformSrc: XFORM,
+            crBkColorSrc: COLORREF,
+            iUsageSrc: u32,
+            offBmiSrc: u32,
+            cbBmiSrc: u32,
+            offBitsSrc: u32,
+            cbBitsSrc: u32,
+            cxSrc: i32,
+            cySrc: i32,
+        }
+        type EMRWIDENPATH = EMRABORTPATH;
+        const EMR_ABORTPATH: u32 = 68;
+        const EMR_ALPHABLEND: u32 = 114;
+        const EMR_ANGLEARC: u32 = 41;
+        const EMR_ARC: u32 = 45;
+        const EMR_ARCTO: u32 = 55;
+        const EMR_BEGINPATH: u32 = 59;
+        const EMR_BITBLT: u32 = 76;
+        const EMR_CHORD: u32 = 46;
+        const EMR_CLOSEFIGURE: u32 = 61;
+        const EMR_COLORCORRECTPALETTE: u32 = 111;
+        const EMR_COLORMATCHTOTARGETW: u32 = 121;
+        const EMR_CREATEBRUSHINDIRECT: u32 = 39;
+        const EMR_CREATECOLORSPACE: u32 = 99;
+        const EMR_CREATECOLORSPACEW: u32 = 122;
+        const EMR_CREATEDIBPATTERNBRUSHPT: u32 = 94;
+        const EMR_CREATEMONOBRUSH: u32 = 93;
+        const EMR_CREATEPALETTE: u32 = 49;
+        const EMR_CREATEPEN: u32 = 38;
+        const EMR_DELETECOLORSPACE: u32 = 101;
+        const EMR_DELETEOBJECT: u32 = 40;
+        const EMR_ELLIPSE: u32 = 42;
+        const EMR_ENDPATH: u32 = 60;
+        const EMR_EOF: u32 = 14;
+        const EMR_EXCLUDECLIPRECT: u32 = 29;
+        const EMR_EXTCREATEFONTINDIRECTW: u32 = 82;
+        const EMR_EXTCREATEPEN: u32 = 95;
+        const EMR_EXTFLOODFILL: u32 = 53;
+        const EMR_EXTSELECTCLIPRGN: u32 = 75;
+        const EMR_EXTTEXTOUTA: u32 = 83;
+        const EMR_EXTTEXTOUTW: u32 = 84;
+        const EMR_FILLPATH: u32 = 62;
+        const EMR_FILLRGN: u32 = 71;
+        const EMR_FLATTENPATH: u32 = 65;
+        const EMR_FRAMERGN: u32 = 72;
+        const EMR_GDICOMMENT: u32 = 70;
+        const EMR_GLSBOUNDEDRECORD: u32 = 103;
+        const EMR_GLSRECORD: u32 = 102;
+        const EMR_GRADIENTFILL: u32 = 118;
+        const EMR_HEADER: u32 = 1;
+        const EMR_INTERSECTCLIPRECT: u32 = 30;
+        const EMR_INVERTRGN: u32 = 73;
+        const EMR_LINETO: u32 = 54;
+        const EMR_MASKBLT: u32 = 78;
+        const EMR_MAX: u32 = 122;
+        const EMR_MIN: u32 = 1;
+        const EMR_MODIFYWORLDTRANSFORM: u32 = 36;
+        const EMR_MOVETOEX: u32 = 27;
+        const EMR_OFFSETCLIPRGN: u32 = 26;
+        const EMR_PAINTRGN: u32 = 74;
+        const EMR_PIE: u32 = 47;
+        const EMR_PIXELFORMAT: u32 = 104;
+        const EMR_PLGBLT: u32 = 79;
+        const EMR_POLYBEZIER: u32 = 2;
+        const EMR_POLYBEZIER16: u32 = 85;
+        const EMR_POLYBEZIERTO: u32 = 5;
+        const EMR_POLYBEZIERTO16: u32 = 88;
+        const EMR_POLYDRAW: u32 = 56;
+        const EMR_POLYDRAW16: u32 = 92;
+        const EMR_POLYGON: u32 = 3;
+        const EMR_POLYGON16: u32 = 86;
+        const EMR_POLYLINE: u32 = 4;
+        const EMR_POLYLINE16: u32 = 87;
+        const EMR_POLYLINETO: u32 = 6;
+        const EMR_POLYLINETO16: u32 = 89;
+        const EMR_POLYPOLYGON: u32 = 8;
+        const EMR_POLYPOLYGON16: u32 = 91;
+        const EMR_POLYPOLYLINE: u32 = 7;
+        const EMR_POLYPOLYLINE16: u32 = 90;
+        const EMR_POLYTEXTOUTA: u32 = 96;
+        const EMR_POLYTEXTOUTW: u32 = 97;
+        const EMR_REALIZEPALETTE: u32 = 52;
+        const EMR_RECTANGLE: u32 = 43;
+        const EMR_RESERVED_105: u32 = 105;
+        const EMR_RESERVED_106: u32 = 106;
+        const EMR_RESERVED_107: u32 = 107;
+        const EMR_RESERVED_108: u32 = 108;
+        const EMR_RESERVED_109: u32 = 109;
+        const EMR_RESERVED_110: u32 = 110;
+        const EMR_RESERVED_117: u32 = 117;
+        const EMR_RESERVED_119: u32 = 119;
+        const EMR_RESERVED_120: u32 = 120;
+        const EMR_RESIZEPALETTE: u32 = 51;
+        const EMR_RESTOREDC: u32 = 34;
+        const EMR_ROUNDRECT: u32 = 44;
+        const EMR_SAVEDC: u32 = 33;
+        const EMR_SCALEVIEWPORTEXTEX: u32 = 31;
+        const EMR_SCALEWINDOWEXTEX: u32 = 32;
+        const EMR_SELECTCLIPPATH: u32 = 67;
+        const EMR_SELECTOBJECT: u32 = 37;
+        const EMR_SELECTPALETTE: u32 = 48;
+        const EMR_SETARCDIRECTION: u32 = 57;
+        const EMR_SETBKCOLOR: u32 = 25;
+        const EMR_SETBKMODE: u32 = 18;
+        const EMR_SETBRUSHORGEX: u32 = 13;
+        const EMR_SETCOLORADJUSTMENT: u32 = 23;
+        const EMR_SETCOLORSPACE: u32 = 100;
+        const EMR_SETDIBITSTODEVICE: u32 = 80;
+        const EMR_SETICMMODE: u32 = 98;
+        const EMR_SETICMPROFILEA: u32 = 112;
+        const EMR_SETICMPROFILEW: u32 = 113;
+        const EMR_SETLAYOUT: u32 = 115;
+        const EMR_SETMAPMODE: u32 = 17;
+        const EMR_SETMAPPERFLAGS: u32 = 16;
+        const EMR_SETMETARGN: u32 = 28;
+        const EMR_SETMITERLIMIT: u32 = 58;
+        const EMR_SETPALETTEENTRIES: u32 = 50;
+        const EMR_SETPIXELV: u32 = 15;
+        const EMR_SETPOLYFILLMODE: u32 = 19;
+        const EMR_SETROP2: u32 = 20;
+        const EMR_SETSTRETCHBLTMODE: u32 = 21;
+        const EMR_SETTEXTALIGN: u32 = 22;
+        const EMR_SETTEXTCOLOR: u32 = 24;
+        const EMR_SETVIEWPORTEXTEX: u32 = 11;
+        const EMR_SETVIEWPORTORGEX: u32 = 12;
+        const EMR_SETWINDOWEXTEX: u32 = 9;
+        const EMR_SETWINDOWORGEX: u32 = 10;
+        const EMR_SETWORLDTRANSFORM: u32 = 35;
+        const EMR_STRETCHBLT: u32 = 77;
+        const EMR_STRETCHDIBITS: u32 = 81;
+        const EMR_STROKEANDFILLPATH: u32 = 63;
+        const EMR_STROKEPATH: u32 = 64;
+        const EMR_TRANSPARENTBLT: u32 = 116;
+        const EMR_WIDENPATH: u32 = 66;
+        const ENABLEDUPLEX: u32 = 28;
+        const ENABLEPAIRKERNING: u32 = 769;
+        const ENABLERELATIVEWIDTHS: u32 = 768;
+        const ENCAPSULATED_POSTSCRIPT: u32 = 4116;
+        const ENDDOC: u32 = 11;
+        const END_PATH: u32 = 4098;
+        struct ENHMETAHEADER {
+            iType: u32,
+            nSize: u32,
+            rclBounds: RECTL,
+            rclFrame: RECTL,
+            dSignature: u32,
+            nVersion: u32,
+            nBytes: u32,
+            nRecords: u32,
+            nHandles: u16,
+            sReserved: u16,
+            nDescription: u32,
+            offDescription: u32,
+            nPalEntries: u32,
+            szlDevice: SIZEL,
+            szlMillimeters: SIZEL,
+            cbPixelFormat: u32,
+            offPixelFormat: u32,
+            bOpenGL: u32,
+            szlMicrometers: SIZEL,
+        }
+        struct ENHMETARECORD {
+            iType: u32,
+            nSize: u32,
+            dParm: [u32; 1],
+        }
+        const ENHMETA_SIGNATURE: u32 = 1179469088;
+        const ENHMETA_STOCK_OBJECT: u32 = 2147483648;
+        extern fn ENHMFENUMPROC(hdc: HDC, #[len_param(3)] lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nHandles: i32, #[opt] data: LPARAM) -> i32;
+        type ENUMLOGFONT = ENUMLOGFONTA;
+        struct ENUMLOGFONTA {
+            elfLogFont: LOGFONTA,
+            elfFullName: [u8; 64],
+            elfStyle: [u8; 32],
+        }
+        type ENUMLOGFONTEX = ENUMLOGFONTEXA;
+        struct ENUMLOGFONTEXA {
+            elfLogFont: LOGFONTA,
+            elfFullName: [u8; 64],
+            elfStyle: [u8; 32],
+            elfScript: [u8; 32],
+        }
+        type ENUMLOGFONTEXDV = ENUMLOGFONTEXDVA;
+        struct ENUMLOGFONTEXDVA {
+            elfEnumLogfontEx: ENUMLOGFONTEXA,
+            elfDesignVector: DESIGNVECTOR,
+        }
+        struct ENUMLOGFONTEXDVW {
+            elfEnumLogfontEx: ENUMLOGFONTEXW,
+            elfDesignVector: DESIGNVECTOR,
+        }
+        struct ENUMLOGFONTEXW {
+            elfLogFont: LOGFONTW,
+            elfFullName: [u16; 64],
+            elfStyle: [u16; 32],
+            elfScript: [u16; 32],
+        }
+        struct ENUMLOGFONTW {
+            elfLogFont: LOGFONTW,
+            elfFullName: [u16; 64],
+            elfStyle: [u16; 32],
+        }
+        const ENUMPAPERBINS: u32 = 31;
+        const ENUMPAPERMETRICS: u32 = 34;
+        type ENUMTEXTMETRIC = ENUMTEXTMETRICA;
+        struct ENUMTEXTMETRICA {
+            etmNewTextMetricEx: NEWTEXTMETRICEXA,
+            etmAxesList: AXESLISTA,
+        }
+        struct ENUMTEXTMETRICW {
+            etmNewTextMetricEx: NEWTEXTMETRICEXW,
+            etmAxesList: AXESLISTW,
+        }
+        const EPSPRINTING: u32 = 33;
+        const EPS_SIGNATURE: u32 = 1179865157;
+        const ERROR: u32 = 0;
+        const ETO_CLIPPED: u32 = 4;
+        const ETO_GLYPH_INDEX: u32 = 16;
+        const ETO_IGNORELANGUAGE: u32 = 4096;
+        const ETO_NUMERICSLATIN: u32 = 2048;
+        const ETO_NUMERICSLOCAL: u32 = 1024;
+        const ETO_OPAQUE: u32 = 2;
+        const ETO_PDY: u32 = 8192;
+        const ETO_REVERSE_INDEX_MAP: u32 = 65536;
+        const ETO_RTLREADING: u32 = 128;
+        type EXTLOGFONT = EXTLOGFONTA;
+        struct EXTLOGFONTA {
+            elfLogFont: LOGFONTA,
+            elfFullName: [u8; 64],
+            elfStyle: [u8; 32],
+            elfVersion: u32,
+            elfStyleSize: u32,
+            elfMatch: u32,
+            elfReserved: u32,
+            elfVendorId: [u8; 4],
+            elfCulture: u32,
+            elfPanose: PANOSE,
+        }
+        struct EXTLOGFONTW {
+            elfLogFont: LOGFONTW,
+            elfFullName: [u16; 64],
+            elfStyle: [u16; 32],
+            elfVersion: u32,
+            elfStyleSize: u32,
+            elfMatch: u32,
+            elfReserved: u32,
+            elfVendorId: [u8; 4],
+            elfCulture: u32,
+            elfPanose: PANOSE,
+        }
+        struct EXTLOGPEN {
+            elpPenStyle: u32,
+            elpWidth: u32,
+            elpBrushStyle: u32,
+            elpColor: COLORREF,
+            elpHatch: usize,
+            elpNumEntries: u32,
+            elpStyleEntry: [u32; 1],
+        }
+        struct EXTLOGPEN32 {
+            elpPenStyle: u32,
+            elpWidth: u32,
+            elpBrushStyle: u32,
+            elpColor: COLORREF,
+            elpHatch: u32,
+            elpNumEntries: u32,
+            elpStyleEntry: [u32; 1],
+        }
+        const EXTTEXTOUT: u32 = 512;
+        const EXT_DEVICE_CAPS: u32 = 4099;
+        #[library("GDI32.dll")]
+        extern fn Ellipse(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn EndDoc(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EndPage(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EndPath(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn EnumEnhMetaFile(#[opt] hdc: HDC, hmf: HENHMETAFILE, proc: ENHMFENUMPROC, #[opt] param: *const void, #[opt] lpRect: *const RECT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn EnumFontFamiliesA(hdc: HDC, #[opt] lpLogfont: PCSTR, lpProc: FONTENUMPROCA, lParam: LPARAM) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EnumFontFamiliesExA(hdc: HDC, lpLogfont: *const LOGFONTA, lpProc: FONTENUMPROCA, lParam: LPARAM, dwFlags: u32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EnumFontFamiliesExW(hdc: HDC, lpLogfont: *const LOGFONTW, lpProc: FONTENUMPROCW, lParam: LPARAM, dwFlags: u32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EnumFontFamiliesW(hdc: HDC, #[opt] lpLogfont: PCWSTR, lpProc: FONTENUMPROCW, lParam: LPARAM) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EnumFontsA(hdc: HDC, #[opt] lpLogfont: PCSTR, lpProc: FONTENUMPROCA, lParam: LPARAM) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EnumFontsW(hdc: HDC, #[opt] lpLogfont: PCWSTR, lpProc: FONTENUMPROCW, lParam: LPARAM) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EnumICMProfilesA(hdc: HDC, proc: ICMENUMPROCA, #[opt] param: LPARAM) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EnumICMProfilesW(hdc: HDC, proc: ICMENUMPROCW, #[opt] param: LPARAM) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EnumMetaFile(hdc: HDC, hmf: HMETAFILE, proc: MFENUMPROC, #[opt] param: LPARAM) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn EnumObjects(hdc: HDC, nType: i32, lpFunc: GOBJENUMPROC, lParam: LPARAM) -> i32;
+        #[library("GDI32.dll")]
+        extern fn EqualRgn(hrgn1: HRGN, hrgn2: HRGN) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn Escape(hdc: HDC, iEscape: i32, cjIn: i32, #[size_param(2)] #[opt] pvIn: PCSTR, #[opt] pvOut: *mut void) -> i32;
+        #[library("GDI32.dll")]
+        extern fn ExcludeClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn ExtCreatePen(iPenStyle: u32, cWidth: u32, plbrush: *const LOGBRUSH, cStyle: u32, #[len_param(3)] #[opt] pstyle: *const u32) -> HPEN;
+        #[library("GDI32.dll")]
+        extern fn ExtCreateRegion(#[opt] lpx: *const XFORM, nCount: u32, #[size_param(1)] lpData: *const RGNDATA) -> HRGN;
+        #[library("GDI32.dll")]
+        extern fn ExtEscape(hdc: HDC, iEscape: i32, cjInput: i32, #[size_param(2)] #[opt] lpInData: PCSTR, cjOutput: i32, #[size_param(4)] #[out] #[opt] lpOutData: PSTR) -> i32;
+        #[library("GDI32.dll")]
+        extern fn ExtFloodFill(hdc: HDC, x: i32, y: i32, color: COLORREF, r#type: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn ExtSelectClipRgn(hdc: HDC, #[opt] hrgn: HRGN, mode: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn ExtTextOutA(hdc: HDC, x: i32, y: i32, options: u32, #[opt] lprect: *const RECT, #[len_param(6)] #[opt] lpString: PCSTR, c: u32, #[len_param(6)] #[opt] lpDx: *const i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn ExtTextOutW(hdc: HDC, x: i32, y: i32, options: u32, #[opt] lprect: *const RECT, #[len_param(6)] #[opt] lpString: PCWSTR, c: u32, #[len_param(6)] #[opt] lpDx: *const i32) -> BOOL;
+        const FEATURESETTING_CUSTPAPER: u32 = 3;
+        const FEATURESETTING_MIRROR: u32 = 4;
+        const FEATURESETTING_NEGATIVE: u32 = 5;
+        const FEATURESETTING_NUP: u32 = 0;
+        const FEATURESETTING_OUTPUT: u32 = 1;
+        const FEATURESETTING_PRIVATE_BEGIN: u32 = 4096;
+        const FEATURESETTING_PRIVATE_END: u32 = 8191;
+        const FEATURESETTING_PROTOCOL: u32 = 6;
+        const FEATURESETTING_PSLEVEL: u32 = 2;
+        const FF_DECORATIVE: u32 = 80;
+        const FF_DONTCARE: u32 = 0;
+        const FF_MODERN: u32 = 48;
+        const FF_ROMAN: u32 = 16;
+        const FF_SCRIPT: u32 = 64;
+        const FF_SWISS: u32 = 32;
+        struct FIXED {
+            fract: u16,
+            value: i16,
+        }
+        const FIXED_PITCH: u32 = 1;
+        const FLI_GLYPHS: u32 = 262144;
+        const FLI_MASK: u32 = 4155;
+        const FLOODFILLBORDER: u32 = 0;
+        const FLOODFILLSURFACE: u32 = 1;
+        const FLUSHOUTPUT: u32 = 6;
+        type FONTENUMPROC = FONTENUMPROCA;
+        type FONTENUMPROCA = OLDFONTENUMPROCA;
+        type FONTENUMPROCW = OLDFONTENUMPROCW;
+        const FONTMAPPER_MAX: u32 = 10;
+        struct FONTSIGNATURE {
+            fsUsb: [u32; 4],
+            fsCsb: [u32; 2],
+        }
+        const FR_NOT_ENUM: u32 = 32;
+        const FR_PRIVATE: u32 = 16;
+        const FS_ARABIC: u32 = 64;
+        const FS_BALTIC: u32 = 128;
+        const FS_CHINESESIMP: u32 = 262144;
+        const FS_CHINESETRAD: u32 = 1048576;
+        const FS_CYRILLIC: u32 = 4;
+        const FS_GREEK: u32 = 8;
+        const FS_HEBREW: u32 = 32;
+        const FS_JISJAPAN: u32 = 131072;
+        const FS_JOHAB: u32 = 2097152;
+        const FS_LATIN1: u32 = 1;
+        const FS_LATIN2: u32 = 2;
+        const FS_SYMBOL: u32 = 2147483648;
+        const FS_THAI: u32 = 65536;
+        const FS_TURKISH: u32 = 16;
+        const FS_VIETNAMESE: u32 = 256;
+        const FS_WANSUNG: u32 = 524288;
+        const FW_BLACK: u32 = 900;
+        const FW_BOLD: u32 = 700;
+        const FW_DEMIBOLD: u32 = 600;
+        const FW_DONTCARE: u32 = 0;
+        const FW_EXTRABOLD: u32 = 800;
+        const FW_EXTRALIGHT: u32 = 200;
+        const FW_HEAVY: u32 = 900;
+        const FW_LIGHT: u32 = 300;
+        const FW_MEDIUM: u32 = 500;
+        const FW_NORMAL: u32 = 400;
+        const FW_REGULAR: u32 = 400;
+        const FW_SEMIBOLD: u32 = 600;
+        const FW_THIN: u32 = 100;
+        const FW_ULTRABOLD: u32 = 800;
+        const FW_ULTRALIGHT: u32 = 200;
+        type FXPT16DOT16 = i32;
+        type FXPT2DOT30 = i32;
+        #[library("GDI32.dll")]
+        extern fn FillPath(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn FillRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn FixBrushOrgEx(hdc: HDC, x: i32, y: i32, #[opt] ptl: *const POINT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn FlattenPath(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn FloodFill(hdc: HDC, x: i32, y: i32, color: COLORREF) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn FrameRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH, w: i32, h: i32) -> BOOL;
+        const GB2312_CHARSET: u32 = 134;
+        const GCPCLASS_ARABIC: u32 = 2;
+        const GCPCLASS_HEBREW: u32 = 2;
+        const GCPCLASS_LATIN: u32 = 1;
+        const GCPCLASS_LATINNUMBER: u32 = 5;
+        const GCPCLASS_LATINNUMERICSEPARATOR: u32 = 7;
+        const GCPCLASS_LATINNUMERICTERMINATOR: u32 = 6;
+        const GCPCLASS_LOCALNUMBER: u32 = 4;
+        const GCPCLASS_NEUTRAL: u32 = 3;
+        const GCPCLASS_NUMERICSEPARATOR: u32 = 8;
+        const GCPCLASS_POSTBOUNDLTR: u32 = 32;
+        const GCPCLASS_POSTBOUNDRTL: u32 = 16;
+        const GCPCLASS_PREBOUNDLTR: u32 = 128;
+        const GCPCLASS_PREBOUNDRTL: u32 = 64;
+        const GCPGLYPH_LINKAFTER: u32 = 16384;
+        const GCPGLYPH_LINKBEFORE: u32 = 32768;
+        const GCP_CLASSIN: u32 = 524288;
+        const GCP_DBCS: u32 = 1;
+        const GCP_DIACRITIC: u32 = 256;
+        const GCP_DISPLAYZWG: u32 = 4194304;
+        const GCP_ERROR: u32 = 32768;
+        const GCP_GLYPHSHAPE: u32 = 16;
+        const GCP_JUSTIFY: u32 = 65536;
+        const GCP_JUSTIFYIN: u32 = 2097152;
+        const GCP_KASHIDA: u32 = 1024;
+        const GCP_LIGATE: u32 = 32;
+        const GCP_MAXEXTENT: u32 = 1048576;
+        const GCP_NEUTRALOVERRIDE: u32 = 33554432;
+        const GCP_NUMERICOVERRIDE: u32 = 16777216;
+        const GCP_NUMERICSLATIN: u32 = 67108864;
+        const GCP_NUMERICSLOCAL: u32 = 134217728;
+        const GCP_REORDER: u32 = 2;
+        type GCP_RESULTS = GCP_RESULTSA;
+        struct GCP_RESULTSA {
+            lStructSize: u32,
+            lpOutString: PSTR,
+            lpOrder: *mut u32,
+            lpDx: *mut i32,
+            lpCaretPos: *mut i32,
+            lpClass: PSTR,
+            lpGlyphs: PWSTR,
+            nGlyphs: u32,
+            nMaxFit: i32,
+        }
+        struct GCP_RESULTSW {
+            lStructSize: u32,
+            lpOutString: PWSTR,
+            lpOrder: *mut u32,
+            lpDx: *mut i32,
+            lpCaretPos: *mut i32,
+            lpClass: PSTR,
+            lpGlyphs: PWSTR,
+            nGlyphs: u32,
+            nMaxFit: i32,
+        }
+        const GCP_SYMSWAPOFF: u32 = 8388608;
+        const GCP_USEKERNING: u32 = 8;
+        const GDICOMMENT_BEGINGROUP: u32 = 2;
+        const GDICOMMENT_ENDGROUP: u32 = 3;
+        const GDICOMMENT_IDENTIFIER: u32 = 1128875079;
+        const GDICOMMENT_MULTIFORMATS: u32 = 1073741828;
+        const GDICOMMENT_UNICODE_END: u32 = 128;
+        const GDICOMMENT_UNICODE_STRING: u32 = 64;
+        const GDICOMMENT_WINDOWS_METAFILE: u32 = 2147483649;
+        const GDIPLUS_TS_QUERYVER: u32 = 4122;
+        const GDIPLUS_TS_RECORD: u32 = 4123;
+        const GDI_ERROR: u32 = 4294967295;
+        const GDI_MAX_OBJ_TYPE: u32 = 14;
+        const GDI_MIN_OBJ_TYPE: u32 = 1;
+        const GDI_OBJ_LAST: u32 = 14;
+        const GETCOLORTABLE: u32 = 5;
+        const GETDEVICEUNITS: u32 = 42;
+        const GETEXTENDEDTEXTMETRICS: u32 = 256;
+        const GETEXTENTTABLE: u32 = 257;
+        const GETFACENAME: u32 = 513;
+        const GETPAIRKERNTABLE: u32 = 258;
+        const GETPENWIDTH: u32 = 16;
+        const GETPHYSPAGESIZE: u32 = 12;
+        const GETPRINTINGOFFSET: u32 = 13;
+        const GETSCALINGFACTOR: u32 = 14;
+        const GETSETPAPERBINS: u32 = 29;
+        const GETSETPAPERMETRICS: u32 = 35;
+        const GETSETPRINTORIENT: u32 = 30;
+        const GETSETSCREENPARAMS: u32 = 3072;
+        const GETTECHNOLGY: u32 = 20;
+        const GETTECHNOLOGY: u32 = 20;
+        const GETTRACKKERNTABLE: u32 = 259;
+        const GETVECTORBRUSHSIZE: u32 = 27;
+        const GETVECTORPENSIZE: u32 = 26;
+        const GET_PS_FEATURESETTING: u32 = 4121;
+        const GGI_MARK_NONEXISTING_GLYPHS: u32 = 1;
+        const GGO_BEZIER: u32 = 3;
+        const GGO_BITMAP: u32 = 1;
+        const GGO_GLYPH_INDEX: u32 = 128;
+        const GGO_GRAY2_BITMAP: u32 = 4;
+        const GGO_GRAY4_BITMAP: u32 = 5;
+        const GGO_GRAY8_BITMAP: u32 = 6;
+        const GGO_METRICS: u32 = 0;
+        const GGO_NATIVE: u32 = 2;
+        const GGO_UNHINTED: u32 = 256;
+        struct GLYPHMETRICS {
+            gmBlackBoxX: u32,
+            gmBlackBoxY: u32,
+            gmptGlyphOrigin: POINT,
+            gmCellIncX: i16,
+            gmCellIncY: i16,
+        }
+        struct GLYPHMETRICSFLOAT {
+            gmfBlackBoxX: f32,
+            gmfBlackBoxY: f32,
+            gmfptGlyphOrigin: POINTFLOAT,
+            gmfCellIncX: f32,
+            gmfCellIncY: f32,
+        }
+        struct GLYPHSET {
+            cbThis: u32,
+            flAccel: u32,
+            cGlyphsSupported: u32,
+            cRanges: u32,
+            ranges: [WCRANGE; 1],
+        }
+        const GM_ADVANCED: u32 = 2;
+        const GM_COMPATIBLE: u32 = 1;
+        const GM_LAST: u32 = 2;
+        extern fn GOBJENUMPROC(param0: *mut void, param1: LPARAM) -> i32;
+        const GRADIENT_FILL_OP_FLAG: u32 = 255;
+        const GRADIENT_FILL_RECT_H: u32 = 0;
+        const GRADIENT_FILL_RECT_V: u32 = 1;
+        const GRADIENT_FILL_TRIANGLE: u32 = 2;
+        struct GRADIENT_RECT {
+            UpperLeft: u32,
+            LowerRight: u32,
+        }
+        struct GRADIENT_TRIANGLE {
+            Vertex1: u32,
+            Vertex2: u32,
+            Vertex3: u32,
+        }
+        const GRAY_BRUSH: u32 = 2;
+        const GREEK_CHARSET: u32 = 161;
+        const GS_8BIT_INDICES: u32 = 1;
+        #[library("GDI32.dll")]
+        extern fn GdiAlphaBlend(hdcDest: HDC, xoriginDest: i32, yoriginDest: i32, wDest: i32, hDest: i32, hdcSrc: HDC, xoriginSrc: i32, yoriginSrc: i32, wSrc: i32, hSrc: i32, ftn: BLENDFUNCTION) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GdiComment(hdc: HDC, nSize: u32, #[size_param(1)] lpData: *const u8) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GdiFlush() -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GdiGetBatchLimit() -> u32;
+        #[library("GDI32.dll")]
+        extern fn GdiGradientFill(hdc: HDC, #[len_param(2)] pVertex: *const TRIVERTEX, nVertex: u32, pMesh: *const void, nCount: u32, ulMode: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GdiSetBatchLimit(dw: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GdiTransparentBlt(hdcDest: HDC, xoriginDest: i32, yoriginDest: i32, wDest: i32, hDest: i32, hdcSrc: HDC, xoriginSrc: i32, yoriginSrc: i32, wSrc: i32, hSrc: i32, crTransparent: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetArcDirection(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetAspectRatioFilterEx(hdc: HDC, lpsize: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetBitmapBits(hbit: HBITMAP, cb: i32, #[size_param(1)] lpvBits: *mut void) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetBitmapDimensionEx(hbit: HBITMAP, lpsize: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetBkColor(hdc: HDC) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn GetBkMode(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetBoundsRect(hdc: HDC, lprect: *mut RECT, flags: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetBrushOrgEx(hdc: HDC, lppt: *mut POINT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharABCWidthsA(hdc: HDC, wFirst: u32, wLast: u32, lpABC: *mut ABC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharABCWidthsFloatA(hdc: HDC, iFirst: u32, iLast: u32, lpABC: *mut ABCFLOAT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharABCWidthsFloatW(hdc: HDC, iFirst: u32, iLast: u32, lpABC: *mut ABCFLOAT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharABCWidthsI(hdc: HDC, giFirst: u32, cgi: u32, #[len_param(2)] #[opt] pgi: *const u16, #[len_param(2)] pabc: *mut ABC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharABCWidthsW(hdc: HDC, wFirst: u32, wLast: u32, lpABC: *mut ABC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharWidth32A(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharWidth32W(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharWidthA(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharWidthFloatA(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut f32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharWidthFloatW(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut f32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharWidthI(hdc: HDC, giFirst: u32, cgi: u32, #[len_param(2)] #[opt] pgi: *const u16, #[len_param(2)] piWidths: *mut i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharWidthW(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetCharacterPlacementA(hdc: HDC, #[len_param(2)] lpString: PCSTR, nCount: i32, nMexExtent: i32, #[in] #[out] lpResults: *mut GCP_RESULTSA, dwFlags: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetCharacterPlacementW(hdc: HDC, #[len_param(2)] lpString: PCWSTR, nCount: i32, nMexExtent: i32, #[in] #[out] lpResults: *mut GCP_RESULTSW, dwFlags: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetClipBox(hdc: HDC, lprect: *mut RECT) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetClipRgn(hdc: HDC, hrgn: HRGN) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetColorAdjustment(hdc: HDC, lpca: *mut COLORADJUSTMENT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetColorSpace(hdc: HDC) -> HCOLORSPACE;
+        #[library("GDI32.dll")]
+        extern fn GetCurrentObject(hdc: HDC, r#type: u32) -> HGDIOBJ;
+        #[library("GDI32.dll")]
+        extern fn GetCurrentPositionEx(hdc: HDC, lppt: *mut POINT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetDCBrushColor(hdc: HDC) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn GetDCOrgEx(hdc: HDC, lppt: *mut POINT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetDCPenColor(hdc: HDC) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn GetDIBColorTable(hdc: HDC, iStart: u32, cEntries: u32, #[len_param(2)] prgbq: *mut RGBQUAD) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetDIBits(hdc: HDC, hbm: HBITMAP, start: u32, cLines: u32, #[opt] lpvBits: *mut void, lpbmi: *mut BITMAPINFO, usage: u32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetDeviceCaps(#[opt] hdc: HDC, index: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetDeviceGammaRamp(hdc: HDC, lpRamp: *mut void) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetEnhMetaFileA(lpName: PCSTR) -> HENHMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn GetEnhMetaFileBits(hEMF: HENHMETAFILE, nSize: u32, #[size_param(1)] #[opt] lpData: *mut u8) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetEnhMetaFileDescriptionA(hemf: HENHMETAFILE, cchBuffer: u32, #[len_param(1)] #[out] #[opt] lpDescription: PSTR) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetEnhMetaFileDescriptionW(hemf: HENHMETAFILE, cchBuffer: u32, #[len_param(1)] #[out] #[opt] lpDescription: PWSTR) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetEnhMetaFileHeader(hemf: HENHMETAFILE, nSize: u32, #[size_param(1)] #[opt] lpEnhMetaHeader: *mut ENHMETAHEADER) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetEnhMetaFilePaletteEntries(hemf: HENHMETAFILE, nNumEntries: u32, #[len_param(1)] #[opt] lpPaletteEntries: *mut PALETTEENTRY) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetEnhMetaFilePixelFormat(hemf: HENHMETAFILE, cbBuffer: u32, #[size_param(1)] #[opt] ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetEnhMetaFileW(lpName: PCWSTR) -> HENHMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn GetFontData(hdc: HDC, dwTable: u32, dwOffset: u32, #[size_param(4)] #[opt] pvBuffer: *mut void, cjBuffer: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetFontLanguageInfo(hdc: HDC) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetFontUnicodeRanges(hdc: HDC, #[opt] lpgs: *mut GLYPHSET) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetGlyphIndicesA(hdc: HDC, #[len_param(2)] lpstr: PCSTR, c: i32, #[len_param(2)] pgi: *mut u16, fl: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetGlyphIndicesW(hdc: HDC, #[len_param(2)] lpstr: PCWSTR, c: i32, #[len_param(2)] pgi: *mut u16, fl: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetGlyphOutlineA(hdc: HDC, uChar: u32, fuFormat: u32, lpgm: *mut GLYPHMETRICS, cjBuffer: u32, #[size_param(4)] #[opt] pvBuffer: *mut void, lpmat2: *const MAT2) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetGlyphOutlineW(hdc: HDC, uChar: u32, fuFormat: u32, lpgm: *mut GLYPHMETRICS, cjBuffer: u32, #[size_param(4)] #[opt] pvBuffer: *mut void, lpmat2: *const MAT2) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetGraphicsMode(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetICMProfileA(hdc: HDC, #[in] #[out] pBufSize: *mut u32, #[len_param(1)] #[out] #[opt] pszFilename: PSTR) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetICMProfileW(hdc: HDC, #[in] #[out] pBufSize: *mut u32, #[len_param(1)] #[out] #[opt] pszFilename: PWSTR) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetKerningPairsA(hdc: HDC, nPairs: u32, #[len_param(1)] #[opt] lpKernPair: *mut KERNINGPAIR) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetKerningPairsW(hdc: HDC, nPairs: u32, #[len_param(1)] #[opt] lpKernPair: *mut KERNINGPAIR) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetLayout(hdc: HDC) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetLogColorSpaceA(hColorSpace: HCOLORSPACE, #[size_param(2)] lpBuffer: *mut LOGCOLORSPACEA, nSize: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetLogColorSpaceW(hColorSpace: HCOLORSPACE, #[size_param(2)] lpBuffer: *mut LOGCOLORSPACEW, nSize: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetMapMode(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetMetaFileA(lpName: PCSTR) -> HMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn GetMetaFileBitsEx(hMF: HMETAFILE, cbBuffer: u32, #[size_param(1)] #[opt] lpData: *mut void) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetMetaFileW(lpName: PCWSTR) -> HMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn GetMetaRgn(hdc: HDC, hrgn: HRGN) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetMiterLimit(hdc: HDC, plimit: *mut f32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetNearestColor(hdc: HDC, color: COLORREF) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn GetNearestPaletteIndex(h: HPALETTE, color: COLORREF) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetObjectA(h: HANDLE, c: i32, #[size_param(1)] #[opt] pv: *mut void) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetObjectType(h: HGDIOBJ) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetObjectW(h: HANDLE, c: i32, #[size_param(1)] #[opt] pv: *mut void) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetOutlineTextMetricsA(hdc: HDC, cjCopy: u32, #[size_param(1)] #[opt] potm: *mut OUTLINETEXTMETRICA) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetOutlineTextMetricsW(hdc: HDC, cjCopy: u32, #[size_param(1)] #[opt] potm: *mut OUTLINETEXTMETRICW) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetPaletteEntries(hpal: HPALETTE, iStart: u32, cEntries: u32, #[len_param(2)] #[opt] pPalEntries: *mut PALETTEENTRY) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetPath(hdc: HDC, #[len_param(3)] #[opt] apt: *mut POINT, #[len_param(3)] #[opt] aj: *mut u8, cpt: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetPixel(hdc: HDC, x: i32, y: i32) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn GetPixelFormat(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetPolyFillMode(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetROP2(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetRandomRgn(hdc: HDC, hrgn: HRGN, i: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetRasterizerCaps(#[size_param(1)] lpraststat: *mut RASTERIZER_STATUS, cjBytes: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetRegionData(hrgn: HRGN, nCount: u32, #[size_param(1)] #[opt] lpRgnData: *mut RGNDATA) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetRgnBox(hrgn: HRGN, lprc: *mut RECT) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetStockObject(i: i32) -> HGDIOBJ;
+        #[library("GDI32.dll")]
+        extern fn GetStretchBltMode(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetSystemPaletteEntries(hdc: HDC, iStart: u32, cEntries: u32, #[len_param(2)] #[opt] pPalEntries: *mut PALETTEENTRY) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetSystemPaletteUse(hdc: HDC) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetTextAlign(hdc: HDC) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetTextCharacterExtra(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetTextCharset(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetTextCharsetInfo(hdc: HDC, #[opt] lpSig: *mut FONTSIGNATURE, dwFlags: u32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetTextColor(hdc: HDC) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn GetTextExtentExPointA(hdc: HDC, #[len_param(2)] lpszString: PCSTR, cchString: i32, nMaxExtent: i32, #[opt] lpnFit: *mut i32, #[len_param(2)] #[opt] lpnDx: *mut i32, lpSize: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetTextExtentExPointI(hdc: HDC, #[len_param(2)] lpwszString: *const u16, cwchString: i32, nMaxExtent: i32, #[opt] lpnFit: *mut i32, #[len_param(2)] #[opt] lpnDx: *mut i32, lpSize: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetTextExtentExPointW(hdc: HDC, #[len_param(2)] lpszString: PCWSTR, cchString: i32, nMaxExtent: i32, #[opt] lpnFit: *mut i32, #[len_param(2)] #[opt] lpnDx: *mut i32, lpSize: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetTextExtentPoint32A(hdc: HDC, #[len_param(2)] lpString: PCSTR, c: i32, psizl: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetTextExtentPoint32W(hdc: HDC, #[len_param(2)] lpString: PCWSTR, c: i32, psizl: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetTextExtentPointA(hdc: HDC, #[len_param(2)] lpString: PCSTR, c: i32, lpsz: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetTextExtentPointI(hdc: HDC, #[len_param(2)] pgiIn: *const u16, cgi: i32, psize: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetTextExtentPointW(hdc: HDC, #[len_param(2)] lpString: PCWSTR, c: i32, lpsz: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetTextFaceA(hdc: HDC, c: i32, #[len_param(1)] #[out] #[opt] lpName: PSTR) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetTextFaceW(hdc: HDC, c: i32, #[len_param(1)] #[out] #[opt] lpName: PWSTR) -> i32;
+        #[library("GDI32.dll")]
+        extern fn GetTextMetricsA(hdc: HDC, lptm: *mut TEXTMETRICA) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetTextMetricsW(hdc: HDC, lptm: *mut TEXTMETRICW) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetViewportExtEx(hdc: HDC, lpsize: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetViewportOrgEx(hdc: HDC, lppoint: *mut POINT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetWinMetaFileBits(hemf: HENHMETAFILE, cbData16: u32, #[size_param(1)] #[opt] pData16: *mut u8, iMapMode: i32, hdcRef: HDC) -> u32;
+        #[library("GDI32.dll")]
+        extern fn GetWindowExtEx(hdc: HDC, lpsize: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetWindowOrgEx(hdc: HDC, lppoint: *mut POINT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn GetWorldTransform(hdc: HDC, lpxf: *mut XFORM) -> BOOL;
+        #[library("MSIMG32.dll")]
+        extern fn GradientFill(hdc: HDC, #[len_param(2)] pVertex: *const TRIVERTEX, nVertex: u32, pMesh: *const void, nMesh: u32, ulMode: u32) -> BOOL;
+        const HALFTONE: u32 = 4;
+        struct HANDLETABLE {
+            objectHandle: [HGDIOBJ; 1],
+        }
+        const HANGEUL_CHARSET: u32 = 129;
+        const HANGUL_CHARSET: u32 = 129;
+        const HEBREW_CHARSET: u32 = 177;
+        const HOLLOW_BRUSH: u32 = 5;
+        const HORZRES: u32 = 8;
+        const HORZSIZE: u32 = 4;
+        const HS_API_MAX: u32 = 12;
+        const HS_BDIAGONAL: u32 = 3;
+        const HS_CROSS: u32 = 4;
+        const HS_DIAGCROSS: u32 = 5;
+        const HS_FDIAGONAL: u32 = 2;
+        const HS_HORIZONTAL: u32 = 0;
+        const HS_VERTICAL: u32 = 1;
+        extern fn ICMENUMPROCA(param0: PSTR, param1: LPARAM) -> i32;
+        extern fn ICMENUMPROCW(param0: PWSTR, param1: LPARAM) -> i32;
+        const ICM_ADDPROFILE: u32 = 1;
+        const ICM_DELETEPROFILE: u32 = 2;
+        const ICM_DONE_OUTSIDEDC: u32 = 4;
+        const ICM_OFF: u32 = 1;
+        const ICM_ON: u32 = 2;
+        const ICM_QUERY: u32 = 3;
+        const ICM_QUERYMATCH: u32 = 7;
+        const ICM_QUERYPROFILE: u32 = 3;
+        const ICM_REGISTERICMATCHER: u32 = 5;
+        const ICM_SETDEFAULTPROFILE: u32 = 4;
+        const ICM_UNREGISTERICMATCHER: u32 = 6;
+        const ILLUMINANT_A: u32 = 1;
+        const ILLUMINANT_B: u32 = 2;
+        const ILLUMINANT_C: u32 = 3;
+        const ILLUMINANT_D50: u32 = 4;
+        const ILLUMINANT_D55: u32 = 5;
+        const ILLUMINANT_D65: u32 = 6;
+        const ILLUMINANT_D75: u32 = 7;
+        const ILLUMINANT_DAYLIGHT: u32 = 3;
+        const ILLUMINANT_DEVICE_DEFAULT: u32 = 0;
+        const ILLUMINANT_F2: u32 = 8;
+        const ILLUMINANT_FLUORESCENT: u32 = 8;
+        const ILLUMINANT_MAX_INDEX: u32 = 8;
+        const ILLUMINANT_NTSC: u32 = 3;
+        const ILLUMINANT_TUNGSTEN: u32 = 1;
+        #[library("GDI32.dll")]
+        extern fn IntersectClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn InvertRgn(hdc: HDC, hrgn: HRGN) -> BOOL;
+        const JOHAB_CHARSET: u32 = 130;
+        struct KERNINGPAIR {
+            wFirst: u16,
+            wSecond: u16,
+            iKernAmount: i32,
+        }
+        struct LAYERPLANEDESCRIPTOR {
+            nSize: u16,
+            nVersion: u16,
+            dwFlags: u32,
+            iPixelType: u8,
+            cColorBits: u8,
+            cRedBits: u8,
+            cRedShift: u8,
+            cGreenBits: u8,
+            cGreenShift: u8,
+            cBlueBits: u8,
+            cBlueShift: u8,
+            cAlphaBits: u8,
+            cAlphaShift: u8,
+            cAccumBits: u8,
+            cAccumRedBits: u8,
+            cAccumGreenBits: u8,
+            cAccumBlueBits: u8,
+            cAccumAlphaBits: u8,
+            cDepthBits: u8,
+            cStencilBits: u8,
+            cAuxBuffers: u8,
+            iLayerPlane: u8,
+            bReserved: u8,
+            crTransparent: COLORREF,
+        }
+        const LAYOUT_BITMAPORIENTATIONPRESERVED: u32 = 8;
+        const LAYOUT_BTT: u32 = 2;
+        const LAYOUT_ORIENTATIONMASK: u32 = 7;
+        const LAYOUT_RTL: u32 = 1;
+        const LAYOUT_VBH: u32 = 4;
+        type LCSCSTYPE = i32;
+        type LCSGAMUTMATCH = i32;
+        const LCS_CALIBRATED_RGB: u32 = 0;
+        const LCS_GM_ABS_COLORIMETRIC: u32 = 8;
+        const LCS_GM_BUSINESS: u32 = 1;
+        const LCS_GM_GRAPHICS: u32 = 2;
+        const LCS_GM_IMAGES: u32 = 4;
+        const LCS_SIGNATURE: u32 = 1347637059;
+        const LCS_WINDOWS_COLOR_SPACE: u32 = 1466527264;
+        const LCS_sRGB: u32 = 1934772034;
+        const LC_INTERIORS: u32 = 128;
+        const LC_MARKER: u32 = 4;
+        const LC_NONE: u32 = 0;
+        const LC_POLYLINE: u32 = 2;
+        const LC_POLYMARKER: u32 = 8;
+        const LC_STYLED: u32 = 32;
+        const LC_WIDE: u32 = 16;
+        const LC_WIDESTYLED: u32 = 64;
+        const LF_FACESIZE: u32 = 32;
+        const LF_FULLFACESIZE: u32 = 64;
+        const LINECAPS: u32 = 30;
+        extern fn LINEDDAPROC(param0: i32, param1: i32, param2: LPARAM);
+        struct LOCALESIGNATURE {
+            lsUsb: [u32; 4],
+            lsCsbDefault: [u32; 2],
+            lsCsbSupported: [u32; 2],
+        }
+        struct LOGBRUSH {
+            lbStyle: u32,
+            lbColor: COLORREF,
+            lbHatch: usize,
+        }
+        struct LOGBRUSH32 {
+            lbStyle: u32,
+            lbColor: COLORREF,
+            lbHatch: u32,
+        }
+        type LOGCOLORSPACE = LOGCOLORSPACEA;
+        struct LOGCOLORSPACEA {
+            lcsSignature: u32,
+            lcsVersion: u32,
+            lcsSize: u32,
+            lcsCSType: LCSCSTYPE,
+            lcsIntent: LCSGAMUTMATCH,
+            lcsEndpoints: CIEXYZTRIPLE,
+            lcsGammaRed: u32,
+            lcsGammaGreen: u32,
+            lcsGammaBlue: u32,
+            lcsFilename: [i8; 260],
+        }
+        struct LOGCOLORSPACEW {
+            lcsSignature: u32,
+            lcsVersion: u32,
+            lcsSize: u32,
+            lcsCSType: LCSCSTYPE,
+            lcsIntent: LCSGAMUTMATCH,
+            lcsEndpoints: CIEXYZTRIPLE,
+            lcsGammaRed: u32,
+            lcsGammaGreen: u32,
+            lcsGammaBlue: u32,
+            lcsFilename: [u16; 260],
+        }
+        type LOGFONT = LOGFONTA;
+        struct LOGFONTA {
+            lfHeight: i32,
+            lfWidth: i32,
+            lfEscapement: i32,
+            lfOrientation: i32,
+            lfWeight: i32,
+            lfItalic: u8,
+            lfUnderline: u8,
+            lfStrikeOut: u8,
+            lfCharSet: u8,
+            lfOutPrecision: u8,
+            lfClipPrecision: u8,
+            lfQuality: u8,
+            lfPitchAndFamily: u8,
+            lfFaceName: [i8; 32],
+        }
+        struct LOGFONTW {
+            lfHeight: i32,
+            lfWidth: i32,
+            lfEscapement: i32,
+            lfOrientation: i32,
+            lfWeight: i32,
+            lfItalic: u8,
+            lfUnderline: u8,
+            lfStrikeOut: u8,
+            lfCharSet: u8,
+            lfOutPrecision: u8,
+            lfClipPrecision: u8,
+            lfQuality: u8,
+            lfPitchAndFamily: u8,
+            lfFaceName: [u16; 32],
+        }
+        struct LOGPALETTE {
+            palVersion: u16,
+            palNumEntries: u16,
+            palPalEntry: [PALETTEENTRY; 1],
+        }
+        struct LOGPEN {
+            lopnStyle: u32,
+            lopnWidth: POINT,
+            lopnColor: COLORREF,
+        }
+        const LOGPIXELSX: u32 = 88;
+        const LOGPIXELSY: u32 = 90;
+        type LPABC = *mut ABC;
+        type LPABCFLOAT = *mut ABCFLOAT;
+        type LPAXESLIST = LPAXESLISTA;
+        type LPAXESLISTA = *mut AXESLISTA;
+        type LPAXESLISTW = *mut AXESLISTW;
+        type LPAXISINFO = LPAXISINFOA;
+        type LPAXISINFOA = *mut AXISINFOA;
+        type LPAXISINFOW = *mut AXISINFOW;
+        type LPBITMAP = *mut BITMAP;
+        type LPBITMAPCOREHEADER = *mut BITMAPCOREHEADER;
+        type LPBITMAPCOREINFO = *mut BITMAPCOREINFO;
+        type LPBITMAPFILEHEADER = *mut BITMAPFILEHEADER;
+        type LPBITMAPINFO = *mut BITMAPINFO;
+        type LPBITMAPINFOHEADER = *mut BITMAPINFOHEADER;
+        type LPBITMAPV4HEADER = *mut BITMAPV4HEADER;
+        type LPBITMAPV5HEADER = *mut BITMAPV5HEADER;
+        type LPCHARSETINFO = *mut CHARSETINFO;
+        type LPCIEXYZ = *mut CIEXYZ;
+        type LPCIEXYZTRIPLE = *mut CIEXYZTRIPLE;
+        type LPCOLORADJUSTMENT = *mut COLORADJUSTMENT;
+        type LPDESIGNVECTOR = *mut DESIGNVECTOR;
+        type LPDEVMODE = LPDEVMODEA;
+        type LPDEVMODEA = *mut DEVMODEA;
+        type LPDEVMODEW = *mut DEVMODEW;
+        type LPDIBSECTION = *mut DIBSECTION;
+        type LPDISPLAY_DEVICE = LPDISPLAY_DEVICEA;
+        type LPDISPLAY_DEVICEA = *mut DISPLAY_DEVICEA;
+        type LPDISPLAY_DEVICEW = *mut DISPLAY_DEVICEW;
+        type LPDOCINFO = LPDOCINFOA;
+        type LPDOCINFOA = *mut DOCINFOA;
+        type LPDOCINFOW = *mut DOCINFOW;
+        const LPD_DOUBLEBUFFER: u32 = 1;
+        const LPD_SHARE_ACCUM: u32 = 256;
+        const LPD_SHARE_DEPTH: u32 = 64;
+        const LPD_SHARE_STENCIL: u32 = 128;
+        const LPD_STEREO: u32 = 2;
+        const LPD_SUPPORT_GDI: u32 = 16;
+        const LPD_SUPPORT_OPENGL: u32 = 32;
+        const LPD_SWAP_COPY: u32 = 1024;
+        const LPD_SWAP_EXCHANGE: u32 = 512;
+        const LPD_TRANSPARENT: u32 = 4096;
+        const LPD_TYPE_COLORINDEX: u32 = 1;
+        const LPD_TYPE_RGBA: u32 = 0;
+        type LPENHMETAHEADER = *mut ENHMETAHEADER;
+        type LPENHMETARECORD = *mut ENHMETARECORD;
+        type LPENUMLOGFONT = LPENUMLOGFONTA;
+        type LPENUMLOGFONTA = *mut ENUMLOGFONTA;
+        type LPENUMLOGFONTEX = LPENUMLOGFONTEXA;
+        type LPENUMLOGFONTEXA = *mut ENUMLOGFONTEXA;
+        type LPENUMLOGFONTEXDV = LPENUMLOGFONTEXDVA;
+        type LPENUMLOGFONTEXDVA = *mut ENUMLOGFONTEXDVA;
+        type LPENUMLOGFONTEXDVW = *mut ENUMLOGFONTEXDVW;
+        type LPENUMLOGFONTEXW = *mut ENUMLOGFONTEXW;
+        type LPENUMLOGFONTW = *mut ENUMLOGFONTW;
+        type LPENUMTEXTMETRIC = LPENUMTEXTMETRICA;
+        type LPENUMTEXTMETRICA = *mut ENUMTEXTMETRICA;
+        type LPENUMTEXTMETRICW = *mut ENUMTEXTMETRICW;
+        type LPEXTLOGFONT = LPEXTLOGFONTA;
+        type LPEXTLOGFONTA = *mut EXTLOGFONTA;
+        type LPEXTLOGFONTW = *mut EXTLOGFONTW;
+        type LPEXTLOGPEN = *mut EXTLOGPEN;
+        type LPEXTLOGPEN32 = *mut EXTLOGPEN32;
+        extern fn LPFNDEVCAPS(param0: PSTR, param1: PSTR, param2: u32, param3: PSTR, param4: LPDEVMODE) -> u32;
+        extern fn LPFNDEVMODE(param0: HWND, param1: HMODULE, param2: LPDEVMODE, param3: PSTR, param4: PSTR, param5: LPDEVMODE, param6: PSTR, param7: u32) -> u32;
+        type LPFONTSIGNATURE = *mut FONTSIGNATURE;
+        type LPFXPT16DOT16 = *mut i32;
+        type LPFXPT2DOT30 = *mut i32;
+        type LPGCP_RESULTS = LPGCP_RESULTSA;
+        type LPGCP_RESULTSA = *mut GCP_RESULTSA;
+        type LPGCP_RESULTSW = *mut GCP_RESULTSW;
+        type LPGLYPHMETRICS = *mut GLYPHMETRICS;
+        type LPGLYPHMETRICSFLOAT = *mut GLYPHMETRICSFLOAT;
+        type LPGLYPHSET = *mut GLYPHSET;
+        type LPGRADIENT_RECT = *mut GRADIENT_RECT;
+        type LPGRADIENT_TRIANGLE = *mut GRADIENT_TRIANGLE;
+        type LPHANDLETABLE = *mut HANDLETABLE;
+        type LPKERNINGPAIR = *mut KERNINGPAIR;
+        type LPLAYERPLANEDESCRIPTOR = *mut LAYERPLANEDESCRIPTOR;
+        type LPLOCALESIGNATURE = *mut LOCALESIGNATURE;
+        type LPLOGBRUSH = *mut LOGBRUSH;
+        type LPLOGBRUSH32 = *mut LOGBRUSH32;
+        type LPLOGCOLORSPACE = LPLOGCOLORSPACEA;
+        type LPLOGCOLORSPACEA = *mut LOGCOLORSPACEA;
+        type LPLOGCOLORSPACEW = *mut LOGCOLORSPACEW;
+        type LPLOGFONT = LPLOGFONTA;
+        type LPLOGFONTA = *mut LOGFONTA;
+        type LPLOGFONTW = *mut LOGFONTW;
+        type LPLOGPALETTE = *mut LOGPALETTE;
+        type LPLOGPEN = *mut LOGPEN;
+        type LPMAT2 = *mut MAT2;
+        type LPMETAFILEPICT = *mut METAFILEPICT;
+        type LPMETAHEADER = *mut METAHEADER;
+        type LPMETARECORD = *mut METARECORD;
+        type LPNEWTEXTMETRIC = LPNEWTEXTMETRICA;
+        type LPNEWTEXTMETRICA = *mut NEWTEXTMETRICA;
+        type LPNEWTEXTMETRICW = *mut NEWTEXTMETRICW;
+        type LPOUTLINETEXTMETRIC = LPOUTLINETEXTMETRICA;
+        type LPOUTLINETEXTMETRICA = *mut OUTLINETEXTMETRICA;
+        type LPOUTLINETEXTMETRICW = *mut OUTLINETEXTMETRICW;
+        type LPPALETTEENTRY = *mut PALETTEENTRY;
+        type LPPANOSE = *mut PANOSE;
+        type LPPATTERN = *mut PATTERN;
+        type LPPELARRAY = *mut PELARRAY;
+        type LPPIXELFORMATDESCRIPTOR = *mut PIXELFORMATDESCRIPTOR;
+        type LPPOINTFX = *mut POINTFX;
+        type LPPOLYTEXT = LPPOLYTEXTA;
+        type LPPOLYTEXTA = *mut POLYTEXTA;
+        type LPPOLYTEXTW = *mut POLYTEXTW;
+        type LPRASTERIZER_STATUS = *mut RASTERIZER_STATUS;
+        type LPRGBQUAD = *mut RGBQUAD;
+        type LPRGBTRIPLE = *mut RGBTRIPLE;
+        type LPRGNDATA = *mut RGNDATA;
+        type LPTEXTMETRIC = LPTEXTMETRICA;
+        type LPTEXTMETRICA = *mut TEXTMETRICA;
+        type LPTEXTMETRICW = *mut TEXTMETRICW;
+        type LPTRIVERTEX = *mut TRIVERTEX;
+        type LPTTPOLYCURVE = *mut TTPOLYCURVE;
+        type LPTTPOLYGONHEADER = *mut TTPOLYGONHEADER;
+        type LPWCRANGE = *mut WCRANGE;
+        type LPWGLSWAP = *mut WGLSWAP;
+        type LPXFORM = *mut XFORM;
+        #[library("GDI32.dll")]
+        extern fn LPtoDP(hdc: HDC, #[len_param(2)] #[in] #[out] lppt: *mut POINT, c: i32) -> BOOL;
+        const LTGRAY_BRUSH: u32 = 1;
+        #[library("GDI32.dll")]
+        extern fn LineDDA(xStart: i32, yStart: i32, xEnd: i32, yEnd: i32, lpProc: LINEDDAPROC, #[opt] data: LPARAM) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn LineTo(hdc: HDC, x: i32, y: i32) -> BOOL;
+        const MAC_CHARSET: u32 = 77;
+        struct MAT2 {
+            eM11: FIXED,
+            eM12: FIXED,
+            eM21: FIXED,
+            eM22: FIXED,
+        }
+        const MAXSTRETCHBLTMODE: u32 = 4;
+        const MERGECOPY: u32 = 12583114;
+        const MERGEPAINT: u32 = 12255782;
+        struct METAFILEPICT {
+            mm: i32,
+            xExt: i32,
+            yExt: i32,
+            hMF: HMETAFILE,
+        }
+        const METAFILE_DRIVER: u32 = 2049;
+        #[packed(2)]
+        struct METAHEADER {
+            mtType: u16,
+            mtHeaderSize: u16,
+            mtVersion: u16,
+            mtSize: u32,
+            mtNoObjects: u16,
+            mtMaxRecord: u32,
+            mtNoParameters: u16,
+        }
+        struct METARECORD {
+            rdSize: u32,
+            rdFunction: u16,
+            rdParm: [u16; 1],
+        }
+        const META_ANIMATEPALETTE: u32 = 1078;
+        const META_ARC: u32 = 2071;
+        const META_BITBLT: u32 = 2338;
+        const META_CHORD: u32 = 2096;
+        const META_CREATEBRUSHINDIRECT: u32 = 764;
+        const META_CREATEFONTINDIRECT: u32 = 763;
+        const META_CREATEPALETTE: u32 = 247;
+        const META_CREATEPATTERNBRUSH: u32 = 505;
+        const META_CREATEPENINDIRECT: u32 = 762;
+        const META_CREATEREGION: u32 = 1791;
+        const META_DELETEOBJECT: u32 = 496;
+        const META_DIBBITBLT: u32 = 2368;
+        const META_DIBCREATEPATTERNBRUSH: u32 = 322;
+        const META_DIBSTRETCHBLT: u32 = 2881;
+        const META_ELLIPSE: u32 = 1048;
+        const META_ESCAPE: u32 = 1574;
+        const META_EXCLUDECLIPRECT: u32 = 1045;
+        const META_EXTFLOODFILL: u32 = 1352;
+        const META_EXTTEXTOUT: u32 = 2610;
+        const META_FILLREGION: u32 = 552;
+        const META_FLOODFILL: u32 = 1049;
+        const META_FRAMEREGION: u32 = 1065;
+        const META_INTERSECTCLIPRECT: u32 = 1046;
+        const META_INVERTREGION: u32 = 298;
+        const META_LINETO: u32 = 531;
+        const META_MOVETO: u32 = 532;
+        const META_OFFSETCLIPRGN: u32 = 544;
+        const META_OFFSETVIEWPORTORG: u32 = 529;
+        const META_OFFSETWINDOWORG: u32 = 527;
+        const META_PAINTREGION: u32 = 299;
+        const META_PATBLT: u32 = 1565;
+        const META_PIE: u32 = 2074;
+        const META_POLYGON: u32 = 804;
+        const META_POLYLINE: u32 = 805;
+        const META_POLYPOLYGON: u32 = 1336;
+        const META_REALIZEPALETTE: u32 = 53;
+        const META_RECTANGLE: u32 = 1051;
+        const META_RESIZEPALETTE: u32 = 313;
+        const META_RESTOREDC: u32 = 295;
+        const META_ROUNDRECT: u32 = 1564;
+        const META_SAVEDC: u32 = 30;
+        const META_SCALEVIEWPORTEXT: u32 = 1042;
+        const META_SCALEWINDOWEXT: u32 = 1040;
+        const META_SELECTCLIPREGION: u32 = 300;
+        const META_SELECTOBJECT: u32 = 301;
+        const META_SELECTPALETTE: u32 = 564;
+        const META_SETBKCOLOR: u32 = 513;
+        const META_SETBKMODE: u32 = 258;
+        const META_SETDIBTODEV: u32 = 3379;
+        const META_SETLAYOUT: u32 = 329;
+        const META_SETMAPMODE: u32 = 259;
+        const META_SETMAPPERFLAGS: u32 = 561;
+        const META_SETPALENTRIES: u32 = 55;
+        const META_SETPIXEL: u32 = 1055;
+        const META_SETPOLYFILLMODE: u32 = 262;
+        const META_SETRELABS: u32 = 261;
+        const META_SETROP2: u32 = 260;
+        const META_SETSTRETCHBLTMODE: u32 = 263;
+        const META_SETTEXTALIGN: u32 = 302;
+        const META_SETTEXTCHAREXTRA: u32 = 264;
+        const META_SETTEXTCOLOR: u32 = 521;
+        const META_SETTEXTJUSTIFICATION: u32 = 522;
+        const META_SETVIEWPORTEXT: u32 = 526;
+        const META_SETVIEWPORTORG: u32 = 525;
+        const META_SETWINDOWEXT: u32 = 524;
+        const META_SETWINDOWORG: u32 = 523;
+        const META_STRETCHBLT: u32 = 2851;
+        const META_STRETCHDIB: u32 = 3907;
+        const META_TEXTOUT: u32 = 1313;
+        const MFCOMMENT: u32 = 15;
+        extern fn MFENUMPROC(hdc: HDC, #[len_param(3)] lpht: *const HANDLETABLE, lpMR: *const METARECORD, nObj: i32, #[opt] param: LPARAM) -> i32;
+        const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0;
+        const MILCORE_TS_QUERYVER_RESULT_TRUE: u32 = 2147483647;
+        const MM_ANISOTROPIC: u32 = 8;
+        const MM_HIENGLISH: u32 = 5;
+        const MM_HIMETRIC: u32 = 3;
+        const MM_ISOTROPIC: u32 = 7;
+        const MM_LOENGLISH: u32 = 4;
+        const MM_LOMETRIC: u32 = 2;
+        const MM_MAX: u32 = 8;
+        const MM_MAX_AXES_NAMELEN: u32 = 16;
+        const MM_MAX_FIXEDSCALE: u32 = 6;
+        const MM_MAX_NUMAXES: u32 = 16;
+        const MM_MIN: u32 = 1;
+        const MM_TEXT: u32 = 1;
+        const MM_TWIPS: u32 = 6;
+        const MONO_FONT: u32 = 8;
+        const MOUSETRAILS: u32 = 39;
+        const MWT_IDENTITY: u32 = 1;
+        const MWT_LEFTMULTIPLY: u32 = 2;
+        const MWT_MAX: u32 = 3;
+        const MWT_MIN: u32 = 1;
+        const MWT_RIGHTMULTIPLY: u32 = 3;
+        #[library("GDI32.dll")]
+        extern fn MaskBlt(hdcDest: HDC, xDest: i32, yDest: i32, width: i32, height: i32, hdcSrc: HDC, xSrc: i32, ySrc: i32, hbmMask: HBITMAP, xMask: i32, yMask: i32, rop: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn ModifyWorldTransform(hdc: HDC, #[opt] lpxf: *const XFORM, mode: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn MoveToEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        const NEWFRAME: u32 = 1;
+        type NEWTEXTMETRIC = NEWTEXTMETRICA;
+        struct NEWTEXTMETRICA {
+            tmHeight: i32,
+            tmAscent: i32,
+            tmDescent: i32,
+            tmInternalLeading: i32,
+            tmExternalLeading: i32,
+            tmAveCharWidth: i32,
+            tmMaxCharWidth: i32,
+            tmWeight: i32,
+            tmOverhang: i32,
+            tmDigitizedAspectX: i32,
+            tmDigitizedAspectY: i32,
+            tmFirstChar: u8,
+            tmLastChar: u8,
+            tmDefaultChar: u8,
+            tmBreakChar: u8,
+            tmItalic: u8,
+            tmUnderlined: u8,
+            tmStruckOut: u8,
+            tmPitchAndFamily: u8,
+            tmCharSet: u8,
+            ntmFlags: u32,
+            ntmSizeEM: u32,
+            ntmCellHeight: u32,
+            ntmAvgWidth: u32,
+        }
+        type NEWTEXTMETRICEX = NEWTEXTMETRICEXA;
+        struct NEWTEXTMETRICEXA {
+            ntmTm: NEWTEXTMETRICA,
+            ntmFontSig: FONTSIGNATURE,
+        }
+        struct NEWTEXTMETRICEXW {
+            ntmTm: NEWTEXTMETRICW,
+            ntmFontSig: FONTSIGNATURE,
+        }
+        struct NEWTEXTMETRICW {
+            tmHeight: i32,
+            tmAscent: i32,
+            tmDescent: i32,
+            tmInternalLeading: i32,
+            tmExternalLeading: i32,
+            tmAveCharWidth: i32,
+            tmMaxCharWidth: i32,
+            tmWeight: i32,
+            tmOverhang: i32,
+            tmDigitizedAspectX: i32,
+            tmDigitizedAspectY: i32,
+            tmFirstChar: u16,
+            tmLastChar: u16,
+            tmDefaultChar: u16,
+            tmBreakChar: u16,
+            tmItalic: u8,
+            tmUnderlined: u8,
+            tmStruckOut: u8,
+            tmPitchAndFamily: u8,
+            tmCharSet: u8,
+            ntmFlags: u32,
+            ntmSizeEM: u32,
+            ntmCellHeight: u32,
+            ntmAvgWidth: u32,
+        }
+        const NEXTBAND: u32 = 3;
+        const NOMIRRORBITMAP: u32 = 2147483648;
+        const NONANTIALIASED_QUALITY: u32 = 3;
+        const NOTSRCCOPY: u32 = 3342344;
+        const NOTSRCERASE: u32 = 1114278;
+        type NPABC = *mut ABC;
+        type NPABCFLOAT = *mut ABCFLOAT;
+        type NPBITMAP = *mut BITMAP;
+        type NPCHARSETINFO = *mut CHARSETINFO;
+        type NPDEVMODE = NPDEVMODEA;
+        type NPDEVMODEA = *mut DEVMODEA;
+        type NPDEVMODEW = *mut DEVMODEW;
+        type NPEXTLOGFONT = NPEXTLOGFONTA;
+        type NPEXTLOGFONTA = *mut EXTLOGFONTA;
+        type NPEXTLOGFONTW = *mut EXTLOGFONTW;
+        type NPEXTLOGPEN = *mut EXTLOGPEN;
+        type NPEXTLOGPEN32 = *mut EXTLOGPEN32;
+        type NPLOGBRUSH = *mut LOGBRUSH;
+        type NPLOGBRUSH32 = *mut LOGBRUSH32;
+        type NPLOGFONT = NPLOGFONTA;
+        type NPLOGFONTA = *mut LOGFONTA;
+        type NPLOGFONTW = *mut LOGFONTW;
+        type NPLOGPALETTE = *mut LOGPALETTE;
+        type NPLOGPEN = *mut LOGPEN;
+        type NPNEWTEXTMETRIC = NPNEWTEXTMETRICA;
+        type NPNEWTEXTMETRICA = *mut NEWTEXTMETRICA;
+        type NPNEWTEXTMETRICW = *mut NEWTEXTMETRICW;
+        type NPOUTLINETEXTMETRIC = NPOUTLINETEXTMETRICA;
+        type NPOUTLINETEXTMETRICA = *mut OUTLINETEXTMETRICA;
+        type NPOUTLINETEXTMETRICW = *mut OUTLINETEXTMETRICW;
+        type NPPATTERN = *mut PATTERN;
+        type NPPELARRAY = *mut PELARRAY;
+        type NPPOLYTEXT = NPPOLYTEXTA;
+        type NPPOLYTEXTA = *mut POLYTEXTA;
+        type NPPOLYTEXTW = *mut POLYTEXTW;
+        type NPRGBTRIPLE = *mut RGBTRIPLE;
+        type NPRGNDATA = *mut RGNDATA;
+        type NPTEXTMETRIC = NPTEXTMETRICA;
+        type NPTEXTMETRICA = *mut TEXTMETRICA;
+        type NPTEXTMETRICW = *mut TEXTMETRICW;
+        const NTM_BOLD: u32 = 32;
+        const NTM_DSIG: u32 = 2097152;
+        const NTM_ITALIC: u32 = 1;
+        const NTM_MULTIPLEMASTER: u32 = 524288;
+        const NTM_NONNEGATIVE_AC: u32 = 65536;
+        const NTM_PS_OPENTYPE: u32 = 131072;
+        const NTM_REGULAR: u32 = 64;
+        const NTM_TT_OPENTYPE: u32 = 262144;
+        const NTM_TYPE1: u32 = 1048576;
+        const NULLREGION: u32 = 1;
+        const NULL_BRUSH: u32 = 5;
+        const NULL_PEN: u32 = 8;
+        const NUMBRUSHES: u32 = 16;
+        const NUMCOLORS: u32 = 24;
+        const NUMFONTS: u32 = 22;
+        const NUMMARKERS: u32 = 20;
+        const NUMPENS: u32 = 18;
+        const NUMRESERVED: u32 = 106;
+        const OBJ_BITMAP: u32 = 7;
+        const OBJ_BRUSH: u32 = 2;
+        const OBJ_COLORSPACE: u32 = 14;
+        const OBJ_DC: u32 = 3;
+        const OBJ_ENHMETADC: u32 = 12;
+        const OBJ_ENHMETAFILE: u32 = 13;
+        const OBJ_EXTPEN: u32 = 11;
+        const OBJ_FONT: u32 = 6;
+        const OBJ_MEMDC: u32 = 10;
+        const OBJ_METADC: u32 = 4;
+        const OBJ_METAFILE: u32 = 9;
+        const OBJ_PAL: u32 = 5;
+        const OBJ_PEN: u32 = 1;
+        const OBJ_REGION: u32 = 8;
+        const OEM_CHARSET: u32 = 255;
+        const OEM_FIXED_FONT: u32 = 10;
+        extern fn OLDFONTENUMPROCA(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: LPARAM) -> i32;
+        extern fn OLDFONTENUMPROCW(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: LPARAM) -> i32;
+        const OPAQUE: u32 = 2;
+        const OPENCHANNEL: u32 = 4110;
+        type OUTLINETEXTMETRIC = OUTLINETEXTMETRICA;
+        struct OUTLINETEXTMETRICA {
+            otmSize: u32,
+            otmTextMetrics: TEXTMETRICA,
+            otmFiller: u8,
+            otmPanoseNumber: PANOSE,
+            otmfsSelection: u32,
+            otmfsType: u32,
+            otmsCharSlopeRise: i32,
+            otmsCharSlopeRun: i32,
+            otmItalicAngle: i32,
+            otmEMSquare: u32,
+            otmAscent: i32,
+            otmDescent: i32,
+            otmLineGap: u32,
+            otmsCapEmHeight: u32,
+            otmsXHeight: u32,
+            otmrcFontBox: RECT,
+            otmMacAscent: i32,
+            otmMacDescent: i32,
+            otmMacLineGap: u32,
+            otmusMinimumPPEM: u32,
+            otmptSubscriptSize: POINT,
+            otmptSubscriptOffset: POINT,
+            otmptSuperscriptSize: POINT,
+            otmptSuperscriptOffset: POINT,
+            otmsStrikeoutSize: u32,
+            otmsStrikeoutPosition: i32,
+            otmsUnderscoreSize: i32,
+            otmsUnderscorePosition: i32,
+            otmpFamilyName: PSTR,
+            otmpFaceName: PSTR,
+            otmpStyleName: PSTR,
+            otmpFullName: PSTR,
+        }
+        struct OUTLINETEXTMETRICW {
+            otmSize: u32,
+            otmTextMetrics: TEXTMETRICW,
+            otmFiller: u8,
+            otmPanoseNumber: PANOSE,
+            otmfsSelection: u32,
+            otmfsType: u32,
+            otmsCharSlopeRise: i32,
+            otmsCharSlopeRun: i32,
+            otmItalicAngle: i32,
+            otmEMSquare: u32,
+            otmAscent: i32,
+            otmDescent: i32,
+            otmLineGap: u32,
+            otmsCapEmHeight: u32,
+            otmsXHeight: u32,
+            otmrcFontBox: RECT,
+            otmMacAscent: i32,
+            otmMacDescent: i32,
+            otmMacLineGap: u32,
+            otmusMinimumPPEM: u32,
+            otmptSubscriptSize: POINT,
+            otmptSubscriptOffset: POINT,
+            otmptSuperscriptSize: POINT,
+            otmptSuperscriptOffset: POINT,
+            otmsStrikeoutSize: u32,
+            otmsStrikeoutPosition: i32,
+            otmsUnderscoreSize: i32,
+            otmsUnderscorePosition: i32,
+            otmpFamilyName: PSTR,
+            otmpFaceName: PSTR,
+            otmpStyleName: PSTR,
+            otmpFullName: PSTR,
+        }
+        const OUT_CHARACTER_PRECIS: u32 = 2;
+        const OUT_DEFAULT_PRECIS: u32 = 0;
+        const OUT_DEVICE_PRECIS: u32 = 5;
+        const OUT_OUTLINE_PRECIS: u32 = 8;
+        const OUT_PS_ONLY_PRECIS: u32 = 10;
+        const OUT_RASTER_PRECIS: u32 = 6;
+        const OUT_SCREEN_OUTLINE_PRECIS: u32 = 9;
+        const OUT_STRING_PRECIS: u32 = 1;
+        const OUT_STROKE_PRECIS: u32 = 3;
+        const OUT_TT_ONLY_PRECIS: u32 = 7;
+        const OUT_TT_PRECIS: u32 = 4;
+        #[library("GDI32.dll")]
+        extern fn OffsetClipRgn(hdc: HDC, x: i32, y: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn OffsetRgn(hrgn: HRGN, x: i32, y: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn OffsetViewportOrgEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn OffsetWindowOrgEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        type PABC = *mut ABC;
+        type PABCFLOAT = *mut ABCFLOAT;
+        struct PALETTEENTRY {
+            peRed: u8,
+            peGreen: u8,
+            peBlue: u8,
+            peFlags: u8,
+        }
+        struct PANOSE {
+            bFamilyType: u8,
+            bSerifStyle: u8,
+            bWeight: u8,
+            bProportion: u8,
+            bContrast: u8,
+            bStrokeVariation: u8,
+            bArmStyle: u8,
+            bLetterform: u8,
+            bMidline: u8,
+            bXHeight: u8,
+        }
+        const PANOSE_COUNT: u32 = 10;
+        const PAN_ANY: u32 = 0;
+        const PAN_ARMSTYLE_INDEX: u32 = 6;
+        const PAN_BENT_ARMS_DOUBLE_SERIF: u32 = 11;
+        const PAN_BENT_ARMS_HORZ: u32 = 7;
+        const PAN_BENT_ARMS_SINGLE_SERIF: u32 = 10;
+        const PAN_BENT_ARMS_VERT: u32 = 9;
+        const PAN_BENT_ARMS_WEDGE: u32 = 8;
+        const PAN_CONTRAST_HIGH: u32 = 8;
+        const PAN_CONTRAST_INDEX: u32 = 4;
+        const PAN_CONTRAST_LOW: u32 = 4;
+        const PAN_CONTRAST_MEDIUM: u32 = 6;
+        const PAN_CONTRAST_MEDIUM_HIGH: u32 = 7;
+        const PAN_CONTRAST_MEDIUM_LOW: u32 = 5;
+        const PAN_CONTRAST_NONE: u32 = 2;
+        const PAN_CONTRAST_VERY_HIGH: u32 = 9;
+        const PAN_CONTRAST_VERY_LOW: u32 = 3;
+        const PAN_CULTURE_LATIN: u32 = 0;
+        const PAN_FAMILYTYPE_INDEX: u32 = 0;
+        const PAN_FAMILY_DECORATIVE: u32 = 4;
+        const PAN_FAMILY_PICTORIAL: u32 = 5;
+        const PAN_FAMILY_SCRIPT: u32 = 3;
+        const PAN_FAMILY_TEXT_DISPLAY: u32 = 2;
+        const PAN_LETTERFORM_INDEX: u32 = 7;
+        const PAN_LETT_NORMAL_BOXED: u32 = 4;
+        const PAN_LETT_NORMAL_CONTACT: u32 = 2;
+        const PAN_LETT_NORMAL_FLATTENED: u32 = 5;
+        const PAN_LETT_NORMAL_OFF_CENTER: u32 = 7;
+        const PAN_LETT_NORMAL_ROUNDED: u32 = 6;
+        const PAN_LETT_NORMAL_SQUARE: u32 = 8;
+        const PAN_LETT_NORMAL_WEIGHTED: u32 = 3;
+        const PAN_LETT_OBLIQUE_BOXED: u32 = 11;
+        const PAN_LETT_OBLIQUE_CONTACT: u32 = 9;
+        const PAN_LETT_OBLIQUE_FLATTENED: u32 = 12;
+        const PAN_LETT_OBLIQUE_OFF_CENTER: u32 = 14;
+        const PAN_LETT_OBLIQUE_ROUNDED: u32 = 13;
+        const PAN_LETT_OBLIQUE_SQUARE: u32 = 15;
+        const PAN_LETT_OBLIQUE_WEIGHTED: u32 = 10;
+        const PAN_MIDLINE_CONSTANT_POINTED: u32 = 9;
+        const PAN_MIDLINE_CONSTANT_SERIFED: u32 = 10;
+        const PAN_MIDLINE_CONSTANT_TRIMMED: u32 = 8;
+        const PAN_MIDLINE_HIGH_POINTED: u32 = 6;
+        const PAN_MIDLINE_HIGH_SERIFED: u32 = 7;
+        const PAN_MIDLINE_HIGH_TRIMMED: u32 = 5;
+        const PAN_MIDLINE_INDEX: u32 = 8;
+        const PAN_MIDLINE_LOW_POINTED: u32 = 12;
+        const PAN_MIDLINE_LOW_SERIFED: u32 = 13;
+        const PAN_MIDLINE_LOW_TRIMMED: u32 = 11;
+        const PAN_MIDLINE_STANDARD_POINTED: u32 = 3;
+        const PAN_MIDLINE_STANDARD_SERIFED: u32 = 4;
+        const PAN_MIDLINE_STANDARD_TRIMMED: u32 = 2;
+        const PAN_NO_FIT: u32 = 1;
+        const PAN_PROPORTION_INDEX: u32 = 3;
+        const PAN_PROP_CONDENSED: u32 = 6;
+        const PAN_PROP_EVEN_WIDTH: u32 = 4;
+        const PAN_PROP_EXPANDED: u32 = 5;
+        const PAN_PROP_MODERN: u32 = 3;
+        const PAN_PROP_MONOSPACED: u32 = 9;
+        const PAN_PROP_OLD_STYLE: u32 = 2;
+        const PAN_PROP_VERY_CONDENSED: u32 = 8;
+        const PAN_PROP_VERY_EXPANDED: u32 = 7;
+        const PAN_SERIFSTYLE_INDEX: u32 = 1;
+        const PAN_SERIF_BONE: u32 = 8;
+        const PAN_SERIF_COVE: u32 = 2;
+        const PAN_SERIF_EXAGGERATED: u32 = 9;
+        const PAN_SERIF_FLARED: u32 = 14;
+        const PAN_SERIF_NORMAL_SANS: u32 = 11;
+        const PAN_SERIF_OBTUSE_COVE: u32 = 3;
+        const PAN_SERIF_OBTUSE_SANS: u32 = 12;
+        const PAN_SERIF_OBTUSE_SQUARE_COVE: u32 = 5;
+        const PAN_SERIF_PERP_SANS: u32 = 13;
+        const PAN_SERIF_ROUNDED: u32 = 15;
+        const PAN_SERIF_SQUARE: u32 = 6;
+        const PAN_SERIF_SQUARE_COVE: u32 = 4;
+        const PAN_SERIF_THIN: u32 = 7;
+        const PAN_SERIF_TRIANGLE: u32 = 10;
+        const PAN_STRAIGHT_ARMS_DOUBLE_SERIF: u32 = 6;
+        const PAN_STRAIGHT_ARMS_HORZ: u32 = 2;
+        const PAN_STRAIGHT_ARMS_SINGLE_SERIF: u32 = 5;
+        const PAN_STRAIGHT_ARMS_VERT: u32 = 4;
+        const PAN_STRAIGHT_ARMS_WEDGE: u32 = 3;
+        const PAN_STROKEVARIATION_INDEX: u32 = 5;
+        const PAN_STROKE_GRADUAL_DIAG: u32 = 2;
+        const PAN_STROKE_GRADUAL_HORZ: u32 = 5;
+        const PAN_STROKE_GRADUAL_TRAN: u32 = 3;
+        const PAN_STROKE_GRADUAL_VERT: u32 = 4;
+        const PAN_STROKE_INSTANT_VERT: u32 = 8;
+        const PAN_STROKE_RAPID_HORZ: u32 = 7;
+        const PAN_STROKE_RAPID_VERT: u32 = 6;
+        const PAN_WEIGHT_BLACK: u32 = 10;
+        const PAN_WEIGHT_BOLD: u32 = 8;
+        const PAN_WEIGHT_BOOK: u32 = 5;
+        const PAN_WEIGHT_DEMI: u32 = 7;
+        const PAN_WEIGHT_HEAVY: u32 = 9;
+        const PAN_WEIGHT_INDEX: u32 = 2;
+        const PAN_WEIGHT_LIGHT: u32 = 3;
+        const PAN_WEIGHT_MEDIUM: u32 = 6;
+        const PAN_WEIGHT_NORD: u32 = 11;
+        const PAN_WEIGHT_THIN: u32 = 4;
+        const PAN_WEIGHT_VERY_LIGHT: u32 = 2;
+        const PAN_XHEIGHT_CONSTANT_LARGE: u32 = 4;
+        const PAN_XHEIGHT_CONSTANT_SMALL: u32 = 2;
+        const PAN_XHEIGHT_CONSTANT_STD: u32 = 3;
+        const PAN_XHEIGHT_DUCKING_LARGE: u32 = 7;
+        const PAN_XHEIGHT_DUCKING_SMALL: u32 = 5;
+        const PAN_XHEIGHT_DUCKING_STD: u32 = 6;
+        const PAN_XHEIGHT_INDEX: u32 = 9;
+        const PASSTHROUGH: u32 = 19;
+        const PATCOPY: u32 = 15728673;
+        const PATINVERT: u32 = 5898313;
+        const PATPAINT: u32 = 16452105;
+        type PATTERN = LOGBRUSH;
+        type PAXESLIST = PAXESLISTA;
+        type PAXESLISTA = *mut AXESLISTA;
+        type PAXESLISTW = *mut AXESLISTW;
+        type PAXISINFO = PAXISINFOA;
+        type PAXISINFOA = *mut AXISINFOA;
+        type PAXISINFOW = *mut AXISINFOW;
+        type PBITMAP = *mut BITMAP;
+        type PBITMAPCOREHEADER = *mut BITMAPCOREHEADER;
+        type PBITMAPCOREINFO = *mut BITMAPCOREINFO;
+        type PBITMAPFILEHEADER = *mut BITMAPFILEHEADER;
+        type PBITMAPINFO = *mut BITMAPINFO;
+        type PBITMAPINFOHEADER = *mut BITMAPINFOHEADER;
+        type PBITMAPV4HEADER = *mut BITMAPV4HEADER;
+        type PBITMAPV5HEADER = *mut BITMAPV5HEADER;
+        type PBLENDFUNCTION = *mut BLENDFUNCTION;
+        type PCHARSETINFO = *mut CHARSETINFO;
+        type PCOLORADJUSTMENT = *mut COLORADJUSTMENT;
+        const PC_EXPLICIT: u32 = 2;
+        const PC_INTERIORS: u32 = 128;
+        const PC_NOCOLLAPSE: u32 = 4;
+        const PC_NONE: u32 = 0;
+        const PC_PATHS: u32 = 512;
+        const PC_POLYGON: u32 = 1;
+        const PC_POLYPOLYGON: u32 = 256;
+        const PC_RECTANGLE: u32 = 2;
+        const PC_RESERVED: u32 = 1;
+        const PC_SCANLINE: u32 = 8;
+        const PC_STYLED: u32 = 32;
+        const PC_TRAPEZOID: u32 = 4;
+        const PC_WIDE: u32 = 16;
+        const PC_WIDESTYLED: u32 = 64;
+        const PC_WINDPOLYGON: u32 = 4;
+        type PDESIGNVECTOR = *mut DESIGNVECTOR;
+        const PDEVICESIZE: u32 = 26;
+        type PDEVMODE = PDEVMODEA;
+        type PDEVMODEA = *mut DEVMODEA;
+        type PDEVMODEW = *mut DEVMODEW;
+        type PDIBSECTION = *mut DIBSECTION;
+        type PDISPLAY_DEVICE = PDISPLAY_DEVICEA;
+        type PDISPLAY_DEVICEA = *mut DISPLAY_DEVICEA;
+        type PDISPLAY_DEVICEW = *mut DISPLAY_DEVICEW;
+        type PDRAWPATRECT = *mut DRAWPATRECT;
+        struct PELARRAY {
+            paXCount: i32,
+            paYCount: i32,
+            paXExt: i32,
+            paYExt: i32,
+            paRGBs: u8,
+        }
+        type PEMR = *mut EMR;
+        type PEMRABORTPATH = *mut EMRABORTPATH;
+        type PEMRALPHABLEND = *mut EMRALPHABLEND;
+        type PEMRANGLEARC = *mut EMRANGLEARC;
+        type PEMRARC = *mut EMRARC;
+        type PEMRARCTO = *mut EMRARC;
+        type PEMRBEGINPATH = *mut EMRABORTPATH;
+        type PEMRBITBLT = *mut EMRBITBLT;
+        type PEMRCHORD = *mut EMRARC;
+        type PEMRCLOSEFIGURE = *mut EMRABORTPATH;
+        type PEMRCOLORCORRECTPALETTE = *mut EMRCOLORCORRECTPALETTE;
+        type PEMRCOLORMATCHTOTARGET = *mut EMRCOLORMATCHTOTARGET;
+        type PEMRCREATEBRUSHINDIRECT = *mut EMRCREATEBRUSHINDIRECT;
+        type PEMRCREATECOLORSPACE = *mut EMRCREATECOLORSPACE;
+        type PEMRCREATECOLORSPACEW = *mut EMRCREATECOLORSPACEW;
+        type PEMRCREATEDIBPATTERNBRUSHPT = *mut EMRCREATEDIBPATTERNBRUSHPT;
+        type PEMRCREATEMONOBRUSH = *mut EMRCREATEMONOBRUSH;
+        type PEMRCREATEPALETTE = *mut EMRCREATEPALETTE;
+        type PEMRCREATEPEN = *mut EMRCREATEPEN;
+        type PEMRDELETECOLORSPACE = *mut EMRSETCOLORSPACE;
+        type PEMRDELETEOBJECT = *mut EMRSELECTOBJECT;
+        type PEMRDRAWESCAPE = *mut EMREXTESCAPE;
+        type PEMRELLIPSE = *mut EMRELLIPSE;
+        type PEMRENDPATH = *mut EMRABORTPATH;
+        type PEMREOF = *mut EMREOF;
+        type PEMREXCLUDECLIPRECT = *mut EMREXCLUDECLIPRECT;
+        type PEMREXTCREATEFONTINDIRECTW = *mut EMREXTCREATEFONTINDIRECTW;
+        type PEMREXTCREATEPEN = *mut EMREXTCREATEPEN;
+        type PEMREXTESCAPE = *mut EMREXTESCAPE;
+        type PEMREXTFLOODFILL = *mut EMREXTFLOODFILL;
+        type PEMREXTSELECTCLIPRGN = *mut EMREXTSELECTCLIPRGN;
+        type PEMREXTTEXTOUTA = *mut EMREXTTEXTOUTA;
+        type PEMREXTTEXTOUTW = *mut EMREXTTEXTOUTA;
+        type PEMRFILLPATH = *mut EMRFILLPATH;
+        type PEMRFILLRGN = *mut EMRFILLRGN;
+        type PEMRFLATTENPATH = *mut EMRABORTPATH;
+        type PEMRFORMAT = *mut EMRFORMAT;
+        type PEMRFRAMERGN = *mut EMRFRAMERGN;
+        type PEMRGDICOMMENT = *mut EMRGDICOMMENT;
+        type PEMRGLSBOUNDEDRECORD = *mut EMRGLSBOUNDEDRECORD;
+        type PEMRGLSRECORD = *mut EMRGLSRECORD;
+        type PEMRGRADIENTFILL = *mut EMRGRADIENTFILL;
+        type PEMRINTERSECTCLIPRECT = *mut EMREXCLUDECLIPRECT;
+        type PEMRINVERTRGN = *mut EMRINVERTRGN;
+        type PEMRLINETO = *mut EMRLINETO;
+        type PEMRMASKBLT = *mut EMRMASKBLT;
+        type PEMRMODIFYWORLDTRANSFORM = *mut EMRMODIFYWORLDTRANSFORM;
+        type PEMRMOVETOEX = *mut EMRLINETO;
+        type PEMRNAMEDESCAPE = *mut EMRNAMEDESCAPE;
+        type PEMROFFSETCLIPRGN = *mut EMROFFSETCLIPRGN;
+        type PEMRPAINTRGN = *mut EMRINVERTRGN;
+        type PEMRPIE = *mut EMRARC;
+        type PEMRPIXELFORMAT = *mut EMRPIXELFORMAT;
+        type PEMRPLGBLT = *mut EMRPLGBLT;
+        type PEMRPOLYBEZIER = *mut EMRPOLYLINE;
+        type PEMRPOLYBEZIER16 = *mut EMRPOLYLINE16;
+        type PEMRPOLYBEZIERTO = *mut EMRPOLYLINE;
+        type PEMRPOLYBEZIERTO16 = *mut EMRPOLYLINE16;
+        type PEMRPOLYDRAW = *mut EMRPOLYDRAW;
+        type PEMRPOLYDRAW16 = *mut EMRPOLYDRAW16;
+        type PEMRPOLYGON = *mut EMRPOLYLINE;
+        type PEMRPOLYGON16 = *mut EMRPOLYLINE16;
+        type PEMRPOLYLINE = *mut EMRPOLYLINE;
+        type PEMRPOLYLINE16 = *mut EMRPOLYLINE16;
+        type PEMRPOLYLINETO = *mut EMRPOLYLINE;
+        type PEMRPOLYLINETO16 = *mut EMRPOLYLINE16;
+        type PEMRPOLYPOLYGON = *mut EMRPOLYPOLYLINE;
+        type PEMRPOLYPOLYGON16 = *mut EMRPOLYPOLYLINE16;
+        type PEMRPOLYPOLYLINE = *mut EMRPOLYPOLYLINE;
+        type PEMRPOLYPOLYLINE16 = *mut EMRPOLYPOLYLINE16;
+        type PEMRPOLYTEXTOUTA = *mut EMRPOLYTEXTOUTA;
+        type PEMRPOLYTEXTOUTW = *mut EMRPOLYTEXTOUTA;
+        type PEMRREALIZEPALETTE = *mut EMRABORTPATH;
+        type PEMRRECTANGLE = *mut EMRELLIPSE;
+        type PEMRRESIZEPALETTE = *mut EMRRESIZEPALETTE;
+        type PEMRRESTOREDC = *mut EMRRESTOREDC;
+        type PEMRROUNDRECT = *mut EMRROUNDRECT;
+        type PEMRSAVEDC = *mut EMRABORTPATH;
+        type PEMRSCALEVIEWPORTEXTEX = *mut EMRSCALEVIEWPORTEXTEX;
+        type PEMRSCALEWINDOWEXTEX = *mut EMRSCALEVIEWPORTEXTEX;
+        type PEMRSELECTCLIPPATH = *mut EMRSELECTCLIPPATH;
+        type PEMRSELECTCOLORSPACE = *mut EMRSETCOLORSPACE;
+        type PEMRSELECTOBJECT = *mut EMRSELECTOBJECT;
+        type PEMRSELECTPALETTE = *mut EMRSELECTPALETTE;
+        type PEMRSETARCDIRECTION = *mut EMRSETARCDIRECTION;
+        type PEMRSETBKCOLOR = *mut EMRSETBKCOLOR;
+        type PEMRSETBKMODE = *mut EMRSELECTCLIPPATH;
+        type PEMRSETBRUSHORGEX = *mut EMRSETVIEWPORTORGEX;
+        type PEMRSETCOLORADJUSTMENT = *mut EMRSETCOLORADJUSTMENT;
+        type PEMRSETCOLORSPACE = *mut EMRSETCOLORSPACE;
+        type PEMRSETDIBITSTODEVICE = *mut EMRSETDIBITSTODEVICE;
+        type PEMRSETICMMODE = *mut EMRSELECTCLIPPATH;
+        type PEMRSETICMPROFILE = *mut EMRSETICMPROFILE;
+        type PEMRSETICMPROFILEA = *mut EMRSETICMPROFILE;
+        type PEMRSETICMPROFILEW = *mut EMRSETICMPROFILE;
+        type PEMRSETLAYOUT = *mut EMRSELECTCLIPPATH;
+        type PEMRSETMAPMODE = *mut EMRSELECTCLIPPATH;
+        type PEMRSETMAPPERFLAGS = *mut EMRSETMAPPERFLAGS;
+        type PEMRSETMETARGN = *mut EMRABORTPATH;
+        type PEMRSETMITERLIMIT = *mut EMRSETMITERLIMIT;
+        type PEMRSETPALETTEENTRIES = *mut EMRSETPALETTEENTRIES;
+        type PEMRSETPIXELV = *mut EMRSETPIXELV;
+        type PEMRSETPOLYFILLMODE = *mut EMRSELECTCLIPPATH;
+        type PEMRSETROP2 = *mut EMRSELECTCLIPPATH;
+        type PEMRSETSTRETCHBLTMODE = *mut EMRSELECTCLIPPATH;
+        type PEMRSETTEXTALIGN = *mut EMRSELECTCLIPPATH;
+        type PEMRSETTEXTCOLOR = *mut EMRSETBKCOLOR;
+        type PEMRSETVIEWPORTEXTEX = *mut EMRSETVIEWPORTEXTEX;
+        type PEMRSETVIEWPORTORGEX = *mut EMRSETVIEWPORTORGEX;
+        type PEMRSETWINDOWEXTEX = *mut EMRSETVIEWPORTEXTEX;
+        type PEMRSETWINDOWORGEX = *mut EMRSETVIEWPORTORGEX;
+        type PEMRSETWORLDTRANSFORM = *mut EMRSETWORLDTRANSFORM;
+        type PEMRSTRETCHBLT = *mut EMRSTRETCHBLT;
+        type PEMRSTRETCHDIBITS = *mut EMRSTRETCHDIBITS;
+        type PEMRSTROKEANDFILLPATH = *mut EMRFILLPATH;
+        type PEMRSTROKEPATH = *mut EMRFILLPATH;
+        type PEMRTEXT = *mut EMRTEXT;
+        type PEMRTRANSPARENTBLT = *mut EMRTRANSPARENTBLT;
+        type PEMRWIDENPATH = *mut EMRABORTPATH;
+        type PENHMETAHEADER = *mut ENHMETAHEADER;
+        type PENHMETARECORD = *mut ENHMETARECORD;
+        type PENUMLOGFONTEXDV = PENUMLOGFONTEXDVA;
+        type PENUMLOGFONTEXDVA = *mut ENUMLOGFONTEXDVA;
+        type PENUMLOGFONTEXDVW = *mut ENUMLOGFONTEXDVW;
+        type PENUMTEXTMETRIC = PENUMTEXTMETRICA;
+        type PENUMTEXTMETRICA = *mut ENUMTEXTMETRICA;
+        type PENUMTEXTMETRICW = *mut ENUMTEXTMETRICW;
+        type PEXTLOGFONT = PEXTLOGFONTA;
+        type PEXTLOGFONTA = *mut EXTLOGFONTA;
+        type PEXTLOGFONTW = *mut EXTLOGFONTW;
+        type PEXTLOGPEN = *mut EXTLOGPEN;
+        type PEXTLOGPEN32 = *mut EXTLOGPEN32;
+        const PFD_DEPTH_DONTCARE: u32 = 536870912;
+        const PFD_DIRECT3D_ACCELERATED: u32 = 16384;
+        const PFD_DOUBLEBUFFER: u32 = 1;
+        const PFD_DOUBLEBUFFER_DONTCARE: u32 = 1073741824;
+        const PFD_DRAW_TO_BITMAP: u32 = 8;
+        const PFD_DRAW_TO_WINDOW: u32 = 4;
+        const PFD_GENERIC_ACCELERATED: u32 = 4096;
+        const PFD_GENERIC_FORMAT: u32 = 64;
+        const PFD_MAIN_PLANE: u32 = 0;
+        const PFD_NEED_PALETTE: u32 = 128;
+        const PFD_NEED_SYSTEM_PALETTE: u32 = 256;
+        const PFD_OVERLAY_PLANE: u32 = 1;
+        const PFD_STEREO: u32 = 2;
+        const PFD_STEREO_DONTCARE: u32 = 2147483648;
+        const PFD_SUPPORT_COMPOSITION: u32 = 32768;
+        const PFD_SUPPORT_DIRECTDRAW: u32 = 8192;
+        const PFD_SUPPORT_GDI: u32 = 16;
+        const PFD_SUPPORT_OPENGL: u32 = 32;
+        const PFD_SWAP_COPY: u32 = 1024;
+        const PFD_SWAP_EXCHANGE: u32 = 512;
+        const PFD_SWAP_LAYER_BUFFERS: u32 = 2048;
+        const PFD_TYPE_COLORINDEX: u32 = 1;
+        const PFD_TYPE_RGBA: u32 = 0;
+        const PFD_UNDERLAY_PLANE: i32 = -1;
+        type PFONTSIGNATURE = *mut FONTSIGNATURE;
+        type PGLYPHMETRICSFLOAT = *mut GLYPHMETRICSFLOAT;
+        type PGLYPHSET = *mut GLYPHSET;
+        type PGRADIENT_RECT = *mut GRADIENT_RECT;
+        type PGRADIENT_TRIANGLE = *mut GRADIENT_TRIANGLE;
+        type PHANDLETABLE = *mut HANDLETABLE;
+        const PHYSICALHEIGHT: u32 = 111;
+        const PHYSICALOFFSETX: u32 = 112;
+        const PHYSICALOFFSETY: u32 = 113;
+        const PHYSICALWIDTH: u32 = 110;
+        struct PIXELFORMATDESCRIPTOR {
+            nSize: u16,
+            nVersion: u16,
+            dwFlags: u32,
+            iPixelType: u8,
+            cColorBits: u8,
+            cRedBits: u8,
+            cRedShift: u8,
+            cGreenBits: u8,
+            cGreenShift: u8,
+            cBlueBits: u8,
+            cBlueShift: u8,
+            cAlphaBits: u8,
+            cAlphaShift: u8,
+            cAccumBits: u8,
+            cAccumRedBits: u8,
+            cAccumGreenBits: u8,
+            cAccumBlueBits: u8,
+            cAccumAlphaBits: u8,
+            cDepthBits: u8,
+            cStencilBits: u8,
+            cAuxBuffers: u8,
+            iLayerType: u8,
+            bReserved: u8,
+            dwLayerMask: u32,
+            dwVisibleMask: u32,
+            dwDamageMask: u32,
+        }
+        const PLANES: u32 = 14;
+        type PLAYERPLANEDESCRIPTOR = *mut LAYERPLANEDESCRIPTOR;
+        type PLOCALESIGNATURE = *mut LOCALESIGNATURE;
+        type PLOGBRUSH = *mut LOGBRUSH;
+        type PLOGBRUSH32 = *mut LOGBRUSH32;
+        type PLOGFONT = PLOGFONTA;
+        type PLOGFONTA = *mut LOGFONTA;
+        type PLOGFONTW = *mut LOGFONTW;
+        type PLOGPALETTE = *mut LOGPALETTE;
+        type PLOGPEN = *mut LOGPEN;
+        type PMETAHEADER = *mut METAHEADER;
+        type PMETARECORD = *mut METARECORD;
+        type PNEWTEXTMETRIC = PNEWTEXTMETRICA;
+        type PNEWTEXTMETRICA = *mut NEWTEXTMETRICA;
+        type PNEWTEXTMETRICW = *mut NEWTEXTMETRICW;
+        struct POINTFLOAT {
+            x: f32,
+            y: f32,
+        }
+        struct POINTFX {
+            x: FIXED,
+            y: FIXED,
+        }
+        const POLYFILL_LAST: u32 = 2;
+        const POLYGONALCAPS: u32 = 32;
+        type POLYTEXT = POLYTEXTA;
+        struct POLYTEXTA {
+            x: i32,
+            y: i32,
+            n: u32,
+            lpstr: PCSTR,
+            uiFlags: u32,
+            rcl: RECT,
+            pdx: *mut i32,
+        }
+        struct POLYTEXTW {
+            x: i32,
+            y: i32,
+            n: u32,
+            lpstr: PCWSTR,
+            uiFlags: u32,
+            rcl: RECT,
+            pdx: *mut i32,
+        }
+        const POSTSCRIPT_DATA: u32 = 37;
+        const POSTSCRIPT_IDENTIFY: u32 = 4117;
+        const POSTSCRIPT_IGNORE: u32 = 38;
+        const POSTSCRIPT_INJECTION: u32 = 4118;
+        const POSTSCRIPT_PASSTHROUGH: u32 = 4115;
+        type POUTLINETEXTMETRIC = POUTLINETEXTMETRICA;
+        type POUTLINETEXTMETRICA = *mut OUTLINETEXTMETRICA;
+        type POUTLINETEXTMETRICW = *mut OUTLINETEXTMETRICW;
+        type PPALETTEENTRY = *mut PALETTEENTRY;
+        type PPATTERN = *mut PATTERN;
+        type PPELARRAY = *mut PELARRAY;
+        type PPIXELFORMATDESCRIPTOR = *mut PIXELFORMATDESCRIPTOR;
+        type PPOINTFLOAT = *mut POINTFLOAT;
+        type PPOLYTEXT = PPOLYTEXTA;
+        type PPOLYTEXTA = *mut POLYTEXTA;
+        type PPOLYTEXTW = *mut POLYTEXTW;
+        type PPSFEATURE_CUSTPAPER = *mut PSFEATURE_CUSTPAPER;
+        type PPSFEATURE_OUTPUT = *mut PSFEATURE_OUTPUT;
+        type PPSINJECTDATA = *mut PSINJECTDATA;
+        type PRGBTRIPLE = *mut RGBTRIPLE;
+        type PRGNDATA = *mut RGNDATA;
+        type PRGNDATAHEADER = *mut RGNDATAHEADER;
+        const PRINTRATEUNIT_CPS: u32 = 2;
+        const PRINTRATEUNIT_IPM: u32 = 4;
+        const PRINTRATEUNIT_LPM: u32 = 3;
+        const PRINTRATEUNIT_PPM: u32 = 1;
+        const PROFILE_EMBEDDED: u32 = 1296188740;
+        const PROFILE_LINKED: u32 = 1279872587;
+        const PROOF_QUALITY: u32 = 2;
+        const PR_JOBSTATUS: u32 = 0;
+        struct PSFEATURE_CUSTPAPER {
+            lOrientation: i32,
+            lWidth: i32,
+            lHeight: i32,
+            lWidthOffset: i32,
+            lHeightOffset: i32,
+        }
+        struct PSFEATURE_OUTPUT {
+            bPageIndependent: BOOL,
+            bSetPageDevice: BOOL,
+        }
+        const PSIDENT_GDICENTRIC: u32 = 0;
+        const PSIDENT_PSCENTRIC: u32 = 1;
+        struct PSINJECTDATA {
+            DataBytes: u32,
+            InjectionPoint: u16,
+            PageNumber: u16,
+        }
+        const PSINJECT_BEGINDEFAULTS: u32 = 12;
+        const PSINJECT_BEGINPAGESETUP: u32 = 101;
+        const PSINJECT_BEGINPROLOG: u32 = 14;
+        const PSINJECT_BEGINSETUP: u32 = 16;
+        const PSINJECT_BEGINSTREAM: u32 = 1;
+        const PSINJECT_BOUNDINGBOX: u32 = 9;
+        const PSINJECT_COMMENTS: u32 = 11;
+        const PSINJECT_DLFONT: u32 = 3722304989;
+        const PSINJECT_DOCNEEDEDRES: u32 = 5;
+        const PSINJECT_DOCSUPPLIEDRES: u32 = 6;
+        const PSINJECT_DOCUMENTPROCESSCOLORS: u32 = 10;
+        const PSINJECT_DOCUMENTPROCESSCOLORSATEND: u32 = 21;
+        const PSINJECT_ENDDEFAULTS: u32 = 13;
+        const PSINJECT_ENDPAGECOMMENTS: u32 = 107;
+        const PSINJECT_ENDPAGESETUP: u32 = 102;
+        const PSINJECT_ENDPROLOG: u32 = 15;
+        const PSINJECT_ENDSETUP: u32 = 17;
+        const PSINJECT_ENDSTREAM: u32 = 20;
+        const PSINJECT_EOF: u32 = 19;
+        const PSINJECT_ORIENTATION: u32 = 8;
+        const PSINJECT_PAGEBBOX: u32 = 106;
+        const PSINJECT_PAGENUMBER: u32 = 100;
+        const PSINJECT_PAGEORDER: u32 = 7;
+        const PSINJECT_PAGES: u32 = 4;
+        const PSINJECT_PAGESATEND: u32 = 3;
+        const PSINJECT_PAGETRAILER: u32 = 103;
+        const PSINJECT_PLATECOLOR: u32 = 104;
+        const PSINJECT_PSADOBE: u32 = 2;
+        const PSINJECT_SHOWPAGE: u32 = 105;
+        const PSINJECT_TRAILER: u32 = 18;
+        const PSINJECT_VMRESTORE: u32 = 201;
+        const PSINJECT_VMSAVE: u32 = 200;
+        const PSPROTOCOL_ASCII: u32 = 0;
+        const PSPROTOCOL_BCP: u32 = 1;
+        const PSPROTOCOL_BINARY: u32 = 3;
+        const PSPROTOCOL_TBCP: u32 = 2;
+        const PS_ALTERNATE: u32 = 8;
+        const PS_COSMETIC: u32 = 0;
+        const PS_DASH: u32 = 1;
+        const PS_DASHDOT: u32 = 3;
+        const PS_DASHDOTDOT: u32 = 4;
+        const PS_DOT: u32 = 2;
+        const PS_ENDCAP_FLAT: u32 = 512;
+        const PS_ENDCAP_MASK: u32 = 3840;
+        const PS_ENDCAP_ROUND: u32 = 0;
+        const PS_ENDCAP_SQUARE: u32 = 256;
+        const PS_GEOMETRIC: u32 = 65536;
+        const PS_INSIDEFRAME: u32 = 6;
+        const PS_JOIN_BEVEL: u32 = 4096;
+        const PS_JOIN_MASK: u32 = 61440;
+        const PS_JOIN_MITER: u32 = 8192;
+        const PS_JOIN_ROUND: u32 = 0;
+        const PS_NULL: u32 = 5;
+        const PS_SOLID: u32 = 0;
+        const PS_STYLE_MASK: u32 = 15;
+        const PS_TYPE_MASK: u32 = 983040;
+        const PS_USERSTYLE: u32 = 7;
+        type PTEXTMETRIC = PTEXTMETRICA;
+        type PTEXTMETRICA = *mut TEXTMETRICA;
+        type PTEXTMETRICW = *mut TEXTMETRICW;
+        type PTRIVERTEX = *mut TRIVERTEX;
+        const PT_BEZIERTO: u32 = 4;
+        const PT_CLOSEFIGURE: u32 = 1;
+        const PT_LINETO: u32 = 2;
+        const PT_MOVETO: u32 = 6;
+        type PWCRANGE = *mut WCRANGE;
+        type PWGLSWAP = *mut WGLSWAP;
+        type PXFORM = *mut XFORM;
+        #[library("GDI32.dll")]
+        extern fn PaintRgn(hdc: HDC, hrgn: HRGN) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PatBlt(hdc: HDC, x: i32, y: i32, w: i32, h: i32, rop: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PathToRegion(hdc: HDC) -> HRGN;
+        #[library("GDI32.dll")]
+        extern fn Pie(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PlayEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, lprect: *const RECT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PlayEnhMetaFileRecord(hdc: HDC, #[len_param(3)] pht: *const HANDLETABLE, pmr: *const ENHMETARECORD, cht: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PlayMetaFile(hdc: HDC, hmf: HMETAFILE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PlayMetaFileRecord(hdc: HDC, #[len_param(3)] lpHandleTable: *const HANDLETABLE, lpMR: *const METARECORD, noObjs: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PlgBlt(hdcDest: HDC, #[len_const(3)] lpPoint: *const POINT, hdcSrc: HDC, xSrc: i32, ySrc: i32, width: i32, height: i32, #[opt] hbmMask: HBITMAP, xMask: i32, yMask: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PolyBezier(hdc: HDC, #[len_param(2)] apt: *const POINT, cpt: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PolyBezierTo(hdc: HDC, #[len_param(2)] apt: *const POINT, cpt: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PolyDraw(hdc: HDC, #[len_param(3)] apt: *const POINT, #[len_param(3)] aj: *const u8, cpt: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PolyPolygon(hdc: HDC, apt: *const POINT, #[len_param(3)] asz: *const i32, csz: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PolyPolyline(hdc: HDC, apt: *const POINT, #[len_param(3)] asz: *const u32, csz: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PolyTextOutA(hdc: HDC, #[len_param(2)] ppt: *const POLYTEXTA, nstrings: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PolyTextOutW(hdc: HDC, #[len_param(2)] ppt: *const POLYTEXTW, nstrings: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn Polygon(hdc: HDC, #[len_param(2)] apt: *const POINT, cpt: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn Polyline(hdc: HDC, #[len_param(2)] apt: *const POINT, cpt: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PolylineTo(hdc: HDC, #[len_param(2)] apt: *const POINT, cpt: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PtInRegion(hrgn: HRGN, x: i32, y: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn PtVisible(hdc: HDC, x: i32, y: i32) -> BOOL;
+        const QDC_ALL_PATHS: u32 = 1;
+        const QDC_DATABASE_CURRENT: u32 = 4;
+        const QDC_INCLUDE_HMD: u32 = 32;
+        const QDC_ONLY_ACTIVE_PATHS: u32 = 2;
+        const QDC_VIRTUAL_MODE_AWARE: u32 = 16;
+        const QDC_VIRTUAL_REFRESH_RATE_AWARE: u32 = 64;
+        const QDI_DIBTOSCREEN: u32 = 4;
+        const QDI_GETDIBITS: u32 = 2;
+        const QDI_SETDIBITS: u32 = 1;
+        const QDI_STRETCHDIB: u32 = 8;
+        const QUERYDIBSUPPORT: u32 = 3073;
+        const QUERYESCSUPPORT: u32 = 8;
+        const R2_BLACK: u32 = 1;
+        const R2_COPYPEN: u32 = 13;
+        const R2_LAST: u32 = 16;
+        const R2_MASKNOTPEN: u32 = 3;
+        const R2_MASKPEN: u32 = 9;
+        const R2_MASKPENNOT: u32 = 5;
+        const R2_MERGENOTPEN: u32 = 12;
+        const R2_MERGEPEN: u32 = 15;
+        const R2_MERGEPENNOT: u32 = 14;
+        const R2_NOP: u32 = 11;
+        const R2_NOT: u32 = 6;
+        const R2_NOTCOPYPEN: u32 = 4;
+        const R2_NOTMASKPEN: u32 = 8;
+        const R2_NOTMERGEPEN: u32 = 2;
+        const R2_NOTXORPEN: u32 = 10;
+        const R2_WHITE: u32 = 16;
+        const R2_XORPEN: u32 = 7;
+        const RASTERCAPS: u32 = 38;
+        struct RASTERIZER_STATUS {
+            nSize: i16,
+            wFlags: i16,
+            nLanguageID: i16,
+        }
+        const RASTER_FONTTYPE: u32 = 1;
+        const RC_BANDING: u32 = 2;
+        const RC_BIGFONT: u32 = 1024;
+        const RC_BITBLT: u32 = 1;
+        const RC_BITMAP64: u32 = 8;
+        const RC_DEVBITS: u32 = 32768;
+        const RC_DIBTODEV: u32 = 512;
+        const RC_DI_BITMAP: u32 = 128;
+        const RC_FLOODFILL: u32 = 4096;
+        const RC_GDI20_OUTPUT: u32 = 16;
+        const RC_GDI20_STATE: u32 = 32;
+        const RC_OP_DX_OUTPUT: u32 = 16384;
+        const RC_PALETTE: u32 = 256;
+        const RC_SAVEBITMAP: u32 = 64;
+        const RC_SCALING: u32 = 4;
+        const RC_STRETCHBLT: u32 = 2048;
+        const RC_STRETCHDIB: u32 = 8192;
+        const RDH_RECTANGLES: u32 = 1;
+        const REFERENCE_BLACK_MAX: u16 = 4000;
+        const REFERENCE_BLACK_MIN: u16 = 0;
+        const REFERENCE_WHITE_MAX: u16 = 10000;
+        const REFERENCE_WHITE_MIN: u16 = 6000;
+        const RELATIVE: u32 = 2;
+        const RESTORE_CTM: u32 = 4100;
+        struct RGBQUAD {
+            rgbBlue: u8,
+            rgbGreen: u8,
+            rgbRed: u8,
+            rgbReserved: u8,
+        }
+        struct RGBTRIPLE {
+            rgbtBlue: u8,
+            rgbtGreen: u8,
+            rgbtRed: u8,
+        }
+        const RGB_GAMMA_MAX: u16 = 65000;
+        const RGB_GAMMA_MIN: u16 = 1344;
+        struct RGNDATA {
+            rdh: RGNDATAHEADER,
+            Buffer: [i8; 1],
+        }
+        struct RGNDATAHEADER {
+            dwSize: u32,
+            iType: u32,
+            nCount: u32,
+            nRgnSize: u32,
+            rcBound: RECT,
+        }
+        const RGN_AND: u32 = 1;
+        const RGN_COPY: u32 = 5;
+        const RGN_DIFF: u32 = 4;
+        const RGN_ERROR: u32 = 0;
+        const RGN_MAX: u32 = 5;
+        const RGN_MIN: u32 = 1;
+        const RGN_OR: u32 = 2;
+        const RGN_XOR: u32 = 3;
+        const RUSSIAN_CHARSET: u32 = 204;
+        #[library("GDI32.dll")]
+        extern fn RealizePalette(hdc: HDC) -> u32;
+        #[library("GDI32.dll")]
+        extern fn RectInRegion(hrgn: HRGN, lprect: *const RECT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn RectVisible(hdc: HDC, lprect: *const RECT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn Rectangle(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn RemoveFontMemResourceEx(h: HANDLE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn RemoveFontResourceA(lpFileName: PCSTR) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn RemoveFontResourceExA(name: PCSTR, fl: u32, #[reserved] pdv: *const void) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn RemoveFontResourceExW(name: PCWSTR, fl: u32, #[reserved] pdv: *const void) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn RemoveFontResourceW(lpFileName: PCWSTR) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn ResetDCA(hdc: HDC, lpdm: *const DEVMODEA) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn ResetDCW(hdc: HDC, lpdm: *const DEVMODEW) -> HDC;
+        #[library("GDI32.dll")]
+        extern fn ResizePalette(hpal: HPALETTE, n: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn RestoreDC(hdc: HDC, nSavedDC: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn RoundRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32, width: i32, height: i32) -> BOOL;
+        const SAVE_CTM: u32 = 4101;
+        const SB_CONST_ALPHA: u32 = 1;
+        const SB_GRAD_RECT: u32 = 16;
+        const SB_GRAD_TRI: u32 = 32;
+        const SB_NONE: u32 = 0;
+        const SB_PIXEL_ALPHA: u32 = 2;
+        const SB_PREMULT_ALPHA: u32 = 4;
+        const SCALINGFACTORX: u32 = 114;
+        const SCALINGFACTORY: u32 = 115;
+        const SDC_ALLOW_CHANGES: u32 = 1024;
+        const SDC_ALLOW_PATH_ORDER_CHANGES: u32 = 8192;
+        const SDC_APPLY: u32 = 128;
+        const SDC_FORCE_MODE_ENUMERATION: u32 = 4096;
+        const SDC_NO_OPTIMIZATION: u32 = 256;
+        const SDC_PATH_PERSIST_IF_REQUIRED: u32 = 2048;
+        const SDC_SAVE_TO_DATABASE: u32 = 512;
+        const SDC_TOPOLOGY_CLONE: u32 = 2;
+        const SDC_TOPOLOGY_EXTEND: u32 = 4;
+        const SDC_TOPOLOGY_EXTERNAL: u32 = 8;
+        const SDC_TOPOLOGY_INTERNAL: u32 = 1;
+        const SDC_TOPOLOGY_SUPPLIED: u32 = 16;
+        const SDC_USE_DATABASE_CURRENT: u32 = 15;
+        const SDC_USE_SUPPLIED_DISPLAY_CONFIG: u32 = 32;
+        const SDC_VALIDATE: u32 = 64;
+        const SDC_VIRTUAL_MODE_AWARE: u32 = 32768;
+        const SDC_VIRTUAL_REFRESH_RATE_AWARE: u32 = 131072;
+        const SELECTPAPERSOURCE: u32 = 18;
+        const SETABORTPROC: u32 = 9;
+        const SETALLJUSTVALUES: u32 = 771;
+        const SETCHARSET: u32 = 772;
+        const SETCOLORTABLE: u32 = 4;
+        const SETCOPYCOUNT: u32 = 17;
+        const SETDIBSCALING: u32 = 32;
+        const SETICMPROFILE_EMBEDED: u32 = 1;
+        const SETKERNTRACK: u32 = 770;
+        const SETLINECAP: u32 = 21;
+        const SETLINEJOIN: u32 = 22;
+        const SETMITERLIMIT: u32 = 23;
+        const SET_ARC_DIRECTION: u32 = 4102;
+        const SET_BACKGROUND_COLOR: u32 = 4103;
+        const SET_BOUNDS: u32 = 4109;
+        const SET_CLIP_BOX: u32 = 4108;
+        const SET_MIRROR_MODE: u32 = 4110;
+        const SET_POLY_MODE: u32 = 4104;
+        const SET_SCREEN_ANGLE: u32 = 4105;
+        const SET_SPREAD: u32 = 4106;
+        const SHADEBLENDCAPS: u32 = 120;
+        const SHIFTJIS_CHARSET: u32 = 128;
+        const SIMPLEREGION: u32 = 2;
+        const SIZEPALETTE: u32 = 104;
+        const SPCLPASSTHROUGH2: u32 = 4568;
+        const SP_APPABORT: i32 = -2;
+        const SP_ERROR: i32 = -1;
+        const SP_NOTREPORTED: u32 = 16384;
+        const SP_OUTOFDISK: i32 = -4;
+        const SP_OUTOFMEMORY: i32 = -5;
+        const SP_USERABORT: i32 = -3;
+        const SRCAND: u32 = 8913094;
+        const SRCCOPY: u32 = 13369376;
+        const SRCERASE: u32 = 4457256;
+        const SRCINVERT: u32 = 6684742;
+        const SRCPAINT: u32 = 15597702;
+        const STAMP_AXESLIST: u32 = 134245473;
+        const STAMP_CFF2: u32 = 134248035;
+        const STAMP_DESIGNVECTOR: u32 = 134248036;
+        const STAMP_TRUETYPE_VARIATION: u32 = 134248052;
+        const STARTDOC: u32 = 10;
+        const STOCK_LAST: u32 = 19;
+        const STRETCHBLT: u32 = 2048;
+        const STRETCH_ANDSCANS: u32 = 1;
+        const STRETCH_DELETESCANS: u32 = 3;
+        const STRETCH_HALFTONE: u32 = 4;
+        const STRETCH_ORSCANS: u32 = 2;
+        const SYMBOL_CHARSET: u32 = 2;
+        const SYSPAL_ERROR: u32 = 0;
+        const SYSPAL_NOSTATIC: u32 = 2;
+        const SYSPAL_NOSTATIC256: u32 = 3;
+        const SYSPAL_STATIC: u32 = 1;
+        const SYSRGN: u32 = 4;
+        const SYSTEM_FIXED_FONT: u32 = 16;
+        const SYSTEM_FONT: u32 = 13;
+        #[library("GDI32.dll")]
+        extern fn SaveDC(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn ScaleViewportExtEx(hdc: HDC, xn: i32, dx: i32, yn: i32, yd: i32, #[opt] lpsz: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn ScaleWindowExtEx(hdc: HDC, xn: i32, xd: i32, yn: i32, yd: i32, #[opt] lpsz: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SelectClipPath(hdc: HDC, mode: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SelectClipRgn(hdc: HDC, #[opt] hrgn: HRGN) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SelectObject(hdc: HDC, h: HGDIOBJ) -> HGDIOBJ;
+        #[library("GDI32.dll")]
+        extern fn SelectPalette(hdc: HDC, hPal: HPALETTE, bForceBkgd: BOOL) -> HPALETTE;
+        #[library("GDI32.dll")]
+        extern fn SetAbortProc(hdc: HDC, proc: ABORTPROC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetArcDirection(hdc: HDC, dir: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetBitmapBits(hbm: HBITMAP, cb: u32, #[size_param(1)] pvBits: *const void) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetBitmapDimensionEx(hbm: HBITMAP, w: i32, h: i32, #[opt] lpsz: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetBkColor(hdc: HDC, color: COLORREF) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn SetBkMode(hdc: HDC, mode: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetBoundsRect(hdc: HDC, #[opt] lprect: *const RECT, flags: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn SetBrushOrgEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetColorAdjustment(hdc: HDC, lpca: *const COLORADJUSTMENT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetColorSpace(hdc: HDC, hcs: HCOLORSPACE) -> HCOLORSPACE;
+        #[library("GDI32.dll")]
+        extern fn SetDCBrushColor(hdc: HDC, color: COLORREF) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn SetDCPenColor(hdc: HDC, color: COLORREF) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn SetDIBColorTable(hdc: HDC, iStart: u32, cEntries: u32, #[len_param(2)] prgbq: *const RGBQUAD) -> u32;
+        #[library("GDI32.dll")]
+        extern fn SetDIBits(#[opt] hdc: HDC, hbm: HBITMAP, start: u32, cLines: u32, lpBits: *const void, lpbmi: *const BITMAPINFO, ColorUse: u32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetDIBitsToDevice(hdc: HDC, xDest: i32, yDest: i32, w: u32, h: u32, xSrc: i32, ySrc: i32, StartScan: u32, cLines: u32, lpvBits: *const void, lpbmi: *const BITMAPINFO, ColorUse: u32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetDeviceGammaRamp(hdc: HDC, lpRamp: *const void) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetEnhMetaFileBits(nSize: u32, #[size_param(0)] pb: *const u8) -> HENHMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn SetGraphicsMode(hdc: HDC, iMode: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetICMMode(hdc: HDC, mode: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetICMProfileA(hdc: HDC, lpFileName: PCSTR) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetICMProfileW(hdc: HDC, lpFileName: PCWSTR) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetLayout(hdc: HDC, l: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn SetMapMode(hdc: HDC, iMode: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetMapperFlags(hdc: HDC, flags: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn SetMetaFileBitsEx(cbBuffer: u32, #[size_param(0)] lpData: *const u8) -> HMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn SetMetaRgn(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetMiterLimit(hdc: HDC, limit: f32, #[opt] old: *mut f32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetPaletteEntries(hpal: HPALETTE, iStart: u32, cEntries: u32, #[len_param(2)] pPalEntries: *const PALETTEENTRY) -> u32;
+        #[library("GDI32.dll")]
+        extern fn SetPixel(hdc: HDC, x: i32, y: i32, color: COLORREF) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn SetPixelFormat(hdc: HDC, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetPixelV(hdc: HDC, x: i32, y: i32, color: COLORREF) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetPolyFillMode(hdc: HDC, mode: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetROP2(hdc: HDC, rop2: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetRectRgn(hrgn: HRGN, left: i32, top: i32, right: i32, bottom: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetStretchBltMode(hdc: HDC, mode: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetSystemPaletteUse(hdc: HDC, r#use: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn SetTextAlign(hdc: HDC, align: u32) -> u32;
+        #[library("GDI32.dll")]
+        extern fn SetTextCharacterExtra(hdc: HDC, extra: i32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn SetTextColor(hdc: HDC, color: COLORREF) -> COLORREF;
+        #[library("GDI32.dll")]
+        extern fn SetTextJustification(hdc: HDC, extra: i32, count: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetViewportExtEx(hdc: HDC, x: i32, y: i32, #[opt] lpsz: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetViewportOrgEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetWinMetaFileBits(nSize: u32, #[size_param(0)] lpMeta16Data: *const u8, #[opt] hdcRef: HDC, #[opt] lpMFP: *const METAFILEPICT) -> HENHMETAFILE;
+        #[library("GDI32.dll")]
+        extern fn SetWindowExtEx(hdc: HDC, x: i32, y: i32, #[opt] lpsz: *mut SIZE) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetWindowOrgEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SetWorldTransform(hdc: HDC, lpxf: *const XFORM) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn StartDocA(hdc: HDC, lpdi: *const DOCINFOA) -> i32;
+        #[library("GDI32.dll")]
+        extern fn StartDocW(hdc: HDC, lpdi: *const DOCINFOW) -> i32;
+        #[library("GDI32.dll")]
+        extern fn StartPage(hdc: HDC) -> i32;
+        #[library("GDI32.dll")]
+        extern fn StretchBlt(hdcDest: HDC, xDest: i32, yDest: i32, wDest: i32, hDest: i32, #[opt] hdcSrc: HDC, xSrc: i32, ySrc: i32, wSrc: i32, hSrc: i32, rop: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn StretchDIBits(hdc: HDC, xDest: i32, yDest: i32, DestWidth: i32, DestHeight: i32, xSrc: i32, ySrc: i32, SrcWidth: i32, SrcHeight: i32, #[opt] lpBits: *const void, lpbmi: *const BITMAPINFO, iUsage: u32, rop: u32) -> i32;
+        #[library("GDI32.dll")]
+        extern fn StrokeAndFillPath(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn StrokePath(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn SwapBuffers(param0: HDC) -> BOOL;
+        const TA_BASELINE: u32 = 24;
+        const TA_BOTTOM: u32 = 8;
+        const TA_CENTER: u32 = 6;
+        const TA_LEFT: u32 = 0;
+        const TA_MASK: u32 = 287;
+        const TA_NOUPDATECP: u32 = 0;
+        const TA_RIGHT: u32 = 2;
+        const TA_RTLREADING: u32 = 256;
+        const TA_TOP: u32 = 0;
+        const TA_UPDATECP: u32 = 1;
+        const TCI_SRCCHARSET: u32 = 1;
+        const TCI_SRCCODEPAGE: u32 = 2;
+        const TCI_SRCFONTSIG: u32 = 3;
+        const TCI_SRCLOCALE: u32 = 4096;
+        const TC_CP_STROKE: u32 = 4;
+        const TC_CR_90: u32 = 8;
+        const TC_CR_ANY: u32 = 16;
+        const TC_EA_DOUBLE: u32 = 512;
+        const TC_IA_ABLE: u32 = 1024;
+        const TC_OP_CHARACTER: u32 = 1;
+        const TC_OP_STROKE: u32 = 2;
+        const TC_RA_ABLE: u32 = 8192;
+        const TC_RESERVED: u32 = 32768;
+        const TC_SA_CONTIN: u32 = 256;
+        const TC_SA_DOUBLE: u32 = 64;
+        const TC_SA_INTEGER: u32 = 128;
+        const TC_SCROLLBLT: u32 = 65536;
+        const TC_SF_X_YINDEP: u32 = 32;
+        const TC_SO_ABLE: u32 = 4096;
+        const TC_UA_ABLE: u32 = 2048;
+        const TC_VA_ABLE: u32 = 16384;
+        const TECHNOLOGY: u32 = 2;
+        const TEXTCAPS: u32 = 34;
+        type TEXTMETRIC = TEXTMETRICA;
+        struct TEXTMETRICA {
+            tmHeight: i32,
+            tmAscent: i32,
+            tmDescent: i32,
+            tmInternalLeading: i32,
+            tmExternalLeading: i32,
+            tmAveCharWidth: i32,
+            tmMaxCharWidth: i32,
+            tmWeight: i32,
+            tmOverhang: i32,
+            tmDigitizedAspectX: i32,
+            tmDigitizedAspectY: i32,
+            tmFirstChar: u8,
+            tmLastChar: u8,
+            tmDefaultChar: u8,
+            tmBreakChar: u8,
+            tmItalic: u8,
+            tmUnderlined: u8,
+            tmStruckOut: u8,
+            tmPitchAndFamily: u8,
+            tmCharSet: u8,
+        }
+        struct TEXTMETRICW {
+            tmHeight: i32,
+            tmAscent: i32,
+            tmDescent: i32,
+            tmInternalLeading: i32,
+            tmExternalLeading: i32,
+            tmAveCharWidth: i32,
+            tmMaxCharWidth: i32,
+            tmWeight: i32,
+            tmOverhang: i32,
+            tmDigitizedAspectX: i32,
+            tmDigitizedAspectY: i32,
+            tmFirstChar: u16,
+            tmLastChar: u16,
+            tmDefaultChar: u16,
+            tmBreakChar: u16,
+            tmItalic: u8,
+            tmUnderlined: u8,
+            tmStruckOut: u8,
+            tmPitchAndFamily: u8,
+            tmCharSet: u8,
+        }
+        const THAI_CHARSET: u32 = 222;
+        const TMPF_DEVICE: u32 = 8;
+        const TMPF_FIXED_PITCH: u32 = 1;
+        const TMPF_TRUETYPE: u32 = 4;
+        const TMPF_VECTOR: u32 = 2;
+        const TRANSFORM_CTM: u32 = 4107;
+        const TRANSPARENT: u32 = 1;
+        struct TRIVERTEX {
+            x: i32,
+            y: i32,
+            Red: COLOR16,
+            Green: COLOR16,
+            Blue: COLOR16,
+            Alpha: COLOR16,
+        }
+        const TRUETYPE_FONTTYPE: u32 = 4;
+        struct TTPOLYCURVE {
+            wType: u16,
+            cpfx: u16,
+            apfx: [POINTFX; 1],
+        }
+        struct TTPOLYGONHEADER {
+            cb: u32,
+            dwType: u32,
+            pfxStart: POINTFX,
+        }
+        const TT_AVAILABLE: u32 = 1;
+        const TT_ENABLED: u32 = 2;
+        const TT_POLYGON_TYPE: u32 = 24;
+        const TT_PRIM_CSPLINE: u32 = 3;
+        const TT_PRIM_LINE: u32 = 1;
+        const TT_PRIM_QSPLINE: u32 = 2;
+        const TURKISH_CHARSET: u32 = 162;
+        #[library("GDI32.dll")]
+        extern fn TextOutA(hdc: HDC, x: i32, y: i32, #[len_param(4)] lpString: PCSTR, c: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn TextOutW(hdc: HDC, x: i32, y: i32, #[len_param(4)] lpString: PCWSTR, c: i32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn TranslateCharsetInfo(#[in] #[out] lpSrc: *mut u32, lpCs: *mut CHARSETINFO, dwFlags: u32) -> BOOL;
+        #[library("MSIMG32.dll")]
+        extern fn TransparentBlt(hdcDest: HDC, xoriginDest: i32, yoriginDest: i32, wDest: i32, hDest: i32, hdcSrc: HDC, xoriginSrc: i32, yoriginSrc: i32, wSrc: i32, hSrc: i32, crTransparent: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn UnrealizeObject(h: HGDIOBJ) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn UpdateColors(hdc: HDC) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn UpdateICMRegKeyA(#[reserved] reserved: u32, lpszCMID: PCSTR, lpszFileName: PCSTR, command: u32) -> BOOL;
+        #[library("GDI32.dll")]
+        extern fn UpdateICMRegKeyW(#[reserved] reserved: u32, lpszCMID: PCWSTR, lpszFileName: PCWSTR, command: u32) -> BOOL;
+        const VARIABLE_PITCH: u32 = 2;
+        const VERTRES: u32 = 10;
+        const VERTSIZE: u32 = 6;
+        const VIETNAMESE_CHARSET: u32 = 163;
+        const VREFRESH: u32 = 116;
+        const VTA_BASELINE: u32 = 24;
+        const VTA_BOTTOM: u32 = 2;
+        const VTA_CENTER: u32 = 6;
+        const VTA_LEFT: u32 = 8;
+        const VTA_RIGHT: u32 = 0;
+        const VTA_TOP: u32 = 0;
+        struct WCRANGE {
+            wcLow: u16,
+            cGlyphs: u16,
+        }
+        struct WGLSWAP {
+            hdc: HDC,
+            uiFlags: u32,
+        }
+        const WGL_FONT_LINES: u32 = 0;
+        const WGL_FONT_POLYGONS: u32 = 1;
+        const WGL_SWAPMULTIPLE_MAX: u32 = 16;
+        const WGL_SWAP_MAIN_PLANE: u32 = 1;
+        const WGL_SWAP_OVERLAY1: u32 = 2;
+        const WGL_SWAP_OVERLAY10: u32 = 1024;
+        const WGL_SWAP_OVERLAY11: u32 = 2048;
+        const WGL_SWAP_OVERLAY12: u32 = 4096;
+        const WGL_SWAP_OVERLAY13: u32 = 8192;
+        const WGL_SWAP_OVERLAY14: u32 = 16384;
+        const WGL_SWAP_OVERLAY15: u32 = 32768;
+        const WGL_SWAP_OVERLAY2: u32 = 4;
+        const WGL_SWAP_OVERLAY3: u32 = 8;
+        const WGL_SWAP_OVERLAY4: u32 = 16;
+        const WGL_SWAP_OVERLAY5: u32 = 32;
+        const WGL_SWAP_OVERLAY6: u32 = 64;
+        const WGL_SWAP_OVERLAY7: u32 = 128;
+        const WGL_SWAP_OVERLAY8: u32 = 256;
+        const WGL_SWAP_OVERLAY9: u32 = 512;
+        const WGL_SWAP_UNDERLAY1: u32 = 65536;
+        const WGL_SWAP_UNDERLAY10: u32 = 33554432;
+        const WGL_SWAP_UNDERLAY11: u32 = 67108864;
+        const WGL_SWAP_UNDERLAY12: u32 = 134217728;
+        const WGL_SWAP_UNDERLAY13: u32 = 268435456;
+        const WGL_SWAP_UNDERLAY14: u32 = 536870912;
+        const WGL_SWAP_UNDERLAY15: u32 = 1073741824;
+        const WGL_SWAP_UNDERLAY2: u32 = 131072;
+        const WGL_SWAP_UNDERLAY3: u32 = 262144;
+        const WGL_SWAP_UNDERLAY4: u32 = 524288;
+        const WGL_SWAP_UNDERLAY5: u32 = 1048576;
+        const WGL_SWAP_UNDERLAY6: u32 = 2097152;
+        const WGL_SWAP_UNDERLAY7: u32 = 4194304;
+        const WGL_SWAP_UNDERLAY8: u32 = 8388608;
+        const WGL_SWAP_UNDERLAY9: u32 = 16777216;
+        const WHITENESS: u32 = 16711778;
+        const WHITEONBLACK: u32 = 2;
+        const WHITE_BRUSH: u32 = 0;
+        const WHITE_PEN: u32 = 6;
+        const WINDING: u32 = 2;
+        #[library("GDI32.dll")]
+        extern fn WidenPath(hdc: HDC) -> BOOL;
+        struct XFORM {
+            eM11: f32,
+            eM12: f32,
+            eM21: f32,
+            eM22: f32,
+            eDx: f32,
+            eDy: f32,
+        }
+        #[library("OPENGL32.dll")]
+        extern fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> BOOL;
+        #[library("OPENGL32.dll")]
+        extern fn wglCreateContext(param0: HDC) -> HGLRC;
+        #[library("OPENGL32.dll")]
+        extern fn wglCreateLayerContext(param0: HDC, param1: i32) -> HGLRC;
+        #[library("OPENGL32.dll")]
+        extern fn wglDeleteContext(param0: HGLRC) -> BOOL;
+        #[library("OPENGL32.dll")]
+        extern fn wglDescribeLayerPlane(param0: HDC, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> BOOL;
+        #[library("OPENGL32.dll")]
+        extern fn wglGetCurrentContext() -> HGLRC;
+        #[library("OPENGL32.dll")]
+        extern fn wglGetCurrentDC() -> HDC;
+        #[library("OPENGL32.dll")]
+        extern fn wglGetLayerPaletteEntries(param0: HDC, param1: i32, param2: i32, param3: i32, param4: *mut COLORREF) -> i32;
+        #[library("OPENGL32.dll")]
+        extern fn wglGetProcAddress(param0: PCSTR) -> PROC;
+        #[library("OPENGL32.dll")]
+        extern fn wglMakeCurrent(param0: HDC, param1: HGLRC) -> BOOL;
+        #[library("OPENGL32.dll")]
+        extern fn wglRealizeLayerPalette(param0: HDC, param1: i32, param2: BOOL) -> BOOL;
+        #[library("OPENGL32.dll")]
+        extern fn wglSetLayerPaletteEntries(param0: HDC, param1: i32, param2: i32, param3: i32, param4: *const COLORREF) -> i32;
+        #[library("OPENGL32.dll")]
+        extern fn wglShareLists(param0: HGLRC, param1: HGLRC) -> BOOL;
+        #[library("OPENGL32.dll")]
+        extern fn wglSwapLayerBuffers(param0: HDC, param1: u32) -> BOOL;
+        #[library("OPENGL32.dll")]
+        extern fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32;
+        #[library("OPENGL32.dll")]
+        extern fn wglUseFontBitmapsA(param0: HDC, param1: u32, param2: u32, param3: u32) -> BOOL;
+        #[library("OPENGL32.dll")]
+        extern fn wglUseFontBitmapsW(param0: HDC, param1: u32, param2: u32, param3: u32) -> BOOL;
+        #[library("OPENGL32.dll")]
+        extern fn wglUseFontOutlinesA(param0: HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> BOOL;
+        #[library("OPENGL32.dll")]
+        extern fn wglUseFontOutlinesW(param0: HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> BOOL;
+    }
+}

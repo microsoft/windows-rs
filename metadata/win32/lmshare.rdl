@@ -1,0 +1,276 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct CONNECTION_INFO_0 {
+            coni0_id: u32,
+        }
+        struct CONNECTION_INFO_1 {
+            coni1_id: u32,
+            coni1_type: u32,
+            coni1_num_opens: u32,
+            coni1_num_users: u32,
+            coni1_time: u32,
+            coni1_username: PWSTR,
+            coni1_netname: PWSTR,
+        }
+        const CSC_CACHE_AUTO_REINT: u32 = 16;
+        const CSC_CACHE_MANUAL_REINT: u32 = 0;
+        const CSC_CACHE_NONE: u32 = 48;
+        const CSC_CACHE_VDO: u32 = 32;
+        const CSC_MASK: u32 = 48;
+        const CSC_MASK_EXT: u32 = 8240;
+        struct FILE_INFO_2 {
+            fi2_id: u32,
+        }
+        struct FILE_INFO_3 {
+            fi3_id: u32,
+            fi3_permissions: u32,
+            fi3_num_locks: u32,
+            fi3_pathname: PWSTR,
+            fi3_username: PWSTR,
+        }
+        type LPCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
+        type LPCONNECTION_INFO_1 = *mut CONNECTION_INFO_1;
+        type LPFILE_INFO_2 = *mut FILE_INFO_2;
+        type LPFILE_INFO_3 = *mut FILE_INFO_3;
+        type LPSERVER_ALIAS_INFO_0 = *mut SERVER_ALIAS_INFO_0;
+        type LPSESSION_INFO_0 = *mut SESSION_INFO_0;
+        type LPSESSION_INFO_1 = *mut SESSION_INFO_1;
+        type LPSESSION_INFO_10 = *mut SESSION_INFO_10;
+        type LPSESSION_INFO_2 = *mut SESSION_INFO_2;
+        type LPSESSION_INFO_502 = *mut SESSION_INFO_502;
+        type LPSHARE_INFO_0 = *mut SHARE_INFO_0;
+        type LPSHARE_INFO_1 = *mut SHARE_INFO_1;
+        type LPSHARE_INFO_1004 = *mut SHARE_INFO_1004;
+        type LPSHARE_INFO_1005 = *mut SHARE_INFO_1005;
+        type LPSHARE_INFO_1006 = *mut SHARE_INFO_1006;
+        type LPSHARE_INFO_1501 = *mut SHARE_INFO_1501;
+        type LPSHARE_INFO_1503 = *mut SHARE_INFO_1503;
+        type LPSHARE_INFO_2 = *mut SHARE_INFO_2;
+        type LPSHARE_INFO_501 = *mut SHARE_INFO_501;
+        type LPSHARE_INFO_502 = *mut SHARE_INFO_502;
+        type LPSHARE_INFO_503 = *mut SHARE_INFO_503;
+        #[library("NETAPI32.dll")]
+        extern fn NetConnectionEnum(#[opt] servername: PCWSTR, qualifier: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetFileClose(#[opt] servername: PCWSTR, fileid: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetFileEnum(#[opt] servername: PCWSTR, #[opt] basepath: PCWSTR, #[opt] username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut usize) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetFileGetInfo(#[opt] servername: PCWSTR, fileid: u32, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetServerAliasAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetServerAliasDel(#[opt] servername: PCWSTR, level: u32, buf: *mut u8) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetServerAliasEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resumehandle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetSessionDel(#[opt] servername: PCWSTR, #[opt] UncClientName: PCWSTR, #[opt] username: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetSessionEnum(#[opt] servername: PCWSTR, #[opt] UncClientName: PCWSTR, #[opt] username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetSessionGetInfo(#[opt] servername: PCWSTR, UncClientName: PCWSTR, username: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetShareAdd(#[opt] servername: PCWSTR, level: u32, buf: *mut u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetShareCheck(#[opt] servername: PCWSTR, device: PCWSTR, r#type: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetShareDel(#[opt] servername: PCWSTR, netname: PCWSTR, #[reserved] reserved: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetShareDelEx(#[opt] servername: PCWSTR, level: u32, buf: *mut u8) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetShareDelSticky(#[opt] servername: PCWSTR, netname: PCWSTR, #[reserved] reserved: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetShareEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetShareEnumSticky(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetShareGetInfo(#[opt] servername: PCWSTR, netname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetShareSetInfo(#[opt] servername: PCWSTR, netname: PCWSTR, level: u32, buf: *mut u8, #[opt] parm_err: *mut u32) -> u32;
+        type PCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
+        type PCONNECTION_INFO_1 = *mut CONNECTION_INFO_1;
+        const PERM_FILE_CREATE: u32 = 4;
+        const PERM_FILE_READ: u32 = 1;
+        const PERM_FILE_WRITE: u32 = 2;
+        type PFILE_INFO_2 = *mut FILE_INFO_2;
+        type PFILE_INFO_3 = *mut FILE_INFO_3;
+        type PSERVER_ALIAS_INFO_0 = *mut SERVER_ALIAS_INFO_0;
+        type PSESSION_INFO_0 = *mut SESSION_INFO_0;
+        type PSESSION_INFO_1 = *mut SESSION_INFO_1;
+        type PSESSION_INFO_10 = *mut SESSION_INFO_10;
+        type PSESSION_INFO_2 = *mut SESSION_INFO_2;
+        type PSESSION_INFO_502 = *mut SESSION_INFO_502;
+        type PSHARE_INFO_0 = *mut SHARE_INFO_0;
+        type PSHARE_INFO_1 = *mut SHARE_INFO_1;
+        type PSHARE_INFO_1004 = *mut SHARE_INFO_1004;
+        type PSHARE_INFO_1005 = *mut SHARE_INFO_1005;
+        type PSHARE_INFO_1006 = *mut SHARE_INFO_1006;
+        type PSHARE_INFO_1501 = *mut SHARE_INFO_1501;
+        type PSHARE_INFO_1503 = *mut SHARE_INFO_1503;
+        type PSHARE_INFO_2 = *mut SHARE_INFO_2;
+        type PSHARE_INFO_501 = *mut SHARE_INFO_501;
+        type PSHARE_INFO_502 = *mut SHARE_INFO_502;
+        type PSHARE_INFO_503 = *mut SHARE_INFO_503;
+        struct SERVER_ALIAS_INFO_0 {
+            srvai0_alias: PWSTR,
+            srvai0_target: PWSTR,
+            srvai0_default: BOOLEAN,
+            srvai0_reserved: u32,
+        }
+        const SESI1_NUM_ELEMENTS: u32 = 8;
+        const SESI2_NUM_ELEMENTS: u32 = 9;
+        struct SESSION_INFO_0 {
+            sesi0_cname: PWSTR,
+        }
+        struct SESSION_INFO_1 {
+            sesi1_cname: PWSTR,
+            sesi1_username: PWSTR,
+            sesi1_num_opens: u32,
+            sesi1_time: u32,
+            sesi1_idle_time: u32,
+            sesi1_user_flags: u32,
+        }
+        struct SESSION_INFO_10 {
+            sesi10_cname: PWSTR,
+            sesi10_username: PWSTR,
+            sesi10_time: u32,
+            sesi10_idle_time: u32,
+        }
+        struct SESSION_INFO_2 {
+            sesi2_cname: PWSTR,
+            sesi2_username: PWSTR,
+            sesi2_num_opens: u32,
+            sesi2_time: u32,
+            sesi2_idle_time: u32,
+            sesi2_user_flags: u32,
+            sesi2_cltype_name: PWSTR,
+        }
+        struct SESSION_INFO_502 {
+            sesi502_cname: PWSTR,
+            sesi502_username: PWSTR,
+            sesi502_num_opens: u32,
+            sesi502_time: u32,
+            sesi502_idle_time: u32,
+            sesi502_user_flags: u32,
+            sesi502_cltype_name: PWSTR,
+            sesi502_transport: PWSTR,
+        }
+        const SESS_GUEST: u32 = 1;
+        const SESS_NOENCRYPTION: u32 = 2;
+        const SHARE_CURRENT_USES_PARMNUM: u32 = 7;
+        const SHARE_FILE_SD_INFOLEVEL: u32 = 1501;
+        const SHARE_FILE_SD_PARMNUM: u32 = 501;
+        struct SHARE_INFO_0 {
+            shi0_netname: PWSTR,
+        }
+        struct SHARE_INFO_1 {
+            shi1_netname: PWSTR,
+            shi1_type: u32,
+            shi1_remark: PWSTR,
+        }
+        struct SHARE_INFO_1004 {
+            shi1004_remark: PWSTR,
+        }
+        struct SHARE_INFO_1005 {
+            shi1005_flags: u32,
+        }
+        struct SHARE_INFO_1006 {
+            shi1006_max_uses: u32,
+        }
+        struct SHARE_INFO_1501 {
+            shi1501_reserved: u32,
+            shi1501_security_descriptor: PSECURITY_DESCRIPTOR,
+        }
+        struct SHARE_INFO_1503 {
+            shi1503_sharefilter: GUID,
+        }
+        struct SHARE_INFO_2 {
+            shi2_netname: PWSTR,
+            shi2_type: u32,
+            shi2_remark: PWSTR,
+            shi2_permissions: u32,
+            shi2_max_uses: u32,
+            shi2_current_uses: u32,
+            shi2_path: PWSTR,
+            shi2_passwd: PWSTR,
+        }
+        struct SHARE_INFO_501 {
+            shi501_netname: PWSTR,
+            shi501_type: u32,
+            shi501_remark: PWSTR,
+            shi501_flags: u32,
+        }
+        struct SHARE_INFO_502 {
+            shi502_netname: PWSTR,
+            shi502_type: u32,
+            shi502_remark: PWSTR,
+            shi502_permissions: u32,
+            shi502_max_uses: u32,
+            shi502_current_uses: u32,
+            shi502_path: PWSTR,
+            shi502_passwd: PWSTR,
+            shi502_reserved: u32,
+            shi502_security_descriptor: PSECURITY_DESCRIPTOR,
+        }
+        struct SHARE_INFO_503 {
+            shi503_netname: PWSTR,
+            shi503_type: u32,
+            shi503_remark: PWSTR,
+            shi503_permissions: u32,
+            shi503_max_uses: u32,
+            shi503_current_uses: u32,
+            shi503_path: PWSTR,
+            shi503_passwd: PWSTR,
+            shi503_servername: PWSTR,
+            shi503_reserved: u32,
+            shi503_security_descriptor: PSECURITY_DESCRIPTOR,
+        }
+        const SHARE_MAX_USES_INFOLEVEL: u32 = 1006;
+        const SHARE_MAX_USES_PARMNUM: u32 = 6;
+        const SHARE_NETNAME_PARMNUM: u32 = 1;
+        const SHARE_PASSWD_PARMNUM: u32 = 9;
+        const SHARE_PATH_PARMNUM: u32 = 8;
+        const SHARE_PERMISSIONS_PARMNUM: u32 = 5;
+        const SHARE_QOS_POLICY_PARMNUM: u32 = 504;
+        const SHARE_REMARK_INFOLEVEL: u32 = 1004;
+        const SHARE_REMARK_PARMNUM: u32 = 4;
+        const SHARE_SERVER_PARMNUM: u32 = 503;
+        const SHARE_TYPE_PARMNUM: u32 = 3;
+        const SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM: u32 = 2048;
+        const SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING: u32 = 1024;
+        const SHI1005_FLAGS_CLUSTER_MANAGED: u32 = 524288;
+        const SHI1005_FLAGS_COMPRESS_DATA: u32 = 1048576;
+        const SHI1005_FLAGS_DFS: u32 = 1;
+        const SHI1005_FLAGS_DFS_ROOT: u32 = 2;
+        const SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING: u32 = 131072;
+        const SHI1005_FLAGS_DISABLE_CLIENT_METADATA_CACHING: u32 = 8388608;
+        const SHI1005_FLAGS_DISABLE_DIRECTORY_HANDLE_LEASING: u32 = 4194304;
+        const SHI1005_FLAGS_ENABLE_CA: u32 = 16384;
+        const SHI1005_FLAGS_ENABLE_HASH: u32 = 8192;
+        const SHI1005_FLAGS_ENCRYPT_DATA: u32 = 32768;
+        const SHI1005_FLAGS_FORCE_LEVELII_OPLOCK: u32 = 4096;
+        const SHI1005_FLAGS_FORCE_SHARED_DELETE: u32 = 512;
+        const SHI1005_FLAGS_IDENTITY_REMOTING: u32 = 262144;
+        const SHI1005_FLAGS_ISOLATED_TRANSPORT: u32 = 2097152;
+        const SHI1005_FLAGS_RESERVED: u32 = 65536;
+        const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: u32 = 256;
+        const SHI1005_VALID_FLAGS_SET: u32 = 16777008;
+        const SHI1_NUM_ELEMENTS: u32 = 4;
+        const SHI2_NUM_ELEMENTS: u32 = 10;
+        const SHI_USES_UNLIMITED: u32 = 4294967295;
+        const STYPE_DEVICE: u32 = 2;
+        const STYPE_DISKTREE: u32 = 0;
+        const STYPE_IPC: u32 = 3;
+        const STYPE_MASK: u32 = 255;
+        const STYPE_PRINTQ: u32 = 1;
+        const STYPE_RESERVED1: u32 = 16777216;
+        const STYPE_RESERVED2: u32 = 33554432;
+        const STYPE_RESERVED3: u32 = 67108864;
+        const STYPE_RESERVED4: u32 = 134217728;
+        const STYPE_RESERVED5: u32 = 1048576;
+        const STYPE_RESERVED_ALL: u32 = 1073741568;
+        const STYPE_SPECIAL: u32 = 2147483648;
+        const STYPE_TEMPORARY: u32 = 1073741824;
+    }
+}

@@ -1,0 +1,27 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn CopyFileFromAppW(lpExistingFileName: PCWSTR, lpNewFileName: PCWSTR, bFailIfExists: BOOL) -> BOOL;
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn CreateDirectoryFromAppW(lpPathName: PCWSTR, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> BOOL;
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn CreateFile2FromAppW(lpFileName: PCWSTR, dwDesiredAccess: u32, dwShareMode: u32, dwCreationDisposition: u32, #[opt] pCreateExParams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> HANDLE;
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn CreateFileFromAppW(lpFileName: PCWSTR, dwDesiredAccess: u32, dwShareMode: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, dwCreationDisposition: u32, dwFlagsAndAttributes: u32, #[opt] hTemplateFile: HANDLE) -> HANDLE;
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn DeleteFileFromAppW(lpFileName: PCWSTR) -> BOOL;
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn FindFirstFileExFromAppW(lpFileName: PCWSTR, fInfoLevelId: FINDEX_INFO_LEVELS, lpFindFileData: *mut void, fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: *const void, dwAdditionalFlags: u32) -> HANDLE;
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn GetFileAttributesExFromAppW(lpFileName: PCWSTR, fInfoLevelId: GET_FILEEX_INFO_LEVELS, lpFileInformation: *mut void) -> BOOL;
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn MoveFileFromAppW(lpExistingFileName: PCWSTR, lpNewFileName: PCWSTR) -> BOOL;
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn RemoveDirectoryFromAppW(lpPathName: PCWSTR) -> BOOL;
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn ReplaceFileFromAppW(lpReplacedFileName: PCWSTR, lpReplacementFileName: PCWSTR, #[opt] lpBackupFileName: PCWSTR, dwReplaceFlags: u32, #[reserved] lpExclude: *const void, #[reserved] lpReserved: *const void) -> BOOL;
+        #[library("api-ms-win-core-file-fromapp-l1-1-0.dll")]
+        extern fn SetFileAttributesFromAppW(lpFileName: PCWSTR, dwFileAttributes: u32) -> BOOL;
+    }
+}

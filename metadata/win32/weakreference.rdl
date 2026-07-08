@@ -1,0 +1,13 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x00000037_0000_0000_c000_000000000046)]
+        interface IWeakReference: IUnknown {
+            fn Resolve(&self, riid: *const GUID, #[iid_is] objectReference: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x00000038_0000_0000_c000_000000000046)]
+        interface IWeakReferenceSource: IUnknown {
+            fn GetWeakReference(&self, #[retval] weakReference: *mut IWeakReference) -> HRESULT;
+        }
+    }
+}

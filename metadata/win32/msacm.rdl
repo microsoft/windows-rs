@@ -1,0 +1,521 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ACMDM_BASE: u32 = 24576;
+        const ACMDM_DRIVER_ABOUT: u32 = 24587;
+        const ACMDM_RESERVED_HIGH: u32 = 28671;
+        const ACMDM_RESERVED_LOW: u32 = 24576;
+        const ACMDM_USER: u32 = 16384;
+        #[packed(1)]
+        struct ACMDRIVERDETAILSA {
+            cbStruct: u32,
+            fccType: FOURCC,
+            fccComp: FOURCC,
+            wMid: u16,
+            wPid: u16,
+            vdwACM: u32,
+            vdwDriver: u32,
+            fdwSupport: u32,
+            cFormatTags: u32,
+            cFilterTags: u32,
+            hicon: HICON,
+            szShortName: [i8; 32],
+            szLongName: [i8; 128],
+            szCopyright: [i8; 80],
+            szLicensing: [i8; 128],
+            szFeatures: [i8; 512],
+        }
+        #[packed(1)]
+        struct ACMDRIVERDETAILSW {
+            cbStruct: u32,
+            fccType: FOURCC,
+            fccComp: FOURCC,
+            wMid: u16,
+            wPid: u16,
+            vdwACM: u32,
+            vdwDriver: u32,
+            fdwSupport: u32,
+            cFormatTags: u32,
+            cFilterTags: u32,
+            hicon: HICON,
+            szShortName: [u16; 32],
+            szLongName: [u16; 128],
+            szCopyright: [u16; 80],
+            szLicensing: [u16; 128],
+            szFeatures: [u16; 512],
+        }
+        const ACMDRIVERDETAILS_COPYRIGHT_CHARS: u32 = 80;
+        const ACMDRIVERDETAILS_FCCCOMP_UNDEFINED: u32 = 0;
+        const ACMDRIVERDETAILS_FCCTYPE_AUDIOCODEC: u32 = 1667528033;
+        const ACMDRIVERDETAILS_FEATURES_CHARS: u32 = 512;
+        const ACMDRIVERDETAILS_LICENSING_CHARS: u32 = 128;
+        const ACMDRIVERDETAILS_LONGNAME_CHARS: u32 = 128;
+        const ACMDRIVERDETAILS_SHORTNAME_CHARS: u32 = 32;
+        const ACMDRIVERDETAILS_SUPPORTF_ASYNC: u32 = 16;
+        const ACMDRIVERDETAILS_SUPPORTF_CODEC: u32 = 1;
+        const ACMDRIVERDETAILS_SUPPORTF_CONVERTER: u32 = 2;
+        const ACMDRIVERDETAILS_SUPPORTF_DISABLED: u32 = 2147483648;
+        const ACMDRIVERDETAILS_SUPPORTF_FILTER: u32 = 4;
+        const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: u32 = 8;
+        const ACMDRIVERDETAILS_SUPPORTF_LOCAL: u32 = 1073741824;
+        extern fn ACMDRIVERENUMCB(hadid: HACMDRIVERID, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMDRIVERPROC(param0: usize, param1: HACMDRIVERID, param2: u32, param3: LPARAM, param4: LPARAM) -> LRESULT;
+        const ACMERR_BASE: u32 = 512;
+        const ACMERR_BUSY: u32 = 513;
+        const ACMERR_CANCELED: u32 = 515;
+        const ACMERR_NOTPOSSIBLE: u32 = 512;
+        const ACMERR_UNPREPARED: u32 = 514;
+        #[packed(1)]
+        struct ACMFILTERCHOOSEA {
+            cbStruct: u32,
+            fdwStyle: u32,
+            hwndOwner: HWND,
+            pwfltr: LPWAVEFILTER,
+            cbwfltr: u32,
+            pszTitle: PCSTR,
+            szFilterTag: [i8; 48],
+            szFilter: [i8; 128],
+            pszName: PSTR,
+            cchName: u32,
+            fdwEnum: u32,
+            pwfltrEnum: LPWAVEFILTER,
+            hInstance: HINSTANCE,
+            pszTemplateName: PCSTR,
+            lCustData: LPARAM,
+            pfnHook: ACMFILTERCHOOSEHOOKPROCA,
+        }
+        extern fn ACMFILTERCHOOSEHOOKPROCA(hwnd: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> u32;
+        extern fn ACMFILTERCHOOSEHOOKPROCW(hwnd: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> u32;
+        #[packed(1)]
+        struct ACMFILTERCHOOSEW {
+            cbStruct: u32,
+            fdwStyle: u32,
+            hwndOwner: HWND,
+            pwfltr: LPWAVEFILTER,
+            cbwfltr: u32,
+            pszTitle: PCWSTR,
+            szFilterTag: [u16; 48],
+            szFilter: [u16; 128],
+            pszName: PWSTR,
+            cchName: u32,
+            fdwEnum: u32,
+            pwfltrEnum: LPWAVEFILTER,
+            hInstance: HINSTANCE,
+            pszTemplateName: PCWSTR,
+            lCustData: LPARAM,
+            pfnHook: ACMFILTERCHOOSEHOOKPROCW,
+        }
+        const ACMFILTERCHOOSE_STYLEF_CONTEXTHELP: u32 = 128;
+        const ACMFILTERCHOOSE_STYLEF_ENABLEHOOK: u32 = 8;
+        const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATE: u32 = 16;
+        const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: u32 = 32;
+        const ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: u32 = 64;
+        const ACMFILTERCHOOSE_STYLEF_SHOWHELP: u32 = 4;
+        #[packed(1)]
+        struct ACMFILTERDETAILSA {
+            cbStruct: u32,
+            dwFilterIndex: u32,
+            dwFilterTag: u32,
+            fdwSupport: u32,
+            pwfltr: LPWAVEFILTER,
+            cbwfltr: u32,
+            szFilter: [i8; 128],
+        }
+        #[packed(1)]
+        struct ACMFILTERDETAILSW {
+            cbStruct: u32,
+            dwFilterIndex: u32,
+            dwFilterTag: u32,
+            fdwSupport: u32,
+            pwfltr: LPWAVEFILTER,
+            cbwfltr: u32,
+            szFilter: [u16; 128],
+        }
+        const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128;
+        extern fn ACMFILTERENUMCBA(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFILTERENUMCBW(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        #[packed(1)]
+        struct ACMFILTERTAGDETAILSA {
+            cbStruct: u32,
+            dwFilterTagIndex: u32,
+            dwFilterTag: u32,
+            cbFilterSize: u32,
+            fdwSupport: u32,
+            cStandardFilters: u32,
+            szFilterTag: [i8; 48],
+        }
+        #[packed(1)]
+        struct ACMFILTERTAGDETAILSW {
+            cbStruct: u32,
+            dwFilterTagIndex: u32,
+            dwFilterTag: u32,
+            cbFilterSize: u32,
+            fdwSupport: u32,
+            cStandardFilters: u32,
+            szFilterTag: [u16; 48],
+        }
+        const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48;
+        extern fn ACMFILTERTAGENUMCBA(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFILTERTAGENUMCBW(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        #[packed(1)]
+        struct ACMFORMATCHOOSEA {
+            cbStruct: u32,
+            fdwStyle: u32,
+            hwndOwner: HWND,
+            pwfx: LPWAVEFORMATEX,
+            cbwfx: u32,
+            pszTitle: PCSTR,
+            szFormatTag: [i8; 48],
+            szFormat: [i8; 128],
+            pszName: PSTR,
+            cchName: u32,
+            fdwEnum: u32,
+            pwfxEnum: LPWAVEFORMATEX,
+            hInstance: HINSTANCE,
+            pszTemplateName: PCSTR,
+            lCustData: LPARAM,
+            pfnHook: ACMFORMATCHOOSEHOOKPROCA,
+        }
+        extern fn ACMFORMATCHOOSEHOOKPROCA(hwnd: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> u32;
+        extern fn ACMFORMATCHOOSEHOOKPROCW(hwnd: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> u32;
+        #[packed(1)]
+        struct ACMFORMATCHOOSEW {
+            cbStruct: u32,
+            fdwStyle: u32,
+            hwndOwner: HWND,
+            pwfx: LPWAVEFORMATEX,
+            cbwfx: u32,
+            pszTitle: PCWSTR,
+            szFormatTag: [u16; 48],
+            szFormat: [u16; 128],
+            pszName: PWSTR,
+            cchName: u32,
+            fdwEnum: u32,
+            pwfxEnum: LPWAVEFORMATEX,
+            hInstance: HINSTANCE,
+            pszTemplateName: PCWSTR,
+            lCustData: LPARAM,
+            pfnHook: ACMFORMATCHOOSEHOOKPROCW,
+        }
+        const ACMFORMATCHOOSE_STYLEF_CONTEXTHELP: u32 = 128;
+        const ACMFORMATCHOOSE_STYLEF_ENABLEHOOK: u32 = 8;
+        const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATE: u32 = 16;
+        const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: u32 = 32;
+        const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: u32 = 64;
+        const ACMFORMATCHOOSE_STYLEF_SHOWHELP: u32 = 4;
+        #[packed(1)]
+        struct ACMFORMATDETAILSA {
+            cbStruct: u32,
+            dwFormatIndex: u32,
+            dwFormatTag: u32,
+            fdwSupport: u32,
+            pwfx: LPWAVEFORMATEX,
+            cbwfx: u32,
+            szFormat: [i8; 128],
+        }
+        #[packed(1)]
+        struct ACMFORMATDETAILSW {
+            cbStruct: u32,
+            dwFormatIndex: u32,
+            dwFormatTag: u32,
+            fdwSupport: u32,
+            pwfx: LPWAVEFORMATEX,
+            cbwfx: u32,
+            szFormat: [u16; 128],
+        }
+        const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128;
+        extern fn ACMFORMATENUMCBA(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFORMATENUMCBW(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        #[packed(1)]
+        struct ACMFORMATTAGDETAILSA {
+            cbStruct: u32,
+            dwFormatTagIndex: u32,
+            dwFormatTag: u32,
+            cbFormatSize: u32,
+            fdwSupport: u32,
+            cStandardFormats: u32,
+            szFormatTag: [i8; 48],
+        }
+        #[packed(1)]
+        struct ACMFORMATTAGDETAILSW {
+            cbStruct: u32,
+            dwFormatTagIndex: u32,
+            dwFormatTag: u32,
+            cbFormatSize: u32,
+            fdwSupport: u32,
+            cStandardFormats: u32,
+            szFormatTag: [u16; 48],
+        }
+        const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48;
+        extern fn ACMFORMATTAGENUMCBA(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFORMATTAGENUMCBW(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        #[encoding("ansi")]
+        const ACMHELPMSGCONTEXTHELPA: String = "acmchoose_contexthelp";
+        #[encoding("utf-16")]
+        const ACMHELPMSGCONTEXTHELPW: String = "acmchoose_contexthelp";
+        #[encoding("ansi")]
+        const ACMHELPMSGCONTEXTMENUA: String = "acmchoose_contextmenu";
+        #[encoding("utf-16")]
+        const ACMHELPMSGCONTEXTMENUW: String = "acmchoose_contextmenu";
+        #[encoding("ansi")]
+        const ACMHELPMSGSTRINGA: String = "acmchoose_help";
+        #[encoding("utf-16")]
+        const ACMHELPMSGSTRINGW: String = "acmchoose_help";
+        #[packed(1)]
+        #[arch(X64 | Arm64)]
+        struct ACMSTREAMHEADER {
+            cbStruct: u32,
+            fdwStatus: u32,
+            dwUser: usize,
+            pbSrc: LPBYTE,
+            cbSrcLength: u32,
+            cbSrcLengthUsed: u32,
+            dwSrcUser: usize,
+            pbDst: LPBYTE,
+            cbDstLength: u32,
+            cbDstLengthUsed: u32,
+            dwDstUser: usize,
+            dwReservedDriver: [u32; 15],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct ACMSTREAMHEADER {
+            cbStruct: u32,
+            fdwStatus: u32,
+            dwUser: usize,
+            pbSrc: LPBYTE,
+            cbSrcLength: u32,
+            cbSrcLengthUsed: u32,
+            dwSrcUser: usize,
+            pbDst: LPBYTE,
+            cbDstLength: u32,
+            cbDstLengthUsed: u32,
+            dwDstUser: usize,
+            dwReservedDriver: [u32; 10],
+        }
+        const ACMSTREAMHEADER_STATUSF_DONE: u32 = 65536;
+        const ACMSTREAMHEADER_STATUSF_INQUEUE: u32 = 1048576;
+        const ACMSTREAMHEADER_STATUSF_PREPARED: u32 = 131072;
+        const ACM_DRIVERADDF_FUNCTION: u32 = 3;
+        const ACM_DRIVERADDF_GLOBAL: u32 = 8;
+        const ACM_DRIVERADDF_LOCAL: u32 = 0;
+        const ACM_DRIVERADDF_NAME: u32 = 1;
+        const ACM_DRIVERADDF_NOTIFYHWND: u32 = 4;
+        const ACM_DRIVERADDF_TYPEMASK: u32 = 7;
+        const ACM_DRIVERENUMF_DISABLED: u32 = 2147483648;
+        const ACM_DRIVERENUMF_NOLOCAL: u32 = 1073741824;
+        const ACM_DRIVERPRIORITYF_ABLEMASK: u32 = 3;
+        const ACM_DRIVERPRIORITYF_BEGIN: u32 = 65536;
+        const ACM_DRIVERPRIORITYF_DEFERMASK: u32 = 196608;
+        const ACM_DRIVERPRIORITYF_DISABLE: u32 = 2;
+        const ACM_DRIVERPRIORITYF_ENABLE: u32 = 1;
+        const ACM_DRIVERPRIORITYF_END: u32 = 131072;
+        const ACM_FILTERDETAILSF_FILTER: u32 = 1;
+        const ACM_FILTERDETAILSF_INDEX: u32 = 0;
+        const ACM_FILTERDETAILSF_QUERYMASK: u32 = 15;
+        const ACM_FILTERENUMF_DWFILTERTAG: u32 = 65536;
+        const ACM_FILTERTAGDETAILSF_FILTERTAG: u32 = 1;
+        const ACM_FILTERTAGDETAILSF_INDEX: u32 = 0;
+        const ACM_FILTERTAGDETAILSF_LARGESTSIZE: u32 = 2;
+        const ACM_FILTERTAGDETAILSF_QUERYMASK: u32 = 15;
+        const ACM_FORMATDETAILSF_FORMAT: u32 = 1;
+        const ACM_FORMATDETAILSF_INDEX: u32 = 0;
+        const ACM_FORMATDETAILSF_QUERYMASK: u32 = 15;
+        const ACM_FORMATENUMF_CONVERT: u32 = 1048576;
+        const ACM_FORMATENUMF_HARDWARE: u32 = 4194304;
+        const ACM_FORMATENUMF_INPUT: u32 = 8388608;
+        const ACM_FORMATENUMF_NCHANNELS: u32 = 131072;
+        const ACM_FORMATENUMF_NSAMPLESPERSEC: u32 = 262144;
+        const ACM_FORMATENUMF_OUTPUT: u32 = 16777216;
+        const ACM_FORMATENUMF_SUGGEST: u32 = 2097152;
+        const ACM_FORMATENUMF_WBITSPERSAMPLE: u32 = 524288;
+        const ACM_FORMATENUMF_WFORMATTAG: u32 = 65536;
+        const ACM_FORMATSUGGESTF_NCHANNELS: u32 = 131072;
+        const ACM_FORMATSUGGESTF_NSAMPLESPERSEC: u32 = 262144;
+        const ACM_FORMATSUGGESTF_TYPEMASK: u32 = 16711680;
+        const ACM_FORMATSUGGESTF_WBITSPERSAMPLE: u32 = 524288;
+        const ACM_FORMATSUGGESTF_WFORMATTAG: u32 = 65536;
+        const ACM_FORMATTAGDETAILSF_FORMATTAG: u32 = 1;
+        const ACM_FORMATTAGDETAILSF_INDEX: u32 = 0;
+        const ACM_FORMATTAGDETAILSF_LARGESTSIZE: u32 = 2;
+        const ACM_FORMATTAGDETAILSF_QUERYMASK: u32 = 15;
+        const ACM_METRIC_COUNT_CODECS: u32 = 2;
+        const ACM_METRIC_COUNT_CONVERTERS: u32 = 3;
+        const ACM_METRIC_COUNT_DISABLED: u32 = 5;
+        const ACM_METRIC_COUNT_DRIVERS: u32 = 1;
+        const ACM_METRIC_COUNT_FILTERS: u32 = 4;
+        const ACM_METRIC_COUNT_HARDWARE: u32 = 6;
+        const ACM_METRIC_COUNT_LOCAL_CODECS: u32 = 21;
+        const ACM_METRIC_COUNT_LOCAL_CONVERTERS: u32 = 22;
+        const ACM_METRIC_COUNT_LOCAL_DISABLED: u32 = 24;
+        const ACM_METRIC_COUNT_LOCAL_DRIVERS: u32 = 20;
+        const ACM_METRIC_COUNT_LOCAL_FILTERS: u32 = 23;
+        const ACM_METRIC_DRIVER_PRIORITY: u32 = 101;
+        const ACM_METRIC_DRIVER_SUPPORT: u32 = 100;
+        const ACM_METRIC_HARDWARE_WAVE_INPUT: u32 = 30;
+        const ACM_METRIC_HARDWARE_WAVE_OUTPUT: u32 = 31;
+        const ACM_METRIC_MAX_SIZE_FILTER: u32 = 51;
+        const ACM_METRIC_MAX_SIZE_FORMAT: u32 = 50;
+        const ACM_STREAMCONVERTF_BLOCKALIGN: u32 = 4;
+        const ACM_STREAMCONVERTF_END: u32 = 32;
+        const ACM_STREAMCONVERTF_START: u32 = 16;
+        const ACM_STREAMOPENF_ASYNC: u32 = 2;
+        const ACM_STREAMOPENF_NONREALTIME: u32 = 4;
+        const ACM_STREAMOPENF_QUERY: u32 = 1;
+        const ACM_STREAMSIZEF_DESTINATION: u32 = 1;
+        const ACM_STREAMSIZEF_QUERYMASK: u32 = 15;
+        const ACM_STREAMSIZEF_SOURCE: u32 = 0;
+        const DRVM_MAPPER: u32 = 8192;
+        const DRVM_MAPPER_STATUS: u32 = 8192;
+        const DRV_MAPPER_PREFERRED_INPUT_GET: u32 = 16384;
+        const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386;
+        const FILTERCHOOSE_CUSTOM_VERIFY: u32 = 2;
+        const FILTERCHOOSE_FILTERTAG_VERIFY: u32 = 0;
+        const FILTERCHOOSE_FILTER_VERIFY: u32 = 1;
+        const FILTERCHOOSE_MESSAGE: u32 = 0;
+        const FORMATCHOOSE_CUSTOM_VERIFY: u32 = 2;
+        const FORMATCHOOSE_FORMATTAG_VERIFY: u32 = 0;
+        const FORMATCHOOSE_FORMAT_VERIFY: u32 = 1;
+        const FORMATCHOOSE_MESSAGE: u32 = 0;
+        type HACMDRIVER = *mut void;
+        type HACMDRIVERID = *mut void;
+        type HACMOBJ = *mut void;
+        type HACMSTREAM = *mut void;
+        type LPACMDRIVERDETAILSA = *mut ACMDRIVERDETAILSA;
+        type LPACMDRIVERDETAILSW = *mut ACMDRIVERDETAILSW;
+        type LPACMDRIVERPROC = *mut ACMDRIVERPROC;
+        type LPACMFILTERCHOOSEA = *mut ACMFILTERCHOOSEA;
+        type LPACMFILTERCHOOSEW = *mut ACMFILTERCHOOSEW;
+        type LPACMFILTERDETAILSA = *mut ACMFILTERDETAILSA;
+        type LPACMFILTERDETAILSW = *mut ACMFILTERDETAILSW;
+        type LPACMFILTERTAGDETAILSA = *mut ACMFILTERTAGDETAILSA;
+        type LPACMFILTERTAGDETAILSW = *mut ACMFILTERTAGDETAILSW;
+        type LPACMFORMATCHOOSEA = *mut ACMFORMATCHOOSEA;
+        type LPACMFORMATCHOOSEW = *mut ACMFORMATCHOOSEW;
+        type LPACMFORMATDETAILSA = *mut ACMFORMATDETAILSA;
+        type LPACMFORMATDETAILSW = *mut ACMFORMATDETAILSW;
+        type LPACMFORMATTAGDETAILSA = *mut ACMFORMATTAGDETAILSA;
+        type LPACMFORMATTAGDETAILSW = *mut ACMFORMATTAGDETAILSW;
+        type LPACMSTREAMHEADER = *mut ACMSTREAMHEADER;
+        type LPHACMDRIVER = *mut HACMDRIVER;
+        type LPHACMDRIVERID = *mut HACMDRIVERID;
+        type LPHACMOBJ = *mut HACMOBJ;
+        type LPHACMSTREAM = *mut HACMSTREAM;
+        const MM_ACM_CLOSE: u32 = 981;
+        const MM_ACM_DONE: u32 = 982;
+        const MM_ACM_FILTERCHOOSE: u32 = 32768;
+        const MM_ACM_FORMATCHOOSE: u32 = 32768;
+        const MM_ACM_OPEN: u32 = 980;
+        type PACMDRIVERDETAILSA = *mut ACMDRIVERDETAILSA;
+        type PACMDRIVERDETAILSW = *mut ACMDRIVERDETAILSW;
+        type PACMFILTERCHOOSEA = *mut ACMFILTERCHOOSEA;
+        type PACMFILTERCHOOSEW = *mut ACMFILTERCHOOSEW;
+        type PACMFILTERDETAILSA = *mut ACMFILTERDETAILSA;
+        type PACMFILTERDETAILSW = *mut ACMFILTERDETAILSW;
+        type PACMFILTERTAGDETAILSA = *mut ACMFILTERTAGDETAILSA;
+        type PACMFILTERTAGDETAILSW = *mut ACMFILTERTAGDETAILSW;
+        type PACMFORMATCHOOSEA = *mut ACMFORMATCHOOSEA;
+        type PACMFORMATCHOOSEW = *mut ACMFORMATCHOOSEW;
+        type PACMFORMATDETAILSA = *mut ACMFORMATDETAILSA;
+        type PACMFORMATDETAILSW = *mut ACMFORMATDETAILSW;
+        type PACMFORMATTAGDETAILSA = *mut ACMFORMATTAGDETAILSA;
+        type PACMFORMATTAGDETAILSW = *mut ACMFORMATTAGDETAILSW;
+        type PACMSTREAMHEADER = *mut ACMSTREAMHEADER;
+        type PHACMDRIVER = *mut HACMDRIVER;
+        type PHACMDRIVERID = *mut HACMDRIVERID;
+        type PHACMOBJ = *mut HACMOBJ;
+        type PHACMSTREAM = *mut HACMSTREAM;
+        const WAVEIN_MAPPER_STATUS_DEVICE: u32 = 0;
+        const WAVEIN_MAPPER_STATUS_FORMAT: u32 = 2;
+        const WAVEIN_MAPPER_STATUS_MAPPED: u32 = 1;
+        const WAVEOUT_MAPPER_STATUS_DEVICE: u32 = 0;
+        const WAVEOUT_MAPPER_STATUS_FORMAT: u32 = 2;
+        const WAVEOUT_MAPPER_STATUS_MAPPED: u32 = 1;
+        const WIDM_MAPPER_STATUS: u32 = 8192;
+        const WODM_MAPPER_STATUS: u32 = 8192;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverAddA(phadid: *mut HACMDRIVERID, hinstModule: HINSTANCE, lParam: LPARAM, dwPriority: u32, fdwAdd: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverAddW(phadid: *mut HACMDRIVERID, hinstModule: HINSTANCE, lParam: LPARAM, dwPriority: u32, fdwAdd: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverClose(had: HACMDRIVER, fdwClose: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSA, fdwDetails: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSW, fdwDetails: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverEnum(fnCallback: ACMDRIVERENUMCB, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverID(hao: HACMOBJ, phadid: *mut HACMDRIVERID, fdwDriverID: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverMessage(had: HACMDRIVER, uMsg: u32, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverOpen(phad: *mut HACMDRIVER, hadid: HACMDRIVERID, fdwOpen: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverPriority(hadid: HACMDRIVERID, dwPriority: u32, fdwPriority: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmDriverRemove(hadid: HACMDRIVERID, fdwRemove: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFilterDetailsA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fdwDetails: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFilterDetailsW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fdwDetails: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFilterEnumA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fnCallback: ACMFILTERENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFilterEnumW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fnCallback: ACMFILTERENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fdwDetails: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fdwDetails: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFilterTagEnumA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fnCallback: ACMFILTERTAGENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFilterTagEnumW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fnCallback: ACMFILTERTAGENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatDetailsA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fdwDetails: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatDetailsW(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSW, fdwDetails: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatEnumA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fnCallback: ACMFORMATENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatEnumW(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSW, fnCallback: ACMFORMATENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatSuggest(had: HACMDRIVER, pwfxSrc: *mut WAVEFORMATEX, pwfxDst: *mut WAVEFORMATEX, cbwfxDst: u32, fdwSuggest: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fdwDetails: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fdwDetails: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatTagEnumA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fnCallback: ACMFORMATTAGENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmFormatTagEnumW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fnCallback: ACMFORMATTAGENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmGetVersion() -> u32;
+        #[library("MSACM32.dll")]
+        extern fn acmMetrics(hao: HACMOBJ, uMetric: u32, pMetric: *mut void) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmStreamClose(has: HACMSTREAM, fdwClose: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmStreamConvert(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwConvert: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmStreamMessage(has: HACMSTREAM, uMsg: u32, lParam1: LPARAM, lParam2: LPARAM) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmStreamOpen(phas: *mut HACMSTREAM, had: HACMDRIVER, pwfxSrc: *mut WAVEFORMATEX, pwfxDst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwCallback: usize, dwInstance: usize, fdwOpen: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmStreamPrepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwPrepare: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmStreamReset(has: HACMSTREAM, fdwReset: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmStreamSize(has: HACMSTREAM, cbInput: u32, pdwOutputBytes: *mut u32, fdwSize: u32) -> MMRESULT;
+        #[library("MSACM32.dll")]
+        extern fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwUnprepare: u32) -> MMRESULT;
+    }
+}

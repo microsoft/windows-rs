@@ -1,0 +1,14 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PSOCKADDR_UN = *mut SOCKADDR_UN;
+        const SIO_AF_UNIX_GETPEERPID: u32 = 1476395264;
+        const SIO_AF_UNIX_SETBINDPARENTPATH: i32 = -1744830207;
+        const SIO_AF_UNIX_SETCONNPARENTPATH: i32 = -1744830206;
+        struct SOCKADDR_UN {
+            sun_family: ADDRESS_FAMILY,
+            sun_path: [i8; 108],
+        }
+        const UNIX_PATH_MAX: u32 = 108;
+    }
+}

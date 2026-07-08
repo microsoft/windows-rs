@@ -1,0 +1,20 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x5d55a616_9df8_4b09_b156_9ba351a48b76)]
+        interface IWSDAttachment: IUnknown {}
+        #[guid(0x5bd6ca65_233c_4fb8_9f7a_2641619655c9)]
+        interface IWSDInboundAttachment: IWSDAttachment {
+            fn Read(&self, #[len_param(1)] pBuffer: *mut u8, dwBytesToRead: u32, pdwNumberOfBytesRead: *mut u32) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xaa302f8d_5a22_4ba5_b392_aa8486f4c15d)]
+        interface IWSDOutboundAttachment: IWSDAttachment {
+            fn Write(&self, #[len_param(1)] pBuffer: *const u8, dwBytesToWrite: u32, pdwNumberOfBytesWritten: *mut u32) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn Abort(&self) -> HRESULT;
+        }
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateOutboundAttachment(ppAttachment: *mut IWSDOutboundAttachment) -> HRESULT;
+    }
+}

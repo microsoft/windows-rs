@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    mod Win32 {
+        type STATUS = i32;
+        struct INFO {
+            Size: u32,
+            Value: u32,
+        }
+    }
+}

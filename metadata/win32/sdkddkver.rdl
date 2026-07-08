@@ -1,0 +1,65 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const NTDDI_LONGHORN: u32 = 100663296;
+        const NTDDI_VERSION: u32 = 167772178;
+        const NTDDI_VISTA: u32 = 100663296;
+        const NTDDI_VISTASP1: u32 = 100663552;
+        const NTDDI_VISTASP2: u32 = 100663808;
+        const NTDDI_VISTASP3: u32 = 100664064;
+        const NTDDI_VISTASP4: u32 = 100664320;
+        const NTDDI_WIN10: u32 = 167772160;
+        const NTDDI_WIN10_19H1: u32 = 167772167;
+        const NTDDI_WIN10_CO: u32 = 167772171;
+        const NTDDI_WIN10_CU: u32 = 167772173;
+        const NTDDI_WIN10_FE: u32 = 167772170;
+        const NTDDI_WIN10_MN: u32 = 167772169;
+        const NTDDI_WIN10_NI: u32 = 167772172;
+        const NTDDI_WIN10_RS1: u32 = 167772162;
+        const NTDDI_WIN10_RS2: u32 = 167772163;
+        const NTDDI_WIN10_RS3: u32 = 167772164;
+        const NTDDI_WIN10_RS4: u32 = 167772165;
+        const NTDDI_WIN10_RS5: u32 = 167772166;
+        const NTDDI_WIN10_TH2: u32 = 167772161;
+        const NTDDI_WIN10_VB: u32 = 167772168;
+        const NTDDI_WIN11_BR: u32 = 167772178;
+        const NTDDI_WIN11_DT: u32 = 167772177;
+        const NTDDI_WIN11_GA: u32 = 167772175;
+        const NTDDI_WIN11_GE: u32 = 167772176;
+        const NTDDI_WIN11_ZN: u32 = 167772174;
+        const NTDDI_WIN2K: u32 = 83886080;
+        const NTDDI_WIN2KSP1: u32 = 83886336;
+        const NTDDI_WIN2KSP2: u32 = 83886592;
+        const NTDDI_WIN2KSP3: u32 = 83886848;
+        const NTDDI_WIN2KSP4: u32 = 83887104;
+        const NTDDI_WIN4: u32 = 67108864;
+        const NTDDI_WIN6: u32 = 100663296;
+        const NTDDI_WIN6SP1: u32 = 100663552;
+        const NTDDI_WIN6SP2: u32 = 100663808;
+        const NTDDI_WIN6SP3: u32 = 100664064;
+        const NTDDI_WIN6SP4: u32 = 100664320;
+        const NTDDI_WIN7: u32 = 100728832;
+        const NTDDI_WIN8: u32 = 100794368;
+        const NTDDI_WINBLUE: u32 = 100859904;
+        const NTDDI_WINTHRESHOLD: u32 = 167772160;
+        const NTDDI_WINXP: u32 = 83951616;
+        const NTDDI_WINXPSP1: u32 = 83951872;
+        const NTDDI_WINXPSP2: u32 = 83952128;
+        const NTDDI_WINXPSP3: u32 = 83952384;
+        const NTDDI_WINXPSP4: u32 = 83952640;
+        const NTDDI_WS03: u32 = 84017152;
+        const NTDDI_WS03SP1: u32 = 84017408;
+        const NTDDI_WS03SP2: u32 = 84017664;
+        const NTDDI_WS03SP3: u32 = 84017920;
+        const NTDDI_WS03SP4: u32 = 84018176;
+        const NTDDI_WS08: u32 = 100663552;
+        const NTDDI_WS08SP2: u32 = 100663808;
+        const NTDDI_WS08SP3: u32 = 100664064;
+        const NTDDI_WS08SP4: u32 = 100664320;
+        const OSVERSION_MASK: u32 = 4294901760;
+        const SPVERSION_MASK: u32 = 65280;
+        const SUBVERSION_MASK: u32 = 255;
+        const WDK_NTDDI_VERSION: u32 = 167772178;
+        const WINVER: u32 = 2560;
+    }
+}

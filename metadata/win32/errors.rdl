@@ -1,0 +1,14 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type AMGETERRORTEXTPROC = AMGETERRORTEXTPROCA;
+        extern fn AMGETERRORTEXTPROCA(param0: HRESULT, param1: *mut i8, param2: u32) -> BOOL;
+        extern fn AMGETERRORTEXTPROCW(param0: HRESULT, param1: *mut u16, param2: u32) -> BOOL;
+        #[library("QUARTZ.dll")]
+        extern fn AMGetErrorTextA(hr: HRESULT, #[len_param(2)] #[out] pbuffer: PSTR, MaxLen: u32) -> u32;
+        #[library("QUARTZ.dll")]
+        extern fn AMGetErrorTextW(hr: HRESULT, #[len_param(2)] #[out] pbuffer: PWSTR, MaxLen: u32) -> u32;
+        const MAX_ERROR_TEXT_LEN: u32 = 160;
+        const VFW_FIRST_CODE: u32 = 512;
+    }
+}

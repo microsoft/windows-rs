@@ -1,0 +1,10 @@
+//! --filter Test.GetProc --minimal --flat
+#[win32]
+mod Test {
+    #[arch(X64 | Arm64)]
+    extern fn Proc() -> isize;
+    #[arch(X86)]
+    extern fn Proc() -> i32;
+    #[library("test.dll")]
+    extern fn GetProc() -> Proc;
+}

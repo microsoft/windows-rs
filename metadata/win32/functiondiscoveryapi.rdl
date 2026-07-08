@@ -1,0 +1,92 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type FDQUERYCONTEXT = DWORDLONG;
+        const FD_LONGHORN: u32 = 1;
+        #[guid(0x4df99b70_e148_4432_b004_4c9eeb535a5e)]
+        interface IFunctionDiscovery: IUnknown {
+            fn GetInstanceCollection(&self, pszCategory: *const u16, pszSubCategory: *const u16, fIncludeAllSubCategories: BOOL, #[retval] ppIFunctionInstanceCollection: *mut IFunctionInstanceCollection) -> HRESULT;
+            fn GetInstance(&self, pszFunctionInstanceIdentity: *const u16, #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn CreateInstanceCollectionQuery(&self, pszCategory: *const u16, pszSubCategory: *const u16, fIncludeAllSubCategories: BOOL, pIFunctionDiscoveryNotification: IFunctionDiscoveryNotification, #[in] #[out] pfdqcQueryContext: *mut FDQUERYCONTEXT, #[retval] ppIFunctionInstanceCollectionQuery: *mut IFunctionInstanceCollectionQuery) -> HRESULT;
+            fn CreateInstanceQuery(&self, pszFunctionInstanceIdentity: *const u16, pIFunctionDiscoveryNotification: IFunctionDiscoveryNotification, #[in] #[out] pfdqcQueryContext: *mut FDQUERYCONTEXT, #[retval] ppIFunctionInstanceQuery: *mut IFunctionInstanceQuery) -> HRESULT;
+            fn AddInstance(&self, enumSystemVisibility: SystemVisibilityFlags, pszCategory: *const u16, pszSubCategory: *const u16, pszCategoryIdentity: *const u16, #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn RemoveInstance(&self, enumSystemVisibility: SystemVisibilityFlags, pszCategory: *const u16, pszSubCategory: *const u16, pszCategoryIdentity: *const u16) -> HRESULT;
+        }
+        #[guid(0x5f6c1ba8_5330_422e_a368_572b244d3f87)]
+        interface IFunctionDiscoveryNotification: IUnknown {
+            fn OnUpdate(&self, enumQueryUpdateAction: QueryUpdateAction, fdqcQueryContext: FDQUERYCONTEXT, pIFunctionInstance: IFunctionInstance) -> HRESULT;
+            fn OnError(&self, hr: HRESULT, fdqcQueryContext: FDQUERYCONTEXT, pszProvider: *const u16) -> HRESULT;
+            fn OnEvent(&self, dwEventID: u32, fdqcQueryContext: FDQUERYCONTEXT, pszProvider: *const u16) -> HRESULT;
+        }
+        struct IFunctionDiscoveryProviderRefresh {}
+        #[guid(0x33591c10_0bed_4f02_b0ab_1530d5533ee9)]
+        interface IFunctionInstance: IServiceProvider {
+            fn GetID(&self, #[retval] ppszCoMemIdentity: *mut *mut u16) -> HRESULT;
+            fn GetProviderInstanceID(&self, #[retval] ppszCoMemProviderInstanceIdentity: *mut *mut u16) -> HRESULT;
+            fn OpenPropertyStore(&self, dwStgAccess: u32, #[retval] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
+            fn GetCategory(&self, ppszCoMemCategory: *mut *mut u16, ppszCoMemSubCategory: *mut *mut u16) -> HRESULT;
+        }
+        #[guid(0xf0a3d895_855c_42a2_948d_2f97d450ecb1)]
+        interface IFunctionInstanceCollection: IUnknown {
+            fn GetCount(&self, #[retval] pdwCount: *mut u32) -> HRESULT;
+            fn Get(&self, pszInstanceIdentity: *const u16, pdwIndex: *mut u32, #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn Item(&self, dwIndex: u32, #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn Add(&self, pIFunctionInstance: IFunctionInstance) -> HRESULT;
+            fn Remove(&self, dwIndex: u32, #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn Delete(&self, dwIndex: u32) -> HRESULT;
+            fn DeleteAll(&self) -> HRESULT;
+        }
+        #[guid(0x57cc6fd2_c09a_4289_bb72_25f04142058e)]
+        interface IFunctionInstanceCollectionQuery: IUnknown {
+            fn AddQueryConstraint(&self, pszConstraintName: *const u16, pszConstraintValue: *const u16) -> HRESULT;
+            fn AddPropertyConstraint(&self, Key: *const PROPERTYKEY, pv: *const PROPVARIANT, enumPropertyConstraint: PropertyConstraint) -> HRESULT;
+            fn Execute(&self, ppIFunctionInstanceCollection: *mut IFunctionInstanceCollection) -> HRESULT;
+        }
+        struct IFunctionInstanceCollectionQuery2 {}
+        struct IFunctionInstanceCollectionQueryCollection {}
+        #[guid(0x6242bc6b_90ec_4b37_bb46_e229fd84ed95)]
+        interface IFunctionInstanceQuery: IUnknown {
+            fn Execute(&self, #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+        }
+        struct IFunctionInstanceQuery2 {}
+        #[guid(0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa)]
+        interface IPropertyStoreCollection: IUnknown {
+            fn GetCount(&self, #[retval] pdwCount: *mut u32) -> HRESULT;
+            fn Get(&self, pszInstanceIdentity: *const u16, pdwIndex: *mut u32, #[retval] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
+            fn Item(&self, dwIndex: u32, #[retval] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
+            fn Add(&self, pIPropertyStore: IPropertyStore) -> HRESULT;
+            fn Remove(&self, dwIndex: u32, #[retval] pIPropertyStore: *mut IPropertyStore) -> HRESULT;
+            fn Delete(&self, dwIndex: u32) -> HRESULT;
+            fn DeleteAll(&self) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum PropertyConstraint {
+            QC_EQUALS = 0,
+            QC_NOTEQUAL = 1,
+            QC_LESSTHAN = 2,
+            QC_LESSTHANOREQUAL = 3,
+            QC_GREATERTHAN = 4,
+            QC_GREATERTHANOREQUAL = 5,
+            QC_STARTSWITH = 6,
+            QC_EXISTS = 7,
+            QC_DOESNOTEXIST = 8,
+            QC_CONTAINS = 9,
+        }
+        #[repr(i32)]
+        enum QueryCategoryType {
+            QCT_PROVIDER = 0,
+            QCT_LAYERED = 1,
+        }
+        #[repr(i32)]
+        enum QueryUpdateAction {
+            QUA_ADD = 0,
+            QUA_REMOVE = 1,
+            QUA_CHANGE = 2,
+        }
+        #[repr(i32)]
+        enum SystemVisibilityFlags {
+            SVF_SYSTEM = 0,
+            SVF_USER = 1,
+        }
+    }
+}

@@ -1,0 +1,16 @@
+//! --filter Test --sys --flat
+#[win32]
+mod Test {
+    #[repr(i32)]
+    #[arch(Arm64)]
+    enum ArchEnum {
+        First = 1,
+        Arm64Only = 3,
+    }
+    #[repr(i32)]
+    #[arch(X64)]
+    enum ArchEnum {
+        First = 1,
+        X64Only = 4,
+    }
+}

@@ -1,0 +1,23 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("IPHLPAPI.DLL")]
+        extern fn Icmp6CreateFile() -> HANDLE;
+        #[library("IPHLPAPI.DLL")]
+        extern fn Icmp6ParseReplies(#[size_param(1)] ReplyBuffer: *mut void, ReplySize: u32) -> u32;
+        #[library("IPHLPAPI.DLL")]
+        extern fn Icmp6SendEcho2(IcmpHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: FARPROC, #[opt] ApcContext: *const void, SourceAddress: *const SOCKADDR_IN6_LH, DestinationAddress: *const SOCKADDR_IN6_LH, #[size_param(7)] RequestData: *const void, RequestSize: u16, #[opt] RequestOptions: *const IP_OPTION_INFORMATION, #[size_param(10)] ReplyBuffer: *mut void, ReplySize: u32, Timeout: u32) -> u32;
+        #[library("IPHLPAPI.DLL")]
+        extern fn IcmpCloseHandle(IcmpHandle: HANDLE) -> BOOL;
+        #[library("IPHLPAPI.DLL")]
+        extern fn IcmpCreateFile() -> HANDLE;
+        #[library("IPHLPAPI.DLL")]
+        extern fn IcmpParseReplies(#[size_param(1)] ReplyBuffer: *mut void, ReplySize: u32) -> u32;
+        #[library("IPHLPAPI.DLL")]
+        extern fn IcmpSendEcho(IcmpHandle: HANDLE, DestinationAddress: IPAddr, #[size_param(3)] RequestData: *const void, RequestSize: u16, #[opt] RequestOptions: *const IP_OPTION_INFORMATION, #[size_param(6)] ReplyBuffer: *mut void, ReplySize: u32, Timeout: u32) -> u32;
+        #[library("IPHLPAPI.DLL")]
+        extern fn IcmpSendEcho2(IcmpHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: FARPROC, #[opt] ApcContext: *const void, DestinationAddress: IPAddr, #[size_param(6)] RequestData: *const void, RequestSize: u16, #[opt] RequestOptions: *const IP_OPTION_INFORMATION, #[size_param(9)] ReplyBuffer: *mut void, ReplySize: u32, Timeout: u32) -> u32;
+        #[library("IPHLPAPI.DLL")]
+        extern fn IcmpSendEcho2Ex(IcmpHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: FARPROC, #[opt] ApcContext: *const void, SourceAddress: IPAddr, DestinationAddress: IPAddr, #[size_param(7)] RequestData: *const void, RequestSize: u16, #[opt] RequestOptions: *const IP_OPTION_INFORMATION, #[size_param(10)] ReplyBuffer: *mut void, ReplySize: u32, Timeout: u32) -> u32;
+    }
+}

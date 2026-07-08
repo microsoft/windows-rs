@@ -1,0 +1,616 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type CIMTYPE = i32;
+        #[repr(i32)]
+        enum CIMTYPE_ENUMERATION {
+            CIM_ILLEGAL = 4095,
+            CIM_EMPTY = 0,
+            CIM_SINT8 = 16,
+            CIM_UINT8 = 17,
+            CIM_SINT16 = 2,
+            CIM_UINT16 = 18,
+            CIM_SINT32 = 3,
+            CIM_UINT32 = 19,
+            CIM_SINT64 = 20,
+            CIM_UINT64 = 21,
+            CIM_REAL32 = 4,
+            CIM_REAL64 = 5,
+            CIM_BOOLEAN = 11,
+            CIM_STRING = 8,
+            CIM_DATETIME = 101,
+            CIM_REFERENCE = 102,
+            CIM_CHAR16 = 103,
+            CIM_OBJECT = 13,
+            CIM_FLAG_ARRAY = 8192,
+        }
+        #[guid(0x027947e1_d731_11ce_a357_000000000001)]
+        interface IEnumWbemClassObject: IUnknown {
+            fn Reset(&self) -> HRESULT;
+            fn Next(&self, lTimeout: i32, uCount: u32, apObjects: *mut IWbemClassObject, puReturned: *mut u32) -> HRESULT;
+            fn NextAsync(&self, uCount: u32, pSink: IWbemObjectSink) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumWbemClassObject) -> HRESULT;
+            fn Skip(&self, lTimeout: i32, nCount: u32) -> HRESULT;
+        }
+        #[guid(0x6daf974e_2e37_11d2_aec9_00c04fb68820)]
+        interface IMofCompiler: IUnknown {
+            fn CompileFile(&self, FileName: PCWSTR, ServerAndNamespace: PCWSTR, User: PCWSTR, Authority: PCWSTR, Password: PCWSTR, lOptionFlags: i32, lClassFlags: i32, lInstanceFlags: i32, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
+            fn CompileBuffer(&self, BuffSize: i32, #[size_param(0)] pBuffer: *const u8, ServerAndNamespace: PCWSTR, User: PCWSTR, Authority: PCWSTR, Password: PCWSTR, lOptionFlags: i32, lClassFlags: i32, lInstanceFlags: i32, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
+            fn CreateBMOF(&self, TextFileName: PCWSTR, BMOFFileName: PCWSTR, ServerAndNamespace: PCWSTR, lOptionFlags: i32, lClassFlags: i32, lInstanceFlags: i32, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
+        }
+        #[guid(0x1cfaba8c_1523_11d1_ad79_00c04fd8fdff)]
+        interface IUnsecuredApartment: IUnknown {
+            fn CreateObjectStub(&self, pObject: IUnknown, ppStub: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xc49e32c7_bc8b_11d2_85d4_00105a1f8304)]
+        interface IWbemBackupRestore: IUnknown {
+            fn Backup(&self, strBackupToFile: PCWSTR, lFlags: i32) -> HRESULT;
+            fn Restore(&self, strRestoreFromFile: PCWSTR, lFlags: i32) -> HRESULT;
+        }
+        #[guid(0xa359dec5_e813_4834_8a2a_ba7f1d777d76)]
+        interface IWbemBackupRestoreEx: IWbemBackupRestore {
+            fn Pause(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+        }
+        #[guid(0x44aca675_e8fc_11d0_a07c_00c04fb68820)]
+        interface IWbemCallResult: IUnknown {
+            fn GetResultObject(&self, lTimeout: i32, ppResultObject: *mut IWbemClassObject) -> HRESULT;
+            fn GetResultString(&self, lTimeout: i32, pstrResultString: *mut BSTR) -> HRESULT;
+            fn GetResultServices(&self, lTimeout: i32, ppServices: *mut IWbemServices) -> HRESULT;
+            fn GetCallStatus(&self, lTimeout: i32, plStatus: *mut i32) -> HRESULT;
+        }
+        #[guid(0xdc12a681_737f_11cf_884d_00aa004b2e24)]
+        interface IWbemClassObject: IUnknown {
+            fn GetQualifierSet(&self, ppQualSet: *mut IWbemQualifierSet) -> HRESULT;
+            fn Get(&self, wszName: PCWSTR, lFlags: i32, #[in] #[out] pVal: *mut VARIANT, #[in] #[out] pType: *mut CIMTYPE, #[in] #[out] plFlavor: *mut i32) -> HRESULT;
+            fn Put(&self, wszName: PCWSTR, lFlags: i32, pVal: *const VARIANT, Type: CIMTYPE) -> HRESULT;
+            fn Delete(&self, wszName: PCWSTR) -> HRESULT;
+            fn GetNames(&self, wszQualifierName: PCWSTR, lFlags: i32, pQualifierVal: *const VARIANT, pNames: *mut *mut SAFEARRAY) -> HRESULT;
+            fn BeginEnumeration(&self, lEnumFlags: i32) -> HRESULT;
+            fn Next(&self, lFlags: i32, #[in] #[out] strName: *mut BSTR, #[in] #[out] pVal: *mut VARIANT, #[in] #[out] pType: *mut CIMTYPE, #[in] #[out] plFlavor: *mut i32) -> HRESULT;
+            fn EndEnumeration(&self) -> HRESULT;
+            fn GetPropertyQualifierSet(&self, wszProperty: PCWSTR, ppQualSet: *mut IWbemQualifierSet) -> HRESULT;
+            fn Clone(&self, ppCopy: *mut IWbemClassObject) -> HRESULT;
+            fn GetObjectText(&self, lFlags: i32, pstrObjectText: *mut BSTR) -> HRESULT;
+            fn SpawnDerivedClass(&self, lFlags: i32, ppNewClass: *mut IWbemClassObject) -> HRESULT;
+            fn SpawnInstance(&self, lFlags: i32, ppNewInstance: *mut IWbemClassObject) -> HRESULT;
+            fn CompareTo(&self, lFlags: i32, pCompareTo: IWbemClassObject) -> HRESULT;
+            fn GetPropertyOrigin(&self, wszName: PCWSTR, pstrClassName: *mut BSTR) -> HRESULT;
+            fn InheritsFrom(&self, strAncestor: PCWSTR) -> HRESULT;
+            fn GetMethod(&self, wszName: PCWSTR, lFlags: i32, ppInSignature: *mut IWbemClassObject, ppOutSignature: *mut IWbemClassObject) -> HRESULT;
+            fn PutMethod(&self, wszName: PCWSTR, lFlags: i32, pInSignature: IWbemClassObject, pOutSignature: IWbemClassObject) -> HRESULT;
+            fn DeleteMethod(&self, wszName: PCWSTR) -> HRESULT;
+            fn BeginMethodEnumeration(&self, lEnumFlags: i32) -> HRESULT;
+            fn NextMethod(&self, lFlags: i32, #[in] #[out] pstrName: *mut BSTR, #[in] #[out] ppInSignature: *mut IWbemClassObject, #[in] #[out] ppOutSignature: *mut IWbemClassObject) -> HRESULT;
+            fn EndMethodEnumeration(&self) -> HRESULT;
+            fn GetMethodQualifierSet(&self, wszMethod: PCWSTR, ppQualSet: *mut IWbemQualifierSet) -> HRESULT;
+            fn GetMethodOrigin(&self, wszMethodName: PCWSTR, pstrClassName: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x49353c92_516b_11d1_aea6_00c04fb68820)]
+        interface IWbemConfigureRefresher: IUnknown {
+            fn AddObjectByPath(&self, pNamespace: IWbemServices, wszPath: PCWSTR, lFlags: i32, pContext: IWbemContext, ppRefreshable: *mut IWbemClassObject, #[in] #[out] plId: *mut i32) -> HRESULT;
+            fn AddObjectByTemplate(&self, pNamespace: IWbemServices, pTemplate: IWbemClassObject, lFlags: i32, pContext: IWbemContext, ppRefreshable: *mut IWbemClassObject, #[in] #[out] plId: *mut i32) -> HRESULT;
+            fn AddRefresher(&self, pRefresher: IWbemRefresher, lFlags: i32, #[in] #[out] plId: *mut i32) -> HRESULT;
+            fn Remove(&self, lId: i32, lFlags: i32) -> HRESULT;
+            fn AddEnum(&self, pNamespace: IWbemServices, wszClassName: PCWSTR, lFlags: i32, pContext: IWbemContext, ppEnum: *mut IWbemHiPerfEnum, #[in] #[out] plId: *mut i32) -> HRESULT;
+        }
+        #[guid(0x44aca674_e8fc_11d0_a07c_00c04fb68820)]
+        interface IWbemContext: IUnknown {
+            fn Clone(&self, ppNewCopy: *mut IWbemContext) -> HRESULT;
+            fn GetNames(&self, lFlags: i32, pNames: *mut *mut SAFEARRAY) -> HRESULT;
+            fn BeginEnumeration(&self, lFlags: i32) -> HRESULT;
+            fn Next(&self, lFlags: i32, pstrName: *mut BSTR, pValue: *mut VARIANT) -> HRESULT;
+            fn EndEnumeration(&self) -> HRESULT;
+            fn SetValue(&self, wszName: PCWSTR, lFlags: i32, pValue: *const VARIANT) -> HRESULT;
+            fn GetValue(&self, wszName: PCWSTR, lFlags: i32, pValue: *mut VARIANT) -> HRESULT;
+            fn DeleteValue(&self, wszName: PCWSTR, lFlags: i32) -> HRESULT;
+            fn DeleteAll(&self) -> HRESULT;
+        }
+        #[guid(0x2705c288_79ae_11d2_b348_00105a1f8177)]
+        interface IWbemHiPerfEnum: IUnknown {
+            fn AddObjects(&self, lFlags: i32, uNumObjects: u32, apIds: *const i32, apObj: *const IWbemObjectAccess) -> HRESULT;
+            fn RemoveObjects(&self, lFlags: i32, uNumObjects: u32, apIds: *const i32) -> HRESULT;
+            fn GetObjects(&self, lFlags: i32, uNumObjects: u32, apObj: *mut IWbemObjectAccess, puReturned: *mut u32) -> HRESULT;
+            fn RemoveAll(&self, lFlags: i32) -> HRESULT;
+        }
+        #[guid(0xdc12a687_737f_11cf_884d_00aa004b2e24)]
+        interface IWbemLocator: IUnknown {
+            fn ConnectServer(&self, strNetworkResource: BSTR, strUser: BSTR, strPassword: BSTR, strLocale: BSTR, lSecurityFlags: i32, strAuthority: BSTR, pCtx: IWbemContext, ppNamespace: *mut IWbemServices) -> HRESULT;
+        }
+        #[guid(0x49353c9a_516b_11d1_aea6_00c04fb68820)]
+        interface IWbemObjectAccess: IWbemClassObject {
+            fn GetPropertyHandle(&self, wszPropertyName: PCWSTR, pType: *mut CIMTYPE, plHandle: *mut i32) -> HRESULT;
+            fn WritePropertyValue(&self, lHandle: i32, lNumBytes: i32, aData: *const byte) -> HRESULT;
+            fn ReadPropertyValue(&self, lHandle: i32, lBufferSize: i32, plNumBytes: *mut i32, aData: *mut byte) -> HRESULT;
+            fn ReadDWORD(&self, lHandle: i32, pdw: *mut u32) -> HRESULT;
+            fn WriteDWORD(&self, lHandle: i32, dw: u32) -> HRESULT;
+            fn ReadQWORD(&self, lHandle: i32, pqw: *mut u64) -> HRESULT;
+            fn WriteQWORD(&self, lHandle: i32, pw: u64) -> HRESULT;
+            fn GetPropertyInfoByHandle(&self, lHandle: i32, pstrName: *mut BSTR, pType: *mut CIMTYPE) -> HRESULT;
+            fn Lock(&self, lFlags: i32) -> HRESULT;
+            fn Unlock(&self, lFlags: i32) -> HRESULT;
+        }
+        #[guid(0x7c857801_7381_11cf_884d_00aa004b2e24)]
+        interface IWbemObjectSink: IUnknown {
+            fn Indicate(&self, lObjectCount: i32, apObjArray: *const IWbemClassObject) -> HRESULT;
+            fn SetStatus(&self, lFlags: i32, hResult: HRESULT, strParam: BSTR, pObjParam: IWbemClassObject) -> HRESULT;
+        }
+        #[guid(0xe7d35cfa_348b_485e_b524_252725d697ca)]
+        interface IWbemObjectSinkEx: IWbemObjectSink {
+            fn WriteMessage(&self, uChannel: u32, strMessage: BSTR) -> HRESULT;
+            fn WriteError(&self, pObjError: IWbemClassObject, puReturned: *mut u8) -> HRESULT;
+            fn PromptUser(&self, strMessage: BSTR, uPromptType: u8, puReturned: *mut u8) -> HRESULT;
+            fn WriteProgress(&self, strActivity: BSTR, strCurrentOperation: BSTR, strStatusDescription: BSTR, uPercentComplete: u32, uSecondsRemaining: u32) -> HRESULT;
+            fn WriteStreamParameter(&self, strName: BSTR, vtValue: *const VARIANT, ulType: u32, ulFlags: u32) -> HRESULT;
+        }
+        #[guid(0xbfbf883a_cad7_11d3_a11b_00105a1f515a)]
+        interface IWbemObjectTextSrc: IUnknown {
+            fn GetText(&self, lFlags: i32, pObj: IWbemClassObject, uObjTextFormat: u32, pCtx: IWbemContext, strText: *mut BSTR) -> HRESULT;
+            fn CreateFromText(&self, lFlags: i32, strText: BSTR, uObjTextFormat: u32, pCtx: IWbemContext, pNewObj: *mut IWbemClassObject) -> HRESULT;
+        }
+        #[guid(0xdc12a680_737f_11cf_884d_00aa004b2e24)]
+        interface IWbemQualifierSet: IUnknown {
+            fn Get(&self, wszName: PCWSTR, lFlags: i32, #[in] #[out] pVal: *mut VARIANT, #[in] #[out] plFlavor: *mut i32) -> HRESULT;
+            fn Put(&self, wszName: PCWSTR, pVal: *const VARIANT, lFlavor: i32) -> HRESULT;
+            fn Delete(&self, wszName: PCWSTR) -> HRESULT;
+            fn GetNames(&self, lFlags: i32, pNames: *mut *mut SAFEARRAY) -> HRESULT;
+            fn BeginEnumeration(&self, lFlags: i32) -> HRESULT;
+            fn Next(&self, lFlags: i32, #[in] #[out] pstrName: *mut BSTR, #[in] #[out] pVal: *mut VARIANT, #[in] #[out] plFlavor: *mut i32) -> HRESULT;
+            fn EndEnumeration(&self) -> HRESULT;
+        }
+        #[guid(0x49353c99_516b_11d1_aea6_00c04fb68820)]
+        interface IWbemRefresher: IUnknown {
+            fn Refresh(&self, lFlags: i32) -> HRESULT;
+        }
+        #[guid(0x9556dc99_828c_11cf_a37e_00aa003240c7)]
+        interface IWbemServices: IUnknown {
+            fn OpenNamespace(&self, strNamespace: BSTR, lFlags: i32, pCtx: IWbemContext, #[in] #[out] ppWorkingNamespace: *mut IWbemServices, #[in] #[out] ppResult: *mut IWbemCallResult) -> HRESULT;
+            fn CancelAsyncCall(&self, pSink: IWbemObjectSink) -> HRESULT;
+            fn QueryObjectSink(&self, lFlags: i32, ppResponseHandler: *mut IWbemObjectSink) -> HRESULT;
+            fn GetObject(&self, strObjectPath: BSTR, lFlags: i32, pCtx: IWbemContext, #[in] #[out] ppObject: *mut IWbemClassObject, #[in] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn GetObjectAsync(&self, strObjectPath: BSTR, lFlags: i32, pCtx: IWbemContext, pResponseHandler: IWbemObjectSink) -> HRESULT;
+            fn PutClass(&self, pObject: IWbemClassObject, lFlags: i32, pCtx: IWbemContext, #[in] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn PutClassAsync(&self, pObject: IWbemClassObject, lFlags: i32, pCtx: IWbemContext, pResponseHandler: IWbemObjectSink) -> HRESULT;
+            fn DeleteClass(&self, strClass: BSTR, lFlags: i32, pCtx: IWbemContext, #[in] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn DeleteClassAsync(&self, strClass: BSTR, lFlags: i32, pCtx: IWbemContext, pResponseHandler: IWbemObjectSink) -> HRESULT;
+            fn CreateClassEnum(&self, strSuperclass: BSTR, lFlags: i32, pCtx: IWbemContext, ppEnum: *mut IEnumWbemClassObject) -> HRESULT;
+            fn CreateClassEnumAsync(&self, strSuperclass: BSTR, lFlags: i32, pCtx: IWbemContext, pResponseHandler: IWbemObjectSink) -> HRESULT;
+            fn PutInstance(&self, pInst: IWbemClassObject, lFlags: i32, pCtx: IWbemContext, #[in] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn PutInstanceAsync(&self, pInst: IWbemClassObject, lFlags: i32, pCtx: IWbemContext, pResponseHandler: IWbemObjectSink) -> HRESULT;
+            fn DeleteInstance(&self, strObjectPath: BSTR, lFlags: i32, pCtx: IWbemContext, #[in] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn DeleteInstanceAsync(&self, strObjectPath: BSTR, lFlags: i32, pCtx: IWbemContext, pResponseHandler: IWbemObjectSink) -> HRESULT;
+            fn CreateInstanceEnum(&self, strFilter: BSTR, lFlags: i32, pCtx: IWbemContext, ppEnum: *mut IEnumWbemClassObject) -> HRESULT;
+            fn CreateInstanceEnumAsync(&self, strFilter: BSTR, lFlags: i32, pCtx: IWbemContext, pResponseHandler: IWbemObjectSink) -> HRESULT;
+            fn ExecQuery(&self, strQueryLanguage: BSTR, strQuery: BSTR, lFlags: i32, pCtx: IWbemContext, ppEnum: *mut IEnumWbemClassObject) -> HRESULT;
+            fn ExecQueryAsync(&self, strQueryLanguage: BSTR, strQuery: BSTR, lFlags: i32, pCtx: IWbemContext, pResponseHandler: IWbemObjectSink) -> HRESULT;
+            fn ExecNotificationQuery(&self, strQueryLanguage: BSTR, strQuery: BSTR, lFlags: i32, pCtx: IWbemContext, ppEnum: *mut IEnumWbemClassObject) -> HRESULT;
+            fn ExecNotificationQueryAsync(&self, strQueryLanguage: BSTR, strQuery: BSTR, lFlags: i32, pCtx: IWbemContext, pResponseHandler: IWbemObjectSink) -> HRESULT;
+            fn ExecMethod(&self, strObjectPath: BSTR, strMethodName: BSTR, lFlags: i32, pCtx: IWbemContext, pInParams: IWbemClassObject, #[in] #[out] ppOutParams: *mut IWbemClassObject, #[in] #[out] ppCallResult: *mut IWbemCallResult) -> HRESULT;
+            fn ExecMethodAsync(&self, strObjectPath: BSTR, strMethodName: BSTR, lFlags: i32, pCtx: IWbemContext, pInParams: IWbemClassObject, pResponseHandler: IWbemObjectSink) -> HRESULT;
+        }
+        #[guid(0xb7b31df9_d515_11d3_a11c_00105a1f515a)]
+        interface IWbemShutdown: IUnknown {
+            fn Shutdown(&self, uReason: i32, uMaxMilliseconds: u32, pCtx: IWbemContext) -> HRESULT;
+        }
+        #[guid(0xeb87e1bc_3233_11d2_aec9_00c04fb68820)]
+        interface IWbemStatusCodeText: IUnknown {
+            fn GetErrorCodeText(&self, hRes: HRESULT, LocaleId: LCID, lFlags: i32, MessageText: *mut BSTR) -> HRESULT;
+            fn GetFacilityCodeText(&self, hRes: HRESULT, LocaleId: LCID, lFlags: i32, MessageText: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x31739d04_3471_4cf4_9a7c_57a44ae71956)]
+        interface IWbemUnsecuredApartment: IUnsecuredApartment {
+            fn CreateSinkStub(&self, pSink: IWbemObjectSink, dwFlags: u32, wszReserved: PCWSTR, ppStub: *mut IWbemObjectSink) -> HRESULT;
+        }
+        const MofCompiler: GUID = 0x6daf9757_2e37_11d2_aec9_00c04fb68820;
+        const UnsecuredApartment: GUID = 0x49bd2028_1523_11d1_ad79_00c04fd8fdff;
+        #[repr(i32)]
+        enum WBEMSTATUS {
+            WBEM_NO_ERROR = 0,
+            WBEM_S_NO_ERROR = 0,
+            WBEM_S_SAME = 0,
+            WBEM_S_FALSE = 1,
+            WBEM_S_ALREADY_EXISTS = 262145,
+            WBEM_S_RESET_TO_DEFAULT = 262146,
+            WBEM_S_DIFFERENT = 262147,
+            WBEM_S_TIMEDOUT = 262148,
+            WBEM_S_NO_MORE_DATA = 262149,
+            WBEM_S_OPERATION_CANCELLED = 262150,
+            WBEM_S_PENDING = 262151,
+            WBEM_S_DUPLICATE_OBJECTS = 262152,
+            WBEM_S_ACCESS_DENIED = 262153,
+            WBEM_S_PARTIAL_RESULTS = 262160,
+            WBEM_S_SOURCE_NOT_AVAILABLE = 262167,
+            WBEM_E_FAILED = -2147217407,
+            WBEM_E_NOT_FOUND = -2147217406,
+            WBEM_E_ACCESS_DENIED = -2147217405,
+            WBEM_E_PROVIDER_FAILURE = -2147217404,
+            WBEM_E_TYPE_MISMATCH = -2147217403,
+            WBEM_E_OUT_OF_MEMORY = -2147217402,
+            WBEM_E_INVALID_CONTEXT = -2147217401,
+            WBEM_E_INVALID_PARAMETER = -2147217400,
+            WBEM_E_NOT_AVAILABLE = -2147217399,
+            WBEM_E_CRITICAL_ERROR = -2147217398,
+            WBEM_E_INVALID_STREAM = -2147217397,
+            WBEM_E_NOT_SUPPORTED = -2147217396,
+            WBEM_E_INVALID_SUPERCLASS = -2147217395,
+            WBEM_E_INVALID_NAMESPACE = -2147217394,
+            WBEM_E_INVALID_OBJECT = -2147217393,
+            WBEM_E_INVALID_CLASS = -2147217392,
+            WBEM_E_PROVIDER_NOT_FOUND = -2147217391,
+            WBEM_E_INVALID_PROVIDER_REGISTRATION = -2147217390,
+            WBEM_E_PROVIDER_LOAD_FAILURE = -2147217389,
+            WBEM_E_INITIALIZATION_FAILURE = -2147217388,
+            WBEM_E_TRANSPORT_FAILURE = -2147217387,
+            WBEM_E_INVALID_OPERATION = -2147217386,
+            WBEM_E_INVALID_QUERY = -2147217385,
+            WBEM_E_INVALID_QUERY_TYPE = -2147217384,
+            WBEM_E_ALREADY_EXISTS = -2147217383,
+            WBEM_E_OVERRIDE_NOT_ALLOWED = -2147217382,
+            WBEM_E_PROPAGATED_QUALIFIER = -2147217381,
+            WBEM_E_PROPAGATED_PROPERTY = -2147217380,
+            WBEM_E_UNEXPECTED = -2147217379,
+            WBEM_E_ILLEGAL_OPERATION = -2147217378,
+            WBEM_E_CANNOT_BE_KEY = -2147217377,
+            WBEM_E_INCOMPLETE_CLASS = -2147217376,
+            WBEM_E_INVALID_SYNTAX = -2147217375,
+            WBEM_E_NONDECORATED_OBJECT = -2147217374,
+            WBEM_E_READ_ONLY = -2147217373,
+            WBEM_E_PROVIDER_NOT_CAPABLE = -2147217372,
+            WBEM_E_CLASS_HAS_CHILDREN = -2147217371,
+            WBEM_E_CLASS_HAS_INSTANCES = -2147217370,
+            WBEM_E_QUERY_NOT_IMPLEMENTED = -2147217369,
+            WBEM_E_ILLEGAL_NULL = -2147217368,
+            WBEM_E_INVALID_QUALIFIER_TYPE = -2147217367,
+            WBEM_E_INVALID_PROPERTY_TYPE = -2147217366,
+            WBEM_E_VALUE_OUT_OF_RANGE = -2147217365,
+            WBEM_E_CANNOT_BE_SINGLETON = -2147217364,
+            WBEM_E_INVALID_CIM_TYPE = -2147217363,
+            WBEM_E_INVALID_METHOD = -2147217362,
+            WBEM_E_INVALID_METHOD_PARAMETERS = -2147217361,
+            WBEM_E_SYSTEM_PROPERTY = -2147217360,
+            WBEM_E_INVALID_PROPERTY = -2147217359,
+            WBEM_E_CALL_CANCELLED = -2147217358,
+            WBEM_E_SHUTTING_DOWN = -2147217357,
+            WBEM_E_PROPAGATED_METHOD = -2147217356,
+            WBEM_E_UNSUPPORTED_PARAMETER = -2147217355,
+            WBEM_E_MISSING_PARAMETER_ID = -2147217354,
+            WBEM_E_INVALID_PARAMETER_ID = -2147217353,
+            WBEM_E_NONCONSECUTIVE_PARAMETER_IDS = -2147217352,
+            WBEM_E_PARAMETER_ID_ON_RETVAL = -2147217351,
+            WBEM_E_INVALID_OBJECT_PATH = -2147217350,
+            WBEM_E_OUT_OF_DISK_SPACE = -2147217349,
+            WBEM_E_BUFFER_TOO_SMALL = -2147217348,
+            WBEM_E_UNSUPPORTED_PUT_EXTENSION = -2147217347,
+            WBEM_E_UNKNOWN_OBJECT_TYPE = -2147217346,
+            WBEM_E_UNKNOWN_PACKET_TYPE = -2147217345,
+            WBEM_E_MARSHAL_VERSION_MISMATCH = -2147217344,
+            WBEM_E_MARSHAL_INVALID_SIGNATURE = -2147217343,
+            WBEM_E_INVALID_QUALIFIER = -2147217342,
+            WBEM_E_INVALID_DUPLICATE_PARAMETER = -2147217341,
+            WBEM_E_TOO_MUCH_DATA = -2147217340,
+            WBEM_E_SERVER_TOO_BUSY = -2147217339,
+            WBEM_E_INVALID_FLAVOR = -2147217338,
+            WBEM_E_CIRCULAR_REFERENCE = -2147217337,
+            WBEM_E_UNSUPPORTED_CLASS_UPDATE = -2147217336,
+            WBEM_E_CANNOT_CHANGE_KEY_INHERITANCE = -2147217335,
+            WBEM_E_CANNOT_CHANGE_INDEX_INHERITANCE = -2147217328,
+            WBEM_E_TOO_MANY_PROPERTIES = -2147217327,
+            WBEM_E_UPDATE_TYPE_MISMATCH = -2147217326,
+            WBEM_E_UPDATE_OVERRIDE_NOT_ALLOWED = -2147217325,
+            WBEM_E_UPDATE_PROPAGATED_METHOD = -2147217324,
+            WBEM_E_METHOD_NOT_IMPLEMENTED = -2147217323,
+            WBEM_E_METHOD_DISABLED = -2147217322,
+            WBEM_E_REFRESHER_BUSY = -2147217321,
+            WBEM_E_UNPARSABLE_QUERY = -2147217320,
+            WBEM_E_NOT_EVENT_CLASS = -2147217319,
+            WBEM_E_MISSING_GROUP_WITHIN = -2147217318,
+            WBEM_E_MISSING_AGGREGATION_LIST = -2147217317,
+            WBEM_E_PROPERTY_NOT_AN_OBJECT = -2147217316,
+            WBEM_E_AGGREGATING_BY_OBJECT = -2147217315,
+            WBEM_E_UNINTERPRETABLE_PROVIDER_QUERY = -2147217313,
+            WBEM_E_BACKUP_RESTORE_WINMGMT_RUNNING = -2147217312,
+            WBEM_E_QUEUE_OVERFLOW = -2147217311,
+            WBEM_E_PRIVILEGE_NOT_HELD = -2147217310,
+            WBEM_E_INVALID_OPERATOR = -2147217309,
+            WBEM_E_LOCAL_CREDENTIALS = -2147217308,
+            WBEM_E_CANNOT_BE_ABSTRACT = -2147217307,
+            WBEM_E_AMENDED_OBJECT = -2147217306,
+            WBEM_E_CLIENT_TOO_SLOW = -2147217305,
+            WBEM_E_NULL_SECURITY_DESCRIPTOR = -2147217304,
+            WBEM_E_TIMED_OUT = -2147217303,
+            WBEM_E_INVALID_ASSOCIATION = -2147217302,
+            WBEM_E_AMBIGUOUS_OPERATION = -2147217301,
+            WBEM_E_QUOTA_VIOLATION = -2147217300,
+            WBEM_E_RESERVED_001 = -2147217299,
+            WBEM_E_RESERVED_002 = -2147217298,
+            WBEM_E_UNSUPPORTED_LOCALE = -2147217297,
+            WBEM_E_HANDLE_OUT_OF_DATE = -2147217296,
+            WBEM_E_CONNECTION_FAILED = -2147217295,
+            WBEM_E_INVALID_HANDLE_REQUEST = -2147217294,
+            WBEM_E_PROPERTY_NAME_TOO_WIDE = -2147217293,
+            WBEM_E_CLASS_NAME_TOO_WIDE = -2147217292,
+            WBEM_E_METHOD_NAME_TOO_WIDE = -2147217291,
+            WBEM_E_QUALIFIER_NAME_TOO_WIDE = -2147217290,
+            WBEM_E_RERUN_COMMAND = -2147217289,
+            WBEM_E_DATABASE_VER_MISMATCH = -2147217288,
+            WBEM_E_VETO_DELETE = -2147217287,
+            WBEM_E_VETO_PUT = -2147217286,
+            WBEM_E_INVALID_LOCALE = -2147217280,
+            WBEM_E_PROVIDER_SUSPENDED = -2147217279,
+            WBEM_E_SYNCHRONIZATION_REQUIRED = -2147217278,
+            WBEM_E_NO_SCHEMA = -2147217277,
+            WBEM_E_PROVIDER_ALREADY_REGISTERED = -2147217276,
+            WBEM_E_PROVIDER_NOT_REGISTERED = -2147217275,
+            WBEM_E_FATAL_TRANSPORT_ERROR = -2147217274,
+            WBEM_E_ENCRYPTED_CONNECTION_REQUIRED = -2147217273,
+            WBEM_E_PROVIDER_TIMED_OUT = -2147217272,
+            WBEM_E_NO_KEY = -2147217271,
+            WBEM_E_PROVIDER_DISABLED = -2147217270,
+            WBEMESS_E_REGISTRATION_TOO_BROAD = -2147213311,
+            WBEMESS_E_REGISTRATION_TOO_PRECISE = -2147213310,
+            WBEMESS_E_AUTHZ_NOT_PRIVILEGED = -2147213309,
+            WBEMMOF_E_EXPECTED_QUALIFIER_NAME = -2147205119,
+            WBEMMOF_E_EXPECTED_SEMI = -2147205118,
+            WBEMMOF_E_EXPECTED_OPEN_BRACE = -2147205117,
+            WBEMMOF_E_EXPECTED_CLOSE_BRACE = -2147205116,
+            WBEMMOF_E_EXPECTED_CLOSE_BRACKET = -2147205115,
+            WBEMMOF_E_EXPECTED_CLOSE_PAREN = -2147205114,
+            WBEMMOF_E_ILLEGAL_CONSTANT_VALUE = -2147205113,
+            WBEMMOF_E_EXPECTED_TYPE_IDENTIFIER = -2147205112,
+            WBEMMOF_E_EXPECTED_OPEN_PAREN = -2147205111,
+            WBEMMOF_E_UNRECOGNIZED_TOKEN = -2147205110,
+            WBEMMOF_E_UNRECOGNIZED_TYPE = -2147205109,
+            WBEMMOF_E_EXPECTED_PROPERTY_NAME = -2147205108,
+            WBEMMOF_E_TYPEDEF_NOT_SUPPORTED = -2147205107,
+            WBEMMOF_E_UNEXPECTED_ALIAS = -2147205106,
+            WBEMMOF_E_UNEXPECTED_ARRAY_INIT = -2147205105,
+            WBEMMOF_E_INVALID_AMENDMENT_SYNTAX = -2147205104,
+            WBEMMOF_E_INVALID_DUPLICATE_AMENDMENT = -2147205103,
+            WBEMMOF_E_INVALID_PRAGMA = -2147205102,
+            WBEMMOF_E_INVALID_NAMESPACE_SYNTAX = -2147205101,
+            WBEMMOF_E_EXPECTED_CLASS_NAME = -2147205100,
+            WBEMMOF_E_TYPE_MISMATCH = -2147205099,
+            WBEMMOF_E_EXPECTED_ALIAS_NAME = -2147205098,
+            WBEMMOF_E_INVALID_CLASS_DECLARATION = -2147205097,
+            WBEMMOF_E_INVALID_INSTANCE_DECLARATION = -2147205096,
+            WBEMMOF_E_EXPECTED_DOLLAR = -2147205095,
+            WBEMMOF_E_CIMTYPE_QUALIFIER = -2147205094,
+            WBEMMOF_E_DUPLICATE_PROPERTY = -2147205093,
+            WBEMMOF_E_INVALID_NAMESPACE_SPECIFICATION = -2147205092,
+            WBEMMOF_E_OUT_OF_RANGE = -2147205091,
+            WBEMMOF_E_INVALID_FILE = -2147205090,
+            WBEMMOF_E_ALIASES_IN_EMBEDDED = -2147205089,
+            WBEMMOF_E_NULL_ARRAY_ELEM = -2147205088,
+            WBEMMOF_E_DUPLICATE_QUALIFIER = -2147205087,
+            WBEMMOF_E_EXPECTED_FLAVOR_TYPE = -2147205086,
+            WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES = -2147205085,
+            WBEMMOF_E_MULTIPLE_ALIASES = -2147205084,
+            WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES2 = -2147205083,
+            WBEMMOF_E_NO_ARRAYS_RETURNED = -2147205082,
+            WBEMMOF_E_MUST_BE_IN_OR_OUT = -2147205081,
+            WBEMMOF_E_INVALID_FLAGS_SYNTAX = -2147205080,
+            WBEMMOF_E_EXPECTED_BRACE_OR_BAD_TYPE = -2147205079,
+            WBEMMOF_E_UNSUPPORTED_CIMV22_QUAL_VALUE = -2147205078,
+            WBEMMOF_E_UNSUPPORTED_CIMV22_DATA_TYPE = -2147205077,
+            WBEMMOF_E_INVALID_DELETEINSTANCE_SYNTAX = -2147205076,
+            WBEMMOF_E_INVALID_QUALIFIER_SYNTAX = -2147205075,
+            WBEMMOF_E_QUALIFIER_USED_OUTSIDE_SCOPE = -2147205074,
+            WBEMMOF_E_ERROR_CREATING_TEMP_FILE = -2147205073,
+            WBEMMOF_E_ERROR_INVALID_INCLUDE_FILE = -2147205072,
+            WBEMMOF_E_INVALID_DELETECLASS_SYNTAX = -2147205071,
+        }
+        #[repr(i32)]
+        enum WBEMSTATUS_FORMAT {
+            WBEMSTATUS_FORMAT_NEWLINE = 0,
+            WBEMSTATUS_FORMAT_NO_NEWLINE = 1,
+        }
+        #[repr(i32)]
+        enum WBEM_BACKUP_RESTORE_FLAGS {
+            WBEM_FLAG_BACKUP_RESTORE_DEFAULT = 0,
+            WBEM_FLAG_BACKUP_RESTORE_FORCE_SHUTDOWN = 1,
+        }
+        #[repr(i32)]
+        enum WBEM_CHANGE_FLAG_TYPE {
+            WBEM_FLAG_CREATE_OR_UPDATE = 0,
+            WBEM_FLAG_UPDATE_ONLY = 1,
+            WBEM_FLAG_CREATE_ONLY = 2,
+            WBEM_FLAG_UPDATE_COMPATIBLE = 0,
+            WBEM_FLAG_UPDATE_SAFE_MODE = 32,
+            WBEM_FLAG_UPDATE_FORCE_MODE = 64,
+            WBEM_MASK_UPDATE_MODE = 96,
+            WBEM_FLAG_ADVISORY = 65536,
+        }
+        #[repr(i32)]
+        enum WBEM_COMPARISON_FLAG {
+            WBEM_COMPARISON_INCLUDE_ALL = 0,
+            WBEM_FLAG_IGNORE_QUALIFIERS = 1,
+            WBEM_FLAG_IGNORE_OBJECT_SOURCE = 2,
+            WBEM_FLAG_IGNORE_DEFAULT_VALUES = 4,
+            WBEM_FLAG_IGNORE_CLASS = 8,
+            WBEM_FLAG_IGNORE_CASE = 16,
+            WBEM_FLAG_IGNORE_FLAVOR = 32,
+        }
+        #[repr(i32)]
+        enum WBEM_COMPILER_OPTIONS {
+            WBEM_FLAG_CHECK_ONLY = 1,
+            WBEM_FLAG_AUTORECOVER = 2,
+            WBEM_FLAG_WMI_CHECK = 4,
+            WBEM_FLAG_CONSOLE_PRINT = 8,
+            WBEM_FLAG_DONT_ADD_TO_LIST = 16,
+            WBEM_FLAG_SPLIT_FILES = 32,
+            WBEM_FLAG_STORE_FILE = 256,
+        }
+        struct WBEM_COMPILE_STATUS_INFO {
+            lPhaseError: i32,
+            hRes: HRESULT,
+            ObjectNum: i32,
+            FirstLine: i32,
+            LastLine: i32,
+            dwOutFlags: u32,
+        }
+        #[repr(i32)]
+        enum WBEM_CONDITION_FLAG_TYPE {
+            WBEM_FLAG_ALWAYS = 0,
+            WBEM_FLAG_ONLY_IF_TRUE = 1,
+            WBEM_FLAG_ONLY_IF_FALSE = 2,
+            WBEM_FLAG_ONLY_IF_IDENTICAL = 3,
+            WBEM_MASK_PRIMARY_CONDITION = 3,
+            WBEM_FLAG_KEYS_ONLY = 4,
+            WBEM_FLAG_REFS_ONLY = 8,
+            WBEM_FLAG_LOCAL_ONLY = 16,
+            WBEM_FLAG_PROPAGATED_ONLY = 32,
+            WBEM_FLAG_SYSTEM_ONLY = 48,
+            WBEM_FLAG_NONSYSTEM_ONLY = 64,
+            WBEM_MASK_CONDITION_ORIGIN = 112,
+            WBEM_FLAG_CLASS_OVERRIDES_ONLY = 256,
+            WBEM_FLAG_CLASS_LOCAL_AND_OVERRIDES = 512,
+            WBEM_MASK_CLASS_CONDITION = 768,
+        }
+        #[repr(i32)]
+        enum WBEM_CONNECT_OPTIONS {
+            WBEM_FLAG_CONNECT_REPOSITORY_ONLY = 64,
+            WBEM_FLAG_CONNECT_USE_MAX_WAIT = 128,
+            WBEM_FLAG_CONNECT_PROVIDERS = 256,
+        }
+        #[repr(i32)]
+        enum WBEM_FLAVOR_TYPE {
+            WBEM_FLAVOR_DONT_PROPAGATE = 0,
+            WBEM_FLAVOR_FLAG_PROPAGATE_TO_INSTANCE = 1,
+            WBEM_FLAVOR_FLAG_PROPAGATE_TO_DERIVED_CLASS = 2,
+            WBEM_FLAVOR_MASK_PROPAGATION = 15,
+            WBEM_FLAVOR_OVERRIDABLE = 0,
+            WBEM_FLAVOR_NOT_OVERRIDABLE = 16,
+            WBEM_FLAVOR_MASK_PERMISSIONS = 16,
+            WBEM_FLAVOR_ORIGIN_LOCAL = 0,
+            WBEM_FLAVOR_ORIGIN_PROPAGATED = 32,
+            WBEM_FLAVOR_ORIGIN_SYSTEM = 64,
+            WBEM_FLAVOR_MASK_ORIGIN = 96,
+            WBEM_FLAVOR_NOT_AMENDED = 0,
+            WBEM_FLAVOR_AMENDED = 128,
+            WBEM_FLAVOR_MASK_AMENDED = 128,
+        }
+        #[repr(i32)]
+        enum WBEM_GENERIC_FLAG_TYPE {
+            WBEM_FLAG_RETURN_IMMEDIATELY = 16,
+            WBEM_FLAG_RETURN_WBEM_COMPLETE = 0,
+            WBEM_FLAG_BIDIRECTIONAL = 0,
+            WBEM_FLAG_FORWARD_ONLY = 32,
+            WBEM_FLAG_NO_ERROR_OBJECT = 64,
+            WBEM_FLAG_RETURN_ERROR_OBJECT = 0,
+            WBEM_FLAG_SEND_STATUS = 128,
+            WBEM_FLAG_DONT_SEND_STATUS = 0,
+            WBEM_FLAG_ENSURE_LOCATABLE = 256,
+            WBEM_FLAG_DIRECT_READ = 512,
+            WBEM_FLAG_SEND_ONLY_SELECTED = 0,
+            WBEM_RETURN_WHEN_COMPLETE = 0,
+            WBEM_RETURN_IMMEDIATELY = 16,
+            WBEM_MASK_RESERVED_FLAGS = 126976,
+            WBEM_FLAG_USE_AMENDED_QUALIFIERS = 131072,
+            WBEM_FLAG_STRONG_VALIDATION = 1048576,
+        }
+        #[repr(i32)]
+        enum WBEM_GENUS_TYPE {
+            WBEM_GENUS_CLASS = 1,
+            WBEM_GENUS_INSTANCE = 2,
+        }
+        #[repr(i32)]
+        enum WBEM_INFORMATION_FLAG_TYPE {
+            WBEM_FLAG_SHORT_NAME = 1,
+            WBEM_FLAG_LONG_NAME = 2,
+        }
+        #[repr(i32)]
+        enum WBEM_LIMITATION_FLAG_TYPE {
+            WBEM_FLAG_EXCLUDE_OBJECT_QUALIFIERS = 16,
+            WBEM_FLAG_EXCLUDE_PROPERTY_QUALIFIERS = 32,
+        }
+        #[repr(i32)]
+        enum WBEM_LIMITS {
+            WBEM_MAX_IDENTIFIER = 4096,
+            WBEM_MAX_QUERY = 16384,
+            WBEM_MAX_PATH = 8192,
+            WBEM_MAX_OBJECT_NESTING = 64,
+            WBEM_MAX_USER_PROPERTIES = 1024,
+        }
+        #[repr(i32)]
+        enum WBEM_LOCKING_FLAG_TYPE {
+            WBEM_FLAG_ALLOW_READ = 1,
+        }
+        #[repr(i32)]
+        enum WBEM_QUERY_FLAG_TYPE {
+            WBEM_FLAG_DEEP = 0,
+            WBEM_FLAG_SHALLOW = 1,
+            WBEM_FLAG_PROTOTYPE = 2,
+        }
+        #[repr(i32)]
+        enum WBEM_REFRESHER_FLAGS {
+            WBEM_FLAG_REFRESH_AUTO_RECONNECT = 0,
+            WBEM_FLAG_REFRESH_NO_AUTO_RECONNECT = 1,
+        }
+        #[repr(i32)]
+        enum WBEM_SECURITY_FLAGS {
+            WBEM_ENABLE = 1,
+            WBEM_METHOD_EXECUTE = 2,
+            WBEM_FULL_WRITE_REP = 4,
+            WBEM_PARTIAL_WRITE_REP = 8,
+            WBEM_WRITE_PROVIDER = 16,
+            WBEM_REMOTE_ACCESS = 32,
+            WBEM_RIGHT_SUBSCRIBE = 64,
+            WBEM_RIGHT_PUBLISH = 128,
+        }
+        #[repr(i32)]
+        enum WBEM_SHUTDOWN_FLAGS {
+            WBEM_SHUTDOWN_UNLOAD_COMPONENT = 1,
+            WBEM_SHUTDOWN_WMI = 2,
+            WBEM_SHUTDOWN_OS = 3,
+        }
+        #[repr(i32)]
+        enum WBEM_STATUS_TYPE {
+            WBEM_STATUS_COMPLETE = 0,
+            WBEM_STATUS_REQUIREMENTS = 1,
+            WBEM_STATUS_PROGRESS = 2,
+            WBEM_STATUS_LOGGING_INFORMATION = 256,
+            WBEM_STATUS_LOGGING_INFORMATION_PROVIDER = 512,
+            WBEM_STATUS_LOGGING_INFORMATION_HOST = 1024,
+            WBEM_STATUS_LOGGING_INFORMATION_REPOSITORY = 2048,
+            WBEM_STATUS_LOGGING_INFORMATION_ESS = 4096,
+        }
+        #[repr(i32)]
+        enum WBEM_TEXT_FLAG_TYPE {
+            WBEM_FLAG_NO_FLAVORS = 1,
+        }
+        #[repr(i32)]
+        enum WBEM_TIMEOUT_TYPE {
+            WBEM_NO_WAIT = 0,
+            WBEM_INFINITE = -1,
+        }
+        #[repr(i32)]
+        enum WBEM_UNSECAPP_FLAG_TYPE {
+            WBEM_FLAG_UNSECAPP_DEFAULT_CHECK_ACCESS = 0,
+            WBEM_FLAG_UNSECAPP_CHECK_ACCESS = 1,
+            WBEM_FLAG_UNSECAPP_DONT_CHECK_ACCESS = 2,
+        }
+        #[repr(i32)]
+        enum WMI_OBJ_TEXT {
+            WMI_OBJ_TEXT_CIM_DTD_2_0 = 1,
+            WMI_OBJ_TEXT_WMI_DTD_2_0 = 2,
+            WMI_OBJ_TEXT_WMI_EXT1 = 3,
+            WMI_OBJ_TEXT_WMI_EXT2 = 4,
+            WMI_OBJ_TEXT_WMI_EXT3 = 5,
+            WMI_OBJ_TEXT_WMI_EXT4 = 6,
+            WMI_OBJ_TEXT_WMI_EXT5 = 7,
+            WMI_OBJ_TEXT_WMI_EXT6 = 8,
+            WMI_OBJ_TEXT_WMI_EXT7 = 9,
+            WMI_OBJ_TEXT_WMI_EXT8 = 10,
+            WMI_OBJ_TEXT_WMI_EXT9 = 11,
+            WMI_OBJ_TEXT_WMI_EXT10 = 12,
+            WMI_OBJ_TEXT_LAST = 13,
+        }
+        const WbemBackupRestore: GUID = 0xc49e32c6_bc8b_11d2_85d4_00105a1f8304;
+        const WbemClassObject: GUID = 0x9a653086_174f_11d2_b5f9_00104b703efd;
+        const WbemContext: GUID = 0x674b6698_ee92_11d0_ad71_00c04fd8fdff;
+        const WbemLocator: GUID = 0x4590f811_1d3a_11d0_891f_00aa004b2e24;
+        const WbemObjectTextSrc: GUID = 0x8d1c559d_84f0_4bb3_a7d5_56a7435a9ba6;
+        const WbemRefresher: GUID = 0xc71566f2_561e_11d1_ad87_00c04fd8fdff;
+        const WbemStatusCodeText: GUID = 0xeb87e1bd_3233_11d2_aec9_00c04fb68820;
+    }
+}

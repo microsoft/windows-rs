@@ -1,0 +1,188 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: u32 = 64;
+        const PERF_100NSEC_MULTI_TIMER: u32 = 575735040;
+        const PERF_100NSEC_MULTI_TIMER_INV: u32 = 592512256;
+        const PERF_100NSEC_TIMER: u32 = 542180608;
+        const PERF_100NSEC_TIMER_INV: u32 = 558957824;
+        const PERF_AVERAGE_BASE: u32 = 1073939458;
+        const PERF_AVERAGE_BULK: u32 = 1073874176;
+        const PERF_AVERAGE_TIMER: u32 = 805438464;
+        const PERF_COUNTER_100NS_QUEUELEN_TYPE: u32 = 5571840;
+        const PERF_COUNTER_BASE: u32 = 196608;
+        struct PERF_COUNTER_BLOCK {
+            ByteLength: u32,
+        }
+        const PERF_COUNTER_BULK_COUNT: u32 = 272696576;
+        const PERF_COUNTER_COUNTER: u32 = 272696320;
+        #[arch(X64 | Arm64)]
+        struct PERF_COUNTER_DEFINITION {
+            ByteLength: u32,
+            CounterNameTitleIndex: u32,
+            CounterNameTitle: u32,
+            CounterHelpTitleIndex: u32,
+            CounterHelpTitle: u32,
+            DefaultScale: i32,
+            DetailLevel: u32,
+            CounterType: u32,
+            CounterSize: u32,
+            CounterOffset: u32,
+        }
+        #[arch(X86)]
+        struct PERF_COUNTER_DEFINITION {
+            ByteLength: u32,
+            CounterNameTitleIndex: u32,
+            CounterNameTitle: PWSTR,
+            CounterHelpTitleIndex: u32,
+            CounterHelpTitle: PWSTR,
+            DefaultScale: i32,
+            DetailLevel: u32,
+            CounterType: u32,
+            CounterSize: u32,
+            CounterOffset: u32,
+        }
+        const PERF_COUNTER_DELTA: u32 = 4195328;
+        const PERF_COUNTER_ELAPSED: u32 = 262144;
+        const PERF_COUNTER_FRACTION: u32 = 131072;
+        const PERF_COUNTER_HISTOGRAM: u32 = 393216;
+        const PERF_COUNTER_HISTOGRAM_TYPE: u32 = 2147483648;
+        const PERF_COUNTER_LARGE_DELTA: u32 = 4195584;
+        const PERF_COUNTER_LARGE_QUEUELEN_TYPE: u32 = 4523264;
+        const PERF_COUNTER_LARGE_RAWCOUNT: u32 = 65792;
+        const PERF_COUNTER_LARGE_RAWCOUNT_HEX: u32 = 256;
+        const PERF_COUNTER_MULTI_BASE: u32 = 1107494144;
+        const PERF_COUNTER_MULTI_TIMER: u32 = 574686464;
+        const PERF_COUNTER_MULTI_TIMER_INV: u32 = 591463680;
+        const PERF_COUNTER_NODATA: u32 = 1073742336;
+        const PERF_COUNTER_OBJ_TIME_QUEUELEN_TYPE: u32 = 6620416;
+        const PERF_COUNTER_PRECISION: u32 = 458752;
+        const PERF_COUNTER_QUEUELEN: u32 = 327680;
+        const PERF_COUNTER_QUEUELEN_TYPE: u32 = 4523008;
+        const PERF_COUNTER_RATE: u32 = 65536;
+        const PERF_COUNTER_RAWCOUNT: u32 = 65536;
+        const PERF_COUNTER_RAWCOUNT_HEX: u32 = 0;
+        const PERF_COUNTER_TEXT: u32 = 2816;
+        const PERF_COUNTER_TIMER: u32 = 541132032;
+        const PERF_COUNTER_TIMER_INV: u32 = 557909248;
+        const PERF_COUNTER_VALUE: u32 = 0;
+        struct PERF_DATA_BLOCK {
+            Signature: [u16; 4],
+            LittleEndian: u32,
+            Version: u32,
+            Revision: u32,
+            TotalByteLength: u32,
+            HeaderLength: u32,
+            NumObjectTypes: u32,
+            DefaultObject: i32,
+            SystemTime: SYSTEMTIME,
+            PerfTime: LARGE_INTEGER,
+            PerfFreq: LARGE_INTEGER,
+            PerfTime100nSec: LARGE_INTEGER,
+            SystemNameLength: u32,
+            SystemNameOffset: u32,
+        }
+        const PERF_DATA_REVISION: u32 = 1;
+        const PERF_DATA_VERSION: u32 = 1;
+        const PERF_DELTA_BASE: u32 = 8388608;
+        const PERF_DELTA_COUNTER: u32 = 4194304;
+        const PERF_DETAIL_ADVANCED: u32 = 200;
+        const PERF_DETAIL_EXPERT: u32 = 300;
+        const PERF_DETAIL_NOVICE: u32 = 100;
+        const PERF_DETAIL_WIZARD: u32 = 400;
+        const PERF_DISPLAY_NOSHOW: u32 = 1073741824;
+        const PERF_DISPLAY_NO_SUFFIX: u32 = 0;
+        const PERF_DISPLAY_PERCENT: u32 = 536870912;
+        const PERF_DISPLAY_PER_SEC: u32 = 268435456;
+        const PERF_DISPLAY_SECONDS: u32 = 805306368;
+        const PERF_ELAPSED_TIME: u32 = 807666944;
+        struct PERF_INSTANCE_DEFINITION {
+            ByteLength: u32,
+            ParentObjectTitleIndex: u32,
+            ParentObjectInstance: u32,
+            UniqueID: i32,
+            NameOffset: u32,
+            NameLength: u32,
+        }
+        const PERF_INVERSE_COUNTER: u32 = 16777216;
+        const PERF_LARGE_RAW_BASE: u32 = 1073939712;
+        const PERF_LARGE_RAW_FRACTION: u32 = 537003264;
+        const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2;
+        const PERF_METADATA_NO_INSTANCES: i32 = -3;
+        const PERF_MULTI_COUNTER: u32 = 33554432;
+        const PERF_NO_INSTANCES: i32 = -1;
+        const PERF_NO_UNIQUE_ID: i32 = -1;
+        const PERF_NUMBER_DECIMAL: u32 = 65536;
+        const PERF_NUMBER_DEC_1000: u32 = 131072;
+        const PERF_NUMBER_HEX: u32 = 0;
+        const PERF_OBJECT_TIMER: u32 = 2097152;
+        #[arch(X64 | Arm64)]
+        struct PERF_OBJECT_TYPE {
+            TotalByteLength: u32,
+            DefinitionLength: u32,
+            HeaderLength: u32,
+            ObjectNameTitleIndex: u32,
+            ObjectNameTitle: u32,
+            ObjectHelpTitleIndex: u32,
+            ObjectHelpTitle: u32,
+            DetailLevel: u32,
+            NumCounters: u32,
+            DefaultCounter: i32,
+            NumInstances: i32,
+            CodePage: u32,
+            PerfTime: LARGE_INTEGER,
+            PerfFreq: LARGE_INTEGER,
+        }
+        #[arch(X86)]
+        struct PERF_OBJECT_TYPE {
+            TotalByteLength: u32,
+            DefinitionLength: u32,
+            HeaderLength: u32,
+            ObjectNameTitleIndex: u32,
+            ObjectNameTitle: PWSTR,
+            ObjectHelpTitleIndex: u32,
+            ObjectHelpTitle: PWSTR,
+            DetailLevel: u32,
+            NumCounters: u32,
+            DefaultCounter: i32,
+            NumInstances: i32,
+            CodePage: u32,
+            PerfTime: LARGE_INTEGER,
+            PerfFreq: LARGE_INTEGER,
+        }
+        const PERF_OBJ_TIME_TIMER: u32 = 543229184;
+        const PERF_PRECISION_100NS_TIMER: u32 = 542573824;
+        const PERF_PRECISION_OBJECT_TIMER: u32 = 543622400;
+        const PERF_PRECISION_SYSTEM_TIMER: u32 = 541525248;
+        const PERF_PRECISION_TIMESTAMP: u32 = 1073939712;
+        const PERF_RAW_BASE: u32 = 1073939459;
+        const PERF_RAW_FRACTION: u32 = 537003008;
+        const PERF_SAMPLE_BASE: u32 = 1073939457;
+        const PERF_SAMPLE_COUNTER: u32 = 4260864;
+        const PERF_SAMPLE_FRACTION: u32 = 549585920;
+        const PERF_SIZE_DWORD: u32 = 0;
+        const PERF_SIZE_LARGE: u32 = 256;
+        const PERF_SIZE_VARIABLE_LEN: u32 = 768;
+        const PERF_SIZE_ZERO: u32 = 512;
+        const PERF_TEXT_ASCII: u32 = 65536;
+        const PERF_TEXT_UNICODE: u32 = 0;
+        const PERF_TIMER_100NS: u32 = 1048576;
+        const PERF_TIMER_TICK: u32 = 0;
+        const PERF_TYPE_COUNTER: u32 = 1024;
+        const PERF_TYPE_NUMBER: u32 = 0;
+        const PERF_TYPE_TEXT: u32 = 2048;
+        const PERF_TYPE_ZERO: u32 = 3072;
+        extern fn PM_CLOSE_PROC() -> u32;
+        extern fn PM_COLLECT_PROC(#[opt] pValueName: PCWSTR, #[in] #[out] ppData: *mut *mut void, #[in] #[out] pcbTotalBytes: *mut u32, pNumObjectTypes: *mut u32) -> u32;
+        extern fn PM_OPEN_PROC(#[opt] pContext: PCWSTR) -> u32;
+        type PPERF_COUNTER_BLOCK = *mut PERF_COUNTER_BLOCK;
+        type PPERF_COUNTER_DEFINITION = *mut PERF_COUNTER_DEFINITION;
+        type PPERF_DATA_BLOCK = *mut PERF_DATA_BLOCK;
+        type PPERF_INSTANCE_DEFINITION = *mut PERF_INSTANCE_DEFINITION;
+        type PPERF_OBJECT_TYPE = *mut PERF_OBJECT_TYPE;
+        const WINPERF_LOG_DEBUG: u32 = 2;
+        const WINPERF_LOG_NONE: u32 = 0;
+        const WINPERF_LOG_USER: u32 = 1;
+        const WINPERF_LOG_VERBOSE: u32 = 3;
+    }
+}

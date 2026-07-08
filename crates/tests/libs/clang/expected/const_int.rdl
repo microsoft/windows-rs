@@ -1,12 +1,15 @@
 #[win32]
 mod Test {
-    const DEC: i32 = 42;
-    const HEX: i32 = 31;
-    const HEX_UPPER: i32 = 171;
-    const HRESULT_STYLE: i32 = -2147467262;
-    const LONGLONG: i64 = 4294967296;
+    const DEC: u32 = 42;
+    const DEC_OVERFLOW: u32 = 2147483648;
+    const HEX: u32 = 31;
+    const HEX_FFFF: u32 = 4294967295;
+    const HEX_OVERFLOW: u32 = 2147483648;
+    const HEX_UPPER: u32 = 171;
+    const HRESULT_STYLE: u32 = 2147500034;
+    const LONGLONG: u64 = 4294967296;
     const NEG: i32 = -5;
-    const PARENS: i32 = 7;
+    const PARENS: u32 = 7;
     const UINT: u32 = 100;
     const ULONG: u32 = 4000000000;
     const ULONGLONG: u64 = 18446744073709551615;

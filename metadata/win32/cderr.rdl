@@ -1,0 +1,42 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CCERR_CHOOSECOLORCODES: u32 = 20480;
+        const CDERR_DIALOGFAILURE: u32 = 65535;
+        const CDERR_FINDRESFAILURE: u32 = 6;
+        const CDERR_GENERALCODES: u32 = 0;
+        const CDERR_INITIALIZATION: u32 = 2;
+        const CDERR_LOADRESFAILURE: u32 = 7;
+        const CDERR_LOADSTRFAILURE: u32 = 5;
+        const CDERR_LOCKRESFAILURE: u32 = 8;
+        const CDERR_MEMALLOCFAILURE: u32 = 9;
+        const CDERR_MEMLOCKFAILURE: u32 = 10;
+        const CDERR_NOHINSTANCE: u32 = 4;
+        const CDERR_NOHOOK: u32 = 11;
+        const CDERR_NOTEMPLATE: u32 = 3;
+        const CDERR_REGISTERMSGFAIL: u32 = 12;
+        const CDERR_STRUCTSIZE: u32 = 1;
+        const CFERR_CHOOSEFONTCODES: u32 = 8192;
+        const CFERR_MAXLESSTHANMIN: u32 = 8194;
+        const CFERR_NOFONTS: u32 = 8193;
+        const FNERR_BUFFERTOOSMALL: u32 = 12291;
+        const FNERR_FILENAMECODES: u32 = 12288;
+        const FNERR_INVALIDFILENAME: u32 = 12290;
+        const FNERR_SUBCLASSFAILURE: u32 = 12289;
+        const FRERR_BUFFERLENGTHZERO: u32 = 16385;
+        const FRERR_FINDREPLACECODES: u32 = 16384;
+        const PDERR_CREATEICFAILURE: u32 = 4106;
+        const PDERR_DEFAULTDIFFERENT: u32 = 4108;
+        const PDERR_DNDMMISMATCH: u32 = 4105;
+        const PDERR_GETDEVMODEFAIL: u32 = 4101;
+        const PDERR_INITFAILURE: u32 = 4102;
+        const PDERR_LOADDRVFAILURE: u32 = 4100;
+        const PDERR_NODEFAULTPRN: u32 = 4104;
+        const PDERR_NODEVICES: u32 = 4103;
+        const PDERR_PARSEFAILURE: u32 = 4098;
+        const PDERR_PRINTERCODES: u32 = 4096;
+        const PDERR_PRINTERNOTFOUND: u32 = 4107;
+        const PDERR_RETDEFFAILURE: u32 = 4099;
+        const PDERR_SETUPFAILURE: u32 = 4097;
+    }
+}

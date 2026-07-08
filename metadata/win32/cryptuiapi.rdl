@@ -1,0 +1,280 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509;
+        struct CERT_SELECTUI_INPUT {
+            hStore: HCERTSTORE,
+            prgpChain: *mut PCCERT_CHAIN_CONTEXT,
+            cChain: u32,
+        }
+        const CRYPTUI_ACCEPT_DECLINE_STYLE: u32 = 64;
+        const CRYPTUI_CACHE_ONLY_URL_RETRIEVAL: u32 = 262144;
+        const CRYPTUI_CERT_MGR_PUBLISHER_TAB: u32 = 4;
+        const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: u32 = 32768;
+        struct CRYPTUI_CERT_MGR_STRUCT {
+            dwSize: u32,
+            hwndParent: HWND,
+            dwFlags: u32,
+            pwszTitle: PCWSTR,
+            pszInitUsageOID: PCSTR,
+        }
+        const CRYPTUI_CERT_MGR_TAB_MASK: u32 = 15;
+        const CRYPTUI_DISABLE_ADDTOSTORE: u32 = 16;
+        const CRYPTUI_DISABLE_EDITPROPERTIES: u32 = 4;
+        const CRYPTUI_DISABLE_EXPORT: u32 = 8192;
+        const CRYPTUI_DISABLE_HTMLLINK: u32 = 65536;
+        const CRYPTUI_DISABLE_ISSUERSTATEMENT: u32 = 131072;
+        const CRYPTUI_DONT_OPEN_STORES: u32 = 256;
+        const CRYPTUI_ENABLE_ADDTOSTORE: u32 = 32;
+        const CRYPTUI_ENABLE_EDITPROPERTIES: u32 = 8;
+        const CRYPTUI_ENABLE_REVOCATION_CHECKING: u32 = 2048;
+        const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN: u32 = 32768;
+        const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: u32 = 2048;
+        const CRYPTUI_ENABLE_REVOCATION_CHECK_END_CERT: u32 = 16384;
+        const CRYPTUI_HIDE_DETAILPAGE: u32 = 2;
+        const CRYPTUI_HIDE_HIERARCHYPAGE: u32 = 1;
+        const CRYPTUI_IGNORE_UNTRUSTED_ROOT: u32 = 128;
+        struct CRYPTUI_INITDIALOG_STRUCT {
+            lParam: LPARAM,
+            pCertContext: PCCERT_CONTEXT,
+        }
+        const CRYPTUI_ONLY_OPEN_ROOT_STORE: u32 = 512;
+        const CRYPTUI_SELECT_EXPIRATION_COLUMN: u32 = 32;
+        const CRYPTUI_SELECT_FRIENDLYNAME_COLUMN: u32 = 8;
+        const CRYPTUI_SELECT_INTENDEDUSE_COLUMN: u32 = 4;
+        const CRYPTUI_SELECT_ISSUEDBY_COLUMN: u32 = 2;
+        const CRYPTUI_SELECT_ISSUEDTO_COLUMN: u32 = 1;
+        const CRYPTUI_SELECT_LOCATION_COLUMN: u32 = 16;
+        struct CRYPTUI_VIEWCERTIFICATE_STRUCTA {
+            dwSize: u32,
+            hwndParent: HWND,
+            dwFlags: u32,
+            szTitle: PCSTR,
+            pCertContext: PCCERT_CONTEXT,
+            rgszPurposes: *mut PCSTR,
+            cPurposes: u32,
+            Anonymous: union {
+                pCryptProviderData: *const CRYPT_PROVIDER_DATA,
+                hWVTStateData: HANDLE,
+            },
+            fpCryptProviderDataTrustedUsage: BOOL,
+            idxSigner: u32,
+            idxCert: u32,
+            fCounterSigner: BOOL,
+            idxCounterSigner: u32,
+            cStores: u32,
+            rghStores: *mut HCERTSTORE,
+            cPropSheetPages: u32,
+            rgPropSheetPages: LPCPROPSHEETPAGEA,
+            nStartPage: u32,
+        }
+        struct CRYPTUI_VIEWCERTIFICATE_STRUCTW {
+            dwSize: u32,
+            hwndParent: HWND,
+            dwFlags: u32,
+            szTitle: PCWSTR,
+            pCertContext: PCCERT_CONTEXT,
+            rgszPurposes: *mut PCSTR,
+            cPurposes: u32,
+            Anonymous: union {
+                pCryptProviderData: *const CRYPT_PROVIDER_DATA,
+                hWVTStateData: HANDLE,
+            },
+            fpCryptProviderDataTrustedUsage: BOOL,
+            idxSigner: u32,
+            idxCert: u32,
+            fCounterSigner: BOOL,
+            idxCounterSigner: u32,
+            cStores: u32,
+            rghStores: *mut HCERTSTORE,
+            cPropSheetPages: u32,
+            rgPropSheetPages: LPCPROPSHEETPAGEW,
+            nStartPage: u32,
+        }
+        const CRYPTUI_WARN_REMOTE_TRUST: u32 = 4096;
+        const CRYPTUI_WARN_UNTRUSTED_ROOT: u32 = 1024;
+        const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: u32 = 1;
+        const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: u32 = 2;
+        struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
+            dwSize: u32,
+            pGuidSubject: *mut GUID,
+            cbBlob: u32,
+            pbBlob: *mut u8,
+            pwszDisplayName: PCWSTR,
+        }
+        const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: u32 = 1;
+        struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
+            dwSize: u32,
+            pwszSigningCertFileName: PWSTR,
+            dwPvkChoice: u32,
+            Anonymous: union {
+                pPvkFileInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO,
+                pPvkProvInfo: PCRYPT_KEY_PROV_INFO,
+            },
+        }
+        const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: u32 = 1;
+        struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
+            dwSize: u32,
+            cbBlob: u32,
+            pbBlob: *mut u8,
+        }
+        const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2;
+        struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
+            dwSize: u32,
+            dwAttrFlags: u32,
+            pwszDescription: PCWSTR,
+            pwszMoreInfoLocation: PCWSTR,
+            pszHashAlg: PCSTR,
+            pwszSigningCertDisplayString: PCWSTR,
+            hAdditionalCertStore: HCERTSTORE,
+            psAuthenticated: PCRYPT_ATTRIBUTES,
+            psUnauthenticated: PCRYPT_ATTRIBUTES,
+        }
+        const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: u32 = 4;
+        const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: u32 = 2;
+        struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
+            dwSize: u32,
+            dwSubjectChoice: u32,
+            Anonymous: union {
+                pwszFileName: PCWSTR,
+                pSignBlobInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO,
+            },
+            dwSigningCertChoice: u32,
+            Anonymous2: union {
+                pSigningCertContext: PCCERT_CONTEXT,
+                pSigningCertStore: PCCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO,
+                pSigningCertPvkInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO,
+            },
+            pwszTimestampURL: PCWSTR,
+            dwAdditionalCertChoice: u32,
+            pSignExtInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO,
+        }
+        const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: u32 = 3;
+        const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: u32 = 1;
+        struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
+            dwSize: u32,
+            pwszPvkFileName: PWSTR,
+            pwszProvName: PWSTR,
+            dwProvType: u32,
+        }
+        const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV: u32 = 2;
+        const CRYPTUI_WIZ_DIGITAL_SIGN_STORE: u32 = 2;
+        struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
+            dwSize: u32,
+            cCertStore: u32,
+            rghCertStore: *mut HCERTSTORE,
+            pFilterCallback: PFNCFILTERPROC,
+            pvCallbackData: *mut void,
+        }
+        const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: u32 = 2;
+        const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: u32 = 1;
+        struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
+            dwSize: u32,
+            dwExportFormat: u32,
+            fExportChain: BOOL,
+            fExportPrivateKeys: BOOL,
+            pwszPassword: PCWSTR,
+            fStrongEncryption: BOOL,
+        }
+        const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: u32 = 1;
+        const CRYPTUI_WIZ_EXPORT_CERT_STORE: u32 = 4;
+        const CRYPTUI_WIZ_EXPORT_CERT_STORE_CERTIFICATES_ONLY: u32 = 5;
+        const CRYPTUI_WIZ_EXPORT_CRL_CONTEXT: u32 = 3;
+        const CRYPTUI_WIZ_EXPORT_CTL_CONTEXT: u32 = 2;
+        const CRYPTUI_WIZ_EXPORT_FORMAT_BASE64: u32 = 4;
+        const CRYPTUI_WIZ_EXPORT_FORMAT_CRL: u32 = 6;
+        const CRYPTUI_WIZ_EXPORT_FORMAT_CTL: u32 = 7;
+        const CRYPTUI_WIZ_EXPORT_FORMAT_DER: u32 = 1;
+        const CRYPTUI_WIZ_EXPORT_FORMAT_PFX: u32 = 2;
+        const CRYPTUI_WIZ_EXPORT_FORMAT_PKCS7: u32 = 3;
+        const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: u32 = 5;
+        struct CRYPTUI_WIZ_EXPORT_INFO {
+            dwSize: u32,
+            pwszExportFileName: PCWSTR,
+            dwSubjectChoice: u32,
+            Anonymous: union {
+                pCertContext: PCCERT_CONTEXT,
+                pCTLContext: PCCTL_CONTEXT,
+                pCRLContext: PCCRL_CONTEXT,
+                hCertStore: HCERTSTORE,
+            },
+            cStores: u32,
+            rghStores: *mut HCERTSTORE,
+        }
+        const CRYPTUI_WIZ_IMPORT_ALLOW_CERT: u32 = 131072;
+        const CRYPTUI_WIZ_IMPORT_ALLOW_CRL: u32 = 262144;
+        const CRYPTUI_WIZ_IMPORT_ALLOW_CTL: u32 = 524288;
+        const CRYPTUI_WIZ_IMPORT_NO_CHANGE_DEST_STORE: u32 = 65536;
+        const CRYPTUI_WIZ_IMPORT_REMOTE_DEST_STORE: u32 = 4194304;
+        struct CRYPTUI_WIZ_IMPORT_SRC_INFO {
+            dwSize: u32,
+            dwSubjectChoice: u32,
+            Anonymous: union {
+                pwszFileName: PCWSTR,
+                pCertContext: PCCERT_CONTEXT,
+                pCTLContext: PCCTL_CONTEXT,
+                pCRLContext: PCCRL_CONTEXT,
+                hCertStore: HCERTSTORE,
+            },
+            dwFlags: u32,
+            pwszPassword: PCWSTR,
+        }
+        const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_CONTEXT: u32 = 2;
+        const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_STORE: u32 = 5;
+        const CRYPTUI_WIZ_IMPORT_SUBJECT_CRL_CONTEXT: u32 = 4;
+        const CRYPTUI_WIZ_IMPORT_SUBJECT_CTL_CONTEXT: u32 = 3;
+        const CRYPTUI_WIZ_IMPORT_SUBJECT_FILE: u32 = 1;
+        const CRYPTUI_WIZ_IMPORT_TO_CURRENTUSER: u32 = 2097152;
+        const CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE: u32 = 1048576;
+        const CRYPTUI_WIZ_NO_UI: u32 = 1;
+        #[library("CRYPTUI.dll")]
+        extern fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppOutBuffer: *mut *mut void, pulOutBufferSize: *mut u32) -> HRESULT;
+        #[library("CRYPTUI.dll")]
+        extern fn CryptUIDlgCertMgr(pCryptUICertMgr: *const CRYPTUI_CERT_MGR_STRUCT) -> BOOL;
+        #[library("CRYPTUI.dll")]
+        extern fn CryptUIDlgSelectCertificateFromStore(hCertStore: HCERTSTORE, #[opt] hwnd: HWND, #[opt] pwszTitle: PCWSTR, #[opt] pwszDisplayString: PCWSTR, dwDontUseColumn: u32, dwFlags: u32, pvReserved: *const void) -> PCCERT_CONTEXT;
+        #[library("CRYPTUI.dll")]
+        extern fn CryptUIDlgViewCertificateA(pCertViewInfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfPropertiesChanged: *mut BOOL) -> BOOL;
+        #[library("CRYPTUI.dll")]
+        extern fn CryptUIDlgViewCertificateW(pCertViewInfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfPropertiesChanged: *mut BOOL) -> BOOL;
+        #[library("CRYPTUI.dll")]
+        extern fn CryptUIDlgViewContext(dwContextType: u32, pvContext: *const void, #[opt] hwnd: HWND, #[opt] pwszTitle: PCWSTR, dwFlags: u32, pvReserved: *const void) -> BOOL;
+        #[library("CRYPTUI.dll")]
+        extern fn CryptUIWizDigitalSign(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, pDigitalSignInfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppSignContext: *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
+        #[library("CRYPTUI.dll")]
+        extern fn CryptUIWizExport(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, pExportInfo: *const CRYPTUI_WIZ_EXPORT_INFO, #[opt] pvoid: *const void) -> BOOL;
+        #[library("CRYPTUI.dll")]
+        extern fn CryptUIWizFreeDigitalSignContext(pSignContext: *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
+        #[library("CRYPTUI.dll")]
+        extern fn CryptUIWizImport(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, #[opt] pImportSrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, #[opt] hDestCertStore: HCERTSTORE) -> BOOL;
+        type PCCRYPTUI_CERT_MGR_STRUCT = *const CRYPTUI_CERT_MGR_STRUCT;
+        type PCCRYPTUI_VIEWCERTIFICATE_STRUCTA = *const CRYPTUI_VIEWCERTIFICATE_STRUCTA;
+        type PCCRYPTUI_VIEWCERTIFICATE_STRUCTW = *const CRYPTUI_VIEWCERTIFICATE_STRUCTW;
+        type PCCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO;
+        type PCCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO;
+        type PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT = *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT;
+        type PCCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO;
+        type PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO;
+        type PCCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO;
+        type PCCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO;
+        type PCCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO = *const CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO;
+        type PCCRYPTUI_WIZ_EXPORT_INFO = *const CRYPTUI_WIZ_EXPORT_INFO;
+        type PCCRYPTUI_WIZ_IMPORT_SRC_INFO = *const CRYPTUI_WIZ_IMPORT_SRC_INFO;
+        type PCERT_SELECTUI_INPUT = *mut CERT_SELECTUI_INPUT;
+        type PCRYPTUI_CERT_MGR_STRUCT = *mut CRYPTUI_CERT_MGR_STRUCT;
+        type PCRYPTUI_INITDIALOG_STRUCT = *mut CRYPTUI_INITDIALOG_STRUCT;
+        type PCRYPTUI_VIEWCERTIFICATE_STRUCTA = *mut CRYPTUI_VIEWCERTIFICATE_STRUCTA;
+        type PCRYPTUI_VIEWCERTIFICATE_STRUCTW = *mut CRYPTUI_VIEWCERTIFICATE_STRUCTW;
+        type PCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO;
+        type PCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO;
+        type PCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT = *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT;
+        type PCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO;
+        type PCRYPTUI_WIZ_DIGITAL_SIGN_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_INFO;
+        type PCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO;
+        type PCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO;
+        type PCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO = *mut CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO;
+        type PCRYPTUI_WIZ_EXPORT_INFO = *mut CRYPTUI_WIZ_EXPORT_INFO;
+        type PCRYPTUI_WIZ_IMPORT_SRC_INFO = *mut CRYPTUI_WIZ_IMPORT_SRC_INFO;
+        extern fn PFNCFILTERPROC(pCertContext: *const CERT_CONTEXT, pfInitialSelectedCert: *mut BOOL, pvCallbackData: *mut void) -> BOOL;
+    }
+}

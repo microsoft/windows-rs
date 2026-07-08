@@ -1,0 +1,155 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const GUID_DEVINTERFACE_SMARTCARD_READER: GUID = 0x50dd5230_ba8a_11d1_bf5d_0000f805f530;
+        const IOCTL_SMARTCARD_CONFISCATE: u32 = 3211280;
+        const IOCTL_SMARTCARD_EJECT: u32 = 3211288;
+        const IOCTL_SMARTCARD_GET_ATTRIBUTE: u32 = 3211272;
+        const IOCTL_SMARTCARD_GET_FEATURE_REQUEST: u32 = 3224864;
+        const IOCTL_SMARTCARD_GET_LAST_ERROR: u32 = 3211324;
+        const IOCTL_SMARTCARD_GET_PERF_CNTR: u32 = 3211328;
+        const IOCTL_SMARTCARD_GET_STATE: u32 = 3211320;
+        const IOCTL_SMARTCARD_IS_ABSENT: u32 = 3211308;
+        const IOCTL_SMARTCARD_IS_PRESENT: u32 = 3211304;
+        const IOCTL_SMARTCARD_POWER: u32 = 3211268;
+        const IOCTL_SMARTCARD_SET_ATTRIBUTE: u32 = 3211276;
+        const IOCTL_SMARTCARD_SET_PROTOCOL: u32 = 3211312;
+        const IOCTL_SMARTCARD_SWALLOW: u32 = 3211292;
+        const IOCTL_SMARTCARD_TRANSMIT: u32 = 3211284;
+        type LPCSCARD_IO_REQUEST = *const SCARD_IO_REQUEST;
+        type LPSCARD_IO_REQUEST = *mut SCARD_IO_REQUEST;
+        type LPSCARD_T0_COMMAND = *mut SCARD_T0_COMMAND;
+        type LPSCARD_T0_REQUEST = *mut SCARD_T0_REQUEST;
+        type LPSCARD_T1_REQUEST = *mut SCARD_T1_REQUEST;
+        const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32;
+        const MAXIMUM_SMARTCARD_READERS: u32 = 10;
+        type PSCARD_IO_REQUEST = *mut SCARD_IO_REQUEST;
+        type PSCARD_T0_REQUEST = *mut SCARD_T0_REQUEST;
+        type PSCARD_T1_REQUEST = *mut SCARD_T1_REQUEST;
+        const SCARD_ABSENT: u32 = 1;
+        const SCARD_ATR_LENGTH: u32 = 33;
+        const SCARD_ATTR_ATR_STRING: u32 = 590595;
+        const SCARD_ATTR_CHANNEL_ID: u32 = 131344;
+        const SCARD_ATTR_CHARACTERISTICS: u32 = 393552;
+        const SCARD_ATTR_CURRENT_BWT: u32 = 524809;
+        const SCARD_ATTR_CURRENT_CLK: u32 = 524802;
+        const SCARD_ATTR_CURRENT_CWT: u32 = 524810;
+        const SCARD_ATTR_CURRENT_D: u32 = 524804;
+        const SCARD_ATTR_CURRENT_EBC_ENCODING: u32 = 524811;
+        const SCARD_ATTR_CURRENT_F: u32 = 524803;
+        const SCARD_ATTR_CURRENT_IFSC: u32 = 524807;
+        const SCARD_ATTR_CURRENT_IFSD: u32 = 524808;
+        const SCARD_ATTR_CURRENT_IO_STATE: u32 = 590594;
+        const SCARD_ATTR_CURRENT_N: u32 = 524805;
+        const SCARD_ATTR_CURRENT_PROTOCOL_TYPE: u32 = 524801;
+        const SCARD_ATTR_CURRENT_W: u32 = 524806;
+        const SCARD_ATTR_DEFAULT_CLK: u32 = 196897;
+        const SCARD_ATTR_DEFAULT_DATA_RATE: u32 = 196899;
+        const SCARD_ATTR_DEVICE_FRIENDLY_NAME: u32 = 2147418115;
+        const SCARD_ATTR_DEVICE_FRIENDLY_NAME_A: u32 = 2147418115;
+        const SCARD_ATTR_DEVICE_FRIENDLY_NAME_W: u32 = 2147418117;
+        const SCARD_ATTR_DEVICE_IN_USE: u32 = 2147418114;
+        const SCARD_ATTR_DEVICE_SYSTEM_NAME: u32 = 2147418116;
+        const SCARD_ATTR_DEVICE_SYSTEM_NAME_A: u32 = 2147418116;
+        const SCARD_ATTR_DEVICE_SYSTEM_NAME_W: u32 = 2147418118;
+        const SCARD_ATTR_DEVICE_UNIT: u32 = 2147418113;
+        const SCARD_ATTR_ESC_AUTHREQUEST: u32 = 499717;
+        const SCARD_ATTR_ESC_CANCEL: u32 = 499715;
+        const SCARD_ATTR_ESC_RESET: u32 = 499712;
+        const SCARD_ATTR_EXTENDED_BWT: u32 = 524812;
+        const SCARD_ATTR_ICC_INTERFACE_STATUS: u32 = 590593;
+        const SCARD_ATTR_ICC_PRESENCE: u32 = 590592;
+        const SCARD_ATTR_ICC_TYPE_PER_ATR: u32 = 590596;
+        const SCARD_ATTR_MAXINPUT: u32 = 499719;
+        const SCARD_ATTR_MAX_CLK: u32 = 196898;
+        const SCARD_ATTR_MAX_DATA_RATE: u32 = 196900;
+        const SCARD_ATTR_MAX_IFSD: u32 = 196901;
+        const SCARD_ATTR_POWER_MGMT_SUPPORT: u32 = 262449;
+        const SCARD_ATTR_PROTOCOL_TYPES: u32 = 196896;
+        const SCARD_ATTR_SUPRESS_T1_IFS_REQUEST: u32 = 2147418119;
+        const SCARD_ATTR_USER_AUTH_INPUT_DEVICE: u32 = 328002;
+        const SCARD_ATTR_USER_TO_CARD_AUTH_DEVICE: u32 = 328000;
+        const SCARD_ATTR_VENDOR_IFD_SERIAL_NO: u32 = 65795;
+        const SCARD_ATTR_VENDOR_IFD_TYPE: u32 = 65793;
+        const SCARD_ATTR_VENDOR_IFD_VERSION: u32 = 65794;
+        const SCARD_ATTR_VENDOR_NAME: u32 = 65792;
+        const SCARD_ATTR_VENDOR_SPECIFIC_INFO: u32 = 499720;
+        const SCARD_CLASS_COMMUNICATIONS: u32 = 2;
+        const SCARD_CLASS_ICC_STATE: u32 = 9;
+        const SCARD_CLASS_IFD_PROTOCOL: u32 = 8;
+        const SCARD_CLASS_MECHANICAL: u32 = 6;
+        const SCARD_CLASS_PERF: u32 = 32766;
+        const SCARD_CLASS_POWER_MGMT: u32 = 4;
+        const SCARD_CLASS_PROTOCOL: u32 = 3;
+        const SCARD_CLASS_SECURITY: u32 = 5;
+        const SCARD_CLASS_SYSTEM: u32 = 32767;
+        const SCARD_CLASS_VENDOR_DEFINED: u32 = 7;
+        const SCARD_CLASS_VENDOR_INFO: u32 = 1;
+        const SCARD_COLD_RESET: u32 = 1;
+        struct SCARD_IO_REQUEST {
+            dwProtocol: u32,
+            cbPciLength: u32,
+        }
+        const SCARD_NEGOTIABLE: u32 = 5;
+        const SCARD_PERF_BYTES_TRANSMITTED: u32 = 2147352578;
+        const SCARD_PERF_NUM_TRANSMISSIONS: u32 = 2147352577;
+        const SCARD_PERF_TRANSMISSION_TIME: u32 = 2147352579;
+        const SCARD_POWERED: u32 = 4;
+        const SCARD_POWER_DOWN: u32 = 0;
+        const SCARD_PRESENT: u32 = 2;
+        const SCARD_PROTOCOL_DEFAULT: u32 = 2147483648;
+        const SCARD_PROTOCOL_OPTIMAL: u32 = 0;
+        const SCARD_PROTOCOL_RAW: u32 = 65536;
+        const SCARD_PROTOCOL_T0: u32 = 1;
+        const SCARD_PROTOCOL_T1: u32 = 2;
+        const SCARD_PROTOCOL_Tx: u32 = 3;
+        const SCARD_PROTOCOL_UNDEFINED: u32 = 0;
+        const SCARD_READER_CONFISCATES: u32 = 4;
+        const SCARD_READER_CONTACTLESS: u32 = 8;
+        const SCARD_READER_EJECTS: u32 = 2;
+        const SCARD_READER_SWALLOWS: u32 = 1;
+        const SCARD_READER_TYPE_EMBEDDEDSE: u32 = 2048;
+        const SCARD_READER_TYPE_IDE: u32 = 16;
+        const SCARD_READER_TYPE_KEYBOARD: u32 = 4;
+        const SCARD_READER_TYPE_NFC: u32 = 256;
+        const SCARD_READER_TYPE_NGC: u32 = 1024;
+        const SCARD_READER_TYPE_PARALELL: u32 = 2;
+        const SCARD_READER_TYPE_PCMCIA: u32 = 64;
+        const SCARD_READER_TYPE_SCSI: u32 = 8;
+        const SCARD_READER_TYPE_SERIAL: u32 = 1;
+        const SCARD_READER_TYPE_TPM: u32 = 128;
+        const SCARD_READER_TYPE_UICC: u32 = 512;
+        const SCARD_READER_TYPE_USB: u32 = 32;
+        const SCARD_READER_TYPE_VENDOR: u32 = 240;
+        const SCARD_SPECIFIC: u32 = 6;
+        const SCARD_SWALLOWED: u32 = 3;
+        const SCARD_T0_CMD_LENGTH: u32 = 5;
+        struct SCARD_T0_COMMAND {
+            bCla: u8,
+            bIns: u8,
+            bP1: u8,
+            bP2: u8,
+            bP3: u8,
+        }
+        const SCARD_T0_HEADER_LENGTH: u32 = 7;
+        struct SCARD_T0_REQUEST {
+            ioRequest: SCARD_IO_REQUEST,
+            bSw1: u8,
+            bSw2: u8,
+            Anonymous: union {
+                CmdBytes: SCARD_T0_COMMAND,
+                rgbHeader: [u8; 5],
+            },
+        }
+        const SCARD_T1_EPILOGUE_LENGTH: u32 = 2;
+        const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1;
+        const SCARD_T1_MAX_IFS: u32 = 254;
+        const SCARD_T1_PROLOGUE_LENGTH: u32 = 3;
+        struct SCARD_T1_REQUEST {
+            ioRequest: SCARD_IO_REQUEST,
+        }
+        const SCARD_UNKNOWN: u32 = 0;
+        const SCARD_WARM_RESET: u32 = 2;
+        type UWORD = u16;
+    }
+}

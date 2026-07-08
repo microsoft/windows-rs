@@ -1,0 +1,895 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xcfab6e98_8730_11d3_b388_00c04f68574b)]
+        interface IWMPCdrom: IDispatch {
+            #[special]
+            fn get_driveSpecifier(&self, #[retval] pbstrDrive: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_playlist(&self, #[retval] ppPlaylist: *mut IWMPPlaylist) -> HRESULT;
+            fn eject(&self) -> HRESULT;
+        }
+        #[guid(0xbd94dbeb_417f_4928_aa06_087d56ed9b59)]
+        interface IWMPCdromBurn: IUnknown {
+            fn isAvailable(&self, bstrItem: BSTR, #[retval] pIsAvailable: *mut VARIANT_BOOL) -> HRESULT;
+            fn getItemInfo(&self, bstrItem: BSTR, #[retval] pbstrVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_label(&self, #[retval] pbstrLabel: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_label(&self, bstrLabel: BSTR) -> HRESULT;
+            #[special]
+            fn get_burnFormat(&self, #[retval] pwmpbf: *mut WMPBurnFormat) -> HRESULT;
+            #[special]
+            fn put_burnFormat(&self, wmpbf: WMPBurnFormat) -> HRESULT;
+            #[special]
+            fn get_burnPlaylist(&self, #[retval] ppPlaylist: *mut IWMPPlaylist) -> HRESULT;
+            #[special]
+            fn put_burnPlaylist(&self, pPlaylist: IWMPPlaylist) -> HRESULT;
+            fn refreshStatus(&self) -> HRESULT;
+            #[special]
+            fn get_burnState(&self, #[retval] pwmpbs: *mut WMPBurnState) -> HRESULT;
+            #[special]
+            fn get_burnProgress(&self, #[retval] plProgress: *mut i32) -> HRESULT;
+            fn startBurn(&self) -> HRESULT;
+            fn stopBurn(&self) -> HRESULT;
+            fn erase(&self) -> HRESULT;
+        }
+        #[guid(0xee4c8fe2_34b2_11d3_a3bf_006097c9b344)]
+        interface IWMPCdromCollection: IDispatch {
+            #[special]
+            fn get_count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn item(&self, lIndex: i32, #[retval] ppItem: *mut IWMPCdrom) -> HRESULT;
+            fn getByDriveSpecifier(&self, bstrDriveSpecifier: BSTR, #[retval] ppCdrom: *mut IWMPCdrom) -> HRESULT;
+        }
+        #[guid(0x56e2294f_69ed_4629_a869_aea72c0dcc2c)]
+        interface IWMPCdromRip: IUnknown {
+            #[special]
+            fn get_ripState(&self, #[retval] pwmprs: *mut WMPRipState) -> HRESULT;
+            #[special]
+            fn get_ripProgress(&self, #[retval] plProgress: *mut i32) -> HRESULT;
+            fn startRip(&self) -> HRESULT;
+            fn stopRip(&self) -> HRESULT;
+        }
+        #[guid(0x4f2df574_c588_11d3_9ed0_00c04fb6e937)]
+        interface IWMPClosedCaption: IDispatch {
+            #[special]
+            fn get_SAMIStyle(&self, #[retval] pbstrSAMIStyle: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SAMIStyle(&self, bstrSAMIStyle: BSTR) -> HRESULT;
+            #[special]
+            fn get_SAMILang(&self, #[retval] pbstrSAMILang: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SAMILang(&self, bstrSAMILang: BSTR) -> HRESULT;
+            #[special]
+            fn get_SAMIFileName(&self, #[retval] pbstrSAMIFileName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SAMIFileName(&self, bstrSAMIFileName: BSTR) -> HRESULT;
+            #[special]
+            fn get_captioningId(&self, #[retval] pbstrCaptioningID: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_captioningId(&self, bstrCaptioningID: BSTR) -> HRESULT;
+        }
+        #[guid(0x350ba78b_6bc8_4113_a5f5_312056934eb6)]
+        interface IWMPClosedCaption2: IWMPClosedCaption {
+            #[special]
+            fn get_SAMILangCount(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn getSAMILangName(&self, nIndex: i32, #[retval] pbstrName: *mut BSTR) -> HRESULT;
+            fn getSAMILangID(&self, nIndex: i32, #[retval] plLangID: *mut i32) -> HRESULT;
+            #[special]
+            fn get_SAMIStyleCount(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn getSAMIStyleName(&self, nIndex: i32, #[retval] pbstrName: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x74c09e02_f828_11d2_a74b_00a0c905f36e)]
+        interface IWMPControls: IDispatch {
+            #[special]
+            fn get_isAvailable(&self, bstrItem: BSTR, #[retval] pIsAvailable: *mut VARIANT_BOOL) -> HRESULT;
+            fn play(&self) -> HRESULT;
+            fn stop(&self) -> HRESULT;
+            fn pause(&self) -> HRESULT;
+            fn fastForward(&self) -> HRESULT;
+            fn fastReverse(&self) -> HRESULT;
+            #[special]
+            fn get_currentPosition(&self, #[retval] pdCurrentPosition: *mut f64) -> HRESULT;
+            #[special]
+            fn put_currentPosition(&self, dCurrentPosition: f64) -> HRESULT;
+            #[special]
+            fn get_currentPositionString(&self, #[retval] pbstrCurrentPosition: *mut BSTR) -> HRESULT;
+            fn next(&self) -> HRESULT;
+            fn previous(&self) -> HRESULT;
+            #[special]
+            fn get_currentItem(&self, #[retval] ppIWMPMedia: *mut IWMPMedia) -> HRESULT;
+            #[special]
+            fn put_currentItem(&self, pIWMPMedia: IWMPMedia) -> HRESULT;
+            #[special]
+            fn get_currentMarker(&self, #[retval] plMarker: *mut i32) -> HRESULT;
+            #[special]
+            fn put_currentMarker(&self, lMarker: i32) -> HRESULT;
+            fn playItem(&self, pIWMPMedia: IWMPMedia) -> HRESULT;
+        }
+        #[guid(0x6f030d25_0890_480f_9775_1f7e40ab5b8e)]
+        interface IWMPControls2: IWMPControls {
+            fn step(&self, lStep: i32) -> HRESULT;
+        }
+        #[guid(0xa1d1110e_d545_476a_9a78_ac3e4cb1e6bd)]
+        interface IWMPControls3: IWMPControls2 {
+            #[special]
+            fn get_audioLanguageCount(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn getAudioLanguageID(&self, lIndex: i32, #[retval] plLangID: *mut i32) -> HRESULT;
+            fn getAudioLanguageDescription(&self, lIndex: i32, #[retval] pbstrLangDesc: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_currentAudioLanguage(&self, #[retval] plLangID: *mut i32) -> HRESULT;
+            #[special]
+            fn put_currentAudioLanguage(&self, lLangID: i32) -> HRESULT;
+            #[special]
+            fn get_currentAudioLanguageIndex(&self, #[retval] plIndex: *mut i32) -> HRESULT;
+            #[special]
+            fn put_currentAudioLanguageIndex(&self, lIndex: i32) -> HRESULT;
+            fn getLanguageName(&self, lLangID: i32, #[retval] pbstrLangName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_currentPositionTimecode(&self, #[retval] bstrTimecode: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_currentPositionTimecode(&self, bstrTimecode: BSTR) -> HRESULT;
+        }
+        #[guid(0xd84cca99_cce2_11d2_9ecc_0000f8085981)]
+        interface IWMPCore: IDispatch {
+            fn close(&self) -> HRESULT;
+            #[special]
+            fn get_URL(&self, #[retval] pbstrURL: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_URL(&self, bstrURL: BSTR) -> HRESULT;
+            #[special]
+            fn get_openState(&self, #[retval] pwmpos: *mut WMPOpenState) -> HRESULT;
+            #[special]
+            fn get_playState(&self, #[retval] pwmpps: *mut WMPPlayState) -> HRESULT;
+            #[special]
+            fn get_controls(&self, #[retval] ppControl: *mut IWMPControls) -> HRESULT;
+            #[special]
+            fn get_settings(&self, #[retval] ppSettings: *mut IWMPSettings) -> HRESULT;
+            #[special]
+            fn get_currentMedia(&self, #[retval] ppMedia: *mut IWMPMedia) -> HRESULT;
+            #[special]
+            fn put_currentMedia(&self, pMedia: IWMPMedia) -> HRESULT;
+            #[special]
+            fn get_mediaCollection(&self, #[retval] ppMediaCollection: *mut IWMPMediaCollection) -> HRESULT;
+            #[special]
+            fn get_playlistCollection(&self, #[retval] ppPlaylistCollection: *mut IWMPPlaylistCollection) -> HRESULT;
+            #[special]
+            fn get_versionInfo(&self, #[retval] pbstrVersionInfo: *mut BSTR) -> HRESULT;
+            fn launchURL(&self, bstrURL: BSTR) -> HRESULT;
+            #[special]
+            fn get_network(&self, #[retval] ppQNI: *mut IWMPNetwork) -> HRESULT;
+            #[special]
+            fn get_currentPlaylist(&self, #[retval] ppPL: *mut IWMPPlaylist) -> HRESULT;
+            #[special]
+            fn put_currentPlaylist(&self, pPL: IWMPPlaylist) -> HRESULT;
+            #[special]
+            fn get_cdromCollection(&self, #[retval] ppCdromCollection: *mut IWMPCdromCollection) -> HRESULT;
+            #[special]
+            fn get_closedCaption(&self, #[retval] ppClosedCaption: *mut IWMPClosedCaption) -> HRESULT;
+            #[special]
+            fn get_isOnline(&self, #[retval] pfOnline: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_error(&self, #[retval] ppError: *mut IWMPError) -> HRESULT;
+            #[special]
+            fn get_status(&self, #[retval] pbstrStatus: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xbc17e5b7_7561_4c18_bb90_17d485775659)]
+        interface IWMPCore2: IWMPCore {
+            #[special]
+            fn get_dvd(&self, #[retval] ppDVD: *mut IWMPDVD) -> HRESULT;
+        }
+        #[guid(0x7587c667_628f_499f_88e7_6a6f4e888464)]
+        interface IWMPCore3: IWMPCore2 {
+            fn newPlaylist(&self, bstrName: BSTR, bstrURL: BSTR, #[retval] ppPlaylist: *mut IWMPPlaylist) -> HRESULT;
+            fn newMedia(&self, bstrURL: BSTR, #[retval] ppMedia: *mut IWMPMedia) -> HRESULT;
+        }
+        #[guid(0x8da61686_4668_4a5c_ae5d_803193293dbe)]
+        interface IWMPDVD: IDispatch {
+            #[special]
+            fn get_isAvailable(&self, bstrItem: BSTR, #[retval] pIsAvailable: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_domain(&self, #[retval] strDomain: *mut BSTR) -> HRESULT;
+            fn topMenu(&self) -> HRESULT;
+            fn titleMenu(&self) -> HRESULT;
+            fn back(&self) -> HRESULT;
+            fn resume(&self) -> HRESULT;
+        }
+        #[guid(0xa12dcf7d_14ab_4c1b_a8cd_63909f06025b)]
+        interface IWMPError: IDispatch {
+            fn clearErrorQueue(&self) -> HRESULT;
+            #[special]
+            fn get_errorCount(&self, #[retval] plNumErrors: *mut i32) -> HRESULT;
+            #[special]
+            fn get_item(&self, dwIndex: i32, #[retval] ppErrorItem: *mut IWMPErrorItem) -> HRESULT;
+            fn webHelp(&self) -> HRESULT;
+        }
+        #[guid(0x3614c646_3b3b_4de7_a81e_930e3f2127b3)]
+        interface IWMPErrorItem: IDispatch {
+            #[special]
+            fn get_errorCode(&self, #[retval] phr: *mut i32) -> HRESULT;
+            #[special]
+            fn get_errorDescription(&self, #[retval] pbstrDescription: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_errorContext(&self, #[retval] pvarContext: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_remedy(&self, #[retval] plRemedy: *mut i32) -> HRESULT;
+            #[special]
+            fn get_customUrl(&self, #[retval] pbstrCustomUrl: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xf75ccec0_c67c_475c_931e_8719870bee7d)]
+        interface IWMPErrorItem2: IWMPErrorItem {
+            #[special]
+            fn get_condition(&self, #[retval] plCondition: *mut i32) -> HRESULT;
+        }
+        #[guid(0x19a6627b_da9e_47c1_bb23_00b5e668236a)]
+        interface IWMPEvents: IUnknown {
+            fn OpenStateChange(&self, NewState: i32);
+            fn PlayStateChange(&self, NewState: i32);
+            fn AudioLanguageChange(&self, LangID: i32);
+            fn StatusChange(&self);
+            fn ScriptCommand(&self, scType: BSTR, Param: BSTR);
+            fn NewStream(&self);
+            fn Disconnect(&self, Result: i32);
+            fn Buffering(&self, Start: VARIANT_BOOL);
+            fn Error(&self);
+            fn Warning(&self, WarningType: i32, Param: i32, Description: BSTR);
+            fn EndOfStream(&self, Result: i32);
+            fn PositionChange(&self, oldPosition: f64, newPosition: f64);
+            fn MarkerHit(&self, MarkerNum: i32);
+            fn DurationUnitChange(&self, NewDurationUnit: i32);
+            fn CdromMediaChange(&self, CdromNum: i32);
+            fn PlaylistChange(&self, Playlist: IDispatch, change: WMPPlaylistChangeEventType);
+            fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType);
+            fn CurrentPlaylistItemAvailable(&self, bstrItemName: BSTR);
+            fn MediaChange(&self, Item: IDispatch);
+            fn CurrentMediaItemAvailable(&self, bstrItemName: BSTR);
+            fn CurrentItemChange(&self, pdispMedia: IDispatch);
+            fn MediaCollectionChange(&self);
+            fn MediaCollectionAttributeStringAdded(&self, bstrAttribName: BSTR, bstrAttribVal: BSTR);
+            fn MediaCollectionAttributeStringRemoved(&self, bstrAttribName: BSTR, bstrAttribVal: BSTR);
+            fn MediaCollectionAttributeStringChanged(&self, bstrAttribName: BSTR, bstrOldAttribVal: BSTR, bstrNewAttribVal: BSTR);
+            fn PlaylistCollectionChange(&self);
+            fn PlaylistCollectionPlaylistAdded(&self, bstrPlaylistName: BSTR);
+            fn PlaylistCollectionPlaylistRemoved(&self, bstrPlaylistName: BSTR);
+            fn PlaylistCollectionPlaylistSetAsDeleted(&self, bstrPlaylistName: BSTR, varfIsDeleted: VARIANT_BOOL);
+            fn ModeChange(&self, ModeName: BSTR, NewValue: VARIANT_BOOL);
+            fn MediaError(&self, pMediaObject: IDispatch);
+            fn OpenPlaylistSwitch(&self, pItem: IDispatch);
+            fn DomainChange(&self, strDomain: BSTR);
+            fn SwitchedToPlayerApplication(&self);
+            fn SwitchedToControl(&self);
+            fn PlayerDockedStateChange(&self);
+            fn PlayerReconnect(&self);
+            fn Click(&self, nButton: i16, nShiftState: i16, fX: i32, fY: i32);
+            fn DoubleClick(&self, nButton: i16, nShiftState: i16, fX: i32, fY: i32);
+            fn KeyDown(&self, nKeyCode: i16, nShiftState: i16);
+            fn KeyPress(&self, nKeyAscii: i16);
+            fn KeyUp(&self, nKeyCode: i16, nShiftState: i16);
+            fn MouseDown(&self, nButton: i16, nShiftState: i16, fX: i32, fY: i32);
+            fn MouseMove(&self, nButton: i16, nShiftState: i16, fX: i32, fY: i32);
+            fn MouseUp(&self, nButton: i16, nShiftState: i16, fX: i32, fY: i32);
+        }
+        #[guid(0x1e7601fa_47ea_4107_9ea9_9004ed9684ff)]
+        interface IWMPEvents2: IWMPEvents {
+            fn DeviceConnect(&self, pDevice: IWMPSyncDevice);
+            fn DeviceDisconnect(&self, pDevice: IWMPSyncDevice);
+            fn DeviceStatusChange(&self, pDevice: IWMPSyncDevice, NewStatus: WMPDeviceStatus);
+            fn DeviceSyncStateChange(&self, pDevice: IWMPSyncDevice, NewState: WMPSyncState);
+            fn DeviceSyncError(&self, pDevice: IWMPSyncDevice, pMedia: IDispatch);
+            fn CreatePartnershipComplete(&self, pDevice: IWMPSyncDevice, hrResult: HRESULT);
+        }
+        #[guid(0x1f504270_a66b_4223_8e96_26a06c63d69f)]
+        interface IWMPEvents3: IWMPEvents2 {
+            fn CdromRipStateChange(&self, pCdromRip: IWMPCdromRip, wmprs: WMPRipState);
+            fn CdromRipMediaError(&self, pCdromRip: IWMPCdromRip, pMedia: IDispatch);
+            fn CdromBurnStateChange(&self, pCdromBurn: IWMPCdromBurn, wmpbs: WMPBurnState);
+            fn CdromBurnMediaError(&self, pCdromBurn: IWMPCdromBurn, pMedia: IDispatch);
+            fn CdromBurnError(&self, pCdromBurn: IWMPCdromBurn, hrError: HRESULT);
+            fn LibraryConnect(&self, pLibrary: IWMPLibrary);
+            fn LibraryDisconnect(&self, pLibrary: IWMPLibrary);
+            fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState);
+            fn StringCollectionChange(&self, pdispStringCollection: IDispatch, change: WMPStringCollectionChangeEventType, lCollectionIndex: i32);
+            fn MediaCollectionMediaAdded(&self, pdispMedia: IDispatch);
+            fn MediaCollectionMediaRemoved(&self, pdispMedia: IDispatch);
+        }
+        #[guid(0x26dabcfa_306b_404d_9a6f_630a8405048d)]
+        interface IWMPEvents4: IWMPEvents3 {
+            fn DeviceEstimation(&self, pDevice: IWMPSyncDevice, hrResult: HRESULT, qwEstimatedUsedSpace: i64, qwEstimatedSpace: i64);
+        }
+        #[guid(0x788c8743_e57f_439d_a468_5bc77f2e59c6)]
+        interface IWMPFolderMonitorServices: IUnknown {
+            #[special]
+            fn get_count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn item(&self, lIndex: i32, #[retval] pbstrFolder: *mut BSTR) -> HRESULT;
+            fn add(&self, bstrFolder: BSTR) -> HRESULT;
+            fn remove(&self, lIndex: i32) -> HRESULT;
+            #[special]
+            fn get_scanState(&self, #[retval] pwmpfss: *mut WMPFolderScanState) -> HRESULT;
+            #[special]
+            fn get_currentFolder(&self, #[retval] pbstrFolder: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_scannedFilesCount(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_addedFilesCount(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_updateProgress(&self, #[retval] plProgress: *mut i32) -> HRESULT;
+            fn startScan(&self) -> HRESULT;
+            fn stopScan(&self) -> HRESULT;
+        }
+        #[guid(0x3df47861_7df1_4c1f_a81b_4c26f0f7a7c6)]
+        interface IWMPLibrary: IUnknown {
+            #[special]
+            fn get_name(&self, #[retval] pbstrName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_type(&self, #[retval] pwmplt: *mut WMPLibraryType) -> HRESULT;
+            #[special]
+            fn get_mediaCollection(&self, #[retval] ppIWMPMediaCollection: *mut IWMPMediaCollection) -> HRESULT;
+            fn isIdentical(&self, pIWMPLibrary: IWMPLibrary, #[retval] pvbool: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xdd578a4e_79b1_426c_bf8f_3add9072500b)]
+        interface IWMPLibrary2: IWMPLibrary {
+            fn getItemInfo(&self, bstrItemName: BSTR, #[retval] pbstrVal: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x39c2f8d5_1cf2_4d5e_ae09_d73492cf9eaa)]
+        interface IWMPLibraryServices: IUnknown {
+            fn getCountByType(&self, wmplt: WMPLibraryType, #[retval] plCount: *mut i32) -> HRESULT;
+            fn getLibraryByType(&self, wmplt: WMPLibraryType, lIndex: i32, #[retval] ppIWMPLibrary: *mut IWMPLibrary) -> HRESULT;
+        }
+        #[guid(0x82cba86b_9f04_474b_a365_d6dd1466e541)]
+        interface IWMPLibrarySharingServices: IUnknown {
+            fn isLibraryShared(&self, #[retval] pvbShared: *mut VARIANT_BOOL) -> HRESULT;
+            fn isLibrarySharingEnabled(&self, #[retval] pvbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn showLibrarySharing(&self) -> HRESULT;
+        }
+        #[guid(0x94d55e95_3fac_11d3_b155_00c04f79faa6)]
+        interface IWMPMedia: IDispatch {
+            #[special]
+            fn get_isIdentical(&self, pIWMPMedia: IWMPMedia, #[retval] pvbool: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_sourceURL(&self, #[retval] pbstrSourceURL: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_name(&self, #[retval] pbstrName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_name(&self, bstrName: BSTR) -> HRESULT;
+            #[special]
+            fn get_imageSourceWidth(&self, #[retval] pWidth: *mut i32) -> HRESULT;
+            #[special]
+            fn get_imageSourceHeight(&self, #[retval] pHeight: *mut i32) -> HRESULT;
+            #[special]
+            fn get_markerCount(&self, #[retval] pMarkerCount: *mut i32) -> HRESULT;
+            fn getMarkerTime(&self, MarkerNum: i32, #[retval] pMarkerTime: *mut f64) -> HRESULT;
+            fn getMarkerName(&self, MarkerNum: i32, #[retval] pbstrMarkerName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_duration(&self, #[retval] pDuration: *mut f64) -> HRESULT;
+            #[special]
+            fn get_durationString(&self, #[retval] pbstrDuration: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_attributeCount(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn getAttributeName(&self, lIndex: i32, #[retval] pbstrItemName: *mut BSTR) -> HRESULT;
+            fn getItemInfo(&self, bstrItemName: BSTR, #[retval] pbstrVal: *mut BSTR) -> HRESULT;
+            fn setItemInfo(&self, bstrItemName: BSTR, bstrVal: BSTR) -> HRESULT;
+            fn getItemInfoByAtom(&self, lAtom: i32, #[retval] pbstrVal: *mut BSTR) -> HRESULT;
+            fn isMemberOf(&self, pPlaylist: IWMPPlaylist, #[retval] pvarfIsMemberOf: *mut VARIANT_BOOL) -> HRESULT;
+            fn isReadOnlyItem(&self, bstrItemName: BSTR, #[retval] pvarfIsReadOnly: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xab7c88bb_143e_4ea4_acc3_e4350b2106c3)]
+        interface IWMPMedia2: IWMPMedia {
+            #[special]
+            fn get_error(&self, #[retval] ppIWMPErrorItem: *mut IWMPErrorItem) -> HRESULT;
+        }
+        #[guid(0xf118efc7_f03a_4fb4_99c9_1c02a5c1065b)]
+        interface IWMPMedia3: IWMPMedia2 {
+            fn getAttributeCountByType(&self, bstrType: BSTR, bstrLanguage: BSTR, #[retval] plCount: *mut i32) -> HRESULT;
+            fn getItemInfoByType(&self, bstrType: BSTR, bstrLanguage: BSTR, lIndex: i32, #[retval] pvarValue: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x8363bc22_b4b4_4b19_989d_1cd765749dd1)]
+        interface IWMPMediaCollection: IDispatch {
+            fn add(&self, bstrURL: BSTR, #[retval] ppItem: *mut IWMPMedia) -> HRESULT;
+            fn getAll(&self, #[retval] ppMediaItems: *mut IWMPPlaylist) -> HRESULT;
+            fn getByName(&self, bstrName: BSTR, #[retval] ppMediaItems: *mut IWMPPlaylist) -> HRESULT;
+            fn getByGenre(&self, bstrGenre: BSTR, #[retval] ppMediaItems: *mut IWMPPlaylist) -> HRESULT;
+            fn getByAuthor(&self, bstrAuthor: BSTR, #[retval] ppMediaItems: *mut IWMPPlaylist) -> HRESULT;
+            fn getByAlbum(&self, bstrAlbum: BSTR, #[retval] ppMediaItems: *mut IWMPPlaylist) -> HRESULT;
+            fn getByAttribute(&self, bstrAttribute: BSTR, bstrValue: BSTR, #[retval] ppMediaItems: *mut IWMPPlaylist) -> HRESULT;
+            fn remove(&self, pItem: IWMPMedia, varfDeleteFile: VARIANT_BOOL) -> HRESULT;
+            fn getAttributeStringCollection(&self, bstrAttribute: BSTR, bstrMediaType: BSTR, #[retval] ppStringCollection: *mut IWMPStringCollection) -> HRESULT;
+            fn getMediaAtom(&self, bstrItemName: BSTR, #[retval] plAtom: *mut i32) -> HRESULT;
+            fn setDeleted(&self, pItem: IWMPMedia, varfIsDeleted: VARIANT_BOOL) -> HRESULT;
+            fn isDeleted(&self, pItem: IWMPMedia, #[retval] pvarfIsDeleted: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x8ba957f5_fd8c_4791_b82d_f840401ee474)]
+        interface IWMPMediaCollection2: IWMPMediaCollection {
+            fn createQuery(&self, #[retval] ppQuery: *mut IWMPQuery) -> HRESULT;
+            fn getPlaylistByQuery(&self, pQuery: IWMPQuery, bstrMediaType: BSTR, bstrSortAttribute: BSTR, fSortAscending: VARIANT_BOOL, #[retval] ppPlaylist: *mut IWMPPlaylist) -> HRESULT;
+            fn getStringCollectionByQuery(&self, bstrAttribute: BSTR, pQuery: IWMPQuery, bstrMediaType: BSTR, bstrSortAttribute: BSTR, fSortAscending: VARIANT_BOOL, #[retval] ppStringCollection: *mut IWMPStringCollection) -> HRESULT;
+            fn getByAttributeAndMediaType(&self, bstrAttribute: BSTR, bstrValue: BSTR, bstrMediaType: BSTR, #[retval] ppMediaItems: *mut IWMPPlaylist) -> HRESULT;
+        }
+        #[guid(0x5c29bbe0_f87d_4c45_aa28_a70f0230ffa9)]
+        interface IWMPMetadataPicture: IDispatch {
+            #[special]
+            fn get_mimeType(&self, #[retval] pbstrMimeType: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_pictureType(&self, #[retval] pbstrPictureType: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_description(&self, #[retval] pbstrDescription: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_URL(&self, #[retval] pbstrURL: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x769a72db_13d2_45e2_9c48_53ca9d5b7450)]
+        interface IWMPMetadataText: IDispatch {
+            #[special]
+            fn get_description(&self, #[retval] pbstrDescription: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_text(&self, #[retval] pbstrText: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xec21b779_edef_462d_bba4_ad9dde2b29a7)]
+        interface IWMPNetwork: IDispatch {
+            #[special]
+            fn get_bandWidth(&self, #[retval] plBandwidth: *mut i32) -> HRESULT;
+            #[special]
+            fn get_recoveredPackets(&self, #[retval] plRecoveredPackets: *mut i32) -> HRESULT;
+            #[special]
+            fn get_sourceProtocol(&self, #[retval] pbstrSourceProtocol: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_receivedPackets(&self, #[retval] plReceivedPackets: *mut i32) -> HRESULT;
+            #[special]
+            fn get_lostPackets(&self, #[retval] plLostPackets: *mut i32) -> HRESULT;
+            #[special]
+            fn get_receptionQuality(&self, #[retval] plReceptionQuality: *mut i32) -> HRESULT;
+            #[special]
+            fn get_bufferingCount(&self, #[retval] plBufferingCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_bufferingProgress(&self, #[retval] plBufferingProgress: *mut i32) -> HRESULT;
+            #[special]
+            fn get_bufferingTime(&self, #[retval] plBufferingTime: *mut i32) -> HRESULT;
+            #[special]
+            fn put_bufferingTime(&self, lBufferingTime: i32) -> HRESULT;
+            #[special]
+            fn get_frameRate(&self, #[retval] plFrameRate: *mut i32) -> HRESULT;
+            #[special]
+            fn get_maxBitRate(&self, #[retval] plBitRate: *mut i32) -> HRESULT;
+            #[special]
+            fn get_bitRate(&self, #[retval] plBitRate: *mut i32) -> HRESULT;
+            fn getProxySettings(&self, bstrProtocol: BSTR, #[retval] plProxySetting: *mut i32) -> HRESULT;
+            fn setProxySettings(&self, bstrProtocol: BSTR, lProxySetting: i32) -> HRESULT;
+            fn getProxyName(&self, bstrProtocol: BSTR, #[retval] pbstrProxyName: *mut BSTR) -> HRESULT;
+            fn setProxyName(&self, bstrProtocol: BSTR, bstrProxyName: BSTR) -> HRESULT;
+            fn getProxyPort(&self, bstrProtocol: BSTR, #[retval] lProxyPort: *mut i32) -> HRESULT;
+            fn setProxyPort(&self, bstrProtocol: BSTR, lProxyPort: i32) -> HRESULT;
+            fn getProxyExceptionList(&self, bstrProtocol: BSTR, #[retval] pbstrExceptionList: *mut BSTR) -> HRESULT;
+            fn setProxyExceptionList(&self, bstrProtocol: BSTR, pbstrExceptionList: BSTR) -> HRESULT;
+            fn getProxyBypassForLocal(&self, bstrProtocol: BSTR, #[retval] pfBypassForLocal: *mut VARIANT_BOOL) -> HRESULT;
+            fn setProxyBypassForLocal(&self, bstrProtocol: BSTR, fBypassForLocal: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_maxBandwidth(&self, #[retval] lMaxBandwidth: *mut i32) -> HRESULT;
+            #[special]
+            fn put_maxBandwidth(&self, lMaxBandwidth: i32) -> HRESULT;
+            #[special]
+            fn get_downloadProgress(&self, #[retval] plDownloadProgress: *mut i32) -> HRESULT;
+            #[special]
+            fn get_encodedFrameRate(&self, #[retval] plFrameRate: *mut i32) -> HRESULT;
+            #[special]
+            fn get_framesSkipped(&self, #[retval] plFrames: *mut i32) -> HRESULT;
+        }
+        #[guid(0x6bf52a4f_394a_11d3_b153_00c04f79faa6)]
+        interface IWMPPlayer: IWMPCore {
+            #[special]
+            fn get_enabled(&self, #[retval] pbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_enabled(&self, bEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_fullScreen(&self, #[retval] pbFullScreen: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_fullScreen(&self, bFullScreen: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_enableContextMenu(&self, #[retval] pbEnableContextMenu: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_enableContextMenu(&self, bEnableContextMenu: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_uiMode(&self, bstrMode: BSTR) -> HRESULT;
+            #[special]
+            fn get_uiMode(&self, #[retval] pbstrMode: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x0e6b01d1_d407_4c85_bf5f_1c01f6150280)]
+        interface IWMPPlayer2: IWMPCore {
+            #[special]
+            fn get_enabled(&self, #[retval] pbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_enabled(&self, bEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_fullScreen(&self, #[retval] pbFullScreen: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_fullScreen(&self, bFullScreen: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_enableContextMenu(&self, #[retval] pbEnableContextMenu: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_enableContextMenu(&self, bEnableContextMenu: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_uiMode(&self, bstrMode: BSTR) -> HRESULT;
+            #[special]
+            fn get_uiMode(&self, #[retval] pbstrMode: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_stretchToFit(&self, #[retval] pbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_stretchToFit(&self, bEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_windowlessVideo(&self, #[retval] pbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_windowlessVideo(&self, bEnabled: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x54062b68_052a_4c25_a39f_8b63346511d4)]
+        interface IWMPPlayer3: IWMPCore2 {
+            #[special]
+            fn get_enabled(&self, #[retval] pbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_enabled(&self, bEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_fullScreen(&self, #[retval] pbFullScreen: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_fullScreen(&self, bFullScreen: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_enableContextMenu(&self, #[retval] pbEnableContextMenu: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_enableContextMenu(&self, bEnableContextMenu: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_uiMode(&self, bstrMode: BSTR) -> HRESULT;
+            #[special]
+            fn get_uiMode(&self, #[retval] pbstrMode: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_stretchToFit(&self, #[retval] pbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_stretchToFit(&self, bEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_windowlessVideo(&self, #[retval] pbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_windowlessVideo(&self, bEnabled: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x6c497d62_8919_413c_82db_e935fb3ec584)]
+        interface IWMPPlayer4: IWMPCore3 {
+            #[special]
+            fn get_enabled(&self, #[retval] pbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_enabled(&self, bEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_fullScreen(&self, #[retval] pbFullScreen: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_fullScreen(&self, bFullScreen: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_enableContextMenu(&self, #[retval] pbEnableContextMenu: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_enableContextMenu(&self, bEnableContextMenu: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_uiMode(&self, bstrMode: BSTR) -> HRESULT;
+            #[special]
+            fn get_uiMode(&self, #[retval] pbstrMode: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_stretchToFit(&self, #[retval] pbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_stretchToFit(&self, bEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_windowlessVideo(&self, #[retval] pbEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_windowlessVideo(&self, bEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_isRemote(&self, #[retval] pvarfIsRemote: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_playerApplication(&self, #[retval] ppIWMPPlayerApplication: *mut IWMPPlayerApplication) -> HRESULT;
+            fn openPlayer(&self, bstrURL: BSTR) -> HRESULT;
+        }
+        #[guid(0x40897764_ceab_47be_ad4a_8e28537f9bbf)]
+        interface IWMPPlayerApplication: IDispatch {
+            fn switchToPlayerApplication(&self) -> HRESULT;
+            fn switchToControl(&self) -> HRESULT;
+            #[special]
+            fn get_playerDocked(&self, #[retval] pbPlayerDocked: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_hasDisplay(&self, #[retval] pbHasDisplay: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x1d01fbdb_ade2_4c8d_9842_c190b95c3306)]
+        interface IWMPPlayerServices: IUnknown {
+            fn activateUIPlugin(&self, bstrPlugin: BSTR) -> HRESULT;
+            fn setTaskPane(&self, bstrTaskPane: BSTR) -> HRESULT;
+            fn setTaskPaneURL(&self, bstrTaskPane: BSTR, bstrURL: BSTR, bstrFriendlyName: BSTR) -> HRESULT;
+        }
+        #[guid(0x1bb1592f_f040_418a_9f71_17c7512b4d70)]
+        interface IWMPPlayerServices2: IWMPPlayerServices {
+            fn setBackgroundProcessingPriority(&self, bstrPriority: BSTR) -> HRESULT;
+        }
+        #[guid(0xd5f0f4f1_130c_11d3_b14e_00c04f79faa6)]
+        interface IWMPPlaylist: IDispatch {
+            #[special]
+            fn get_count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_name(&self, #[retval] pbstrName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_name(&self, bstrName: BSTR) -> HRESULT;
+            #[special]
+            fn get_attributeCount(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_attributeName(&self, lIndex: i32, #[retval] pbstrAttributeName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_item(&self, lIndex: i32, #[retval] ppIWMPMedia: *mut IWMPMedia) -> HRESULT;
+            fn getItemInfo(&self, bstrName: BSTR, #[retval] pbstrVal: *mut BSTR) -> HRESULT;
+            fn setItemInfo(&self, bstrName: BSTR, bstrValue: BSTR) -> HRESULT;
+            #[special]
+            fn get_isIdentical(&self, pIWMPPlaylist: IWMPPlaylist, #[retval] pvbool: *mut VARIANT_BOOL) -> HRESULT;
+            fn clear(&self) -> HRESULT;
+            fn insertItem(&self, lIndex: i32, pIWMPMedia: IWMPMedia) -> HRESULT;
+            fn appendItem(&self, pIWMPMedia: IWMPMedia) -> HRESULT;
+            fn removeItem(&self, pIWMPMedia: IWMPMedia) -> HRESULT;
+            fn moveItem(&self, lIndexOld: i32, lIndexNew: i32) -> HRESULT;
+        }
+        #[guid(0x679409c0_99f7_11d3_9fb7_00105aa620bb)]
+        interface IWMPPlaylistArray: IDispatch {
+            #[special]
+            fn get_count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn item(&self, lIndex: i32, #[retval] ppItem: *mut IWMPPlaylist) -> HRESULT;
+        }
+        #[guid(0x10a13217_23a7_439b_b1c0_d847c79b7774)]
+        interface IWMPPlaylistCollection: IDispatch {
+            fn newPlaylist(&self, bstrName: BSTR, #[retval] ppItem: *mut IWMPPlaylist) -> HRESULT;
+            fn getAll(&self, #[retval] ppPlaylistArray: *mut IWMPPlaylistArray) -> HRESULT;
+            fn getByName(&self, bstrName: BSTR, #[retval] ppPlaylistArray: *mut IWMPPlaylistArray) -> HRESULT;
+            fn remove(&self, pItem: IWMPPlaylist) -> HRESULT;
+            fn setDeleted(&self, pItem: IWMPPlaylist, varfIsDeleted: VARIANT_BOOL) -> HRESULT;
+            fn isDeleted(&self, pItem: IWMPPlaylist, #[retval] pvarfIsDeleted: *mut VARIANT_BOOL) -> HRESULT;
+            fn importPlaylist(&self, pItem: IWMPPlaylist, #[retval] ppImportedItem: *mut IWMPPlaylist) -> HRESULT;
+        }
+        #[guid(0xa00918f3_a6b0_4bfb_9189_fd834c7bc5a5)]
+        interface IWMPQuery: IDispatch {
+            fn addCondition(&self, bstrAttribute: BSTR, bstrOperator: BSTR, bstrValue: BSTR) -> HRESULT;
+            fn beginNextGroup(&self) -> HRESULT;
+        }
+        #[guid(0xcbb92747_741f_44fe_ab5b_f1a48f3b2a59)]
+        interface IWMPRemoteMediaServices: IUnknown {
+            fn GetServiceType(&self, pbstrType: *mut BSTR) -> HRESULT;
+            fn GetApplicationName(&self, pbstrName: *mut BSTR) -> HRESULT;
+            fn GetScriptableObject(&self, pbstrName: *mut BSTR, ppDispatch: *mut IDispatch) -> HRESULT;
+            fn GetCustomUIMode(&self, pbstrFile: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x9104d1ab_80c9_4fed_abf0_2e6417a6df14)]
+        interface IWMPSettings: IDispatch {
+            #[special]
+            fn get_isAvailable(&self, bstrItem: BSTR, #[retval] pIsAvailable: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_autoStart(&self, #[retval] pfAutoStart: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_autoStart(&self, fAutoStart: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_baseURL(&self, #[retval] pbstrBaseURL: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_baseURL(&self, bstrBaseURL: BSTR) -> HRESULT;
+            #[special]
+            fn get_defaultFrame(&self, #[retval] pbstrDefaultFrame: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_defaultFrame(&self, bstrDefaultFrame: BSTR) -> HRESULT;
+            #[special]
+            fn get_invokeURLs(&self, #[retval] pfInvokeURLs: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_invokeURLs(&self, fInvokeURLs: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_mute(&self, #[retval] pfMute: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_mute(&self, fMute: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_playCount(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn put_playCount(&self, lCount: i32) -> HRESULT;
+            #[special]
+            fn get_rate(&self, #[retval] pdRate: *mut f64) -> HRESULT;
+            #[special]
+            fn put_rate(&self, dRate: f64) -> HRESULT;
+            #[special]
+            fn get_balance(&self, #[retval] plBalance: *mut i32) -> HRESULT;
+            #[special]
+            fn put_balance(&self, lBalance: i32) -> HRESULT;
+            #[special]
+            fn get_volume(&self, #[retval] plVolume: *mut i32) -> HRESULT;
+            #[special]
+            fn put_volume(&self, lVolume: i32) -> HRESULT;
+            fn getMode(&self, bstrMode: BSTR, #[retval] pvarfMode: *mut VARIANT_BOOL) -> HRESULT;
+            fn setMode(&self, bstrMode: BSTR, varfMode: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_enableErrorDialogs(&self, #[retval] pfEnableErrorDialogs: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_enableErrorDialogs(&self, fEnableErrorDialogs: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xfda937a4_eece_4da5_a0b6_39bf89ade2c2)]
+        interface IWMPSettings2: IWMPSettings {
+            #[special]
+            fn get_defaultAudioLanguage(&self, #[retval] plLangID: *mut i32) -> HRESULT;
+            #[special]
+            fn get_mediaAccessRights(&self, #[retval] pbstrRights: *mut BSTR) -> HRESULT;
+            fn requestMediaAccessRights(&self, bstrDesiredAccess: BSTR, #[retval] pvbAccepted: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x076f2fa6_ed30_448b_8cc5_3f3ef3529c7a)]
+        interface IWMPSkinManager: IUnknown {
+            fn SetVisualStyle(&self, bstrPath: BSTR) -> HRESULT;
+        }
+        #[guid(0x4a976298_8c0d_11d3_b389_00c04f68574b)]
+        interface IWMPStringCollection: IDispatch {
+            #[special]
+            fn get_count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn item(&self, lIndex: i32, #[retval] pbstrString: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x46ad648d_53f1_4a74_92e2_2a1b68d63fd4)]
+        interface IWMPStringCollection2: IWMPStringCollection {
+            fn isIdentical(&self, pIWMPStringCollection2: IWMPStringCollection2, #[retval] pvbool: *mut VARIANT_BOOL) -> HRESULT;
+            fn getItemInfo(&self, lCollectionIndex: i32, bstrItemName: BSTR, #[retval] pbstrValue: *mut BSTR) -> HRESULT;
+            fn getAttributeCountByType(&self, lCollectionIndex: i32, bstrType: BSTR, bstrLanguage: BSTR, #[retval] plCount: *mut i32) -> HRESULT;
+            fn getItemInfoByType(&self, lCollectionIndex: i32, bstrType: BSTR, bstrLanguage: BSTR, lAttributeIndex: i32, #[retval] pvarValue: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x82a2986c_0293_4fd0_b279_b21b86c058be)]
+        interface IWMPSyncDevice: IUnknown {
+            #[special]
+            fn get_friendlyName(&self, #[retval] pbstrName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_friendlyName(&self, bstrName: BSTR) -> HRESULT;
+            #[special]
+            fn get_deviceName(&self, #[retval] pbstrName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_deviceId(&self, #[retval] pbstrDeviceId: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_partnershipIndex(&self, #[retval] plIndex: *mut i32) -> HRESULT;
+            #[special]
+            fn get_connected(&self, #[retval] pvbConnected: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_status(&self, #[retval] pwmpds: *mut WMPDeviceStatus) -> HRESULT;
+            #[special]
+            fn get_syncState(&self, #[retval] pwmpss: *mut WMPSyncState) -> HRESULT;
+            #[special]
+            fn get_progress(&self, #[retval] plProgress: *mut i32) -> HRESULT;
+            fn getItemInfo(&self, bstrItemName: BSTR, #[retval] pbstrVal: *mut BSTR) -> HRESULT;
+            fn createPartnership(&self, vbShowUI: VARIANT_BOOL) -> HRESULT;
+            fn deletePartnership(&self) -> HRESULT;
+            fn start(&self) -> HRESULT;
+            fn stop(&self) -> HRESULT;
+            fn showSettings(&self) -> HRESULT;
+            fn isIdentical(&self, pDevice: IWMPSyncDevice, #[retval] pvbool: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x88afb4b2_140a_44d2_91e6_4543da467cd1)]
+        interface IWMPSyncDevice2: IWMPSyncDevice {
+            fn setItemInfo(&self, bstrItemName: BSTR, bstrVal: BSTR) -> HRESULT;
+        }
+        #[guid(0xb22c85f9_263c_4372_a0da_b518db9b4098)]
+        interface IWMPSyncDevice3: IWMPSyncDevice2 {
+            fn estimateSyncSize(&self, pNonRulePlaylist: IWMPPlaylist, pRulesPlaylist: IWMPPlaylist) -> HRESULT;
+            fn cancelEstimation(&self) -> HRESULT;
+        }
+        #[guid(0x8b5050ff_e0a4_4808_b3a8_893a9e1ed894)]
+        interface IWMPSyncServices: IUnknown {
+            #[special]
+            fn get_deviceCount(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn getDevice(&self, lIndex: i32, #[retval] ppDevice: *mut IWMPSyncDevice) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum WMPBurnFormat {
+            wmpbfAudioCD = 0,
+            wmpbfDataCD = 1,
+        }
+        #[repr(i32)]
+        enum WMPBurnState {
+            wmpbsUnknown = 0,
+            wmpbsBusy = 1,
+            wmpbsReady = 2,
+            wmpbsWaitingForDisc = 3,
+            wmpbsRefreshStatusPending = 4,
+            wmpbsPreparingToBurn = 5,
+            wmpbsBurning = 6,
+            wmpbsStopped = 7,
+            wmpbsErasing = 8,
+            wmpbsDownloading = 9,
+        }
+        #[repr(i32)]
+        enum WMPDeviceStatus {
+            wmpdsUnknown = 0,
+            wmpdsPartnershipExists = 1,
+            wmpdsPartnershipDeclined = 2,
+            wmpdsPartnershipAnother = 3,
+            wmpdsManualDevice = 4,
+            wmpdsNewDevice = 5,
+            wmpdsLast = 6,
+        }
+        #[repr(i32)]
+        enum WMPFolderScanState {
+            wmpfssUnknown = 0,
+            wmpfssScanning = 1,
+            wmpfssUpdating = 2,
+            wmpfssStopped = 3,
+        }
+        struct WMPLib {}
+        #[repr(i32)]
+        enum WMPLibraryType {
+            wmpltUnknown = 0,
+            wmpltAll = 1,
+            wmpltLocal = 2,
+            wmpltRemote = 3,
+            wmpltDisc = 4,
+            wmpltPortableDevice = 5,
+        }
+        #[repr(i32)]
+        enum WMPOpenState {
+            wmposUndefined = 0,
+            wmposPlaylistChanging = 1,
+            wmposPlaylistLocating = 2,
+            wmposPlaylistConnecting = 3,
+            wmposPlaylistLoading = 4,
+            wmposPlaylistOpening = 5,
+            wmposPlaylistOpenNoMedia = 6,
+            wmposPlaylistChanged = 7,
+            wmposMediaChanging = 8,
+            wmposMediaLocating = 9,
+            wmposMediaConnecting = 10,
+            wmposMediaLoading = 11,
+            wmposMediaOpening = 12,
+            wmposMediaOpen = 13,
+            wmposBeginCodecAcquisition = 14,
+            wmposEndCodecAcquisition = 15,
+            wmposBeginLicenseAcquisition = 16,
+            wmposEndLicenseAcquisition = 17,
+            wmposBeginIndividualization = 18,
+            wmposEndIndividualization = 19,
+            wmposMediaWaiting = 20,
+            wmposOpeningUnknownURL = 21,
+        }
+        #[repr(i32)]
+        enum WMPPlayState {
+            wmppsUndefined = 0,
+            wmppsStopped = 1,
+            wmppsPaused = 2,
+            wmppsPlaying = 3,
+            wmppsScanForward = 4,
+            wmppsScanReverse = 5,
+            wmppsBuffering = 6,
+            wmppsWaiting = 7,
+            wmppsMediaEnded = 8,
+            wmppsTransitioning = 9,
+            wmppsReady = 10,
+            wmppsReconnecting = 11,
+            wmppsLast = 12,
+        }
+        #[repr(i32)]
+        enum WMPPlaylistChangeEventType {
+            wmplcUnknown = 0,
+            wmplcClear = 1,
+            wmplcInfoChange = 2,
+            wmplcMove = 3,
+            wmplcDelete = 4,
+            wmplcInsert = 5,
+            wmplcAppend = 6,
+            wmplcPrivate = 7,
+            wmplcNameChange = 8,
+            wmplcMorph = 9,
+            wmplcSort = 10,
+            wmplcLast = 11,
+        }
+        struct WMPRemoteMediaServices {}
+        #[repr(i32)]
+        enum WMPRipState {
+            wmprsUnknown = 0,
+            wmprsRipping = 1,
+            wmprsStopped = 2,
+        }
+        #[repr(i32)]
+        enum WMPStringCollectionChangeEventType {
+            wmpsccetUnknown = 0,
+            wmpsccetInsert = 1,
+            wmpsccetChange = 2,
+            wmpsccetDelete = 3,
+            wmpsccetClear = 4,
+            wmpsccetBeginUpdates = 5,
+            wmpsccetEndUpdates = 6,
+        }
+        #[repr(i32)]
+        enum WMPSyncState {
+            wmpssUnknown = 0,
+            wmpssSynchronizing = 1,
+            wmpssStopped = 2,
+            wmpssEstimating = 3,
+            wmpssLast = 4,
+        }
+        const WindowsMediaPlayer: GUID = 0x6bf52a52_394a_11d3_b153_00c04f79faa6;
+        #[guid(0x6bf52a51_394a_11d3_b153_00c04f79faa6)]
+        interface _WMPOCXEvents: IDispatch {}
+    }
+}

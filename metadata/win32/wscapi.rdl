@@ -1,0 +1,38 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PWSC_SECURITY_PROVIDER = *mut WSC_SECURITY_PROVIDER;
+        type PWSC_SECURITY_PROVIDER_HEALTH = *mut WSC_SECURITY_PROVIDER_HEALTH;
+        #[repr(i32)]
+        enum WSC_SECURITY_PROVIDER {
+            WSC_SECURITY_PROVIDER_FIREWALL = 1,
+            WSC_SECURITY_PROVIDER_AUTOUPDATE_SETTINGS = 2,
+            WSC_SECURITY_PROVIDER_ANTIVIRUS = 4,
+            WSC_SECURITY_PROVIDER_ANTISPYWARE = 8,
+            WSC_SECURITY_PROVIDER_INTERNET_SETTINGS = 16,
+            WSC_SECURITY_PROVIDER_USER_ACCOUNT_CONTROL = 32,
+            WSC_SECURITY_PROVIDER_SERVICE = 64,
+            WSC_SECURITY_PROVIDER_NONE = 0,
+            WSC_SECURITY_PROVIDER_ALL = 127,
+        }
+        #[repr(i32)]
+        enum WSC_SECURITY_PROVIDER_HEALTH {
+            WSC_SECURITY_PROVIDER_HEALTH_GOOD = 0,
+            WSC_SECURITY_PROVIDER_HEALTH_NOTMONITORED = 1,
+            WSC_SECURITY_PROVIDER_HEALTH_POOR = 2,
+            WSC_SECURITY_PROVIDER_HEALTH_SNOOZE = 3,
+        }
+        #[library("WSCAPI.dll")]
+        extern fn WscGetAntiMalwareUri(ppszUri: *mut PWSTR) -> HRESULT;
+        #[library("WSCAPI.dll")]
+        extern fn WscGetSecurityProviderHealth(Providers: u32, pHealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> HRESULT;
+        #[library("WSCAPI.dll")]
+        extern fn WscQueryAntiMalwareUri() -> HRESULT;
+        #[library("WSCAPI.dll")]
+        extern fn WscRegisterForChanges(Reserved: *mut void, phCallbackRegistration: *mut HANDLE, lpCallbackAddress: LPTHREAD_START_ROUTINE, pContext: *mut void) -> HRESULT;
+        #[library("WSCAPI.dll")]
+        extern fn WscRegisterForUserNotifications() -> HRESULT;
+        #[library("WSCAPI.dll")]
+        extern fn WscUnRegisterChanges(hRegistrationHandle: HANDLE) -> HRESULT;
+    }
+}

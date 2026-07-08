@@ -111,17 +111,14 @@ impl EnvironmentOptions {
         let handler = handler::EnvironmentCompleted::create(handler);
         let options: ICoreWebView2EnvironmentOptions = OptionsObject::new(self).into();
 
-        let browser = self
-            .browser_executable_folder
-            .as_deref()
-            .map(string::encode);
-        let user_data = self.user_data_folder.as_deref().map(string::encode);
+        let browser = self.browser_executable_folder.as_deref().map(HSTRING::from);
+        let user_data = self.user_data_folder.as_deref().map(HSTRING::from);
         let browser = browser
             .as_ref()
-            .map_or(std::ptr::null(), |value| value.as_ptr());
+            .map_or(PCWSTR::null(), |value| PCWSTR::from_raw(value.as_ptr()));
         let user_data = user_data
             .as_ref()
-            .map_or(std::ptr::null(), |value| value.as_ptr());
+            .map_or(PCWSTR::null(), |value| PCWSTR::from_raw(value.as_ptr()));
 
         unsafe {
             CreateCoreWebView2EnvironmentWithOptions(
@@ -185,7 +182,7 @@ impl ICoreWebView2EnvironmentOptions_Impl for OptionsObject_Impl {
         unsafe { string::allocate(&self.additional_browser_arguments) }
     }
 
-    fn SetAdditionalBrowserArguments(&self, _value: LPCWSTR) -> Result<()> {
+    fn SetAdditionalBrowserArguments(&self, _value: &PCWSTR) -> Result<()> {
         Ok(())
     }
 
@@ -193,7 +190,7 @@ impl ICoreWebView2EnvironmentOptions_Impl for OptionsObject_Impl {
         unsafe { string::allocate(&self.language) }
     }
 
-    fn SetLanguage(&self, _value: LPCWSTR) -> Result<()> {
+    fn SetLanguage(&self, _value: &PCWSTR) -> Result<()> {
         Ok(())
     }
 
@@ -201,7 +198,7 @@ impl ICoreWebView2EnvironmentOptions_Impl for OptionsObject_Impl {
         unsafe { string::allocate(&self.target_compatible_browser_version) }
     }
 
-    fn SetTargetCompatibleBrowserVersion(&self, _value: LPCWSTR) -> Result<()> {
+    fn SetTargetCompatibleBrowserVersion(&self, _value: &PCWSTR) -> Result<()> {
         Ok(())
     }
 

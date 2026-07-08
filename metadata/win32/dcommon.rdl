@@ -1,0 +1,172 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum D2D1_ALPHA_MODE {
+            D2D1_ALPHA_MODE_UNKNOWN = 0,
+            D2D1_ALPHA_MODE_PREMULTIPLIED = 1,
+            D2D1_ALPHA_MODE_STRAIGHT = 2,
+            D2D1_ALPHA_MODE_IGNORE = 3,
+            D2D1_ALPHA_MODE_FORCE_DWORD = -1,
+        }
+        struct D2D1_PIXEL_FORMAT {
+            format: DXGI_FORMAT,
+            alphaMode: D2D1_ALPHA_MODE,
+        }
+        struct D2D_MATRIX_3X2_F {
+            Anonymous: union {
+                Anonymous: struct {
+                    m11: f32,
+                    m12: f32,
+                    m21: f32,
+                    m22: f32,
+                    dx: f32,
+                    dy: f32,
+                },
+                Anonymous2: struct {
+                    _11: f32,
+                    _12: f32,
+                    _21: f32,
+                    _22: f32,
+                    _31: f32,
+                    _32: f32,
+                },
+                m: [[f32; 2]; 3],
+            },
+        }
+        struct D2D_MATRIX_4X3_F {
+            Anonymous: union {
+                Anonymous: struct {
+                    _11: f32,
+                    _12: f32,
+                    _13: f32,
+                    _21: f32,
+                    _22: f32,
+                    _23: f32,
+                    _31: f32,
+                    _32: f32,
+                    _33: f32,
+                    _41: f32,
+                    _42: f32,
+                    _43: f32,
+                },
+                m: [[f32; 3]; 4],
+            },
+        }
+        struct D2D_MATRIX_4X4_F {
+            Anonymous: union {
+                Anonymous: struct {
+                    _11: f32,
+                    _12: f32,
+                    _13: f32,
+                    _14: f32,
+                    _21: f32,
+                    _22: f32,
+                    _23: f32,
+                    _24: f32,
+                    _31: f32,
+                    _32: f32,
+                    _33: f32,
+                    _34: f32,
+                    _41: f32,
+                    _42: f32,
+                    _43: f32,
+                    _44: f32,
+                },
+                m: [[f32; 4]; 4],
+            },
+        }
+        struct D2D_MATRIX_5X4_F {
+            Anonymous: union {
+                Anonymous: struct {
+                    _11: f32,
+                    _12: f32,
+                    _13: f32,
+                    _14: f32,
+                    _21: f32,
+                    _22: f32,
+                    _23: f32,
+                    _24: f32,
+                    _31: f32,
+                    _32: f32,
+                    _33: f32,
+                    _34: f32,
+                    _41: f32,
+                    _42: f32,
+                    _43: f32,
+                    _44: f32,
+                    _51: f32,
+                    _52: f32,
+                    _53: f32,
+                    _54: f32,
+                },
+                m: [[f32; 4]; 5],
+            },
+        }
+        struct D2D_POINT_2F {
+            x: f32,
+            y: f32,
+        }
+        type D2D_POINT_2L = POINT;
+        struct D2D_POINT_2U {
+            x: u32,
+            y: u32,
+        }
+        struct D2D_RECT_F {
+            left: f32,
+            top: f32,
+            right: f32,
+            bottom: f32,
+        }
+        type D2D_RECT_L = RECT;
+        struct D2D_RECT_U {
+            left: u32,
+            top: u32,
+            right: u32,
+            bottom: u32,
+        }
+        struct D2D_SIZE_F {
+            width: f32,
+            height: f32,
+        }
+        struct D2D_SIZE_U {
+            width: u32,
+            height: u32,
+        }
+        struct D2D_VECTOR_2F {
+            x: f32,
+            y: f32,
+        }
+        struct D2D_VECTOR_3F {
+            x: f32,
+            y: f32,
+            z: f32,
+        }
+        struct D2D_VECTOR_4F {
+            x: f32,
+            y: f32,
+            z: f32,
+            w: f32,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum DWRITE_GLYPH_IMAGE_FORMATS {
+            DWRITE_GLYPH_IMAGE_FORMATS_NONE = 0,
+            DWRITE_GLYPH_IMAGE_FORMATS_TRUETYPE = 1,
+            DWRITE_GLYPH_IMAGE_FORMATS_CFF = 2,
+            DWRITE_GLYPH_IMAGE_FORMATS_COLR = 4,
+            DWRITE_GLYPH_IMAGE_FORMATS_SVG = 8,
+            DWRITE_GLYPH_IMAGE_FORMATS_PNG = 16,
+            DWRITE_GLYPH_IMAGE_FORMATS_JPEG = 32,
+            DWRITE_GLYPH_IMAGE_FORMATS_TIFF = 64,
+            DWRITE_GLYPH_IMAGE_FORMATS_PREMULTIPLIED_B8G8R8A8 = 128,
+            DWRITE_GLYPH_IMAGE_FORMATS_COLR_PAINT_TREE = 256,
+        }
+        #[repr(i32)]
+        enum DWRITE_MEASURING_MODE {
+            DWRITE_MEASURING_MODE_NATURAL = 0,
+            DWRITE_MEASURING_MODE_GDI_CLASSIC = 1,
+            DWRITE_MEASURING_MODE_GDI_NATURAL = 2,
+        }
+    }
+}

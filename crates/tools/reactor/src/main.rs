@@ -13,7 +13,7 @@ use std::path::PathBuf;
 fn main() {
     let time = std::time::Instant::now();
 
-    let resolver = MetadataResolver::load(&PathBuf::from("winmd"));
+    let resolver = MetadataResolver::load(&PathBuf::from("crates/tools/reactor/winmd"));
 
     let toml_path = PathBuf::from("crates/tools/reactor/src/winui.toml");
     let toml_content = std::fs::read_to_string(&toml_path)
@@ -76,14 +76,16 @@ fn main() {
 fn generate_reactor_bindings() {
     windows_rdl::Reader::new()
         .input("crates/tools/reactor/src/extras.rdl")
-        .input("winmd/Windows.Win32.winmd")
-        .output("winmd/extras.winmd")
+        .input("crates/libs/bindgen/default/Windows.Win32.winmd")
+        .output("crates/tools/reactor/winmd/extras.winmd")
         .write()
         .unwrap();
 
     let reactor_args = [
         "--in",
-        "winmd",
+        "crates/tools/reactor/winmd",
+        "crates/libs/bindgen/default/Windows.winmd",
+        "crates/libs/bindgen/default/Windows.Win32.winmd",
         "--out",
         "crates/libs/reactor/src/bindings.rs",
         "--implement",
@@ -101,7 +103,9 @@ fn generate_reactor_bindings() {
 
     let test_args = [
         "--in",
-        "winmd",
+        "crates/tools/reactor/winmd",
+        "crates/libs/bindgen/default/Windows.winmd",
+        "crates/libs/bindgen/default/Windows.Win32.winmd",
         "--out",
         "crates/tests/libs/reactor_selftest/src/bindings.rs",
         "--minimal",

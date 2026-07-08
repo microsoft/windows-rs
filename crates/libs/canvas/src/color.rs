@@ -58,7 +58,7 @@ impl ColorF {
     pub const DARK_SLATE_BLUE: Self = Self::rgb(0.05, 0.05, 0.1);
 }
 
-impl From<ColorF> for D2D1_COLOR_F {
+impl From<ColorF> for D2D_COLOR_F {
     fn from(c: ColorF) -> Self {
         Self {
             r: c.r,

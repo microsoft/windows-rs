@@ -1,0 +1,11 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessGroupAffinity(hProcess: HANDLE, #[in] #[out] GroupCount: *mut u16, #[len_param(1)] GroupArray: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadGroupAffinity(hThread: HANDLE, GroupAffinity: *mut GROUP_AFFINITY) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadGroupAffinity(hThread: HANDLE, GroupAffinity: *const GROUP_AFFINITY, #[opt] PreviousGroupAffinity: *mut GROUP_AFFINITY) -> BOOL;
+    }
+}

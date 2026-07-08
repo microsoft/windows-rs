@@ -1,0 +1,654 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
+            APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST = 0,
+            APPX_BUNDLE_FOOTPRINT_FILE_TYPE_MANIFEST = 0,
+            APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP = 1,
+            APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE = 2,
+            APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST = 2,
+        }
+        #[repr(i32)]
+        enum APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
+            APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION = 0,
+            APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum APPX_CAPABILITIES {
+            APPX_CAPABILITY_INTERNET_CLIENT = 1,
+            APPX_CAPABILITY_INTERNET_CLIENT_SERVER = 2,
+            APPX_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER = 4,
+            APPX_CAPABILITY_DOCUMENTS_LIBRARY = 8,
+            APPX_CAPABILITY_PICTURES_LIBRARY = 16,
+            APPX_CAPABILITY_VIDEOS_LIBRARY = 32,
+            APPX_CAPABILITY_MUSIC_LIBRARY = 64,
+            APPX_CAPABILITY_ENTERPRISE_AUTHENTICATION = 128,
+            APPX_CAPABILITY_SHARED_USER_CERTIFICATES = 256,
+            APPX_CAPABILITY_REMOVABLE_STORAGE = 512,
+            APPX_CAPABILITY_APPOINTMENTS = 1024,
+            APPX_CAPABILITY_CONTACTS = 2048,
+        }
+        #[repr(i32)]
+        enum APPX_CAPABILITY_CLASS_TYPE {
+            APPX_CAPABILITY_CLASS_DEFAULT = 0,
+            APPX_CAPABILITY_CLASS_GENERAL = 1,
+            APPX_CAPABILITY_CLASS_RESTRICTED = 2,
+            APPX_CAPABILITY_CLASS_WINDOWS = 4,
+            APPX_CAPABILITY_CLASS_ALL = 7,
+            APPX_CAPABILITY_CLASS_CUSTOM = 8,
+        }
+        #[repr(i32)]
+        enum APPX_COMPRESSION_OPTION {
+            APPX_COMPRESSION_OPTION_NONE = 0,
+            APPX_COMPRESSION_OPTION_NORMAL = 1,
+            APPX_COMPRESSION_OPTION_MAXIMUM = 2,
+            APPX_COMPRESSION_OPTION_FAST = 3,
+            APPX_COMPRESSION_OPTION_SUPERFAST = 4,
+        }
+        struct APPX_ENCRYPTED_EXEMPTIONS {
+            count: u32,
+            plainTextFiles: *mut PCWSTR,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum APPX_ENCRYPTED_PACKAGE_OPTIONS {
+            APPX_ENCRYPTED_PACKAGE_OPTION_NONE = 0,
+            APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION = 1,
+            APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING = 2,
+        }
+        struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
+            keyLength: u32,
+            encryptionAlgorithm: PCWSTR,
+            useDiffusion: BOOL,
+            blockMapHashAlgorithm: IUri,
+        }
+        struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
+            keyLength: u32,
+            encryptionAlgorithm: PCWSTR,
+            blockMapHashAlgorithm: IUri,
+            options: u32,
+        }
+        #[repr(i32)]
+        enum APPX_FOOTPRINT_FILE_TYPE {
+            APPX_FOOTPRINT_FILE_TYPE_MANIFEST = 0,
+            APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP = 1,
+            APPX_FOOTPRINT_FILE_TYPE_SIGNATURE = 2,
+            APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY = 3,
+            APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP = 4,
+        }
+        struct APPX_KEY_INFO {
+            keyLength: u32,
+            keyIdLength: u32,
+            key: *mut u8,
+            keyId: *mut u8,
+        }
+        #[repr(i32)]
+        enum APPX_PACKAGE_ARCHITECTURE {
+            APPX_PACKAGE_ARCHITECTURE_X86 = 0,
+            APPX_PACKAGE_ARCHITECTURE_ARM = 5,
+            APPX_PACKAGE_ARCHITECTURE_X64 = 9,
+            APPX_PACKAGE_ARCHITECTURE_NEUTRAL = 11,
+            APPX_PACKAGE_ARCHITECTURE_ARM64 = 12,
+        }
+        #[repr(i32)]
+        enum APPX_PACKAGE_ARCHITECTURE2 {
+            APPX_PACKAGE_ARCHITECTURE2_X86 = 0,
+            APPX_PACKAGE_ARCHITECTURE2_ARM = 5,
+            APPX_PACKAGE_ARCHITECTURE2_X64 = 9,
+            APPX_PACKAGE_ARCHITECTURE2_NEUTRAL = 11,
+            APPX_PACKAGE_ARCHITECTURE2_ARM64 = 12,
+            APPX_PACKAGE_ARCHITECTURE2_X86_ON_ARM64 = 14,
+            APPX_PACKAGE_ARCHITECTURE2_UNKNOWN = 65535,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
+            APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE = 0,
+            APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION = 1,
+            APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED = 2,
+        }
+        #[repr(i32)]
+        enum APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
+            APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA = 0,
+        }
+        struct APPX_PACKAGE_SETTINGS {
+            forceZip32: BOOL,
+            hashMethod: IUri,
+        }
+        struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
+            inputStream: IStream,
+            fileName: PCWSTR,
+            contentType: PCWSTR,
+            compressionOption: APPX_COMPRESSION_OPTION,
+        }
+        #[repr(i32)]
+        enum APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
+            APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START = 0,
+            APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE = 1,
+            APPX_PACKAGING_CONTEXT_CHANGE_TYPE_DETAILS = 2,
+            APPX_PACKAGING_CONTEXT_CHANGE_TYPE_END = 3,
+        }
+        const AppxBundleFactory: GUID = 0x378e0446_5384_43b7_8877_e7dbdd883446;
+        const AppxEncryptionFactory: GUID = 0xdc664fdd_d868_46ee_8780_8d196cb739f7;
+        const AppxFactory: GUID = 0x5842a140_ff9f_4166_8f5c_62f5b7b0c781;
+        const AppxPackageEditor: GUID = 0xf004f2ca_aebc_4b0d_bf58_e516d5bcc0ab;
+        const AppxPackagingDiagnosticEventSinkManager: GUID = 0x50ca0a46_1588_4161_8ed2_ef9e469ced5d;
+        const AppxPackagingServiceProvider: GUID = 0xfb1b3839_09da_404f_b002_9cbb8da5ca4f;
+        #[repr(i32)]
+        enum DX_FEATURE_LEVEL {
+            DX_FEATURE_LEVEL_UNSPECIFIED = 0,
+            DX_FEATURE_LEVEL_9 = 1,
+            DX_FEATURE_LEVEL_10 = 2,
+            DX_FEATURE_LEVEL_11 = 3,
+        }
+        #[guid(0xf35bc38c_1d2f_43db_a1f4_586430d1fed2)]
+        interface IAppxAppInstallerReader: IUnknown {
+            fn GetXmlDom(&self, #[retval] dom: *mut IXMLDOMDocument) -> HRESULT;
+        }
+        #[guid(0x75cf3930_3244_4fe0_a8c8_e0bcb270b889)]
+        interface IAppxBlockMapBlock: IUnknown {
+            fn GetHash(&self, bufferSize: *mut u32, #[retval] buffer: *mut *mut u8) -> HRESULT;
+            fn GetCompressedSize(&self, #[retval] size: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6b429b5b_36ef_479e_b9eb_0c1482b49e16)]
+        interface IAppxBlockMapBlocksEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] block: *mut IAppxBlockMapBlock) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x277672ac_4f63_42c1_8abc_beae3600eb59)]
+        interface IAppxBlockMapFile: IUnknown {
+            fn GetBlocks(&self, #[retval] blocks: *mut IAppxBlockMapBlocksEnumerator) -> HRESULT;
+            fn GetLocalFileHeaderSize(&self, #[retval] lfhSize: *mut u32) -> HRESULT;
+            fn GetName(&self, #[retval] name: *mut PWSTR) -> HRESULT;
+            fn GetUncompressedSize(&self, #[retval] size: *mut u64) -> HRESULT;
+            fn ValidateFileHash(&self, fileStream: IStream, #[retval] isValid: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x54785f78_40e9_11ee_be56_0242ac120002)]
+        interface IAppxBlockMapFile2: IAppxBlockMapFile {
+            fn GetBlockSize(&self, #[retval] blockSize: *mut u64) -> HRESULT;
+        }
+        #[guid(0x02b856a2_4262_4070_bacb_1a8cbbc42305)]
+        interface IAppxBlockMapFilesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] file: *mut IAppxBlockMapFile) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x5efec991_bca3_42d1_9ec2_e92d609ec22a)]
+        interface IAppxBlockMapReader: IUnknown {
+            fn GetFile(&self, filename: PCWSTR, #[retval] file: *mut IAppxBlockMapFile) -> HRESULT;
+            fn GetFiles(&self, #[retval] enumerator: *mut IAppxBlockMapFilesEnumerator) -> HRESULT;
+            fn GetHashMethod(&self, #[retval] hashMethod: *mut IUri) -> HRESULT;
+            fn GetStream(&self, #[retval] blockMapStream: *mut IStream) -> HRESULT;
+        }
+        #[guid(0xbba65864_965f_4a5f_855f_f074bdbf3a7b)]
+        interface IAppxBundleFactory: IUnknown {
+            fn CreateBundleWriter(&self, outputStream: IStream, bundleVersion: u64, #[retval] bundleWriter: *mut IAppxBundleWriter) -> HRESULT;
+            fn CreateBundleReader(&self, inputStream: IStream, #[retval] bundleReader: *mut IAppxBundleReader) -> HRESULT;
+            fn CreateBundleManifestReader(&self, inputStream: IStream, #[retval] manifestReader: *mut IAppxBundleManifestReader) -> HRESULT;
+        }
+        #[guid(0x7325b83d_0185_42c4_82ac_be34ab1a2a8a)]
+        interface IAppxBundleFactory2: IUnknown {
+            fn CreateBundleReader2(&self, inputStream: IStream, #[opt] expectedDigest: PCWSTR, #[retval] bundleReader: *mut IAppxBundleReader) -> HRESULT;
+        }
+        #[guid(0xd11ea6b6_3909_4376_b7c4_10d50f5cf3ae)]
+        interface IAppxBundleFactory3: IUnknown {
+            fn CreateBundleReaderFromSourceUri(&self, uri: PCWSTR, expectedDigest: PCWSTR, #[retval] bundleReader: *mut IAppxBundleReader) -> HRESULT;
+        }
+        #[guid(0x515bf2e8_bcb0_4d69_8c48_e383147b6e12)]
+        interface IAppxBundleManifestOptionalBundleInfo: IUnknown {
+            fn GetPackageId(&self, #[retval] packageId: *mut IAppxManifestPackageId) -> HRESULT;
+            fn GetFileName(&self, #[retval] fileName: *mut PWSTR) -> HRESULT;
+            fn GetPackageInfoItems(&self, #[retval] packageInfoItems: *mut IAppxBundleManifestPackageInfoEnumerator) -> HRESULT;
+        }
+        #[guid(0x9a178793_f97e_46ac_aaca_dd5ba4c177c8)]
+        interface IAppxBundleManifestOptionalBundleInfoEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] optionalBundle: *mut IAppxBundleManifestOptionalBundleInfo) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x54cd06c1_268f_40bb_8ed2_757a9ebaec8d)]
+        interface IAppxBundleManifestPackageInfo: IUnknown {
+            fn GetPackageType(&self, #[retval] packageType: *mut APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE) -> HRESULT;
+            fn GetPackageId(&self, #[retval] packageId: *mut IAppxManifestPackageId) -> HRESULT;
+            fn GetFileName(&self, #[retval] fileName: *mut PWSTR) -> HRESULT;
+            fn GetOffset(&self, #[retval] offset: *mut u64) -> HRESULT;
+            fn GetSize(&self, #[retval] size: *mut u64) -> HRESULT;
+            fn GetResources(&self, #[retval] resources: *mut IAppxManifestQualifiedResourcesEnumerator) -> HRESULT;
+        }
+        #[guid(0x44c2acbc_b2cf_4ccb_bbdb_9c6da8c3bc9e)]
+        interface IAppxBundleManifestPackageInfo2: IUnknown {
+            fn GetIsPackageReference(&self, #[retval] isPackageReference: *mut BOOL) -> HRESULT;
+            fn GetIsNonQualifiedResourcePackage(&self, #[retval] isNonQualifiedResourcePackage: *mut BOOL) -> HRESULT;
+            fn GetIsDefaultApplicablePackage(&self, #[retval] isDefaultApplicablePackage: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x6ba74b98_bb74_4296_80d0_5f4256a99675)]
+        interface IAppxBundleManifestPackageInfo3: IUnknown {
+            fn GetTargetDeviceFamilies(&self, #[retval] targetDeviceFamilies: *mut IAppxManifestTargetDeviceFamiliesEnumerator) -> HRESULT;
+        }
+        #[guid(0x5da6f13d_a8a7_4532_857c_1393d659371d)]
+        interface IAppxBundleManifestPackageInfo4: IUnknown {
+            fn GetIsStub(&self, #[retval] isStub: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xf9b856ee_49a6_4e19_b2b0_6a2406d63a32)]
+        interface IAppxBundleManifestPackageInfoEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] packageInfo: *mut IAppxBundleManifestPackageInfo) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xcf0ebbc1_cc99_4106_91eb_e67462e04fb0)]
+        interface IAppxBundleManifestReader: IUnknown {
+            fn GetPackageId(&self, #[retval] packageId: *mut IAppxManifestPackageId) -> HRESULT;
+            fn GetPackageInfoItems(&self, #[retval] packageInfoItems: *mut IAppxBundleManifestPackageInfoEnumerator) -> HRESULT;
+            fn GetStream(&self, #[retval] manifestStream: *mut IStream) -> HRESULT;
+        }
+        #[guid(0x5517df70_033f_4af2_8213_87d766805c02)]
+        interface IAppxBundleManifestReader2: IUnknown {
+            fn GetOptionalBundles(&self, #[retval] optionalBundles: *mut IAppxBundleManifestOptionalBundleInfoEnumerator) -> HRESULT;
+        }
+        #[guid(0xdd75b8c0_ba76_43b0_ae0f_68656a1dc5c8)]
+        interface IAppxBundleReader: IUnknown {
+            fn GetFootprintFile(&self, fileType: APPX_BUNDLE_FOOTPRINT_FILE_TYPE, #[retval] footprintFile: *mut IAppxFile) -> HRESULT;
+            fn GetBlockMap(&self, #[retval] blockMapReader: *mut IAppxBlockMapReader) -> HRESULT;
+            fn GetManifest(&self, #[retval] manifestReader: *mut IAppxBundleManifestReader) -> HRESULT;
+            fn GetPayloadPackages(&self, #[retval] payloadPackages: *mut IAppxFilesEnumerator) -> HRESULT;
+            fn GetPayloadPackage(&self, fileName: PCWSTR, #[retval] payloadPackage: *mut IAppxFile) -> HRESULT;
+        }
+        #[guid(0x98262195_d63a_4c10_b4cf_dd72e061ba87)]
+        interface IAppxBundleReader2: IUnknown {
+            fn GetPayloadPackageReader(&self, fileName: PCWSTR, #[retval] payloadPackageReader: *mut IAppxPackageReader) -> HRESULT;
+        }
+        #[guid(0xec446fe8_bfec_4c64_ab4f_49f038f0c6d2)]
+        interface IAppxBundleWriter: IUnknown {
+            fn AddPayloadPackage(&self, fileName: PCWSTR, packageStream: IStream) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x6d8fe971_01cc_49a0_b685_233851279962)]
+        interface IAppxBundleWriter2: IUnknown {
+            fn AddExternalPackageReference(&self, fileName: PCWSTR, inputStream: IStream) -> HRESULT;
+        }
+        #[guid(0xad711152_f969_4193_82d5_9ddf2786d21a)]
+        interface IAppxBundleWriter3: IUnknown {
+            fn AddPackageReference(&self, fileName: PCWSTR, inputStream: IStream) -> HRESULT;
+            fn Close(&self, hashMethodString: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x9cd9d523_5009_4c01_9882_dc029fbd47a3)]
+        interface IAppxBundleWriter4: IUnknown {
+            fn AddPayloadPackage(&self, fileName: PCWSTR, packageStream: IStream, isDefaultApplicablePackage: BOOL) -> HRESULT;
+            fn AddPackageReference(&self, fileName: PCWSTR, inputStream: IStream, isDefaultApplicablePackage: BOOL) -> HRESULT;
+            fn AddExternalPackageReference(&self, fileName: PCWSTR, inputStream: IStream, isDefaultApplicablePackage: BOOL) -> HRESULT;
+        }
+        #[guid(0x328f6468_c04f_4e3c_b6fa_6b8d27f3003a)]
+        interface IAppxContentGroup: IUnknown {
+            fn GetName(&self, #[retval] groupName: *mut PWSTR) -> HRESULT;
+            fn GetFiles(&self, #[retval] enumerator: *mut IAppxContentGroupFilesEnumerator) -> HRESULT;
+        }
+        #[guid(0x1a09a2fd_7440_44eb_8c84_848205a6a1cc)]
+        interface IAppxContentGroupFilesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] file: *mut PWSTR) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x418726d8_dd99_4f5d_9886_157add20de01)]
+        interface IAppxContentGroupMapReader: IUnknown {
+            fn GetRequiredGroup(&self, #[retval] requiredGroup: *mut IAppxContentGroup) -> HRESULT;
+            fn GetAutomaticGroups(&self, #[retval] automaticGroupsEnumerator: *mut IAppxContentGroupsEnumerator) -> HRESULT;
+        }
+        #[guid(0xd07ab776_a9de_4798_8c14_3db31e687c78)]
+        interface IAppxContentGroupMapWriter: IUnknown {
+            fn AddAutomaticGroup(&self, groupName: PCWSTR) -> HRESULT;
+            fn AddAutomaticFile(&self, fileName: PCWSTR) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x3264e477_16d1_4d63_823e_7d2984696634)]
+        interface IAppxContentGroupsEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] stream: *mut IAppxContentGroup) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x9fe2702b_7640_4659_8e6c_349e43c4cdbd)]
+        interface IAppxDigestProvider: IUnknown {
+            fn GetDigest(&self, #[retval] digest: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x80b0902f_7bf0_4117_b8c6_4279ef81ee77)]
+        interface IAppxEncryptedBundleWriter: IUnknown {
+            fn AddPayloadPackageEncrypted(&self, fileName: PCWSTR, packageStream: IStream) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xe644be82_f0fa_42b8_a956_8d1cb48ee379)]
+        interface IAppxEncryptedBundleWriter2: IUnknown {
+            fn AddExternalPackageReference(&self, fileName: PCWSTR, inputStream: IStream) -> HRESULT;
+        }
+        #[guid(0x0d34deb3_5cae_4dd3_977c_504932a51d31)]
+        interface IAppxEncryptedBundleWriter3: IUnknown {
+            fn AddPayloadPackageEncrypted(&self, fileName: PCWSTR, packageStream: IStream, isDefaultApplicablePackage: BOOL) -> HRESULT;
+            fn AddExternalPackageReference(&self, fileName: PCWSTR, inputStream: IStream, isDefaultApplicablePackage: BOOL) -> HRESULT;
+        }
+        #[guid(0xf43d0b0b_1379_40e2_9b29_682ea2bf42af)]
+        interface IAppxEncryptedPackageWriter: IUnknown {
+            fn AddPayloadFileEncrypted(&self, fileName: PCWSTR, compressionOption: APPX_COMPRESSION_OPTION, inputStream: IStream) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x3e475447_3a25_40b5_8ad2_f953ae50c92d)]
+        interface IAppxEncryptedPackageWriter2: IUnknown {
+            fn AddPayloadFilesEncrypted(&self, fileCount: u32, payloadFiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memoryLimit: u64) -> HRESULT;
+        }
+        #[guid(0x80e8e04d_8c88_44ae_a011_7cadf6fb2e72)]
+        interface IAppxEncryptionFactory: IUnknown {
+            fn EncryptPackage(&self, inputStream: IStream, outputStream: IStream, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyInfo: *const APPX_KEY_INFO, exemptedFiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> HRESULT;
+            fn DecryptPackage(&self, inputStream: IStream, outputStream: IStream, keyInfo: *const APPX_KEY_INFO) -> HRESULT;
+            fn CreateEncryptedPackageWriter(&self, outputStream: IStream, manifestStream: IStream, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyInfo: *const APPX_KEY_INFO, exemptedFiles: *const APPX_ENCRYPTED_EXEMPTIONS, #[retval] packageWriter: *mut IAppxEncryptedPackageWriter) -> HRESULT;
+            fn CreateEncryptedPackageReader(&self, inputStream: IStream, keyInfo: *const APPX_KEY_INFO, #[retval] packageReader: *mut IAppxPackageReader) -> HRESULT;
+            fn EncryptBundle(&self, inputStream: IStream, outputStream: IStream, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyInfo: *const APPX_KEY_INFO, exemptedFiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> HRESULT;
+            fn DecryptBundle(&self, inputStream: IStream, outputStream: IStream, keyInfo: *const APPX_KEY_INFO) -> HRESULT;
+            fn CreateEncryptedBundleWriter(&self, outputStream: IStream, bundleVersion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyInfo: *const APPX_KEY_INFO, exemptedFiles: *const APPX_ENCRYPTED_EXEMPTIONS, #[retval] bundleWriter: *mut IAppxEncryptedBundleWriter) -> HRESULT;
+            fn CreateEncryptedBundleReader(&self, inputStream: IStream, keyInfo: *const APPX_KEY_INFO, #[retval] bundleReader: *mut IAppxBundleReader) -> HRESULT;
+        }
+        #[guid(0xc1b11eee_c4ba_4ab2_a55d_d015fe8ff64f)]
+        interface IAppxEncryptionFactory2: IUnknown {
+            fn CreateEncryptedPackageWriter(&self, outputStream: IStream, manifestStream: IStream, contentGroupMapStream: IStream, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyInfo: *const APPX_KEY_INFO, exemptedFiles: *const APPX_ENCRYPTED_EXEMPTIONS, #[retval] packageWriter: *mut IAppxEncryptedPackageWriter) -> HRESULT;
+        }
+        #[guid(0x09edca37_cd64_47d6_b7e8_1cb11d4f7e05)]
+        interface IAppxEncryptionFactory3: IUnknown {
+            fn EncryptPackage(&self, inputStream: IStream, outputStream: IStream, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyInfo: *const APPX_KEY_INFO, exemptedFiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> HRESULT;
+            fn CreateEncryptedPackageWriter(&self, outputStream: IStream, manifestStream: IStream, contentGroupMapStream: IStream, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyInfo: *const APPX_KEY_INFO, exemptedFiles: *const APPX_ENCRYPTED_EXEMPTIONS, #[retval] packageWriter: *mut IAppxEncryptedPackageWriter) -> HRESULT;
+            fn EncryptBundle(&self, inputStream: IStream, outputStream: IStream, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyInfo: *const APPX_KEY_INFO, exemptedFiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> HRESULT;
+            fn CreateEncryptedBundleWriter(&self, outputStream: IStream, bundleVersion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyInfo: *const APPX_KEY_INFO, exemptedFiles: *const APPX_ENCRYPTED_EXEMPTIONS, #[retval] bundleWriter: *mut IAppxEncryptedBundleWriter) -> HRESULT;
+        }
+        #[guid(0xa879611f_12fd_41fe_85d5_06ae779bbaf5)]
+        interface IAppxEncryptionFactory4: IUnknown {
+            fn EncryptPackage(&self, inputStream: IStream, outputStream: IStream, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyInfo: *const APPX_KEY_INFO, exemptedFiles: *const APPX_ENCRYPTED_EXEMPTIONS, memoryLimit: u64) -> HRESULT;
+        }
+        #[guid(0x68d6e77a_f446_480f_b0f0_d91a24c60746)]
+        interface IAppxEncryptionFactory5: IUnknown {
+            fn CreateEncryptedPackageReader2(&self, inputStream: IStream, #[opt] keyInfo: *const APPX_KEY_INFO, #[opt] expectedDigest: PCWSTR, #[retval] packageReader: *mut IAppxPackageReader) -> HRESULT;
+            fn CreateEncryptedBundleReader2(&self, inputStream: IStream, #[opt] keyInfo: *const APPX_KEY_INFO, #[opt] expectedDigest: PCWSTR, #[retval] bundleReader: *mut IAppxBundleReader) -> HRESULT;
+        }
+        #[guid(0xbeb94909_e451_438b_b5a7_d79e767b75d8)]
+        interface IAppxFactory: IUnknown {
+            fn CreatePackageWriter(&self, outputStream: IStream, settings: *const APPX_PACKAGE_SETTINGS, #[retval] packageWriter: *mut IAppxPackageWriter) -> HRESULT;
+            fn CreatePackageReader(&self, inputStream: IStream, #[retval] packageReader: *mut IAppxPackageReader) -> HRESULT;
+            fn CreateManifestReader(&self, inputStream: IStream, #[retval] manifestReader: *mut IAppxManifestReader) -> HRESULT;
+            fn CreateBlockMapReader(&self, inputStream: IStream, #[retval] blockMapReader: *mut IAppxBlockMapReader) -> HRESULT;
+            fn CreateValidatedBlockMapReader(&self, blockMapStream: IStream, signatureFileName: PCWSTR, #[retval] blockMapReader: *mut IAppxBlockMapReader) -> HRESULT;
+        }
+        #[guid(0xf1346df2_c282_4e22_b918_743a929a8d55)]
+        interface IAppxFactory2: IUnknown {
+            fn CreateContentGroupMapReader(&self, inputStream: IStream, #[retval] contentGroupMapReader: *mut IAppxContentGroupMapReader) -> HRESULT;
+            fn CreateSourceContentGroupMapReader(&self, inputStream: IStream, #[retval] reader: *mut IAppxSourceContentGroupMapReader) -> HRESULT;
+            fn CreateContentGroupMapWriter(&self, stream: IStream, #[retval] contentGroupMapWriter: *mut IAppxContentGroupMapWriter) -> HRESULT;
+        }
+        #[guid(0x776b2c05_e21d_4e24_ba1a_cd529a8bfdbb)]
+        interface IAppxFactory3: IUnknown {
+            fn CreatePackageReader2(&self, inputStream: IStream, #[opt] expectedDigest: PCWSTR, #[retval] packageReader: *mut IAppxPackageReader) -> HRESULT;
+            fn CreateManifestReader2(&self, inputStream: IStream, #[opt] expectedDigest: PCWSTR, #[retval] manifestReader: *mut IAppxManifestReader) -> HRESULT;
+            fn CreateAppInstallerReader(&self, inputStream: IStream, #[opt] expectedDigest: PCWSTR, #[retval] appInstallerReader: *mut IAppxAppInstallerReader) -> HRESULT;
+        }
+        #[guid(0x92e50000_6934_4c8d_b472_229d431daddf)]
+        interface IAppxFactory4: IUnknown {
+            fn CreatePackageReaderFromSourceUri(&self, uri: PCWSTR, expectedDigest: PCWSTR, #[retval] packageReader: *mut IAppxPackageReader) -> HRESULT;
+        }
+        #[guid(0x91df827b_94fd_468f_827b_57f41b2f6f2e)]
+        interface IAppxFile: IUnknown {
+            fn GetCompressionOption(&self, #[retval] compressionOption: *mut APPX_COMPRESSION_OPTION) -> HRESULT;
+            fn GetContentType(&self, #[retval] contentType: *mut PWSTR) -> HRESULT;
+            fn GetName(&self, #[retval] fileName: *mut PWSTR) -> HRESULT;
+            fn GetSize(&self, #[retval] size: *mut u64) -> HRESULT;
+            fn GetStream(&self, #[retval] stream: *mut IStream) -> HRESULT;
+        }
+        #[guid(0x0c830b3c_40e9_11ee_be56_0242ac120002)]
+        interface IAppxFile2: IAppxFile {
+            fn GetBlockSize(&self, #[retval] blockSize: *mut u64) -> HRESULT;
+        }
+        #[guid(0xf007eeaf_9831_411c_9847_917cdc62d1fe)]
+        interface IAppxFilesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] file: *mut IAppxFile) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x5da89bf4_3773_46be_b650_7e744863b7e8)]
+        interface IAppxManifestApplication: IUnknown {
+            fn GetStringValue(&self, name: PCWSTR, #[retval] value: *mut PWSTR) -> HRESULT;
+            fn GetAppUserModelId(&self, #[retval] appUserModelId: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x9eb8a55a_f04b_4d0d_808d_686185d4847a)]
+        interface IAppxManifestApplicationsEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] application: *mut IAppxManifestApplication) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x11d22258_f470_42c1_b291_8361c5437e41)]
+        interface IAppxManifestCapabilitiesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] capability: *mut PWSTR) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x30204541_427b_4a1c_bacf_655bf463a540)]
+        interface IAppxManifestDeviceCapabilitiesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] deviceCapability: *mut PWSTR) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xc031bee4_bbcc_48ea_a237_c34045c80a07)]
+        interface IAppxManifestDriverConstraint: IUnknown {
+            fn GetName(&self, #[retval] name: *mut PWSTR) -> HRESULT;
+            fn GetMinVersion(&self, #[retval] minVersion: *mut u64) -> HRESULT;
+            fn GetMinDate(&self, #[retval] minDate: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xd402b2d1_f600_49e0_95e6_975d8da13d89)]
+        interface IAppxManifestDriverConstraintsEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] driverConstraint: *mut IAppxManifestDriverConstraint) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xfe039db2_467f_4755_8404_8f5eb6865b33)]
+        interface IAppxManifestDriverDependenciesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] driverDependency: *mut IAppxManifestDriverDependency) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x1210cb94_5a92_4602_be24_79f318af4af9)]
+        interface IAppxManifestDriverDependency: IUnknown {
+            fn GetDriverConstraints(&self, #[retval] driverConstraints: *mut IAppxManifestDriverConstraintsEnumerator) -> HRESULT;
+        }
+        #[guid(0x6427a646_7f49_433e_b1a6_0da309f6885a)]
+        interface IAppxManifestHostRuntimeDependenciesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] hostRuntimeDependency: *mut IAppxManifestHostRuntimeDependency) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x3455d234_8414_410d_95c7_7b35255b8391)]
+        interface IAppxManifestHostRuntimeDependency: IUnknown {
+            fn GetName(&self, #[retval] name: *mut PWSTR) -> HRESULT;
+            fn GetPublisher(&self, #[retval] publisher: *mut PWSTR) -> HRESULT;
+            fn GetMinVersion(&self, #[retval] minVersion: *mut u64) -> HRESULT;
+        }
+        #[guid(0xc26f23a8_ee10_4ad6_b898_2b4d7aebfe6a)]
+        interface IAppxManifestHostRuntimeDependency2: IUnknown {
+            fn GetPackageFamilyName(&self, #[retval] packageFamilyName: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xa99c4f00_51d2_4f0f_ba46_7ed5255ebdff)]
+        interface IAppxManifestMainPackageDependenciesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] mainPackageDependency: *mut IAppxManifestMainPackageDependency) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x05d0611c_bc29_46d5_97e2_84b9c79bd8ae)]
+        interface IAppxManifestMainPackageDependency: IUnknown {
+            fn GetName(&self, #[retval] name: *mut PWSTR) -> HRESULT;
+            fn GetPublisher(&self, #[retval] publisher: *mut PWSTR) -> HRESULT;
+            fn GetPackageFamilyName(&self, #[retval] packageFamilyName: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xb84e2fc3_f8ec_4bc1_8ae2_156346f5ffea)]
+        interface IAppxManifestOSPackageDependenciesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] osPackageDependency: *mut IAppxManifestOSPackageDependency) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x154995ee_54a6_4f14_ac97_d8cf0519644b)]
+        interface IAppxManifestOSPackageDependency: IUnknown {
+            fn GetName(&self, #[retval] name: *mut PWSTR) -> HRESULT;
+            fn GetVersion(&self, #[retval] version: *mut u64) -> HRESULT;
+        }
+        #[guid(0x2634847d_5b5d_4fe5_a243_002ff95edc7e)]
+        interface IAppxManifestOptionalPackageInfo: IUnknown {
+            fn GetIsOptionalPackage(&self, #[retval] isOptionalPackage: *mut BOOL) -> HRESULT;
+            fn GetMainPackageName(&self, #[retval] mainPackageName: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xb43bbcf9_65a6_42dd_bac0_8c6741e7f5a4)]
+        interface IAppxManifestPackageDependenciesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] dependency: *mut IAppxManifestPackageDependency) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xe4946b59_733e_43f0_a724_3bde4c1285a0)]
+        interface IAppxManifestPackageDependency: IUnknown {
+            fn GetName(&self, #[retval] name: *mut PWSTR) -> HRESULT;
+            fn GetPublisher(&self, #[retval] publisher: *mut PWSTR) -> HRESULT;
+            fn GetMinVersion(&self, #[retval] minVersion: *mut u64) -> HRESULT;
+        }
+        #[guid(0xdda0b713_f3ff_49d3_898a_2786780c5d98)]
+        interface IAppxManifestPackageDependency2: IAppxManifestPackageDependency {
+            fn GetMaxMajorVersionTested(&self, #[retval] maxMajorVersionTested: *mut u16) -> HRESULT;
+        }
+        #[guid(0x1ac56374_6198_4d6b_92e4_749d5ab8a895)]
+        interface IAppxManifestPackageDependency3: IUnknown {
+            fn GetIsOptional(&self, #[retval] isOptional: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x283ce2d7_7153_4a91_9649_7a0f7240945f)]
+        interface IAppxManifestPackageId: IUnknown {
+            fn GetName(&self, #[retval] name: *mut PWSTR) -> HRESULT;
+            fn GetArchitecture(&self, #[retval] architecture: *mut APPX_PACKAGE_ARCHITECTURE) -> HRESULT;
+            fn GetPublisher(&self, #[retval] publisher: *mut PWSTR) -> HRESULT;
+            fn GetVersion(&self, #[retval] packageVersion: *mut u64) -> HRESULT;
+            fn GetResourceId(&self, #[retval] resourceId: *mut PWSTR) -> HRESULT;
+            fn ComparePublisher(&self, other: PCWSTR, #[retval] isSame: *mut BOOL) -> HRESULT;
+            fn GetPackageFullName(&self, #[retval] packageFullName: *mut PWSTR) -> HRESULT;
+            fn GetPackageFamilyName(&self, #[retval] packageFamilyName: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x2256999d_d617_42f1_880e_0ba4542319d5)]
+        interface IAppxManifestPackageId2: IAppxManifestPackageId {
+            fn GetArchitecture2(&self, #[retval] architecture: *mut APPX_PACKAGE_ARCHITECTURE2) -> HRESULT;
+        }
+        #[guid(0x03faf64d_f26f_4b2c_aaf7_8fe7789b8bca)]
+        interface IAppxManifestProperties: IUnknown {
+            fn GetBoolValue(&self, name: PCWSTR, #[retval] value: *mut BOOL) -> HRESULT;
+            fn GetStringValue(&self, name: PCWSTR, #[retval] value: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x3b53a497_3c5c_48d1_9ea3_bb7eac8cd7d4)]
+        interface IAppxManifestQualifiedResource: IUnknown {
+            fn GetLanguage(&self, #[retval] language: *mut PWSTR) -> HRESULT;
+            fn GetScale(&self, #[retval] scale: *mut u32) -> HRESULT;
+            fn GetDXFeatureLevel(&self, #[retval] dxFeatureLevel: *mut DX_FEATURE_LEVEL) -> HRESULT;
+        }
+        #[guid(0x8ef6adfe_3762_4a8f_9373_2fc5d444c8d2)]
+        interface IAppxManifestQualifiedResourcesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] resource: *mut IAppxManifestQualifiedResource) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x4e1bd148_55a0_4480_a3d1_15544710637c)]
+        interface IAppxManifestReader: IUnknown {
+            fn GetPackageId(&self, #[retval] packageId: *mut IAppxManifestPackageId) -> HRESULT;
+            fn GetProperties(&self, #[retval] packageProperties: *mut IAppxManifestProperties) -> HRESULT;
+            fn GetPackageDependencies(&self, #[retval] dependencies: *mut IAppxManifestPackageDependenciesEnumerator) -> HRESULT;
+            fn GetCapabilities(&self, #[retval] capabilities: *mut APPX_CAPABILITIES) -> HRESULT;
+            fn GetResources(&self, #[retval] resources: *mut IAppxManifestResourcesEnumerator) -> HRESULT;
+            fn GetDeviceCapabilities(&self, #[retval] deviceCapabilities: *mut IAppxManifestDeviceCapabilitiesEnumerator) -> HRESULT;
+            fn GetPrerequisite(&self, name: PCWSTR, #[retval] value: *mut u64) -> HRESULT;
+            fn GetApplications(&self, #[retval] applications: *mut IAppxManifestApplicationsEnumerator) -> HRESULT;
+            fn GetStream(&self, #[retval] manifestStream: *mut IStream) -> HRESULT;
+        }
+        #[guid(0xd06f67bc_b31d_4eba_a8af_638e73e77b4d)]
+        interface IAppxManifestReader2: IAppxManifestReader {
+            fn GetQualifiedResources(&self, #[retval] resources: *mut IAppxManifestQualifiedResourcesEnumerator) -> HRESULT;
+        }
+        #[guid(0xc43825ab_69b7_400a_9709_cc37f5a72d24)]
+        interface IAppxManifestReader3: IAppxManifestReader2 {
+            fn GetCapabilitiesByCapabilityClass(&self, capabilityClass: APPX_CAPABILITY_CLASS_TYPE, #[retval] capabilities: *mut IAppxManifestCapabilitiesEnumerator) -> HRESULT;
+            fn GetTargetDeviceFamilies(&self, #[retval] targetDeviceFamilies: *mut IAppxManifestTargetDeviceFamiliesEnumerator) -> HRESULT;
+        }
+        #[guid(0x4579bb7c_741d_4161_b5a1_47bd3b78ad9b)]
+        interface IAppxManifestReader4: IAppxManifestReader3 {
+            fn GetOptionalPackageInfo(&self, #[retval] optionalPackageInfo: *mut IAppxManifestOptionalPackageInfo) -> HRESULT;
+        }
+        #[guid(0x8d7ae132_a690_4c00_b75a_6aae1feaac80)]
+        interface IAppxManifestReader5: IUnknown {
+            fn GetMainPackageDependencies(&self, #[retval] mainPackageDependencies: *mut IAppxManifestMainPackageDependenciesEnumerator) -> HRESULT;
+        }
+        #[guid(0x34deaca4_d3c0_4e3e_b312_e42625e3807e)]
+        interface IAppxManifestReader6: IUnknown {
+            fn GetIsNonQualifiedResourcePackage(&self, #[retval] isNonQualifiedResourcePackage: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x8efe6f27_0ce0_4988_b32d_738eb63db3b7)]
+        interface IAppxManifestReader7: IUnknown {
+            fn GetDriverDependencies(&self, #[retval] driverDependencies: *mut IAppxManifestDriverDependenciesEnumerator) -> HRESULT;
+            fn GetOSPackageDependencies(&self, #[retval] osPackageDependencies: *mut IAppxManifestOSPackageDependenciesEnumerator) -> HRESULT;
+            fn GetHostRuntimeDependencies(&self, #[retval] hostRuntimeDependencies: *mut IAppxManifestHostRuntimeDependenciesEnumerator) -> HRESULT;
+        }
+        #[guid(0xde4dfbbd_881a_48bb_858c_d6f2baeae6ed)]
+        interface IAppxManifestResourcesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] resource: *mut PWSTR) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x36537f36_27a4_4788_88c0_733819575017)]
+        interface IAppxManifestTargetDeviceFamiliesEnumerator: IUnknown {
+            fn GetCurrent(&self, #[retval] targetDeviceFamily: *mut IAppxManifestTargetDeviceFamily) -> HRESULT;
+            fn GetHasCurrent(&self, #[retval] hasCurrent: *mut BOOL) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x9091b09b_c8d5_4f31_8687_a338259faefb)]
+        interface IAppxManifestTargetDeviceFamily: IUnknown {
+            fn GetName(&self, #[retval] name: *mut PWSTR) -> HRESULT;
+            fn GetMinVersion(&self, #[retval] minVersion: *mut u64) -> HRESULT;
+            fn GetMaxVersionTested(&self, #[retval] maxVersionTested: *mut u64) -> HRESULT;
+        }
+        #[guid(0xe2adb6dc_5e71_4416_86b6_86e5f5291a6b)]
+        interface IAppxPackageEditor: IUnknown {
+            fn SetWorkingDirectory(&self, workingDirectory: PCWSTR) -> HRESULT;
+            fn CreateDeltaPackage(&self, updatedPackageStream: IStream, baselinePackageStream: IStream, deltaPackageStream: IStream) -> HRESULT;
+            fn CreateDeltaPackageUsingBaselineBlockMap(&self, updatedPackageStream: IStream, baselineBlockMapStream: IStream, baselinePackageFullName: PCWSTR, deltaPackageStream: IStream) -> HRESULT;
+            fn UpdatePackage(&self, baselinePackageStream: IStream, deltaPackageStream: IStream, updateOption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> HRESULT;
+            fn UpdateEncryptedPackage(&self, baselineEncryptedPackageStream: IStream, deltaPackageStream: IStream, updateOption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyInfo: *const APPX_KEY_INFO) -> HRESULT;
+            fn UpdatePackageManifest(&self, packageStream: IStream, updatedManifestStream: IStream, isPackageEncrypted: BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> HRESULT;
+        }
+        #[guid(0xb5c49650_99bc_481c_9a34_3d53a4106708)]
+        interface IAppxPackageReader: IUnknown {
+            fn GetBlockMap(&self, #[retval] blockMapReader: *mut IAppxBlockMapReader) -> HRESULT;
+            fn GetFootprintFile(&self, r#type: APPX_FOOTPRINT_FILE_TYPE, #[retval] file: *mut IAppxFile) -> HRESULT;
+            fn GetPayloadFile(&self, fileName: PCWSTR, #[retval] file: *mut IAppxFile) -> HRESULT;
+            fn GetPayloadFiles(&self, #[retval] filesEnumerator: *mut IAppxFilesEnumerator) -> HRESULT;
+            fn GetManifest(&self, #[retval] manifestReader: *mut IAppxManifestReader) -> HRESULT;
+        }
+        #[guid(0x9099e33b_246f_41e4_881a_008eb613f858)]
+        interface IAppxPackageWriter: IUnknown {
+            fn AddPayloadFile(&self, fileName: PCWSTR, contentType: PCWSTR, compressionOption: APPX_COMPRESSION_OPTION, inputStream: IStream) -> HRESULT;
+            fn Close(&self, manifest: IStream) -> HRESULT;
+        }
+        #[guid(0x2cf5c4fd_e54c_4ea5_ba4e_f8c4b105a8c8)]
+        interface IAppxPackageWriter2: IUnknown {
+            fn Close(&self, manifest: IStream, contentGroupMap: IStream) -> HRESULT;
+        }
+        #[guid(0xa83aacd3_41c0_4501_b8a3_74164f50b2fd)]
+        interface IAppxPackageWriter3: IUnknown {
+            fn AddPayloadFiles(&self, fileCount: u32, payloadFiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memoryLimit: u64) -> HRESULT;
+        }
+        #[guid(0x17239d47_6adb_45d2_80f6_f9cbc3bf059d)]
+        interface IAppxPackagingDiagnosticEventSink: IUnknown {
+            fn ReportContextChange(&self, changeType: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextId: i32, contextName: PCSTR, contextMessage: PCWSTR, detailsMessage: PCWSTR) -> HRESULT;
+            fn ReportError(&self, errorMessage: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x369648fa_a7eb_4909_a15d_6954a078f18a)]
+        interface IAppxPackagingDiagnosticEventSinkManager: IUnknown {
+            fn SetSinkForProcess(&self, sink: IAppxPackagingDiagnosticEventSink) -> HRESULT;
+        }
+        #[guid(0xf329791d_540b_4a9f_bc75_3282b7d73193)]
+        interface IAppxSourceContentGroupMapReader: IUnknown {
+            fn GetRequiredGroup(&self, #[retval] requiredGroup: *mut IAppxContentGroup) -> HRESULT;
+            fn GetAutomaticGroups(&self, #[retval] automaticGroupsEnumerator: *mut IAppxContentGroupsEnumerator) -> HRESULT;
+        }
+    }
+}

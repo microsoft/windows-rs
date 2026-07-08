@@ -13,11 +13,15 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
     let return_type = write_return_type(namespace, &method, &signature)?;
     let params = write_params(namespace, &method, signature.types)?;
 
+    let arch_attr = write_arch_attr(item.arches());
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
         item.index(),
-        &["UnmanagedFunctionPointerAttribute"],
+        &[
+            "UnmanagedFunctionPointerAttribute",
+            "SupportedArchitectureAttribute",
+        ],
     )?;
 
     let abi = match read_unmanaged_abi(item) {
@@ -33,6 +37,7 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
     };
 
     Ok(quote! {
+        #arch_attr
         #(#custom_attrs)*
         extern #abi fn #name (#(#params),*) #return_type;
     })

@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    #[library("user32.dll")]
+    extern fn CreateThing(instance: HINSTANCE) -> HWND;
+    #[library("user32.dll")]
+    extern fn GetThingInfo() -> THING_INFO0;
+    type HINSTANCE = *mut void;
+    type HWND = *mut void;
+    struct THING_INFO0 {
+        owner: HWND,
+    }
+}

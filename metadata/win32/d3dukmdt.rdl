@@ -1,0 +1,1306 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct D3DDDIARG_CREATERESOURCE {
+            Format: D3DDDIFORMAT,
+            Pool: D3DDDI_POOL,
+            MultisampleType: D3DDDIMULTISAMPLE_TYPE,
+            MultisampleQuality: u32,
+            pSurfList: *const D3DDDI_SURFACEINFO,
+            SurfCount: u32,
+            MipLevels: u32,
+            Fvf: u32,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            RefreshRate: D3DDDI_RATIONAL,
+            hResource: HANDLE,
+            Flags: D3DDDI_RESOURCEFLAGS,
+            Rotation: D3DDDI_ROTATION,
+        }
+        struct D3DDDIARG_CREATERESOURCE2 {
+            Format: D3DDDIFORMAT,
+            Pool: D3DDDI_POOL,
+            MultisampleType: D3DDDIMULTISAMPLE_TYPE,
+            MultisampleQuality: u32,
+            pSurfList: *const D3DDDI_SURFACEINFO,
+            SurfCount: u32,
+            MipLevels: u32,
+            Fvf: u32,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            RefreshRate: D3DDDI_RATIONAL,
+            hResource: HANDLE,
+            Flags: D3DDDI_RESOURCEFLAGS,
+            Rotation: D3DDDI_ROTATION,
+            Flags2: D3DDDI_RESOURCEFLAGS2,
+        }
+        struct D3DDDICB_DESTROYALLOCATION2FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDICB_LOCK2FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDICB_LOCKFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDICB_SIGNALFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DDDIFORMAT {
+            D3DDDIFMT_UNKNOWN = 0,
+            D3DDDIFMT_R8G8B8 = 20,
+            D3DDDIFMT_A8R8G8B8 = 21,
+            D3DDDIFMT_X8R8G8B8 = 22,
+            D3DDDIFMT_R5G6B5 = 23,
+            D3DDDIFMT_X1R5G5B5 = 24,
+            D3DDDIFMT_A1R5G5B5 = 25,
+            D3DDDIFMT_A4R4G4B4 = 26,
+            D3DDDIFMT_R3G3B2 = 27,
+            D3DDDIFMT_A8 = 28,
+            D3DDDIFMT_A8R3G3B2 = 29,
+            D3DDDIFMT_X4R4G4B4 = 30,
+            D3DDDIFMT_A2B10G10R10 = 31,
+            D3DDDIFMT_A8B8G8R8 = 32,
+            D3DDDIFMT_X8B8G8R8 = 33,
+            D3DDDIFMT_G16R16 = 34,
+            D3DDDIFMT_A2R10G10B10 = 35,
+            D3DDDIFMT_A16B16G16R16 = 36,
+            D3DDDIFMT_A8P8 = 40,
+            D3DDDIFMT_P8 = 41,
+            D3DDDIFMT_L8 = 50,
+            D3DDDIFMT_A8L8 = 51,
+            D3DDDIFMT_A4L4 = 52,
+            D3DDDIFMT_V8U8 = 60,
+            D3DDDIFMT_L6V5U5 = 61,
+            D3DDDIFMT_X8L8V8U8 = 62,
+            D3DDDIFMT_Q8W8V8U8 = 63,
+            D3DDDIFMT_V16U16 = 64,
+            D3DDDIFMT_W11V11U10 = 65,
+            D3DDDIFMT_A2W10V10U10 = 67,
+            D3DDDIFMT_UYVY = 1498831189,
+            D3DDDIFMT_R8G8_B8G8 = 1195525970,
+            D3DDDIFMT_YUY2 = 844715353,
+            D3DDDIFMT_G8R8_G8B8 = 1111970375,
+            D3DDDIFMT_DXT1 = 827611204,
+            D3DDDIFMT_DXT2 = 844388420,
+            D3DDDIFMT_DXT3 = 861165636,
+            D3DDDIFMT_DXT4 = 877942852,
+            D3DDDIFMT_DXT5 = 894720068,
+            D3DDDIFMT_D16_LOCKABLE = 70,
+            D3DDDIFMT_D32 = 71,
+            D3DDDIFMT_D15S1 = 73,
+            D3DDDIFMT_D24S8 = 75,
+            D3DDDIFMT_D24X8 = 77,
+            D3DDDIFMT_D24X4S4 = 79,
+            D3DDDIFMT_D16 = 80,
+            D3DDDIFMT_D32F_LOCKABLE = 82,
+            D3DDDIFMT_D24FS8 = 83,
+            D3DDDIFMT_D32_LOCKABLE = 84,
+            D3DDDIFMT_S8_LOCKABLE = 85,
+            D3DDDIFMT_S1D15 = 72,
+            D3DDDIFMT_S8D24 = 74,
+            D3DDDIFMT_X8D24 = 76,
+            D3DDDIFMT_X4S4D24 = 78,
+            D3DDDIFMT_L16 = 81,
+            D3DDDIFMT_G8R8 = 91,
+            D3DDDIFMT_R8 = 92,
+            D3DDDIFMT_VERTEXDATA = 100,
+            D3DDDIFMT_INDEX16 = 101,
+            D3DDDIFMT_INDEX32 = 102,
+            D3DDDIFMT_Q16W16V16U16 = 110,
+            D3DDDIFMT_MULTI2_ARGB8 = 827606349,
+            D3DDDIFMT_R16F = 111,
+            D3DDDIFMT_G16R16F = 112,
+            D3DDDIFMT_A16B16G16R16F = 113,
+            D3DDDIFMT_R32F = 114,
+            D3DDDIFMT_G32R32F = 115,
+            D3DDDIFMT_A32B32G32R32F = 116,
+            D3DDDIFMT_CxV8U8 = 117,
+            D3DDDIFMT_A1 = 118,
+            D3DDDIFMT_A2B10G10R10_XR_BIAS = 119,
+            D3DDDIFMT_DXVACOMPBUFFER_BASE = 150,
+            D3DDDIFMT_PICTUREPARAMSDATA = 150,
+            D3DDDIFMT_MACROBLOCKDATA = 151,
+            D3DDDIFMT_RESIDUALDIFFERENCEDATA = 152,
+            D3DDDIFMT_DEBLOCKINGDATA = 153,
+            D3DDDIFMT_INVERSEQUANTIZATIONDATA = 154,
+            D3DDDIFMT_SLICECONTROLDATA = 155,
+            D3DDDIFMT_BITSTREAMDATA = 156,
+            D3DDDIFMT_MOTIONVECTORBUFFER = 157,
+            D3DDDIFMT_FILMGRAINBUFFER = 158,
+            D3DDDIFMT_DXVA_RESERVED9 = 159,
+            D3DDDIFMT_DXVA_RESERVED10 = 160,
+            D3DDDIFMT_DXVA_RESERVED11 = 161,
+            D3DDDIFMT_DXVA_RESERVED12 = 162,
+            D3DDDIFMT_DXVA_RESERVED13 = 163,
+            D3DDDIFMT_DXVA_RESERVED14 = 164,
+            D3DDDIFMT_DXVA_RESERVED15 = 165,
+            D3DDDIFMT_DXVA_RESERVED16 = 166,
+            D3DDDIFMT_DXVA_RESERVED17 = 167,
+            D3DDDIFMT_DXVA_RESERVED18 = 168,
+            D3DDDIFMT_DXVA_RESERVED19 = 169,
+            D3DDDIFMT_DXVA_RESERVED20 = 170,
+            D3DDDIFMT_DXVA_RESERVED21 = 171,
+            D3DDDIFMT_DXVA_RESERVED22 = 172,
+            D3DDDIFMT_DXVA_RESERVED23 = 173,
+            D3DDDIFMT_DXVA_RESERVED24 = 174,
+            D3DDDIFMT_DXVA_RESERVED25 = 175,
+            D3DDDIFMT_DXVA_RESERVED26 = 176,
+            D3DDDIFMT_DXVA_RESERVED27 = 177,
+            D3DDDIFMT_DXVA_RESERVED28 = 178,
+            D3DDDIFMT_DXVA_RESERVED29 = 179,
+            D3DDDIFMT_DXVA_RESERVED30 = 180,
+            D3DDDIFMT_DXVA_RESERVED31 = 181,
+            D3DDDIFMT_DXVACOMPBUFFER_MAX = 181,
+            D3DDDIFMT_BINARYBUFFER = 199,
+            D3DDDIFMT_FORCE_UINT = 2147483647,
+        }
+        struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u64,
+                },
+                Value: u64,
+            },
+        }
+        #[repr(i32)]
+        enum D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE {
+            D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_ACCESS = 0,
+            D3DDDIGPUVIRTUALADDRESS_RESERVE_ZERO = 1,
+            D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_COMMIT = 2,
+        }
+        #[repr(i32)]
+        enum D3DDDIMULTISAMPLE_TYPE {
+            D3DDDIMULTISAMPLE_NONE = 0,
+            D3DDDIMULTISAMPLE_NONMASKABLE = 1,
+            D3DDDIMULTISAMPLE_2_SAMPLES = 2,
+            D3DDDIMULTISAMPLE_3_SAMPLES = 3,
+            D3DDDIMULTISAMPLE_4_SAMPLES = 4,
+            D3DDDIMULTISAMPLE_5_SAMPLES = 5,
+            D3DDDIMULTISAMPLE_6_SAMPLES = 6,
+            D3DDDIMULTISAMPLE_7_SAMPLES = 7,
+            D3DDDIMULTISAMPLE_8_SAMPLES = 8,
+            D3DDDIMULTISAMPLE_9_SAMPLES = 9,
+            D3DDDIMULTISAMPLE_10_SAMPLES = 10,
+            D3DDDIMULTISAMPLE_11_SAMPLES = 11,
+            D3DDDIMULTISAMPLE_12_SAMPLES = 12,
+            D3DDDIMULTISAMPLE_13_SAMPLES = 13,
+            D3DDDIMULTISAMPLE_14_SAMPLES = 14,
+            D3DDDIMULTISAMPLE_15_SAMPLES = 15,
+            D3DDDIMULTISAMPLE_16_SAMPLES = 16,
+            D3DDDIMULTISAMPLE_FORCE_UINT = 2147483647,
+        }
+        struct D3DDDIRECT {
+            left: i32,
+            top: i32,
+            right: i32,
+            bottom: i32,
+        }
+        struct D3DDDI_ALLOCATIONINFO {
+            hAllocation: D3DKMT_HANDLE,
+            pSystemMem: *const void,
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            Flags: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_ALLOCATIONINFO2 {
+            hAllocation: D3DKMT_HANDLE,
+            Anonymous: union {
+                hSection: HANDLE,
+                pSystemMem: *const void,
+            },
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            Flags: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+            GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+            Anonymous2: union {
+                Priority: u32,
+                Unused: usize,
+            },
+            Reserved: [usize; 5],
+        }
+        struct D3DDDI_ALLOCATIONLIST {
+            hAllocation: D3DKMT_HANDLE,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        const D3DDDI_ALLOCATIONPRIORITY_HIGH: u32 = 2684354560;
+        const D3DDDI_ALLOCATIONPRIORITY_LOW: u32 = 1342177280;
+        const D3DDDI_ALLOCATIONPRIORITY_MAXIMUM: u32 = 3355443200;
+        const D3DDDI_ALLOCATIONPRIORITY_MINIMUM: u32 = 671088640;
+        const D3DDDI_ALLOCATIONPRIORITY_NORMAL: u32 = 2013265920;
+        struct D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DDDI_COLOR_SPACE_TYPE {
+            D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P709 = 0,
+            D3DDDI_COLOR_SPACE_RGB_FULL_G10_NONE_P709 = 1,
+            D3DDDI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P709 = 2,
+            D3DDDI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P2020 = 3,
+            D3DDDI_COLOR_SPACE_RESERVED = 4,
+            D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_NONE_P709_X601 = 5,
+            D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P601 = 6,
+            D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P601 = 7,
+            D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P709 = 8,
+            D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P709 = 9,
+            D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P2020 = 10,
+            D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P2020 = 11,
+            D3DDDI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020 = 12,
+            D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G2084_LEFT_P2020 = 13,
+            D3DDDI_COLOR_SPACE_RGB_STUDIO_G2084_NONE_P2020 = 14,
+            D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_TOPLEFT_P2020 = 15,
+            D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G2084_TOPLEFT_P2020 = 16,
+            D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P2020 = 17,
+            D3DDDI_COLOR_SPACE_YCBCR_STUDIO_GHLG_TOPLEFT_P2020 = 18,
+            D3DDDI_COLOR_SPACE_YCBCR_FULL_GHLG_TOPLEFT_P2020 = 19,
+            D3DDDI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P709 = 20,
+            D3DDDI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P2020 = 21,
+            D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P709 = 22,
+            D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P2020 = 23,
+            D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_TOPLEFT_P2020 = 24,
+            D3DDDI_COLOR_SPACE_RGB_FULL_G10_NONE_P2020 = 25,
+            D3DDDI_COLOR_SPACE_CUSTOM = -1,
+        }
+        struct D3DDDI_CREATECONTEXTFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_CREATEHWCONTEXTFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_CREATEHWQUEUEFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_DESTROYPAGINGQUEUE {
+            hPagingQueue: D3DKMT_HANDLE,
+        }
+        struct D3DDDI_DOORBELLMAPPING {
+            CpuVa: *mut void,
+            SecondaryCpuVa: *mut void,
+        }
+        #[repr(i32)]
+        enum D3DDDI_DOORBELLSTATUS {
+            D3DDDI_DOORBELLSTATUS_CONNECTED = 0,
+            D3DDDI_DOORBELLSTATUS_CONNECTED_NOTIFY_KMD = 1,
+            D3DDDI_DOORBELLSTATUS_DISCONNECTED_RETRY = 2,
+            D3DDDI_DOORBELLSTATUS_DISCONNECTED_ABORT = 3,
+        }
+        const D3DDDI_DOORBELL_PRIVATEDATA_MAX_BYTES_WDDM3_1: u32 = 16;
+        #[repr(i32)]
+        enum D3DDDI_DRIVERESCAPETYPE {
+            D3DDDI_DRIVERESCAPETYPE_TRANSLATEALLOCATIONHANDLE = 0,
+            D3DDDI_DRIVERESCAPETYPE_TRANSLATERESOURCEHANDLE = 1,
+            D3DDDI_DRIVERESCAPETYPE_CPUEVENTUSAGE = 2,
+            D3DDDI_DRIVERESCAPETYPE_BUILDTESTCOMMANDBUFFER = 3,
+            D3DDDI_DRIVERESCAPETYPE_MAX = 4,
+        }
+        struct D3DDDI_DRIVERESCAPE_BUILDTESTCOMMANDBUFFER {
+            EscapeType: D3DDDI_DRIVERESCAPETYPE,
+            hDevice: D3DKMT_HANDLE,
+            hContext: D3DKMT_HANDLE,
+            Flags: D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS,
+            Command: D3DDDI_TESTCOMMANDBUFFER,
+            pDmaBuffer: *mut void,
+            pDmaBufferPrivateData: *mut void,
+            DmaBufferSize: u32,
+            DmaBufferPrivateDataSize: u32,
+            HardwareProgressFenceId: u64,
+            HardwareProgressFenceGpuVa: u64,
+        }
+        struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
+            EscapeType: D3DDDI_DRIVERESCAPETYPE,
+            hSyncObject: D3DKMT_HANDLE,
+            hKmdCpuEvent: u64,
+            Usage: [u32; 8],
+        }
+        struct D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
+            EscapeType: D3DDDI_DRIVERESCAPETYPE,
+            hAllocation: D3DKMT_HANDLE,
+        }
+        struct D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {
+            EscapeType: D3DDDI_DRIVERESCAPETYPE,
+            hResource: D3DKMT_HANDLE,
+        }
+        struct D3DDDI_DXGI_RGB {
+            Red: f32,
+            Green: f32,
+            Blue: f32,
+        }
+        struct D3DDDI_ESCAPEFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_EVICT_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DDDI_FLIPINTERVAL_TYPE {
+            D3DDDI_FLIPINTERVAL_IMMEDIATE = 0,
+            D3DDDI_FLIPINTERVAL_ONE = 1,
+            D3DDDI_FLIPINTERVAL_TWO = 2,
+            D3DDDI_FLIPINTERVAL_THREE = 3,
+            D3DDDI_FLIPINTERVAL_FOUR = 4,
+            D3DDDI_FLIPINTERVAL_IMMEDIATE_ALLOW_TEARING = 5,
+        }
+        #[repr(i32)]
+        enum D3DDDI_GAMMARAMP_TYPE {
+            D3DDDI_GAMMARAMP_UNINITIALIZED = 0,
+            D3DDDI_GAMMARAMP_DEFAULT = 1,
+            D3DDDI_GAMMARAMP_RGB256x3x16 = 2,
+            D3DDDI_GAMMARAMP_DXGI_1 = 3,
+            D3DDDI_GAMMARAMP_MATRIX_3x4 = 4,
+            D3DDDI_GAMMARAMP_MATRIX_V2 = 5,
+        }
+        struct D3DDDI_GAMMA_RAMP_DXGI_1 {
+            Scale: D3DDDI_DXGI_RGB,
+            Offset: D3DDDI_DXGI_RGB,
+            GammaCurve: [D3DDDI_DXGI_RGB; 1025],
+        }
+        struct D3DDDI_GAMMA_RAMP_RGB256x3x16 {
+            Red: [u16; 256],
+            Green: [u16; 256],
+            Blue: [u16; 256],
+        }
+        struct D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
+            hResource: D3DKMT_HANDLE,
+            PrivateDriverDataSize: u32,
+            pPrivateDriverData: *mut void,
+        }
+        struct D3DDDI_HDR_METADATA_HDR10 {
+            RedPrimary: [u16; 2],
+            GreenPrimary: [u16; 2],
+            BluePrimary: [u16; 2],
+            WhitePoint: [u16; 2],
+            MaxMasteringLuminance: u32,
+            MinMasteringLuminance: u32,
+            MaxContentLightLevel: u16,
+            MaxFrameAverageLightLevel: u16,
+        }
+        struct D3DDDI_HDR_METADATA_HDR10PLUS {
+            Data: [u8; 72],
+        }
+        #[repr(i32)]
+        enum D3DDDI_HDR_METADATA_TYPE {
+            D3DDDI_HDR_METADATA_TYPE_NONE = 0,
+            D3DDDI_HDR_METADATA_TYPE_HDR10 = 1,
+            D3DDDI_HDR_METADATA_TYPE_HDR10PLUS = 2,
+        }
+        const D3DDDI_ID_ALL: i32 = -3;
+        const D3DDDI_ID_ANY: i32 = -2;
+        const D3DDDI_ID_NOTAPPLICABLE: u32 = 0;
+        const D3DDDI_ID_UNINITIALIZED: i32 = -1;
+        struct D3DDDI_KERNELOVERLAYINFO {
+            hAllocation: D3DKMT_HANDLE,
+            DstRect: D3DDDIRECT,
+            SrcRect: D3DDDIRECT,
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+        }
+        struct D3DDDI_MAKERESIDENT {
+            hPagingQueue: D3DKMT_HANDLE,
+            NumAllocations: u32,
+            AllocationList: *const D3DKMT_HANDLE,
+            PriorityList: *const u32,
+            Flags: D3DDDI_MAKERESIDENT_FLAGS,
+            PagingFenceValue: u64,
+            NumBytesToTrim: u64,
+        }
+        struct D3DDDI_MAKERESIDENT_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_MAPGPUVIRTUALADDRESS {
+            hPagingQueue: D3DKMT_HANDLE,
+            BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
+            MinimumAddress: D3DGPU_VIRTUAL_ADDRESS,
+            MaximumAddress: D3DGPU_VIRTUAL_ADDRESS,
+            hAllocation: D3DKMT_HANDLE,
+            OffsetInPages: D3DGPU_SIZE_T,
+            SizeInPages: D3DGPU_SIZE_T,
+            Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
+            DriverProtection: u64,
+            Reserved0: u32,
+            Reserved1: u64,
+            VirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+            PagingFenceValue: u64,
+        }
+        const D3DDDI_MAXTESTBUFFERPRIVATEDRIVERDATASIZE: u32 = 1024;
+        const D3DDDI_MAXTESTBUFFERSIZE: u32 = 4096;
+        const D3DDDI_MAX_BROADCAST_CONTEXT: u32 = 64;
+        const D3DDDI_MAX_MPO_PRESENT_DIRTY_RECTS: u32 = 4095;
+        const D3DDDI_MAX_OBJECT_SIGNALED: u32 = 32;
+        const D3DDDI_MAX_OBJECT_WAITED_ON: u32 = 32;
+        const D3DDDI_MAX_WRITTEN_PRIMARIES: u32 = 16;
+        struct D3DDDI_MULTISAMPLINGMETHOD {
+            NumSamples: u32,
+            NumQualityLevels: u32,
+        }
+        struct D3DDDI_NATIVEFENCEINFO {
+            InitialFenceValue: u64,
+            EngineAffinity: u32,
+            Type: D3DDDI_NATIVEFENCE_TYPE,
+            Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
+            NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
+            PhysicalAdapterIndex: u32,
+            Reserved: [u8; 24],
+        }
+        struct D3DDDI_NATIVEFENCELOGDETAIL {
+            WaitLogNumberOfEntries: u32,
+            SignalLogNumberOfEntries: u32,
+            WaitLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
+            SignalLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
+            Reserved: [u8; 64],
+        }
+        struct D3DDDI_NATIVEFENCEMAPPING {
+            CurrentValueCpuVa: *mut void,
+            CurrentValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
+            MonitoredValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
+            Reserved: [u8; 32],
+        }
+        #[repr(i32)]
+        enum D3DDDI_NATIVEFENCE_TYPE {
+            D3DDDI_NATIVEFENCE_TYPE_DEFAULT = 0,
+            D3DDDI_NATIVEFENCE_TYPE_INTRA_GPU = 1,
+        }
+        const D3DDDI_NATIVE_FENCE_PDD_SIZE: u32 = 64;
+        struct D3DDDI_OFFER_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DDDI_OFFER_PRIORITY {
+            D3DDDI_OFFER_PRIORITY_NONE = 0,
+            D3DDDI_OFFER_PRIORITY_LOW = 1,
+            D3DDDI_OFFER_PRIORITY_NORMAL = 2,
+            D3DDDI_OFFER_PRIORITY_HIGH = 3,
+            D3DDDI_OFFER_PRIORITY_AUTO = 4,
+        }
+        struct D3DDDI_OPENALLOCATIONINFO {
+            hAllocation: D3DKMT_HANDLE,
+            pPrivateDriverData: *const void,
+            PrivateDriverDataSize: u32,
+        }
+        struct D3DDDI_OPENALLOCATIONINFO2 {
+            hAllocation: D3DKMT_HANDLE,
+            pPrivateDriverData: *const void,
+            PrivateDriverDataSize: u32,
+            GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+            Reserved: [usize; 6],
+        }
+        #[repr(i32)]
+        enum D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE {
+            D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709 = 0,
+            D3DDDI_OUTPUT_WIRE_COLOR_SPACE_RESERVED = 4,
+            D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020 = 12,
+            D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG = 30,
+            D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P2020 = 31,
+            D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS = 32,
+            D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL = 33,
+        }
+        #[repr(i32)]
+        enum D3DDDI_PAGINGQUEUE_PRIORITY {
+            D3DDDI_PAGINGQUEUE_PRIORITY_BELOW_NORMAL = -1,
+            D3DDDI_PAGINGQUEUE_PRIORITY_NORMAL = 0,
+            D3DDDI_PAGINGQUEUE_PRIORITY_ABOVE_NORMAL = 1,
+        }
+        struct D3DDDI_PATCHLOCATIONLIST {
+            AllocationIndex: u32,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+            DriverId: u32,
+            AllocationOffset: u32,
+            PatchOffset: u32,
+            SplitOffset: u32,
+        }
+        #[repr(i32)]
+        enum D3DDDI_POOL {
+            D3DDDIPOOL_SYSTEMMEM = 1,
+            D3DDDIPOOL_VIDEOMEMORY = 2,
+            D3DDDIPOOL_LOCALVIDMEM = 3,
+            D3DDDIPOOL_NONLOCALVIDMEM = 4,
+            D3DDDIPOOL_STAGINGMEM = 5,
+        }
+        struct D3DDDI_QUERYREGISTRY_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_QUERYREGISTRY_INFO {
+            QueryType: D3DDDI_QUERYREGISTRY_TYPE,
+            QueryFlags: D3DDDI_QUERYREGISTRY_FLAGS,
+            ValueName: [u16; 260],
+            ValueType: u32,
+            PhysicalAdapterIndex: u32,
+            OutputValueSize: u32,
+            Status: D3DDDI_QUERYREGISTRY_STATUS,
+            Anonymous: union {
+                OutputDword: u32,
+                OutputQword: u64,
+                OutputString: [u16; 1],
+                OutputBinary: [u8; 1],
+            },
+        }
+        #[repr(i32)]
+        enum D3DDDI_QUERYREGISTRY_STATUS {
+            D3DDDI_QUERYREGISTRY_STATUS_SUCCESS = 0,
+            D3DDDI_QUERYREGISTRY_STATUS_BUFFER_OVERFLOW = 1,
+            D3DDDI_QUERYREGISTRY_STATUS_FAIL = 2,
+            D3DDDI_QUERYREGISTRY_STATUS_MAX = 3,
+        }
+        #[repr(i32)]
+        enum D3DDDI_QUERYREGISTRY_TYPE {
+            D3DDDI_QUERYREGISTRY_SERVICEKEY = 0,
+            D3DDDI_QUERYREGISTRY_ADAPTERKEY = 1,
+            D3DDDI_QUERYREGISTRY_DRIVERSTOREPATH = 2,
+            D3DDDI_QUERYREGISTRY_DRIVERIMAGEPATH = 3,
+            D3DDDI_QUERYREGISTRY_MAX = 4,
+        }
+        struct D3DDDI_RATIONAL {
+            Numerator: u32,
+            Denominator: u32,
+        }
+        #[repr(i32)]
+        enum D3DDDI_RECLAIM_RESULT {
+            D3DDDI_RECLAIM_RESULT_OK = 0,
+            D3DDDI_RECLAIM_RESULT_DISCARDED = 1,
+            D3DDDI_RECLAIM_RESULT_NOT_COMMITTED = 2,
+        }
+        struct D3DDDI_RESERVEGPUVIRTUALADDRESS {
+            Anonymous: union {
+                hPagingQueue: D3DKMT_HANDLE,
+                hAdapter: D3DKMT_HANDLE,
+            },
+            BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
+            MinimumAddress: D3DGPU_VIRTUAL_ADDRESS,
+            MaximumAddress: D3DGPU_VIRTUAL_ADDRESS,
+            Size: D3DGPU_SIZE_T,
+            Anonymous2: union {
+                ReservationType: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE,
+                Reserved0: u32,
+            },
+            Anonymous3: union {
+                DriverProtection: u64,
+                Reserved1: u64,
+            },
+            VirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+            Anonymous4: union {
+                PagingFenceValue: u64,
+                Reserved2: u64,
+            },
+        }
+        struct D3DDDI_RESOURCEFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_RESOURCEFLAGS2 {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DDDI_ROTATION {
+            D3DDDI_ROTATION_IDENTITY = 1,
+            D3DDDI_ROTATION_90 = 2,
+            D3DDDI_ROTATION_180 = 3,
+            D3DDDI_ROTATION_270 = 4,
+        }
+        #[repr(i32)]
+        enum D3DDDI_SCANLINEORDERING {
+            D3DDDI_SCANLINEORDERING_UNKNOWN = 0,
+            D3DDDI_SCANLINEORDERING_PROGRESSIVE = 1,
+            D3DDDI_SCANLINEORDERING_INTERLACED = 2,
+        }
+        struct D3DDDI_SEGMENTPREFERENCE {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_SURFACEINFO {
+            Width: u32,
+            Height: u32,
+            Depth: u32,
+            pSysMem: *const void,
+            SysMemPitch: u32,
+            SysMemSlicePitch: u32,
+        }
+        struct D3DDDI_SYNCHRONIZATIONOBJECTINFO {
+            Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
+            Anonymous: union {
+                SynchronizationMutex: struct {
+                    InitialState: BOOL,
+                },
+                Semaphore: struct {
+                    MaxCount: u32,
+                    InitialCount: u32,
+                },
+                Reserved: struct {
+                    Reserved: [u32; 16],
+                },
+            },
+        }
+        struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
+            Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
+            Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
+            Anonymous: union {
+                SynchronizationMutex: struct {
+                    InitialState: BOOL,
+                },
+                Semaphore: struct {
+                    MaxCount: u32,
+                    InitialCount: u32,
+                },
+                Fence: struct {
+                    FenceValue: u64,
+                },
+                CPUNotification: struct {
+                    Event: HANDLE,
+                },
+                MonitoredFence: struct {
+                    InitialFenceValue: u64,
+                    FenceValueCPUVirtualAddress: *mut void,
+                    FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+                    EngineAffinity: u32,
+                    Padding: u32,
+                },
+                PeriodicMonitoredFence: struct {
+                    hAdapter: D3DKMT_HANDLE,
+                    VidPnTargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
+                    Time: u64,
+                    FenceValueCPUVirtualAddress: *mut void,
+                    FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+                    EngineAffinity: u32,
+                    Padding: u32,
+                },
+                Reserved: struct {
+                    Reserved: [u64; 8],
+                },
+            },
+            SharedHandle: D3DKMT_HANDLE,
+        }
+        struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DDDI_SYNCHRONIZATIONOBJECT_TYPE {
+            D3DDDI_SYNCHRONIZATION_MUTEX = 1,
+            D3DDDI_SEMAPHORE = 2,
+            D3DDDI_FENCE = 3,
+            D3DDDI_CPU_NOTIFICATION = 4,
+            D3DDDI_MONITORED_FENCE = 5,
+            D3DDDI_PERIODIC_MONITORED_FENCE = 6,
+            D3DDDI_NATIVE_FENCE = 7,
+            D3DDDI_SYNCHRONIZATION_TYPE_LIMIT = 8,
+        }
+        const D3DDDI_SYNC_OBJECT_ALL_ACCESS: u32 = 2031619;
+        const D3DDDI_SYNC_OBJECT_SIGNAL: u32 = 2;
+        const D3DDDI_SYNC_OBJECT_WAIT: u32 = 1;
+        struct D3DDDI_TESTCOMMANDBUFFER {
+            Anonymous: union {
+                Copy: D3DDDI_TESTCOMMANDBUFFER_COPY,
+                Fill: D3DDDI_TESTCOMMANDBUFFER_FILL,
+                Reserved: [i8; 64],
+            },
+            Operation: D3DDDI_TESTCOMMANDBUFFEROP,
+            Reserved1: u32,
+        }
+        #[repr(i32)]
+        enum D3DDDI_TESTCOMMANDBUFFEROP {
+            D3DDDI_TESTCOMMANDBUFFEROP_INVALID = 0,
+            D3DDDI_TESTCOMMANDBUFFEROP_COPY = 1,
+            D3DDDI_TESTCOMMANDBUFFEROP_FILL = 2,
+            D3DDDI_TESTCOMMANDBUFFEROP_INFINITE_LOOP = 3,
+            D3DDDI_TESTCOMMANDBUFFEROP_INFINITE_PREEMPTABLE_LOOP = 4,
+            D3DDDI_TESTCOMMANDBUFFEROP_FAULT_AND_STALL = 5,
+            D3DDDI_TESTCOMMANDBUFFEROP_MAX = 6,
+        }
+        struct D3DDDI_TESTCOMMANDBUFFER_COPY {
+            SrcAddress: D3DGPU_VIRTUAL_ADDRESS,
+            DstAddress: D3DGPU_VIRTUAL_ADDRESS,
+            NumBytes: u32,
+        }
+        struct D3DDDI_TESTCOMMANDBUFFER_FILL {
+            DstAddress: D3DGPU_VIRTUAL_ADDRESS,
+            NumBytes: u32,
+            Pattern: u32,
+        }
+        struct D3DDDI_TRIMRESIDENCYSET_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        const D3DDDI_UMS_PDD_SIZE: u32 = 64;
+        struct D3DDDI_UPDATEALLOCPROPERTY {
+            hPagingQueue: D3DKMT_HANDLE,
+            hAllocation: D3DKMT_HANDLE,
+            SupportedSegmentSet: u32,
+            PreferredSegment: D3DDDI_SEGMENTPREFERENCE,
+            Flags: D3DDDI_UPDATEALLOCPROPERTY_FLAGS,
+            PagingFenceValue: u64,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                PropertyMaskValue: u32,
+            },
+        }
+        struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
+            OperationType: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE,
+            Anonymous: union {
+                Map: struct {
+                    BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
+                    SizeInBytes: D3DGPU_SIZE_T,
+                    hAllocation: D3DKMT_HANDLE,
+                    AllocationOffsetInBytes: D3DGPU_SIZE_T,
+                    AllocationSizeInBytes: D3DGPU_SIZE_T,
+                },
+                MapProtect: struct {
+                    BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
+                    SizeInBytes: D3DGPU_SIZE_T,
+                    hAllocation: D3DKMT_HANDLE,
+                    AllocationOffsetInBytes: D3DGPU_SIZE_T,
+                    AllocationSizeInBytes: D3DGPU_SIZE_T,
+                    Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
+                    DriverProtection: u64,
+                },
+                Unmap: struct {
+                    BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
+                    SizeInBytes: D3DGPU_SIZE_T,
+                    Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
+                },
+                Copy: struct {
+                    SourceAddress: D3DGPU_VIRTUAL_ADDRESS,
+                    SizeInBytes: D3DGPU_SIZE_T,
+                    DestAddress: D3DGPU_VIRTUAL_ADDRESS,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE {
+            D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP = 0,
+            D3DDDI_UPDATEGPUVIRTUALADDRESS_UNMAP = 1,
+            D3DDDI_UPDATEGPUVIRTUALADDRESS_COPY = 2,
+            D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP_PROTECT = 3,
+        }
+        type D3DDDI_VIDEO_PRESENT_SOURCE_ID = u32;
+        type D3DDDI_VIDEO_PRESENT_TARGET_ID = u32;
+        #[repr(i32)]
+        enum D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING {
+            D3DDDI_VSSLO_UNINITIALIZED = 0,
+            D3DDDI_VSSLO_PROGRESSIVE = 1,
+            D3DDDI_VSSLO_INTERLACED_UPPERFIELDFIRST = 2,
+            D3DDDI_VSSLO_INTERLACED_LOWERFIELDFIRST = 3,
+            D3DDDI_VSSLO_OTHER = 255,
+        }
+        struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        const D3DGPU_NULL: u32 = 0;
+        struct D3DGPU_PHYSICAL_ADDRESS {
+            SegmentId: u32,
+            Padding: u32,
+            SegmentOffset: u64,
+        }
+        type D3DGPU_SIZE_T = u64;
+        const D3DGPU_UNIQUE_DRIVER_PROTECTION: u64 = 9223372036854775808;
+        type D3DGPU_VIRTUAL_ADDRESS = u64;
+        struct D3DKMDT_3x4_COLORSPACE_TRANSFORM {
+            ColorMatrix3x4: [[f32; 4]; 3],
+            ScalarMultiplier: f32,
+            LookupTable1D: [D3DDDI_DXGI_RGB; 4096],
+        }
+        struct D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
+            StageControlLookupTable1DDegamma: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL,
+            LookupTable1DDegamma: [D3DDDI_DXGI_RGB; 4096],
+            StageControlColorMatrix3x3: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL,
+            ColorMatrix3x3: [[f32; 3]; 3],
+            StageControlLookupTable1DRegamma: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL,
+            LookupTable1DRegamma: [D3DDDI_DXGI_RGB; 4096],
+        }
+        #[repr(i32)]
+        enum D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL {
+            D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_NO_CHANGE = 0,
+            D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_ENABLE = 1,
+            D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_BYPASS = 2,
+        }
+        const D3DKMDT_MAX_VIDPN_SOURCES: u32 = 16;
+        const D3DKMDT_MAX_VIDPN_SOURCES_BITCOUNT: u32 = 4;
+        const D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT: u32 = 4;
+        const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: u32 = 128;
+        type D3DKMT_HANDLE = u32;
+        type D3DKMT_PTR_TYPE = HANDLE;
+        type D3DKMT_SIZE_T = usize;
+        type D3DKMT_UINT_PTR = usize;
+        type D3DKMT_ULONG_PTR = usize;
+        const D3D_UMD_INTERFACE_VERSION: u32 = 69633;
+        const D3D_UMD_INTERFACE_VERSION_VISTA: u32 = 12;
+        const D3D_UMD_INTERFACE_VERSION_WDDM1_3: u32 = 16386;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_0: u32 = 20482;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_0_M1: u32 = 20480;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_0_M1_3: u32 = 20481;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_0_M2_2: u32 = 20482;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_1: u32 = 24579;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_1_1: u32 = 24576;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_1_2: u32 = 24577;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_1_3: u32 = 24578;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_1_4: u32 = 24579;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_2: u32 = 28673;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_2_1: u32 = 28672;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_2_2: u32 = 28673;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_3: u32 = 32769;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_3_1: u32 = 32768;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_3_2: u32 = 32769;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_4: u32 = 36865;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_4_1: u32 = 36864;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_4_2: u32 = 36865;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_5: u32 = 40962;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_5_1: u32 = 40960;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_5_2: u32 = 40961;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_5_3: u32 = 40962;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_6: u32 = 45059;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_6_1: u32 = 45056;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_6_2: u32 = 45057;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_6_3: u32 = 45058;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_6_4: u32 = 45059;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_7: u32 = 49153;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_7_1: u32 = 49152;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_7_2: u32 = 49153;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_8: u32 = 53248;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_8_1: u32 = 53248;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_9: u32 = 57344;
+        const D3D_UMD_INTERFACE_VERSION_WDDM2_9_1: u32 = 57344;
+        const D3D_UMD_INTERFACE_VERSION_WDDM3_0: u32 = 61440;
+        const D3D_UMD_INTERFACE_VERSION_WDDM3_0_1: u32 = 61440;
+        const D3D_UMD_INTERFACE_VERSION_WDDM3_1: u32 = 65536;
+        const D3D_UMD_INTERFACE_VERSION_WDDM3_1_1: u32 = 65536;
+        const D3D_UMD_INTERFACE_VERSION_WDDM3_2: u32 = 69633;
+        const D3D_UMD_INTERFACE_VERSION_WDDM3_2_1: u32 = 69632;
+        const D3D_UMD_INTERFACE_VERSION_WDDM3_2_2: u32 = 69633;
+        const D3D_UMD_INTERFACE_VERSION_WIN7: u32 = 8195;
+        const D3D_UMD_INTERFACE_VERSION_WIN8: u32 = 12292;
+        const D3D_UMD_INTERFACE_VERSION_WIN8_CP: u32 = 12290;
+        const D3D_UMD_INTERFACE_VERSION_WIN8_M3: u32 = 12289;
+        const D3D_UMD_INTERFACE_VERSION_WIN8_RC: u32 = 12291;
+        const DXGKDDI_INTERFACE_VERSION: u32 = 69640;
+        const DXGKDDI_INTERFACE_VERSION_VISTA: u32 = 4178;
+        const DXGKDDI_INTERFACE_VERSION_VISTA_SP1: u32 = 4179;
+        const DXGKDDI_INTERFACE_VERSION_WDDM1_3: u32 = 16386;
+        const DXGKDDI_INTERFACE_VERSION_WDDM1_3_PATH_INDEPENDENT_ROTATION: u32 = 16387;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_0: u32 = 20515;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_1: u32 = 24579;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_1_5: u32 = 24592;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_1_6: u32 = 24593;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_2: u32 = 28682;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_3: u32 = 32769;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_4: u32 = 36870;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_5: u32 = 40971;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_6: u32 = 45060;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_7: u32 = 49156;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_8: u32 = 53249;
+        const DXGKDDI_INTERFACE_VERSION_WDDM2_9: u32 = 57347;
+        const DXGKDDI_INTERFACE_VERSION_WDDM3_0: u32 = 61443;
+        const DXGKDDI_INTERFACE_VERSION_WDDM3_1: u32 = 65540;
+        const DXGKDDI_INTERFACE_VERSION_WDDM3_2: u32 = 69640;
+        const DXGKDDI_INTERFACE_VERSION_WIN7: u32 = 8197;
+        const DXGKDDI_INTERFACE_VERSION_WIN8: u32 = 12302;
+        struct DXGKVGPU_ESCAPE_HEAD {
+            Luid: GPUP_DRIVER_ESCAPE_INPUT,
+            Type: DXGKVGPU_ESCAPE_TYPE,
+        }
+        struct DXGKVGPU_ESCAPE_INITIALIZE {
+            Header: DXGKVGPU_ESCAPE_HEAD,
+            VmGuid: GUID,
+        }
+        struct DXGKVGPU_ESCAPE_PAUSE {
+            Header: DXGKVGPU_ESCAPE_HEAD,
+            DeviceLuid: LUID,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Flags: u32,
+            },
+        }
+        struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
+            Header: DXGKVGPU_ESCAPE_HEAD,
+            PowerState: u32,
+        }
+        struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
+            Header: DXGKVGPU_ESCAPE_HEAD,
+            Offset: u32,
+            Size: u32,
+        }
+        struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
+            Header: DXGKVGPU_ESCAPE_HEAD,
+        }
+        struct DXGKVGPU_ESCAPE_RELEASE {
+            Header: DXGKVGPU_ESCAPE_HEAD,
+        }
+        struct DXGKVGPU_ESCAPE_RESUME {
+            Header: DXGKVGPU_ESCAPE_HEAD,
+            DeviceLuid: LUID,
+            Flags: u32,
+        }
+        #[repr(i32)]
+        enum DXGKVGPU_ESCAPE_TYPE {
+            DXGKVGPU_ESCAPE_TYPE_READ_PCI_CONFIG = 0,
+            DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG = 1,
+            DXGKVGPU_ESCAPE_TYPE_INITIALIZE = 2,
+            DXGKVGPU_ESCAPE_TYPE_RELEASE = 3,
+            DXGKVGPU_ESCAPE_TYPE_GET_VGPU_TYPE = 4,
+            DXGKVGPU_ESCAPE_TYPE_POWERTRANSITIONCOMPLETE = 5,
+            DXGKVGPU_ESCAPE_TYPE_PAUSE = 6,
+            DXGKVGPU_ESCAPE_TYPE_RESUME = 7,
+        }
+        struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
+            Header: DXGKVGPU_ESCAPE_HEAD,
+            Offset: u32,
+            Size: u32,
+        }
+        union DXGK_DETAILED_FEATURE_ID {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            Value: DXGK_FEATURE_ID,
+        }
+        #[repr(i32)]
+        enum DXGK_DRIVER_FEATURE {
+            DXGK_DRIVER_FEATURE_HWSCH = 0,
+            DXGK_DRIVER_FEATURE_HWFLIPQUEUE = 1,
+            DXGK_DRIVER_FEATURE_LDA_GPUPV = 2,
+            DXGK_DRIVER_FEATURE_KMD_SIGNAL_CPU_EVENT = 3,
+            DXGK_DRIVER_FEATURE_USER_MODE_SUBMISSION = 4,
+            DXGK_DRIVER_FEATURE_SHARE_BACKING_STORE_WITH_KMD = 5,
+            DXGK_DRIVER_FEATURE_RESERVED_1 = 6,
+            DXGK_DRIVER_FEATURE_RESERVED_2 = 7,
+            DXGK_DRIVER_FEATURE_RESERVED_3 = 8,
+            DXGK_DRIVER_FEATURE_RESERVED_4 = 9,
+            DXGK_DRIVER_FEATURE_RESERVED_5 = 10,
+            DXGK_DRIVER_FEATURE_RESERVED_6 = 11,
+            DXGK_DRIVER_FEATURE_RESERVED_7 = 12,
+            DXGK_DRIVER_FEATURE_RESERVED_8 = 13,
+            DXGK_DRIVER_FEATURE_RESERVED_9 = 14,
+            DXGK_DRIVER_FEATURE_RESERVED_10 = 15,
+            DXGK_DRIVER_FEATURE_RESERVED_11 = 16,
+            DXGK_DRIVER_FEATURE_RESERVED_12 = 17,
+            DXGK_DRIVER_FEATURE_RESERVED_13 = 18,
+            DXGK_DRIVER_FEATURE_RESERVED_14 = 19,
+            DXGK_DRIVER_FEATURE_RESERVED_15 = 20,
+            DXGK_DRIVER_FEATURE_RESERVED_16 = 21,
+            DXGK_DRIVER_FEATURE_RESERVED_17 = 22,
+            DXGK_DRIVER_FEATURE_RESERVED_18 = 23,
+            DXGK_DRIVER_FEATURE_RESERVED_19 = 24,
+            DXGK_DRIVER_FEATURE_RESERVED_20 = 25,
+            DXGK_DRIVER_FEATURE_RESERVED_21 = 26,
+            DXGK_DRIVER_FEATURE_RESERVED_22 = 27,
+            DXGK_DRIVER_FEATURE_RESERVED_23 = 28,
+            DXGK_DRIVER_FEATURE_RESERVED_24 = 29,
+            DXGK_DRIVER_FEATURE_RESERVED_25 = 30,
+            DXGK_DRIVER_FEATURE_SAMPLE = 31,
+            DXGK_DRIVER_FEATURE_PAGE_BASED_MEMORY_MANAGER = 32,
+            DXGK_DRIVER_FEATURE_KERNEL_MODE_TESTING = 33,
+            DXGK_DRIVER_FEATURE_64K_PT_DEMOTION_FIX = 34,
+            DXGK_DRIVER_FEATURE_GPUPV_PRESENT_HWQUEUE = 35,
+            DXGK_DRIVER_FEATURE_GPUVAIOMMU = 36,
+            DXGK_DRIVER_FEATURE_NATIVE_FENCE = 37,
+            DXGK_DRIVER_FEATURE_EXTENDED_SEGMENT_FLAGS = 38,
+            DXGK_DRIVER_FEATURE_FAULT_AND_STALL = 39,
+            DXGK_DRIVER_FEATURE_SINGLE_ADAPTER_HYBRID_MODE = 40,
+            DXGK_DRIVER_FEATURE_SYNC_PRESENT_RENDER_HWQ_ONLY = 41,
+            DXGK_DRIVER_FEATURE_UNIFIED_SCHEDULING_MODEL = 42,
+            DXGK_DRIVER_FEATURE_NOTIFY_RESIDENCY2 = 43,
+            DXGK_DRIVER_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION = 45,
+            DXGK_DRIVER_FEATURE_PANEL_BUFFER_CONTROL = 46,
+            DXGK_DRIVER_FEATURE_MAX = 47,
+        }
+        #[repr(i32)]
+        enum DXGK_FEATURE_CATEGORY {
+            DXGK_FEATURE_CATEGORY_DRIVER = 0,
+            DXGK_FEATURE_CATEGORY_OS = 1,
+            DXGK_FEATURE_CATEGORY_BUGFIX = 2,
+            DXGK_FEATURE_CATEGORY_TEST = 3,
+            DXGK_FEATURE_CATEGORY_RESERVED4 = 4,
+            DXGK_FEATURE_CATEGORY_RESERVED5 = 5,
+            DXGK_FEATURE_CATEGORY_RESERVED6 = 6,
+            DXGK_FEATURE_CATEGORY_RESERVED7 = 7,
+            DXGK_FEATURE_CATEGORY_RESERVED8 = 8,
+            DXGK_FEATURE_CATEGORY_RESERVED9 = 9,
+            DXGK_FEATURE_CATEGORY_RESERVED10 = 10,
+            DXGK_FEATURE_CATEGORY_RESERVED11 = 11,
+            DXGK_FEATURE_CATEGORY_RESERVED12 = 12,
+            DXGK_FEATURE_CATEGORY_RESERVED13 = 13,
+            DXGK_FEATURE_CATEGORY_RESERVED14 = 14,
+            DXGK_FEATURE_CATEGORY_RESERVED15 = 15,
+            DXGK_FEATURE_CATEGORY_MAX = 16,
+        }
+        const DXGK_FEATURE_EXTENDED_SEGMENT_FLAGS_VERSION: u32 = 1;
+        const DXGK_FEATURE_EXTENDED_SEGMENT_FLAGS_VERSION_APERTUREPRESERVEDDURINGSTANDBY: u32 = 1;
+        #[repr(i32)]
+        enum DXGK_FEATURE_ID {
+            DXGK_FEATURE_HWSCH = 0,
+            DXGK_FEATURE_HWFLIPQUEUE = 1,
+            DXGK_FEATURE_LDA_GPUPV = 2,
+            DXGK_FEATURE_KMD_SIGNAL_CPU_EVENT = 3,
+            DXGK_FEATURE_USER_MODE_SUBMISSION = 4,
+            DXGK_FEATURE_SHARE_BACKING_STORE_WITH_KMD = 5,
+            DXGK_FEATURE_SAMPLE = 31,
+            DXGK_FEATURE_PAGE_BASED_MEMORY_MANAGER = 32,
+            DXGK_FEATURE_KERNEL_MODE_TESTING = 33,
+            DXGK_FEATURE_64K_PT_DEMOTION_FIX = 34,
+            DXGK_FEATURE_GPUPV_PRESENT_HWQUEUE = 35,
+            DXGK_FEATURE_GPUVAIOMMU = 36,
+            DXGK_FEATURE_NATIVE_FENCE = 37,
+            DXGK_FEATURE_EXTENDED_SEGMENT_FLAGS = 38,
+            DXGK_FEATURE_FAULT_AND_STALL = 39,
+            DXGK_FEATURE_SINGLE_ADAPTER_HYBRID_MODE = 40,
+            DXGK_FEATURE_SYNC_PRESENT_RENDER_HWQ_ONLY = 41,
+            DXGK_FEATURE_UNIFIED_SCHEDULING_MODEL = 42,
+            DXGK_FEATURE_NOTIFY_RESIDENCY2 = 43,
+            DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION = 45,
+            DXGK_FEATURE_PANEL_BUFFER_CONTROL = 46,
+            DXGK_FEATURE_QUERYSTATISTICS_EXTENSIONS = 268435456,
+            DXGK_FEATURE_RESERVE_GPUVA_ZERO_BASE_ADDRESS = 268435457,
+            DXGK_FEATURE_PER_PTE_PAGE_SIZE = 268435458,
+            DXGK_FEATURE_FENCE_SIGNAL_FROM_SWS_NODE = 268435459,
+            DXGK_FEATURE_SUPPRESSVSYNC_INTERRUPTS = 268435460,
+            DXGK_FEATURE_FEATURE_INTERFACE_EXTENSIONS = 268435461,
+            DXGK_FEATURE_READONLY_EXISTINGSYSMEM = 268435462,
+            DXGK_FEATURE_OPPORTUNISTIC_64KB_PAGES = 268435463,
+        }
+        const DXGK_FEATURE_ID_CATEGORY_BITS: u32 = 4;
+        const DXGK_FEATURE_ID_CATEGORY_SHIFT: u32 = 28;
+        const DXGK_FEATURE_ID_FEATURE_BITS: u32 = 28;
+        const DXGK_FEATURE_ID_MASK: u32 = 268435455;
+        const DXGK_FEATURE_MAX: u32 = 47;
+        type DXGK_FEATURE_VERSION = u16;
+        struct DXGK_ISFEATUREENABLED_RESULT {
+            Version: u16,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u16,
+                },
+                Value: DXGK_FEATURE_VERSION,
+            },
+        }
+        const DXGK_MAX_GPU_VA_BIT_COUNT: u32 = 63;
+        const DXGK_MAX_PAGE_TABLE_LEVEL_COUNT: u32 = 6;
+        const DXGK_MIN_PAGE_TABLE_LEVEL_COUNT: u32 = 2;
+        union DXGK_MIRACAST_CHUNK_ID {
+            Anonymous: struct {
+                _bitfield: u64,
+            },
+            Value: u64,
+        }
+        struct DXGK_MIRACAST_CHUNK_INFO {
+            ChunkType: DXGK_MIRACAST_CHUNK_TYPE,
+            ChunkId: DXGK_MIRACAST_CHUNK_ID,
+            ProcessingTime: u32,
+            EncodeRate: u32,
+        }
+        #[repr(i32)]
+        enum DXGK_MIRACAST_CHUNK_TYPE {
+            DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN = 0,
+            DXGK_MIRACAST_CHUNK_TYPE_COLOR_CONVERT_COMPLETE = 1,
+            DXGK_MIRACAST_CHUNK_TYPE_ENCODE_COMPLETE = 2,
+            DXGK_MIRACAST_CHUNK_TYPE_FRAME_START = 3,
+            DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED = 4,
+            DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_1 = -2147483648,
+            DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_2 = -2147483647,
+        }
+        struct DXGK_NATIVE_FENCE_LOG_BUFFER {
+            Header: DXGK_NATIVE_FENCE_LOG_HEADER,
+            Entries: [DXGK_NATIVE_FENCE_LOG_ENTRY; 1],
+        }
+        struct DXGK_NATIVE_FENCE_LOG_ENTRY {
+            FenceValue: u64,
+            hNativeFence: D3DKMT_HANDLE,
+            OperationType: u32,
+            Reserved0: u64,
+            FenceObservedGpuTimestamp: u64,
+            Reserved1: u64,
+            FenceEndGpuTimestamp: u64,
+        }
+        struct DXGK_NATIVE_FENCE_LOG_HEADER {
+            Anonymous: union {
+                Anonymous: struct {
+                    FirstFreeEntryIndex: u32,
+                    WraparoundCount: u32,
+                },
+                AtomicWraparoundAndEntryIndex: ULARGE_INTEGER,
+            },
+            Type: DXGK_NATIVE_FENCE_LOG_TYPE,
+            NumberOfEntries: u64,
+            Reserved: [u64; 2],
+        }
+        #[repr(i32)]
+        enum DXGK_NATIVE_FENCE_LOG_OPERATION {
+            DXGK_NATIVE_FENCE_LOG_OPERATION_SIGNAL_EXECUTED = 0,
+            DXGK_NATIVE_FENCE_LOG_OPERATION_WAIT_UNBLOCKED = 1,
+        }
+        #[repr(i32)]
+        enum DXGK_NATIVE_FENCE_LOG_TYPE {
+            DXGK_NATIVE_FENCE_LOG_TYPE_WAITS = 1,
+            DXGK_NATIVE_FENCE_LOG_TYPE_SIGNALS = 2,
+        }
+        #[repr(i32)]
+        enum DXGK_OS_FEATURE {
+            DXGK_OS_FEATURE_QUERYSTATISTICS_EXTENSIONS = 0,
+            DXGK_OS_FEATURE_RESERVE_GPUVA_ZERO_BASE_ADDRESS = 1,
+            DXGK_OS_FEATURE_PER_PTE_PAGE_SIZE = 2,
+            DXGK_OS_FEATURE_FENCE_SIGNAL_FROM_SWS_NODE = 3,
+            DXGK_OS_FEATURE_SUPPRESSVSYNC_INTERRUPTS = 4,
+            DXGK_OS_FEATURE_FEATURE_INTERFACE_EXTENSIONS = 5,
+            DXGK_OS_FEATURE_READONLY_EXISTINGSYSMEM = 6,
+            DXGK_OS_FEATURE_OPPORTUNISTIC_64KB_PAGES = 7,
+            DXGK_OS_FEATURE_MAX = 8,
+        }
+        struct DXGK_PTE {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u64,
+                },
+                Flags: u64,
+            },
+            Anonymous2: union {
+                PageAddress: u64,
+                PageTableAddress: u64,
+            },
+        }
+        #[repr(i32)]
+        enum DXGK_PTE_BLOCK_ACCESS_MODE {
+            DXGK_PTE_BLOCK_ACCESS_NONE = 0,
+            DXGK_PTE_BLOCK_ACCESS_WRITE = 1,
+            DXGK_PTE_BLOCK_ACCESS_READWRITE = 2,
+        }
+        #[repr(i32)]
+        enum DXGK_PTE_PAGE_SIZE {
+            DXGK_PTE_PAGE_TABLE_PAGE_4KB = 0,
+            DXGK_PTE_PAGE_TABLE_PAGE_64KB = 1,
+        }
+        struct GPUP_DRIVER_ESCAPE_INPUT {
+            vfLUID: LUID,
+        }
+        const IOCTL_GPUP_DRIVER_ESCAPE: u32 = 2253920;
+        type PD3DDDI_3x4_COLORSPACE_TRANSFORM = *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM;
+        type PD3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 = *mut D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2;
+        type PD3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = *mut D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL;
+        type PGPUP_DRIVER_ESCAPE_INPUT = *mut GPUP_DRIVER_ESCAPE_INPUT;
+    }
+}

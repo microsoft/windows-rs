@@ -205,6 +205,26 @@ impl Reader {
     }
 }
 
+/// Parses a single `.rdl` file and returns the names of every type, function, and constant
+/// it defines under `namespace`. This is a pure syntactic walk — cross-file references are
+/// not resolved — so it succeeds even on a partition that references types defined elsewhere.
+pub(crate) fn item_names(path: &str, namespace: &str) -> Result<Vec<String>, Error> {
+    let input = expand_rdl_files(std::slice::from_ref(&path.to_string()), &[])?;
+    let mut index = Index::new();
+    for file in &input {
+        for item in &file.items {
+            index.insert(file, "", item);
+        }
+    }
+    let mut names = vec![];
+    if let Some(ns) = index.namespaces.get(namespace) {
+        names.extend(ns.types.keys().cloned());
+        names.extend(ns.functions.keys().cloned());
+        names.extend(ns.constants.keys().cloned());
+    }
+    Ok(names)
+}
+
 /// Replace `#[in]` with `#[r#in]` so that syn can parse it and replace
 /// `//!` with `//` so that inner doc comments don't confuse the parser.
 fn preprocess_rdl(contents: &str) -> std::borrow::Cow<'_, str> {
@@ -335,13 +355,14 @@ fn read_winrt<S: Spanned>(
             start.line,
             start.column,
         ));
-    } else if !winrt && !win32 {
-        if let Some(parent) = parent {
-            if parent {
-                winrt = true;
-            } else {
-                win32 = true;
-            }
+    } else if !winrt
+        && !win32
+        && let Some(parent) = parent
+    {
+        if parent {
+            winrt = true;
+        } else {
+            win32 = true;
         }
     }
 
@@ -361,16 +382,17 @@ fn validate_use_declarations(
 ) -> Result<(), Error> {
     for file in input {
         for use_item in &file.uses {
-            if let Some(ns) = glob_use_namespace(use_item) {
-                if !index.namespaces.contains_key(&ns) && !reference.contains_namespace(&ns) {
-                    let start = use_item.span().start();
-                    return Err(Error::new(
-                        "use namespace not found",
-                        &file.source,
-                        start.line,
-                        start.column,
-                    ));
-                }
+            if let Some(ns) = glob_use_namespace(use_item)
+                && !index.namespaces.contains_key(&ns)
+                && !reference.contains_namespace(&ns)
+            {
+                let start = use_item.span().start();
+                return Err(Error::new(
+                    "use namespace not found",
+                    &file.source,
+                    start.line,
+                    start.column,
+                ));
             }
         }
     }
@@ -436,6 +458,31 @@ impl Encoder<'_> {
         Ok(None)
     }
 
+    /// Parse an optional `#[align(N)]` attribute from `attrs`.  Returns `Some(N)` if
+    /// the attribute is present and well-formed, `None` if absent, or an error if the
+    /// attribute is malformed.  `#[align(N)]` records forced over-alignment
+    /// (`__declspec(align(N))` / `alignas(N)`) that raises a type's alignment above
+    /// its natural field alignment.
+    fn read_align(&self, attrs: &[syn::Attribute]) -> Result<Option<u16>, Error> {
+        for attr in attrs {
+            if !attr.path().is_ident("align") {
+                continue;
+            }
+
+            let Ok(size_literal) = attr.parse_args::<syn::LitInt>() else {
+                return self.err(attr, "`align` attribute requires an integer argument");
+            };
+
+            let Ok(size) = size_literal.base10_parse::<u16>() else {
+                return self.err(attr, "`align` size must be a valid u16");
+            };
+
+            return Ok(Some(size));
+        }
+
+        Ok(None)
+    }
+
     /// Parse an optional `#[arch(...)]` attribute from `attrs`.  Returns `Some(bits)` where
     /// `bits` is the architecture bitmask (1=X86, 2=X64, 4=Arm64, combinable with `|`) if the
     /// attribute is present, `None` if absent, or an error if the attribute is malformed or uses
@@ -488,40 +535,41 @@ impl Encoder<'_> {
             return self.encode_type(ty);
         }
 
-        if let syn::Type::Path(type_path) = ty {
-            if type_path.qself.is_none() && type_path.path.leading_colon.is_none() {
-                let segs: Vec<String> = type_path
-                    .path
-                    .segments
-                    .iter()
-                    .map(|s| s.ident.to_string())
-                    .collect();
+        if let syn::Type::Path(type_path) = ty
+            && type_path.qself.is_none()
+            && type_path.path.leading_colon.is_none()
+        {
+            let segs: Vec<String> = type_path
+                .path
+                .segments
+                .iter()
+                .map(|s| s.ident.to_string())
+                .collect();
 
-                if !segs.is_empty() && !segs.iter().any(|s| s == "super") {
-                    let name = segs.last().unwrap();
-                    let candidate_ns = if segs.len() == 1 {
-                        attr_ns.to_string()
-                    } else {
-                        format!("{}.{}", attr_ns, segs[..segs.len() - 1].join("."))
+            if !segs.is_empty() && !segs.iter().any(|s| s == "super") {
+                let name = segs.last().unwrap();
+                let candidate_ns = if segs.len() == 1 {
+                    attr_ns.to_string()
+                } else {
+                    format!("{}.{}", attr_ns, segs[..segs.len() - 1].join("."))
+                };
+
+                if self.index.contains(&candidate_ns, name)
+                    || self
+                        .output
+                        .reference()
+                        .is_some_and(|r| r.contains(&candidate_ns, name))
+                {
+                    let tn = metadata::TypeName {
+                        namespace: candidate_ns.clone(),
+                        name: name.clone(),
+                        generics: vec![],
                     };
-
-                    if self.index.contains(&candidate_ns, name)
-                        || self
-                            .output
-                            .reference()
-                            .is_some_and(|r| r.contains(&candidate_ns, name))
-                    {
-                        let tn = metadata::TypeName {
-                            namespace: candidate_ns.clone(),
-                            name: name.clone(),
-                            generics: vec![],
-                        };
-                        return Ok(if self.type_is_value(&candidate_ns, name) {
-                            metadata::Type::ValueName(tn)
-                        } else {
-                            metadata::Type::ClassName(tn)
-                        });
-                    }
+                    return Ok(if self.type_is_value(&candidate_ns, name) {
+                        metadata::Type::ValueName(tn)
+                    } else {
+                        metadata::Type::ClassName(tn)
+                    });
                 }
             }
         }
@@ -563,19 +611,19 @@ impl Encoder<'_> {
         value: &syn::Expr,
     ) -> Result<metadata::Value, Error> {
         let value = match ty {
-            metadata::Type::I8 => metadata::Value::I8(self.encode_neg_lit_int::<i8>(value)?),
-            metadata::Type::U8 => metadata::Value::U8(self.encode_lit_int::<u8>(value)?),
-            metadata::Type::I16 => metadata::Value::I16(self.encode_neg_lit_int::<i16>(value)?),
-            metadata::Type::U16 => metadata::Value::U16(self.encode_lit_int::<u16>(value)?),
-            metadata::Type::I32 => metadata::Value::I32(self.encode_neg_lit_int::<i32>(value)?),
-            metadata::Type::U32 => metadata::Value::U32(self.encode_lit_int::<u32>(value)?),
-            metadata::Type::I64 => metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?),
-            metadata::Type::U64 => metadata::Value::U64(self.encode_lit_int::<u64>(value)?),
+            metadata::Type::I8 => metadata::Value::I8(self.encode_lit_sint(value, 8)? as i8),
+            metadata::Type::U8 => metadata::Value::U8(self.encode_lit_uint(value, 8)? as u8),
+            metadata::Type::I16 => metadata::Value::I16(self.encode_lit_sint(value, 16)? as i16),
+            metadata::Type::U16 => metadata::Value::U16(self.encode_lit_uint(value, 16)? as u16),
+            metadata::Type::I32 => metadata::Value::I32(self.encode_lit_sint(value, 32)? as i32),
+            metadata::Type::U32 => metadata::Value::U32(self.encode_lit_uint(value, 32)? as u32),
+            metadata::Type::I64 => metadata::Value::I64(self.encode_lit_sint(value, 64)?),
+            metadata::Type::U64 => metadata::Value::U64(self.encode_lit_uint(value, 64)?),
             metadata::Type::F32 => metadata::Value::F32(self.encode_neg_lit_float::<f32>(value)?),
             metadata::Type::F64 => metadata::Value::F64(self.encode_neg_lit_float::<f64>(value)?),
             metadata::Type::String => metadata::Value::Utf16(self.encode_lit_string(value)?),
-            metadata::Type::ISize => metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?),
-            metadata::Type::USize => metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?),
+            metadata::Type::ISize => metadata::Value::ISize(self.encode_lit_sint(value, 64)?),
+            metadata::Type::USize => metadata::Value::USize(self.encode_lit_uint(value, 64)?),
             metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
                 let v = self.encode_neg_lit_int::<i64>(value)?;
                 if let Ok(v) = i32::try_from(v) {
@@ -609,19 +657,72 @@ impl Encoder<'_> {
         let item = self.index.get(namespace, name).next()?;
 
         match item {
-            Item::Typedef(t) => self.encode_type(&t.ty).ok(),
+            Item::Typedef(t) => self.encode_underlying(&t.ty, namespace),
+            Item::Enum(e) => {
+                // An enum-typed constant (e.g. `SIID_INVALID: SHSTOCKICONID = -1`)
+                // encodes against the enum's underlying integer type, carried by its
+                // `#[repr(iN)]` attribute.
+                let repr = e.attrs.iter().find(|a| a.path().is_ident("repr"))?;
+                let path = repr.parse_args::<syn::Path>().ok()?;
+                self.encode_path(&path).ok()
+            }
             Item::Struct(s) => {
                 let mut fields = s.fields.iter();
 
-                if let Some(field) = fields.next() {
-                    if fields.next().is_none() {
-                        return self.encode_type(&field.ty).ok();
-                    }
+                if let Some(field) = fields.next()
+                    && fields.next().is_none()
+                    && let FieldType::Type(ty) = &field.ty
+                {
+                    return self.encode_underlying(ty, namespace);
                 }
 
                 None
             }
             _ => None,
+        }
+    }
+
+    /// Resolves the underlying type of a constant's named type, where `namespace`
+    /// is the namespace the *named type itself* lives in (not the constant's). The
+    /// canonical RDL writes intra-namespace references bare, so a bare single-segment
+    /// identifier (e.g. `type ATOM = WORD`) names a sibling defined alongside the
+    /// typedef in `namespace`. Re-encoding it with the encoder's own namespace (the
+    /// constant's) would look in the wrong partition, so the bare named case is
+    /// resolved against `namespace` directly. Primitives resolve the same anywhere.
+    fn encode_underlying(&self, ty: &syn::Type, namespace: &str) -> Option<metadata::Type> {
+        match ty {
+            // A pointer-typed constant (`#define X ((LPCSTR)2)`, the MAKEINTRESOURCE
+            // idiom). The value encoder only looks at the pointer-ness, not the pointee,
+            // so an unresolved pointee falls back to `void`.
+            syn::Type::Ptr(ptr) => {
+                let pointee = self
+                    .encode_underlying(&ptr.elem, namespace)
+                    .unwrap_or(metadata::Type::Void);
+                Some(if ptr.mutability.is_some() {
+                    metadata::Type::PtrMut(Box::new(pointee), 1)
+                } else {
+                    metadata::Type::PtrConst(Box::new(pointee), 1)
+                })
+            }
+            syn::Type::Path(tp)
+                if tp.qself.is_none()
+                    && tp.path.segments.len() == 1
+                    && matches!(tp.path.segments[0].arguments, syn::PathArguments::None) =>
+            {
+                // A primitive (`u16`, `i32`, …) resolves independently of namespace.
+                if let Ok(resolved) = self.encode_type(ty)
+                    && !matches!(
+                        resolved,
+                        metadata::Type::ValueName(_) | metadata::Type::ClassName(_)
+                    )
+                {
+                    return Some(resolved);
+                }
+                // Otherwise it is a named sibling defined alongside the typedef.
+                let ident = tp.path.segments[0].ident.unraw_to_string();
+                Some(metadata::Type::value_named(namespace, &ident))
+            }
+            _ => self.encode_type(ty).ok(),
         }
     }
 
@@ -670,6 +771,91 @@ impl Encoder<'_> {
         };
 
         value.ok_or_else(|| self.error(expr, "value not valid"))
+    }
+
+    /// Encodes an integer constant for an unsigned target type of the given bit
+    /// width, accepting both a plain literal and a *negated* literal. A negated
+    /// literal models a C cast such as `(UINT)-1`, whose value is the two's-
+    /// complement bit pattern (`0xFFFF_FFFF`) — well-defined for unsigned types and
+    /// the idiom behind sentinels like `MCI_ALL_DEVICE_ID`. The result is masked to
+    /// `bits` so `-1` becomes `0xFF`/`0xFFFF`/`0xFFFF_FFFF`/`u64::MAX` for an
+    /// 8/16/32/64-bit target.
+    fn encode_lit_uint(&self, expr: &syn::Expr, bits: u32) -> Result<u64, Error> {
+        let mask: u128 = if bits >= 128 {
+            u128::MAX
+        } else {
+            (1u128 << bits) - 1
+        };
+        let value = match expr {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Int(int),
+                ..
+            }) => int.base10_parse::<u64>().ok(),
+            syn::Expr::Unary(syn::ExprUnary {
+                op: syn::UnOp::Neg(_),
+                expr,
+                ..
+            }) => match expr.as_ref() {
+                syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Int(int),
+                    ..
+                }) => int
+                    .base10_parse::<u64>()
+                    .ok()
+                    .map(|v| ((v as i128).wrapping_neg() as u128 & mask) as u64),
+                _ => None,
+            },
+            _ => None,
+        };
+
+        value.ok_or_else(|| self.error(expr, "value not valid"))
+    }
+
+    /// Encodes an integer constant for a *signed* target type of the given bit width,
+    /// reinterpreting the literal's bit pattern in two's complement. This accepts both
+    /// negated literals (`-1`) and positive literals that overflow the signed range
+    /// because the source spelled the bit pattern directly — e.g. an `HRESULT`
+    /// (`i32`) macro that evaluates to `2147745792` (`0x8004_4000`) is the negative
+    /// value `-2147221504`. In-range values are unchanged; the result is sign-extended
+    /// to `i64` for the caller to narrow.
+    fn encode_lit_sint(&self, expr: &syn::Expr, bits: u32) -> Result<i64, Error> {
+        let raw: Option<u64> = match expr {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Int(int),
+                ..
+            }) => int.base10_parse::<u64>().ok(),
+            syn::Expr::Unary(syn::ExprUnary {
+                op: syn::UnOp::Neg(_),
+                expr,
+                ..
+            }) => match expr.as_ref() {
+                syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Int(int),
+                    ..
+                }) => int
+                    .base10_parse::<u64>()
+                    .ok()
+                    .map(|v| (v as i128).wrapping_neg() as u64),
+                _ => None,
+            },
+            _ => None,
+        };
+
+        let raw = raw.ok_or_else(|| self.error(expr, "value not valid"))?;
+
+        // Truncate to the target width and sign-extend back to `i64`.
+        if bits >= 64 {
+            Ok(raw as i64)
+        } else {
+            let mask = (1u64 << bits) - 1;
+            let masked = raw & mask;
+            let sign_bit = 1u64 << (bits - 1);
+            Ok(if masked & sign_bit != 0 {
+                (masked | !mask) as i64
+            } else {
+                masked as i64
+            })
+        }
     }
 
     fn encode_neg_lit_float<T>(&self, expr: &syn::Expr) -> Result<T, Error>
@@ -768,12 +954,12 @@ impl Encoder<'_> {
 
         let mut generics = vec![];
 
-        if let Some(last) = ty.segments.last() {
-            if let syn::PathArguments::AngleBracketed(arguments) = &last.arguments {
-                for argument in &arguments.args {
-                    if let syn::GenericArgument::Type(ty) = argument {
-                        generics.push(self.encode_type(ty)?);
-                    }
+        if let Some(last) = ty.segments.last()
+            && let syn::PathArguments::AngleBracketed(arguments) = &last.arguments
+        {
+            for argument in &arguments.args {
+                if let syn::GenericArgument::Type(ty) = argument {
+                    generics.push(self.encode_type(ty)?);
                 }
             }
         }
@@ -804,11 +990,6 @@ impl Encoder<'_> {
                 "void" => return Ok(metadata::Type::Void),
                 "String" => return Ok(metadata::Type::String),
                 "Object" => return Ok(metadata::Type::Object),
-                "Type" => return Ok(metadata::Type::class_named("System", "Type")),
-                "GUID" => return Ok(metadata::Type::value_named("System", "Guid")),
-                "HRESULT" => {
-                    return Ok(metadata::Type::value_named("Windows.Foundation", "HResult"));
-                }
 
                 _ => {}
             }
@@ -856,10 +1037,26 @@ impl Encoder<'_> {
 
         // Last resort: try glob use declarations
         for use_item in &self.file.uses {
-            if let Some(ns) = glob_use_namespace(use_item) {
-                if let Some(ty) = make_type(&ns) {
-                    return Ok(ty);
+            if let Some(ns) = glob_use_namespace(use_item)
+                && let Some(ty) = make_type(&ns)
+            {
+                return Ok(ty);
+            }
+        }
+
+        // Core-type fallback: a bare `GUID`/`HRESULT`/`Type` the closure does not define
+        // itself maps to the ecosystem's canonical type (the COM/WinRT convention the
+        // editorial pipeline relies on). When the faithful scrape *does* define its own
+        // `GUID`/`HRESULT` (guiddef.h / winerror.h), the resolution above already returned
+        // it, so this never fires — keeping the faithful win32 metadata self-contained.
+        if ty.segments.len() == 1 {
+            match name.as_str() {
+                "Type" => return Ok(metadata::Type::class_named("System", "Type")),
+                "GUID" => return Ok(metadata::Type::value_named("System", "Guid")),
+                "HRESULT" => {
+                    return Ok(metadata::Type::value_named("Windows.Foundation", "HResult"));
                 }
+                _ => {}
             }
         }
 
@@ -898,13 +1095,12 @@ impl Encoder<'_> {
                     }
                 } else if let Some(reference) = self.output.reference() {
                     // Fall back to the external reference metadata.
-                    if let Some(def) = reference.get(&tn.namespace, &tn.name).next() {
-                        if !def
+                    if let Some(def) = reference.get(&tn.namespace, &tn.name).next()
+                        && !def
                             .flags()
                             .contains(metadata::TypeAttributes::WindowsRuntime)
-                        {
-                            return self.err(span, "WinRT types cannot refer to non-WinRT types");
-                        }
+                    {
+                        return self.err(span, "WinRT types cannot refer to non-WinRT types");
                     }
                     // If the type isn't found in the reference either it is a hard-coded
                     // system alias (e.g. System.Guid) and is considered WinRT-compatible.

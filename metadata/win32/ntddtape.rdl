@@ -1,0 +1,24 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[encoding("ansi")]
+        const DD_TAPE_DEVICE_NAME: String = "\\Device\\Tape";
+        const IOCTL_TAPE_BASE: u32 = 31;
+        const IOCTL_TAPE_CREATE_PARTITION: u32 = 2080808;
+        const IOCTL_TAPE_EJECT_MEDIA: u32 = 2050056;
+        const IOCTL_TAPE_ERASE: u32 = 2080768;
+        const IOCTL_TAPE_GET_DRIVE_PARAMS: u32 = 2048020;
+        const IOCTL_TAPE_GET_MEDIA_PARAMS: u32 = 2048028;
+        const IOCTL_TAPE_GET_POSITION: u32 = 2048012;
+        const IOCTL_TAPE_GET_STATUS: u32 = 2048036;
+        const IOCTL_TAPE_LOAD_MEDIA: u32 = 2050060;
+        const IOCTL_TAPE_MEDIA_REMOVAL: u32 = 2050052;
+        const IOCTL_TAPE_PREPARE: u32 = 2048004;
+        const IOCTL_TAPE_RELEASE: u32 = 2050068;
+        const IOCTL_TAPE_RESERVE: u32 = 2050064;
+        const IOCTL_TAPE_SET_DRIVE_PARAMS: u32 = 2080792;
+        const IOCTL_TAPE_SET_MEDIA_PARAMS: u32 = 2048032;
+        const IOCTL_TAPE_SET_POSITION: u32 = 2048016;
+        const IOCTL_TAPE_WRITE_MARKS: u32 = 2080776;
+    }
+}

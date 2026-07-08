@@ -1,0 +1,17 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("msdmo.dll")]
+        extern fn MoCopyMediaType(pmtDest: *mut DMO_MEDIA_TYPE, pmtSrc: *const DMO_MEDIA_TYPE) -> HRESULT;
+        #[library("msdmo.dll")]
+        extern fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbFormat: u32) -> HRESULT;
+        #[library("msdmo.dll")]
+        extern fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
+        #[library("msdmo.dll")]
+        extern fn MoDuplicateMediaType(ppmtDest: *mut *mut DMO_MEDIA_TYPE, pmtSrc: *const DMO_MEDIA_TYPE) -> HRESULT;
+        #[library("msdmo.dll")]
+        extern fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
+        #[library("msdmo.dll")]
+        extern fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbFormat: u32) -> HRESULT;
+    }
+}

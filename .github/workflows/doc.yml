@@ -45,4 +45,4 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 # generated - run `cargo run -p tool_yml` to update
       - name: Check
-        run: cargo doc --no-deps -p cppwinrt -p riddle -p windows-animation -p windows-bindgen -p windows-canvas -p windows-collections -p windows-core -p windows-future -p windows-implement -p windows-interface -p windows-metadata -p windows-numerics -p windows-rdl -p windows-reactor -p windows-reference -p windows-registry -p windows-result -p windows-services -p windows-strings -p windows-sys -p windows-targets -p windows-threading -p windows-time -p windows-version -p windows-webview -p windows-window
+        run: cargo doc --no-deps -p cppwinrt -p riddle -p windows-animation -p windows-bindgen -p windows-canvas -p windows-clang -p windows-collections -p windows-core -p windows-future -p windows-implement -p windows-interface -p windows-metadata -p windows-numerics -p windows-rdl -p windows-reactor -p windows-reference -p windows-registry -p windows-result -p windows-services -p windows-strings -p windows-sys -p windows-targets -p windows-threading -p windows-time -p windows-version -p windows-webview -p windows-window

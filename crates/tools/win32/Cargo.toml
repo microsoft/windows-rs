@@ -1,0 +1,16 @@
+[package]
+name = "tool_win32"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+
+[dependencies]
+serde = { workspace = true, features = ["derive"] }
+toml = "0.8"
+windows-clang = { workspace = true }
+windows-rdl = { workspace = true }
+windows-threading = { workspace = true }
+
+[lints]
+workspace = true

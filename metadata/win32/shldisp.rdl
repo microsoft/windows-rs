@@ -1,0 +1,420 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ACENUMOPTION {
+            ACEO_NONE = 0,
+            ACEO_MOSTRECENTFIRST = 1,
+            ACEO_FIRSTUNUSED = 65536,
+        }
+        #[repr(i32)]
+        enum AUTOCOMPLETEOPTIONS {
+            ACO_NONE = 0,
+            ACO_AUTOSUGGEST = 1,
+            ACO_AUTOAPPEND = 2,
+            ACO_SEARCH = 4,
+            ACO_FILTERPREFIXES = 8,
+            ACO_USETAB = 16,
+            ACO_UPDOWNKEYDROPSLIST = 32,
+            ACO_RTLREADING = 64,
+            ACO_WORD_FILTER = 128,
+            ACO_NOPREFIXFILTERING = 256,
+        }
+        #[guid(0x4a3df050_23bd_11d2_939f_00a0c91eedba)]
+        interface DFConstraint: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] pbs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] pv: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x62112aa2_ebe4_11cf_a5fb_0020afe7292d)]
+        interface DShellFolderViewEvents: IDispatch {}
+        const FileSearchBand: GUID = 0xc4ee31f3_4768_11d2_be5c_00a0c9a83da1;
+        #[guid(0xbbcbde60_c3ff_11ce_8350_444553540000)]
+        interface Folder: IDispatch {
+            #[special]
+            fn get_Title(&self, #[retval] pbs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Application(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_ParentFolder(&self, #[retval] ppsf: *mut Folder) -> HRESULT;
+            fn Items(&self, #[retval] ppid: *mut FolderItems) -> HRESULT;
+            fn ParseName(&self, bName: BSTR, #[retval] ppid: *mut FolderItem) -> HRESULT;
+            fn NewFolder(&self, bName: BSTR, #[opt] vOptions: VARIANT) -> HRESULT;
+            fn MoveHere(&self, vItem: VARIANT, #[opt] vOptions: VARIANT) -> HRESULT;
+            fn CopyHere(&self, vItem: VARIANT, #[opt] vOptions: VARIANT) -> HRESULT;
+            fn GetDetailsOf(&self, vItem: VARIANT, iColumn: i32, #[retval] pbs: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xf0d2d8ef_3890_11d2_bf8b_00c04fb93661)]
+        interface Folder2: Folder {
+            #[special]
+            fn get_Self(&self, #[retval] ppfi: *mut FolderItem) -> HRESULT;
+            #[special]
+            fn get_OfflineStatus(&self, #[retval] pul: *mut i32) -> HRESULT;
+            fn Synchronize(&self) -> HRESULT;
+            #[special]
+            fn get_HaveToShowWebViewBarricade(&self, #[retval] pbHaveToShowWebViewBarricade: *mut VARIANT_BOOL) -> HRESULT;
+            fn DismissedWebViewBarricade(&self) -> HRESULT;
+        }
+        #[guid(0xa7ae5f64_c4d7_4d7f_9307_4d24ee54b841)]
+        interface Folder3: Folder2 {
+            #[special]
+            fn get_ShowWebViewBarricade(&self, #[retval] pbShowWebViewBarricade: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_ShowWebViewBarricade(&self, bShowWebViewBarricade: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xfac32c80_cbe4_11ce_8350_444553540000)]
+        interface FolderItem: IDispatch {
+            #[special]
+            fn get_Application(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] pbs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, bs: BSTR) -> HRESULT;
+            #[special]
+            fn get_Path(&self, #[retval] pbs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_GetLink(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_GetFolder(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_IsLink(&self, #[retval] pb: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsFolder(&self, #[retval] pb: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsFileSystem(&self, #[retval] pb: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsBrowsable(&self, #[retval] pb: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ModifyDate(&self, #[retval] pdt: *mut f64) -> HRESULT;
+            #[special]
+            fn put_ModifyDate(&self, dt: f64) -> HRESULT;
+            #[special]
+            fn get_Size(&self, #[retval] pul: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] pbs: *mut BSTR) -> HRESULT;
+            fn Verbs(&self, #[retval] ppfic: *mut FolderItemVerbs) -> HRESULT;
+            fn InvokeVerb(&self, #[opt] vVerb: VARIANT) -> HRESULT;
+        }
+        #[guid(0xedc817aa_92b8_11d1_b075_00c04fc33aa5)]
+        interface FolderItem2: FolderItem {
+            fn InvokeVerbEx(&self, #[opt] vVerb: VARIANT, #[opt] vArgs: VARIANT) -> HRESULT;
+            fn ExtendedProperty(&self, bstrPropName: BSTR, #[retval] pvRet: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x08ec3e00_50b0_11cf_960c_0080c7f4ee85)]
+        interface FolderItemVerb: IDispatch {
+            #[special]
+            fn get_Application(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] pbs: *mut BSTR) -> HRESULT;
+            fn DoIt(&self) -> HRESULT;
+        }
+        #[guid(0x1f8352c0_50b0_11cf_960c_0080c7f4ee85)]
+        interface FolderItemVerbs: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Application(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            fn Item(&self, #[opt] index: VARIANT, #[retval] ppid: *mut FolderItemVerb) -> HRESULT;
+            fn _NewEnum(&self, #[retval] ppunk: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x744129e0_cbe5_11ce_8350_444553540000)]
+        interface FolderItems: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Application(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            fn Item(&self, #[opt] index: VARIANT, #[retval] ppid: *mut FolderItem) -> HRESULT;
+            fn _NewEnum(&self, #[retval] ppunk: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xc94f0ad0_f363_11d2_a327_00c04f8eec7f)]
+        interface FolderItems2: FolderItems {
+            fn InvokeVerbEx(&self, #[opt] vVerb: VARIANT, #[opt] vArgs: VARIANT) -> HRESULT;
+        }
+        #[guid(0xeaa7c309_bbec_49d5_821d_64d966cb667f)]
+        interface FolderItems3: FolderItems2 {
+            fn Filter(&self, grfFlags: i32, bstrFileSpec: BSTR) -> HRESULT;
+            #[special]
+            fn get_Verbs(&self, #[retval] ppfic: *mut FolderItemVerbs) -> HRESULT;
+        }
+        #[guid(0x00bb2762_6a77_11d0_a535_00c04fd7d062)]
+        interface IAutoComplete: IUnknown {
+            fn Init(&self, hwndEdit: HWND, punkACL: IUnknown, #[opt] pwszRegKeyPath: PCWSTR, #[opt] pwszQuickComplete: PCWSTR) -> HRESULT;
+            fn Enable(&self, fEnable: BOOL) -> HRESULT;
+        }
+        #[guid(0xeac04bc0_3791_11d2_bb95_0060977b464c)]
+        interface IAutoComplete2: IAutoComplete {
+            fn SetOptions(&self, dwFlag: u32) -> HRESULT;
+            fn GetOptions(&self, pdwFlag: *mut u32) -> HRESULT;
+        }
+        #[guid(0x3d8b0590_f691_11d2_8ea9_006097df5bd4)]
+        interface IDataObjectAsyncCapability: IUnknown {
+            fn SetAsyncMode(&self, fDoOpAsync: BOOL) -> HRESULT;
+            fn GetAsyncMode(&self, pfIsOpAsync: *mut BOOL) -> HRESULT;
+            fn StartOperation(&self, #[opt] pbcReserved: IBindCtx) -> HRESULT;
+            fn InOperation(&self, pfInAsyncOp: *mut BOOL) -> HRESULT;
+            fn EndOperation(&self, hResult: HRESULT, pbcReserved: IBindCtx, dwEffects: u32) -> HRESULT;
+        }
+        #[guid(0x8e74c210_cf9d_4eaf_a403_7356428f0a5a)]
+        interface IEnumACString: IEnumString {
+            fn NextItem(&self, #[len_param(1)] #[out] #[opt] pszUrl: PWSTR, cchMax: u32, pulSortIndex: *mut u32) -> HRESULT;
+            fn SetEnumOptions(&self, dwOptions: u32) -> HRESULT;
+            fn GetEnumOptions(&self, pdwOptions: *mut u32) -> HRESULT;
+        }
+        #[guid(0x2d91eea1_9932_11d2_be86_00a0c9a83da1)]
+        interface IFileSearchBand: IDispatch {
+            fn SetFocus(&self) -> HRESULT;
+            fn SetSearchParameters(&self, pbstrSearchID: *const BSTR, bNavToResults: VARIANT_BOOL, #[opt] pvarScope: *const VARIANT, #[opt] pvarQueryFile: *const VARIANT) -> HRESULT;
+            #[special]
+            fn get_SearchID(&self, #[retval] pbstrSearchID: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Scope(&self, #[retval] pvarScope: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_QueryFile(&self, #[retval] pvarFile: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x9ba05970_f6a8_11cf_a442_00a0c90a8f39)]
+        interface IFolderViewOC: IDispatch {
+            fn SetFolderView(&self, pdisp: IDispatch) -> HRESULT;
+        }
+        #[guid(0x0751c551_7568_41c9_8e5b_e22e38919236)]
+        interface INewWDEvents: IWebWizardHost {
+            fn PassportAuthenticate(&self, bstrSignInUrl: BSTR, #[retval] pvfAuthenitcated: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xd8f015c0_c278_11ce_a49e_444553540000)]
+        interface IShellDispatch: IDispatch {
+            #[special]
+            fn get_Application(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            fn NameSpace(&self, vDir: VARIANT, #[retval] ppsdf: *mut Folder) -> HRESULT;
+            fn BrowseForFolder(&self, Hwnd: i32, Title: BSTR, Options: i32, #[opt] RootFolder: VARIANT, #[retval] ppsdf: *mut Folder) -> HRESULT;
+            fn Windows(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            fn Open(&self, vDir: VARIANT) -> HRESULT;
+            fn Explore(&self, vDir: VARIANT) -> HRESULT;
+            fn MinimizeAll(&self) -> HRESULT;
+            fn UndoMinimizeALL(&self) -> HRESULT;
+            fn FileRun(&self) -> HRESULT;
+            fn CascadeWindows(&self) -> HRESULT;
+            fn TileVertically(&self) -> HRESULT;
+            fn TileHorizontally(&self) -> HRESULT;
+            fn ShutdownWindows(&self) -> HRESULT;
+            fn Suspend(&self) -> HRESULT;
+            fn EjectPC(&self) -> HRESULT;
+            fn SetTime(&self) -> HRESULT;
+            fn TrayProperties(&self) -> HRESULT;
+            fn Help(&self) -> HRESULT;
+            fn FindFiles(&self) -> HRESULT;
+            fn FindComputer(&self) -> HRESULT;
+            fn RefreshMenu(&self) -> HRESULT;
+            fn ControlPanelItem(&self, bstrDir: BSTR) -> HRESULT;
+        }
+        #[guid(0xa4c6892c_3ba9_11d2_9dea_00c04fb16162)]
+        interface IShellDispatch2: IShellDispatch {
+            fn IsRestricted(&self, Group: BSTR, Restriction: BSTR, #[retval] plRestrictValue: *mut i32) -> HRESULT;
+            fn ShellExecute(&self, File: BSTR, #[opt] vArgs: VARIANT, #[opt] vDir: VARIANT, #[opt] vOperation: VARIANT, #[opt] vShow: VARIANT) -> HRESULT;
+            fn FindPrinter(&self, #[opt] name: BSTR, #[opt] location: BSTR, #[opt] model: BSTR) -> HRESULT;
+            fn GetSystemInformation(&self, name: BSTR, #[retval] pv: *mut VARIANT) -> HRESULT;
+            fn ServiceStart(&self, ServiceName: BSTR, Persistent: VARIANT, #[retval] pSuccess: *mut VARIANT) -> HRESULT;
+            fn ServiceStop(&self, ServiceName: BSTR, Persistent: VARIANT, #[retval] pSuccess: *mut VARIANT) -> HRESULT;
+            fn IsServiceRunning(&self, ServiceName: BSTR, #[retval] pRunning: *mut VARIANT) -> HRESULT;
+            fn CanStartStopService(&self, ServiceName: BSTR, #[retval] pCanStartStop: *mut VARIANT) -> HRESULT;
+            fn ShowBrowserBar(&self, bstrClsid: BSTR, bShow: VARIANT, #[retval] pSuccess: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x177160ca_bb5a_411c_841d_bd38facdeaa0)]
+        interface IShellDispatch3: IShellDispatch2 {
+            fn AddToRecent(&self, varFile: VARIANT, #[opt] bstrCategory: BSTR) -> HRESULT;
+        }
+        #[guid(0xefd84b2d_4bcf_4298_be25_eb542a59fbda)]
+        interface IShellDispatch4: IShellDispatch3 {
+            fn WindowsSecurity(&self) -> HRESULT;
+            fn ToggleDesktop(&self) -> HRESULT;
+            fn ExplorerPolicy(&self, bstrPolicyName: BSTR, #[retval] pValue: *mut VARIANT) -> HRESULT;
+            fn GetSetting(&self, lSetting: i32, #[retval] pResult: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x866738b9_6cf2_4de8_8767_f794ebe74f4e)]
+        interface IShellDispatch5: IShellDispatch4 {
+            fn WindowSwitcher(&self) -> HRESULT;
+        }
+        #[guid(0x286e6f1b_7113_4355_9562_96b7e9d64c54)]
+        interface IShellDispatch6: IShellDispatch5 {
+            fn SearchCommand(&self) -> HRESULT;
+        }
+        #[guid(0xe7a1af80_4d96_11cf_960c_0080c7f4ee85)]
+        interface IShellFolderViewDual: IDispatch {
+            #[special]
+            fn get_Application(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Folder(&self, #[retval] ppid: *mut Folder) -> HRESULT;
+            fn SelectedItems(&self, #[retval] ppid: *mut FolderItems) -> HRESULT;
+            #[special]
+            fn get_FocusedItem(&self, #[retval] ppid: *mut FolderItem) -> HRESULT;
+            fn SelectItem(&self, pvfi: *const VARIANT, dwFlags: i32) -> HRESULT;
+            fn PopupItemMenu(&self, pfi: FolderItem, #[opt] vx: VARIANT, #[opt] vy: VARIANT, #[retval] pbs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Script(&self, #[retval] ppDisp: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_ViewOptions(&self, #[retval] plViewOptions: *mut i32) -> HRESULT;
+        }
+        #[guid(0x31c147b6_0ade_4a3c_b514_ddf932ef6d17)]
+        interface IShellFolderViewDual2: IShellFolderViewDual {
+            #[special]
+            fn get_CurrentViewMode(&self, #[retval] pViewMode: *mut u32) -> HRESULT;
+            #[special]
+            fn put_CurrentViewMode(&self, ViewMode: u32) -> HRESULT;
+            fn SelectItemRelative(&self, iRelative: i32) -> HRESULT;
+        }
+        #[guid(0x29ec8e6c_46d3_411f_baaa_611a6c9cac66)]
+        interface IShellFolderViewDual3: IShellFolderViewDual2 {
+            #[special]
+            fn get_GroupBy(&self, #[retval] pbstrGroupBy: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_GroupBy(&self, bstrGroupBy: BSTR) -> HRESULT;
+            #[special]
+            fn get_FolderFlags(&self, #[retval] pdwFlags: *mut u32) -> HRESULT;
+            #[special]
+            fn put_FolderFlags(&self, dwFlags: u32) -> HRESULT;
+            #[special]
+            fn get_SortColumns(&self, #[retval] pbstrSortColumns: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SortColumns(&self, bstrSortColumns: BSTR) -> HRESULT;
+            #[special]
+            fn put_IconSize(&self, iIconSize: i32) -> HRESULT;
+            #[special]
+            fn get_IconSize(&self, #[retval] piIconSize: *mut i32) -> HRESULT;
+            fn FilterView(&self, bstrFilterText: BSTR) -> HRESULT;
+        }
+        #[guid(0x88a05c00_f000_11ce_8350_444553540000)]
+        interface IShellLinkDual: IDispatch {
+            #[special]
+            fn get_Path(&self, #[retval] pbs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Path(&self, bs: BSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] pbs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, bs: BSTR) -> HRESULT;
+            #[special]
+            fn get_WorkingDirectory(&self, #[retval] pbs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_WorkingDirectory(&self, bs: BSTR) -> HRESULT;
+            #[special]
+            fn get_Arguments(&self, #[retval] pbs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Arguments(&self, bs: BSTR) -> HRESULT;
+            #[special]
+            fn get_Hotkey(&self, #[retval] piHK: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Hotkey(&self, iHK: i32) -> HRESULT;
+            #[special]
+            fn get_ShowCommand(&self, #[retval] piShowCommand: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ShowCommand(&self, iShowCommand: i32) -> HRESULT;
+            fn Resolve(&self, fFlags: i32) -> HRESULT;
+            fn GetIconLocation(&self, pbs: *mut BSTR, #[retval] piIcon: *mut i32) -> HRESULT;
+            fn SetIconLocation(&self, bs: BSTR, iIcon: i32) -> HRESULT;
+            fn Save(&self, #[opt] vWhere: VARIANT) -> HRESULT;
+        }
+        #[guid(0x317ee249_f12e_11d2_b1e4_00c04f8eeb3e)]
+        interface IShellLinkDual2: IShellLinkDual {
+            #[special]
+            fn get_Target(&self, #[retval] ppfi: *mut FolderItem) -> HRESULT;
+        }
+        #[guid(0x18bcc359_4990_4bfb_b951_3c83702be5f9)]
+        interface IWebWizardHost: IDispatch {
+            fn FinalBack(&self) -> HRESULT;
+            fn FinalNext(&self) -> HRESULT;
+            fn Cancel(&self) -> HRESULT;
+            #[special]
+            fn put_Caption(&self, bstrCaption: BSTR) -> HRESULT;
+            #[special]
+            fn get_Caption(&self, #[retval] pbstrCaption: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Property(&self, bstrPropertyName: BSTR, pvProperty: *const VARIANT) -> HRESULT;
+            #[special]
+            fn get_Property(&self, bstrPropertyName: BSTR, #[retval] pvProperty: *mut VARIANT) -> HRESULT;
+            fn SetWizardButtons(&self, vfEnableBack: VARIANT_BOOL, vfEnableNext: VARIANT_BOOL, vfLastPage: VARIANT_BOOL) -> HRESULT;
+            fn SetHeaderText(&self, bstrHeaderTitle: BSTR, bstrHeaderSubtitle: BSTR) -> HRESULT;
+        }
+        #[guid(0xf9c013dc_3c23_4041_8e39_cfb402f7ea59)]
+        interface IWebWizardHost2: IWebWizardHost {
+            fn SignString(&self, value: BSTR, #[retval] signedValue: *mut BSTR) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum OfflineFolderStatus {
+            OFS_INACTIVE = -1,
+            OFS_ONLINE = 0,
+            OFS_OFFLINE = 1,
+            OFS_SERVERBACK = 2,
+            OFS_DIRTYCACHE = 3,
+        }
+        const Shell: GUID = 0x13709620_c279_11ce_a49e_444553540000;
+        const ShellDispatchInproc: GUID = 0x0a89a860_d7b1_11ce_8350_444553540000;
+        const ShellFolderItem: GUID = 0x2fe352ea_fd1f_11d2_b1f4_00c04f8eeb3e;
+        const ShellFolderView: GUID = 0x62112aa1_ebe4_11cf_a5fb_0020afe7292d;
+        const ShellFolderViewOC: GUID = 0x9ba05971_f6a8_11cf_a442_00a0c90a8f39;
+        #[repr(i32)]
+        enum ShellFolderViewOptions {
+            SFVVO_SHOWALLOBJECTS = 1,
+            SFVVO_SHOWEXTENSIONS = 2,
+            SFVVO_SHOWCOMPCOLOR = 8,
+            SFVVO_SHOWSYSFILES = 32,
+            SFVVO_WIN95CLASSIC = 64,
+            SFVVO_DOUBLECLICKINWEBVIEW = 128,
+            SFVVO_DESKTOPHTML = 512,
+        }
+        const ShellLinkObject: GUID = 0x11219420_1768_11d1_95be_00609797ea4f;
+        #[repr(i32)]
+        enum ShellSpecialFolderConstants {
+            ssfDESKTOP = 0,
+            ssfPROGRAMS = 2,
+            ssfCONTROLS = 3,
+            ssfPRINTERS = 4,
+            ssfPERSONAL = 5,
+            ssfFAVORITES = 6,
+            ssfSTARTUP = 7,
+            ssfRECENT = 8,
+            ssfSENDTO = 9,
+            ssfBITBUCKET = 10,
+            ssfSTARTMENU = 11,
+            ssfDESKTOPDIRECTORY = 16,
+            ssfDRIVES = 17,
+            ssfNETWORK = 18,
+            ssfNETHOOD = 19,
+            ssfFONTS = 20,
+            ssfTEMPLATES = 21,
+            ssfCOMMONSTARTMENU = 22,
+            ssfCOMMONPROGRAMS = 23,
+            ssfCOMMONSTARTUP = 24,
+            ssfCOMMONDESKTOPDIR = 25,
+            ssfAPPDATA = 26,
+            ssfPRINTHOOD = 27,
+            ssfLOCALAPPDATA = 28,
+            ssfALTSTARTUP = 29,
+            ssfCOMMONALTSTARTUP = 30,
+            ssfCOMMONFAVORITES = 31,
+            ssfINTERNETCACHE = 32,
+            ssfCOOKIES = 33,
+            ssfHISTORY = 34,
+            ssfCOMMONAPPDATA = 35,
+            ssfWINDOWS = 36,
+            ssfSYSTEM = 37,
+            ssfPROGRAMFILES = 38,
+            ssfMYPICTURES = 39,
+            ssfPROFILE = 40,
+            ssfSYSTEMx86 = 41,
+            ssfPROGRAMFILESx86 = 48,
+        }
+    }
+}

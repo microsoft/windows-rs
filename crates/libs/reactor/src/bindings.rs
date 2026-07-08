@@ -2,10 +2,10 @@ windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const c
 windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32);
 windows_core::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> windows_core::BOOL);
 windows_core::link!("microsoft.windowsappruntime.bootstrap.dll" "system" fn MddBootstrapInitialize2(majorminorversion : u32, versiontag : *const u16, minversion : PACKAGE_VERSION, options : MddBootstrapInitializeOptions) -> windows_core::HRESULT);
-windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
+windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : u32) -> HMONITOR);
 windows_core::link!("user32.dll" "system" fn PostMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
-windows_core::link!("user32.dll" "system" fn SetWindowPos(hwnd : HWND, hwndinsertafter : HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : SET_WINDOW_POS_FLAGS) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn SetWindowPos(hwnd : HWND, hwndinsertafter : HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_core::BOOL);
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBar(windows_core::IUnknown);
@@ -18011,7 +18011,7 @@ pub struct MONITORINFO {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONITORINFOEXW {
-    pub monitorInfo: MONITORINFO,
+    pub Base: MONITORINFO,
     pub szDevice: [u16; 32],
 }
 impl Default for MONITORINFOEXW {
@@ -18019,8 +18019,7 @@ impl Default for MONITORINFOEXW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = 2;
-pub type MONITOR_FROM_FLAGS = u32;
+pub const MONITOR_DEFAULTTONEAREST: u32 = 2;
 pub type MddBootstrapInitializeOptions = i32;
 pub const MddBootstrapInitializeOptions_OnNoMatch_ShowUI: MddBootstrapInitializeOptions = 8;
 pub const MddBootstrapInitializeOptions_OnPackageIdentity_NOOP: MddBootstrapInitializeOptions = 16;
@@ -20451,10 +20450,9 @@ impl windows_core::RuntimeName for Run {
 }
 unsafe impl Send for Run {}
 unsafe impl Sync for Run {}
-pub type SET_WINDOW_POS_FLAGS = u32;
-pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = 16;
-pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = 1;
-pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = 4;
+pub const SWP_NOACTIVATE: u32 = 16;
+pub const SWP_NOSIZE: u32 = 1;
+pub const SWP_NOZORDER: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ScalarKeyFrameAnimation(windows_core::IUnknown);

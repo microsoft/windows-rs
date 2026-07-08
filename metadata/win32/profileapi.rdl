@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn QueryPerformanceCounter(lpPerformanceCount: *mut LARGE_INTEGER) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn QueryPerformanceFrequency(lpFrequency: *mut LARGE_INTEGER) -> BOOL;
+    }
+}

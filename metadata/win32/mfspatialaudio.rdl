@@ -1,0 +1,19 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xd396ec8c_605e_4249_978d_72ad1c312872)]
+        interface IMFSpatialAudioObjectBuffer: IMFMediaBuffer {
+            fn SetID(&self, u32ID: u32) -> HRESULT;
+            fn GetID(&self, pu32ID: *mut u32) -> HRESULT;
+            fn SetType(&self, r#type: AudioObjectType) -> HRESULT;
+            fn GetType(&self, pType: *mut AudioObjectType) -> HRESULT;
+            fn GetMetadataItems(&self, ppMetadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+        }
+        #[guid(0xabf28a9b_3393_4290_ba79_5ffc46d986b2)]
+        interface IMFSpatialAudioSample: IMFSample {
+            fn GetObjectCount(&self, pdwObjectCount: *mut u32) -> HRESULT;
+            fn AddSpatialAudioObject(&self, pAudioObjBuffer: IMFSpatialAudioObjectBuffer) -> HRESULT;
+            fn GetSpatialAudioObjectByIndex(&self, dwIndex: u32, ppAudioObjBuffer: *mut IMFSpatialAudioObjectBuffer) -> HRESULT;
+        }
+    }
+}

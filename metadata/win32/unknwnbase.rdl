@@ -1,0 +1,31 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x000e0000_0000_0000_c000_000000000046)]
+        interface AsyncIUnknown: IUnknown {
+            fn Begin_QueryInterface(&self, riid: *const GUID) -> HRESULT;
+            fn Finish_QueryInterface(&self, ppvObject: *mut *mut void) -> HRESULT;
+            fn Begin_AddRef(&self) -> HRESULT;
+            fn Finish_AddRef(&self) -> u32;
+            fn Begin_Release(&self) -> HRESULT;
+            fn Finish_Release(&self) -> u32;
+        }
+        #[guid(0x00000001_0000_0000_c000_000000000046)]
+        interface IClassFactory: IUnknown {
+            fn CreateInstance(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn LockServer(&self, fLock: BOOL) -> HRESULT;
+        }
+        #[guid(0x00000000_0000_0000_c000_000000000046)]
+        interface IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+        }
+        #[library("RPCRT4.dll")]
+        extern fn IUnknown_AddRef_Proxy(This: IUnknown) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn IUnknown_QueryInterface_Proxy(This: IUnknown, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        #[library("RPCRT4.dll")]
+        extern fn IUnknown_Release_Proxy(This: IUnknown) -> u32;
+    }
+}

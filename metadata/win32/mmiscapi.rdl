@@ -1,0 +1,212 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CFSEPCHAR: u32 = 43;
+        #[library("WINMM.dll")]
+        extern fn CloseDriver(hDriver: HDRVR, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
+        extern fn DRIVERMSGPROC(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32;
+        extern fn DRIVERPROC(param0: usize, param1: HDRVR, param2: u32, param3: LPARAM, param4: LPARAM) -> LRESULT;
+        const DRVCNF_CANCEL: u32 = 0;
+        const DRVCNF_OK: u32 = 1;
+        const DRVCNF_RESTART: u32 = 2;
+        #[packed(1)]
+        struct DRVCONFIGINFO {
+            dwDCISize: u32,
+            lpszDCISectionName: PCWSTR,
+            lpszDCIAliasName: PCWSTR,
+        }
+        #[packed(1)]
+        struct DRVCONFIGINFOEX {
+            dwDCISize: u32,
+            lpszDCISectionName: PCWSTR,
+            lpszDCIAliasName: PCWSTR,
+            dnDevNode: u32,
+        }
+        const DRV_CANCEL: u32 = 0;
+        const DRV_CLOSE: u32 = 4;
+        const DRV_CONFIGURE: u32 = 7;
+        const DRV_DISABLE: u32 = 5;
+        const DRV_ENABLE: u32 = 2;
+        const DRV_EXITSESSION: u32 = 11;
+        const DRV_FREE: u32 = 6;
+        const DRV_INSTALL: u32 = 9;
+        const DRV_LOAD: u32 = 1;
+        const DRV_MCI_FIRST: u32 = 2048;
+        const DRV_MCI_LAST: u32 = 6143;
+        const DRV_OK: u32 = 1;
+        const DRV_OPEN: u32 = 3;
+        const DRV_POWER: u32 = 15;
+        const DRV_QUERYCONFIGURE: u32 = 8;
+        const DRV_REMOVE: u32 = 10;
+        const DRV_RESERVED: u32 = 2048;
+        const DRV_RESTART: u32 = 2;
+        const DRV_USER: u32 = 16384;
+        #[library("WINMM.dll")]
+        extern fn DefDriverProc(dwDriverIdentifier: usize, hdrvr: HDRVR, uMsg: u32, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
+        #[library("WINMM.dll")]
+        extern fn DriverCallback(dwCallback: usize, dwFlags: u32, hDevice: HDRVR, dwMsg: u32, dwUser: usize, dwParam1: usize, dwParam2: usize) -> BOOL;
+        #[library("WINMM.dll")]
+        extern fn DrvGetModuleHandle(hDriver: HDRVR) -> HMODULE;
+        type FOURCC = u32;
+        const FOURCC_DOS: u32 = 542330692;
+        const FOURCC_LIST: u32 = 1414744396;
+        const FOURCC_MEM: u32 = 541934925;
+        const FOURCC_RIFF: u32 = 1179011410;
+        #[library("WINMM.dll")]
+        extern fn GetDriverModuleHandle(hDriver: HDRVR) -> HMODULE;
+        type HMMIO = *mut void;
+        type HPSTR = *mut i8;
+        type LPCMMCKINFO = *const MMCKINFO;
+        type LPCMMIOINFO = *const MMIOINFO;
+        type LPDRVCONFIGINFO = *mut DRVCONFIGINFO;
+        type LPDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
+        type LPMMCKINFO = *mut MMCKINFO;
+        type LPMMIOINFO = *mut MMIOINFO;
+        extern fn LPMMIOPROC(lpmmioinfo: PSTR, uMsg: u32, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
+        #[packed(1)]
+        struct MMCKINFO {
+            ckid: FOURCC,
+            cksize: u32,
+            fccType: FOURCC,
+            dwDataOffset: u32,
+            dwFlags: u32,
+        }
+        const MMIOERR_ACCESSDENIED: u32 = 268;
+        const MMIOERR_BASE: u32 = 256;
+        const MMIOERR_CANNOTCLOSE: u32 = 260;
+        const MMIOERR_CANNOTEXPAND: u32 = 264;
+        const MMIOERR_CANNOTOPEN: u32 = 259;
+        const MMIOERR_CANNOTREAD: u32 = 261;
+        const MMIOERR_CANNOTSEEK: u32 = 263;
+        const MMIOERR_CANNOTWRITE: u32 = 262;
+        const MMIOERR_CHUNKNOTFOUND: u32 = 265;
+        const MMIOERR_FILENOTFOUND: u32 = 257;
+        const MMIOERR_INVALIDFILE: u32 = 272;
+        const MMIOERR_NETWORKERROR: u32 = 270;
+        const MMIOERR_OUTOFMEMORY: u32 = 258;
+        const MMIOERR_PATHNOTFOUND: u32 = 267;
+        const MMIOERR_SHARINGVIOLATION: u32 = 269;
+        const MMIOERR_TOOMANYOPENFILES: u32 = 271;
+        const MMIOERR_UNBUFFERED: u32 = 266;
+        #[packed(1)]
+        struct MMIOINFO {
+            dwFlags: u32,
+            fccIOProc: FOURCC,
+            pIOProc: LPMMIOPROC,
+            wErrorRet: u32,
+            htask: HTASK,
+            cchBuffer: i32,
+            pchBuffer: HPSTR,
+            pchNext: HPSTR,
+            pchEndRead: HPSTR,
+            pchEndWrite: HPSTR,
+            lBufOffset: i32,
+            lDiskOffset: i32,
+            adwInfo: [u32; 3],
+            dwReserved1: u32,
+            dwReserved2: u32,
+            hmmio: HMMIO,
+        }
+        const MMIOM_CLOSE: u32 = 4;
+        const MMIOM_OPEN: u32 = 3;
+        const MMIOM_READ: u32 = 0;
+        const MMIOM_RENAME: u32 = 6;
+        const MMIOM_SEEK: u32 = 2;
+        const MMIOM_USER: u32 = 32768;
+        const MMIOM_WRITE: u32 = 1;
+        const MMIOM_WRITEFLUSH: u32 = 5;
+        extern fn MMIOPROC(lpmmioinfo: PSTR, uMsg: u32, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
+        const MMIO_ALLOCBUF: u32 = 65536;
+        const MMIO_COMPAT: u32 = 0;
+        const MMIO_CREATE: u32 = 4096;
+        const MMIO_CREATELIST: u32 = 64;
+        const MMIO_CREATERIFF: u32 = 32;
+        const MMIO_DEFAULTBUFFER: u32 = 8192;
+        const MMIO_DELETE: u32 = 512;
+        const MMIO_DENYNONE: u32 = 64;
+        const MMIO_DENYREAD: u32 = 48;
+        const MMIO_DENYWRITE: u32 = 32;
+        const MMIO_DIRTY: u32 = 268435456;
+        const MMIO_EMPTYBUF: u32 = 16;
+        const MMIO_EXCLUSIVE: u32 = 16;
+        const MMIO_EXIST: u32 = 16384;
+        const MMIO_FHOPEN: u32 = 16;
+        const MMIO_FINDCHUNK: u32 = 16;
+        const MMIO_FINDLIST: u32 = 64;
+        const MMIO_FINDPROC: u32 = 262144;
+        const MMIO_FINDRIFF: u32 = 32;
+        const MMIO_GETTEMP: u32 = 131072;
+        const MMIO_GLOBALPROC: u32 = 268435456;
+        const MMIO_INSTALLPROC: u32 = 65536;
+        const MMIO_PARSE: u32 = 256;
+        const MMIO_READ: u32 = 0;
+        const MMIO_READWRITE: u32 = 2;
+        const MMIO_REMOVEPROC: u32 = 131072;
+        const MMIO_RWMODE: u32 = 3;
+        const MMIO_SHAREMODE: u32 = 112;
+        const MMIO_TOUPPER: u32 = 16;
+        const MMIO_UNICODEPROC: u32 = 16777216;
+        const MMIO_WRITE: u32 = 1;
+        type NPDRVCONFIGINFO = *mut DRVCONFIGINFO;
+        type NPDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
+        type NPMMCKINFO = *mut MMCKINFO;
+        type NPMMIOINFO = *mut MMIOINFO;
+        #[library("WINMM.dll")]
+        extern fn OpenDriver(szDriverName: PCWSTR, szSectionName: PCWSTR, lParam2: LPARAM) -> HDRVR;
+        type PDRVCONFIGINFO = *mut DRVCONFIGINFO;
+        type PDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
+        type PMMCKINFO = *mut MMCKINFO;
+        type PMMIOINFO = *mut MMIOINFO;
+        const SEEK_CUR: u32 = 1;
+        const SEEK_END: u32 = 2;
+        const SEEK_SET: u32 = 0;
+        #[library("WINMM.dll")]
+        extern fn SendDriverMessage(hDriver: HDRVR, message: u32, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmDrvInstall(hDriver: HDRVR, wszDrvEntry: PCWSTR, drvMessage: DRIVERMSGPROC, wFlags: u32) -> u32;
+        #[library("WINMM.dll")]
+        extern fn mmioAdvance(hmmio: HMMIO, #[opt] pmmioinfo: *const MMIOINFO, fuAdvance: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuAscend: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioClose(hmmio: HMMIO, fuClose: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuCreate: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioDescend(hmmio: HMMIO, #[in] #[out] pmmcki: *mut MMCKINFO, #[opt] pmmckiParent: *const MMCKINFO, fuDescend: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioFlush(hmmio: HMMIO, fuFlush: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuInfo: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioInstallIOProcA(fccIOProc: FOURCC, #[opt] pIOProc: LPMMIOPROC, dwFlags: u32) -> LPMMIOPROC;
+        #[library("WINMM.dll")]
+        extern fn mmioInstallIOProcW(fccIOProc: FOURCC, #[opt] pIOProc: LPMMIOPROC, dwFlags: u32) -> LPMMIOPROC;
+        #[library("WINMM.dll")]
+        extern fn mmioOpenA(#[in] #[out] #[opt] pszFileName: PSTR, #[in] #[out] #[opt] pmmioinfo: *mut MMIOINFO, fdwOpen: u32) -> HMMIO;
+        #[library("WINMM.dll")]
+        extern fn mmioOpenW(#[in] #[out] #[opt] pszFileName: PWSTR, #[in] #[out] #[opt] pmmioinfo: *mut MMIOINFO, fdwOpen: u32) -> HMMIO;
+        #[library("WINMM.dll")]
+        extern fn mmioRead(hmmio: HMMIO, #[size_param(2)] pch: *mut i8, cch: i32) -> i32;
+        #[library("WINMM.dll")]
+        extern fn mmioRenameA(pszFileName: PCSTR, pszNewFileName: PCSTR, #[opt] pmmioinfo: *const MMIOINFO, fdwRename: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioRenameW(pszFileName: PCWSTR, pszNewFileName: PCWSTR, #[opt] pmmioinfo: *const MMIOINFO, fdwRename: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioSeek(hmmio: HMMIO, lOffset: i32, iOrigin: i32) -> i32;
+        #[library("WINMM.dll")]
+        extern fn mmioSendMessage(hmmio: HMMIO, uMsg: u32, #[opt] lParam1: LPARAM, #[opt] lParam2: LPARAM) -> LRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioSetBuffer(hmmio: HMMIO, #[len_param(2)] #[out] #[opt] pchBuffer: PSTR, cchBuffer: i32, fuBuffer: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuInfo: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn mmioStringToFOURCCA(sz: PCSTR, uFlags: u32) -> FOURCC;
+        #[library("WINMM.dll")]
+        extern fn mmioStringToFOURCCW(sz: PCWSTR, uFlags: u32) -> FOURCC;
+        #[library("WINMM.dll")]
+        extern fn mmioWrite(hmmio: HMMIO, #[size_param(2)] pch: *const i8, cch: i32) -> i32;
+        #[library("api-ms-win-mm-misc-l1-1-1.dll")]
+        extern fn sndOpenSound(EventName: PCWSTR, AppName: PCWSTR, Flags: i32, FileHandle: *mut HANDLE) -> i32;
+    }
+}

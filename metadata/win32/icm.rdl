@@ -1,0 +1,641 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ATTRIB_MATTE: u32 = 2;
+        const ATTRIB_TRANSPARENCY: u32 = 1;
+        #[library("mscms.dll")]
+        extern fn AssociateColorProfileWithDeviceA(#[opt] pMachineName: PCSTR, pProfileName: PCSTR, pDeviceName: PCSTR) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn AssociateColorProfileWithDeviceW(#[opt] pMachineName: PCWSTR, pProfileName: PCWSTR, pDeviceName: PCWSTR) -> BOOL;
+        const BEST_MODE: u32 = 3;
+        #[repr(i32)]
+        enum BMFORMAT {
+            BM_x555RGB = 0,
+            BM_x555XYZ = 257,
+            BM_x555Yxy = 258,
+            BM_x555Lab = 259,
+            BM_x555G3CH = 260,
+            BM_RGBTRIPLETS = 2,
+            BM_BGRTRIPLETS = 4,
+            BM_XYZTRIPLETS = 513,
+            BM_YxyTRIPLETS = 514,
+            BM_LabTRIPLETS = 515,
+            BM_G3CHTRIPLETS = 516,
+            BM_5CHANNEL = 517,
+            BM_6CHANNEL = 518,
+            BM_7CHANNEL = 519,
+            BM_8CHANNEL = 520,
+            BM_GRAY = 521,
+            BM_xRGBQUADS = 8,
+            BM_xBGRQUADS = 16,
+            BM_xG3CHQUADS = 772,
+            BM_KYMCQUADS = 773,
+            BM_CMYKQUADS = 32,
+            BM_10b_RGB = 9,
+            BM_10b_XYZ = 1025,
+            BM_10b_Yxy = 1026,
+            BM_10b_Lab = 1027,
+            BM_10b_G3CH = 1028,
+            BM_NAMED_INDEX = 1029,
+            BM_16b_RGB = 10,
+            BM_16b_XYZ = 1281,
+            BM_16b_Yxy = 1282,
+            BM_16b_Lab = 1283,
+            BM_16b_G3CH = 1284,
+            BM_16b_GRAY = 1285,
+            BM_565RGB = 1,
+            BM_32b_scRGB = 1537,
+            BM_32b_scARGB = 1538,
+            BM_S2DOT13FIXED_scRGB = 1539,
+            BM_S2DOT13FIXED_scARGB = 1540,
+            BM_R10G10B10A2 = 1793,
+            BM_R10G10B10A2_XR = 1794,
+            BM_R16G16B16A16_FLOAT = 1795,
+        }
+        const CLASS_ABSTRACT: u32 = 1633842036;
+        const CLASS_CAMP: u32 = 1667329392;
+        const CLASS_COLORSPACE: u32 = 1936744803;
+        const CLASS_GMMP: u32 = 1735224688;
+        const CLASS_LINK: u32 = 1818848875;
+        const CLASS_MONITOR: u32 = 1835955314;
+        const CLASS_NAMED: u32 = 1852662636;
+        const CLASS_PRINTER: u32 = 1886549106;
+        const CLASS_SCANNER: u32 = 1935896178;
+        #[library("ICM32.dll")]
+        extern fn CMCheckColors(hcmTransform: HCMTRANSFORM, #[len_param(2)] lpaInputColors: *const COLOR, nColors: u32, ctInput: COLORTYPE, #[len_param(2)] lpaResult: *mut u8) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMCheckColorsInGamut(hcmTransform: HCMTRANSFORM, #[len_param(3)] lpaRGBTriple: *const RGBTRIPLE, #[size_param(3)] lpaResult: *mut u8, nCount: u32) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMCheckRGBs(hcmTransform: HCMTRANSFORM, lpSrcBits: *const void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwStride: u32, lpaResult: *mut u8, pfnCallback: PBMCALLBACKFN, ulCallbackData: LPARAM) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMConvertColorNameToIndex(hProfile: HPROFILE, #[len_param(3)] paColorName: *const COLOR_NAME, #[len_param(3)] paIndex: *mut u32, dwCount: u32) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMConvertIndexToColorName(hProfile: HPROFILE, #[len_param(3)] paIndex: *const u32, #[len_param(3)] paColorName: *mut COLOR_NAME, dwCount: u32) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMCreateDeviceLinkProfile(#[len_param(1)] pahProfiles: *const HPROFILE, nProfiles: u32, #[len_param(3)] padwIntents: *const u32, nIntents: u32, dwFlags: u32, lpProfileData: *mut LPBYTE) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMCreateMultiProfileTransform(#[len_param(1)] pahProfiles: *const HPROFILE, nProfiles: u32, #[len_param(3)] padwIntents: *const u32, nIntents: u32, dwFlags: u32) -> HCMTRANSFORM;
+        #[library("ICM32.dll")]
+        extern fn CMCreateProfile(#[in] #[out] lpColorSpace: *mut LOGCOLORSPACEA, lpProfileData: *mut LPDEVCHARACTER) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMCreateProfileW(#[in] #[out] lpColorSpace: *mut LOGCOLORSPACEW, lpProfileData: *mut LPDEVCHARACTER) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMCreateTransform(lpColorSpace: *const LOGCOLORSPACEA, lpDevCharacter: LPDEVCHARACTER, lpTargetDevCharacter: LPDEVCHARACTER) -> HCMTRANSFORM;
+        #[library("ICM32.dll")]
+        extern fn CMCreateTransformExt(lpColorSpace: *const LOGCOLORSPACEA, lpDevCharacter: LPDEVCHARACTER, lpTargetDevCharacter: LPDEVCHARACTER, dwFlags: u32) -> HCMTRANSFORM;
+        #[library("ICM32.dll")]
+        extern fn CMCreateTransformExtW(lpColorSpace: *const LOGCOLORSPACEW, lpDevCharacter: LPDEVCHARACTER, lpTargetDevCharacter: LPDEVCHARACTER, dwFlags: u32) -> HCMTRANSFORM;
+        #[library("ICM32.dll")]
+        extern fn CMCreateTransformW(lpColorSpace: *const LOGCOLORSPACEW, lpDevCharacter: LPDEVCHARACTER, lpTargetDevCharacter: LPDEVCHARACTER) -> HCMTRANSFORM;
+        #[library("ICM32.dll")]
+        extern fn CMDeleteTransform(#[in] #[out] hcmTransform: HCMTRANSFORM) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMGetInfo(dwInfo: u32) -> u32;
+        #[library("ICM32.dll")]
+        extern fn CMGetNamedProfileInfo(hProfile: HPROFILE, #[in] #[out] pNamedProfileInfo: *mut NAMED_PROFILE_INFO) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMIsProfileValid(hProfile: HPROFILE, lpbValid: *mut BOOL) -> BOOL;
+        const CMM_DESCRIPTION: u32 = 5;
+        const CMM_DLL_VERSION: u32 = 3;
+        const CMM_DRIVER_VERSION: u32 = 2;
+        const CMM_FROM_PROFILE: u32 = 0;
+        const CMM_IDENT: u32 = 1;
+        const CMM_LOGOICON: u32 = 6;
+        const CMM_VERSION: u32 = 4;
+        const CMM_WINDOWS_DEFAULT: u32 = 1466527264;
+        const CMM_WIN_VERSION: u32 = 0;
+        const CMS_BACKWARD: u32 = 1;
+        const CMS_DISABLEICM: u32 = 1;
+        const CMS_DISABLEINTENT: u32 = 1024;
+        const CMS_DISABLERENDERINTENT: u32 = 2048;
+        const CMS_ENABLEPROOFING: u32 = 2;
+        const CMS_FORWARD: u32 = 0;
+        const CMS_MONITOROVERFLOW: u32 = 2147483648;
+        const CMS_PRINTEROVERFLOW: u32 = 1073741824;
+        const CMS_SETMONITORPROFILE: u32 = 16;
+        const CMS_SETPRINTERPROFILE: u32 = 32;
+        const CMS_SETPROOFINTENT: u32 = 8;
+        const CMS_SETRENDERINTENT: u32 = 4;
+        const CMS_SETTARGETPROFILE: u32 = 64;
+        const CMS_TARGETOVERFLOW: u32 = 536870912;
+        const CMS_USEAPPLYCALLBACK: u32 = 256;
+        const CMS_USEDESCRIPTION: u32 = 512;
+        const CMS_USEHOOK: u32 = 128;
+        #[library("ICM32.dll")]
+        extern fn CMTranslateColors(hcmTransform: HCMTRANSFORM, #[len_param(2)] lpaInputColors: *const COLOR, nColors: u32, ctInput: COLORTYPE, #[len_param(2)] lpaOutputColors: *mut COLOR, ctOutput: COLORTYPE) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMTranslateRGB(hcmTransform: HCMTRANSFORM, ColorRef: COLORREF, lpColorRef: *mut u32, dwFlags: u32) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMTranslateRGBs(hcmTransform: HCMTRANSFORM, lpSrcBits: *const void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwStride: u32, lpDestBits: *mut void, bmOutput: BMFORMAT, dwTranslateDirection: u32) -> BOOL;
+        #[library("ICM32.dll")]
+        extern fn CMTranslateRGBsExt(hcmTransform: HCMTRANSFORM, lpSrcBits: *const void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwInputStride: u32, lpDestBits: *mut void, bmOutput: BMFORMAT, dwOutputStride: u32, lpfnCallback: LPBMCALLBACKFN, ulCallbackData: LPARAM) -> BOOL;
+        struct CMYKCOLOR {
+            cyan: u16,
+            magenta: u16,
+            yellow: u16,
+            black: u16,
+        }
+        union COLOR {
+            gray: GRAYCOLOR,
+            rgb: RGBCOLOR,
+            cmyk: CMYKCOLOR,
+            XYZ: XYZCOLOR,
+            Yxy: YxyCOLOR,
+            Lab: LabCOLOR,
+            gen3ch: GENERIC3CHANNEL,
+            named: NAMEDCOLOR,
+            hifi: HiFiCOLOR,
+            Anonymous: struct {
+                reserved1: u32,
+                reserved2: *mut void,
+            },
+        }
+        #[repr(i32)]
+        enum COLORDATATYPE {
+            COLOR_BYTE = 1,
+            COLOR_WORD = 2,
+            COLOR_FLOAT = 3,
+            COLOR_S2DOT13FIXED = 4,
+            COLOR_10b_R10G10B10A2 = 5,
+            COLOR_10b_R10G10B10A2_XR = 6,
+            COLOR_FLOAT16 = 7,
+        }
+        struct COLORMATCHSETUPA {
+            dwSize: u32,
+            dwVersion: u32,
+            dwFlags: u32,
+            hwndOwner: HWND,
+            pSourceName: PCSTR,
+            pDisplayName: PCSTR,
+            pPrinterName: PCSTR,
+            dwRenderIntent: u32,
+            dwProofingIntent: u32,
+            pMonitorProfile: PSTR,
+            ccMonitorProfile: u32,
+            pPrinterProfile: PSTR,
+            ccPrinterProfile: u32,
+            pTargetProfile: PSTR,
+            ccTargetProfile: u32,
+            lpfnHook: DLGPROC,
+            lParam: LPARAM,
+            lpfnApplyCallback: PCMSCALLBACKA,
+            lParamApplyCallback: LPARAM,
+        }
+        struct COLORMATCHSETUPW {
+            dwSize: u32,
+            dwVersion: u32,
+            dwFlags: u32,
+            hwndOwner: HWND,
+            pSourceName: PCWSTR,
+            pDisplayName: PCWSTR,
+            pPrinterName: PCWSTR,
+            dwRenderIntent: u32,
+            dwProofingIntent: u32,
+            pMonitorProfile: PWSTR,
+            ccMonitorProfile: u32,
+            pPrinterProfile: PWSTR,
+            ccPrinterProfile: u32,
+            pTargetProfile: PWSTR,
+            ccTargetProfile: u32,
+            lpfnHook: DLGPROC,
+            lParam: LPARAM,
+            lpfnApplyCallback: PCMSCALLBACKW,
+            lParamApplyCallback: LPARAM,
+        }
+        #[repr(i32)]
+        enum COLORPROFILESUBTYPE {
+            CPST_PERCEPTUAL = 0,
+            CPST_RELATIVE_COLORIMETRIC = 1,
+            CPST_SATURATION = 2,
+            CPST_ABSOLUTE_COLORIMETRIC = 3,
+            CPST_NONE = 4,
+            CPST_RGB_WORKING_SPACE = 5,
+            CPST_CUSTOM_WORKING_SPACE = 6,
+            CPST_STANDARD_DISPLAY_COLOR_MODE = 7,
+            CPST_EXTENDED_DISPLAY_COLOR_MODE = 8,
+        }
+        #[repr(i32)]
+        enum COLORPROFILETYPE {
+            CPT_ICC = 0,
+            CPT_DMP = 1,
+            CPT_CAMP = 2,
+            CPT_GMMP = 3,
+        }
+        #[repr(i32)]
+        enum COLORTYPE {
+            COLOR_GRAY = 1,
+            COLOR_RGB = 2,
+            COLOR_XYZ = 3,
+            COLOR_Yxy = 4,
+            COLOR_Lab = 5,
+            COLOR_3_CHANNEL = 6,
+            COLOR_CMYK = 7,
+            COLOR_5_CHANNEL = 8,
+            COLOR_6_CHANNEL = 9,
+            COLOR_7_CHANNEL = 10,
+            COLOR_8_CHANNEL = 11,
+            COLOR_NAMED = 12,
+        }
+        const COLOR_MATCH_VERSION: u32 = 512;
+        type COLOR_NAME = [i8; 32];
+        const CSA_A: u32 = 1;
+        const CSA_ABC: u32 = 2;
+        const CSA_CMYK: u32 = 7;
+        const CSA_DEF: u32 = 3;
+        const CSA_DEFG: u32 = 4;
+        const CSA_GRAY: u32 = 5;
+        const CSA_Lab: u32 = 8;
+        const CSA_RGB: u32 = 6;
+        #[library("mscms.dll")]
+        extern fn CheckBitmapBits(hColorTransform: HTRANSFORM, pSrcBits: *const void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwStride: u32, paResult: *mut u8, #[opt] pfnCallback: PBMCALLBACKFN, #[opt] lpCallbackData: LPARAM) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn CheckColors(hColorTransform: HTRANSFORM, #[len_param(2)] paInputColors: *const COLOR, nColors: u32, ctInput: COLORTYPE, #[len_param(2)] paResult: *mut u8) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn CloseColorProfile(#[opt] hProfile: HPROFILE) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profileName: PCWSTR, targetAdapterID: LUID, sourceID: u32, setAsDefault: BOOL, associateAsAdvancedColor: BOOL) -> HRESULT;
+        #[library("mscms.dll")]
+        extern fn ColorProfileGetDeviceCapabilities(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetAdapterID: LUID, sourceID: u32, capsType: WCS_DEVICE_CAPABILITIES_TYPE, outputCapabilities: *mut void) -> HRESULT;
+        #[library("mscms.dll")]
+        extern fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetAdapterID: LUID, sourceID: u32, profileType: COLORPROFILETYPE, profileSubType: COLORPROFILESUBTYPE, profileName: *mut PWSTR) -> HRESULT;
+        #[library("mscms.dll")]
+        extern fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetAdapterID: LUID, sourceID: u32, profileList: *mut *mut PWSTR, profileCount: *mut u32) -> HRESULT;
+        #[library("mscms.dll")]
+        extern fn ColorProfileGetDisplayUserScope(targetAdapterID: LUID, sourceID: u32, scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> HRESULT;
+        #[library("mscms.dll")]
+        extern fn ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profileName: PCWSTR, targetAdapterID: LUID, sourceID: u32, dissociateAdvancedColor: BOOL) -> HRESULT;
+        #[library("mscms.dll")]
+        extern fn ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profileName: PCWSTR, profileType: COLORPROFILETYPE, profileSubType: COLORPROFILESUBTYPE, targetAdapterID: LUID, sourceID: u32) -> HRESULT;
+        #[library("mscms.dll")]
+        extern fn ConvertColorNameToIndex(hProfile: HPROFILE, #[len_param(3)] paColorName: *const COLOR_NAME, #[len_param(3)] paIndex: *mut u32, dwCount: u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn ConvertIndexToColorName(hProfile: HPROFILE, #[len_param(3)] paIndex: *const u32, #[len_param(3)] paColorName: *mut COLOR_NAME, dwCount: u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn CreateColorTransformA(pLogColorSpace: *const LOGCOLORSPACEA, hDestProfile: HPROFILE, hTargetProfile: HPROFILE, dwFlags: u32) -> HTRANSFORM;
+        #[library("mscms.dll")]
+        extern fn CreateColorTransformW(pLogColorSpace: *const LOGCOLORSPACEW, hDestProfile: HPROFILE, hTargetProfile: HPROFILE, dwFlags: u32) -> HTRANSFORM;
+        #[library("mscms.dll")]
+        extern fn CreateDeviceLinkProfile(#[len_param(1)] hProfile: *const HPROFILE, nProfiles: u32, #[len_param(3)] padwIntent: *const u32, nIntents: u32, dwFlags: u32, pProfileData: *mut PBYTE, indexPreferredCMM: u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn CreateMultiProfileTransform(#[len_param(1)] pahProfiles: *const HPROFILE, nProfiles: u32, #[len_param(3)] padwIntent: *const u32, nIntents: u32, dwFlags: u32, indexPreferredCMM: u32) -> HTRANSFORM;
+        #[library("mscms.dll")]
+        extern fn CreateProfileFromLogColorSpaceA(pLogColorSpace: *const LOGCOLORSPACEA, pProfile: *mut PBYTE) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn CreateProfileFromLogColorSpaceW(pLogColorSpace: *const LOGCOLORSPACEW, pProfile: *mut PBYTE) -> BOOL;
+        const DONT_USE_EMBEDDED_WCS_PROFILES: u32 = 1;
+        #[library("mscms.dll")]
+        extern fn DeleteColorTransform(#[in] #[out] hxform: HTRANSFORM) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn DisassociateColorProfileFromDeviceA(#[opt] pMachineName: PCSTR, pProfileName: PCSTR, pDeviceName: PCSTR) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn DisassociateColorProfileFromDeviceW(#[opt] pMachineName: PCWSTR, pProfileName: PCWSTR, pDeviceName: PCWSTR) -> BOOL;
+        const ENABLE_GAMUT_CHECKING: u32 = 65536;
+        struct ENUMTYPEA {
+            dwSize: u32,
+            dwVersion: u32,
+            dwFields: u32,
+            pDeviceName: PCSTR,
+            dwMediaType: u32,
+            dwDitheringMode: u32,
+            dwResolution: [u32; 2],
+            dwCMMType: u32,
+            dwClass: u32,
+            dwDataColorSpace: u32,
+            dwConnectionSpace: u32,
+            dwSignature: u32,
+            dwPlatform: u32,
+            dwProfileFlags: u32,
+            dwManufacturer: u32,
+            dwModel: u32,
+            dwAttributes: [u32; 2],
+            dwRenderingIntent: u32,
+            dwCreator: u32,
+            dwDeviceClass: u32,
+        }
+        struct ENUMTYPEW {
+            dwSize: u32,
+            dwVersion: u32,
+            dwFields: u32,
+            pDeviceName: PCWSTR,
+            dwMediaType: u32,
+            dwDitheringMode: u32,
+            dwResolution: [u32; 2],
+            dwCMMType: u32,
+            dwClass: u32,
+            dwDataColorSpace: u32,
+            dwConnectionSpace: u32,
+            dwSignature: u32,
+            dwPlatform: u32,
+            dwProfileFlags: u32,
+            dwManufacturer: u32,
+            dwModel: u32,
+            dwAttributes: [u32; 2],
+            dwRenderingIntent: u32,
+            dwCreator: u32,
+            dwDeviceClass: u32,
+        }
+        const ENUM_TYPE_VERSION: u32 = 768;
+        const ET_ATTRIBUTES: u32 = 8192;
+        const ET_CLASS: u32 = 32;
+        const ET_CMMTYPE: u32 = 16;
+        const ET_CONNECTIONSPACE: u32 = 128;
+        const ET_CREATOR: u32 = 32768;
+        const ET_DATACOLORSPACE: u32 = 64;
+        const ET_DEVICECLASS: u32 = 65536;
+        const ET_DEVICENAME: u32 = 1;
+        const ET_DITHERMODE: u32 = 4;
+        const ET_EXTENDEDDISPLAYCOLOR: u32 = 262144;
+        const ET_MANUFACTURER: u32 = 2048;
+        const ET_MEDIATYPE: u32 = 2;
+        const ET_MODEL: u32 = 4096;
+        const ET_PLATFORM: u32 = 512;
+        const ET_PROFILEFLAGS: u32 = 1024;
+        const ET_RENDERINGINTENT: u32 = 16384;
+        const ET_RESOLUTION: u32 = 8;
+        const ET_SIGNATURE: u32 = 256;
+        const ET_STANDARDDISPLAYCOLOR: u32 = 131072;
+        #[library("mscms.dll")]
+        extern fn EnumColorProfilesA(#[opt] pMachineName: PCSTR, pEnumRecord: *const ENUMTYPEA, #[size_param(3)] #[opt] pEnumerationBuffer: *mut u8, #[in] #[out] pdwSizeOfEnumerationBuffer: *mut u32, #[opt] pnProfiles: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn EnumColorProfilesW(#[opt] pMachineName: PCWSTR, pEnumRecord: *const ENUMTYPEW, #[size_param(3)] #[opt] pEnumerationBuffer: *mut u8, #[in] #[out] pdwSizeOfEnumerationBuffer: *mut u32, #[opt] pnProfiles: *mut u32) -> BOOL;
+        const FAST_TRANSLATE: u32 = 262144;
+        const FLAG_DEPENDENTONDATA: u32 = 2;
+        const FLAG_EMBEDDEDPROFILE: u32 = 1;
+        const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432;
+        struct GENERIC3CHANNEL {
+            ch1: u16,
+            ch2: u16,
+            ch3: u16,
+        }
+        struct GRAYCOLOR {
+            gray: u16,
+        }
+        #[library("mscms.dll")]
+        extern fn GetCMMInfo(hColorTransform: HTRANSFORM, param1: u32) -> u32;
+        #[library("mscms.dll")]
+        extern fn GetColorDirectoryA(#[opt] pMachineName: PCSTR, #[size_param(2)] #[out] #[opt] pBuffer: PSTR, #[in] #[out] pdwSize: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetColorDirectoryW(#[opt] pMachineName: PCWSTR, #[size_param(2)] #[out] #[opt] pBuffer: PWSTR, #[in] #[out] pdwSize: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetColorProfileElement(hProfile: HPROFILE, tag: TAGTYPE, dwOffset: u32, #[in] #[out] pcbElement: *mut u32, #[size_param(3)] #[opt] pElement: *mut void, pbReference: *mut BOOL) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetColorProfileElementTag(hProfile: HPROFILE, dwIndex: u32, pTag: *mut TAGTYPE) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetColorProfileFromHandle(hProfile: HPROFILE, #[size_param(2)] #[opt] pProfile: *mut u8, #[in] #[out] pcbProfile: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetColorProfileHeader(hProfile: HPROFILE, pHeader: *mut PROFILEHEADER) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetCountColorProfileElements(hProfile: HPROFILE, pnElementCount: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetNamedProfileInfo(hProfile: HPROFILE, #[in] #[out] pNamedProfileInfo: *mut NAMED_PROFILE_INFO) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetPS2ColorRenderingDictionary(hProfile: HPROFILE, dwIntent: u32, #[size_param(3)] #[opt] pPS2ColorRenderingDictionary: *mut u8, #[in] #[out] pcbPS2ColorRenderingDictionary: *mut u32, #[in] #[out] pbBinary: *mut BOOL) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetPS2ColorRenderingIntent(hProfile: HPROFILE, dwIntent: u32, #[size_param(3)] #[opt] pBuffer: *mut u8, #[in] #[out] pcbPS2ColorRenderingIntent: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetPS2ColorSpaceArray(hProfile: HPROFILE, dwIntent: u32, dwCSAType: u32, #[size_param(4)] #[opt] pPS2ColorSpaceArray: *mut u8, #[in] #[out] pcbPS2ColorSpaceArray: *mut u32, pbBinary: *mut BOOL) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetStandardColorSpaceProfileA(#[opt] pMachineName: PCSTR, dwSCS: u32, #[size_param(3)] #[out] #[opt] pBuffer: PSTR, #[in] #[out] pcbSize: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn GetStandardColorSpaceProfileW(#[opt] pMachineName: PCWSTR, dwSCS: u32, #[size_param(3)] #[out] #[opt] pBuffer: PWSTR, #[in] #[out] pcbSize: *mut u32) -> BOOL;
+        type HCMTRANSFORM = HANDLE;
+        type HPROFILE = HANDLE;
+        type HTRANSFORM = HANDLE;
+        struct HiFiCOLOR {
+            channel: [u8; 8],
+        }
+        const INDEX_DONT_CARE: u32 = 0;
+        const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3;
+        const INTENT_PERCEPTUAL: u32 = 0;
+        const INTENT_RELATIVE_COLORIMETRIC: u32 = 1;
+        const INTENT_SATURATION: u32 = 2;
+        #[library("mscms.dll")]
+        extern fn InstallColorProfileA(#[opt] pMachineName: PCSTR, pProfileName: PCSTR) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn InstallColorProfileW(#[opt] pMachineName: PCWSTR, pProfileName: PCWSTR) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn IsColorProfileTagPresent(hProfile: HPROFILE, tag: TAGTYPE, pbPresent: *mut BOOL) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn IsColorProfileValid(hProfile: HPROFILE, pbValid: *mut BOOL) -> BOOL;
+        type LPBMCALLBACKFN = PBMCALLBACKFN;
+        type LPBMFORMAT = *mut BMFORMAT;
+        type LPCOLOR = *mut COLOR;
+        type LPCOLORDATATYPE = *mut COLORDATATYPE;
+        type LPCOLORMATCHSETUPA = *mut COLORMATCHSETUPA;
+        type LPCOLORMATCHSETUPW = *mut COLORMATCHSETUPW;
+        type LPCOLORPROFILESUBTYPE = *mut COLORPROFILESUBTYPE;
+        type LPCOLORPROFILETYPE = *mut COLORPROFILETYPE;
+        type LPCOLORTYPE = *mut COLORTYPE;
+        type LPCOLOR_NAME = *mut COLOR_NAME;
+        type LPDEVCHARACTER = *mut void;
+        type LPENUMTYPEA = *mut ENUMTYPEA;
+        type LPENUMTYPEW = *mut ENUMTYPEW;
+        type LPNAMED_PROFILE_INFO = *mut NAMED_PROFILE_INFO;
+        type LPPROFILE = *mut PROFILE;
+        type LPPROFILEHEADER = *mut PROFILEHEADER;
+        type LPTAGTYPE = *mut TAGTYPE;
+        struct LabCOLOR {
+            L: u16,
+            a: u16,
+            b: u16,
+        }
+        const MAX_COLOR_CHANNELS: u32 = 8;
+        struct NAMEDCOLOR {
+            dwIndex: u32,
+        }
+        struct NAMED_PROFILE_INFO {
+            dwFlags: u32,
+            dwCount: u32,
+            dwCountDevCoordinates: u32,
+            szPrefix: COLOR_NAME,
+            szSuffix: COLOR_NAME,
+        }
+        const NORMAL_MODE: u32 = 2;
+        #[library("mscms.dll")]
+        extern fn OpenColorProfileA(pProfile: *const PROFILE, dwDesiredAccess: u32, dwShareMode: u32, dwCreationMode: u32) -> HPROFILE;
+        #[library("mscms.dll")]
+        extern fn OpenColorProfileW(pProfile: *const PROFILE, dwDesiredAccess: u32, dwShareMode: u32, dwCreationMode: u32) -> HPROFILE;
+        extern fn PBMCALLBACKFN(param0: u32, param1: u32, param2: LPARAM) -> BOOL;
+        type PBMFORMAT = *mut BMFORMAT;
+        extern fn PCMSCALLBACKA(param0: *mut COLORMATCHSETUPA, param1: LPARAM) -> BOOL;
+        extern fn PCMSCALLBACKW(param0: *mut COLORMATCHSETUPW, param1: LPARAM) -> BOOL;
+        type PCOLOR = *mut COLOR;
+        type PCOLORDATATYPE = *mut COLORDATATYPE;
+        type PCOLORMATCHSETUPA = *mut COLORMATCHSETUPA;
+        type PCOLORMATCHSETUPW = *mut COLORMATCHSETUPW;
+        type PCOLORPROFILESUBTYPE = *mut COLORPROFILESUBTYPE;
+        type PCOLORPROFILETYPE = *mut COLORPROFILETYPE;
+        type PCOLORTYPE = *mut COLORTYPE;
+        type PCOLOR_NAME = *mut COLOR_NAME;
+        type PENUMTYPEA = *mut ENUMTYPEA;
+        type PENUMTYPEW = *mut ENUMTYPEW;
+        type PHPROFILE = *mut HPROFILE;
+        type PNAMED_PROFILE_INFO = *mut NAMED_PROFILE_INFO;
+        type PPROFILE = *mut PROFILE;
+        type PPROFILEHEADER = *mut PROFILEHEADER;
+        const PRESERVEBLACK: u32 = 1048576;
+        struct PROFILE {
+            dwType: u32,
+            pProfileData: *mut void,
+            cbDataSize: u32,
+        }
+        struct PROFILEHEADER {
+            phSize: u32,
+            phCMMType: u32,
+            phVersion: u32,
+            phClass: u32,
+            phDataColorSpace: u32,
+            phConnectionSpace: u32,
+            phDateTime: [u32; 3],
+            phSignature: u32,
+            phPlatform: u32,
+            phProfileFlags: u32,
+            phManufacturer: u32,
+            phModel: u32,
+            phAttributes: [u32; 2],
+            phRenderingIntent: u32,
+            phIlluminant: CIEXYZ,
+            phCreator: u32,
+            phReserved: [u8; 44],
+        }
+        const PROFILE_FILENAME: u32 = 1;
+        const PROFILE_MEMBUFFER: u32 = 2;
+        const PROFILE_READ: u32 = 1;
+        const PROFILE_READWRITE: u32 = 2;
+        const PROOF_MODE: u32 = 1;
+        type PTAGTYPE = *mut TAGTYPE;
+        const RESERVED: u32 = 2147483648;
+        struct RGBCOLOR {
+            red: u16,
+            green: u16,
+            blue: u16,
+        }
+        #[library("mscms.dll")]
+        extern fn RegisterCMMA(#[opt] pMachineName: PCSTR, cmmID: u32, pCMMdll: PCSTR) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn RegisterCMMW(#[opt] pMachineName: PCWSTR, cmmID: u32, pCMMdll: PCWSTR) -> BOOL;
+        const SEQUENTIAL_TRANSFORM: u32 = 2155872256;
+        const SPACE_2_CHANNEL: u32 = 843271250;
+        const SPACE_3_CHANNEL: u32 = 860048466;
+        const SPACE_4_CHANNEL: u32 = 876825682;
+        const SPACE_5_CHANNEL: u32 = 893602898;
+        const SPACE_6_CHANNEL: u32 = 910380114;
+        const SPACE_7_CHANNEL: u32 = 927157330;
+        const SPACE_8_CHANNEL: u32 = 943934546;
+        const SPACE_CMY: u32 = 1129142560;
+        const SPACE_CMYK: u32 = 1129142603;
+        const SPACE_GRAY: u32 = 1196573017;
+        const SPACE_HLS: u32 = 1212961568;
+        const SPACE_HSV: u32 = 1213421088;
+        const SPACE_Lab: u32 = 1281450528;
+        const SPACE_Luv: u32 = 1282766368;
+        const SPACE_RGB: u32 = 1380401696;
+        const SPACE_XYZ: u32 = 1482250784;
+        const SPACE_YCbCr: u32 = 1497588338;
+        const SPACE_Yxy: u32 = 1501067552;
+        #[library("mscms.dll")]
+        extern fn SelectCMM(dwCMMType: u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn SetColorProfileElement(hProfile: HPROFILE, tag: TAGTYPE, dwOffset: u32, pcbElement: *const u32, #[len_param(3)] pElement: *const void) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn SetColorProfileElementReference(hProfile: HPROFILE, newTag: TAGTYPE, refTag: TAGTYPE) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn SetColorProfileElementSize(hProfile: HPROFILE, tagType: TAGTYPE, pcbElement: u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn SetColorProfileHeader(hProfile: HPROFILE, pHeader: *const PROFILEHEADER) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn SetStandardColorSpaceProfileA(#[opt] pMachineName: PCSTR, dwProfileID: u32, pProfilename: PCSTR) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn SetStandardColorSpaceProfileW(#[opt] pMachineName: PCWSTR, dwProfileID: u32, pProfileName: PCWSTR) -> BOOL;
+        #[library("ICMUI.DLL")]
+        extern fn SetupColorMatchingA(#[in] #[out] pcms: *mut COLORMATCHSETUPA) -> BOOL;
+        #[library("ICMUI.DLL")]
+        extern fn SetupColorMatchingW(#[in] #[out] pcms: *mut COLORMATCHSETUPW) -> BOOL;
+        type TAGTYPE = u32;
+        #[library("mscms.dll")]
+        extern fn TranslateBitmapBits(hColorTransform: HTRANSFORM, pSrcBits: *const void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwInputStride: u32, pDestBits: *mut void, bmOutput: BMFORMAT, dwOutputStride: u32, #[opt] pfnCallBack: PBMCALLBACKFN, #[opt] ulCallbackData: LPARAM) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn TranslateColors(hColorTransform: HTRANSFORM, #[len_param(2)] paInputColors: *const COLOR, nColors: u32, ctInput: COLORTYPE, #[len_param(2)] paOutputColors: *mut COLOR, ctOutput: COLORTYPE) -> BOOL;
+        const USE_RELATIVE_COLORIMETRIC: u32 = 131072;
+        #[library("mscms.dll")]
+        extern fn UninstallColorProfileA(#[opt] pMachineName: PCSTR, pProfileName: PCSTR, bDelete: BOOL) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn UninstallColorProfileW(#[opt] pMachineName: PCWSTR, pProfileName: PCWSTR, bDelete: BOOL) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn UnregisterCMMA(#[opt] pMachineName: PCSTR, cmmID: u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn UnregisterCMMW(#[opt] pMachineName: PCWSTR, cmmID: u32) -> BOOL;
+        const WCS_ALWAYS: u32 = 2097152;
+        const WCS_DEFAULT: u32 = 0;
+        #[repr(i32)]
+        enum WCS_DEVICE_CAPABILITIES_TYPE {
+            VideoCardGammaTable = 1,
+            MicrosoftHardwareColorV2 = 2,
+        }
+        struct WCS_DEVICE_MHC2_CAPABILITIES {
+            Size: u32,
+            SupportsMhc2: BOOL,
+            RegammaLutEntryCount: u32,
+            CscXyzMatrixRows: u32,
+            CscXyzMatrixColumns: u32,
+        }
+        struct WCS_DEVICE_VCGT_CAPABILITIES {
+            Size: u32,
+            SupportsVcgt: BOOL,
+        }
+        const WCS_EMBEDDED_TAG_SIGNATURE: u32 = 1297297456;
+        const WCS_EMBEDDED_TAG_TYPE_SIGNATURE: u32 = 1297297712;
+        const WCS_ICCONLY: u32 = 65536;
+        #[repr(i32)]
+        enum WCS_PROFILE_MANAGEMENT_SCOPE {
+            WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE = 0,
+            WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER = 1,
+        }
+        #[library("mscms.dll")]
+        extern fn WcsAssociateColorProfileWithDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pProfileName: PCWSTR, pDeviceName: PCWSTR) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsCheckColors(hColorTransform: HTRANSFORM, nColors: u32, nInputChannels: u32, cdtInput: COLORDATATYPE, cbInput: u32, #[size_param(4)] pInputData: *const void, #[len_param(1)] paResult: *mut u8) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsCreateIccProfile(hWcsProfile: HPROFILE, dwOptions: u32) -> HPROFILE;
+        #[library("mscms.dll")]
+        extern fn WcsDisassociateColorProfileFromDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pProfileName: PCWSTR, pDeviceName: PCWSTR) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pEnumRecord: *const ENUMTYPEW, #[size_param(3)] pBuffer: *mut u8, dwSize: u32, #[opt] pnProfiles: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pEnumRecord: *const ENUMTYPEW, pdwSize: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsGetCalibrationManagementState(pbIsEnabled: *mut BOOL) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsGetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[opt] pDeviceName: PCWSTR, cptColorProfileType: COLORPROFILETYPE, cpstColorProfileSubType: COLORPROFILESUBTYPE, dwProfileID: u32, cbProfileName: u32, #[size_param(5)] #[out] pProfileName: PWSTR) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsGetDefaultColorProfileSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[opt] pDeviceName: PCWSTR, cptColorProfileType: COLORPROFILETYPE, cpstColorProfileSubType: COLORPROFILESUBTYPE, dwProfileID: u32, pcbProfileName: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdwRenderingIntent: *mut u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsGetUsePerUserProfiles(pDeviceName: PCWSTR, dwDeviceClass: u32, pUsePerUserProfiles: *mut BOOL) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsOpenColorProfileA(pCDMPProfile: *const PROFILE, #[opt] pCAMPProfile: *const PROFILE, #[opt] pGMMPProfile: *const PROFILE, dwDesireAccess: u32, dwShareMode: u32, dwCreationMode: u32, dwFlags: u32) -> HPROFILE;
+        #[library("mscms.dll")]
+        extern fn WcsOpenColorProfileW(pCDMPProfile: *const PROFILE, #[opt] pCAMPProfile: *const PROFILE, #[opt] pGMMPProfile: *const PROFILE, dwDesireAccess: u32, dwShareMode: u32, dwCreationMode: u32, dwFlags: u32) -> HPROFILE;
+        #[library("mscms.dll")]
+        extern fn WcsSetCalibrationManagementState(bIsEnabled: BOOL) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsSetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[opt] pDeviceName: PCWSTR, cptColorProfileType: COLORPROFILETYPE, cpstColorProfileSubType: COLORPROFILESUBTYPE, dwProfileID: u32, #[opt] pProfileName: PCWSTR) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, dwRenderingIntent: u32) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsSetUsePerUserProfiles(pDeviceName: PCWSTR, dwDeviceClass: u32, usePerUserProfiles: BOOL) -> BOOL;
+        #[library("mscms.dll")]
+        extern fn WcsTranslateColors(hColorTransform: HTRANSFORM, nColors: u32, nInputChannels: u32, cdtInput: COLORDATATYPE, cbInput: u32, #[size_param(4)] pInputData: *const void, nOutputChannels: u32, cdtOutput: COLORDATATYPE, cbOutput: u32, #[size_param(8)] pOutputData: *mut void) -> BOOL;
+        struct XYZCOLOR {
+            X: u16,
+            Y: u16,
+            Z: u16,
+        }
+        struct YxyCOLOR {
+            Y: u16,
+            x: u16,
+            y: u16,
+        }
+    }
+}

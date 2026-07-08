@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    type OwnedHandle = *mut void;
+    #[library("test.dll")]
+    extern fn UseHandles(a: OwnedHandle, b: Other::OtherHandle);
+}

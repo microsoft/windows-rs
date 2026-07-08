@@ -1,0 +1,419 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type ANSI_STRING = STRING;
+        struct CLIENT_ID {
+            UniqueProcess: HANDLE,
+            UniqueThread: HANDLE,
+        }
+        const CODEINTEGRITY_OPTION_DEBUGMODE_ENABLED: u32 = 128;
+        const CODEINTEGRITY_OPTION_ENABLED: u32 = 1;
+        const CODEINTEGRITY_OPTION_FLIGHTING_ENABLED: u32 = 512;
+        const CODEINTEGRITY_OPTION_FLIGHT_BUILD: u32 = 256;
+        const CODEINTEGRITY_OPTION_HVCI_IUM_ENABLED: u32 = 8192;
+        const CODEINTEGRITY_OPTION_HVCI_KMCI_AUDITMODE_ENABLED: u32 = 2048;
+        const CODEINTEGRITY_OPTION_HVCI_KMCI_ENABLED: u32 = 1024;
+        const CODEINTEGRITY_OPTION_HVCI_KMCI_STRICTMODE_ENABLED: u32 = 4096;
+        const CODEINTEGRITY_OPTION_PREPRODUCTION_BUILD: u32 = 64;
+        const CODEINTEGRITY_OPTION_TESTSIGN: u32 = 2;
+        const CODEINTEGRITY_OPTION_TEST_BUILD: u32 = 32;
+        const CODEINTEGRITY_OPTION_UMCI_AUDITMODE_ENABLED: u32 = 8;
+        const CODEINTEGRITY_OPTION_UMCI_ENABLED: u32 = 4;
+        const CODEINTEGRITY_OPTION_UMCI_EXCLUSIONPATHS_ENABLED: u32 = 16;
+        const FILE_COMPLETE_IF_OPLOCKED: u32 = 256;
+        const FILE_CREATE: u32 = 2;
+        const FILE_CREATED: u32 = 2;
+        const FILE_CREATE_TREE_CONNECTION: u32 = 128;
+        const FILE_DELETE_ON_CLOSE: u32 = 4096;
+        const FILE_DIRECTORY_FILE: u32 = 1;
+        const FILE_DOES_NOT_EXIST: u32 = 5;
+        const FILE_EXISTS: u32 = 4;
+        #[repr(i32)]
+        enum FILE_INFORMATION_CLASS {
+            FileDirectoryInformation = 1,
+        }
+        const FILE_MAXIMUM_DISPOSITION: u32 = 5;
+        const FILE_NON_DIRECTORY_FILE: u32 = 64;
+        const FILE_NO_COMPRESSION: u32 = 32768;
+        const FILE_NO_EA_KNOWLEDGE: u32 = 512;
+        const FILE_NO_INTERMEDIATE_BUFFERING: u32 = 8;
+        const FILE_OPEN: u32 = 1;
+        const FILE_OPENED: u32 = 1;
+        const FILE_OPEN_BY_FILE_ID: u32 = 8192;
+        const FILE_OPEN_FOR_BACKUP_INTENT: u32 = 16384;
+        const FILE_OPEN_FOR_FREE_SPACE_QUERY: u32 = 8388608;
+        const FILE_OPEN_IF: u32 = 3;
+        const FILE_OPEN_NO_RECALL: u32 = 4194304;
+        const FILE_OPEN_REMOTE_INSTANCE: u32 = 1024;
+        const FILE_OPEN_REPARSE_POINT: u32 = 2097152;
+        const FILE_OPEN_REQUIRING_OPLOCK: u32 = 65536;
+        const FILE_OVERWRITE: u32 = 4;
+        const FILE_OVERWRITE_IF: u32 = 5;
+        const FILE_OVERWRITTEN: u32 = 3;
+        const FILE_RANDOM_ACCESS: u32 = 2048;
+        const FILE_RESERVE_OPFILTER: u32 = 1048576;
+        const FILE_SEQUENTIAL_ONLY: u32 = 4;
+        const FILE_SUPERSEDE: u32 = 0;
+        const FILE_SUPERSEDED: u32 = 0;
+        const FILE_SYNCHRONOUS_IO_ALERT: u32 = 16;
+        const FILE_SYNCHRONOUS_IO_NONALERT: u32 = 32;
+        const FILE_VALID_MAILSLOT_OPTION_FLAGS: u32 = 50;
+        const FILE_VALID_OPTION_FLAGS: u32 = 16777215;
+        const FILE_VALID_PIPE_OPTION_FLAGS: u32 = 50;
+        const FILE_VALID_SET_FLAGS: u32 = 54;
+        const FILE_WRITE_THROUGH: u32 = 2;
+        struct IO_STATUS_BLOCK {
+            Anonymous: union {
+                Status: NTSTATUS,
+                Pointer: *mut void,
+            },
+            Information: usize,
+        }
+        #[repr(i32)]
+        enum KEY_SET_INFORMATION_CLASS {
+            KeyWriteTimeInformation = 0,
+            KeyWow64FlagsInformation = 1,
+            KeyControlFlagsInformation = 2,
+            KeySetVirtualizationInformation = 3,
+            KeySetDebugInformation = 4,
+            KeySetHandleTagsInformation = 5,
+            MaxKeySetInfoClass = 6,
+        }
+        struct KEY_VALUE_ENTRY {
+            ValueName: PUNICODE_STRING,
+            DataLength: u32,
+            DataOffset: u32,
+            Type: u32,
+        }
+        type KPRIORITY = i32;
+        struct LDR_DATA_TABLE_ENTRY {
+            Reserved1: [*mut void; 2],
+            InMemoryOrderLinks: LIST_ENTRY,
+            Reserved2: [*mut void; 2],
+            DllBase: *mut void,
+            Reserved3: [*mut void; 2],
+            FullDllName: UNICODE_STRING,
+            Reserved4: [u8; 8],
+            Reserved5: [*mut void; 3],
+            Anonymous: union {
+                CheckSum: u32,
+                Reserved6: *mut void,
+            },
+            TimeDateStamp: u32,
+        }
+        const LOGONID_CURRENT: u32 = 4294967295;
+        #[library("ntdll.dll")]
+        extern fn NtClose(Handle: HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtCreateFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *mut OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, AllocationSize: *mut LARGE_INTEGER, FileAttributes: u32, ShareAccess: u32, CreateDisposition: u32, CreateOptions: u32, EaBuffer: *mut void, EaLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtDeviceIoControlFile(FileHandle: HANDLE, Event: HANDLE, ApcRoutine: PIO_APC_ROUTINE, ApcContext: *mut void, IoStatusBlock: *mut IO_STATUS_BLOCK, IoControlCode: u32, InputBuffer: *mut void, InputBufferLength: u32, OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtNotifyChangeMultipleKeys(MasterKeyHandle: HANDLE, #[opt] Count: u32, #[len_param(1)] #[opt] SubordinateObjects: *const OBJECT_ATTRIBUTES, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: BOOLEAN, #[size_param(10)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtOpenFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *mut OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, ShareAccess: u32, OpenOptions: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtQueryInformationProcess(ProcessHandle: HANDLE, ProcessInformationClass: PROCESSINFOCLASS, ProcessInformation: *mut void, ProcessInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtQueryInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, ThreadInformation: *mut void, ThreadInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtQueryMultipleValueKey(KeyHandle: HANDLE, #[len_param(2)] #[in] #[out] ValueEntries: *mut KEY_VALUE_ENTRY, EntryCount: u32, #[size_param(4)] ValueBuffer: *mut void, #[in] #[out] BufferLength: *mut u32, #[opt] RequiredBufferLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtQueryObject(#[opt] Handle: HANDLE, ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[size_param(3)] #[opt] ObjectInformation: *mut void, ObjectInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: *mut void, SystemInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtQuerySystemTime(SystemTime: *mut LARGE_INTEGER) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtQueryTimerResolution(MaximumTime: *mut u32, MinimumTime: *mut u32, CurrentTime: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtRenameKey(KeyHandle: HANDLE, NewName: *const UNICODE_STRING) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtSetInformationKey(KeyHandle: HANDLE, KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[size_param(3)] KeySetInformation: *const void, KeySetInformationLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtSetInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, #[size_param(3)] ThreadInformation: *const void, ThreadInformationLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: BOOLEAN, Timeout: *mut LARGE_INTEGER) -> NTSTATUS;
+        #[repr(i32)]
+        enum OBJECT_INFORMATION_CLASS {
+            ObjectBasicInformation = 0,
+            ObjectTypeInformation = 2,
+        }
+        const OBJ_CASE_INSENSITIVE: u32 = 64;
+        const OBJ_DONT_REPARSE: u32 = 4096;
+        const OBJ_EXCLUSIVE: u32 = 32;
+        const OBJ_FORCE_ACCESS_CHECK: u32 = 1024;
+        const OBJ_IGNORE_IMPERSONATED_DEVICEMAP: u32 = 2048;
+        const OBJ_INHERIT: u32 = 2;
+        const OBJ_KERNEL_HANDLE: u32 = 512;
+        const OBJ_OPENIF: u32 = 128;
+        const OBJ_OPENLINK: u32 = 256;
+        const OBJ_PERMANENT: u32 = 16;
+        const OBJ_VALID_ATTRIBUTES: u32 = 8178;
+        type OEM_STRING = STRING;
+        type PANSI_STRING = PSTRING;
+        type PCANSI_STRING = PSTRING;
+        type PCOEM_STRING = *const STRING;
+        type PCSZ = *const i8;
+        type PCUNICODE_STRING = *const UNICODE_STRING;
+        struct PEB {
+            Reserved1: [u8; 2],
+            BeingDebugged: u8,
+            Reserved2: [u8; 1],
+            Reserved3: [*mut void; 2],
+            Ldr: PPEB_LDR_DATA,
+            ProcessParameters: PRTL_USER_PROCESS_PARAMETERS,
+            Reserved4: [*mut void; 3],
+            AtlThunkSListPtr: *mut void,
+            Reserved5: *mut void,
+            Reserved6: u32,
+            Reserved7: *mut void,
+            Reserved8: u32,
+            AtlThunkSListPtr32: u32,
+            Reserved9: [*mut void; 45],
+            Reserved10: [u8; 96],
+            PostProcessInitRoutine: PPS_POST_PROCESS_INIT_ROUTINE,
+            Reserved11: [u8; 128],
+            Reserved12: [*mut void; 1],
+            SessionId: u32,
+        }
+        struct PEB_LDR_DATA {
+            Reserved1: [u8; 8],
+            Reserved2: [*mut void; 3],
+            InMemoryOrderModuleList: LIST_ENTRY,
+        }
+        extern fn PIO_APC_ROUTINE(ApcContext: *mut void, IoStatusBlock: *mut IO_STATUS_BLOCK, Reserved: u32);
+        type PIO_STATUS_BLOCK = *mut IO_STATUS_BLOCK;
+        type PKEY_VALUE_ENTRY = *mut KEY_VALUE_ENTRY;
+        type PLDR_DATA_TABLE_ENTRY = *mut LDR_DATA_TABLE_ENTRY;
+        type POEM_STRING = PSTRING;
+        type PPEB = *mut PEB;
+        type PPEB_LDR_DATA = *mut PEB_LDR_DATA;
+        type PPROCESS_BASIC_INFORMATION = *mut PROCESS_BASIC_INFORMATION;
+        extern fn PPS_POST_PROCESS_INIT_ROUTINE();
+        type PPUBLIC_OBJECT_BASIC_INFORMATION = *mut PUBLIC_OBJECT_BASIC_INFORMATION;
+        type PPUBLIC_OBJECT_TYPE_INFORMATION = *mut PUBLIC_OBJECT_TYPE_INFORMATION;
+        #[repr(i32)]
+        enum PROCESSINFOCLASS {
+            ProcessBasicInformation = 0,
+            ProcessDebugPort = 7,
+            ProcessWow64Information = 26,
+            ProcessImageFileName = 27,
+            ProcessBreakOnTermination = 29,
+        }
+        struct PROCESS_BASIC_INFORMATION {
+            Reserved1: *mut void,
+            PebBaseAddress: PPEB,
+            Reserved2: [*mut void; 2],
+            UniqueProcessId: usize,
+            Reserved3: *mut void,
+        }
+        type PRTL_USER_PROCESS_PARAMETERS = *mut RTL_USER_PROCESS_PARAMETERS;
+        type PSYSTEM_BASICPROCESS_INFORMATION = *mut SYSTEM_BASICPROCESS_INFORMATION;
+        type PSYSTEM_BASIC_INFORMATION = *mut SYSTEM_BASIC_INFORMATION;
+        type PSYSTEM_CODEINTEGRITY_INFORMATION = *mut SYSTEM_CODEINTEGRITY_INFORMATION;
+        type PSYSTEM_EXCEPTION_INFORMATION = *mut SYSTEM_EXCEPTION_INFORMATION;
+        type PSYSTEM_HANDLECOUNT_INFORMATION = *mut SYSTEM_HANDLECOUNT_INFORMATION;
+        type PSYSTEM_INTERRUPT_INFORMATION = *mut SYSTEM_INTERRUPT_INFORMATION;
+        type PSYSTEM_LOOKASIDE_INFORMATION = *mut SYSTEM_LOOKASIDE_INFORMATION;
+        type PSYSTEM_PERFORMANCE_INFORMATION = *mut SYSTEM_PERFORMANCE_INFORMATION;
+        type PSYSTEM_POLICY_INFORMATION = *mut SYSTEM_POLICY_INFORMATION;
+        type PSYSTEM_PROCESSOR_PERFORMANCE_INFORMATION = *mut SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION;
+        type PSYSTEM_PROCESS_INFORMATION = *mut SYSTEM_PROCESS_INFORMATION;
+        type PSYSTEM_REGISTRY_QUOTA_INFORMATION = *mut SYSTEM_REGISTRY_QUOTA_INFORMATION;
+        type PSYSTEM_THREAD_INFORMATION = *mut SYSTEM_THREAD_INFORMATION;
+        type PSYSTEM_TIMEOFDAY_INFORMATION = *mut SYSTEM_TIMEOFDAY_INFORMATION;
+        type PTEB = *mut TEB;
+        type PTHREAD_NAME_INFORMATION = *mut THREAD_NAME_INFORMATION;
+        struct PUBLIC_OBJECT_BASIC_INFORMATION {
+            Attributes: u32,
+            GrantedAccess: ACCESS_MASK,
+            HandleCount: u32,
+            PointerCount: u32,
+            Reserved: [u32; 10],
+        }
+        struct PUBLIC_OBJECT_TYPE_INFORMATION {
+            TypeName: UNICODE_STRING,
+            Reserved: [u32; 22],
+        }
+        type PWINSTATIONINFORMATIONW = *mut WINSTATIONINFORMATIONW;
+        extern fn PWINSTATIONQUERYINFORMATIONW(param0: HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut void, param4: u32, param5: *mut u32) -> BOOLEAN;
+        struct RTL_USER_PROCESS_PARAMETERS {
+            Reserved1: [u8; 16],
+            Reserved2: [*mut void; 10],
+            ImagePathName: UNICODE_STRING,
+            CommandLine: UNICODE_STRING,
+        }
+        #[library("ntdll.dll")]
+        extern fn RtlAnsiStringToUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCANSI_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn RtlCharToInteger(String: *const i8, Base: u32, Value: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn RtlConvertSidToUnicodeString(UnicodeString: *mut UNICODE_STRING, Sid: PSID, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn RtlFreeAnsiString(AnsiString: PANSI_STRING);
+        #[library("ntdll.dll")]
+        extern fn RtlFreeOemString(OemString: POEM_STRING);
+        #[library("ntdll.dll")]
+        extern fn RtlFreeUnicodeString(UnicodeString: *mut UNICODE_STRING);
+        #[library("ntdll.dll")]
+        extern fn RtlInitAnsiString(DestinationString: PANSI_STRING, SourceString: *const i8);
+        #[library("ntdll.dll")]
+        extern fn RtlInitAnsiStringEx(DestinationString: PANSI_STRING, SourceString: *const i8) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn RtlInitString(DestinationString: *mut STRING, SourceString: *const i8);
+        #[library("ntdll.dll")]
+        extern fn RtlInitStringEx(DestinationString: *mut STRING, SourceString: *const i8) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn RtlInitUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCWSTR);
+        #[library("ntdll.dll")]
+        extern fn RtlIsNameLegalDOS8Dot3(Name: *mut UNICODE_STRING, OemName: POEM_STRING, NameContainsSpaces: *mut BOOLEAN) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern fn RtlLocalTimeToSystemTime(LocalTime: *mut LARGE_INTEGER, SystemTime: *mut LARGE_INTEGER) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn RtlNtStatusToDosError(Status: NTSTATUS) -> u32;
+        #[library("ntdll.dll")]
+        extern fn RtlTimeToSecondsSince1970(Time: *mut LARGE_INTEGER, ElapsedSeconds: *mut u32) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern fn RtlUnicodeStringToAnsiString(DestinationString: PANSI_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn RtlUnicodeStringToOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn RtlUnicodeToMultiByteSize(BytesInMultiByteString: *mut u32, #[size_param(2)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern fn RtlUniform(Seed: *mut u32) -> u32;
+        struct SYSTEM_BASICPROCESS_INFORMATION {
+            NextEntryOffset: u32,
+            UniqueProcessId: HANDLE,
+            InheritedFromUniqueProcessId: HANDLE,
+            SequenceNumber: u64,
+            ImageName: UNICODE_STRING,
+        }
+        struct SYSTEM_BASIC_INFORMATION {
+            Reserved1: [u8; 24],
+            Reserved2: [*mut void; 4],
+            NumberOfProcessors: CCHAR,
+        }
+        struct SYSTEM_CODEINTEGRITY_INFORMATION {
+            Length: u32,
+            CodeIntegrityOptions: u32,
+        }
+        struct SYSTEM_EXCEPTION_INFORMATION {
+            Reserved1: [u8; 16],
+        }
+        struct SYSTEM_HANDLECOUNT_INFORMATION {
+            ProcessCount: u32,
+            ThreadCount: u32,
+            HandleCount: u32,
+        }
+        #[repr(i32)]
+        enum SYSTEM_INFORMATION_CLASS {
+            SystemBasicInformation = 0,
+            SystemPerformanceInformation = 2,
+            SystemTimeOfDayInformation = 3,
+            SystemProcessInformation = 5,
+            SystemProcessorPerformanceInformation = 8,
+            SystemInterruptInformation = 23,
+            SystemExceptionInformation = 33,
+            SystemRegistryQuotaInformation = 37,
+            SystemLookasideInformation = 45,
+            SystemCodeIntegrityInformation = 103,
+            SystemPolicyInformation = 134,
+            SystemBasicProcessInformation = 252,
+            SystemHandleCountInformation = 253,
+        }
+        struct SYSTEM_INTERRUPT_INFORMATION {
+            Reserved1: [u8; 24],
+        }
+        struct SYSTEM_LOOKASIDE_INFORMATION {
+            Reserved1: [u8; 32],
+        }
+        struct SYSTEM_PERFORMANCE_INFORMATION {
+            Reserved1: [u8; 312],
+        }
+        struct SYSTEM_POLICY_INFORMATION {
+            Reserved1: [*mut void; 2],
+            Reserved2: [u32; 3],
+        }
+        struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
+            IdleTime: LARGE_INTEGER,
+            KernelTime: LARGE_INTEGER,
+            UserTime: LARGE_INTEGER,
+            Reserved1: [LARGE_INTEGER; 2],
+            Reserved2: u32,
+        }
+        struct SYSTEM_PROCESS_INFORMATION {
+            NextEntryOffset: u32,
+            NumberOfThreads: u32,
+            Reserved1: [u8; 48],
+            ImageName: UNICODE_STRING,
+            BasePriority: KPRIORITY,
+            UniqueProcessId: HANDLE,
+            InheritedFromUniqueProcessId: HANDLE,
+            HandleCount: u32,
+            SessionId: u32,
+            Reserved3: *mut void,
+            PeakVirtualSize: usize,
+            VirtualSize: usize,
+            Reserved4: u32,
+            PeakWorkingSetSize: usize,
+            WorkingSetSize: usize,
+            Reserved5: *mut void,
+            QuotaPagedPoolUsage: usize,
+            Reserved6: *mut void,
+            QuotaNonPagedPoolUsage: usize,
+            PagefileUsage: usize,
+            PeakPagefileUsage: usize,
+            PrivatePageCount: usize,
+            Reserved7: [LARGE_INTEGER; 6],
+        }
+        struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
+            RegistryQuotaAllowed: u32,
+            RegistryQuotaUsed: u32,
+            Reserved1: *mut void,
+        }
+        struct SYSTEM_THREAD_INFORMATION {
+            Reserved1: [LARGE_INTEGER; 3],
+            Reserved2: u32,
+            StartAddress: *mut void,
+            ClientId: CLIENT_ID,
+            Priority: KPRIORITY,
+            BasePriority: i32,
+            Reserved3: u32,
+            ThreadState: u32,
+            WaitReason: u32,
+        }
+        struct SYSTEM_TIMEOFDAY_INFORMATION {
+            Reserved1: [u8; 48],
+        }
+        struct TEB {
+            Reserved1: [*mut void; 12],
+            ProcessEnvironmentBlock: PPEB,
+            Reserved2: [*mut void; 399],
+            Reserved3: [u8; 1952],
+            TlsSlots: [*mut void; 64],
+            Reserved4: [u8; 8],
+            Reserved5: [*mut void; 26],
+            ReservedForOle: *mut void,
+            Reserved6: [*mut void; 4],
+            TlsExpansionSlots: *mut void,
+        }
+        #[repr(i32)]
+        enum THREADINFOCLASS {
+            ThreadIsIoPending = 16,
+            ThreadNameInformation = 38,
+        }
+        struct THREAD_NAME_INFORMATION {
+            ThreadName: UNICODE_STRING,
+        }
+        #[repr(i32)]
+        enum WINSTATIONINFOCLASS {
+            WinStationInformation = 8,
+        }
+        struct WINSTATIONINFORMATIONW {
+            Reserved2: [u8; 70],
+            LogonId: u32,
+            Reserved3: [u8; 1140],
+        }
+    }
+}

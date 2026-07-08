@@ -1,0 +1,186 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum CARET_FLAGS {
+            CARET_NONE = 0,
+            CARET_CUSTOM = 1,
+            CARET_RTL = 2,
+            CARET_ITALIC = 32,
+            CARET_NULL = 64,
+            CARET_ROTATE90 = 128,
+        }
+        union CARET_INFO {
+            hbitmap: HBITMAP,
+            caretFlags: CARET_FLAGS,
+        }
+        struct CHANGENOTIFY {
+            dwChangeType: u32,
+            pvCookieData: *mut void,
+        }
+        #[repr(i32)]
+        enum CHANGETYPE {
+            CN_GENERIC = 0,
+            CN_TEXTCHANGED = 1,
+            CN_NEWUNDO = 2,
+            CN_NEWREDO = 4,
+        }
+        #[guid(0x23969a9d_8546_4032_a1bb_73750cbf3333)]
+        interface IRichEditUiaInformation: IUnknown {
+            fn GetBoundaryRectangle(&self, pUiaRect: *mut UiaRect) -> HRESULT;
+            fn IsVisible(&self) -> HRESULT;
+        }
+        #[no_guid]
+        interface IRicheditUiaOverrides: IUnknown {
+            fn GetPropertyOverrideValue(&self, propertyId: PROPERTYID, pRetValue: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x983e572d_20cd_460b_9104_83111592dd10)]
+        interface IRicheditWindowlessAccessibility: IUnknown {
+            fn CreateProvider(&self, pSite: IRawElementProviderWindowlessSite, ppProvider: *mut IRawElementProviderSimple) -> HRESULT;
+        }
+        #[no_guid]
+        interface ITextHost: IUnknown {
+            fn TxGetDC(&self) -> HDC;
+            fn TxReleaseDC(&self, hdc: HDC) -> i32;
+            fn TxShowScrollBar(&self, fnBar: i32, fShow: BOOL) -> BOOL;
+            fn TxEnableScrollBar(&self, fuSBFlags: i32, fuArrowflags: i32) -> BOOL;
+            fn TxSetScrollRange(&self, fnBar: i32, nMinPos: i32, nMaxPos: i32, fRedraw: BOOL) -> BOOL;
+            fn TxSetScrollPos(&self, fnBar: i32, nPos: i32, fRedraw: BOOL) -> BOOL;
+            fn TxInvalidateRect(&self, prc: *const RECT, fMode: BOOL);
+            fn TxViewChange(&self, fUpdate: BOOL);
+            fn TxCreateCaret(&self, hbmp: HBITMAP, xWidth: i32, yHeight: i32) -> BOOL;
+            fn TxShowCaret(&self, fShow: BOOL) -> BOOL;
+            fn TxSetCaretPos(&self, x: i32, y: i32) -> BOOL;
+            fn TxSetTimer(&self, idTimer: u32, uTimeout: u32) -> BOOL;
+            fn TxKillTimer(&self, idTimer: u32);
+            fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcScroll: *const RECT, lprcClip: *const RECT, hrgnUpdate: HRGN, lprcUpdate: *mut RECT, fuScroll: u32);
+            fn TxSetCapture(&self, fCapture: BOOL);
+            fn TxSetFocus(&self);
+            fn TxSetCursor(&self, hcur: HCURSOR, fText: BOOL);
+            fn TxScreenToClient(&self, lppt: *mut POINT) -> BOOL;
+            fn TxClientToScreen(&self, lppt: *mut POINT) -> BOOL;
+            fn TxActivate(&self, plOldState: *mut i32) -> HRESULT;
+            fn TxDeactivate(&self, lNewState: i32) -> HRESULT;
+            fn TxGetClientRect(&self, prc: *mut RECT) -> HRESULT;
+            fn TxGetViewInset(&self, prc: *mut RECT) -> HRESULT;
+            fn TxGetCharFormat(&self, ppCF: *mut *mut CHARFORMATW) -> HRESULT;
+            fn TxGetParaFormat(&self, ppPF: *mut *mut PARAFORMAT) -> HRESULT;
+            fn TxGetSysColor(&self, nIndex: i32) -> COLORREF;
+            fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> HRESULT;
+            fn TxGetMaxLength(&self, plength: *mut u32) -> HRESULT;
+            fn TxGetScrollBars(&self, pdwScrollBar: *mut u32) -> HRESULT;
+            fn TxGetPasswordChar(&self, pch: *mut TCHAR) -> HRESULT;
+            fn TxGetAcceleratorPos(&self, pcp: *mut i32) -> HRESULT;
+            fn TxGetExtent(&self, lpExtent: *mut SIZE) -> HRESULT;
+            fn OnTxCharFormatChange(&self, pCF: *const CHARFORMATW) -> HRESULT;
+            fn OnTxParaFormatChange(&self, pPF: *const PARAFORMAT) -> HRESULT;
+            fn TxGetPropertyBits(&self, dwMask: u32, pdwBits: *mut u32) -> HRESULT;
+            fn TxNotify(&self, iNotify: u32, pv: *mut void) -> HRESULT;
+            fn TxImmGetContext(&self) -> HIMC;
+            fn TxImmReleaseContext(&self, himc: HIMC);
+            fn TxGetSelectionBarWidth(&self, lSelBarWidth: *mut i32) -> HRESULT;
+        }
+        #[no_guid]
+        interface ITextHost2: ITextHost {
+            fn TxIsDoubleClickPending(&self) -> BOOL;
+            fn TxGetWindow(&self, phwnd: *mut HWND) -> HRESULT;
+            fn TxSetForegroundWindow(&self) -> HRESULT;
+            fn TxGetPalette(&self) -> HPALETTE;
+            fn TxGetEastAsianFlags(&self, pFlags: *mut i32) -> HRESULT;
+            fn TxSetCursor2(&self, hcur: HCURSOR, bText: BOOL) -> HCURSOR;
+            fn TxFreeTextServicesNotification(&self);
+            fn TxGetEditStyle(&self, dwItem: u32, pdwData: *mut u32) -> HRESULT;
+            fn TxGetWindowStyles(&self, pdwStyle: *mut u32, pdwExStyle: *mut u32) -> HRESULT;
+            fn TxShowDropCaret(&self, fShow: BOOL, hdc: HDC, prc: *const RECT) -> HRESULT;
+            fn TxDestroyCaret(&self) -> HRESULT;
+            fn TxGetHorzExtent(&self, plHorzExtent: *mut i32) -> HRESULT;
+        }
+        #[no_guid]
+        interface ITextServices: IUnknown {
+            fn TxSendMessage(&self, msg: u32, wparam: WPARAM, lparam: LPARAM, plresult: *mut LRESULT) -> HRESULT;
+            fn TxDraw(&self, dwDrawAspect: u32, lindex: i32, pvAspect: *mut void, ptd: *mut DVTARGETDEVICE, hdcDraw: HDC, hicTargetDev: HDC, lprcBounds: *const RECTL, lprcWBounds: *const RECTL, lprcUpdate: *mut RECT, pfnContinue: *mut u8, dwContinue: u32, lViewId: i32) -> HRESULT;
+            fn TxGetHScroll(&self, plMin: *mut i32, plMax: *mut i32, plPos: *mut i32, plPage: *mut i32, pfEnabled: *mut BOOL) -> HRESULT;
+            fn TxGetVScroll(&self, plMin: *mut i32, plMax: *mut i32, plPos: *mut i32, plPage: *mut i32, pfEnabled: *mut BOOL) -> HRESULT;
+            fn OnTxSetCursor(&self, dwDrawAspect: u32, lindex: i32, pvAspect: *mut void, ptd: *mut DVTARGETDEVICE, hdcDraw: HDC, hicTargetDev: HDC, lprcClient: *const RECT, x: i32, y: i32) -> HRESULT;
+            fn TxQueryHitPoint(&self, dwDrawAspect: u32, lindex: i32, pvAspect: *mut void, ptd: *mut DVTARGETDEVICE, hdcDraw: HDC, hicTargetDev: HDC, lprcClient: *const RECT, x: i32, y: i32, pHitResult: *mut u32) -> HRESULT;
+            fn OnTxInPlaceActivate(&self, prcClient: *const RECT) -> HRESULT;
+            fn OnTxInPlaceDeactivate(&self) -> HRESULT;
+            fn OnTxUIActivate(&self) -> HRESULT;
+            fn OnTxUIDeactivate(&self) -> HRESULT;
+            fn TxGetText(&self, pbstrText: *mut BSTR) -> HRESULT;
+            fn TxSetText(&self, pszText: PCWSTR) -> HRESULT;
+            fn TxGetCurTargetX(&self, param0: *mut i32) -> HRESULT;
+            fn TxGetBaseLinePos(&self, param0: *mut i32) -> HRESULT;
+            fn TxGetNaturalSize(&self, dwAspect: u32, hdcDraw: HDC, hicTargetDev: HDC, ptd: *mut DVTARGETDEVICE, dwMode: u32, psizelExtent: *const SIZEL, pwidth: *mut i32, pheight: *mut i32) -> HRESULT;
+            fn TxGetDropTarget(&self, ppDropTarget: *mut IDropTarget) -> HRESULT;
+            fn OnTxPropertyBitsChange(&self, dwMask: u32, dwBits: u32) -> HRESULT;
+            fn TxGetCachedSize(&self, pdwWidth: *mut u32, pdwHeight: *mut u32) -> HRESULT;
+        }
+        #[no_guid]
+        interface ITextServices2: ITextServices {
+            fn TxGetNaturalSize2(&self, dwAspect: u32, hdcDraw: HDC, hicTargetDev: HDC, ptd: *mut DVTARGETDEVICE, dwMode: u32, psizelExtent: *const SIZEL, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> HRESULT;
+            fn TxDrawD2D(&self, pRenderTarget: ID2D1RenderTarget, lprcBounds: *const RECTL, lprcUpdate: *mut RECT, lViewId: i32) -> HRESULT;
+        }
+        extern fn PCreateTextServices(punkOuter: IUnknown, pITextHost: ITextHost, ppUnk: *mut IUnknown) -> HRESULT;
+        extern fn PShutdownTextServices(pTextServices: IUnknown) -> HRESULT;
+        const S_MSG_KEY_IGNORED: u32 = 262657;
+        const TXES_ISDIALOG: u32 = 1;
+        #[repr(i32)]
+        enum TXTBACKSTYLE {
+            TXTBACK_TRANSPARENT = 0,
+            TXTBACK_OPAQUE = 1,
+        }
+        const TXTBIT_ADVANCEDINPUT: u32 = 536870912;
+        const TXTBIT_ALLOWBEEP: u32 = 2048;
+        const TXTBIT_AUTOWORDSEL: u32 = 128;
+        const TXTBIT_BACKSTYLECHANGE: u32 = 16384;
+        const TXTBIT_CHARFORMATCHANGE: u32 = 131072;
+        const TXTBIT_CLIENTRECTCHANGE: u32 = 1048576;
+        const TXTBIT_D2DDWRITE: u32 = 16777216;
+        const TXTBIT_D2DPIXELSNAPPED: u32 = 67108864;
+        const TXTBIT_D2DSIMPLETYPOGRAPHY: u32 = 33554432;
+        const TXTBIT_D2DSUBPIXELLINES: u32 = 134217728;
+        const TXTBIT_DISABLEDRAG: u32 = 4096;
+        const TXTBIT_EXTENTCHANGE: u32 = 524288;
+        const TXTBIT_FLASHLASTPASSWORDCHAR: u32 = 268435456;
+        const TXTBIT_HIDESELECTION: u32 = 32;
+        const TXTBIT_MAXLENGTHCHANGE: u32 = 32768;
+        const TXTBIT_MULTILINE: u32 = 2;
+        const TXTBIT_NOTHREADREFCOUNT: u32 = 4194304;
+        const TXTBIT_PARAFORMATCHANGE: u32 = 262144;
+        const TXTBIT_READONLY: u32 = 4;
+        const TXTBIT_RICHTEXT: u32 = 1;
+        const TXTBIT_SAVESELECTION: u32 = 64;
+        const TXTBIT_SCROLLBARCHANGE: u32 = 65536;
+        const TXTBIT_SELBARCHANGE: u32 = 512;
+        const TXTBIT_SHOWACCELERATOR: u32 = 8;
+        const TXTBIT_SHOWPASSWORD: u32 = 8388608;
+        const TXTBIT_USECURRENTBKG: u32 = 2097152;
+        const TXTBIT_USEPASSWORD: u32 = 16;
+        const TXTBIT_VERTICAL: u32 = 256;
+        const TXTBIT_VIEWINSETCHANGE: u32 = 8192;
+        const TXTBIT_WORDWRAP: u32 = 1024;
+        #[repr(i32)]
+        enum TXTHITRESULT {
+            TXTHITRESULT_NOHIT = 0,
+            TXTHITRESULT_TRANSPARENT = 1,
+            TXTHITRESULT_CLOSE = 2,
+            TXTHITRESULT_HIT = 3,
+        }
+        #[repr(i32)]
+        enum TXTNATURALSIZE {
+            TXTNS_FITTOCONTENT2 = 0,
+            TXTNS_FITTOCONTENT = 1,
+            TXTNS_ROUNDTOLINE = 2,
+            TXTNS_FITTOCONTENT3 = 3,
+            TXTNS_FITTOCONTENTWSP = 4,
+            TXTNS_INCLUDELASTLINE = 1073741824,
+            TXTNS_EMU = -2147483648,
+        }
+        #[repr(i32)]
+        enum TXTVIEW {
+            TXTVIEW_ACTIVE = 0,
+            TXTVIEW_INACTIVE = -1,
+        }
+    }
+}

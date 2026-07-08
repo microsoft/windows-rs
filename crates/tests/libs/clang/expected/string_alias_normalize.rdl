@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    type LPCOLESTR = *const u16;
+    type LPCSTR = *const i8;
+    type LPCWSTR = *const u16;
+    type LPOLESTR = *mut u16;
+    type LPSTR = *mut i8;
+    type LPWSTR = *mut u16;
+    #[library("")]
+    extern fn ReturnsWide(in_ptr: PCWSTR, out_ptr: PWSTR) -> LPWSTR;
+    struct STRINGS {
+        name: LPCWSTR,
+        buffer: LPWSTR,
+        ansi: LPCSTR,
+        ole: LPOLESTR,
+    }
+}

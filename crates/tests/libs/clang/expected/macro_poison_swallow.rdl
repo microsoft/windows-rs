@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    const AFTER_POISON_A: u32 = 101;
+    const AFTER_POISON_B: u32 = 102;
+    const AFTER_POISON_C: u32 = 103;
+    const POISON_BASE: u32 = 100;
+}

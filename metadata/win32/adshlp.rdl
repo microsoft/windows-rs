@@ -1,0 +1,49 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsBuildEnumerator(pADsContainer: IADsContainer, ppEnumVariant: *mut IEnumVARIANT) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsBuildVarArrayInt(lpdwObjectTypes: *mut u32, dwObjectTypes: u32, pVar: *mut VARIANT) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsBuildVarArrayStr(#[len_param(1)] lppPathNames: *const PWSTR, dwPathNames: u32, pVar: *mut VARIANT) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsDecodeBinaryData(szSrcData: PCWSTR, ppbDestData: *mut PBYTE, pdwDestLen: *mut u32) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsEncodeBinaryData(pbSrcData: *mut u8, dwSrcLen: u32, ppszDestData: *mut PWSTR) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsEnumerateNext(pEnumVariant: IEnumVARIANT, cElements: u32, pvar: *mut VARIANT, pcElementsFetched: *mut u32) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsFreeEnumerator(pEnumVariant: IEnumVARIANT) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsGetLastError(lpError: *mut u32, #[len_param(2)] #[out] lpErrorBuf: PWSTR, dwErrorBufLen: u32, #[len_param(4)] #[out] lpNameBuf: PWSTR, dwNameBufLen: u32) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsGetObject(lpszPathName: PCWSTR, riid: *const GUID, ppObject: *mut *mut void) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsOpenObject(lpszPathName: PCWSTR, lpszUserName: PCWSTR, lpszPassword: PCWSTR, dwReserved: u32, riid: *const GUID, ppObject: *mut *mut void) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ADsSetLastError(dwErr: u32, pszError: PCWSTR, pszProvider: PCWSTR);
+        #[library("ACTIVEDS.dll")]
+        extern fn AdsFreeAdsValues(pAdsValues: *mut ADSVALUE, dwNumValues: u32);
+        #[library("ACTIVEDS.dll")]
+        extern fn AdsTypeToPropVariant(pAdsValues: *mut ADSVALUE, dwNumValues: u32, pVariant: *mut VARIANT) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn AllocADsMem(cb: u32) -> *mut void;
+        #[library("ACTIVEDS.dll")]
+        extern fn AllocADsStr(pStr: PCWSTR) -> PWSTR;
+        #[library("ACTIVEDS.dll")]
+        extern fn BinarySDToSecurityDescriptor(pSecurityDescriptor: PSECURITY_DESCRIPTOR, pVarsec: *mut VARIANT, pszServerName: PCWSTR, userName: PCWSTR, passWord: PCWSTR, dwFlags: u32) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn FreeADsMem(pMem: *mut void) -> BOOL;
+        #[library("ACTIVEDS.dll")]
+        extern fn FreeADsStr(pStr: PCWSTR) -> BOOL;
+        #[library("ACTIVEDS.dll")]
+        extern fn PropVariantToAdsType(pVariant: *mut VARIANT, dwNumVariant: u32, ppAdsValues: *mut PADSVALUE, pdwNumValues: *mut u32) -> HRESULT;
+        #[library("ACTIVEDS.dll")]
+        extern fn ReallocADsMem(pOldMem: *mut void, cbOld: u32, cbNew: u32) -> *mut void;
+        #[library("ACTIVEDS.dll")]
+        extern fn ReallocADsStr(#[in] #[out] ppStr: *mut PWSTR, pStr: PCWSTR) -> BOOL;
+        #[library("ACTIVEDS.dll")]
+        extern fn SecurityDescriptorToBinarySD(vVarSecDes: VARIANT, ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, pdwSDLength: *mut u32, pszServerName: PCWSTR, userName: PCWSTR, passWord: PCWSTR, dwFlags: u32) -> HRESULT;
+    }
+}

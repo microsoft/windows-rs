@@ -1,0 +1,131 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("ADVAPI32.dll")]
+        extern fn AddUsersToEncryptedFile(lpFileName: PCWSTR, pEncryptionCertificates: *const ENCRYPTION_CERTIFICATE_LIST) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn DuplicateEncryptionInfoFile(SrcFileName: PCWSTR, DstFileName: PCWSTR, dwCreationDistribution: u32, dwAttributes: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> u32;
+        struct EFS_CERTIFICATE_BLOB {
+            dwCertEncodingType: u32,
+            cbData: u32,
+            pbData: PBYTE,
+        }
+        struct EFS_COMPATIBILITY_INFO {
+            EfsVersion: u32,
+        }
+        const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5;
+        const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6;
+        struct EFS_DECRYPTION_STATUS_INFO {
+            dwDecryptionError: u32,
+            dwHashOffset: u32,
+            cbHash: u32,
+        }
+        const EFS_EFS_SUBVER_EFS_CERT: u32 = 1;
+        struct EFS_ENCRYPTION_STATUS_INFO {
+            bHasCurrentKey: BOOL,
+            dwEncryptionError: u32,
+        }
+        struct EFS_HASH_BLOB {
+            cbData: u32,
+            pbData: PBYTE,
+        }
+        struct EFS_KEY_INFO {
+            dwVersion: u32,
+            Entropy: u32,
+            Algorithm: ALG_ID,
+            KeyLength: u32,
+        }
+        const EFS_METADATA_ADD_USER: u32 = 1;
+        const EFS_METADATA_GENERAL_OP: u32 = 8;
+        const EFS_METADATA_REMOVE_USER: u32 = 2;
+        const EFS_METADATA_REPLACE_USER: u32 = 4;
+        const EFS_PFILE_SUBVER_APPX: u32 = 3;
+        const EFS_PFILE_SUBVER_RMS: u32 = 2;
+        struct EFS_PIN_BLOB {
+            cbPadding: u32,
+            cbData: u32,
+            pbData: PBYTE,
+        }
+        struct EFS_RPC_BLOB {
+            cbData: u32,
+            pbData: PBYTE,
+        }
+        const EFS_SUBVER_UNKNOWN: u32 = 0;
+        struct EFS_VERSION_INFO {
+            EfsVersion: u32,
+            SubVersion: u32,
+        }
+        struct ENCRYPTED_FILE_METADATA_SIGNATURE {
+            dwEfsAccessType: u32,
+            pCertificatesAdded: PENCRYPTION_CERTIFICATE_HASH_LIST,
+            pEncryptionCertificate: PENCRYPTION_CERTIFICATE,
+            pEfsStreamSignature: PEFS_RPC_BLOB,
+        }
+        struct ENCRYPTION_CERTIFICATE {
+            cbTotalLength: u32,
+            pUserSid: *mut SID,
+            pCertBlob: PEFS_CERTIFICATE_BLOB,
+        }
+        struct ENCRYPTION_CERTIFICATE_HASH {
+            cbTotalLength: u32,
+            pUserSid: *mut SID,
+            pHash: PEFS_HASH_BLOB,
+            lpDisplayInformation: PWSTR,
+        }
+        struct ENCRYPTION_CERTIFICATE_HASH_LIST {
+            nCert_Hash: u32,
+            pUsers: *mut PENCRYPTION_CERTIFICATE_HASH,
+        }
+        struct ENCRYPTION_CERTIFICATE_LIST {
+            nUsers: u32,
+            pUsers: *mut PENCRYPTION_CERTIFICATE,
+        }
+        struct ENCRYPTION_PROTECTOR {
+            cbTotalLength: u32,
+            pUserSid: *mut SID,
+            lpProtectorDescriptor: PWSTR,
+        }
+        struct ENCRYPTION_PROTECTOR_LIST {
+            nProtectors: u32,
+            pProtectors: *mut PENCRYPTION_PROTECTOR,
+        }
+        #[library("ADVAPI32.dll")]
+        extern fn EncryptionDisable(DirPath: PCWSTR, Disable: BOOL) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn FreeEncryptedFileMetadata(pbMetadata: *const u8);
+        #[library("ADVAPI32.dll")]
+        extern fn FreeEncryptionCertificateHashList(pUsers: *const ENCRYPTION_CERTIFICATE_HASH_LIST);
+        #[library("ADVAPI32.dll")]
+        extern fn GetEncryptedFileMetadata(lpFileName: PCWSTR, pcbMetadata: *mut u32, ppbMetadata: *mut PBYTE) -> u32;
+        const MAX_SID_SIZE: u32 = 256;
+        type PEFS_CERTIFICATE_BLOB = *mut EFS_CERTIFICATE_BLOB;
+        type PEFS_COMPATIBILITY_INFO = *mut EFS_COMPATIBILITY_INFO;
+        type PEFS_DECRYPTION_STATUS_INFO = *mut EFS_DECRYPTION_STATUS_INFO;
+        type PEFS_ENCRYPTION_STATUS_INFO = *mut EFS_ENCRYPTION_STATUS_INFO;
+        type PEFS_HASH_BLOB = *mut EFS_HASH_BLOB;
+        type PEFS_KEY_INFO = *mut EFS_KEY_INFO;
+        type PEFS_PIN_BLOB = *mut EFS_PIN_BLOB;
+        type PEFS_RPC_BLOB = *mut EFS_RPC_BLOB;
+        type PEFS_VERSION_INFO = *mut EFS_VERSION_INFO;
+        type PENCRYPTED_FILE_METADATA_SIGNATURE = *mut ENCRYPTED_FILE_METADATA_SIGNATURE;
+        type PENCRYPTION_CERTIFICATE = *mut ENCRYPTION_CERTIFICATE;
+        type PENCRYPTION_CERTIFICATE_HASH = *mut ENCRYPTION_CERTIFICATE_HASH;
+        type PENCRYPTION_CERTIFICATE_HASH_LIST = *mut ENCRYPTION_CERTIFICATE_HASH_LIST;
+        type PENCRYPTION_CERTIFICATE_LIST = *mut ENCRYPTION_CERTIFICATE_LIST;
+        type PENCRYPTION_PROTECTOR = *mut ENCRYPTION_PROTECTOR;
+        type PENCRYPTION_PROTECTOR_LIST = *mut ENCRYPTION_PROTECTOR_LIST;
+        #[library("ADVAPI32.dll")]
+        extern fn QueryRecoveryAgentsOnEncryptedFile(lpFileName: PCWSTR, pRecoveryAgents: *mut PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn QueryUsersOnEncryptedFile(lpFileName: PCWSTR, pUsers: *mut PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn RemoveUsersFromEncryptedFile(lpFileName: PCWSTR, pHashes: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn SetEncryptedFileMetadata(lpFileName: PCWSTR, #[opt] pbOldMetadata: *const u8, pbNewMetadata: *const u8, pOwnerHash: *const ENCRYPTION_CERTIFICATE_HASH, dwOperation: u32, #[opt] pCertificatesAdded: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn SetUserFileEncryptionKey(#[opt] pEncryptionCertificate: *const ENCRYPTION_CERTIFICATE) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn SetUserFileEncryptionKeyEx(#[opt] pEncryptionCertificate: *const ENCRYPTION_CERTIFICATE, dwCapabilities: u32, dwFlags: u32, #[reserved] pvReserved: *const void) -> u32;
+        const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1;
+    }
+}

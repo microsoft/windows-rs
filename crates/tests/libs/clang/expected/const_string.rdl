@@ -1,9 +1,19 @@
 #[win32]
 mod Test {
-    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+    #[encoding("ansi")]
+    const ESC_BACKSLASH: String = "a\\b";
+    #[encoding("ansi")]
+    const ESC_HEX_ASCII: String = "AB";
+    #[encoding("ansi")]
+    const ESC_NEWLINE: String = "a\nb";
+    #[encoding("ansi")]
+    const ESC_NUL: String = "x\0y";
+    #[encoding("ansi")]
+    const ESC_OCTAL: String = "A";
+    #[encoding("ansi")]
     const NARROW: String = "hello";
-    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+    #[encoding("ansi")]
     const PARENS_STRING: String = "paren";
-    #[Windows::Win32::Foundation::Metadata::NativeEncoding("utf-16")]
+    #[encoding("utf-16")]
     const WIDE: String = "wide";
 }

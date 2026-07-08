@@ -1,0 +1,576 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct CAINFO {
+            cbSize: u32,
+            CAType: ENUM_CATYPES,
+            cCASignatureCerts: u32,
+            cCAExchangeCerts: u32,
+            cExitModules: u32,
+            lPropIdMax: i32,
+            lRoleSeparationEnabled: i32,
+            cKRACertUsedCount: u32,
+            cKRACertCount: u32,
+            fAdvancedServer: u32,
+        }
+        const CAPATHLENGTH_INFINITE: u32 = 4294967295;
+        const CCLOCKSKEWMINUTESDEFAULT: u32 = 10;
+        const CERTLOG_ERROR: u32 = 2;
+        const CERTLOG_EXHAUSTIVE: u32 = 5;
+        const CERTLOG_MINIMAL: u32 = 0;
+        const CERTLOG_TERSE: u32 = 1;
+        const CERTLOG_VERBOSE: u32 = 4;
+        const CERTLOG_WARNING: u32 = 3;
+        const CPF_BADURL_ERROR: u32 = 32;
+        const CPF_BASE: u32 = 1;
+        const CPF_CASTORE_ERROR: u32 = 16;
+        const CPF_COMPLETE: u32 = 4;
+        const CPF_DELTA: u32 = 2;
+        const CPF_FILE_ERROR: u32 = 512;
+        const CPF_FTP_ERROR: u32 = 1024;
+        const CPF_HTTP_ERROR: u32 = 2048;
+        const CPF_LDAP_ERROR: u32 = 256;
+        const CPF_MANUAL: u32 = 64;
+        const CPF_POSTPONED_BASE_FILE_ERROR: u32 = 8192;
+        const CPF_POSTPONED_BASE_LDAP_ERROR: u32 = 4096;
+        const CPF_SHADOW: u32 = 8;
+        const CPF_SIGNATURE_ERROR: u32 = 128;
+        const CRLF_ALLOW_REQUEST_ATTRIBUTE_SUBJECT: u32 = 65536;
+        const CRLF_BUILD_ROOTCA_CRLENTRIES_BASEDONKEY: u32 = 2097152;
+        const CRLF_CONTAINS_ONLY_CACERTS: u32 = 16777216;
+        const CRLF_CONTAINS_ONLY_USERCERTS: u32 = 33554432;
+        const CRLF_CRLNUMBER_CRITICAL: u32 = 4;
+        const CRLF_DELETE_EXPIRED_CRLS: u32 = 2;
+        const CRLF_DELTA_USE_OLDEST_UNEXPIRED_BASE: u32 = 1;
+        const CRLF_DISABLE_CHAIN_VERIFICATION: u32 = 1048576;
+        const CRLF_DISABLE_RDN_REORDER: u32 = 2048;
+        const CRLF_DISABLE_ROOT_CROSS_CERTS: u32 = 4096;
+        const CRLF_ENABLE_CRL_PARTITION: u32 = 4194304;
+        const CRLF_ENFORCE_ENROLLMENT_AGENT: u32 = 1024;
+        const CRLF_IGNORE_CROSS_CERT_TRUST_ERROR: u32 = 256;
+        const CRLF_IGNORE_INVALID_POLICIES: u32 = 16;
+        const CRLF_IGNORE_UNKNOWN_CMC_ATTRIBUTES: u32 = 128;
+        const CRLF_LOG_FULL_RESPONSE: u32 = 8192;
+        const CRLF_PARTITION_ZERO_EXCLUSIVE: u32 = 8388608;
+        const CRLF_PRESERVE_EXPIRED_CA_CERTS: u32 = 262144;
+        const CRLF_PRESERVE_REVOKED_CA_CERTS: u32 = 524288;
+        const CRLF_PUBLISH_EXPIRED_CERT_CRLS: u32 = 512;
+        const CRLF_REBUILD_MODIFIED_SUBJECT_ONLY: u32 = 32;
+        const CRLF_REVCHECK_IGNORE_NOREVCHECK: u32 = 131072;
+        const CRLF_REVCHECK_IGNORE_OFFLINE: u32 = 8;
+        const CRLF_SAVE_FAILED_CERTS: u32 = 64;
+        const CRLF_USE_CROSS_CERT_TEMPLATE: u32 = 32768;
+        const CRLF_USE_XCHG_CERT_TEMPLATE: u32 = 16384;
+        const CR_FLG_CACROSSCERT: u32 = 128;
+        const CR_FLG_CAXCHGCERT: u32 = 8;
+        const CR_FLG_CHALLENGEPENDING: u32 = 1024;
+        const CR_FLG_CHALLENGESATISFIED: u32 = 2048;
+        const CR_FLG_DEFINEDCACERT: u32 = 512;
+        const CR_FLG_ENFORCEUTF8: u32 = 256;
+        const CR_FLG_ENROLLONBEHALFOF: u32 = 16;
+        const CR_FLG_FORCETELETEX: u32 = 1;
+        const CR_FLG_FORCEUTF8: u32 = 4;
+        const CR_FLG_PUBLISHERROR: u32 = 2147483648;
+        const CR_FLG_RENEWAL: u32 = 2;
+        const CR_FLG_SUBJECTUNMODIFIED: u32 = 32;
+        const CR_FLG_TRUSTEKCERT: u32 = 8192;
+        const CR_FLG_TRUSTEKKEY: u32 = 16384;
+        const CR_FLG_TRUSTONUSE: u32 = 4096;
+        const CR_FLG_VALIDENCRYPTEDKEYHASH: u32 = 64;
+        const CSURL_ADDTOCERTCDP: u32 = 2;
+        const CSURL_ADDTOCERTOCSP: u32 = 32;
+        const CSURL_ADDTOCRLCDP: u32 = 8;
+        const CSURL_ADDTOFRESHESTCRL: u32 = 4;
+        const CSURL_ADDTOIDP: u32 = 128;
+        const CSURL_PUBLISHRETRY: u32 = 16;
+        const CSURL_SERVERPUBLISH: u32 = 1;
+        const CSURL_SERVERPUBLISHDELTA: u32 = 64;
+        const CSVER_MAJOR: u32 = 7;
+        const CSVER_MAJOR_LONGHORN: u32 = 3;
+        const CSVER_MAJOR_THRESHOLD: u32 = 7;
+        const CSVER_MAJOR_WHISTLER: u32 = 2;
+        const CSVER_MAJOR_WIN2K: u32 = 1;
+        const CSVER_MAJOR_WIN7: u32 = 4;
+        const CSVER_MAJOR_WIN8: u32 = 5;
+        const CSVER_MAJOR_WINBLUE: u32 = 6;
+        const CSVER_MINOR: u32 = 1;
+        const CSVER_MINOR_LONGHORN_BETA1: u32 = 1;
+        const CSVER_MINOR_THRESHOLD: u32 = 1;
+        const CSVER_MINOR_WHISTLER_BETA2: u32 = 1;
+        const CSVER_MINOR_WHISTLER_BETA3: u32 = 2;
+        const CSVER_MINOR_WIN2K: u32 = 1;
+        const CSVER_MINOR_WIN7: u32 = 1;
+        const CSVER_MINOR_WIN8: u32 = 1;
+        const CSVER_MINOR_WINBLUE: u32 = 1;
+        const CVIEWAGEMINUTESDEFAULT: u32 = 16;
+        const CVIEWIDLEMINUTESDEFAULT: u32 = 8;
+        const DBFLAGS_CHECKPOINTDEPTH60MB: u32 = 32;
+        const DBFLAGS_CIRCULARLOGGING: u32 = 4;
+        const DBFLAGS_CREATEIFNEEDED: u32 = 2;
+        const DBFLAGS_DEFAULT: u32 = 176;
+        const DBFLAGS_DISABLESNAPSHOTBACKUP: u32 = 1024;
+        const DBFLAGS_ENABLEVOLATILEREQUESTS: u32 = 2048;
+        const DBFLAGS_LAZYFLUSH: u32 = 8;
+        const DBFLAGS_LOGBUFFERSHUGE: u32 = 128;
+        const DBFLAGS_LOGBUFFERSLARGE: u32 = 64;
+        const DBFLAGS_LOGFILESIZE16MB: u32 = 256;
+        const DBFLAGS_MAXCACHESIZEX100: u32 = 16;
+        const DBFLAGS_MULTITHREADTRANSACTIONS: u32 = 512;
+        const DBFLAGS_READONLY: u32 = 1;
+        const DBG_CERTSRV: u32 = 0;
+        const DBSESSIONCOUNTDEFAULT: u32 = 100;
+        const DB_DISP_ACTIVE: u32 = 8;
+        const DB_DISP_CA_CERT: u32 = 15;
+        const DB_DISP_CA_CERT_CHAIN: u32 = 16;
+        const DB_DISP_DENIED: u32 = 31;
+        const DB_DISP_ERROR: u32 = 30;
+        const DB_DISP_FOREIGN: u32 = 12;
+        const DB_DISP_ISSUED: u32 = 20;
+        const DB_DISP_KRA_CERT: u32 = 17;
+        const DB_DISP_LOG_FAILED_MIN: u32 = 30;
+        const DB_DISP_LOG_MIN: u32 = 20;
+        const DB_DISP_PENDING: u32 = 9;
+        const DB_DISP_QUEUE_MAX: u32 = 9;
+        const DB_DISP_REVOKED: u32 = 21;
+        const EDITF_ADDOLDCERTTYPE: u32 = 16;
+        const EDITF_ADDOLDKEYUSAGE: u32 = 8;
+        const EDITF_ATTRIBUTECA: u32 = 512;
+        const EDITF_ATTRIBUTEEKU: u32 = 32768;
+        const EDITF_ATTRIBUTEENDDATE: u32 = 32;
+        const EDITF_ATTRIBUTESUBJECTALTNAME2: u32 = 262144;
+        const EDITF_AUDITCERTTEMPLATELOAD: u32 = 2097152;
+        const EDITF_BASICCONSTRAINTSCA: u32 = 128;
+        const EDITF_BASICCONSTRAINTSCRITICAL: u32 = 64;
+        const EDITF_DEFAULT_ENTERPRISE: u32 = 1114446;
+        const EDITF_DEFAULT_STANDALONE: u32 = 33774;
+        const EDITF_DISABLEEXTENSIONLIST: u32 = 4;
+        const EDITF_DISABLELDAPPACKAGELIST: u32 = 8388608;
+        const EDITF_DISABLEOLDOSCNUPN: u32 = 4194304;
+        const EDITF_EMAILOPTIONAL: u32 = 131072;
+        const EDITF_ENABLEAKICRITICAL: u32 = 8192;
+        const EDITF_ENABLEAKIISSUERNAME: u32 = 2048;
+        const EDITF_ENABLEAKIISSUERSERIAL: u32 = 4096;
+        const EDITF_ENABLEAKIKEYID: u32 = 256;
+        const EDITF_ENABLECHASECLIENTDC: u32 = 1048576;
+        const EDITF_ENABLEDEFAULTSMIME: u32 = 65536;
+        const EDITF_ENABLEKEYENCIPHERMENTCACERT: u32 = 134217728;
+        const EDITF_ENABLELDAPREFERRALS: u32 = 524288;
+        const EDITF_ENABLEOCSPREVNOCHECK: u32 = 33554432;
+        const EDITF_ENABLERENEWONBEHALFOF: u32 = 67108864;
+        const EDITF_ENABLEREQUESTEXTENSIONS: u32 = 1;
+        const EDITF_ENABLEUPNMAP: u32 = 16777216;
+        const EDITF_IGNOREREQUESTERGROUP: u32 = 1024;
+        const EDITF_REQUESTEXTENSIONLIST: u32 = 2;
+        const EDITF_SERVERUPGRADED: u32 = 16384;
+        #[repr(i32)]
+        enum ENUM_CATYPES {
+            ENUM_ENTERPRISE_ROOTCA = 0,
+            ENUM_ENTERPRISE_SUBCA = 1,
+            ENUM_STANDALONE_ROOTCA = 3,
+            ENUM_STANDALONE_SUBCA = 4,
+            ENUM_UNKNOWN_CA = 5,
+        }
+        const EP_TOKENCHECK_DEFAULT_VALUE: u32 = 2;
+        const EXITPUB_ACTIVEDIRECTORY: u32 = 2;
+        const EXITPUB_DEFAULT_ENTERPRISE: u32 = 2;
+        const EXITPUB_DEFAULT_STANDALONE: u32 = 1;
+        const EXITPUB_FILE: u32 = 1;
+        const EXITPUB_REMOVEOLDCERTS: u32 = 16;
+        const EXTENSION_CRITICAL_FLAG: u32 = 1;
+        const EXTENSION_DELETE_FLAG: u32 = 4;
+        const EXTENSION_DISABLE_FLAG: u32 = 2;
+        const EXTENSION_ORIGIN_ADMIN: u32 = 196608;
+        const EXTENSION_ORIGIN_CACERT: u32 = 589824;
+        const EXTENSION_ORIGIN_CMC: u32 = 524288;
+        const EXTENSION_ORIGIN_IMPORTEDCERT: u32 = 393216;
+        const EXTENSION_ORIGIN_MASK: u32 = 983040;
+        const EXTENSION_ORIGIN_PKCS7: u32 = 458752;
+        const EXTENSION_ORIGIN_POLICY: u32 = 131072;
+        const EXTENSION_ORIGIN_RENEWALCERT: u32 = 327680;
+        const EXTENSION_ORIGIN_REQUEST: u32 = 65536;
+        const EXTENSION_ORIGIN_SERVER: u32 = 262144;
+        const EXTENSION_POLICY_MASK: u32 = 65535;
+        const IF_DEFAULT: u32 = 1601;
+        const IF_ENABLEADMINASAUDITOR: u32 = 4096;
+        const IF_ENABLEEXITKEYRETRIEVAL: u32 = 2048;
+        const IF_ENABLEPRESIGNSUPPORT: u32 = 8192;
+        const IF_ENFORCEENCRYPTICERTADMIN: u32 = 1024;
+        const IF_ENFORCEENCRYPTICERTREQUEST: u32 = 512;
+        const IF_LOCKICERTREQUEST: u32 = 1;
+        const IF_NOLOCALICERTADMIN: u32 = 32;
+        const IF_NOLOCALICERTADMINBACKUP: u32 = 128;
+        const IF_NOLOCALICERTREQUEST: u32 = 4;
+        const IF_NOREMOTEICERTADMIN: u32 = 16;
+        const IF_NOREMOTEICERTADMINBACKUP: u32 = 64;
+        const IF_NOREMOTEICERTREQUEST: u32 = 2;
+        const IF_NORPCICERTREQUEST: u32 = 8;
+        const IF_NOSNAPSHOTBACKUP: u32 = 256;
+        const ISSCERT_DEFAULT_DS: u32 = 256;
+        const ISSCERT_DEFAULT_NODS: u32 = 256;
+        const ISSCERT_ENABLE: u32 = 256;
+        const ISSCERT_FILEURL_OLD: u32 = 8;
+        const ISSCERT_FTPURL_OLD: u32 = 4;
+        const ISSCERT_HTTPURL_OLD: u32 = 2;
+        const ISSCERT_LDAPURL_OLD: u32 = 1;
+        const ISSCERT_URLMASK_OLD: u32 = 255;
+        const KRAF_DISABLEUSEDEFAULTPROVIDER: u32 = 8;
+        const KRAF_ENABLEARCHIVEALL: u32 = 4;
+        const KRAF_ENABLEFOREIGN: u32 = 1;
+        const KRAF_SAVEBADREQUESTKEY: u32 = 2;
+        const KR_ENABLE_MACHINE: u32 = 1;
+        const KR_ENABLE_USER: u32 = 2;
+        const LDAPF_SIGNDISABLE: u32 = 2;
+        const LDAPF_SSLENABLE: u32 = 1;
+        const MAXINCOMINGALLOCSIZEDEFAULT: u32 = 65536;
+        const MAXINCOMINGMESSAGESIZEDEFAULT: u32 = 65536;
+        const PROCFLG_ENFORCEGOODKEYS: u32 = 1;
+        const PROCFLG_NONE: u32 = 0;
+        const PROPCALLER_ADMIN: u32 = 1024;
+        const PROPCALLER_EXIT: u32 = 768;
+        const PROPCALLER_MASK: u32 = 3840;
+        const PROPCALLER_POLICY: u32 = 512;
+        const PROPCALLER_REQUEST: u32 = 1280;
+        const PROPCALLER_SERVER: u32 = 256;
+        const PROPFLAGS_INDEXED: u32 = 65536;
+        const PROPTYPE_BINARY: u32 = 3;
+        const PROPTYPE_DATE: u32 = 2;
+        const PROPTYPE_LONG: u32 = 1;
+        const PROPTYPE_MASK: u32 = 255;
+        const PROPTYPE_STRING: u32 = 4;
+        const REQDISP_DEFAULT_ENTERPRISE: u32 = 1;
+        const REQDISP_DEFAULT_STANDALONE: u32 = 257;
+        const REQDISP_DENY: u32 = 2;
+        const REQDISP_ISSUE: u32 = 1;
+        const REQDISP_MASK: u32 = 255;
+        const REQDISP_PENDING: u32 = 0;
+        const REQDISP_PENDINGFIRST: u32 = 256;
+        const REQDISP_USEREQUESTATTRIBUTE: u32 = 3;
+        const REVEXT_ASPENABLE: u32 = 512;
+        const REVEXT_CDPENABLE: u32 = 256;
+        const REVEXT_CDPFILEURL_OLD: u32 = 8;
+        const REVEXT_CDPFTPURL_OLD: u32 = 4;
+        const REVEXT_CDPHTTPURL_OLD: u32 = 2;
+        const REVEXT_CDPLDAPURL_OLD: u32 = 1;
+        const REVEXT_CDPURLMASK_OLD: u32 = 255;
+        const REVEXT_DEFAULT_DS: u32 = 256;
+        const REVEXT_DEFAULT_NODS: u32 = 256;
+        const SETUP_ATTEMPT_VROOT_CREATE: u32 = 128;
+        const SETUP_CLIENT_FLAG: u32 = 2;
+        const SETUP_CREATEDB_FLAG: u32 = 64;
+        const SETUP_DCOM_SECURITY_UPDATED_FLAG: u32 = 8192;
+        const SETUP_DENIED_FLAG: u32 = 32;
+        const SETUP_FORCECRL_FLAG: u32 = 256;
+        const SETUP_ONLINE_FLAG: u32 = 16;
+        const SETUP_REQUEST_FLAG: u32 = 8;
+        const SETUP_SECURITY_CHANGED: u32 = 4096;
+        const SETUP_SERVER_FLAG: u32 = 1;
+        const SETUP_SERVER_IS_UP_TO_DATE_FLAG: u32 = 16384;
+        const SETUP_SERVER_UPGRADED_FLAG: u32 = 1024;
+        const SETUP_SUSPEND_FLAG: u32 = 4;
+        const SETUP_UPDATE_CAOBJECT_SVRTYPE: u32 = 512;
+        const SETUP_W2K_SECURITY_NOT_UPGRADED_FLAG: u32 = 2048;
+        const TP_MACHINEPOLICY: u32 = 1;
+        const VR_INSTANT_BAD: u32 = 2;
+        const VR_INSTANT_OK: u32 = 1;
+        const VR_PENDING: u32 = 0;
+        const dwCAXCHGOVERLAPPERIODCOUNTDEFAULT: u32 = 1;
+        const dwCAXCHGVALIDITYPERIODCOUNTDEFAULT: u32 = 1;
+        const dwCRLDELTAOVERLAPPERIODCOUNTDEFAULT: u32 = 0;
+        const dwCRLDELTAPERIODCOUNTDEFAULT: u32 = 1;
+        const dwCRLOVERLAPPERIODCOUNTDEFAULT: u32 = 0;
+        const dwCRLPERIODCOUNTDEFAULT: u32 = 1;
+        const dwVALIDITYPERIODCOUNTDEFAULT_ENTERPRISE: u32 = 2;
+        const dwVALIDITYPERIODCOUNTDEFAULT_ROOT: u32 = 5;
+        const dwVALIDITYPERIODCOUNTDEFAULT_STANDALONE: u32 = 1;
+        #[encoding("ansi")]
+        const szDBBASENAMEPARM: String = "edb";
+        #[encoding("ansi")]
+        const szNAMESEPARATORDEFAULT: String = "\n";
+        #[encoding("ansi")]
+        const szPROPASNTAG: String = "{asn}";
+        #[encoding("utf-16")]
+        const wszCAPOLICYFILE: String = "CAPolicy.inf";
+        #[encoding("utf-16")]
+        const wszCERT_TYPE: String = "RequestType";
+        #[encoding("utf-16")]
+        const wszCERT_TYPE_CLIENT: String = "Client";
+        #[encoding("utf-16")]
+        const wszCERT_TYPE_CODESIGN: String = "CodeSign";
+        #[encoding("utf-16")]
+        const wszCERT_TYPE_CUSTOMER: String = "SetCustomer";
+        #[encoding("utf-16")]
+        const wszCERT_TYPE_MERCHANT: String = "SetMerchant";
+        #[encoding("utf-16")]
+        const wszCERT_TYPE_PAYMENT: String = "SetPayment";
+        #[encoding("utf-16")]
+        const wszCERT_TYPE_SERVER: String = "Server";
+        #[encoding("utf-16")]
+        const wszCERT_VERSION: String = "Version";
+        #[encoding("utf-16")]
+        const wszCERT_VERSION_1: String = "1";
+        #[encoding("utf-16")]
+        const wszCERT_VERSION_2: String = "2";
+        #[encoding("utf-16")]
+        const wszCERT_VERSION_3: String = "3";
+        #[encoding("utf-16")]
+        const wszINFKEY_ATTESTPRIVATEKEY: String = "AttestPrivateKey";
+        #[encoding("utf-16")]
+        const wszINFKEY_CACAPABILITIES: String = "CACapabilities";
+        #[encoding("utf-16")]
+        const wszINFKEY_CACERTS: String = "CACerts";
+        #[encoding("utf-16")]
+        const wszINFKEY_CATHUMBPRINT: String = "CAThumbprint";
+        #[encoding("utf-16")]
+        const wszINFKEY_CCDPSYNCDELTATIME: String = "SyncDeltaTime";
+        #[encoding("utf-16")]
+        const wszINFKEY_CHALLENGEPASSWORD: String = "ChallengePassword";
+        #[encoding("utf-16")]
+        const wszINFKEY_CONTINUE: String = "_continue_";
+        #[encoding("utf-16")]
+        const wszINFKEY_CRITICAL: String = "Critical";
+        #[encoding("utf-16")]
+        const wszINFKEY_DIRECTORYNAME: String = "DirectoryName";
+        #[encoding("utf-16")]
+        const wszINFKEY_DNS: String = "DNS";
+        #[encoding("utf-16")]
+        const wszINFKEY_ECCKEYPARAMETERS: String = "EccKeyParameters";
+        #[encoding("utf-16")]
+        const wszINFKEY_ECCKEYPARAMETERSTYPE: String = "EccKeyParametersType";
+        #[encoding("utf-16")]
+        const wszINFKEY_ECCKEYPARAMETERS_A: String = "EccKeyParameters_A";
+        #[encoding("utf-16")]
+        const wszINFKEY_ECCKEYPARAMETERS_B: String = "EccKeyParameters_B";
+        #[encoding("utf-16")]
+        const wszINFKEY_ECCKEYPARAMETERS_BASE: String = "EccKeyParameters_Base";
+        #[encoding("utf-16")]
+        const wszINFKEY_ECCKEYPARAMETERS_COFACTOR: String = "EccKeyParameters_Cofactor";
+        #[encoding("utf-16")]
+        const wszINFKEY_ECCKEYPARAMETERS_ORDER: String = "EccKeyParameters_Order";
+        #[encoding("utf-16")]
+        const wszINFKEY_ECCKEYPARAMETERS_P: String = "EccKeyParameters_P";
+        #[encoding("utf-16")]
+        const wszINFKEY_ECCKEYPARAMETERS_SEED: String = "EccKeyParameters_Seed";
+        #[encoding("utf-16")]
+        const wszINFKEY_EMAIL: String = "EMail";
+        #[encoding("utf-16")]
+        const wszINFKEY_EMPTY: String = "Empty";
+        #[encoding("utf-16")]
+        const wszINFKEY_ENABLEKEYCOUNTING: String = "EnableKeyCounting";
+        #[encoding("utf-16")]
+        const wszINFKEY_ENCRYPTIONALGORITHM: String = "EncryptionAlgorithm";
+        #[encoding("utf-16")]
+        const wszINFKEY_ENCRYPTIONLENGTH: String = "EncryptionLength";
+        #[encoding("utf-16")]
+        const wszINFKEY_EXCLUDE: String = "Exclude";
+        #[encoding("utf-16")]
+        const wszINFKEY_EXPORTABLE: String = "Exportable";
+        #[encoding("utf-16")]
+        const wszINFKEY_EXPORTABLEENCRYPTED: String = "ExportableEncrypted";
+        #[encoding("utf-16")]
+        const wszINFKEY_FLAGS: String = "Flags";
+        #[encoding("utf-16")]
+        const wszINFKEY_FORCEUTF8: String = "ForceUTF8";
+        #[encoding("utf-16")]
+        const wszINFKEY_FRIENDLYNAME: String = "FriendlyName";
+        #[encoding("utf-16")]
+        const wszINFKEY_HASHALGORITHM: String = "HashAlgorithm";
+        #[encoding("utf-16")]
+        const wszINFKEY_INCLUDE: String = "Include";
+        #[encoding("utf-16")]
+        const wszINFKEY_INHIBITPOLICYMAPPING: String = "InhibitPolicyMapping";
+        #[encoding("utf-16")]
+        const wszINFKEY_IPADDRESS: String = "IPAddress";
+        #[encoding("utf-16")]
+        const wszINFKEY_KEYALGORITHM: String = "KeyAlgorithm";
+        #[encoding("utf-16")]
+        const wszINFKEY_KEYALGORITHMPARMETERS: String = "KeyAlgorithmParameters";
+        #[encoding("utf-16")]
+        const wszINFKEY_KEYCONTAINER: String = "KeyContainer";
+        #[encoding("utf-16")]
+        const wszINFKEY_KEYLENGTH: String = "KeyLength";
+        #[encoding("utf-16")]
+        const wszINFKEY_KEYPROTECTION: String = "KeyProtection";
+        #[encoding("utf-16")]
+        const wszINFKEY_KEYUSAGEEXTENSION: String = "KeyUsage";
+        #[encoding("utf-16")]
+        const wszINFKEY_KEYUSAGEPROPERTY: String = "KeyUsageProperty";
+        #[encoding("utf-16")]
+        const wszINFKEY_LEGACYKEYSPEC: String = "KeySpec";
+        #[encoding("utf-16")]
+        const wszINFKEY_LOADDEFAULTTEMPLATES: String = "LoadDefaultTemplates";
+        #[encoding("utf-16")]
+        const wszINFKEY_MACHINEKEYSET: String = "MachineKeySet";
+        #[encoding("utf-16")]
+        const wszINFKEY_NOTAFTER: String = "NotAfter";
+        #[encoding("utf-16")]
+        const wszINFKEY_NOTBEFORE: String = "NotBefore";
+        #[encoding("utf-16")]
+        const wszINFKEY_NOTICE: String = "Notice";
+        #[encoding("utf-16")]
+        const wszINFKEY_OID: String = "OID";
+        #[encoding("utf-16")]
+        const wszINFKEY_OTHERNAME: String = "OtherName";
+        #[encoding("utf-16")]
+        const wszINFKEY_PATHLENGTH: String = "PathLength";
+        #[encoding("utf-16")]
+        const wszINFKEY_POLICIES: String = "Policies";
+        #[encoding("utf-16")]
+        const wszINFKEY_PRIVATEKEYARCHIVE: String = "PrivateKeyArchive";
+        #[encoding("utf-16")]
+        const wszINFKEY_PROVIDERNAME: String = "ProviderName";
+        #[encoding("utf-16")]
+        const wszINFKEY_PROVIDERTYPE: String = "ProviderType";
+        #[encoding("utf-16")]
+        const wszINFKEY_PUBLICKEY: String = "PublicKey";
+        #[encoding("utf-16")]
+        const wszINFKEY_PUBLICKEYPARAMETERS: String = "PublicKeyParameters";
+        #[encoding("utf-16")]
+        const wszINFKEY_READERNAME: String = "ReaderName";
+        #[encoding("utf-16")]
+        const wszINFKEY_REGISTEREDID: String = "RegisteredId";
+        #[encoding("utf-16")]
+        const wszINFKEY_RENEWALCERT: String = "RenewalCert";
+        #[encoding("utf-16")]
+        const wszINFKEY_RENEWALKEYLENGTH: String = "RenewalKeyLength";
+        #[encoding("utf-16")]
+        const wszINFKEY_RENEWALVALIDITYPERIODCOUNT: String = "RenewalValidityPeriodUnits";
+        #[encoding("utf-16")]
+        const wszINFKEY_RENEWALVALIDITYPERIODSTRING: String = "RenewalValidityPeriod";
+        #[encoding("utf-16")]
+        const wszINFKEY_REQUESTTYPE: String = "RequestType";
+        #[encoding("utf-16")]
+        const wszINFKEY_REQUIREEXPLICITPOLICY: String = "RequireExplicitPolicy";
+        #[encoding("utf-16")]
+        const wszINFKEY_SECURITYDESCRIPTOR: String = "SecurityDescriptor";
+        #[encoding("utf-16")]
+        const wszINFKEY_SERIALNUMBER: String = "SerialNumber";
+        #[encoding("utf-16")]
+        const wszINFKEY_SHOWALLCSPS: String = "ShowAllCSPs";
+        #[encoding("utf-16")]
+        const wszINFKEY_SILENT: String = "Silent";
+        #[encoding("utf-16")]
+        const wszINFKEY_SMIME: String = "SMIME";
+        #[encoding("utf-16")]
+        const wszINFKEY_SUBJECT: String = "Subject";
+        #[encoding("utf-16")]
+        const wszINFKEY_SUBJECTNAMEFLAGS: String = "SubjectNameFlags";
+        #[encoding("utf-16")]
+        const wszINFKEY_SUBTREE: String = "SubTree";
+        #[encoding("utf-16")]
+        const wszINFKEY_SUPPRESSDEFAULTS: String = "SuppressDefaults";
+        #[encoding("utf-16")]
+        const wszINFKEY_UICONTEXTMESSAGE: String = "UIContextMessage";
+        #[encoding("utf-16")]
+        const wszINFKEY_UPN: String = "UPN";
+        #[encoding("utf-16")]
+        const wszINFKEY_URL: String = "URL";
+        #[encoding("utf-16")]
+        const wszINFKEY_USEEXISTINGKEY: String = "UseExistingKeySet";
+        #[encoding("utf-16")]
+        const wszINFKEY_USERPROTECTED: String = "UserProtected";
+        #[encoding("utf-16")]
+        const wszINFKEY_UTF8: String = "UTF8";
+        #[encoding("utf-16")]
+        const wszINFKEY_X500NAMEFLAGS: String = "X500NameFlags";
+        #[encoding("utf-16")]
+        const wszINFSECTION_AIA: String = "AuthorityInformationAccess";
+        #[encoding("utf-16")]
+        const wszINFSECTION_APPLICATIONPOLICYCONSTRAINTS: String = "ApplicationPolicyConstraintsExtension";
+        #[encoding("utf-16")]
+        const wszINFSECTION_APPLICATIONPOLICYMAPPINGS: String = "ApplicationPolicyMappingsExtension";
+        #[encoding("utf-16")]
+        const wszINFSECTION_APPLICATIONPOLICYSTATEMENT: String = "ApplicationPolicyStatementExtension";
+        #[encoding("utf-16")]
+        const wszINFSECTION_BASICCONSTRAINTS: String = "BasicConstraintsExtension";
+        #[encoding("utf-16")]
+        const wszINFSECTION_CAPOLICY: String = "CAPolicy";
+        #[encoding("utf-16")]
+        const wszINFSECTION_CCDP: String = "CrossCertificateDistributionPointsExtension";
+        #[encoding("utf-16")]
+        const wszINFSECTION_CDP: String = "CRLDistributionPoint";
+        #[encoding("utf-16")]
+        const wszINFSECTION_CERTSERVER: String = "certsrv_server";
+        #[encoding("utf-16")]
+        const wszINFSECTION_EKU: String = "EnhancedKeyUsageExtension";
+        #[encoding("utf-16")]
+        const wszINFSECTION_EXTENSIONS: String = "Extensions";
+        #[encoding("utf-16")]
+        const wszINFSECTION_NAMECONSTRAINTS: String = "NameConstraintsExtension";
+        #[encoding("utf-16")]
+        const wszINFSECTION_NEWREQUEST: String = "NewRequest";
+        #[encoding("utf-16")]
+        const wszINFSECTION_POLICYCONSTRAINTS: String = "PolicyConstraintsExtension";
+        #[encoding("utf-16")]
+        const wszINFSECTION_POLICYMAPPINGS: String = "PolicyMappingsExtension";
+        #[encoding("utf-16")]
+        const wszINFSECTION_POLICYSTATEMENT: String = "PolicyStatementExtension";
+        #[encoding("utf-16")]
+        const wszINFSECTION_PROPERTIES: String = "Properties";
+        #[encoding("utf-16")]
+        const wszINFSECTION_REQUESTATTRIBUTES: String = "RequestAttributes";
+        #[encoding("utf-16")]
+        const wszINFVALUE_ENDORSEMENTKEY: String = "EndorsementKey";
+        #[encoding("utf-16")]
+        const wszINFVALUE_REQUESTTYPE_CERT: String = "Cert";
+        #[encoding("utf-16")]
+        const wszINFVALUE_REQUESTTYPE_CMC: String = "CMC";
+        #[encoding("utf-16")]
+        const wszINFVALUE_REQUESTTYPE_PKCS10: String = "PKCS10";
+        #[encoding("utf-16")]
+        const wszINFVALUE_REQUESTTYPE_PKCS7: String = "PKCS7";
+        #[encoding("utf-16")]
+        const wszINFVALUE_REQUESTTYPE_SCEP: String = "SCEP";
+        #[encoding("utf-16")]
+        const wszPROPCLIENTDCDNS: String = "cdc";
+        #[encoding("utf-16")]
+        const wszPROPREQUESTMACHINEDNS: String = "rmd";
+        #[encoding("utf-16")]
+        const wszREGALLPROVIDERS: String = "All";
+        #[encoding("utf-16")]
+        const wszREGEXITBODYARG: String = "BodyArg";
+        #[encoding("utf-16")]
+        const wszREGEXITBODYFORMAT: String = "BodyFormat";
+        #[encoding("utf-16")]
+        const wszREGEXITCRLISSUEDKEY: String = "CRLIssued";
+        #[encoding("utf-16")]
+        const wszREGEXITDENIEDKEY: String = "Denied";
+        #[encoding("utf-16")]
+        const wszREGEXITIMPORTEDKEY: String = "Imported";
+        #[encoding("utf-16")]
+        const wszREGEXITISSUEDKEY: String = "Issued";
+        #[encoding("utf-16")]
+        const wszREGEXITPENDINGKEY: String = "Pending";
+        #[encoding("utf-16")]
+        const wszREGEXITPROPNOTFOUND: String = "???";
+        #[encoding("utf-16")]
+        const wszREGEXITREVOKEDKEY: String = "Revoked";
+        #[encoding("utf-16")]
+        const wszREGEXITSHUTDOWNKEY: String = "Shutdown";
+        #[encoding("utf-16")]
+        const wszREGEXITSMTPAUTHENTICATE: String = "SMTPAuthenticate";
+        #[encoding("utf-16")]
+        const wszREGEXITSMTPCC: String = "Cc";
+        #[encoding("utf-16")]
+        const wszREGEXITSMTPEVENTFILTER: String = "EventFilter";
+        #[encoding("utf-16")]
+        const wszREGEXITSMTPFROM: String = "From";
+        #[encoding("utf-16")]
+        const wszREGEXITSMTPKEY: String = "SMTP";
+        #[encoding("utf-16")]
+        const wszREGEXITSMTPSERVER: String = "SMTPServer";
+        #[encoding("utf-16")]
+        const wszREGEXITSMTPTEMPLATES: String = "Templates";
+        #[encoding("utf-16")]
+        const wszREGEXITSMTPTO: String = "To";
+        #[encoding("utf-16")]
+        const wszREGEXITSTARTUPKEY: String = "Startup";
+        #[encoding("utf-16")]
+        const wszREGEXITTITLEARG: String = "TitleArg";
+        #[encoding("utf-16")]
+        const wszREGEXITTITLEFORMAT: String = "TitleFormat";
+        #[encoding("utf-16")]
+        const wszREGKEYENROLLMENT: String = "Software\\Microsoft\\Cryptography\\AutoEnrollment";
+        #[encoding("utf-16")]
+        const wszREGKEYGROUPPOLICYENROLLMENT: String = "Software\\Policies\\Microsoft\\Cryptography\\AutoEnrollment";
+    }
+}

@@ -1,0 +1,84 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type CURSOR_ID = u32;
+        const IP_CURSOR_DOWN: u32 = 1;
+        const IP_INVERTED: u32 = 2;
+        const IP_MARGIN: u32 = 4;
+        const MAX_PACKET_BUTTON_COUNT: u32 = 32;
+        const MAX_PACKET_PROPERTY_COUNT: u32 = 32;
+        struct PACKET_DESCRIPTION {
+            cbPacketSize: u32,
+            cPacketProperties: u32,
+            pPacketProperties: *mut PACKET_PROPERTY,
+            cButtons: u32,
+            pguidButtons: *mut GUID,
+        }
+        struct PACKET_PROPERTY {
+            guid: GUID,
+            PropertyMetrics: PROPERTY_METRICS,
+        }
+        type PPACKET_DESCRIPTION = *mut PACKET_DESCRIPTION;
+        type PPACKET_PROPERTY = *mut PACKET_PROPERTY;
+        type PPROPERTY_METRICS = *mut PROPERTY_METRICS;
+        type PPROPERTY_UNITS = *mut PROPERTY_UNITS;
+        struct PROPERTY_METRICS {
+            nLogicalMin: i32,
+            nLogicalMax: i32,
+            Units: PROPERTY_UNITS,
+            fResolution: f32,
+        }
+        #[repr(i32)]
+        enum PROPERTY_UNITS {
+            PROPERTY_UNITS_DEFAULT = 0,
+            PROPERTY_UNITS_INCHES = 1,
+            PROPERTY_UNITS_CENTIMETERS = 2,
+            PROPERTY_UNITS_DEGREES = 3,
+            PROPERTY_UNITS_RADIANS = 4,
+            PROPERTY_UNITS_SECONDS = 5,
+            PROPERTY_UNITS_POUNDS = 6,
+            PROPERTY_UNITS_GRAMS = 7,
+            PROPERTY_UNITS_SILINEAR = 8,
+            PROPERTY_UNITS_SIROTATION = 9,
+            PROPERTY_UNITS_ENGLINEAR = 10,
+            PROPERTY_UNITS_ENGROTATION = 11,
+            PROPERTY_UNITS_SLUGS = 12,
+            PROPERTY_UNITS_KELVIN = 13,
+            PROPERTY_UNITS_FAHRENHEIT = 14,
+            PROPERTY_UNITS_AMPERE = 15,
+            PROPERTY_UNITS_CANDELA = 16,
+        }
+        struct STROKE_RANGE {
+            iStrokeBegin: u32,
+            iStrokeEnd: u32,
+        }
+        type SYSTEM_EVENT = u16;
+        struct SYSTEM_EVENT_DATA {
+            bModifier: u8,
+            wKey: u16,
+            xPos: i32,
+            yPos: i32,
+            bCursorMode: u8,
+            dwButtonState: u32,
+        }
+        type TABLET_CONTEXT_ID = u32;
+        const TABLET_DISABLE_FLICKFALLBACKKEYS: u32 = 1048576;
+        const TABLET_DISABLE_FLICKS: u32 = 65536;
+        const TABLET_DISABLE_PENBARRELFEEDBACK: u32 = 16;
+        const TABLET_DISABLE_PENTAPFEEDBACK: u32 = 8;
+        const TABLET_DISABLE_PRESSANDHOLD: u32 = 1;
+        const TABLET_DISABLE_SMOOTHSCROLLING: u32 = 524288;
+        const TABLET_DISABLE_TOUCHSWITCH: u32 = 32768;
+        const TABLET_DISABLE_TOUCHUIFORCEOFF: u32 = 512;
+        const TABLET_DISABLE_TOUCHUIFORCEON: u32 = 256;
+        const TABLET_ENABLE_FLICKLEARNINGMODE: u32 = 262144;
+        const TABLET_ENABLE_FLICKSONCONTEXT: u32 = 131072;
+        const TABLET_ENABLE_MULTITOUCHDATA: u32 = 16777216;
+        const WM_TABLET_ADDED: u32 = 712;
+        const WM_TABLET_DEFBASE: u32 = 704;
+        const WM_TABLET_DELETED: u32 = 713;
+        const WM_TABLET_FLICK: u32 = 715;
+        const WM_TABLET_MAXOFFSET: u32 = 32;
+        const WM_TABLET_QUERYSYSTEMGESTURESTATUS: u32 = 716;
+    }
+}

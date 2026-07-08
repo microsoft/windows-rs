@@ -1,0 +1,54 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xf7ce2e12_8c90_11d1_9e7b_00c04fc324a8)]
+        interface IWbemAddressResolution: IUnknown {
+            fn Resolve(&self, wszNamespacePath: PCWSTR, #[out] wszAddressType: PWSTR, pdwAddressLength: *mut u32, pabBinaryAddress: *mut *mut u8) -> HRESULT;
+        }
+        #[guid(0xa889c72a_fcc1_4a9e_af61_ed071333fb5b)]
+        interface IWbemClientConnectionTransport: IUnknown {
+            fn Open(&self, strAddressType: BSTR, dwBinaryAddressLength: u32, abBinaryAddress: *const u8, strObject: BSTR, strUser: BSTR, strPassword: BSTR, strLocale: BSTR, lFlags: i32, pCtx: IWbemContext, riid: *const GUID, #[iid_is] pInterface: *mut *mut void, pCallRes: *mut IWbemCallResult) -> HRESULT;
+            fn OpenAsync(&self, strAddressType: BSTR, dwBinaryAddressLength: u32, abBinaryAddress: *const u8, strObject: BSTR, strUser: BSTR, strPassword: BSTR, strLocale: BSTR, lFlags: i32, pCtx: IWbemContext, riid: *const GUID, pResponseHandler: IWbemObjectSink) -> HRESULT;
+            fn Cancel(&self, lFlags: i32, pHandler: IWbemObjectSink) -> HRESULT;
+        }
+        #[guid(0xf7ce2e11_8c90_11d1_9e7b_00c04fc324a8)]
+        interface IWbemClientTransport: IUnknown {
+            fn ConnectServer(&self, strAddressType: BSTR, dwBinaryAddressLength: u32, abBinaryAddress: *const u8, strNetworkResource: BSTR, strUser: BSTR, strPassword: BSTR, strLocale: BSTR, lSecurityFlags: i32, strAuthority: BSTR, pCtx: IWbemContext, ppNamespace: *mut IWbemServices) -> HRESULT;
+        }
+        #[guid(0xd8ec9cb1_b135_4f10_8b1b_c7188bb0d186)]
+        interface IWbemConnectorLogin: IUnknown {
+            fn ConnectorLogin(&self, wszNetworkResource: PCWSTR, wszPreferredLocale: PCWSTR, lFlags: i32, pCtx: IWbemContext, riid: *const GUID, #[iid_is] pInterface: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x9ef76194_70d5_11d1_ad90_00c04fd8fdff)]
+        interface IWbemConstructClassObject: IUnknown {
+            fn SetInheritanceChain(&self, lNumAntecedents: i32, #[size_param(0)] awszAntecedents: *const PWSTR) -> HRESULT;
+            fn SetPropertyOrigin(&self, wszPropertyName: PCWSTR, lOriginIndex: i32) -> HRESULT;
+            fn SetMethodOrigin(&self, wszMethodName: PCWSTR, lOriginIndex: i32) -> HRESULT;
+            fn SetServerNamespace(&self, wszServer: PCWSTR, wszNamespace: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xf309ad18_d86a_11d0_a075_00c04fb68820)]
+        interface IWbemLevel1Login: IUnknown {
+            fn EstablishPosition(&self, wszLocaleList: PCWSTR, dwNumLocales: u32, reserved: *mut u32) -> HRESULT;
+            fn RequestChallenge(&self, wszNetworkResource: PCWSTR, wszUser: PCWSTR, Nonce: *mut u8) -> HRESULT;
+            fn WBEMLogin(&self, wszPreferredLocale: PCWSTR, AccessToken: *const u8, lFlags: i32, pCtx: IWbemContext, ppNamespace: *mut IWbemServices) -> HRESULT;
+            fn NTLMLogin(&self, wszNetworkResource: PCWSTR, wszPreferredLocale: PCWSTR, lFlags: i32, pCtx: IWbemContext, ppNamespace: *mut IWbemServices) -> HRESULT;
+        }
+        #[guid(0x553fe584_2156_11d0_b6ae_00aa003240c7)]
+        interface IWbemTransport: IUnknown {
+            fn Initialize(&self) -> HRESULT;
+        }
+        type WBEM_128BITS = *mut u8;
+        #[repr(i32)]
+        enum WBEM_LOGIN_TYPE {
+            WBEM_FLAG_INPROC_LOGIN = 0,
+            WBEM_FLAG_LOCAL_LOGIN = 1,
+            WBEM_FLAG_REMOTE_LOGIN = 2,
+            WBEM_AUTHENTICATION_METHOD_MASK = 15,
+            WBEM_FLAG_USE_MULTIPLE_CHALLENGES = 16,
+        }
+        const WbemDCOMTransport: GUID = 0xf7ce2e13_8c90_11d1_9e7b_00c04fc324a8;
+        const WbemLevel1Login: GUID = 0x8bc3f05e_d86b_11d0_a075_00c04fb68820;
+        const WbemLocalAddrRes: GUID = 0xa1044801_8f7e_11d1_9e7c_00c04fc324a8;
+        const WbemUninitializedClassObject: GUID = 0x7a0227f6_7108_11d1_ad90_00c04fd8fdff;
+    }
+}

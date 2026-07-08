@@ -1,0 +1,267 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type CLFSSTATUS = u32;
+        type CLFS_ARCHIVE_DESCRIPTOR = CLS_ARCHIVE_DESCRIPTOR;
+        #[encoding("utf-16")]
+        const CLFS_BASELOG_EXTENSION: String = ".blf";
+        extern fn CLFS_BLOCK_ALLOCATION(cbBufferLength: u32, pvUserContext: *mut void) -> *mut void;
+        extern fn CLFS_BLOCK_DEALLOCATION(pvBuffer: *mut void, pvUserContext: *mut void);
+        type CLFS_CONTAINER_ID = u32;
+        type CLFS_CONTAINER_INFORMATION = CLS_CONTAINER_INFORMATION;
+        #[encoding("utf-16")]
+        const CLFS_CONTAINER_RELATIVE_PREFIX: String = "%BLF%\\";
+        type CLFS_CONTAINER_STATE = CLS_CONTAINER_STATE;
+        #[encoding("utf-16")]
+        const CLFS_CONTAINER_STREAM_PREFIX: String = "%BLF%:";
+        #[repr(i32)]
+        enum CLFS_CONTEXT_MODE {
+            ClfsContextNone = 0,
+            ClfsContextUndoNext = 1,
+            ClfsContextPrevious = 2,
+            ClfsContextForward = 3,
+        }
+        const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16;
+        const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32;
+        const CLFS_FLAG_FORCE_APPEND: u32 = 1;
+        const CLFS_FLAG_FORCE_FLUSH: u32 = 2;
+        const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512;
+        const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64;
+        const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256;
+        const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16;
+        const CLFS_FLAG_NO_FLAGS: u32 = 0;
+        const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128;
+        const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8;
+        const CLFS_FLAG_REENTRANT_FILTER: u32 = 32;
+        const CLFS_FLAG_USE_RESERVATION: u32 = 4;
+        type CLFS_INFORMATION = CLS_INFORMATION;
+        #[repr(i32)]
+        enum CLFS_IOSTATS_CLASS {
+            ClfsIoStatsDefault = 0,
+            ClfsIoStatsMax = 65535,
+        }
+        type CLFS_IO_STATISTICS = CLS_IO_STATISTICS;
+        type CLFS_IO_STATISTICS_HEADER = CLS_IO_STATISTICS_HEADER;
+        #[repr(i32)]
+        enum CLFS_LOG_ARCHIVE_MODE {
+            ClfsLogArchiveEnabled = 1,
+            ClfsLogArchiveDisabled = 2,
+        }
+        type CLFS_LOG_ID = GUID;
+        type CLFS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS;
+        struct CLFS_LOG_NAME_INFORMATION {
+            NameLengthInBytes: u16,
+            Name: [u16; 1],
+        }
+        type CLFS_LSN = CLS_LSN;
+        const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1;
+        const CLFS_MARSHALLING_FLAG_NONE: u32 = 0;
+        struct CLFS_NODE_ID {
+            cType: u32,
+            cbNode: u32,
+        }
+        struct CLFS_PHYSICAL_LSN_INFORMATION {
+            StreamIdentifier: u8,
+            VirtualLsn: CLFS_LSN,
+            PhysicalLsn: CLFS_LSN,
+        }
+        type CLFS_RECORD_TYPE = CLS_RECORD_TYPE;
+        type CLFS_SCAN_CONTEXT = CLS_SCAN_CONTEXT;
+        type CLFS_SCAN_MODE = u8;
+        struct CLFS_STREAM_ID_INFORMATION {
+            StreamIdentifier: u8,
+        }
+        type CLFS_WRITE_ENTRY = CLS_WRITE_ENTRY;
+        struct CLS_ARCHIVE_DESCRIPTOR {
+            coffLow: u64,
+            coffHigh: u64,
+            infoContainer: CLS_CONTAINER_INFORMATION,
+        }
+        struct CLS_CONTAINER_INFORMATION {
+            FileAttributes: u32,
+            CreationTime: u64,
+            LastAccessTime: u64,
+            LastWriteTime: u64,
+            ContainerSize: i64,
+            FileNameActualLength: u32,
+            FileNameLength: u32,
+            FileName: [u16; 256],
+            State: CLFS_CONTAINER_STATE,
+            PhysicalContainerId: CLFS_CONTAINER_ID,
+            LogicalContainerId: CLFS_CONTAINER_ID,
+        }
+        type CLS_CONTAINER_STATE = u32;
+        #[repr(i32)]
+        enum CLS_CONTEXT_MODE {
+            ClsContextNone = 0,
+            ClsContextUndoNext = 1,
+            ClsContextPrevious = 2,
+            ClsContextForward = 3,
+        }
+        struct CLS_INFORMATION {
+            TotalAvailable: i64,
+            CurrentAvailable: i64,
+            TotalReservation: i64,
+            BaseFileSize: u64,
+            ContainerSize: u64,
+            TotalContainers: u32,
+            FreeContainers: u32,
+            TotalClients: u32,
+            Attributes: u32,
+            FlushThreshold: u32,
+            SectorSize: u32,
+            MinArchiveTailLsn: CLS_LSN,
+            BaseLsn: CLS_LSN,
+            LastFlushedLsn: CLS_LSN,
+            LastLsn: CLS_LSN,
+            RestartLsn: CLS_LSN,
+            Identity: GUID,
+        }
+        #[repr(i32)]
+        enum CLS_IOSTATS_CLASS {
+            ClsIoStatsDefault = 0,
+            ClsIoStatsMax = 65535,
+        }
+        struct CLS_IO_STATISTICS {
+            hdrIoStats: CLS_IO_STATISTICS_HEADER,
+            cFlush: u64,
+            cbFlush: u64,
+            cMetaFlush: u64,
+            cbMetaFlush: u64,
+        }
+        struct CLS_IO_STATISTICS_HEADER {
+            ubMajorVersion: u8,
+            ubMinorVersion: u8,
+            eStatsClass: CLFS_IOSTATS_CLASS,
+            cbLength: u16,
+            coffData: u32,
+        }
+        #[repr(i32)]
+        enum CLS_LOG_INFORMATION_CLASS {
+            ClfsLogBasicInformation = 0,
+            ClfsLogBasicInformationPhysical = 1,
+            ClfsLogPhysicalNameInformation = 2,
+            ClfsLogStreamIdentifierInformation = 3,
+            ClfsLogSystemMarkingInformation = 4,
+            ClfsLogPhysicalLsnInformation = 5,
+        }
+        struct CLS_LSN {
+            Internal: u64,
+        }
+        type CLS_RECORD_TYPE = u8;
+        #[align(8)]
+        #[arch(X86)]
+        struct CLS_SCAN_CONTEXT {
+            cidNode: CLFS_NODE_ID,
+            hLog: HANDLE,
+            cIndex: u32,
+            cContainers: u32,
+            cContainersReturned: u32,
+            eScanMode: CLFS_SCAN_MODE,
+            pinfoContainer: PCLS_CONTAINER_INFORMATION,
+        }
+        #[arch(X64 | Arm64)]
+        struct CLS_SCAN_CONTEXT {
+            cidNode: CLFS_NODE_ID,
+            hLog: HANDLE,
+            cIndex: u32,
+            cContainers: u32,
+            cContainersReturned: u32,
+            eScanMode: CLFS_SCAN_MODE,
+            pinfoContainer: PCLS_CONTAINER_INFORMATION,
+        }
+        struct CLS_WRITE_ENTRY {
+            Buffer: *mut void,
+            ByteLength: u32,
+        }
+        #[encoding("ansi")]
+        const EA_CONTAINER_NAME: String = "ContainerName";
+        #[encoding("ansi")]
+        const EA_CONTAINER_SIZE: String = "ContainerSize";
+        const FILE_ATTRIBUTE_DEDICATED: u32 = 256;
+        #[library("clfsw32.dll")]
+        extern "C" fn LsnBlockOffset(plsn: *const CLFS_LSN) -> u32;
+        #[library("clfsw32.dll")]
+        extern "C" fn LsnContainer(plsn: *const CLFS_LSN) -> CLFS_CONTAINER_ID;
+        #[library("clfsw32.dll")]
+        extern "C" fn LsnCreate(cidContainer: CLFS_CONTAINER_ID, offBlock: u32, cRecord: u32) -> CLFS_LSN;
+        #[library("clfsw32.dll")]
+        extern "C" fn LsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
+        #[library("clfsw32.dll")]
+        extern "C" fn LsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
+        #[library("clfsw32.dll")]
+        extern "C" fn LsnIncrement(plsn: *const CLFS_LSN) -> CLFS_LSN;
+        #[library("clfsw32.dll")]
+        extern "C" fn LsnInvalid(plsn: *const CLFS_LSN) -> BOOLEAN;
+        #[library("clfsw32.dll")]
+        extern "C" fn LsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
+        #[library("clfsw32.dll")]
+        extern "C" fn LsnNull(plsn: *const CLFS_LSN) -> BOOLEAN;
+        #[library("clfsw32.dll")]
+        extern "C" fn LsnRecordSequence(plsn: *const CLFS_LSN) -> u32;
+        type PCLFS_ARCHIVE_DESCRIPTOR = *mut CLFS_ARCHIVE_DESCRIPTOR;
+        type PCLFS_CONTAINER_ID = *mut CLFS_CONTAINER_ID;
+        type PCLFS_CONTAINER_INFORMATION = *mut CLFS_CONTAINER_INFORMATION;
+        type PCLFS_CONTAINER_STATE = *mut CLS_CONTAINER_STATE;
+        type PCLFS_CONTEXT_MODE = *mut CLFS_CONTEXT_MODE;
+        type PCLFS_INFORMATION = *mut CLFS_INFORMATION;
+        type PCLFS_IOSTATS_CLASS = *mut CLFS_IOSTATS_CLASS;
+        type PCLFS_IO_STATISTICS = *mut CLFS_IO_STATISTICS;
+        type PCLFS_IO_STATISTICS_HEADER = *mut CLFS_IO_STATISTICS_HEADER;
+        type PCLFS_LOG_ARCHIVE_MODE = *mut CLFS_LOG_ARCHIVE_MODE;
+        type PCLFS_LOG_INFORMATION_CLASS = *mut CLFS_LOG_INFORMATION_CLASS;
+        type PCLFS_LOG_NAME_INFORMATION = *mut CLFS_LOG_NAME_INFORMATION;
+        type PCLFS_LSN = *mut CLFS_LSN;
+        type PCLFS_NODE_ID = *mut CLFS_NODE_ID;
+        type PCLFS_PHYSICAL_LSN_INFORMATION = *mut CLFS_PHYSICAL_LSN_INFORMATION;
+        type PCLFS_RECORD_TYPE = *mut CLS_RECORD_TYPE;
+        type PCLFS_SCAN_CONTEXT = *mut CLFS_SCAN_CONTEXT;
+        type PCLFS_SCAN_MODE = *mut u8;
+        type PCLFS_STREAM_ID_INFORMATION = *mut CLFS_STREAM_ID_INFORMATION;
+        type PCLFS_WRITE_ENTRY = *mut CLFS_WRITE_ENTRY;
+        type PCLS_ARCHIVE_DESCRIPTOR = *mut CLS_ARCHIVE_DESCRIPTOR;
+        type PCLS_CONTAINER_INFORMATION = *mut CLS_CONTAINER_INFORMATION;
+        type PCLS_CONTAINER_STATE = *mut u32;
+        type PCLS_CONTEXT_MODE = *mut CLS_CONTEXT_MODE;
+        type PCLS_INFORMATION = *mut CLS_INFORMATION;
+        type PCLS_IOSTATS_CLASS = *mut CLS_IOSTATS_CLASS;
+        type PCLS_IO_STATISTICS = *mut CLS_IO_STATISTICS;
+        type PCLS_IO_STATISTICS_HEADER = *mut CLS_IO_STATISTICS_HEADER;
+        type PCLS_LOG_INFORMATION_CLASS = *mut CLS_LOG_INFORMATION_CLASS;
+        type PCLS_LSN = *mut CLS_LSN;
+        type PCLS_RECORD_TYPE = *mut u8;
+        type PCLS_SCAN_CONTEXT = *mut CLS_SCAN_CONTEXT;
+        type PCLS_WRITE_ENTRY = *mut CLS_WRITE_ENTRY;
+        type PFILE = *mut FILE;
+        type PPCLFS_ARCHIVE_DESCRIPTOR = *mut *mut CLFS_ARCHIVE_DESCRIPTOR;
+        type PPCLFS_CONTAINER_ID = *mut *mut CLFS_CONTAINER_ID;
+        type PPCLFS_CONTAINER_INFORMATION = *mut *mut CLFS_CONTAINER_INFORMATION;
+        type PPCLFS_CONTAINER_STATE = *mut CLS_CONTAINER_STATE;
+        type PPCLFS_CONTEXT_MODE = *mut *mut CLFS_CONTEXT_MODE;
+        type PPCLFS_INFORMATION = *mut CLFS_INFORMATION;
+        type PPCLFS_IOSTATS_CLASS = *mut *mut CLFS_IOSTATS_CLASS;
+        type PPCLFS_IO_STATISTICS = *mut *mut CLFS_IO_STATISTICS;
+        type PPCLFS_IO_STATISTICS_HEADER = *mut *mut CLFS_IO_STATISTICS_HEADER;
+        type PPCLFS_LOG_INFORMATION_CLASS = *mut *mut CLFS_LOG_INFORMATION_CLASS;
+        type PPCLFS_LOG_NAME_INFORMATION = *mut *mut CLFS_LOG_NAME_INFORMATION;
+        type PPCLFS_LSN = *mut *mut CLFS_LSN;
+        type PPCLFS_RECORD_TYPE = *mut *mut CLS_RECORD_TYPE;
+        type PPCLFS_SCAN_CONTEXT = *mut *mut CLFS_SCAN_CONTEXT;
+        type PPCLFS_STREAM_ID_INFORMATION = *mut *mut CLFS_STREAM_ID_INFORMATION;
+        type PPCLFS_WRITE_ENTRY = *mut *mut CLFS_WRITE_ENTRY;
+        type PPCLS_ARCHIVE_DESCRIPTOR = *mut *mut CLS_ARCHIVE_DESCRIPTOR;
+        type PPCLS_CONTAINER_INFORMATION = *mut *mut CLS_CONTAINER_INFORMATION;
+        type PPCLS_CONTAINER_STATE = *mut u32;
+        type PPCLS_CONTEXT_MODE = *mut *mut CLS_CONTEXT_MODE;
+        type PPCLS_INFORMATION = *mut CLS_INFORMATION;
+        type PPCLS_IOSTATS_CLASS = *mut *mut CLS_IOSTATS_CLASS;
+        type PPCLS_IO_STATISTICS = *mut *mut CLS_IO_STATISTICS;
+        type PPCLS_IO_STATISTICS_HEADER = *mut *mut CLS_IO_STATISTICS_HEADER;
+        type PPCLS_LOG_INFORMATION_CLASS = *mut *mut CLS_LOG_INFORMATION_CLASS;
+        type PPCLS_LSN = *mut *mut CLS_LSN;
+        type PPCLS_RECORD_TYPE = *mut *mut u8;
+        type PPCLS_SCAN_CONTEXT = *mut *mut CLS_SCAN_CONTEXT;
+        type PPCLS_WRITE_ENTRY = *mut *mut CLS_WRITE_ENTRY;
+        type PPFILE = *mut *mut FILE;
+    }
+}

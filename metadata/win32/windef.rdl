@@ -1,0 +1,123 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct APP_LOCAL_DEVICE_ID {
+            value: [u8; 32],
+        }
+        const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32;
+        type COLORREF = u32;
+        const DC_BINNAMES: u32 = 12;
+        const DC_BINS: u32 = 6;
+        const DC_COPIES: u32 = 18;
+        const DC_DRIVER: u32 = 11;
+        const DC_DUPLEX: u32 = 7;
+        const DC_ENUMRESOLUTIONS: u32 = 13;
+        const DC_EXTRA: u32 = 9;
+        const DC_FIELDS: u32 = 1;
+        const DC_FILEDEPENDENCIES: u32 = 14;
+        const DC_MAXEXTENT: u32 = 5;
+        const DC_MINEXTENT: u32 = 4;
+        const DC_ORIENTATION: u32 = 17;
+        const DC_PAPERNAMES: u32 = 16;
+        const DC_PAPERS: u32 = 2;
+        const DC_PAPERSIZE: u32 = 3;
+        const DC_SIZE: u32 = 8;
+        const DC_TRUETYPE: u32 = 15;
+        const DC_VERSION: u32 = 10;
+        const DM_COPY: u32 = 2;
+        const DM_IN_BUFFER: u32 = 8;
+        const DM_IN_PROMPT: u32 = 4;
+        const DM_MODIFY: u32 = 8;
+        const DM_OUT_BUFFER: u32 = 2;
+        const DM_OUT_DEFAULT: u32 = 1;
+        const DM_PROMPT: u32 = 4;
+        const DM_UPDATE: u32 = 1;
+        #[repr(i32)]
+        enum DPI_AWARENESS {
+            DPI_AWARENESS_INVALID = -1,
+            DPI_AWARENESS_UNAWARE = 0,
+            DPI_AWARENESS_SYSTEM_AWARE = 1,
+            DPI_AWARENESS_PER_MONITOR_AWARE = 2,
+        }
+        type DPI_AWARENESS_CONTEXT = *mut void;
+        const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = -3;
+        const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4;
+        const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT = -2;
+        const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = -1;
+        const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = -5;
+        #[repr(i32)]
+        enum DPI_HOSTING_BEHAVIOR {
+            DPI_HOSTING_BEHAVIOR_INVALID = -1,
+            DPI_HOSTING_BEHAVIOR_DEFAULT = 0,
+            DPI_HOSTING_BEHAVIOR_MIXED = 1,
+        }
+        type HACCEL = *mut void;
+        type HBITMAP = *mut void;
+        type HBRUSH = *mut void;
+        type HCOLORSPACE = *mut void;
+        type HCURSOR = HICON;
+        type HDC = *mut void;
+        type HDESK = *mut void;
+        type HENHMETAFILE = *mut void;
+        const HFILE_ERROR: HFILE = -1;
+        type HFONT = *mut void;
+        type HGDIOBJ = *mut void;
+        type HGLRC = *mut void;
+        type HHOOK = *mut void;
+        type HICON = *mut void;
+        type HMENU = *mut void;
+        type HMONITOR = *mut void;
+        type HPALETTE = *mut void;
+        type HPEN = *mut void;
+        type HUMPD = *mut void;
+        type HWINEVENTHOOK = *mut void;
+        type HWND = *mut void;
+        type LPCOLORREF = *mut u32;
+        type LPCRECT = *const RECT;
+        type LPCRECTL = *const RECTL;
+        type LPPOINT = *mut POINT;
+        type LPPOINTS = *mut POINTS;
+        type LPRECT = *mut RECT;
+        type LPRECTL = *mut RECTL;
+        type LPSIZE = *mut SIZE;
+        type LPSIZEL = *mut SIZE;
+        type NPPOINT = *mut POINT;
+        type NPRECT = *mut RECT;
+        struct POINT {
+            x: i32,
+            y: i32,
+        }
+        struct POINTL {
+            x: i32,
+            y: i32,
+        }
+        struct POINTS {
+            x: i16,
+            y: i16,
+        }
+        type PPOINT = *mut POINT;
+        type PPOINTL = *mut POINTL;
+        type PPOINTS = *mut POINTS;
+        type PRECT = *mut RECT;
+        type PRECTL = *mut RECTL;
+        type PSIZE = *mut SIZE;
+        type PSIZEL = *mut SIZE;
+        struct RECT {
+            left: i32,
+            top: i32,
+            right: i32,
+            bottom: i32,
+        }
+        struct RECTL {
+            left: i32,
+            top: i32,
+            right: i32,
+            bottom: i32,
+        }
+        struct SIZE {
+            cx: i32,
+            cy: i32,
+        }
+        type SIZEL = SIZE;
+    }
+}

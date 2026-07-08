@@ -1,0 +1,34 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type CLONG = u32;
+        type CSHORT = i16;
+        #[repr(i32)]
+        enum EVENT_TYPE {
+            NotificationEvent = 0,
+            SynchronizationEvent = 1,
+        }
+        type KIRQL = u8;
+        type LOGICAL = u32;
+        #[repr(i32)]
+        enum NT_PRODUCT_TYPE {
+            NtProductWinNt = 1,
+            NtProductLanManNt = 2,
+            NtProductServer = 3,
+        }
+        type PUTF8_STRING = PSTRING;
+        #[repr(i32)]
+        enum TIMER_TYPE {
+            NotificationTimer = 0,
+            SynchronizationTimer = 1,
+        }
+        #[repr(i32)]
+        enum WAIT_TYPE {
+            WaitAll = 0,
+            WaitAny = 1,
+            WaitNotification = 2,
+            WaitDequeue = 3,
+            WaitDpc = 4,
+        }
+    }
+}

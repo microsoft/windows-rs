@@ -1,0 +1,2634 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum CH_DESCRIPTION_TYPE {
+            ch_description_type_logical = 1,
+            ch_description_type_center_frequency = 2,
+            ch_description_type_phy_specific = 3,
+        }
+        const DISCOVERY_FILTER_BITMASK_ANY: u32 = 15;
+        const DISCOVERY_FILTER_BITMASK_DEVICE: u32 = 1;
+        const DISCOVERY_FILTER_BITMASK_GO: u32 = 2;
+        #[repr(i32)]
+        enum DOT11_AC_PARAM {
+            dot11_AC_param_BE = 0,
+            dot11_AC_param_BK = 1,
+            dot11_AC_param_VI = 2,
+            dot11_AC_param_VO = 3,
+            dot11_AC_param_max = 4,
+        }
+        struct DOT11_ADDITIONAL_IE {
+            Header: NDIS_OBJECT_HEADER,
+            uBeaconIEsOffset: u32,
+            uBeaconIEsLength: u32,
+            uResponseIEsOffset: u32,
+            uResponseIEsLength: u32,
+        }
+        const DOT11_ADDITIONAL_IE_REVISION_1: u32 = 1;
+        struct DOT11_AKM_CIPHER_PAIR {
+            akm: RSNA_AKM_SUITE,
+            cipher: RSNA_CIPHER_SUITE,
+        }
+        struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            Status: DOT11_ANQP_QUERY_RESULT,
+            hContext: HANDLE,
+            uResponseLength: u32,
+        }
+        const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum DOT11_ANQP_QUERY_RESULT {
+            dot11_ANQP_query_result_success = 0,
+            dot11_ANQP_query_result_failure = 1,
+            dot11_ANQP_query_result_timed_out = 2,
+            dot11_ANQP_query_result_resources = 3,
+            dot11_ANQP_query_result_advertisement_protocol_not_supported_on_remote = 4,
+            dot11_ANQP_query_result_gas_protocol_failure = 5,
+            dot11_ANQP_query_result_advertisement_server_not_responding = 6,
+            dot11_ANQP_query_result_access_issues = 7,
+        }
+        struct DOT11_AP_JOIN_REQUEST {
+            uJoinFailureTimeout: u32,
+            OperationalRateSet: DOT11_RATE_SET,
+            uChCenterFrequency: u32,
+            dot11BSSDescription: DOT11_BSS_DESCRIPTION,
+        }
+        struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            MacAddr: DOT11_MAC_ADDRESS,
+            uStatus: DOT11_ASSOC_STATUS,
+            bReAssocReq: BOOLEAN,
+            bReAssocResp: BOOLEAN,
+            uAssocReqOffset: u32,
+            uAssocReqSize: u32,
+            uAssocRespOffset: u32,
+            uAssocRespSize: u32,
+            uBeaconOffset: u32,
+            uBeaconSize: u32,
+            uIHVDataOffset: u32,
+            uIHVDataSize: u32,
+            AuthAlgo: DOT11_AUTH_ALGORITHM,
+            UnicastCipher: DOT11_CIPHER_ALGORITHM,
+            MulticastCipher: DOT11_CIPHER_ALGORITHM,
+            uActivePhyListOffset: u32,
+            uActivePhyListSize: u32,
+            bFourAddressSupported: BOOLEAN,
+            bPortAuthorized: BOOLEAN,
+            ucActiveQoSProtocol: u8,
+            DSInfo: DOT11_DS_INFO,
+            uEncapTableOffset: u32,
+            uEncapTableSize: u32,
+            MulticastMgmtCipher: DOT11_CIPHER_ALGORITHM,
+            uAssocComebackTime: u32,
+        }
+        const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
+        const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2: u32 = 2;
+        struct DOT11_ASSOCIATION_INFO_EX {
+            PeerMacAddress: DOT11_MAC_ADDRESS,
+            BSSID: DOT11_MAC_ADDRESS,
+            usCapabilityInformation: u16,
+            usListenInterval: u16,
+            ucPeerSupportedRates: [u8; 255],
+            usAssociationID: u16,
+            dot11AssociationState: DOT11_ASSOCIATION_STATE,
+            dot11PowerMode: DOT11_POWER_MODE,
+            liAssociationUpTime: LARGE_INTEGER,
+            ullNumOfTxPacketSuccesses: u64,
+            ullNumOfTxPacketFailures: u64,
+            ullNumOfRxPacketSuccesses: u64,
+            ullNumOfRxPacketFailures: u64,
+        }
+        struct DOT11_ASSOCIATION_INFO_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11AssocInfo: [DOT11_ASSOCIATION_INFO_EX; 1],
+        }
+        const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: u32 = 1;
+        struct DOT11_ASSOCIATION_PARAMS {
+            Header: NDIS_OBJECT_HEADER,
+            BSSID: DOT11_MAC_ADDRESS,
+            uAssocRequestIEsOffset: u32,
+            uAssocRequestIEsLength: u32,
+        }
+        const DOT11_ASSOCIATION_PARAMS_REVISION_1: u32 = 1;
+        struct DOT11_ASSOCIATION_START_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            MacAddr: DOT11_MAC_ADDRESS,
+            SSID: DOT11_SSID,
+            uIHVDataOffset: u32,
+            uIHVDataSize: u32,
+        }
+        const DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum DOT11_ASSOCIATION_STATE {
+            dot11_assoc_state_zero = 0,
+            dot11_assoc_state_unauth_unassoc = 1,
+            dot11_assoc_state_auth_unassoc = 2,
+            dot11_assoc_state_auth_assoc = 3,
+        }
+        const DOT11_ASSOC_ERROR_SOURCE_OS: u32 = 0;
+        const DOT11_ASSOC_ERROR_SOURCE_OTHER: u32 = 255;
+        const DOT11_ASSOC_ERROR_SOURCE_REMOTE: u32 = 1;
+        type DOT11_ASSOC_STATUS = u32;
+        const DOT11_ASSOC_STATUS_ASSOCIATION_RESPONSE: u32 = 196608;
+        const DOT11_ASSOC_STATUS_ASSOCIATION_RESPONSE_END: u32 = 262143;
+        const DOT11_ASSOC_STATUS_ASSOCIATION_RESPONSE_START: u32 = 196608;
+        const DOT11_ASSOC_STATUS_CANCELLED: u32 = 5;
+        const DOT11_ASSOC_STATUS_CANDIDATE_LIST_EXHAUSTED: u32 = 6;
+        const DOT11_ASSOC_STATUS_DISASSOCIATED_BY_OS: u32 = 7;
+        const DOT11_ASSOC_STATUS_DISASSOCIATED_BY_RESET: u32 = 9;
+        const DOT11_ASSOC_STATUS_DISASSOCIATED_BY_ROAMING: u32 = 8;
+        const DOT11_ASSOC_STATUS_FAILURE: u32 = 1;
+        const DOT11_ASSOC_STATUS_IHV_END: u32 = 4294967295;
+        const DOT11_ASSOC_STATUS_IHV_START: u32 = 2147483648;
+        const DOT11_ASSOC_STATUS_PEER_DEAUTHENTICATED: u32 = 65536;
+        const DOT11_ASSOC_STATUS_PEER_DEAUTHENTICATED_END: u32 = 131071;
+        const DOT11_ASSOC_STATUS_PEER_DEAUTHENTICATED_START: u32 = 65536;
+        const DOT11_ASSOC_STATUS_PEER_DISASSOCIATED: u32 = 131072;
+        const DOT11_ASSOC_STATUS_PEER_DISASSOCIATED_END: u32 = 196607;
+        const DOT11_ASSOC_STATUS_PEER_DISASSOCIATED_START: u32 = 131072;
+        const DOT11_ASSOC_STATUS_PHY_DISABLED: u32 = 4;
+        const DOT11_ASSOC_STATUS_RADIO_OFF: u32 = 3;
+        const DOT11_ASSOC_STATUS_REASON_CODE_MASK: u32 = 65535;
+        const DOT11_ASSOC_STATUS_ROAMING_ADHOC: u32 = 13;
+        const DOT11_ASSOC_STATUS_ROAMING_ASSOCIATION_LOST: u32 = 12;
+        const DOT11_ASSOC_STATUS_ROAMING_BETTER_AP_FOUND: u32 = 11;
+        const DOT11_ASSOC_STATUS_SUCCESS: u32 = 0;
+        const DOT11_ASSOC_STATUS_SYSTEM_ERROR: u32 = 10;
+        const DOT11_ASSOC_STATUS_UNREACHABLE: u32 = 2;
+        struct DOT11_AUTH_ALGORITHM_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            AlgorithmIds: [DOT11_AUTH_ALGORITHM; 1],
+        }
+        const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: u32 = 1;
+        const DOT11_AUTH_ALGO_MICHAEL: u32 = 1;
+        struct DOT11_AUTH_CIPHER_PAIR_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            AuthCipherPairs: [DOT11_AUTH_CIPHER_PAIR; 1],
+        }
+        const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: u32 = 1;
+        struct DOT11_AVAILABLE_CHANNEL_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            uChannelNumber: [u32; 1],
+        }
+        const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: u32 = 1;
+        struct DOT11_AVAILABLE_FREQUENCY_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            uFrequencyValue: [u32; 1],
+        }
+        const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum DOT11_BAND {
+            dot11_band_2p4g = 1,
+            dot11_band_4p9g = 2,
+            dot11_band_5g = 3,
+        }
+        struct DOT11_BSSID_CANDIDATE {
+            BSSID: DOT11_MAC_ADDRESS,
+            uFlags: u32,
+        }
+        struct DOT11_BSSID_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            BSSIDs: [DOT11_MAC_ADDRESS; 1],
+        }
+        const DOT11_BSSID_LIST_REVISION_1: u32 = 1;
+        struct DOT11_BSS_DESCRIPTION {
+            uReserved: u32,
+            dot11BSSID: DOT11_MAC_ADDRESS,
+            dot11BSSType: DOT11_BSS_TYPE,
+            usBeaconPeriod: u16,
+            ullTimestamp: u64,
+            usCapabilityInformation: u16,
+            uBufferLength: u32,
+            ucBuffer: [u8; 1],
+        }
+        struct DOT11_BSS_ENTRY {
+            uPhyId: u32,
+            PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
+            dot11BSSID: DOT11_MAC_ADDRESS,
+            dot11BSSType: DOT11_BSS_TYPE,
+            lRSSI: i32,
+            uLinkQuality: u32,
+            bInRegDomain: BOOLEAN,
+            usBeaconPeriod: u16,
+            ullTimestamp: u64,
+            ullHostTimestamp: u64,
+            usCapabilityInformation: u16,
+            uBufferLength: u32,
+            ucBuffer: [u8; 1],
+        }
+        const DOT11_BSS_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1;
+        union DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
+            uChCenterFrequency: u32,
+            FHSS: struct {
+                uHopPattern: u32,
+                uHopSet: u32,
+                uDwellTime: u32,
+            },
+        }
+        struct DOT11_BYTE_ARRAY {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfBytes: u32,
+            uTotalNumOfBytes: u32,
+            ucBuffer: [u8; 1],
+        }
+        struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            ulReason: u32,
+        }
+        const DOT11_CAN_SUSTAIN_AP_PARAMETERS_REVISION_1: u32 = 1;
+        const DOT11_CAN_SUSTAIN_AP_REASON_IHV_END: u32 = 4294967295;
+        const DOT11_CAN_SUSTAIN_AP_REASON_IHV_START: u32 = 4278190080;
+        const DOT11_CAPABILITY_CHANNEL_AGILITY: u32 = 128;
+        const DOT11_CAPABILITY_DSSSOFDM: u32 = 8192;
+        const DOT11_CAPABILITY_INFO_CF_POLLABLE: u32 = 4;
+        const DOT11_CAPABILITY_INFO_CF_POLL_REQ: u32 = 8;
+        const DOT11_CAPABILITY_INFO_ESS: u32 = 1;
+        const DOT11_CAPABILITY_INFO_IBSS: u32 = 2;
+        const DOT11_CAPABILITY_INFO_PRIVACY: u32 = 16;
+        const DOT11_CAPABILITY_PBCC: u32 = 64;
+        const DOT11_CAPABILITY_SHORT_PREAMBLE: u32 = 32;
+        const DOT11_CAPABILITY_SHORT_SLOT_TIME: u32 = 1024;
+        const DOT11_CCA_MODE_CS_ONLY: u32 = 2;
+        const DOT11_CCA_MODE_CS_WITH_TIMER: u32 = 8;
+        const DOT11_CCA_MODE_ED_ONLY: u32 = 1;
+        const DOT11_CCA_MODE_ED_and_CS: u32 = 4;
+        const DOT11_CCA_MODE_HRCS_AND_ED: u32 = 16;
+        struct DOT11_CHANNEL_HINT {
+            Dot11PhyType: DOT11_PHY_TYPE,
+            uChannelNumber: u32,
+        }
+        struct DOT11_CIPHER_ALGORITHM_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            AlgorithmIds: [DOT11_CIPHER_ALGORITHM; 1],
+        }
+        const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: u32 = 1;
+        struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
+            Header: NDIS_OBJECT_HEADER,
+            uKeyIndex: u32,
+            AlgorithmId: DOT11_CIPHER_ALGORITHM,
+            MacAddr: DOT11_MAC_ADDRESS,
+            bDelete: BOOLEAN,
+            bStatic: BOOLEAN,
+            usKeyLength: u16,
+            ucKey: [u8; 1],
+        }
+        const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: u32 = 1;
+        struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
+            PeerMacAddr: DOT11_MAC_ADDRESS,
+            AlgorithmId: DOT11_CIPHER_ALGORITHM,
+            Direction: DOT11_DIRECTION,
+            bDelete: BOOLEAN,
+            bStatic: BOOLEAN,
+            usKeyLength: u16,
+            ucKey: [u8; 1],
+        }
+        const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1: u32 = 1;
+        const DOT11_CONF_ALGO_TKIP: u32 = 2;
+        const DOT11_CONF_ALGO_WEP_RC4: u32 = 1;
+        struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            uStatus: DOT11_ASSOC_STATUS,
+        }
+        const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_CONNECTION_START_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            BSSType: DOT11_BSS_TYPE,
+            AdhocBSSID: DOT11_MAC_ADDRESS,
+            AdhocSSID: DOT11_SSID,
+        }
+        const DOT11_CONNECTION_START_PARAMETERS_REVISION_1: u32 = 1;
+        const DOT11_CONNECTION_STATUS_CANCELLED: u32 = 5;
+        const DOT11_CONNECTION_STATUS_CANDIDATE_LIST_EXHAUSTED: u32 = 6;
+        const DOT11_CONNECTION_STATUS_FAILURE: u32 = 1;
+        const DOT11_CONNECTION_STATUS_IHV_END: i32 = -1;
+        const DOT11_CONNECTION_STATUS_IHV_START: i32 = -2147483648;
+        const DOT11_CONNECTION_STATUS_PHY_POWER_DOWN: u32 = 3;
+        const DOT11_CONNECTION_STATUS_SUCCESS: u32 = 0;
+        struct DOT11_COUNTERS_ENTRY {
+            uTransmittedFragmentCount: u32,
+            uMulticastTransmittedFrameCount: u32,
+            uFailedCount: u32,
+            uRetryCount: u32,
+            uMultipleRetryCount: u32,
+            uFrameDuplicateCount: u32,
+            uRTSSuccessCount: u32,
+            uRTSFailureCount: u32,
+            uACKFailureCount: u32,
+            uReceivedFragmentCount: u32,
+            uMulticastReceivedFrameCount: u32,
+            uFCSErrorCount: u32,
+            uTransmittedFrameCount: u32,
+        }
+        type DOT11_COUNTRY_OR_REGION_STRING = [u8; 3];
+        struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            CountryOrRegionStrings: [DOT11_COUNTRY_OR_REGION_STRING; 1],
+        }
+        const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: u32 = 1;
+        struct DOT11_CURRENT_OFFLOAD_CAPABILITY {
+            uReserved: u32,
+            uFlags: u32,
+        }
+        struct DOT11_CURRENT_OPERATION_MODE {
+            uReserved: u32,
+            uCurrentOpMode: u32,
+        }
+        struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
+            uReserved: u32,
+            bDot11CFPollable: BOOLEAN,
+            bDot11PCF: BOOLEAN,
+            bDot11PCFMPDUTransferToPC: BOOLEAN,
+            bStrictlyOrderedServiceClass: BOOLEAN,
+        }
+        const DOT11_DATA_RATE_INDEX_MASK: u32 = 127;
+        struct DOT11_DATA_RATE_MAPPING_ENTRY {
+            ucDataRateIndex: u8,
+            ucDataRateFlag: u8,
+            usDataRateValue: u16,
+        }
+        struct DOT11_DATA_RATE_MAPPING_TABLE {
+            Header: NDIS_OBJECT_HEADER,
+            uDataRateMappingLength: u32,
+            DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
+        }
+        const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: u32 = 1;
+        const DOT11_DATA_RATE_NON_STANDARD: u32 = 1;
+        struct DOT11_DEFAULT_WEP_OFFLOAD {
+            uReserved: u32,
+            hOffloadContext: HANDLE,
+            hOffload: HANDLE,
+            dwIndex: u32,
+            dot11OffloadType: DOT11_OFFLOAD_TYPE,
+            dwAlgorithm: u32,
+            uFlags: u32,
+            dot11KeyDirection: DOT11_KEY_DIRECTION,
+            ucMacAddress: [u8; 6],
+            uNumOfRWsOnMe: u32,
+            dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
+            usDot11RWBitMaps: [u16; 16],
+            usKeyLength: u16,
+            ucKey: [u8; 1],
+        }
+        struct DOT11_DEFAULT_WEP_UPLOAD {
+            uReserved: u32,
+            dot11OffloadType: DOT11_OFFLOAD_TYPE,
+            hOffload: HANDLE,
+            uNumOfRWsUsed: u32,
+            dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
+            usDot11RWBitMaps: [u16; 16],
+        }
+        const DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1;
+        type DOT11_DIALOG_TOKEN = u8;
+        #[repr(i32)]
+        enum DOT11_DIRECTION {
+            DOT11_DIR_INBOUND = 1,
+            DOT11_DIR_OUTBOUND = 2,
+            DOT11_DIR_BOTH = 3,
+        }
+        struct DOT11_DISASSOCIATE_PEER_REQUEST {
+            Header: NDIS_OBJECT_HEADER,
+            PeerMacAddr: DOT11_MAC_ADDRESS,
+            usReason: u16,
+        }
+        const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: u32 = 1;
+        struct DOT11_DISASSOCIATION_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            MacAddr: DOT11_MAC_ADDRESS,
+            uReason: DOT11_ASSOC_STATUS,
+            uIHVDataOffset: u32,
+            uIHVDataSize: u32,
+        }
+        const DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: u32 = 1;
+        const DOT11_DISASSOC_REASON_IHV_END: i32 = -1;
+        const DOT11_DISASSOC_REASON_IHV_START: i32 = -2147483648;
+        const DOT11_DISASSOC_REASON_OS: u32 = 7;
+        const DOT11_DISASSOC_REASON_PEER_DEAUTHENTICATED: u32 = 65536;
+        const DOT11_DISASSOC_REASON_PEER_DISASSOCIATED: u32 = 131072;
+        const DOT11_DISASSOC_REASON_PEER_UNREACHABLE: u32 = 2;
+        const DOT11_DISASSOC_REASON_PHY_DISABLED: u32 = 4;
+        const DOT11_DISASSOC_REASON_RADIO_OFF: u32 = 3;
+        struct DOT11_DIVERSITY_SELECTION_RX {
+            uAntennaListIndex: u32,
+            bDiversitySelectionRX: BOOLEAN,
+        }
+        struct DOT11_DIVERSITY_SELECTION_RX_LIST {
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11DiversitySelectionRx: [DOT11_DIVERSITY_SELECTION_RX; 1],
+        }
+        #[repr(i32)]
+        enum DOT11_DIVERSITY_SUPPORT {
+            dot11_diversity_support_unknown = 0,
+            dot11_diversity_support_fixedlist = 1,
+            dot11_diversity_support_notsupported = 2,
+            dot11_diversity_support_dynamic = 3,
+        }
+        #[repr(i32)]
+        enum DOT11_DS_INFO {
+            DOT11_DS_CHANGED = 0,
+            DOT11_DS_UNCHANGED = 1,
+            DOT11_DS_UNKNOWN = 2,
+        }
+        const DOT11_ENCAP_802_1H: u32 = 2;
+        struct DOT11_ENCAP_ENTRY {
+            usEtherType: u16,
+            usEncapType: u16,
+        }
+        const DOT11_ENCAP_RFC_1042: u32 = 1;
+        struct DOT11_ERP_PHY_ATTRIBUTES {
+            HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
+            bERPPBCCOptionImplemented: BOOLEAN,
+            bDSSSOFDMOptionImplemented: BOOLEAN,
+            bShortSlotTimeOptionImplemented: BOOLEAN,
+        }
+        const DOT11_EXEMPT_ALWAYS: u32 = 1;
+        const DOT11_EXEMPT_BOTH: u32 = 3;
+        const DOT11_EXEMPT_MULTICAST: u32 = 2;
+        const DOT11_EXEMPT_NO_EXEMPTION: u32 = 0;
+        const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: u32 = 2;
+        const DOT11_EXEMPT_UNICAST: u32 = 1;
+        struct DOT11_EXTAP_ATTRIBUTES {
+            Header: NDIS_OBJECT_HEADER,
+            uScanSSIDListSize: u32,
+            uDesiredSSIDListSize: u32,
+            uPrivacyExemptionListSize: u32,
+            uAssociationTableSize: u32,
+            uDefaultKeyTableSize: u32,
+            uWEPKeyValueMaxLength: u32,
+            bStrictlyOrderedServiceClassImplemented: BOOLEAN,
+            uNumSupportedCountryOrRegionStrings: u32,
+            pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
+            uInfraNumSupportedUcastAlgoPairs: u32,
+            pInfraSupportedUcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
+            uInfraNumSupportedMcastAlgoPairs: u32,
+            pInfraSupportedMcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
+        }
+        const DOT11_EXTAP_ATTRIBUTES_REVISION_1: u32 = 1;
+        type DOT11_EXTAP_RECV_CONTEXT = DOT11_EXTSTA_RECV_CONTEXT;
+        const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: u32 = 1;
+        type DOT11_EXTAP_SEND_CONTEXT = DOT11_EXTSTA_SEND_CONTEXT;
+        const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: u32 = 1;
+        struct DOT11_EXTSTA_ATTRIBUTES {
+            Header: NDIS_OBJECT_HEADER,
+            uScanSSIDListSize: u32,
+            uDesiredBSSIDListSize: u32,
+            uDesiredSSIDListSize: u32,
+            uExcludedMacAddressListSize: u32,
+            uPrivacyExemptionListSize: u32,
+            uKeyMappingTableSize: u32,
+            uDefaultKeyTableSize: u32,
+            uWEPKeyValueMaxLength: u32,
+            uPMKIDCacheSize: u32,
+            uMaxNumPerSTADefaultKeyTables: u32,
+            bStrictlyOrderedServiceClassImplemented: BOOLEAN,
+            ucSupportedQoSProtocolFlags: u8,
+            bSafeModeImplemented: BOOLEAN,
+            uNumSupportedCountryOrRegionStrings: u32,
+            pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
+            uInfraNumSupportedUcastAlgoPairs: u32,
+            pInfraSupportedUcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
+            uInfraNumSupportedMcastAlgoPairs: u32,
+            pInfraSupportedMcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
+            uAdhocNumSupportedUcastAlgoPairs: u32,
+            pAdhocSupportedUcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
+            uAdhocNumSupportedMcastAlgoPairs: u32,
+            pAdhocSupportedMcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
+            bAutoPowerSaveMode: BOOLEAN,
+            uMaxNetworkOffloadListSize: u32,
+            bMFPCapable: BOOLEAN,
+            uInfraNumSupportedMcastMgmtAlgoPairs: u32,
+            pInfraSupportedMcastMgmtAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
+            bNeighborReportSupported: BOOLEAN,
+            bAPChannelReportSupported: BOOLEAN,
+            bActionFramesSupported: BOOLEAN,
+            bANQPQueryOffloadSupported: BOOLEAN,
+            bHESSIDConnectionSupported: BOOLEAN,
+        }
+        const DOT11_EXTSTA_ATTRIBUTES_REVISION_1: u32 = 1;
+        const DOT11_EXTSTA_ATTRIBUTES_REVISION_2: u32 = 2;
+        const DOT11_EXTSTA_ATTRIBUTES_REVISION_3: u32 = 3;
+        const DOT11_EXTSTA_ATTRIBUTES_REVISION_4: u32 = 4;
+        const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_CERTIFIED: u32 = 2;
+        const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_OID_SUPPORTED: u32 = 1;
+        const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED: u32 = 12;
+        struct DOT11_EXTSTA_CAPABILITY {
+            Header: NDIS_OBJECT_HEADER,
+            uScanSSIDListSize: u32,
+            uDesiredBSSIDListSize: u32,
+            uDesiredSSIDListSize: u32,
+            uExcludedMacAddressListSize: u32,
+            uPrivacyExemptionListSize: u32,
+            uKeyMappingTableSize: u32,
+            uDefaultKeyTableSize: u32,
+            uWEPKeyValueMaxLength: u32,
+            uPMKIDCacheSize: u32,
+            uMaxNumPerSTADefaultKeyTables: u32,
+        }
+        const DOT11_EXTSTA_CAPABILITY_REVISION_1: u32 = 1;
+        struct DOT11_EXTSTA_RECV_CONTEXT {
+            Header: NDIS_OBJECT_HEADER,
+            uReceiveFlags: u32,
+            uPhyId: u32,
+            uChCenterFrequency: u32,
+            usNumberOfMPDUsReceived: u16,
+            lRSSI: i32,
+            ucDataRate: u8,
+            uSizeMediaSpecificInfo: u32,
+            pvMediaSpecificInfo: *mut void,
+            ullTimestamp: u64,
+        }
+        const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: u32 = 1;
+        struct DOT11_EXTSTA_SEND_CONTEXT {
+            Header: NDIS_OBJECT_HEADER,
+            usExemptionActionType: u16,
+            uPhyId: u32,
+            uDelayedSleepValue: u32,
+            pvMediaSpecificInfo: *mut void,
+            uSendFlags: u32,
+        }
+        const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: u32 = 1;
+        const DOT11_FLAGS_80211B_CHANNEL_AGILITY: u32 = 4;
+        const DOT11_FLAGS_80211B_PBCC: u32 = 2;
+        const DOT11_FLAGS_80211B_SHORT_PREAMBLE: u32 = 1;
+        const DOT11_FLAGS_80211G_BARKER_PREAMBLE_MODE: u32 = 128;
+        const DOT11_FLAGS_80211G_DSSS_OFDM: u32 = 16;
+        const DOT11_FLAGS_80211G_NON_ERP_PRESENT: u32 = 64;
+        const DOT11_FLAGS_80211G_USE_PROTECTION: u32 = 32;
+        const DOT11_FLAGS_PS_ON: u32 = 8;
+        struct DOT11_FRAGMENT_DESCRIPTOR {
+            uOffset: u32,
+            uLength: u32,
+        }
+        const DOT11_FREQUENCY_BANDS_LOWER: u32 = 1;
+        const DOT11_FREQUENCY_BANDS_MIDDLE: u32 = 2;
+        const DOT11_FREQUENCY_BANDS_UPPER: u32 = 4;
+        struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            Status: NDIS_STATUS,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            Status: NDIS_STATUS,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            Status: NDIS_STATUS,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+        type DOT11_HESSID = [u8; 6];
+        const DOT11_HESSID_LENGTH: u32 = 6;
+        struct DOT11_HOPPING_PATTERN_ENTRY {
+            uHoppingPatternIndex: u32,
+            uRandomTableFieldNumber: u32,
+        }
+        struct DOT11_HOPPING_PATTERN_ENTRY_LIST {
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11HoppingPatternEntry: [DOT11_HOPPING_PATTERN_ENTRY; 1],
+        }
+        #[repr(i32)]
+        enum DOT11_HOP_ALGO_ADOPTED {
+            dot11_hop_algo_current = 0,
+            dot11_hop_algo_hop_index = 1,
+            dot11_hop_algo_hcc = 2,
+        }
+        struct DOT11_HRDSSS_PHY_ATTRIBUTES {
+            bShortPreambleOptionImplemented: BOOLEAN,
+            bPBCCOptionImplemented: BOOLEAN,
+            bChannelAgilityPresent: BOOLEAN,
+            uHRCCAModeSupported: u32,
+        }
+        const DOT11_HR_CCA_MODE_CS_AND_ED: u32 = 4;
+        const DOT11_HR_CCA_MODE_CS_ONLY: u32 = 2;
+        const DOT11_HR_CCA_MODE_CS_WITH_TIMER: u32 = 8;
+        const DOT11_HR_CCA_MODE_ED_ONLY: u32 = 1;
+        const DOT11_HR_CCA_MODE_HRCS_AND_ED: u32 = 16;
+        const DOT11_HW_DEFRAGMENTATION_SUPPORTED: u32 = 8;
+        const DOT11_HW_FRAGMENTATION_SUPPORTED: u32 = 4;
+        const DOT11_HW_MSDU_AUTH_SUPPORTED_RX: u32 = 32;
+        const DOT11_HW_MSDU_AUTH_SUPPORTED_TX: u32 = 16;
+        const DOT11_HW_WEP_SUPPORTED_RX: u32 = 2;
+        const DOT11_HW_WEP_SUPPORTED_TX: u32 = 1;
+        struct DOT11_IBSS_PARAMS {
+            Header: NDIS_OBJECT_HEADER,
+            bJoinOnly: BOOLEAN,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1;
+        struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerMacAddr: DOT11_MAC_ADDRESS,
+            uStatus: u32,
+            ucErrorSource: u8,
+            bReAssocReq: BOOLEAN,
+            bReAssocResp: BOOLEAN,
+            uAssocReqOffset: u32,
+            uAssocReqSize: u32,
+            uAssocRespOffset: u32,
+            uAssocRespSize: u32,
+            AuthAlgo: DOT11_AUTH_ALGORITHM,
+            UnicastCipher: DOT11_CIPHER_ALGORITHM,
+            MulticastCipher: DOT11_CIPHER_ALGORITHM,
+            uActivePhyListOffset: u32,
+            uActivePhyListSize: u32,
+            uBeaconOffset: u32,
+            uBeaconSize: u32,
+        }
+        const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_INCOMING_ASSOC_DECISION {
+            Header: NDIS_OBJECT_HEADER,
+            PeerMacAddr: DOT11_MAC_ADDRESS,
+            bAccept: BOOLEAN,
+            usReasonCode: u16,
+            uAssocResponseIEsOffset: u32,
+            uAssocResponseIEsLength: u32,
+        }
+        const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: u32 = 1;
+        const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: u32 = 2;
+        struct DOT11_INCOMING_ASSOC_DECISION_V2 {
+            Header: NDIS_OBJECT_HEADER,
+            PeerMacAddr: DOT11_MAC_ADDRESS,
+            bAccept: BOOLEAN,
+            usReasonCode: u16,
+            uAssocResponseIEsOffset: u32,
+            uAssocResponseIEsLength: u32,
+            WFDStatus: DOT11_WFD_STATUS_CODE,
+        }
+        struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerMacAddr: DOT11_MAC_ADDRESS,
+            bReAssocReq: BOOLEAN,
+            uAssocReqOffset: u32,
+            uAssocReqSize: u32,
+        }
+        const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerMacAddr: DOT11_MAC_ADDRESS,
+        }
+        const DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1: u32 = 1;
+        const DOT11_INVALID_CHANNEL_NUMBER: u32 = 0;
+        struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            ReceiverAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            Status: NDIS_STATUS,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            Status: NDIS_STATUS,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_IV48_COUNTER {
+            uIV32Counter: u32,
+            usIV16Counter: u16,
+        }
+        struct DOT11_JOIN_REQUEST {
+            uJoinFailureTimeout: u32,
+            OperationalRateSet: DOT11_RATE_SET,
+            uChCenterFrequency: u32,
+            dot11BSSDescription: DOT11_BSS_DESCRIPTION,
+        }
+        struct DOT11_KEY_ALGO_BIP {
+            ucIPN: [u8; 6],
+            ulBIPKeyLength: u32,
+            ucBIPKey: [u8; 1],
+        }
+        struct DOT11_KEY_ALGO_BIP_GMAC_256 {
+            ucIPN: [u8; 6],
+            ulBIPGmac256KeyLength: u32,
+            ucBIPGmac256Key: [u8; 1],
+        }
+        struct DOT11_KEY_ALGO_CCMP {
+            ucIV48Counter: [u8; 6],
+            ulCCMPKeyLength: u32,
+            ucCCMPKey: [u8; 1],
+        }
+        struct DOT11_KEY_ALGO_GCMP {
+            ucIV48Counter: [u8; 6],
+            ulGCMPKeyLength: u32,
+            ucGCMPKey: [u8; 1],
+        }
+        struct DOT11_KEY_ALGO_GCMP_256 {
+            ucIV48Counter: [u8; 6],
+            ulGCMP256KeyLength: u32,
+            ucGCMP256Key: [u8; 1],
+        }
+        struct DOT11_KEY_ALGO_TKIP_MIC {
+            ucIV48Counter: [u8; 6],
+            ulTKIPKeyLength: u32,
+            ulMICKeyLength: u32,
+            ucTKIPMICKeys: [u8; 1],
+        }
+        #[repr(i32)]
+        enum DOT11_KEY_DIRECTION {
+            dot11_key_direction_both = 1,
+            dot11_key_direction_inbound = 2,
+            dot11_key_direction_outbound = 3,
+        }
+        struct DOT11_LINK_QUALITY_ENTRY {
+            PeerMacAddr: DOT11_MAC_ADDRESS,
+            ucLinkQuality: u8,
+        }
+        struct DOT11_LINK_QUALITY_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            uLinkQualityListSize: u32,
+            uLinkQualityListOffset: u32,
+        }
+        const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: u32 = 1;
+        type DOT11_MAC_ADDRESS = [u8; 6];
+        struct DOT11_MAC_ADDRESS_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            MacAddrs: [DOT11_MAC_ADDRESS; 1],
+        }
+        const DOT11_MAC_ADDRESS_LIST_REVISION_1: u32 = 1;
+        const DOT11_MAC_AUTO_CONFIG_ENABLED_FLAG: u32 = 2;
+        struct DOT11_MAC_FRAME_STATISTICS {
+            ullTransmittedFrameCount: u64,
+            ullReceivedFrameCount: u64,
+            ullTransmittedFailureFrameCount: u64,
+            ullReceivedFailureFrameCount: u64,
+            ullWEPExcludedCount: u64,
+            ullTKIPLocalMICFailures: u64,
+            ullTKIPReplays: u64,
+            ullTKIPICVErrorCount: u64,
+            ullCCMPReplays: u64,
+            ullCCMPDecryptErrors: u64,
+            ullWEPUndecryptableCount: u64,
+            ullWEPICVErrorCount: u64,
+            ullDecryptSuccessCount: u64,
+            ullDecryptFailureCount: u64,
+        }
+        struct DOT11_MAC_INFO {
+            uReserved: u32,
+            uNdisPortNumber: u32,
+            MacAddr: DOT11_MAC_ADDRESS,
+        }
+        struct DOT11_MAC_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            uOpmodeMask: u32,
+        }
+        const DOT11_MAC_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            dot11ManufacturingCallbackType: DOT11_MANUFACTURING_CALLBACK_TYPE,
+            uStatus: u32,
+            pvContext: *mut void,
+        }
+        const DOT11_MANUFACTURING_CALLBACK_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum DOT11_MANUFACTURING_CALLBACK_TYPE {
+            dot11_manufacturing_callback_unknown = 0,
+            dot11_manufacturing_callback_self_test_complete = 1,
+            dot11_manufacturing_callback_sleep_complete = 2,
+            dot11_manufacturing_callback_IHV_start = -2147483648,
+            dot11_manufacturing_callback_IHV_end = -1,
+        }
+        struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
+            Dot11Band: DOT11_BAND,
+            uChannel: u32,
+            ADCPowerLevel: i32,
+        }
+        struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
+            bEnabled: BOOLEAN,
+            Dot11Band: DOT11_BAND,
+            uChannel: u32,
+            PowerLevel: i32,
+        }
+        struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
+            bEnable: BOOLEAN,
+            bOpenLoop: BOOLEAN,
+            Dot11Band: DOT11_BAND,
+            uChannel: u32,
+            uSetPowerLevel: u32,
+            ADCPowerLevel: i32,
+        }
+        struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
+            SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
+            uTestID: u32,
+            bResult: BOOLEAN,
+            uPinFailedBitMask: u32,
+            pvContext: *mut void,
+            uBytesWrittenOut: u32,
+            ucBufferOut: [u8; 1],
+        }
+        struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
+            SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
+            uTestID: u32,
+            uPinBitMask: u32,
+            pvContext: *mut void,
+            uBufferLength: u32,
+            ucBufferIn: [u8; 1],
+        }
+        #[repr(i32)]
+        enum DOT11_MANUFACTURING_SELF_TEST_TYPE {
+            DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE = 1,
+            DOT11_MANUFACTURING_SELF_TEST_TYPE_RF_INTERFACE = 2,
+            DOT11_MANUFACTURING_SELF_TEST_TYPE_BT_COEXISTENCE = 3,
+        }
+        struct DOT11_MANUFACTURING_TEST {
+            dot11ManufacturingTestType: DOT11_MANUFACTURING_TEST_TYPE,
+            uBufferLength: u32,
+            ucBuffer: [u8; 1],
+        }
+        struct DOT11_MANUFACTURING_TEST_QUERY_DATA {
+            uKey: u32,
+            uOffset: u32,
+            uBufferLength: u32,
+            uBytesRead: u32,
+            ucBufferOut: [u8; 1],
+        }
+        const DOT11_MANUFACTURING_TEST_REVISION_1: u32 = 1;
+        struct DOT11_MANUFACTURING_TEST_SET_DATA {
+            uKey: u32,
+            uOffset: u32,
+            uBufferLength: u32,
+            ucBufferIn: [u8; 1],
+        }
+        struct DOT11_MANUFACTURING_TEST_SLEEP {
+            uSleepTime: u32,
+            pvContext: *mut void,
+        }
+        #[repr(i32)]
+        enum DOT11_MANUFACTURING_TEST_TYPE {
+            dot11_manufacturing_test_unknown = 0,
+            dot11_manufacturing_test_self_start = 1,
+            dot11_manufacturing_test_self_query_result = 2,
+            dot11_manufacturing_test_rx = 3,
+            dot11_manufacturing_test_tx = 4,
+            dot11_manufacturing_test_query_adc = 5,
+            dot11_manufacturing_test_set_data = 6,
+            dot11_manufacturing_test_query_data = 7,
+            dot11_manufacturing_test_sleep = 8,
+            dot11_manufacturing_test_awake = 9,
+            dot11_manufacturing_test_IHV_start = -2147483648,
+            dot11_manufacturing_test_IHV_end = -1,
+        }
+        const DOT11_MAX_CHANNEL_HINTS: u32 = 4;
+        const DOT11_MAX_NUM_DEFAULT_KEY: u32 = 4;
+        const DOT11_MAX_NUM_DEFAULT_KEY_MFP: u32 = 6;
+        const DOT11_MAX_NUM_OF_FRAGMENTS: u32 = 16;
+        const DOT11_MAX_PDU_SIZE: u32 = 2346;
+        const DOT11_MAX_REQUESTED_SERVICE_INFORMATION_LENGTH: u32 = 255;
+        struct DOT11_MD_CAPABILITY_ENTRY_LIST {
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11MDCapabilityEntry: [DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY; 1],
+        }
+        const DOT11_MIN_PDU_SIZE: u32 = 256;
+        const DOT11_MIN_SIZEOF_OFFLOAD_NETWORK_LIST_INFO_REVISION_1: u32 = 24;
+        struct DOT11_MPDU_MAX_LENGTH_INDICATION {
+            Header: NDIS_OBJECT_HEADER,
+            uPhyId: u32,
+            uMPDUMaxLength: u32,
+        }
+        const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: u32 = 1;
+        struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
+            uMultiDomainCapabilityIndex: u32,
+            uFirstChannelNumber: u32,
+            uNumberOfChannels: u32,
+            lMaximumTransmitPowerLevel: i32,
+        }
+        struct DOT11_NIC_SPECIFIC_EXTENSION {
+            uBufferLength: u32,
+            uTotalBufferLength: u32,
+            ucBuffer: [u8; 1],
+        }
+        const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: u32 = 4;
+        const DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM: u32 = 2;
+        const DOT11_NLO_FLAG_STOP_NLO_INDICATION: u32 = 1;
+        struct DOT11_OFDM_PHY_ATTRIBUTES {
+            uFrequencyBandsSupported: u32,
+        }
+        struct DOT11_OFFLOAD_CAPABILITY {
+            uReserved: u32,
+            uFlags: u32,
+            uSupportedWEPAlgorithms: u32,
+            uNumOfReplayWindows: u32,
+            uMaxWEPKeyMappingLength: u32,
+            uSupportedAuthAlgorithms: u32,
+            uMaxAuthKeyMappingLength: u32,
+        }
+        struct DOT11_OFFLOAD_NETWORK {
+            Ssid: DOT11_SSID,
+            UnicastCipher: DOT11_CIPHER_ALGORITHM,
+            AuthAlgo: DOT11_AUTH_ALGORITHM,
+            Dot11ChannelHints: [DOT11_CHANNEL_HINT; 4],
+        }
+        struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
+            Header: NDIS_OBJECT_HEADER,
+            ulFlags: u32,
+            FastScanPeriod: u32,
+            FastScanIterations: u32,
+            SlowScanPeriod: u32,
+            uNumOfEntries: u32,
+            offloadNetworkList: [DOT11_OFFLOAD_NETWORK; 1],
+        }
+        const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: u32 = 1;
+        struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            Status: NDIS_STATUS,
+        }
+        const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum DOT11_OFFLOAD_TYPE {
+            dot11_offload_type_wep = 1,
+            dot11_offload_type_auth = 2,
+        }
+        const DOT11_OPERATION_MODE_AP: u32 = 2;
+        struct DOT11_OPERATION_MODE_CAPABILITY {
+            uReserved: u32,
+            uMajorVersion: u32,
+            uMinorVersion: u32,
+            uNumOfTXBuffers: u32,
+            uNumOfRXBuffers: u32,
+            uOpModeCapability: u32,
+        }
+        const DOT11_OPERATION_MODE_EXTENSIBLE_AP: u32 = 8;
+        const DOT11_OPERATION_MODE_EXTENSIBLE_STATION: u32 = 4;
+        const DOT11_OPERATION_MODE_MANUFACTURING: u32 = 1073741824;
+        const DOT11_OPERATION_MODE_NETWORK_MONITOR: u32 = 2147483648;
+        const DOT11_OPERATION_MODE_STATION: u32 = 1;
+        const DOT11_OPERATION_MODE_UNKNOWN: u32 = 0;
+        const DOT11_OPERATION_MODE_WFD_CLIENT: u32 = 64;
+        const DOT11_OPERATION_MODE_WFD_DEVICE: u32 = 16;
+        const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: u32 = 32;
+        struct DOT11_OPTIONAL_CAPABILITY {
+            uReserved: u32,
+            bDot11PCF: BOOLEAN,
+            bDot11PCFMPDUTransferToPC: BOOLEAN,
+            bStrictlyOrderedServiceClass: BOOLEAN,
+        }
+        const DOT11_PACKET_TYPE_ALL_MULTICAST_CTRL: u32 = 4096;
+        const DOT11_PACKET_TYPE_ALL_MULTICAST_DATA: u32 = 16384;
+        const DOT11_PACKET_TYPE_ALL_MULTICAST_MGMT: u32 = 8192;
+        const DOT11_PACKET_TYPE_BROADCAST_CTRL: u32 = 64;
+        const DOT11_PACKET_TYPE_BROADCAST_DATA: u32 = 256;
+        const DOT11_PACKET_TYPE_BROADCAST_MGMT: u32 = 128;
+        const DOT11_PACKET_TYPE_DIRECTED_CTRL: u32 = 1;
+        const DOT11_PACKET_TYPE_DIRECTED_DATA: u32 = 4;
+        const DOT11_PACKET_TYPE_DIRECTED_MGMT: u32 = 2;
+        const DOT11_PACKET_TYPE_MULTICAST_CTRL: u32 = 8;
+        const DOT11_PACKET_TYPE_MULTICAST_DATA: u32 = 32;
+        const DOT11_PACKET_TYPE_MULTICAST_MGMT: u32 = 16;
+        const DOT11_PACKET_TYPE_PROMISCUOUS_CTRL: u32 = 512;
+        const DOT11_PACKET_TYPE_PROMISCUOUS_DATA: u32 = 2048;
+        const DOT11_PACKET_TYPE_PROMISCUOUS_MGMT: u32 = 1024;
+        const DOT11_PACKET_TYPE_RESERVED: i32 = -32768;
+        struct DOT11_PEER_INFO {
+            MacAddress: DOT11_MAC_ADDRESS,
+            usCapabilityInformation: u16,
+            AuthAlgo: DOT11_AUTH_ALGORITHM,
+            UnicastCipherAlgo: DOT11_CIPHER_ALGORITHM,
+            MulticastCipherAlgo: DOT11_CIPHER_ALGORITHM,
+            bWpsEnabled: BOOLEAN,
+            usListenInterval: u16,
+            ucSupportedRates: [u8; 255],
+            usAssociationID: u16,
+            AssociationState: DOT11_ASSOCIATION_STATE,
+            PowerMode: DOT11_POWER_MODE,
+            liAssociationUpTime: LARGE_INTEGER,
+            Statistics: DOT11_PEER_STATISTICS,
+        }
+        struct DOT11_PEER_INFO_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            PeerInfo: [DOT11_PEER_INFO; 1],
+        }
+        const DOT11_PEER_INFO_LIST_REVISION_1: u32 = 1;
+        struct DOT11_PEER_STATISTICS {
+            ullDecryptSuccessCount: u64,
+            ullDecryptFailureCount: u64,
+            ullTxPacketSuccessCount: u64,
+            ullTxPacketFailureCount: u64,
+            ullRxPacketSuccessCount: u64,
+            ullRxPacketFailureCount: u64,
+        }
+        struct DOT11_PER_MSDU_COUNTERS {
+            uTransmittedFragmentCount: u32,
+            uRetryCount: u32,
+            uRTSSuccessCount: u32,
+            uRTSFailureCount: u32,
+            uACKFailureCount: u32,
+        }
+        struct DOT11_PHY_ATTRIBUTES {
+            Header: NDIS_OBJECT_HEADER,
+            PhyType: DOT11_PHY_TYPE,
+            bHardwarePhyState: BOOLEAN,
+            bSoftwarePhyState: BOOLEAN,
+            bCFPollable: BOOLEAN,
+            uMPDUMaxLength: u32,
+            TempType: DOT11_TEMP_TYPE,
+            DiversitySupport: DOT11_DIVERSITY_SUPPORT,
+            PhySpecificAttributes: union {
+                HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
+                OFDMAttributes: DOT11_OFDM_PHY_ATTRIBUTES,
+                ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
+            },
+            uNumberSupportedPowerLevels: u32,
+            TxPowerLevels: [u32; 8],
+            uNumDataRateMappingEntries: u32,
+            DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
+            SupportedDataRatesValue: DOT11_SUPPORTED_DATA_RATES_VALUE_V2,
+        }
+        const DOT11_PHY_ATTRIBUTES_REVISION_1: u32 = 1;
+        const DOT11_PHY_AUTO_CONFIG_ENABLED_FLAG: u32 = 1;
+        struct DOT11_PHY_FRAME_STATISTICS {
+            ullTransmittedFrameCount: u64,
+            ullMulticastTransmittedFrameCount: u64,
+            ullFailedCount: u64,
+            ullRetryCount: u64,
+            ullMultipleRetryCount: u64,
+            ullMaxTXLifetimeExceededCount: u64,
+            ullTransmittedFragmentCount: u64,
+            ullRTSSuccessCount: u64,
+            ullRTSFailureCount: u64,
+            ullACKFailureCount: u64,
+            ullReceivedFrameCount: u64,
+            ullMulticastReceivedFrameCount: u64,
+            ullPromiscuousReceivedFrameCount: u64,
+            ullMaxRXLifetimeExceededCount: u64,
+            ullFrameDuplicateCount: u64,
+            ullReceivedFragmentCount: u64,
+            ullPromiscuousReceivedFragmentCount: u64,
+            ullFCSErrorCount: u64,
+        }
+        struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            ulPhyId: u32,
+            Anonymous: union {
+                ulChannel: u32,
+                ulFrequency: u32,
+            },
+        }
+        const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: u32 = 1;
+        const DOT11_PHY_ID_ANY: u32 = 4294967295;
+        struct DOT11_PHY_ID_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11PhyId: [u32; 1],
+        }
+        const DOT11_PHY_ID_LIST_REVISION_1: u32 = 1;
+        struct DOT11_PHY_STATE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            uPhyId: u32,
+            bHardwarePhyState: BOOLEAN,
+            bSoftwarePhyState: BOOLEAN,
+        }
+        const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum DOT11_PHY_TYPE {
+            dot11_phy_type_unknown = 0,
+            dot11_phy_type_any = 0,
+            dot11_phy_type_fhss = 1,
+            dot11_phy_type_dsss = 2,
+            dot11_phy_type_irbaseband = 3,
+            dot11_phy_type_ofdm = 4,
+            dot11_phy_type_hrdsss = 5,
+            dot11_phy_type_erp = 6,
+            dot11_phy_type_ht = 7,
+            dot11_phy_type_vht = 8,
+            dot11_phy_type_dmg = 9,
+            dot11_phy_type_he = 10,
+            dot11_phy_type_eht = 11,
+            dot11_phy_type_IHV_start = -2147483648,
+            dot11_phy_type_IHV_end = -1,
+        }
+        struct DOT11_PHY_TYPE_INFO {
+            dot11PhyType: DOT11_PHY_TYPE,
+            bUseParameters: BOOLEAN,
+            uProbeDelay: u32,
+            uMinChannelTime: u32,
+            uMaxChannelTime: u32,
+            ChDescriptionType: CH_DESCRIPTION_TYPE,
+            uChannelListSize: u32,
+            ucChannelListBuffer: [u8; 1],
+        }
+        struct DOT11_PHY_TYPE_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11PhyType: [DOT11_PHY_TYPE; 1],
+        }
+        const DOT11_PHY_TYPE_LIST_REVISION_1: u32 = 1;
+        struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            uCandidateListSize: u32,
+            uCandidateListOffset: u32,
+        }
+        const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: u32 = 1;
+        const DOT11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1;
+        struct DOT11_PMKID_ENTRY {
+            BSSID: DOT11_MAC_ADDRESS,
+            PMKID: DOT11_PMKID_VALUE,
+            uFlags: u32,
+        }
+        struct DOT11_PMKID_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            PMKIDs: [DOT11_PMKID_ENTRY; 1],
+        }
+        const DOT11_PMKID_LIST_REVISION_1: u32 = 1;
+        type DOT11_PMKID_VALUE = [u8; 16];
+        struct DOT11_PORT_STATE_NOTIFICATION {
+            Header: NDIS_OBJECT_HEADER,
+            PeerMac: DOT11_MAC_ADDRESS,
+            bOpen: BOOLEAN,
+        }
+        const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: u32 = 1;
+        struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
+            Header: NDIS_OBJECT_HEADER,
+            bEnabled: BOOLEAN,
+        }
+        const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: u32 = 1;
+        struct DOT11_POWER_MGMT_MODE {
+            dot11PowerMode: DOT11_POWER_MODE,
+            uPowerSaveLevel: u32,
+            usListenInterval: u16,
+            usAID: u16,
+            bReceiveDTIMs: BOOLEAN,
+        }
+        struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
+            Header: NDIS_OBJECT_HEADER,
+            PowerSaveMode: DOT11_POWER_MODE,
+            uPowerSaveLevel: u32,
+            Reason: DOT11_POWER_MODE_REASON,
+        }
+        const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum DOT11_POWER_MODE {
+            dot11_power_mode_unknown = 0,
+            dot11_power_mode_active = 1,
+            dot11_power_mode_powersave = 2,
+        }
+        #[repr(i32)]
+        enum DOT11_POWER_MODE_REASON {
+            dot11_power_mode_reason_no_change = 0,
+            dot11_power_mode_reason_noncompliant_AP = 1,
+            dot11_power_mode_reason_legacy_WFD_device = 2,
+            dot11_power_mode_reason_compliant_AP = 3,
+            dot11_power_mode_reason_compliant_WFD_device = 4,
+            dot11_power_mode_reason_others = 5,
+        }
+        const DOT11_POWER_SAVE_LEVEL_FAST_PSP: u32 = 2;
+        const DOT11_POWER_SAVE_LEVEL_MAX_PSP: u32 = 1;
+        const DOT11_POWER_SAVING_FAST_PSP: u32 = 8;
+        const DOT11_POWER_SAVING_MAXIMUM_LEVEL: u32 = 24;
+        const DOT11_POWER_SAVING_MAX_PSP: u32 = 16;
+        const DOT11_POWER_SAVING_NO_POWER_SAVING: u32 = 0;
+        const DOT11_PRIORITY_CONTENTION: u32 = 0;
+        const DOT11_PRIORITY_CONTENTION_FREE: u32 = 1;
+        struct DOT11_PRIVACY_EXEMPTION {
+            usEtherType: u16,
+            usExemptionActionType: u16,
+            usExemptionPacketType: u16,
+        }
+        struct DOT11_PRIVACY_EXEMPTION_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            PrivacyExemptionEntries: [DOT11_PRIVACY_EXEMPTION; 1],
+        }
+        const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: u32 = 1;
+        struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            ReceiverAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            Status: NDIS_STATUS,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            Status: NDIS_STATUS,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_QOS_PARAMS {
+            Header: NDIS_OBJECT_HEADER,
+            ucEnabledQoSProtocolFlags: u8,
+        }
+        const DOT11_QOS_PARAMS_REVISION_1: u32 = 1;
+        const DOT11_QOS_PROTOCOL_FLAG_11E: u32 = 2;
+        const DOT11_QOS_PROTOCOL_FLAG_WMM: u32 = 1;
+        struct DOT11_QOS_TX_DURATION {
+            uNominalMSDUSize: u32,
+            uMinPHYRate: u32,
+            uDuration: u32,
+        }
+        struct DOT11_QOS_TX_MEDIUM_TIME {
+            dot11PeerAddress: DOT11_MAC_ADDRESS,
+            ucQoSPriority: u8,
+            uMediumTimeAdmited: u32,
+        }
+        struct DOT11_RATE_SET {
+            uRateSetLength: u32,
+            ucRateSet: [u8; 126],
+        }
+        const DOT11_RATE_SET_MAX_LENGTH: u32 = 126;
+        struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            RequestContext: *mut void,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            ResponseContext: *mut void,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
+            BSSID: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            RequestContext: *mut void,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
+            BSSID: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
+            BSSID: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            RequestContext: *mut void,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
+            BSSID: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_RECV_EXTENSION_INFO {
+            uVersion: u32,
+            pvReserved: *mut void,
+            dot11PhyType: DOT11_PHY_TYPE,
+            uChCenterFrequency: u32,
+            lRSSI: i32,
+            lRSSIMin: i32,
+            lRSSIMax: i32,
+            uRSSI: u32,
+            ucPriority: u8,
+            ucDataRate: u8,
+            ucPeerMacAddress: [u8; 6],
+            dwExtendedStatus: u32,
+            hWEPOffloadContext: HANDLE,
+            hAuthOffloadContext: HANDLE,
+            usWEPAppliedMask: u16,
+            usWPAMSDUPriority: u16,
+            dot11LowestIV48Counter: DOT11_IV48_COUNTER,
+            usDot11LeftRWBitMap: u16,
+            dot11HighestIV48Counter: DOT11_IV48_COUNTER,
+            usDot11RightRWBitMap: u16,
+            usNumberOfMPDUsReceived: u16,
+            usNumberOfFragments: u16,
+            pNdisPackets: [*mut void; 1],
+        }
+        struct DOT11_RECV_EXTENSION_INFO_V2 {
+            uVersion: u32,
+            pvReserved: *mut void,
+            dot11PhyType: DOT11_PHY_TYPE,
+            uChCenterFrequency: u32,
+            lRSSI: i32,
+            uRSSI: u32,
+            ucPriority: u8,
+            ucDataRate: u8,
+            ucPeerMacAddress: [u8; 6],
+            dwExtendedStatus: u32,
+            hWEPOffloadContext: HANDLE,
+            hAuthOffloadContext: HANDLE,
+            usWEPAppliedMask: u16,
+            usWPAMSDUPriority: u16,
+            dot11LowestIV48Counter: DOT11_IV48_COUNTER,
+            usDot11LeftRWBitMap: u16,
+            dot11HighestIV48Counter: DOT11_IV48_COUNTER,
+            usDot11RightRWBitMap: u16,
+            usNumberOfMPDUsReceived: u16,
+            usNumberOfFragments: u16,
+            pNdisPackets: [*mut void; 1],
+        }
+        const DOT11_RECV_FLAG_RAW_PACKET: u32 = 1;
+        const DOT11_RECV_FLAG_RAW_PACKET_FCS_FAILURE: u32 = 2;
+        const DOT11_RECV_FLAG_RAW_PACKET_TIMESTAMP: u32 = 4;
+        struct DOT11_RECV_SENSITIVITY {
+            ucDataRate: u8,
+            lRSSIMin: i32,
+            lRSSIMax: i32,
+        }
+        struct DOT11_RECV_SENSITIVITY_LIST {
+            Anonymous: union {
+                dot11PhyType: DOT11_PHY_TYPE,
+                uPhyId: u32,
+            },
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11RecvSensitivity: [DOT11_RECV_SENSITIVITY; 1],
+        }
+        struct DOT11_REG_DOMAINS_SUPPORT_VALUE {
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11RegDomainValue: [DOT11_REG_DOMAIN_VALUE; 1],
+        }
+        const DOT11_REG_DOMAIN_DOC: u32 = 32;
+        const DOT11_REG_DOMAIN_ETSI: u32 = 48;
+        const DOT11_REG_DOMAIN_FCC: u32 = 16;
+        const DOT11_REG_DOMAIN_FRANCE: u32 = 50;
+        const DOT11_REG_DOMAIN_MKK: u32 = 64;
+        const DOT11_REG_DOMAIN_OTHER: u32 = 0;
+        const DOT11_REG_DOMAIN_SPAIN: u32 = 49;
+        struct DOT11_REG_DOMAIN_VALUE {
+            uRegDomainsSupportIndex: u32,
+            uRegDomainsSupportValue: u32,
+        }
+        struct DOT11_RESET_REQUEST {
+            dot11ResetType: DOT11_RESET_TYPE,
+            dot11MacAddress: DOT11_MAC_ADDRESS,
+            bSetDefaultMIB: BOOLEAN,
+        }
+        #[repr(i32)]
+        enum DOT11_RESET_TYPE {
+            dot11_reset_type_phy = 1,
+            dot11_reset_type_mac = 2,
+            dot11_reset_type_phy_and_mac = 3,
+        }
+        struct DOT11_ROAMING_COMPLETION_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            uStatus: DOT11_ASSOC_STATUS,
+        }
+        const DOT11_ROAMING_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
+        const DOT11_ROAMING_REASON_ADHOC: u32 = 13;
+        const DOT11_ROAMING_REASON_ASSOCIATION_LOST: u32 = 12;
+        const DOT11_ROAMING_REASON_BETTER_AP_FOUND: u32 = 11;
+        const DOT11_ROAMING_REASON_IHV_END: i32 = -1;
+        const DOT11_ROAMING_REASON_IHV_START: i32 = -2147483648;
+        struct DOT11_ROAMING_START_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            AdhocBSSID: DOT11_MAC_ADDRESS,
+            AdhocSSID: DOT11_SSID,
+            uRoamingReason: DOT11_ASSOC_STATUS,
+        }
+        const DOT11_ROAMING_START_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_RSSI_RANGE {
+            dot11PhyType: DOT11_PHY_TYPE,
+            uRSSIMin: u32,
+            uRSSIMax: u32,
+        }
+        struct DOT11_SCAN_REQUEST {
+            dot11BSSType: DOT11_BSS_TYPE,
+            dot11BSSID: DOT11_MAC_ADDRESS,
+            dot11SSID: DOT11_SSID,
+            dot11ScanType: DOT11_SCAN_TYPE,
+            bRestrictedScan: BOOLEAN,
+            bUseRequestIE: BOOLEAN,
+            uRequestIDsOffset: u32,
+            uNumOfRequestIDs: u32,
+            uPhyTypesOffset: u32,
+            uNumOfPhyTypes: u32,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+            ucBuffer: [u8; 1],
+        }
+        struct DOT11_SCAN_REQUEST_V2 {
+            dot11BSSType: DOT11_BSS_TYPE,
+            dot11BSSID: DOT11_MAC_ADDRESS,
+            dot11ScanType: DOT11_SCAN_TYPE,
+            bRestrictedScan: BOOLEAN,
+            udot11SSIDsOffset: u32,
+            uNumOfdot11SSIDs: u32,
+            bUseRequestIE: BOOLEAN,
+            uRequestIDsOffset: u32,
+            uNumOfRequestIDs: u32,
+            uPhyTypeInfosOffset: u32,
+            uNumOfPhyTypeInfos: u32,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+            ucBuffer: [u8; 1],
+        }
+        #[repr(i32)]
+        enum DOT11_SCAN_TYPE {
+            dot11_scan_type_active = 1,
+            dot11_scan_type_passive = 2,
+            dot11_scan_type_auto = 3,
+            dot11_scan_type_forced = -2147483648,
+        }
+        struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            ResponseContext: *mut void,
+            uSendTimeout: u32,
+            Status: DOT11_WFD_STATUS_CODE,
+            GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
+            GroupID: DOT11_WFD_GROUP_ID,
+            bUseGroupID: BOOLEAN,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            uSendTimeout: u32,
+            GroupOwnerIntent: DOT11_WFD_GO_INTENT,
+            MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
+            IntendedInterfaceAddress: DOT11_MAC_ADDRESS,
+            GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            RequestContext: *mut void,
+            uSendTimeout: u32,
+            Status: DOT11_WFD_STATUS_CODE,
+            GroupOwnerIntent: DOT11_WFD_GO_INTENT,
+            MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
+            IntendedInterfaceAddress: DOT11_MAC_ADDRESS,
+            GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
+            GroupID: DOT11_WFD_GROUP_ID,
+            bUseGroupID: BOOLEAN,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            uSendTimeout: u32,
+            MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
+            InvitationFlags: DOT11_WFD_INVITATION_FLAGS,
+            GroupBSSID: DOT11_MAC_ADDRESS,
+            bUseGroupBSSID: BOOLEAN,
+            OperatingChannel: DOT11_WFD_CHANNEL,
+            bUseSpecifiedOperatingChannel: BOOLEAN,
+            GroupID: DOT11_WFD_GROUP_ID,
+            bLocalGO: BOOLEAN,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            RequestContext: *mut void,
+            uSendTimeout: u32,
+            Status: DOT11_WFD_STATUS_CODE,
+            MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
+            GroupBSSID: DOT11_MAC_ADDRESS,
+            bUseGroupBSSID: BOOLEAN,
+            OperatingChannel: DOT11_WFD_CHANNEL,
+            bUseSpecifiedOperatingChannel: BOOLEAN,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            PeerDeviceAddress: DOT11_MAC_ADDRESS,
+            uSendTimeout: u32,
+            GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
+            GroupID: DOT11_WFD_GROUP_ID,
+            bUseGroupID: BOOLEAN,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
+            DialogToken: DOT11_DIALOG_TOKEN,
+            RequestContext: *mut void,
+            uSendTimeout: u32,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+        }
+        const DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+        const DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST: u32 = 0;
+        const DOT11_SERVICE_CLASS_STRICTLY_ORDERED: u32 = 1;
+        const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 12;
+        struct DOT11_SSID_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            SSIDs: [DOT11_SSID; 1],
+        }
+        const DOT11_SSID_LIST_REVISION_1: u32 = 1;
+        struct DOT11_START_REQUEST {
+            uStartFailureTimeout: u32,
+            OperationalRateSet: DOT11_RATE_SET,
+            uChCenterFrequency: u32,
+            dot11BSSDescription: DOT11_BSS_DESCRIPTION,
+        }
+        struct DOT11_STATISTICS {
+            Header: NDIS_OBJECT_HEADER,
+            ullFourWayHandshakeFailures: u64,
+            ullTKIPCounterMeasuresInvoked: u64,
+            ullReserved: u64,
+            MacUcastCounters: DOT11_MAC_FRAME_STATISTICS,
+            MacMcastCounters: DOT11_MAC_FRAME_STATISTICS,
+            PhyCounters: [DOT11_PHY_FRAME_STATISTICS; 1],
+        }
+        const DOT11_STATISTICS_REVISION_1: u32 = 1;
+        const DOT11_STATISTICS_UNKNOWN: i32 = -1;
+        const DOT11_STATUS_AP_JOIN_CONFIRM: u32 = 5;
+        const DOT11_STATUS_AUTH_FAILED: u32 = 131072;
+        const DOT11_STATUS_AUTH_NOT_VERIFIED: u32 = 32768;
+        const DOT11_STATUS_AUTH_VERIFIED: u32 = 65536;
+        const DOT11_STATUS_ENCRYPTION_FAILED: u32 = 512;
+        const DOT11_STATUS_EXCESSIVE_DATA_LENGTH: u32 = 256;
+        const DOT11_STATUS_GENERATE_AUTH_FAILED: u32 = 16384;
+        const DOT11_STATUS_ICV_VERIFIED: u32 = 2048;
+        struct DOT11_STATUS_INDICATION {
+            uStatusType: u32,
+            ndisStatus: NDIS_STATUS,
+        }
+        const DOT11_STATUS_JOIN_CONFIRM: u32 = 2;
+        const DOT11_STATUS_MPDU_MAX_LENGTH_CHANGED: u32 = 6;
+        const DOT11_STATUS_PACKET_NOT_REASSEMBLED: u32 = 8192;
+        const DOT11_STATUS_PACKET_REASSEMBLED: u32 = 4096;
+        const DOT11_STATUS_PS_LIFETIME_EXPIRED: u32 = 262144;
+        const DOT11_STATUS_RESET_CONFIRM: u32 = 4;
+        const DOT11_STATUS_RETRY_LIMIT_EXCEEDED: u32 = 2;
+        const DOT11_STATUS_SCAN_CONFIRM: u32 = 1;
+        const DOT11_STATUS_START_CONFIRM: u32 = 3;
+        const DOT11_STATUS_SUCCESS: u32 = 1;
+        const DOT11_STATUS_UNAVAILABLE_BSS: u32 = 128;
+        const DOT11_STATUS_UNAVAILABLE_PRIORITY: u32 = 16;
+        const DOT11_STATUS_UNAVAILABLE_SERVICE_CLASS: u32 = 32;
+        const DOT11_STATUS_UNSUPPORTED_PRIORITY: u32 = 4;
+        const DOT11_STATUS_UNSUPPORTED_SERVICE_CLASS: u32 = 8;
+        const DOT11_STATUS_WEP_KEY_UNAVAILABLE: u32 = 1024;
+        const DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED: u32 = 64;
+        struct DOT11_STOP_AP_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            ulReason: u32,
+        }
+        const DOT11_STOP_AP_PARAMETERS_REVISION_1: u32 = 1;
+        const DOT11_STOP_AP_REASON_AP_ACTIVE: u32 = 3;
+        const DOT11_STOP_AP_REASON_CHANNEL_NOT_AVAILABLE: u32 = 2;
+        const DOT11_STOP_AP_REASON_FREQUENCY_NOT_AVAILABLE: u32 = 1;
+        const DOT11_STOP_AP_REASON_IHV_END: u32 = 4294967295;
+        const DOT11_STOP_AP_REASON_IHV_START: u32 = 4278190080;
+        struct DOT11_SUPPORTED_ANTENNA {
+            uAntennaListIndex: u32,
+            bSupportedAntenna: BOOLEAN,
+        }
+        struct DOT11_SUPPORTED_ANTENNA_LIST {
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11SupportedAntenna: [DOT11_SUPPORTED_ANTENNA; 1],
+        }
+        struct DOT11_SUPPORTED_DATA_RATES_VALUE {
+            ucSupportedTxDataRatesValue: [u8; 8],
+            ucSupportedRxDataRatesValue: [u8; 8],
+        }
+        type DOT11_SUPPORTED_DATA_RATES_VALUE_V1 = DOT11_SUPPORTED_DATA_RATES_VALUE_V2;
+        struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
+            ucSupportedTxDataRatesValue: [u8; 255],
+            ucSupportedRxDataRatesValue: [u8; 255],
+        }
+        struct DOT11_SUPPORTED_DSSS_CHANNEL {
+            uChannel: u32,
+        }
+        struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11SupportedDSSSChannel: [DOT11_SUPPORTED_DSSS_CHANNEL; 1],
+        }
+        struct DOT11_SUPPORTED_OFDM_FREQUENCY {
+            uCenterFrequency: u32,
+        }
+        struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11SupportedOFDMFrequency: [DOT11_SUPPORTED_OFDM_FREQUENCY; 1],
+        }
+        struct DOT11_SUPPORTED_PHY_TYPES {
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11PHYType: [DOT11_PHY_TYPE; 1],
+        }
+        struct DOT11_SUPPORTED_POWER_LEVELS {
+            uNumOfSupportedPowerLevels: u32,
+            uTxPowerLevelValues: [u32; 8],
+        }
+        #[repr(i32)]
+        enum DOT11_TEMP_TYPE {
+            dot11_temp_type_unknown = 0,
+            dot11_temp_type_1 = 1,
+            dot11_temp_type_2 = 2,
+        }
+        struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            bDefaultKeyFailure: BOOLEAN,
+            uKeyIndex: u32,
+            PeerMac: DOT11_MAC_ADDRESS,
+        }
+        const DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_UPDATE_IE {
+            dot11UpdateIEOp: DOT11_UPDATE_IE_OP,
+            uBufferLength: u32,
+            ucBuffer: [u8; 1],
+        }
+        #[repr(i32)]
+        enum DOT11_UPDATE_IE_OP {
+            dot11_update_ie_op_create_replace = 1,
+            dot11_update_ie_op_delete = 2,
+        }
+        struct DOT11_VWIFI_ATTRIBUTES {
+            Header: NDIS_OBJECT_HEADER,
+            uTotalNumOfEntries: u32,
+            Combinations: [DOT11_VWIFI_COMBINATION; 1],
+        }
+        const DOT11_VWIFI_ATTRIBUTES_REVISION_1: u32 = 1;
+        struct DOT11_VWIFI_COMBINATION {
+            Header: NDIS_OBJECT_HEADER,
+            uNumInfrastructure: u32,
+            uNumAdhoc: u32,
+            uNumSoftAP: u32,
+        }
+        const DOT11_VWIFI_COMBINATION_REVISION_1: u32 = 1;
+        const DOT11_VWIFI_COMBINATION_REVISION_2: u32 = 2;
+        const DOT11_VWIFI_COMBINATION_REVISION_3: u32 = 3;
+        struct DOT11_VWIFI_COMBINATION_V2 {
+            Header: NDIS_OBJECT_HEADER,
+            uNumInfrastructure: u32,
+            uNumAdhoc: u32,
+            uNumSoftAP: u32,
+            uNumVirtualStation: u32,
+        }
+        struct DOT11_VWIFI_COMBINATION_V3 {
+            Header: NDIS_OBJECT_HEADER,
+            uNumInfrastructure: u32,
+            uNumAdhoc: u32,
+            uNumSoftAP: u32,
+            uNumVirtualStation: u32,
+            uNumWFDGroup: u32,
+        }
+        struct DOT11_WEP_OFFLOAD {
+            uReserved: u32,
+            hOffloadContext: HANDLE,
+            hOffload: HANDLE,
+            dot11OffloadType: DOT11_OFFLOAD_TYPE,
+            dwAlgorithm: u32,
+            bRowIsOutbound: BOOLEAN,
+            bUseDefault: BOOLEAN,
+            uFlags: u32,
+            ucMacAddress: [u8; 6],
+            uNumOfRWsOnPeer: u32,
+            uNumOfRWsOnMe: u32,
+            dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
+            usDot11RWBitMaps: [u16; 16],
+            usKeyLength: u16,
+            ucKey: [u8; 1],
+        }
+        struct DOT11_WEP_UPLOAD {
+            uReserved: u32,
+            dot11OffloadType: DOT11_OFFLOAD_TYPE,
+            hOffload: HANDLE,
+            uNumOfRWsUsed: u32,
+            dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
+            usDot11RWBitMaps: [u16; 16],
+        }
+        struct DOT11_WFD_ADDITIONAL_IE {
+            Header: NDIS_OBJECT_HEADER,
+            uBeaconIEsOffset: u32,
+            uBeaconIEsLength: u32,
+            uProbeResponseIEsOffset: u32,
+            uProbeResponseIEsLength: u32,
+            uDefaultRequestIEsOffset: u32,
+            uDefaultRequestIEsLength: u32,
+        }
+        const DOT11_WFD_ADDITIONAL_IE_REVISION_1: u32 = 1;
+        struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
+            AdvertisementID: u32,
+            ConfigMethods: u16,
+            ServiceNameLength: u8,
+            ServiceName: [u8; 255],
+        }
+        struct DOT11_WFD_ADVERTISED_SERVICE_LIST {
+            ServiceCount: u16,
+            AdvertisedService: [DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR; 1],
+        }
+        struct DOT11_WFD_ADVERTISEMENT_ID {
+            AdvertisementID: u32,
+            ServiceAddress: DOT11_MAC_ADDRESS,
+        }
+        const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: u32 = 21;
+        const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: u32 = 63;
+        struct DOT11_WFD_ATTRIBUTES {
+            Header: NDIS_OBJECT_HEADER,
+            uNumConcurrentGORole: u32,
+            uNumConcurrentClientRole: u32,
+            WPSVersionsSupported: u32,
+            bServiceDiscoverySupported: BOOLEAN,
+            bClientDiscoverabilitySupported: BOOLEAN,
+            bInfrastructureManagementSupported: BOOLEAN,
+            uMaxSecondaryDeviceTypeListSize: u32,
+            DeviceAddress: DOT11_MAC_ADDRESS,
+            uInterfaceAddressListCount: u32,
+            pInterfaceAddressList: PDOT11_MAC_ADDRESS,
+            uNumSupportedCountryOrRegionStrings: u32,
+            pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
+            uDiscoveryFilterListSize: u32,
+            uGORoleClientTableSize: u32,
+        }
+        const DOT11_WFD_ATTRIBUTES_REVISION_1: u32 = 1;
+        struct DOT11_WFD_CHANNEL {
+            CountryRegionString: DOT11_COUNTRY_OR_REGION_STRING,
+            OperatingClass: u8,
+            ChannelNumber: u8,
+        }
+        struct DOT11_WFD_CONFIGURATION_TIMEOUT {
+            GOTimeout: u8,
+            ClientTimeout: u8,
+        }
+        const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: u32 = 16;
+        const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: u32 = 4;
+        struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
+            Header: NDIS_OBJECT_HEADER,
+            bServiceDiscoveryEnabled: BOOLEAN,
+            bClientDiscoverabilityEnabled: BOOLEAN,
+            bConcurrentOperationSupported: BOOLEAN,
+            bInfrastructureManagementEnabled: BOOLEAN,
+            bDeviceLimitReached: BOOLEAN,
+            bInvitationProcedureEnabled: BOOLEAN,
+            WPSVersionsEnabled: u32,
+        }
+        const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: u32 = 1;
+        const DOT11_WFD_DEVICE_CAPABILITY_P2P_CLIENT_DISCOVERABILITY: u32 = 2;
+        const DOT11_WFD_DEVICE_CAPABILITY_P2P_DEVICE_LIMIT: u32 = 16;
+        const DOT11_WFD_DEVICE_CAPABILITY_P2P_INFRASTRUCTURE_MANAGED: u32 = 8;
+        const DOT11_WFD_DEVICE_CAPABILITY_P2P_INVITATION_PROCEDURE: u32 = 32;
+        const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_6: u32 = 64;
+        const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_7: u32 = 128;
+        const DOT11_WFD_DEVICE_CAPABILITY_SERVICE_DISCOVERY: u32 = 1;
+        struct DOT11_WFD_DEVICE_ENTRY {
+            uPhyId: u32,
+            PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
+            dot11BSSID: DOT11_MAC_ADDRESS,
+            dot11BSSType: DOT11_BSS_TYPE,
+            TransmitterAddress: DOT11_MAC_ADDRESS,
+            lRSSI: i32,
+            uLinkQuality: u32,
+            usBeaconPeriod: u16,
+            ullTimestamp: u64,
+            ullBeaconHostTimestamp: u64,
+            ullProbeResponseHostTimestamp: u64,
+            usCapabilityInformation: u16,
+            uBeaconIEsOffset: u32,
+            uBeaconIEsLength: u32,
+            uProbeResponseIEsOffset: u32,
+            uProbeResponseIEsLength: u32,
+        }
+        const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: u32 = 24;
+        struct DOT11_WFD_DEVICE_INFO {
+            Header: NDIS_OBJECT_HEADER,
+            DeviceAddress: DOT11_MAC_ADDRESS,
+            ConfigMethods: u16,
+            PrimaryDeviceType: DOT11_WFD_DEVICE_TYPE,
+            DeviceName: DOT11_WPS_DEVICE_NAME,
+        }
+        const DOT11_WFD_DEVICE_INFO_REVISION_1: u32 = 1;
+        struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
+            Header: NDIS_OBJECT_HEADER,
+            ChannelNumber: u8,
+        }
+        const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: u32 = 1;
+        const DOT11_WFD_DEVICE_NOT_DISCOVERABLE: u32 = 0;
+        struct DOT11_WFD_DEVICE_TYPE {
+            CategoryID: u16,
+            SubCategoryID: u16,
+            OUI: [u8; 4],
+        }
+        const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: u32 = 128;
+        struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            Status: NDIS_STATUS,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            uListOffset: u32,
+            uListLength: u32,
+        }
+        const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_WFD_DISCOVER_DEVICE_FILTER {
+            DeviceID: DOT11_MAC_ADDRESS,
+            ucBitmask: u8,
+            GroupSSID: DOT11_SSID,
+        }
+        struct DOT11_WFD_DISCOVER_REQUEST {
+            Header: NDIS_OBJECT_HEADER,
+            DiscoverType: DOT11_WFD_DISCOVER_TYPE,
+            ScanType: DOT11_WFD_SCAN_TYPE,
+            uDiscoverTimeout: u32,
+            uDeviceFilterListOffset: u32,
+            uNumDeviceFilters: u32,
+            uIEsOffset: u32,
+            uIEsLength: u32,
+            bForceScanLegacyNetworks: BOOLEAN,
+        }
+        const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1;
+        #[repr(i32)]
+        enum DOT11_WFD_DISCOVER_TYPE {
+            dot11_wfd_discover_type_scan_only = 1,
+            dot11_wfd_discover_type_find_only = 2,
+            dot11_wfd_discover_type_auto = 3,
+            dot11_wfd_discover_type_scan_social_channels = 4,
+            dot11_wfd_discover_type_forced = -2147483648,
+        }
+        struct DOT11_WFD_GO_INTENT {
+            _bitfield: u8,
+        }
+        type DOT11_WFD_GROUP_CAPABILITY = u8;
+        const DOT11_WFD_GROUP_CAPABILITY_CROSS_CONNECTION_SUPPORTED: u32 = 16;
+        const DOT11_WFD_GROUP_CAPABILITY_EAPOL_KEY_IP_ADDRESS_ALLOCATION_SUPPORTED: u32 = 128;
+        const DOT11_WFD_GROUP_CAPABILITY_GROUP_LIMIT_REACHED: u32 = 4;
+        const DOT11_WFD_GROUP_CAPABILITY_GROUP_OWNER: u32 = 1;
+        const DOT11_WFD_GROUP_CAPABILITY_INTRABSS_DISTRIBUTION_SUPPORTED: u32 = 8;
+        const DOT11_WFD_GROUP_CAPABILITY_IN_GROUP_FORMATION: u32 = 64;
+        const DOT11_WFD_GROUP_CAPABILITY_NONE: u32 = 0;
+        const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_GROUP: u32 = 2;
+        const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_RECONNECT_SUPPORTED: u32 = 32;
+        const DOT11_WFD_GROUP_CAPABILITY_RESERVED_7: u32 = 128;
+        struct DOT11_WFD_GROUP_ID {
+            DeviceAddress: DOT11_MAC_ADDRESS,
+            SSID: DOT11_SSID,
+        }
+        struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            GOOperatingChannel: DOT11_WFD_CHANNEL,
+            GOConfigTime: u32,
+            bInGroupFormation: BOOLEAN,
+            bWaitForWPSReady: BOOLEAN,
+        }
+        const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
+            Header: NDIS_OBJECT_HEADER,
+            bPersistentGroupEnabled: BOOLEAN,
+            bIntraBSSDistributionSupported: BOOLEAN,
+            bCrossConnectionSupported: BOOLEAN,
+            bPersistentReconnectSupported: BOOLEAN,
+            bGroupFormationEnabled: BOOLEAN,
+            uMaximumGroupLimit: u32,
+        }
+        const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: u32 = 1;
+        const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: u32 = 2;
+        struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
+            Header: NDIS_OBJECT_HEADER,
+            bPersistentGroupEnabled: BOOLEAN,
+            bIntraBSSDistributionSupported: BOOLEAN,
+            bCrossConnectionSupported: BOOLEAN,
+            bPersistentReconnectSupported: BOOLEAN,
+            bGroupFormationEnabled: BOOLEAN,
+            uMaximumGroupLimit: u32,
+            bEapolKeyIpAddressAllocationSupported: BOOLEAN,
+        }
+        struct DOT11_WFD_GROUP_START_PARAMETERS {
+            Header: NDIS_OBJECT_HEADER,
+            AdvertisedOperatingChannel: DOT11_WFD_CHANNEL,
+        }
+        const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1;
+        struct DOT11_WFD_INVITATION_FLAGS {
+            _bitfield: u8,
+        }
+        type DOT11_WFD_MINOR_REASON_CODE = u8;
+        const DOT11_WFD_MINOR_REASON_DISASSOCIATED_FROM_WLAN_CROSS_CONNECTION_POLICY: u32 = 1;
+        const DOT11_WFD_MINOR_REASON_DISASSOCIATED_INFRASTRUCTURE_MANAGED_POLICY: u32 = 4;
+        const DOT11_WFD_MINOR_REASON_DISASSOCIATED_NOT_MANAGED_INFRASTRUCTURE_CAPABLE: u32 = 2;
+        const DOT11_WFD_MINOR_REASON_DISASSOCIATED_WFD_COEXISTENCE_POLICY: u32 = 3;
+        const DOT11_WFD_MINOR_REASON_SUCCESS: u32 = 0;
+        #[repr(i32)]
+        enum DOT11_WFD_SCAN_TYPE {
+            dot11_wfd_scan_type_active = 1,
+            dot11_wfd_scan_type_passive = 2,
+            dot11_wfd_scan_type_auto = 3,
+        }
+        struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
+            Header: NDIS_OBJECT_HEADER,
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            SecondaryDeviceTypes: [DOT11_WFD_DEVICE_TYPE; 1],
+        }
+        const DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 1;
+        type DOT11_WFD_SERVICE_HASH = [u8; 6];
+        struct DOT11_WFD_SERVICE_HASH_LIST {
+            ServiceHashCount: u16,
+            ServiceHash: [DOT11_WFD_SERVICE_HASH; 1],
+        }
+        const DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH: u32 = 65535;
+        const DOT11_WFD_SERVICE_NAME_MAX_LENGTH: u32 = 255;
+        struct DOT11_WFD_SESSION_ID {
+            SessionID: u32,
+            SessionAddress: DOT11_MAC_ADDRESS,
+        }
+        struct DOT11_WFD_SESSION_INFO {
+            uSessionInfoLength: u16,
+            ucSessionInfo: [u8; 144],
+        }
+        const DOT11_WFD_SESSION_INFO_MAX_LENGTH: u32 = 144;
+        type DOT11_WFD_STATUS_CODE = u8;
+        const DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PARAMETERS: u32 = 2;
+        const DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PROVISIONING_METHOD: u32 = 10;
+        const DOT11_WFD_STATUS_FAILED_INFORMATION_IS_UNAVAILABLE: u32 = 1;
+        const DOT11_WFD_STATUS_FAILED_INVALID_PARAMETERS: u32 = 4;
+        const DOT11_WFD_STATUS_FAILED_LIMIT_REACHED: u32 = 3;
+        const DOT11_WFD_STATUS_FAILED_MATCHING_MAX_INTENT: u32 = 9;
+        const DOT11_WFD_STATUS_FAILED_NO_COMMON_CHANNELS: u32 = 7;
+        const DOT11_WFD_STATUS_FAILED_PREVIOUS_PROTOCOL_ERROR: u32 = 6;
+        const DOT11_WFD_STATUS_FAILED_REJECTED_BY_USER: u32 = 11;
+        const DOT11_WFD_STATUS_FAILED_UNABLE_TO_ACCOMODATE_REQUEST: u32 = 5;
+        const DOT11_WFD_STATUS_FAILED_UNKNOWN_WFD_GROUP: u32 = 8;
+        const DOT11_WFD_STATUS_SUCCESS: u32 = 0;
+        const DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER: u32 = 12;
+        struct DOT11_WME_AC_PARAMETERS {
+            ucAccessCategoryIndex: u8,
+            ucAIFSN: u8,
+            ucECWmin: u8,
+            ucECWmax: u8,
+            usTXOPLimit: u16,
+        }
+        struct DOT11_WME_AC_PARAMETERS_LIST {
+            uNumOfEntries: u32,
+            uTotalNumOfEntries: u32,
+            dot11WMEACParameters: [DOT11_WME_AC_PARAMETERS; 1],
+        }
+        const DOT11_WME_PACKET: u32 = 256;
+        struct DOT11_WME_UPDATE_IE {
+            uParamElemMinBeaconIntervals: u32,
+            uWMEInfoElemOffset: u32,
+            uWMEInfoElemLength: u32,
+            uWMEParamElemOffset: u32,
+            uWMEParamElemLength: u32,
+            ucBuffer: [u8; 1],
+        }
+        struct DOT11_WPA_TSC {
+            uReserved: u32,
+            dot11OffloadType: DOT11_OFFLOAD_TYPE,
+            hOffload: HANDLE,
+            dot11IV48Counter: DOT11_IV48_COUNTER,
+        }
+        #[repr(i32)]
+        enum DOT11_WPS_CONFIG_METHOD {
+            DOT11_WPS_CONFIG_METHOD_NULL = 0,
+            DOT11_WPS_CONFIG_METHOD_DISPLAY = 8,
+            DOT11_WPS_CONFIG_METHOD_NFC_TAG = 32,
+            DOT11_WPS_CONFIG_METHOD_NFC_INTERFACE = 64,
+            DOT11_WPS_CONFIG_METHOD_PUSHBUTTON = 128,
+            DOT11_WPS_CONFIG_METHOD_KEYPAD = 256,
+            DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT = 4096,
+        }
+        struct DOT11_WPS_DEVICE_NAME {
+            uDeviceNameLength: u32,
+            ucDeviceName: [u8; 32],
+        }
+        const DOT11_WPS_DEVICE_NAME_MAX_LENGTH: u32 = 32;
+        #[repr(i32)]
+        enum DOT11_WPS_DEVICE_PASSWORD_ID {
+            DOT11_WPS_PASSWORD_ID_DEFAULT = 0,
+            DOT11_WPS_PASSWORD_ID_USER_SPECIFIED = 1,
+            DOT11_WPS_PASSWORD_ID_MACHINE_SPECIFIED = 2,
+            DOT11_WPS_PASSWORD_ID_REKEY = 3,
+            DOT11_WPS_PASSWORD_ID_PUSHBUTTON = 4,
+            DOT11_WPS_PASSWORD_ID_REGISTRAR_SPECIFIED = 5,
+            DOT11_WPS_PASSWORD_ID_NFC_CONNECTION_HANDOVER = 7,
+            DOT11_WPS_PASSWORD_ID_WFD_SERVICES = 8,
+            DOT11_WPS_PASSWORD_ID_OOB_RANGE_MIN = 16,
+            DOT11_WPS_PASSWORD_ID_OOB_RANGE_MAX = 65535,
+        }
+        const DOT11_WPS_MAX_MODEL_NAME_LENGTH: u32 = 32;
+        const DOT11_WPS_MAX_MODEL_NUMBER_LENGTH: u32 = 32;
+        const DOT11_WPS_MAX_PASSKEY_LENGTH: u32 = 8;
+        const DOT11_WPS_VERSION_1_0: u32 = 1;
+        const DOT11_WPS_VERSION_2_0: u32 = 2;
+        const MAX_NUM_SUPPORTED_RATES: u32 = 8;
+        const MAX_NUM_SUPPORTED_RATES_V2: u32 = 255;
+        const NDIS_PACKET_TYPE_802_11_ALL_MULTICAST_DATA: u32 = 4;
+        const NDIS_PACKET_TYPE_802_11_ALL_MULTICAST_MGMT: u32 = 1048576;
+        const NDIS_PACKET_TYPE_802_11_BROADCAST_CTRL: u32 = 16777216;
+        const NDIS_PACKET_TYPE_802_11_BROADCAST_DATA: u32 = 8;
+        const NDIS_PACKET_TYPE_802_11_BROADCAST_MGMT: u32 = 262144;
+        const NDIS_PACKET_TYPE_802_11_DIRECTED_CTRL: u32 = 8388608;
+        const NDIS_PACKET_TYPE_802_11_DIRECTED_DATA: u32 = 1;
+        const NDIS_PACKET_TYPE_802_11_DIRECTED_MGMT: u32 = 131072;
+        const NDIS_PACKET_TYPE_802_11_MULTICAST_DATA: u32 = 2;
+        const NDIS_PACKET_TYPE_802_11_MULTICAST_MGMT: u32 = 524288;
+        const NDIS_PACKET_TYPE_802_11_PROMISCUOUS_CTRL: u32 = 33554432;
+        const NDIS_PACKET_TYPE_802_11_PROMISCUOUS_DATA: u32 = 32;
+        const NDIS_PACKET_TYPE_802_11_PROMISCUOUS_MGMT: u32 = 2097152;
+        const NDIS_PACKET_TYPE_802_11_RAW_DATA: u32 = 65536;
+        const NDIS_PACKET_TYPE_802_11_RAW_MGMT: u32 = 4194304;
+        const NDIS_PACKET_TYPE_ALL_802_11_FILTERS: u32 = 67043375;
+        const NDIS_PACKET_TYPE_MEDIA_SPECIFIC_MASK: u32 = 268369920;
+        const NWF_EXTAP_OID: u32 = 3;
+        const NWF_MANDATORY_OID: u32 = 1;
+        const NWF_MANUFACTURING_OID: u32 = 8;
+        const NWF_OPERATIONAL_OID: u32 = 1;
+        const NWF_OPTIONAL_OID: u32 = 2;
+        const NWF_POWER_SAVE_OID: u32 = 7;
+        const NWF_STATISTICS_OID: u32 = 2;
+        const NWF_VWIFI_OID: u32 = 4;
+        const NWF_WFD_DEVICE_OID: u32 = 5;
+        const NWF_WFD_ROLE_OID: u32 = 6;
+        const OID_DOT11_ACTIVE_PHY_LIST: u32 = 234946965;
+        const OID_DOT11_ADDITIONAL_IE: u32 = 235077895;
+        const OID_DOT11_AP_JOIN_REQUEST: u32 = 218170205;
+        const OID_DOT11_ASSOCIATION_PARAMS: u32 = 234946975;
+        const OID_DOT11_ATIM_WINDOW: u32 = 218170122;
+        const OID_DOT11_AUTO_CONFIG_ENABLED: u32 = 234946936;
+        const OID_DOT11_AVAILABLE_CHANNEL_LIST: u32 = 235077891;
+        const OID_DOT11_AVAILABLE_FREQUENCY_LIST: u32 = 235077892;
+        const OID_DOT11_BEACON_PERIOD: u32 = 218170139;
+        const OID_DOT11_CCA_MODE_SUPPORTED: u32 = 218170166;
+        const OID_DOT11_CCA_WATCHDOG_COUNT_MAX: u32 = 218170170;
+        const OID_DOT11_CCA_WATCHDOG_COUNT_MIN: u32 = 218170172;
+        const OID_DOT11_CCA_WATCHDOG_TIMER_MAX: u32 = 218170169;
+        const OID_DOT11_CCA_WATCHDOG_TIMER_MIN: u32 = 218170171;
+        const OID_DOT11_CFP_MAX_DURATION: u32 = 218170136;
+        const OID_DOT11_CFP_PERIOD: u32 = 218170135;
+        const OID_DOT11_CF_POLLABLE: u32 = 218170134;
+        const OID_DOT11_CHANNEL_AGILITY_ENABLED: u32 = 218170184;
+        const OID_DOT11_CHANNEL_AGILITY_PRESENT: u32 = 218170183;
+        const OID_DOT11_CIPHER_DEFAULT_KEY: u32 = 234946955;
+        const OID_DOT11_CIPHER_DEFAULT_KEY_ID: u32 = 234946954;
+        const OID_DOT11_CIPHER_KEY_MAPPING_KEY: u32 = 234946956;
+        const OID_DOT11_CONNECT_REQUEST: u32 = 234946945;
+        const OID_DOT11_COUNTERS_ENTRY: u32 = 218170149;
+        const OID_DOT11_COUNTRY_STRING: u32 = 218170188;
+        const OID_DOT11_CREATE_MAC: u32 = 235143425;
+        const OID_DOT11_CURRENT_ADDRESS: u32 = 218171138;
+        const OID_DOT11_CURRENT_CCA_MODE: u32 = 218170167;
+        const OID_DOT11_CURRENT_CHANNEL: u32 = 218170165;
+        const OID_DOT11_CURRENT_CHANNEL_NUMBER: u32 = 218170159;
+        const OID_DOT11_CURRENT_DWELL_TIME: u32 = 218170161;
+        const OID_DOT11_CURRENT_FREQUENCY: u32 = 218170178;
+        const OID_DOT11_CURRENT_INDEX: u32 = 218170164;
+        const OID_DOT11_CURRENT_OFFLOAD_CAPABILITY: u32 = 218170113;
+        const OID_DOT11_CURRENT_OPERATION_MODE: u32 = 218170120;
+        const OID_DOT11_CURRENT_OPTIONAL_CAPABILITY: u32 = 218170131;
+        const OID_DOT11_CURRENT_PACKET_FILTER: u32 = 218170121;
+        const OID_DOT11_CURRENT_PATTERN: u32 = 218170163;
+        const OID_DOT11_CURRENT_PHY_ID: u32 = 234946962;
+        const OID_DOT11_CURRENT_PHY_TYPE: u32 = 218170124;
+        const OID_DOT11_CURRENT_REG_DOMAIN: u32 = 218170151;
+        const OID_DOT11_CURRENT_RX_ANTENNA: u32 = 218170155;
+        const OID_DOT11_CURRENT_SET: u32 = 218170162;
+        const OID_DOT11_CURRENT_TX_ANTENNA: u32 = 218170153;
+        const OID_DOT11_CURRENT_TX_POWER_LEVEL: u32 = 218170157;
+        const OID_DOT11_DATA_RATE_MAPPING_TABLE: u32 = 234946967;
+        const OID_DOT11_DEFAULT_WEP_OFFLOAD: u32 = 218170116;
+        const OID_DOT11_DEFAULT_WEP_UPLOAD: u32 = 218170117;
+        const OID_DOT11_DELETE_MAC: u32 = 235143426;
+        const OID_DOT11_DESIRED_BSSID_LIST: u32 = 234946942;
+        const OID_DOT11_DESIRED_BSS_TYPE: u32 = 234946943;
+        const OID_DOT11_DESIRED_COUNTRY_OR_REGION_STRING: u32 = 234946969;
+        const OID_DOT11_DESIRED_PHY_LIST: u32 = 234946961;
+        const OID_DOT11_DESIRED_SSID_LIST: u32 = 234946940;
+        const OID_DOT11_DISASSOCIATE_PEER_REQUEST: u32 = 235077893;
+        const OID_DOT11_DISCONNECT_REQUEST: u32 = 234946958;
+        const OID_DOT11_DIVERSITY_SELECTION_RX: u32 = 218170176;
+        const OID_DOT11_DIVERSITY_SUPPORT: u32 = 218170154;
+        const OID_DOT11_DSSS_OFDM_OPTION_ENABLED: u32 = 218170209;
+        const OID_DOT11_DSSS_OFDM_OPTION_IMPLEMENTED: u32 = 218170208;
+        const OID_DOT11_DTIM_PERIOD: u32 = 218170140;
+        const OID_DOT11_ED_THRESHOLD: u32 = 218170168;
+        const OID_DOT11_EHCC_CAPABILITY_ENABLED: u32 = 218170193;
+        const OID_DOT11_EHCC_CAPABILITY_IMPLEMENTED: u32 = 218170192;
+        const OID_DOT11_EHCC_NUMBER_OF_CHANNELS_FAMILY_INDEX: u32 = 218170191;
+        const OID_DOT11_EHCC_PRIME_RADIX: u32 = 218170190;
+        const OID_DOT11_ENABLED_AUTHENTICATION_ALGORITHM: u32 = 234946949;
+        const OID_DOT11_ENABLED_MULTICAST_CIPHER_ALGORITHM: u32 = 234946953;
+        const OID_DOT11_ENABLED_UNICAST_CIPHER_ALGORITHM: u32 = 234946951;
+        const OID_DOT11_ENUM_ASSOCIATION_INFO: u32 = 234946957;
+        const OID_DOT11_ENUM_BSS_LIST: u32 = 234946937;
+        const OID_DOT11_ENUM_PEER_INFO: u32 = 235077896;
+        const OID_DOT11_ERP_PBCC_OPTION_ENABLED: u32 = 218170207;
+        const OID_DOT11_ERP_PBCC_OPTION_IMPLEMENTED: u32 = 218170206;
+        const OID_DOT11_EXCLUDED_MAC_ADDRESS_LIST: u32 = 234946941;
+        const OID_DOT11_EXCLUDE_UNENCRYPTED: u32 = 234946946;
+        const OID_DOT11_EXTSTA_CAPABILITY: u32 = 234946966;
+        const OID_DOT11_FLUSH_BSS_LIST: u32 = 234946938;
+        const OID_DOT11_FRAGMENTATION_THRESHOLD: u32 = 218170146;
+        const OID_DOT11_FREQUENCY_BANDS_SUPPORTED: u32 = 218170180;
+        const OID_DOT11_HARDWARE_PHY_STATE: u32 = 234946960;
+        const OID_DOT11_HIDDEN_NETWORK_ENABLED: u32 = 234946974;
+        const OID_DOT11_HOPPING_PATTERN: u32 = 218170199;
+        const OID_DOT11_HOP_ALGORITHM_ADOPTED: u32 = 218170194;
+        const OID_DOT11_HOP_MODULUS: u32 = 218170197;
+        const OID_DOT11_HOP_OFFSET: u32 = 218170198;
+        const OID_DOT11_HOP_TIME: u32 = 218170158;
+        const OID_DOT11_HR_CCA_MODE_SUPPORTED: u32 = 218170185;
+        const OID_DOT11_IBSS_PARAMS: u32 = 234946971;
+        const OID_DOT11_INCOMING_ASSOCIATION_DECISION: u32 = 235077894;
+        const OID_DOT11_JOIN_REQUEST: u32 = 218170125;
+        const OID_DOT11_LONG_RETRY_LIMIT: u32 = 218170145;
+        const OID_DOT11_MAC_ADDRESS: u32 = 218170142;
+        const OID_DOT11_MANUFACTURING_TEST: u32 = 235405825;
+        const OID_DOT11_MAXIMUM_LIST_SIZE: u32 = 218171141;
+        const OID_DOT11_MAX_DWELL_TIME: u32 = 218170160;
+        const OID_DOT11_MAX_MAC_ADDRESS_STATES: u32 = 218170212;
+        const OID_DOT11_MAX_RECEIVE_LIFETIME: u32 = 218170148;
+        const OID_DOT11_MAX_TRANSMIT_MSDU_LIFETIME: u32 = 218170147;
+        const OID_DOT11_MEDIA_STREAMING_ENABLED: u32 = 234946963;
+        const OID_DOT11_MEDIUM_OCCUPANCY_LIMIT: u32 = 218170133;
+        const OID_DOT11_MPDU_MAX_LENGTH: u32 = 218170118;
+        const OID_DOT11_MULTICAST_LIST: u32 = 218171140;
+        const OID_DOT11_MULTI_DOMAIN_CAPABILITY: u32 = 218170189;
+        const OID_DOT11_MULTI_DOMAIN_CAPABILITY_ENABLED: u32 = 218170187;
+        const OID_DOT11_MULTI_DOMAIN_CAPABILITY_IMPLEMENTED: u32 = 218170186;
+        const OID_DOT11_NDIS_START: u32 = 218170112;
+        const OID_DOT11_NIC_POWER_STATE: u32 = 218170129;
+        const OID_DOT11_NIC_SPECIFIC_EXTENSION: u32 = 218170204;
+        const OID_DOT11_NUMBER_OF_HOPPING_SETS: u32 = 218170196;
+        const OID_DOT11_OFFLOAD_CAPABILITY: u32 = 218170112;
+        const OID_DOT11_OFFLOAD_NETWORK_LIST: u32 = 235340035;
+        const OID_DOT11_OPERATIONAL_RATE_SET: u32 = 218170138;
+        const OID_DOT11_OPERATION_MODE_CAPABILITY: u32 = 218170119;
+        const OID_DOT11_OPTIONAL_CAPABILITY: u32 = 218170130;
+        const OID_DOT11_PBCC_OPTION_IMPLEMENTED: u32 = 218170182;
+        const OID_DOT11_PERMANENT_ADDRESS: u32 = 218171139;
+        const OID_DOT11_PMKID_LIST: u32 = 234947200;
+        const OID_DOT11_PORT_STATE_NOTIFICATION: u32 = 234947226;
+        const OID_DOT11_POWER_MGMT_MODE: u32 = 218170137;
+        const OID_DOT11_POWER_MGMT_MODE_AUTO_ENABLED: u32 = 235340033;
+        const OID_DOT11_POWER_MGMT_MODE_STATUS: u32 = 235340034;
+        const OID_DOT11_POWER_MGMT_REQUEST: u32 = 234946939;
+        const OID_DOT11_PREFERRED_MAC: u32 = 235143427;
+        const OID_DOT11_PRIVACY_EXEMPTION_LIST: u32 = 234946948;
+        const OID_DOT11_PRIVATE_OIDS_START: u32 = 218171136;
+        const OID_DOT11_QOS_PARAMS: u32 = 234947228;
+        const OID_DOT11_QOS_TX_DURATION: u32 = 218170219;
+        const OID_DOT11_QOS_TX_MEDIUM_TIME: u32 = 218170220;
+        const OID_DOT11_QOS_TX_QUEUES_SUPPORTED: u32 = 218170218;
+        const OID_DOT11_RANDOM_TABLE_FIELD_NUMBER: u32 = 218170200;
+        const OID_DOT11_RANDOM_TABLE_FLAG: u32 = 218170195;
+        const OID_DOT11_RECV_SENSITIVITY_LIST: u32 = 218170213;
+        const OID_DOT11_REG_DOMAINS_SUPPORT_VALUE: u32 = 218170173;
+        const OID_DOT11_RESET_REQUEST: u32 = 218170128;
+        const OID_DOT11_RF_USAGE: u32 = 218170203;
+        const OID_DOT11_RSSI_RANGE: u32 = 218170202;
+        const OID_DOT11_RTS_THRESHOLD: u32 = 218170143;
+        const OID_DOT11_SAFE_MODE_ENABLED: u32 = 234946973;
+        const OID_DOT11_SAFE_MODE_HT_ENABLED: u32 = 234946976;
+        const OID_DOT11_SCAN_REQUEST: u32 = 218170123;
+        const OID_DOT11_SET_FT_REASSOCIATION_PARAMETERS: u32 = 234946920;
+        const OID_DOT11_SET_NWF_PMKID_LIST: u32 = 234946933;
+        const OID_DOT11_SET_SAE_AUTH_PARAMS: u32 = 234946930;
+        const OID_DOT11_SHORT_PREAMBLE_OPTION_IMPLEMENTED: u32 = 218170181;
+        const OID_DOT11_SHORT_RETRY_LIMIT: u32 = 218170144;
+        const OID_DOT11_SHORT_SLOT_TIME_OPTION_ENABLED: u32 = 218170211;
+        const OID_DOT11_SHORT_SLOT_TIME_OPTION_IMPLEMENTED: u32 = 218170210;
+        const OID_DOT11_START_AP_REQUEST: u32 = 235077890;
+        const OID_DOT11_START_REQUEST: u32 = 218170126;
+        const OID_DOT11_STATION_ID: u32 = 218170132;
+        const OID_DOT11_STATISTICS: u32 = 235012483;
+        const OID_DOT11_SUPPORTED_COUNTRY_OR_REGION_STRING: u32 = 234946968;
+        const OID_DOT11_SUPPORTED_DATA_RATES_VALUE: u32 = 218170177;
+        const OID_DOT11_SUPPORTED_DSSS_CHANNEL_LIST: u32 = 218170222;
+        const OID_DOT11_SUPPORTED_MULTICAST_ALGORITHM_PAIR: u32 = 234946952;
+        const OID_DOT11_SUPPORTED_OFDM_FREQUENCY_LIST: u32 = 218170221;
+        const OID_DOT11_SUPPORTED_PHY_TYPES: u32 = 218170150;
+        const OID_DOT11_SUPPORTED_POWER_LEVELS: u32 = 218170156;
+        const OID_DOT11_SUPPORTED_RX_ANTENNA: u32 = 218170175;
+        const OID_DOT11_SUPPORTED_TX_ANTENNA: u32 = 218170174;
+        const OID_DOT11_SUPPORTED_UNICAST_ALGORITHM_PAIR: u32 = 234946950;
+        const OID_DOT11_TEMP_TYPE: u32 = 218170152;
+        const OID_DOT11_TI_THRESHOLD: u32 = 218170179;
+        const OID_DOT11_UNICAST_USE_GROUP_ENABLED: u32 = 234946959;
+        const OID_DOT11_UNREACHABLE_DETECTION_THRESHOLD: u32 = 234946964;
+        const OID_DOT11_UPDATE_IE: u32 = 218170127;
+        const OID_DOT11_VIRTUAL_STATION_CAPABILITY: u32 = 235143684;
+        const OID_DOT11_WEP_ICV_ERROR_COUNT: u32 = 218170141;
+        const OID_DOT11_WEP_OFFLOAD: u32 = 218170114;
+        const OID_DOT11_WEP_UPLOAD: u32 = 218170115;
+        const OID_DOT11_WFD_ADDITIONAL_IE: u32 = 235208968;
+        const OID_DOT11_WFD_CONNECT_TO_GROUP_REQUEST: u32 = 235274500;
+        const OID_DOT11_WFD_DESIRED_GROUP_ID: u32 = 235274497;
+        const OID_DOT11_WFD_DEVICE_CAPABILITY: u32 = 235208961;
+        const OID_DOT11_WFD_DEVICE_INFO: u32 = 235208963;
+        const OID_DOT11_WFD_DEVICE_LISTEN_CHANNEL: u32 = 235208980;
+        const OID_DOT11_WFD_DISCONNECT_FROM_GROUP_REQUEST: u32 = 235274501;
+        const OID_DOT11_WFD_DISCOVER_REQUEST: u32 = 235208965;
+        const OID_DOT11_WFD_ENABLE_HRDSSS_DEVICES: u32 = 235209235;
+        const OID_DOT11_WFD_ENUM_DEVICE_LIST: u32 = 235208966;
+        const OID_DOT11_WFD_FLUSH_DEVICE_LIST: u32 = 235208969;
+        const OID_DOT11_WFD_GET_DIALOG_TOKEN: u32 = 235208977;
+        const OID_DOT11_WFD_GROUP_JOIN_PARAMETERS: u32 = 235274502;
+        const OID_DOT11_WFD_GROUP_OWNER_CAPABILITY: u32 = 235208962;
+        const OID_DOT11_WFD_GROUP_START_PARAMETERS: u32 = 235274499;
+        const OID_DOT11_WFD_LISTEN_STATE_DISCOVERABILITY: u32 = 235208967;
+        const OID_DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST: u32 = 235208964;
+        const OID_DOT11_WFD_SEND_GO_NEGOTIATION_CONFIRMATION: u32 = 235208972;
+        const OID_DOT11_WFD_SEND_GO_NEGOTIATION_REQUEST: u32 = 235208970;
+        const OID_DOT11_WFD_SEND_GO_NEGOTIATION_RESPONSE: u32 = 235208971;
+        const OID_DOT11_WFD_SEND_INVITATION_REQUEST: u32 = 235208973;
+        const OID_DOT11_WFD_SEND_INVITATION_RESPONSE: u32 = 235208974;
+        const OID_DOT11_WFD_SEND_PROVISION_DISCOVERY_REQUEST: u32 = 235208975;
+        const OID_DOT11_WFD_SEND_PROVISION_DISCOVERY_RESPONSE: u32 = 235208976;
+        const OID_DOT11_WFD_START_GO_REQUEST: u32 = 235274498;
+        const OID_DOT11_WFD_STOP_DISCOVERY: u32 = 235208978;
+        const OID_DOT11_WME_AC_PARAMETERS: u32 = 218170216;
+        const OID_DOT11_WME_ENABLED: u32 = 218170215;
+        const OID_DOT11_WME_IMPLEMENTED: u32 = 218170214;
+        const OID_DOT11_WME_UPDATE_IE: u32 = 218170217;
+        const OID_DOT11_WPA_TSC: u32 = 218170201;
+        const OID_DOT11_WPS_ENABLED: u32 = 235077889;
+        type PCH_DESCRIPTION_TYPE = *mut CH_DESCRIPTION_TYPE;
+        type PDOT11_AC_PARAM = *mut DOT11_AC_PARAM;
+        type PDOT11_ADDITIONAL_IE = *mut DOT11_ADDITIONAL_IE;
+        type PDOT11_ANQP_QUERY_COMPLETE_PARAMETERS = *mut DOT11_ANQP_QUERY_COMPLETE_PARAMETERS;
+        type PDOT11_ANQP_QUERY_RESULT = *mut DOT11_ANQP_QUERY_RESULT;
+        type PDOT11_AP_JOIN_REQUEST = *mut DOT11_AP_JOIN_REQUEST;
+        type PDOT11_ASSOCIATION_COMPLETION_PARAMETERS = *mut DOT11_ASSOCIATION_COMPLETION_PARAMETERS;
+        type PDOT11_ASSOCIATION_INFO_EX = *mut DOT11_ASSOCIATION_INFO_EX;
+        type PDOT11_ASSOCIATION_INFO_LIST = *mut DOT11_ASSOCIATION_INFO_LIST;
+        type PDOT11_ASSOCIATION_PARAMS = *mut DOT11_ASSOCIATION_PARAMS;
+        type PDOT11_ASSOCIATION_START_PARAMETERS = *mut DOT11_ASSOCIATION_START_PARAMETERS;
+        type PDOT11_ASSOCIATION_STATE = *mut DOT11_ASSOCIATION_STATE;
+        type PDOT11_AUTH_ALGORITHM_LIST = *mut DOT11_AUTH_ALGORITHM_LIST;
+        type PDOT11_AUTH_CIPHER_PAIR_LIST = *mut DOT11_AUTH_CIPHER_PAIR_LIST;
+        type PDOT11_AVAILABLE_CHANNEL_LIST = *mut DOT11_AVAILABLE_CHANNEL_LIST;
+        type PDOT11_AVAILABLE_FREQUENCY_LIST = *mut DOT11_AVAILABLE_FREQUENCY_LIST;
+        type PDOT11_BAND = *mut DOT11_BAND;
+        type PDOT11_BSSID_CANDIDATE = *mut DOT11_BSSID_CANDIDATE;
+        type PDOT11_BSSID_LIST = *mut DOT11_BSSID_LIST;
+        type PDOT11_BSS_DESCRIPTION = *mut DOT11_BSS_DESCRIPTION;
+        type PDOT11_BSS_ENTRY = *mut DOT11_BSS_ENTRY;
+        type PDOT11_BSS_ENTRY_PHY_SPECIFIC_INFO = *mut DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO;
+        type PDOT11_BYTE_ARRAY = *mut DOT11_BYTE_ARRAY;
+        type PDOT11_CAN_SUSTAIN_AP_PARAMETERS = *mut DOT11_CAN_SUSTAIN_AP_PARAMETERS;
+        type PDOT11_CHANNEL_HINT = *mut DOT11_CHANNEL_HINT;
+        type PDOT11_CIPHER_ALGORITHM_LIST = *mut DOT11_CIPHER_ALGORITHM_LIST;
+        type PDOT11_CIPHER_DEFAULT_KEY_VALUE = *mut DOT11_CIPHER_DEFAULT_KEY_VALUE;
+        type PDOT11_CIPHER_KEY_MAPPING_KEY_VALUE = *mut DOT11_CIPHER_KEY_MAPPING_KEY_VALUE;
+        type PDOT11_CONNECTION_COMPLETION_PARAMETERS = *mut DOT11_CONNECTION_COMPLETION_PARAMETERS;
+        type PDOT11_CONNECTION_START_PARAMETERS = *mut DOT11_CONNECTION_START_PARAMETERS;
+        type PDOT11_COUNTERS_ENTRY = *mut DOT11_COUNTERS_ENTRY;
+        type PDOT11_COUNTRY_OR_REGION_STRING = *mut DOT11_COUNTRY_OR_REGION_STRING;
+        type PDOT11_COUNTRY_OR_REGION_STRING_LIST = *mut DOT11_COUNTRY_OR_REGION_STRING_LIST;
+        type PDOT11_CURRENT_OFFLOAD_CAPABILITY = *mut DOT11_CURRENT_OFFLOAD_CAPABILITY;
+        type PDOT11_CURRENT_OPERATION_MODE = *mut DOT11_CURRENT_OPERATION_MODE;
+        type PDOT11_CURRENT_OPTIONAL_CAPABILITY = *mut DOT11_CURRENT_OPTIONAL_CAPABILITY;
+        type PDOT11_DATA_RATE_MAPPING_ENTRY = *mut DOT11_DATA_RATE_MAPPING_ENTRY;
+        type PDOT11_DATA_RATE_MAPPING_TABLE = *mut DOT11_DATA_RATE_MAPPING_TABLE;
+        type PDOT11_DEFAULT_WEP_OFFLOAD = *mut DOT11_DEFAULT_WEP_OFFLOAD;
+        type PDOT11_DEFAULT_WEP_UPLOAD = *mut DOT11_DEFAULT_WEP_UPLOAD;
+        type PDOT11_DIRECTION = *mut DOT11_DIRECTION;
+        type PDOT11_DISASSOCIATE_PEER_REQUEST = *mut DOT11_DISASSOCIATE_PEER_REQUEST;
+        type PDOT11_DISASSOCIATION_PARAMETERS = *mut DOT11_DISASSOCIATION_PARAMETERS;
+        type PDOT11_DIVERSITY_SELECTION_RX = *mut DOT11_DIVERSITY_SELECTION_RX;
+        type PDOT11_DIVERSITY_SELECTION_RX_LIST = *mut DOT11_DIVERSITY_SELECTION_RX_LIST;
+        type PDOT11_DIVERSITY_SUPPORT = *mut DOT11_DIVERSITY_SUPPORT;
+        type PDOT11_DS_INFO = *mut DOT11_DS_INFO;
+        type PDOT11_ENCAP_ENTRY = *mut DOT11_ENCAP_ENTRY;
+        type PDOT11_ERP_PHY_ATTRIBUTES = *mut DOT11_ERP_PHY_ATTRIBUTES;
+        type PDOT11_EXTAP_ATTRIBUTES = *mut DOT11_EXTAP_ATTRIBUTES;
+        type PDOT11_EXTAP_RECV_CONTEXT = *mut DOT11_EXTSTA_RECV_CONTEXT;
+        type PDOT11_EXTAP_SEND_CONTEXT = *mut DOT11_EXTSTA_SEND_CONTEXT;
+        type PDOT11_EXTSTA_ATTRIBUTES = *mut DOT11_EXTSTA_ATTRIBUTES;
+        type PDOT11_EXTSTA_CAPABILITY = *mut DOT11_EXTSTA_CAPABILITY;
+        type PDOT11_EXTSTA_RECV_CONTEXT = *mut DOT11_EXTSTA_RECV_CONTEXT;
+        type PDOT11_EXTSTA_SEND_CONTEXT = *mut DOT11_EXTSTA_SEND_CONTEXT;
+        type PDOT11_FRAGMENT_DESCRIPTOR = *mut DOT11_FRAGMENT_DESCRIPTOR;
+        type PDOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS = *mut DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS;
+        type PDOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS = *mut DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS;
+        type PDOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS = *mut DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS;
+        type PDOT11_HESSID = *mut DOT11_HESSID;
+        type PDOT11_HOPPING_PATTERN_ENTRY = *mut DOT11_HOPPING_PATTERN_ENTRY;
+        type PDOT11_HOPPING_PATTERN_ENTRY_LIST = *mut DOT11_HOPPING_PATTERN_ENTRY_LIST;
+        type PDOT11_HOP_ALGO_ADOPTED = *mut DOT11_HOP_ALGO_ADOPTED;
+        type PDOT11_HRDSSS_PHY_ATTRIBUTES = *mut DOT11_HRDSSS_PHY_ATTRIBUTES;
+        type PDOT11_IBSS_PARAMS = *mut DOT11_IBSS_PARAMS;
+        type PDOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS = *mut DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS;
+        type PDOT11_INCOMING_ASSOC_DECISION = *mut DOT11_INCOMING_ASSOC_DECISION;
+        type PDOT11_INCOMING_ASSOC_DECISION_V2 = *mut DOT11_INCOMING_ASSOC_DECISION_V2;
+        type PDOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS = *mut DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS;
+        type PDOT11_INCOMING_ASSOC_STARTED_PARAMETERS = *mut DOT11_INCOMING_ASSOC_STARTED_PARAMETERS;
+        type PDOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS = *mut DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS;
+        type PDOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS = *mut DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS;
+        type PDOT11_IV48_COUNTER = *mut DOT11_IV48_COUNTER;
+        type PDOT11_JOIN_REQUEST = *mut DOT11_JOIN_REQUEST;
+        type PDOT11_KEY_ALGO_BIP = *mut DOT11_KEY_ALGO_BIP;
+        type PDOT11_KEY_ALGO_BIP_GMAC_256 = *mut DOT11_KEY_ALGO_BIP_GMAC_256;
+        type PDOT11_KEY_ALGO_CCMP = *mut DOT11_KEY_ALGO_CCMP;
+        type PDOT11_KEY_ALGO_GCMP = *mut DOT11_KEY_ALGO_GCMP;
+        type PDOT11_KEY_ALGO_GCMP_256 = *mut DOT11_KEY_ALGO_GCMP_256;
+        type PDOT11_KEY_ALGO_TKIP_MIC = *mut DOT11_KEY_ALGO_TKIP_MIC;
+        type PDOT11_KEY_DIRECTION = *mut DOT11_KEY_DIRECTION;
+        type PDOT11_LINK_QUALITY_ENTRY = *mut DOT11_LINK_QUALITY_ENTRY;
+        type PDOT11_LINK_QUALITY_PARAMETERS = *mut DOT11_LINK_QUALITY_PARAMETERS;
+        type PDOT11_MAC_ADDRESS = *mut DOT11_MAC_ADDRESS;
+        type PDOT11_MAC_ADDRESS_LIST = *mut DOT11_MAC_ADDRESS_LIST;
+        type PDOT11_MAC_FRAME_STATISTICS = *mut DOT11_MAC_FRAME_STATISTICS;
+        type PDOT11_MAC_INFO = *mut DOT11_MAC_INFO;
+        type PDOT11_MAC_PARAMETERS = *mut DOT11_MAC_PARAMETERS;
+        type PDOT11_MANUFACTURING_CALLBACK_PARAMETERS = *mut DOT11_MANUFACTURING_CALLBACK_PARAMETERS;
+        type PDOT11_MANUFACTURING_CALLBACK_TYPE = *mut DOT11_MANUFACTURING_CALLBACK_TYPE;
+        type PDOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC = *mut DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC;
+        type PDOT11_MANUFACTURING_FUNCTIONAL_TEST_RX = *mut DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX;
+        type PDOT11_MANUFACTURING_FUNCTIONAL_TEST_TX = *mut DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX;
+        type PDOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS = *mut DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS;
+        type PDOT11_MANUFACTURING_SELF_TEST_SET_PARAMS = *mut DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS;
+        type PDOT11_MANUFACTURING_SELF_TEST_TYPE = *mut DOT11_MANUFACTURING_SELF_TEST_TYPE;
+        type PDOT11_MANUFACTURING_TEST = *mut DOT11_MANUFACTURING_TEST;
+        type PDOT11_MANUFACTURING_TEST_QUERY_DATA = *mut DOT11_MANUFACTURING_TEST_QUERY_DATA;
+        type PDOT11_MANUFACTURING_TEST_SET_DATA = *mut DOT11_MANUFACTURING_TEST_SET_DATA;
+        type PDOT11_MANUFACTURING_TEST_SLEEP = *mut DOT11_MANUFACTURING_TEST_SLEEP;
+        type PDOT11_MANUFACTURING_TEST_TYPE = *mut DOT11_MANUFACTURING_TEST_TYPE;
+        type PDOT11_MD_CAPABILITY_ENTRY_LIST = *mut DOT11_MD_CAPABILITY_ENTRY_LIST;
+        type PDOT11_MPDU_MAX_LENGTH_INDICATION = *mut DOT11_MPDU_MAX_LENGTH_INDICATION;
+        type PDOT11_MULTI_DOMAIN_CAPABILITY_ENTRY = *mut DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY;
+        type PDOT11_NIC_SPECIFIC_EXTENSION = *mut DOT11_NIC_SPECIFIC_EXTENSION;
+        type PDOT11_OFDM_PHY_ATTRIBUTES = *mut DOT11_OFDM_PHY_ATTRIBUTES;
+        type PDOT11_OFFLOAD_CAPABILITY = *mut DOT11_OFFLOAD_CAPABILITY;
+        type PDOT11_OFFLOAD_NETWORK = *mut DOT11_OFFLOAD_NETWORK;
+        type PDOT11_OFFLOAD_NETWORK_LIST_INFO = *mut DOT11_OFFLOAD_NETWORK_LIST_INFO;
+        type PDOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS = *mut DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS;
+        type PDOT11_OFFLOAD_TYPE = *mut DOT11_OFFLOAD_TYPE;
+        type PDOT11_OPERATION_MODE_CAPABILITY = *mut DOT11_OPERATION_MODE_CAPABILITY;
+        type PDOT11_OPTIONAL_CAPABILITY = *mut DOT11_OPTIONAL_CAPABILITY;
+        type PDOT11_PEER_INFO = *mut DOT11_PEER_INFO;
+        type PDOT11_PEER_INFO_LIST = *mut DOT11_PEER_INFO_LIST;
+        type PDOT11_PEER_STATISTICS = *mut DOT11_PEER_STATISTICS;
+        type PDOT11_PER_MSDU_COUNTERS = *mut DOT11_PER_MSDU_COUNTERS;
+        type PDOT11_PHY_ATTRIBUTES = *mut DOT11_PHY_ATTRIBUTES;
+        type PDOT11_PHY_FRAME_STATISTICS = *mut DOT11_PHY_FRAME_STATISTICS;
+        type PDOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS = *mut DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS;
+        type PDOT11_PHY_ID_LIST = *mut DOT11_PHY_ID_LIST;
+        type PDOT11_PHY_STATE_PARAMETERS = *mut DOT11_PHY_STATE_PARAMETERS;
+        type PDOT11_PHY_TYPE = *mut DOT11_PHY_TYPE;
+        type PDOT11_PHY_TYPE_INFO = *mut DOT11_PHY_TYPE_INFO;
+        type PDOT11_PHY_TYPE_LIST = *mut DOT11_PHY_TYPE_LIST;
+        type PDOT11_PMKID_CANDIDATE_LIST_PARAMETERS = *mut DOT11_PMKID_CANDIDATE_LIST_PARAMETERS;
+        type PDOT11_PMKID_ENTRY = *mut DOT11_PMKID_ENTRY;
+        type PDOT11_PMKID_LIST = *mut DOT11_PMKID_LIST;
+        type PDOT11_PORT_STATE_NOTIFICATION = *mut DOT11_PORT_STATE_NOTIFICATION;
+        type PDOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO = *mut DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO;
+        type PDOT11_POWER_MGMT_MODE = *mut DOT11_POWER_MGMT_MODE;
+        type PDOT11_POWER_MGMT_MODE_STATUSINFO = *mut DOT11_POWER_MGMT_MODE_STATUS_INFO;
+        type PDOT11_POWER_MODE = *mut DOT11_POWER_MODE;
+        type PDOT11_PRIVACY_EXEMPTION = *mut DOT11_PRIVACY_EXEMPTION;
+        type PDOT11_PRIVACY_EXEMPTION_LIST = *mut DOT11_PRIVACY_EXEMPTION_LIST;
+        type PDOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS = *mut DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS;
+        type PDOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS = *mut DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS;
+        type PDOT11_QOS_PARAMS = *mut DOT11_QOS_PARAMS;
+        type PDOT11_QOS_TX_DURATION = *mut DOT11_QOS_TX_DURATION;
+        type PDOT11_QOS_TX_MEDIUM_TIME = *mut DOT11_QOS_TX_MEDIUM_TIME;
+        type PDOT11_RATE_SET = *mut DOT11_RATE_SET;
+        type PDOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS = *mut DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS;
+        type PDOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS = *mut DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS;
+        type PDOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS = *mut DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS;
+        type PDOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS = *mut DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS;
+        type PDOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS = *mut DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS;
+        type PDOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS = *mut DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS;
+        type PDOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS = *mut DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS;
+        type PDOT11_RECV_EXTENSION_INFO = *mut DOT11_RECV_EXTENSION_INFO;
+        type PDOT11_RECV_EXTENSION_INFO_V2 = *mut DOT11_RECV_EXTENSION_INFO_V2;
+        type PDOT11_RECV_SENSITIVITY = *mut DOT11_RECV_SENSITIVITY;
+        type PDOT11_RECV_SENSITIVITY_LIST = *mut DOT11_RECV_SENSITIVITY_LIST;
+        type PDOT11_REG_DOMAINS_SUPPORT_VALUE = *mut DOT11_REG_DOMAINS_SUPPORT_VALUE;
+        type PDOT11_REG_DOMAIN_VALUE = *mut DOT11_REG_DOMAIN_VALUE;
+        type PDOT11_RESET_REQUEST = *mut DOT11_RESET_REQUEST;
+        type PDOT11_RESET_TYPE = *mut DOT11_RESET_TYPE;
+        type PDOT11_ROAMING_COMPLETION_PARAMETERS = *mut DOT11_ROAMING_COMPLETION_PARAMETERS;
+        type PDOT11_ROAMING_START_PARAMETERS = *mut DOT11_ROAMING_START_PARAMETERS;
+        type PDOT11_RSSI_RANGE = *mut DOT11_RSSI_RANGE;
+        type PDOT11_SCAN_REQUEST = *mut DOT11_SCAN_REQUEST;
+        type PDOT11_SCAN_REQUEST_V2 = *mut DOT11_SCAN_REQUEST_V2;
+        type PDOT11_SCAN_TYPE = *mut DOT11_SCAN_TYPE;
+        type PDOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS;
+        type PDOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS;
+        type PDOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS;
+        type PDOT11_SEND_INVITATION_REQUEST_PARAMETERS = *mut DOT11_SEND_INVITATION_REQUEST_PARAMETERS;
+        type PDOT11_SEND_INVITATION_RESPONSE_PARAMETERS = *mut DOT11_SEND_INVITATION_RESPONSE_PARAMETERS;
+        type PDOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS = *mut DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS;
+        type PDOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS = *mut DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS;
+        type PDOT11_SSID_LIST = *mut DOT11_SSID_LIST;
+        type PDOT11_START_REQUEST = *mut DOT11_START_REQUEST;
+        type PDOT11_STATISTICS = *mut DOT11_STATISTICS;
+        type PDOT11_STATUS_INDICATION = *mut DOT11_STATUS_INDICATION;
+        type PDOT11_STOP_AP_PARAMETERS = *mut DOT11_STOP_AP_PARAMETERS;
+        type PDOT11_SUPPORTED_ANTENNA = *mut DOT11_SUPPORTED_ANTENNA;
+        type PDOT11_SUPPORTED_ANTENNA_LIST = *mut DOT11_SUPPORTED_ANTENNA_LIST;
+        type PDOT11_SUPPORTED_DATA_RATES_VALUE = *mut DOT11_SUPPORTED_DATA_RATES_VALUE;
+        type PDOT11_SUPPORTED_DATA_RATES_VALUE_V1 = *mut DOT11_SUPPORTED_DATA_RATES_VALUE_V2;
+        type PDOT11_SUPPORTED_DATA_RATES_VALUE_V2 = *mut DOT11_SUPPORTED_DATA_RATES_VALUE_V2;
+        type PDOT11_SUPPORTED_DSSS_CHANNEL = *mut DOT11_SUPPORTED_DSSS_CHANNEL;
+        type PDOT11_SUPPORTED_DSSS_CHANNEL_LIST = *mut DOT11_SUPPORTED_DSSS_CHANNEL_LIST;
+        type PDOT11_SUPPORTED_OFDM_FREQUENCY = *mut DOT11_SUPPORTED_OFDM_FREQUENCY;
+        type PDOT11_SUPPORTED_OFDM_FREQUENCY_LIST = *mut DOT11_SUPPORTED_OFDM_FREQUENCY_LIST;
+        type PDOT11_SUPPORTED_PHY_TYPES = *mut DOT11_SUPPORTED_PHY_TYPES;
+        type PDOT11_SUPPORTED_POWER_LEVELS = *mut DOT11_SUPPORTED_POWER_LEVELS;
+        type PDOT11_TEMP_TYPE = *mut DOT11_TEMP_TYPE;
+        type PDOT11_TKIPMIC_FAILURE_PARAMETERS = *mut DOT11_TKIPMIC_FAILURE_PARAMETERS;
+        type PDOT11_UPDATE_IE = *mut DOT11_UPDATE_IE;
+        type PDOT11_UPDATE_IE_OP = *mut DOT11_UPDATE_IE_OP;
+        type PDOT11_VWIFI_ATTRIBUTES = *mut DOT11_VWIFI_ATTRIBUTES;
+        type PDOT11_VWIFI_COMBINATION = *mut DOT11_VWIFI_COMBINATION;
+        type PDOT11_VWIFI_COMBINATION_V2 = *mut DOT11_VWIFI_COMBINATION_V2;
+        type PDOT11_VWIFI_COMBINATION_V3 = *mut DOT11_VWIFI_COMBINATION_V3;
+        type PDOT11_WEP_OFFLOAD = *mut DOT11_WEP_OFFLOAD;
+        type PDOT11_WEP_UPLOAD = *mut DOT11_WEP_UPLOAD;
+        type PDOT11_WFD_ADDITIONAL_IE = *mut DOT11_WFD_ADDITIONAL_IE;
+        type PDOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR = *mut DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR;
+        type PDOT11_WFD_ADVERTISED_SERVICE_LIST = *mut DOT11_WFD_ADVERTISED_SERVICE_LIST;
+        type PDOT11_WFD_ADVERTISEMENT_ID = *mut DOT11_WFD_ADVERTISEMENT_ID;
+        type PDOT11_WFD_ATTRIBUTES = *mut DOT11_WFD_ATTRIBUTES;
+        type PDOT11_WFD_CHANNEL = *mut DOT11_WFD_CHANNEL;
+        type PDOT11_WFD_CONFIGURATION_TIMEOUT = *mut DOT11_WFD_CONFIGURATION_TIMEOUT;
+        type PDOT11_WFD_DEVICE_CAPABILITY_CONFIG = *mut DOT11_WFD_DEVICE_CAPABILITY_CONFIG;
+        type PDOT11_WFD_DEVICE_ENTRY = *mut DOT11_WFD_DEVICE_ENTRY;
+        type PDOT11_WFD_DEVICE_INFO = *mut DOT11_WFD_DEVICE_INFO;
+        type PDOT11_WFD_DEVICE_LISTEN_CHANNEL = *mut DOT11_WFD_DEVICE_LISTEN_CHANNEL;
+        type PDOT11_WFD_DEVICE_TYPE = *mut DOT11_WFD_DEVICE_TYPE;
+        type PDOT11_WFD_DISCOVER_COMPLETE_PARAMETERS = *mut DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS;
+        type PDOT11_WFD_DISCOVER_DEVICE_FILTER = *mut DOT11_WFD_DISCOVER_DEVICE_FILTER;
+        type PDOT11_WFD_DISCOVER_REQUEST = *mut DOT11_WFD_DISCOVER_REQUEST;
+        type PDOT11_WFD_DISCOVER_TYPE = *mut DOT11_WFD_DISCOVER_TYPE;
+        type PDOT11_WFD_GO_INTENT = *mut DOT11_WFD_GO_INTENT;
+        type PDOT11_WFD_GROUP_ID = *mut DOT11_WFD_GROUP_ID;
+        type PDOT11_WFD_GROUP_JOIN_PARAMETERS = *mut DOT11_WFD_GROUP_JOIN_PARAMETERS;
+        type PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG = *mut DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG;
+        type PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 = *mut DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2;
+        type PDOT11_WFD_GROUP_START_PARAMETERS = *mut DOT11_WFD_GROUP_START_PARAMETERS;
+        type PDOT11_WFD_INVITATION_FLAGS = *mut DOT11_WFD_INVITATION_FLAGS;
+        type PDOT11_WFD_SCAN_TYPE = *mut DOT11_WFD_SCAN_TYPE;
+        type PDOT11_WFD_SECONDARY_DEVICE_TYPE_LIST = *mut DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST;
+        type PDOT11_WFD_SERVICE_HASH_LIST = *mut DOT11_WFD_SERVICE_HASH_LIST;
+        type PDOT11_WFD_SESSION_ID = *mut DOT11_WFD_SESSION_ID;
+        type PDOT11_WFD_SESSION_INFO = *mut DOT11_WFD_SESSION_INFO;
+        type PDOT11_WME_AC_PARAMETERS = *mut DOT11_WME_AC_PARAMETERS;
+        type PDOT11_WME_AC_PARAMETERS_LIST = *mut DOT11_WME_AC_PARAMETERS_LIST;
+        type PDOT11_WME_UPDATE_IE = *mut DOT11_WME_UPDATE_IE;
+        type PDOT11_WPA_TSC = *mut DOT11_WPA_TSC;
+        type PDOT11_WPS_CONFIG_METHOD = *mut DOT11_WPS_CONFIG_METHOD;
+        type PDOT11_WPS_DEVICE_NAME = *mut DOT11_WPS_DEVICE_NAME;
+        type PDOT11_WPS_DEVICE_PASSWORD_ID = *mut DOT11_WPS_DEVICE_PASSWORD_ID;
+        type PWFDSVC_CONNECTION_CAPABILITY = *mut WFDSVC_CONNECTION_CAPABILITY;
+        struct RSNA_AKM_CIPHER_PAIR {
+            akm: RSNA_AKM_SUITE,
+            cipher: RSNA_CIPHER_SUITE,
+        }
+        #[repr(i32)]
+        enum RSNA_AKM_SUITE {
+            rsna_akm_none = 11276032,
+            rsna_akm_1x = 28053248,
+            rsna_akm_psk = 44830464,
+            rsna_akm_ft_1x_sha256 = 61607680,
+            rsna_akm_ft_psk_sha256 = 78384896,
+            rsna_akm_1x_sha256 = 95162112,
+            rsna_akm_psk_sha256 = 111939328,
+            rsna_akm_tdls_sha256 = 128716544,
+            rsna_akm_sae_pmk256 = 145493760,
+            rsna_akm_ft_sae_pmk256 = 162270976,
+            rsna_akm_peerkey_sha256 = 179048192,
+            rsna_akm_1x_suite_b_sha256 = 195825408,
+            rsna_akm_1x_suite_b_sha384 = 212602624,
+            rsna_akm_ft_1x_sha384_cmp_256 = 229379840,
+            rsna_akm_fils_1x_sha256 = 246157056,
+            rsna_akm_fils_1x_sha384 = 262934272,
+            rsna_akm_ft_fils_1x_sha256 = 279711488,
+            rsna_akm_ft_fils_sha384 = 296488704,
+            rsna_akm_owe = 313265920,
+            rsna_akm_ft_psk_sha384 = 330043136,
+            rsna_akm_psk_sha384 = 346820352,
+            rsna_akm_ft_1x_sha384 = 380374784,
+            rsna_akm_1x_sha384 = 397152000,
+            rsna_akm_sae_pmk384 = 413929216,
+            rsna_akm_ft_sae_pmk384 = 430706432,
+            rsna_akm_max = 430706432,
+        }
+        #[repr(i32)]
+        enum RSNA_CIPHER_SUITE {
+            rsna_cipher_group = 11276032,
+            rsna_cipher_wep40 = 28053248,
+            rsna_cipher_tkip = 44830464,
+            rsna_cipher_reserved = 61607680,
+            rsna_cipher_ccmp_128 = 78384896,
+            rsna_cipher_wep104 = 95162112,
+            rsna_cipher_bip_cmac_128 = 111939328,
+            rsna_cipher_no_group_traffic = 128716544,
+            rsna_cipher_gcmp_128 = 145493760,
+            rsna_cipher_gcmp_256 = 162270976,
+            rsna_cipher_ccmp_256 = 179048192,
+            rsna_cipher_bip_gmac_128 = 195825408,
+            rsna_cipher_bip_gmac_256 = 212602624,
+            rsna_cipher_bip_cmac_256 = 229379840,
+            rsna_cipher_max = 229379840,
+        }
+        const RSNA_OUI_PREFIX: u32 = 11276032;
+        struct WFDSVC_CONNECTION_CAPABILITY {
+            bNew: BOOLEAN,
+            bClient: BOOLEAN,
+            bGO: BOOLEAN,
+        }
+        const WFDSVC_CONNECTION_CAPABILITY_CLIENT: u32 = 2;
+        const WFDSVC_CONNECTION_CAPABILITY_GO: u32 = 4;
+        const WFDSVC_CONNECTION_CAPABILITY_NEW: u32 = 1;
+        #[repr(i32)]
+        enum WPA_AKM_SUITE {
+            wpa_akm_none = 15880192,
+            wpa_akm_1x = 32657408,
+            wpa_akm_psk = 49434624,
+            wpa_akm_max = 49434624,
+        }
+        #[repr(i32)]
+        enum WPA_CIPHER_SUITE {
+            wpa_cipher_none = 15880192,
+            wpa_cipher_wep40 = 32657408,
+            wpa_cipher_tkip = 49434624,
+            wpa_cipher_ccmp_128 = 82989056,
+            wpa_cipher_wep104 = 99766272,
+            wpa_cipher_bip_cmac_128 = 116543488,
+            wpa_cipher_max = 116543488,
+        }
+        const WPA_OUI_PREFIX: u32 = 15880192;
+    }
+}

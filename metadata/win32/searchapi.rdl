@@ -1,0 +1,479 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct AUTHENTICATION_INFO {
+            dwSize: u32,
+            atAuthenticationType: AUTH_TYPE,
+            pcwszUser: PCWSTR,
+            pcwszPassword: PCWSTR,
+        }
+        #[repr(i32)]
+        enum AUTH_TYPE {
+            eAUTH_TYPE_ANONYMOUS = 0,
+            eAUTH_TYPE_NTLM = 1,
+            eAUTH_TYPE_BASIC = 2,
+        }
+        #[repr(i32)]
+        enum CLUSION_REASON {
+            CLUSIONREASON_UNKNOWNSCOPE = 0,
+            CLUSIONREASON_DEFAULT = 1,
+            CLUSIONREASON_USER = 2,
+            CLUSIONREASON_GROUPPOLICY = 3,
+        }
+        const CSearchLanguageSupport: GUID = 0x6a68cc80_4337_4dbc_bd27_fbfb1053820b;
+        const CSearchManager: GUID = 0x7d096c5f_ac08_4f1f_beb7_5c22c517ce39;
+        const CSearchRoot: GUID = 0x30766bd2_ea1c_4f28_bf27_0b44e2f68db7;
+        const CSearchScopeRule: GUID = 0xe63de750_3bd7_4be5_9c84_6b4281988c44;
+        #[repr(i32)]
+        enum CatalogPausedReason {
+            CATALOG_PAUSED_REASON_NONE = 0,
+            CATALOG_PAUSED_REASON_HIGH_IO = 1,
+            CATALOG_PAUSED_REASON_HIGH_CPU = 2,
+            CATALOG_PAUSED_REASON_HIGH_NTF_RATE = 3,
+            CATALOG_PAUSED_REASON_LOW_BATTERY = 4,
+            CATALOG_PAUSED_REASON_LOW_MEMORY = 5,
+            CATALOG_PAUSED_REASON_LOW_DISK = 6,
+            CATALOG_PAUSED_REASON_DELAYED_RECOVERY = 7,
+            CATALOG_PAUSED_REASON_USER_ACTIVE = 8,
+            CATALOG_PAUSED_REASON_EXTERNAL = 9,
+            CATALOG_PAUSED_REASON_UPGRADING = 10,
+        }
+        #[repr(i32)]
+        enum CatalogStatus {
+            CATALOG_STATUS_IDLE = 0,
+            CATALOG_STATUS_PAUSED = 1,
+            CATALOG_STATUS_RECOVERING = 2,
+            CATALOG_STATUS_FULL_CRAWL = 3,
+            CATALOG_STATUS_INCREMENTAL_CRAWL = 4,
+            CATALOG_STATUS_PROCESSING_NOTIFICATIONS = 5,
+            CATALOG_STATUS_SHUTTING_DOWN = 6,
+        }
+        #[repr(i32)]
+        enum FOLLOW_FLAGS {
+            FF_INDEXCOMPLEXURLS = 1,
+            FF_SUPPRESSINDEXING = 2,
+        }
+        const FilterRegistration: GUID = 0x9e175b8d_f52a_11d8_b9a5_505054503030;
+        #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef52)]
+        interface IEnumSearchRoots: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut ISearchRoot, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, #[retval] ppenum: *mut IEnumSearchRoots) -> HRESULT;
+        }
+        #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef54)]
+        interface IEnumSearchScopeRules: IUnknown {
+            fn Next(&self, celt: u32, pprgelt: *mut ISearchScopeRule, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, #[retval] ppenum: *mut IEnumSearchScopeRules) -> HRESULT;
+        }
+        struct INCREMENTAL_ACCESS_INFO {
+            dwSize: u32,
+            ftLastModifiedTime: FILETIME,
+        }
+        #[guid(0xc731065d_ac80_11d1_8df3_00c04fb6ef4f)]
+        interface IOpLockStatus: IUnknown {
+            fn IsOplockValid(&self, pfIsOplockValid: *mut BOOL) -> HRESULT;
+            fn IsOplockBroken(&self, pfIsOplockBroken: *mut BOOL) -> HRESULT;
+            fn GetOplockEventHandle(&self, phOplockEv: *mut HANDLE) -> HRESULT;
+        }
+        #[guid(0x0b63e385_9ccc_11d0_bcdb_00805fccce04)]
+        interface IProtocolHandlerSite: IUnknown {
+            fn GetFilter(&self, pclsidObj: *const GUID, pcwszContentType: PCWSTR, pcwszExtension: PCWSTR, ppFilter: *mut IFilter) -> HRESULT;
+        }
+        #[guid(0x1551aea5_5d66_4b11_86f5_d5634cb211b9)]
+        interface IRowsetEvents: IUnknown {
+            fn OnNewItem(&self, itemID: *const PROPVARIANT, newItemState: ROWSETEVENT_ITEMSTATE) -> HRESULT;
+            fn OnChangedItem(&self, itemID: *const PROPVARIANT, rowsetItemState: ROWSETEVENT_ITEMSTATE, changedItemState: ROWSETEVENT_ITEMSTATE) -> HRESULT;
+            fn OnDeletedItem(&self, itemID: *const PROPVARIANT, deletedItemState: ROWSETEVENT_ITEMSTATE) -> HRESULT;
+            fn OnRowsetEvent(&self, eventType: ROWSETEVENT_TYPE, eventData: *const PROPVARIANT) -> HRESULT;
+        }
+        #[guid(0x42811652_079d_481b_87a2_09a69ecc5f44)]
+        interface IRowsetPrioritization: IUnknown {
+            fn SetScopePriority(&self, priority: PRIORITY_LEVEL, scopeStatisticsEventFrequency: u32) -> HRESULT;
+            fn GetScopePriority(&self, priority: *mut PRIORITY_LEVEL, scopeStatisticsEventFrequency: *mut u32) -> HRESULT;
+            fn GetScopeStatistics(&self, indexedDocumentCount: *mut u32, oustandingAddCount: *mut u32, oustandingModifyCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef50)]
+        interface ISearchCatalogManager: IUnknown {
+            #[special]
+            fn get_Name(&self, #[retval] pszName: *mut PWSTR) -> HRESULT;
+            fn GetParameter(&self, pszName: PCWSTR, #[retval] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
+            fn SetParameter(&self, pszName: PCWSTR, pValue: *const PROPVARIANT) -> HRESULT;
+            fn GetCatalogStatus(&self, pStatus: *mut CatalogStatus, pPausedReason: *mut CatalogPausedReason) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Reindex(&self) -> HRESULT;
+            fn ReindexMatchingURLs(&self, pszPattern: PCWSTR) -> HRESULT;
+            fn ReindexSearchRoot(&self, pszRootURL: PCWSTR) -> HRESULT;
+            #[special]
+            fn put_ConnectTimeout(&self, dwConnectTimeout: u32) -> HRESULT;
+            #[special]
+            fn get_ConnectTimeout(&self, #[retval] pdwConnectTimeout: *mut u32) -> HRESULT;
+            #[special]
+            fn put_DataTimeout(&self, dwDataTimeout: u32) -> HRESULT;
+            #[special]
+            fn get_DataTimeout(&self, #[retval] pdwDataTimeout: *mut u32) -> HRESULT;
+            fn NumberOfItems(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn NumberOfItemsToIndex(&self, plIncrementalCount: *mut i32, plNotificationQueue: *mut i32, plHighPriorityQueue: *mut i32) -> HRESULT;
+            fn URLBeingIndexed(&self, #[retval] pszUrl: *mut PWSTR) -> HRESULT;
+            fn GetURLIndexingState(&self, pszURL: PCWSTR, #[retval] pdwState: *mut u32) -> HRESULT;
+            fn GetPersistentItemsChangedSink(&self, #[retval] ppISearchPersistentItemsChangedSink: *mut ISearchPersistentItemsChangedSink) -> HRESULT;
+            fn RegisterViewForNotification(&self, pszView: PCWSTR, pViewChangedSink: ISearchViewChangedSink, pdwCookie: *mut u32) -> HRESULT;
+            fn GetItemsChangedSink(&self, pISearchNotifyInlineSite: ISearchNotifyInlineSite, riid: *const GUID, #[iid_is] ppv: *mut *mut void, pGUIDCatalogResetSignature: *mut GUID, pGUIDCheckPointSignature: *mut GUID, pdwLastCheckPointNumber: *mut u32) -> HRESULT;
+            fn UnregisterViewForNotification(&self, dwCookie: u32) -> HRESULT;
+            fn SetExtensionClusion(&self, pszExtension: PCWSTR, fExclude: BOOL) -> HRESULT;
+            fn EnumerateExcludedExtensions(&self, #[retval] ppExtensions: *mut IEnumString) -> HRESULT;
+            fn GetQueryHelper(&self, #[retval] ppSearchQueryHelper: *mut ISearchQueryHelper) -> HRESULT;
+            #[special]
+            fn put_DiacriticSensitivity(&self, fDiacriticSensitive: BOOL) -> HRESULT;
+            #[special]
+            fn get_DiacriticSensitivity(&self, #[retval] pfDiacriticSensitive: *mut BOOL) -> HRESULT;
+            fn GetCrawlScopeManager(&self, #[retval] ppCrawlScopeManager: *mut ISearchCrawlScopeManager) -> HRESULT;
+        }
+        #[guid(0x7ac3286d_4d1d_4817_84fc_c1c85e3af0d9)]
+        interface ISearchCatalogManager2: ISearchCatalogManager {
+            fn PrioritizeMatchingURLs(&self, pszPattern: PCWSTR, dwPrioritizeFlags: PRIORITIZE_FLAGS) -> HRESULT;
+        }
+        #[guid(0xde837e8f_634f_4ab0_bdfc_9fc3a1fc50dc)]
+        interface ISearchCatalogManager3: ISearchCatalogManager2 {
+            fn IsContainsSemanticSupported(&self, #[retval] isContainsSemanticSupported: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef55)]
+        interface ISearchCrawlScopeManager: IUnknown {
+            fn AddDefaultScopeRule(&self, pszURL: PCWSTR, fInclude: BOOL, fFollowFlags: u32) -> HRESULT;
+            fn AddRoot(&self, pSearchRoot: ISearchRoot) -> HRESULT;
+            fn RemoveRoot(&self, pszURL: PCWSTR) -> HRESULT;
+            fn EnumerateRoots(&self, #[retval] ppSearchRoots: *mut IEnumSearchRoots) -> HRESULT;
+            fn AddHierarchicalScope(&self, pszURL: PCWSTR, fInclude: BOOL, fDefault: BOOL, fOverrideChildren: BOOL) -> HRESULT;
+            fn AddUserScopeRule(&self, pszURL: PCWSTR, fInclude: BOOL, fOverrideChildren: BOOL, fFollowFlags: u32) -> HRESULT;
+            fn RemoveScopeRule(&self, pszRule: PCWSTR) -> HRESULT;
+            fn EnumerateScopeRules(&self, #[retval] ppSearchScopeRules: *mut IEnumSearchScopeRules) -> HRESULT;
+            fn HasParentScopeRule(&self, pszURL: PCWSTR, #[retval] pfHasParentRule: *mut BOOL) -> HRESULT;
+            fn HasChildScopeRule(&self, pszURL: PCWSTR, #[retval] pfHasChildRule: *mut BOOL) -> HRESULT;
+            fn IncludedInCrawlScope(&self, pszURL: PCWSTR, #[retval] pfIsIncluded: *mut BOOL) -> HRESULT;
+            fn IncludedInCrawlScopeEx(&self, pszURL: PCWSTR, pfIsIncluded: *mut BOOL, pReason: *mut CLUSION_REASON) -> HRESULT;
+            fn RevertToDefaultScopes(&self) -> HRESULT;
+            fn SaveAll(&self) -> HRESULT;
+            fn GetParentScopeVersionId(&self, pszURL: PCWSTR, #[retval] plScopeId: *mut i32) -> HRESULT;
+            fn RemoveDefaultScopeRule(&self, pszURL: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x6292f7ad_4e19_4717_a534_8fc22bcd5ccd)]
+        interface ISearchCrawlScopeManager2: ISearchCrawlScopeManager {
+            fn GetVersion(&self, plVersion: *mut *mut i32, phFileMapping: *mut HANDLE) -> HRESULT;
+        }
+        #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef58)]
+        interface ISearchItemsChangedSink: IUnknown {
+            fn StartedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
+            fn StoppedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
+            fn OnItemsChanged(&self, dwNumberOfChanges: u32, rgDataChangeEntries: *const SEARCH_ITEM_CHANGE, rgdwDocIds: *mut u32, rghrCompletionCodes: *mut HRESULT) -> HRESULT;
+        }
+        #[guid(0x24c3cbaa_ebc1_491a_9ef1_9f6d8deb1b8f)]
+        interface ISearchLanguageSupport: IUnknown {
+            fn SetDiacriticSensitivity(&self, fDiacriticSensitive: BOOL) -> HRESULT;
+            fn GetDiacriticSensitivity(&self, #[retval] pfDiacriticSensitive: *mut BOOL) -> HRESULT;
+            fn LoadWordBreaker(&self, lcid: LCID, riid: *const GUID, #[iid_is] ppWordBreaker: *mut *mut void, pLcidUsed: *mut LCID) -> HRESULT;
+            fn LoadStemmer(&self, lcid: LCID, riid: *const GUID, #[iid_is] ppStemmer: *mut *mut void, pLcidUsed: *mut LCID) -> HRESULT;
+            fn IsPrefixNormalized(&self, pwcsQueryToken: PCWSTR, cwcQueryToken: u32, pwcsDocumentToken: PCWSTR, cwcDocumentToken: u32, pulPrefixLength: *mut u32) -> HRESULT;
+        }
+        #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef69)]
+        interface ISearchManager: IUnknown {
+            fn GetIndexerVersionStr(&self, ppszVersionString: *mut PWSTR) -> HRESULT;
+            fn GetIndexerVersion(&self, pdwMajor: *mut u32, pdwMinor: *mut u32) -> HRESULT;
+            fn GetParameter(&self, pszName: PCWSTR, #[retval] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
+            fn SetParameter(&self, pszName: PCWSTR, pValue: *const PROPVARIANT) -> HRESULT;
+            #[special]
+            fn get_ProxyName(&self, #[retval] ppszProxyName: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn get_BypassList(&self, #[retval] ppszBypassList: *mut PWSTR) -> HRESULT;
+            fn SetProxy(&self, sUseProxy: PROXY_ACCESS, fLocalByPassProxy: BOOL, dwPortNumber: u32, pszProxyName: PCWSTR, pszByPassList: PCWSTR) -> HRESULT;
+            fn GetCatalog(&self, pszCatalog: PCWSTR, #[retval] ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
+            #[special]
+            fn get_UserAgent(&self, #[retval] ppszUserAgent: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_UserAgent(&self, pszUserAgent: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_UseProxy(&self, #[retval] pUseProxy: *mut PROXY_ACCESS) -> HRESULT;
+            #[special]
+            fn get_LocalBypass(&self, #[retval] pfLocalBypass: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_PortNumber(&self, #[retval] pdwPortNumber: *mut u32) -> HRESULT;
+        }
+        #[guid(0xdbab3f73_db19_4a79_bfc0_a61a93886ddf)]
+        interface ISearchManager2: ISearchManager {
+            fn CreateCatalog(&self, pszCatalog: PCWSTR, ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
+            fn DeleteCatalog(&self, pszCatalog: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xb5702e61_e75c_4b64_82a1_6cb4f832fccf)]
+        interface ISearchNotifyInlineSite: IUnknown {
+            fn OnItemIndexedStatusChange(&self, sipStatus: SEARCH_INDEXING_PHASE, dwNumEntries: u32, rgItemStatusEntries: *const SEARCH_ITEM_INDEXING_STATUS) -> HRESULT;
+            fn OnCatalogStatusChange(&self, guidCatalogResetSignature: *const GUID, guidCheckPointSignature: *const GUID, dwLastCheckPointNumber: u32) -> HRESULT;
+        }
+        #[guid(0xa2ffdf9b_4758_4f84_b729_df81a1a0612f)]
+        interface ISearchPersistentItemsChangedSink: IUnknown {
+            fn StartedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
+            fn StoppedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
+            fn OnItemsChanged(&self, dwNumberOfChanges: u32, DataChangeEntries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrCompletionCodes: *mut HRESULT) -> HRESULT;
+        }
+        #[guid(0xc73106ba_ac80_11d1_8df3_00c04fb6ef4f)]
+        interface ISearchProtocol: IUnknown {
+            fn Init(&self, pTimeoutInfo: *const TIMEOUT_INFO, pProtocolHandlerSite: IProtocolHandlerSite, pProxyInfo: *const PROXY_INFO) -> HRESULT;
+            fn CreateAccessor(&self, pcwszURL: PCWSTR, pAuthenticationInfo: *const AUTHENTICATION_INFO, pIncrementalAccessInfo: *const INCREMENTAL_ACCESS_INFO, pItemInfo: *const ITEM_INFO, ppAccessor: *mut IUrlAccessor) -> HRESULT;
+            fn CloseAccessor(&self, pAccessor: IUrlAccessor) -> HRESULT;
+            fn ShutDown(&self) -> HRESULT;
+        }
+        #[guid(0x7789f0b2_b5b2_4722_8b65_5dbd150697a9)]
+        interface ISearchProtocol2: ISearchProtocol {
+            fn CreateAccessorEx(&self, pcwszURL: PCWSTR, pAuthenticationInfo: *const AUTHENTICATION_INFO, pIncrementalAccessInfo: *const INCREMENTAL_ACCESS_INFO, pItemInfo: *const ITEM_INFO, pUserData: *const BLOB, ppAccessor: *mut IUrlAccessor) -> HRESULT;
+        }
+        #[guid(0xc73106e1_ac80_11d1_8df3_00c04fb6ef4f)]
+        interface ISearchProtocolThreadContext: IUnknown {
+            fn ThreadInit(&self) -> HRESULT;
+            fn ThreadShutdown(&self) -> HRESULT;
+            fn ThreadIdle(&self, dwTimeElaspedSinceLastCallInMS: u32) -> HRESULT;
+        }
+        #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef63)]
+        interface ISearchQueryHelper: IUnknown {
+            #[special]
+            fn get_ConnectionString(&self, #[retval] pszConnectionString: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_QueryContentLocale(&self, lcid: LCID) -> HRESULT;
+            #[special]
+            fn get_QueryContentLocale(&self, #[retval] plcid: *mut LCID) -> HRESULT;
+            #[special]
+            fn put_QueryKeywordLocale(&self, lcid: LCID) -> HRESULT;
+            #[special]
+            fn get_QueryKeywordLocale(&self, #[retval] plcid: *mut LCID) -> HRESULT;
+            #[special]
+            fn put_QueryTermExpansion(&self, expandTerms: SEARCH_TERM_EXPANSION) -> HRESULT;
+            #[special]
+            fn get_QueryTermExpansion(&self, #[retval] pExpandTerms: *mut SEARCH_TERM_EXPANSION) -> HRESULT;
+            #[special]
+            fn put_QuerySyntax(&self, querySyntax: SEARCH_QUERY_SYNTAX) -> HRESULT;
+            #[special]
+            fn get_QuerySyntax(&self, #[retval] pQuerySyntax: *mut SEARCH_QUERY_SYNTAX) -> HRESULT;
+            #[special]
+            fn put_QueryContentProperties(&self, pszContentProperties: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_QueryContentProperties(&self, #[retval] ppszContentProperties: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_QuerySelectColumns(&self, pszSelectColumns: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_QuerySelectColumns(&self, #[retval] ppszSelectColumns: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_QueryWhereRestrictions(&self, pszRestrictions: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_QueryWhereRestrictions(&self, #[retval] ppszRestrictions: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_QuerySorting(&self, pszSorting: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_QuerySorting(&self, #[retval] ppszSorting: *mut PWSTR) -> HRESULT;
+            fn GenerateSQLFromUserQuery(&self, pszQuery: PCWSTR, #[retval] ppszSQL: *mut PWSTR) -> HRESULT;
+            fn WriteProperties(&self, itemID: ITEMID, dwNumberOfColumns: u32, pColumns: *const PROPERTYKEY, pValues: *const SEARCH_COLUMN_PROPERTIES, pftGatherModifiedTime: *const FILETIME) -> HRESULT;
+            #[special]
+            fn put_QueryMaxResults(&self, cMaxResults: i32) -> HRESULT;
+            #[special]
+            fn get_QueryMaxResults(&self, #[retval] pcMaxResults: *mut i32) -> HRESULT;
+        }
+        #[guid(0x04c18ccf_1f57_4cbd_88cc_3900f5195ce3)]
+        interface ISearchRoot: IUnknown {
+            #[special]
+            fn put_Schedule(&self, pszTaskArg: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_Schedule(&self, #[retval] ppszTaskArg: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_RootURL(&self, pszURL: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_RootURL(&self, #[retval] ppszURL: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_IsHierarchical(&self, fIsHierarchical: BOOL) -> HRESULT;
+            #[special]
+            fn get_IsHierarchical(&self, #[retval] pfIsHierarchical: *mut BOOL) -> HRESULT;
+            #[special]
+            fn put_ProvidesNotifications(&self, fProvidesNotifications: BOOL) -> HRESULT;
+            #[special]
+            fn get_ProvidesNotifications(&self, #[retval] pfProvidesNotifications: *mut BOOL) -> HRESULT;
+            #[special]
+            fn put_UseNotificationsOnly(&self, fUseNotificationsOnly: BOOL) -> HRESULT;
+            #[special]
+            fn get_UseNotificationsOnly(&self, #[retval] pfUseNotificationsOnly: *mut BOOL) -> HRESULT;
+            #[special]
+            fn put_EnumerationDepth(&self, dwDepth: u32) -> HRESULT;
+            #[special]
+            fn get_EnumerationDepth(&self, #[retval] pdwDepth: *mut u32) -> HRESULT;
+            #[special]
+            fn put_HostDepth(&self, dwDepth: u32) -> HRESULT;
+            #[special]
+            fn get_HostDepth(&self, #[retval] pdwDepth: *mut u32) -> HRESULT;
+            #[special]
+            fn put_FollowDirectories(&self, fFollowDirectories: BOOL) -> HRESULT;
+            #[special]
+            fn get_FollowDirectories(&self, #[retval] pfFollowDirectories: *mut BOOL) -> HRESULT;
+            #[special]
+            fn put_AuthenticationType(&self, authType: AUTH_TYPE) -> HRESULT;
+            #[special]
+            fn get_AuthenticationType(&self, #[retval] pAuthType: *mut AUTH_TYPE) -> HRESULT;
+            #[special]
+            fn put_User(&self, pszUser: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_User(&self, #[retval] ppszUser: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_Password(&self, pszPassword: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_Password(&self, #[retval] ppszPassword: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef53)]
+        interface ISearchScopeRule: IUnknown {
+            #[special]
+            fn get_PatternOrURL(&self, #[retval] ppszPatternOrURL: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn get_IsIncluded(&self, #[retval] pfIsIncluded: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_IsDefault(&self, #[retval] pfIsDefault: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_FollowFlags(&self, #[retval] pFollowFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef65)]
+        interface ISearchViewChangedSink: IUnknown {
+            fn OnChange(&self, pdwDocID: *const ITEMID, pChange: *const SEARCH_ITEM_CHANGE, pfInView: *const BOOL) -> HRESULT;
+        }
+        type ITEMID = i32;
+        struct ITEM_INFO {
+            dwSize: u32,
+            pcwszFromEMail: PCWSTR,
+            pcwszApplicationName: PCWSTR,
+            pcwszCatalogName: PCWSTR,
+            pcwszContentClass: PCWSTR,
+        }
+        #[guid(0x0b63e318_9ccc_11d0_bcdb_00805fccce04)]
+        interface IUrlAccessor: IUnknown {
+            fn AddRequestParameter(&self, pSpec: *const PROPSPEC, pVar: *const PROPVARIANT) -> HRESULT;
+            fn GetDocFormat(&self, wszDocFormat: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetCLSID(&self, pClsid: *mut GUID) -> HRESULT;
+            fn GetHost(&self, wszHost: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn IsDirectory(&self) -> HRESULT;
+            fn GetSize(&self, pllSize: *mut u64) -> HRESULT;
+            fn GetLastModified(&self, pftLastModified: *mut FILETIME) -> HRESULT;
+            fn GetFileName(&self, wszFileName: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetSecurityDescriptor(&self, pSD: *mut u8, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetRedirectedURL(&self, wszRedirectedURL: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetSecurityProvider(&self, pSPClsid: *mut GUID) -> HRESULT;
+            fn BindToStream(&self, ppStream: *mut IStream) -> HRESULT;
+            fn BindToFilter(&self, ppFilter: *mut IFilter) -> HRESULT;
+        }
+        #[guid(0xc7310734_ac80_11d1_8df3_00c04fb6ef4f)]
+        interface IUrlAccessor2: IUrlAccessor {
+            fn GetDisplayUrl(&self, wszDocUrl: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn IsDocument(&self) -> HRESULT;
+            fn GetCodePage(&self, wszCodePage: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6fbc7005_0455_4874_b8ff_7439450241a3)]
+        interface IUrlAccessor3: IUrlAccessor2 {
+            fn GetImpersonationSidBlobs(&self, pcwszURL: PCWSTR, pcSidCount: *mut u32, ppSidBlobs: *mut *mut BLOB) -> HRESULT;
+        }
+        #[guid(0x5cc51041_c8d2_41d7_bca3_9e9e286297dc)]
+        interface IUrlAccessor4: IUrlAccessor3 {
+            fn ShouldIndexItemContent(&self, pfIndexContent: *mut BOOL) -> HRESULT;
+            fn ShouldIndexProperty(&self, key: *const PROPERTYKEY, pfIndexProperty: *mut BOOL) -> HRESULT;
+        }
+        type PRIORITIZE_FLAGS = i32;
+        #[repr(i32)]
+        enum PRIORITY_LEVEL {
+            PRIORITY_LEVEL_FOREGROUND = 0,
+            PRIORITY_LEVEL_HIGH = 1,
+            PRIORITY_LEVEL_LOW = 2,
+            PRIORITY_LEVEL_DEFAULT = 3,
+        }
+        #[repr(i32)]
+        enum PROXY_ACCESS {
+            PROXY_ACCESS_PRECONFIG = 0,
+            PROXY_ACCESS_DIRECT = 1,
+            PROXY_ACCESS_PROXY = 2,
+        }
+        struct PROXY_INFO {
+            dwSize: u32,
+            pcwszUserAgent: PCWSTR,
+            paUseProxy: PROXY_ACCESS,
+            fLocalBypass: BOOL,
+            dwPortNumber: u32,
+            pcwszProxyName: PCWSTR,
+            pcwszBypassList: PCWSTR,
+        }
+        #[repr(i32)]
+        enum ROWSETEVENT_ITEMSTATE {
+            ROWSETEVENT_ITEMSTATE_NOTINROWSET = 0,
+            ROWSETEVENT_ITEMSTATE_INROWSET = 1,
+            ROWSETEVENT_ITEMSTATE_UNKNOWN = 2,
+        }
+        #[repr(i32)]
+        enum ROWSETEVENT_TYPE {
+            ROWSETEVENT_TYPE_DATAEXPIRED = 0,
+            ROWSETEVENT_TYPE_FOREGROUNDLOST = 1,
+            ROWSETEVENT_TYPE_SCOPESTATISTICS = 2,
+        }
+        struct SEARCH_COLUMN_PROPERTIES {
+            Value: PROPVARIANT,
+            lcid: LCID,
+        }
+        #[repr(i32)]
+        enum SEARCH_INDEXING_PHASE {
+            SEARCH_INDEXING_PHASE_GATHERER = 0,
+            SEARCH_INDEXING_PHASE_QUERYABLE = 1,
+            SEARCH_INDEXING_PHASE_PERSISTED = 2,
+        }
+        struct SEARCH_ITEM_CHANGE {
+            Change: SEARCH_KIND_OF_CHANGE,
+            Priority: SEARCH_NOTIFICATION_PRIORITY,
+            pUserData: *mut BLOB,
+            lpwszURL: PWSTR,
+            lpwszOldURL: PWSTR,
+        }
+        struct SEARCH_ITEM_INDEXING_STATUS {
+            dwDocID: u32,
+            hrIndexingStatus: HRESULT,
+        }
+        struct SEARCH_ITEM_PERSISTENT_CHANGE {
+            Change: SEARCH_KIND_OF_CHANGE,
+            URL: PWSTR,
+            OldURL: PWSTR,
+            Priority: SEARCH_NOTIFICATION_PRIORITY,
+        }
+        #[repr(i32)]
+        enum SEARCH_KIND_OF_CHANGE {
+            SEARCH_CHANGE_ADD = 0,
+            SEARCH_CHANGE_DELETE = 1,
+            SEARCH_CHANGE_MODIFY = 2,
+            SEARCH_CHANGE_MOVE_RENAME = 3,
+            SEARCH_CHANGE_SEMANTICS_DIRECTORY = 262144,
+            SEARCH_CHANGE_SEMANTICS_SHALLOW = 524288,
+            SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY = 4194304,
+        }
+        #[repr(i32)]
+        enum SEARCH_NOTIFICATION_PRIORITY {
+            SEARCH_NORMAL_PRIORITY = 0,
+            SEARCH_HIGH_PRIORITY = 1,
+        }
+        #[repr(i32)]
+        enum SEARCH_QUERY_SYNTAX {
+            SEARCH_NO_QUERY_SYNTAX = 0,
+            SEARCH_ADVANCED_QUERY_SYNTAX = 1,
+            SEARCH_NATURAL_QUERY_SYNTAX = 2,
+        }
+        #[repr(i32)]
+        enum SEARCH_TERM_EXPANSION {
+            SEARCH_TERM_NO_EXPANSION = 0,
+            SEARCH_TERM_PREFIX_ALL = 1,
+            SEARCH_TERM_STEM_ALL = 2,
+        }
+        struct TIMEOUT_INFO {
+            dwSize: u32,
+            dwConnectTimeout: u32,
+            dwDataTimeout: u32,
+        }
+        #[repr(i32)]
+        enum tagPRIORITIZE_FLAGS {
+            PRIORITIZE_FLAG_RETRYFAILEDITEMS = 1,
+            PRIORITIZE_FLAG_IGNOREFAILURECOUNT = 2,
+        }
+    }
+}

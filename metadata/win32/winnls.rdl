@@ -1,0 +1,945 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const C1_ALPHA: u32 = 256;
+        const C1_BLANK: u32 = 64;
+        const C1_CNTRL: u32 = 32;
+        const C1_DEFINED: u32 = 512;
+        const C1_DIGIT: u32 = 4;
+        const C1_LOWER: u32 = 2;
+        const C1_PUNCT: u32 = 16;
+        const C1_SPACE: u32 = 8;
+        const C1_UPPER: u32 = 1;
+        const C1_XDIGIT: u32 = 128;
+        const C2_ARABICNUMBER: u32 = 6;
+        const C2_BLOCKSEPARATOR: u32 = 8;
+        const C2_COMMONSEPARATOR: u32 = 7;
+        const C2_EUROPENUMBER: u32 = 3;
+        const C2_EUROPESEPARATOR: u32 = 4;
+        const C2_EUROPETERMINATOR: u32 = 5;
+        const C2_LEFTTORIGHT: u32 = 1;
+        const C2_NOTAPPLICABLE: u32 = 0;
+        const C2_OTHERNEUTRAL: u32 = 11;
+        const C2_RIGHTTOLEFT: u32 = 2;
+        const C2_SEGMENTSEPARATOR: u32 = 9;
+        const C2_WHITESPACE: u32 = 10;
+        const C3_ALPHA: u32 = 32768;
+        const C3_DIACRITIC: u32 = 2;
+        const C3_FULLWIDTH: u32 = 128;
+        const C3_HALFWIDTH: u32 = 64;
+        const C3_HIGHSURROGATE: u32 = 2048;
+        const C3_HIRAGANA: u32 = 32;
+        const C3_IDEOGRAPH: u32 = 256;
+        const C3_KASHIDA: u32 = 512;
+        const C3_KATAKANA: u32 = 16;
+        const C3_LEXICAL: u32 = 1024;
+        const C3_LOWSURROGATE: u32 = 4096;
+        const C3_NONSPACING: u32 = 1;
+        const C3_NOTAPPLICABLE: u32 = 0;
+        const C3_SYMBOL: u32 = 8;
+        const C3_VOWELMARK: u32 = 4;
+        type CALID = u32;
+        extern fn CALINFO_ENUMPROCA(param0: PSTR) -> BOOL;
+        extern fn CALINFO_ENUMPROCEXA(param0: PSTR, param1: CALID) -> BOOL;
+        extern fn CALINFO_ENUMPROCEXEX(param0: PWSTR, param1: CALID, param2: PWSTR, param3: LPARAM) -> BOOL;
+        extern fn CALINFO_ENUMPROCEXW(param0: PWSTR, param1: CALID) -> BOOL;
+        extern fn CALINFO_ENUMPROCW(param0: PWSTR) -> BOOL;
+        type CALTYPE = u32;
+        const CAL_GREGORIAN: u32 = 1;
+        const CAL_GREGORIAN_ARABIC: u32 = 10;
+        const CAL_GREGORIAN_ME_FRENCH: u32 = 9;
+        const CAL_GREGORIAN_US: u32 = 2;
+        const CAL_GREGORIAN_XLIT_ENGLISH: u32 = 11;
+        const CAL_GREGORIAN_XLIT_FRENCH: u32 = 12;
+        const CAL_HEBREW: u32 = 8;
+        const CAL_HIJRI: u32 = 6;
+        const CAL_ICALINTVALUE: u32 = 1;
+        const CAL_ITWODIGITYEARMAX: u32 = 48;
+        const CAL_IYEAROFFSETRANGE: u32 = 3;
+        const CAL_JAPAN: u32 = 3;
+        const CAL_KOREA: u32 = 5;
+        const CAL_NOUSEROVERRIDE: i32 = -2147483648;
+        const CAL_PERSIAN: u32 = 22;
+        const CAL_RETURN_GENITIVE_NAMES: u32 = 268435456;
+        const CAL_RETURN_NUMBER: u32 = 536870912;
+        const CAL_SABBREVDAYNAME1: u32 = 14;
+        const CAL_SABBREVDAYNAME2: u32 = 15;
+        const CAL_SABBREVDAYNAME3: u32 = 16;
+        const CAL_SABBREVDAYNAME4: u32 = 17;
+        const CAL_SABBREVDAYNAME5: u32 = 18;
+        const CAL_SABBREVDAYNAME6: u32 = 19;
+        const CAL_SABBREVDAYNAME7: u32 = 20;
+        const CAL_SABBREVERASTRING: u32 = 57;
+        const CAL_SABBREVMONTHNAME1: u32 = 34;
+        const CAL_SABBREVMONTHNAME10: u32 = 43;
+        const CAL_SABBREVMONTHNAME11: u32 = 44;
+        const CAL_SABBREVMONTHNAME12: u32 = 45;
+        const CAL_SABBREVMONTHNAME13: u32 = 46;
+        const CAL_SABBREVMONTHNAME2: u32 = 35;
+        const CAL_SABBREVMONTHNAME3: u32 = 36;
+        const CAL_SABBREVMONTHNAME4: u32 = 37;
+        const CAL_SABBREVMONTHNAME5: u32 = 38;
+        const CAL_SABBREVMONTHNAME6: u32 = 39;
+        const CAL_SABBREVMONTHNAME7: u32 = 40;
+        const CAL_SABBREVMONTHNAME8: u32 = 41;
+        const CAL_SABBREVMONTHNAME9: u32 = 42;
+        const CAL_SCALNAME: u32 = 2;
+        const CAL_SDAYNAME1: u32 = 7;
+        const CAL_SDAYNAME2: u32 = 8;
+        const CAL_SDAYNAME3: u32 = 9;
+        const CAL_SDAYNAME4: u32 = 10;
+        const CAL_SDAYNAME5: u32 = 11;
+        const CAL_SDAYNAME6: u32 = 12;
+        const CAL_SDAYNAME7: u32 = 13;
+        const CAL_SENGLISHABBREVERANAME: u32 = 60;
+        const CAL_SENGLISHERANAME: u32 = 59;
+        const CAL_SERASTRING: u32 = 4;
+        const CAL_SJAPANESEERAFIRSTYEAR: u32 = 61;
+        const CAL_SLONGDATE: u32 = 6;
+        const CAL_SMONTHDAY: u32 = 56;
+        const CAL_SMONTHNAME1: u32 = 21;
+        const CAL_SMONTHNAME10: u32 = 30;
+        const CAL_SMONTHNAME11: u32 = 31;
+        const CAL_SMONTHNAME12: u32 = 32;
+        const CAL_SMONTHNAME13: u32 = 33;
+        const CAL_SMONTHNAME2: u32 = 22;
+        const CAL_SMONTHNAME3: u32 = 23;
+        const CAL_SMONTHNAME4: u32 = 24;
+        const CAL_SMONTHNAME5: u32 = 25;
+        const CAL_SMONTHNAME6: u32 = 26;
+        const CAL_SMONTHNAME7: u32 = 27;
+        const CAL_SMONTHNAME8: u32 = 28;
+        const CAL_SMONTHNAME9: u32 = 29;
+        const CAL_SRELATIVELONGDATE: u32 = 58;
+        const CAL_SSHORTDATE: u32 = 5;
+        const CAL_SSHORTESTDAYNAME1: u32 = 49;
+        const CAL_SSHORTESTDAYNAME2: u32 = 50;
+        const CAL_SSHORTESTDAYNAME3: u32 = 51;
+        const CAL_SSHORTESTDAYNAME4: u32 = 52;
+        const CAL_SSHORTESTDAYNAME5: u32 = 53;
+        const CAL_SSHORTESTDAYNAME6: u32 = 54;
+        const CAL_SSHORTESTDAYNAME7: u32 = 55;
+        const CAL_SYEARMONTH: u32 = 47;
+        const CAL_TAIWAN: u32 = 4;
+        const CAL_THAI: u32 = 7;
+        const CAL_UMALQURA: u32 = 23;
+        const CAL_USE_CP_ACP: u32 = 1073741824;
+        extern fn CODEPAGE_ENUMPROCA(param0: PSTR) -> BOOL;
+        extern fn CODEPAGE_ENUMPROCW(param0: PWSTR) -> BOOL;
+        struct CPINFO {
+            MaxCharSize: u32,
+            DefaultChar: [u8; 2],
+            LeadByte: [u8; 12],
+        }
+        type CPINFOEX = CPINFOEXA;
+        struct CPINFOEXA {
+            MaxCharSize: u32,
+            DefaultChar: [u8; 2],
+            LeadByte: [u8; 12],
+            UnicodeDefaultChar: u16,
+            CodePage: u32,
+            CodePageName: [i8; 260],
+        }
+        struct CPINFOEXW {
+            MaxCharSize: u32,
+            DefaultChar: [u8; 2],
+            LeadByte: [u8; 12],
+            UnicodeDefaultChar: u16,
+            CodePage: u32,
+            CodePageName: [u16; 260],
+        }
+        const CP_ACP: u32 = 0;
+        const CP_INSTALLED: u32 = 1;
+        const CP_MACCP: u32 = 2;
+        const CP_OEMCP: u32 = 1;
+        const CP_SUPPORTED: u32 = 2;
+        const CP_SYMBOL: u32 = 42;
+        const CP_THREAD_ACP: u32 = 3;
+        const CP_UTF7: u32 = 65000;
+        const CP_UTF8: u32 = 65001;
+        const CSTR_EQUAL: u32 = 2;
+        const CSTR_GREATER_THAN: u32 = 3;
+        const CSTR_LESS_THAN: u32 = 1;
+        const CTRY_ALBANIA: u32 = 355;
+        const CTRY_ALGERIA: u32 = 213;
+        const CTRY_ARGENTINA: u32 = 54;
+        const CTRY_ARMENIA: u32 = 374;
+        const CTRY_AUSTRALIA: u32 = 61;
+        const CTRY_AUSTRIA: u32 = 43;
+        const CTRY_AZERBAIJAN: u32 = 994;
+        const CTRY_BAHRAIN: u32 = 973;
+        const CTRY_BELARUS: u32 = 375;
+        const CTRY_BELGIUM: u32 = 32;
+        const CTRY_BELIZE: u32 = 501;
+        const CTRY_BOLIVIA: u32 = 591;
+        const CTRY_BRAZIL: u32 = 55;
+        const CTRY_BRUNEI_DARUSSALAM: u32 = 673;
+        const CTRY_BULGARIA: u32 = 359;
+        const CTRY_CANADA: u32 = 2;
+        const CTRY_CARIBBEAN: u32 = 1;
+        const CTRY_CHILE: u32 = 56;
+        const CTRY_COLOMBIA: u32 = 57;
+        const CTRY_COSTA_RICA: u32 = 506;
+        const CTRY_CROATIA: u32 = 385;
+        const CTRY_CZECH: u32 = 420;
+        const CTRY_DEFAULT: u32 = 0;
+        const CTRY_DENMARK: u32 = 45;
+        const CTRY_DOMINICAN_REPUBLIC: u32 = 1;
+        const CTRY_ECUADOR: u32 = 593;
+        const CTRY_EGYPT: u32 = 20;
+        const CTRY_EL_SALVADOR: u32 = 503;
+        const CTRY_ESTONIA: u32 = 372;
+        const CTRY_FAEROE_ISLANDS: u32 = 298;
+        const CTRY_FINLAND: u32 = 358;
+        const CTRY_FRANCE: u32 = 33;
+        const CTRY_GEORGIA: u32 = 995;
+        const CTRY_GERMANY: u32 = 49;
+        const CTRY_GREECE: u32 = 30;
+        const CTRY_GUATEMALA: u32 = 502;
+        const CTRY_HONDURAS: u32 = 504;
+        const CTRY_HONG_KONG: u32 = 852;
+        const CTRY_HUNGARY: u32 = 36;
+        const CTRY_ICELAND: u32 = 354;
+        const CTRY_INDIA: u32 = 91;
+        const CTRY_INDONESIA: u32 = 62;
+        const CTRY_IRAN: u32 = 981;
+        const CTRY_IRAQ: u32 = 964;
+        const CTRY_IRELAND: u32 = 353;
+        const CTRY_ISRAEL: u32 = 972;
+        const CTRY_ITALY: u32 = 39;
+        const CTRY_JAMAICA: u32 = 1;
+        const CTRY_JAPAN: u32 = 81;
+        const CTRY_JORDAN: u32 = 962;
+        const CTRY_KAZAKSTAN: u32 = 7;
+        const CTRY_KENYA: u32 = 254;
+        const CTRY_KUWAIT: u32 = 965;
+        const CTRY_KYRGYZSTAN: u32 = 996;
+        const CTRY_LATVIA: u32 = 371;
+        const CTRY_LEBANON: u32 = 961;
+        const CTRY_LIBYA: u32 = 218;
+        const CTRY_LIECHTENSTEIN: u32 = 41;
+        const CTRY_LITHUANIA: u32 = 370;
+        const CTRY_LUXEMBOURG: u32 = 352;
+        const CTRY_MACAU: u32 = 853;
+        const CTRY_MACEDONIA: u32 = 389;
+        const CTRY_MALAYSIA: u32 = 60;
+        const CTRY_MALDIVES: u32 = 960;
+        const CTRY_MEXICO: u32 = 52;
+        const CTRY_MONACO: u32 = 33;
+        const CTRY_MONGOLIA: u32 = 976;
+        const CTRY_MOROCCO: u32 = 212;
+        const CTRY_NETHERLANDS: u32 = 31;
+        const CTRY_NEW_ZEALAND: u32 = 64;
+        const CTRY_NICARAGUA: u32 = 505;
+        const CTRY_NORWAY: u32 = 47;
+        const CTRY_OMAN: u32 = 968;
+        const CTRY_PAKISTAN: u32 = 92;
+        const CTRY_PANAMA: u32 = 507;
+        const CTRY_PARAGUAY: u32 = 595;
+        const CTRY_PERU: u32 = 51;
+        const CTRY_PHILIPPINES: u32 = 63;
+        const CTRY_POLAND: u32 = 48;
+        const CTRY_PORTUGAL: u32 = 351;
+        const CTRY_PRCHINA: u32 = 86;
+        const CTRY_PUERTO_RICO: u32 = 1;
+        const CTRY_QATAR: u32 = 974;
+        const CTRY_ROMANIA: u32 = 40;
+        const CTRY_RUSSIA: u32 = 7;
+        const CTRY_SAUDI_ARABIA: u32 = 966;
+        const CTRY_SERBIA: u32 = 381;
+        const CTRY_SINGAPORE: u32 = 65;
+        const CTRY_SLOVAK: u32 = 421;
+        const CTRY_SLOVENIA: u32 = 386;
+        const CTRY_SOUTH_AFRICA: u32 = 27;
+        const CTRY_SOUTH_KOREA: u32 = 82;
+        const CTRY_SPAIN: u32 = 34;
+        const CTRY_SWEDEN: u32 = 46;
+        const CTRY_SWITZERLAND: u32 = 41;
+        const CTRY_SYRIA: u32 = 963;
+        const CTRY_TAIWAN: u32 = 886;
+        const CTRY_TATARSTAN: u32 = 7;
+        const CTRY_THAILAND: u32 = 66;
+        const CTRY_TRINIDAD_Y_TOBAGO: u32 = 1;
+        const CTRY_TUNISIA: u32 = 216;
+        const CTRY_TURKEY: u32 = 90;
+        const CTRY_UAE: u32 = 971;
+        const CTRY_UKRAINE: u32 = 380;
+        const CTRY_UNITED_KINGDOM: u32 = 44;
+        const CTRY_UNITED_STATES: u32 = 1;
+        const CTRY_URUGUAY: u32 = 598;
+        const CTRY_UZBEKISTAN: u32 = 7;
+        const CTRY_VENEZUELA: u32 = 58;
+        const CTRY_VIET_NAM: u32 = 84;
+        const CTRY_YEMEN: u32 = 967;
+        const CTRY_ZIMBABWE: u32 = 263;
+        const CT_CTYPE1: u32 = 1;
+        const CT_CTYPE2: u32 = 2;
+        const CT_CTYPE3: u32 = 4;
+        type CURRENCYFMT = CURRENCYFMTA;
+        struct CURRENCYFMTA {
+            NumDigits: u32,
+            LeadingZero: u32,
+            Grouping: u32,
+            lpDecimalSep: PSTR,
+            lpThousandSep: PSTR,
+            NegativeOrder: u32,
+            PositiveOrder: u32,
+            lpCurrencySymbol: PSTR,
+        }
+        struct CURRENCYFMTW {
+            NumDigits: u32,
+            LeadingZero: u32,
+            Grouping: u32,
+            lpDecimalSep: PWSTR,
+            lpThousandSep: PWSTR,
+            NegativeOrder: u32,
+            PositiveOrder: u32,
+            lpCurrencySymbol: PWSTR,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn CompareStringA(Locale: LCID, dwCmpFlags: u32, #[len_param(3)] lpString1: *const i8, cchCount1: i32, #[len_param(5)] lpString2: *const i8, cchCount2: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn ConvertDefaultLocale(Locale: LCID) -> LCID;
+        extern fn DATEFMT_ENUMPROCA(param0: PSTR) -> BOOL;
+        extern fn DATEFMT_ENUMPROCEXA(param0: PSTR, param1: CALID) -> BOOL;
+        extern fn DATEFMT_ENUMPROCEXEX(param0: PWSTR, param1: CALID, param2: LPARAM) -> BOOL;
+        extern fn DATEFMT_ENUMPROCEXW(param0: PWSTR, param1: CALID) -> BOOL;
+        extern fn DATEFMT_ENUMPROCW(param0: PWSTR) -> BOOL;
+        const DATE_AUTOLAYOUT: u32 = 64;
+        const DATE_LONGDATE: u32 = 2;
+        const DATE_LTRREADING: u32 = 16;
+        const DATE_MONTHDAY: u32 = 128;
+        const DATE_RTLREADING: u32 = 32;
+        const DATE_SHORTDATE: u32 = 1;
+        const DATE_USE_ALT_CALENDAR: u32 = 4;
+        const DATE_YEARMONTH: u32 = 8;
+        const ENUM_ALL_CALENDARS: u32 = 4294967295;
+        #[library("KERNEL32.dll")]
+        extern fn EnumCalendarInfoA(lpCalInfoEnumProc: CALINFO_ENUMPROCA, Locale: LCID, Calendar: CALID, CalType: CALTYPE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumCalendarInfoExA(lpCalInfoEnumProcEx: CALINFO_ENUMPROCEXA, Locale: LCID, Calendar: CALID, CalType: CALTYPE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumCalendarInfoExEx(pCalInfoEnumProcExEx: CALINFO_ENUMPROCEXEX, #[opt] lpLocaleName: PCWSTR, Calendar: CALID, #[opt] lpReserved: PCWSTR, CalType: CALTYPE, lParam: LPARAM) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumCalendarInfoExW(lpCalInfoEnumProcEx: CALINFO_ENUMPROCEXW, Locale: LCID, Calendar: CALID, CalType: CALTYPE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumCalendarInfoW(lpCalInfoEnumProc: CALINFO_ENUMPROCW, Locale: LCID, Calendar: CALID, CalType: CALTYPE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumDateFormatsA(lpDateFmtEnumProc: DATEFMT_ENUMPROCA, Locale: LCID, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumDateFormatsExA(lpDateFmtEnumProcEx: DATEFMT_ENUMPROCEXA, Locale: LCID, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumDateFormatsExEx(lpDateFmtEnumProcExEx: DATEFMT_ENUMPROCEXEX, #[opt] lpLocaleName: PCWSTR, dwFlags: u32, lParam: LPARAM) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumDateFormatsExW(lpDateFmtEnumProcEx: DATEFMT_ENUMPROCEXW, Locale: LCID, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumDateFormatsW(lpDateFmtEnumProc: DATEFMT_ENUMPROCW, Locale: LCID, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumLanguageGroupLocalesA(lpLangGroupLocaleEnumProc: LANGGROUPLOCALE_ENUMPROCA, LanguageGroup: LGRPID, dwFlags: u32, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumLanguageGroupLocalesW(lpLangGroupLocaleEnumProc: LANGGROUPLOCALE_ENUMPROCW, LanguageGroup: LGRPID, dwFlags: u32, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumSystemCodePagesA(lpCodePageEnumProc: CODEPAGE_ENUMPROCA, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumSystemCodePagesW(lpCodePageEnumProc: CODEPAGE_ENUMPROCW, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumSystemGeoID(GeoClass: GEOCLASS, ParentGeoId: GEOID, lpGeoEnumProc: GEO_ENUMPROC) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumSystemGeoNames(geoClass: GEOCLASS, geoEnumProc: GEO_ENUMNAMEPROC, #[opt] data: LPARAM) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumSystemLanguageGroupsA(lpLanguageGroupEnumProc: LANGUAGEGROUP_ENUMPROCA, dwFlags: u32, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumSystemLanguageGroupsW(lpLanguageGroupEnumProc: LANGUAGEGROUP_ENUMPROCW, dwFlags: u32, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumSystemLocalesA(lpLocaleEnumProc: LOCALE_ENUMPROCA, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumSystemLocalesEx(lpLocaleEnumProcEx: LOCALE_ENUMPROCEX, dwFlags: u32, lParam: LPARAM, #[opt] lpReserved: *const void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumSystemLocalesW(lpLocaleEnumProc: LOCALE_ENUMPROCW, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumTimeFormatsA(lpTimeFmtEnumProc: TIMEFMT_ENUMPROCA, Locale: LCID, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumTimeFormatsEx(lpTimeFmtEnumProcEx: TIMEFMT_ENUMPROCEX, #[opt] lpLocaleName: PCWSTR, dwFlags: u32, lParam: LPARAM) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumTimeFormatsW(lpTimeFmtEnumProc: TIMEFMT_ENUMPROCW, Locale: LCID, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumUILanguagesA(lpUILanguageEnumProc: UILANGUAGE_ENUMPROCA, dwFlags: u32, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumUILanguagesW(lpUILanguageEnumProc: UILANGUAGE_ENUMPROCW, dwFlags: u32, lParam: isize) -> BOOL;
+        struct FILEMUIINFO {
+            dwSize: u32,
+            dwVersion: u32,
+            dwFileType: u32,
+            pChecksum: [u8; 16],
+            pServiceChecksum: [u8; 16],
+            dwLanguageNameOffset: u32,
+            dwTypeIDMainSize: u32,
+            dwTypeIDMainOffset: u32,
+            dwTypeNameMainOffset: u32,
+            dwTypeIDMUISize: u32,
+            dwTypeIDMUIOffset: u32,
+            dwTypeNameMUIOffset: u32,
+            abBuffer: [u8; 8],
+        }
+        const FIND_ENDSWITH: u32 = 2097152;
+        const FIND_FROMEND: u32 = 8388608;
+        const FIND_FROMSTART: u32 = 4194304;
+        const FIND_STARTSWITH: u32 = 1048576;
+        #[library("KERNEL32.dll")]
+        extern fn FindNLSString(Locale: LCID, dwFindNLSStringFlags: u32, #[len_param(3)] lpStringSource: PCWSTR, cchSource: i32, #[len_param(5)] lpStringValue: PCWSTR, cchValue: i32, #[opt] pcchFound: *mut i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn FindNLSStringEx(#[opt] lpLocaleName: PCWSTR, dwFindNLSStringFlags: u32, #[len_param(3)] lpStringSource: PCWSTR, cchSource: i32, #[len_param(5)] lpStringValue: PCWSTR, cchValue: i32, #[opt] pcchFound: *mut i32, #[opt] lpVersionInformation: *const NLSVERSIONINFO, #[opt] lpReserved: *const void, #[opt] sortHandle: LPARAM) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn FoldStringA(dwMapFlags: u32, #[len_param(2)] lpSrcStr: PCSTR, cchSrc: i32, #[len_param(4)] #[out] #[opt] lpDestStr: PSTR, cchDest: i32) -> i32;
+        type GEOCLASS = u32;
+        type GEOID = i32;
+        const GEOID_NOT_AVAILABLE: i32 = -1;
+        type GEOTYPE = u32;
+        extern fn GEO_ENUMNAMEPROC(param0: PWSTR, param1: LPARAM) -> BOOL;
+        extern fn GEO_ENUMPROC(param0: GEOID) -> BOOL;
+        const GEO_NAME_USER_DEFAULT: u32 = 0;
+        const GSS_ALLOW_INHERITED_COMMON: u32 = 1;
+        #[library("KERNEL32.dll")]
+        extern fn GetACP() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCPInfo(CodePage: u32, lpCPInfo: *mut CPINFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCPInfoExA(CodePage: u32, dwFlags: u32, lpCPInfoEx: *mut CPINFOEXA) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCPInfoExW(CodePage: u32, dwFlags: u32, lpCPInfoEx: *mut CPINFOEXW) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCalendarInfoA(Locale: LCID, Calendar: CALID, CalType: CALTYPE, #[len_param(4)] #[out] #[opt] lpCalData: PSTR, cchData: i32, #[opt] lpValue: *mut u32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCalendarInfoEx(#[opt] lpLocaleName: PCWSTR, Calendar: CALID, #[opt] lpReserved: PCWSTR, CalType: CALTYPE, #[len_param(5)] #[out] #[opt] lpCalData: PWSTR, cchData: i32, #[opt] lpValue: *mut u32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCalendarInfoW(Locale: LCID, Calendar: CALID, CalType: CALTYPE, #[len_param(4)] #[out] #[opt] lpCalData: PWSTR, cchData: i32, #[opt] lpValue: *mut u32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrencyFormatA(Locale: LCID, dwFlags: u32, lpValue: PCSTR, #[opt] lpFormat: *const CURRENCYFMTA, #[len_param(5)] #[out] #[opt] lpCurrencyStr: PSTR, cchCurrency: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrencyFormatEx(#[opt] lpLocaleName: PCWSTR, dwFlags: u32, lpValue: PCWSTR, #[opt] lpFormat: *const CURRENCYFMTW, #[len_param(5)] #[out] #[opt] lpCurrencyStr: PWSTR, cchCurrency: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrencyFormatW(Locale: LCID, dwFlags: u32, lpValue: PCWSTR, #[opt] lpFormat: *const CURRENCYFMTW, #[len_param(5)] #[out] #[opt] lpCurrencyStr: PWSTR, cchCurrency: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetDurationFormat(Locale: LCID, dwFlags: u32, #[opt] lpDuration: *const SYSTEMTIME, ullDuration: u64, #[opt] lpFormat: PCWSTR, #[len_param(6)] #[out] #[opt] lpDurationStr: PWSTR, cchDuration: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetFileMUIInfo(dwFlags: u32, pcwszFilePath: PCWSTR, #[size_param(3)] #[in] #[out] #[opt] pFileMUIInfo: *mut FILEMUIINFO, #[in] #[out] pcbFileMUIInfo: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetFileMUIPath(dwFlags: u32, pcwszFilePath: PCWSTR, #[len_param(3)] #[in] #[out] #[opt] pwszLanguage: PWSTR, #[in] #[out] pcchLanguage: *mut u32, #[len_param(5)] #[out] #[opt] pwszFileMUIPath: PWSTR, #[in] #[out] pcchFileMUIPath: *mut u32, #[in] #[out] pululEnumerator: *mut u64) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetGeoInfoA(Location: GEOID, GeoType: GEOTYPE, #[len_param(3)] #[out] #[opt] lpGeoData: PSTR, cchData: i32, LangId: LANGID) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetGeoInfoEx(location: PCWSTR, geoType: GEOTYPE, #[len_param(3)] #[out] #[opt] geoData: PWSTR, geoDataCount: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetGeoInfoW(Location: GEOID, GeoType: GEOTYPE, #[len_param(3)] #[out] #[opt] lpGeoData: PWSTR, cchData: i32, LangId: LANGID) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetLocaleInfoA(Locale: LCID, LCType: LCTYPE, #[len_param(3)] #[out] #[opt] lpLCData: PSTR, cchData: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetLocaleInfoEx(#[opt] lpLocaleName: PCWSTR, LCType: LCTYPE, #[len_param(3)] #[out] #[opt] lpLCData: PWSTR, cchData: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetLocaleInfoW(Locale: LCID, LCType: LCTYPE, #[len_param(3)] #[out] #[opt] lpLCData: PWSTR, cchData: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetNLSVersion(Function: NLS_FUNCTION, Locale: LCID, #[in] #[out] lpVersionInformation: *mut NLSVERSIONINFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNLSVersionEx(function: NLS_FUNCTION, #[opt] lpLocaleName: PCWSTR, #[in] #[out] lpVersionInformation: *mut NLSVERSIONINFOEX) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumberFormatA(Locale: LCID, dwFlags: u32, lpValue: PCSTR, #[opt] lpFormat: *const NUMBERFMTA, #[len_param(5)] #[out] #[opt] lpNumberStr: PSTR, cchNumber: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumberFormatEx(#[opt] lpLocaleName: PCWSTR, dwFlags: u32, lpValue: PCWSTR, #[opt] lpFormat: *const NUMBERFMTW, #[len_param(5)] #[out] #[opt] lpNumberStr: PWSTR, cchNumber: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumberFormatW(Locale: LCID, dwFlags: u32, lpValue: PCWSTR, #[opt] lpFormat: *const NUMBERFMTW, #[len_param(5)] #[out] #[opt] lpNumberStr: PWSTR, cchNumber: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetOEMCP() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessPreferredUILanguages(dwFlags: u32, pulNumLanguages: *mut u32, #[len_param(3)] #[opt] pwszLanguagesBuffer: *mut u16, #[in] #[out] pcchLanguagesBuffer: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetStringScripts(dwFlags: u32, lpString: PCWSTR, cchString: i32, #[len_param(4)] #[out] #[opt] lpScripts: PWSTR, cchScripts: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetStringTypeA(Locale: LCID, dwInfoType: u32, #[len_param(3)] lpSrcStr: PCSTR, cchSrc: i32, lpCharType: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetStringTypeExA(Locale: LCID, dwInfoType: u32, #[len_param(3)] lpSrcStr: PCSTR, cchSrc: i32, #[len_param(3)] lpCharType: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemDefaultLCID() -> LCID;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemDefaultLangID() -> LANGID;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemDefaultLocaleName(#[len_param(1)] #[out] lpLocaleName: PWSTR, cchLocaleName: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemDefaultUILanguage() -> LANGID;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemPreferredUILanguages(dwFlags: u32, pulNumLanguages: *mut u32, #[len_param(3)] #[opt] pwszLanguagesBuffer: *mut u16, #[in] #[out] pcchLanguagesBuffer: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadLocale() -> LCID;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadPreferredUILanguages(dwFlags: u32, pulNumLanguages: *mut u32, #[len_param(3)] #[opt] pwszLanguagesBuffer: *mut u16, #[in] #[out] pcchLanguagesBuffer: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadUILanguage() -> LANGID;
+        #[library("KERNEL32.dll")]
+        extern fn GetUILanguageInfo(dwFlags: u32, pwmszLanguage: *const u16, #[len_param(3)] #[opt] pwszFallbackLanguages: *mut u16, #[in] #[out] #[opt] pcchFallbackLanguages: *mut u32, pAttributes: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetUserDefaultGeoName(#[len_param(1)] #[out] geoName: PWSTR, geoNameCount: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetUserDefaultLCID() -> LCID;
+        #[library("KERNEL32.dll")]
+        extern fn GetUserDefaultLangID() -> LANGID;
+        #[library("KERNEL32.dll")]
+        extern fn GetUserDefaultLocaleName(#[len_param(1)] #[out] lpLocaleName: PWSTR, cchLocaleName: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetUserDefaultUILanguage() -> LANGID;
+        #[library("KERNEL32.dll")]
+        extern fn GetUserGeoID(GeoClass: GEOCLASS) -> GEOID;
+        #[library("KERNEL32.dll")]
+        extern fn GetUserPreferredUILanguages(dwFlags: u32, pulNumLanguages: *mut u32, #[len_param(3)] #[opt] pwszLanguagesBuffer: *mut u16, #[in] #[out] pcchLanguagesBuffer: *mut u32) -> BOOL;
+        const HIGH_SURROGATE_END: u32 = 56319;
+        const HIGH_SURROGATE_START: u32 = 55296;
+        type HSAVEDUILANGUAGES = *mut void;
+        const IDN_ALLOW_UNASSIGNED: u32 = 1;
+        const IDN_EMAIL_ADDRESS: u32 = 4;
+        const IDN_RAW_PUNYCODE: u32 = 8;
+        const IDN_USE_STD3_ASCII_RULES: u32 = 2;
+        #[library("Normaliz.dll")]
+        extern fn IdnToAscii(dwFlags: u32, #[len_param(2)] lpUnicodeCharStr: PCWSTR, cchUnicodeChar: i32, #[len_param(4)] #[out] #[opt] lpASCIICharStr: PWSTR, cchASCIIChar: i32) -> i32;
+        #[library("Normaliz.dll")]
+        extern fn IdnToNameprepUnicode(dwFlags: u32, #[len_param(2)] lpUnicodeCharStr: PCWSTR, cchUnicodeChar: i32, #[len_param(4)] #[out] #[opt] lpNameprepCharStr: PWSTR, cchNameprepChar: i32) -> i32;
+        #[library("Normaliz.dll")]
+        extern fn IdnToUnicode(dwFlags: u32, #[len_param(2)] lpASCIICharStr: PCWSTR, cchASCIIChar: i32, #[len_param(4)] #[out] #[opt] lpUnicodeCharStr: PWSTR, cchUnicodeChar: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn IsDBCSLeadByte(TestChar: u8) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsDBCSLeadByteEx(CodePage: u32, TestChar: u8) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsNLSDefinedString(Function: NLS_FUNCTION, dwFlags: u32, lpVersionInformation: *const NLSVERSIONINFO, #[len_param(4)] lpString: PCWSTR, cchStr: i32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsNormalizedString(NormForm: NORM_FORM, #[len_param(2)] lpString: PCWSTR, cwLength: i32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsValidCodePage(CodePage: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsValidLanguageGroup(LanguageGroup: LGRPID, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsValidLocale(Locale: LCID, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsValidLocaleName(lpLocaleName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsValidNLSVersion(function: NLS_FUNCTION, #[opt] lpLocaleName: PCWSTR, lpVersionInformation: *const NLSVERSIONINFOEX) -> u32;
+        extern fn LANGGROUPLOCALE_ENUMPROCA(param0: LGRPID, param1: LCID, param2: PSTR, param3: isize) -> BOOL;
+        extern fn LANGGROUPLOCALE_ENUMPROCW(param0: LGRPID, param1: LCID, param2: PWSTR, param3: isize) -> BOOL;
+        extern fn LANGUAGEGROUP_ENUMPROCA(param0: LGRPID, param1: PSTR, param2: PSTR, param3: u32, param4: isize) -> BOOL;
+        extern fn LANGUAGEGROUP_ENUMPROCW(param0: LGRPID, param1: PWSTR, param2: PWSTR, param3: u32, param4: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn LCIDToLocaleName(Locale: LCID, #[len_param(2)] #[out] #[opt] lpName: PWSTR, cchName: i32, dwFlags: u32) -> i32;
+        const LCID_ALTERNATE_SORTS: u32 = 4;
+        const LCID_INSTALLED: u32 = 1;
+        const LCID_SUPPORTED: u32 = 2;
+        const LCMAP_BYTEREV: u32 = 2048;
+        const LCMAP_FULLWIDTH: u32 = 8388608;
+        const LCMAP_HALFWIDTH: u32 = 4194304;
+        const LCMAP_HASH: u32 = 262144;
+        const LCMAP_HIRAGANA: u32 = 1048576;
+        const LCMAP_KATAKANA: u32 = 2097152;
+        const LCMAP_LINGUISTIC_CASING: u32 = 16777216;
+        const LCMAP_LOWERCASE: u32 = 256;
+        const LCMAP_SIMPLIFIED_CHINESE: u32 = 33554432;
+        const LCMAP_SORTHANDLE: u32 = 536870912;
+        const LCMAP_SORTKEY: u32 = 1024;
+        const LCMAP_TITLECASE: u32 = 768;
+        const LCMAP_TRADITIONAL_CHINESE: u32 = 67108864;
+        const LCMAP_UPPERCASE: u32 = 512;
+        #[library("KERNEL32.dll")]
+        extern fn LCMapStringA(Locale: LCID, dwMapFlags: u32, #[len_param(3)] lpSrcStr: PCSTR, cchSrc: i32, #[out] #[opt] lpDestStr: PSTR, cchDest: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn LCMapStringEx(#[opt] lpLocaleName: PCWSTR, dwMapFlags: u32, #[len_param(3)] lpSrcStr: PCWSTR, cchSrc: i32, #[len_param(5)] #[out] #[opt] lpDestStr: PWSTR, cchDest: i32, #[opt] lpVersionInformation: *const NLSVERSIONINFO, #[opt] lpReserved: *const void, #[opt] sortHandle: LPARAM) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn LCMapStringW(Locale: LCID, dwMapFlags: u32, #[len_param(3)] lpSrcStr: PCWSTR, cchSrc: i32, #[out] #[opt] lpDestStr: PWSTR, cchDest: i32) -> i32;
+        type LCTYPE = u32;
+        type LGRPID = u32;
+        const LGRPID_ARABIC: u32 = 13;
+        const LGRPID_ARMENIAN: u32 = 17;
+        const LGRPID_BALTIC: u32 = 3;
+        const LGRPID_CENTRAL_EUROPE: u32 = 2;
+        const LGRPID_CYRILLIC: u32 = 5;
+        const LGRPID_GEORGIAN: u32 = 16;
+        const LGRPID_GREEK: u32 = 4;
+        const LGRPID_HEBREW: u32 = 12;
+        const LGRPID_INDIC: u32 = 15;
+        const LGRPID_INSTALLED: u32 = 1;
+        const LGRPID_JAPANESE: u32 = 7;
+        const LGRPID_KOREAN: u32 = 8;
+        const LGRPID_SIMPLIFIED_CHINESE: u32 = 10;
+        const LGRPID_SUPPORTED: u32 = 2;
+        const LGRPID_THAI: u32 = 11;
+        const LGRPID_TRADITIONAL_CHINESE: u32 = 9;
+        const LGRPID_TURKIC: u32 = 6;
+        const LGRPID_TURKISH: u32 = 6;
+        const LGRPID_VIETNAMESE: u32 = 14;
+        const LGRPID_WESTERN_EUROPE: u32 = 1;
+        const LINGUISTIC_IGNORECASE: u32 = 16;
+        const LINGUISTIC_IGNOREDIACRITIC: u32 = 32;
+        const LOCALE_ALL: u32 = 0;
+        const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728;
+        const LOCALE_ALTERNATE_SORTS: u32 = 4;
+        extern fn LOCALE_ENUMPROCA(param0: PSTR) -> BOOL;
+        extern fn LOCALE_ENUMPROCEX(param0: PWSTR, param1: u32, param2: LPARAM) -> BOOL;
+        extern fn LOCALE_ENUMPROCW(param0: PWSTR) -> BOOL;
+        const LOCALE_FONTSIGNATURE: u32 = 88;
+        const LOCALE_ICALENDARTYPE: u32 = 4105;
+        const LOCALE_ICENTURY: u32 = 36;
+        const LOCALE_ICONSTRUCTEDLOCALE: u32 = 125;
+        const LOCALE_ICOUNTRY: u32 = 5;
+        const LOCALE_ICURRDIGITS: u32 = 25;
+        const LOCALE_ICURRENCY: u32 = 27;
+        const LOCALE_IDATE: u32 = 33;
+        const LOCALE_IDAYLZERO: u32 = 38;
+        const LOCALE_IDEFAULTANSICODEPAGE: u32 = 4100;
+        const LOCALE_IDEFAULTCODEPAGE: u32 = 11;
+        const LOCALE_IDEFAULTCOUNTRY: u32 = 10;
+        const LOCALE_IDEFAULTEBCDICCODEPAGE: u32 = 4114;
+        const LOCALE_IDEFAULTLANGUAGE: u32 = 9;
+        const LOCALE_IDEFAULTMACCODEPAGE: u32 = 4113;
+        const LOCALE_IDIALINGCODE: u32 = 5;
+        const LOCALE_IDIGITS: u32 = 17;
+        const LOCALE_IDIGITSUBSTITUTION: u32 = 4116;
+        const LOCALE_IFIRSTDAYOFWEEK: u32 = 4108;
+        const LOCALE_IFIRSTWEEKOFYEAR: u32 = 4109;
+        const LOCALE_IGEOID: u32 = 91;
+        const LOCALE_IINTLCURRDIGITS: u32 = 26;
+        const LOCALE_ILANGUAGE: u32 = 1;
+        const LOCALE_ILDATE: u32 = 34;
+        const LOCALE_ILZERO: u32 = 18;
+        const LOCALE_IMEASURE: u32 = 13;
+        const LOCALE_IMONLZERO: u32 = 39;
+        const LOCALE_INEGATIVEPERCENT: u32 = 116;
+        const LOCALE_INEGCURR: u32 = 28;
+        const LOCALE_INEGNUMBER: u32 = 4112;
+        const LOCALE_INEGSEPBYSPACE: u32 = 87;
+        const LOCALE_INEGSIGNPOSN: u32 = 83;
+        const LOCALE_INEGSYMPRECEDES: u32 = 86;
+        const LOCALE_INEUTRAL: u32 = 113;
+        const LOCALE_IOPTIONALCALENDAR: u32 = 4107;
+        const LOCALE_IPAPERSIZE: u32 = 4106;
+        const LOCALE_IPOSITIVEPERCENT: u32 = 117;
+        const LOCALE_IPOSSEPBYSPACE: u32 = 85;
+        const LOCALE_IPOSSIGNPOSN: u32 = 82;
+        const LOCALE_IPOSSYMPRECEDES: u32 = 84;
+        const LOCALE_IREADINGLAYOUT: u32 = 112;
+        const LOCALE_ITIME: u32 = 35;
+        const LOCALE_ITIMEMARKPOSN: u32 = 4101;
+        const LOCALE_ITLZERO: u32 = 37;
+        const LOCALE_IUSEUTF8LEGACYACP: u32 = 1638;
+        const LOCALE_IUSEUTF8LEGACYOEMCP: u32 = 2457;
+        #[encoding("utf-16")]
+        const LOCALE_NAME_INVARIANT: String = "";
+        #[encoding("utf-16")]
+        const LOCALE_NAME_SYSTEM_DEFAULT: String = "!x-sys-default-locale";
+        const LOCALE_NAME_USER_DEFAULT: u32 = 0;
+        const LOCALE_NEUTRALDATA: u32 = 16;
+        const LOCALE_NOUSEROVERRIDE: u32 = 2147483648;
+        const LOCALE_REPLACEMENT: u32 = 8;
+        const LOCALE_RETURN_GENITIVE_NAMES: u32 = 268435456;
+        const LOCALE_RETURN_NUMBER: u32 = 536870912;
+        const LOCALE_S1159: u32 = 40;
+        const LOCALE_S2359: u32 = 41;
+        const LOCALE_SABBREVCTRYNAME: u32 = 7;
+        const LOCALE_SABBREVDAYNAME1: u32 = 49;
+        const LOCALE_SABBREVDAYNAME2: u32 = 50;
+        const LOCALE_SABBREVDAYNAME3: u32 = 51;
+        const LOCALE_SABBREVDAYNAME4: u32 = 52;
+        const LOCALE_SABBREVDAYNAME5: u32 = 53;
+        const LOCALE_SABBREVDAYNAME6: u32 = 54;
+        const LOCALE_SABBREVDAYNAME7: u32 = 55;
+        const LOCALE_SABBREVLANGNAME: u32 = 3;
+        const LOCALE_SABBREVMONTHNAME1: u32 = 68;
+        const LOCALE_SABBREVMONTHNAME10: u32 = 77;
+        const LOCALE_SABBREVMONTHNAME11: u32 = 78;
+        const LOCALE_SABBREVMONTHNAME12: u32 = 79;
+        const LOCALE_SABBREVMONTHNAME13: u32 = 4111;
+        const LOCALE_SABBREVMONTHNAME2: u32 = 69;
+        const LOCALE_SABBREVMONTHNAME3: u32 = 70;
+        const LOCALE_SABBREVMONTHNAME4: u32 = 71;
+        const LOCALE_SABBREVMONTHNAME5: u32 = 72;
+        const LOCALE_SABBREVMONTHNAME6: u32 = 73;
+        const LOCALE_SABBREVMONTHNAME7: u32 = 74;
+        const LOCALE_SABBREVMONTHNAME8: u32 = 75;
+        const LOCALE_SABBREVMONTHNAME9: u32 = 76;
+        const LOCALE_SAM: u32 = 40;
+        const LOCALE_SCONSOLEFALLBACKNAME: u32 = 110;
+        const LOCALE_SCOUNTRY: u32 = 6;
+        const LOCALE_SCURRENCY: u32 = 20;
+        const LOCALE_SDATE: u32 = 29;
+        const LOCALE_SDAYNAME1: u32 = 42;
+        const LOCALE_SDAYNAME2: u32 = 43;
+        const LOCALE_SDAYNAME3: u32 = 44;
+        const LOCALE_SDAYNAME4: u32 = 45;
+        const LOCALE_SDAYNAME5: u32 = 46;
+        const LOCALE_SDAYNAME6: u32 = 47;
+        const LOCALE_SDAYNAME7: u32 = 48;
+        const LOCALE_SDECIMAL: u32 = 14;
+        const LOCALE_SDURATION: u32 = 93;
+        const LOCALE_SENGCOUNTRY: u32 = 4098;
+        const LOCALE_SENGCURRNAME: u32 = 4103;
+        const LOCALE_SENGLANGUAGE: u32 = 4097;
+        const LOCALE_SENGLISHCOUNTRYNAME: u32 = 4098;
+        const LOCALE_SENGLISHDISPLAYNAME: u32 = 114;
+        const LOCALE_SENGLISHLANGUAGENAME: u32 = 4097;
+        const LOCALE_SGROUPING: u32 = 16;
+        const LOCALE_SINTLSYMBOL: u32 = 21;
+        const LOCALE_SISO3166CTRYNAME: u32 = 90;
+        const LOCALE_SISO3166CTRYNAME2: u32 = 104;
+        const LOCALE_SISO639LANGNAME: u32 = 89;
+        const LOCALE_SISO639LANGNAME2: u32 = 103;
+        const LOCALE_SKEYBOARDSTOINSTALL: u32 = 94;
+        const LOCALE_SLANGDISPLAYNAME: u32 = 111;
+        const LOCALE_SLANGUAGE: u32 = 2;
+        const LOCALE_SLIST: u32 = 12;
+        const LOCALE_SLOCALIZEDCOUNTRYNAME: u32 = 6;
+        const LOCALE_SLOCALIZEDDISPLAYNAME: u32 = 2;
+        const LOCALE_SLOCALIZEDLANGUAGENAME: u32 = 111;
+        const LOCALE_SLONGDATE: u32 = 32;
+        const LOCALE_SMONDECIMALSEP: u32 = 22;
+        const LOCALE_SMONGROUPING: u32 = 24;
+        const LOCALE_SMONTHDAY: u32 = 120;
+        const LOCALE_SMONTHNAME1: u32 = 56;
+        const LOCALE_SMONTHNAME10: u32 = 65;
+        const LOCALE_SMONTHNAME11: u32 = 66;
+        const LOCALE_SMONTHNAME12: u32 = 67;
+        const LOCALE_SMONTHNAME13: u32 = 4110;
+        const LOCALE_SMONTHNAME2: u32 = 57;
+        const LOCALE_SMONTHNAME3: u32 = 58;
+        const LOCALE_SMONTHNAME4: u32 = 59;
+        const LOCALE_SMONTHNAME5: u32 = 60;
+        const LOCALE_SMONTHNAME6: u32 = 61;
+        const LOCALE_SMONTHNAME7: u32 = 62;
+        const LOCALE_SMONTHNAME8: u32 = 63;
+        const LOCALE_SMONTHNAME9: u32 = 64;
+        const LOCALE_SMONTHOUSANDSEP: u32 = 23;
+        const LOCALE_SNAME: u32 = 92;
+        const LOCALE_SNAN: u32 = 105;
+        const LOCALE_SNATIVECOUNTRYNAME: u32 = 8;
+        const LOCALE_SNATIVECTRYNAME: u32 = 8;
+        const LOCALE_SNATIVECURRNAME: u32 = 4104;
+        const LOCALE_SNATIVEDIGITS: u32 = 19;
+        const LOCALE_SNATIVEDISPLAYNAME: u32 = 115;
+        const LOCALE_SNATIVELANGNAME: u32 = 4;
+        const LOCALE_SNATIVELANGUAGENAME: u32 = 4;
+        const LOCALE_SNEGATIVESIGN: u32 = 81;
+        const LOCALE_SNEGINFINITY: u32 = 107;
+        const LOCALE_SOPENTYPELANGUAGETAG: u32 = 122;
+        const LOCALE_SPARENT: u32 = 109;
+        const LOCALE_SPECIFICDATA: u32 = 32;
+        const LOCALE_SPERCENT: u32 = 118;
+        const LOCALE_SPERMILLE: u32 = 119;
+        const LOCALE_SPM: u32 = 41;
+        const LOCALE_SPOSINFINITY: u32 = 106;
+        const LOCALE_SPOSITIVESIGN: u32 = 80;
+        const LOCALE_SRELATIVELONGDATE: u32 = 124;
+        const LOCALE_SSCRIPTS: u32 = 108;
+        const LOCALE_SSHORTDATE: u32 = 31;
+        const LOCALE_SSHORTESTAM: u32 = 126;
+        const LOCALE_SSHORTESTDAYNAME1: u32 = 96;
+        const LOCALE_SSHORTESTDAYNAME2: u32 = 97;
+        const LOCALE_SSHORTESTDAYNAME3: u32 = 98;
+        const LOCALE_SSHORTESTDAYNAME4: u32 = 99;
+        const LOCALE_SSHORTESTDAYNAME5: u32 = 100;
+        const LOCALE_SSHORTESTDAYNAME6: u32 = 101;
+        const LOCALE_SSHORTESTDAYNAME7: u32 = 102;
+        const LOCALE_SSHORTESTPM: u32 = 127;
+        const LOCALE_SSHORTTIME: u32 = 121;
+        const LOCALE_SSORTLOCALE: u32 = 123;
+        const LOCALE_SSORTNAME: u32 = 4115;
+        const LOCALE_STHOUSAND: u32 = 15;
+        const LOCALE_STIME: u32 = 30;
+        const LOCALE_STIMEFORMAT: u32 = 4099;
+        const LOCALE_SUPPLEMENTAL: u32 = 2;
+        const LOCALE_SYEARMONTH: u32 = 4102;
+        const LOCALE_USE_CP_ACP: u32 = 1073741824;
+        const LOCALE_WINDOWS: u32 = 1;
+        const LOW_SURROGATE_END: u32 = 57343;
+        const LOW_SURROGATE_START: u32 = 56320;
+        type LPCPINFO = *mut CPINFO;
+        type LPCPINFOEX = LPCPINFOEXA;
+        type LPCPINFOEXA = *mut CPINFOEXA;
+        type LPCPINFOEXW = *mut CPINFOEXW;
+        type LPCURRENCYFMT = LPCURRENCYFMTA;
+        type LPCURRENCYFMTA = *mut CURRENCYFMTA;
+        type LPCURRENCYFMTW = *mut CURRENCYFMTW;
+        type LPNLSVERSIONINFO = *mut NLSVERSIONINFO;
+        type LPNLSVERSIONINFOEX = *mut NLSVERSIONINFOEX;
+        type LPNUMBERFMT = LPNUMBERFMTA;
+        type LPNUMBERFMTA = *mut NUMBERFMTA;
+        type LPNUMBERFMTW = *mut NUMBERFMTW;
+        #[library("KERNEL32.dll")]
+        extern fn LocaleNameToLCID(lpName: PCWSTR, dwFlags: u32) -> LCID;
+        const MAP_COMPOSITE: u32 = 64;
+        const MAP_EXPAND_LIGATURES: u32 = 8192;
+        const MAP_FOLDCZONE: u32 = 16;
+        const MAP_FOLDDIGITS: u32 = 128;
+        const MAP_PRECOMPOSED: u32 = 32;
+        const MAX_DEFAULTCHAR: u32 = 2;
+        const MAX_LEADBYTES: u32 = 12;
+        const MB_COMPOSITE: u32 = 2;
+        const MB_ERR_INVALID_CHARS: u32 = 8;
+        const MB_PRECOMPOSED: u32 = 1;
+        const MB_USEGLYPHCHARS: u32 = 4;
+        const MUI_COMPLEX_SCRIPT_FILTER: u32 = 512;
+        const MUI_CONSOLE_FILTER: u32 = 256;
+        const MUI_FILEINFO_VERSION: u32 = 1;
+        const MUI_FILETYPE_LANGUAGE_NEUTRAL_MAIN: u32 = 2;
+        const MUI_FILETYPE_LANGUAGE_NEUTRAL_MUI: u32 = 4;
+        const MUI_FILETYPE_NOT_LANGUAGE_NEUTRAL: u32 = 1;
+        const MUI_FORMAT_INF_COMPAT: u32 = 2;
+        const MUI_FORMAT_REG_COMPAT: u32 = 1;
+        const MUI_FULL_LANGUAGE: u32 = 1;
+        const MUI_IMMUTABLE_LOOKUP: u32 = 16;
+        const MUI_LANGUAGE_ID: u32 = 4;
+        const MUI_LANGUAGE_INSTALLED: u32 = 32;
+        const MUI_LANGUAGE_LICENSED: u32 = 64;
+        const MUI_LANGUAGE_NAME: u32 = 8;
+        const MUI_LANG_NEUTRAL_PE_FILE: u32 = 256;
+        const MUI_LIP_LANGUAGE: u32 = 4;
+        const MUI_MACHINE_LANGUAGE_SETTINGS: u32 = 1024;
+        const MUI_MERGE_SYSTEM_FALLBACK: u32 = 16;
+        const MUI_MERGE_USER_FALLBACK: u32 = 32;
+        const MUI_NON_LANG_NEUTRAL_FILE: u32 = 512;
+        const MUI_PARTIAL_LANGUAGE: u32 = 2;
+        const MUI_QUERY_CHECKSUM: u32 = 2;
+        const MUI_QUERY_LANGUAGE_NAME: u32 = 4;
+        const MUI_QUERY_RESOURCE_TYPES: u32 = 8;
+        const MUI_QUERY_TYPE: u32 = 1;
+        const MUI_RESET_FILTERS: u32 = 1;
+        const MUI_SKIP_STRING_CACHE: u32 = 8;
+        const MUI_THREAD_LANGUAGES: u32 = 64;
+        const MUI_UI_FALLBACK: u32 = 48;
+        const MUI_USER_PREFERRED_UI_LANGUAGES: u32 = 16;
+        const MUI_USE_INSTALLED_LANGUAGES: u32 = 32;
+        const MUI_USE_SEARCH_ALL_LANGUAGES: u32 = 64;
+        const MUI_VERIFY_FILE_EXISTS: u32 = 4;
+        struct NLSVERSIONINFO {
+            dwNLSVersionInfoSize: u32,
+            dwNLSVersion: u32,
+            dwDefinedVersion: u32,
+            dwEffectiveId: u32,
+            guidCustomVersion: GUID,
+        }
+        struct NLSVERSIONINFOEX {
+            dwNLSVersionInfoSize: u32,
+            dwNLSVersion: u32,
+            dwDefinedVersion: u32,
+            dwEffectiveId: u32,
+            guidCustomVersion: GUID,
+        }
+        type NLS_FUNCTION = u32;
+        #[repr(i32)]
+        enum NORM_FORM {
+            NormalizationOther = 0,
+            NormalizationC = 1,
+            NormalizationD = 2,
+            NormalizationKC = 5,
+            NormalizationKD = 6,
+        }
+        const NORM_IGNORECASE: u32 = 1;
+        const NORM_IGNOREKANATYPE: u32 = 65536;
+        const NORM_IGNORENONSPACE: u32 = 2;
+        const NORM_IGNORESYMBOLS: u32 = 4;
+        const NORM_IGNOREWIDTH: u32 = 131072;
+        const NORM_LINGUISTIC_CASING: u32 = 134217728;
+        type NUMBERFMT = NUMBERFMTA;
+        struct NUMBERFMTA {
+            NumDigits: u32,
+            LeadingZero: u32,
+            Grouping: u32,
+            lpDecimalSep: PSTR,
+            lpThousandSep: PSTR,
+            NegativeOrder: u32,
+        }
+        struct NUMBERFMTW {
+            NumDigits: u32,
+            LeadingZero: u32,
+            Grouping: u32,
+            lpDecimalSep: PWSTR,
+            lpThousandSep: PWSTR,
+            NegativeOrder: u32,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn NormalizeString(NormForm: NORM_FORM, #[len_param(2)] lpSrcString: PCWSTR, cwSrcLength: i32, #[len_param(4)] #[out] #[opt] lpDstString: PWSTR, cwDstLength: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn NotifyUILanguageChange(dwFlags: u32, #[opt] pcwstrNewLanguage: PCWSTR, #[opt] pcwstrPreviousLanguage: PCWSTR, dwReserved: u32, #[opt] pdwStatusRtrn: *mut u32) -> BOOL;
+        type PFILEMUIINFO = *mut FILEMUIINFO;
+        #[library("KERNEL32.dll")]
+        extern fn ResolveLocaleName(#[opt] lpNameToResolve: PCWSTR, #[len_param(2)] #[out] #[opt] lpLocaleName: PWSTR, cchLocaleName: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES);
+        const SORTING_PARADIGM_ICU: u32 = 16777216;
+        const SORTING_PARADIGM_NLS: u32 = 0;
+        const SORT_DIGITSASNUMBERS: u32 = 8;
+        const SORT_STRINGSORT: u32 = 4096;
+        #[repr(i32)]
+        enum SYSGEOCLASS {
+            GEOCLASS_NATION = 16,
+            GEOCLASS_REGION = 14,
+            GEOCLASS_ALL = 0,
+        }
+        #[repr(i32)]
+        enum SYSGEOTYPE {
+            GEO_NATION = 1,
+            GEO_LATITUDE = 2,
+            GEO_LONGITUDE = 3,
+            GEO_ISO2 = 4,
+            GEO_ISO3 = 5,
+            GEO_RFC1766 = 6,
+            GEO_LCID = 7,
+            GEO_FRIENDLYNAME = 8,
+            GEO_OFFICIALNAME = 9,
+            GEO_TIMEZONES = 10,
+            GEO_OFFICIALLANGUAGES = 11,
+            GEO_ISO_UN_NUMBER = 12,
+            GEO_PARENT = 13,
+            GEO_DIALINGCODE = 14,
+            GEO_CURRENCYCODE = 15,
+            GEO_CURRENCYSYMBOL = 16,
+            GEO_NAME = 17,
+            GEO_ID = 18,
+        }
+        #[repr(i32)]
+        enum SYSNLS_FUNCTION {
+            COMPARE_STRING = 1,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn SetCalendarInfoA(Locale: LCID, Calendar: CALID, CalType: CALTYPE, lpCalData: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetCalendarInfoW(Locale: LCID, Calendar: CALID, CalType: CALTYPE, lpCalData: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetLocaleInfoA(Locale: LCID, LCType: LCTYPE, lpLCData: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetLocaleInfoW(Locale: LCID, LCType: LCTYPE, lpLCData: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessPreferredUILanguages(dwFlags: u32, #[opt] pwszLanguagesBuffer: *const u16, #[opt] pulNumLanguages: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadLocale(Locale: LCID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadPreferredUILanguages(dwFlags: u32, #[opt] pwszLanguagesBuffer: *const u16, #[opt] pulNumLanguages: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadPreferredUILanguages2(flags: u32, #[opt] languages: *const u16, #[opt] numLanguagesSet: *mut u32, #[opt] snapshot: *mut HSAVEDUILANGUAGES) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadUILanguage(LangId: LANGID) -> LANGID;
+        #[library("KERNEL32.dll")]
+        extern fn SetUserGeoID(GeoId: GEOID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetUserGeoName(geoName: PCWSTR) -> BOOL;
+        extern fn TIMEFMT_ENUMPROCA(param0: PSTR) -> BOOL;
+        extern fn TIMEFMT_ENUMPROCEX(param0: PWSTR, param1: LPARAM) -> BOOL;
+        extern fn TIMEFMT_ENUMPROCW(param0: PWSTR) -> BOOL;
+        const TIME_FORCE24HOURFORMAT: u32 = 8;
+        const TIME_NOMINUTESORSECONDS: u32 = 1;
+        const TIME_NOSECONDS: u32 = 2;
+        const TIME_NOTIMEMARKER: u32 = 4;
+        extern fn UILANGUAGE_ENUMPROCA(param0: PSTR, param1: isize) -> BOOL;
+        extern fn UILANGUAGE_ENUMPROCW(param0: PWSTR, param1: isize) -> BOOL;
+        const VS_ALLOW_LATIN: u32 = 1;
+        #[library("KERNEL32.dll")]
+        extern fn VerifyScripts(dwFlags: u32, lpLocaleScripts: PCWSTR, cchLocaleScripts: i32, lpTestScripts: PCWSTR, cchTestScripts: i32) -> BOOL;
+        const WC_COMPOSITECHECK: u32 = 512;
+        const WC_DEFAULTCHAR: u32 = 64;
+        const WC_DISCARDNS: u32 = 16;
+        const WC_ERR_INVALID_CHARS: u32 = 128;
+        const WC_NO_BEST_FIT_CHARS: u32 = 1024;
+        const WC_SEPCHARS: u32 = 32;
+    }
+}

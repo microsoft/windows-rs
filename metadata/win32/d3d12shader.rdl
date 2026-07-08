@@ -1,0 +1,273 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type D3D12_CBUFFER_TYPE = D3D_CBUFFER_TYPE;
+        struct D3D12_FUNCTION_DESC {
+            Version: u32,
+            Creator: PCSTR,
+            Flags: u32,
+            ConstantBuffers: u32,
+            BoundResources: u32,
+            InstructionCount: u32,
+            TempRegisterCount: u32,
+            TempArrayCount: u32,
+            DefCount: u32,
+            DclCount: u32,
+            TextureNormalInstructions: u32,
+            TextureLoadInstructions: u32,
+            TextureCompInstructions: u32,
+            TextureBiasInstructions: u32,
+            TextureGradientInstructions: u32,
+            FloatInstructionCount: u32,
+            IntInstructionCount: u32,
+            UintInstructionCount: u32,
+            StaticFlowControlCount: u32,
+            DynamicFlowControlCount: u32,
+            MacroInstructionCount: u32,
+            ArrayInstructionCount: u32,
+            MovInstructionCount: u32,
+            MovcInstructionCount: u32,
+            ConversionInstructionCount: u32,
+            BitwiseInstructionCount: u32,
+            MinFeatureLevel: D3D_FEATURE_LEVEL,
+            RequiredFeatureFlags: u64,
+            Name: PCSTR,
+            FunctionParameterCount: i32,
+            HasReturn: BOOL,
+            Has10Level9VertexShader: BOOL,
+            Has10Level9PixelShader: BOOL,
+        }
+        struct D3D12_LIBRARY_DESC {
+            Creator: PCSTR,
+            Flags: u32,
+            FunctionCount: u32,
+        }
+        struct D3D12_PARAMETER_DESC {
+            Name: PCSTR,
+            SemanticName: PCSTR,
+            Type: D3D_SHADER_VARIABLE_TYPE,
+            Class: D3D_SHADER_VARIABLE_CLASS,
+            Rows: u32,
+            Columns: u32,
+            InterpolationMode: D3D_INTERPOLATION_MODE,
+            Flags: D3D_PARAMETER_FLAGS,
+            FirstInRegister: u32,
+            FirstInComponent: u32,
+            FirstOutRegister: u32,
+            FirstOutComponent: u32,
+        }
+        type D3D12_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE;
+        struct D3D12_SHADER_BUFFER_DESC {
+            Name: PCSTR,
+            Type: D3D_CBUFFER_TYPE,
+            Variables: u32,
+            Size: u32,
+            uFlags: u32,
+        }
+        struct D3D12_SHADER_DESC {
+            Version: u32,
+            Creator: PCSTR,
+            Flags: u32,
+            ConstantBuffers: u32,
+            BoundResources: u32,
+            InputParameters: u32,
+            OutputParameters: u32,
+            InstructionCount: u32,
+            TempRegisterCount: u32,
+            TempArrayCount: u32,
+            DefCount: u32,
+            DclCount: u32,
+            TextureNormalInstructions: u32,
+            TextureLoadInstructions: u32,
+            TextureCompInstructions: u32,
+            TextureBiasInstructions: u32,
+            TextureGradientInstructions: u32,
+            FloatInstructionCount: u32,
+            IntInstructionCount: u32,
+            UintInstructionCount: u32,
+            StaticFlowControlCount: u32,
+            DynamicFlowControlCount: u32,
+            MacroInstructionCount: u32,
+            ArrayInstructionCount: u32,
+            CutInstructionCount: u32,
+            EmitInstructionCount: u32,
+            GSOutputTopology: D3D_PRIMITIVE_TOPOLOGY,
+            GSMaxOutputVertexCount: u32,
+            InputPrimitive: D3D_PRIMITIVE,
+            PatchConstantParameters: u32,
+            cGSInstanceCount: u32,
+            cControlPoints: u32,
+            HSOutputPrimitive: D3D_TESSELLATOR_OUTPUT_PRIMITIVE,
+            HSPartitioning: D3D_TESSELLATOR_PARTITIONING,
+            TessellatorDomain: D3D_TESSELLATOR_DOMAIN,
+            cBarrierInstructions: u32,
+            cInterlockedInstructions: u32,
+            cTextureStoreInstructions: u32,
+        }
+        struct D3D12_SHADER_INPUT_BIND_DESC {
+            Name: PCSTR,
+            Type: D3D_SHADER_INPUT_TYPE,
+            BindPoint: u32,
+            BindCount: u32,
+            uFlags: u32,
+            ReturnType: D3D_RESOURCE_RETURN_TYPE,
+            Dimension: D3D_SRV_DIMENSION,
+            NumSamples: u32,
+            Space: u32,
+            uID: u32,
+        }
+        struct D3D12_SHADER_TYPE_DESC {
+            Class: D3D_SHADER_VARIABLE_CLASS,
+            Type: D3D_SHADER_VARIABLE_TYPE,
+            Rows: u32,
+            Columns: u32,
+            Elements: u32,
+            Members: u32,
+            Offset: u32,
+            Name: PCSTR,
+        }
+        struct D3D12_SHADER_VARIABLE_DESC {
+            Name: PCSTR,
+            StartOffset: u32,
+            Size: u32,
+            uFlags: u32,
+            DefaultValue: *mut void,
+            StartTexture: u32,
+            TextureSize: u32,
+            StartSampler: u32,
+            SamplerSize: u32,
+        }
+        #[repr(i32)]
+        enum D3D12_SHADER_VERSION_TYPE {
+            D3D12_SHVER_PIXEL_SHADER = 0,
+            D3D12_SHVER_VERTEX_SHADER = 1,
+            D3D12_SHVER_GEOMETRY_SHADER = 2,
+            D3D12_SHVER_HULL_SHADER = 3,
+            D3D12_SHVER_DOMAIN_SHADER = 4,
+            D3D12_SHVER_COMPUTE_SHADER = 5,
+            D3D12_SHVER_LIBRARY = 6,
+            D3D12_SHVER_RAY_GENERATION_SHADER = 7,
+            D3D12_SHVER_INTERSECTION_SHADER = 8,
+            D3D12_SHVER_ANY_HIT_SHADER = 9,
+            D3D12_SHVER_CLOSEST_HIT_SHADER = 10,
+            D3D12_SHVER_MISS_SHADER = 11,
+            D3D12_SHVER_CALLABLE_SHADER = 12,
+            D3D12_SHVER_MESH_SHADER = 13,
+            D3D12_SHVER_AMPLIFICATION_SHADER = 14,
+            D3D12_SHVER_NODE_SHADER = 15,
+            D3D12_SHVER_RESERVED0 = 65520,
+        }
+        struct D3D12_SIGNATURE_PARAMETER_DESC {
+            SemanticName: PCSTR,
+            SemanticIndex: u32,
+            Register: u32,
+            SystemValueType: D3D_NAME,
+            ComponentType: D3D_REGISTER_COMPONENT_TYPE,
+            Mask: u8,
+            ReadWriteMask: u8,
+            Stream: u32,
+            MinPrecision: D3D_MIN_PRECISION,
+        }
+        type D3D12_TESSELLATOR_DOMAIN = D3D_TESSELLATOR_DOMAIN;
+        type D3D12_TESSELLATOR_OUTPUT_PRIMITIVE = D3D_TESSELLATOR_OUTPUT_PRIMITIVE;
+        type D3D12_TESSELLATOR_PARTITIONING = D3D_TESSELLATOR_PARTITIONING;
+        const D3D_SHADER_REQUIRES_ADVANCED_TEXTURE_OPS: u32 = 536870912;
+        const D3D_SHADER_REQUIRES_ATOMIC_INT64_ON_DESCRIPTOR_HEAP_RESOURCE: u32 = 268435456;
+        const D3D_SHADER_REQUIRES_ATOMIC_INT64_ON_GROUP_SHARED: u32 = 8388608;
+        const D3D_SHADER_REQUIRES_ATOMIC_INT64_ON_TYPED_RESOURCE: u32 = 4194304;
+        const D3D_SHADER_REQUIRES_BARYCENTRICS: u32 = 131072;
+        const D3D_SHADER_REQUIRES_DERIVATIVES_IN_MESH_AND_AMPLIFICATION_SHADERS: u32 = 16777216;
+        const D3D_SHADER_REQUIRES_EXTENDED_COMMAND_INFO: u64 = 4294967296;
+        const D3D_SHADER_REQUIRES_INNER_COVERAGE: u32 = 1024;
+        const D3D_SHADER_REQUIRES_INT64_OPS: u32 = 32768;
+        const D3D_SHADER_REQUIRES_NATIVE_16BIT_OPS: u32 = 262144;
+        const D3D_SHADER_REQUIRES_RAYTRACING_TIER_1_1: u32 = 1048576;
+        const D3D_SHADER_REQUIRES_RESOURCE_DESCRIPTOR_HEAP_INDEXING: u32 = 33554432;
+        const D3D_SHADER_REQUIRES_ROVS: u32 = 4096;
+        const D3D_SHADER_REQUIRES_SAMPLER_DESCRIPTOR_HEAP_INDEXING: u32 = 67108864;
+        const D3D_SHADER_REQUIRES_SAMPLER_FEEDBACK: u32 = 2097152;
+        const D3D_SHADER_REQUIRES_SAMPLE_CMP_GRADIENT_OR_BIAS: u32 = 2147483648;
+        const D3D_SHADER_REQUIRES_SHADING_RATE: u32 = 524288;
+        const D3D_SHADER_REQUIRES_STENCIL_REF: u32 = 512;
+        const D3D_SHADER_REQUIRES_TYPED_UAV_LOAD_ADDITIONAL_FORMATS: u32 = 2048;
+        const D3D_SHADER_REQUIRES_VIEWPORT_AND_RT_ARRAY_INDEX_FROM_ANY_SHADER_FEEDING_RASTERIZER: u32 = 8192;
+        const D3D_SHADER_REQUIRES_VIEW_ID: u32 = 65536;
+        const D3D_SHADER_REQUIRES_WAVE_MMA: u32 = 134217728;
+        const D3D_SHADER_REQUIRES_WAVE_OPS: u32 = 16384;
+        const D3D_SHADER_REQUIRES_WRITEABLE_MSAA_TEXTURES: u32 = 1073741824;
+        #[guid(0xec25f42d_7006_4f2b_b33e_02cc3375733f)]
+        interface ID3D12FunctionParameterReflection {
+            fn GetDesc(&self, pDesc: *mut D3D12_PARAMETER_DESC) -> HRESULT;
+        }
+        #[guid(0x1108795c_2772_4ba9_b2a8_d464dc7e2799)]
+        interface ID3D12FunctionReflection {
+            fn GetDesc(&self, pDesc: *mut D3D12_FUNCTION_DESC) -> HRESULT;
+            fn GetConstantBufferByIndex(&self, BufferIndex: u32) -> ID3D12ShaderReflectionConstantBuffer;
+            fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D12ShaderReflectionConstantBuffer;
+            fn GetResourceBindingDesc(&self, ResourceIndex: u32, pDesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetVariableByName(&self, Name: PCSTR) -> ID3D12ShaderReflectionVariable;
+            fn GetResourceBindingDescByName(&self, Name: PCSTR, pDesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetFunctionParameter(&self, ParameterIndex: i32) -> ID3D12FunctionParameterReflection;
+        }
+        #[guid(0x8e349d19_54db_4a56_9dc9_119d87bdb804)]
+        interface ID3D12LibraryReflection: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetDesc(&self, pDesc: *mut D3D12_LIBRARY_DESC) -> HRESULT;
+            fn GetFunctionByIndex(&self, FunctionIndex: i32) -> ID3D12FunctionReflection;
+        }
+        #[guid(0x5a58797d_a72c_478d_8ba2_efc6b0efe88e)]
+        interface ID3D12ShaderReflection: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetDesc(&self, pDesc: *mut D3D12_SHADER_DESC) -> HRESULT;
+            fn GetConstantBufferByIndex(&self, Index: u32) -> ID3D12ShaderReflectionConstantBuffer;
+            fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D12ShaderReflectionConstantBuffer;
+            fn GetResourceBindingDesc(&self, ResourceIndex: u32, pDesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetInputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetOutputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetPatchConstantParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetVariableByName(&self, Name: PCSTR) -> ID3D12ShaderReflectionVariable;
+            fn GetResourceBindingDescByName(&self, Name: PCSTR, pDesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetMovInstructionCount(&self) -> u32;
+            fn GetMovcInstructionCount(&self) -> u32;
+            fn GetConversionInstructionCount(&self) -> u32;
+            fn GetBitwiseInstructionCount(&self) -> u32;
+            fn GetGSInputPrimitive(&self) -> D3D_PRIMITIVE;
+            fn IsSampleFrequencyShader(&self) -> BOOL;
+            fn GetNumInterfaceSlots(&self) -> u32;
+            fn GetMinFeatureLevel(&self, pLevel: *mut D3D_FEATURE_LEVEL) -> HRESULT;
+            fn GetThreadGroupSize(&self, #[opt] pSizeX: *mut u32, #[opt] pSizeY: *mut u32, #[opt] pSizeZ: *mut u32) -> u32;
+            fn GetRequiresFlags(&self) -> u64;
+        }
+        #[guid(0xc59598b4_48b3_4869_b9b1_b1618b14a8b7)]
+        interface ID3D12ShaderReflectionConstantBuffer {
+            fn GetDesc(&self, pDesc: *mut D3D12_SHADER_BUFFER_DESC) -> HRESULT;
+            fn GetVariableByIndex(&self, Index: u32) -> ID3D12ShaderReflectionVariable;
+            fn GetVariableByName(&self, Name: PCSTR) -> ID3D12ShaderReflectionVariable;
+        }
+        #[guid(0xe913c351_783d_48ca_a1d1_4f306284ad56)]
+        interface ID3D12ShaderReflectionType {
+            fn GetDesc(&self, pDesc: *mut D3D12_SHADER_TYPE_DESC) -> HRESULT;
+            fn GetMemberTypeByIndex(&self, Index: u32) -> ID3D12ShaderReflectionType;
+            fn GetMemberTypeByName(&self, Name: PCSTR) -> ID3D12ShaderReflectionType;
+            fn GetMemberTypeName(&self, Index: u32) -> PCSTR;
+            fn IsEqual(&self, pType: ID3D12ShaderReflectionType) -> HRESULT;
+            fn GetSubType(&self) -> ID3D12ShaderReflectionType;
+            fn GetBaseClass(&self) -> ID3D12ShaderReflectionType;
+            fn GetNumInterfaces(&self) -> u32;
+            fn GetInterfaceByIndex(&self, uIndex: u32) -> ID3D12ShaderReflectionType;
+            fn IsOfType(&self, pType: ID3D12ShaderReflectionType) -> HRESULT;
+            fn ImplementsInterface(&self, pBase: ID3D12ShaderReflectionType) -> HRESULT;
+        }
+        #[guid(0x8337a8a6_a216_444a_b2f4_314733a73aea)]
+        interface ID3D12ShaderReflectionVariable {
+            fn GetDesc(&self, pDesc: *mut D3D12_SHADER_VARIABLE_DESC) -> HRESULT;
+            fn GetType(&self) -> ID3D12ShaderReflectionType;
+            fn GetBuffer(&self) -> ID3D12ShaderReflectionConstantBuffer;
+            fn GetInterfaceSlot(&self, uArrayIndex: u32) -> u32;
+        }
+    }
+}

@@ -172,6 +172,13 @@ impl Encoder<'_> {
             &["guid", "no_guid"],
         )?;
 
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(
+                metadata::writer::HasAttribute::TypeDef(interface),
+                arch_bits,
+            );
+        }
+
         let already_has_guid = self.encode_guid_pseudo_attrs(
             metadata::writer::HasAttribute::TypeDef(interface),
             &item.attrs,
@@ -232,10 +239,10 @@ impl Encoder<'_> {
                         params.iter().map(|param| param.ty.clone()).collect();
                     let return_type = self.encode_return_type(&method.sig.output)?;
 
-                    if item.winrt {
-                        if let syn::ReturnType::Type(_, return_syn_ty) = &method.sig.output {
-                            self.validate_type_is_winrt(return_syn_ty.as_ref(), &return_type)?;
-                        }
+                    if item.winrt
+                        && let syn::ReturnType::Type(_, return_syn_ty) = &method.sig.output
+                    {
+                        self.validate_type_is_winrt(return_syn_ty.as_ref(), &return_type)?;
                     }
 
                     if !already_has_guid {

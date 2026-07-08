@@ -1,0 +1,129 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(u32)]
+        #[flags]
+        enum AudioObjectType {
+            AudioObjectType_None = 0,
+            AudioObjectType_Dynamic = 1,
+            AudioObjectType_FrontLeft = 2,
+            AudioObjectType_FrontRight = 4,
+            AudioObjectType_FrontCenter = 8,
+            AudioObjectType_LowFrequency = 16,
+            AudioObjectType_SideLeft = 32,
+            AudioObjectType_SideRight = 64,
+            AudioObjectType_BackLeft = 128,
+            AudioObjectType_BackRight = 256,
+            AudioObjectType_TopFrontLeft = 512,
+            AudioObjectType_TopFrontRight = 1024,
+            AudioObjectType_TopBackLeft = 2048,
+            AudioObjectType_TopBackRight = 4096,
+            AudioObjectType_BottomFrontLeft = 8192,
+            AudioObjectType_BottomFrontRight = 16384,
+            AudioObjectType_BottomBackLeft = 32768,
+            AudioObjectType_BottomBackRight = 65536,
+            AudioObjectType_BackCenter = 131072,
+            AudioObjectType_StereoLeft = 262144,
+            AudioObjectType_StereoRight = 524288,
+        }
+        #[guid(0xdcdaa858_895a_4a22_a5eb_67bda506096d)]
+        interface IAudioFormatEnumerator: IUnknown {
+            fn GetCount(&self, count: *mut u32) -> HRESULT;
+            fn GetFormat(&self, index: u32, format: *mut *mut WAVEFORMATEX) -> HRESULT;
+        }
+        #[guid(0xbbf8e066_aaaa_49be_9a4d_fd2a858ea27f)]
+        interface ISpatialAudioClient: IUnknown {
+            fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> HRESULT;
+            fn GetNativeStaticObjectTypeMask(&self, mask: *mut AudioObjectType) -> HRESULT;
+            fn GetMaxDynamicObjectCount(&self, value: *mut u32) -> HRESULT;
+            fn GetSupportedAudioObjectFormatEnumerator(&self, enumerator: *mut IAudioFormatEnumerator) -> HRESULT;
+            fn GetMaxFrameCount(&self, objectFormat: *const WAVEFORMATEX, frameCountPerBuffer: *mut u32) -> HRESULT;
+            fn IsAudioObjectFormatSupported(&self, objectFormat: *const WAVEFORMATEX) -> HRESULT;
+            fn IsSpatialAudioStreamAvailable(&self, streamUuid: *const GUID, #[opt] auxiliaryInfo: *const PROPVARIANT) -> HRESULT;
+            fn ActivateSpatialAudioStream(&self, activationParams: *const PROPVARIANT, riid: *const GUID, #[iid_is] stream: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xcaabe452_a66a_4bee_a93e_e320463f6a53)]
+        interface ISpatialAudioClient2: ISpatialAudioClient {
+            fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY, isOffloadCapable: *mut BOOL) -> HRESULT;
+            fn GetMaxFrameCountForCategory(&self, category: AUDIO_STREAM_CATEGORY, offloadEnabled: BOOL, objectFormat: *const WAVEFORMATEX, frameCountPerBuffer: *mut u32) -> HRESULT;
+        }
+        #[guid(0xdde28967_521b_46e5_8f00_bd6f2bc8ab1d)]
+        interface ISpatialAudioObject: ISpatialAudioObjectBase {
+            fn SetPosition(&self, x: f32, y: f32, z: f32) -> HRESULT;
+            fn SetVolume(&self, volume: f32) -> HRESULT;
+        }
+        #[guid(0xcce0b8f2_8d4d_4efb_a8cf_3d6ecf1c30e0)]
+        interface ISpatialAudioObjectBase: IUnknown {
+            fn GetBuffer(&self, buffer: *mut *mut u8, bufferLength: *mut u32) -> HRESULT;
+            fn SetEndOfStream(&self, frameCount: u32) -> HRESULT;
+            fn IsActive(&self, isActive: *mut BOOL) -> HRESULT;
+            fn GetAudioObjectType(&self, audioObjectType: *mut AudioObjectType) -> HRESULT;
+        }
+        #[guid(0xbab5f473_b423_477b_85f5_b5a332a04153)]
+        interface ISpatialAudioObjectRenderStream: ISpatialAudioObjectRenderStreamBase {
+            fn ActivateSpatialAudioObject(&self, r#type: AudioObjectType, audioObject: *mut ISpatialAudioObject) -> HRESULT;
+        }
+        #[guid(0xfeaaf403_c1d8_450d_aa05_e0ccee7502a8)]
+        interface ISpatialAudioObjectRenderStreamBase: IUnknown {
+            fn GetAvailableDynamicObjectCount(&self, value: *mut u32) -> HRESULT;
+            fn GetService(&self, riid: *const GUID, #[iid_is] service: *mut *mut void) -> HRESULT;
+            fn Start(&self) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn BeginUpdatingAudioObjects(&self, availableDynamicObjectCount: *mut u32, frameCountPerBuffer: *mut u32) -> HRESULT;
+            fn EndUpdatingAudioObjects(&self) -> HRESULT;
+        }
+        #[guid(0xdddf83e6_68d7_4c70_883f_a1836afb4a50)]
+        interface ISpatialAudioObjectRenderStreamNotify: IUnknown {
+            fn OnAvailableDynamicObjectCountChange(&self, sender: ISpatialAudioObjectRenderStreamBase, hnsComplianceDeadlineTime: i64, availableDynamicObjectCountChange: u32) -> HRESULT;
+        }
+        #[repr(u32)]
+        #[flags]
+        enum SPATIAL_AUDIO_STREAM_OPTIONS {
+            SPATIAL_AUDIO_STREAM_OPTIONS_NONE = 0,
+            SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD = 1,
+        }
+        const SPTLAUDCLNT_E_DESTROYED: i32 = -2004287232;
+        const SPTLAUDCLNT_E_ERRORS_IN_OBJECT_CALLS: i32 = -2004287227;
+        const SPTLAUDCLNT_E_INTERNAL: i32 = -2004287219;
+        const SPTLAUDCLNT_E_INVALID_LICENSE: i32 = -2004287224;
+        const SPTLAUDCLNT_E_METADATA_FORMAT_NOT_SUPPORTED: i32 = -2004287226;
+        const SPTLAUDCLNT_E_NO_MORE_OBJECTS: i32 = -2004287229;
+        const SPTLAUDCLNT_E_OBJECT_ALREADY_ACTIVE: i32 = -2004287220;
+        const SPTLAUDCLNT_E_OUT_OF_ORDER: i32 = -2004287231;
+        const SPTLAUDCLNT_E_PROPERTY_NOT_SUPPORTED: i32 = -2004287228;
+        const SPTLAUDCLNT_E_RESOURCES_INVALIDATED: i32 = -2004287230;
+        const SPTLAUDCLNT_E_STATIC_OBJECT_NOT_AVAILABLE: i32 = -2004287221;
+        const SPTLAUDCLNT_E_STREAM_NOT_AVAILABLE: i32 = -2004287225;
+        const SPTLAUDCLNT_E_STREAM_NOT_STOPPED: i32 = -2004287222;
+        struct SpatialAudioClientActivationParams {
+            tracingContextId: GUID,
+            appId: GUID,
+            majorVersion: i32,
+            minorVersion1: i32,
+            minorVersion2: i32,
+            minorVersion3: i32,
+        }
+        #[packed(1)]
+        struct SpatialAudioObjectRenderStreamActivationParams {
+            ObjectFormat: *const WAVEFORMATEX,
+            StaticObjectTypeMask: AudioObjectType,
+            MinDynamicObjectCount: u32,
+            MaxDynamicObjectCount: u32,
+            Category: AUDIO_STREAM_CATEGORY,
+            EventHandle: HANDLE,
+            NotifyObject: ISpatialAudioObjectRenderStreamNotify,
+        }
+        #[packed(1)]
+        struct SpatialAudioObjectRenderStreamActivationParams2 {
+            ObjectFormat: *const WAVEFORMATEX,
+            StaticObjectTypeMask: AudioObjectType,
+            MinDynamicObjectCount: u32,
+            MaxDynamicObjectCount: u32,
+            Category: AUDIO_STREAM_CATEGORY,
+            EventHandle: HANDLE,
+            NotifyObject: ISpatialAudioObjectRenderStreamNotify,
+            Options: SPATIAL_AUDIO_STREAM_OPTIONS,
+        }
+    }
+}

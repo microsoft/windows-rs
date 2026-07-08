@@ -94,15 +94,15 @@
     WebView2.COREWEBVIEW2_PROCESS_FAILED_KIND
     WebView2.ICoreWebView2Interop2::{GetComICoreWebView2}
 
-    Windows.Win32.UI.Shell.SHCreateMemStream
+    SHCreateMemStream
 
-    Windows.Win32.System.Com.CoTaskMemAlloc
-    Windows.Win32.System.Com.CoTaskMemFree
-    Windows.Win32.System.Com.CoInitializeEx
-    Windows.Win32.System.Com.COINIT_APARTMENTTHREADED
-    Windows.Win32.Foundation.RPC_E_CHANGED_MODE
-    Windows.Win32.Foundation.E_OUTOFMEMORY
-    Windows.Win32.UI.WindowsAndMessaging.GetMessageW
-    Windows.Win32.UI.WindowsAndMessaging.TranslateMessage
-    Windows.Win32.UI.WindowsAndMessaging.DispatchMessageW
-    Windows.Win32.UI.WindowsAndMessaging.MSG
+    CoTaskMemAlloc
+    CoTaskMemFree
+    CoInitializeEx
+    COINIT_APARTMENTTHREADED
+    RPC_E_CHANGED_MODE
+    E_OUTOFMEMORY
+    GetMessageW
+    TranslateMessage
+    DispatchMessageW
+    MSG

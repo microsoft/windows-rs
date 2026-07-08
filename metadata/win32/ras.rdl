@@ -1,0 +1,1116 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ET_None: u32 = 0;
+        const ET_Optional: u32 = 3;
+        const ET_Require: u32 = 1;
+        const ET_RequireMax: u32 = 2;
+        type HRASCONN = *mut void;
+        #[repr(i32)]
+        enum IKEV2_ID_PAYLOAD_TYPE {
+            IKEV2_ID_PAYLOAD_TYPE_INVALID = 0,
+            IKEV2_ID_PAYLOAD_TYPE_IPV4_ADDR = 1,
+            IKEV2_ID_PAYLOAD_TYPE_FQDN = 2,
+            IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR = 3,
+            IKEV2_ID_PAYLOAD_TYPE_RESERVED1 = 4,
+            IKEV2_ID_PAYLOAD_TYPE_ID_IPV6_ADDR = 5,
+            IKEV2_ID_PAYLOAD_TYPE_RESERVED2 = 6,
+            IKEV2_ID_PAYLOAD_TYPE_RESERVED3 = 7,
+            IKEV2_ID_PAYLOAD_TYPE_RESERVED4 = 8,
+            IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN = 9,
+            IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN = 10,
+            IKEV2_ID_PAYLOAD_TYPE_KEY_ID = 11,
+            IKEV2_ID_PAYLOAD_TYPE_MAX = 12,
+        }
+        extern fn ORASADFUNC(param0: HWND, param1: PSTR, param2: u32, param3: *mut u32) -> BOOL;
+        extern fn PFNRASFREEBUFFER(pBufer: *mut u8) -> u32;
+        extern fn PFNRASGETBUFFER(ppBuffer: *mut PBYTE, pdwSize: *mut u32) -> u32;
+        extern fn PFNRASRECEIVEBUFFER(hPort: HANDLE, pBuffer: *mut u8, pdwSize: *mut u32, dwTimeOut: u32, hEvent: HANDLE) -> u32;
+        extern fn PFNRASRETRIEVEBUFFER(hPort: HANDLE, pBuffer: *mut u8, pdwSize: *mut u32) -> u32;
+        extern fn PFNRASSENDBUFFER(hPort: HANDLE, pBuffer: *mut u8, dwSize: u32) -> u32;
+        extern fn PFNRASSETCOMMSETTINGS(hPort: HANDLE, pRasCommSettings: *mut tagRASCOMMSETTINGS, pvReserved: *mut void) -> u32;
+        type PRASDEVSPECIFICINFO = *mut RASDEVSPECIFICINFO;
+        type PRASIKEV2_PROJECTION_INFO = *mut RASIKEV2_PROJECTION_INFO;
+        type PRASPPP_PROJECTION_INFO = *mut RASPPP_PROJECTION_INFO;
+        type PRAS_PROJECTION_INFO = *mut RAS_PROJECTION_INFO;
+        type PRAS_STATS = *mut RAS_STATS;
+        const RASADFLG_PositionDlg: u32 = 1;
+        extern fn RASADFUNCA(param0: PSTR, param1: PSTR, param2: *mut tagRASADPARAMS, param3: *mut u32) -> BOOL;
+        extern fn RASADFUNCW(param0: PWSTR, param1: PWSTR, param2: *mut tagRASADPARAMS, param3: *mut u32) -> BOOL;
+        const RASADP_ConnectionQueryTimeout: u32 = 4;
+        const RASADP_DisableConnectionQuery: u32 = 0;
+        const RASADP_FailedConnectionTimeout: u32 = 3;
+        const RASADP_LoginSessionDisable: u32 = 1;
+        const RASADP_SavedAddressesLimit: u32 = 2;
+        #[repr(i32)]
+        enum RASAPIVERSION {
+            RASAPIVERSION_500 = 1,
+            RASAPIVERSION_501 = 2,
+            RASAPIVERSION_600 = 3,
+            RASAPIVERSION_601 = 4,
+        }
+        const RASAPIVERSION_CURRENT: u32 = 4;
+        const RASCCPCA_MPPC: u32 = 6;
+        const RASCCPCA_STAC: u32 = 5;
+        const RASCCPO_Compression: u32 = 1;
+        const RASCCPO_Encryption128bit: u32 = 64;
+        const RASCCPO_Encryption40bit: u32 = 32;
+        const RASCCPO_Encryption56bit: u32 = 16;
+        const RASCCPO_HistoryLess: u32 = 2;
+        const RASCF_AllUsers: u32 = 1;
+        const RASCF_GlobalCreds: u32 = 2;
+        const RASCF_OwnerKnown: u32 = 4;
+        const RASCF_OwnerMatch: u32 = 8;
+        const RASCM_DDMPreSharedKey: u32 = 64;
+        const RASCM_DefaultCreds: u32 = 8;
+        const RASCM_Domain: u32 = 4;
+        const RASCM_Password: u32 = 2;
+        const RASCM_PreSharedKey: u32 = 16;
+        const RASCM_ServerPreSharedKey: u32 = 32;
+        const RASCM_UserName: u32 = 1;
+        const RASCN_BandwidthAdded: u32 = 4;
+        const RASCN_BandwidthRemoved: u32 = 8;
+        const RASCN_Connection: u32 = 1;
+        const RASCN_Disconnection: u32 = 2;
+        const RASCN_Dormant: u32 = 16;
+        const RASCN_EPDGPacketArrival: u32 = 64;
+        const RASCN_ReConnection: u32 = 32;
+        const RASCSS_DONE: u32 = 8192;
+        const RASCS_DONE: u32 = 8192;
+        const RASCS_PAUSED: u32 = 4096;
+        struct RASCTRYINFO {
+            dwSize: u32,
+            dwCountryID: u32,
+            dwNextCountryID: u32,
+            dwCountryCode: u32,
+            dwCountryNameOffset: u32,
+        }
+        #[arch(X86)]
+        struct RASDEVSPECIFICINFO {
+            dwSize: u32,
+            pbDevSpecificInfo: *mut u8,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct RASDEVSPECIFICINFO {
+            dwSize: u32,
+            pbDevSpecificInfo: *mut u8,
+        }
+        #[encoding("ansi")]
+        const RASDIALEVENT: String = "RasDialEvent";
+        extern fn RASDIALFUNC(param0: u32, param1: tagRASCONNSTATE, param2: u32);
+        extern fn RASDIALFUNC1(param0: HRASCONN, param1: u32, param2: tagRASCONNSTATE, param3: u32, param4: u32);
+        extern fn RASDIALFUNC2(param0: usize, param1: u32, param2: HRASCONN, param3: u32, param4: tagRASCONNSTATE, param5: u32, param6: u32) -> u32;
+        const RASEAPF_Logon: u32 = 4;
+        const RASEAPF_NonInteractive: u32 = 2;
+        const RASEAPF_Preview: u32 = 8;
+        const RASEDM_DialAll: u32 = 1;
+        const RASEDM_DialAsNeeded: u32 = 2;
+        const RASEO2_AuthTypeIsOtp: u32 = 268435456;
+        const RASEO2_AutoTriggerCapable: u32 = 67108864;
+        const RASEO2_CacheCredentials: u32 = 33554432;
+        const RASEO2_DisableClassBasedStaticRoute: u32 = 524288;
+        const RASEO2_DisableIKENameEkuCheck: u32 = 262144;
+        const RASEO2_DisableMobility: u32 = 2097152;
+        const RASEO2_DisableNbtOverIP: u32 = 64;
+        const RASEO2_DontNegotiateMultilink: u32 = 4;
+        const RASEO2_DontUseRasCredentials: u32 = 8;
+        const RASEO2_IPv4ExplicitMetric: u32 = 65536;
+        const RASEO2_IPv6ExplicitMetric: u32 = 131072;
+        const RASEO2_IPv6RemoteDefaultGateway: u32 = 8192;
+        const RASEO2_IPv6SpecificNameServers: u32 = 4096;
+        const RASEO2_Internet: u32 = 32;
+        const RASEO2_IsAlwaysOn: u32 = 536870912;
+        const RASEO2_IsPrivateNetwork: u32 = 1073741824;
+        const RASEO2_IsThirdPartyProfile: u32 = 134217728;
+        const RASEO2_PlumbIKEv2TSAsRoutes: u32 = 2147483648;
+        const RASEO2_ReconnectIfDropped: u32 = 256;
+        const RASEO2_RegisterIpWithDNS: u32 = 16384;
+        const RASEO2_RequireMachineCertificates: u32 = 4194304;
+        const RASEO2_SecureClientForMSNet: u32 = 2;
+        const RASEO2_SecureFileAndPrint: u32 = 1;
+        const RASEO2_SecureRoutingCompartment: u32 = 1024;
+        const RASEO2_SharePhoneNumbers: u32 = 512;
+        const RASEO2_SpecificIPv6Addr: u32 = 1048576;
+        const RASEO2_UseDNSSuffixForRegistration: u32 = 32768;
+        const RASEO2_UseGlobalDeviceSettings: u32 = 128;
+        const RASEO2_UsePreSharedKey: u32 = 16;
+        const RASEO2_UsePreSharedKeyForIkev2Initiator: u32 = 8388608;
+        const RASEO2_UsePreSharedKeyForIkev2Responder: u32 = 16777216;
+        const RASEO2_UseTypicalSettings: u32 = 2048;
+        const RASEO_Custom: u32 = 1048576;
+        const RASEO_CustomScript: u32 = 2147483648;
+        const RASEO_DisableLcpExtensions: u32 = 32;
+        const RASEO_IpHeaderCompression: u32 = 8;
+        const RASEO_ModemLights: u32 = 256;
+        const RASEO_NetworkLogon: u32 = 8192;
+        const RASEO_PreviewDomain: u32 = 33554432;
+        const RASEO_PreviewPhoneNumber: u32 = 2097152;
+        const RASEO_PreviewUserPw: u32 = 16777216;
+        const RASEO_PromoteAlternates: u32 = 32768;
+        const RASEO_RemoteDefaultGateway: u32 = 16;
+        const RASEO_RequireCHAP: u32 = 134217728;
+        const RASEO_RequireDataEncryption: u32 = 4096;
+        const RASEO_RequireEAP: u32 = 131072;
+        const RASEO_RequireEncryptedPw: u32 = 1024;
+        const RASEO_RequireMsCHAP: u32 = 268435456;
+        const RASEO_RequireMsCHAP2: u32 = 536870912;
+        const RASEO_RequireMsEncryptedPw: u32 = 2048;
+        const RASEO_RequirePAP: u32 = 262144;
+        const RASEO_RequireSPAP: u32 = 524288;
+        const RASEO_RequireW95MSCHAP: u32 = 1073741824;
+        const RASEO_SecureLocalFiles: u32 = 65536;
+        const RASEO_SharedPhoneNumbers: u32 = 8388608;
+        const RASEO_ShowDialingProgress: u32 = 67108864;
+        const RASEO_SpecificIpAddr: u32 = 2;
+        const RASEO_SpecificNameServers: u32 = 4;
+        const RASEO_SwCompression: u32 = 512;
+        const RASEO_TerminalAfterDial: u32 = 128;
+        const RASEO_TerminalBeforeDial: u32 = 64;
+        const RASEO_UseCountryAndAreaCodes: u32 = 1;
+        const RASEO_UseLogonCredentials: u32 = 16384;
+        const RASET_Broadband: u32 = 5;
+        const RASET_Internet: u32 = 4;
+        const RASET_Phone: u32 = 1;
+        const RASET_Vpn: u32 = 2;
+        const RASFP_Ppp: u32 = 1;
+        const RASFP_Ras: u32 = 4;
+        const RASFP_Slip: u32 = 2;
+        const RASIDS_Disabled: u32 = 4294967295;
+        const RASIDS_UseGlobalValue: u32 = 0;
+        #[arch(X86)]
+        struct RASIKEV2_PROJECTION_INFO {
+            dwIPv4NegotiationError: u32,
+            ipv4Address: RASIPV4ADDR,
+            ipv4ServerAddress: RASIPV4ADDR,
+            dwIPv6NegotiationError: u32,
+            ipv6Address: RASIPV6ADDR,
+            ipv6ServerAddress: RASIPV6ADDR,
+            dwPrefixLength: u32,
+            dwAuthenticationProtocol: u32,
+            dwEapTypeId: u32,
+            dwFlags: u32,
+            dwEncryptionMethod: u32,
+            numIPv4ServerAddresses: u32,
+            ipv4ServerAddresses: *mut RASIPV4ADDR,
+            numIPv6ServerAddresses: u32,
+            ipv6ServerAddresses: *mut RASIPV6ADDR,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct RASIKEV2_PROJECTION_INFO {
+            dwIPv4NegotiationError: u32,
+            ipv4Address: RASIPV4ADDR,
+            ipv4ServerAddress: RASIPV4ADDR,
+            dwIPv6NegotiationError: u32,
+            ipv6Address: RASIPV6ADDR,
+            ipv6ServerAddress: RASIPV6ADDR,
+            dwPrefixLength: u32,
+            dwAuthenticationProtocol: u32,
+            dwEapTypeId: u32,
+            dwFlags: u32,
+            dwEncryptionMethod: u32,
+            numIPv4ServerAddresses: u32,
+            ipv4ServerAddresses: *mut RASIPV4ADDR,
+            numIPv6ServerAddresses: u32,
+            ipv6ServerAddresses: *mut RASIPV6ADDR,
+        }
+        const RASIKEv2_AUTH_EAP: u32 = 2;
+        const RASIKEv2_AUTH_MACHINECERTIFICATES: u32 = 1;
+        const RASIKEv2_AUTH_PSK: u32 = 3;
+        const RASIKEv2_FLAGS_BEHIND_NAT: u32 = 2;
+        const RASIKEv2_FLAGS_MOBIKESUPPORTED: u32 = 1;
+        const RASIKEv2_FLAGS_SERVERBEHIND_NAT: u32 = 4;
+        struct RASIPADDR {
+            a: u8,
+            b: u8,
+            c: u8,
+            d: u8,
+        }
+        const RASIPO_VJ: u32 = 1;
+        type RASIPV4ADDR = IN_ADDR;
+        type RASIPV6ADDR = IN6_ADDR;
+        const RASLCPAD_CHAP_MD5: u32 = 5;
+        const RASLCPAD_CHAP_MS: u32 = 128;
+        const RASLCPAD_CHAP_MSV2: u32 = 129;
+        const RASLCPAP_CHAP: u32 = 49699;
+        const RASLCPAP_EAP: u32 = 49703;
+        const RASLCPAP_PAP: u32 = 49187;
+        const RASLCPAP_SPAP: u32 = 49191;
+        const RASLCPO_3_DES: u32 = 16;
+        const RASLCPO_ACFC: u32 = 2;
+        const RASLCPO_AES_128: u32 = 32;
+        const RASLCPO_AES_192: u32 = 128;
+        const RASLCPO_AES_256: u32 = 64;
+        const RASLCPO_DES_56: u32 = 8;
+        const RASLCPO_GCM_AES_128: u32 = 256;
+        const RASLCPO_GCM_AES_192: u32 = 512;
+        const RASLCPO_GCM_AES_256: u32 = 1024;
+        const RASLCPO_PFC: u32 = 1;
+        const RASLCPO_SSHF: u32 = 4;
+        const RASNP_Ip: u32 = 4;
+        const RASNP_Ipv6: u32 = 8;
+        const RASNP_Ipx: u32 = 2;
+        const RASNP_NetBEUI: u32 = 1;
+        struct RASPPP_PROJECTION_INFO {
+            dwIPv4NegotiationError: u32,
+            ipv4Address: RASIPV4ADDR,
+            ipv4ServerAddress: RASIPV4ADDR,
+            dwIPv4Options: u32,
+            dwIPv4ServerOptions: u32,
+            dwIPv6NegotiationError: u32,
+            bInterfaceIdentifier: [u8; 8],
+            bServerInterfaceIdentifier: [u8; 8],
+            fBundled: BOOL,
+            fMultilink: BOOL,
+            dwAuthenticationProtocol: u32,
+            dwAuthenticationData: u32,
+            dwServerAuthenticationProtocol: u32,
+            dwServerAuthenticationData: u32,
+            dwEapTypeId: u32,
+            dwServerEapTypeId: u32,
+            dwLcpOptions: u32,
+            dwLcpServerOptions: u32,
+            dwCcpError: u32,
+            dwCcpCompressionAlgorithm: u32,
+            dwCcpServerCompressionAlgorithm: u32,
+            dwCcpOptions: u32,
+            dwCcpServerOptions: u32,
+        }
+        #[repr(i32)]
+        enum RASPROJECTION_INFO_TYPE {
+            PROJECTION_INFO_TYPE_PPP = 1,
+            PROJECTION_INFO_TYPE_IKEv2 = 2,
+        }
+        const RASTUNNELENDPOINT_IPv4: u32 = 1;
+        const RASTUNNELENDPOINT_IPv6: u32 = 2;
+        const RASTUNNELENDPOINT_UNKNOWN: u32 = 0;
+        const RAS_MaxAreaCode: u32 = 10;
+        const RAS_MaxCallbackNumber: u32 = 128;
+        const RAS_MaxDeviceName: u32 = 128;
+        const RAS_MaxDeviceType: u32 = 16;
+        const RAS_MaxDnsSuffix: u32 = 256;
+        const RAS_MaxEntryName: u32 = 256;
+        const RAS_MaxFacilities: u32 = 200;
+        const RAS_MaxIDSize: u32 = 256;
+        const RAS_MaxIpAddress: u32 = 15;
+        const RAS_MaxIpxAddress: u32 = 21;
+        const RAS_MaxPadType: u32 = 32;
+        const RAS_MaxPhoneNumber: u32 = 128;
+        const RAS_MaxReplyMessage: u32 = 1024;
+        const RAS_MaxUserData: u32 = 200;
+        const RAS_MaxX25Address: u32 = 200;
+        struct RAS_PROJECTION_INFO {
+            version: RASAPIVERSION,
+            r#type: RASPROJECTION_INFO_TYPE,
+            Anonymous: union {
+                ppp: RASPPP_PROJECTION_INFO,
+                ikev2: RASIKEV2_PROJECTION_INFO,
+            },
+        }
+        struct RAS_STATS {
+            dwSize: u32,
+            dwBytesXmited: u32,
+            dwBytesRcved: u32,
+            dwFramesXmited: u32,
+            dwFramesRcved: u32,
+            dwCrcErr: u32,
+            dwTimeoutErr: u32,
+            dwAlignmentErr: u32,
+            dwHardwareOverrunErr: u32,
+            dwFramingErr: u32,
+            dwBufferOverrunErr: u32,
+            dwCompressionRatioIn: u32,
+            dwCompressionRatioOut: u32,
+            dwBps: u32,
+            dwConnectDuration: u32,
+        }
+        const RCD_AllUsers: u32 = 1;
+        const RCD_Eap: u32 = 2;
+        const RCD_Logon: u32 = 4;
+        const RCD_SingleUser: u32 = 0;
+        const RDEOPT_CustomDial: u32 = 4096;
+        const RDEOPT_DisableConnectedUI: u32 = 64;
+        const RDEOPT_DisableReconnect: u32 = 256;
+        const RDEOPT_DisableReconnectUI: u32 = 128;
+        const RDEOPT_EapInfoCryptInCapable: u32 = 32768;
+        const RDEOPT_IgnoreModemSpeaker: u32 = 4;
+        const RDEOPT_IgnoreSoftwareCompression: u32 = 16;
+        const RDEOPT_InvokeAutoTriggerCredentialUI: u32 = 16384;
+        const RDEOPT_NoUser: u32 = 512;
+        const RDEOPT_PauseOnScript: u32 = 1024;
+        const RDEOPT_PausedStates: u32 = 2;
+        const RDEOPT_Router: u32 = 2048;
+        const RDEOPT_SetModemSpeaker: u32 = 8;
+        const RDEOPT_SetSoftwareCompression: u32 = 32;
+        const RDEOPT_UseCustomScripting: u32 = 8192;
+        const RDEOPT_UsePrefixSuffix: u32 = 1;
+        const REN_AllUsers: u32 = 1;
+        const REN_User: u32 = 0;
+        #[library("RASAPI32.dll")]
+        extern fn RasClearConnectionStatistics(hRasConn: HRASCONN) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasClearLinkStatistics(hRasConn: HRASCONN, dwSubEntry: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasConnectionNotificationA(param0: HRASCONN, param1: HANDLE, param2: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasConnectionNotificationW(param0: HRASCONN, param1: HANDLE, param2: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasCreatePhonebookEntryA(param0: HWND, #[opt] param1: PCSTR) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasCreatePhonebookEntryW(param0: HWND, #[opt] param1: PCWSTR) -> u32;
+        extern fn RasCustomDeleteEntryNotifyFn(lpszPhonebook: PCWSTR, lpszEntry: PCWSTR, dwFlags: u32) -> u32;
+        extern fn RasCustomDialFn(hInstDll: HINSTANCE, lpRasDialExtensions: *mut tagRASDIALEXTENSIONS, lpszPhonebook: PCWSTR, lpRasDialParams: *mut tagRASDIALPARAMSA, dwNotifierType: u32, lpvNotifier: *mut void, lphRasConn: *mut HRASCONN, dwFlags: u32) -> u32;
+        extern fn RasCustomHangUpFn(hRasConn: HRASCONN) -> u32;
+        extern fn RasCustomScriptExecuteFn(hPort: HANDLE, lpszPhonebook: PCWSTR, lpszEntryName: PCWSTR, pfnRasGetBuffer: PFNRASGETBUFFER, pfnRasFreeBuffer: PFNRASFREEBUFFER, pfnRasSendBuffer: PFNRASSENDBUFFER, pfnRasReceiveBuffer: PFNRASRECEIVEBUFFER, pfnRasRetrieveBuffer: PFNRASRETRIEVEBUFFER, hWnd: HWND, pRasDialParams: *mut tagRASDIALPARAMSA, pvReserved: *mut void) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasDeleteEntryA(#[opt] param0: PCSTR, param1: PCSTR) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasDeleteEntryW(#[opt] param0: PCWSTR, param1: PCWSTR) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasDeleteSubEntryA(#[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, dwSubentryId: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasDeleteSubEntryW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, dwSubEntryId: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasDialA(#[opt] param0: *const tagRASDIALEXTENSIONS, #[opt] param1: PCSTR, param2: *const tagRASDIALPARAMSA, param3: u32, #[opt] param4: *const void, param5: *mut HRASCONN) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasDialW(#[opt] param0: *const tagRASDIALEXTENSIONS, #[opt] param1: PCWSTR, param2: *const tagRASDIALPARAMSW, param3: u32, #[opt] param4: *const void, param5: *mut HRASCONN) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasEditPhonebookEntryA(param0: HWND, #[opt] param1: PCSTR, param2: PCSTR) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasEditPhonebookEntryW(param0: HWND, #[opt] param1: PCWSTR, param2: PCWSTR) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasEnumAutodialAddressesA(#[size_param(1)] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut PSTR, #[in] #[out] lpdwcbRasAutodialAddresses: *mut u32, lpdwcRasAutodialAddresses: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasEnumAutodialAddressesW(#[size_param(1)] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut PWSTR, #[in] #[out] lpdwcbRasAutodialAddresses: *mut u32, lpdwcRasAutodialAddresses: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasEnumConnectionsA(#[in] #[out] #[opt] param0: *mut tagRASCONNA, #[in] #[out] param1: *mut u32, param2: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasEnumConnectionsW(#[in] #[out] #[opt] param0: *mut tagRASCONNW, #[in] #[out] param1: *mut u32, param2: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasEnumDevicesA(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOA, #[in] #[out] param1: *mut u32, param2: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasEnumDevicesW(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOW, #[in] #[out] param1: *mut u32, param2: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasEnumEntriesA(#[opt] param0: PCSTR, #[opt] param1: PCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEA, #[in] #[out] param3: *mut u32, param4: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasEnumEntriesW(#[opt] param0: PCWSTR, #[opt] param1: PCWSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEW, #[in] #[out] param3: *mut u32, param4: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasFreeEapUserIdentityA(pRasEapUserIdentity: *const tagRASEAPUSERIDENTITYA);
+        #[library("RASAPI32.dll")]
+        extern fn RasFreeEapUserIdentityW(pRasEapUserIdentity: *const tagRASEAPUSERIDENTITYW);
+        #[library("RASAPI32.dll")]
+        extern fn RasGetAutodialAddressA(#[opt] param0: PCSTR, #[opt] param1: *const u32, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYA, #[in] #[out] param3: *mut u32, param4: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetAutodialAddressW(#[opt] param0: PCWSTR, #[opt] param1: *const u32, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYW, #[in] #[out] param3: *mut u32, param4: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetAutodialEnableA(param0: u32, param1: *mut BOOL) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetAutodialEnableW(param0: u32, param1: *mut BOOL) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetAutodialParamA(param0: u32, param1: *mut void, #[in] #[out] param2: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetAutodialParamW(param0: u32, param1: *mut void, #[in] #[out] param2: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetConnectStatusA(param0: HRASCONN, #[in] #[out] param1: *mut tagRASCONNSTATUSA) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetConnectStatusW(param0: HRASCONN, #[in] #[out] param1: *mut tagRASCONNSTATUSW) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetConnectionStatistics(hRasConn: HRASCONN, #[in] #[out] lpStatistics: *mut RAS_STATS) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetCountryInfoA(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetCountryInfoW(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetCredentialsA(#[opt] param0: PCSTR, param1: PCSTR, #[in] #[out] param2: *mut tagRASCREDENTIALSA) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetCredentialsW(#[opt] param0: PCWSTR, param1: PCWSTR, #[in] #[out] param2: *mut tagRASCREDENTIALSW) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetCustomAuthDataA(#[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, #[size_param(3)] #[opt] pbCustomAuthData: *mut u8, #[in] #[out] pdwSizeofCustomAuthData: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetCustomAuthDataW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, #[size_param(3)] #[opt] pbCustomAuthData: *mut u8, #[in] #[out] pdwSizeofCustomAuthData: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetEapUserDataA(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, #[opt] pbEapData: *mut u8, #[in] #[out] pdwSizeofEapData: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetEapUserDataW(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, #[opt] pbEapData: *mut u8, #[in] #[out] pdwSizeofEapData: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetEapUserIdentityA(#[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, dwFlags: u32, hwnd: HWND, ppRasEapUserIdentity: *mut *mut tagRASEAPUSERIDENTITYA) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetEapUserIdentityW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, dwFlags: u32, hwnd: HWND, ppRasEapUserIdentity: *mut *mut tagRASEAPUSERIDENTITYW) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetEntryDialParamsA(#[opt] param0: PCSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSA, param2: *mut BOOL) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetEntryDialParamsW(#[opt] param0: PCWSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSW, param2: *mut BOOL) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYA, #[in] #[out] param3: *mut u32, #[opt] param4: *mut u8, #[in] #[out] #[opt] param5: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYW, #[in] #[out] param3: *mut u32, #[opt] param4: *mut u8, #[in] #[out] #[opt] param5: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetErrorStringA(ResourceId: u32, #[len_param(2)] #[out] lpszString: PSTR, InBufSize: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetErrorStringW(ResourceId: u32, #[len_param(2)] #[out] lpszString: PWSTR, InBufSize: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetLinkStatistics(hRasConn: HRASCONN, dwSubEntry: u32, #[in] #[out] lpStatistics: *mut RAS_STATS) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetPCscf(#[out] lpszPCscf: PWSTR) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetProjectionInfoA(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut void, #[in] #[out] param3: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetProjectionInfoEx(hrasconn: HRASCONN, #[in] #[out] #[opt] pRasProjection: *mut RAS_PROJECTION_INFO, #[in] #[out] lpdwSize: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetProjectionInfoW(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut void, #[in] #[out] param3: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetSubEntryHandleA(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetSubEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, param2: u32, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYA, #[in] #[out] #[opt] param4: *mut u32, #[opt] param5: *mut u8, #[in] #[out] #[opt] param6: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasGetSubEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: u32, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYW, #[in] #[out] #[opt] param4: *mut u32, #[opt] param5: *mut u8, #[in] #[out] #[opt] param6: *mut u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasHangUpA(param0: HRASCONN) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasHangUpW(param0: HRASCONN) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasInvokeEapUI(param0: HRASCONN, param1: u32, param2: *const tagRASDIALEXTENSIONS, param3: HWND) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasRenameEntryA(#[opt] param0: PCSTR, param1: PCSTR, param2: PCSTR) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasRenameEntryW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: PCWSTR) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetAutodialAddressA(#[opt] param0: PCSTR, param1: u32, #[opt] param2: *const tagRASAUTODIALENTRYA, param3: u32, param4: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetAutodialAddressW(#[opt] param0: PCWSTR, param1: u32, #[opt] param2: *const tagRASAUTODIALENTRYW, param3: u32, param4: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetAutodialEnableA(param0: u32, param1: BOOL) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetAutodialEnableW(param0: u32, param1: BOOL) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetAutodialParamA(param0: u32, param1: *const void, param2: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetAutodialParamW(param0: u32, param1: *const void, param2: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetCredentialsA(#[opt] param0: PCSTR, param1: PCSTR, param2: *const tagRASCREDENTIALSA, param3: BOOL) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetCredentialsW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: *const tagRASCREDENTIALSW, param3: BOOL) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetCustomAuthDataA(#[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, #[size_param(3)] pbCustomAuthData: *const u8, dwSizeofCustomAuthData: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetCustomAuthDataW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, #[size_param(3)] pbCustomAuthData: *const u8, dwSizeofCustomAuthData: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetEapUserDataA(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, pbEapData: *const u8, dwSizeofEapData: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetEapUserDataW(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, pbEapData: *const u8, dwSizeofEapData: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetEntryDialParamsA(#[opt] param0: PCSTR, param1: *const tagRASDIALPARAMSA, param2: BOOL) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetEntryDialParamsW(#[opt] param0: PCWSTR, param1: *const tagRASDIALPARAMSW, param2: BOOL) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, param2: *const tagRASENTRYA, param3: u32, #[opt] param4: *const u8, param5: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: *const tagRASENTRYW, param3: u32, #[opt] param4: *const u8, param5: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetSubEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, param2: u32, param3: *const tagRASSUBENTRYA, param4: u32, #[opt] param5: *const u8, param6: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasSetSubEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: u32, param3: *const tagRASSUBENTRYW, param4: u32, #[opt] param5: *const u8, param6: u32) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasUpdateConnection(hrasconn: HRASCONN, lprasupdateconn: *const tagRASUPDATECONN) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasValidateEntryNameA(#[opt] param0: PCSTR, param1: PCSTR) -> u32;
+        #[library("RASAPI32.dll")]
+        extern fn RasValidateEntryNameW(#[opt] param0: PCWSTR, param1: PCWSTR) -> u32;
+        const VS_Default: u32 = 0;
+        const VS_GREOnly: u32 = 9;
+        const VS_Ikev2First: u32 = 8;
+        const VS_Ikev2Only: u32 = 7;
+        const VS_Ikev2Sstp: u32 = 14;
+        const VS_L2tpFirst: u32 = 4;
+        const VS_L2tpOnly: u32 = 3;
+        const VS_L2tpSstp: u32 = 13;
+        const VS_PptpFirst: u32 = 2;
+        const VS_PptpOnly: u32 = 1;
+        const VS_PptpSstp: u32 = 12;
+        const VS_ProtocolList: u32 = 15;
+        const VS_SstpFirst: u32 = 6;
+        const VS_SstpOnly: u32 = 5;
+        const WM_RASDIALEVENT: u32 = 52429;
+        #[arch(X86)]
+        struct tagRASADPARAMS {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASADPARAMS {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+        }
+        struct tagRASAMBA {
+            dwSize: u32,
+            dwError: u32,
+            szNetBiosError: [i8; 17],
+            bLana: u8,
+        }
+        struct tagRASAMBW {
+            dwSize: u32,
+            dwError: u32,
+            szNetBiosError: [u16; 17],
+            bLana: u8,
+        }
+        struct tagRASAUTODIALENTRYA {
+            dwSize: u32,
+            dwFlags: u32,
+            dwDialingLocation: u32,
+            szEntry: [i8; 257],
+        }
+        struct tagRASAUTODIALENTRYW {
+            dwSize: u32,
+            dwFlags: u32,
+            dwDialingLocation: u32,
+            szEntry: [u16; 257],
+        }
+        struct tagRASCOMMSETTINGS {
+            dwSize: u32,
+            bParity: u8,
+            bStop: u8,
+            bByteSize: u8,
+            bAlign: u8,
+        }
+        #[arch(X86)]
+        struct tagRASCONNA {
+            dwSize: u32,
+            hrasconn: HRASCONN,
+            szEntryName: [i8; 257],
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+            szPhonebook: [i8; 260],
+            dwSubEntry: u32,
+            guidEntry: GUID,
+            dwFlags: u32,
+            luid: LUID,
+            guidCorrelationId: GUID,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASCONNA {
+            dwSize: u32,
+            hrasconn: HRASCONN,
+            szEntryName: [i8; 257],
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+            szPhonebook: [i8; 260],
+            dwSubEntry: u32,
+            guidEntry: GUID,
+            dwFlags: u32,
+            luid: LUID,
+            guidCorrelationId: GUID,
+        }
+        #[repr(i32)]
+        enum tagRASCONNSTATE {
+            RASCS_OpenPort = 0,
+            RASCS_PortOpened = 1,
+            RASCS_ConnectDevice = 2,
+            RASCS_DeviceConnected = 3,
+            RASCS_AllDevicesConnected = 4,
+            RASCS_Authenticate = 5,
+            RASCS_AuthNotify = 6,
+            RASCS_AuthRetry = 7,
+            RASCS_AuthCallback = 8,
+            RASCS_AuthChangePassword = 9,
+            RASCS_AuthProject = 10,
+            RASCS_AuthLinkSpeed = 11,
+            RASCS_AuthAck = 12,
+            RASCS_ReAuthenticate = 13,
+            RASCS_Authenticated = 14,
+            RASCS_PrepareForCallback = 15,
+            RASCS_WaitForModemReset = 16,
+            RASCS_WaitForCallback = 17,
+            RASCS_Projected = 18,
+            RASCS_StartAuthentication = 19,
+            RASCS_CallbackComplete = 20,
+            RASCS_LogonNetwork = 21,
+            RASCS_SubEntryConnected = 22,
+            RASCS_SubEntryDisconnected = 23,
+            RASCS_ApplySettings = 24,
+            RASCS_Interactive = 4096,
+            RASCS_RetryAuthentication = 4097,
+            RASCS_CallbackSetByCaller = 4098,
+            RASCS_PasswordExpired = 4099,
+            RASCS_InvokeEapUI = 4100,
+            RASCS_Connected = 8192,
+            RASCS_Disconnected = 8193,
+        }
+        struct tagRASCONNSTATUSA {
+            dwSize: u32,
+            rasconnstate: tagRASCONNSTATE,
+            dwError: u32,
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+            szPhoneNumber: [i8; 129],
+            localEndPoint: tagRASTUNNELENDPOINT,
+            remoteEndPoint: tagRASTUNNELENDPOINT,
+            rasconnsubstate: tagRASCONNSUBSTATE,
+        }
+        struct tagRASCONNSTATUSW {
+            dwSize: u32,
+            rasconnstate: tagRASCONNSTATE,
+            dwError: u32,
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szPhoneNumber: [u16; 129],
+            localEndPoint: tagRASTUNNELENDPOINT,
+            remoteEndPoint: tagRASTUNNELENDPOINT,
+            rasconnsubstate: tagRASCONNSUBSTATE,
+        }
+        #[repr(i32)]
+        enum tagRASCONNSUBSTATE {
+            RASCSS_None = 0,
+            RASCSS_Dormant = 1,
+            RASCSS_Reconnecting = 2,
+            RASCSS_Reconnected = 8192,
+        }
+        #[arch(X86)]
+        struct tagRASCONNW {
+            dwSize: u32,
+            hrasconn: HRASCONN,
+            szEntryName: [u16; 257],
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szPhonebook: [u16; 260],
+            dwSubEntry: u32,
+            guidEntry: GUID,
+            dwFlags: u32,
+            luid: LUID,
+            guidCorrelationId: GUID,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASCONNW {
+            dwSize: u32,
+            hrasconn: HRASCONN,
+            szEntryName: [u16; 257],
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szPhonebook: [u16; 260],
+            dwSubEntry: u32,
+            guidEntry: GUID,
+            dwFlags: u32,
+            luid: LUID,
+            guidCorrelationId: GUID,
+        }
+        struct tagRASCREDENTIALSA {
+            dwSize: u32,
+            dwMask: u32,
+            szUserName: [i8; 257],
+            szPassword: [i8; 257],
+            szDomain: [i8; 16],
+        }
+        struct tagRASCREDENTIALSW {
+            dwSize: u32,
+            dwMask: u32,
+            szUserName: [u16; 257],
+            szPassword: [u16; 257],
+            szDomain: [u16; 16],
+        }
+        #[arch(X86)]
+        struct tagRASCUSTOMSCRIPTEXTENSIONS {
+            dwSize: u32,
+            pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASCUSTOMSCRIPTEXTENSIONS {
+            dwSize: u32,
+            pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
+        }
+        struct tagRASDEVINFOA {
+            dwSize: u32,
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+        }
+        struct tagRASDEVINFOW {
+            dwSize: u32,
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+        }
+        #[arch(X86)]
+        struct tagRASDIALEXTENSIONS {
+            dwSize: u32,
+            dwfOptions: u32,
+            hwndParent: HWND,
+            reserved: usize,
+            reserved1: usize,
+            RasEapInfo: tagRASEAPINFO,
+            fSkipPppAuth: BOOL,
+            RasDevSpecificInfo: RASDEVSPECIFICINFO,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASDIALEXTENSIONS {
+            dwSize: u32,
+            dwfOptions: u32,
+            hwndParent: HWND,
+            reserved: usize,
+            reserved1: usize,
+            RasEapInfo: tagRASEAPINFO,
+            fSkipPppAuth: BOOL,
+            RasDevSpecificInfo: RASDEVSPECIFICINFO,
+        }
+        #[arch(X86)]
+        struct tagRASDIALPARAMSA {
+            dwSize: u32,
+            szEntryName: [i8; 257],
+            szPhoneNumber: [i8; 129],
+            szCallbackNumber: [i8; 129],
+            szUserName: [i8; 257],
+            szPassword: [i8; 257],
+            szDomain: [i8; 16],
+            dwSubEntry: u32,
+            dwCallbackId: usize,
+            dwIfIndex: u32,
+            szEncPassword: PSTR,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASDIALPARAMSA {
+            dwSize: u32,
+            szEntryName: [i8; 257],
+            szPhoneNumber: [i8; 129],
+            szCallbackNumber: [i8; 129],
+            szUserName: [i8; 257],
+            szPassword: [i8; 257],
+            szDomain: [i8; 16],
+            dwSubEntry: u32,
+            dwCallbackId: usize,
+            dwIfIndex: u32,
+            szEncPassword: PSTR,
+        }
+        #[arch(X86)]
+        struct tagRASDIALPARAMSW {
+            dwSize: u32,
+            szEntryName: [u16; 257],
+            szPhoneNumber: [u16; 129],
+            szCallbackNumber: [u16; 129],
+            szUserName: [u16; 257],
+            szPassword: [u16; 257],
+            szDomain: [u16; 16],
+            dwSubEntry: u32,
+            dwCallbackId: usize,
+            dwIfIndex: u32,
+            szEncPassword: PWSTR,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASDIALPARAMSW {
+            dwSize: u32,
+            szEntryName: [u16; 257],
+            szPhoneNumber: [u16; 129],
+            szCallbackNumber: [u16; 129],
+            szUserName: [u16; 257],
+            szPassword: [u16; 257],
+            szDomain: [u16; 16],
+            dwSubEntry: u32,
+            dwCallbackId: usize,
+            dwIfIndex: u32,
+            szEncPassword: PWSTR,
+        }
+        #[arch(X86)]
+        struct tagRASEAPINFO {
+            dwSizeofEapInfo: u32,
+            pbEapInfo: *mut u8,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASEAPINFO {
+            dwSizeofEapInfo: u32,
+            pbEapInfo: *mut u8,
+        }
+        struct tagRASEAPUSERIDENTITYA {
+            szUserName: [i8; 257],
+            dwSizeofEapInfo: u32,
+            pbEapInfo: [u8; 1],
+        }
+        struct tagRASEAPUSERIDENTITYW {
+            szUserName: [u16; 257],
+            dwSizeofEapInfo: u32,
+            pbEapInfo: [u8; 1],
+        }
+        struct tagRASENTRYA {
+            dwSize: u32,
+            dwfOptions: u32,
+            dwCountryID: u32,
+            dwCountryCode: u32,
+            szAreaCode: [i8; 11],
+            szLocalPhoneNumber: [i8; 129],
+            dwAlternateOffset: u32,
+            ipaddr: RASIPADDR,
+            ipaddrDns: RASIPADDR,
+            ipaddrDnsAlt: RASIPADDR,
+            ipaddrWins: RASIPADDR,
+            ipaddrWinsAlt: RASIPADDR,
+            dwFrameSize: u32,
+            dwfNetProtocols: u32,
+            dwFramingProtocol: u32,
+            szScript: [i8; 260],
+            szAutodialDll: [i8; 260],
+            szAutodialFunc: [i8; 260],
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+            szX25PadType: [i8; 33],
+            szX25Address: [i8; 201],
+            szX25Facilities: [i8; 201],
+            szX25UserData: [i8; 201],
+            dwChannels: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwSubEntries: u32,
+            dwDialMode: u32,
+            dwDialExtraPercent: u32,
+            dwDialExtraSampleSeconds: u32,
+            dwHangUpExtraPercent: u32,
+            dwHangUpExtraSampleSeconds: u32,
+            dwIdleDisconnectSeconds: u32,
+            dwType: u32,
+            dwEncryptionType: u32,
+            dwCustomAuthKey: u32,
+            guidId: GUID,
+            szCustomDialDll: [i8; 260],
+            dwVpnStrategy: u32,
+            dwfOptions2: u32,
+            dwfOptions3: u32,
+            szDnsSuffix: [i8; 256],
+            dwTcpWindowSize: u32,
+            szPrerequisitePbk: [i8; 260],
+            szPrerequisiteEntry: [i8; 257],
+            dwRedialCount: u32,
+            dwRedialPause: u32,
+            ipv6addrDns: RASIPV6ADDR,
+            ipv6addrDnsAlt: RASIPV6ADDR,
+            dwIPv4InterfaceMetric: u32,
+            dwIPv6InterfaceMetric: u32,
+            ipv6addr: RASIPV6ADDR,
+            dwIPv6PrefixLength: u32,
+            dwNetworkOutageTime: u32,
+            szIDi: [i8; 257],
+            szIDr: [i8; 257],
+            fIsImsConfig: BOOL,
+            IdiType: IKEV2_ID_PAYLOAD_TYPE,
+            IdrType: IKEV2_ID_PAYLOAD_TYPE,
+            fDisableIKEv2Fragmentation: BOOL,
+        }
+        struct tagRASENTRYNAMEA {
+            dwSize: u32,
+            szEntryName: [i8; 257],
+            dwFlags: u32,
+            szPhonebookPath: [i8; 261],
+        }
+        struct tagRASENTRYNAMEW {
+            dwSize: u32,
+            szEntryName: [u16; 257],
+            dwFlags: u32,
+            szPhonebookPath: [u16; 261],
+        }
+        struct tagRASENTRYW {
+            dwSize: u32,
+            dwfOptions: u32,
+            dwCountryID: u32,
+            dwCountryCode: u32,
+            szAreaCode: [u16; 11],
+            szLocalPhoneNumber: [u16; 129],
+            dwAlternateOffset: u32,
+            ipaddr: RASIPADDR,
+            ipaddrDns: RASIPADDR,
+            ipaddrDnsAlt: RASIPADDR,
+            ipaddrWins: RASIPADDR,
+            ipaddrWinsAlt: RASIPADDR,
+            dwFrameSize: u32,
+            dwfNetProtocols: u32,
+            dwFramingProtocol: u32,
+            szScript: [u16; 260],
+            szAutodialDll: [u16; 260],
+            szAutodialFunc: [u16; 260],
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szX25PadType: [u16; 33],
+            szX25Address: [u16; 201],
+            szX25Facilities: [u16; 201],
+            szX25UserData: [u16; 201],
+            dwChannels: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwSubEntries: u32,
+            dwDialMode: u32,
+            dwDialExtraPercent: u32,
+            dwDialExtraSampleSeconds: u32,
+            dwHangUpExtraPercent: u32,
+            dwHangUpExtraSampleSeconds: u32,
+            dwIdleDisconnectSeconds: u32,
+            dwType: u32,
+            dwEncryptionType: u32,
+            dwCustomAuthKey: u32,
+            guidId: GUID,
+            szCustomDialDll: [u16; 260],
+            dwVpnStrategy: u32,
+            dwfOptions2: u32,
+            dwfOptions3: u32,
+            szDnsSuffix: [u16; 256],
+            dwTcpWindowSize: u32,
+            szPrerequisitePbk: [u16; 260],
+            szPrerequisiteEntry: [u16; 257],
+            dwRedialCount: u32,
+            dwRedialPause: u32,
+            ipv6addrDns: RASIPV6ADDR,
+            ipv6addrDnsAlt: RASIPV6ADDR,
+            dwIPv4InterfaceMetric: u32,
+            dwIPv6InterfaceMetric: u32,
+            ipv6addr: RASIPV6ADDR,
+            dwIPv6PrefixLength: u32,
+            dwNetworkOutageTime: u32,
+            szIDi: [u16; 257],
+            szIDr: [u16; 257],
+            fIsImsConfig: BOOL,
+            IdiType: IKEV2_ID_PAYLOAD_TYPE,
+            IdrType: IKEV2_ID_PAYLOAD_TYPE,
+            fDisableIKEv2Fragmentation: BOOL,
+        }
+        struct tagRASIPXW {
+            dwSize: u32,
+            dwError: u32,
+            szIpxAddress: [u16; 22],
+        }
+        struct tagRASPPPCCP {
+            dwSize: u32,
+            dwError: u32,
+            dwCompressionAlgorithm: u32,
+            dwOptions: u32,
+            dwServerCompressionAlgorithm: u32,
+            dwServerOptions: u32,
+        }
+        struct tagRASPPPIPA {
+            dwSize: u32,
+            dwError: u32,
+            szIpAddress: [i8; 16],
+            szServerIpAddress: [i8; 16],
+            dwOptions: u32,
+            dwServerOptions: u32,
+        }
+        struct tagRASPPPIPV6 {
+            dwSize: u32,
+            dwError: u32,
+            bLocalInterfaceIdentifier: [u8; 8],
+            bPeerInterfaceIdentifier: [u8; 8],
+            bLocalCompressionProtocol: [u8; 2],
+            bPeerCompressionProtocol: [u8; 2],
+        }
+        struct tagRASPPPIPW {
+            dwSize: u32,
+            dwError: u32,
+            szIpAddress: [u16; 16],
+            szServerIpAddress: [u16; 16],
+            dwOptions: u32,
+            dwServerOptions: u32,
+        }
+        struct tagRASPPPIPXA {
+            dwSize: u32,
+            dwError: u32,
+            szIpxAddress: [i8; 22],
+        }
+        struct tagRASPPPLCPA {
+            dwSize: u32,
+            fBundled: BOOL,
+            dwError: u32,
+            dwAuthenticationProtocol: u32,
+            dwAuthenticationData: u32,
+            dwEapTypeId: u32,
+            dwServerAuthenticationProtocol: u32,
+            dwServerAuthenticationData: u32,
+            dwServerEapTypeId: u32,
+            fMultilink: BOOL,
+            dwTerminateReason: u32,
+            dwServerTerminateReason: u32,
+            szReplyMessage: [i8; 1024],
+            dwOptions: u32,
+            dwServerOptions: u32,
+        }
+        struct tagRASPPPLCPW {
+            dwSize: u32,
+            fBundled: BOOL,
+            dwError: u32,
+            dwAuthenticationProtocol: u32,
+            dwAuthenticationData: u32,
+            dwEapTypeId: u32,
+            dwServerAuthenticationProtocol: u32,
+            dwServerAuthenticationData: u32,
+            dwServerEapTypeId: u32,
+            fMultilink: BOOL,
+            dwTerminateReason: u32,
+            dwServerTerminateReason: u32,
+            szReplyMessage: [u16; 1024],
+            dwOptions: u32,
+            dwServerOptions: u32,
+        }
+        struct tagRASPPPNBFA {
+            dwSize: u32,
+            dwError: u32,
+            dwNetBiosError: u32,
+            szNetBiosError: [i8; 17],
+            szWorkstationName: [i8; 17],
+            bLana: u8,
+        }
+        struct tagRASPPPNBFW {
+            dwSize: u32,
+            dwError: u32,
+            dwNetBiosError: u32,
+            szNetBiosError: [u16; 17],
+            szWorkstationName: [u16; 17],
+            bLana: u8,
+        }
+        #[repr(i32)]
+        enum tagRASPROJECTION {
+            RASP_Amb = 65536,
+            RASP_PppNbf = 32831,
+            RASP_PppIpx = 32811,
+            RASP_PppIp = 32801,
+            RASP_PppCcp = 33021,
+            RASP_PppLcp = 49185,
+            RASP_PppIpv6 = 32855,
+        }
+        struct tagRASSUBENTRYA {
+            dwSize: u32,
+            dwfFlags: u32,
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+            szLocalPhoneNumber: [i8; 129],
+            dwAlternateOffset: u32,
+        }
+        struct tagRASSUBENTRYW {
+            dwSize: u32,
+            dwfFlags: u32,
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szLocalPhoneNumber: [u16; 129],
+            dwAlternateOffset: u32,
+        }
+        struct tagRASTUNNELENDPOINT {
+            dwType: u32,
+            Anonymous: union {
+                ipv4: RASIPV4ADDR,
+                ipv6: RASIPV6ADDR,
+            },
+        }
+        struct tagRASUPDATECONN {
+            version: RASAPIVERSION,
+            dwSize: u32,
+            dwFlags: u32,
+            dwIfIndex: u32,
+            localEndPoint: tagRASTUNNELENDPOINT,
+            remoteEndPoint: tagRASTUNNELENDPOINT,
+        }
+    }
+}

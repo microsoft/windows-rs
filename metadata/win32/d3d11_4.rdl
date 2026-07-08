@@ -1,0 +1,90 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(u32)]
+        #[flags]
+        enum D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
+            D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAG_NONE = 0,
+        }
+        struct D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
+            ExtendedNV12SharedTextureSupported: BOOL,
+        }
+        struct D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
+            DecoderDesc: D3D11_VIDEO_DECODER_DESC,
+            Components: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS,
+            BinCount: u32,
+            CounterBitDepth: u32,
+        }
+        #[repr(i32)]
+        enum D3D11_FEATURE_VIDEO {
+            D3D11_FEATURE_VIDEO_DECODER_HISTOGRAM = 0,
+        }
+        struct D3D11_VIDEO_DECODER_BUFFER_DESC2 {
+            BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
+            DataOffset: u32,
+            DataSize: u32,
+            pIV: *mut void,
+            IVSize: u32,
+            pSubSampleMappingBlock: *mut D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK,
+            SubSampleMappingCount: u32,
+            cBlocksStripeEncrypted: u32,
+            cBlocksStripeClear: u32,
+        }
+        #[repr(i32)]
+        enum D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_Y = 0,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_U = 1,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_V = 2,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_R = 0,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_G = 1,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_B = 2,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_A = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_NONE = 0,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_Y = 1,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_U = 2,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_V = 4,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_R = 1,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_G = 2,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_B = 4,
+            D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_A = 8,
+        }
+        #[guid(0x8992ab71_02e6_4b8d_ba48_b056dcda42c4)]
+        interface ID3D11Device4: ID3D11Device3 {
+            fn RegisterDeviceRemovedEvent(&self, hEvent: HANDLE, pdwCookie: *mut u32) -> HRESULT;
+            fn UnregisterDeviceRemoved(&self, dwCookie: u32);
+        }
+        #[guid(0x8ffde202_a0e7_45df_9e01_e837801b5ea0)]
+        interface ID3D11Device5: ID3D11Device4 {
+            fn OpenSharedFence(&self, hFence: HANDLE, ReturnedInterface: *const GUID, #[iid_is] ppFence: *mut *mut void) -> HRESULT;
+            fn CreateFence(&self, InitialValue: u64, Flags: D3D11_FENCE_FLAG, ReturnedInterface: *const GUID, #[iid_is] ppFence: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x9b7e4e00_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D11Multithread: IUnknown {
+            fn Enter(&self);
+            fn Leave(&self);
+            fn SetMultithreadProtected(&self, bMTProtect: BOOL) -> BOOL;
+            fn GetMultithreadProtected(&self) -> BOOL;
+        }
+        #[guid(0xc4e7374c_6243_4d1b_ae87_52b4f740e261)]
+        interface ID3D11VideoContext2: ID3D11VideoContext1 {
+            fn VideoProcessorSetOutputHDRMetaData(&self, pVideoProcessor: ID3D11VideoProcessor, Type: DXGI_HDR_METADATA_TYPE, Size: u32, #[size_param(2)] #[opt] pHDRMetaData: *const void);
+            fn VideoProcessorGetOutputHDRMetaData(&self, pVideoProcessor: ID3D11VideoProcessor, pType: *mut DXGI_HDR_METADATA_TYPE, Size: u32, #[size_param(2)] #[opt] pMetaData: *mut void);
+            fn VideoProcessorSetStreamHDRMetaData(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Type: DXGI_HDR_METADATA_TYPE, Size: u32, #[size_param(3)] #[opt] pHDRMetaData: *const void);
+            fn VideoProcessorGetStreamHDRMetaData(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pType: *mut DXGI_HDR_METADATA_TYPE, Size: u32, #[size_param(3)] #[opt] pMetaData: *mut void);
+        }
+        #[guid(0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e)]
+        interface ID3D11VideoContext3: ID3D11VideoContext2 {
+            fn DecoderBeginFrame1(&self, pDecoder: ID3D11VideoDecoder, pView: ID3D11VideoDecoderOutputView, ContentKeySize: u32, #[size_param(2)] #[opt] pContentKey: *const void, NumComponentHistograms: u32, #[len_param(4)] #[opt] pHistogramOffsets: *const u32, #[len_param(4)] #[opt] ppHistogramBuffers: *const ID3D11Buffer) -> HRESULT;
+            fn SubmitDecoderBuffers2(&self, pDecoder: ID3D11VideoDecoder, NumBuffers: u32, #[len_param(1)] pBufferDesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> HRESULT;
+        }
+        #[guid(0x59c0cb01_35f0_4a70_8f67_87905c906a53)]
+        interface ID3D11VideoDevice2: ID3D11VideoDevice1 {
+            fn CheckFeatureSupport(&self, Feature: D3D11_FEATURE_VIDEO, #[size_param(2)] pFeatureSupportData: *mut void, FeatureSupportDataSize: u32) -> HRESULT;
+            fn NegotiateCryptoSessionKeyExchangeMT(&self, pCryptoSession: ID3D11CryptoSession, flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, DataSize: u32, #[size_param(2)] #[in] #[out] pData: *mut void) -> HRESULT;
+        }
+    }
+}

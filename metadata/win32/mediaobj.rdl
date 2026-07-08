@@ -1,0 +1,136 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct DMO_MEDIA_TYPE {
+            majortype: GUID,
+            subtype: GUID,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            lSampleSize: u32,
+            formattype: GUID,
+            pUnk: IUnknown,
+            cbFormat: u32,
+            pbFormat: *mut u8,
+        }
+        struct DMO_OUTPUT_DATA_BUFFER {
+            pBuffer: IMediaBuffer,
+            dwStatus: u32,
+            rtTimestamp: REFERENCE_TIME,
+            rtTimelength: REFERENCE_TIME,
+        }
+        #[guid(0x65abea96_cf36_453f_af8a_705e98f16260)]
+        interface IDMOQualityControl: IUnknown {
+            fn SetNow(&self, rtNow: REFERENCE_TIME) -> HRESULT;
+            fn SetStatus(&self, dwFlags: u32) -> HRESULT;
+            fn GetStatus(&self, pdwFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0xbe8f4f4e_5b16_4d29_b350_7f6b5d9298ac)]
+        interface IDMOVideoOutputOptimizations: IUnknown {
+            fn QueryOperationModePreferences(&self, ulOutputStreamIndex: u32, pdwRequestedCapabilities: *mut u32) -> HRESULT;
+            fn SetOperationMode(&self, ulOutputStreamIndex: u32, dwEnabledFeatures: u32) -> HRESULT;
+            fn GetCurrentOperationMode(&self, ulOutputStreamIndex: u32, pdwEnabledFeatures: *mut u32) -> HRESULT;
+            fn GetCurrentSampleRequirements(&self, ulOutputStreamIndex: u32, pdwRequestedFeatures: *mut u32) -> HRESULT;
+        }
+        #[guid(0x2c3cd98a_2bfa_4a53_9c27_5249ba64ba0f)]
+        interface IEnumDMO: IUnknown {
+            fn Next(&self, cItemsToFetch: u32, #[len_param(0)] pCLSID: *mut GUID, #[len_param(0)] Names: *mut PWSTR, pcItemsFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, cItemsToSkip: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumDMO) -> HRESULT;
+        }
+        #[guid(0x59eff8b9_938c_4a26_82f2_95cb84cdc837)]
+        interface IMediaBuffer: IUnknown {
+            fn SetLength(&self, cbLength: u32) -> HRESULT;
+            fn GetMaxLength(&self, pcbMaxLength: *mut u32) -> HRESULT;
+            fn GetBufferAndLength(&self, ppBuffer: *mut *mut u8, #[opt] pcbLength: *mut u32) -> HRESULT;
+        }
+        #[guid(0xd8ad0f58_5494_4102_97c5_ec798e59bcf4)]
+        interface IMediaObject: IUnknown {
+            fn GetStreamCount(&self, pcInputStreams: *mut u32, pcOutputStreams: *mut u32) -> HRESULT;
+            fn GetInputStreamInfo(&self, dwInputStreamIndex: u32, pdwFlags: *mut u32) -> HRESULT;
+            fn GetOutputStreamInfo(&self, dwOutputStreamIndex: u32, pdwFlags: *mut u32) -> HRESULT;
+            fn GetInputType(&self, dwInputStreamIndex: u32, dwTypeIndex: u32, #[opt] pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
+            fn GetOutputType(&self, dwOutputStreamIndex: u32, dwTypeIndex: u32, #[opt] pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
+            fn SetInputType(&self, dwInputStreamIndex: u32, #[opt] pmt: *const DMO_MEDIA_TYPE, dwFlags: u32) -> HRESULT;
+            fn SetOutputType(&self, dwOutputStreamIndex: u32, #[opt] pmt: *const DMO_MEDIA_TYPE, dwFlags: u32) -> HRESULT;
+            fn GetInputCurrentType(&self, dwInputStreamIndex: u32, pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
+            fn GetOutputCurrentType(&self, dwOutputStreamIndex: u32, pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
+            fn GetInputSizeInfo(&self, dwInputStreamIndex: u32, pcbSize: *mut u32, pcbMaxLookahead: *mut u32, pcbAlignment: *mut u32) -> HRESULT;
+            fn GetOutputSizeInfo(&self, dwOutputStreamIndex: u32, pcbSize: *mut u32, pcbAlignment: *mut u32) -> HRESULT;
+            fn GetInputMaxLatency(&self, dwInputStreamIndex: u32, prtMaxLatency: *mut REFERENCE_TIME) -> HRESULT;
+            fn SetInputMaxLatency(&self, dwInputStreamIndex: u32, rtMaxLatency: REFERENCE_TIME) -> HRESULT;
+            fn Flush(&self) -> HRESULT;
+            fn Discontinuity(&self, dwInputStreamIndex: u32) -> HRESULT;
+            fn AllocateStreamingResources(&self) -> HRESULT;
+            fn FreeStreamingResources(&self) -> HRESULT;
+            fn GetInputStatus(&self, dwInputStreamIndex: u32, dwFlags: *mut u32) -> HRESULT;
+            fn ProcessInput(&self, dwInputStreamIndex: u32, pBuffer: IMediaBuffer, dwFlags: u32, rtTimestamp: REFERENCE_TIME, rtTimelength: REFERENCE_TIME) -> HRESULT;
+            fn ProcessOutput(&self, dwFlags: u32, cOutputBufferCount: u32, #[len_param(1)] pOutputBuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwStatus: *mut u32) -> HRESULT;
+            fn Lock(&self, bLock: i32) -> HRESULT;
+        }
+        #[guid(0x651b9ad0_0fc7_4aa9_9538_d89931010741)]
+        interface IMediaObjectInPlace: IUnknown {
+            fn Process(&self, ulSize: u32, #[size_param(0)] pData: *mut u8, refTimeStart: REFERENCE_TIME, dwFlags: u32) -> HRESULT;
+            fn Clone(&self, ppMediaObject: *mut IMediaObjectInPlace) -> HRESULT;
+            fn GetLatency(&self, pLatencyTime: *mut REFERENCE_TIME) -> HRESULT;
+        }
+        type PDMO_OUTPUT_DATA_BUFFER = *mut DMO_OUTPUT_DATA_BUFFER;
+        type REFERENCE_TIME = i64;
+        #[repr(i32)]
+        enum _DMO_INPLACE_PROCESS_FLAGS {
+            DMO_INPLACE_NORMAL = 0,
+            DMO_INPLACE_ZERO = 1,
+        }
+        #[repr(i32)]
+        enum _DMO_INPUT_DATA_BUFFER_FLAGS {
+            DMO_INPUT_DATA_BUFFERF_SYNCPOINT = 1,
+            DMO_INPUT_DATA_BUFFERF_TIME = 2,
+            DMO_INPUT_DATA_BUFFERF_TIMELENGTH = 4,
+            DMO_INPUT_DATA_BUFFERF_DISCONTINUITY = 8,
+        }
+        #[repr(i32)]
+        enum _DMO_INPUT_STATUS_FLAGS {
+            DMO_INPUT_STATUSF_ACCEPT_DATA = 1,
+        }
+        #[repr(i32)]
+        enum _DMO_INPUT_STREAM_INFO_FLAGS {
+            DMO_INPUT_STREAMF_WHOLE_SAMPLES = 1,
+            DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER = 2,
+            DMO_INPUT_STREAMF_FIXED_SAMPLE_SIZE = 4,
+            DMO_INPUT_STREAMF_HOLDS_BUFFERS = 8,
+        }
+        #[repr(i32)]
+        enum _DMO_OUTPUT_DATA_BUFFER_FLAGS {
+            DMO_OUTPUT_DATA_BUFFERF_SYNCPOINT = 1,
+            DMO_OUTPUT_DATA_BUFFERF_TIME = 2,
+            DMO_OUTPUT_DATA_BUFFERF_TIMELENGTH = 4,
+            DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY = 8,
+            DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE = 16777216,
+        }
+        #[repr(i32)]
+        enum _DMO_OUTPUT_STREAM_INFO_FLAGS {
+            DMO_OUTPUT_STREAMF_WHOLE_SAMPLES = 1,
+            DMO_OUTPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER = 2,
+            DMO_OUTPUT_STREAMF_FIXED_SAMPLE_SIZE = 4,
+            DMO_OUTPUT_STREAMF_DISCARDABLE = 8,
+            DMO_OUTPUT_STREAMF_OPTIONAL = 16,
+        }
+        #[repr(i32)]
+        enum _DMO_PROCESS_OUTPUT_FLAGS {
+            DMO_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER = 1,
+        }
+        #[repr(i32)]
+        enum _DMO_QUALITY_STATUS_FLAGS {
+            DMO_QUALITY_STATUS_ENABLED = 1,
+        }
+        #[repr(i32)]
+        enum _DMO_SET_TYPE_FLAGS {
+            DMO_SET_TYPEF_TEST_ONLY = 1,
+            DMO_SET_TYPEF_CLEAR = 2,
+        }
+        #[repr(i32)]
+        enum _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
+            DMO_VOSF_NEEDS_PREVIOUS_SAMPLE = 1,
+        }
+    }
+}

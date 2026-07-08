@@ -1,0 +1,18 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn AddSIDToBoundaryDescriptor(#[in] #[out] BoundaryDescriptor: *mut HANDLE, RequiredSid: PSID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ClosePrivateNamespace(Handle: HANDLE, Flags: u32) -> BOOLEAN;
+        #[library("KERNEL32.dll")]
+        extern fn CreateBoundaryDescriptorW(Name: PCWSTR, Flags: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreatePrivateNamespaceW(#[opt] lpPrivateNamespaceAttributes: *const SECURITY_ATTRIBUTES, lpBoundaryDescriptor: *const void, lpAliasPrefix: PCWSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteBoundaryDescriptor(BoundaryDescriptor: HANDLE);
+        #[library("KERNEL32.dll")]
+        extern fn OpenPrivateNamespaceW(lpBoundaryDescriptor: *const void, lpAliasPrefix: PCWSTR) -> HANDLE;
+        const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1;
+    }
+}

@@ -1,0 +1,113 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const DXGI_DEBUG_ALL: GUID = 0xe48ae283_da80_490b_87e6_43e9a9cfda08;
+        const DXGI_DEBUG_APP: GUID = 0x06cd6e01_4219_4ebd_8709_27ed23360c62;
+        const DXGI_DEBUG_BINARY_VERSION: u32 = 1;
+        const DXGI_DEBUG_DX: GUID = 0x35cdd7fc_13b2_421d_a5d7_7e4451287d64;
+        const DXGI_DEBUG_DXGI: GUID = 0x25cddaa4_b1c6_47e1_ac3e_98875b5a2e2a;
+        type DXGI_DEBUG_ID = GUID;
+        #[repr(i32)]
+        enum DXGI_DEBUG_RLO_FLAGS {
+            DXGI_DEBUG_RLO_SUMMARY = 1,
+            DXGI_DEBUG_RLO_DETAIL = 2,
+            DXGI_DEBUG_RLO_IGNORE_INTERNAL = 4,
+            DXGI_DEBUG_RLO_ALL = 7,
+        }
+        const DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024;
+        struct DXGI_INFO_QUEUE_FILTER {
+            AllowList: DXGI_INFO_QUEUE_FILTER_DESC,
+            DenyList: DXGI_INFO_QUEUE_FILTER_DESC,
+        }
+        struct DXGI_INFO_QUEUE_FILTER_DESC {
+            NumCategories: u32,
+            pCategoryList: *mut DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
+            NumSeverities: u32,
+            pSeverityList: *mut DXGI_INFO_QUEUE_MESSAGE_SEVERITY,
+            NumIDs: u32,
+            pIDList: *mut DXGI_INFO_QUEUE_MESSAGE_ID,
+        }
+        struct DXGI_INFO_QUEUE_MESSAGE {
+            Producer: DXGI_DEBUG_ID,
+            Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
+            Severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY,
+            ID: DXGI_INFO_QUEUE_MESSAGE_ID,
+            pDescription: *const i8,
+            DescriptionByteLength: usize,
+        }
+        #[repr(i32)]
+        enum DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_UNKNOWN = 0,
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_MISCELLANEOUS = 1,
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_INITIALIZATION = 2,
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_CLEANUP = 3,
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_COMPILATION = 4,
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_STATE_CREATION = 5,
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_STATE_SETTING = 6,
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_STATE_GETTING = 7,
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_RESOURCE_MANIPULATION = 8,
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_EXECUTION = 9,
+            DXGI_INFO_QUEUE_MESSAGE_CATEGORY_SHADER = 10,
+        }
+        type DXGI_INFO_QUEUE_MESSAGE_ID = i32;
+        const DXGI_INFO_QUEUE_MESSAGE_ID_STRING_FROM_APPLICATION: u32 = 0;
+        #[repr(i32)]
+        enum DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
+            DXGI_INFO_QUEUE_MESSAGE_SEVERITY_CORRUPTION = 0,
+            DXGI_INFO_QUEUE_MESSAGE_SEVERITY_ERROR = 1,
+            DXGI_INFO_QUEUE_MESSAGE_SEVERITY_WARNING = 2,
+            DXGI_INFO_QUEUE_MESSAGE_SEVERITY_INFO = 3,
+            DXGI_INFO_QUEUE_MESSAGE_SEVERITY_MESSAGE = 4,
+        }
+        #[guid(0x119e7452_de9e_40fe_8806_88f90c12b441)]
+        interface IDXGIDebug: IUnknown {
+            fn ReportLiveObjects(&self, apiid: GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> HRESULT;
+        }
+        #[guid(0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550)]
+        interface IDXGIDebug1: IDXGIDebug {
+            fn EnableLeakTrackingForThread(&self);
+            fn DisableLeakTrackingForThread(&self);
+            fn IsLeakTrackingEnabledForThread(&self) -> BOOL;
+        }
+        #[guid(0xd67441c7_672a_476f_9e82_cd55b44949ce)]
+        interface IDXGIInfoQueue: IUnknown {
+            fn SetMessageCountLimit(&self, Producer: DXGI_DEBUG_ID, MessageCountLimit: u64) -> HRESULT;
+            fn ClearStoredMessages(&self, Producer: DXGI_DEBUG_ID);
+            fn GetMessage(&self, Producer: DXGI_DEBUG_ID, MessageIndex: u64, #[size_param(3)] #[opt] pMessage: *mut DXGI_INFO_QUEUE_MESSAGE, #[in] #[out] pMessageByteLength: *mut usize) -> HRESULT;
+            fn GetNumStoredMessagesAllowedByRetrievalFilters(&self, Producer: DXGI_DEBUG_ID) -> u64;
+            fn GetNumStoredMessages(&self, Producer: DXGI_DEBUG_ID) -> u64;
+            fn GetNumMessagesDiscardedByMessageCountLimit(&self, Producer: DXGI_DEBUG_ID) -> u64;
+            fn GetMessageCountLimit(&self, Producer: DXGI_DEBUG_ID) -> u64;
+            fn GetNumMessagesAllowedByStorageFilter(&self, Producer: DXGI_DEBUG_ID) -> u64;
+            fn GetNumMessagesDeniedByStorageFilter(&self, Producer: DXGI_DEBUG_ID) -> u64;
+            fn AddStorageFilterEntries(&self, Producer: DXGI_DEBUG_ID, pFilter: *const DXGI_INFO_QUEUE_FILTER) -> HRESULT;
+            fn GetStorageFilter(&self, Producer: DXGI_DEBUG_ID, #[size_param(2)] #[opt] pFilter: *mut DXGI_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut usize) -> HRESULT;
+            fn ClearStorageFilter(&self, Producer: DXGI_DEBUG_ID);
+            fn PushEmptyStorageFilter(&self, Producer: DXGI_DEBUG_ID) -> HRESULT;
+            fn PushDenyAllStorageFilter(&self, Producer: DXGI_DEBUG_ID) -> HRESULT;
+            fn PushCopyOfStorageFilter(&self, Producer: DXGI_DEBUG_ID) -> HRESULT;
+            fn PushStorageFilter(&self, Producer: DXGI_DEBUG_ID, pFilter: *const DXGI_INFO_QUEUE_FILTER) -> HRESULT;
+            fn PopStorageFilter(&self, Producer: DXGI_DEBUG_ID);
+            fn GetStorageFilterStackSize(&self, Producer: DXGI_DEBUG_ID) -> u32;
+            fn AddRetrievalFilterEntries(&self, Producer: DXGI_DEBUG_ID, pFilter: *const DXGI_INFO_QUEUE_FILTER) -> HRESULT;
+            fn GetRetrievalFilter(&self, Producer: DXGI_DEBUG_ID, #[size_param(2)] #[opt] pFilter: *mut DXGI_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut usize) -> HRESULT;
+            fn ClearRetrievalFilter(&self, Producer: DXGI_DEBUG_ID);
+            fn PushEmptyRetrievalFilter(&self, Producer: DXGI_DEBUG_ID) -> HRESULT;
+            fn PushDenyAllRetrievalFilter(&self, Producer: DXGI_DEBUG_ID) -> HRESULT;
+            fn PushCopyOfRetrievalFilter(&self, Producer: DXGI_DEBUG_ID) -> HRESULT;
+            fn PushRetrievalFilter(&self, Producer: DXGI_DEBUG_ID, pFilter: *const DXGI_INFO_QUEUE_FILTER) -> HRESULT;
+            fn PopRetrievalFilter(&self, Producer: DXGI_DEBUG_ID);
+            fn GetRetrievalFilterStackSize(&self, Producer: DXGI_DEBUG_ID) -> u32;
+            fn AddMessage(&self, Producer: DXGI_DEBUG_ID, Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, Severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, ID: DXGI_INFO_QUEUE_MESSAGE_ID, pDescription: PCSTR) -> HRESULT;
+            fn AddApplicationMessage(&self, Severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pDescription: PCSTR) -> HRESULT;
+            fn SetBreakOnCategory(&self, Producer: DXGI_DEBUG_ID, Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, bEnable: BOOL) -> HRESULT;
+            fn SetBreakOnSeverity(&self, Producer: DXGI_DEBUG_ID, Severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, bEnable: BOOL) -> HRESULT;
+            fn SetBreakOnID(&self, Producer: DXGI_DEBUG_ID, ID: DXGI_INFO_QUEUE_MESSAGE_ID, bEnable: BOOL) -> HRESULT;
+            fn GetBreakOnCategory(&self, Producer: DXGI_DEBUG_ID, Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> BOOL;
+            fn GetBreakOnSeverity(&self, Producer: DXGI_DEBUG_ID, Severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> BOOL;
+            fn GetBreakOnID(&self, Producer: DXGI_DEBUG_ID, ID: DXGI_INFO_QUEUE_MESSAGE_ID) -> BOOL;
+            fn SetMuteDebugOutput(&self, Producer: DXGI_DEBUG_ID, bMute: BOOL);
+            fn GetMuteDebugOutput(&self, Producer: DXGI_DEBUG_ID) -> BOOL;
+        }
+    }
+}

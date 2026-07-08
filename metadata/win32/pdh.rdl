@@ -1,0 +1,534 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        extern fn CounterPathCallBack(param0: usize) -> PDH_STATUS;
+        const DATA_SOURCE_LOGFILE: u32 = 2;
+        const DATA_SOURCE_REGISTRY: u32 = 1;
+        const DATA_SOURCE_WBEM: u32 = 4;
+        type HCOUNTER = PDH_HCOUNTER;
+        type HLOG = PDH_HLOG;
+        type HQUERY = PDH_HQUERY;
+        const H_REALTIME_DATASOURCE: u32 = 0;
+        const MAX_COUNTER_PATH: u32 = 256;
+        const MAX_TIME_VALUE: i64 = 9223372036854775807;
+        const MIN_TIME_VALUE: i64 = 0;
+        struct PDH_BROWSE_DLG_CONFIG_A {
+            _bitfield: u32,
+            hWndOwner: HWND,
+            szDataSource: PSTR,
+            szReturnPathBuffer: PSTR,
+            cchReturnPathLength: u32,
+            pCallBack: CounterPathCallBack,
+            dwCallBackArg: usize,
+            CallBackStatus: PDH_STATUS,
+            dwDefaultDetailLevel: u32,
+            szDialogBoxCaption: PSTR,
+        }
+        struct PDH_BROWSE_DLG_CONFIG_HA {
+            _bitfield: u32,
+            hWndOwner: HWND,
+            hDataSource: PDH_HLOG,
+            szReturnPathBuffer: PSTR,
+            cchReturnPathLength: u32,
+            pCallBack: CounterPathCallBack,
+            dwCallBackArg: usize,
+            CallBackStatus: PDH_STATUS,
+            dwDefaultDetailLevel: u32,
+            szDialogBoxCaption: PSTR,
+        }
+        struct PDH_BROWSE_DLG_CONFIG_HW {
+            _bitfield: u32,
+            hWndOwner: HWND,
+            hDataSource: PDH_HLOG,
+            szReturnPathBuffer: PWSTR,
+            cchReturnPathLength: u32,
+            pCallBack: CounterPathCallBack,
+            dwCallBackArg: usize,
+            CallBackStatus: PDH_STATUS,
+            dwDefaultDetailLevel: u32,
+            szDialogBoxCaption: PWSTR,
+        }
+        struct PDH_BROWSE_DLG_CONFIG_W {
+            _bitfield: u32,
+            hWndOwner: HWND,
+            szDataSource: PWSTR,
+            szReturnPathBuffer: PWSTR,
+            cchReturnPathLength: u32,
+            pCallBack: CounterPathCallBack,
+            dwCallBackArg: usize,
+            CallBackStatus: PDH_STATUS,
+            dwDefaultDetailLevel: u32,
+            szDialogBoxCaption: PWSTR,
+        }
+        struct PDH_COUNTER_INFO_A {
+            dwLength: u32,
+            dwType: u32,
+            CVersion: u32,
+            CStatus: u32,
+            lScale: i32,
+            lDefaultScale: i32,
+            dwUserData: usize,
+            dwQueryUserData: usize,
+            szFullPath: PSTR,
+            Anonymous: union {
+                DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_A,
+                CounterPath: PDH_COUNTER_PATH_ELEMENTS_A,
+                Anonymous: struct {
+                    szMachineName: PSTR,
+                    szObjectName: PSTR,
+                    szInstanceName: PSTR,
+                    szParentInstance: PSTR,
+                    dwInstanceIndex: u32,
+                    szCounterName: PSTR,
+                },
+            },
+            szExplainText: PSTR,
+            DataBuffer: [u32; 1],
+        }
+        struct PDH_COUNTER_INFO_W {
+            dwLength: u32,
+            dwType: u32,
+            CVersion: u32,
+            CStatus: u32,
+            lScale: i32,
+            lDefaultScale: i32,
+            dwUserData: usize,
+            dwQueryUserData: usize,
+            szFullPath: PWSTR,
+            Anonymous: union {
+                DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_W,
+                CounterPath: PDH_COUNTER_PATH_ELEMENTS_W,
+                Anonymous: struct {
+                    szMachineName: PWSTR,
+                    szObjectName: PWSTR,
+                    szInstanceName: PWSTR,
+                    szParentInstance: PWSTR,
+                    dwInstanceIndex: u32,
+                    szCounterName: PWSTR,
+                },
+            },
+            szExplainText: PWSTR,
+            DataBuffer: [u32; 1],
+        }
+        struct PDH_COUNTER_PATH_ELEMENTS_A {
+            szMachineName: PSTR,
+            szObjectName: PSTR,
+            szInstanceName: PSTR,
+            szParentInstance: PSTR,
+            dwInstanceIndex: u32,
+            szCounterName: PSTR,
+        }
+        struct PDH_COUNTER_PATH_ELEMENTS_W {
+            szMachineName: PWSTR,
+            szObjectName: PWSTR,
+            szInstanceName: PWSTR,
+            szParentInstance: PWSTR,
+            dwInstanceIndex: u32,
+            szCounterName: PWSTR,
+        }
+        const PDH_CVERSION_WIN40: u32 = 1024;
+        const PDH_CVERSION_WIN50: u32 = 1280;
+        struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
+            szMachineName: PSTR,
+            ObjectGUID: GUID,
+            dwItemId: u32,
+            szInstanceName: PSTR,
+        }
+        struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
+            szMachineName: PWSTR,
+            ObjectGUID: GUID,
+            dwItemId: u32,
+            szInstanceName: PWSTR,
+        }
+        const PDH_FLAGS_CLOSE_QUERY: u32 = 1;
+        const PDH_FLAGS_FILE_BROWSER_ONLY: u32 = 1;
+        const PDH_FMT_1000: u32 = 8192;
+        const PDH_FMT_ANSI: u32 = 32;
+        struct PDH_FMT_COUNTERVALUE {
+            CStatus: u32,
+            Anonymous: union {
+                longValue: i32,
+                doubleValue: f64,
+                largeValue: i64,
+                AnsiStringValue: PCSTR,
+                WideStringValue: PCWSTR,
+            },
+        }
+        struct PDH_FMT_COUNTERVALUE_ITEM_A {
+            szName: PSTR,
+            FmtValue: PDH_FMT_COUNTERVALUE,
+        }
+        struct PDH_FMT_COUNTERVALUE_ITEM_W {
+            szName: PWSTR,
+            FmtValue: PDH_FMT_COUNTERVALUE,
+        }
+        const PDH_FMT_DOUBLE: u32 = 512;
+        const PDH_FMT_LARGE: u32 = 1024;
+        const PDH_FMT_LONG: u32 = 256;
+        const PDH_FMT_NOCAP100: u32 = 32768;
+        const PDH_FMT_NODATA: u32 = 16384;
+        const PDH_FMT_NOSCALE: u32 = 4096;
+        const PDH_FMT_RAW: u32 = 16;
+        const PDH_FMT_UNICODE: u32 = 64;
+        type PDH_HCOUNTER = HANDLE;
+        type PDH_HLOG = HANDLE;
+        type PDH_HQUERY = HANDLE;
+        const PDH_LOG_ACCESS_MASK: u32 = 983040;
+        const PDH_LOG_CREATE_ALWAYS: u32 = 2;
+        const PDH_LOG_CREATE_MASK: u32 = 15;
+        const PDH_LOG_CREATE_NEW: u32 = 1;
+        const PDH_LOG_OPEN_ALWAYS: u32 = 3;
+        const PDH_LOG_OPEN_EXISTING: u32 = 4;
+        const PDH_LOG_OPT_APPEND: u32 = 134217728;
+        const PDH_LOG_OPT_CIRCULAR: u32 = 33554432;
+        const PDH_LOG_OPT_MASK: u32 = 251658240;
+        const PDH_LOG_OPT_MAX_IS_BYTES: u32 = 67108864;
+        const PDH_LOG_OPT_USER_STRING: u32 = 16777216;
+        const PDH_LOG_READ_ACCESS: u32 = 65536;
+        struct PDH_LOG_SERVICE_QUERY_INFO_A {
+            dwSize: u32,
+            dwFlags: u32,
+            dwLogQuota: u32,
+            szLogFileCaption: PSTR,
+            szDefaultDir: PSTR,
+            szBaseFileName: PSTR,
+            dwFileType: u32,
+            dwReserved: u32,
+            Anonymous: union {
+                Anonymous: struct {
+                    PdlAutoNameInterval: u32,
+                    PdlAutoNameUnits: u32,
+                    PdlCommandFilename: PSTR,
+                    PdlCounterList: PSTR,
+                    PdlAutoNameFormat: u32,
+                    PdlSampleInterval: u32,
+                    PdlLogStartTime: FILETIME,
+                    PdlLogEndTime: FILETIME,
+                },
+                Anonymous2: struct {
+                    TlNumberOfBuffers: u32,
+                    TlMinimumBuffers: u32,
+                    TlMaximumBuffers: u32,
+                    TlFreeBuffers: u32,
+                    TlBufferSize: u32,
+                    TlEventsLost: u32,
+                    TlLoggerThreadId: u32,
+                    TlBuffersWritten: u32,
+                    TlLogHandle: u32,
+                    TlLogFileName: PSTR,
+                },
+            },
+        }
+        struct PDH_LOG_SERVICE_QUERY_INFO_W {
+            dwSize: u32,
+            dwFlags: u32,
+            dwLogQuota: u32,
+            szLogFileCaption: PWSTR,
+            szDefaultDir: PWSTR,
+            szBaseFileName: PWSTR,
+            dwFileType: u32,
+            dwReserved: u32,
+            Anonymous: union {
+                Anonymous: struct {
+                    PdlAutoNameInterval: u32,
+                    PdlAutoNameUnits: u32,
+                    PdlCommandFilename: PWSTR,
+                    PdlCounterList: PWSTR,
+                    PdlAutoNameFormat: u32,
+                    PdlSampleInterval: u32,
+                    PdlLogStartTime: FILETIME,
+                    PdlLogEndTime: FILETIME,
+                },
+                Anonymous2: struct {
+                    TlNumberOfBuffers: u32,
+                    TlMinimumBuffers: u32,
+                    TlMaximumBuffers: u32,
+                    TlFreeBuffers: u32,
+                    TlBufferSize: u32,
+                    TlEventsLost: u32,
+                    TlLoggerThreadId: u32,
+                    TlBuffersWritten: u32,
+                    TlLogHandle: u32,
+                    TlLogFileName: PWSTR,
+                },
+            },
+        }
+        const PDH_LOG_TYPE_BINARY: u32 = 8;
+        const PDH_LOG_TYPE_CSV: u32 = 1;
+        const PDH_LOG_TYPE_PERFMON: u32 = 6;
+        const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3;
+        const PDH_LOG_TYPE_SQL: u32 = 7;
+        const PDH_LOG_TYPE_TRACE_GENERIC: u32 = 5;
+        const PDH_LOG_TYPE_TRACE_KERNEL: u32 = 4;
+        const PDH_LOG_TYPE_TSV: u32 = 2;
+        const PDH_LOG_TYPE_UNDEFINED: u32 = 0;
+        const PDH_LOG_UPDATE_ACCESS: u32 = 262144;
+        const PDH_LOG_WRITE_ACCESS: u32 = 131072;
+        const PDH_MAX_COUNTER_NAME: u32 = 1024;
+        const PDH_MAX_COUNTER_PATH: u32 = 2048;
+        const PDH_MAX_DATASOURCE_PATH: u32 = 1024;
+        const PDH_MAX_INSTANCE_NAME: u32 = 1024;
+        const PDH_MAX_SCALE: u32 = 7;
+        const PDH_MIN_SCALE: i32 = -7;
+        const PDH_NOEXPANDCOUNTERS: u32 = 1;
+        const PDH_NOEXPANDINSTANCES: u32 = 2;
+        const PDH_OBJECT_HAS_INSTANCES: u32 = 1;
+        const PDH_PATH_WBEM_INPUT: u32 = 2;
+        const PDH_PATH_WBEM_RESULT: u32 = 1;
+        struct PDH_RAW_COUNTER {
+            CStatus: u32,
+            TimeStamp: FILETIME,
+            FirstValue: i64,
+            SecondValue: i64,
+            MultiCount: u32,
+        }
+        struct PDH_RAW_COUNTER_ITEM_A {
+            szName: PSTR,
+            RawValue: PDH_RAW_COUNTER,
+        }
+        struct PDH_RAW_COUNTER_ITEM_W {
+            szName: PWSTR,
+            RawValue: PDH_RAW_COUNTER,
+        }
+        struct PDH_RAW_LOG_RECORD {
+            dwStructureSize: u32,
+            dwRecordType: u32,
+            dwItems: u32,
+            RawBytes: [u8; 1],
+        }
+        const PDH_REFRESHCOUNTERS: u32 = 4;
+        struct PDH_STATISTICS {
+            dwFormat: u32,
+            count: u32,
+            min: PDH_FMT_COUNTERVALUE,
+            max: PDH_FMT_COUNTERVALUE,
+            mean: PDH_FMT_COUNTERVALUE,
+        }
+        type PDH_STATUS = i32;
+        struct PDH_TIME_INFO {
+            StartTime: i64,
+            EndTime: i64,
+            SampleCount: u32,
+        }
+        const PDH_VERSION: u32 = 1283;
+        const PERF_DETAIL_COSTLY: u32 = 65536;
+        const PERF_DETAIL_STANDARD: u32 = 65535;
+        type PPDH_BROWSE_DLG_CONFIG_A = *mut PDH_BROWSE_DLG_CONFIG_A;
+        type PPDH_BROWSE_DLG_CONFIG_HA = *mut PDH_BROWSE_DLG_CONFIG_HA;
+        type PPDH_BROWSE_DLG_CONFIG_HW = *mut PDH_BROWSE_DLG_CONFIG_HW;
+        type PPDH_BROWSE_DLG_CONFIG_W = *mut PDH_BROWSE_DLG_CONFIG_W;
+        type PPDH_COUNTER_INFO_A = *mut PDH_COUNTER_INFO_A;
+        type PPDH_COUNTER_INFO_W = *mut PDH_COUNTER_INFO_W;
+        type PPDH_COUNTER_PATH_ELEMENTS_A = *mut PDH_COUNTER_PATH_ELEMENTS_A;
+        type PPDH_COUNTER_PATH_ELEMENTS_W = *mut PDH_COUNTER_PATH_ELEMENTS_W;
+        type PPDH_DATA_ITEM_PATH_ELEMENTS_A = *mut PDH_DATA_ITEM_PATH_ELEMENTS_A;
+        type PPDH_DATA_ITEM_PATH_ELEMENTS_W = *mut PDH_DATA_ITEM_PATH_ELEMENTS_W;
+        type PPDH_FMT_COUNTERVALUE = *mut PDH_FMT_COUNTERVALUE;
+        type PPDH_FMT_COUNTERVALUE_ITEM_A = *mut PDH_FMT_COUNTERVALUE_ITEM_A;
+        type PPDH_FMT_COUNTERVALUE_ITEM_W = *mut PDH_FMT_COUNTERVALUE_ITEM_W;
+        type PPDH_LOG_SERVICE_QUERY_INFO_A = *mut PDH_LOG_SERVICE_QUERY_INFO_A;
+        type PPDH_LOG_SERVICE_QUERY_INFO_W = *mut PDH_LOG_SERVICE_QUERY_INFO_W;
+        type PPDH_RAW_COUNTER = *mut PDH_RAW_COUNTER;
+        type PPDH_RAW_COUNTER_ITEM_A = *mut PDH_RAW_COUNTER_ITEM_A;
+        type PPDH_RAW_COUNTER_ITEM_W = *mut PDH_RAW_COUNTER_ITEM_W;
+        type PPDH_RAW_LOG_RECORD = *mut PDH_RAW_LOG_RECORD;
+        type PPDH_STATISTICS = *mut PDH_STATISTICS;
+        type PPDH_TIME_INFO = *mut PDH_TIME_INFO;
+        #[library("pdh.dll")]
+        extern fn PdhAddCounterA(hQuery: PDH_HQUERY, szFullCounterPath: PCSTR, dwUserData: usize, phCounter: *mut PDH_HCOUNTER) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhAddCounterW(hQuery: PDH_HQUERY, szFullCounterPath: PCWSTR, dwUserData: usize, phCounter: *mut PDH_HCOUNTER) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhAddEnglishCounterA(hQuery: PDH_HQUERY, szFullCounterPath: PCSTR, dwUserData: usize, phCounter: *mut PDH_HCOUNTER) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhAddEnglishCounterW(hQuery: PDH_HQUERY, szFullCounterPath: PCWSTR, dwUserData: usize, phCounter: *mut PDH_HCOUNTER) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhBindInputDataSourceA(phDataSource: *mut PDH_HLOG, #[opt] LogFileNameList: PCSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhBindInputDataSourceW(phDataSource: *mut PDH_HLOG, #[opt] LogFileNameList: PCWSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhBrowseCountersA(pBrowseDlgData: *const PDH_BROWSE_DLG_CONFIG_A) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhBrowseCountersHA(pBrowseDlgData: *const PDH_BROWSE_DLG_CONFIG_HA) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhBrowseCountersHW(pBrowseDlgData: *const PDH_BROWSE_DLG_CONFIG_HW) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhBrowseCountersW(pBrowseDlgData: *const PDH_BROWSE_DLG_CONFIG_W) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhCalculateCounterFromRawValue(hCounter: PDH_HCOUNTER, dwFormat: u32, rawValue1: *const PDH_RAW_COUNTER, rawValue2: *const PDH_RAW_COUNTER, fmtValue: *mut PDH_FMT_COUNTERVALUE) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhCloseLog(hLog: PDH_HLOG, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhCloseQuery(#[in] #[out] hQuery: PDH_HQUERY) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhCollectQueryData(#[in] #[out] hQuery: PDH_HQUERY) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhCollectQueryDataEx(hQuery: PDH_HQUERY, dwIntervalTime: u32, hNewDataEvent: HANDLE) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhCollectQueryDataWithTime(#[in] #[out] hQuery: PDH_HQUERY, pllTimeStamp: *mut i64) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhComputeCounterStatistics(hCounter: PDH_HCOUNTER, dwFormat: u32, dwFirstEntry: u32, dwNumEntries: u32, lpRawValueArray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhConnectMachineA(#[opt] szMachineName: PCSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhConnectMachineW(#[opt] szMachineName: PCWSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhCreateSQLTablesA(szDataSource: PCSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhCreateSQLTablesW(szDataSource: PCWSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumLogSetNamesA(szDataSource: PCSTR, #[len_param(2)] #[opt] mszDataSetNameList: *mut i8, #[in] #[out] pcchBufferLength: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumLogSetNamesW(szDataSource: PCWSTR, #[len_param(2)] #[opt] mszDataSetNameList: *mut u16, #[in] #[out] pcchBufferLength: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumMachinesA(#[opt] szDataSource: PCSTR, #[len_param(2)] #[opt] mszMachineList: *mut i8, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumMachinesHA(#[opt] hDataSource: PDH_HLOG, #[len_param(2)] #[opt] mszMachineList: *mut i8, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumMachinesHW(#[opt] hDataSource: PDH_HLOG, #[len_param(2)] #[opt] mszMachineList: *mut u16, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumMachinesW(#[opt] szDataSource: PCWSTR, #[len_param(2)] #[opt] mszMachineList: *mut u16, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumObjectItemsA(#[opt] szDataSource: PCSTR, #[opt] szMachineName: PCSTR, szObjectName: PCSTR, #[len_param(4)] #[opt] mszCounterList: *mut i8, #[in] #[out] pcchCounterListLength: *mut u32, #[len_param(6)] #[opt] mszInstanceList: *mut i8, #[in] #[out] pcchInstanceListLength: *mut u32, dwDetailLevel: u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumObjectItemsHA(#[opt] hDataSource: PDH_HLOG, #[opt] szMachineName: PCSTR, szObjectName: PCSTR, #[len_param(4)] #[opt] mszCounterList: *mut i8, #[in] #[out] pcchCounterListLength: *mut u32, #[len_param(6)] #[opt] mszInstanceList: *mut i8, #[in] #[out] pcchInstanceListLength: *mut u32, dwDetailLevel: u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumObjectItemsHW(#[opt] hDataSource: PDH_HLOG, #[opt] szMachineName: PCWSTR, szObjectName: PCWSTR, #[len_param(4)] #[opt] mszCounterList: *mut u16, #[in] #[out] pcchCounterListLength: *mut u32, #[len_param(6)] #[opt] mszInstanceList: *mut u16, #[in] #[out] pcchInstanceListLength: *mut u32, dwDetailLevel: u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumObjectItemsW(#[opt] szDataSource: PCWSTR, #[opt] szMachineName: PCWSTR, szObjectName: PCWSTR, #[len_param(4)] #[opt] mszCounterList: *mut u16, #[in] #[out] pcchCounterListLength: *mut u32, #[len_param(6)] #[opt] mszInstanceList: *mut u16, #[in] #[out] pcchInstanceListLength: *mut u32, dwDetailLevel: u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumObjectsA(#[opt] szDataSource: PCSTR, #[opt] szMachineName: PCSTR, #[len_param(3)] #[opt] mszObjectList: *mut i8, #[in] #[out] pcchBufferSize: *mut u32, dwDetailLevel: u32, bRefresh: BOOL) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumObjectsHA(#[opt] hDataSource: PDH_HLOG, #[opt] szMachineName: PCSTR, #[len_param(3)] #[opt] mszObjectList: *mut i8, #[in] #[out] pcchBufferSize: *mut u32, dwDetailLevel: u32, bRefresh: BOOL) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumObjectsHW(#[opt] hDataSource: PDH_HLOG, #[opt] szMachineName: PCWSTR, #[len_param(3)] #[opt] mszObjectList: *mut u16, #[in] #[out] pcchBufferSize: *mut u32, dwDetailLevel: u32, bRefresh: BOOL) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhEnumObjectsW(#[opt] szDataSource: PCWSTR, #[opt] szMachineName: PCWSTR, #[len_param(3)] #[opt] mszObjectList: *mut u16, #[in] #[out] pcchBufferSize: *mut u32, dwDetailLevel: u32, bRefresh: BOOL) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhExpandCounterPathA(szWildCardPath: PCSTR, #[len_param(2)] #[opt] mszExpandedPathList: *mut i8, #[in] #[out] pcchPathListLength: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhExpandCounterPathW(szWildCardPath: PCWSTR, #[len_param(2)] #[opt] mszExpandedPathList: *mut u16, #[in] #[out] pcchPathListLength: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhExpandWildCardPathA(#[opt] szDataSource: PCSTR, szWildCardPath: PCSTR, #[len_param(3)] #[opt] mszExpandedPathList: *mut i8, #[in] #[out] pcchPathListLength: *mut u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhExpandWildCardPathHA(#[opt] hDataSource: PDH_HLOG, szWildCardPath: PCSTR, #[len_param(3)] #[opt] mszExpandedPathList: *mut i8, #[in] #[out] pcchPathListLength: *mut u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhExpandWildCardPathHW(#[opt] hDataSource: PDH_HLOG, szWildCardPath: PCWSTR, #[len_param(3)] #[opt] mszExpandedPathList: *mut u16, #[in] #[out] pcchPathListLength: *mut u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhExpandWildCardPathW(#[opt] szDataSource: PCWSTR, szWildCardPath: PCWSTR, #[len_param(3)] #[opt] mszExpandedPathList: *mut u16, #[in] #[out] pcchPathListLength: *mut u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhFormatFromRawValue(dwCounterType: u32, dwFormat: u32, #[opt] pTimeBase: *const i64, pRawValue1: *const PDH_RAW_COUNTER, pRawValue2: *const PDH_RAW_COUNTER, pFmtValue: *mut PDH_FMT_COUNTERVALUE) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetCounterInfoA(hCounter: PDH_HCOUNTER, bRetrieveExplainText: BOOLEAN, #[in] #[out] pdwBufferSize: *mut u32, #[size_param(2)] #[opt] lpBuffer: *mut PDH_COUNTER_INFO_A) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetCounterInfoW(hCounter: PDH_HCOUNTER, bRetrieveExplainText: BOOLEAN, #[in] #[out] pdwBufferSize: *mut u32, #[size_param(2)] #[opt] lpBuffer: *mut PDH_COUNTER_INFO_W) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetCounterTimeBase(hCounter: PDH_HCOUNTER, pTimeBase: *mut i64) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDataSourceTimeRangeA(#[opt] szDataSource: PCSTR, pdwNumEntries: *mut u32, #[size_param(3)] pInfo: *mut PDH_TIME_INFO, #[in] #[out] pdwBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDataSourceTimeRangeH(#[in] #[out] #[opt] hDataSource: PDH_HLOG, pdwNumEntries: *mut u32, #[size_param(3)] pInfo: *mut PDH_TIME_INFO, #[in] #[out] pdwBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDataSourceTimeRangeW(#[opt] szDataSource: PCWSTR, pdwNumEntries: *mut u32, #[size_param(3)] pInfo: *mut PDH_TIME_INFO, #[in] #[out] pdwBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDefaultPerfCounterA(#[opt] szDataSource: PCSTR, #[opt] szMachineName: PCSTR, szObjectName: PCSTR, #[len_param(4)] #[out] #[opt] szDefaultCounterName: PSTR, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDefaultPerfCounterHA(#[opt] hDataSource: PDH_HLOG, #[opt] szMachineName: PCSTR, szObjectName: PCSTR, #[len_param(4)] #[out] #[opt] szDefaultCounterName: PSTR, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDefaultPerfCounterHW(#[opt] hDataSource: PDH_HLOG, #[opt] szMachineName: PCWSTR, szObjectName: PCWSTR, #[len_param(4)] #[out] #[opt] szDefaultCounterName: PWSTR, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDefaultPerfCounterW(#[opt] szDataSource: PCWSTR, #[opt] szMachineName: PCWSTR, szObjectName: PCWSTR, #[len_param(4)] #[out] #[opt] szDefaultCounterName: PWSTR, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDefaultPerfObjectA(#[opt] szDataSource: PCSTR, #[opt] szMachineName: PCSTR, #[len_param(3)] #[out] #[opt] szDefaultObjectName: PSTR, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDefaultPerfObjectHA(#[opt] hDataSource: PDH_HLOG, #[opt] szMachineName: PCSTR, #[len_param(3)] #[out] #[opt] szDefaultObjectName: PSTR, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDefaultPerfObjectHW(#[opt] hDataSource: PDH_HLOG, #[opt] szMachineName: PCWSTR, #[len_param(3)] #[out] #[opt] szDefaultObjectName: PWSTR, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDefaultPerfObjectW(#[opt] szDataSource: PCWSTR, #[opt] szMachineName: PCWSTR, #[len_param(3)] #[out] #[opt] szDefaultObjectName: PWSTR, #[in] #[out] pcchBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetDllVersion(#[opt] lpdwVersion: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetFormattedCounterArrayA(hCounter: PDH_HCOUNTER, dwFormat: u32, #[in] #[out] lpdwBufferSize: *mut u32, lpdwItemCount: *mut u32, #[size_param(2)] #[opt] ItemBuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetFormattedCounterArrayW(hCounter: PDH_HCOUNTER, dwFormat: u32, #[in] #[out] lpdwBufferSize: *mut u32, lpdwItemCount: *mut u32, #[size_param(2)] #[opt] ItemBuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetFormattedCounterValue(hCounter: PDH_HCOUNTER, dwFormat: u32, #[opt] lpdwType: *mut u32, pValue: *mut PDH_FMT_COUNTERVALUE) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetLogFileSize(hLog: PDH_HLOG, llSize: *mut i64) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetLogSetGUID(hLog: PDH_HLOG, #[opt] pGuid: *mut GUID, #[opt] pRunId: *mut i32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetRawCounterArrayA(hCounter: PDH_HCOUNTER, #[in] #[out] lpdwBufferSize: *mut u32, lpdwItemCount: *mut u32, #[size_param(1)] #[opt] ItemBuffer: *mut PDH_RAW_COUNTER_ITEM_A) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetRawCounterArrayW(hCounter: PDH_HCOUNTER, #[in] #[out] lpdwBufferSize: *mut u32, lpdwItemCount: *mut u32, #[size_param(1)] #[opt] ItemBuffer: *mut PDH_RAW_COUNTER_ITEM_W) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhGetRawCounterValue(hCounter: PDH_HCOUNTER, #[opt] lpdwType: *mut u32, pValue: *mut PDH_RAW_COUNTER) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhIsRealTimeQuery(hQuery: PDH_HQUERY) -> BOOL;
+        #[library("pdh.dll")]
+        extern fn PdhLookupPerfIndexByNameA(#[opt] szMachineName: PCSTR, szNameBuffer: PCSTR, pdwIndex: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhLookupPerfIndexByNameW(#[opt] szMachineName: PCWSTR, szNameBuffer: PCWSTR, pdwIndex: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhLookupPerfNameByIndexA(#[opt] szMachineName: PCSTR, dwNameIndex: u32, #[len_param(3)] #[out] #[opt] szNameBuffer: PSTR, #[in] #[out] pcchNameBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhLookupPerfNameByIndexW(#[opt] szMachineName: PCWSTR, dwNameIndex: u32, #[len_param(3)] #[out] #[opt] szNameBuffer: PWSTR, #[in] #[out] pcchNameBufferSize: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhMakeCounterPathA(pCounterPathElements: *const PDH_COUNTER_PATH_ELEMENTS_A, #[len_param(2)] #[out] #[opt] szFullPathBuffer: PSTR, #[in] #[out] pcchBufferSize: *mut u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhMakeCounterPathW(pCounterPathElements: *const PDH_COUNTER_PATH_ELEMENTS_W, #[len_param(2)] #[out] #[opt] szFullPathBuffer: PWSTR, #[in] #[out] pcchBufferSize: *mut u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhOpenLogA(szLogFileName: PCSTR, dwAccessFlags: u32, #[in] #[out] lpdwLogType: *mut u32, #[opt] hQuery: PDH_HQUERY, dwMaxSize: u32, #[opt] szUserCaption: PCSTR, phLog: *mut PDH_HLOG) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhOpenLogW(szLogFileName: PCWSTR, dwAccessFlags: u32, #[in] #[out] lpdwLogType: *mut u32, #[opt] hQuery: PDH_HQUERY, dwMaxSize: u32, #[opt] szUserCaption: PCWSTR, phLog: *mut PDH_HLOG) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhOpenQueryA(#[opt] szDataSource: PCSTR, dwUserData: usize, phQuery: *mut PDH_HQUERY) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhOpenQueryH(#[opt] hDataSource: PDH_HLOG, dwUserData: usize, phQuery: *mut PDH_HQUERY) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhOpenQueryW(#[opt] szDataSource: PCWSTR, dwUserData: usize, phQuery: *mut PDH_HQUERY) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhParseCounterPathA(szFullPathBuffer: PCSTR, #[size_param(2)] #[opt] pCounterPathElements: *mut PDH_COUNTER_PATH_ELEMENTS_A, #[in] #[out] pdwBufferSize: *mut u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhParseCounterPathW(szFullPathBuffer: PCWSTR, #[size_param(2)] #[opt] pCounterPathElements: *mut PDH_COUNTER_PATH_ELEMENTS_W, #[in] #[out] pdwBufferSize: *mut u32, dwFlags: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhParseInstanceNameA(szInstanceString: PCSTR, #[len_param(2)] #[out] #[opt] szInstanceName: PSTR, #[in] #[out] pcchInstanceNameLength: *mut u32, #[len_param(4)] #[out] #[opt] szParentName: PSTR, #[in] #[out] pcchParentNameLength: *mut u32, lpIndex: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhParseInstanceNameW(szInstanceString: PCWSTR, #[len_param(2)] #[out] #[opt] szInstanceName: PWSTR, #[in] #[out] pcchInstanceNameLength: *mut u32, #[len_param(4)] #[out] #[opt] szParentName: PWSTR, #[in] #[out] pcchParentNameLength: *mut u32, lpIndex: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhReadRawLogRecord(hLog: PDH_HLOG, ftRecord: FILETIME, #[size_param(3)] #[opt] pRawLogRecord: *mut PDH_RAW_LOG_RECORD, #[in] #[out] pdwBufferLength: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhRemoveCounter(hCounter: PDH_HCOUNTER) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhSelectDataSourceA(hWndOwner: HWND, dwFlags: u32, #[len_param(3)] #[in] #[out] szDataSource: PSTR, #[in] #[out] pcchBufferLength: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhSelectDataSourceW(hWndOwner: HWND, dwFlags: u32, #[len_param(3)] #[in] #[out] szDataSource: PWSTR, #[in] #[out] pcchBufferLength: *mut u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhSetCounterScaleFactor(#[in] #[out] hCounter: PDH_HCOUNTER, lFactor: i32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhSetDefaultRealTimeDataSource(dwDataSourceId: u32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhSetLogSetRunID(#[in] #[out] hLog: PDH_HLOG, RunId: i32) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhSetQueryTimeRange(hQuery: PDH_HQUERY, pInfo: *const PDH_TIME_INFO) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhUpdateLogA(hLog: PDH_HLOG, #[opt] szUserString: PCSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhUpdateLogFileCatalog(hLog: PDH_HLOG) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhUpdateLogW(hLog: PDH_HLOG, #[opt] szUserString: PCWSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhValidatePathA(szFullPathBuffer: PCSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhValidatePathExA(#[opt] hDataSource: PDH_HLOG, szFullPathBuffer: PCSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhValidatePathExW(#[opt] hDataSource: PDH_HLOG, szFullPathBuffer: PCWSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhValidatePathW(szFullPathBuffer: PCWSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhVerifySQLDBA(szDataSource: PCSTR) -> PDH_STATUS;
+        #[library("pdh.dll")]
+        extern fn PdhVerifySQLDBW(szDataSource: PCWSTR) -> PDH_STATUS;
+    }
+}

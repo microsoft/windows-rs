@@ -1,0 +1,381 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type LPWKSTA_INFO_100 = *mut WKSTA_INFO_100;
+        type LPWKSTA_INFO_101 = *mut WKSTA_INFO_101;
+        type LPWKSTA_INFO_1010 = *mut WKSTA_INFO_1010;
+        type LPWKSTA_INFO_1011 = *mut WKSTA_INFO_1011;
+        type LPWKSTA_INFO_1012 = *mut WKSTA_INFO_1012;
+        type LPWKSTA_INFO_1013 = *mut WKSTA_INFO_1013;
+        type LPWKSTA_INFO_1018 = *mut WKSTA_INFO_1018;
+        type LPWKSTA_INFO_102 = *mut WKSTA_INFO_102;
+        type LPWKSTA_INFO_1023 = *mut WKSTA_INFO_1023;
+        type LPWKSTA_INFO_1027 = *mut WKSTA_INFO_1027;
+        type LPWKSTA_INFO_1028 = *mut WKSTA_INFO_1028;
+        type LPWKSTA_INFO_1032 = *mut WKSTA_INFO_1032;
+        type LPWKSTA_INFO_1033 = *mut WKSTA_INFO_1033;
+        type LPWKSTA_INFO_1041 = *mut WKSTA_INFO_1041;
+        type LPWKSTA_INFO_1042 = *mut WKSTA_INFO_1042;
+        type LPWKSTA_INFO_1043 = *mut WKSTA_INFO_1043;
+        type LPWKSTA_INFO_1044 = *mut WKSTA_INFO_1044;
+        type LPWKSTA_INFO_1045 = *mut WKSTA_INFO_1045;
+        type LPWKSTA_INFO_1046 = *mut WKSTA_INFO_1046;
+        type LPWKSTA_INFO_1047 = *mut WKSTA_INFO_1047;
+        type LPWKSTA_INFO_1048 = *mut WKSTA_INFO_1048;
+        type LPWKSTA_INFO_1049 = *mut WKSTA_INFO_1049;
+        type LPWKSTA_INFO_1050 = *mut WKSTA_INFO_1050;
+        type LPWKSTA_INFO_1051 = *mut WKSTA_INFO_1051;
+        type LPWKSTA_INFO_1052 = *mut WKSTA_INFO_1052;
+        type LPWKSTA_INFO_1053 = *mut WKSTA_INFO_1053;
+        type LPWKSTA_INFO_1054 = *mut WKSTA_INFO_1054;
+        type LPWKSTA_INFO_1055 = *mut WKSTA_INFO_1055;
+        type LPWKSTA_INFO_1056 = *mut WKSTA_INFO_1056;
+        type LPWKSTA_INFO_1057 = *mut WKSTA_INFO_1057;
+        type LPWKSTA_INFO_1058 = *mut WKSTA_INFO_1058;
+        type LPWKSTA_INFO_1059 = *mut WKSTA_INFO_1059;
+        type LPWKSTA_INFO_1060 = *mut WKSTA_INFO_1060;
+        type LPWKSTA_INFO_1061 = *mut WKSTA_INFO_1061;
+        type LPWKSTA_INFO_1062 = *mut WKSTA_INFO_1062;
+        type LPWKSTA_INFO_302 = *mut WKSTA_INFO_302;
+        type LPWKSTA_INFO_402 = *mut WKSTA_INFO_402;
+        type LPWKSTA_INFO_502 = *mut WKSTA_INFO_502;
+        type LPWKSTA_TRANSPORT_INFO_0 = *mut WKSTA_TRANSPORT_INFO_0;
+        type LPWKSTA_USER_INFO_0 = *mut WKSTA_USER_INFO_0;
+        type LPWKSTA_USER_INFO_1 = *mut WKSTA_USER_INFO_1;
+        type LPWKSTA_USER_INFO_1101 = *mut WKSTA_USER_INFO_1101;
+        #[library("NETAPI32.dll")]
+        extern fn NetWkstaGetInfo(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetWkstaSetInfo(#[opt] servername: PCWSTR, level: u32, buffer: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetWkstaTransportAdd(#[opt] servername: LPTSTR, level: u32, buf: *mut u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetWkstaTransportDel(#[opt] servername: PCWSTR, #[opt] transportname: PCWSTR, ucond: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetWkstaTransportEnum(#[opt] servername: LPTSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetWkstaUserEnum(#[opt] servername: PCWSTR, level: u32, #[opt] bufptr: *mut LPBYTE, prefmaxlen: u32, #[opt] entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resumehandle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetWkstaUserGetInfo(#[opt] reserved: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetWkstaUserSetInfo(#[opt] reserved: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        type PWKSTA_INFO_100 = *mut WKSTA_INFO_100;
+        type PWKSTA_INFO_101 = *mut WKSTA_INFO_101;
+        type PWKSTA_INFO_1010 = *mut WKSTA_INFO_1010;
+        type PWKSTA_INFO_1011 = *mut WKSTA_INFO_1011;
+        type PWKSTA_INFO_1012 = *mut WKSTA_INFO_1012;
+        type PWKSTA_INFO_1013 = *mut WKSTA_INFO_1013;
+        type PWKSTA_INFO_1018 = *mut WKSTA_INFO_1018;
+        type PWKSTA_INFO_102 = *mut WKSTA_INFO_102;
+        type PWKSTA_INFO_1023 = *mut WKSTA_INFO_1023;
+        type PWKSTA_INFO_1027 = *mut WKSTA_INFO_1027;
+        type PWKSTA_INFO_1028 = *mut WKSTA_INFO_1028;
+        type PWKSTA_INFO_1032 = *mut WKSTA_INFO_1032;
+        type PWKSTA_INFO_1033 = *mut WKSTA_INFO_1033;
+        type PWKSTA_INFO_1041 = *mut WKSTA_INFO_1041;
+        type PWKSTA_INFO_1042 = *mut WKSTA_INFO_1042;
+        type PWKSTA_INFO_1043 = *mut WKSTA_INFO_1043;
+        type PWKSTA_INFO_1044 = *mut WKSTA_INFO_1044;
+        type PWKSTA_INFO_1045 = *mut WKSTA_INFO_1045;
+        type PWKSTA_INFO_1046 = *mut WKSTA_INFO_1046;
+        type PWKSTA_INFO_1047 = *mut WKSTA_INFO_1047;
+        type PWKSTA_INFO_1048 = *mut WKSTA_INFO_1048;
+        type PWKSTA_INFO_1049 = *mut WKSTA_INFO_1049;
+        type PWKSTA_INFO_1050 = *mut WKSTA_INFO_1050;
+        type PWKSTA_INFO_1051 = *mut WKSTA_INFO_1051;
+        type PWKSTA_INFO_1052 = *mut WKSTA_INFO_1052;
+        type PWKSTA_INFO_1053 = *mut WKSTA_INFO_1053;
+        type PWKSTA_INFO_1054 = *mut WKSTA_INFO_1054;
+        type PWKSTA_INFO_1055 = *mut WKSTA_INFO_1055;
+        type PWKSTA_INFO_1056 = *mut WKSTA_INFO_1056;
+        type PWKSTA_INFO_1057 = *mut WKSTA_INFO_1057;
+        type PWKSTA_INFO_1058 = *mut WKSTA_INFO_1058;
+        type PWKSTA_INFO_1059 = *mut WKSTA_INFO_1059;
+        type PWKSTA_INFO_1060 = *mut WKSTA_INFO_1060;
+        type PWKSTA_INFO_1061 = *mut WKSTA_INFO_1061;
+        type PWKSTA_INFO_1062 = *mut WKSTA_INFO_1062;
+        type PWKSTA_INFO_302 = *mut WKSTA_INFO_302;
+        type PWKSTA_INFO_402 = *mut WKSTA_INFO_402;
+        type PWKSTA_INFO_502 = *mut WKSTA_INFO_502;
+        type PWKSTA_TRANSPORT_INFO_0 = *mut WKSTA_TRANSPORT_INFO_0;
+        type PWKSTA_USER_INFO_0 = *mut WKSTA_USER_INFO_0;
+        type PWKSTA_USER_INFO_1 = *mut WKSTA_USER_INFO_1;
+        type PWKSTA_USER_INFO_1101 = *mut WKSTA_USER_INFO_1101;
+        const TRANSPORT_NAME_PARMNUM: u32 = 202;
+        const TRANSPORT_QUALITYOFSERVICE_PARMNUM: u32 = 201;
+        const WKSTA_BUFFERNAMEDPIPES_PARMNUM: u32 = 51;
+        const WKSTA_BUFFERREADONLYFILES_PARMNUM: u32 = 59;
+        const WKSTA_BUFFILESWITHDENYWRITE_PARMNUM: u32 = 58;
+        const WKSTA_CACHEFILETIMEOUT_PARMNUM: u32 = 47;
+        const WKSTA_CHARCOUNT_PARMNUM: u32 = 12;
+        const WKSTA_CHARTIME_PARMNUM: u32 = 11;
+        const WKSTA_CHARWAIT_PARMNUM: u32 = 10;
+        const WKSTA_COMPUTERNAME_PARMNUM: u32 = 1;
+        const WKSTA_DORMANTFILELIMIT_PARMNUM: u32 = 46;
+        const WKSTA_ERRLOGSZ_PARMNUM: u32 = 27;
+        const WKSTA_FORCECORECREATEMODE_PARMNUM: u32 = 60;
+        struct WKSTA_INFO_100 {
+            wki100_platform_id: u32,
+            wki100_computername: PWSTR,
+            wki100_langroup: PWSTR,
+            wki100_ver_major: u32,
+            wki100_ver_minor: u32,
+        }
+        struct WKSTA_INFO_101 {
+            wki101_platform_id: u32,
+            wki101_computername: PWSTR,
+            wki101_langroup: PWSTR,
+            wki101_ver_major: u32,
+            wki101_ver_minor: u32,
+            wki101_lanroot: PWSTR,
+        }
+        struct WKSTA_INFO_1010 {
+            wki1010_char_wait: u32,
+        }
+        struct WKSTA_INFO_1011 {
+            wki1011_collection_time: u32,
+        }
+        struct WKSTA_INFO_1012 {
+            wki1012_maximum_collection_count: u32,
+        }
+        struct WKSTA_INFO_1013 {
+            wki1013_keep_conn: u32,
+        }
+        struct WKSTA_INFO_1018 {
+            wki1018_sess_timeout: u32,
+        }
+        struct WKSTA_INFO_102 {
+            wki102_platform_id: u32,
+            wki102_computername: PWSTR,
+            wki102_langroup: PWSTR,
+            wki102_ver_major: u32,
+            wki102_ver_minor: u32,
+            wki102_lanroot: PWSTR,
+            wki102_logged_on_users: u32,
+        }
+        struct WKSTA_INFO_1023 {
+            wki1023_siz_char_buf: u32,
+        }
+        struct WKSTA_INFO_1027 {
+            wki1027_errlog_sz: u32,
+        }
+        struct WKSTA_INFO_1028 {
+            wki1028_print_buf_time: u32,
+        }
+        struct WKSTA_INFO_1032 {
+            wki1032_wrk_heuristics: u32,
+        }
+        struct WKSTA_INFO_1033 {
+            wki1033_max_threads: u32,
+        }
+        struct WKSTA_INFO_1041 {
+            wki1041_lock_quota: u32,
+        }
+        struct WKSTA_INFO_1042 {
+            wki1042_lock_increment: u32,
+        }
+        struct WKSTA_INFO_1043 {
+            wki1043_lock_maximum: u32,
+        }
+        struct WKSTA_INFO_1044 {
+            wki1044_pipe_increment: u32,
+        }
+        struct WKSTA_INFO_1045 {
+            wki1045_pipe_maximum: u32,
+        }
+        struct WKSTA_INFO_1046 {
+            wki1046_dormant_file_limit: u32,
+        }
+        struct WKSTA_INFO_1047 {
+            wki1047_cache_file_timeout: u32,
+        }
+        struct WKSTA_INFO_1048 {
+            wki1048_use_opportunistic_locking: BOOL,
+        }
+        struct WKSTA_INFO_1049 {
+            wki1049_use_unlock_behind: BOOL,
+        }
+        struct WKSTA_INFO_1050 {
+            wki1050_use_close_behind: BOOL,
+        }
+        struct WKSTA_INFO_1051 {
+            wki1051_buf_named_pipes: BOOL,
+        }
+        struct WKSTA_INFO_1052 {
+            wki1052_use_lock_read_unlock: BOOL,
+        }
+        struct WKSTA_INFO_1053 {
+            wki1053_utilize_nt_caching: BOOL,
+        }
+        struct WKSTA_INFO_1054 {
+            wki1054_use_raw_read: BOOL,
+        }
+        struct WKSTA_INFO_1055 {
+            wki1055_use_raw_write: BOOL,
+        }
+        struct WKSTA_INFO_1056 {
+            wki1056_use_write_raw_data: BOOL,
+        }
+        struct WKSTA_INFO_1057 {
+            wki1057_use_encryption: BOOL,
+        }
+        struct WKSTA_INFO_1058 {
+            wki1058_buf_files_deny_write: BOOL,
+        }
+        struct WKSTA_INFO_1059 {
+            wki1059_buf_read_only_files: BOOL,
+        }
+        struct WKSTA_INFO_1060 {
+            wki1060_force_core_create_mode: BOOL,
+        }
+        struct WKSTA_INFO_1061 {
+            wki1061_use_512_byte_max_transfer: BOOL,
+        }
+        struct WKSTA_INFO_1062 {
+            wki1062_read_ahead_throughput: u32,
+        }
+        struct WKSTA_INFO_302 {
+            wki302_char_wait: u32,
+            wki302_collection_time: u32,
+            wki302_maximum_collection_count: u32,
+            wki302_keep_conn: u32,
+            wki302_keep_search: u32,
+            wki302_max_cmds: u32,
+            wki302_num_work_buf: u32,
+            wki302_siz_work_buf: u32,
+            wki302_max_wrk_cache: u32,
+            wki302_sess_timeout: u32,
+            wki302_siz_error: u32,
+            wki302_num_alerts: u32,
+            wki302_num_services: u32,
+            wki302_errlog_sz: u32,
+            wki302_print_buf_time: u32,
+            wki302_num_char_buf: u32,
+            wki302_siz_char_buf: u32,
+            wki302_wrk_heuristics: PWSTR,
+            wki302_mailslots: u32,
+            wki302_num_dgram_buf: u32,
+        }
+        struct WKSTA_INFO_402 {
+            wki402_char_wait: u32,
+            wki402_collection_time: u32,
+            wki402_maximum_collection_count: u32,
+            wki402_keep_conn: u32,
+            wki402_keep_search: u32,
+            wki402_max_cmds: u32,
+            wki402_num_work_buf: u32,
+            wki402_siz_work_buf: u32,
+            wki402_max_wrk_cache: u32,
+            wki402_sess_timeout: u32,
+            wki402_siz_error: u32,
+            wki402_num_alerts: u32,
+            wki402_num_services: u32,
+            wki402_errlog_sz: u32,
+            wki402_print_buf_time: u32,
+            wki402_num_char_buf: u32,
+            wki402_siz_char_buf: u32,
+            wki402_wrk_heuristics: PWSTR,
+            wki402_mailslots: u32,
+            wki402_num_dgram_buf: u32,
+            wki402_max_threads: u32,
+        }
+        struct WKSTA_INFO_502 {
+            wki502_char_wait: u32,
+            wki502_collection_time: u32,
+            wki502_maximum_collection_count: u32,
+            wki502_keep_conn: u32,
+            wki502_max_cmds: u32,
+            wki502_sess_timeout: u32,
+            wki502_siz_char_buf: u32,
+            wki502_max_threads: u32,
+            wki502_lock_quota: u32,
+            wki502_lock_increment: u32,
+            wki502_lock_maximum: u32,
+            wki502_pipe_increment: u32,
+            wki502_pipe_maximum: u32,
+            wki502_cache_file_timeout: u32,
+            wki502_dormant_file_limit: u32,
+            wki502_read_ahead_throughput: u32,
+            wki502_num_mailslot_buffers: u32,
+            wki502_num_srv_announce_buffers: u32,
+            wki502_max_illegal_datagram_events: u32,
+            wki502_illegal_datagram_event_reset_frequency: u32,
+            wki502_log_election_packets: BOOL,
+            wki502_use_opportunistic_locking: BOOL,
+            wki502_use_unlock_behind: BOOL,
+            wki502_use_close_behind: BOOL,
+            wki502_buf_named_pipes: BOOL,
+            wki502_use_lock_read_unlock: BOOL,
+            wki502_utilize_nt_caching: BOOL,
+            wki502_use_raw_read: BOOL,
+            wki502_use_raw_write: BOOL,
+            wki502_use_write_raw_data: BOOL,
+            wki502_use_encryption: BOOL,
+            wki502_buf_files_deny_write: BOOL,
+            wki502_buf_read_only_files: BOOL,
+            wki502_force_core_create_mode: BOOL,
+            wki502_use_512_byte_max_transfer: BOOL,
+        }
+        const WKSTA_KEEPCONN_PARMNUM: u32 = 13;
+        const WKSTA_KEEPSEARCH_PARMNUM: u32 = 14;
+        const WKSTA_LANGROUP_PARMNUM: u32 = 2;
+        const WKSTA_LANROOT_PARMNUM: u32 = 7;
+        const WKSTA_LOCKINCREMENT_PARMNUM: u32 = 42;
+        const WKSTA_LOCKMAXIMUM_PARMNUM: u32 = 43;
+        const WKSTA_LOCKQUOTA_PARMNUM: u32 = 41;
+        const WKSTA_LOGGED_ON_USERS_PARMNUM: u32 = 6;
+        const WKSTA_LOGON_DOMAIN_PARMNUM: u32 = 8;
+        const WKSTA_LOGON_SERVER_PARMNUM: u32 = 9;
+        const WKSTA_MAILSLOTS_PARMNUM: u32 = 30;
+        const WKSTA_MAXCMDS_PARMNUM: u32 = 15;
+        const WKSTA_MAXTHREADS_PARMNUM: u32 = 33;
+        const WKSTA_MAXWRKCACHE_PARMNUM: u32 = 17;
+        const WKSTA_NUMALERTS_PARMNUM: u32 = 20;
+        const WKSTA_NUMCHARBUF_PARMNUM: u32 = 22;
+        const WKSTA_NUMDGRAMBUF_PARMNUM: u32 = 31;
+        const WKSTA_NUMSERVICES_PARMNUM: u32 = 21;
+        const WKSTA_NUMWORKBUF_PARMNUM: u32 = 16;
+        const WKSTA_OTH_DOMAINS_PARMNUM: u32 = 101;
+        const WKSTA_PIPEINCREMENT_PARMNUM: u32 = 44;
+        const WKSTA_PIPEMAXIMUM_PARMNUM: u32 = 45;
+        const WKSTA_PLATFORM_ID_PARMNUM: u32 = 100;
+        const WKSTA_PRINTBUFTIME_PARMNUM: u32 = 28;
+        const WKSTA_READAHEADTHRUPUT_PARMNUM: u32 = 62;
+        const WKSTA_SESSTIMEOUT_PARMNUM: u32 = 18;
+        const WKSTA_SIZCHARBUF_PARMNUM: u32 = 23;
+        const WKSTA_SIZERROR_PARMNUM: u32 = 19;
+        const WKSTA_SIZWORKBUF_PARMNUM: u32 = 29;
+        struct WKSTA_TRANSPORT_INFO_0 {
+            wkti0_quality_of_service: u32,
+            wkti0_number_of_vcs: u32,
+            wkti0_transport_name: PWSTR,
+            wkti0_transport_address: PWSTR,
+            wkti0_wan_ish: BOOL,
+        }
+        const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: u32 = 61;
+        const WKSTA_USECLOSEBEHIND_PARMNUM: u32 = 50;
+        const WKSTA_USEENCRYPTION_PARMNUM: u32 = 57;
+        const WKSTA_USELOCKANDREADANDUNLOCK_PARMNUM: u32 = 52;
+        const WKSTA_USEOPPORTUNISTICLOCKING_PARMNUM: u32 = 48;
+        const WKSTA_USERAWREAD_PARMNUM: u32 = 54;
+        const WKSTA_USERAWWRITE_PARMNUM: u32 = 55;
+        struct WKSTA_USER_INFO_0 {
+            wkui0_username: PWSTR,
+        }
+        struct WKSTA_USER_INFO_1 {
+            wkui1_username: PWSTR,
+            wkui1_logon_domain: PWSTR,
+            wkui1_oth_domains: PWSTR,
+            wkui1_logon_server: PWSTR,
+        }
+        struct WKSTA_USER_INFO_1101 {
+            wkui1101_oth_domains: PWSTR,
+        }
+        const WKSTA_USEUNLOCKBEHIND_PARMNUM: u32 = 49;
+        const WKSTA_USEWRITERAWWITHDATA_PARMNUM: u32 = 56;
+        const WKSTA_UTILIZENTCACHING_PARMNUM: u32 = 53;
+        const WKSTA_VER_MAJOR_PARMNUM: u32 = 4;
+        const WKSTA_VER_MINOR_PARMNUM: u32 = 5;
+        const WKSTA_WRKHEURISTICS_PARMNUM: u32 = 32;
+    }
+}

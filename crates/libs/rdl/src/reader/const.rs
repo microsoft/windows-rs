@@ -39,7 +39,13 @@ impl Encoder<'_> {
         let ty = self.encode_type(&item.ty)?;
 
         match &ty {
-            windows_metadata::Type::ValueName(tn) if tn == ("System", "Guid") => {
+            // A GUID-typed constant is encoded as a `GuidAttribute` blob on the field
+            // (the win32metadata representation bindgen reads), not an ECMA `Constant`.
+            // Match both the WinRT `System.Guid` and the faithful Win32 `GUID` struct
+            // (guiddef.h), which resolves to the closure's own `…Win32.GUID`.
+            windows_metadata::Type::ValueName(tn)
+                if tn == ("System", "Guid") || tn.name == "GUID" =>
+            {
                 self.encode_const_guid(&ty, item, &name)?;
             }
             _ => self.encode_const_value(&ty, item, &name)?,
@@ -73,6 +79,10 @@ impl Encoder<'_> {
             &item.attrs,
             &[],
         )?;
+
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(metadata::writer::HasAttribute::Field(field), arch_bits);
+        }
 
         Ok(())
     }

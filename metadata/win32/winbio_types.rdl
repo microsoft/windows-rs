@@ -1,0 +1,855 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BIO_UNIT_CONTROL_UNIT: u16 = 64;
+        const BIO_UNIT_DELETE_TEMPLATE: u16 = 32;
+        const BIO_UNIT_ENROLL: u16 = 16;
+        const BIO_UNIT_EXTENDED_ACCESS: u16 = 8;
+        const BIO_UNIT_MAINTENANCE: u16 = 2;
+        const BIO_UNIT_OPEN_SESSION: u16 = 4;
+        const BIO_UNIT_RAW: u16 = 1;
+        type PWINBIO_ACCOUNT_POLICY = *mut WINBIO_ACCOUNT_POLICY;
+        type PWINBIO_ANTI_SPOOF_POLICY = *mut WINBIO_ANTI_SPOOF_POLICY;
+        type PWINBIO_ANTI_SPOOF_POLICY_ACTION = *mut WINBIO_ANTI_SPOOF_POLICY_ACTION;
+        type PWINBIO_BDB_ANSI_381_HEADER = *mut WINBIO_BDB_ANSI_381_HEADER;
+        type PWINBIO_BDB_ANSI_381_RECORD = *mut WINBIO_BDB_ANSI_381_RECORD;
+        type PWINBIO_BIOMETRIC_SENSOR_SUBTYPE = *mut u32;
+        type PWINBIO_BIOMETRIC_SUBTYPE = *mut u8;
+        type PWINBIO_BIOMETRIC_TYPE = *mut u32;
+        type PWINBIO_BIR = *mut WINBIO_BIR;
+        type PWINBIO_BIR_DATA = *mut WINBIO_BIR_DATA;
+        type PWINBIO_BIR_DATA_FLAGS = *mut u8;
+        type PWINBIO_BIR_HEADER = *mut WINBIO_BIR_HEADER;
+        type PWINBIO_BIR_PURPOSE = *mut u8;
+        type PWINBIO_BIR_QUALITY = *mut i8;
+        type PWINBIO_BIR_VERSION = *mut u8;
+        type PWINBIO_BSP_SCHEMA = *mut WINBIO_BSP_SCHEMA;
+        type PWINBIO_CAPABILITIES = *mut u32;
+        type PWINBIO_COMPONENT = *mut u32;
+        type PWINBIO_CONNECTED_SENSOR = *mut WINBIO_CONNECTED_SENSOR;
+        type PWINBIO_CREDENTIAL_STATE = *mut WINBIO_CREDENTIAL_STATE;
+        type PWINBIO_ESS_STATE = *mut u64;
+        type PWINBIO_EVENT = *mut WINBIO_EVENT;
+        type PWINBIO_EVENT_TYPE = *mut u32;
+        type PWINBIO_EXTENDED_ENGINE_INFO = *mut WINBIO_EXTENDED_ENGINE_INFO;
+        type PWINBIO_EXTENDED_ENROLLMENT_PARAMETERS = *mut WINBIO_EXTENDED_ENROLLMENT_PARAMETERS;
+        type PWINBIO_EXTENDED_ENROLLMENT_STATUS = *mut WINBIO_EXTENDED_ENROLLMENT_STATUS;
+        type PWINBIO_EXTENDED_SENSOR_INFO = *mut WINBIO_EXTENDED_SENSOR_INFO;
+        type PWINBIO_EXTENDED_STORAGE_INFO = *mut WINBIO_EXTENDED_STORAGE_INFO;
+        type PWINBIO_EXTENDED_UNIT_STATUS = *mut WINBIO_EXTENDED_UNIT_STATUS;
+        type PWINBIO_FP_BU_STATE = *mut WINBIO_FP_BU_STATE;
+        type PWINBIO_FRAMEWORK_CHANGE_TYPE = *mut u32;
+        type PWINBIO_FRAMEWORK_HANDLE = *mut WINBIO_SESSION_HANDLE;
+        type PWINBIO_GESTURE_METADATA = *mut WINBIO_GESTURE_METADATA;
+        type PWINBIO_IDENTITY = *mut WINBIO_IDENTITY;
+        type PWINBIO_IDENTITY_TYPE = *mut u32;
+        type PWINBIO_INDICATOR_STATUS = *mut u32;
+        type PWINBIO_MATCH_TYPE = *mut u32;
+        type PWINBIO_OPERATION_TYPE = *mut u32;
+        type PWINBIO_ORIENTATION = *mut u32;
+        type PWINBIO_POLICY_SOURCE = *mut WINBIO_POLICY_SOURCE;
+        type PWINBIO_POOL_TYPE = *mut u32;
+        type PWINBIO_PRESENCE = *mut WINBIO_PRESENCE;
+        type PWINBIO_PRESENCE_CHANGE = *mut u32;
+        type PWINBIO_PRESENCE_PROPERTIES = *mut WINBIO_PRESENCE_PROPERTIES;
+        type PWINBIO_PROPERTY_ID = *mut u32;
+        type PWINBIO_PROPERTY_TYPE = *mut u32;
+        type PWINBIO_PROTECTION_POLICY = *mut WINBIO_PROTECTION_POLICY;
+        type PWINBIO_PROTECTION_TICKET = *mut u64;
+        type PWINBIO_PROTECTION_TYPE = *mut u32;
+        type PWINBIO_REGISTERED_FORMAT = *mut WINBIO_REGISTERED_FORMAT;
+        type PWINBIO_REJECT_DETAIL = *mut u32;
+        type PWINBIO_SECURE_BUFFER_HEADER_V1 = *mut WINBIO_SECURE_BUFFER_HEADER_V1;
+        type PWINBIO_SECURE_CONNECTION_DATA = *mut WINBIO_SECURE_CONNECTION_DATA;
+        type PWINBIO_SECURE_CONNECTION_PARAMS = *mut WINBIO_SECURE_CONNECTION_PARAMS;
+        type PWINBIO_SENSOR_MODE = *mut u32;
+        type PWINBIO_SENSOR_STATUS = *mut u32;
+        type PWINBIO_SESSION_FLAGS = *mut u32;
+        type PWINBIO_SESSION_HANDLE = *mut u32;
+        type PWINBIO_SETTING_SOURCE_TYPE = *mut u32;
+        type PWINBIO_SETTING_TYPE = *mut u32;
+        type PWINBIO_STORAGE_SCHEMA = *mut WINBIO_STORAGE_SCHEMA;
+        type PWINBIO_STRING = *mut WINBIO_STRING;
+        type PWINBIO_TELEMETRY_TYPE = *mut u32;
+        type PWINBIO_UNIT_ID = *mut u32;
+        type PWINBIO_UNIT_SCHEMA = *mut WINBIO_UNIT_SCHEMA;
+        type PWINBIO_UNIT_SECURITY_LEVEL = *mut u32;
+        type PWINBIO_UUID = *mut GUID;
+        type PWINBIO_VERSION = *mut WINBIO_VERSION;
+        type PWINBIO_WAKE_REASON = *mut u32;
+        struct WINBIO_ACCOUNT_POLICY {
+            Identity: WINBIO_IDENTITY,
+            AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
+        }
+        const WINBIO_ANSI_381_FORMAT_OWNER: u16 = 27;
+        const WINBIO_ANSI_381_FORMAT_TYPE: u16 = 1025;
+        const WINBIO_ANSI_381_IMG_ACQ_LEVEL_10: u16 = 10;
+        const WINBIO_ANSI_381_IMG_ACQ_LEVEL_20: u16 = 20;
+        const WINBIO_ANSI_381_IMG_ACQ_LEVEL_30: u16 = 30;
+        const WINBIO_ANSI_381_IMG_ACQ_LEVEL_31: u16 = 31;
+        const WINBIO_ANSI_381_IMG_ACQ_LEVEL_40: u16 = 40;
+        const WINBIO_ANSI_381_IMG_ACQ_LEVEL_41: u16 = 41;
+        const WINBIO_ANSI_381_IMG_BIT_PACKED: u8 = 1;
+        const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG: u8 = 3;
+        const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG2000: u8 = 4;
+        const WINBIO_ANSI_381_IMG_COMPRESSED_PNG: u8 = 5;
+        const WINBIO_ANSI_381_IMG_COMPRESSED_WSQ: u8 = 2;
+        const WINBIO_ANSI_381_IMG_UNCOMPRESSED: u8 = 0;
+        const WINBIO_ANSI_381_IMP_TYPE_LATENT: u8 = 7;
+        const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_CONTACTLESS: u8 = 9;
+        const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_PLAIN: u8 = 0;
+        const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_ROLLED: u8 = 1;
+        const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_PLAIN: u8 = 2;
+        const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_ROLLED: u8 = 3;
+        const WINBIO_ANSI_381_IMP_TYPE_SWIPE: u8 = 8;
+        const WINBIO_ANSI_381_PIXELS_PER_CM: u8 = 2;
+        const WINBIO_ANSI_381_PIXELS_PER_INCH: u8 = 1;
+        const WINBIO_ANSI_381_POS_LH_FOUR_FINGERS: WINBIO_BIOMETRIC_SUBTYPE = 14;
+        const WINBIO_ANSI_381_POS_LH_FULL_PALM: WINBIO_BIOMETRIC_SUBTYPE = 23;
+        const WINBIO_ANSI_381_POS_LH_HYPOTHENAR: WINBIO_BIOMETRIC_SUBTYPE = 36;
+        const WINBIO_ANSI_381_POS_LH_INDEX_FINGER: WINBIO_BIOMETRIC_SUBTYPE = 7;
+        const WINBIO_ANSI_381_POS_LH_INTERDIGITAL: WINBIO_BIOMETRIC_SUBTYPE = 34;
+        const WINBIO_ANSI_381_POS_LH_LITTLE_FINGER: WINBIO_BIOMETRIC_SUBTYPE = 10;
+        const WINBIO_ANSI_381_POS_LH_LOWER_PALM: WINBIO_BIOMETRIC_SUBTYPE = 27;
+        const WINBIO_ANSI_381_POS_LH_MIDDLE_FINGER: WINBIO_BIOMETRIC_SUBTYPE = 8;
+        const WINBIO_ANSI_381_POS_LH_OTHER: WINBIO_BIOMETRIC_SUBTYPE = 30;
+        const WINBIO_ANSI_381_POS_LH_RING_FINGER: WINBIO_BIOMETRIC_SUBTYPE = 9;
+        const WINBIO_ANSI_381_POS_LH_THENAR: WINBIO_BIOMETRIC_SUBTYPE = 35;
+        const WINBIO_ANSI_381_POS_LH_THUMB: WINBIO_BIOMETRIC_SUBTYPE = 6;
+        const WINBIO_ANSI_381_POS_LH_UPPER_PALM: WINBIO_BIOMETRIC_SUBTYPE = 28;
+        const WINBIO_ANSI_381_POS_LH_WRITERS_PALM: WINBIO_BIOMETRIC_SUBTYPE = 24;
+        const WINBIO_ANSI_381_POS_RH_FOUR_FINGERS: WINBIO_BIOMETRIC_SUBTYPE = 13;
+        const WINBIO_ANSI_381_POS_RH_FULL_PALM: WINBIO_BIOMETRIC_SUBTYPE = 21;
+        const WINBIO_ANSI_381_POS_RH_HYPOTHENAR: WINBIO_BIOMETRIC_SUBTYPE = 33;
+        const WINBIO_ANSI_381_POS_RH_INDEX_FINGER: WINBIO_BIOMETRIC_SUBTYPE = 2;
+        const WINBIO_ANSI_381_POS_RH_INTERDIGITAL: WINBIO_BIOMETRIC_SUBTYPE = 31;
+        const WINBIO_ANSI_381_POS_RH_LITTLE_FINGER: WINBIO_BIOMETRIC_SUBTYPE = 5;
+        const WINBIO_ANSI_381_POS_RH_LOWER_PALM: WINBIO_BIOMETRIC_SUBTYPE = 25;
+        const WINBIO_ANSI_381_POS_RH_MIDDLE_FINGER: WINBIO_BIOMETRIC_SUBTYPE = 3;
+        const WINBIO_ANSI_381_POS_RH_OTHER: WINBIO_BIOMETRIC_SUBTYPE = 29;
+        const WINBIO_ANSI_381_POS_RH_RING_FINGER: WINBIO_BIOMETRIC_SUBTYPE = 4;
+        const WINBIO_ANSI_381_POS_RH_THENAR: WINBIO_BIOMETRIC_SUBTYPE = 32;
+        const WINBIO_ANSI_381_POS_RH_THUMB: WINBIO_BIOMETRIC_SUBTYPE = 1;
+        const WINBIO_ANSI_381_POS_RH_UPPER_PALM: WINBIO_BIOMETRIC_SUBTYPE = 26;
+        const WINBIO_ANSI_381_POS_RH_WRITERS_PALM: WINBIO_BIOMETRIC_SUBTYPE = 22;
+        const WINBIO_ANSI_381_POS_TWO_THUMBS: WINBIO_BIOMETRIC_SUBTYPE = 15;
+        const WINBIO_ANSI_381_POS_UNKNOWN: WINBIO_BIOMETRIC_SUBTYPE = 0;
+        const WINBIO_ANSI_381_POS_UNKNOWN_PALM: WINBIO_BIOMETRIC_SUBTYPE = 20;
+        const WINBIO_ANSI_385_FACE_FRONTAL_FULL: WINBIO_BIOMETRIC_SUBTYPE = 1;
+        const WINBIO_ANSI_385_FACE_FRONTAL_TOKEN: WINBIO_BIOMETRIC_SUBTYPE = 2;
+        const WINBIO_ANSI_385_FACE_TYPE_UNKNOWN: WINBIO_BIOMETRIC_SUBTYPE = 0;
+        struct WINBIO_ANTI_SPOOF_POLICY {
+            Action: WINBIO_ANTI_SPOOF_POLICY_ACTION,
+            Source: WINBIO_POLICY_SOURCE,
+        }
+        #[repr(i32)]
+        enum WINBIO_ANTI_SPOOF_POLICY_ACTION {
+            WINBIO_ANTI_SPOOF_DISABLE = 0,
+            WINBIO_ANTI_SPOOF_ENABLE = 1,
+            WINBIO_ANTI_SPOOF_REMOVE = 2,
+        }
+        const WINBIO_ANTI_SPOOF_TURN_SIDE_TO_SIDE: WINBIO_REJECT_DETAIL = 16777216;
+        struct WINBIO_BDB_ANSI_381_HEADER {
+            RecordLength: u64,
+            FormatIdentifier: u32,
+            VersionNumber: u32,
+            ProductId: WINBIO_REGISTERED_FORMAT,
+            CaptureDeviceId: u16,
+            ImageAcquisitionLevel: u16,
+            HorizontalScanResolution: u16,
+            VerticalScanResolution: u16,
+            HorizontalImageResolution: u16,
+            VerticalImageResolution: u16,
+            ElementCount: u8,
+            ScaleUnits: u8,
+            PixelDepth: u8,
+            ImageCompressionAlg: u8,
+            Reserved: u16,
+        }
+        struct WINBIO_BDB_ANSI_381_RECORD {
+            BlockLength: u32,
+            HorizontalLineLength: u16,
+            VerticalLineLength: u16,
+            Position: WINBIO_BIOMETRIC_SUBTYPE,
+            CountOfViews: u8,
+            ViewNumber: u8,
+            ImageQuality: u8,
+            ImpressionType: u8,
+            Reserved: u8,
+        }
+        type WINBIO_BIOMETRIC_SENSOR_SUBTYPE = u32;
+        type WINBIO_BIOMETRIC_SUBTYPE = u8;
+        type WINBIO_BIOMETRIC_TYPE = u32;
+        struct WINBIO_BIR {
+            HeaderBlock: WINBIO_BIR_DATA,
+            StandardDataBlock: WINBIO_BIR_DATA,
+            VendorDataBlock: WINBIO_BIR_DATA,
+            SignatureBlock: WINBIO_BIR_DATA,
+        }
+        const WINBIO_BIR_ALGIN_SIZE: u32 = 8;
+        const WINBIO_BIR_ALIGN_SIZE: u32 = 8;
+        struct WINBIO_BIR_DATA {
+            Size: u32,
+            Offset: u32,
+        }
+        type WINBIO_BIR_DATA_FLAGS = u8;
+        const WINBIO_BIR_FIELD_BIOMETRIC_CONDITION: u16 = 2048;
+        const WINBIO_BIR_FIELD_BIOMETRIC_PURPOSE: u16 = 1024;
+        const WINBIO_BIR_FIELD_BIOMETRIC_SUBTYPE: u16 = 128;
+        const WINBIO_BIR_FIELD_BIOMETRIC_TYPE: u16 = 64;
+        const WINBIO_BIR_FIELD_CBEFF_HEADER_VERSION: u16 = 256;
+        const WINBIO_BIR_FIELD_CHALLENGE: u16 = 16384;
+        const WINBIO_BIR_FIELD_CREATION_DATE: u16 = 16;
+        const WINBIO_BIR_FIELD_CREATOR: u16 = 8192;
+        const WINBIO_BIR_FIELD_INDEX: u16 = 8;
+        const WINBIO_BIR_FIELD_NEVER_VALID: u32 = 49165;
+        const WINBIO_BIR_FIELD_PATRON_HEADER_VERSION: u16 = 512;
+        const WINBIO_BIR_FIELD_PATRON_ID: u16 = 4;
+        const WINBIO_BIR_FIELD_PAYLOAD: u16 = 32768;
+        const WINBIO_BIR_FIELD_PRODUCT_ID: u16 = 2;
+        const WINBIO_BIR_FIELD_QUALITY: u16 = 4096;
+        const WINBIO_BIR_FIELD_SUBHEAD_COUNT: u16 = 1;
+        const WINBIO_BIR_FIELD_VALIDITY_PERIOD: u16 = 32;
+        struct WINBIO_BIR_HEADER {
+            ValidFields: u16,
+            HeaderVersion: WINBIO_BIR_VERSION,
+            PatronHeaderVersion: WINBIO_BIR_VERSION,
+            DataFlags: WINBIO_BIR_DATA_FLAGS,
+            Type: WINBIO_BIOMETRIC_TYPE,
+            Subtype: WINBIO_BIOMETRIC_SUBTYPE,
+            Purpose: WINBIO_BIR_PURPOSE,
+            DataQuality: WINBIO_BIR_QUALITY,
+            CreationDate: LARGE_INTEGER,
+            ValidityPeriod: struct {
+                BeginDate: LARGE_INTEGER,
+                EndDate: LARGE_INTEGER,
+            },
+            BiometricDataFormat: WINBIO_REGISTERED_FORMAT,
+            ProductId: WINBIO_REGISTERED_FORMAT,
+        }
+        type WINBIO_BIR_PURPOSE = u8;
+        type WINBIO_BIR_QUALITY = i8;
+        type WINBIO_BIR_VERSION = u8;
+        struct WINBIO_BSP_SCHEMA {
+            BiometricFactor: WINBIO_BIOMETRIC_TYPE,
+            BspId: WINBIO_UUID,
+            Description: WINBIO_STRING,
+            Vendor: WINBIO_STRING,
+            Version: WINBIO_VERSION,
+        }
+        type WINBIO_CAPABILITIES = u32;
+        const WINBIO_CAPABILITY_DATABASE: WINBIO_CAPABILITIES = 4;
+        const WINBIO_CAPABILITY_ENCRYPTION: WINBIO_CAPABILITIES = 16;
+        const WINBIO_CAPABILITY_INDICATOR: WINBIO_CAPABILITIES = 64;
+        const WINBIO_CAPABILITY_MATCHING: WINBIO_CAPABILITIES = 2;
+        const WINBIO_CAPABILITY_NAVIGATION: WINBIO_CAPABILITIES = 32;
+        const WINBIO_CAPABILITY_PROCESSING: WINBIO_CAPABILITIES = 8;
+        const WINBIO_CAPABILITY_SCP_V1: WINBIO_CAPABILITIES = 512;
+        const WINBIO_CAPABILITY_SECURE_SENSOR: WINBIO_CAPABILITIES = 256;
+        const WINBIO_CAPABILITY_SENSOR: WINBIO_CAPABILITIES = 1;
+        const WINBIO_CAPABILITY_VIRTUAL_SENSOR: WINBIO_CAPABILITIES = 128;
+        const WINBIO_CAPABILITY_WAKE: WINBIO_CAPABILITIES = 1024;
+        const WINBIO_CBEFF_HEADER_VERSION: WINBIO_BIR_VERSION = 17;
+        type WINBIO_COMPONENT = u32;
+        const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = 2;
+        const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = 1;
+        const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = 3;
+        struct WINBIO_CONNECTED_SENSOR {
+            biometricType: WINBIO_BIOMETRIC_TYPE,
+            isEnhancedSignInSecurityCapable: BOOL,
+        }
+        #[repr(i32)]
+        enum WINBIO_CREDENTIAL_FORMAT {
+            WINBIO_PASSWORD_GENERIC = 1,
+            WINBIO_PASSWORD_PACKED = 2,
+            WINBIO_PASSWORD_PROTECTED = 3,
+        }
+        #[repr(i32)]
+        enum WINBIO_CREDENTIAL_STATE {
+            WINBIO_CREDENTIAL_NOT_SET = 1,
+            WINBIO_CREDENTIAL_SET = 2,
+        }
+        #[repr(i32)]
+        enum WINBIO_CREDENTIAL_TYPE {
+            WINBIO_CREDENTIAL_PASSWORD = 1,
+            WINBIO_CREDENTIAL_ALL = -1,
+        }
+        const WINBIO_DATABASE_FLAG_MASK: u32 = 4294901760;
+        const WINBIO_DATABASE_FLAG_REMOTE: u32 = 131072;
+        const WINBIO_DATABASE_FLAG_REMOVABLE: u32 = 65536;
+        const WINBIO_DATABASE_TYPE_DBMS: u32 = 2;
+        const WINBIO_DATABASE_TYPE_FILE: u32 = 1;
+        const WINBIO_DATABASE_TYPE_MASK: u32 = 65535;
+        const WINBIO_DATABASE_TYPE_ONCHIP: u32 = 3;
+        const WINBIO_DATABASE_TYPE_SMARTCARD: u32 = 4;
+        const WINBIO_DATA_FLAG_INTEGRITY: u8 = 1;
+        const WINBIO_DATA_FLAG_INTERMEDIATE: u8 = 64;
+        const WINBIO_DATA_FLAG_OPTION_MASK_PRESENT: u8 = 8;
+        const WINBIO_DATA_FLAG_PRIVACY: u8 = 2;
+        const WINBIO_DATA_FLAG_PROCESSED: u8 = 128;
+        const WINBIO_DATA_FLAG_RAW: u8 = 32;
+        const WINBIO_DATA_FLAG_SIGNED: u8 = 4;
+        const WINBIO_DATA_QUALITY_NOT_SET: WINBIO_BIR_QUALITY = -1;
+        const WINBIO_DATA_QUALITY_NOT_SUPPORTED: WINBIO_BIR_QUALITY = -2;
+        const WINBIO_ENG_CAP_ITERATIVE_IMPROVEMENT: WINBIO_CAPABILITIES = 1;
+        const WINBIO_ENG_CAP_SPOOF_DETECTION: WINBIO_CAPABILITIES = 2;
+        type WINBIO_ESS_STATE = u64;
+        #[repr(i32)]
+        enum WINBIO_ESS_STATE_FLAGS {
+            WINBIO_ESS_REQUIRES_TPM2 = 1,
+            WINBIO_ESS_REQUIRES_VBS_CAPABLE = 2,
+            WINBIO_ESS_REQUIRES_NON_VBS_WINDOWS_HELLO_ABSENCE = 4,
+            WINBIO_ESS_REQUIRES_VBS_WINDOWS_HELLO = 8,
+            WINBIO_ESS_REQUIRES_VBS_RUNNING = 16,
+            WINBIO_ESS_REQUIRES_VBS_ENCRYPTION_KEY = 32,
+            WINBIO_ESS_REQUIRES_ENABLEMENT = 64,
+            WINBIO_ESS_MANAGED_BY_POLICY = 128,
+            WINBIO_ESS_REQUIRES_NON_VBS_BIOMETRIC_ENROLLMENT_ABSENCE = 256,
+            WINBIO_ESS_REQUIRES_VBS_BIOMETRIC_ENROLLMENT = 512,
+            WINBIO_ESS_REQUIRES_FACE_SENSOR = 1024,
+            WINBIO_ESS_REQUIRES_FPR_SENSOR = 2048,
+            WINBIO_ESS_REQUIRES_ISOLATED_PROCESS = 4096,
+            WINBIO_ESS_BLOCKED_NON_ESS_FPR = 8192,
+            WINBIO_ESS_BLOCKED_NON_ESS_CAMERA = 16384,
+            WINBIO_ESS_SOURCE_DEFAULT = 32768,
+        }
+        struct WINBIO_EVENT {
+            Type: WINBIO_EVENT_TYPE,
+            Parameters: union {
+                Unclaimed: struct {
+                    UnitId: WINBIO_UNIT_ID,
+                    RejectDetail: WINBIO_REJECT_DETAIL,
+                },
+                UnclaimedIdentify: struct {
+                    UnitId: WINBIO_UNIT_ID,
+                    Identity: WINBIO_IDENTITY,
+                    SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
+                    RejectDetail: WINBIO_REJECT_DETAIL,
+                },
+                Error: struct {
+                    ErrorCode: HRESULT,
+                },
+            },
+        }
+        const WINBIO_EVENT_ERROR: WINBIO_EVENT_TYPE = 4294967295;
+        const WINBIO_EVENT_FP_UNCLAIMED: WINBIO_EVENT_TYPE = 1;
+        const WINBIO_EVENT_FP_UNCLAIMED_IDENTIFY: WINBIO_EVENT_TYPE = 2;
+        type WINBIO_EVENT_TYPE = u32;
+        struct WINBIO_EXTENDED_ENGINE_INFO {
+            GenericEngineCapabilities: WINBIO_CAPABILITIES,
+            Factor: WINBIO_BIOMETRIC_TYPE,
+            Specific: union {
+                Null: u32,
+                FacialFeatures: struct {
+                    Capabilities: WINBIO_CAPABILITIES,
+                    EnrollmentRequirements: struct {
+                        Null: u32,
+                    },
+                },
+                Fingerprint: struct {
+                    Capabilities: WINBIO_CAPABILITIES,
+                    EnrollmentRequirements: struct {
+                        GeneralSamples: u32,
+                        Center: u32,
+                        TopEdge: u32,
+                        BottomEdge: u32,
+                        LeftEdge: u32,
+                        RightEdge: u32,
+                    },
+                },
+                Iris: struct {
+                    Capabilities: WINBIO_CAPABILITIES,
+                    EnrollmentRequirements: struct {
+                        Null: u32,
+                    },
+                },
+                Voice: struct {
+                    Capabilities: WINBIO_CAPABILITIES,
+                    EnrollmentRequirements: struct {
+                        Null: u32,
+                    },
+                },
+            },
+        }
+        struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
+            Size: usize,
+            SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
+        }
+        struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
+            TemplateStatus: HRESULT,
+            RejectDetail: WINBIO_REJECT_DETAIL,
+            PercentComplete: u32,
+            Factor: WINBIO_BIOMETRIC_TYPE,
+            SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
+            Specific: union {
+                Null: u32,
+                FacialFeatures: struct {
+                    BoundingBox: RECT,
+                    Distance: i32,
+                    OpaqueEngineData: struct {
+                        AdapterId: WINBIO_UUID,
+                        Data: [u32; 78],
+                    },
+                },
+                Fingerprint: struct {
+                    GeneralSamples: u32,
+                    Center: u32,
+                    TopEdge: u32,
+                    BottomEdge: u32,
+                    LeftEdge: u32,
+                    RightEdge: u32,
+                },
+                Iris: struct {
+                    EyeBoundingBox_1: RECT,
+                    EyeBoundingBox_2: RECT,
+                    PupilCenter_1: POINT,
+                    PupilCenter_2: POINT,
+                    Distance: i32,
+                    GridPointCompletionPercent: u32,
+                    GridPointIndex: u16,
+                    Point3D: struct {
+                        X: f64,
+                        Y: f64,
+                        Z: f64,
+                    },
+                    StopCaptureAndShowCriticalFeedback: BOOL,
+                },
+                Voice: struct {
+                    Reserved: u32,
+                },
+            },
+        }
+        struct WINBIO_EXTENDED_SENSOR_INFO {
+            GenericSensorCapabilities: WINBIO_CAPABILITIES,
+            Factor: WINBIO_BIOMETRIC_TYPE,
+            Specific: union {
+                Null: u32,
+                FacialFeatures: struct {
+                    FrameSize: RECT,
+                    FrameOffset: POINT,
+                    MandatoryOrientation: WINBIO_ORIENTATION,
+                    HardwareInfo: struct {
+                        ColorSensorId: [u16; 260],
+                        InfraredSensorId: [u16; 260],
+                        InfraredSensorRotationAngle: u32,
+                    },
+                },
+                Fingerprint: struct {
+                    Reserved: u32,
+                },
+                Iris: struct {
+                    FrameSize: RECT,
+                    FrameOffset: POINT,
+                    MandatoryOrientation: WINBIO_ORIENTATION,
+                },
+                Voice: struct {
+                    Reserved: u32,
+                },
+            },
+        }
+        struct WINBIO_EXTENDED_STORAGE_INFO {
+            GenericStorageCapabilities: WINBIO_CAPABILITIES,
+            Factor: WINBIO_BIOMETRIC_TYPE,
+            Specific: union {
+                Null: u32,
+                FacialFeatures: struct {
+                    Capabilities: WINBIO_CAPABILITIES,
+                },
+                Fingerprint: struct {
+                    Capabilities: WINBIO_CAPABILITIES,
+                },
+                Iris: struct {
+                    Capabilities: WINBIO_CAPABILITIES,
+                },
+                Voice: struct {
+                    Capabilities: WINBIO_CAPABILITIES,
+                },
+            },
+        }
+        struct WINBIO_EXTENDED_UNIT_STATUS {
+            Availability: WINBIO_SENSOR_STATUS,
+            ReasonCode: u32,
+        }
+        const WINBIO_FACE_AMBIGUOUS_TARGET: WINBIO_REJECT_DETAIL = 5;
+        const WINBIO_FACE_EYES_OCCLUDED: WINBIO_REJECT_DETAIL = 6;
+        const WINBIO_FACE_OCCLUDED: WINBIO_REJECT_DETAIL = 6;
+        const WINBIO_FACE_POOR_QUALITY: WINBIO_REJECT_DETAIL = 1;
+        const WINBIO_FACE_SPOOF_DETECTED: WINBIO_REJECT_DETAIL = 4;
+        const WINBIO_FACE_TOO_BRIGHT: WINBIO_REJECT_DETAIL = 2;
+        const WINBIO_FACE_TOO_DARK: WINBIO_REJECT_DETAIL = 3;
+        const WINBIO_FACE_TOO_FAR: WINBIO_REJECT_DETAIL = 2097152;
+        const WINBIO_FACE_TOO_HIGH: WINBIO_REJECT_DETAIL = 65536;
+        const WINBIO_FACE_TOO_LEFT: WINBIO_REJECT_DETAIL = 262144;
+        const WINBIO_FACE_TOO_LOW: WINBIO_REJECT_DETAIL = 131072;
+        const WINBIO_FACE_TOO_NEAR: WINBIO_REJECT_DETAIL = 1048576;
+        const WINBIO_FACE_TOO_RIGHT: WINBIO_REJECT_DETAIL = 524288;
+        const WINBIO_FACE_WRONG_ORIENTATION: WINBIO_REJECT_DETAIL = 7;
+        const WINBIO_FINGER_UNSPECIFIED_POS_01: WINBIO_BIOMETRIC_SUBTYPE = 245;
+        const WINBIO_FINGER_UNSPECIFIED_POS_02: WINBIO_BIOMETRIC_SUBTYPE = 246;
+        const WINBIO_FINGER_UNSPECIFIED_POS_03: WINBIO_BIOMETRIC_SUBTYPE = 247;
+        const WINBIO_FINGER_UNSPECIFIED_POS_04: WINBIO_BIOMETRIC_SUBTYPE = 248;
+        const WINBIO_FINGER_UNSPECIFIED_POS_05: WINBIO_BIOMETRIC_SUBTYPE = 249;
+        const WINBIO_FINGER_UNSPECIFIED_POS_06: WINBIO_BIOMETRIC_SUBTYPE = 250;
+        const WINBIO_FINGER_UNSPECIFIED_POS_07: WINBIO_BIOMETRIC_SUBTYPE = 251;
+        const WINBIO_FINGER_UNSPECIFIED_POS_08: WINBIO_BIOMETRIC_SUBTYPE = 252;
+        const WINBIO_FINGER_UNSPECIFIED_POS_09: WINBIO_BIOMETRIC_SUBTYPE = 253;
+        const WINBIO_FINGER_UNSPECIFIED_POS_10: WINBIO_BIOMETRIC_SUBTYPE = 254;
+        const WINBIO_FLAG_ADVANCED: u32 = 131072;
+        const WINBIO_FLAG_BASIC: u32 = 65536;
+        const WINBIO_FLAG_DEFAULT: WINBIO_SESSION_FLAGS = 0;
+        const WINBIO_FLAG_MAINTENANCE: u32 = 2;
+        const WINBIO_FLAG_RAW: u32 = 1;
+        struct WINBIO_FP_BU_STATE {
+            SensorAttached: BOOL,
+            CreationResult: HRESULT,
+        }
+        const WINBIO_FP_MERGE_FAILURE: WINBIO_REJECT_DETAIL = 10;
+        const WINBIO_FP_POOR_QUALITY: WINBIO_REJECT_DETAIL = 7;
+        const WINBIO_FP_SENSOR_SUBTYPE_SWIPE: WINBIO_BIOMETRIC_SENSOR_SUBTYPE = 1;
+        const WINBIO_FP_SENSOR_SUBTYPE_TOUCH: WINBIO_BIOMETRIC_SENSOR_SUBTYPE = 2;
+        const WINBIO_FP_TOO_FAST: WINBIO_REJECT_DETAIL = 5;
+        const WINBIO_FP_TOO_HIGH: WINBIO_REJECT_DETAIL = 1;
+        const WINBIO_FP_TOO_LEFT: WINBIO_REJECT_DETAIL = 3;
+        const WINBIO_FP_TOO_LOW: WINBIO_REJECT_DETAIL = 2;
+        const WINBIO_FP_TOO_RIGHT: WINBIO_REJECT_DETAIL = 4;
+        const WINBIO_FP_TOO_SHORT: WINBIO_REJECT_DETAIL = 9;
+        const WINBIO_FP_TOO_SKEWED: WINBIO_REJECT_DETAIL = 8;
+        const WINBIO_FP_TOO_SLOW: WINBIO_REJECT_DETAIL = 6;
+        type WINBIO_FRAMEWORK_CHANGE_TYPE = u32;
+        const WINBIO_FRAMEWORK_CHANGE_UNIT: WINBIO_FRAMEWORK_CHANGE_TYPE = 1;
+        const WINBIO_FRAMEWORK_CHANGE_UNIT_STATUS: WINBIO_FRAMEWORK_CHANGE_TYPE = 2;
+        type WINBIO_FRAMEWORK_HANDLE = WINBIO_SESSION_HANDLE;
+        struct WINBIO_GESTURE_METADATA {
+            Size: usize,
+            BiometricType: WINBIO_BIOMETRIC_TYPE,
+            MatchType: WINBIO_MATCH_TYPE,
+            ProtectionType: WINBIO_PROTECTION_TYPE,
+        }
+        struct WINBIO_IDENTITY {
+            Type: WINBIO_IDENTITY_TYPE,
+            Value: union {
+                Null: u32,
+                Wildcard: u32,
+                TemplateGuid: GUID,
+                AccountSid: struct {
+                    Size: u32,
+                    Data: [u8; 68],
+                },
+                SecureId: [u8; 32],
+            },
+        }
+        const WINBIO_IDENTITY_SECURE_ID_SIZE: u32 = 32;
+        type WINBIO_IDENTITY_TYPE = u32;
+        const WINBIO_IDENTITY_WILDCARD: u32 = 621175426;
+        const WINBIO_ID_TYPE_GUID: WINBIO_IDENTITY_TYPE = 2;
+        const WINBIO_ID_TYPE_NULL: WINBIO_IDENTITY_TYPE = 0;
+        const WINBIO_ID_TYPE_SECURE_ID: WINBIO_IDENTITY_TYPE = 4;
+        const WINBIO_ID_TYPE_SID: WINBIO_IDENTITY_TYPE = 3;
+        const WINBIO_ID_TYPE_WILDCARD: WINBIO_IDENTITY_TYPE = 1;
+        const WINBIO_INDICATOR_OFF: WINBIO_INDICATOR_STATUS = 2;
+        const WINBIO_INDICATOR_ON: WINBIO_INDICATOR_STATUS = 1;
+        type WINBIO_INDICATOR_STATUS = u32;
+        const WINBIO_IRIS_BOTH_EYES: WINBIO_BIOMETRIC_SUBTYPE = 249;
+        const WINBIO_IRIS_DIRTY_LENS: WINBIO_REJECT_DETAIL = 8;
+        const WINBIO_IRIS_EITHER_EYE: WINBIO_BIOMETRIC_SUBTYPE = 250;
+        const WINBIO_IRIS_GLARE: WINBIO_REJECT_DETAIL = 7;
+        const WINBIO_IRIS_LEFT_EYE: WINBIO_BIOMETRIC_SUBTYPE = 245;
+        const WINBIO_IRIS_POOR_FOCUS: WINBIO_REJECT_DETAIL = 9;
+        const WINBIO_IRIS_POOR_QUALITY: WINBIO_REJECT_DETAIL = 1;
+        const WINBIO_IRIS_RIGHT_EYE: WINBIO_BIOMETRIC_SUBTYPE = 246;
+        const WINBIO_IRIS_SPOOF_DETECTED: WINBIO_REJECT_DETAIL = 4;
+        const WINBIO_IRIS_TOO_BRIGHT: WINBIO_REJECT_DETAIL = 2;
+        const WINBIO_IRIS_TOO_CLOSED: WINBIO_REJECT_DETAIL = 6;
+        const WINBIO_IRIS_TOO_DARK: WINBIO_REJECT_DETAIL = 3;
+        const WINBIO_IRIS_TOO_FAR: WINBIO_REJECT_DETAIL = 2097152;
+        const WINBIO_IRIS_TOO_HIGH: WINBIO_REJECT_DETAIL = 65536;
+        const WINBIO_IRIS_TOO_LEFT: WINBIO_REJECT_DETAIL = 262144;
+        const WINBIO_IRIS_TOO_LOW: WINBIO_REJECT_DETAIL = 131072;
+        const WINBIO_IRIS_TOO_NEAR: WINBIO_REJECT_DETAIL = 1048576;
+        const WINBIO_IRIS_TOO_RIGHT: WINBIO_REJECT_DETAIL = 524288;
+        const WINBIO_IRIS_TOO_SKEWED: WINBIO_REJECT_DETAIL = 5;
+        const WINBIO_IRIS_TYPE_UNKNOWN: WINBIO_BIOMETRIC_SUBTYPE = 0;
+        const WINBIO_IRIS_UNSPECIFIED_POS_01: WINBIO_BIOMETRIC_SUBTYPE = 247;
+        const WINBIO_IRIS_UNSPECIFIED_POS_02: WINBIO_BIOMETRIC_SUBTYPE = 248;
+        const WINBIO_IRIS_WRONG_ORIENTATION: WINBIO_REJECT_DETAIL = 10;
+        const WINBIO_MATCH_ON_CHIP: WINBIO_MATCH_TYPE = 3;
+        const WINBIO_MATCH_SOFTWARE: WINBIO_MATCH_TYPE = 1;
+        const WINBIO_MATCH_TRUSTED_EXECUTION_ENVIRONMENT: WINBIO_MATCH_TYPE = 2;
+        type WINBIO_MATCH_TYPE = u32;
+        const WINBIO_MAX_PRIVATE_SENSOR_TYPE_INFO_BUFFER_SIZE: u32 = 4096;
+        const WINBIO_MAX_SAMPLE_BUFFER_SIZE: u32 = 2147483647;
+        const WINBIO_MAX_SET_PROPERTY_BUFFER_SIZE: u32 = 4096;
+        const WINBIO_MAX_STRING_LEN: u32 = 256;
+        const WINBIO_NO_FORMAT_OWNER_AVAILABLE: u16 = 0;
+        const WINBIO_NO_FORMAT_TYPE_AVAILABLE: u16 = 0;
+        const WINBIO_NO_PURPOSE_AVAILABLE: WINBIO_BIR_PURPOSE = 0;
+        const WINBIO_NO_TYPE_AVAILABLE: WINBIO_BIOMETRIC_TYPE = 0;
+        const WINBIO_OPAQUE_ENGINE_DATA_ITEM_COUNT: u32 = 78;
+        const WINBIO_OPERATION_CAPTURE_SAMPLE: WINBIO_OPERATION_TYPE = 12;
+        const WINBIO_OPERATION_CLOSE: WINBIO_OPERATION_TYPE = 2;
+        const WINBIO_OPERATION_CLOSE_FRAMEWORK: WINBIO_OPERATION_TYPE = 21;
+        const WINBIO_OPERATION_CONTROL_UNIT: WINBIO_OPERATION_TYPE = 18;
+        const WINBIO_OPERATION_CONTROL_UNIT_PRIVILEGED: WINBIO_OPERATION_TYPE = 19;
+        const WINBIO_OPERATION_DELETE_TEMPLATE: WINBIO_OPERATION_TYPE = 11;
+        const WINBIO_OPERATION_ENROLL_AUTHORIZE: WINBIO_OPERATION_TYPE = 31;
+        const WINBIO_OPERATION_ENROLL_BEGIN: WINBIO_OPERATION_TYPE = 6;
+        const WINBIO_OPERATION_ENROLL_CAPTURE: WINBIO_OPERATION_TYPE = 7;
+        const WINBIO_OPERATION_ENROLL_COMMIT: WINBIO_OPERATION_TYPE = 8;
+        const WINBIO_OPERATION_ENROLL_DISCARD: WINBIO_OPERATION_TYPE = 9;
+        const WINBIO_OPERATION_ENROLL_REVOKE: WINBIO_OPERATION_TYPE = 32;
+        const WINBIO_OPERATION_ENROLL_SELECT: WINBIO_OPERATION_TYPE = 30;
+        const WINBIO_OPERATION_ENUM_BIOMETRIC_UNITS: WINBIO_OPERATION_TYPE = 23;
+        const WINBIO_OPERATION_ENUM_DATABASES: WINBIO_OPERATION_TYPE = 24;
+        const WINBIO_OPERATION_ENUM_ENROLLMENTS: WINBIO_OPERATION_TYPE = 10;
+        const WINBIO_OPERATION_ENUM_SERVICE_PROVIDERS: WINBIO_OPERATION_TYPE = 22;
+        const WINBIO_OPERATION_GET_EVENT: WINBIO_OPERATION_TYPE = 15;
+        const WINBIO_OPERATION_GET_PROPERTY: WINBIO_OPERATION_TYPE = 13;
+        const WINBIO_OPERATION_GET_PROTECTION_POLICY: WINBIO_OPERATION_TYPE = 33;
+        const WINBIO_OPERATION_IDENTIFY: WINBIO_OPERATION_TYPE = 4;
+        const WINBIO_OPERATION_IDENTIFY_AND_RELEASE_TICKET: WINBIO_OPERATION_TYPE = 27;
+        const WINBIO_OPERATION_IMPROVE_BEGIN: WINBIO_OPERATION_TYPE = 35;
+        const WINBIO_OPERATION_IMPROVE_END: WINBIO_OPERATION_TYPE = 36;
+        const WINBIO_OPERATION_LOCATE_SENSOR: WINBIO_OPERATION_TYPE = 5;
+        const WINBIO_OPERATION_LOCK_UNIT: WINBIO_OPERATION_TYPE = 16;
+        const WINBIO_OPERATION_MONITOR_PRESENCE: WINBIO_OPERATION_TYPE = 29;
+        const WINBIO_OPERATION_NONE: WINBIO_OPERATION_TYPE = 0;
+        const WINBIO_OPERATION_NOTIFY_UNIT_STATUS_CHANGE: WINBIO_OPERATION_TYPE = 34;
+        const WINBIO_OPERATION_OPEN: WINBIO_OPERATION_TYPE = 1;
+        const WINBIO_OPERATION_OPEN_FRAMEWORK: WINBIO_OPERATION_TYPE = 20;
+        const WINBIO_OPERATION_SET_PROPERTY: WINBIO_OPERATION_TYPE = 14;
+        type WINBIO_OPERATION_TYPE = u32;
+        const WINBIO_OPERATION_UNIT_ARRIVAL: WINBIO_OPERATION_TYPE = 25;
+        const WINBIO_OPERATION_UNIT_REMOVAL: WINBIO_OPERATION_TYPE = 26;
+        const WINBIO_OPERATION_UNLOCK_UNIT: WINBIO_OPERATION_TYPE = 17;
+        const WINBIO_OPERATION_VERIFY: WINBIO_OPERATION_TYPE = 3;
+        const WINBIO_OPERATION_VERIFY_AND_RELEASE_TICKET: WINBIO_OPERATION_TYPE = 28;
+        type WINBIO_ORIENTATION = u32;
+        const WINBIO_ORIENTATION_ANY: WINBIO_ORIENTATION = 3;
+        const WINBIO_ORIENTATION_LANDSCAPE: WINBIO_ORIENTATION = 1;
+        const WINBIO_ORIENTATION_PORTRAIT: WINBIO_ORIENTATION = 2;
+        const WINBIO_ORIENTATION_UNSPECIFIED: WINBIO_ORIENTATION = 0;
+        const WINBIO_PATRON_HEADER_VERSION: WINBIO_BIR_VERSION = 17;
+        #[repr(i32)]
+        enum WINBIO_POLICY_SOURCE {
+            WINBIO_POLICY_UNKNOWN = 0,
+            WINBIO_POLICY_DEFAULT = 1,
+            WINBIO_POLICY_LOCAL = 2,
+            WINBIO_POLICY_ADMIN = 3,
+        }
+        const WINBIO_POOL_PRIVATE: WINBIO_POOL_TYPE = 2;
+        const WINBIO_POOL_SYSTEM: WINBIO_POOL_TYPE = 1;
+        type WINBIO_POOL_TYPE = u32;
+        const WINBIO_POOL_UNASSIGNED: WINBIO_POOL_TYPE = 3;
+        const WINBIO_POOL_UNKNOWN: WINBIO_POOL_TYPE = 0;
+        struct WINBIO_PRESENCE {
+            Factor: WINBIO_BIOMETRIC_TYPE,
+            SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
+            Status: HRESULT,
+            RejectDetail: WINBIO_REJECT_DETAIL,
+            Identity: WINBIO_IDENTITY,
+            TrackingId: u64,
+            Ticket: WINBIO_PROTECTION_TICKET,
+            Properties: WINBIO_PRESENCE_PROPERTIES,
+            Authorization: struct {
+                Size: u32,
+                Data: [u8; 32],
+            },
+        }
+        type WINBIO_PRESENCE_CHANGE = u32;
+        const WINBIO_PRESENCE_CHANGE_TYPE_ARRIVE: WINBIO_PRESENCE_CHANGE = 2;
+        const WINBIO_PRESENCE_CHANGE_TYPE_DEPART: WINBIO_PRESENCE_CHANGE = 4;
+        const WINBIO_PRESENCE_CHANGE_TYPE_RECOGNIZE: WINBIO_PRESENCE_CHANGE = 3;
+        const WINBIO_PRESENCE_CHANGE_TYPE_TRACK: WINBIO_PRESENCE_CHANGE = 5;
+        const WINBIO_PRESENCE_CHANGE_TYPE_UNKNOWN: WINBIO_PRESENCE_CHANGE = 0;
+        const WINBIO_PRESENCE_CHANGE_TYPE_UPDATE_ALL: WINBIO_PRESENCE_CHANGE = 1;
+        union WINBIO_PRESENCE_PROPERTIES {
+            FacialFeatures: struct {
+                BoundingBox: RECT,
+                Distance: i32,
+                OpaqueEngineData: struct {
+                    AdapterId: WINBIO_UUID,
+                    Data: [u32; 78],
+                },
+            },
+            Iris: struct {
+                EyeBoundingBox_1: RECT,
+                EyeBoundingBox_2: RECT,
+                PupilCenter_1: POINT,
+                PupilCenter_2: POINT,
+                Distance: i32,
+            },
+        }
+        const WINBIO_PROPERTY_ANTI_SPOOF_POLICY: WINBIO_PROPERTY_ID = 1;
+        const WINBIO_PROPERTY_EXTENDED_ENGINE_INFO: WINBIO_PROPERTY_ID = 3;
+        const WINBIO_PROPERTY_EXTENDED_ENROLLMENT_STATUS: WINBIO_PROPERTY_ID = 5;
+        const WINBIO_PROPERTY_EXTENDED_SENSOR_INFO: WINBIO_PROPERTY_ID = 2;
+        const WINBIO_PROPERTY_EXTENDED_STORAGE_INFO: WINBIO_PROPERTY_ID = 4;
+        const WINBIO_PROPERTY_EXTENDED_UNIT_STATUS: WINBIO_PROPERTY_ID = 6;
+        const WINBIO_PROPERTY_FP_BU_STATE: WINBIO_PROPERTY_ID = 8;
+        const WINBIO_PROPERTY_FP_IS_IMPROVING: WINBIO_PROPERTY_ID = 9;
+        type WINBIO_PROPERTY_ID = u32;
+        const WINBIO_PROPERTY_SAMPLE_HINT: WINBIO_PROPERTY_ID = 1;
+        type WINBIO_PROPERTY_TYPE = u32;
+        const WINBIO_PROPERTY_TYPE_ACCOUNT: WINBIO_PROPERTY_TYPE = 4;
+        const WINBIO_PROPERTY_TYPE_SESSION: WINBIO_PROPERTY_TYPE = 1;
+        const WINBIO_PROPERTY_TYPE_TEMPLATE: WINBIO_PROPERTY_TYPE = 3;
+        const WINBIO_PROPERTY_TYPE_UNIT: WINBIO_PROPERTY_TYPE = 2;
+        const WINBIO_PROPERTY_UNIT_SECURITY_LEVEL: WINBIO_PROPERTY_ID = 7;
+        struct WINBIO_PROTECTION_POLICY {
+            Version: u32,
+            Identity: WINBIO_IDENTITY,
+            DatabaseId: WINBIO_UUID,
+            UserState: u64,
+            PolicySize: usize,
+            Policy: [u8; 128],
+        }
+        const WINBIO_PROTECTION_SOFTWARE: WINBIO_PROTECTION_TYPE = 1;
+        type WINBIO_PROTECTION_TICKET = u64;
+        const WINBIO_PROTECTION_TRUSTED_EXECUTION_ENVIRONMENT: WINBIO_PROTECTION_TYPE = 2;
+        type WINBIO_PROTECTION_TYPE = u32;
+        const WINBIO_PURPOSE_AUDIT: WINBIO_BIR_PURPOSE = 128;
+        const WINBIO_PURPOSE_ENROLL: WINBIO_BIR_PURPOSE = 4;
+        const WINBIO_PURPOSE_ENROLL_FOR_IDENTIFICATION: WINBIO_BIR_PURPOSE = 16;
+        const WINBIO_PURPOSE_ENROLL_FOR_VERIFICATION: WINBIO_BIR_PURPOSE = 8;
+        const WINBIO_PURPOSE_IDENTIFY: WINBIO_BIR_PURPOSE = 2;
+        const WINBIO_PURPOSE_VERIFY: WINBIO_BIR_PURPOSE = 1;
+        struct WINBIO_REGISTERED_FORMAT {
+            Owner: u16,
+            Type: u16,
+        }
+        type WINBIO_REJECT_DETAIL = u32;
+        const WINBIO_REJECT_DETAIL_ANTI_SPOOF_MASK: WINBIO_REJECT_DETAIL = 4278190080;
+        const WINBIO_REJECT_DETAIL_POSITION_MASK: WINBIO_REJECT_DETAIL = 16711680;
+        const WINBIO_REJECT_DETAIL_REASON_MASK: WINBIO_REJECT_DETAIL = 65535;
+        const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32;
+        const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32;
+        const WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1: u32 = 16;
+        const WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1: u32 = 32;
+        type WINBIO_SCP_FLAGS = u16;
+        const WINBIO_SCP_FLAG_RECONNECT: WINBIO_SCP_FLAGS = 1;
+        const WINBIO_SCP_PRIVATE_KEY_SIZE_V1: u32 = 32;
+        const WINBIO_SCP_PUBLIC_KEY_SIZE_V1: u32 = 65;
+        const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32;
+        const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64;
+        type WINBIO_SCP_VERSION = u16;
+        const WINBIO_SCP_VERSION_1: u32 = 1;
+        struct WINBIO_SECURE_BUFFER_HEADER_V1 {
+            Type: u32,
+            Size: u32,
+            Flags: u32,
+            ValidationTag: u64,
+        }
+        const WINBIO_SECURE_BUFFER_TYPE_V1: u32 = 3116236801;
+        struct WINBIO_SECURE_CONNECTION_DATA {
+            Size: u32,
+            Version: WINBIO_SCP_VERSION,
+            Flags: WINBIO_SCP_FLAGS,
+            ModelCertificateSize: u32,
+            IntermediateCA1Size: u32,
+            IntermediateCA2Size: u32,
+        }
+        struct WINBIO_SECURE_CONNECTION_PARAMS {
+            PayloadSize: u32,
+            Version: WINBIO_SCP_VERSION,
+            Flags: WINBIO_SCP_FLAGS,
+        }
+        const WINBIO_SENSOR_ACCEPT: WINBIO_SENSOR_STATUS = 1;
+        const WINBIO_SENSOR_ADVANCED_MODE: WINBIO_SENSOR_MODE = 2;
+        const WINBIO_SENSOR_AVAILABLE: WINBIO_SENSOR_STATUS = 7;
+        const WINBIO_SENSOR_BASIC_MODE: WINBIO_SENSOR_MODE = 1;
+        const WINBIO_SENSOR_BUSY: WINBIO_SENSOR_STATUS = 4;
+        const WINBIO_SENSOR_FAILURE: WINBIO_SENSOR_STATUS = 6;
+        type WINBIO_SENSOR_MODE = u32;
+        const WINBIO_SENSOR_NAVIGATION_MODE: WINBIO_SENSOR_MODE = 3;
+        const WINBIO_SENSOR_NOT_CALIBRATED: WINBIO_SENSOR_STATUS = 5;
+        const WINBIO_SENSOR_READY: WINBIO_SENSOR_STATUS = 3;
+        const WINBIO_SENSOR_REJECT: WINBIO_SENSOR_STATUS = 2;
+        const WINBIO_SENSOR_SLEEP_MODE: WINBIO_SENSOR_MODE = 4;
+        type WINBIO_SENSOR_STATUS = u32;
+        const WINBIO_SENSOR_STATUS_UNKNOWN: WINBIO_SENSOR_STATUS = 0;
+        const WINBIO_SENSOR_SUBTYPE_UNKNOWN: WINBIO_BIOMETRIC_SENSOR_SUBTYPE = 0;
+        const WINBIO_SENSOR_UNAVAILABLE: WINBIO_SENSOR_STATUS = 8;
+        const WINBIO_SENSOR_UNKNOWN_MODE: WINBIO_SENSOR_MODE = 0;
+        type WINBIO_SESSION_FLAGS = u32;
+        type WINBIO_SESSION_HANDLE = u32;
+        const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE_TYPE = 1;
+        const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE_TYPE = 0;
+        const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE_TYPE = 3;
+        const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE_TYPE = 2;
+        type WINBIO_SETTING_SOURCE_TYPE = u32;
+        type WINBIO_SETTING_TYPE = u32;
+        const WINBIO_SETTING_TYPE_ESS_ENABLED: WINBIO_SETTING_TYPE = 1;
+        const WINBIO_SETTING_TYPE_PERIPHERALS_WITH_ESS: WINBIO_SETTING_TYPE = 0;
+        const WINBIO_STANDARD_TYPE_MASK: WINBIO_BIOMETRIC_TYPE = 16777215;
+        struct WINBIO_STORAGE_SCHEMA {
+            BiometricFactor: WINBIO_BIOMETRIC_TYPE,
+            DatabaseId: WINBIO_UUID,
+            DataFormat: WINBIO_UUID,
+            Attributes: u32,
+            FilePath: WINBIO_STRING,
+            ConnectionString: WINBIO_STRING,
+        }
+        type WINBIO_STRING = [u16; 256];
+        const WINBIO_SUBTYPE_ANY: WINBIO_BIOMETRIC_SUBTYPE = 255;
+        const WINBIO_SUBTYPE_NO_INFORMATION: WINBIO_BIOMETRIC_SUBTYPE = 0;
+        const WINBIO_TELEMETRY_AUTH: WINBIO_TELEMETRY_TYPE = 1;
+        const WINBIO_TELEMETRY_ENROLLMENT: WINBIO_TELEMETRY_TYPE = 2;
+        type WINBIO_TELEMETRY_TYPE = u32;
+        const WINBIO_TYPE_ANY: i32 = -1056964609;
+        const WINBIO_TYPE_DNA: WINBIO_BIOMETRIC_TYPE = 16384;
+        const WINBIO_TYPE_EAR_SHAPE: WINBIO_BIOMETRIC_TYPE = 32768;
+        const WINBIO_TYPE_FACIAL_FEATURES: WINBIO_BIOMETRIC_TYPE = 2;
+        const WINBIO_TYPE_FINGERPRINT: WINBIO_BIOMETRIC_TYPE = 8;
+        const WINBIO_TYPE_FINGER_GEOMETRY: WINBIO_BIOMETRIC_TYPE = 65536;
+        const WINBIO_TYPE_FOOT_PRINT: WINBIO_BIOMETRIC_TYPE = 524288;
+        const WINBIO_TYPE_GAIT: WINBIO_BIOMETRIC_TYPE = 4096;
+        const WINBIO_TYPE_HAND_GEOMETRY: WINBIO_BIOMETRIC_TYPE = 64;
+        const WINBIO_TYPE_IRIS: WINBIO_BIOMETRIC_TYPE = 16;
+        const WINBIO_TYPE_KEYSTROKE_DYNAMICS: WINBIO_BIOMETRIC_TYPE = 256;
+        const WINBIO_TYPE_LIP_MOVEMENT: WINBIO_BIOMETRIC_TYPE = 512;
+        const WINBIO_TYPE_MULTIPLE: WINBIO_BIOMETRIC_TYPE = 1;
+        const WINBIO_TYPE_OTHER: WINBIO_BIOMETRIC_TYPE = 1073741824;
+        const WINBIO_TYPE_PALM_PRINT: WINBIO_BIOMETRIC_TYPE = 131072;
+        const WINBIO_TYPE_PASSWORD: WINBIO_BIOMETRIC_TYPE = 2147483648;
+        const WINBIO_TYPE_RETINA: WINBIO_BIOMETRIC_TYPE = 32;
+        const WINBIO_TYPE_SCENT: WINBIO_BIOMETRIC_TYPE = 8192;
+        const WINBIO_TYPE_SIGNATURE_DYNAMICS: WINBIO_BIOMETRIC_TYPE = 128;
+        const WINBIO_TYPE_THERMAL_FACE_IMAGE: WINBIO_BIOMETRIC_TYPE = 1024;
+        const WINBIO_TYPE_THERMAL_HAND_IMAGE: WINBIO_BIOMETRIC_TYPE = 2048;
+        const WINBIO_TYPE_VEIN_PATTERN: WINBIO_BIOMETRIC_TYPE = 262144;
+        const WINBIO_TYPE_VOICE: WINBIO_BIOMETRIC_TYPE = 4;
+        type WINBIO_UNIT_ID = u32;
+        struct WINBIO_UNIT_SCHEMA {
+            UnitId: WINBIO_UNIT_ID,
+            PoolType: WINBIO_POOL_TYPE,
+            BiometricFactor: WINBIO_BIOMETRIC_TYPE,
+            SensorSubType: WINBIO_BIOMETRIC_SENSOR_SUBTYPE,
+            Capabilities: WINBIO_CAPABILITIES,
+            DeviceInstanceId: WINBIO_STRING,
+            Description: WINBIO_STRING,
+            Manufacturer: WINBIO_STRING,
+            Model: WINBIO_STRING,
+            SerialNumber: WINBIO_STRING,
+            FirmwareVersion: WINBIO_VERSION,
+        }
+        type WINBIO_UNIT_SECURITY_LEVEL = u32;
+        const WINBIO_UNIT_SECURITY_LEVEL_NORMAL: WINBIO_UNIT_SECURITY_LEVEL = 0;
+        const WINBIO_UNIT_SECURITY_LEVEL_VBS: WINBIO_UNIT_SECURITY_LEVEL = 1;
+        type WINBIO_UUID = GUID;
+        struct WINBIO_VERSION {
+            MajorVersion: u32,
+            MinorVersion: u32,
+        }
+        const WINBIO_VOICE_MAX_UTTERANCE: WINBIO_BIOMETRIC_SUBTYPE = 32;
+        const WINBIO_VOICE_MIN_UTTERANCE: WINBIO_BIOMETRIC_SUBTYPE = 1;
+        const WINBIO_VOICE_NO_KEYWORD: WINBIO_REJECT_DETAIL = 4;
+        const WINBIO_VOICE_POOR_QUALITY: WINBIO_REJECT_DETAIL = 1;
+        const WINBIO_VOICE_PROCESSING_ERROR: WINBIO_REJECT_DETAIL = 5;
+        const WINBIO_VOICE_TOO_FAST: WINBIO_REJECT_DETAIL = 3;
+        const WINBIO_VOICE_TOO_SLOW: WINBIO_REJECT_DETAIL = 2;
+        const WINBIO_VOICE_TYPE_UNKNOWN: WINBIO_BIOMETRIC_SUBTYPE = 0;
+        type WINBIO_WAKE_REASON = u32;
+        const WINBIO_WAKE_REASON_TOUCH: WINBIO_WAKE_REASON = 1;
+        const WINBIO_WAKE_REASON_UNKNOWN: WINBIO_WAKE_REASON = 0;
+    }
+}

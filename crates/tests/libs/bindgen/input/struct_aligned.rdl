@@ -1,0 +1,17 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[align(16)]
+    struct M128A {
+        Low: u64,
+        High: i64,
+    }
+    struct XmmFrame {
+        Xmm0: M128A,
+        Flags: u32,
+    }
+    #[align(32)]
+    struct OverAligned {
+        value: i32,
+    }
+}

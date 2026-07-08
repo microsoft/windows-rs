@@ -1,0 +1,1009 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct CD3D10_BUFFER_DESC {
+            Base: D3D10_BUFFER_DESC,
+        }
+        struct CD3D10_TEXTURE1D_DESC {
+            Base: D3D10_TEXTURE1D_DESC,
+        }
+        struct CD3D10_TEXTURE2D_DESC {
+            Base: D3D10_TEXTURE2D_DESC,
+        }
+        struct CD3D10_TEXTURE3D_DESC {
+            Base: D3D10_TEXTURE3D_DESC,
+        }
+        const D3D10_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535;
+        const D3D10_32BIT_INDEX_STRIP_CUT_VALUE: u32 = 4294967295;
+        const D3D10_8BIT_INDEX_STRIP_CUT_VALUE: u32 = 255;
+        const D3D10_ANISOTROPIC_FILTERING_BIT: u32 = 64;
+        const D3D10_APPEND_ALIGNED_ELEMENT: u32 = 4294967295;
+        const D3D10_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9;
+        #[repr(i32)]
+        enum D3D10_ASYNC_GETDATA_FLAG {
+            D3D10_ASYNC_GETDATA_DONOTFLUSH = 1,
+        }
+        #[repr(i32)]
+        enum D3D10_BIND_FLAG {
+            D3D10_BIND_VERTEX_BUFFER = 1,
+            D3D10_BIND_INDEX_BUFFER = 2,
+            D3D10_BIND_CONSTANT_BUFFER = 4,
+            D3D10_BIND_SHADER_RESOURCE = 8,
+            D3D10_BIND_STREAM_OUTPUT = 16,
+            D3D10_BIND_RENDER_TARGET = 32,
+            D3D10_BIND_DEPTH_STENCIL = 64,
+        }
+        #[repr(i32)]
+        enum D3D10_BLEND {
+            D3D10_BLEND_ZERO = 1,
+            D3D10_BLEND_ONE = 2,
+            D3D10_BLEND_SRC_COLOR = 3,
+            D3D10_BLEND_INV_SRC_COLOR = 4,
+            D3D10_BLEND_SRC_ALPHA = 5,
+            D3D10_BLEND_INV_SRC_ALPHA = 6,
+            D3D10_BLEND_DEST_ALPHA = 7,
+            D3D10_BLEND_INV_DEST_ALPHA = 8,
+            D3D10_BLEND_DEST_COLOR = 9,
+            D3D10_BLEND_INV_DEST_COLOR = 10,
+            D3D10_BLEND_SRC_ALPHA_SAT = 11,
+            D3D10_BLEND_BLEND_FACTOR = 14,
+            D3D10_BLEND_INV_BLEND_FACTOR = 15,
+            D3D10_BLEND_SRC1_COLOR = 16,
+            D3D10_BLEND_INV_SRC1_COLOR = 17,
+            D3D10_BLEND_SRC1_ALPHA = 18,
+            D3D10_BLEND_INV_SRC1_ALPHA = 19,
+        }
+        struct D3D10_BLEND_DESC {
+            AlphaToCoverageEnable: BOOL,
+            BlendEnable: [BOOL; 8],
+            SrcBlend: D3D10_BLEND,
+            DestBlend: D3D10_BLEND,
+            BlendOp: D3D10_BLEND_OP,
+            SrcBlendAlpha: D3D10_BLEND,
+            DestBlendAlpha: D3D10_BLEND,
+            BlendOpAlpha: D3D10_BLEND_OP,
+            RenderTargetWriteMask: [u8; 8],
+        }
+        #[repr(i32)]
+        enum D3D10_BLEND_OP {
+            D3D10_BLEND_OP_ADD = 1,
+            D3D10_BLEND_OP_SUBTRACT = 2,
+            D3D10_BLEND_OP_REV_SUBTRACT = 3,
+            D3D10_BLEND_OP_MIN = 4,
+            D3D10_BLEND_OP_MAX = 5,
+        }
+        struct D3D10_BOX {
+            left: u32,
+            top: u32,
+            front: u32,
+            right: u32,
+            bottom: u32,
+            back: u32,
+        }
+        struct D3D10_BUFFER_DESC {
+            ByteWidth: u32,
+            Usage: D3D10_USAGE,
+            BindFlags: u32,
+            CPUAccessFlags: u32,
+            MiscFlags: u32,
+        }
+        struct D3D10_BUFFER_RTV {
+            Anonymous: union {
+                FirstElement: u32,
+                ElementOffset: u32,
+            },
+            Anonymous2: union {
+                NumElements: u32,
+                ElementWidth: u32,
+            },
+        }
+        struct D3D10_BUFFER_SRV {
+            Anonymous: union {
+                FirstElement: u32,
+                ElementOffset: u32,
+            },
+            Anonymous2: union {
+                NumElements: u32,
+                ElementWidth: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3D10_CLEAR_FLAG {
+            D3D10_CLEAR_DEPTH = 1,
+            D3D10_CLEAR_STENCIL = 2,
+        }
+        const D3D10_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8;
+        const D3D10_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2;
+        #[repr(i32)]
+        enum D3D10_COLOR_WRITE_ENABLE {
+            D3D10_COLOR_WRITE_ENABLE_RED = 1,
+            D3D10_COLOR_WRITE_ENABLE_GREEN = 2,
+            D3D10_COLOR_WRITE_ENABLE_BLUE = 4,
+            D3D10_COLOR_WRITE_ENABLE_ALPHA = 8,
+            D3D10_COLOR_WRITE_ENABLE_ALL = 15,
+        }
+        const D3D10_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT: u32 = 14;
+        const D3D10_COMMONSHADER_CONSTANT_BUFFER_COMPONENTS: u32 = 4;
+        const D3D10_COMMONSHADER_CONSTANT_BUFFER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_COMMONSHADER_CONSTANT_BUFFER_HW_SLOT_COUNT: u32 = 15;
+        const D3D10_COMMONSHADER_CONSTANT_BUFFER_REGISTER_COMPONENTS: u32 = 4;
+        const D3D10_COMMONSHADER_CONSTANT_BUFFER_REGISTER_COUNT: u32 = 15;
+        const D3D10_COMMONSHADER_CONSTANT_BUFFER_REGISTER_READS_PER_INST: u32 = 1;
+        const D3D10_COMMONSHADER_CONSTANT_BUFFER_REGISTER_READ_PORTS: u32 = 1;
+        const D3D10_COMMONSHADER_FLOWCONTROL_NESTING_LIMIT: u32 = 64;
+        const D3D10_COMMONSHADER_IMMEDIATE_CONSTANT_BUFFER_REGISTER_COMPONENTS: u32 = 4;
+        const D3D10_COMMONSHADER_IMMEDIATE_CONSTANT_BUFFER_REGISTER_COUNT: u32 = 1;
+        const D3D10_COMMONSHADER_IMMEDIATE_CONSTANT_BUFFER_REGISTER_READS_PER_INST: u32 = 1;
+        const D3D10_COMMONSHADER_IMMEDIATE_CONSTANT_BUFFER_REGISTER_READ_PORTS: u32 = 1;
+        const D3D10_COMMONSHADER_IMMEDIATE_VALUE_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_COMMONSHADER_INPUT_RESOURCE_REGISTER_COMPONENTS: u32 = 1;
+        const D3D10_COMMONSHADER_INPUT_RESOURCE_REGISTER_COUNT: u32 = 128;
+        const D3D10_COMMONSHADER_INPUT_RESOURCE_REGISTER_READS_PER_INST: u32 = 1;
+        const D3D10_COMMONSHADER_INPUT_RESOURCE_REGISTER_READ_PORTS: u32 = 1;
+        const D3D10_COMMONSHADER_INPUT_RESOURCE_SLOT_COUNT: u32 = 128;
+        const D3D10_COMMONSHADER_SAMPLER_REGISTER_COMPONENTS: u32 = 1;
+        const D3D10_COMMONSHADER_SAMPLER_REGISTER_COUNT: u32 = 16;
+        const D3D10_COMMONSHADER_SAMPLER_REGISTER_READS_PER_INST: u32 = 1;
+        const D3D10_COMMONSHADER_SAMPLER_REGISTER_READ_PORTS: u32 = 1;
+        const D3D10_COMMONSHADER_SAMPLER_SLOT_COUNT: u32 = 16;
+        const D3D10_COMMONSHADER_SUBROUTINE_NESTING_LIMIT: u32 = 32;
+        const D3D10_COMMONSHADER_TEMP_REGISTER_COMPONENTS: u32 = 4;
+        const D3D10_COMMONSHADER_TEMP_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_COMMONSHADER_TEMP_REGISTER_COUNT: u32 = 4096;
+        const D3D10_COMMONSHADER_TEMP_REGISTER_READS_PER_INST: u32 = 3;
+        const D3D10_COMMONSHADER_TEMP_REGISTER_READ_PORTS: u32 = 3;
+        const D3D10_COMMONSHADER_TEXCOORD_RANGE_REDUCTION_MAX: u32 = 10;
+        const D3D10_COMMONSHADER_TEXCOORD_RANGE_REDUCTION_MIN: i32 = -10;
+        const D3D10_COMMONSHADER_TEXEL_OFFSET_MAX_NEGATIVE: i32 = -8;
+        const D3D10_COMMONSHADER_TEXEL_OFFSET_MAX_POSITIVE: u32 = 7;
+        const D3D10_COMPARISON_FILTERING_BIT: u32 = 128;
+        #[repr(i32)]
+        enum D3D10_COMPARISON_FUNC {
+            D3D10_COMPARISON_NEVER = 1,
+            D3D10_COMPARISON_LESS = 2,
+            D3D10_COMPARISON_EQUAL = 3,
+            D3D10_COMPARISON_LESS_EQUAL = 4,
+            D3D10_COMPARISON_GREATER = 5,
+            D3D10_COMPARISON_NOT_EQUAL = 6,
+            D3D10_COMPARISON_GREATER_EQUAL = 7,
+            D3D10_COMPARISON_ALWAYS = 8,
+        }
+        #[repr(i32)]
+        enum D3D10_COUNTER {
+            D3D10_COUNTER_GPU_IDLE = 0,
+            D3D10_COUNTER_VERTEX_PROCESSING = 1,
+            D3D10_COUNTER_GEOMETRY_PROCESSING = 2,
+            D3D10_COUNTER_PIXEL_PROCESSING = 3,
+            D3D10_COUNTER_OTHER_GPU_PROCESSING = 4,
+            D3D10_COUNTER_HOST_ADAPTER_BANDWIDTH_UTILIZATION = 5,
+            D3D10_COUNTER_LOCAL_VIDMEM_BANDWIDTH_UTILIZATION = 6,
+            D3D10_COUNTER_VERTEX_THROUGHPUT_UTILIZATION = 7,
+            D3D10_COUNTER_TRIANGLE_SETUP_THROUGHPUT_UTILIZATION = 8,
+            D3D10_COUNTER_FILLRATE_THROUGHPUT_UTILIZATION = 9,
+            D3D10_COUNTER_VS_MEMORY_LIMITED = 10,
+            D3D10_COUNTER_VS_COMPUTATION_LIMITED = 11,
+            D3D10_COUNTER_GS_MEMORY_LIMITED = 12,
+            D3D10_COUNTER_GS_COMPUTATION_LIMITED = 13,
+            D3D10_COUNTER_PS_MEMORY_LIMITED = 14,
+            D3D10_COUNTER_PS_COMPUTATION_LIMITED = 15,
+            D3D10_COUNTER_POST_TRANSFORM_CACHE_HIT_RATE = 16,
+            D3D10_COUNTER_TEXTURE_CACHE_HIT_RATE = 17,
+            D3D10_COUNTER_DEVICE_DEPENDENT_0 = 1073741824,
+        }
+        struct D3D10_COUNTER_DESC {
+            Counter: D3D10_COUNTER,
+            MiscFlags: u32,
+        }
+        struct D3D10_COUNTER_INFO {
+            LastDeviceDependentCounter: D3D10_COUNTER,
+            NumSimultaneousCounters: u32,
+            NumDetectableParallelUnits: u8,
+        }
+        #[repr(i32)]
+        enum D3D10_COUNTER_TYPE {
+            D3D10_COUNTER_TYPE_FLOAT32 = 0,
+            D3D10_COUNTER_TYPE_UINT16 = 1,
+            D3D10_COUNTER_TYPE_UINT32 = 2,
+            D3D10_COUNTER_TYPE_UINT64 = 3,
+        }
+        #[repr(i32)]
+        enum D3D10_CPU_ACCESS_FLAG {
+            D3D10_CPU_ACCESS_WRITE = 65536,
+            D3D10_CPU_ACCESS_READ = 131072,
+        }
+        #[repr(i32)]
+        enum D3D10_CREATE_DEVICE_FLAG {
+            D3D10_CREATE_DEVICE_SINGLETHREADED = 1,
+            D3D10_CREATE_DEVICE_DEBUG = 2,
+            D3D10_CREATE_DEVICE_SWITCH_TO_REF = 4,
+            D3D10_CREATE_DEVICE_PREVENT_INTERNAL_THREADING_OPTIMIZATIONS = 8,
+            D3D10_CREATE_DEVICE_ALLOW_NULL_FROM_MAP = 16,
+            D3D10_CREATE_DEVICE_BGRA_SUPPORT = 32,
+            D3D10_CREATE_DEVICE_PREVENT_ALTERING_LAYER_SETTINGS_FROM_REGISTRY = 128,
+            D3D10_CREATE_DEVICE_STRICT_VALIDATION = 512,
+            D3D10_CREATE_DEVICE_DEBUGGABLE = 1024,
+        }
+        #[repr(i32)]
+        enum D3D10_CULL_MODE {
+            D3D10_CULL_NONE = 1,
+            D3D10_CULL_FRONT = 2,
+            D3D10_CULL_BACK = 3,
+        }
+        const D3D10_DEFAULT_DEPTH_BIAS: u32 = 0;
+        const D3D10_DEFAULT_RENDER_TARGET_ARRAY_INDEX: u32 = 0;
+        const D3D10_DEFAULT_SAMPLE_MASK: u32 = 4294967295;
+        const D3D10_DEFAULT_SCISSOR_ENDX: u32 = 0;
+        const D3D10_DEFAULT_SCISSOR_ENDY: u32 = 0;
+        const D3D10_DEFAULT_SCISSOR_STARTX: u32 = 0;
+        const D3D10_DEFAULT_SCISSOR_STARTY: u32 = 0;
+        const D3D10_DEFAULT_STENCIL_READ_MASK: u32 = 255;
+        const D3D10_DEFAULT_STENCIL_REFERENCE: u32 = 0;
+        const D3D10_DEFAULT_STENCIL_WRITE_MASK: u32 = 255;
+        const D3D10_DEFAULT_VIEWPORT_AND_SCISSORRECT_INDEX: u32 = 0;
+        const D3D10_DEFAULT_VIEWPORT_HEIGHT: u32 = 0;
+        const D3D10_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0;
+        const D3D10_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0;
+        const D3D10_DEFAULT_VIEWPORT_WIDTH: u32 = 0;
+        struct D3D10_DEPTH_STENCILOP_DESC {
+            StencilFailOp: D3D10_STENCIL_OP,
+            StencilDepthFailOp: D3D10_STENCIL_OP,
+            StencilPassOp: D3D10_STENCIL_OP,
+            StencilFunc: D3D10_COMPARISON_FUNC,
+        }
+        struct D3D10_DEPTH_STENCIL_DESC {
+            DepthEnable: BOOL,
+            DepthWriteMask: D3D10_DEPTH_WRITE_MASK,
+            DepthFunc: D3D10_COMPARISON_FUNC,
+            StencilEnable: BOOL,
+            StencilReadMask: u8,
+            StencilWriteMask: u8,
+            FrontFace: D3D10_DEPTH_STENCILOP_DESC,
+            BackFace: D3D10_DEPTH_STENCILOP_DESC,
+        }
+        struct D3D10_DEPTH_STENCIL_VIEW_DESC {
+            Format: DXGI_FORMAT,
+            ViewDimension: D3D10_DSV_DIMENSION,
+            Anonymous: union {
+                Texture1D: D3D10_TEX1D_DSV,
+                Texture1DArray: D3D10_TEX1D_ARRAY_DSV,
+                Texture2D: D3D10_TEX2D_DSV,
+                Texture2DArray: D3D10_TEX2D_ARRAY_DSV,
+                Texture2DMS: D3D10_TEX2DMS_DSV,
+                Texture2DMSArray: D3D10_TEX2DMS_ARRAY_DSV,
+            },
+        }
+        #[repr(i32)]
+        enum D3D10_DEPTH_WRITE_MASK {
+            D3D10_DEPTH_WRITE_MASK_ZERO = 0,
+            D3D10_DEPTH_WRITE_MASK_ALL = 1,
+        }
+        #[repr(i32)]
+        enum D3D10_DSV_DIMENSION {
+            D3D10_DSV_DIMENSION_UNKNOWN = 0,
+            D3D10_DSV_DIMENSION_TEXTURE1D = 1,
+            D3D10_DSV_DIMENSION_TEXTURE1DARRAY = 2,
+            D3D10_DSV_DIMENSION_TEXTURE2D = 3,
+            D3D10_DSV_DIMENSION_TEXTURE2DARRAY = 4,
+            D3D10_DSV_DIMENSION_TEXTURE2DMS = 5,
+            D3D10_DSV_DIMENSION_TEXTURE2DMSARRAY = 6,
+        }
+        #[repr(i32)]
+        enum D3D10_FILL_MODE {
+            D3D10_FILL_WIREFRAME = 2,
+            D3D10_FILL_SOLID = 3,
+        }
+        #[repr(i32)]
+        enum D3D10_FILTER {
+            D3D10_FILTER_MIN_MAG_MIP_POINT = 0,
+            D3D10_FILTER_MIN_MAG_POINT_MIP_LINEAR = 1,
+            D3D10_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT = 4,
+            D3D10_FILTER_MIN_POINT_MAG_MIP_LINEAR = 5,
+            D3D10_FILTER_MIN_LINEAR_MAG_MIP_POINT = 16,
+            D3D10_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR = 17,
+            D3D10_FILTER_MIN_MAG_LINEAR_MIP_POINT = 20,
+            D3D10_FILTER_MIN_MAG_MIP_LINEAR = 21,
+            D3D10_FILTER_ANISOTROPIC = 85,
+            D3D10_FILTER_COMPARISON_MIN_MAG_MIP_POINT = 128,
+            D3D10_FILTER_COMPARISON_MIN_MAG_POINT_MIP_LINEAR = 129,
+            D3D10_FILTER_COMPARISON_MIN_POINT_MAG_LINEAR_MIP_POINT = 132,
+            D3D10_FILTER_COMPARISON_MIN_POINT_MAG_MIP_LINEAR = 133,
+            D3D10_FILTER_COMPARISON_MIN_LINEAR_MAG_MIP_POINT = 144,
+            D3D10_FILTER_COMPARISON_MIN_LINEAR_MAG_POINT_MIP_LINEAR = 145,
+            D3D10_FILTER_COMPARISON_MIN_MAG_LINEAR_MIP_POINT = 148,
+            D3D10_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR = 149,
+            D3D10_FILTER_COMPARISON_ANISOTROPIC = 213,
+            D3D10_FILTER_TEXT_1BIT = -2147483648,
+        }
+        #[repr(i32)]
+        enum D3D10_FILTER_TYPE {
+            D3D10_FILTER_TYPE_POINT = 0,
+            D3D10_FILTER_TYPE_LINEAR = 1,
+        }
+        const D3D10_FILTER_TYPE_MASK: u32 = 3;
+        #[repr(i32)]
+        enum D3D10_FORMAT_SUPPORT {
+            D3D10_FORMAT_SUPPORT_BUFFER = 1,
+            D3D10_FORMAT_SUPPORT_IA_VERTEX_BUFFER = 2,
+            D3D10_FORMAT_SUPPORT_IA_INDEX_BUFFER = 4,
+            D3D10_FORMAT_SUPPORT_SO_BUFFER = 8,
+            D3D10_FORMAT_SUPPORT_TEXTURE1D = 16,
+            D3D10_FORMAT_SUPPORT_TEXTURE2D = 32,
+            D3D10_FORMAT_SUPPORT_TEXTURE3D = 64,
+            D3D10_FORMAT_SUPPORT_TEXTURECUBE = 128,
+            D3D10_FORMAT_SUPPORT_SHADER_LOAD = 256,
+            D3D10_FORMAT_SUPPORT_SHADER_SAMPLE = 512,
+            D3D10_FORMAT_SUPPORT_SHADER_SAMPLE_COMPARISON = 1024,
+            D3D10_FORMAT_SUPPORT_SHADER_SAMPLE_MONO_TEXT = 2048,
+            D3D10_FORMAT_SUPPORT_MIP = 4096,
+            D3D10_FORMAT_SUPPORT_MIP_AUTOGEN = 8192,
+            D3D10_FORMAT_SUPPORT_RENDER_TARGET = 16384,
+            D3D10_FORMAT_SUPPORT_BLENDABLE = 32768,
+            D3D10_FORMAT_SUPPORT_DEPTH_STENCIL = 65536,
+            D3D10_FORMAT_SUPPORT_CPU_LOCKABLE = 131072,
+            D3D10_FORMAT_SUPPORT_MULTISAMPLE_RESOLVE = 262144,
+            D3D10_FORMAT_SUPPORT_DISPLAY = 524288,
+            D3D10_FORMAT_SUPPORT_CAST_WITHIN_BIT_LAYOUT = 1048576,
+            D3D10_FORMAT_SUPPORT_MULTISAMPLE_RENDERTARGET = 2097152,
+            D3D10_FORMAT_SUPPORT_MULTISAMPLE_LOAD = 4194304,
+            D3D10_FORMAT_SUPPORT_SHADER_GATHER = 8388608,
+            D3D10_FORMAT_SUPPORT_BACK_BUFFER_CAST = 16777216,
+        }
+        const D3D10_GS_INPUT_PRIM_CONST_REGISTER_COMPONENTS: u32 = 1;
+        const D3D10_GS_INPUT_PRIM_CONST_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_GS_INPUT_PRIM_CONST_REGISTER_COUNT: u32 = 1;
+        const D3D10_GS_INPUT_PRIM_CONST_REGISTER_READS_PER_INST: u32 = 2;
+        const D3D10_GS_INPUT_PRIM_CONST_REGISTER_READ_PORTS: u32 = 1;
+        const D3D10_GS_INPUT_REGISTER_COMPONENTS: u32 = 4;
+        const D3D10_GS_INPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_GS_INPUT_REGISTER_COUNT: u32 = 16;
+        const D3D10_GS_INPUT_REGISTER_READS_PER_INST: u32 = 2;
+        const D3D10_GS_INPUT_REGISTER_READ_PORTS: u32 = 1;
+        const D3D10_GS_INPUT_REGISTER_VERTICES: u32 = 6;
+        const D3D10_GS_OUTPUT_ELEMENTS: u32 = 32;
+        const D3D10_GS_OUTPUT_REGISTER_COMPONENTS: u32 = 4;
+        const D3D10_GS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_GS_OUTPUT_REGISTER_COUNT: u32 = 32;
+        const D3D10_IA_DEFAULT_INDEX_BUFFER_OFFSET_IN_BYTES: u32 = 0;
+        const D3D10_IA_DEFAULT_PRIMITIVE_TOPOLOGY: u32 = 0;
+        const D3D10_IA_DEFAULT_VERTEX_BUFFER_OFFSET_IN_BYTES: u32 = 0;
+        const D3D10_IA_INDEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 1;
+        const D3D10_IA_INSTANCE_ID_BIT_COUNT: u32 = 32;
+        const D3D10_IA_INTEGER_ARITHMETIC_BIT_COUNT: u32 = 32;
+        const D3D10_IA_PRIMITIVE_ID_BIT_COUNT: u32 = 32;
+        const D3D10_IA_VERTEX_ID_BIT_COUNT: u32 = 32;
+        const D3D10_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 16;
+        const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 64;
+        const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 16;
+        #[repr(i32)]
+        enum D3D10_INPUT_CLASSIFICATION {
+            D3D10_INPUT_PER_VERTEX_DATA = 0,
+            D3D10_INPUT_PER_INSTANCE_DATA = 1,
+        }
+        struct D3D10_INPUT_ELEMENT_DESC {
+            SemanticName: PCSTR,
+            SemanticIndex: u32,
+            Format: DXGI_FORMAT,
+            InputSlot: u32,
+            AlignedByteOffset: u32,
+            InputSlotClass: D3D10_INPUT_CLASSIFICATION,
+            InstanceDataStepRate: u32,
+        }
+        const D3D10_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295;
+        const D3D10_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295;
+        const D3D10_MAG_FILTER_SHIFT: u32 = 2;
+        #[repr(i32)]
+        enum D3D10_MAP {
+            D3D10_MAP_READ = 1,
+            D3D10_MAP_WRITE = 2,
+            D3D10_MAP_READ_WRITE = 3,
+            D3D10_MAP_WRITE_DISCARD = 4,
+            D3D10_MAP_WRITE_NO_OVERWRITE = 5,
+        }
+        struct D3D10_MAPPED_TEXTURE2D {
+            pData: *mut void,
+            RowPitch: u32,
+        }
+        struct D3D10_MAPPED_TEXTURE3D {
+            pData: *mut void,
+            RowPitch: u32,
+            DepthPitch: u32,
+        }
+        #[repr(i32)]
+        enum D3D10_MAP_FLAG {
+            D3D10_MAP_FLAG_DO_NOT_WAIT = 1048576,
+        }
+        const D3D10_MAX_MAXANISOTROPY: u32 = 16;
+        const D3D10_MAX_MULTISAMPLE_SAMPLE_COUNT: u32 = 32;
+        const D3D10_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17;
+        const D3D10_MIN_FILTER_SHIFT: u32 = 4;
+        const D3D10_MIN_MAXANISOTROPY: u32 = 0;
+        const D3D10_MIP_FILTER_SHIFT: u32 = 0;
+        const D3D10_MIP_LOD_FRACTIONAL_BIT_COUNT: u32 = 6;
+        const D3D10_MIP_LOD_RANGE_BIT_COUNT: u32 = 8;
+        const D3D10_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0;
+        const D3D10_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 13;
+        const D3D10_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15;
+        type D3D10_PRIMITIVE = D3D_PRIMITIVE;
+        type D3D10_PRIMITIVE_TOPOLOGY = D3D_PRIMITIVE_TOPOLOGY;
+        const D3D10_PS_FRONTFACING_DEFAULT_VALUE: u32 = 4294967295;
+        const D3D10_PS_FRONTFACING_FALSE_VALUE: u32 = 0;
+        const D3D10_PS_FRONTFACING_TRUE_VALUE: u32 = 4294967295;
+        const D3D10_PS_INPUT_REGISTER_COMPONENTS: u32 = 4;
+        const D3D10_PS_INPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_PS_INPUT_REGISTER_COUNT: u32 = 32;
+        const D3D10_PS_INPUT_REGISTER_READS_PER_INST: u32 = 2;
+        const D3D10_PS_INPUT_REGISTER_READ_PORTS: u32 = 1;
+        const D3D10_PS_OUTPUT_DEPTH_REGISTER_COMPONENTS: u32 = 1;
+        const D3D10_PS_OUTPUT_DEPTH_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_PS_OUTPUT_DEPTH_REGISTER_COUNT: u32 = 1;
+        const D3D10_PS_OUTPUT_REGISTER_COMPONENTS: u32 = 4;
+        const D3D10_PS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_PS_OUTPUT_REGISTER_COUNT: u32 = 8;
+        #[repr(i32)]
+        enum D3D10_QUERY {
+            D3D10_QUERY_EVENT = 0,
+            D3D10_QUERY_OCCLUSION = 1,
+            D3D10_QUERY_TIMESTAMP = 2,
+            D3D10_QUERY_TIMESTAMP_DISJOINT = 3,
+            D3D10_QUERY_PIPELINE_STATISTICS = 4,
+            D3D10_QUERY_OCCLUSION_PREDICATE = 5,
+            D3D10_QUERY_SO_STATISTICS = 6,
+            D3D10_QUERY_SO_OVERFLOW_PREDICATE = 7,
+        }
+        struct D3D10_QUERY_DATA_PIPELINE_STATISTICS {
+            IAVertices: u64,
+            IAPrimitives: u64,
+            VSInvocations: u64,
+            GSInvocations: u64,
+            GSPrimitives: u64,
+            CInvocations: u64,
+            CPrimitives: u64,
+            PSInvocations: u64,
+        }
+        struct D3D10_QUERY_DATA_SO_STATISTICS {
+            NumPrimitivesWritten: u64,
+            PrimitivesStorageNeeded: u64,
+        }
+        struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
+            Frequency: u64,
+            Disjoint: BOOL,
+        }
+        struct D3D10_QUERY_DESC {
+            Query: D3D10_QUERY,
+            MiscFlags: u32,
+        }
+        #[repr(i32)]
+        enum D3D10_QUERY_MISC_FLAG {
+            D3D10_QUERY_MISC_PREDICATEHINT = 1,
+        }
+        #[repr(i32)]
+        enum D3D10_RAISE_FLAG {
+            D3D10_RAISE_FLAG_DRIVER_INTERNAL_ERROR = 1,
+        }
+        struct D3D10_RASTERIZER_DESC {
+            FillMode: D3D10_FILL_MODE,
+            CullMode: D3D10_CULL_MODE,
+            FrontCounterClockwise: BOOL,
+            DepthBias: i32,
+            DepthBiasClamp: f32,
+            SlopeScaledDepthBias: f32,
+            DepthClipEnable: BOOL,
+            ScissorEnable: BOOL,
+            MultisampleEnable: BOOL,
+            AntialiasedLineEnable: BOOL,
+        }
+        type D3D10_RECT = RECT;
+        struct D3D10_RENDER_TARGET_VIEW_DESC {
+            Format: DXGI_FORMAT,
+            ViewDimension: D3D10_RTV_DIMENSION,
+            Anonymous: union {
+                Buffer: D3D10_BUFFER_RTV,
+                Texture1D: D3D10_TEX1D_RTV,
+                Texture1DArray: D3D10_TEX1D_ARRAY_RTV,
+                Texture2D: D3D10_TEX2D_RTV,
+                Texture2DArray: D3D10_TEX2D_ARRAY_RTV,
+                Texture2DMS: D3D10_TEX2DMS_RTV,
+                Texture2DMSArray: D3D10_TEX2DMS_ARRAY_RTV,
+                Texture3D: D3D10_TEX3D_RTV,
+            },
+        }
+        const D3D10_REQ_BLEND_OBJECT_COUNT_PER_CONTEXT: u32 = 4096;
+        const D3D10_REQ_BUFFER_RESOURCE_TEXEL_COUNT_2_TO_EXP: u32 = 27;
+        const D3D10_REQ_CONSTANT_BUFFER_ELEMENT_COUNT: u32 = 4096;
+        const D3D10_REQ_DEPTH_STENCIL_OBJECT_COUNT_PER_CONTEXT: u32 = 4096;
+        const D3D10_REQ_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: u32 = 32;
+        const D3D10_REQ_DRAW_VERTEX_COUNT_2_TO_EXP: u32 = 32;
+        const D3D10_REQ_FILTERING_HW_ADDRESSABLE_RESOURCE_DIMENSION: u32 = 8192;
+        const D3D10_REQ_GS_INVOCATION_32BIT_OUTPUT_COMPONENT_LIMIT: u32 = 1024;
+        const D3D10_REQ_IMMEDIATE_CONSTANT_BUFFER_ELEMENT_COUNT: u32 = 4096;
+        const D3D10_REQ_MAXANISOTROPY: u32 = 16;
+        const D3D10_REQ_MIP_LEVELS: u32 = 14;
+        const D3D10_REQ_MULTI_ELEMENT_STRUCTURE_SIZE_IN_BYTES: u32 = 2048;
+        const D3D10_REQ_RASTERIZER_OBJECT_COUNT_PER_CONTEXT: u32 = 4096;
+        const D3D10_REQ_RENDER_TO_BUFFER_WINDOW_WIDTH: u32 = 8192;
+        const D3D10_REQ_RESOURCE_SIZE_IN_MEGABYTES: u32 = 128;
+        const D3D10_REQ_RESOURCE_VIEW_COUNT_PER_CONTEXT_2_TO_EXP: u32 = 20;
+        const D3D10_REQ_SAMPLER_OBJECT_COUNT_PER_CONTEXT: u32 = 4096;
+        const D3D10_REQ_TEXTURE1D_ARRAY_AXIS_DIMENSION: u32 = 512;
+        const D3D10_REQ_TEXTURE1D_U_DIMENSION: u32 = 8192;
+        const D3D10_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION: u32 = 512;
+        const D3D10_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 8192;
+        const D3D10_REQ_TEXTURE3D_U_V_OR_W_DIMENSION: u32 = 2048;
+        const D3D10_REQ_TEXTURECUBE_DIMENSION: u32 = 8192;
+        const D3D10_RESINFO_INSTRUCTION_MISSING_COMPONENT_RETVAL: u32 = 0;
+        #[repr(i32)]
+        enum D3D10_RESOURCE_DIMENSION {
+            D3D10_RESOURCE_DIMENSION_UNKNOWN = 0,
+            D3D10_RESOURCE_DIMENSION_BUFFER = 1,
+            D3D10_RESOURCE_DIMENSION_TEXTURE1D = 2,
+            D3D10_RESOURCE_DIMENSION_TEXTURE2D = 3,
+            D3D10_RESOURCE_DIMENSION_TEXTURE3D = 4,
+        }
+        #[repr(i32)]
+        enum D3D10_RESOURCE_MISC_FLAG {
+            D3D10_RESOURCE_MISC_GENERATE_MIPS = 1,
+            D3D10_RESOURCE_MISC_SHARED = 2,
+            D3D10_RESOURCE_MISC_TEXTURECUBE = 4,
+            D3D10_RESOURCE_MISC_SHARED_KEYEDMUTEX = 16,
+            D3D10_RESOURCE_MISC_GDI_COMPATIBLE = 32,
+        }
+        #[repr(i32)]
+        enum D3D10_RTV_DIMENSION {
+            D3D10_RTV_DIMENSION_UNKNOWN = 0,
+            D3D10_RTV_DIMENSION_BUFFER = 1,
+            D3D10_RTV_DIMENSION_TEXTURE1D = 2,
+            D3D10_RTV_DIMENSION_TEXTURE1DARRAY = 3,
+            D3D10_RTV_DIMENSION_TEXTURE2D = 4,
+            D3D10_RTV_DIMENSION_TEXTURE2DARRAY = 5,
+            D3D10_RTV_DIMENSION_TEXTURE2DMS = 6,
+            D3D10_RTV_DIMENSION_TEXTURE2DMSARRAY = 7,
+            D3D10_RTV_DIMENSION_TEXTURE3D = 8,
+        }
+        struct D3D10_SAMPLER_DESC {
+            Filter: D3D10_FILTER,
+            AddressU: D3D10_TEXTURE_ADDRESS_MODE,
+            AddressV: D3D10_TEXTURE_ADDRESS_MODE,
+            AddressW: D3D10_TEXTURE_ADDRESS_MODE,
+            MipLODBias: f32,
+            MaxAnisotropy: u32,
+            ComparisonFunc: D3D10_COMPARISON_FUNC,
+            BorderColor: [f32; 4],
+            MinLOD: f32,
+            MaxLOD: f32,
+        }
+        const D3D10_SDK_VERSION: u32 = 29;
+        const D3D10_SHADER_MAJOR_VERSION: u32 = 4;
+        const D3D10_SHADER_MINOR_VERSION: u32 = 0;
+        struct D3D10_SHADER_RESOURCE_VIEW_DESC {
+            Format: DXGI_FORMAT,
+            ViewDimension: D3D10_SRV_DIMENSION,
+            Anonymous: union {
+                Buffer: D3D10_BUFFER_SRV,
+                Texture1D: D3D10_TEX1D_SRV,
+                Texture1DArray: D3D10_TEX1D_ARRAY_SRV,
+                Texture2D: D3D10_TEX2D_SRV,
+                Texture2DArray: D3D10_TEX2D_ARRAY_SRV,
+                Texture2DMS: D3D10_TEX2DMS_SRV,
+                Texture2DMSArray: D3D10_TEX2DMS_ARRAY_SRV,
+                Texture3D: D3D10_TEX3D_SRV,
+                TextureCube: D3D10_TEXCUBE_SRV,
+            },
+        }
+        const D3D10_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0;
+        const D3D10_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5;
+        const D3D10_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8;
+        const D3D10_SO_BUFFER_MAX_STRIDE_IN_BYTES: u32 = 2048;
+        const D3D10_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 256;
+        const D3D10_SO_BUFFER_SLOT_COUNT: u32 = 4;
+        const D3D10_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295;
+        struct D3D10_SO_DECLARATION_ENTRY {
+            SemanticName: PCSTR,
+            SemanticIndex: u32,
+            StartComponent: u8,
+            ComponentCount: u8,
+            OutputSlot: u8,
+        }
+        const D3D10_SO_MULTIPLE_BUFFER_ELEMENTS_PER_BUFFER: u32 = 1;
+        const D3D10_SO_SINGLE_BUFFER_COMPONENT_LIMIT: u32 = 64;
+        type D3D10_SRV_DIMENSION = D3D_SRV_DIMENSION;
+        const D3D10_STANDARD_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_STANDARD_COMPONENT_BIT_COUNT_DOUBLED: u32 = 64;
+        const D3D10_STANDARD_MAXIMUM_ELEMENT_ALIGNMENT_BYTE_MULTIPLE: u32 = 4;
+        const D3D10_STANDARD_PIXEL_COMPONENT_COUNT: u32 = 128;
+        const D3D10_STANDARD_PIXEL_ELEMENT_COUNT: u32 = 32;
+        const D3D10_STANDARD_VECTOR_SIZE: u32 = 4;
+        const D3D10_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 16;
+        const D3D10_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64;
+        #[repr(i32)]
+        enum D3D10_STENCIL_OP {
+            D3D10_STENCIL_OP_KEEP = 1,
+            D3D10_STENCIL_OP_ZERO = 2,
+            D3D10_STENCIL_OP_REPLACE = 3,
+            D3D10_STENCIL_OP_INCR_SAT = 4,
+            D3D10_STENCIL_OP_DECR_SAT = 5,
+            D3D10_STENCIL_OP_INVERT = 6,
+            D3D10_STENCIL_OP_INCR = 7,
+            D3D10_STENCIL_OP_DECR = 8,
+        }
+        const D3D10_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8;
+        struct D3D10_SUBRESOURCE_DATA {
+            pSysMem: *const void,
+            SysMemPitch: u32,
+            SysMemSlicePitch: u32,
+        }
+        const D3D10_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 6;
+        struct D3D10_TEX1D_ARRAY_DSV {
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
+        }
+        struct D3D10_TEX1D_ARRAY_RTV {
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
+        }
+        struct D3D10_TEX1D_ARRAY_SRV {
+            MostDetailedMip: u32,
+            MipLevels: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
+        }
+        struct D3D10_TEX1D_DSV {
+            MipSlice: u32,
+        }
+        struct D3D10_TEX1D_RTV {
+            MipSlice: u32,
+        }
+        struct D3D10_TEX1D_SRV {
+            MostDetailedMip: u32,
+            MipLevels: u32,
+        }
+        struct D3D10_TEX2DMS_ARRAY_DSV {
+            FirstArraySlice: u32,
+            ArraySize: u32,
+        }
+        struct D3D10_TEX2DMS_ARRAY_RTV {
+            FirstArraySlice: u32,
+            ArraySize: u32,
+        }
+        struct D3D10_TEX2DMS_ARRAY_SRV {
+            FirstArraySlice: u32,
+            ArraySize: u32,
+        }
+        struct D3D10_TEX2DMS_DSV {
+            UnusedField_NothingToDefine: u32,
+        }
+        struct D3D10_TEX2DMS_RTV {
+            UnusedField_NothingToDefine: u32,
+        }
+        struct D3D10_TEX2DMS_SRV {
+            UnusedField_NothingToDefine: u32,
+        }
+        struct D3D10_TEX2D_ARRAY_DSV {
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
+        }
+        struct D3D10_TEX2D_ARRAY_RTV {
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
+        }
+        struct D3D10_TEX2D_ARRAY_SRV {
+            MostDetailedMip: u32,
+            MipLevels: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
+        }
+        struct D3D10_TEX2D_DSV {
+            MipSlice: u32,
+        }
+        struct D3D10_TEX2D_RTV {
+            MipSlice: u32,
+        }
+        struct D3D10_TEX2D_SRV {
+            MostDetailedMip: u32,
+            MipLevels: u32,
+        }
+        struct D3D10_TEX3D_RTV {
+            MipSlice: u32,
+            FirstWSlice: u32,
+            WSize: u32,
+        }
+        struct D3D10_TEX3D_SRV {
+            MostDetailedMip: u32,
+            MipLevels: u32,
+        }
+        struct D3D10_TEXCUBE_SRV {
+            MostDetailedMip: u32,
+            MipLevels: u32,
+        }
+        const D3D10_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 18;
+        struct D3D10_TEXTURE1D_DESC {
+            Width: u32,
+            MipLevels: u32,
+            ArraySize: u32,
+            Format: DXGI_FORMAT,
+            Usage: D3D10_USAGE,
+            BindFlags: u32,
+            CPUAccessFlags: u32,
+            MiscFlags: u32,
+        }
+        struct D3D10_TEXTURE2D_DESC {
+            Width: u32,
+            Height: u32,
+            MipLevels: u32,
+            ArraySize: u32,
+            Format: DXGI_FORMAT,
+            SampleDesc: DXGI_SAMPLE_DESC,
+            Usage: D3D10_USAGE,
+            BindFlags: u32,
+            CPUAccessFlags: u32,
+            MiscFlags: u32,
+        }
+        struct D3D10_TEXTURE3D_DESC {
+            Width: u32,
+            Height: u32,
+            Depth: u32,
+            MipLevels: u32,
+            Format: DXGI_FORMAT,
+            Usage: D3D10_USAGE,
+            BindFlags: u32,
+            CPUAccessFlags: u32,
+            MiscFlags: u32,
+        }
+        #[repr(i32)]
+        enum D3D10_TEXTURECUBE_FACE {
+            D3D10_TEXTURECUBE_FACE_POSITIVE_X = 0,
+            D3D10_TEXTURECUBE_FACE_NEGATIVE_X = 1,
+            D3D10_TEXTURECUBE_FACE_POSITIVE_Y = 2,
+            D3D10_TEXTURECUBE_FACE_NEGATIVE_Y = 3,
+            D3D10_TEXTURECUBE_FACE_POSITIVE_Z = 4,
+            D3D10_TEXTURECUBE_FACE_NEGATIVE_Z = 5,
+        }
+        #[repr(i32)]
+        enum D3D10_TEXTURE_ADDRESS_MODE {
+            D3D10_TEXTURE_ADDRESS_WRAP = 1,
+            D3D10_TEXTURE_ADDRESS_MIRROR = 2,
+            D3D10_TEXTURE_ADDRESS_CLAMP = 3,
+            D3D10_TEXTURE_ADDRESS_BORDER = 4,
+            D3D10_TEXTURE_ADDRESS_MIRROR_ONCE = 5,
+        }
+        const D3D10_TEXT_1BIT_BIT: u32 = 2147483648;
+        const D3D10_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0;
+        #[repr(i32)]
+        enum D3D10_USAGE {
+            D3D10_USAGE_DEFAULT = 0,
+            D3D10_USAGE_IMMUTABLE = 1,
+            D3D10_USAGE_DYNAMIC = 2,
+            D3D10_USAGE_STAGING = 3,
+        }
+        struct D3D10_VIEWPORT {
+            TopLeftX: i32,
+            TopLeftY: i32,
+            Width: u32,
+            Height: u32,
+            MinDepth: f32,
+            MaxDepth: f32,
+        }
+        const D3D10_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15;
+        const D3D10_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: u32 = 16;
+        const D3D10_VIEWPORT_BOUNDS_MAX: u32 = 16383;
+        const D3D10_VIEWPORT_BOUNDS_MIN: i32 = -16384;
+        const D3D10_VS_INPUT_REGISTER_COMPONENTS: u32 = 4;
+        const D3D10_VS_INPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_VS_INPUT_REGISTER_COUNT: u32 = 16;
+        const D3D10_VS_INPUT_REGISTER_READS_PER_INST: u32 = 2;
+        const D3D10_VS_INPUT_REGISTER_READ_PORTS: u32 = 1;
+        const D3D10_VS_OUTPUT_REGISTER_COMPONENTS: u32 = 4;
+        const D3D10_VS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_VS_OUTPUT_REGISTER_COUNT: u32 = 16;
+        const D3D10_WHQL_CONTEXT_COUNT_FOR_RESOURCE_LIMIT: u32 = 10;
+        const D3D10_WHQL_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: u32 = 25;
+        const D3D10_WHQL_DRAW_VERTEX_COUNT_2_TO_EXP: u32 = 25;
+        const D3D_MAJOR_VERSION: u32 = 10;
+        const D3D_MINOR_VERSION: u32 = 0;
+        const D3D_SPEC_DATE_DAY: u32 = 8;
+        const D3D_SPEC_DATE_MONTH: u32 = 8;
+        const D3D_SPEC_DATE_YEAR: u32 = 2006;
+        #[guid(0x9b7e4c0d_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Asynchronous: ID3D10DeviceChild {
+            fn Begin(&self);
+            fn End(&self);
+            fn GetData(&self, #[size_param(1)] #[opt] pData: *mut void, DataSize: u32, GetDataFlags: u32) -> HRESULT;
+            fn GetDataSize(&self) -> u32;
+        }
+        #[guid(0xedad8d19_8a35_4d6d_8566_2ea276cde161)]
+        interface ID3D10BlendState: ID3D10DeviceChild {
+            fn GetDesc(&self, pDesc: *mut D3D10_BLEND_DESC);
+        }
+        #[guid(0x9b7e4c02_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Buffer: ID3D10Resource {
+            fn Map(&self, MapType: D3D10_MAP, MapFlags: u32, ppData: *mut *mut void) -> HRESULT;
+            fn Unmap(&self);
+            fn GetDesc(&self, pDesc: *mut D3D10_BUFFER_DESC);
+        }
+        #[guid(0x9b7e4c11_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Counter: ID3D10Asynchronous {
+            fn GetDesc(&self, pDesc: *mut D3D10_COUNTER_DESC);
+        }
+        #[guid(0x2b4b1cc8_a4ad_41f8_8322_ca86fc3ec675)]
+        interface ID3D10DepthStencilState: ID3D10DeviceChild {
+            fn GetDesc(&self, pDesc: *mut D3D10_DEPTH_STENCIL_DESC);
+        }
+        #[guid(0x9b7e4c09_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10DepthStencilView: ID3D10View {
+            fn GetDesc(&self, pDesc: *mut D3D10_DEPTH_STENCIL_VIEW_DESC);
+        }
+        #[guid(0x9b7e4c0f_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Device: IUnknown {
+            fn VSSetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D10Buffer);
+            fn PSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D10ShaderResourceView);
+            fn PSSetShader(&self, #[opt] pPixelShader: ID3D10PixelShader);
+            fn PSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D10SamplerState);
+            fn VSSetShader(&self, #[opt] pVertexShader: ID3D10VertexShader);
+            fn DrawIndexed(&self, IndexCount: u32, StartIndexLocation: u32, BaseVertexLocation: i32);
+            fn Draw(&self, VertexCount: u32, StartVertexLocation: u32);
+            fn PSSetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D10Buffer);
+            fn IASetInputLayout(&self, #[opt] pInputLayout: ID3D10InputLayout);
+            fn IASetVertexBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppVertexBuffers: *const ID3D10Buffer, #[len_param(1)] #[opt] pStrides: *const u32, #[len_param(1)] #[opt] pOffsets: *const u32);
+            fn IASetIndexBuffer(&self, #[opt] pIndexBuffer: ID3D10Buffer, Format: DXGI_FORMAT, Offset: u32);
+            fn DrawIndexedInstanced(&self, IndexCountPerInstance: u32, InstanceCount: u32, StartIndexLocation: u32, BaseVertexLocation: i32, StartInstanceLocation: u32);
+            fn DrawInstanced(&self, VertexCountPerInstance: u32, InstanceCount: u32, StartVertexLocation: u32, StartInstanceLocation: u32);
+            fn GSSetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D10Buffer);
+            fn GSSetShader(&self, #[opt] pShader: ID3D10GeometryShader);
+            fn IASetPrimitiveTopology(&self, Topology: D3D10_PRIMITIVE_TOPOLOGY);
+            fn VSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D10ShaderResourceView);
+            fn VSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D10SamplerState);
+            fn SetPredication(&self, #[opt] pPredicate: ID3D10Predicate, PredicateValue: BOOL);
+            fn GSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D10ShaderResourceView);
+            fn GSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D10SamplerState);
+            fn OMSetRenderTargets(&self, NumViews: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *const ID3D10RenderTargetView, #[opt] pDepthStencilView: ID3D10DepthStencilView);
+            fn OMSetBlendState(&self, #[opt] pBlendState: ID3D10BlendState, #[len_const(4)] BlendFactor: *const f32, SampleMask: u32);
+            fn OMSetDepthStencilState(&self, #[opt] pDepthStencilState: ID3D10DepthStencilState, StencilRef: u32);
+            fn SOSetTargets(&self, NumBuffers: u32, #[len_param(0)] #[opt] ppSOTargets: *const ID3D10Buffer, #[len_param(0)] #[opt] pOffsets: *const u32);
+            fn DrawAuto(&self);
+            fn RSSetState(&self, #[opt] pRasterizerState: ID3D10RasterizerState);
+            fn RSSetViewports(&self, NumViewports: u32, #[len_param(0)] #[opt] pViewports: *const D3D10_VIEWPORT);
+            fn RSSetScissorRects(&self, NumRects: u32, #[len_param(0)] #[opt] pRects: *const D3D10_RECT);
+            fn CopySubresourceRegion(&self, pDstResource: ID3D10Resource, DstSubresource: u32, DstX: u32, DstY: u32, DstZ: u32, pSrcResource: ID3D10Resource, SrcSubresource: u32, #[opt] pSrcBox: *const D3D10_BOX);
+            fn CopyResource(&self, pDstResource: ID3D10Resource, pSrcResource: ID3D10Resource);
+            fn UpdateSubresource(&self, pDstResource: ID3D10Resource, DstSubresource: u32, #[opt] pDstBox: *const D3D10_BOX, pSrcData: *const void, SrcRowPitch: u32, SrcDepthPitch: u32);
+            fn ClearRenderTargetView(&self, pRenderTargetView: ID3D10RenderTargetView, #[len_const(4)] ColorRGBA: *const f32);
+            fn ClearDepthStencilView(&self, pDepthStencilView: ID3D10DepthStencilView, ClearFlags: u32, Depth: f32, Stencil: u8);
+            fn GenerateMips(&self, pShaderResourceView: ID3D10ShaderResourceView);
+            fn ResolveSubresource(&self, pDstResource: ID3D10Resource, DstSubresource: u32, pSrcResource: ID3D10Resource, SrcSubresource: u32, Format: DXGI_FORMAT);
+            fn VSGetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D10Buffer);
+            fn PSGetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *mut ID3D10ShaderResourceView);
+            fn PSGetShader(&self, ppPixelShader: *mut ID3D10PixelShader);
+            fn PSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D10SamplerState);
+            fn VSGetShader(&self, ppVertexShader: *mut ID3D10VertexShader);
+            fn PSGetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D10Buffer);
+            fn IAGetInputLayout(&self, ppInputLayout: *mut ID3D10InputLayout);
+            fn IAGetVertexBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppVertexBuffers: *mut ID3D10Buffer, #[len_param(1)] #[opt] pStrides: *mut u32, #[len_param(1)] #[opt] pOffsets: *mut u32);
+            fn IAGetIndexBuffer(&self, #[opt] pIndexBuffer: *mut ID3D10Buffer, #[opt] Format: *mut DXGI_FORMAT, #[opt] Offset: *mut u32);
+            fn GSGetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D10Buffer);
+            fn GSGetShader(&self, ppGeometryShader: *mut ID3D10GeometryShader);
+            fn IAGetPrimitiveTopology(&self, pTopology: *mut D3D10_PRIMITIVE_TOPOLOGY);
+            fn VSGetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *mut ID3D10ShaderResourceView);
+            fn VSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D10SamplerState);
+            fn GetPredication(&self, #[opt] ppPredicate: *mut ID3D10Predicate, #[opt] pPredicateValue: *mut BOOL);
+            fn GSGetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *mut ID3D10ShaderResourceView);
+            fn GSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D10SamplerState);
+            fn OMGetRenderTargets(&self, NumViews: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *mut ID3D10RenderTargetView, #[opt] ppDepthStencilView: *mut ID3D10DepthStencilView);
+            fn OMGetBlendState(&self, #[opt] ppBlendState: *mut ID3D10BlendState, #[len_const(4)] #[opt] BlendFactor: *mut f32, #[opt] pSampleMask: *mut u32);
+            fn OMGetDepthStencilState(&self, #[opt] ppDepthStencilState: *mut ID3D10DepthStencilState, #[opt] pStencilRef: *mut u32);
+            fn SOGetTargets(&self, NumBuffers: u32, #[len_param(0)] #[opt] ppSOTargets: *mut ID3D10Buffer, #[len_param(0)] #[opt] pOffsets: *mut u32);
+            fn RSGetState(&self, ppRasterizerState: *mut ID3D10RasterizerState);
+            fn RSGetViewports(&self, #[in] #[out] NumViewports: *mut u32, #[len_param(0)] #[opt] pViewports: *mut D3D10_VIEWPORT);
+            fn RSGetScissorRects(&self, #[in] #[out] NumRects: *mut u32, #[len_param(0)] #[opt] pRects: *mut D3D10_RECT);
+            fn GetDeviceRemovedReason(&self) -> HRESULT;
+            fn SetExceptionMode(&self, RaiseFlags: u32) -> HRESULT;
+            fn GetExceptionMode(&self) -> u32;
+            fn GetPrivateData(&self, guid: *const GUID, #[in] #[out] pDataSize: *mut u32, #[size_param(1)] #[opt] pData: *mut void) -> HRESULT;
+            fn SetPrivateData(&self, guid: *const GUID, DataSize: u32, #[size_param(1)] #[opt] pData: *const void) -> HRESULT;
+            fn SetPrivateDataInterface(&self, guid: *const GUID, #[opt] pData: IUnknown) -> HRESULT;
+            fn ClearState(&self);
+            fn Flush(&self);
+            fn CreateBuffer(&self, pDesc: *const D3D10_BUFFER_DESC, #[opt] pInitialData: *const D3D10_SUBRESOURCE_DATA, #[opt] ppBuffer: *mut ID3D10Buffer) -> HRESULT;
+            fn CreateTexture1D(&self, pDesc: *const D3D10_TEXTURE1D_DESC, #[opt] pInitialData: *const D3D10_SUBRESOURCE_DATA, ppTexture1D: *mut ID3D10Texture1D) -> HRESULT;
+            fn CreateTexture2D(&self, pDesc: *const D3D10_TEXTURE2D_DESC, #[opt] pInitialData: *const D3D10_SUBRESOURCE_DATA, ppTexture2D: *mut ID3D10Texture2D) -> HRESULT;
+            fn CreateTexture3D(&self, pDesc: *const D3D10_TEXTURE3D_DESC, #[opt] pInitialData: *const D3D10_SUBRESOURCE_DATA, ppTexture3D: *mut ID3D10Texture3D) -> HRESULT;
+            fn CreateShaderResourceView(&self, pResource: ID3D10Resource, #[opt] pDesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, #[opt] ppSRView: *mut ID3D10ShaderResourceView) -> HRESULT;
+            fn CreateRenderTargetView(&self, pResource: ID3D10Resource, #[opt] pDesc: *const D3D10_RENDER_TARGET_VIEW_DESC, #[opt] ppRTView: *mut ID3D10RenderTargetView) -> HRESULT;
+            fn CreateDepthStencilView(&self, pResource: ID3D10Resource, #[opt] pDesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, #[opt] ppDepthStencilView: *mut ID3D10DepthStencilView) -> HRESULT;
+            fn CreateInputLayout(&self, #[len_param(1)] pInputElementDescs: *const D3D10_INPUT_ELEMENT_DESC, NumElements: u32, #[len_param(3)] pShaderBytecodeWithInputSignature: *const void, BytecodeLength: usize, #[opt] ppInputLayout: *mut ID3D10InputLayout) -> HRESULT;
+            fn CreateVertexShader(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[opt] ppVertexShader: *mut ID3D10VertexShader) -> HRESULT;
+            fn CreateGeometryShader(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[opt] ppGeometryShader: *mut ID3D10GeometryShader) -> HRESULT;
+            fn CreateGeometryShaderWithStreamOutput(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[len_param(3)] #[opt] pSODeclaration: *const D3D10_SO_DECLARATION_ENTRY, NumEntries: u32, OutputStreamStride: u32, #[opt] ppGeometryShader: *mut ID3D10GeometryShader) -> HRESULT;
+            fn CreatePixelShader(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[opt] ppPixelShader: *mut ID3D10PixelShader) -> HRESULT;
+            fn CreateBlendState(&self, pBlendStateDesc: *const D3D10_BLEND_DESC, #[opt] ppBlendState: *mut ID3D10BlendState) -> HRESULT;
+            fn CreateDepthStencilState(&self, pDepthStencilDesc: *const D3D10_DEPTH_STENCIL_DESC, #[opt] ppDepthStencilState: *mut ID3D10DepthStencilState) -> HRESULT;
+            fn CreateRasterizerState(&self, pRasterizerDesc: *const D3D10_RASTERIZER_DESC, #[opt] ppRasterizerState: *mut ID3D10RasterizerState) -> HRESULT;
+            fn CreateSamplerState(&self, pSamplerDesc: *const D3D10_SAMPLER_DESC, #[opt] ppSamplerState: *mut ID3D10SamplerState) -> HRESULT;
+            fn CreateQuery(&self, pQueryDesc: *const D3D10_QUERY_DESC, #[opt] ppQuery: *mut ID3D10Query) -> HRESULT;
+            fn CreatePredicate(&self, pPredicateDesc: *const D3D10_QUERY_DESC, #[opt] ppPredicate: *mut ID3D10Predicate) -> HRESULT;
+            fn CreateCounter(&self, pCounterDesc: *const D3D10_COUNTER_DESC, #[opt] ppCounter: *mut ID3D10Counter) -> HRESULT;
+            fn CheckFormatSupport(&self, Format: DXGI_FORMAT, pFormatSupport: *mut u32) -> HRESULT;
+            fn CheckMultisampleQualityLevels(&self, Format: DXGI_FORMAT, SampleCount: u32, pNumQualityLevels: *mut u32) -> HRESULT;
+            fn CheckCounterInfo(&self, pCounterInfo: *mut D3D10_COUNTER_INFO);
+            fn CheckCounter(&self, pDesc: *const D3D10_COUNTER_DESC, pType: *mut D3D10_COUNTER_TYPE, pActiveCounters: *mut u32, #[len_param(4)] #[out] #[opt] szName: PSTR, #[in] #[out] #[opt] pNameLength: *mut u32, #[len_param(6)] #[out] #[opt] szUnits: PSTR, #[in] #[out] #[opt] pUnitsLength: *mut u32, #[len_param(8)] #[out] #[opt] szDescription: PSTR, #[in] #[out] #[opt] pDescriptionLength: *mut u32) -> HRESULT;
+            fn GetCreationFlags(&self) -> u32;
+            fn OpenSharedResource(&self, hResource: HANDLE, ReturnedInterface: *const GUID, #[opt] ppResource: *mut *mut void) -> HRESULT;
+            fn SetTextFilterSize(&self, Width: u32, Height: u32);
+            fn GetTextFilterSize(&self, #[opt] pWidth: *mut u32, #[opt] pHeight: *mut u32);
+        }
+        #[guid(0x9b7e4c00_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10DeviceChild: IUnknown {
+            fn GetDevice(&self, ppDevice: *mut ID3D10Device);
+            fn GetPrivateData(&self, guid: *const GUID, #[in] #[out] pDataSize: *mut u32, #[size_param(1)] #[opt] pData: *mut void) -> HRESULT;
+            fn SetPrivateData(&self, guid: *const GUID, DataSize: u32, #[size_param(1)] #[opt] pData: *const void) -> HRESULT;
+            fn SetPrivateDataInterface(&self, guid: *const GUID, #[opt] pData: IUnknown) -> HRESULT;
+        }
+        #[guid(0x6316be88_54cd_4040_ab44_20461bc81f68)]
+        interface ID3D10GeometryShader: ID3D10DeviceChild {}
+        #[guid(0x9b7e4c0b_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10InputLayout: ID3D10DeviceChild {}
+        #[guid(0x9b7e4e00_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Multithread: IUnknown {
+            fn Enter(&self);
+            fn Leave(&self);
+            fn SetMultithreadProtected(&self, bMTProtect: BOOL) -> BOOL;
+            fn GetMultithreadProtected(&self) -> BOOL;
+        }
+        #[guid(0x4968b601_9d00_4cde_8346_8e7f675819b6)]
+        interface ID3D10PixelShader: ID3D10DeviceChild {}
+        #[guid(0x9b7e4c10_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Predicate: ID3D10Query {}
+        #[guid(0x9b7e4c0e_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Query: ID3D10Asynchronous {
+            fn GetDesc(&self, pDesc: *mut D3D10_QUERY_DESC);
+        }
+        #[guid(0xa2a07292_89af_4345_be2e_c53d9fbb6e9f)]
+        interface ID3D10RasterizerState: ID3D10DeviceChild {
+            fn GetDesc(&self, pDesc: *mut D3D10_RASTERIZER_DESC);
+        }
+        #[guid(0x9b7e4c08_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10RenderTargetView: ID3D10View {
+            fn GetDesc(&self, pDesc: *mut D3D10_RENDER_TARGET_VIEW_DESC);
+        }
+        #[guid(0x9b7e4c01_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Resource: ID3D10DeviceChild {
+            fn GetType(&self, rType: *mut D3D10_RESOURCE_DIMENSION);
+            fn SetEvictionPriority(&self, EvictionPriority: u32);
+            fn GetEvictionPriority(&self) -> u32;
+        }
+        #[guid(0x9b7e4c0c_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10SamplerState: ID3D10DeviceChild {
+            fn GetDesc(&self, pDesc: *mut D3D10_SAMPLER_DESC);
+        }
+        #[guid(0x9b7e4c07_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10ShaderResourceView: ID3D10View {
+            fn GetDesc(&self, pDesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC);
+        }
+        #[guid(0x9b7e4c03_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Texture1D: ID3D10Resource {
+            fn Map(&self, Subresource: u32, MapType: D3D10_MAP, MapFlags: u32, ppData: *mut *mut void) -> HRESULT;
+            fn Unmap(&self, Subresource: u32);
+            fn GetDesc(&self, pDesc: *mut D3D10_TEXTURE1D_DESC);
+        }
+        #[guid(0x9b7e4c04_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Texture2D: ID3D10Resource {
+            fn Map(&self, Subresource: u32, MapType: D3D10_MAP, MapFlags: u32, pMappedTex2D: *mut D3D10_MAPPED_TEXTURE2D) -> HRESULT;
+            fn Unmap(&self, Subresource: u32);
+            fn GetDesc(&self, pDesc: *mut D3D10_TEXTURE2D_DESC);
+        }
+        #[guid(0x9b7e4c05_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Texture3D: ID3D10Resource {
+            fn Map(&self, Subresource: u32, MapType: D3D10_MAP, MapFlags: u32, pMappedTex3D: *mut D3D10_MAPPED_TEXTURE3D) -> HRESULT;
+            fn Unmap(&self, Subresource: u32);
+            fn GetDesc(&self, pDesc: *mut D3D10_TEXTURE3D_DESC);
+        }
+        #[guid(0x9b7e4c0a_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10VertexShader: ID3D10DeviceChild {}
+        #[guid(0xc902b03f_60a7_49ba_9936_2a3ab37a7e33)]
+        interface ID3D10View: ID3D10DeviceChild {
+            fn GetResource(&self, ppResource: *mut ID3D10Resource);
+        }
+    }
+}

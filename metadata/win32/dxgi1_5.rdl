@@ -1,0 +1,59 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DXGI_FEATURE {
+            DXGI_FEATURE_PRESENT_ALLOW_TEARING = 0,
+        }
+        struct DXGI_HDR_METADATA_HDR10 {
+            RedPrimary: [u16; 2],
+            GreenPrimary: [u16; 2],
+            BluePrimary: [u16; 2],
+            WhitePoint: [u16; 2],
+            MaxMasteringLuminance: u32,
+            MinMasteringLuminance: u32,
+            MaxContentLightLevel: u16,
+            MaxFrameAverageLightLevel: u16,
+        }
+        struct DXGI_HDR_METADATA_HDR10PLUS {
+            Data: [u8; 72],
+        }
+        #[repr(i32)]
+        enum DXGI_HDR_METADATA_TYPE {
+            DXGI_HDR_METADATA_TYPE_NONE = 0,
+            DXGI_HDR_METADATA_TYPE_HDR10 = 1,
+            DXGI_HDR_METADATA_TYPE_HDR10PLUS = 2,
+        }
+        #[repr(i32)]
+        enum DXGI_OFFER_RESOURCE_FLAGS {
+            DXGI_OFFER_RESOURCE_FLAG_ALLOW_DECOMMIT = 1,
+        }
+        #[repr(i32)]
+        enum DXGI_OUTDUPL_FLAG {
+            DXGI_OUTDUPL_COMPOSITED_UI_CAPTURE_ONLY = 1,
+        }
+        #[repr(i32)]
+        enum DXGI_RECLAIM_RESOURCE_RESULTS {
+            DXGI_RECLAIM_RESOURCE_RESULT_OK = 0,
+            DXGI_RECLAIM_RESOURCE_RESULT_DISCARDED = 1,
+            DXGI_RECLAIM_RESOURCE_RESULT_NOT_COMMITTED = 2,
+        }
+        #[guid(0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10)]
+        interface IDXGIDevice4: IDXGIDevice3 {
+            fn OfferResources1(&self, NumResources: u32, #[len_param(0)] ppResources: *const IDXGIResource, Priority: DXGI_OFFER_RESOURCE_PRIORITY, Flags: u32) -> HRESULT;
+            fn ReclaimResources1(&self, NumResources: u32, #[len_param(0)] ppResources: *const IDXGIResource, #[len_param(0)] pResults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> HRESULT;
+        }
+        #[guid(0x7632e1f5_ee65_4dca_87fd_84cd75f8838d)]
+        interface IDXGIFactory5: IDXGIFactory4 {
+            fn CheckFeatureSupport(&self, Feature: DXGI_FEATURE, #[size_param(2)] #[in] #[out] pFeatureSupportData: *mut void, FeatureSupportDataSize: u32) -> HRESULT;
+        }
+        #[guid(0x80a07424_ab52_42eb_833c_0c42fd282d98)]
+        interface IDXGIOutput5: IDXGIOutput4 {
+            fn DuplicateOutput1(&self, pDevice: IUnknown, Flags: u32, SupportedFormatsCount: u32, #[len_param(2)] pSupportedFormats: *const DXGI_FORMAT, ppOutputDuplication: *mut IDXGIOutputDuplication) -> HRESULT;
+        }
+        #[guid(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb)]
+        interface IDXGISwapChain4: IDXGISwapChain3 {
+            fn SetHDRMetaData(&self, Type: DXGI_HDR_METADATA_TYPE, Size: u32, #[len_param(1)] #[opt] pMetaData: *const void) -> HRESULT;
+        }
+    }
+}

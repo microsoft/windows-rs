@@ -1,0 +1,17 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const IME_CMODE_ALPHANUMERIC: u32 = 0;
+        const IME_CMODE_CHARCODE: u32 = 32;
+        const IME_CMODE_CHINESE: u32 = 1;
+        const IME_CMODE_FULLSHAPE: u32 = 8;
+        const IME_CMODE_HANGUL: u32 = 1;
+        const IME_CMODE_HANJACONVERT: u32 = 64;
+        const IME_CMODE_JAPANESE: u32 = 1;
+        const IME_CMODE_KATAKANA: u32 = 2;
+        const IME_CMODE_LANGUAGE: u32 = 3;
+        const IME_CMODE_NATIVE: u32 = 1;
+        const IME_CMODE_NATIVESYMBOL: u32 = 128;
+        const IME_CMODE_ROMAN: u32 = 16;
+    }
+}

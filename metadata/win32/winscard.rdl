@@ -1,0 +1,405 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("SCARDDLG.dll")]
+        extern fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32;
+        #[library("SCARDDLG.dll")]
+        extern fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32;
+        type LPCBYTE = *const u8;
+        extern fn LPOCNCHKPROC(param0: SCARDCONTEXT, param1: SCARDHANDLE, param2: *const void) -> BOOL;
+        extern fn LPOCNCONNPROCA(param0: SCARDCONTEXT, param1: PCSTR, param2: PCSTR, param3: *const void) -> SCARDHANDLE;
+        extern fn LPOCNCONNPROCW(param0: SCARDCONTEXT, param1: PCWSTR, param2: PCWSTR, param3: *const void) -> SCARDHANDLE;
+        extern fn LPOCNDSCPROC(param0: SCARDCONTEXT, param1: SCARDHANDLE, param2: *const void);
+        type LPOPENCARDNAME = LPOPENCARDNAMEA;
+        type LPOPENCARDNAMEA = *mut OPENCARDNAMEA;
+        type LPOPENCARDNAMEW = *mut OPENCARDNAMEW;
+        type LPOPENCARDNAME_EX = LPOPENCARDNAME_EXA;
+        type LPOPENCARDNAME_EXA = *mut OPENCARDNAME_EXA;
+        type LPOPENCARDNAME_EXW = *mut OPENCARDNAME_EXW;
+        type LPOPENCARD_SEARCH_CRITERIA = LPOPENCARD_SEARCH_CRITERIAA;
+        type LPOPENCARD_SEARCH_CRITERIAA = *mut OPENCARD_SEARCH_CRITERIAA;
+        type LPOPENCARD_SEARCH_CRITERIAW = *mut OPENCARD_SEARCH_CRITERIAW;
+        type LPSCARDCONTEXT = *mut SCARDCONTEXT;
+        type LPSCARDHANDLE = *mut SCARDHANDLE;
+        type LPSCARD_ATRMASK = *mut SCARD_ATRMASK;
+        type LPSCARD_READERSTATE = LPSCARD_READERSTATEA;
+        type LPSCARD_READERSTATEA = *mut SCARD_READERSTATEA;
+        type LPSCARD_READERSTATEW = *mut SCARD_READERSTATEW;
+        type OPENCARDNAME = OPENCARDNAMEA;
+        struct OPENCARDNAMEA {
+            dwStructSize: u32,
+            hwndOwner: HWND,
+            hSCardContext: SCARDCONTEXT,
+            lpstrGroupNames: PSTR,
+            nMaxGroupNames: u32,
+            lpstrCardNames: PSTR,
+            nMaxCardNames: u32,
+            rgguidInterfaces: LPCGUID,
+            cguidInterfaces: u32,
+            lpstrRdr: PSTR,
+            nMaxRdr: u32,
+            lpstrCard: PSTR,
+            nMaxCard: u32,
+            lpstrTitle: PCSTR,
+            dwFlags: u32,
+            pvUserData: *mut void,
+            dwShareMode: u32,
+            dwPreferredProtocols: u32,
+            dwActiveProtocol: u32,
+            lpfnConnect: LPOCNCONNPROCA,
+            lpfnCheck: LPOCNCHKPROC,
+            lpfnDisconnect: LPOCNDSCPROC,
+            hCardHandle: SCARDHANDLE,
+        }
+        struct OPENCARDNAMEW {
+            dwStructSize: u32,
+            hwndOwner: HWND,
+            hSCardContext: SCARDCONTEXT,
+            lpstrGroupNames: PWSTR,
+            nMaxGroupNames: u32,
+            lpstrCardNames: PWSTR,
+            nMaxCardNames: u32,
+            rgguidInterfaces: LPCGUID,
+            cguidInterfaces: u32,
+            lpstrRdr: PWSTR,
+            nMaxRdr: u32,
+            lpstrCard: PWSTR,
+            nMaxCard: u32,
+            lpstrTitle: PCWSTR,
+            dwFlags: u32,
+            pvUserData: *mut void,
+            dwShareMode: u32,
+            dwPreferredProtocols: u32,
+            dwActiveProtocol: u32,
+            lpfnConnect: LPOCNCONNPROCW,
+            lpfnCheck: LPOCNCHKPROC,
+            lpfnDisconnect: LPOCNDSCPROC,
+            hCardHandle: SCARDHANDLE,
+        }
+        type OPENCARDNAME_EX = OPENCARDNAME_EXA;
+        struct OPENCARDNAME_EXA {
+            dwStructSize: u32,
+            hSCardContext: SCARDCONTEXT,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            lpstrTitle: PCSTR,
+            lpstrSearchDesc: PCSTR,
+            hIcon: HICON,
+            pOpenCardSearchCriteria: POPENCARD_SEARCH_CRITERIAA,
+            lpfnConnect: LPOCNCONNPROCA,
+            pvUserData: *mut void,
+            dwShareMode: u32,
+            dwPreferredProtocols: u32,
+            lpstrRdr: PSTR,
+            nMaxRdr: u32,
+            lpstrCard: PSTR,
+            nMaxCard: u32,
+            dwActiveProtocol: u32,
+            hCardHandle: SCARDHANDLE,
+        }
+        struct OPENCARDNAME_EXW {
+            dwStructSize: u32,
+            hSCardContext: SCARDCONTEXT,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            lpstrTitle: PCWSTR,
+            lpstrSearchDesc: PCWSTR,
+            hIcon: HICON,
+            pOpenCardSearchCriteria: POPENCARD_SEARCH_CRITERIAW,
+            lpfnConnect: LPOCNCONNPROCW,
+            pvUserData: *mut void,
+            dwShareMode: u32,
+            dwPreferredProtocols: u32,
+            lpstrRdr: PWSTR,
+            nMaxRdr: u32,
+            lpstrCard: PWSTR,
+            nMaxCard: u32,
+            dwActiveProtocol: u32,
+            hCardHandle: SCARDHANDLE,
+        }
+        type OPENCARD_SEARCH_CRITERIA = OPENCARD_SEARCH_CRITERIAA;
+        struct OPENCARD_SEARCH_CRITERIAA {
+            dwStructSize: u32,
+            lpstrGroupNames: PSTR,
+            nMaxGroupNames: u32,
+            rgguidInterfaces: LPCGUID,
+            cguidInterfaces: u32,
+            lpstrCardNames: PSTR,
+            nMaxCardNames: u32,
+            lpfnCheck: LPOCNCHKPROC,
+            lpfnConnect: LPOCNCONNPROCA,
+            lpfnDisconnect: LPOCNDSCPROC,
+            pvUserData: *mut void,
+            dwShareMode: u32,
+            dwPreferredProtocols: u32,
+        }
+        struct OPENCARD_SEARCH_CRITERIAW {
+            dwStructSize: u32,
+            lpstrGroupNames: PWSTR,
+            nMaxGroupNames: u32,
+            rgguidInterfaces: LPCGUID,
+            cguidInterfaces: u32,
+            lpstrCardNames: PWSTR,
+            nMaxCardNames: u32,
+            lpfnCheck: LPOCNCHKPROC,
+            lpfnConnect: LPOCNCONNPROCW,
+            lpfnDisconnect: LPOCNDSCPROC,
+            pvUserData: *mut void,
+            dwShareMode: u32,
+            dwPreferredProtocols: u32,
+        }
+        type POPENCARDNAME = POPENCARDNAMEA;
+        type POPENCARDNAMEA = *mut OPENCARDNAMEA;
+        type POPENCARDNAMEW = *mut OPENCARDNAMEW;
+        type POPENCARDNAME_EX = POPENCARDNAME_EXA;
+        type POPENCARDNAME_EXA = *mut OPENCARDNAME_EXA;
+        type POPENCARDNAME_EXW = *mut OPENCARDNAME_EXW;
+        type POPENCARD_SEARCH_CRITERIA = POPENCARD_SEARCH_CRITERIAA;
+        type POPENCARD_SEARCH_CRITERIAA = *mut OPENCARD_SEARCH_CRITERIAA;
+        type POPENCARD_SEARCH_CRITERIAW = *mut OPENCARD_SEARCH_CRITERIAW;
+        type PREADER_SEL_REQUEST = *mut READER_SEL_REQUEST;
+        type PREADER_SEL_RESPONSE = *mut READER_SEL_RESPONSE;
+        type PSCARDCONTEXT = *mut SCARDCONTEXT;
+        type PSCARDHANDLE = *mut SCARDHANDLE;
+        type PSCARD_ATRMASK = *mut SCARD_ATRMASK;
+        type PSCARD_READERSTATE = PSCARD_READERSTATEA;
+        type PSCARD_READERSTATEA = *mut SCARD_READERSTATEA;
+        type PSCARD_READERSTATEW = *mut SCARD_READERSTATEW;
+        struct READER_SEL_REQUEST {
+            dwShareMode: u32,
+            dwPreferredProtocols: u32,
+            MatchType: READER_SEL_REQUEST_MATCH_TYPE,
+            Anonymous: union {
+                ReaderAndContainerParameter: struct {
+                    cbReaderNameOffset: u32,
+                    cchReaderNameLength: u32,
+                    cbContainerNameOffset: u32,
+                    cchContainerNameLength: u32,
+                    dwDesiredCardModuleVersion: u32,
+                    dwCspFlags: u32,
+                },
+                SerialNumberParameter: struct {
+                    cbSerialNumberOffset: u32,
+                    cbSerialNumberLength: u32,
+                    dwDesiredCardModuleVersion: u32,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum READER_SEL_REQUEST_MATCH_TYPE {
+            RSR_MATCH_TYPE_READER_AND_CONTAINER = 1,
+            RSR_MATCH_TYPE_SERIAL_NUMBER = 2,
+            RSR_MATCH_TYPE_ALL_CARDS = 3,
+        }
+        struct READER_SEL_RESPONSE {
+            cbReaderNameOffset: u32,
+            cchReaderNameLength: u32,
+            cbCardNameOffset: u32,
+            cchCardNameLength: u32,
+        }
+        type SCARDCONTEXT = usize;
+        type SCARDHANDLE = usize;
+        struct SCARD_ATRMASK {
+            cbAtr: u32,
+            rgbAtr: [u8; 36],
+            rgbMask: [u8; 36],
+        }
+        const SCARD_AUDIT_CHV_FAILURE: u32 = 0;
+        const SCARD_AUDIT_CHV_SUCCESS: u32 = 1;
+        const SCARD_AUTOALLOCATE: i32 = -1;
+        const SCARD_EJECT_CARD: u32 = 3;
+        const SCARD_LEAVE_CARD: u32 = 0;
+        const SCARD_PROVIDER_CSP: u32 = 2;
+        const SCARD_PROVIDER_KSP: u32 = 3;
+        const SCARD_PROVIDER_PRIMARY: u32 = 1;
+        type SCARD_READERSTATE = SCARD_READERSTATEA;
+        struct SCARD_READERSTATEA {
+            szReader: PCSTR,
+            pvUserData: *mut void,
+            dwCurrentState: u32,
+            dwEventState: u32,
+            cbAtr: u32,
+            rgbAtr: [u8; 36],
+        }
+        struct SCARD_READERSTATEW {
+            szReader: PCWSTR,
+            pvUserData: *mut void,
+            dwCurrentState: u32,
+            dwEventState: u32,
+            cbAtr: u32,
+            rgbAtr: [u8; 36],
+        }
+        const SCARD_READER_SEL_AUTH_PACKAGE: u32 = 4294966667;
+        const SCARD_RESET_CARD: u32 = 1;
+        const SCARD_SCOPE_SYSTEM: u32 = 2;
+        const SCARD_SCOPE_TERMINAL: u32 = 1;
+        const SCARD_SCOPE_USER: u32 = 0;
+        const SCARD_SHARE_DIRECT: u32 = 3;
+        const SCARD_SHARE_EXCLUSIVE: u32 = 1;
+        const SCARD_SHARE_SHARED: u32 = 2;
+        const SCARD_STATE_ATRMATCH: u32 = 64;
+        const SCARD_STATE_CHANGED: u32 = 2;
+        const SCARD_STATE_EMPTY: u32 = 16;
+        const SCARD_STATE_EXCLUSIVE: u32 = 128;
+        const SCARD_STATE_IGNORE: u32 = 1;
+        const SCARD_STATE_INUSE: u32 = 256;
+        const SCARD_STATE_MUTE: u32 = 512;
+        const SCARD_STATE_PRESENT: u32 = 32;
+        const SCARD_STATE_UNAVAILABLE: u32 = 8;
+        const SCARD_STATE_UNAWARE: u32 = 0;
+        const SCARD_STATE_UNKNOWN: u32 = 4;
+        const SCARD_STATE_UNPOWERED: u32 = 1024;
+        const SCARD_UNPOWER_CARD: u32 = 2;
+        const SCERR_NOCARDNAME: u32 = 16384;
+        const SCERR_NOGUIDS: u32 = 32768;
+        const SC_DLG_FORCE_UI: u32 = 4;
+        const SC_DLG_MINIMAL_UI: u32 = 1;
+        const SC_DLG_NO_UI: u32 = 2;
+        #[library("WinSCard.dll")]
+        extern fn SCardAccessStartedEvent() -> HANDLE;
+        #[library("WinSCard.dll")]
+        extern fn SCardAddReaderToGroupA(hContext: SCARDCONTEXT, szReaderName: PCSTR, szGroupName: PCSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardAddReaderToGroupW(hContext: SCARDCONTEXT, szReaderName: PCWSTR, szGroupName: PCWSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardAudit(hContext: SCARDCONTEXT, dwEvent: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardBeginTransaction(hCard: SCARDHANDLE) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardCancel(hContext: SCARDCONTEXT) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardConnectA(hContext: SCARDCONTEXT, szReader: PCSTR, dwShareMode: u32, dwPreferredProtocols: u32, phCard: *mut SCARDHANDLE, pdwActiveProtocol: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardConnectW(hContext: SCARDCONTEXT, szReader: PCWSTR, dwShareMode: u32, dwPreferredProtocols: u32, phCard: *mut SCARDHANDLE, pdwActiveProtocol: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardControl(hCard: SCARDHANDLE, dwControlCode: u32, #[size_param(3)] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(5)] lpOutBuffer: *mut void, cbOutBufferSize: u32, lpBytesReturned: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardDisconnect(hCard: SCARDHANDLE, dwDisposition: u32) -> i32;
+        #[library("SCARDDLG.dll")]
+        extern fn SCardDlgExtendedError() -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardEndTransaction(hCard: SCARDHANDLE, dwDisposition: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardEstablishContext(dwScope: u32, #[reserved] pvReserved1: *const void, #[reserved] pvReserved2: *const void, phContext: *mut SCARDCONTEXT) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardForgetCardTypeA(hContext: SCARDCONTEXT, szCardName: PCSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardForgetCardTypeW(hContext: SCARDCONTEXT, szCardName: PCWSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardForgetReaderA(hContext: SCARDCONTEXT, szReaderName: PCSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardForgetReaderGroupA(hContext: SCARDCONTEXT, szGroupName: PCSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardForgetReaderGroupW(hContext: SCARDCONTEXT, szGroupName: PCWSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardForgetReaderW(hContext: SCARDCONTEXT, szReaderName: PCWSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardFreeMemory(hContext: SCARDCONTEXT, pvMem: *const void) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetAttrib(hCard: SCARDHANDLE, dwAttrId: u32, #[size_param(3)] #[opt] pbAttr: *mut u8, #[in] #[out] pcbAttrLen: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetCardTypeProviderNameA(hContext: SCARDCONTEXT, szCardName: PCSTR, dwProviderId: u32, szProvider: *mut i8, #[in] #[out] pcchProvider: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetCardTypeProviderNameW(hContext: SCARDCONTEXT, szCardName: PCWSTR, dwProviderId: u32, szProvider: *mut u16, #[in] #[out] pcchProvider: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetDeviceTypeIdA(hContext: SCARDCONTEXT, szReaderName: PCSTR, #[in] #[out] pdwDeviceTypeId: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetDeviceTypeIdW(hContext: SCARDCONTEXT, szReaderName: PCWSTR, #[in] #[out] pdwDeviceTypeId: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetProviderIdA(hContext: SCARDCONTEXT, szCard: PCSTR, pguidProviderId: *mut GUID) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetProviderIdW(hContext: SCARDCONTEXT, szCard: PCWSTR, pguidProviderId: *mut GUID) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetReaderDeviceInstanceIdA(hContext: SCARDCONTEXT, szReaderName: PCSTR, szDeviceInstanceId: PSTR, #[in] #[out] pcchDeviceInstanceId: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetReaderDeviceInstanceIdW(hContext: SCARDCONTEXT, szReaderName: PCWSTR, szDeviceInstanceId: PWSTR, #[in] #[out] pcchDeviceInstanceId: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetReaderIconA(hContext: SCARDCONTEXT, szReaderName: PCSTR, pbIcon: *mut u8, #[in] #[out] pcbIcon: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetReaderIconW(hContext: SCARDCONTEXT, szReaderName: PCWSTR, pbIcon: *mut u8, #[in] #[out] pcbIcon: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetStatusChangeA(hContext: SCARDCONTEXT, dwTimeout: u32, #[in] #[out] rgReaderStates: *mut SCARD_READERSTATEA, cReaders: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetStatusChangeW(hContext: SCARDCONTEXT, dwTimeout: u32, #[in] #[out] rgReaderStates: *mut SCARD_READERSTATEW, cReaders: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardGetTransmitCount(hCard: SCARDHANDLE, pcTransmitCount: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardIntroduceCardTypeA(hContext: SCARDCONTEXT, szCardName: PCSTR, #[opt] pguidPrimaryProvider: *const GUID, #[opt] rgguidInterfaces: *const GUID, dwInterfaceCount: u32, pbAtr: *const u8, pbAtrMask: *const u8, cbAtrLen: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardIntroduceCardTypeW(hContext: SCARDCONTEXT, szCardName: PCWSTR, #[opt] pguidPrimaryProvider: *const GUID, #[opt] rgguidInterfaces: *const GUID, dwInterfaceCount: u32, pbAtr: *const u8, pbAtrMask: *const u8, cbAtrLen: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardIntroduceReaderA(hContext: SCARDCONTEXT, szReaderName: PCSTR, szDeviceName: PCSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardIntroduceReaderGroupA(hContext: SCARDCONTEXT, szGroupName: PCSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardIntroduceReaderGroupW(hContext: SCARDCONTEXT, szGroupName: PCWSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardIntroduceReaderW(hContext: SCARDCONTEXT, szReaderName: PCWSTR, szDeviceName: PCWSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardIsValidContext(hContext: SCARDCONTEXT) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardListCardsA(hContext: SCARDCONTEXT, #[opt] pbAtr: *const u8, #[len_param(3)] #[opt] rgquidInterfaces: *const GUID, cguidInterfaceCount: u32, mszCards: *mut i8, #[in] #[out] pcchCards: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardListCardsW(hContext: SCARDCONTEXT, #[opt] pbAtr: *const u8, #[len_param(3)] #[opt] rgquidInterfaces: *const GUID, cguidInterfaceCount: u32, mszCards: *mut u16, #[in] #[out] pcchCards: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardListInterfacesA(hContext: SCARDCONTEXT, szCard: PCSTR, pguidInterfaces: *mut GUID, #[in] #[out] pcguidInterfaces: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardListInterfacesW(hContext: SCARDCONTEXT, szCard: PCWSTR, pguidInterfaces: *mut GUID, #[in] #[out] pcguidInterfaces: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardListReaderGroupsA(hContext: SCARDCONTEXT, #[len_param(2)] #[out] #[opt] mszGroups: PSTR, #[in] #[out] pcchGroups: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardListReaderGroupsW(hContext: SCARDCONTEXT, #[len_param(2)] #[out] #[opt] mszGroups: PWSTR, #[in] #[out] pcchGroups: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardListReadersA(hContext: SCARDCONTEXT, #[opt] mszGroups: PCSTR, mszReaders: PSTR, #[in] #[out] pcchReaders: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardListReadersW(hContext: SCARDCONTEXT, #[opt] mszGroups: PCWSTR, mszReaders: PWSTR, #[in] #[out] pcchReaders: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardListReadersWithDeviceInstanceIdA(hContext: SCARDCONTEXT, szDeviceInstanceId: PCSTR, mszReaders: PSTR, #[in] #[out] pcchReaders: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardListReadersWithDeviceInstanceIdW(hContext: SCARDCONTEXT, szDeviceInstanceId: PCWSTR, mszReaders: PWSTR, #[in] #[out] pcchReaders: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardLocateCardsA(hContext: SCARDCONTEXT, mszCards: PCSTR, #[in] #[out] rgReaderStates: *mut SCARD_READERSTATEA, cReaders: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardLocateCardsByATRA(hContext: SCARDCONTEXT, rgAtrMasks: *const SCARD_ATRMASK, cAtrs: u32, #[in] #[out] rgReaderStates: *mut SCARD_READERSTATEA, cReaders: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardLocateCardsByATRW(hContext: SCARDCONTEXT, rgAtrMasks: *const SCARD_ATRMASK, cAtrs: u32, #[in] #[out] rgReaderStates: *mut SCARD_READERSTATEW, cReaders: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardLocateCardsW(hContext: SCARDCONTEXT, mszCards: PCWSTR, #[in] #[out] rgReaderStates: *mut SCARD_READERSTATEW, cReaders: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardReadCacheA(hContext: SCARDCONTEXT, CardIdentifier: *const GUID, FreshnessCounter: u32, LookupName: PCSTR, #[size_param(5)] Data: *mut u8, DataLen: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardReadCacheW(hContext: SCARDCONTEXT, CardIdentifier: *const GUID, FreshnessCounter: u32, LookupName: PCWSTR, #[size_param(5)] Data: *mut u8, DataLen: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardReconnect(hCard: SCARDHANDLE, dwShareMode: u32, dwPreferredProtocols: u32, dwInitialization: u32, #[opt] pdwActiveProtocol: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardReleaseContext(hContext: SCARDCONTEXT) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardReleaseStartedEvent();
+        #[library("WinSCard.dll")]
+        extern fn SCardRemoveReaderFromGroupA(hContext: SCARDCONTEXT, szReaderName: PCSTR, szGroupName: PCSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardRemoveReaderFromGroupW(hContext: SCARDCONTEXT, szReaderName: PCWSTR, szGroupName: PCWSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardSetAttrib(hCard: SCARDHANDLE, dwAttrId: u32, #[size_param(3)] pbAttr: *const u8, cbAttrLen: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardSetCardTypeProviderNameA(hContext: SCARDCONTEXT, szCardName: PCSTR, dwProviderId: u32, szProvider: PCSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardSetCardTypeProviderNameW(hContext: SCARDCONTEXT, szCardName: PCWSTR, dwProviderId: u32, szProvider: PCWSTR) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardState(hCard: SCARDHANDLE, pdwState: *mut u32, pdwProtocol: *mut u32, #[size_param(4)] pbAtr: *mut u8, #[in] #[out] pcbAtrLen: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardStatusA(hCard: SCARDHANDLE, mszReaderNames: PSTR, #[in] #[out] #[opt] pcchReaderLen: *mut u32, #[opt] pdwState: *mut u32, #[opt] pdwProtocol: *mut u32, pbAtr: *mut u8, #[in] #[out] #[opt] pcbAtrLen: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardStatusW(hCard: SCARDHANDLE, mszReaderNames: PWSTR, #[in] #[out] #[opt] pcchReaderLen: *mut u32, #[opt] pdwState: *mut u32, #[opt] pdwProtocol: *mut u32, pbAtr: *mut u8, #[in] #[out] #[opt] pcbAtrLen: *mut u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardTransmit(hCard: SCARDHANDLE, pioSendPci: *const SCARD_IO_REQUEST, #[size_param(3)] pbSendBuffer: *const u8, cbSendLength: u32, #[in] #[out] #[opt] pioRecvPci: *mut SCARD_IO_REQUEST, #[size_param(6)] pbRecvBuffer: *mut u8, #[in] #[out] pcbRecvLength: *mut u32) -> i32;
+        #[library("SCARDDLG.dll")]
+        extern fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32;
+        #[library("SCARDDLG.dll")]
+        extern fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardWriteCacheA(hContext: SCARDCONTEXT, CardIdentifier: *const GUID, FreshnessCounter: u32, LookupName: PCSTR, #[size_param(5)] Data: *const u8, DataLen: u32) -> i32;
+        #[library("WinSCard.dll")]
+        extern fn SCardWriteCacheW(hContext: SCARDCONTEXT, CardIdentifier: *const GUID, FreshnessCounter: u32, LookupName: PCWSTR, #[size_param(5)] Data: *const u8, DataLen: u32) -> i32;
+    }
+}

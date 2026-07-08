@@ -1,0 +1,341 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CLSID_CColorPropPage: GUID = 0x0be35201_8f91_11ce_9de3_00aa004bb851;
+        const CLSID_CFontPropPage: GUID = 0x0be35200_8f91_11ce_9de3_00aa004bb851;
+        const CLSID_CPicturePropPage: GUID = 0x0be35202_8f91_11ce_9de3_00aa004bb851;
+        const CLSID_ConvertVBX: GUID = 0xfb8f0822_0164_101b_84ed_08002b2ec713;
+        const CLSID_PersistPropset: GUID = 0xfb8f0821_0164_101b_84ed_08002b2ec713;
+        const CLSID_StdFont: GUID = 0x0be35203_8f91_11ce_9de3_00aa004bb851;
+        const CLSID_StdPicture: GUID = 0x0be35204_8f91_11ce_9de3_00aa004bb851;
+        const CONNECT_E_ADVISELIMIT: i32 = -2147220991;
+        const CONNECT_E_CANNOTCONNECT: i32 = -2147220990;
+        const CONNECT_E_FIRST: i32 = -2147220992;
+        const CONNECT_E_LAST: i32 = -2147220977;
+        const CONNECT_E_NOCONNECTION: i32 = -2147220992;
+        const CONNECT_E_OVERRIDDEN: i32 = -2147220989;
+        const CONNECT_S_FIRST: u32 = 262656;
+        const CONNECT_S_LAST: u32 = 262671;
+        const CTL_E_BADFILEMODE: i32 = -2146828234;
+        const CTL_E_BADFILENAME: i32 = -2146828224;
+        const CTL_E_BADFILENAMEORNUMBER: i32 = -2146828236;
+        const CTL_E_BADRECORDLENGTH: i32 = -2146828229;
+        const CTL_E_BADRECORDNUMBER: i32 = -2146828225;
+        const CTL_E_CANTSAVEFILETOTEMP: i32 = -2146827553;
+        const CTL_E_CUSTOM_FIRST: i32 = -2146827688;
+        const CTL_E_DEVICEIOERROR: i32 = -2146828231;
+        const CTL_E_DEVICEUNAVAILABLE: i32 = -2146828220;
+        const CTL_E_DISKFULL: i32 = -2146828227;
+        const CTL_E_DISKNOTREADY: i32 = -2146828217;
+        const CTL_E_DIVISIONBYZERO: i32 = -2146828277;
+        const CTL_E_FILEALREADYEXISTS: i32 = -2146828230;
+        const CTL_E_FILEALREADYOPEN: i32 = -2146828233;
+        const CTL_E_FILENOTFOUND: i32 = -2146828235;
+        const CTL_E_GETNOTSUPPORTED: i32 = -2146827894;
+        const CTL_E_GETNOTSUPPORTEDATRUNTIME: i32 = -2146827895;
+        const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283;
+        const CTL_E_INVALIDCLIPBOARDFORMAT: i32 = -2146827828;
+        const CTL_E_INVALIDFILEFORMAT: i32 = -2146827967;
+        const CTL_E_INVALIDPATTERNSTRING: i32 = -2146828195;
+        const CTL_E_INVALIDPICTURE: i32 = -2146827807;
+        const CTL_E_INVALIDPROPERTYARRAYINDEX: i32 = -2146827907;
+        const CTL_E_INVALIDPROPERTYVALUE: i32 = -2146827908;
+        const CTL_E_INVALIDUSEOFNULL: i32 = -2146828194;
+        const CTL_E_NEEDPROPERTYARRAYINDEX: i32 = -2146827903;
+        const CTL_E_OUTOFMEMORY: i32 = -2146828281;
+        const CTL_E_OUTOFSTACKSPACE: i32 = -2146828260;
+        const CTL_E_OUTOFSTRINGSPACE: i32 = -2146828274;
+        const CTL_E_OVERFLOW: i32 = -2146828282;
+        const CTL_E_PATHFILEACCESSERROR: i32 = -2146828213;
+        const CTL_E_PATHNOTFOUND: i32 = -2146828212;
+        const CTL_E_PERMISSIONDENIED: i32 = -2146828218;
+        const CTL_E_PRINTERERROR: i32 = -2146827806;
+        const CTL_E_PROPERTYNOTFOUND: i32 = -2146827866;
+        const CTL_E_REPLACEMENTSTOOLONG: i32 = -2146827542;
+        const CTL_E_SEARCHTEXTNOTFOUND: i32 = -2146827544;
+        const CTL_E_SETNOTPERMITTED: i32 = -2146827901;
+        const CTL_E_SETNOTSUPPORTED: i32 = -2146827905;
+        const CTL_E_SETNOTSUPPORTEDATRUNTIME: i32 = -2146827906;
+        const CTL_E_TOOMANYFILES: i32 = -2146828221;
+        const DISPID_ABOUTBOX: i32 = -552;
+        const DISPID_ACCELERATOR: i32 = -543;
+        const DISPID_ADDITEM: i32 = -553;
+        const DISPID_AMBIENT_APPEARANCE: i32 = -716;
+        const DISPID_AMBIENT_AUTOCLIP: i32 = -715;
+        const DISPID_AMBIENT_BACKCOLOR: i32 = -701;
+        const DISPID_AMBIENT_CHARSET: i32 = -727;
+        const DISPID_AMBIENT_CODEPAGE: i32 = -725;
+        const DISPID_AMBIENT_DISPLAYASDEFAULT: i32 = -713;
+        const DISPID_AMBIENT_DISPLAYNAME: i32 = -702;
+        const DISPID_AMBIENT_FONT: i32 = -703;
+        const DISPID_AMBIENT_FORECOLOR: i32 = -704;
+        const DISPID_AMBIENT_LOCALEID: i32 = -705;
+        const DISPID_AMBIENT_MESSAGEREFLECT: i32 = -706;
+        const DISPID_AMBIENT_PALETTE: i32 = -726;
+        const DISPID_AMBIENT_RIGHTTOLEFT: i32 = -732;
+        const DISPID_AMBIENT_SCALEUNITS: i32 = -707;
+        const DISPID_AMBIENT_SHOWGRABHANDLES: i32 = -711;
+        const DISPID_AMBIENT_SHOWHATCHING: i32 = -712;
+        const DISPID_AMBIENT_SUPPORTSMNEMONICS: i32 = -714;
+        const DISPID_AMBIENT_TEXTALIGN: i32 = -708;
+        const DISPID_AMBIENT_TOPTOBOTTOM: i32 = -733;
+        const DISPID_AMBIENT_TRANSFERPRIORITY: i32 = -728;
+        const DISPID_AMBIENT_UIDEAD: i32 = -710;
+        const DISPID_AMBIENT_USERMODE: i32 = -709;
+        const DISPID_APPEARANCE: i32 = -520;
+        const DISPID_AUTOSIZE: i32 = -500;
+        const DISPID_BACKCOLOR: i32 = -501;
+        const DISPID_BACKSTYLE: i32 = -502;
+        const DISPID_BORDERCOLOR: i32 = -503;
+        const DISPID_BORDERSTYLE: i32 = -504;
+        const DISPID_BORDERVISIBLE: i32 = -519;
+        const DISPID_BORDERWIDTH: i32 = -505;
+        const DISPID_CAPTION: i32 = -518;
+        const DISPID_CLEAR: i32 = -554;
+        const DISPID_CLICK: i32 = -600;
+        const DISPID_CLICK_VALUE: i32 = -610;
+        const DISPID_COLUMN: i32 = -529;
+        const DISPID_DBLCLICK: i32 = -601;
+        const DISPID_DISPLAYSTYLE: i32 = -540;
+        const DISPID_DOCLICK: i32 = -551;
+        const DISPID_DRAWMODE: i32 = -507;
+        const DISPID_DRAWSTYLE: i32 = -508;
+        const DISPID_DRAWWIDTH: i32 = -509;
+        const DISPID_Delete: i32 = -801;
+        const DISPID_ENABLED: i32 = -514;
+        const DISPID_ENTERKEYBEHAVIOR: i32 = -544;
+        const DISPID_ERROREVENT: i32 = -608;
+        const DISPID_FILLCOLOR: i32 = -510;
+        const DISPID_FILLSTYLE: i32 = -511;
+        const DISPID_FONT: i32 = -512;
+        const DISPID_FONT_BOLD: u32 = 3;
+        const DISPID_FONT_CHANGED: u32 = 9;
+        const DISPID_FONT_CHARSET: u32 = 8;
+        const DISPID_FONT_ITALIC: u32 = 4;
+        const DISPID_FONT_NAME: u32 = 0;
+        const DISPID_FONT_SIZE: u32 = 2;
+        const DISPID_FONT_STRIKE: u32 = 6;
+        const DISPID_FONT_UNDER: u32 = 5;
+        const DISPID_FONT_WEIGHT: u32 = 7;
+        const DISPID_FORECOLOR: i32 = -513;
+        const DISPID_GROUPNAME: i32 = -541;
+        const DISPID_HWND: i32 = -515;
+        const DISPID_IMEMODE: i32 = -542;
+        const DISPID_KEYDOWN: i32 = -602;
+        const DISPID_KEYPRESS: i32 = -603;
+        const DISPID_KEYUP: i32 = -604;
+        const DISPID_LIST: i32 = -528;
+        const DISPID_LISTCOUNT: i32 = -531;
+        const DISPID_LISTINDEX: i32 = -526;
+        const DISPID_MAXLENGTH: i32 = -533;
+        const DISPID_MOUSEDOWN: i32 = -605;
+        const DISPID_MOUSEICON: i32 = -522;
+        const DISPID_MOUSEMOVE: i32 = -606;
+        const DISPID_MOUSEPOINTER: i32 = -521;
+        const DISPID_MOUSEUP: i32 = -607;
+        const DISPID_MULTILINE: i32 = -537;
+        const DISPID_MULTISELECT: i32 = -532;
+        const DISPID_NUMBEROFCOLUMNS: i32 = -539;
+        const DISPID_NUMBEROFROWS: i32 = -538;
+        const DISPID_Name: i32 = -800;
+        const DISPID_Object: i32 = -802;
+        const DISPID_PASSWORDCHAR: i32 = -534;
+        const DISPID_PICTURE: i32 = -523;
+        const DISPID_PICT_HANDLE: u32 = 0;
+        const DISPID_PICT_HEIGHT: u32 = 5;
+        const DISPID_PICT_HPAL: u32 = 2;
+        const DISPID_PICT_RENDER: u32 = 6;
+        const DISPID_PICT_TYPE: u32 = 3;
+        const DISPID_PICT_WIDTH: u32 = 4;
+        const DISPID_Parent: i32 = -803;
+        const DISPID_READYSTATE: i32 = -525;
+        const DISPID_READYSTATECHANGE: i32 = -609;
+        const DISPID_REFRESH: i32 = -550;
+        const DISPID_REMOVEITEM: i32 = -555;
+        const DISPID_RIGHTTOLEFT: i32 = -611;
+        const DISPID_SCROLLBARS: i32 = -535;
+        const DISPID_SELECTED: i32 = -527;
+        const DISPID_SELLENGTH: i32 = -548;
+        const DISPID_SELSTART: i32 = -547;
+        const DISPID_SELTEXT: i32 = -546;
+        const DISPID_TABKEYBEHAVIOR: i32 = -545;
+        const DISPID_TABSTOP: i32 = -516;
+        const DISPID_TEXT: i32 = -517;
+        const DISPID_THIS: i32 = -613;
+        const DISPID_TOPTOBOTTOM: i32 = -612;
+        const DISPID_VALID: i32 = -524;
+        const DISPID_WORDWRAP: i32 = -536;
+        struct FONTDESC {
+            cbSizeofstruct: u32,
+            lpstrName: PWSTR,
+            cySize: CY,
+            sWeight: i16,
+            sCharset: i16,
+            fItalic: BOOL,
+            fUnderline: BOOL,
+            fStrikethrough: BOOL,
+        }
+        const GUID_CHECKVALUEEXCLUSIVE: GUID = 0x6650430c_be0f_101a_8bbb_00aa00300cab;
+        const GUID_COLOR: GUID = 0x66504301_be0f_101a_8bbb_00aa00300cab;
+        const GUID_FONTBOLD: GUID = 0x6650430f_be0f_101a_8bbb_00aa00300cab;
+        const GUID_FONTITALIC: GUID = 0x66504310_be0f_101a_8bbb_00aa00300cab;
+        const GUID_FONTNAME: GUID = 0x6650430d_be0f_101a_8bbb_00aa00300cab;
+        const GUID_FONTSIZE: GUID = 0x6650430e_be0f_101a_8bbb_00aa00300cab;
+        const GUID_FONTSTRIKETHROUGH: GUID = 0x66504312_be0f_101a_8bbb_00aa00300cab;
+        const GUID_FONTUNDERSCORE: GUID = 0x66504311_be0f_101a_8bbb_00aa00300cab;
+        const GUID_HANDLE: GUID = 0x66504313_be0f_101a_8bbb_00aa00300cab;
+        const GUID_HIMETRIC: GUID = 0x66504300_be0f_101a_8bbb_00aa00300cab;
+        const GUID_OPTIONVALUEEXCLUSIVE: GUID = 0x6650430b_be0f_101a_8bbb_00aa00300cab;
+        const GUID_XPOS: GUID = 0x66504306_be0f_101a_8bbb_00aa00300cab;
+        const GUID_XPOSPIXEL: GUID = 0x66504302_be0f_101a_8bbb_00aa00300cab;
+        const GUID_XSIZE: GUID = 0x66504308_be0f_101a_8bbb_00aa00300cab;
+        const GUID_XSIZEPIXEL: GUID = 0x66504304_be0f_101a_8bbb_00aa00300cab;
+        const GUID_YPOS: GUID = 0x66504307_be0f_101a_8bbb_00aa00300cab;
+        const GUID_YPOSPIXEL: GUID = 0x66504303_be0f_101a_8bbb_00aa00300cab;
+        const GUID_YSIZE: GUID = 0x66504309_be0f_101a_8bbb_00aa00300cab;
+        const GUID_YSIZEPIXEL: GUID = 0x66504305_be0f_101a_8bbb_00aa00300cab;
+        const IID_IPropertyFrame: GUID = 0xb196b28a_bab4_101a_b69c_00aa00341d07;
+        type LPFONTDESC = *mut FONTDESC;
+        type LPOCPFIPARAMS = *mut OCPFIPARAMS;
+        type LPPICTDESC = *mut PICTDESC;
+        const LP_COLOR: u32 = 4;
+        const LP_DEFAULT: u32 = 0;
+        const LP_MONOCHROME: u32 = 1;
+        const LP_VGACOLOR: u32 = 2;
+        const OCM_CHARTOITEM: u32 = 8239;
+        const OCM_COMMAND: u32 = 8465;
+        const OCM_COMPAREITEM: u32 = 8249;
+        const OCM_CTLCOLORBTN: u32 = 8501;
+        const OCM_CTLCOLORDLG: u32 = 8502;
+        const OCM_CTLCOLOREDIT: u32 = 8499;
+        const OCM_CTLCOLORLISTBOX: u32 = 8500;
+        const OCM_CTLCOLORMSGBOX: u32 = 8498;
+        const OCM_CTLCOLORSCROLLBAR: u32 = 8503;
+        const OCM_CTLCOLORSTATIC: u32 = 8504;
+        const OCM_DELETEITEM: u32 = 8237;
+        const OCM_DRAWITEM: u32 = 8235;
+        const OCM_HSCROLL: u32 = 8468;
+        const OCM_MEASUREITEM: u32 = 8236;
+        const OCM_NOTIFY: u32 = 8270;
+        const OCM_PARENTNOTIFY: u32 = 8720;
+        const OCM_VKEYTOITEM: u32 = 8238;
+        const OCM_VSCROLL: u32 = 8469;
+        const OCM__BASE: u32 = 8192;
+        struct OCPFIPARAMS {
+            cbStructSize: u32,
+            hWndOwner: HWND,
+            x: i32,
+            y: i32,
+            lpszCaption: PCWSTR,
+            cObjects: u32,
+            lplpUnk: *mut IUnknown,
+            cPages: u32,
+            lpPages: *mut GUID,
+            lcid: LCID,
+            dispidInitialProperty: DISPID,
+        }
+        const OLEIVERB_PROPERTIES: i32 = -7;
+        const OLEMISC_ACTSLIKEBUTTON: u32 = 4096;
+        const OLEMISC_ACTSLIKELABEL: u32 = 8192;
+        const OLEMISC_ALIGNABLE: u32 = 32768;
+        const OLEMISC_ALWAYSRUN: u32 = 2048;
+        const OLEMISC_IMEMODE: u32 = 262144;
+        const OLEMISC_INVISIBLEATRUNTIME: u32 = 1024;
+        const OLEMISC_NOUIACTIVATE: u32 = 16384;
+        const OLEMISC_SETCLIENTSITEFIRST: u32 = 131072;
+        const OLEMISC_SIMPLEFRAME: u32 = 65536;
+        type OLE_CANCELBOOL = VARIANT_BOOL;
+        type OLE_ENABLEDEFAULTBOOL = VARIANT_BOOL;
+        type OLE_OPTEXCLUSIVE = VARIANT_BOOL;
+        #[repr(i32)]
+        enum OLE_TRISTATE {
+            triUnchecked = 0,
+            triChecked = 1,
+            triGray = 2,
+        }
+        type OLE_XPOS_PIXELS = i32;
+        type OLE_XSIZE_PIXELS = i32;
+        type OLE_YPOS_PIXELS = i32;
+        type OLE_YSIZE_PIXELS = i32;
+        #[library("OLEAUT32.dll")]
+        extern fn OleCreateFontIndirect(lpFontDesc: *mut FONTDESC, riid: *const GUID, lplpvObj: *mut *mut void) -> HRESULT;
+        #[library("OLEAUT32.dll")]
+        extern fn OleCreatePictureIndirect(lpPictDesc: *mut PICTDESC, riid: *const GUID, fOwn: BOOL, lplpvObj: *mut *mut void) -> HRESULT;
+        #[library("OLEAUT32.dll")]
+        extern fn OleCreatePropertyFrame(hwndOwner: HWND, x: u32, y: u32, lpszCaption: PCWSTR, cObjects: u32, ppUnk: *mut IUnknown, cPages: u32, pPageClsID: *mut GUID, lcid: LCID, dwReserved: u32, pvReserved: *mut void) -> HRESULT;
+        #[library("OLEAUT32.dll")]
+        extern fn OleCreatePropertyFrameIndirect(lpParams: *mut OCPFIPARAMS) -> HRESULT;
+        #[library("OLEAUT32.dll")]
+        extern fn OleIconToCursor(hinstExe: HINSTANCE, hIcon: HICON) -> HCURSOR;
+        #[library("OLEAUT32.dll")]
+        extern fn OleLoadPicture(lpstream: IStream, lSize: i32, fRunmode: BOOL, riid: *const GUID, lplpvObj: *mut *mut void) -> HRESULT;
+        #[library("OLEAUT32.dll")]
+        extern fn OleLoadPictureEx(lpstream: IStream, lSize: i32, fRunmode: BOOL, riid: *const GUID, xSizeDesired: u32, ySizeDesired: u32, dwFlags: u32, lplpvObj: *mut *mut void) -> HRESULT;
+        #[library("OLEAUT32.dll")]
+        extern fn OleLoadPictureFile(varFileName: VARIANT, lplpdispPicture: *mut IDispatch) -> HRESULT;
+        #[library("OLEAUT32.dll")]
+        extern fn OleLoadPictureFileEx(varFileName: VARIANT, xSizeDesired: u32, ySizeDesired: u32, dwFlags: u32, lplpdispPicture: *mut IDispatch) -> HRESULT;
+        #[library("OLEAUT32.dll")]
+        extern fn OleLoadPicturePath(szURLorPath: PCWSTR, punkCaller: IUnknown, dwReserved: u32, clrReserved: OLE_COLOR, riid: *const GUID, ppvRet: *mut *mut void) -> HRESULT;
+        #[library("OLEAUT32.dll")]
+        extern fn OleSavePictureFile(lpdispPicture: IDispatch, bstrFileName: BSTR) -> HRESULT;
+        #[library("OLEAUT32.dll")]
+        extern fn OleTranslateColor(clr: OLE_COLOR, hpal: HPALETTE, lpcolorref: *mut COLORREF) -> HRESULT;
+        const PERPROP_E_FIRST: i32 = -2147220992;
+        const PERPROP_E_LAST: i32 = -2147220977;
+        const PERPROP_E_NOPAGEAVAILABLE: i32 = -2147220992;
+        const PERPROP_S_FIRST: u32 = 262656;
+        const PERPROP_S_LAST: u32 = 262671;
+        struct PICTDESC {
+            cbSizeofstruct: u32,
+            picType: u32,
+            Anonymous: union {
+                bmp: struct {
+                    hbitmap: HBITMAP,
+                    hpal: HPALETTE,
+                },
+                wmf: struct {
+                    hmeta: HMETAFILE,
+                    xExt: i32,
+                    yExt: i32,
+                },
+                icon: struct {
+                    hicon: HICON,
+                },
+                emf: struct {
+                    hemf: HENHMETAFILE,
+                },
+            },
+        }
+        const PICTYPE_BITMAP: u32 = 1;
+        const PICTYPE_ENHMETAFILE: u32 = 4;
+        const PICTYPE_ICON: u32 = 3;
+        const PICTYPE_METAFILE: u32 = 2;
+        const PICTYPE_NONE: u32 = 0;
+        const PICTYPE_UNINITIALIZED: i32 = -1;
+        const SELFREG_E_CLASS: i32 = -2147220991;
+        const SELFREG_E_FIRST: i32 = -2147220992;
+        const SELFREG_E_LAST: i32 = -2147220977;
+        const SELFREG_E_TYPELIB: i32 = -2147220992;
+        const SELFREG_S_FIRST: u32 = 262656;
+        const SELFREG_S_LAST: u32 = 262671;
+        const VT_BLOB_PROPSET: u32 = 75;
+        const VT_COLOR: u32 = 3;
+        const VT_FONT: u32 = 9;
+        const VT_HANDLE: u32 = 3;
+        const VT_OPTEXCLUSIVE: u32 = 11;
+        const VT_PICTURE: u32 = 9;
+        const VT_STORED_PROPSET: u32 = 74;
+        const VT_STREAMED_PROPSET: u32 = 73;
+        const VT_TRISTATE: u32 = 2;
+        const VT_VERBOSE_ENUM: u32 = 76;
+        const VT_XPOS_HIMETRIC: u32 = 3;
+        const VT_XPOS_PIXELS: u32 = 3;
+        const VT_XSIZE_HIMETRIC: u32 = 3;
+        const VT_XSIZE_PIXELS: u32 = 3;
+        const VT_YPOS_HIMETRIC: u32 = 3;
+        const VT_YPOS_PIXELS: u32 = 3;
+        const VT_YSIZE_HIMETRIC: u32 = 3;
+        const VT_YSIZE_PIXELS: u32 = 3;
+    }
+}

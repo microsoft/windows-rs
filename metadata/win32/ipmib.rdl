@@ -1,0 +1,399 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ICMP4_TYPE {
+            ICMP4_ECHO_REPLY = 0,
+            ICMP4_DST_UNREACH = 3,
+            ICMP4_SOURCE_QUENCH = 4,
+            ICMP4_REDIRECT = 5,
+            ICMP4_ECHO_REQUEST = 8,
+            ICMP4_ROUTER_ADVERT = 9,
+            ICMP4_ROUTER_SOLICIT = 10,
+            ICMP4_TIME_EXCEEDED = 11,
+            ICMP4_PARAM_PROB = 12,
+            ICMP4_TIMESTAMP_REQUEST = 13,
+            ICMP4_TIMESTAMP_REPLY = 14,
+            ICMP4_MASK_REQUEST = 17,
+            ICMP4_MASK_REPLY = 18,
+        }
+        const ICMP6_INFOMSG_MASK: u32 = 128;
+        #[repr(i32)]
+        enum ICMP6_TYPE {
+            ICMP6_DST_UNREACH = 1,
+            ICMP6_PACKET_TOO_BIG = 2,
+            ICMP6_TIME_EXCEEDED = 3,
+            ICMP6_PARAM_PROB = 4,
+            ICMP6_ECHO_REQUEST = 128,
+            ICMP6_ECHO_REPLY = 129,
+            ICMP6_MEMBERSHIP_QUERY = 130,
+            ICMP6_MEMBERSHIP_REPORT = 131,
+            ICMP6_MEMBERSHIP_REDUCTION = 132,
+            ND_ROUTER_SOLICIT = 133,
+            ND_ROUTER_ADVERT = 134,
+            ND_NEIGHBOR_SOLICIT = 135,
+            ND_NEIGHBOR_ADVERT = 136,
+            ND_REDIRECT = 137,
+            ICMP6_V2_MEMBERSHIP_REPORT = 143,
+        }
+        struct MIBICMPINFO {
+            icmpInStats: MIBICMPSTATS,
+            icmpOutStats: MIBICMPSTATS,
+        }
+        struct MIBICMPSTATS {
+            dwMsgs: u32,
+            dwErrors: u32,
+            dwDestUnreachs: u32,
+            dwTimeExcds: u32,
+            dwParmProbs: u32,
+            dwSrcQuenchs: u32,
+            dwRedirects: u32,
+            dwEchos: u32,
+            dwEchoReps: u32,
+            dwTimestamps: u32,
+            dwTimestampReps: u32,
+            dwAddrMasks: u32,
+            dwAddrMaskReps: u32,
+        }
+        type MIBICMPSTATS_EX = MIBICMPSTATS_EX_XPSP1;
+        struct MIBICMPSTATS_EX_XPSP1 {
+            dwMsgs: u32,
+            dwErrors: u32,
+            rgdwTypeCount: [u32; 256],
+        }
+        struct MIB_ICMP {
+            stats: MIBICMPINFO,
+        }
+        type MIB_ICMP_EX = MIB_ICMP_EX_XPSP1;
+        struct MIB_ICMP_EX_XPSP1 {
+            icmpInStats: MIBICMPSTATS_EX,
+            icmpOutStats: MIBICMPSTATS_EX,
+        }
+        type MIB_IPADDRROW = MIB_IPADDRROW_XP;
+        struct MIB_IPADDRROW_W2K {
+            dwAddr: u32,
+            dwIndex: u32,
+            dwMask: u32,
+            dwBCastAddr: u32,
+            dwReasmSize: u32,
+            unused1: u16,
+            unused2: u16,
+        }
+        struct MIB_IPADDRROW_XP {
+            dwAddr: u32,
+            dwIndex: IF_INDEX,
+            dwMask: u32,
+            dwBCastAddr: u32,
+            dwReasmSize: u32,
+            unused1: u16,
+            wType: u16,
+        }
+        struct MIB_IPADDRTABLE {
+            dwNumEntries: u32,
+            table: [MIB_IPADDRROW; 1],
+        }
+        const MIB_IPADDR_DELETED: u32 = 64;
+        const MIB_IPADDR_DISCONNECTED: u32 = 8;
+        const MIB_IPADDR_DNS_ELIGIBLE: u32 = 256;
+        const MIB_IPADDR_DYNAMIC: u32 = 4;
+        const MIB_IPADDR_PRIMARY: u32 = 1;
+        const MIB_IPADDR_TRANSIENT: u32 = 128;
+        struct MIB_IPFORWARDNUMBER {
+            dwValue: u32,
+        }
+        struct MIB_IPFORWARDROW {
+            dwForwardDest: u32,
+            dwForwardMask: u32,
+            dwForwardPolicy: u32,
+            dwForwardNextHop: u32,
+            dwForwardIfIndex: IF_INDEX,
+            Anonymous: union {
+                dwForwardType: u32,
+                ForwardType: MIB_IPFORWARD_TYPE,
+            },
+            Anonymous2: union {
+                dwForwardProto: u32,
+                ForwardProto: MIB_IPFORWARD_PROTO,
+            },
+            dwForwardAge: u32,
+            dwForwardNextHopAS: u32,
+            dwForwardMetric1: u32,
+            dwForwardMetric2: u32,
+            dwForwardMetric3: u32,
+            dwForwardMetric4: u32,
+            dwForwardMetric5: u32,
+        }
+        struct MIB_IPFORWARDTABLE {
+            dwNumEntries: u32,
+            table: [MIB_IPFORWARDROW; 1],
+        }
+        type MIB_IPFORWARD_PROTO = NL_ROUTE_PROTOCOL;
+        #[repr(i32)]
+        enum MIB_IPFORWARD_TYPE {
+            MIB_IPROUTE_TYPE_OTHER = 1,
+            MIB_IPROUTE_TYPE_INVALID = 2,
+            MIB_IPROUTE_TYPE_DIRECT = 3,
+            MIB_IPROUTE_TYPE_INDIRECT = 4,
+        }
+        struct MIB_IPMCAST_GLOBAL {
+            dwEnable: u32,
+        }
+        struct MIB_IPMCAST_IF_ENTRY {
+            dwIfIndex: u32,
+            dwTtl: u32,
+            dwProtocol: u32,
+            dwRateLimit: u32,
+            ulInMcastOctets: u32,
+            ulOutMcastOctets: u32,
+        }
+        struct MIB_IPMCAST_IF_TABLE {
+            dwNumEntries: u32,
+            table: [MIB_IPMCAST_IF_ENTRY; 1],
+        }
+        struct MIB_IPMCAST_MFE {
+            dwGroup: u32,
+            dwSource: u32,
+            dwSrcMask: u32,
+            dwUpStrmNgbr: u32,
+            dwInIfIndex: u32,
+            dwInIfProtocol: u32,
+            dwRouteProtocol: u32,
+            dwRouteNetwork: u32,
+            dwRouteMask: u32,
+            ulUpTime: u32,
+            ulExpiryTime: u32,
+            ulTimeOut: u32,
+            ulNumOutIf: u32,
+            fFlags: u32,
+            dwReserved: u32,
+            rgmioOutInfo: [MIB_IPMCAST_OIF; 1],
+        }
+        struct MIB_IPMCAST_MFE_STATS {
+            dwGroup: u32,
+            dwSource: u32,
+            dwSrcMask: u32,
+            dwUpStrmNgbr: u32,
+            dwInIfIndex: u32,
+            dwInIfProtocol: u32,
+            dwRouteProtocol: u32,
+            dwRouteNetwork: u32,
+            dwRouteMask: u32,
+            ulUpTime: u32,
+            ulExpiryTime: u32,
+            ulNumOutIf: u32,
+            ulInPkts: u32,
+            ulInOctets: u32,
+            ulPktsDifferentIf: u32,
+            ulQueueOverflow: u32,
+            rgmiosOutStats: [MIB_IPMCAST_OIF_STATS; 1],
+        }
+        type MIB_IPMCAST_MFE_STATS_EX = MIB_IPMCAST_MFE_STATS_EX_XP;
+        struct MIB_IPMCAST_MFE_STATS_EX_XP {
+            dwGroup: u32,
+            dwSource: u32,
+            dwSrcMask: u32,
+            dwUpStrmNgbr: u32,
+            dwInIfIndex: u32,
+            dwInIfProtocol: u32,
+            dwRouteProtocol: u32,
+            dwRouteNetwork: u32,
+            dwRouteMask: u32,
+            ulUpTime: u32,
+            ulExpiryTime: u32,
+            ulNumOutIf: u32,
+            ulInPkts: u32,
+            ulInOctets: u32,
+            ulPktsDifferentIf: u32,
+            ulQueueOverflow: u32,
+            ulUninitMfe: u32,
+            ulNegativeMfe: u32,
+            ulInDiscards: u32,
+            ulInHdrErrors: u32,
+            ulTotalOutPackets: u32,
+            rgmiosOutStats: [MIB_IPMCAST_OIF_STATS; 1],
+        }
+        type MIB_IPMCAST_OIF = MIB_IPMCAST_OIF_XP;
+        type MIB_IPMCAST_OIF_STATS = MIB_IPMCAST_OIF_STATS_LH;
+        struct MIB_IPMCAST_OIF_STATS_LH {
+            dwOutIfIndex: u32,
+            dwNextHopAddr: u32,
+            dwDialContext: u32,
+            ulTtlTooLow: u32,
+            ulFragNeeded: u32,
+            ulOutPackets: u32,
+            ulOutDiscards: u32,
+        }
+        struct MIB_IPMCAST_OIF_STATS_W2K {
+            dwOutIfIndex: u32,
+            dwNextHopAddr: u32,
+            pvDialContext: *mut void,
+            ulTtlTooLow: u32,
+            ulFragNeeded: u32,
+            ulOutPackets: u32,
+            ulOutDiscards: u32,
+        }
+        struct MIB_IPMCAST_OIF_W2K {
+            dwOutIfIndex: u32,
+            dwNextHopAddr: u32,
+            pvReserved: *mut void,
+            dwReserved: u32,
+        }
+        struct MIB_IPMCAST_OIF_XP {
+            dwOutIfIndex: u32,
+            dwNextHopAddr: u32,
+            dwReserved: u32,
+            dwReserved1: u32,
+        }
+        type MIB_IPNETROW = MIB_IPNETROW_LH;
+        struct MIB_IPNETROW_LH {
+            dwIndex: IF_INDEX,
+            dwPhysAddrLen: u32,
+            bPhysAddr: [u8; 8],
+            dwAddr: u32,
+            Anonymous: union {
+                dwType: u32,
+                Type: MIB_IPNET_TYPE,
+            },
+        }
+        struct MIB_IPNETROW_W2K {
+            dwIndex: IF_INDEX,
+            dwPhysAddrLen: u32,
+            bPhysAddr: [u8; 8],
+            dwAddr: u32,
+            dwType: u32,
+        }
+        struct MIB_IPNETTABLE {
+            dwNumEntries: u32,
+            table: [MIB_IPNETROW; 1],
+        }
+        #[repr(i32)]
+        enum MIB_IPNET_TYPE {
+            MIB_IPNET_TYPE_OTHER = 1,
+            MIB_IPNET_TYPE_INVALID = 2,
+            MIB_IPNET_TYPE_DYNAMIC = 3,
+            MIB_IPNET_TYPE_STATIC = 4,
+        }
+        const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295;
+        const MIB_IPROUTE_TYPE_DIRECT: u32 = 3;
+        const MIB_IPROUTE_TYPE_INDIRECT: u32 = 4;
+        const MIB_IPROUTE_TYPE_INVALID: u32 = 2;
+        const MIB_IPROUTE_TYPE_OTHER: u32 = 1;
+        type MIB_IPSTATS = MIB_IPSTATS_LH;
+        #[repr(i32)]
+        enum MIB_IPSTATS_FORWARDING {
+            MIB_IP_FORWARDING = 1,
+            MIB_IP_NOT_FORWARDING = 2,
+        }
+        struct MIB_IPSTATS_LH {
+            Anonymous: union {
+                dwForwarding: u32,
+                Forwarding: MIB_IPSTATS_FORWARDING,
+            },
+            dwDefaultTTL: u32,
+            dwInReceives: u32,
+            dwInHdrErrors: u32,
+            dwInAddrErrors: u32,
+            dwForwDatagrams: u32,
+            dwInUnknownProtos: u32,
+            dwInDiscards: u32,
+            dwInDelivers: u32,
+            dwOutRequests: u32,
+            dwRoutingDiscards: u32,
+            dwOutDiscards: u32,
+            dwOutNoRoutes: u32,
+            dwReasmTimeout: u32,
+            dwReasmReqds: u32,
+            dwReasmOks: u32,
+            dwReasmFails: u32,
+            dwFragOks: u32,
+            dwFragFails: u32,
+            dwFragCreates: u32,
+            dwNumIf: u32,
+            dwNumAddr: u32,
+            dwNumRoutes: u32,
+        }
+        struct MIB_IPSTATS_W2K {
+            dwForwarding: u32,
+            dwDefaultTTL: u32,
+            dwInReceives: u32,
+            dwInHdrErrors: u32,
+            dwInAddrErrors: u32,
+            dwForwDatagrams: u32,
+            dwInUnknownProtos: u32,
+            dwInDiscards: u32,
+            dwInDelivers: u32,
+            dwOutRequests: u32,
+            dwRoutingDiscards: u32,
+            dwOutDiscards: u32,
+            dwOutNoRoutes: u32,
+            dwReasmTimeout: u32,
+            dwReasmReqds: u32,
+            dwReasmOks: u32,
+            dwReasmFails: u32,
+            dwFragOks: u32,
+            dwFragFails: u32,
+            dwFragCreates: u32,
+            dwNumIf: u32,
+            dwNumAddr: u32,
+            dwNumRoutes: u32,
+        }
+        struct MIB_MFE_STATS_TABLE {
+            dwNumEntries: u32,
+            table: [MIB_IPMCAST_MFE_STATS; 1],
+        }
+        type MIB_MFE_STATS_TABLE_EX = MIB_MFE_STATS_TABLE_EX_XP;
+        struct MIB_MFE_STATS_TABLE_EX_XP {
+            dwNumEntries: u32,
+            table: [PMIB_IPMCAST_MFE_STATS_EX_XP; 1],
+        }
+        struct MIB_MFE_TABLE {
+            dwNumEntries: u32,
+            table: [MIB_IPMCAST_MFE; 1],
+        }
+        const MIB_USE_CURRENT_FORWARDING: u32 = 4294967295;
+        const MIB_USE_CURRENT_TTL: u32 = 4294967295;
+        type PICMP4_TYPE = *mut ICMP4_TYPE;
+        type PICMP6_TYPE = *mut ICMP6_TYPE;
+        type PMIBICMPSTATS = *mut MIBICMPSTATS;
+        type PMIBICMPSTATS_EX = *mut MIBICMPSTATS_EX_XPSP1;
+        type PMIBICMPSTATS_EX_XPSP1 = *mut MIBICMPSTATS_EX_XPSP1;
+        type PMIB_ICMP = *mut MIB_ICMP;
+        type PMIB_ICMP_EX = *mut MIB_ICMP_EX_XPSP1;
+        type PMIB_ICMP_EX_XPSP1 = *mut MIB_ICMP_EX_XPSP1;
+        type PMIB_IPADDRROW = *mut MIB_IPADDRROW_XP;
+        type PMIB_IPADDRROW_W2K = *mut MIB_IPADDRROW_W2K;
+        type PMIB_IPADDRROW_XP = *mut MIB_IPADDRROW_XP;
+        type PMIB_IPADDRTABLE = *mut MIB_IPADDRTABLE;
+        type PMIB_IPFORWARDNUMBER = *mut MIB_IPFORWARDNUMBER;
+        type PMIB_IPFORWARDROW = *mut MIB_IPFORWARDROW;
+        type PMIB_IPFORWARDTABLE = *mut MIB_IPFORWARDTABLE;
+        type PMIB_IPMCAST_GLOBAL = *mut MIB_IPMCAST_GLOBAL;
+        type PMIB_IPMCAST_IF_ENTRY = *mut MIB_IPMCAST_IF_ENTRY;
+        type PMIB_IPMCAST_IF_TABLE = *mut MIB_IPMCAST_IF_TABLE;
+        type PMIB_IPMCAST_MFE = *mut MIB_IPMCAST_MFE;
+        type PMIB_IPMCAST_MFE_STATS = *mut MIB_IPMCAST_MFE_STATS;
+        type PMIB_IPMCAST_MFE_STATS_EX = *mut MIB_IPMCAST_MFE_STATS_EX_XP;
+        type PMIB_IPMCAST_MFE_STATS_EX_XP = *mut MIB_IPMCAST_MFE_STATS_EX_XP;
+        type PMIB_IPMCAST_OIF = *mut MIB_IPMCAST_OIF_XP;
+        type PMIB_IPMCAST_OIF_STATS = *mut MIB_IPMCAST_OIF_STATS_LH;
+        type PMIB_IPMCAST_OIF_STATS_LH = *mut MIB_IPMCAST_OIF_STATS_LH;
+        type PMIB_IPMCAST_OIF_STATS_W2K = *mut MIB_IPMCAST_OIF_STATS_W2K;
+        type PMIB_IPMCAST_OIF_W2K = *mut MIB_IPMCAST_OIF_W2K;
+        type PMIB_IPMCAST_OIF_XP = *mut MIB_IPMCAST_OIF_XP;
+        type PMIB_IPNETROW = *mut MIB_IPNETROW_LH;
+        type PMIB_IPNETROW_LH = *mut MIB_IPNETROW_LH;
+        type PMIB_IPNETROW_W2K = *mut MIB_IPNETROW_W2K;
+        type PMIB_IPNETTABLE = *mut MIB_IPNETTABLE;
+        type PMIB_IPSTATS = *mut MIB_IPSTATS_LH;
+        type PMIB_IPSTATS_FORWARDING = *mut MIB_IPSTATS_FORWARDING;
+        type PMIB_IPSTATS_LH = *mut MIB_IPSTATS_LH;
+        type PMIB_IPSTATS_W2K = *mut MIB_IPSTATS_W2K;
+        type PMIB_MFE_STATS_TABLE = *mut MIB_MFE_STATS_TABLE;
+        type PMIB_MFE_STATS_TABLE_EX = *mut MIB_MFE_STATS_TABLE_EX_XP;
+        type PMIB_MFE_STATS_TABLE_EX_XP = *mut MIB_MFE_STATS_TABLE_EX_XP;
+        type PMIB_MFE_TABLE = *mut MIB_MFE_TABLE;
+        const SIZEOF_BASIC_MIB_MFE: u32 = 60;
+        const SIZEOF_BASIC_MIB_MFE_STATS: u32 = 64;
+        const SIZEOF_BASIC_MIB_MFE_STATS_EX: u32 = 84;
+    }
+}

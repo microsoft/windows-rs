@@ -1,13 +1,13 @@
 windows_core::link!("combase.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_core::HRESULT);
 windows_core::link!("combase.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
-windows_core::link!("combase.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
+windows_core::link!("combase.dll" "system" fn CoTaskMemFree(pv : *mut core::ffi::c_void));
 windows_core::link!("kernel32.dll" "system" fn EncodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
 windows_core::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> windows_core::BOOL);
 windows_core::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : HMODULE, lpprocname : windows_core::PCSTR) -> FARPROC);
-windows_core::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : windows_core::PCSTR, hfile : HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> HMODULE);
+windows_core::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : windows_core::PCSTR, hfile : HANDLE, dwflags : u32) -> HMODULE);
 windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : *mut core::ffi::c_void, iid : *const windows_core::GUID, factory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("combase.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : *mut core::ffi::c_void, ppagilereference : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-windows_core::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+windows_core::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut windows_core::GUID) -> RPC_STATUS);
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = 0;
 pub type AgileReferenceOptions = i32;
 pub const CO_E_NOTINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x800401F0_u32 as _);
@@ -15,9 +15,17 @@ pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
 pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 pub const E_NOINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80004002_u32 as _);
 pub const E_POINTER: windows_core::HRESULT = windows_core::HRESULT(0x80004003_u32 as _);
+#[cfg(target_arch = "x86")]
+pub type FARPROC = Option<unsafe extern "system" fn() -> i32>;
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
 pub type HANDLE = *mut core::ffi::c_void;
-pub type HMODULE = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut core::ffi::c_void;
+pub type HMODULE = HINSTANCE;
 windows_core::imp::define_interface!(
     IAgileObject,
     IAgileObject_Vtbl,
@@ -233,8 +241,8 @@ impl IWeakReferenceSource_Vtbl {
 }
 impl windows_core::RuntimeName for IWeakReferenceSource {}
 pub const JSCRIPT_E_CANTEXECUTE: windows_core::HRESULT = windows_core::HRESULT(0x89020001_u32 as _);
-pub type LOAD_LIBRARY_FLAGS = u32;
-pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096;
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: u32 = 4096;
 pub const REGDB_E_CLASSNOTREG: windows_core::HRESULT = windows_core::HRESULT(0x80040154_u32 as _);
 pub const RPC_E_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x80010108_u32 as _);
+pub type RPC_STATUS = i32;
 pub const S_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);

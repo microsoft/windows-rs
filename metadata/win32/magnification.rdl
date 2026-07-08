@@ -1,0 +1,70 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct MAGCOLOREFFECT {
+            transform: [[f32; 5]; 5],
+        }
+        struct MAGIMAGEHEADER {
+            width: u32,
+            height: u32,
+            format: WICPixelFormatGUID,
+            stride: u32,
+            offset: u32,
+            cbSize: usize,
+        }
+        struct MAGTRANSFORM {
+            v: [[f32; 3]; 3],
+        }
+        const MS_CLIPAROUNDCURSOR: u32 = 2;
+        const MS_INVERTCOLORS: u32 = 4;
+        const MS_SHOWMAGNIFIEDCURSOR: u32 = 1;
+        const MW_FILTERMODE_EXCLUDE: u32 = 0;
+        const MW_FILTERMODE_INCLUDE: u32 = 1;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagGetColorEffect(hwnd: HWND, pEffect: *mut MAGCOLOREFFECT) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagGetFullscreenColorEffect(pEffect: *mut MAGCOLOREFFECT) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagGetFullscreenTransform(pMagLevel: *mut f32, pxOffset: *mut i32, pyOffset: *mut i32) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagGetImageScalingCallback(hwnd: HWND) -> MagImageScalingCallback;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagGetInputTransform(pfEnabled: *mut BOOL, pRectSource: *mut RECT, pRectDest: *mut RECT) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagGetWindowFilterList(hwnd: HWND, pdwFilterMode: *mut u32, count: i32, pHWND: *mut HWND) -> i32;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagGetWindowSource(hwnd: HWND, pRect: *mut RECT) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagGetWindowTransform(hwnd: HWND, pTransform: *mut MAGTRANSFORM) -> BOOL;
+        extern fn MagImageScalingCallback(hwnd: HWND, srcdata: *mut void, srcheader: MAGIMAGEHEADER, destdata: *mut void, destheader: MAGIMAGEHEADER, unclipped: RECT, clipped: RECT, dirty: HRGN) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagInitialize() -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagSetColorEffect(hwnd: HWND, pEffect: *mut MAGCOLOREFFECT) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagSetFullscreenColorEffect(pEffect: *const MAGCOLOREFFECT) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagSetFullscreenTransform(magLevel: f32, xOffset: i32, yOffset: i32) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagSetImageScalingCallback(hwnd: HWND, callback: MagImageScalingCallback) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagSetInputTransform(fEnabled: BOOL, pRectSource: *const RECT, pRectDest: *const RECT) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagSetWindowFilterList(hwnd: HWND, dwFilterMode: u32, count: i32, pHWND: *mut HWND) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagSetWindowSource(hwnd: HWND, rect: RECT) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagSetWindowTransform(hwnd: HWND, pTransform: *mut MAGTRANSFORM) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagShowSystemCursor(fShowCursor: BOOL) -> BOOL;
+        #[library("MAGNIFICATION.dll")]
+        extern fn MagUninitialize() -> BOOL;
+        type PMAGCOLOREFFECT = *mut MAGCOLOREFFECT;
+        type PMAGIMAGEHEADER = *mut MAGIMAGEHEADER;
+        type PMAGTRANSFORM = *mut MAGTRANSFORM;
+        #[encoding("ansi")]
+        const WC_MAGNIFIERA: String = "Magnifier";
+        #[encoding("utf-16")]
+        const WC_MAGNIFIERW: String = "Magnifier";
+    }
+}

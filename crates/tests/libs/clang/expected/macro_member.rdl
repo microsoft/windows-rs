@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[guid(0x20000000_0000_0000_c000_000000000046)]
+    interface IRender {
+        fn DrawText(&self, text: *const u16) -> i32;
+        fn GetMessage(&self, msg: *mut void) -> i32;
+        fn Paint(&self,) -> i32;
+    }
+}

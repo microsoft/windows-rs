@@ -1,0 +1,245 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn AllocateUserPhysicalPages(hProcess: HANDLE, #[in] #[out] NumberOfPages: *mut u64, #[len_param(1)] PageArray: *mut u64) -> BOOL;
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn AllocateUserPhysicalPages(hProcess: HANDLE, #[in] #[out] NumberOfPages: *mut u32, #[len_param(1)] PageArray: *mut u32) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("api-ms-win-core-memory-l1-1-8.dll")]
+        extern fn AllocateUserPhysicalPages2(ObjectHandle: HANDLE, #[in] #[out] NumberOfPages: *mut u64, #[len_param(1)] PageArray: *mut u64, #[len_param(4)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> BOOL;
+        #[arch(X86)]
+        #[library("api-ms-win-core-memory-l1-1-8.dll")]
+        extern fn AllocateUserPhysicalPages2(ObjectHandle: HANDLE, #[in] #[out] NumberOfPages: *mut u32, #[len_param(1)] PageArray: *mut u32, #[len_param(4)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn AllocateUserPhysicalPagesNuma(hProcess: HANDLE, #[in] #[out] NumberOfPages: *mut u64, #[len_param(1)] PageArray: *mut u64, nndPreferred: u32) -> BOOL;
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn AllocateUserPhysicalPagesNuma(hProcess: HANDLE, #[in] #[out] NumberOfPages: *mut u32, #[len_param(1)] PageArray: *mut u32, nndPreferred: u32) -> BOOL;
+        extern fn BAD_MEMORY_CALLBACK_ROUTINE();
+        #[library("api-ms-win-core-memory-l1-1-7.dll")]
+        extern fn CreateFileMapping2(File: HANDLE, #[opt] SecurityAttributes: *const SECURITY_ATTRIBUTES, DesiredAccess: u32, PageProtection: u32, AllocationAttributes: u32, MaximumSize: u64, #[opt] Name: PCWSTR, #[len_param(8)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ParameterCount: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateFileMappingFromApp(hFile: HANDLE, #[opt] SecurityAttributes: *const SECURITY_ATTRIBUTES, PageProtection: u32, MaximumSize: u64, #[opt] Name: PCWSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateFileMappingNumaW(hFile: HANDLE, #[opt] lpFileMappingAttributes: *const SECURITY_ATTRIBUTES, flProtect: u32, dwMaximumSizeHigh: u32, dwMaximumSizeLow: u32, #[opt] lpName: PCWSTR, nndPreferred: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateFileMappingW(hFile: HANDLE, #[opt] lpFileMappingAttributes: *const SECURITY_ATTRIBUTES, flProtect: u32, dwMaximumSizeHigh: u32, dwMaximumSizeLow: u32, #[opt] lpName: PCWSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateMemoryResourceNotification(NotificationType: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn DiscardVirtualMemory(#[len_param(1)] #[in] #[out] VirtualAddress: *mut void, Size: usize) -> u32;
+        const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2;
+        const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1;
+        const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8;
+        const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4;
+        const FILE_MAP_ALL_ACCESS: u32 = 983071;
+        const FILE_MAP_COPY: u32 = 1;
+        const FILE_MAP_EXECUTE: u32 = 32;
+        const FILE_MAP_LARGE_PAGES: u32 = 536870912;
+        const FILE_MAP_READ: u32 = 4;
+        const FILE_MAP_RESERVE: u32 = 2147483648;
+        const FILE_MAP_TARGETS_INVALID: u32 = 1073741824;
+        const FILE_MAP_WRITE: u32 = 2;
+        #[library("KERNEL32.dll")]
+        extern fn FlushViewOfFile(lpBaseAddress: *const void, dwNumberOfBytesToFlush: usize) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn FreeUserPhysicalPages(hProcess: HANDLE, #[in] #[out] NumberOfPages: *mut u64, #[len_param(1)] PageArray: *const u64) -> BOOL;
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn FreeUserPhysicalPages(hProcess: HANDLE, #[in] #[out] NumberOfPages: *mut u32, #[len_param(1)] PageArray: *const u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetLargePageMinimum() -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn GetMemoryErrorHandlingCapabilities(Capabilities: *mut u32) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-9.dll")]
+        extern fn GetNumaNodeMemoryClosestInitiatorNode(TargetNodeNumber: u16, InitiatorNodeNumber: *mut u16) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-9.dll")]
+        extern fn GetNumaNodeMemoryReadBandwidth(TargetNodeNumber: u16, InitiatorNodeNumber: u16, Bandwidth: *mut NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-9.dll")]
+        extern fn GetNumaNodeMemoryReadLatency(TargetNodeNumber: u16, InitiatorNodeNumber: u16, Latency: *mut NUMA_NODE_MEMORY_PERFORMANCE_LATENCY) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-9.dll")]
+        extern fn GetNumaNodeMemoryWriteBandwidth(TargetNodeNumber: u16, InitiatorNodeNumber: u16, Bandwidth: *mut NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-9.dll")]
+        extern fn GetNumaNodeMemoryWriteLatency(TargetNodeNumber: u16, InitiatorNodeNumber: u16, Latency: *mut NUMA_NODE_MEMORY_PERFORMANCE_LATENCY) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessWorkingSetSize(hProcess: HANDLE, lpMinimumWorkingSetSize: *mut usize, lpMaximumWorkingSetSize: *mut usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessWorkingSetSizeEx(hProcess: HANDLE, lpMinimumWorkingSetSize: *mut usize, lpMaximumWorkingSetSize: *mut usize, Flags: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemFileCacheSize(lpMinimumFileCacheSize: *mut usize, lpMaximumFileCacheSize: *mut usize, lpFlags: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetWriteWatch(dwFlags: u32, lpBaseAddress: *const void, dwRegionSize: usize, #[len_param(4)] #[opt] lpAddresses: *mut *mut void, #[in] #[out] #[opt] lpdwCount: *mut usize, #[opt] lpdwGranularity: *mut u32) -> u32;
+        const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1;
+        #[repr(i32)]
+        enum MEMORY_RESOURCE_NOTIFICATION_TYPE {
+            LowMemoryResourceNotification = 0,
+            HighMemoryResourceNotification = 1,
+        }
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn MapUserPhysicalPages(VirtualAddress: *const void, NumberOfPages: usize, #[len_param(1)] #[opt] PageArray: *const u64) -> BOOL;
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn MapUserPhysicalPages(VirtualAddress: *const void, NumberOfPages: usize, #[len_param(1)] #[opt] PageArray: *const u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MapViewOfFile(hFileMappingObject: HANDLE, dwDesiredAccess: u32, dwFileOffsetHigh: u32, dwFileOffsetLow: u32, dwNumberOfBytesToMap: usize) -> *mut void;
+        #[library("api-ms-win-core-memory-l1-1-6.dll")]
+        extern fn MapViewOfFile3(FileMapping: HANDLE, #[opt] Process: HANDLE, #[opt] BaseAddress: *const void, Offset: u64, ViewSize: usize, AllocationType: u32, PageProtection: u32, #[len_param(8)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ParameterCount: u32) -> *mut void;
+        #[library("api-ms-win-core-memory-l1-1-6.dll")]
+        extern fn MapViewOfFile3FromApp(FileMapping: HANDLE, #[opt] Process: HANDLE, #[opt] BaseAddress: *const void, Offset: u64, ViewSize: usize, AllocationType: u32, PageProtection: u32, #[len_param(8)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ParameterCount: u32) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn MapViewOfFileEx(hFileMappingObject: HANDLE, dwDesiredAccess: u32, dwFileOffsetHigh: u32, dwFileOffsetLow: u32, dwNumberOfBytesToMap: usize, #[opt] lpBaseAddress: *const void) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn MapViewOfFileFromApp(hFileMappingObject: HANDLE, DesiredAccess: u32, FileOffset: u64, NumberOfBytesToMap: usize) -> *mut void;
+        #[library("api-ms-win-core-memory-l1-1-5.dll")]
+        extern fn MapViewOfFileNuma2(FileMappingHandle: HANDLE, ProcessHandle: HANDLE, Offset: u64, #[opt] BaseAddress: *const void, ViewSize: usize, AllocationType: u32, PageProtection: u32, PreferredNode: u32) -> *mut void;
+        struct NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH {
+            Condition: NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION,
+            Bandwidth: u64,
+        }
+        struct NUMA_NODE_MEMORY_PERFORMANCE_LATENCY {
+            Condition: NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION,
+            Latency: u64,
+        }
+        struct NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION {
+            Flags: struct {
+                _bitfield: u8,
+            },
+            MinTransferSizeInBytes: u64,
+        }
+        #[repr(i32)]
+        enum OFFER_PRIORITY {
+            VmOfferPriorityVeryLow = 1,
+            VmOfferPriorityLow = 2,
+            VmOfferPriorityBelowNormal = 3,
+            VmOfferPriorityNormal = 4,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn OfferVirtualMemory(#[len_param(1)] #[in] #[out] VirtualAddress: *mut void, Size: usize, Priority: OFFER_PRIORITY) -> u32;
+        #[library("api-ms-win-core-memory-l1-1-8.dll")]
+        extern fn OpenDedicatedMemoryPartition(Partition: HANDLE, DedicatedMemoryTypeId: u64, DesiredAccess: ACCESS_MASK, InheritHandle: BOOL) -> HANDLE;
+        #[library("api-ms-win-core-memory-l1-1-3.dll")]
+        extern fn OpenFileMappingFromApp(DesiredAccess: u32, InheritHandle: BOOL, Name: PCWSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn OpenFileMappingW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCWSTR) -> HANDLE;
+        extern fn PBAD_MEMORY_CALLBACK_ROUTINE();
+        type PWIN32_MEMORY_RANGE_ENTRY = *mut WIN32_MEMORY_RANGE_ENTRY;
+        #[library("KERNEL32.dll")]
+        extern fn PrefetchVirtualMemory(hProcess: HANDLE, NumberOfEntries: usize, #[len_param(1)] VirtualAddresses: *const WIN32_MEMORY_RANGE_ENTRY, Flags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn QueryMemoryResourceNotification(ResourceNotificationHandle: HANDLE, ResourceState: *mut BOOL) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-8.dll")]
+        extern fn QueryPartitionInformation(Partition: HANDLE, PartitionInformationClass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, #[size_param(3)] #[in] #[out] PartitionInformation: *mut void, PartitionInformationLength: u32) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-4.dll")]
+        extern fn QueryVirtualMemoryInformation(Process: HANDLE, VirtualAddress: *const void, MemoryInformationClass: WIN32_MEMORY_INFORMATION_CLASS, #[size_param(4)] MemoryInformation: *mut void, MemoryInformationSize: usize, #[opt] ReturnSize: *mut usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReadProcessMemory(hProcess: HANDLE, lpBaseAddress: *const void, #[size_param(3)] lpBuffer: *mut void, nSize: usize, #[opt] lpNumberOfBytesRead: *mut usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReclaimVirtualMemory(#[len_param(1)] VirtualAddress: *const void, Size: usize) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn RegisterBadMemoryNotification(Callback: PBAD_MEMORY_CALLBACK_ROUTINE) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn ResetWriteWatch(lpBaseAddress: *const void, dwRegionSize: usize) -> u32;
+        #[library("api-ms-win-core-memory-l1-1-3.dll")]
+        extern fn SetProcessValidCallTargets(hProcess: HANDLE, VirtualAddress: *const void, RegionSize: usize, NumberOfOffsets: u32, #[len_param(3)] #[in] #[out] OffsetInformation: *mut CFG_CALL_TARGET_INFO) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-7.dll")]
+        extern fn SetProcessValidCallTargetsForMappedView(Process: HANDLE, VirtualAddress: *const void, RegionSize: usize, NumberOfOffsets: u32, #[len_param(3)] #[in] #[out] OffsetInformation: *mut CFG_CALL_TARGET_INFO, Section: HANDLE, ExpectedFileOffset: u64) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessWorkingSetSize(hProcess: HANDLE, dwMinimumWorkingSetSize: usize, dwMaximumWorkingSetSize: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessWorkingSetSizeEx(hProcess: HANDLE, dwMinimumWorkingSetSize: usize, dwMaximumWorkingSetSize: usize, Flags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetSystemFileCacheSize(MinimumFileCacheSize: usize, MaximumFileCacheSize: usize, Flags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn UnmapViewOfFile(lpBaseAddress: *const void) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-5.dll")]
+        extern fn UnmapViewOfFile2(Process: HANDLE, BaseAddress: *const void, UnmapFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn UnmapViewOfFileEx(BaseAddress: *const void, UnmapFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn UnregisterBadMemoryNotification(RegistrationHandle: *const void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualAlloc(#[opt] lpAddress: *const void, dwSize: usize, flAllocationType: u32, flProtect: u32) -> *mut void;
+        #[library("api-ms-win-core-memory-l1-1-6.dll")]
+        extern fn VirtualAlloc2(#[opt] Process: HANDLE, #[opt] BaseAddress: *const void, Size: usize, AllocationType: u32, PageProtection: u32, #[len_param(6)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ParameterCount: u32) -> *mut void;
+        #[library("api-ms-win-core-memory-l1-1-6.dll")]
+        extern fn VirtualAlloc2FromApp(#[opt] Process: HANDLE, #[opt] BaseAddress: *const void, Size: usize, AllocationType: u32, PageProtection: u32, #[len_param(6)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ParameterCount: u32) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualAllocEx(hProcess: HANDLE, #[opt] lpAddress: *const void, dwSize: usize, flAllocationType: u32, flProtect: u32) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualAllocExNuma(hProcess: HANDLE, #[opt] lpAddress: *const void, dwSize: usize, flAllocationType: u32, flProtect: u32, nndPreferred: u32) -> *mut void;
+        #[library("api-ms-win-core-memory-l1-1-3.dll")]
+        extern fn VirtualAllocFromApp(#[opt] BaseAddress: *const void, Size: usize, AllocationType: u32, Protection: u32) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualFree(lpAddress: *mut void, dwSize: usize, dwFreeType: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualFreeEx(hProcess: HANDLE, lpAddress: *mut void, dwSize: usize, dwFreeType: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualLock(lpAddress: *const void, dwSize: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualProtect(lpAddress: *const void, dwSize: usize, flNewProtect: u32, lpflOldProtect: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualProtectEx(hProcess: HANDLE, lpAddress: *const void, dwSize: usize, flNewProtect: u32, lpflOldProtect: *mut u32) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-3.dll")]
+        extern fn VirtualProtectFromApp(Address: *const void, Size: usize, NewProtection: u32, OldProtection: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualQuery(#[opt] lpAddress: *const void, #[size_param(2)] lpBuffer: *mut MEMORY_BASIC_INFORMATION, dwLength: usize) -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualQueryEx(hProcess: HANDLE, #[opt] lpAddress: *const void, #[size_param(3)] lpBuffer: *mut MEMORY_BASIC_INFORMATION, dwLength: usize) -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn VirtualUnlock(lpAddress: *const void, dwSize: usize) -> BOOL;
+        #[library("api-ms-win-core-memory-l1-1-5.dll")]
+        extern fn VirtualUnlockEx(#[opt] Process: HANDLE, Address: *const void, Size: usize) -> BOOL;
+        #[repr(i32)]
+        enum WIN32_MEMORY_INFORMATION_CLASS {
+            MemoryRegionInfo = 0,
+        }
+        struct WIN32_MEMORY_PARTITION_INFORMATION {
+            Flags: u32,
+            NumaNode: u32,
+            Channel: u32,
+            NumberOfNumaNodes: u32,
+            ResidentAvailablePages: u64,
+            CommittedPages: u64,
+            CommitLimit: u64,
+            PeakCommitment: u64,
+            TotalNumberOfPages: u64,
+            AvailablePages: u64,
+            ZeroPages: u64,
+            FreePages: u64,
+            StandbyPages: u64,
+            Reserved: [u64; 16],
+            MaximumCommitLimit: u64,
+            Reserved2: u64,
+            PartitionId: u32,
+        }
+        #[repr(i32)]
+        enum WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
+            MemoryPartitionInfo = 0,
+            MemoryPartitionDedicatedMemoryInfo = 1,
+        }
+        struct WIN32_MEMORY_RANGE_ENTRY {
+            VirtualAddress: *mut void,
+            NumberOfBytes: usize,
+        }
+        struct WIN32_MEMORY_REGION_INFORMATION {
+            AllocationBase: *mut void,
+            AllocationProtect: u32,
+            Anonymous: union {
+                Flags: u32,
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+            },
+            RegionSize: usize,
+            CommitSize: usize,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn WriteProcessMemory(hProcess: HANDLE, lpBaseAddress: *const void, #[size_param(3)] lpBuffer: *const void, nSize: usize, #[opt] lpNumberOfBytesWritten: *mut usize) -> BOOL;
+    }
+}

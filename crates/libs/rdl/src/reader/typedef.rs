@@ -34,13 +34,16 @@ impl Encoder<'_> {
             flags,
         );
 
-        // Encode the underlying type as a single field named `value`.
+        // A typedef is encoded as a struct with a single field named `Value`.
         let mt = self.encode_type(&item.ty)?;
         self.output
             .Field("Value", &mt, metadata::FieldAttributes::Public);
 
-        // Add the NativeTypedefAttribute.
         self.encode_native_typedef_attribute(metadata::writer::HasAttribute::TypeDef(type_def));
+
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(metadata::writer::HasAttribute::TypeDef(type_def), arch_bits);
+        }
 
         Ok(())
     }

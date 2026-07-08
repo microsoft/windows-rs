@@ -1,0 +1,225 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const HLBWIF_DOCWNDMAXIMIZED: i32 = 8;
+        const HLBWIF_FRAMEWNDMAXIMIZED: i32 = 4;
+        const HLBWIF_HASDOCWNDINFO: i32 = 2;
+        const HLBWIF_HASFRAMEWNDINFO: i32 = 1;
+        const HLBWIF_HASWEBTOOLBARINFO: i32 = 16;
+        const HLBWIF_WEBTOOLBARHIDDEN: i32 = 32;
+        struct HLBWINFO {
+            cbSize: u32,
+            grfHLBWIF: u32,
+            rcFramePos: RECT,
+            rcDocPos: RECT,
+            hltbinfo: HLTBINFO,
+        }
+        #[repr(i32)]
+        enum HLFNAMEF {
+            HLFNAMEF_DEFAULT = 0,
+            HLFNAMEF_TRYCACHE = 1,
+            HLFNAMEF_TRYPRETTYTARGET = 2,
+            HLFNAMEF_TRYFULLTARGET = 4,
+            HLFNAMEF_TRYWIN95SHORTCUT = 8,
+        }
+        const HLID_CURRENT: i32 = -3;
+        const HLID_INVALID: i32 = 0;
+        const HLID_NEXT: i32 = -2;
+        const HLID_PREVIOUS: i32 = -1;
+        const HLID_STACKBOTTOM: i32 = -4;
+        const HLID_STACKTOP: i32 = -5;
+        #[repr(i32)]
+        enum HLINKGETREF {
+            HLINKGETREF_DEFAULT = 0,
+            HLINKGETREF_ABSOLUTE = 1,
+            HLINKGETREF_RELATIVE = 2,
+        }
+        #[repr(i32)]
+        enum HLINKMISC {
+            HLINKMISC_RELATIVE = 1,
+        }
+        #[repr(i32)]
+        enum HLINKSETF {
+            HLINKSETF_TARGET = 1,
+            HLINKSETF_LOCATION = 2,
+        }
+        #[repr(i32)]
+        enum HLINKWHICHMK {
+            HLINKWHICHMK_CONTAINER = 1,
+            HLINKWHICHMK_BASE = 2,
+        }
+        const HLINK_E_FIRST: i32 = -2147221248;
+        const HLINK_S_DONTHIDE: u32 = 262400;
+        const HLINK_S_FIRST: u32 = 262400;
+        struct HLITEM {
+            uHLID: u32,
+            pwzFriendlyName: PWSTR,
+        }
+        #[repr(i32)]
+        enum HLNF {
+            HLNF_INTERNALJUMP = 1,
+            HLNF_OPENINNEWWINDOW = 2,
+            HLNF_NAVIGATINGBACK = 4,
+            HLNF_NAVIGATINGFORWARD = 8,
+            HLNF_NAVIGATINGTOSTACKITEM = 16,
+            HLNF_CREATENOHISTORY = 32,
+        }
+        const HLQF_ISCURRENT: i32 = 2;
+        const HLQF_ISVALID: i32 = 1;
+        #[repr(i32)]
+        enum HLSHORTCUTF {
+            HLSHORTCUTF_DEFAULT = 0,
+            HLSHORTCUTF_DONTACTUALLYCREATE = 1,
+            HLSHORTCUTF_USEFILENAMEFROMFRIENDLYNAME = 2,
+            HLSHORTCUTF_USEUNIQUEFILENAME = 4,
+            HLSHORTCUTF_MAYUSEEXISTINGSHORTCUT = 8,
+        }
+        #[repr(i32)]
+        enum HLSR {
+            HLSR_HOME = 0,
+            HLSR_SEARCHPAGE = 1,
+            HLSR_HISTORYFOLDER = 2,
+        }
+        struct HLTBINFO {
+            uDockType: u32,
+            rcTbPos: RECT,
+        }
+        const HLTB_DOCKEDBOTTOM: i32 = 3;
+        const HLTB_DOCKEDLEFT: i32 = 0;
+        const HLTB_DOCKEDRIGHT: i32 = 2;
+        const HLTB_DOCKEDTOP: i32 = 1;
+        const HLTB_FLOATING: i32 = 4;
+        #[repr(i32)]
+        enum HLTRANSLATEF {
+            HLTRANSLATEF_DEFAULT = 0,
+            HLTRANSLATEF_DONTAPPLYDEFAULTPREFIX = 1,
+        }
+        #[library("hlink.dll")]
+        extern fn HlinkClone(pihl: IHlink, riid: *const GUID, pihlsiteForClone: IHlinkSite, dwSiteData: u32, ppvObj: *mut *mut void) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkCreateBrowseContext(piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkCreateExtensionServices(pwzAdditionalHeaders: PCWSTR, phwnd: HWND, pszUsername: PCWSTR, pszPassword: PCWSTR, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkCreateFromData(piDataObj: IDataObject, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkCreateFromMoniker(pimkTrgt: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkCreateFromString(pwzTarget: PCWSTR, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkCreateShortcut(grfHLSHORTCUTF: u32, pihl: IHlink, pwzDir: PCWSTR, pwzFileName: PCWSTR, ppwzShortcutFile: *mut PWSTR, dwReserved: u32) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkCreateShortcutFromMoniker(grfHLSHORTCUTF: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzDir: PCWSTR, pwzFileName: PCWSTR, ppwzShortcutFile: *mut PWSTR, dwReserved: u32) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkCreateShortcutFromString(grfHLSHORTCUTF: u32, pwzTarget: PCWSTR, pwzLocation: PCWSTR, pwzDir: PCWSTR, pwzFileName: PCWSTR, ppwzShortcutFile: *mut PWSTR, dwReserved: u32) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkGetSpecialReference(uReference: u32, ppwzReference: *mut PWSTR) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkGetValueFromParams(pwzParams: PCWSTR, pwzName: PCWSTR, ppwzValue: *mut PWSTR) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkIsShortcut(pwzFileName: PCWSTR) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkNavigate(pihl: IHlink, pihlframe: IHlinkFrame, grfHLNF: u32, pbc: IBindCtx, pibsc: IBindStatusCallback, pihlbc: IHlinkBrowseContext) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkNavigateToStringReference(pwzTarget: PCWSTR, pwzLocation: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, pihlframe: IHlinkFrame, grfHLNF: u32, pibc: IBindCtx, pibsc: IBindStatusCallback, pihlbc: IHlinkBrowseContext) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkOnNavigate(pihlframe: IHlinkFrame, pihlbc: IHlinkBrowseContext, grfHLNF: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, puHLID: *mut u32) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkOnRenameDocument(dwReserved: u32, pihlbc: IHlinkBrowseContext, pimkOld: IMoniker, pimkNew: IMoniker) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkParseDisplayName(pibc: IBindCtx, pwzDisplayName: PCWSTR, fNoForceAbs: BOOL, pcchEaten: *mut u32, ppimk: *mut IMoniker) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkPreprocessMoniker(pibc: IBindCtx, pimkIn: IMoniker, ppimkOut: *mut IMoniker) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkQueryCreateFromData(piDataObj: IDataObject) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkResolveMonikerForData(pimkReference: IMoniker, reserved: u32, pibc: IBindCtx, cFmtetc: u32, rgFmtetc: *mut FORMATETC, pibsc: IBindStatusCallback, pimkBase: IMoniker) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkResolveShortcut(pwzShortcutFileName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkResolveShortcutToMoniker(pwzShortcutFileName: PCWSTR, ppimkTarget: *mut IMoniker, ppwzLocation: *mut PWSTR) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkResolveShortcutToString(pwzShortcutFileName: PCWSTR, ppwzTarget: *mut PWSTR, ppwzLocation: *mut PWSTR) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkResolveStringForData(pwzReference: PCWSTR, reserved: u32, pibc: IBindCtx, cFmtetc: u32, rgFmtetc: *mut FORMATETC, pibsc: IBindStatusCallback, pimkBase: IMoniker) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkSetSpecialReference(uReference: u32, pwzReference: PCWSTR) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkTranslateURL(pwzURL: PCWSTR, grfFlags: u32, ppwzTranslatedURL: *mut PWSTR) -> HRESULT;
+        #[library("hlink.dll")]
+        extern fn HlinkUpdateStackItem(pihlframe: IHlinkFrame, pihlbc: IHlinkBrowseContext, uHLID: u32, pimkTrgt: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR) -> HRESULT;
+        #[guid(0x79eac9c6_baf9_11ce_8c82_00aa004ba90b)]
+        interface IEnumHLITEM: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut HLITEM, pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppienumhlitem: *mut IEnumHLITEM) -> HRESULT;
+        }
+        #[guid(0x79eac9cb_baf9_11ce_8c82_00aa004ba90b)]
+        interface IExtensionServices: IUnknown {
+            fn SetAdditionalHeaders(&self, pwzAdditionalHeaders: PCWSTR) -> HRESULT;
+            fn SetAuthenticateData(&self, phwnd: HWND, pwzUsername: PCWSTR, pwzPassword: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x79eac9c3_baf9_11ce_8c82_00aa004ba90b)]
+        interface IHlink: IUnknown {
+            fn SetHlinkSite(&self, pihlSite: IHlinkSite, dwSiteData: u32) -> HRESULT;
+            fn GetHlinkSite(&self, ppihlSite: *mut IHlinkSite, pdwSiteData: *mut u32) -> HRESULT;
+            fn SetMonikerReference(&self, grfHLSETF: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR) -> HRESULT;
+            fn GetMonikerReference(&self, dwWhichRef: u32, ppimkTarget: *mut IMoniker, ppwzLocation: *mut PWSTR) -> HRESULT;
+            fn SetStringReference(&self, grfHLSETF: u32, pwzTarget: PCWSTR, pwzLocation: PCWSTR) -> HRESULT;
+            fn GetStringReference(&self, dwWhichRef: u32, ppwzTarget: *mut PWSTR, ppwzLocation: *mut PWSTR) -> HRESULT;
+            fn SetFriendlyName(&self, pwzFriendlyName: PCWSTR) -> HRESULT;
+            fn GetFriendlyName(&self, grfHLFNAMEF: u32, ppwzFriendlyName: *mut PWSTR) -> HRESULT;
+            fn SetTargetFrameName(&self, pwzTargetFrameName: PCWSTR) -> HRESULT;
+            fn GetTargetFrameName(&self, ppwzTargetFrameName: *mut PWSTR) -> HRESULT;
+            fn GetMiscStatus(&self, pdwStatus: *mut u32) -> HRESULT;
+            fn Navigate(&self, grfHLNF: u32, pibc: IBindCtx, pibsc: IBindStatusCallback, pihlbc: IHlinkBrowseContext) -> HRESULT;
+            fn SetAdditionalParams(&self, pwzAdditionalParams: PCWSTR) -> HRESULT;
+            fn GetAdditionalParams(&self, ppwzAdditionalParams: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x79eac9c7_baf9_11ce_8c82_00aa004ba90b)]
+        interface IHlinkBrowseContext: IUnknown {
+            fn Register(&self, reserved: u32, piunk: IUnknown, pimk: IMoniker, pdwRegister: *mut u32) -> HRESULT;
+            fn GetObject(&self, pimk: IMoniker, fBindIfRootRegistered: BOOL, ppiunk: *mut IUnknown) -> HRESULT;
+            fn Revoke(&self, dwRegister: u32) -> HRESULT;
+            fn SetBrowseWindowInfo(&self, phlbwi: *const HLBWINFO) -> HRESULT;
+            fn GetBrowseWindowInfo(&self, phlbwi: *mut HLBWINFO) -> HRESULT;
+            fn SetInitialHlink(&self, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR) -> HRESULT;
+            fn OnNavigateHlink(&self, grfHLNF: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, puHLID: *mut u32) -> HRESULT;
+            fn UpdateHlink(&self, uHLID: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR) -> HRESULT;
+            fn EnumNavigationStack(&self, dwReserved: u32, grfHLFNAMEF: u32, ppienumhlitem: *mut IEnumHLITEM) -> HRESULT;
+            fn QueryHlink(&self, grfHLQF: u32, uHLID: u32) -> HRESULT;
+            fn GetHlink(&self, uHLID: u32, ppihl: *mut IHlink) -> HRESULT;
+            fn SetCurrentHlink(&self, uHLID: u32) -> HRESULT;
+            fn Clone(&self, piunkOuter: IUnknown, riid: *const GUID, #[iid_is] ppiunkObj: *mut *mut void) -> HRESULT;
+            fn Close(&self, reserved: u32) -> HRESULT;
+        }
+        #[guid(0x79eac9c5_baf9_11ce_8c82_00aa004ba90b)]
+        interface IHlinkFrame: IUnknown {
+            fn SetBrowseContext(&self, pihlbc: IHlinkBrowseContext) -> HRESULT;
+            fn GetBrowseContext(&self, ppihlbc: *mut IHlinkBrowseContext) -> HRESULT;
+            fn Navigate(&self, grfHLNF: u32, pbc: IBindCtx, pibsc: IBindStatusCallback, pihlNavigate: IHlink) -> HRESULT;
+            fn OnNavigate(&self, grfHLNF: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, dwreserved: u32) -> HRESULT;
+            fn UpdateHlink(&self, uHLID: u32, pimkTarget: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x79eac9c2_baf9_11ce_8c82_00aa004ba90b)]
+        interface IHlinkSite: IUnknown {
+            fn QueryService(&self, dwSiteData: u32, guidService: *const GUID, riid: *const GUID, #[iid_is] ppiunk: *mut *mut void) -> HRESULT;
+            fn GetMoniker(&self, dwSiteData: u32, dwAssign: u32, dwWhich: u32, ppimk: *mut IMoniker) -> HRESULT;
+            fn ReadyToNavigate(&self, dwSiteData: u32, dwReserved: u32) -> HRESULT;
+            fn OnNavigationComplete(&self, dwSiteData: u32, dwreserved: u32, hrError: HRESULT, pwzError: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x79eac9c4_baf9_11ce_8c82_00aa004ba90b)]
+        interface IHlinkTarget: IUnknown {
+            fn SetBrowseContext(&self, pihlbc: IHlinkBrowseContext) -> HRESULT;
+            fn GetBrowseContext(&self, ppihlbc: *mut IHlinkBrowseContext) -> HRESULT;
+            fn Navigate(&self, grfHLNF: u32, pwzJumpLocation: PCWSTR) -> HRESULT;
+            fn GetMoniker(&self, pwzLocation: PCWSTR, dwAssign: u32, ppimkLocation: *mut IMoniker) -> HRESULT;
+            fn GetFriendlyName(&self, pwzLocation: PCWSTR, ppwzFriendlyName: *mut PWSTR) -> HRESULT;
+        }
+        type LPHLBWINFO = *mut HLBWINFO;
+        type LPHLITEM = *mut HLITEM;
+        #[library("hlink.dll")]
+        extern fn OleSaveToStreamEx(piunk: IUnknown, pistm: IStream, fClearDirty: BOOL) -> HRESULT;
+    }
+}

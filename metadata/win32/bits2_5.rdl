@@ -1,0 +1,38 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum BG_CERT_STORE_LOCATION {
+            BG_CERT_STORE_LOCATION_CURRENT_USER = 0,
+            BG_CERT_STORE_LOCATION_LOCAL_MACHINE = 1,
+            BG_CERT_STORE_LOCATION_CURRENT_SERVICE = 2,
+            BG_CERT_STORE_LOCATION_SERVICES = 3,
+            BG_CERT_STORE_LOCATION_USERS = 4,
+            BG_CERT_STORE_LOCATION_CURRENT_USER_GROUP_POLICY = 5,
+            BG_CERT_STORE_LOCATION_LOCAL_MACHINE_GROUP_POLICY = 6,
+            BG_CERT_STORE_LOCATION_LOCAL_MACHINE_ENTERPRISE = 7,
+        }
+        const BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP: u32 = 2048;
+        const BG_HTTP_REDIRECT_POLICY_ALLOW_REPORT: u32 = 256;
+        const BG_HTTP_REDIRECT_POLICY_ALLOW_SILENT: u32 = 0;
+        const BG_HTTP_REDIRECT_POLICY_DISALLOW: u32 = 512;
+        const BG_HTTP_REDIRECT_POLICY_MASK: u32 = 1792;
+        const BG_SSL_ENABLE_CRL_CHECK: u32 = 1;
+        const BG_SSL_IGNORE_CERT_CN_INVALID: u32 = 2;
+        const BG_SSL_IGNORE_CERT_DATE_INVALID: u32 = 4;
+        const BG_SSL_IGNORE_CERT_WRONG_USAGE: u32 = 16;
+        const BG_SSL_IGNORE_UNKNOWN_CA: u32 = 8;
+        const BackgroundCopyManager2_5: GUID = 0x03ca98d6_ff5d_49b8_abc6_03dd84127020;
+        #[guid(0xf1bd1079_9f01_4bdc_8036_f09b70095066)]
+        interface IBackgroundCopyJobHttpOptions: IUnknown {
+            fn SetClientCertificateByID(&self, StoreLocation: BG_CERT_STORE_LOCATION, StoreName: PCWSTR, pCertHashBlob: *const byte) -> HRESULT;
+            fn SetClientCertificateByName(&self, StoreLocation: BG_CERT_STORE_LOCATION, StoreName: PCWSTR, SubjectName: PCWSTR) -> HRESULT;
+            fn RemoveClientCertificate(&self) -> HRESULT;
+            fn GetClientCertificate(&self, pStoreLocation: *mut BG_CERT_STORE_LOCATION, pStoreName: *mut PWSTR, ppCertHashBlob: *mut *mut byte, pSubjectName: *mut PWSTR) -> HRESULT;
+            fn SetCustomHeaders(&self, RequestHeaders: PCWSTR) -> HRESULT;
+            fn GetCustomHeaders(&self, pRequestHeaders: *mut PWSTR) -> HRESULT;
+            fn SetSecurityFlags(&self, Flags: u32) -> HRESULT;
+            fn GetSecurityFlags(&self, pFlags: *mut u32) -> HRESULT;
+        }
+    }
+}

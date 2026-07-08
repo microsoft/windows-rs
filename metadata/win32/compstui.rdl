@@ -1,0 +1,783 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const APPLYCPSUI_NO_NEWDEF: u32 = 1;
+        const APPLYCPSUI_OK_CANCEL_BUTTON: u32 = 2;
+        const CHKBOXS_FALSE_PDATA: u32 = 3;
+        const CHKBOXS_FALSE_TRUE: u32 = 0;
+        const CHKBOXS_NONE_PDATA: u32 = 6;
+        const CHKBOXS_NO_PDATA: u32 = 4;
+        const CHKBOXS_NO_YES: u32 = 1;
+        const CHKBOXS_OFF_ON: u32 = 2;
+        const CHKBOXS_OFF_PDATA: u32 = 5;
+        struct COMPROPSHEETUI {
+            cbSize: u16,
+            Flags: u16,
+            hInstCaller: HINSTANCE,
+            pCallerName: LPTSTR,
+            UserData: usize,
+            pHelpFile: LPTSTR,
+            pfnCallBack: _CPSUICALLBACK,
+            pOptItem: POPTITEM,
+            pDlgPage: PDLGPAGE,
+            cOptItem: u16,
+            cDlgPage: u16,
+            IconID: usize,
+            pOptItemName: LPTSTR,
+            CallerVersion: u16,
+            OptItemVersion: u16,
+            dwReserved: [usize; 4],
+        }
+        const CPSFUNC_ADD_HPROPSHEETPAGE: u32 = 0;
+        const CPSFUNC_ADD_PCOMPROPSHEETUI: u32 = 2;
+        const CPSFUNC_ADD_PCOMPROPSHEETUIA: u32 = 2;
+        const CPSFUNC_ADD_PCOMPROPSHEETUIW: u32 = 3;
+        const CPSFUNC_ADD_PFNPROPSHEETUI: u32 = 4;
+        const CPSFUNC_ADD_PFNPROPSHEETUIA: u32 = 4;
+        const CPSFUNC_ADD_PFNPROPSHEETUIW: u32 = 5;
+        const CPSFUNC_ADD_PROPSHEETPAGE: u32 = 15;
+        const CPSFUNC_ADD_PROPSHEETPAGEA: u32 = 15;
+        const CPSFUNC_ADD_PROPSHEETPAGEW: u32 = 1;
+        const CPSFUNC_DELETE_HCOMPROPSHEET: u32 = 6;
+        const CPSFUNC_DO_APPLY_CPSUI: u32 = 25;
+        const CPSFUNC_GET_HPSUIPAGES: u32 = 10;
+        const CPSFUNC_GET_PAGECOUNT: u32 = 8;
+        const CPSFUNC_GET_PFNPROPSHEETUI_ICON: u32 = 14;
+        const CPSFUNC_IGNORE_CPSUI_PSN_APPLY: u32 = 24;
+        const CPSFUNC_INSERT_PSUIPAGE: u32 = 16;
+        const CPSFUNC_INSERT_PSUIPAGEA: u32 = 16;
+        const CPSFUNC_INSERT_PSUIPAGEW: u32 = 17;
+        const CPSFUNC_LOAD_CPSUI_ICON: u32 = 13;
+        const CPSFUNC_LOAD_CPSUI_STRING: u32 = 11;
+        const CPSFUNC_LOAD_CPSUI_STRINGA: u32 = 11;
+        const CPSFUNC_LOAD_CPSUI_STRINGW: u32 = 12;
+        const CPSFUNC_QUERY_DATABLOCK: u32 = 22;
+        const CPSFUNC_SET_DATABLOCK: u32 = 21;
+        const CPSFUNC_SET_DMPUB_HIDEBITS: u32 = 23;
+        const CPSFUNC_SET_FUSION_CONTEXT: u32 = 26;
+        const CPSFUNC_SET_HSTARTPAGE: u32 = 7;
+        const CPSFUNC_SET_PSUIPAGE_ICON: u32 = 20;
+        const CPSFUNC_SET_PSUIPAGE_TITLE: u32 = 18;
+        const CPSFUNC_SET_PSUIPAGE_TITLEA: u32 = 18;
+        const CPSFUNC_SET_PSUIPAGE_TITLEW: u32 = 19;
+        const CPSFUNC_SET_RESULT: u32 = 9;
+        struct CPSUICBPARAM {
+            cbSize: u16,
+            Reason: u16,
+            hDlg: HWND,
+            pOptItem: POPTITEM,
+            cOptItem: u16,
+            Flags: u16,
+            pCurItem: POPTITEM,
+            Anonymous: union {
+                OldSel: i32,
+                pOldSel: LPTSTR,
+            },
+            UserData: usize,
+            Result: usize,
+        }
+        const CPSUICB_ACTION_ITEMS_APPLIED: u32 = 4;
+        const CPSUICB_ACTION_NONE: u32 = 0;
+        const CPSUICB_ACTION_NO_APPLY_EXIT: u32 = 3;
+        const CPSUICB_ACTION_OPTIF_CHANGED: u32 = 1;
+        const CPSUICB_ACTION_REINIT_ITEMS: u32 = 2;
+        const CPSUICB_REASON_ABOUT: u32 = 9;
+        const CPSUICB_REASON_APPLYNOW: u32 = 6;
+        const CPSUICB_REASON_DLGPROC: u32 = 3;
+        const CPSUICB_REASON_ECB_CHANGED: u32 = 2;
+        const CPSUICB_REASON_EXTPUSH: u32 = 5;
+        const CPSUICB_REASON_ITEMS_REVERTED: u32 = 8;
+        const CPSUICB_REASON_KILLACTIVE: u32 = 11;
+        const CPSUICB_REASON_OPTITEM_SETFOCUS: u32 = 7;
+        const CPSUICB_REASON_PUSHBUTTON: u32 = 1;
+        const CPSUICB_REASON_SEL_CHANGED: u32 = 0;
+        const CPSUICB_REASON_SETACTIVE: u32 = 10;
+        const CPSUICB_REASON_UNDO_CHANGES: u32 = 4;
+        struct CPSUIDATABLOCK {
+            cbData: u32,
+            pbData: LPBYTE,
+        }
+        const CPSUIF_ABOUT_CALLBACK: u32 = 4;
+        const CPSUIF_ICONID_AS_HICON: u32 = 2;
+        const CPSUIF_UPDATE_PERMISSION: u32 = 1;
+        const CPSUI_CANCEL: u32 = 0;
+        const CPSUI_OK: u32 = 1;
+        const CPSUI_PDLGPAGE_ADVDOCPROP: PDLGPAGE = 2;
+        const CPSUI_PDLGPAGE_DOCPROP: PDLGPAGE = 1;
+        const CPSUI_PDLGPAGE_PRINTERPROP: PDLGPAGE = 3;
+        const CPSUI_PDLGPAGE_TREEVIEWONLY: PDLGPAGE = 4;
+        const CPSUI_REBOOTSYSTEM: u32 = 3;
+        const CPSUI_RESTARTWINDOWS: u32 = 2;
+        #[library("COMPSTUI.dll")]
+        extern fn CommonPropertySheetUIA(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[opt] pResult: *mut u32) -> i32;
+        #[library("COMPSTUI.dll")]
+        extern fn CommonPropertySheetUIW(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[opt] pResult: *mut u32) -> i32;
+        struct DLGPAGE {
+            cbSize: u16,
+            Flags: u16,
+            DlgProc: DLGPROC,
+            pTabName: LPTSTR,
+            IconID: usize,
+            Anonymous: union {
+                DlgTemplateID: u16,
+                hDlgTemplate: HANDLE,
+            },
+        }
+        const DMPUB_BOOKLET_EDGE: u32 = 21;
+        const DMPUB_COLOR: u32 = 6;
+        const DMPUB_COPIES_COLLATE: u32 = 3;
+        const DMPUB_DEFSOURCE: u32 = 4;
+        const DMPUB_DITHERTYPE: u32 = 13;
+        const DMPUB_DUPLEX: u32 = 7;
+        const DMPUB_FIRST: u32 = 1;
+        const DMPUB_FORMNAME: u32 = 9;
+        const DMPUB_ICMINTENT: u32 = 11;
+        const DMPUB_ICMMETHOD: u32 = 10;
+        const DMPUB_LAST: u32 = 21;
+        const DMPUB_MANUAL_DUPLEX: u32 = 19;
+        const DMPUB_MEDIATYPE: u32 = 12;
+        const DMPUB_NONE: u32 = 0;
+        const DMPUB_NUP: u32 = 16;
+        const DMPUB_NUP_DIRECTION: u32 = 18;
+        const DMPUB_OEM_GRAPHIC_ITEM: u32 = 98;
+        const DMPUB_OEM_PAPER_ITEM: u32 = 97;
+        const DMPUB_OEM_ROOT_ITEM: u32 = 99;
+        const DMPUB_ORIENTATION: u32 = 1;
+        const DMPUB_OUTPUTBIN: u32 = 14;
+        const DMPUB_PAGEORDER: u32 = 17;
+        const DMPUB_PRINTQUALITY: u32 = 5;
+        const DMPUB_QUALITY: u32 = 15;
+        const DMPUB_SCALE: u32 = 2;
+        const DMPUB_STAPLE: u32 = 20;
+        const DMPUB_TTOPTION: u32 = 8;
+        const DMPUB_USER: u32 = 100;
+        const DPF_ICONID_AS_HICON: u32 = 1;
+        const DPF_USE_HDLGTEMPLATE: u32 = 2;
+        const DP_STD_DOCPROPPAGE1: u32 = 65533;
+        const DP_STD_DOCPROPPAGE2: u32 = 65534;
+        const DP_STD_RESERVED_START: u32 = 65520;
+        const DP_STD_TREEVIEWPAGE: u32 = 65535;
+        const ECBF_CHECKNAME_AT_FRONT: u32 = 1;
+        const ECBF_CHECKNAME_ONLY: u32 = 128;
+        const ECBF_CHECKNAME_ONLY_ENABLED: u32 = 2;
+        const ECBF_ICONID_AS_HICON: u32 = 4;
+        const ECBF_MASK: u32 = 255;
+        const ECBF_OVERLAY_ECBICON_IF_CHECKED: u32 = 16;
+        const ECBF_OVERLAY_NO_ICON: u32 = 64;
+        const ECBF_OVERLAY_STOP_ICON: u32 = 32;
+        const ECBF_OVERLAY_WARNING_ICON: u32 = 8;
+        const EPF_ICONID_AS_HICON: u32 = 8;
+        const EPF_INCL_SETUP_TITLE: u32 = 2;
+        const EPF_MASK: u32 = 255;
+        const EPF_NO_DOT_DOT_DOT: u32 = 4;
+        const EPF_OVERLAY_NO_ICON: u32 = 64;
+        const EPF_OVERLAY_STOP_ICON: u32 = 32;
+        const EPF_OVERLAY_WARNING_ICON: u32 = 16;
+        const EPF_PUSH_TYPE_DLGPROC: u32 = 1;
+        const EPF_USE_HDLGTEMPLATE: u32 = 128;
+        const ERR_CPSUI_ALLOCMEM_FAILED: i32 = -2;
+        const ERR_CPSUI_CREATEPROPPAGE_FAILED: i32 = -10;
+        const ERR_CPSUI_CREATE_IMAGELIST_FAILED: i32 = -33;
+        const ERR_CPSUI_CREATE_TRACKBAR_FAILED: i32 = -31;
+        const ERR_CPSUI_CREATE_UDARROW_FAILED: i32 = -32;
+        const ERR_CPSUI_DMCOPIES_USE_EXTPUSH: i32 = -43;
+        const ERR_CPSUI_FUNCTION_NOT_IMPLEMENTED: i32 = -9999;
+        const ERR_CPSUI_GETLASTERROR: i32 = -1;
+        const ERR_CPSUI_INTERNAL_ERROR: i32 = -10000;
+        const ERR_CPSUI_INVALID_DLGPAGEIDX: i32 = -16;
+        const ERR_CPSUI_INVALID_DLGPAGE_CBSIZE: i32 = -14;
+        const ERR_CPSUI_INVALID_DMPUBID: i32 = -29;
+        const ERR_CPSUI_INVALID_DMPUB_TVOT: i32 = -30;
+        const ERR_CPSUI_INVALID_ECB_CBSIZE: i32 = -26;
+        const ERR_CPSUI_INVALID_EDITBOX_BUF_SIZE: i32 = -25;
+        const ERR_CPSUI_INVALID_EDITBOX_PSEL: i32 = -24;
+        const ERR_CPSUI_INVALID_EXTPUSH_CBSIZE: i32 = -39;
+        const ERR_CPSUI_INVALID_LBCB_TYPE: i32 = -35;
+        const ERR_CPSUI_INVALID_LPARAM: i32 = -4;
+        const ERR_CPSUI_INVALID_OPTITEM_CBSIZE: i32 = -19;
+        const ERR_CPSUI_INVALID_OPTPARAM_CBSIZE: i32 = -23;
+        const ERR_CPSUI_INVALID_OPTTYPE_CBSIZE: i32 = -20;
+        const ERR_CPSUI_INVALID_OPTTYPE_COUNT: i32 = -21;
+        const ERR_CPSUI_INVALID_PDATA: i32 = -3;
+        const ERR_CPSUI_INVALID_PDLGPAGE: i32 = -13;
+        const ERR_CPSUI_INVALID_PUSHBUTTON_TYPE: i32 = -38;
+        const ERR_CPSUI_INVALID_TVOT_TYPE: i32 = -34;
+        const ERR_CPSUI_MORE_THAN_ONE_STDPAGE: i32 = -12;
+        const ERR_CPSUI_MORE_THAN_ONE_TVPAGE: i32 = -11;
+        const ERR_CPSUI_NO_EXTPUSH_DLGTEMPLATEID: i32 = -41;
+        const ERR_CPSUI_NO_PROPSHEETPAGE: i32 = -8;
+        const ERR_CPSUI_NULL_CALLERNAME: i32 = -6;
+        const ERR_CPSUI_NULL_ECB_PCHECKEDNAME: i32 = -28;
+        const ERR_CPSUI_NULL_ECB_PTITLE: i32 = -27;
+        const ERR_CPSUI_NULL_EXTPUSH_CALLBACK: i32 = -42;
+        const ERR_CPSUI_NULL_EXTPUSH_DLGPROC: i32 = -40;
+        const ERR_CPSUI_NULL_HINST: i32 = -5;
+        const ERR_CPSUI_NULL_OPTITEMNAME: i32 = -7;
+        const ERR_CPSUI_NULL_POPTITEM: i32 = -18;
+        const ERR_CPSUI_NULL_POPTPARAM: i32 = -22;
+        const ERR_CPSUI_SUBITEM_DIFF_DLGPAGEIDX: i32 = -17;
+        const ERR_CPSUI_SUBITEM_DIFF_OPTIF_HIDE: i32 = -36;
+        const ERR_CPSUI_TOO_MANY_DLGPAGES: i32 = -15;
+        const ERR_CPSUI_TOO_MANY_PROPSHEETPAGES: i32 = -9;
+        const ERR_CPSUI_ZERO_OPTITEM: i32 = -44;
+        struct EXTCHKBOX {
+            cbSize: u16,
+            Flags: u16,
+            pTitle: LPTSTR,
+            pSeparator: LPTSTR,
+            pCheckedName: LPTSTR,
+            IconID: usize,
+            wReserved: [u16; 4],
+            dwReserved: [usize; 2],
+        }
+        struct EXTPUSH {
+            cbSize: u16,
+            Flags: u16,
+            pTitle: LPTSTR,
+            Anonymous: union {
+                DlgProc: DLGPROC,
+                pfnCallBack: FARPROC,
+            },
+            IconID: usize,
+            Anonymous2: union {
+                DlgTemplateID: u16,
+                hDlgTemplate: HANDLE,
+            },
+            dwReserved: [usize; 3],
+        }
+        #[library("COMPSTUI.dll")]
+        extern fn GetCPSUIUserData(hDlg: HWND) -> usize;
+        const HINSPSUIPAGE_FIRST: HANDLE = 4294967294;
+        const HINSPSUIPAGE_LAST: HANDLE = 4294967295;
+        const IDI_CPSUI_ADVANCE: u32 = 64058;
+        const IDI_CPSUI_AUTOSEL: u32 = 64025;
+        const IDI_CPSUI_COLLATE: u32 = 64030;
+        const IDI_CPSUI_COLOR: u32 = 64040;
+        const IDI_CPSUI_COPY: u32 = 64046;
+        const IDI_CPSUI_DEVICE: u32 = 64060;
+        const IDI_CPSUI_DEVICE2: u32 = 64061;
+        const IDI_CPSUI_DEVICE_FEATURE: u32 = 64080;
+        const IDI_CPSUI_DITHER_COARSE: u32 = 64042;
+        const IDI_CPSUI_DITHER_FINE: u32 = 64043;
+        const IDI_CPSUI_DITHER_LINEART: u32 = 64044;
+        const IDI_CPSUI_DITHER_NONE: u32 = 64041;
+        const IDI_CPSUI_DOCUMENT: u32 = 64059;
+        const IDI_CPSUI_DUPLEX_HORZ: u32 = 64032;
+        const IDI_CPSUI_DUPLEX_HORZ_L: u32 = 64085;
+        const IDI_CPSUI_DUPLEX_NONE: u32 = 64031;
+        const IDI_CPSUI_DUPLEX_NONE_L: u32 = 64084;
+        const IDI_CPSUI_DUPLEX_VERT: u32 = 64033;
+        const IDI_CPSUI_DUPLEX_VERT_L: u32 = 64086;
+        const IDI_CPSUI_EMPTY: u32 = 64000;
+        const IDI_CPSUI_ENVELOPE: u32 = 64010;
+        const IDI_CPSUI_ENVELOPE_FEED: u32 = 64097;
+        const IDI_CPSUI_ERROR: u32 = 64050;
+        const IDI_CPSUI_FALSE: u32 = 64005;
+        const IDI_CPSUI_FAX: u32 = 64095;
+        const IDI_CPSUI_FONTCART: u32 = 64013;
+        const IDI_CPSUI_FONTCARTHDR: u32 = 64012;
+        const IDI_CPSUI_FONTCART_SLOT: u32 = 64098;
+        const IDI_CPSUI_FONTSUB: u32 = 64081;
+        const IDI_CPSUI_FORMTRAYASSIGN: u32 = 64076;
+        const IDI_CPSUI_GENERIC_ITEM: u32 = 64073;
+        const IDI_CPSUI_GENERIC_OPTION: u32 = 64072;
+        const IDI_CPSUI_GRAPHIC: u32 = 64057;
+        const IDI_CPSUI_HALFTONE_SETUP: u32 = 64048;
+        const IDI_CPSUI_HTCLRADJ: u32 = 64047;
+        const IDI_CPSUI_HT_DEVICE: u32 = 64017;
+        const IDI_CPSUI_HT_HOST: u32 = 64016;
+        const IDI_CPSUI_ICM_INTENT: u32 = 64053;
+        const IDI_CPSUI_ICM_METHOD: u32 = 64052;
+        const IDI_CPSUI_ICM_OPTION: u32 = 64051;
+        const IDI_CPSUI_ICONID_FIRST: u32 = 64000;
+        const IDI_CPSUI_ICONID_LAST: u32 = 64111;
+        const IDI_CPSUI_INSTALLABLE_OPTION: u32 = 64078;
+        const IDI_CPSUI_LANDSCAPE: u32 = 64023;
+        const IDI_CPSUI_LAYOUT_BMP_ARROWL: u32 = 64100;
+        const IDI_CPSUI_LAYOUT_BMP_ARROWLR: u32 = 64104;
+        const IDI_CPSUI_LAYOUT_BMP_ARROWS: u32 = 64101;
+        const IDI_CPSUI_LAYOUT_BMP_BOOKLETL: u32 = 64102;
+        const IDI_CPSUI_LAYOUT_BMP_BOOKLETL_NB: u32 = 64106;
+        const IDI_CPSUI_LAYOUT_BMP_BOOKLETP: u32 = 64103;
+        const IDI_CPSUI_LAYOUT_BMP_BOOKLETP_NB: u32 = 64107;
+        const IDI_CPSUI_LAYOUT_BMP_PORTRAIT: u32 = 64099;
+        const IDI_CPSUI_LAYOUT_BMP_ROT_PORT: u32 = 64105;
+        const IDI_CPSUI_LF_PEN_PLOTTER: u32 = 64087;
+        const IDI_CPSUI_LF_RASTER_PLOTTER: u32 = 64089;
+        const IDI_CPSUI_MANUAL_FEED: u32 = 64094;
+        const IDI_CPSUI_MEM: u32 = 64011;
+        const IDI_CPSUI_MONO: u32 = 64039;
+        const IDI_CPSUI_NO: u32 = 64003;
+        const IDI_CPSUI_NOTINSTALLED: u32 = 64069;
+        const IDI_CPSUI_NUP_BORDER: u32 = 64111;
+        const IDI_CPSUI_OFF: u32 = 64007;
+        const IDI_CPSUI_ON: u32 = 64008;
+        const IDI_CPSUI_OPTION: u32 = 64066;
+        const IDI_CPSUI_OPTION2: u32 = 64067;
+        const IDI_CPSUI_OUTBIN: u32 = 64055;
+        const IDI_CPSUI_OUTPUT: u32 = 64056;
+        const IDI_CPSUI_PAGE_PROTECT: u32 = 64096;
+        const IDI_CPSUI_PAPER_OUTPUT: u32 = 64009;
+        const IDI_CPSUI_PAPER_TRAY: u32 = 64026;
+        const IDI_CPSUI_PAPER_TRAY2: u32 = 64027;
+        const IDI_CPSUI_PAPER_TRAY3: u32 = 64028;
+        const IDI_CPSUI_PEN_CARROUSEL: u32 = 64092;
+        const IDI_CPSUI_PLOTTER_PEN: u32 = 64093;
+        const IDI_CPSUI_PORTRAIT: u32 = 64022;
+        const IDI_CPSUI_POSTSCRIPT: u32 = 64082;
+        const IDI_CPSUI_PRINTER: u32 = 64062;
+        const IDI_CPSUI_PRINTER2: u32 = 64063;
+        const IDI_CPSUI_PRINTER3: u32 = 64064;
+        const IDI_CPSUI_PRINTER4: u32 = 64065;
+        const IDI_CPSUI_PRINTER_FEATURE: u32 = 64079;
+        const IDI_CPSUI_PRINTER_FOLDER: u32 = 64077;
+        const IDI_CPSUI_QUESTION: u32 = 64075;
+        const IDI_CPSUI_RES_DRAFT: u32 = 64034;
+        const IDI_CPSUI_RES_HIGH: u32 = 64037;
+        const IDI_CPSUI_RES_LOW: u32 = 64035;
+        const IDI_CPSUI_RES_MEDIUM: u32 = 64036;
+        const IDI_CPSUI_RES_PRESENTATION: u32 = 64038;
+        const IDI_CPSUI_ROLL_PAPER: u32 = 64091;
+        const IDI_CPSUI_ROT_LAND: u32 = 64024;
+        const IDI_CPSUI_ROT_PORT: u32 = 64110;
+        const IDI_CPSUI_RUN_DIALOG: u32 = 64074;
+        const IDI_CPSUI_SCALING: u32 = 64045;
+        const IDI_CPSUI_SEL_NONE: u32 = 64001;
+        const IDI_CPSUI_SF_PEN_PLOTTER: u32 = 64088;
+        const IDI_CPSUI_SF_RASTER_PLOTTER: u32 = 64090;
+        const IDI_CPSUI_STAPLER_OFF: u32 = 64015;
+        const IDI_CPSUI_STAPLER_ON: u32 = 64014;
+        const IDI_CPSUI_STD_FORM: u32 = 64054;
+        const IDI_CPSUI_STOP: u32 = 64068;
+        const IDI_CPSUI_STOP_WARNING_OVERLAY: u32 = 64071;
+        const IDI_CPSUI_TELEPHONE: u32 = 64083;
+        const IDI_CPSUI_TRANSPARENT: u32 = 64029;
+        const IDI_CPSUI_TRUE: u32 = 64006;
+        const IDI_CPSUI_TT_DOWNLOADSOFT: u32 = 64019;
+        const IDI_CPSUI_TT_DOWNLOADVECT: u32 = 64020;
+        const IDI_CPSUI_TT_PRINTASGRAPHIC: u32 = 64018;
+        const IDI_CPSUI_TT_SUBDEV: u32 = 64021;
+        const IDI_CPSUI_WARNING: u32 = 64002;
+        const IDI_CPSUI_WARNING_OVERLAY: u32 = 64070;
+        const IDI_CPSUI_WATERMARK: u32 = 64049;
+        const IDI_CPSUI_YES: u32 = 64004;
+        const IDS_CPSUI_ABOUT: u32 = 64848;
+        const IDS_CPSUI_ADVANCED: u32 = 64722;
+        const IDS_CPSUI_ADVANCEDOCUMENT: u32 = 64716;
+        const IDS_CPSUI_ALL: u32 = 64841;
+        const IDS_CPSUI_AUTOSELECT: u32 = 64718;
+        const IDS_CPSUI_BACKTOFRONT: u32 = 64857;
+        const IDS_CPSUI_BOND: u32 = 64786;
+        const IDS_CPSUI_BOOKLET: u32 = 64873;
+        const IDS_CPSUI_BOOKLET_EDGE: u32 = 64888;
+        const IDS_CPSUI_BOOKLET_EDGE_LEFT: u32 = 64889;
+        const IDS_CPSUI_BOOKLET_EDGE_RIGHT: u32 = 64890;
+        const IDS_CPSUI_CASSETTE_TRAY: u32 = 64810;
+        const IDS_CPSUI_CHANGE: u32 = 64702;
+        const IDS_CPSUI_CHANGED: u32 = 64846;
+        const IDS_CPSUI_CHANGES: u32 = 64845;
+        const IDS_CPSUI_COARSE: u32 = 64787;
+        const IDS_CPSUI_COLLATE: u32 = 64756;
+        const IDS_CPSUI_COLLATED: u32 = 64757;
+        const IDS_CPSUI_COLON_SEP: u32 = 64707;
+        const IDS_CPSUI_COLOR: u32 = 64764;
+        const IDS_CPSUI_COLOR_APPERANCE: u32 = 64744;
+        const IDS_CPSUI_COPIES: u32 = 64831;
+        const IDS_CPSUI_COPY: u32 = 64830;
+        const IDS_CPSUI_DEFAULT: u32 = 64732;
+        const IDS_CPSUI_DEFAULTDOCUMENT: u32 = 64714;
+        const IDS_CPSUI_DEFAULT_TRAY: u32 = 64811;
+        const IDS_CPSUI_DEVICE: u32 = 64842;
+        const IDS_CPSUI_DEVICEOPTIONS: u32 = 64725;
+        const IDS_CPSUI_DEVICE_SETTINGS: u32 = 64852;
+        const IDS_CPSUI_DITHERING: u32 = 64752;
+        const IDS_CPSUI_DOCUMENT: u32 = 64715;
+        const IDS_CPSUI_DOWN_THEN_LEFT: u32 = 64882;
+        const IDS_CPSUI_DOWN_THEN_RIGHT: u32 = 64880;
+        const IDS_CPSUI_DRAFT: u32 = 64759;
+        const IDS_CPSUI_DUPLEX: u32 = 64745;
+        const IDS_CPSUI_ENVELOPE_TRAY: u32 = 64804;
+        const IDS_CPSUI_ENVMANUAL_TRAY: u32 = 64805;
+        const IDS_CPSUI_ERRDIFFUSE: u32 = 64790;
+        const IDS_CPSUI_ERROR: u32 = 64733;
+        const IDS_CPSUI_EXIST: u32 = 64736;
+        const IDS_CPSUI_FALSE: u32 = 64726;
+        const IDS_CPSUI_FAST: u32 = 64838;
+        const IDS_CPSUI_FAX: u32 = 64835;
+        const IDS_CPSUI_FINE: u32 = 64788;
+        const IDS_CPSUI_FORMNAME: u32 = 64747;
+        const IDS_CPSUI_FORMSOURCE: u32 = 64812;
+        const IDS_CPSUI_FORMTRAYASSIGN: u32 = 64798;
+        const IDS_CPSUI_FRONTTOBACK: u32 = 64856;
+        const IDS_CPSUI_GLOSSY: u32 = 64783;
+        const IDS_CPSUI_GRAPHIC: u32 = 64720;
+        const IDS_CPSUI_GRAYSCALE: u32 = 64765;
+        const IDS_CPSUI_HALFTONE: u32 = 64791;
+        const IDS_CPSUI_HALFTONE_SETUP: u32 = 64817;
+        const IDS_CPSUI_HIGH: u32 = 64762;
+        const IDS_CPSUI_HORIZONTAL: u32 = 64768;
+        const IDS_CPSUI_HTCLRADJ: u32 = 64792;
+        const IDS_CPSUI_ICM: u32 = 64748;
+        const IDS_CPSUI_ICMINTENT: u32 = 64750;
+        const IDS_CPSUI_ICMMETHOD: u32 = 64749;
+        const IDS_CPSUI_ICM_BLACKWHITE: u32 = 64776;
+        const IDS_CPSUI_ICM_COLORMETRIC: u32 = 64781;
+        const IDS_CPSUI_ICM_CONTRAST: u32 = 64780;
+        const IDS_CPSUI_ICM_NO: u32 = 64777;
+        const IDS_CPSUI_ICM_SATURATION: u32 = 64779;
+        const IDS_CPSUI_ICM_YES: u32 = 64778;
+        const IDS_CPSUI_INSTFONTCART: u32 = 64818;
+        const IDS_CPSUI_LANDSCAPE: u32 = 64754;
+        const IDS_CPSUI_LARGECAP_TRAY: u32 = 64809;
+        const IDS_CPSUI_LARGEFMT_TRAY: u32 = 64808;
+        const IDS_CPSUI_LBCB_NOSEL: u32 = 64712;
+        const IDS_CPSUI_LEFT_ANGLE: u32 = 64708;
+        const IDS_CPSUI_LEFT_SLOT: u32 = 64823;
+        const IDS_CPSUI_LEFT_THEN_DOWN: u32 = 64881;
+        const IDS_CPSUI_LINEART: u32 = 64789;
+        const IDS_CPSUI_LONG_SIDE: u32 = 64770;
+        const IDS_CPSUI_LOW: u32 = 64760;
+        const IDS_CPSUI_LOWER_TRAY: u32 = 64801;
+        const IDS_CPSUI_MAILBOX: u32 = 64829;
+        const IDS_CPSUI_MAKE: u32 = 64833;
+        const IDS_CPSUI_MANUALFEED: u32 = 64813;
+        const IDS_CPSUI_MANUAL_DUPLEX: u32 = 64883;
+        const IDS_CPSUI_MANUAL_DUPLEX_OFF: u32 = 64885;
+        const IDS_CPSUI_MANUAL_DUPLEX_ON: u32 = 64884;
+        const IDS_CPSUI_MANUAL_TRAY: u32 = 64803;
+        const IDS_CPSUI_MEDIA: u32 = 64751;
+        const IDS_CPSUI_MEDIUM: u32 = 64761;
+        const IDS_CPSUI_MIDDLE_TRAY: u32 = 64802;
+        const IDS_CPSUI_MONOCHROME: u32 = 64766;
+        const IDS_CPSUI_MORE: u32 = 64701;
+        const IDS_CPSUI_NO: u32 = 64728;
+        const IDS_CPSUI_NONE: u32 = 64734;
+        const IDS_CPSUI_NOT: u32 = 64735;
+        const IDS_CPSUI_NOTINSTALLED: u32 = 64737;
+        const IDS_CPSUI_NO_NAME: u32 = 64850;
+        const IDS_CPSUI_NUM_OF_COPIES: u32 = 64740;
+        const IDS_CPSUI_NUP: u32 = 64864;
+        const IDS_CPSUI_NUP_BORDER: u32 = 64891;
+        const IDS_CPSUI_NUP_BORDERED: u32 = 64892;
+        const IDS_CPSUI_NUP_DIRECTION: u32 = 64878;
+        const IDS_CPSUI_NUP_FOURUP: u32 = 64867;
+        const IDS_CPSUI_NUP_NINEUP: u32 = 64869;
+        const IDS_CPSUI_NUP_NORMAL: u32 = 64865;
+        const IDS_CPSUI_NUP_SIXTEENUP: u32 = 64870;
+        const IDS_CPSUI_NUP_SIXUP: u32 = 64868;
+        const IDS_CPSUI_NUP_TWOUP: u32 = 64866;
+        const IDS_CPSUI_OF: u32 = 64704;
+        const IDS_CPSUI_OFF: u32 = 64730;
+        const IDS_CPSUI_ON: u32 = 64731;
+        const IDS_CPSUI_ONLYONE: u32 = 64800;
+        const IDS_CPSUI_OPTION: u32 = 64703;
+        const IDS_CPSUI_OPTIONS: u32 = 64721;
+        const IDS_CPSUI_ORIENTATION: u32 = 64738;
+        const IDS_CPSUI_OUTBINASSIGN: u32 = 64796;
+        const IDS_CPSUI_OUTPUTBIN: u32 = 64863;
+        const IDS_CPSUI_PAGEORDER: u32 = 64855;
+        const IDS_CPSUI_PAGEPROTECT: u32 = 64816;
+        const IDS_CPSUI_PAPER_OUTPUT: u32 = 64719;
+        const IDS_CPSUI_PERCENT: u32 = 64711;
+        const IDS_CPSUI_PLOT: u32 = 64836;
+        const IDS_CPSUI_PORTRAIT: u32 = 64753;
+        const IDS_CPSUI_POSTER: u32 = 64874;
+        const IDS_CPSUI_POSTER_2x2: u32 = 64875;
+        const IDS_CPSUI_POSTER_3x3: u32 = 64876;
+        const IDS_CPSUI_POSTER_4x4: u32 = 64877;
+        const IDS_CPSUI_PRESENTATION: u32 = 64763;
+        const IDS_CPSUI_PRINT: u32 = 64834;
+        const IDS_CPSUI_PRINTER: u32 = 64717;
+        const IDS_CPSUI_PRINTERMEM_KB: u32 = 64814;
+        const IDS_CPSUI_PRINTERMEM_MB: u32 = 64815;
+        const IDS_CPSUI_PRINTFLDSETTING: u32 = 64758;
+        const IDS_CPSUI_PRINTQUALITY: u32 = 64742;
+        const IDS_CPSUI_PROPERTIES: u32 = 64713;
+        const IDS_CPSUI_QUALITY_BEST: u32 = 64861;
+        const IDS_CPSUI_QUALITY_BETTER: u32 = 64860;
+        const IDS_CPSUI_QUALITY_CUSTOM: u32 = 64862;
+        const IDS_CPSUI_QUALITY_DRAFT: u32 = 64859;
+        const IDS_CPSUI_QUALITY_SETTINGS: u32 = 64858;
+        const IDS_CPSUI_RANGE_FROM: u32 = 64705;
+        const IDS_CPSUI_REGULAR: u32 = 64785;
+        const IDS_CPSUI_RESET: u32 = 64840;
+        const IDS_CPSUI_RESOLUTION: u32 = 64743;
+        const IDS_CPSUI_REVERT: u32 = 64844;
+        const IDS_CPSUI_RIGHT_ANGLE: u32 = 64709;
+        const IDS_CPSUI_RIGHT_SLOT: u32 = 64824;
+        const IDS_CPSUI_RIGHT_THEN_DOWN: u32 = 64879;
+        const IDS_CPSUI_ROTATED: u32 = 64839;
+        const IDS_CPSUI_ROT_LAND: u32 = 64755;
+        const IDS_CPSUI_ROT_PORT: u32 = 64886;
+        const IDS_CPSUI_SCALING: u32 = 64739;
+        const IDS_CPSUI_SETTING: u32 = 64851;
+        const IDS_CPSUI_SETTINGS: u32 = 64843;
+        const IDS_CPSUI_SETUP: u32 = 64700;
+        const IDS_CPSUI_SHORT_SIDE: u32 = 64771;
+        const IDS_CPSUI_SIDE1: u32 = 64871;
+        const IDS_CPSUI_SIDE2: u32 = 64872;
+        const IDS_CPSUI_SIMPLEX: u32 = 64767;
+        const IDS_CPSUI_SLASH_SEP: u32 = 64710;
+        const IDS_CPSUI_SLOT1: u32 = 64819;
+        const IDS_CPSUI_SLOT2: u32 = 64820;
+        const IDS_CPSUI_SLOT3: u32 = 64821;
+        const IDS_CPSUI_SLOT4: u32 = 64822;
+        const IDS_CPSUI_SLOW: u32 = 64837;
+        const IDS_CPSUI_SMALLFMT_TRAY: u32 = 64807;
+        const IDS_CPSUI_SOURCE: u32 = 64741;
+        const IDS_CPSUI_STACKER: u32 = 64828;
+        const IDS_CPSUI_STANDARD: u32 = 64782;
+        const IDS_CPSUI_STAPLE: u32 = 64887;
+        const IDS_CPSUI_STAPLER: u32 = 64825;
+        const IDS_CPSUI_STAPLER_OFF: u32 = 64827;
+        const IDS_CPSUI_STAPLER_ON: u32 = 64826;
+        const IDS_CPSUI_STDDOCPROPTAB: u32 = 64723;
+        const IDS_CPSUI_STDDOCPROPTAB1: u32 = 64853;
+        const IDS_CPSUI_STDDOCPROPTAB2: u32 = 64854;
+        const IDS_CPSUI_STDDOCPROPTVTAB: u32 = 64724;
+        const IDS_CPSUI_STRID_FIRST: u32 = 64700;
+        const IDS_CPSUI_STRID_LAST: u32 = 64892;
+        const IDS_CPSUI_TO: u32 = 64706;
+        const IDS_CPSUI_TOTAL: u32 = 64832;
+        const IDS_CPSUI_TRACTOR_TRAY: u32 = 64806;
+        const IDS_CPSUI_TRANSPARENCY: u32 = 64784;
+        const IDS_CPSUI_TRUE: u32 = 64727;
+        const IDS_CPSUI_TTOPTION: u32 = 64746;
+        const IDS_CPSUI_TT_DOWNLOADSOFT: u32 = 64773;
+        const IDS_CPSUI_TT_DOWNLOADVECT: u32 = 64774;
+        const IDS_CPSUI_TT_PRINTASGRAPHIC: u32 = 64772;
+        const IDS_CPSUI_TT_SUBDEV: u32 = 64775;
+        const IDS_CPSUI_UPPER_TRAY: u32 = 64799;
+        const IDS_CPSUI_USE_DEVICE_HT: u32 = 64794;
+        const IDS_CPSUI_USE_HOST_HT: u32 = 64793;
+        const IDS_CPSUI_USE_PRINTER_HT: u32 = 64795;
+        const IDS_CPSUI_VERSION: u32 = 64849;
+        const IDS_CPSUI_VERTICAL: u32 = 64769;
+        const IDS_CPSUI_WARNING: u32 = 64847;
+        const IDS_CPSUI_WATERMARK: u32 = 64797;
+        const IDS_CPSUI_YES: u32 = 64729;
+        struct INSERTPSUIPAGE_INFO {
+            cbSize: u16,
+            Type: u8,
+            Mode: u8,
+            dwData1: usize,
+            dwData2: usize,
+            dwData3: usize,
+        }
+        const INSPSUIPAGE_MODE_AFTER: u32 = 1;
+        const INSPSUIPAGE_MODE_BEFORE: u32 = 0;
+        const INSPSUIPAGE_MODE_FIRST_CHILD: u32 = 2;
+        const INSPSUIPAGE_MODE_INDEX: u32 = 4;
+        const INSPSUIPAGE_MODE_LAST_CHILD: u32 = 3;
+        const MAX_CPSFUNC_INDEX: u32 = 26;
+        const MAX_DLGPAGE_COUNT: u32 = 64;
+        const MAX_PROPSHEETUI_REASON_INDEX: u32 = 5;
+        const MAX_PSUIPAGEINSERT_INDEX: u32 = 5;
+        const MAX_RES_STR_CHARS: u32 = 160;
+        struct OIEXT {
+            cbSize: u16,
+            Flags: u16,
+            hInstCaller: HINSTANCE,
+            pHelpFile: LPTSTR,
+            dwReserved: [usize; 4],
+        }
+        const OIEXTF_ANSI_STRING: u32 = 1;
+        const OPTCF_HIDE: u32 = 1;
+        const OPTCF_MASK: u32 = 1;
+        struct OPTCOMBO {
+            cbSize: u16,
+            Flags: u8,
+            cListItem: u16,
+            pListItem: POPTPARAM,
+            Sel: i32,
+            dwReserved: [u32; 3],
+        }
+        const OPTIF_CALLBACK: u32 = 4;
+        const OPTIF_CHANGED: u32 = 8;
+        const OPTIF_CHANGEONCE: u32 = 16;
+        const OPTIF_COLLAPSE: u32 = 1;
+        const OPTIF_DISABLED: u32 = 32;
+        const OPTIF_ECB_CHECKED: u32 = 64;
+        const OPTIF_EXT_DISABLED: u32 = 256;
+        const OPTIF_EXT_HIDE: u32 = 128;
+        const OPTIF_EXT_IS_EXTPUSH: u32 = 1024;
+        const OPTIF_HAS_POIEXT: u32 = 65536;
+        const OPTIF_HIDE: u32 = 2;
+        const OPTIF_INITIAL_TVITEM: u32 = 32768;
+        const OPTIF_MASK: u32 = 131071;
+        const OPTIF_NO_GROUPBOX_NAME: u32 = 2048;
+        const OPTIF_OVERLAY_NO_ICON: u32 = 16384;
+        const OPTIF_OVERLAY_STOP_ICON: u32 = 8192;
+        const OPTIF_OVERLAY_WARNING_ICON: u32 = 4096;
+        const OPTIF_SEL_AS_HICON: u32 = 512;
+        struct OPTITEM {
+            cbSize: u16,
+            Level: u8,
+            DlgPageIdx: u8,
+            Flags: u32,
+            UserData: usize,
+            pName: LPTSTR,
+            Anonymous: union {
+                Sel: i32,
+                pSel: LPTSTR,
+            },
+            Anonymous2: union {
+                pExtChkBox: PEXTCHKBOX,
+                pExtPush: PEXTPUSH,
+            },
+            pOptType: POPTTYPE,
+            HelpIndex: u32,
+            DMPubID: u8,
+            UserItemID: u8,
+            wReserved: u16,
+            pOIExt: POIEXT,
+            dwReserved: [usize; 3],
+        }
+        struct OPTPARAM {
+            cbSize: u16,
+            Flags: u8,
+            Style: u8,
+            pData: LPTSTR,
+            IconID: usize,
+            lParam: LPARAM,
+            dwReserved: [usize; 2],
+        }
+        const OPTPF_DISABLED: u32 = 2;
+        const OPTPF_HIDE: u32 = 1;
+        const OPTPF_ICONID_AS_HICON: u32 = 4;
+        const OPTPF_MASK: u32 = 127;
+        const OPTPF_OVERLAY_NO_ICON: u32 = 32;
+        const OPTPF_OVERLAY_STOP_ICON: u32 = 16;
+        const OPTPF_OVERLAY_WARNING_ICON: u32 = 8;
+        const OPTPF_USE_HDLGTEMPLATE: u32 = 64;
+        const OPTTF_MASK: u32 = 3;
+        const OPTTF_NOSPACE_BEFORE_POSTFIX: u32 = 2;
+        const OPTTF_TYPE_DISABLED: u32 = 1;
+        struct OPTTYPE {
+            cbSize: u16,
+            Type: u8,
+            Flags: u8,
+            Count: u16,
+            BegCtrlID: u16,
+            pOptParam: POPTPARAM,
+            Style: u16,
+            wReserved: [u16; 3],
+            dwReserved: [usize; 3],
+        }
+        const OTS_LBCB_INCL_ITEM_NONE: u32 = 8;
+        const OTS_LBCB_NO_ICON16_IN_ITEM: u32 = 16;
+        const OTS_LBCB_PROPPAGE_CBUSELB: u32 = 4;
+        const OTS_LBCB_PROPPAGE_LBUSECB: u32 = 2;
+        const OTS_LBCB_SORT: u32 = 1;
+        const OTS_MASK: u32 = 255;
+        const OTS_PUSH_ENABLE_ALWAYS: u32 = 128;
+        const OTS_PUSH_INCL_SETUP_TITLE: u32 = 32;
+        const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64;
+        type PCOMPROPSHEETUI = *mut COMPROPSHEETUI;
+        type PCPSUICBPARAM = *mut CPSUICBPARAM;
+        type PCPSUIDATABLOCK = *mut CPSUIDATABLOCK;
+        type PDLGPAGE = *mut DLGPAGE;
+        type PEXTCHKBOX = *mut EXTCHKBOX;
+        type PEXTPUSH = *mut EXTPUSH;
+        extern fn PFNCOMPROPSHEET(hComPropSheet: HANDLE, Function: u32, lParam1: LPARAM, lParam2: LPARAM) -> isize;
+        extern fn PFNPROPSHEETUI(pPSUIInfo: *mut PROPSHEETUI_INFO, lParam: LPARAM) -> i32;
+        type PINSERTPSUIPAGE_INFO = *mut INSERTPSUIPAGE_INFO;
+        type POIEXT = *mut OIEXT;
+        type POPTCOMBO = *mut OPTCOMBO;
+        type POPTITEM = *mut OPTITEM;
+        type POPTPARAM = *mut OPTPARAM;
+        type POPTTYPE = *mut OPTTYPE;
+        type PPROPSHEETUI_GETICON_INFO = *mut PROPSHEETUI_GETICON_INFO;
+        type PPROPSHEETUI_INFO = *mut PROPSHEETUI_INFO;
+        type PPROPSHEETUI_INFO_HEADER = *mut PROPSHEETUI_INFO_HEADER;
+        type PPSPINFO = *mut PSPINFO;
+        struct PROPSHEETUI_GETICON_INFO {
+            cbSize: u16,
+            Flags: u16,
+            cxIcon: u16,
+            cyIcon: u16,
+            hIcon: HICON,
+        }
+        struct PROPSHEETUI_INFO {
+            cbSize: u16,
+            Version: u16,
+            Flags: u16,
+            Reason: u16,
+            hComPropSheet: HANDLE,
+            pfnComPropSheet: PFNCOMPROPSHEET,
+            lParamInit: LPARAM,
+            UserData: usize,
+            Result: usize,
+        }
+        struct PROPSHEETUI_INFO_HEADER {
+            cbSize: u16,
+            Flags: u16,
+            pTitle: LPTSTR,
+            hWndParent: HWND,
+            hInst: HINSTANCE,
+            Anonymous: union {
+                hIcon: HICON,
+                IconID: usize,
+            },
+        }
+        const PROPSHEETUI_INFO_VERSION: u32 = 256;
+        const PROPSHEETUI_REASON_BEFORE_INIT: u32 = 5;
+        const PROPSHEETUI_REASON_DESTROY: u32 = 2;
+        const PROPSHEETUI_REASON_GET_ICON: u32 = 4;
+        const PROPSHEETUI_REASON_GET_INFO_HEADER: u32 = 1;
+        const PROPSHEETUI_REASON_INIT: u32 = 0;
+        const PROPSHEETUI_REASON_SET_RESULT: u32 = 3;
+        type PSETRESULT_INFO = *mut SETRESULT_INFO;
+        struct PSPINFO {
+            cbSize: u16,
+            wReserved: u16,
+            hComPropSheet: HANDLE,
+            hCPSUIPage: HANDLE,
+            pfnComPropSheet: PFNCOMPROPSHEET,
+        }
+        const PSUIHDRF_DEFTITLE: u32 = 16;
+        const PSUIHDRF_EXACT_PTITLE: u32 = 32;
+        const PSUIHDRF_NOAPPLYNOW: u32 = 2;
+        const PSUIHDRF_OBSOLETE: u32 = 1;
+        const PSUIHDRF_PROPTITLE: u32 = 4;
+        const PSUIHDRF_USEHICON: u32 = 8;
+        const PSUIINFO_UNICODE: u32 = 1;
+        const PSUIPAGEINSERT_DLL: u32 = 5;
+        const PSUIPAGEINSERT_GROUP_PARENT: u32 = 0;
+        const PSUIPAGEINSERT_HPROPSHEETPAGE: u32 = 4;
+        const PSUIPAGEINSERT_PCOMPROPSHEETUI: u32 = 1;
+        const PSUIPAGEINSERT_PFNPROPSHEETUI: u32 = 2;
+        const PSUIPAGEINSERT_PROPSHEETPAGE: u32 = 3;
+        const PUSHBUTTON_TYPE_CALLBACK: u32 = 1;
+        const PUSHBUTTON_TYPE_DLGPROC: u32 = 0;
+        const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2;
+        const PUSHBUTTON_TYPE_HTSETUP: u32 = 3;
+        struct SETRESULT_INFO {
+            cbSize: u16,
+            wReserved: u16,
+            hSetResult: HANDLE,
+            Result: LRESULT,
+        }
+        const SR_OWNER: u32 = 0;
+        const SR_OWNER_PARENT: u32 = 1;
+        const SSP_STDPAGE1: u32 = 10001;
+        const SSP_STDPAGE2: u32 = 10002;
+        const SSP_TVPAGE: u32 = 10000;
+        #[library("COMPSTUI.dll")]
+        extern fn SetCPSUIUserData(hDlg: HWND, CPSUIUserData: usize) -> BOOL;
+        const TVOT_2STATES: u32 = 0;
+        const TVOT_3STATES: u32 = 1;
+        const TVOT_CHKBOX: u32 = 9;
+        const TVOT_COMBOBOX: u32 = 6;
+        const TVOT_EDITBOX: u32 = 7;
+        const TVOT_LAST: u32 = 10;
+        const TVOT_LISTBOX: u32 = 5;
+        const TVOT_NONE: u32 = 11;
+        const TVOT_NSTATES_EX: u32 = 10;
+        const TVOT_PUSHBUTTON: u32 = 8;
+        const TVOT_SCROLLBAR: u32 = 4;
+        const TVOT_TRACKBAR: u32 = 3;
+        const TVOT_UDARROW: u32 = 2;
+        extern fn _CPSUICALLBACK(pCPSUICBParam: *mut CPSUICBPARAM) -> i32;
+    }
+}

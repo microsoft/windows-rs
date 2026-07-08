@@ -1,0 +1,154 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum COMPUTER_NAME_FORMAT {
+            ComputerNameNetBIOS = 0,
+            ComputerNameDnsHostname = 1,
+            ComputerNameDnsDomain = 2,
+            ComputerNameDnsFullyQualified = 3,
+            ComputerNamePhysicalNetBIOS = 4,
+            ComputerNamePhysicalDnsHostname = 5,
+            ComputerNamePhysicalDnsDomain = 6,
+            ComputerNamePhysicalDnsFullyQualified = 7,
+            ComputerNameMax = 8,
+        }
+        #[repr(i32)]
+        enum DEVELOPER_DRIVE_ENABLEMENT_STATE {
+            DeveloperDriveEnablementStateError = 0,
+            DeveloperDriveEnabled = 1,
+            DeveloperDriveDisabledBySystemPolicy = 2,
+            DeveloperDriveDisabledByGroupPolicy = 3,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn DnsHostnameToComputerNameExW(Hostname: PCWSTR, #[len_param(2)] #[out] #[opt] ComputerName: PWSTR, #[in] #[out] nSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumSystemFirmwareTables(FirmwareTableProviderSignature: u32, #[size_param(2)] #[opt] pFirmwareTableEnumBuffer: *mut void, BufferSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetComputerNameExA(NameType: COMPUTER_NAME_FORMAT, #[len_param(2)] #[out] #[opt] lpBuffer: PSTR, #[in] #[out] nSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetComputerNameExW(NameType: COMPUTER_NAME_FORMAT, #[len_param(2)] #[out] #[opt] lpBuffer: PWSTR, #[in] #[out] nSize: *mut u32) -> BOOL;
+        #[library("api-ms-win-core-sysinfo-l1-2-7.dll")]
+        extern fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_STATE;
+        #[library("api-ms-win-core-sysinfo-l1-2-3.dll")]
+        extern fn GetIntegratedDisplaySize(sizeInInches: *mut f64) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn GetLocalTime(lpSystemTime: *mut SYSTEMTIME);
+        #[library("KERNEL32.dll")]
+        extern fn GetLogicalProcessorInformation(#[size_param(1)] #[opt] Buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, #[in] #[out] ReturnedLength: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetLogicalProcessorInformationEx(RelationshipType: LOGICAL_PROCESSOR_RELATIONSHIP, #[size_param(2)] #[opt] Buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, #[in] #[out] ReturnedLength: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNativeSystemInfo(lpSystemInfo: *mut SYSTEM_INFO);
+        #[library("api-ms-win-core-sysinfo-l1-2-3.dll")]
+        extern fn GetOsManufacturingMode(pbEnabled: *mut BOOL) -> BOOL;
+        #[library("api-ms-win-core-sysinfo-l1-2-0.dll")]
+        extern fn GetOsSafeBootMode(Flags: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetPhysicallyInstalledSystemMemory(TotalMemoryInKilobytes: *mut u64) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessorSystemCycleTime(Group: u16, #[size_param(2)] #[opt] Buffer: *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, #[in] #[out] ReturnedLength: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProductInfo(dwOSMajorVersion: u32, dwOSMinorVersion: u32, dwSpMajorVersion: u32, dwSpMinorVersion: u32, pdwReturnedProductType: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetRuntimeAttestationReport(#[opt] Nonce: *const u8, PackageVersion: u16, ReportTypesBitmap: u64, #[size_param(4)] #[opt] ReportBuffer: *mut void, #[in] #[out] ReportBufferSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemDirectoryA(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, uSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemDirectoryW(#[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, uSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemFirmwareTable(FirmwareTableProviderSignature: u32, FirmwareTableID: u32, #[size_param(3)] #[opt] pFirmwareTableBuffer: *mut void, BufferSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemInfo(lpSystemInfo: *mut SYSTEM_INFO);
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemLeapSecondInformation(Enabled: *mut BOOL, Flags: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemTime(lpSystemTime: *mut SYSTEMTIME);
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemTimeAdjustment(lpTimeAdjustment: *mut u32, lpTimeIncrement: *mut u32, lpTimeAdjustmentDisabled: *mut BOOL) -> BOOL;
+        #[library("api-ms-win-core-sysinfo-l1-2-4.dll")]
+        extern fn GetSystemTimeAdjustmentPrecise(lpTimeAdjustment: *mut u64, lpTimeIncrement: *mut u64, lpTimeAdjustmentDisabled: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemTimeAsFileTime(lpSystemTimeAsFileTime: *mut FILETIME);
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemTimePreciseAsFileTime(lpSystemTimeAsFileTime: *mut FILETIME);
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemWindowsDirectoryA(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, uSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemWindowsDirectoryW(#[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, uSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetTickCount() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetTickCount64() -> u64;
+        #[library("KERNEL32.dll")]
+        extern fn GetVersion() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetVersionExA(#[in] #[out] lpVersionInformation: *mut OSVERSIONINFOA) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetVersionExW(#[in] #[out] lpVersionInformation: *mut OSVERSIONINFOW) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetWindowsDirectoryA(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, uSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetWindowsDirectoryW(#[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, uSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalMemoryStatusEx(lpBuffer: *mut MEMORYSTATUSEX) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn InstallELAMCertificateInfo(ELAMFile: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsUserCetAvailableInEnvironment(UserCetEnvironment: u32) -> BOOL;
+        type LPMEMORYSTATUSEX = *mut MEMORYSTATUSEX;
+        type LPSYSTEM_INFO = *mut SYSTEM_INFO;
+        struct MEMORYSTATUSEX {
+            dwLength: u32,
+            dwMemoryLoad: u32,
+            ullTotalPhys: DWORDLONG,
+            ullAvailPhys: DWORDLONG,
+            ullTotalPageFile: DWORDLONG,
+            ullAvailPageFile: DWORDLONG,
+            ullTotalVirtual: DWORDLONG,
+            ullAvailVirtual: DWORDLONG,
+            ullAvailExtendedVirtual: DWORDLONG,
+        }
+        const SCEX2_ALT_NETBIOS_NAME: u32 = 1;
+        struct SYSTEM_INFO {
+            Anonymous: union {
+                dwOemId: u32,
+                Anonymous: struct {
+                    wProcessorArchitecture: u16,
+                    wReserved: u16,
+                },
+            },
+            dwPageSize: u32,
+            lpMinimumApplicationAddress: *mut void,
+            lpMaximumApplicationAddress: *mut void,
+            dwActiveProcessorMask: usize,
+            dwNumberOfProcessors: u32,
+            dwProcessorType: u32,
+            dwAllocationGranularity: u32,
+            wProcessorLevel: u16,
+            wProcessorRevision: u16,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn SetComputerNameA(lpComputerName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetComputerNameEx2W(NameType: COMPUTER_NAME_FORMAT, Flags: u32, lpBuffer: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetComputerNameExA(NameType: COMPUTER_NAME_FORMAT, lpBuffer: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetComputerNameExW(NameType: COMPUTER_NAME_FORMAT, lpBuffer: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetComputerNameW(lpComputerName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetLocalTime(lpSystemTime: *const SYSTEMTIME) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetSystemTime(lpSystemTime: *const SYSTEMTIME) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetSystemTimeAdjustment(dwTimeAdjustment: u32, bTimeAdjustmentDisabled: BOOL) -> BOOL;
+        #[library("api-ms-win-core-sysinfo-l1-2-4.dll")]
+        extern fn SetSystemTimeAdjustmentPrecise(dwTimeAdjustment: u64, bTimeAdjustmentDisabled: BOOL) -> BOOL;
+        const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: u32 = 2;
+        const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: u32 = 17;
+        const USER_CET_ENVIRONMENT_VBS_ENCLAVE: u32 = 16;
+        const USER_CET_ENVIRONMENT_WIN32_PROCESS: u32 = 0;
+    }
+}

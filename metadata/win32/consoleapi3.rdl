@@ -1,0 +1,101 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn AddConsoleAliasA(Source: PCSTR, Target: PCSTR, ExeName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn AddConsoleAliasW(Source: PCWSTR, Target: PCWSTR, ExeName: PCWSTR) -> BOOL;
+        struct CONSOLE_FONT_INFOEX {
+            cbSize: u32,
+            nFont: u32,
+            dwFontSize: COORD,
+            FontFamily: u32,
+            FontWeight: u32,
+            FaceName: [u16; 32],
+        }
+        const CONSOLE_FULLSCREEN: u32 = 1;
+        const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2;
+        const CONSOLE_FULLSCREEN_MODE: u32 = 1;
+        struct CONSOLE_HISTORY_INFO {
+            cbSize: u32,
+            HistoryBufferSize: u32,
+            NumberOfHistoryBuffers: u32,
+            dwFlags: u32,
+        }
+        const CONSOLE_MOUSE_DOWN: u32 = 8;
+        const CONSOLE_MOUSE_SELECTION: u32 = 4;
+        const CONSOLE_NO_SELECTION: u32 = 0;
+        struct CONSOLE_SELECTION_INFO {
+            dwFlags: u32,
+            dwSelectionAnchor: COORD,
+            srSelection: SMALL_RECT,
+        }
+        const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1;
+        const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2;
+        const CONSOLE_WINDOWED_MODE: u32 = 2;
+        #[library("KERNEL32.dll")]
+        extern fn ExpungeConsoleCommandHistoryA(ExeName: PCSTR);
+        #[library("KERNEL32.dll")]
+        extern fn ExpungeConsoleCommandHistoryW(ExeName: PCWSTR);
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleAliasA(Source: PCSTR, #[len_param(2)] #[out] TargetBuffer: PSTR, TargetBufferLength: u32, ExeName: PCSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleAliasExesA(#[len_param(1)] #[out] ExeNameBuffer: PSTR, ExeNameBufferLength: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleAliasExesLengthA() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleAliasExesLengthW() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleAliasExesW(#[len_param(1)] #[out] ExeNameBuffer: PWSTR, ExeNameBufferLength: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleAliasW(Source: PCWSTR, #[len_param(2)] #[out] TargetBuffer: PWSTR, TargetBufferLength: u32, ExeName: PCWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleAliasesA(#[len_param(1)] #[out] AliasBuffer: PSTR, AliasBufferLength: u32, ExeName: PCSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleAliasesLengthA(ExeName: PCSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleAliasesLengthW(ExeName: PCWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleAliasesW(#[len_param(1)] #[out] AliasBuffer: PWSTR, AliasBufferLength: u32, ExeName: PCWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleCommandHistoryA(#[size_param(1)] #[out] Commands: PSTR, CommandBufferLength: u32, ExeName: PCSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleCommandHistoryLengthA(ExeName: PCSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleCommandHistoryLengthW(ExeName: PCWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleCommandHistoryW(#[size_param(1)] #[out] Commands: PWSTR, CommandBufferLength: u32, ExeName: PCWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleDisplayMode(lpModeFlags: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleFontSize(hConsoleOutput: HANDLE, nFont: u32) -> COORD;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleHistoryInfo(lpConsoleHistoryInfo: *mut CONSOLE_HISTORY_INFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleProcessList(#[len_param(1)] lpdwProcessList: *mut u32, dwProcessCount: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleSelectionInfo(lpConsoleSelectionInfo: *mut CONSOLE_SELECTION_INFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetConsoleWindow() -> HWND;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentConsoleFont(hConsoleOutput: HANDLE, bMaximumWindow: BOOL, lpConsoleCurrentFont: *mut CONSOLE_FONT_INFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentConsoleFontEx(hConsoleOutput: HANDLE, bMaximumWindow: BOOL, lpConsoleCurrentFontEx: *mut CONSOLE_FONT_INFOEX) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumberOfConsoleMouseButtons(lpNumberOfMouseButtons: *mut u32) -> BOOL;
+        const HISTORY_NO_DUP_FLAG: u32 = 1;
+        type PCONSOLE_FONT_INFOEX = *mut CONSOLE_FONT_INFOEX;
+        type PCONSOLE_HISTORY_INFO = *mut CONSOLE_HISTORY_INFO;
+        type PCONSOLE_SELECTION_INFO = *mut CONSOLE_SELECTION_INFO;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleDisplayMode(hConsoleOutput: HANDLE, dwFlags: u32, #[opt] lpNewScreenBufferDimensions: *mut COORD) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleHistoryInfo(lpConsoleHistoryInfo: *const CONSOLE_HISTORY_INFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleNumberOfCommandsA(Number: u32, ExeName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetConsoleNumberOfCommandsW(Number: u32, ExeName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetCurrentConsoleFontEx(hConsoleOutput: HANDLE, bMaximumWindow: BOOL, lpConsoleCurrentFontEx: *const CONSOLE_FONT_INFOEX) -> BOOL;
+    }
+}

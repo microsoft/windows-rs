@@ -20,7 +20,7 @@ impl<'a> DrawingSession<'a> {
 
     /// Clears the entire session to the given color.
     pub fn clear(&self, color: ColorF) {
-        let c: D2D1_COLOR_F = color.into();
+        let c: D2D_COLOR_F = color.into();
         unsafe { self.context.Clear(Some(&c)) };
     }
 
@@ -143,7 +143,7 @@ impl<'a> DrawingSession<'a> {
 
     /// Creates a solid color brush.
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
-        let c: D2D1_COLOR_F = color.into();
+        let c: D2D_COLOR_F = color.into();
         unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 

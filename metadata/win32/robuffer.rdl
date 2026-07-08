@@ -1,0 +1,11 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x905a0fef_bc53_11df_8c49_001e4fc686da)]
+        interface IBufferByteAccess: IUnknown {
+            fn Buffer(&self, value: *mut *mut byte) -> HRESULT;
+        }
+        #[library("api-ms-win-core-winrt-robuffer-l1-1-0.dll")]
+        extern fn RoGetBufferMarshaler(bufferMarshaler: *mut IMarshal) -> HRESULT;
+    }
+}

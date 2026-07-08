@@ -1,0 +1,138 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn CreateToolhelp32Snapshot(dwFlags: u32, th32ProcessID: u32) -> HANDLE;
+        struct HEAPENTRY32 {
+            dwSize: usize,
+            hHandle: HANDLE,
+            dwAddress: usize,
+            dwBlockSize: usize,
+            dwFlags: u32,
+            dwLockCount: u32,
+            dwResvd: u32,
+            th32ProcessID: u32,
+            th32HeapID: usize,
+        }
+        struct HEAPLIST32 {
+            dwSize: usize,
+            th32ProcessID: u32,
+            th32HeapID: usize,
+            dwFlags: u32,
+        }
+        const HF32_DEFAULT: u32 = 1;
+        const HF32_SHARED: u32 = 2;
+        #[library("KERNEL32.dll")]
+        extern fn Heap32First(lphe: *mut HEAPENTRY32, th32ProcessID: u32, th32HeapID: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Heap32ListFirst(hSnapshot: HANDLE, lphl: *mut HEAPLIST32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Heap32ListNext(hSnapshot: HANDLE, lphl: *mut HEAPLIST32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Heap32Next(lphe: *mut HEAPENTRY32) -> BOOL;
+        const LF32_FIXED: u32 = 1;
+        const LF32_FREE: u32 = 2;
+        const LF32_MOVEABLE: u32 = 4;
+        type LPHEAPENTRY32 = *mut HEAPENTRY32;
+        type LPHEAPLIST32 = *mut HEAPLIST32;
+        type LPMODULEENTRY32 = *mut MODULEENTRY32;
+        type LPMODULEENTRY32W = *mut MODULEENTRY32W;
+        type LPPROCESSENTRY32 = *mut PROCESSENTRY32;
+        type LPPROCESSENTRY32W = *mut PROCESSENTRY32W;
+        type LPTHREADENTRY32 = *mut THREADENTRY32;
+        const MAX_MODULE_NAME32: u32 = 255;
+        struct MODULEENTRY32 {
+            dwSize: u32,
+            th32ModuleID: u32,
+            th32ProcessID: u32,
+            GlblcntUsage: u32,
+            ProccntUsage: u32,
+            modBaseAddr: *mut u8,
+            modBaseSize: u32,
+            hModule: HMODULE,
+            szModule: [i8; 256],
+            szExePath: [i8; 260],
+        }
+        struct MODULEENTRY32W {
+            dwSize: u32,
+            th32ModuleID: u32,
+            th32ProcessID: u32,
+            GlblcntUsage: u32,
+            ProccntUsage: u32,
+            modBaseAddr: *mut u8,
+            modBaseSize: u32,
+            hModule: HMODULE,
+            szModule: [u16; 256],
+            szExePath: [u16; 260],
+        }
+        #[library("KERNEL32.dll")]
+        extern fn Module32First(hSnapshot: HANDLE, lpme: *mut MODULEENTRY32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Module32FirstW(hSnapshot: HANDLE, lpme: *mut MODULEENTRY32W) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Module32Next(hSnapshot: HANDLE, lpme: *mut MODULEENTRY32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Module32NextW(hSnapshot: HANDLE, lpme: *mut MODULEENTRY32W) -> BOOL;
+        type PHEAPENTRY32 = *mut HEAPENTRY32;
+        type PHEAPLIST32 = *mut HEAPLIST32;
+        type PMODULEENTRY32 = *mut MODULEENTRY32;
+        type PMODULEENTRY32W = *mut MODULEENTRY32W;
+        type PPROCESSENTRY32 = *mut PROCESSENTRY32;
+        type PPROCESSENTRY32W = *mut PROCESSENTRY32W;
+        struct PROCESSENTRY32 {
+            dwSize: u32,
+            cntUsage: u32,
+            th32ProcessID: u32,
+            th32DefaultHeapID: usize,
+            th32ModuleID: u32,
+            cntThreads: u32,
+            th32ParentProcessID: u32,
+            pcPriClassBase: i32,
+            dwFlags: u32,
+            szExeFile: [i8; 260],
+        }
+        struct PROCESSENTRY32W {
+            dwSize: u32,
+            cntUsage: u32,
+            th32ProcessID: u32,
+            th32DefaultHeapID: usize,
+            th32ModuleID: u32,
+            cntThreads: u32,
+            th32ParentProcessID: u32,
+            pcPriClassBase: i32,
+            dwFlags: u32,
+            szExeFile: [u16; 260],
+        }
+        type PTHREADENTRY32 = *mut THREADENTRY32;
+        #[library("KERNEL32.dll")]
+        extern fn Process32First(hSnapshot: HANDLE, lppe: *mut PROCESSENTRY32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Process32FirstW(hSnapshot: HANDLE, lppe: *mut PROCESSENTRY32W) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Process32Next(hSnapshot: HANDLE, lppe: *mut PROCESSENTRY32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Process32NextW(hSnapshot: HANDLE, lppe: *mut PROCESSENTRY32W) -> BOOL;
+        const TH32CS_INHERIT: u32 = 2147483648;
+        const TH32CS_SNAPALL: u32 = 15;
+        const TH32CS_SNAPHEAPLIST: u32 = 1;
+        const TH32CS_SNAPMODULE: u32 = 8;
+        const TH32CS_SNAPMODULE32: u32 = 16;
+        const TH32CS_SNAPPROCESS: u32 = 2;
+        const TH32CS_SNAPTHREAD: u32 = 4;
+        struct THREADENTRY32 {
+            dwSize: u32,
+            cntUsage: u32,
+            th32ThreadID: u32,
+            th32OwnerProcessID: u32,
+            tpBasePri: i32,
+            tpDeltaPri: i32,
+            dwFlags: u32,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn Thread32First(hSnapshot: HANDLE, lpte: *mut THREADENTRY32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Thread32Next(hSnapshot: HANDLE, lpte: *mut THREADENTRY32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Toolhelp32ReadProcessMemory(th32ProcessID: u32, lpBaseAddress: *const void, lpBuffer: *mut void, cbRead: usize, lpNumberOfBytesRead: *mut usize) -> BOOL;
+    }
+}

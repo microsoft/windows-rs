@@ -1,0 +1,141 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct ADDRESS_LIST_DESCRIPTOR {
+            MediaType: u32,
+            AddressList: NETWORK_ADDRESS_LIST,
+        }
+        const CURRENT_TCI_VERSION: u32 = 2;
+        struct ENUMERATION_BUFFER {
+            Length: u32,
+            OwnerProcessId: u32,
+            FlowNameLength: u16,
+            FlowName: [u16; 256],
+            pFlow: PTC_GEN_FLOW,
+            NumberOfFilters: u32,
+            GenericFilter: [TC_GEN_FILTER; 1],
+        }
+        struct IPX_PATTERN {
+            Src: struct {
+                NetworkAddress: u32,
+                NodeAddress: [u8; 6],
+                Socket: u16,
+            },
+            Dest: struct {
+                NetworkAddress: u32,
+                NodeAddress: [u8; 6],
+                Socket: u16,
+            },
+        }
+        struct IP_PATTERN {
+            Reserved1: u32,
+            Reserved2: u32,
+            SrcAddr: u32,
+            DstAddr: u32,
+            S_un: union {
+                S_un_ports: struct {
+                    s_srcport: u16,
+                    s_dstport: u16,
+                },
+                S_un_icmp: struct {
+                    s_type: u8,
+                    s_code: u8,
+                    filler: u16,
+                },
+                S_Spi: u32,
+            },
+            ProtocolId: u8,
+            Reserved3: [u8; 3],
+        }
+        const MAX_STRING_LENGTH: u32 = 256;
+        type PADDRESS_LIST_DESCRIPTOR = *mut ADDRESS_LIST_DESCRIPTOR;
+        type PENUMERATION_BUFFER = *mut ENUMERATION_BUFFER;
+        type PIPX_PATTERN = *mut IPX_PATTERN;
+        type PIP_PATTERN = *mut IP_PATTERN;
+        type PTCI_CLIENT_FUNC_LIST = *mut TCI_CLIENT_FUNC_LIST;
+        type PTC_GEN_FILTER = *mut TC_GEN_FILTER;
+        type PTC_GEN_FLOW = *mut TC_GEN_FLOW;
+        type PTC_IFC_DESCRIPTOR = *mut TC_IFC_DESCRIPTOR;
+        type PTC_SUPPORTED_INFO_BUFFER = *mut TC_SUPPORTED_INFO_BUFFER;
+        extern fn TCI_ADD_FLOW_COMPLETE_HANDLER(ClFlowCtx: HANDLE, Status: u32);
+        struct TCI_CLIENT_FUNC_LIST {
+            ClNotifyHandler: TCI_NOTIFY_HANDLER,
+            ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
+            ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
+            ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
+        }
+        extern fn TCI_DEL_FLOW_COMPLETE_HANDLER(ClFlowCtx: HANDLE, Status: u32);
+        extern fn TCI_MOD_FLOW_COMPLETE_HANDLER(ClFlowCtx: HANDLE, Status: u32);
+        extern fn TCI_NOTIFY_HANDLER(ClRegCtx: HANDLE, ClIfcCtx: HANDLE, Event: u32, SubCode: HANDLE, BufSize: u32, #[size_param(4)] Buffer: *const void);
+        struct TC_GEN_FILTER {
+            AddressType: u16,
+            PatternSize: u32,
+            Pattern: *mut void,
+            Mask: *mut void,
+        }
+        struct TC_GEN_FLOW {
+            SendingFlowspec: FLOWSPEC,
+            ReceivingFlowspec: FLOWSPEC,
+            TcObjectsLength: u32,
+            TcObjects: [QOS_OBJECT_HDR; 1],
+        }
+        struct TC_IFC_DESCRIPTOR {
+            Length: u32,
+            pInterfaceName: PWSTR,
+            pInterfaceID: PWSTR,
+            AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
+        }
+        const TC_INVALID_HANDLE: HANDLE = 0;
+        const TC_NOTIFY_FLOW_CLOSE: u32 = 5;
+        const TC_NOTIFY_IFC_CHANGE: u32 = 3;
+        const TC_NOTIFY_IFC_CLOSE: u32 = 2;
+        const TC_NOTIFY_IFC_UP: u32 = 1;
+        const TC_NOTIFY_PARAM_CHANGED: u32 = 4;
+        struct TC_SUPPORTED_INFO_BUFFER {
+            InstanceIDLength: u16,
+            InstanceID: [u16; 256],
+            InterfaceLuid: u64,
+            AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
+        }
+        #[library("TRAFFIC.dll")]
+        extern fn TcAddFilter(FlowHandle: HANDLE, pGenericFilter: *const TC_GEN_FILTER, pFilterHandle: *mut HANDLE) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcAddFlow(IfcHandle: HANDLE, ClFlowCtx: HANDLE, Flags: u32, pGenericFlow: *const TC_GEN_FLOW, pFlowHandle: *mut HANDLE) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcCloseInterface(IfcHandle: HANDLE) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcDeleteFilter(FilterHandle: HANDLE) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcDeleteFlow(FlowHandle: HANDLE) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcDeregisterClient(ClientHandle: HANDLE) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcEnumerateFlows(IfcHandle: HANDLE, #[in] #[out] pEnumHandle: *mut HANDLE, #[in] #[out] pFlowCount: *mut u32, #[in] #[out] pBufSize: *mut u32, Buffer: *mut ENUMERATION_BUFFER) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcEnumerateInterfaces(ClientHandle: HANDLE, #[in] #[out] pBufferSize: *mut u32, InterfaceBuffer: *mut TC_IFC_DESCRIPTOR) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcGetFlowNameA(FlowHandle: HANDLE, StrSize: u32, #[len_param(1)] #[out] pFlowName: PSTR) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcGetFlowNameW(FlowHandle: HANDLE, StrSize: u32, #[len_param(1)] #[out] pFlowName: PWSTR) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcModifyFlow(FlowHandle: HANDLE, pGenericFlow: *const TC_GEN_FLOW) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcOpenInterfaceA(pInterfaceName: PCSTR, ClientHandle: HANDLE, ClIfcCtx: HANDLE, pIfcHandle: *mut HANDLE) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcOpenInterfaceW(pInterfaceName: PCWSTR, ClientHandle: HANDLE, ClIfcCtx: HANDLE, pIfcHandle: *mut HANDLE) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcQueryFlowA(pFlowName: PCSTR, pGuidParam: *const GUID, #[in] #[out] pBufferSize: *mut u32, #[size_param(2)] Buffer: *mut void) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcQueryFlowW(pFlowName: PCWSTR, pGuidParam: *const GUID, #[in] #[out] pBufferSize: *mut u32, #[size_param(2)] Buffer: *mut void) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcQueryInterface(IfcHandle: HANDLE, pGuidParam: *const GUID, NotifyChange: BOOLEAN, #[in] #[out] pBufferSize: *mut u32, #[size_param(3)] Buffer: *mut void) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcRegisterClient(TciVersion: u32, ClRegCtx: HANDLE, ClientHandlerList: *const TCI_CLIENT_FUNC_LIST, pClientHandle: *mut HANDLE) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcSetFlowA(pFlowName: PCSTR, pGuidParam: *const GUID, BufferSize: u32, #[size_param(2)] Buffer: *const void) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcSetFlowW(pFlowName: PCWSTR, pGuidParam: *const GUID, BufferSize: u32, #[size_param(2)] Buffer: *const void) -> u32;
+        #[library("TRAFFIC.dll")]
+        extern fn TcSetInterface(IfcHandle: HANDLE, pGuidParam: *const GUID, BufferSize: u32, #[size_param(2)] Buffer: *const void) -> u32;
+    }
+}

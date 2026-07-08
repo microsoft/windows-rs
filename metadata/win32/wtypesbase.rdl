@@ -1,0 +1,160 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: u32 = 2048;
+        const APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP: u32 = 1;
+        const APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY: u32 = 4;
+        const APPIDREGFLAGS_IUSERVER_ACTIVATE_IN_CLIENT_SESSION_ONLY: u32 = 32;
+        const APPIDREGFLAGS_IUSERVER_SELF_SID_IN_LAUNCH_PERMISSION: u32 = 16;
+        const APPIDREGFLAGS_IUSERVER_UNMODIFIED_LOGON_TOKEN: u32 = 8;
+        const APPIDREGFLAGS_RESERVED1: u32 = 64;
+        const APPIDREGFLAGS_RESERVED10: u32 = 32768;
+        const APPIDREGFLAGS_RESERVED2: u32 = 128;
+        const APPIDREGFLAGS_RESERVED3: u32 = 256;
+        const APPIDREGFLAGS_RESERVED4: u32 = 512;
+        const APPIDREGFLAGS_RESERVED5: u32 = 1024;
+        const APPIDREGFLAGS_RESERVED7: u32 = 4096;
+        const APPIDREGFLAGS_RESERVED8: u32 = 8192;
+        const APPIDREGFLAGS_RESERVED9: u32 = 16384;
+        const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2;
+        struct BLOB {
+            cbSize: u32,
+            pBlobData: *mut u8,
+        }
+        struct BYTE_BLOB {
+            clSize: u32,
+            abData: [byte; 1],
+        }
+        struct BYTE_SIZEDARR {
+            clSize: u32,
+            pData: *mut byte,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum CLSCTX {
+            CLSCTX_INPROC_SERVER = 1,
+            CLSCTX_INPROC_HANDLER = 2,
+            CLSCTX_LOCAL_SERVER = 4,
+            CLSCTX_INPROC_SERVER16 = 8,
+            CLSCTX_REMOTE_SERVER = 16,
+            CLSCTX_INPROC_HANDLER16 = 32,
+            CLSCTX_RESERVED1 = 64,
+            CLSCTX_RESERVED2 = 128,
+            CLSCTX_RESERVED3 = 256,
+            CLSCTX_RESERVED4 = 512,
+            CLSCTX_NO_CODE_DOWNLOAD = 1024,
+            CLSCTX_RESERVED5 = 2048,
+            CLSCTX_NO_CUSTOM_MARSHAL = 4096,
+            CLSCTX_ENABLE_CODE_DOWNLOAD = 8192,
+            CLSCTX_NO_FAILURE_LOG = 16384,
+            CLSCTX_DISABLE_AAA = 32768,
+            CLSCTX_ENABLE_AAA = 65536,
+            CLSCTX_FROM_DEFAULT_CONTEXT = 131072,
+            CLSCTX_ACTIVATE_X86_SERVER = 262144,
+            CLSCTX_ACTIVATE_32_BIT_SERVER = 262144,
+            CLSCTX_ACTIVATE_64_BIT_SERVER = 524288,
+            CLSCTX_ENABLE_CLOAKING = 1048576,
+            CLSCTX_APPCONTAINER = 4194304,
+            CLSCTX_ACTIVATE_AAA_AS_IU = 8388608,
+            CLSCTX_RESERVED6 = 16777216,
+            CLSCTX_ACTIVATE_ARM32_SERVER = 33554432,
+            CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION = 67108864,
+            CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE = 134217728,
+            CLSCTX_DO_NOT_ELEVATE_SERVER = 268435456,
+            CLSCTX_PS_DLL = 2147483648,
+        }
+        const CLSCTX_VALID_MASK: i32 = -1612712929;
+        struct COAUTHIDENTITY {
+            User: *mut u16,
+            UserLength: u32,
+            Domain: *mut u16,
+            DomainLength: u32,
+            Password: *mut u16,
+            PasswordLength: u32,
+            Flags: u32,
+        }
+        struct COAUTHINFO {
+            dwAuthnSvc: u32,
+            dwAuthzSvc: u32,
+            pwszServerPrincName: PWSTR,
+            dwAuthnLevel: u32,
+            dwImpersonationLevel: u32,
+            pAuthIdentityData: *mut COAUTHIDENTITY,
+            dwCapabilities: u32,
+        }
+        const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: u32 = 2;
+        const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: u32 = 1;
+        const DCOMSCM_PING_DISALLOW_UNSECURE_CALL: u32 = 32;
+        const DCOMSCM_PING_USE_MID_AUTHNSERVICE: u32 = 16;
+        const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8;
+        const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4;
+        struct DWORD_BLOB {
+            clSize: u32,
+            alData: [u32; 1],
+        }
+        struct DWORD_SIZEDARR {
+            clSize: u32,
+            pData: *mut u32,
+        }
+        struct FLAGGED_BYTE_BLOB {
+            fFlags: u32,
+            clSize: u32,
+            abData: [byte; 1],
+        }
+        struct FLAGGED_WORD_BLOB {
+            fFlags: u32,
+            clSize: u32,
+            asData: [u16; 1],
+        }
+        struct HYPER_SIZEDARR {
+            clSize: u32,
+            pData: *mut i64,
+        }
+        type LPBLOB = *mut BLOB;
+        #[repr(i32)]
+        enum MEMCTX {
+            MEMCTX_TASK = 1,
+            MEMCTX_SHARED = 2,
+            MEMCTX_MACSYSTEM = 3,
+            MEMCTX_UNKNOWN = -1,
+            MEMCTX_SAME = -2,
+        }
+        #[repr(i32)]
+        enum MSHCTX {
+            MSHCTX_LOCAL = 0,
+            MSHCTX_NOSHAREDMEM = 1,
+            MSHCTX_DIFFERENTMACHINE = 2,
+            MSHCTX_INPROC = 3,
+            MSHCTX_CROSSCTX = 4,
+            MSHCTX_CONTAINER = 5,
+        }
+        #[repr(i32)]
+        enum MSHLFLAGS {
+            MSHLFLAGS_NORMAL = 0,
+            MSHLFLAGS_TABLESTRONG = 1,
+            MSHLFLAGS_TABLEWEAK = 2,
+            MSHLFLAGS_NOPING = 4,
+            MSHLFLAGS_RESERVED1 = 8,
+            MSHLFLAGS_RESERVED2 = 16,
+            MSHLFLAGS_RESERVED3 = 32,
+            MSHLFLAGS_RESERVED4 = 64,
+        }
+        type OLECHAR = u16;
+        type PSCODE = *mut SCODE;
+        const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1;
+        type SCODE = i32;
+        type UP_BYTE_BLOB = *mut BYTE_BLOB;
+        type UP_DWORD_BLOB = *mut DWORD_BLOB;
+        type UP_FLAGGED_BYTE_BLOB = *mut FLAGGED_BYTE_BLOB;
+        type UP_FLAGGED_WORD_BLOB = *mut FLAGGED_WORD_BLOB;
+        type UP_WORD_BLOB = *mut WORD_BLOB;
+        struct WORD_BLOB {
+            clSize: u32,
+            asData: [u16; 1],
+        }
+        struct WORD_SIZEDARR {
+            clSize: u32,
+            pData: *mut u16,
+        }
+    }
+}

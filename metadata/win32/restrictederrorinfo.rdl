@@ -1,0 +1,28 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x04a2dbf3_df83_116c_0946_0812abf6e07d)]
+        interface ILanguageExceptionErrorInfo: IUnknown {
+            fn GetLanguageException(&self, languageException: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x5746e5c4_5b97_424c_b620_2822915734dd)]
+        interface ILanguageExceptionErrorInfo2: ILanguageExceptionErrorInfo {
+            fn GetPreviousLanguageExceptionErrorInfo(&self, previousLanguageExceptionErrorInfo: *mut ILanguageExceptionErrorInfo2) -> HRESULT;
+            fn CapturePropagationContext(&self, languageException: IUnknown) -> HRESULT;
+            fn GetPropagationContextHead(&self, propagatedLanguageExceptionErrorInfoHead: *mut ILanguageExceptionErrorInfo2) -> HRESULT;
+        }
+        #[guid(0xcbe53fb5_f967_4258_8d34_42f5e25833de)]
+        interface ILanguageExceptionStackBackTrace: IUnknown {
+            fn GetStackBackTrace(&self, maxFramesToCapture: u32, #[in] #[out] stackBackTrace: *mut usize, framesCaptured: *mut u32) -> HRESULT;
+        }
+        #[guid(0xfeb5a271_a6cd_45ce_880a_696706badc65)]
+        interface ILanguageExceptionTransform: IUnknown {
+            fn GetTransformedRestrictedErrorInfo(&self, restrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+        }
+        #[guid(0x82ba7092_4c88_427d_a7bc_16dd93feb67e)]
+        interface IRestrictedErrorInfo: IUnknown {
+            fn GetErrorDetails(&self, description: *mut BSTR, error: *mut HRESULT, restrictedDescription: *mut BSTR, capabilitySid: *mut BSTR) -> HRESULT;
+            fn GetReference(&self, reference: *mut BSTR) -> HRESULT;
+        }
+    }
+}

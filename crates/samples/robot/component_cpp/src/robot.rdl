@@ -1,5 +1,5 @@
 use Windows::Foundation::Metadata::*;
-use Windows::Win32::System::Com::*;
+use Windows::Win32::*;
 
 #[winrt]
 mod Robotics {

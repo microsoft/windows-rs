@@ -1,0 +1,20 @@
+#[win32]
+mod Test {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    const IID_ISample: GUID = 0x12345678_1234_5678_9abc_def011223344;
+    #[guid(0x12345678_1234_5678_9abc_def011223344)]
+    interface ISample: IUnknown {
+        fn GetValue(&self,) -> i32;
+    }
+    #[no_guid]
+    interface IUnknown {
+        fn QueryInterface(&self, riid: *const void, ppvObject: *mut *mut void) -> i32;
+        fn AddRef(&self,) -> u32;
+        fn Release(&self,) -> u32;
+    }
+}

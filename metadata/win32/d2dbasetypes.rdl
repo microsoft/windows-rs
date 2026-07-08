@@ -1,0 +1,6 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type D2D_COLOR_F = D3DCOLORVALUE;
+    }
+}

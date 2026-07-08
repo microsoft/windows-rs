@@ -1,0 +1,28 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BG_COPY_FILE_ALL: u32 = 15;
+        const BG_COPY_FILE_DACL: u32 = 4;
+        const BG_COPY_FILE_GROUP: u32 = 2;
+        const BG_COPY_FILE_OWNER: u32 = 1;
+        const BG_COPY_FILE_SACL: u32 = 8;
+        struct BG_FILE_RANGE {
+            InitialOffset: u64,
+            Length: u64,
+        }
+        const BG_LENGTH_TO_EOF: i32 = -1;
+        const BackgroundCopyManager2_0: GUID = 0x6d18ad12_bde3_4393_b311_099c346e6df9;
+        #[guid(0x83e81b93_0873_474d_8a8c_f2018b1a939c)]
+        interface IBackgroundCopyFile2: IBackgroundCopyFile {
+            fn GetFileRanges(&self, #[in] #[out] RangeCount: *mut u32, Ranges: *mut *mut BG_FILE_RANGE) -> HRESULT;
+            fn SetRemoteName(&self, Val: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x443c8934_90ff_48ed_bcde_26f5c7450042)]
+        interface IBackgroundCopyJob3: IBackgroundCopyJob2 {
+            fn ReplaceRemotePrefix(&self, OldPrefix: PCWSTR, NewPrefix: PCWSTR) -> HRESULT;
+            fn AddFileWithRanges(&self, RemoteUrl: PCWSTR, LocalName: PCWSTR, RangeCount: u32, Ranges: *const BG_FILE_RANGE) -> HRESULT;
+            fn SetFileACLFlags(&self, Flags: u32) -> HRESULT;
+            fn GetFileACLFlags(&self, Flags: *mut u32) -> HRESULT;
+        }
+    }
+}

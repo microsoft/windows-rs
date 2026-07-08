@@ -1,0 +1,154 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct BOID {
+            rgb: [byte; 16],
+        }
+        #[guid(0x79427a2b_f895_40e0_be79_b57dc82ed231)]
+        interface IKernelTransaction: IUnknown {
+            fn GetHandle(&self, pHandle: *mut HANDLE) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum ISOFLAG {
+            ISOFLAG_RETAIN_COMMIT_DC = 1,
+            ISOFLAG_RETAIN_COMMIT = 2,
+            ISOFLAG_RETAIN_COMMIT_NO = 3,
+            ISOFLAG_RETAIN_ABORT_DC = 4,
+            ISOFLAG_RETAIN_ABORT = 8,
+            ISOFLAG_RETAIN_ABORT_NO = 12,
+            ISOFLAG_RETAIN_DONTCARE = 5,
+            ISOFLAG_RETAIN_BOTH = 10,
+            ISOFLAG_RETAIN_NONE = 15,
+            ISOFLAG_OPTIMISTIC = 16,
+            ISOFLAG_READONLY = 32,
+        }
+        #[repr(i32)]
+        enum ISOLATIONLEVEL {
+            ISOLATIONLEVEL_UNSPECIFIED = -1,
+            ISOLATIONLEVEL_CHAOS = 16,
+            ISOLATIONLEVEL_READUNCOMMITTED = 256,
+            ISOLATIONLEVEL_BROWSE = 256,
+            ISOLATIONLEVEL_CURSORSTABILITY = 4096,
+            ISOLATIONLEVEL_READCOMMITTED = 4096,
+            ISOLATIONLEVEL_REPEATABLEREAD = 65536,
+            ISOLATIONLEVEL_SERIALIZABLE = 1048576,
+            ISOLATIONLEVEL_ISOLATED = 1048576,
+        }
+        type ISOLEVEL = i32;
+        #[guid(0x30274f88_6ee4_474e_9b95_7807bc9ef8cf)]
+        interface ITmNodeName: IUnknown {
+            fn GetNodeNameSize(&self, pcbNodeNameSize: *mut u32) -> HRESULT;
+            fn GetNodeName(&self, cbNodeNameBufferSize: u32, #[in] #[out] pNodeNameBuffer: PWSTR) -> HRESULT;
+        }
+        #[guid(0x0fb15084_af41_11ce_bd2b_204c4f4f5020)]
+        interface ITransaction: IUnknown {
+            fn Commit(&self, fRetaining: BOOL, grfTC: u32, grfRM: u32) -> HRESULT;
+            fn Abort(&self, pboidReason: *const BOID, fRetaining: BOOL, fAsync: BOOL) -> HRESULT;
+            fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> HRESULT;
+        }
+        #[guid(0x34021548_0065_11d3_bac1_00c04f797be2)]
+        interface ITransaction2: ITransactionCloner {
+            fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> HRESULT;
+        }
+        #[guid(0x02656950_2152_11d0_944c_00a0c905416e)]
+        interface ITransactionCloner: ITransaction {
+            fn CloneWithCommitDisabled(&self, ppITransaction: *mut ITransaction) -> HRESULT;
+        }
+        #[guid(0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd)]
+        interface ITransactionDispenser: IUnknown {
+            fn GetOptionsObject(&self, ppOptions: *mut ITransactionOptions) -> HRESULT;
+            fn BeginTransaction(&self, punkOuter: IUnknown, isoLevel: ISOLEVEL, isoFlags: u32, pOptions: ITransactionOptions, ppTransaction: *mut ITransaction) -> HRESULT;
+        }
+        #[guid(0x3a6ad9e0_23b9_11cf_ad60_00aa00a74ccd)]
+        interface ITransactionOptions: IUnknown {
+            fn SetOptions(&self, pOptions: *const XACTOPT) -> HRESULT;
+            fn GetOptions(&self, #[in] #[out] pOptions: *mut XACTOPT) -> HRESULT;
+        }
+        #[guid(0x3a6ad9e2_23b9_11cf_ad60_00aa00a74ccd)]
+        interface ITransactionOutcomeEvents: IUnknown {
+            fn Committed(&self, fRetaining: BOOL, pNewUOW: *const XACTUOW, hr: HRESULT) -> HRESULT;
+            fn Aborted(&self, pboidReason: *const BOID, fRetaining: BOOL, pNewUOW: *const XACTUOW, hr: HRESULT) -> HRESULT;
+            fn HeuristicDecision(&self, dwDecision: u32, pboidReason: *const BOID, hr: HRESULT) -> HRESULT;
+            fn Indoubt(&self) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum TX_MISC_CONSTANTS {
+            MAX_TRAN_DESC = 40,
+        }
+        #[repr(i32)]
+        enum XACTCONST {
+            XACTCONST_TIMEOUTINFINITE = 0,
+        }
+        #[repr(i32)]
+        enum XACTHEURISTIC {
+            XACTHEURISTIC_ABORT = 1,
+            XACTHEURISTIC_COMMIT = 2,
+            XACTHEURISTIC_DAMAGE = 3,
+            XACTHEURISTIC_DANGER = 4,
+        }
+        struct XACTOPT {
+            ulTimeout: u32,
+            szDescription: [i8; 40],
+        }
+        #[repr(i32)]
+        enum XACTRM {
+            XACTRM_OPTIMISTICLASTWINS = 1,
+            XACTRM_NOREADONLYPREPARES = 2,
+        }
+        #[repr(i32)]
+        enum XACTSTAT {
+            XACTSTAT_NONE = 0,
+            XACTSTAT_OPENNORMAL = 1,
+            XACTSTAT_OPENREFUSED = 2,
+            XACTSTAT_PREPARING = 4,
+            XACTSTAT_PREPARED = 8,
+            XACTSTAT_PREPARERETAINING = 16,
+            XACTSTAT_PREPARERETAINED = 32,
+            XACTSTAT_COMMITTING = 64,
+            XACTSTAT_COMMITRETAINING = 128,
+            XACTSTAT_ABORTING = 256,
+            XACTSTAT_ABORTED = 512,
+            XACTSTAT_COMMITTED = 1024,
+            XACTSTAT_HEURISTIC_ABORT = 2048,
+            XACTSTAT_HEURISTIC_COMMIT = 4096,
+            XACTSTAT_HEURISTIC_DAMAGE = 8192,
+            XACTSTAT_HEURISTIC_DANGER = 16384,
+            XACTSTAT_FORCED_ABORT = 32768,
+            XACTSTAT_FORCED_COMMIT = 65536,
+            XACTSTAT_INDOUBT = 131072,
+            XACTSTAT_CLOSED = 262144,
+            XACTSTAT_OPEN = 3,
+            XACTSTAT_NOTPREPARED = 524227,
+            XACTSTAT_ALL = 524287,
+        }
+        struct XACTSTATS {
+            cOpen: u32,
+            cCommitting: u32,
+            cCommitted: u32,
+            cAborting: u32,
+            cAborted: u32,
+            cInDoubt: u32,
+            cHeuristicDecision: u32,
+            timeTransactionsUp: FILETIME,
+        }
+        #[repr(i32)]
+        enum XACTTC {
+            XACTTC_NONE = 0,
+            XACTTC_SYNC_PHASEONE = 1,
+            XACTTC_SYNC_PHASETWO = 2,
+            XACTTC_SYNC = 2,
+            XACTTC_ASYNC_PHASEONE = 4,
+            XACTTC_ASYNC = 4,
+        }
+        struct XACTTRANSINFO {
+            uow: XACTUOW,
+            isoLevel: ISOLEVEL,
+            isoFlags: u32,
+            grfTCSupported: u32,
+            grfRMSupported: u32,
+            grfTCSupportedRetaining: u32,
+            grfRMSupportedRetaining: u32,
+        }
+        type XACTUOW = BOID;
+    }
+}

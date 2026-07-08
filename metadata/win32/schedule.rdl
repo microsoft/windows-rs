@@ -1,0 +1,21 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PSCHEDULE = *mut SCHEDULE;
+        type PSCHEDULE_HEADER = *mut SCHEDULE_HEADER;
+        struct SCHEDULE {
+            Size: u32,
+            Bandwidth: u32,
+            NumberOfSchedules: u32,
+            Schedules: [SCHEDULE_HEADER; 1],
+        }
+        const SCHEDULE_BANDWIDTH: u32 = 1;
+        const SCHEDULE_DATA_ENTRIES: u32 = 168;
+        struct SCHEDULE_HEADER {
+            Type: u32,
+            Offset: u32,
+        }
+        const SCHEDULE_INTERVAL: u32 = 0;
+        const SCHEDULE_PRIORITY: u32 = 2;
+    }
+}

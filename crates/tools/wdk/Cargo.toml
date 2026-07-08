@@ -1,0 +1,13 @@
+[package]
+name = "tool_wdk"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+
+[dependencies]
+windows-clang = { workspace = true }
+windows-rdl = { workspace = true }
+
+[lints]
+workspace = true

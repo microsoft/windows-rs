@@ -1,0 +1,830 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CLSID_DirectSound: GUID = 0x47d4d946_62e8_11cf_93bc_444553540000;
+        const CLSID_DirectSound8: GUID = 0x3901cc3f_84b5_4fa4_ba35_aa8172b8a09b;
+        const CLSID_DirectSoundCapture: GUID = 0xb0210780_89cd_11d0_af08_00a0c925cd16;
+        const CLSID_DirectSoundCapture8: GUID = 0xe4bcac13_7f99_4908_9a8e_74e3bf24b6e1;
+        const CLSID_DirectSoundFullDuplex: GUID = 0xfea4300c_7959_4147_b26a_2377b9e7a91d;
+        type D3DCOLOR = u32;
+        struct D3DVECTOR {
+            x: f32,
+            y: f32,
+            z: f32,
+        }
+        const DIRECTSOUND_VERSION: u32 = 2304;
+        const DS3DALG_HRTF_FULL: GUID = 0xc2413340_1c1b_11d2_94f5_00c04fc28aca;
+        const DS3DALG_HRTF_LIGHT: GUID = 0xc2413342_1c1b_11d2_94f5_00c04fc28aca;
+        const DS3DALG_NO_VIRTUALIZATION: GUID = 0xc241333f_1c1b_11d2_94f5_00c04fc28aca;
+        struct DS3DBUFFER {
+            dwSize: u32,
+            vPosition: D3DVECTOR,
+            vVelocity: D3DVECTOR,
+            dwInsideConeAngle: u32,
+            dwOutsideConeAngle: u32,
+            vConeOrientation: D3DVECTOR,
+            lConeOutsideVolume: i32,
+            flMinDistance: f32,
+            flMaxDistance: f32,
+            dwMode: u32,
+        }
+        struct DS3DLISTENER {
+            dwSize: u32,
+            vPosition: D3DVECTOR,
+            vVelocity: D3DVECTOR,
+            vOrientFront: D3DVECTOR,
+            vOrientTop: D3DVECTOR,
+            flDistanceFactor: f32,
+            flRolloffFactor: f32,
+            flDopplerFactor: f32,
+        }
+        const DS3DMODE_DISABLE: u32 = 2;
+        const DS3DMODE_HEADRELATIVE: u32 = 1;
+        const DS3DMODE_NORMAL: u32 = 0;
+        const DS3D_DEFAULTCONEANGLE: u32 = 360;
+        const DS3D_DEFAULTCONEOUTSIDEVOLUME: u32 = 0;
+        const DS3D_DEFERRED: u32 = 1;
+        const DS3D_IMMEDIATE: u32 = 0;
+        const DS3D_MAXCONEANGLE: u32 = 360;
+        const DS3D_MINCONEANGLE: u32 = 0;
+        struct DSBCAPS {
+            dwSize: u32,
+            dwFlags: u32,
+            dwBufferBytes: u32,
+            dwUnlockTransferRate: u32,
+            dwPlayCpuOverhead: u32,
+        }
+        const DSBCAPS_CTRL3D: u32 = 16;
+        const DSBCAPS_CTRLFREQUENCY: u32 = 32;
+        const DSBCAPS_CTRLFX: u32 = 512;
+        const DSBCAPS_CTRLPAN: u32 = 64;
+        const DSBCAPS_CTRLPOSITIONNOTIFY: u32 = 256;
+        const DSBCAPS_CTRLVOLUME: u32 = 128;
+        const DSBCAPS_GETCURRENTPOSITION2: u32 = 65536;
+        const DSBCAPS_GLOBALFOCUS: u32 = 32768;
+        const DSBCAPS_LOCDEFER: u32 = 262144;
+        const DSBCAPS_LOCHARDWARE: u32 = 4;
+        const DSBCAPS_LOCSOFTWARE: u32 = 8;
+        const DSBCAPS_MUTE3DATMAXDISTANCE: u32 = 131072;
+        const DSBCAPS_PRIMARYBUFFER: u32 = 1;
+        const DSBCAPS_STATIC: u32 = 2;
+        const DSBCAPS_STICKYFOCUS: u32 = 16384;
+        const DSBCAPS_TRUEPLAYPOSITION: u32 = 524288;
+        const DSBFREQUENCY_MAX: u32 = 200000;
+        const DSBFREQUENCY_MIN: u32 = 100;
+        const DSBFREQUENCY_ORIGINAL: u32 = 0;
+        const DSBLOCK_ENTIREBUFFER: u32 = 2;
+        const DSBLOCK_FROMWRITECURSOR: u32 = 1;
+        const DSBNOTIFICATIONS_MAX: u32 = 100000;
+        const DSBPAN_CENTER: u32 = 0;
+        const DSBPAN_LEFT: i32 = -10000;
+        const DSBPAN_RIGHT: u32 = 10000;
+        const DSBPLAY_LOCHARDWARE: u32 = 2;
+        const DSBPLAY_LOCSOFTWARE: u32 = 4;
+        const DSBPLAY_LOOPING: u32 = 1;
+        const DSBPLAY_TERMINATEBY_DISTANCE: u32 = 16;
+        const DSBPLAY_TERMINATEBY_PRIORITY: u32 = 32;
+        const DSBPLAY_TERMINATEBY_TIME: u32 = 8;
+        const DSBPN_OFFSETSTOP: u32 = 4294967295;
+        struct DSBPOSITIONNOTIFY {
+            dwOffset: u32,
+            hEventNotify: HANDLE,
+        }
+        const DSBSIZE_FX_MIN: u32 = 150;
+        const DSBSIZE_MAX: u32 = 268435455;
+        const DSBSIZE_MIN: u32 = 4;
+        const DSBSTATUS_BUFFERLOST: u32 = 2;
+        const DSBSTATUS_LOCHARDWARE: u32 = 8;
+        const DSBSTATUS_LOCSOFTWARE: u32 = 16;
+        const DSBSTATUS_LOOPING: u32 = 4;
+        const DSBSTATUS_PLAYING: u32 = 1;
+        const DSBSTATUS_TERMINATED: u32 = 32;
+        struct DSBUFFERDESC {
+            dwSize: u32,
+            dwFlags: u32,
+            dwBufferBytes: u32,
+            dwReserved: u32,
+            lpwfxFormat: LPWAVEFORMATEX,
+            guid3DAlgorithm: GUID,
+        }
+        struct DSBUFFERDESC1 {
+            dwSize: u32,
+            dwFlags: u32,
+            dwBufferBytes: u32,
+            dwReserved: u32,
+            lpwfxFormat: LPWAVEFORMATEX,
+        }
+        const DSBVOLUME_MAX: u32 = 0;
+        const DSBVOLUME_MIN: i32 = -10000;
+        struct DSCAPS {
+            dwSize: u32,
+            dwFlags: u32,
+            dwMinSecondarySampleRate: u32,
+            dwMaxSecondarySampleRate: u32,
+            dwPrimaryBuffers: u32,
+            dwMaxHwMixingAllBuffers: u32,
+            dwMaxHwMixingStaticBuffers: u32,
+            dwMaxHwMixingStreamingBuffers: u32,
+            dwFreeHwMixingAllBuffers: u32,
+            dwFreeHwMixingStaticBuffers: u32,
+            dwFreeHwMixingStreamingBuffers: u32,
+            dwMaxHw3DAllBuffers: u32,
+            dwMaxHw3DStaticBuffers: u32,
+            dwMaxHw3DStreamingBuffers: u32,
+            dwFreeHw3DAllBuffers: u32,
+            dwFreeHw3DStaticBuffers: u32,
+            dwFreeHw3DStreamingBuffers: u32,
+            dwTotalHwMemBytes: u32,
+            dwFreeHwMemBytes: u32,
+            dwMaxContigFreeHwMemBytes: u32,
+            dwUnlockTransferRateHwBuffers: u32,
+            dwPlayCpuOverheadSwBuffers: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+        }
+        const DSCAPS_CERTIFIED: u32 = 64;
+        const DSCAPS_CONTINUOUSRATE: u32 = 16;
+        const DSCAPS_EMULDRIVER: u32 = 32;
+        const DSCAPS_PRIMARY16BIT: u32 = 8;
+        const DSCAPS_PRIMARY8BIT: u32 = 4;
+        const DSCAPS_PRIMARYMONO: u32 = 1;
+        const DSCAPS_PRIMARYSTEREO: u32 = 2;
+        const DSCAPS_SECONDARY16BIT: u32 = 2048;
+        const DSCAPS_SECONDARY8BIT: u32 = 1024;
+        const DSCAPS_SECONDARYMONO: u32 = 256;
+        const DSCAPS_SECONDARYSTEREO: u32 = 512;
+        struct DSCBCAPS {
+            dwSize: u32,
+            dwFlags: u32,
+            dwBufferBytes: u32,
+            dwReserved: u32,
+        }
+        const DSCBCAPS_CTRLFX: u32 = 512;
+        const DSCBCAPS_WAVEMAPPED: u32 = 2147483648;
+        const DSCBLOCK_ENTIREBUFFER: u32 = 1;
+        const DSCBSTART_LOOPING: u32 = 1;
+        const DSCBSTATUS_CAPTURING: u32 = 1;
+        const DSCBSTATUS_LOOPING: u32 = 2;
+        struct DSCBUFFERDESC {
+            dwSize: u32,
+            dwFlags: u32,
+            dwBufferBytes: u32,
+            dwReserved: u32,
+            lpwfxFormat: LPWAVEFORMATEX,
+            dwFXCount: u32,
+            lpDSCFXDesc: LPDSCEFFECTDESC,
+        }
+        struct DSCBUFFERDESC1 {
+            dwSize: u32,
+            dwFlags: u32,
+            dwBufferBytes: u32,
+            dwReserved: u32,
+            lpwfxFormat: LPWAVEFORMATEX,
+        }
+        struct DSCCAPS {
+            dwSize: u32,
+            dwFlags: u32,
+            dwFormats: u32,
+            dwChannels: u32,
+        }
+        const DSCCAPS_CERTIFIED: u32 = 64;
+        const DSCCAPS_EMULDRIVER: u32 = 32;
+        const DSCCAPS_MULTIPLECAPTURE: u32 = 1;
+        struct DSCEFFECTDESC {
+            dwSize: u32,
+            dwFlags: u32,
+            guidDSCFXClass: GUID,
+            guidDSCFXInstance: GUID,
+            dwReserved1: u32,
+            dwReserved2: u32,
+        }
+        struct DSCFXAec {
+            fEnable: BOOL,
+            fNoiseFill: BOOL,
+            dwMode: u32,
+        }
+        struct DSCFXNoiseSuppress {
+            fEnable: BOOL,
+        }
+        const DSCFXR_LOCHARDWARE: u32 = 16;
+        const DSCFXR_LOCSOFTWARE: u32 = 32;
+        const DSCFX_AEC_MODE_FULL_DUPLEX: u32 = 2;
+        const DSCFX_AEC_MODE_HALF_DUPLEX: u32 = 1;
+        const DSCFX_AEC_MODE_PASS_THROUGH: u32 = 0;
+        const DSCFX_AEC_STATUS_CURRENTLY_CONVERGED: u32 = 8;
+        const DSCFX_AEC_STATUS_HISTORY_CONTINUOUSLY_CONVERGED: u32 = 1;
+        const DSCFX_AEC_STATUS_HISTORY_PREVIOUSLY_DIVERGED: u32 = 2;
+        const DSCFX_AEC_STATUS_HISTORY_UNINITIALIZED: u32 = 0;
+        const DSCFX_LOCHARDWARE: u32 = 1;
+        const DSCFX_LOCSOFTWARE: u32 = 2;
+        const DSDEVID_DefaultCapture: GUID = 0xdef00001_9c6d_47ed_aaf1_4dda8f2b5c03;
+        const DSDEVID_DefaultPlayback: GUID = 0xdef00000_9c6d_47ed_aaf1_4dda8f2b5c03;
+        const DSDEVID_DefaultVoiceCapture: GUID = 0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03;
+        const DSDEVID_DefaultVoicePlayback: GUID = 0xdef00002_9c6d_47ed_aaf1_4dda8f2b5c03;
+        struct DSEFFECTDESC {
+            dwSize: u32,
+            dwFlags: u32,
+            guidDSFXClass: GUID,
+            dwReserved1: usize,
+            dwReserved2: usize,
+        }
+        const DSERR_ACCESSDENIED: i32 = -2147024891;
+        const DSERR_ALLOCATED: i32 = -2005401590;
+        const DSERR_ALREADYINITIALIZED: i32 = -2005401470;
+        const DSERR_BADFORMAT: i32 = -2005401500;
+        const DSERR_BADSENDBUFFERGUID: i32 = -2005401390;
+        const DSERR_BUFFERLOST: i32 = -2005401450;
+        const DSERR_BUFFERTOOSMALL: i32 = -2005401420;
+        const DSERR_CONTROLUNAVAIL: i32 = -2005401570;
+        const DSERR_DS8_REQUIRED: i32 = -2005401410;
+        const DSERR_FXUNAVAILABLE: i32 = -2005401380;
+        const DSERR_GENERIC: i32 = -2147467259;
+        const DSERR_INVALIDCALL: i32 = -2005401550;
+        const DSERR_INVALIDPARAM: i32 = -2147024809;
+        const DSERR_NOAGGREGATION: i32 = -2147221232;
+        const DSERR_NODRIVER: i32 = -2005401480;
+        const DSERR_NOINTERFACE: i32 = -2147467262;
+        const DSERR_OBJECTNOTFOUND: i32 = -2005397151;
+        const DSERR_OTHERAPPHASPRIO: i32 = -2005401440;
+        const DSERR_OUTOFMEMORY: i32 = -2147024882;
+        const DSERR_PRIOLEVELNEEDED: i32 = -2005401530;
+        const DSERR_SENDLOOP: i32 = -2005401400;
+        const DSERR_UNINITIALIZED: i32 = -2005401430;
+        const DSERR_UNSUPPORTED: i32 = -2147467263;
+        const DSFXCHORUS_PHASE_180: u32 = 4;
+        const DSFXCHORUS_PHASE_90: u32 = 3;
+        const DSFXCHORUS_PHASE_MAX: u32 = 4;
+        const DSFXCHORUS_PHASE_MIN: u32 = 0;
+        const DSFXCHORUS_PHASE_NEG_180: u32 = 0;
+        const DSFXCHORUS_PHASE_NEG_90: u32 = 1;
+        const DSFXCHORUS_PHASE_ZERO: u32 = 2;
+        const DSFXCHORUS_WAVE_SIN: u32 = 1;
+        const DSFXCHORUS_WAVE_TRIANGLE: u32 = 0;
+        struct DSFXChorus {
+            fWetDryMix: f32,
+            fDepth: f32,
+            fFeedback: f32,
+            fFrequency: f32,
+            lWaveform: i32,
+            fDelay: f32,
+            lPhase: i32,
+        }
+        struct DSFXCompressor {
+            fGain: f32,
+            fAttack: f32,
+            fRelease: f32,
+            fThreshold: f32,
+            fRatio: f32,
+            fPredelay: f32,
+        }
+        struct DSFXDistortion {
+            fGain: f32,
+            fEdge: f32,
+            fPostEQCenterFrequency: f32,
+            fPostEQBandwidth: f32,
+            fPreLowpassCutoff: f32,
+        }
+        const DSFXECHO_PANDELAY_MAX: u32 = 1;
+        const DSFXECHO_PANDELAY_MIN: u32 = 0;
+        struct DSFXEcho {
+            fWetDryMix: f32,
+            fFeedback: f32,
+            fLeftDelay: f32,
+            fRightDelay: f32,
+            lPanDelay: i32,
+        }
+        const DSFXFLANGER_PHASE_180: u32 = 4;
+        const DSFXFLANGER_PHASE_90: u32 = 3;
+        const DSFXFLANGER_PHASE_MAX: u32 = 4;
+        const DSFXFLANGER_PHASE_MIN: u32 = 0;
+        const DSFXFLANGER_PHASE_NEG_180: u32 = 0;
+        const DSFXFLANGER_PHASE_NEG_90: u32 = 1;
+        const DSFXFLANGER_PHASE_ZERO: u32 = 2;
+        const DSFXFLANGER_WAVE_SIN: u32 = 1;
+        const DSFXFLANGER_WAVE_TRIANGLE: u32 = 0;
+        struct DSFXFlanger {
+            fWetDryMix: f32,
+            fDepth: f32,
+            fFeedback: f32,
+            fFrequency: f32,
+            lWaveform: i32,
+            fDelay: f32,
+            lPhase: i32,
+        }
+        const DSFXGARGLE_RATEHZ_MAX: u32 = 1000;
+        const DSFXGARGLE_RATEHZ_MIN: u32 = 1;
+        const DSFXGARGLE_WAVE_SQUARE: u32 = 1;
+        const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0;
+        struct DSFXGargle {
+            dwRateHz: u32,
+            dwWaveShape: u32,
+        }
+        struct DSFXI3DL2Reverb {
+            lRoom: i32,
+            lRoomHF: i32,
+            flRoomRolloffFactor: f32,
+            flDecayTime: f32,
+            flDecayHFRatio: f32,
+            lReflections: i32,
+            flReflectionsDelay: f32,
+            lReverb: i32,
+            flReverbDelay: f32,
+            flDiffusion: f32,
+            flDensity: f32,
+            flHFReference: f32,
+        }
+        struct DSFXParamEq {
+            fCenter: f32,
+            fBandwidth: f32,
+            fGain: f32,
+        }
+        const DSFXR_FAILED: i32 = 4;
+        const DSFXR_LOCHARDWARE: i32 = 1;
+        const DSFXR_LOCSOFTWARE: i32 = 2;
+        const DSFXR_PRESENT: i32 = 0;
+        const DSFXR_SENDLOOP: i32 = 6;
+        const DSFXR_UNALLOCATED: i32 = 3;
+        const DSFXR_UNKNOWN: i32 = 5;
+        struct DSFXWavesReverb {
+            fInGain: f32,
+            fReverbMix: f32,
+            fReverbTime: f32,
+            fHighFreqRTRatio: f32,
+        }
+        const DSFX_I3DL2REVERB_QUALITY_DEFAULT: u32 = 2;
+        const DSFX_I3DL2REVERB_QUALITY_MAX: u32 = 3;
+        const DSFX_I3DL2REVERB_QUALITY_MIN: u32 = 0;
+        const DSFX_I3DL2REVERB_REFLECTIONS_DEFAULT: i32 = -2602;
+        const DSFX_I3DL2REVERB_REFLECTIONS_MAX: u32 = 1000;
+        const DSFX_I3DL2REVERB_REFLECTIONS_MIN: i32 = -10000;
+        const DSFX_I3DL2REVERB_REVERB_DEFAULT: u32 = 200;
+        const DSFX_I3DL2REVERB_REVERB_MAX: u32 = 2000;
+        const DSFX_I3DL2REVERB_REVERB_MIN: i32 = -10000;
+        const DSFX_I3DL2REVERB_ROOMHF_DEFAULT: i32 = -100;
+        const DSFX_I3DL2REVERB_ROOMHF_MAX: u32 = 0;
+        const DSFX_I3DL2REVERB_ROOMHF_MIN: i32 = -10000;
+        const DSFX_I3DL2REVERB_ROOM_DEFAULT: i32 = -1000;
+        const DSFX_I3DL2REVERB_ROOM_MAX: u32 = 0;
+        const DSFX_I3DL2REVERB_ROOM_MIN: i32 = -10000;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_ALLEY: i32 = 15;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_ARENA: i32 = 10;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_AUDITORIUM: i32 = 7;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_BATHROOM: i32 = 4;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_CARPETEDHALLWAY: i32 = 12;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_CAVE: i32 = 9;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_CITY: i32 = 17;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_CONCERTHALL: i32 = 8;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_DEFAULT: i32 = 0;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_FOREST: i32 = 16;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_GENERIC: i32 = 1;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_HALLWAY: i32 = 13;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_HANGAR: i32 = 11;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_LARGEHALL: i32 = 28;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_LARGEROOM: i32 = 26;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_LIVINGROOM: i32 = 5;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_MEDIUMHALL: i32 = 27;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_MEDIUMROOM: i32 = 25;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_MOUNTAINS: i32 = 18;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_PADDEDCELL: i32 = 2;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_PARKINGLOT: i32 = 21;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_PLAIN: i32 = 20;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_PLATE: i32 = 29;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_QUARRY: i32 = 19;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_ROOM: i32 = 3;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_SEWERPIPE: i32 = 22;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_SMALLROOM: i32 = 24;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_STONECORRIDOR: i32 = 14;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_STONEROOM: i32 = 6;
+        const DSFX_I3DL2_ENVIRONMENT_PRESET_UNDERWATER: i32 = 23;
+        const DSFX_I3DL2_MATERIAL_PRESET_BRICKWALL: i32 = 5;
+        const DSFX_I3DL2_MATERIAL_PRESET_CURTAIN: i32 = 7;
+        const DSFX_I3DL2_MATERIAL_PRESET_DOUBLEWINDOW: i32 = 1;
+        const DSFX_I3DL2_MATERIAL_PRESET_SINGLEWINDOW: i32 = 0;
+        const DSFX_I3DL2_MATERIAL_PRESET_STONEWALL: i32 = 6;
+        const DSFX_I3DL2_MATERIAL_PRESET_THICKDOOR: i32 = 3;
+        const DSFX_I3DL2_MATERIAL_PRESET_THINDOOR: i32 = 2;
+        const DSFX_I3DL2_MATERIAL_PRESET_WOODWALL: i32 = 4;
+        const DSFX_LOCHARDWARE: u32 = 1;
+        const DSFX_LOCSOFTWARE: u32 = 2;
+        const DSSCL_EXCLUSIVE: u32 = 3;
+        const DSSCL_NORMAL: u32 = 1;
+        const DSSCL_PRIORITY: u32 = 2;
+        const DSSCL_WRITEPRIMARY: u32 = 4;
+        const DSSPEAKER_5POINT1: u32 = 6;
+        const DSSPEAKER_5POINT1_BACK: u32 = 6;
+        const DSSPEAKER_5POINT1_SURROUND: u32 = 9;
+        const DSSPEAKER_7POINT1: u32 = 7;
+        const DSSPEAKER_7POINT1_SURROUND: u32 = 8;
+        const DSSPEAKER_7POINT1_WIDE: u32 = 7;
+        const DSSPEAKER_DIRECTOUT: u32 = 0;
+        const DSSPEAKER_GEOMETRY_MAX: u32 = 180;
+        const DSSPEAKER_GEOMETRY_MIN: u32 = 5;
+        const DSSPEAKER_GEOMETRY_NARROW: u32 = 10;
+        const DSSPEAKER_GEOMETRY_WIDE: u32 = 20;
+        const DSSPEAKER_HEADPHONE: u32 = 1;
+        const DSSPEAKER_MONO: u32 = 2;
+        const DSSPEAKER_QUAD: u32 = 3;
+        const DSSPEAKER_STEREO: u32 = 4;
+        const DSSPEAKER_SURROUND: u32 = 5;
+        const DS_CERTIFIED: u32 = 0;
+        const DS_NO_VIRTUALIZATION: u32 = 142082058;
+        const DS_OK: u32 = 0;
+        const DS_UNCERTIFIED: u32 = 1;
+        #[library("DSOUND.dll")]
+        extern fn DirectSoundCaptureCreate(#[opt] pcGuidDevice: *const GUID, ppDSC: *mut IDirectSoundCapture, pUnkOuter: IUnknown) -> HRESULT;
+        #[library("DSOUND.dll")]
+        extern fn DirectSoundCaptureCreate8(#[opt] pcGuidDevice: *const GUID, ppDSC8: *mut IDirectSoundCapture, pUnkOuter: IUnknown) -> HRESULT;
+        #[library("DSOUND.dll")]
+        extern fn DirectSoundCaptureEnumerateA(pDSEnumCallback: LPDSENUMCALLBACKA, #[opt] pContext: *const void) -> HRESULT;
+        #[library("DSOUND.dll")]
+        extern fn DirectSoundCaptureEnumerateW(pDSEnumCallback: LPDSENUMCALLBACKW, #[opt] pContext: *const void) -> HRESULT;
+        #[library("DSOUND.dll")]
+        extern fn DirectSoundCreate(#[opt] pcGuidDevice: *const GUID, ppDS: *mut IDirectSound, pUnkOuter: IUnknown) -> HRESULT;
+        #[library("DSOUND.dll")]
+        extern fn DirectSoundCreate8(#[opt] pcGuidDevice: *const GUID, ppDS8: *mut IDirectSound8, pUnkOuter: IUnknown) -> HRESULT;
+        #[library("DSOUND.dll")]
+        extern fn DirectSoundEnumerateA(pDSEnumCallback: LPDSENUMCALLBACKA, #[opt] pContext: *const void) -> HRESULT;
+        #[library("DSOUND.dll")]
+        extern fn DirectSoundEnumerateW(pDSEnumCallback: LPDSENUMCALLBACKW, #[opt] pContext: *const void) -> HRESULT;
+        #[library("DSOUND.dll")]
+        extern fn DirectSoundFullDuplexCreate(#[opt] pcGuidCaptureDevice: *const GUID, #[opt] pcGuidRenderDevice: *const GUID, pcDSCBufferDesc: *const DSCBUFFERDESC, pcDSBufferDesc: *const DSBUFFERDESC, hWnd: HWND, dwLevel: u32, ppDSFD: *mut IDirectSoundFullDuplex, ppDSCBuffer8: *mut IDirectSoundCaptureBuffer8, ppDSBuffer8: *mut IDirectSoundBuffer8, pUnkOuter: IUnknown) -> HRESULT;
+        const GUID_All_Objects: GUID = 0xaa114de5_c262_4169_a1c8_23d698cc73b5;
+        const GUID_DSCFX_CLASS_AEC: GUID = 0xbf963d80_c559_11d0_8a2b_00a0c9255ac1;
+        const GUID_DSCFX_CLASS_NS: GUID = 0xe07f903f_62fd_4e60_8cdd_dea7236665b5;
+        const GUID_DSCFX_MS_AEC: GUID = 0xcdebb919_379a_488a_8765_f53cfd36de40;
+        const GUID_DSCFX_MS_NS: GUID = 0x11c5c73b_66e9_4ba1_a0ba_e814c6eed92d;
+        const GUID_DSCFX_SYSTEM_AEC: GUID = 0x1c22c56d_9879_4f5b_a389_27996ddc2810;
+        const GUID_DSCFX_SYSTEM_NS: GUID = 0x5ab0882e_7274_4516_877d_4eee99ba4fd0;
+        const GUID_DSFX_STANDARD_CHORUS: GUID = 0xefe6629c_81f7_4281_bd91_c9d604a95af6;
+        const GUID_DSFX_STANDARD_COMPRESSOR: GUID = 0xef011f79_4000_406d_87af_bffb3fc39d57;
+        const GUID_DSFX_STANDARD_DISTORTION: GUID = 0xef114c90_cd1d_484e_96e5_09cfaf912a21;
+        const GUID_DSFX_STANDARD_ECHO: GUID = 0xef3e932c_d40b_4f51_8ccf_3f98f1b29d5d;
+        const GUID_DSFX_STANDARD_FLANGER: GUID = 0xefca3d92_dfd8_4672_a603_7420894bad98;
+        const GUID_DSFX_STANDARD_GARGLE: GUID = 0xdafd8210_5711_4b91_9fe3_f75b7ae279bf;
+        const GUID_DSFX_STANDARD_I3DL2REVERB: GUID = 0xef985e71_d5c7_42d4_ba4d_2d073e2e96f4;
+        const GUID_DSFX_STANDARD_PARAMEQ: GUID = 0x120ced89_3bf4_4173_a132_3cb406cf3231;
+        const GUID_DSFX_WAVES_REVERB: GUID = 0x87fc0268_9a55_4360_95aa_004a1d9de26c;
+        #[library("DSOUND.dll")]
+        extern fn GetDeviceID(#[opt] pGuidSrc: *const GUID, pGuidDest: *mut GUID) -> HRESULT;
+        #[guid(0x279afa83_4981_11ce_a521_0020af0be560)]
+        interface IDirectSound: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn CreateSoundBuffer(&self, pcDSBufferDesc: *const DSBUFFERDESC, ppDSBuffer: *mut IDirectSoundBuffer, pUnkOuter: IUnknown) -> HRESULT;
+            fn GetCaps(&self, pDSCaps: *mut DSCAPS) -> HRESULT;
+            fn DuplicateSoundBuffer(&self, pDSBufferOriginal: IDirectSoundBuffer, ppDSBufferDuplicate: *mut IDirectSoundBuffer) -> HRESULT;
+            fn SetCooperativeLevel(&self, hwnd: HWND, dwLevel: u32) -> HRESULT;
+            fn Compact(&self) -> HRESULT;
+            fn GetSpeakerConfig(&self, pdwSpeakerConfig: *mut u32) -> HRESULT;
+            fn SetSpeakerConfig(&self, dwSpeakerConfig: u32) -> HRESULT;
+            fn Initialize(&self, #[opt] pcGuidDevice: *const GUID) -> HRESULT;
+        }
+        #[guid(0x279afa86_4981_11ce_a521_0020af0be560)]
+        interface IDirectSound3DBuffer: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetAllParameters(&self, pDs3dBuffer: *mut DS3DBUFFER) -> HRESULT;
+            fn GetConeAngles(&self, pdwInsideConeAngle: *mut u32, pdwOutsideConeAngle: *mut u32) -> HRESULT;
+            fn GetConeOrientation(&self, pvOrientation: *mut D3DVECTOR) -> HRESULT;
+            fn GetConeOutsideVolume(&self, plConeOutsideVolume: *mut i32) -> HRESULT;
+            fn GetMaxDistance(&self, pflMaxDistance: *mut f32) -> HRESULT;
+            fn GetMinDistance(&self, pflMinDistance: *mut f32) -> HRESULT;
+            fn GetMode(&self, pdwMode: *mut u32) -> HRESULT;
+            fn GetPosition(&self, pvPosition: *mut D3DVECTOR) -> HRESULT;
+            fn GetVelocity(&self, pvVelocity: *mut D3DVECTOR) -> HRESULT;
+            fn SetAllParameters(&self, pcDs3dBuffer: *const DS3DBUFFER, dwApply: u32) -> HRESULT;
+            fn SetConeAngles(&self, dwInsideConeAngle: u32, dwOutsideConeAngle: u32, dwApply: u32) -> HRESULT;
+            fn SetConeOrientation(&self, x: f32, y: f32, z: f32, dwApply: u32) -> HRESULT;
+            fn SetConeOutsideVolume(&self, lConeOutsideVolume: i32, dwApply: u32) -> HRESULT;
+            fn SetMaxDistance(&self, flMaxDistance: f32, dwApply: u32) -> HRESULT;
+            fn SetMinDistance(&self, flMinDistance: f32, dwApply: u32) -> HRESULT;
+            fn SetMode(&self, dwMode: u32, dwApply: u32) -> HRESULT;
+            fn SetPosition(&self, x: f32, y: f32, z: f32, dwApply: u32) -> HRESULT;
+            fn SetVelocity(&self, x: f32, y: f32, z: f32, dwApply: u32) -> HRESULT;
+        }
+        #[guid(0x279afa84_4981_11ce_a521_0020af0be560)]
+        interface IDirectSound3DListener: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetAllParameters(&self, pListener: *mut DS3DLISTENER) -> HRESULT;
+            fn GetDistanceFactor(&self, pflDistanceFactor: *mut f32) -> HRESULT;
+            fn GetDopplerFactor(&self, pflDopplerFactor: *mut f32) -> HRESULT;
+            fn GetOrientation(&self, pvOrientFront: *mut D3DVECTOR, pvOrientTop: *mut D3DVECTOR) -> HRESULT;
+            fn GetPosition(&self, pvPosition: *mut D3DVECTOR) -> HRESULT;
+            fn GetRolloffFactor(&self, pflRolloffFactor: *mut f32) -> HRESULT;
+            fn GetVelocity(&self, pvVelocity: *mut D3DVECTOR) -> HRESULT;
+            fn SetAllParameters(&self, pcListener: *const DS3DLISTENER, dwApply: u32) -> HRESULT;
+            fn SetDistanceFactor(&self, flDistanceFactor: f32, dwApply: u32) -> HRESULT;
+            fn SetDopplerFactor(&self, flDopplerFactor: f32, dwApply: u32) -> HRESULT;
+            fn SetOrientation(&self, xFront: f32, yFront: f32, zFront: f32, xTop: f32, yTop: f32, zTop: f32, dwApply: u32) -> HRESULT;
+            fn SetPosition(&self, x: f32, y: f32, z: f32, dwApply: u32) -> HRESULT;
+            fn SetRolloffFactor(&self, flRolloffFactor: f32, dwApply: u32) -> HRESULT;
+            fn SetVelocity(&self, x: f32, y: f32, z: f32, dwApply: u32) -> HRESULT;
+            fn CommitDeferredSettings(&self) -> HRESULT;
+        }
+        #[guid(0xc50a7e93_f395_4834_9ef6_7fa99de50966)]
+        interface IDirectSound8: IDirectSound {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn CreateSoundBuffer(&self, pcDSBufferDesc: *const DSBUFFERDESC, ppDSBuffer: *mut IDirectSoundBuffer, pUnkOuter: IUnknown) -> HRESULT;
+            fn GetCaps(&self, pDSCaps: *mut DSCAPS) -> HRESULT;
+            fn DuplicateSoundBuffer(&self, pDSBufferOriginal: IDirectSoundBuffer, ppDSBufferDuplicate: *mut IDirectSoundBuffer) -> HRESULT;
+            fn SetCooperativeLevel(&self, hwnd: HWND, dwLevel: u32) -> HRESULT;
+            fn Compact(&self) -> HRESULT;
+            fn GetSpeakerConfig(&self, pdwSpeakerConfig: *mut u32) -> HRESULT;
+            fn SetSpeakerConfig(&self, dwSpeakerConfig: u32) -> HRESULT;
+            fn Initialize(&self, #[opt] pcGuidDevice: *const GUID) -> HRESULT;
+            fn VerifyCertification(&self, pdwCertified: *mut u32) -> HRESULT;
+        }
+        #[guid(0x279afa85_4981_11ce_a521_0020af0be560)]
+        interface IDirectSoundBuffer: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetCaps(&self, pDSBufferCaps: *mut DSBCAPS) -> HRESULT;
+            fn GetCurrentPosition(&self, #[opt] pdwCurrentPlayCursor: *mut u32, #[opt] pdwCurrentWriteCursor: *mut u32) -> HRESULT;
+            fn GetFormat(&self, #[size_param(1)] #[opt] pwfxFormat: *mut WAVEFORMATEX, dwSizeAllocated: u32, #[opt] pdwSizeWritten: *mut u32) -> HRESULT;
+            fn GetVolume(&self, plVolume: *mut i32) -> HRESULT;
+            fn GetPan(&self, plPan: *mut i32) -> HRESULT;
+            fn GetFrequency(&self, pdwFrequency: *mut u32) -> HRESULT;
+            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
+            fn Initialize(&self, pDirectSound: IDirectSound, pcDSBufferDesc: *const DSBUFFERDESC) -> HRESULT;
+            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, pdwAudioBytes1: *mut u32, ppvAudioPtr2: *mut *mut void, #[opt] pdwAudioBytes2: *mut u32, dwFlags: u32) -> HRESULT;
+            fn Play(&self, dwReserved1: u32, dwPriority: u32, dwFlags: u32) -> HRESULT;
+            fn SetCurrentPosition(&self, dwNewPosition: u32) -> HRESULT;
+            fn SetFormat(&self, pcfxFormat: *const WAVEFORMATEX) -> HRESULT;
+            fn SetVolume(&self, lVolume: i32) -> HRESULT;
+            fn SetPan(&self, lPan: i32) -> HRESULT;
+            fn SetFrequency(&self, dwFrequency: u32) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Unlock(&self, #[size_param(1)] pvAudioPtr1: *const void, dwAudioBytes1: u32, #[size_param(3)] #[opt] pvAudioPtr2: *const void, dwAudioBytes2: u32) -> HRESULT;
+            fn Restore(&self) -> HRESULT;
+        }
+        #[guid(0x6825a449_7524_4d82_920f_50e36ab3ab1e)]
+        interface IDirectSoundBuffer8: IDirectSoundBuffer {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetCaps(&self, pDSBufferCaps: *mut DSBCAPS) -> HRESULT;
+            fn GetCurrentPosition(&self, #[opt] pdwCurrentPlayCursor: *mut u32, #[opt] pdwCurrentWriteCursor: *mut u32) -> HRESULT;
+            fn GetFormat(&self, #[size_param(1)] #[opt] pwfxFormat: *mut WAVEFORMATEX, dwSizeAllocated: u32, #[opt] pdwSizeWritten: *mut u32) -> HRESULT;
+            fn GetVolume(&self, plVolume: *mut i32) -> HRESULT;
+            fn GetPan(&self, plPan: *mut i32) -> HRESULT;
+            fn GetFrequency(&self, pdwFrequency: *mut u32) -> HRESULT;
+            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
+            fn Initialize(&self, pDirectSound: IDirectSound, pcDSBufferDesc: *const DSBUFFERDESC) -> HRESULT;
+            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, pdwAudioBytes1: *mut u32, ppvAudioPtr2: *mut *mut void, #[opt] pdwAudioBytes2: *mut u32, dwFlags: u32) -> HRESULT;
+            fn Play(&self, dwReserved1: u32, dwPriority: u32, dwFlags: u32) -> HRESULT;
+            fn SetCurrentPosition(&self, dwNewPosition: u32) -> HRESULT;
+            fn SetFormat(&self, pcfxFormat: *const WAVEFORMATEX) -> HRESULT;
+            fn SetVolume(&self, lVolume: i32) -> HRESULT;
+            fn SetPan(&self, lPan: i32) -> HRESULT;
+            fn SetFrequency(&self, dwFrequency: u32) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Unlock(&self, #[size_param(1)] pvAudioPtr1: *const void, dwAudioBytes1: u32, #[size_param(3)] #[opt] pvAudioPtr2: *const void, dwAudioBytes2: u32) -> HRESULT;
+            fn Restore(&self) -> HRESULT;
+            fn SetFX(&self, dwEffectsCount: u32, #[len_param(0)] #[opt] pDSFXDesc: *const DSEFFECTDESC, #[len_param(0)] #[opt] pdwResultCodes: *mut u32) -> HRESULT;
+            fn AcquireResources(&self, dwFlags: u32, dwEffectsCount: u32, #[len_param(1)] pdwResultCodes: *mut u32) -> HRESULT;
+            fn GetObjectInPath(&self, rguidObject: *const GUID, dwIndex: u32, rguidInterface: *const GUID, ppObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xb0210781_89cd_11d0_af08_00a0c925cd16)]
+        interface IDirectSoundCapture: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn CreateCaptureBuffer(&self, pcDSCBufferDesc: *const DSCBUFFERDESC, ppDSCBuffer: *mut IDirectSoundCaptureBuffer, pUnkOuter: IUnknown) -> HRESULT;
+            fn GetCaps(&self, pDSCCaps: *mut DSCCAPS) -> HRESULT;
+            fn Initialize(&self, #[opt] pcGuidDevice: *const GUID) -> HRESULT;
+        }
+        #[guid(0xb0210782_89cd_11d0_af08_00a0c925cd16)]
+        interface IDirectSoundCaptureBuffer: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetCaps(&self, pDSCBCaps: *mut DSCBCAPS) -> HRESULT;
+            fn GetCurrentPosition(&self, #[opt] pdwCapturePosition: *mut u32, #[opt] pdwReadPosition: *mut u32) -> HRESULT;
+            fn GetFormat(&self, #[size_param(1)] #[opt] pwfxFormat: *mut WAVEFORMATEX, dwSizeAllocated: u32, #[opt] pdwSizeWritten: *mut u32) -> HRESULT;
+            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
+            fn Initialize(&self, pDirectSoundCapture: IDirectSoundCapture, pcDSCBufferDesc: *const DSCBUFFERDESC) -> HRESULT;
+            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, pdwAudioBytes1: *mut u32, ppvAudioPtr2: *mut *mut void, #[opt] pdwAudioBytes2: *mut u32, dwFlags: u32) -> HRESULT;
+            fn Start(&self, dwFlags: u32) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Unlock(&self, #[size_param(1)] pvAudioPtr1: *const void, dwAudioBytes1: u32, #[size_param(3)] #[opt] pvAudioPtr2: *const void, dwAudioBytes2: u32) -> HRESULT;
+        }
+        #[guid(0x00990df4_0dbb_4872_833e_6d303e80aeb6)]
+        interface IDirectSoundCaptureBuffer8: IDirectSoundCaptureBuffer {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetCaps(&self, pDSCBCaps: *mut DSCBCAPS) -> HRESULT;
+            fn GetCurrentPosition(&self, #[opt] pdwCapturePosition: *mut u32, #[opt] pdwReadPosition: *mut u32) -> HRESULT;
+            fn GetFormat(&self, #[size_param(1)] #[opt] pwfxFormat: *mut WAVEFORMATEX, dwSizeAllocated: u32, #[opt] pdwSizeWritten: *mut u32) -> HRESULT;
+            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
+            fn Initialize(&self, pDirectSoundCapture: IDirectSoundCapture, pcDSCBufferDesc: *const DSCBUFFERDESC) -> HRESULT;
+            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, pdwAudioBytes1: *mut u32, ppvAudioPtr2: *mut *mut void, #[opt] pdwAudioBytes2: *mut u32, dwFlags: u32) -> HRESULT;
+            fn Start(&self, dwFlags: u32) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Unlock(&self, #[size_param(1)] pvAudioPtr1: *const void, dwAudioBytes1: u32, #[size_param(3)] #[opt] pvAudioPtr2: *const void, dwAudioBytes2: u32) -> HRESULT;
+            fn GetObjectInPath(&self, rguidObject: *const GUID, dwIndex: u32, rguidInterface: *const GUID, ppObject: *mut *mut void) -> HRESULT;
+            fn GetFXStatus(&self, dwEffectsCount: u32, #[len_param(0)] pdwFXStatus: *mut u32) -> HRESULT;
+        }
+        #[guid(0xad74143d_903d_4ab7_8066_28d363036d65)]
+        interface IDirectSoundCaptureFXAec: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pDscFxAec: *const DSCFXAec) -> HRESULT;
+            fn GetAllParameters(&self, pDscFxAec: *mut DSCFXAec) -> HRESULT;
+            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+        }
+        #[guid(0xed311e41_fbae_4175_9625_cd0854f693ca)]
+        interface IDirectSoundCaptureFXNoiseSuppress: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pcDscFxNoiseSuppress: *const DSCFXNoiseSuppress) -> HRESULT;
+            fn GetAllParameters(&self, pDscFxNoiseSuppress: *mut DSCFXNoiseSuppress) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+        }
+        #[guid(0x880842e3_145f_43e6_a934_a71806e50547)]
+        interface IDirectSoundFXChorus: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pcDsFxChorus: *const DSFXChorus) -> HRESULT;
+            fn GetAllParameters(&self, pDsFxChorus: *mut DSFXChorus) -> HRESULT;
+        }
+        #[guid(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0)]
+        interface IDirectSoundFXCompressor: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pcDsFxCompressor: *const DSFXCompressor) -> HRESULT;
+            fn GetAllParameters(&self, pDsFxCompressor: *mut DSFXCompressor) -> HRESULT;
+        }
+        #[guid(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b)]
+        interface IDirectSoundFXDistortion: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pcDsFxDistortion: *const DSFXDistortion) -> HRESULT;
+            fn GetAllParameters(&self, pDsFxDistortion: *mut DSFXDistortion) -> HRESULT;
+        }
+        #[guid(0x8bd28edf_50db_4e92_a2bd_445488d1ed42)]
+        interface IDirectSoundFXEcho: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pcDsFxEcho: *const DSFXEcho) -> HRESULT;
+            fn GetAllParameters(&self, pDsFxEcho: *mut DSFXEcho) -> HRESULT;
+        }
+        #[guid(0x903e9878_2c92_4072_9b2c_ea68f5396783)]
+        interface IDirectSoundFXFlanger: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pcDsFxFlanger: *const DSFXFlanger) -> HRESULT;
+            fn GetAllParameters(&self, pDsFxFlanger: *mut DSFXFlanger) -> HRESULT;
+        }
+        #[guid(0xd616f352_d622_11ce_aac5_0020af0b99a3)]
+        interface IDirectSoundFXGargle: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pcDsFxGargle: *const DSFXGargle) -> HRESULT;
+            fn GetAllParameters(&self, pDsFxGargle: *mut DSFXGargle) -> HRESULT;
+        }
+        #[guid(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4)]
+        interface IDirectSoundFXI3DL2Reverb: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pcDsFxI3DL2Reverb: *const DSFXI3DL2Reverb) -> HRESULT;
+            fn GetAllParameters(&self, pDsFxI3DL2Reverb: *mut DSFXI3DL2Reverb) -> HRESULT;
+            fn SetPreset(&self, dwPreset: u32) -> HRESULT;
+            fn GetPreset(&self, pdwPreset: *mut u32) -> HRESULT;
+            fn SetQuality(&self, lQuality: i32) -> HRESULT;
+            fn GetQuality(&self, plQuality: *mut i32) -> HRESULT;
+        }
+        #[guid(0xc03ca9fe_fe90_4204_8078_82334cd177da)]
+        interface IDirectSoundFXParamEq: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pcDsFxParamEq: *const DSFXParamEq) -> HRESULT;
+            fn GetAllParameters(&self, pDsFxParamEq: *mut DSFXParamEq) -> HRESULT;
+        }
+        #[guid(0x46858c3a_0dc6_45e3_b760_d4eef16cb325)]
+        interface IDirectSoundFXWavesReverb: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetAllParameters(&self, pcDsFxWavesReverb: *const DSFXWavesReverb) -> HRESULT;
+            fn GetAllParameters(&self, pDsFxWavesReverb: *mut DSFXWavesReverb) -> HRESULT;
+        }
+        #[guid(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d)]
+        interface IDirectSoundFullDuplex: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Initialize(&self, pCaptureGuid: *const GUID, pRenderGuid: *const GUID, lpDscBufferDesc: *const DSCBUFFERDESC, lpDsBufferDesc: *const DSBUFFERDESC, hWnd: HWND, dwLevel: u32, lplpDirectSoundCaptureBuffer8: *mut IDirectSoundCaptureBuffer8, lplpDirectSoundBuffer8: *mut IDirectSoundBuffer8) -> HRESULT;
+        }
+        #[guid(0xb0210783_89cd_11d0_af08_00a0c925cd16)]
+        interface IDirectSoundNotify: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetNotificationPositions(&self, dwPositionNotifies: u32, #[len_param(0)] pcPositionNotifies: *const DSBPOSITIONNOTIFY) -> HRESULT;
+        }
+        #[guid(0x31efac30_515c_11d0_a9aa_00aa0061be93)]
+        interface IKsPropertySet: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Get(&self, rguidPropSet: *const GUID, ulId: u32, #[size_param(3)] #[opt] pInstanceData: *const void, ulInstanceLength: u32, #[size_param(5)] pPropertyData: *mut void, ulDataLength: u32, #[opt] pulBytesReturned: *mut u32) -> HRESULT;
+            fn Set(&self, rguidPropSet: *const GUID, ulId: u32, #[size_param(3)] #[opt] pInstanceData: *const void, ulInstanceLength: u32, #[size_param(5)] pPropertyData: *const void, ulDataLength: u32) -> HRESULT;
+            fn QuerySupport(&self, rguidPropSet: *const GUID, ulId: u32, pulTypeSupport: *mut u32) -> HRESULT;
+        }
+        #[guid(0x56a86897_0ad4_11ce_b03a_0020af0ba770)]
+        interface IReferenceClock: IUnknown {
+            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetTime(&self, pTime: *mut REFERENCE_TIME) -> HRESULT;
+            fn AdviseTime(&self, rtBaseTime: REFERENCE_TIME, rtStreamTime: REFERENCE_TIME, hEvent: HANDLE, pdwAdviseCookie: *mut u32) -> HRESULT;
+            fn AdvisePeriodic(&self, rtStartTime: REFERENCE_TIME, rtPeriodTime: REFERENCE_TIME, hSemaphore: HANDLE, pdwAdviseCookie: *mut u32) -> HRESULT;
+            fn Unadvise(&self, dwAdviseCookie: u32) -> HRESULT;
+        }
+        const KSPROPERTY_SUPPORT_GET: u32 = 1;
+        const KSPROPERTY_SUPPORT_SET: u32 = 2;
+        type LPCDS3DBUFFER = *const DS3DBUFFER;
+        type LPCDS3DLISTENER = *const DS3DLISTENER;
+        type LPCDSBCAPS = *const DSBCAPS;
+        type LPCDSBPOSITIONNOTIFY = *const DSBPOSITIONNOTIFY;
+        type LPCDSBUFFERDESC = *const DSBUFFERDESC;
+        type LPCDSBUFFERDESC1 = *const DSBUFFERDESC1;
+        type LPCDSCAPS = *const DSCAPS;
+        type LPCDSCBCAPS = *const DSCBCAPS;
+        type LPCDSCBUFFERDESC = *const DSCBUFFERDESC;
+        type LPCDSCCAPS = *const DSCCAPS;
+        type LPCDSCEFFECTDESC = *const DSCEFFECTDESC;
+        type LPCDSCFXAec = *const DSCFXAec;
+        type LPCDSCFXNoiseSuppress = *const DSCFXNoiseSuppress;
+        type LPCDSEFFECTDESC = *const DSEFFECTDESC;
+        type LPCDSFXChorus = *const DSFXChorus;
+        type LPCDSFXCompressor = *const DSFXCompressor;
+        type LPCDSFXDistortion = *const DSFXDistortion;
+        type LPCDSFXEcho = *const DSFXEcho;
+        type LPCDSFXFlanger = *const DSFXFlanger;
+        type LPCDSFXGargle = *const DSFXGargle;
+        type LPCDSFXI3DL2Reverb = *const DSFXI3DL2Reverb;
+        type LPCDSFXParamEq = *const DSFXParamEq;
+        type LPCDSFXWavesReverb = *const DSFXWavesReverb;
+        type LPD3DCOLOR = *mut u32;
+        type LPD3DVALUE = *mut f32;
+        type LPD3DVECTOR = *mut D3DVECTOR;
+        type LPDS3DBUFFER = *mut DS3DBUFFER;
+        type LPDS3DLISTENER = *mut DS3DLISTENER;
+        type LPDSBCAPS = *mut DSBCAPS;
+        type LPDSBPOSITIONNOTIFY = *mut DSBPOSITIONNOTIFY;
+        type LPDSBUFFERDESC = *mut DSBUFFERDESC;
+        type LPDSBUFFERDESC1 = *mut DSBUFFERDESC1;
+        type LPDSCAPS = *mut DSCAPS;
+        type LPDSCBCAPS = *mut DSCBCAPS;
+        type LPDSCBUFFERDESC = *mut DSCBUFFERDESC;
+        type LPDSCBUFFERDESC1 = *mut DSCBUFFERDESC1;
+        type LPDSCCAPS = *mut DSCCAPS;
+        type LPDSCEFFECTDESC = *mut DSCEFFECTDESC;
+        type LPDSCFXAec = *mut DSCFXAec;
+        type LPDSCFXNoiseSuppress = *mut DSCFXNoiseSuppress;
+        type LPDSEFFECTDESC = *mut DSEFFECTDESC;
+        extern fn LPDSENUMCALLBACKA(param0: *mut GUID, param1: PCSTR, param2: PCSTR, param3: *mut void) -> BOOL;
+        extern fn LPDSENUMCALLBACKW(param0: *mut GUID, param1: PCWSTR, param2: PCWSTR, param3: *mut void) -> BOOL;
+        type LPDSFXChorus = *mut DSFXChorus;
+        type LPDSFXCompressor = *mut DSFXCompressor;
+        type LPDSFXDistortion = *mut DSFXDistortion;
+        type LPDSFXEcho = *mut DSFXEcho;
+        type LPDSFXFlanger = *mut DSFXFlanger;
+        type LPDSFXGargle = *mut DSFXGargle;
+        type LPDSFXI3DL2Reverb = *mut DSFXI3DL2Reverb;
+        type LPDSFXParamEq = *mut DSFXParamEq;
+        type LPDSFXWavesReverb = *mut DSFXWavesReverb;
+        type LPLPDIRECTSOUND = *mut IDirectSound;
+        type LPLPDIRECTSOUND3DBUFFER = *mut IDirectSound3DBuffer;
+        type LPLPDIRECTSOUND3DLISTENER = *mut IDirectSound3DListener;
+        type LPLPDIRECTSOUND8 = *mut IDirectSound8;
+        type LPLPDIRECTSOUNDBUFFER = *mut IDirectSoundBuffer;
+        type LPLPDIRECTSOUNDBUFFER8 = *mut IDirectSoundBuffer8;
+        type LPLPDIRECTSOUNDCAPTURE = *mut IDirectSoundCapture;
+        type LPLPDIRECTSOUNDCAPTURE8 = *mut IDirectSoundCapture;
+        type LPLPDIRECTSOUNDCAPTUREBUFFER = *mut IDirectSoundCaptureBuffer;
+        type LPLPDIRECTSOUNDCAPTUREBUFFER8 = *mut IDirectSoundCaptureBuffer8;
+        type LPLPDIRECTSOUNDNOTIFY = *mut IDirectSoundNotify;
+        type LPREFERENCE_TIME = *mut REFERENCE_TIME;
+    }
+}

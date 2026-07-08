@@ -1,0 +1,102 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x86336d20_ca11_4786_9ef1_bc8a946b42fc)]
+        interface IWbemDecoupledBasicEventProvider: IWbemDecoupledRegistrar {
+            fn GetSink(&self, a_Flags: i32, a_Context: IWbemContext, a_Sink: *mut IWbemObjectSink) -> HRESULT;
+            fn GetService(&self, a_Flags: i32, a_Context: IWbemContext, a_Service: *mut IWbemServices) -> HRESULT;
+        }
+        #[guid(0x1005cbcf_e64f_4646_bcd3_3a089d8a84b4)]
+        interface IWbemDecoupledRegistrar: IUnknown {
+            fn Register(&self, a_Flags: i32, a_Context: IWbemContext, a_User: PCWSTR, a_Locale: PCWSTR, a_Scope: PCWSTR, a_Registration: PCWSTR, pIUnknown: IUnknown) -> HRESULT;
+            fn UnRegister(&self) -> HRESULT;
+        }
+        #[guid(0xe246107a_b06e_11d0_ad61_00c04fd8fdff)]
+        interface IWbemEventConsumerProvider: IUnknown {
+            fn FindConsumer(&self, pLogicalConsumer: IWbemClassObject, ppConsumer: *mut IWbemUnboundObjectSink) -> HRESULT;
+        }
+        #[guid(0xe245105b_b06e_11d0_ad61_00c04fd8fdff)]
+        interface IWbemEventProvider: IUnknown {
+            fn ProvideEvents(&self, pSink: IWbemObjectSink, lFlags: i32) -> HRESULT;
+        }
+        #[guid(0x580acaf8_fa1c_11d0_ad72_00c04fd8fdff)]
+        interface IWbemEventProviderQuerySink: IUnknown {
+            fn NewQuery(&self, dwId: u32, wszQueryLanguage: WBEM_WSTR, wszQuery: WBEM_WSTR) -> HRESULT;
+            fn CancelQuery(&self, dwId: u32) -> HRESULT;
+        }
+        #[guid(0x631f7d96_d993_11d2_b339_00105a1f4aaf)]
+        interface IWbemEventProviderSecurity: IUnknown {
+            fn AccessCheck(&self, wszQueryLanguage: WBEM_CWSTR, wszQuery: WBEM_CWSTR, lSidLength: i32, pSid: *const u8) -> HRESULT;
+        }
+        #[guid(0x3ae0080a_7e3a_4366_bf89_0feedc931659)]
+        interface IWbemEventSink: IWbemObjectSink {
+            fn SetSinkSecurity(&self, lSDLength: i32, pSD: *const u8) -> HRESULT;
+            fn IsActive(&self) -> HRESULT;
+            fn GetRestrictedSink(&self, lNumQueries: i32, awszQueries: *const PCWSTR, pCallback: IUnknown, ppSink: *mut IWbemEventSink) -> HRESULT;
+            fn SetBatchingParameters(&self, lFlags: i32, dwMaxBufferSize: u32, dwMaxSendLatency: u32) -> HRESULT;
+        }
+        #[guid(0x49353c93_516b_11d1_aea6_00c04fb68820)]
+        interface IWbemHiPerfProvider: IUnknown {
+            fn QueryInstances(&self, pNamespace: IWbemServices, wszClass: *const u16, lFlags: i32, pCtx: IWbemContext, #[out] pSink: IWbemObjectSink) -> HRESULT;
+            fn CreateRefresher(&self, pNamespace: IWbemServices, lFlags: i32, ppRefresher: *mut IWbemRefresher) -> HRESULT;
+            fn CreateRefreshableObject(&self, pNamespace: IWbemServices, pTemplate: IWbemObjectAccess, pRefresher: IWbemRefresher, lFlags: i32, pContext: IWbemContext, ppRefreshable: *mut IWbemObjectAccess, plId: *mut i32) -> HRESULT;
+            fn StopRefreshing(&self, pRefresher: IWbemRefresher, lId: i32, lFlags: i32) -> HRESULT;
+            fn CreateRefreshableEnum(&self, pNamespace: IWbemServices, wszClass: PCWSTR, pRefresher: IWbemRefresher, lFlags: i32, pContext: IWbemContext, pHiPerfEnum: IWbemHiPerfEnum, plId: *mut i32) -> HRESULT;
+            fn GetObjects(&self, pNamespace: IWbemServices, lNumObjects: i32, #[len_param(1)] apObj: *mut IWbemObjectAccess, lFlags: i32, pContext: IWbemContext) -> HRESULT;
+        }
+        #[guid(0xce61e841_65bc_11d0_b6bd_00aa003240c7)]
+        interface IWbemPropertyProvider: IUnknown {
+            fn GetProperty(&self, lFlags: i32, strLocale: BSTR, strClassMapping: BSTR, strInstMapping: BSTR, strPropMapping: BSTR, pvValue: *mut VARIANT) -> HRESULT;
+            fn PutProperty(&self, lFlags: i32, strLocale: BSTR, strClassMapping: BSTR, strInstMapping: BSTR, strPropMapping: BSTR, pvValue: *const VARIANT) -> HRESULT;
+        }
+        #[guid(0x631f7d97_d993_11d2_b339_00105a1f4aaf)]
+        interface IWbemProviderIdentity: IUnknown {
+            fn SetRegistrationObject(&self, lFlags: i32, pProvReg: IWbemClassObject) -> HRESULT;
+        }
+        #[guid(0x1be41572_91dd_11d1_aeb2_00c04fb68820)]
+        interface IWbemProviderInit: IUnknown {
+            fn Initialize(&self, wszUser: PCWSTR, lFlags: i32, wszNamespace: PCWSTR, wszLocale: PCWSTR, pNamespace: IWbemServices, pCtx: IWbemContext, pInitSink: IWbemProviderInitSink) -> HRESULT;
+        }
+        #[guid(0x1be41571_91dd_11d1_aeb2_00c04fb68820)]
+        interface IWbemProviderInitSink: IUnknown {
+            fn SetStatus(&self, lStatus: i32, lFlags: i32) -> HRESULT;
+        }
+        #[guid(0xe246107b_b06e_11d0_ad61_00c04fd8fdff)]
+        interface IWbemUnboundObjectSink: IUnknown {
+            fn IndicateToConsumer(&self, pLogicalConsumer: IWbemClassObject, lNumObjects: i32, apObjects: *const IWbemClassObject) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum WBEM_BATCH_TYPE {
+            WBEM_FLAG_BATCH_IF_NEEDED = 0,
+            WBEM_FLAG_MUST_BATCH = 1,
+            WBEM_FLAG_MUST_NOT_BATCH = 2,
+        }
+        type WBEM_CWSTR = PCWSTR;
+        #[repr(i32)]
+        enum WBEM_EXTRA_RETURN_CODES {
+            WBEM_S_INITIALIZED = 0,
+            WBEM_S_LIMITED_SERVICE = 274433,
+            WBEM_S_INDIRECTLY_UPDATED = 274434,
+            WBEM_S_SUBJECT_TO_SDS = 274435,
+            WBEM_E_RETRY_LATER = -2147209215,
+            WBEM_E_RESOURCE_CONTENTION = -2147209214,
+        }
+        #[repr(i32)]
+        enum WBEM_PROVIDER_FLAGS {
+            WBEM_FLAG_OWNER_UPDATE = 65536,
+        }
+        #[repr(i32)]
+        enum WBEM_PROVIDER_REQUIREMENTS_TYPE {
+            WBEM_REQUIREMENTS_START_POSTFILTER = 0,
+            WBEM_REQUIREMENTS_STOP_POSTFILTER = 1,
+            WBEM_REQUIREMENTS_RECHECK_SUBSCRIPTIONS = 2,
+        }
+        type WBEM_VARIANT = VARIANT;
+        type WBEM_WSTR = PWSTR;
+        const WbemAdministrativeLocator: GUID = 0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff;
+        const WbemAuthenticatedLocator: GUID = 0xcd184336_9128_11d1_ad9b_00c04fd8fdff;
+        const WbemDecoupledBasicEventProvider: GUID = 0xf5f75737_2843_4f22_933d_c76a97cda62f;
+        const WbemDecoupledRegistrar: GUID = 0x4cfc7932_0f9d_4bef_9c32_8ea2a6b56fcb;
+        const WbemUnauthenticatedLocator: GUID = 0x443e7b79_de31_11d2_b340_00104bcc4b4a;
+    }
+}
