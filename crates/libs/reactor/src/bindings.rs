@@ -2252,6 +2252,8 @@ impl DataPackageOperation {
     pub const Copy: Self = Self(1);
     pub const Move: Self = Self(2);
     pub const Link: Self = Self(4);
+    pub const NewTarget: Self = Self(1073741824);
+    pub const BackgroundTarget: Self = Self(536870912);
 }
 impl windows_core::TypeKind for DataPackageOperation {
     type TypeKind = windows_core::CopyType;

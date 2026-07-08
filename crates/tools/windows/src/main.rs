@@ -14,7 +14,7 @@ const CONTRACTS_ID: &str = "microsoft.windows.sdk.contracts";
 /// Pinned SDK Contracts version. The winmd is merged from this exact package so the WinRT
 /// surface is reproducible on any machine and in CI. Bumping it is a deliberate, reviewable
 /// change: the new package is restored and `Windows.winmd` regenerated.
-const CONTRACTS_VERSION: &str = "10.0.26100.7705";
+const CONTRACTS_VERSION: &str = "10.0.28000.2270";
 
 /// The per-contract winmds live under this subtree in the package (`Windows.Foundation.winmd`,
 /// `Windows.Globalization.winmd`, …), one file per API contract.

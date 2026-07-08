@@ -238,8 +238,10 @@ remaining consumers of the reference winmd are the frozen monolithic `windows` /
 - `crates/libs/bindgen/default/Windows.Wdk.winmd` — **in-house** WDK metadata,
   written by `tool_wdk`.
 - `crates/tools/package/reference/Windows.Win32.winmd` / `Windows.Wdk.winmd` — the
-  frozen **win32metadata reference** winmd, used only by `tool_package`,
-  `tool_features`, and the parity probes.
+  frozen **win32metadata reference** winmd, and `crates/tools/package/reference/Windows.winmd`
+  — a frozen snapshot of the in-house WinRT winmd. Together they back the published
+  `windows` / `windows-sys` crates and the `tool_features` page (and the parity probes),
+  pinning those outputs so a live-metadata refresh never churns them.
 
 The committed RDL snapshot (`metadata/win32/*.rdl`) is the reviewable source of
 truth — every scrape change is a readable `git diff`; the merged binary winmd is

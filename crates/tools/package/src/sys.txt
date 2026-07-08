@@ -1,5 +1,5 @@
 --out crates/libs/sys
---in crates/libs/bindgen/default/Windows.winmd crates/tools/package/reference/Windows.Win32.winmd crates/tools/package/reference/Windows.Wdk.winmd
+--in crates/tools/package/reference
 --package --sys
 --rustfmt max_width=800,newline_style=Unix
 

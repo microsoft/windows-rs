@@ -375,7 +375,7 @@ than duplicated per tool:
 - `clang_resource_dir()` — resolves a `-resource-dir` of version-matched builtin
   headers (needed only for the non-x64 arch passes), fetching them on first use.
 - `nuget_package(id, version)` — resolves a restored NuGet package (global-cache or
-  flat `packages.config` layout), fetching the pinned nupkg from nuget.org on a miss.
+  flat `<Id>.<Version>` layout), fetching the pinned nupkg from nuget.org on a miss.
   The SDK/WDK version pins stay in each tool since they diverge.
 
 The download cache is keyed by version under `target/windows-clang/`, so all tools

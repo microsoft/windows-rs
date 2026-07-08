@@ -227,8 +227,8 @@ fn nuget_root() -> PathBuf {
 /// Resolves a restored NuGet package directory for `id` at the exact `version`, accepting either
 /// layout so the same pinned corpus regenerates from a global-cache restore
 /// (`<root>/<id>/<version>/`, what `dotnet`/PackageReference and a local cache produce) or a
-/// `packages.config` flat restore (`<root>/<Id>.<Version>/`, what `nuget restore packages.config
-/// -PackagesDirectory` produces). The content under each (`c/Include/...`, `c/um/...`) is
+/// flat restore (`<root>/<Id>.<Version>/`, what `nuget restore -PackagesDirectory` produces). The
+/// content under each (`c/Include/...`, `c/um/...`) is
 /// identical. When neither is present the pinned nupkg is fetched from nuget.org into the
 /// global-cache layout on demand, so a fresh checkout needs no prior `nuget restore`.
 pub fn nuget_package(id: &str, version: &str) -> PathBuf {
