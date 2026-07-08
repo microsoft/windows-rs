@@ -1,0 +1,11 @@
+[package]
+name = "sample_context_alignment"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true
