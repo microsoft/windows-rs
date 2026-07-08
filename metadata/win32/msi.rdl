@@ -269,9 +269,9 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiEnumClientsA(szComponent: PCSTR, iProductIndex: u32, #[out] lpProductBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumClientsExA(szComponent: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwProductIndex: u32, #[out] #[opt] szProductBuf: [i8; 39], #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumClientsExA(szComponent: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwProductIndex: u32, #[len_const(39)] #[opt] szProductBuf: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumClientsExW(szComponent: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwProductIndex: u32, #[out] #[opt] szProductBuf: [u16; 39], #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumClientsExW(szComponent: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwProductIndex: u32, #[len_const(39)] #[opt] szProductBuf: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnumClientsW(szComponent: PCWSTR, iProductIndex: u32, #[out] lpProductBuf: PWSTR) -> u32;
         #[library("msi.dll")]
@@ -281,9 +281,9 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiEnumComponentsA(iComponentIndex: u32, #[out] lpComponentBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentsExA(#[opt] szUserSid: PCSTR, dwContext: u32, dwIndex: u32, #[out] #[opt] szInstalledComponentCode: [i8; 39], #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(6)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumComponentsExA(#[opt] szUserSid: PCSTR, dwContext: u32, dwIndex: u32, #[len_const(39)] #[opt] szInstalledComponentCode: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(6)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentsExW(#[opt] szUserSid: PCWSTR, dwContext: u32, dwIndex: u32, #[out] #[opt] szInstalledComponentCode: [u16; 39], #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(6)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumComponentsExW(#[opt] szUserSid: PCWSTR, dwContext: u32, dwIndex: u32, #[len_const(39)] #[opt] szInstalledComponentCode: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(6)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnumComponentsW(iComponentIndex: u32, #[out] lpComponentBuf: PWSTR) -> u32;
         #[library("msi.dll")]
@@ -293,17 +293,17 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiEnumPatchesA(szProduct: PCSTR, iPatchIndex: u32, #[out] lpPatchBuf: PSTR, #[len_param(4)] #[out] lpTransformsBuf: PSTR, #[in] #[out] pcchTransformsBuf: *mut u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumPatchesExA(#[opt] szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwFilter: u32, dwIndex: u32, #[out] #[opt] szPatchCode: [i8; 39], #[out] #[opt] szTargetProductCode: [i8; 39], #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[len_param(9)] #[out] #[opt] szTargetUserSid: PSTR, #[in] #[out] #[opt] pcchTargetUserSid: *mut u32) -> u32;
+        extern fn MsiEnumPatchesExA(#[opt] szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwFilter: u32, dwIndex: u32, #[len_const(39)] #[opt] szPatchCode: *mut i8, #[len_const(39)] #[opt] szTargetProductCode: *mut i8, #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[len_param(9)] #[out] #[opt] szTargetUserSid: PSTR, #[in] #[out] #[opt] pcchTargetUserSid: *mut u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumPatchesExW(#[opt] szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwFilter: u32, dwIndex: u32, #[out] #[opt] szPatchCode: [u16; 39], #[out] #[opt] szTargetProductCode: [u16; 39], #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[len_param(9)] #[out] #[opt] szTargetUserSid: PWSTR, #[in] #[out] #[opt] pcchTargetUserSid: *mut u32) -> u32;
+        extern fn MsiEnumPatchesExW(#[opt] szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwFilter: u32, dwIndex: u32, #[len_const(39)] #[opt] szPatchCode: *mut u16, #[len_const(39)] #[opt] szTargetProductCode: *mut u16, #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[len_param(9)] #[out] #[opt] szTargetUserSid: PWSTR, #[in] #[out] #[opt] pcchTargetUserSid: *mut u32) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnumPatchesW(szProduct: PCWSTR, iPatchIndex: u32, #[out] lpPatchBuf: PWSTR, #[len_param(4)] #[out] lpTransformsBuf: PWSTR, #[in] #[out] pcchTransformsBuf: *mut u32) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnumProductsA(iProductIndex: u32, #[out] lpProductBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumProductsExA(#[opt] szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwIndex: u32, #[out] #[opt] szInstalledProductCode: [i8; 39], #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumProductsExA(#[opt] szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwIndex: u32, #[len_const(39)] #[opt] szInstalledProductCode: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumProductsExW(#[opt] szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwIndex: u32, #[out] #[opt] szInstalledProductCode: [u16; 39], #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumProductsExW(#[opt] szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwIndex: u32, #[len_const(39)] #[opt] szInstalledProductCode: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnumProductsW(iProductIndex: u32, #[out] lpProductBuf: PWSTR) -> u32;
         #[library("msi.dll")]

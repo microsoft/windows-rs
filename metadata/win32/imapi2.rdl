@@ -483,9 +483,9 @@ mod Windows {
         }
         #[guid(0x27354132_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscRecorder2Ex: IUnknown {
-            fn SendCommandNoData(&self, Cdb: *const u8, CdbSize: u32, #[out] SenseBuffer: [u8; 18], Timeout: u32) -> HRESULT;
-            fn SendCommandSendDataToDevice(&self, Cdb: *const u8, CdbSize: u32, #[out] SenseBuffer: [u8; 18], Timeout: u32, Buffer: *const u8, BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
-            fn SendCommandGetDataFromDevice(&self, Cdb: *const u8, CdbSize: u32, #[out] SenseBuffer: [u8; 18], Timeout: u32, Buffer: *mut u8, BufferSize: ULONG_IMAPI2_NONZERO, BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
+            fn SendCommandNoData(&self, Cdb: *const u8, CdbSize: u32, #[len_const(18)] SenseBuffer: *mut u8, Timeout: u32) -> HRESULT;
+            fn SendCommandSendDataToDevice(&self, Cdb: *const u8, CdbSize: u32, #[len_const(18)] SenseBuffer: *mut u8, Timeout: u32, Buffer: *const u8, BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
+            fn SendCommandGetDataFromDevice(&self, Cdb: *const u8, CdbSize: u32, #[len_const(18)] SenseBuffer: *mut u8, Timeout: u32, Buffer: *mut u8, BufferSize: ULONG_IMAPI2_NONZERO, BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
             fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
             fn SendDvdStructure(&self, format: u32, data: *const u8, count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
             fn GetAdapterDescriptor(&self, data: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> HRESULT;

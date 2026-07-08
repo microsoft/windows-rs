@@ -4101,9 +4101,9 @@ mod Windows {
             fn SOSetTargets(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] pViews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW);
             fn OMSetRenderTargets(&self, NumRenderTargetDescriptors: u32, #[opt] pRenderTargetDescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, RTsSingleHandleToDescriptorRange: BOOL, #[opt] pDepthStencilDescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE);
             fn ClearDepthStencilView(&self, DepthStencilView: D3D12_CPU_DESCRIPTOR_HANDLE, ClearFlags: D3D12_CLEAR_FLAGS, Depth: f32, Stencil: u8, NumRects: u32, #[len_param(4)] pRects: *const D3D12_RECT);
-            fn ClearRenderTargetView(&self, RenderTargetView: D3D12_CPU_DESCRIPTOR_HANDLE, ColorRGBA: [f32; 4], NumRects: u32, #[len_param(2)] pRects: *const D3D12_RECT);
-            fn ClearUnorderedAccessViewUint(&self, ViewGPUHandleInCurrentHeap: D3D12_GPU_DESCRIPTOR_HANDLE, ViewCPUHandle: D3D12_CPU_DESCRIPTOR_HANDLE, pResource: ID3D12Resource, Values: [u32; 4], NumRects: u32, #[len_param(4)] pRects: *const D3D12_RECT);
-            fn ClearUnorderedAccessViewFloat(&self, ViewGPUHandleInCurrentHeap: D3D12_GPU_DESCRIPTOR_HANDLE, ViewCPUHandle: D3D12_CPU_DESCRIPTOR_HANDLE, pResource: ID3D12Resource, Values: [f32; 4], NumRects: u32, #[len_param(4)] pRects: *const D3D12_RECT);
+            fn ClearRenderTargetView(&self, RenderTargetView: D3D12_CPU_DESCRIPTOR_HANDLE, #[len_const(4)] ColorRGBA: *const f32, NumRects: u32, #[len_param(2)] pRects: *const D3D12_RECT);
+            fn ClearUnorderedAccessViewUint(&self, ViewGPUHandleInCurrentHeap: D3D12_GPU_DESCRIPTOR_HANDLE, ViewCPUHandle: D3D12_CPU_DESCRIPTOR_HANDLE, pResource: ID3D12Resource, #[len_const(4)] Values: *const u32, NumRects: u32, #[len_param(4)] pRects: *const D3D12_RECT);
+            fn ClearUnorderedAccessViewFloat(&self, ViewGPUHandleInCurrentHeap: D3D12_GPU_DESCRIPTOR_HANDLE, ViewCPUHandle: D3D12_CPU_DESCRIPTOR_HANDLE, pResource: ID3D12Resource, #[len_const(4)] Values: *const f32, NumRects: u32, #[len_param(4)] pRects: *const D3D12_RECT);
             fn DiscardResource(&self, pResource: ID3D12Resource, #[opt] pRegion: *const D3D12_DISCARD_REGION);
             fn BeginQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
             fn EndQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);

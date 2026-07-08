@@ -1,10 +1,15 @@
 #[win32]
 mod Test {
     #[library("kernel32.dll")]
-    extern "C" fn ClearColor(ColorRGBA: [f32; 4]);
+    extern "C" fn ClearColor(#[len_const(4)] ColorRGBA: *const f32);
+    #[library("kernel32.dll")]
+    extern "C" fn FillState(state: *mut u32);
     #[library("kernel32.dll")]
     extern "C" fn GetName(#[len_const(80)] szName: *mut u16);
     #[library("kernel32.dll")]
+    extern "C" fn GetVersion(version: *mut u8);
+    #[library("kernel32.dll")]
     extern "C" fn SumValues(values: *mut i32, count: u32);
+    type UVersionInfo = [u8; 4];
     type WCHAR = u16;
 }

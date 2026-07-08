@@ -171,7 +171,7 @@ mod Windows {
             fn PSGetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *mut u32, #[len_param(1)] #[opt] pNumConstants: *mut u32);
             fn CSGetConstantBuffers1(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer, #[len_param(1)] #[opt] pFirstConstant: *mut u32, #[len_param(1)] #[opt] pNumConstants: *mut u32);
             fn SwapDeviceContextState(&self, pState: ID3DDeviceContextState, ppPreviousState: *mut ID3DDeviceContextState);
-            fn ClearView(&self, pView: ID3D11View, Color: [f32; 4], #[len_param(3)] #[opt] pRect: *const D3D11_RECT, NumRects: u32);
+            fn ClearView(&self, pView: ID3D11View, #[len_const(4)] Color: *const f32, #[len_param(3)] #[opt] pRect: *const D3D11_RECT, NumRects: u32);
             fn DiscardView1(&self, pResourceView: ID3D11View, #[len_param(2)] #[opt] pRects: *const D3D11_RECT, NumRects: u32);
         }
         #[guid(0x1217d7a6_5039_418c_b042_9cbe256afd6e)]

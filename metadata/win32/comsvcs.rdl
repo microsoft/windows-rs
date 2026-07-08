@@ -364,7 +364,7 @@ mod Windows {
             fn OnCRMRecoveryStart(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
             fn OnCRMRecoveryDone(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
             fn OnCRMCheckpoint(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
-            fn OnCRMBegin(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID, guidActivity: GUID, guidTx: GUID, szProgIdCompensator: [u16; 64], szDescription: [u16; 64]) -> HRESULT;
+            fn OnCRMBegin(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID, guidActivity: GUID, guidTx: GUID, #[len_const(64)] szProgIdCompensator: *const u16, #[len_const(64)] szDescription: *const u16) -> HRESULT;
             fn OnCRMPrepare(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
             fn OnCRMCommit(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
             fn OnCRMAbort(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
@@ -463,8 +463,8 @@ mod Windows {
         }
         #[guid(0x683130b2_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComQCEvents: IUnknown {
-            fn OnQCRecord(&self, pInfo: *const COMSVCSEVENTINFO, objid: u64, szQueue: [u16; 60], guidMsgId: *const GUID, guidWorkFlowId: *const GUID, msmqhr: HRESULT) -> HRESULT;
-            fn OnQCQueueOpen(&self, pInfo: *const COMSVCSEVENTINFO, szQueue: [u16; 60], QueueID: u64, hr: HRESULT) -> HRESULT;
+            fn OnQCRecord(&self, pInfo: *const COMSVCSEVENTINFO, objid: u64, #[len_const(60)] szQueue: *const u16, guidMsgId: *const GUID, guidWorkFlowId: *const GUID, msmqhr: HRESULT) -> HRESULT;
+            fn OnQCQueueOpen(&self, pInfo: *const COMSVCSEVENTINFO, #[len_const(60)] szQueue: *const u16, QueueID: u64, hr: HRESULT) -> HRESULT;
             fn OnQCReceive(&self, pInfo: *const COMSVCSEVENTINFO, QueueID: u64, guidMsgId: *const GUID, guidWorkFlowId: *const GUID, hr: HRESULT) -> HRESULT;
             fn OnQCReceiveFail(&self, pInfo: *const COMSVCSEVENTINFO, QueueID: u64, msmqhr: HRESULT) -> HRESULT;
             fn OnQCMoveToReTryQueue(&self, pInfo: *const COMSVCSEVENTINFO, guidMsgId: *const GUID, guidWorkFlowId: *const GUID, RetryIndex: u32) -> HRESULT;

@@ -859,7 +859,7 @@ mod Windows {
             fn GSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D10ShaderResourceView);
             fn GSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D10SamplerState);
             fn OMSetRenderTargets(&self, NumViews: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *const ID3D10RenderTargetView, #[opt] pDepthStencilView: ID3D10DepthStencilView);
-            fn OMSetBlendState(&self, #[opt] pBlendState: ID3D10BlendState, BlendFactor: [f32; 4], SampleMask: u32);
+            fn OMSetBlendState(&self, #[opt] pBlendState: ID3D10BlendState, #[len_const(4)] BlendFactor: *const f32, SampleMask: u32);
             fn OMSetDepthStencilState(&self, #[opt] pDepthStencilState: ID3D10DepthStencilState, StencilRef: u32);
             fn SOSetTargets(&self, NumBuffers: u32, #[len_param(0)] #[opt] ppSOTargets: *const ID3D10Buffer, #[len_param(0)] #[opt] pOffsets: *const u32);
             fn DrawAuto(&self);
@@ -869,7 +869,7 @@ mod Windows {
             fn CopySubresourceRegion(&self, pDstResource: ID3D10Resource, DstSubresource: u32, DstX: u32, DstY: u32, DstZ: u32, pSrcResource: ID3D10Resource, SrcSubresource: u32, #[opt] pSrcBox: *const D3D10_BOX);
             fn CopyResource(&self, pDstResource: ID3D10Resource, pSrcResource: ID3D10Resource);
             fn UpdateSubresource(&self, pDstResource: ID3D10Resource, DstSubresource: u32, #[opt] pDstBox: *const D3D10_BOX, pSrcData: *const void, SrcRowPitch: u32, SrcDepthPitch: u32);
-            fn ClearRenderTargetView(&self, pRenderTargetView: ID3D10RenderTargetView, ColorRGBA: [f32; 4]);
+            fn ClearRenderTargetView(&self, pRenderTargetView: ID3D10RenderTargetView, #[len_const(4)] ColorRGBA: *const f32);
             fn ClearDepthStencilView(&self, pDepthStencilView: ID3D10DepthStencilView, ClearFlags: u32, Depth: f32, Stencil: u8);
             fn GenerateMips(&self, pShaderResourceView: ID3D10ShaderResourceView);
             fn ResolveSubresource(&self, pDstResource: ID3D10Resource, DstSubresource: u32, pSrcResource: ID3D10Resource, SrcSubresource: u32, Format: DXGI_FORMAT);
@@ -891,7 +891,7 @@ mod Windows {
             fn GSGetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *mut ID3D10ShaderResourceView);
             fn GSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D10SamplerState);
             fn OMGetRenderTargets(&self, NumViews: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *mut ID3D10RenderTargetView, #[opt] ppDepthStencilView: *mut ID3D10DepthStencilView);
-            fn OMGetBlendState(&self, #[opt] ppBlendState: *mut ID3D10BlendState, #[out] #[opt] BlendFactor: [f32; 4], #[opt] pSampleMask: *mut u32);
+            fn OMGetBlendState(&self, #[opt] ppBlendState: *mut ID3D10BlendState, #[len_const(4)] #[opt] BlendFactor: *mut f32, #[opt] pSampleMask: *mut u32);
             fn OMGetDepthStencilState(&self, #[opt] ppDepthStencilState: *mut ID3D10DepthStencilState, #[opt] pStencilRef: *mut u32);
             fn SOGetTargets(&self, NumBuffers: u32, #[len_param(0)] #[opt] ppSOTargets: *mut ID3D10Buffer, #[len_param(0)] #[opt] pOffsets: *mut u32);
             fn RSGetState(&self, ppRasterizerState: *mut ID3D10RasterizerState);

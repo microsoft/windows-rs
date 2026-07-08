@@ -1253,7 +1253,7 @@ mod Windows {
             fn SetSubpictureState(&self, bState: BOOL, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn SelectAngle(&self, ulAngle: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn SelectParentalLevel(&self, ulParentalLevel: u32) -> HRESULT;
-            fn SelectParentalCountry(&self, bCountry: [u8; 2]) -> HRESULT;
+            fn SelectParentalCountry(&self, #[len_const(2)] bCountry: *const u8) -> HRESULT;
             fn SelectKaraokeAudioPresentationMode(&self, ulMode: u32) -> HRESULT;
             fn SelectVideoModePreference(&self, ulPreferredDisplayMode: u32) -> HRESULT;
             fn SetDVDDirectory(&self, pszwPath: PCWSTR) -> HRESULT;
@@ -1326,7 +1326,7 @@ mod Windows {
             fn GetDVDTextLanguageInfo(&self, ulLangIndex: u32, pulNumOfStrings: *mut u32, pLangCode: *mut LCID, pbCharacterSet: *mut DVD_TextCharSet) -> HRESULT;
             fn GetDVDTextStringAsNative(&self, ulLangIndex: u32, ulStringIndex: u32, pbBuffer: *mut u8, ulMaxBufferSize: u32, pulActualSize: *mut u32, pType: *mut DVD_TextStringType) -> HRESULT;
             fn GetDVDTextStringAsUnicode(&self, ulLangIndex: u32, ulStringIndex: u32, pchwBuffer: *mut u16, ulMaxBufferSize: u32, pulActualSize: *mut u32, pType: *mut DVD_TextStringType) -> HRESULT;
-            fn GetPlayerParentalLevel(&self, pulParentalLevel: *mut u32, #[out] pbCountryCode: [u8; 2]) -> HRESULT;
+            fn GetPlayerParentalLevel(&self, pulParentalLevel: *mut u32, #[len_const(2)] pbCountryCode: *mut u8) -> HRESULT;
             fn GetNumberOfChapters(&self, ulTitle: u32, pulNumOfChapters: *mut u32) -> HRESULT;
             fn GetTitleParentalLevels(&self, ulTitle: u32, pulParentalLevels: *mut u32) -> HRESULT;
             fn GetDVDDirectory(&self, #[len_param(1)] #[out] pszwPath: PWSTR, ulMaxSize: u32, pulActualSize: *mut u32) -> HRESULT;

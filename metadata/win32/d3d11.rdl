@@ -2107,7 +2107,7 @@ mod Windows {
             fn GSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D11SamplerState);
             fn OMSetRenderTargets(&self, NumViews: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *const ID3D11RenderTargetView, #[opt] pDepthStencilView: ID3D11DepthStencilView);
             fn OMSetRenderTargetsAndUnorderedAccessViews(&self, NumRTVs: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *const ID3D11RenderTargetView, #[opt] pDepthStencilView: ID3D11DepthStencilView, UAVStartSlot: u32, NumUAVs: u32, #[len_param(4)] #[opt] ppUnorderedAccessViews: *const ID3D11UnorderedAccessView, #[len_param(4)] #[opt] pUAVInitialCounts: *const u32);
-            fn OMSetBlendState(&self, #[opt] pBlendState: ID3D11BlendState, #[opt] BlendFactor: [f32; 4], SampleMask: u32);
+            fn OMSetBlendState(&self, #[opt] pBlendState: ID3D11BlendState, #[len_const(4)] #[opt] BlendFactor: *const f32, SampleMask: u32);
             fn OMSetDepthStencilState(&self, #[opt] pDepthStencilState: ID3D11DepthStencilState, StencilRef: u32);
             fn SOSetTargets(&self, NumBuffers: u32, #[len_param(0)] #[opt] ppSOTargets: *const ID3D11Buffer, #[len_param(0)] #[opt] pOffsets: *const u32);
             fn DrawAuto(&self);
@@ -2122,9 +2122,9 @@ mod Windows {
             fn CopyResource(&self, pDstResource: ID3D11Resource, pSrcResource: ID3D11Resource);
             fn UpdateSubresource(&self, pDstResource: ID3D11Resource, DstSubresource: u32, #[opt] pDstBox: *const D3D11_BOX, pSrcData: *const void, SrcRowPitch: u32, SrcDepthPitch: u32);
             fn CopyStructureCount(&self, pDstBuffer: ID3D11Buffer, DstAlignedByteOffset: u32, pSrcView: ID3D11UnorderedAccessView);
-            fn ClearRenderTargetView(&self, pRenderTargetView: ID3D11RenderTargetView, ColorRGBA: [f32; 4]);
-            fn ClearUnorderedAccessViewUint(&self, pUnorderedAccessView: ID3D11UnorderedAccessView, Values: [u32; 4]);
-            fn ClearUnorderedAccessViewFloat(&self, pUnorderedAccessView: ID3D11UnorderedAccessView, Values: [f32; 4]);
+            fn ClearRenderTargetView(&self, pRenderTargetView: ID3D11RenderTargetView, #[len_const(4)] ColorRGBA: *const f32);
+            fn ClearUnorderedAccessViewUint(&self, pUnorderedAccessView: ID3D11UnorderedAccessView, #[len_const(4)] Values: *const u32);
+            fn ClearUnorderedAccessViewFloat(&self, pUnorderedAccessView: ID3D11UnorderedAccessView, #[len_const(4)] Values: *const f32);
             fn ClearDepthStencilView(&self, pDepthStencilView: ID3D11DepthStencilView, ClearFlags: u32, Depth: f32, Stencil: u8);
             fn GenerateMips(&self, pShaderResourceView: ID3D11ShaderResourceView);
             fn SetResourceMinLOD(&self, pResource: ID3D11Resource, MinLOD: f32);
@@ -2163,7 +2163,7 @@ mod Windows {
             fn GSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D11SamplerState);
             fn OMGetRenderTargets(&self, NumViews: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *mut ID3D11RenderTargetView, ppDepthStencilView: *mut ID3D11DepthStencilView);
             fn OMGetRenderTargetsAndUnorderedAccessViews(&self, NumRTVs: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *mut ID3D11RenderTargetView, ppDepthStencilView: *mut ID3D11DepthStencilView, UAVStartSlot: u32, NumUAVs: u32, #[len_param(4)] #[opt] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
-            fn OMGetBlendState(&self, ppBlendState: *mut ID3D11BlendState, #[out] #[opt] BlendFactor: [f32; 4], #[opt] pSampleMask: *mut u32);
+            fn OMGetBlendState(&self, ppBlendState: *mut ID3D11BlendState, #[len_const(4)] #[opt] BlendFactor: *mut f32, #[opt] pSampleMask: *mut u32);
             fn OMGetDepthStencilState(&self, ppDepthStencilState: *mut ID3D11DepthStencilState, #[opt] pStencilRef: *mut u32);
             fn SOGetTargets(&self, NumBuffers: u32, #[len_param(0)] #[opt] ppSOTargets: *mut ID3D11Buffer);
             fn RSGetState(&self, ppRasterizerState: *mut ID3D11RasterizerState);

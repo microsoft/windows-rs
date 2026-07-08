@@ -2968,7 +2968,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn u_catopen(name: *const i8, locale: *const i8, ec: *mut UErrorCode) -> u_nl_catd;
         #[library("icuuc.dll")]
-        extern "C" fn u_charAge(c: UChar32, versionArray: UVersionInfo);
+        extern "C" fn u_charAge(c: UChar32, versionArray: *mut u8);
         #[library("icuuc.dll")]
         extern "C" fn u_charDigitValue(c: UChar32) -> i32;
         #[library("icuuc.dll")]
@@ -3010,7 +3010,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn u_getCombiningClass(c: UChar32) -> u8;
         #[library("icuuc.dll")]
-        extern "C" fn u_getDataVersion(dataVersionFillin: UVersionInfo, status: *mut UErrorCode);
+        extern "C" fn u_getDataVersion(dataVersionFillin: *mut u8, status: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn u_getFC_NFKC_Closure(c: UChar32, dest: *mut UChar, destCapacity: i32, pErrorCode: *mut UErrorCode) -> i32;
         #[library("icu.dll")]
@@ -3032,9 +3032,9 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn u_getPropertyValueName(property: UProperty, value: i32, nameChoice: UPropertyNameChoice) -> *const i8;
         #[library("icuuc.dll")]
-        extern "C" fn u_getUnicodeVersion(versionArray: UVersionInfo);
+        extern "C" fn u_getUnicodeVersion(versionArray: *mut u8);
         #[library("icuuc.dll")]
-        extern "C" fn u_getVersion(versionArray: UVersionInfo);
+        extern "C" fn u_getVersion(versionArray: *mut u8);
         #[library("icuuc.dll")]
         extern "C" fn u_hasBinaryProperty(c: UChar32, which: UProperty) -> UBool;
         #[library("icuuc.dll")]
@@ -3229,11 +3229,11 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn u_unescapeAt(charAt: UNESCAPE_CHAR_AT, offset: *mut i32, length: i32, context: *mut void) -> UChar32;
         #[library("icuuc.dll")]
-        extern "C" fn u_versionFromString(versionArray: UVersionInfo, versionString: *const i8);
+        extern "C" fn u_versionFromString(versionArray: *mut u8, versionString: *const i8);
         #[library("icuuc.dll")]
-        extern "C" fn u_versionFromUString(versionArray: UVersionInfo, versionString: *const UChar);
+        extern "C" fn u_versionFromUString(versionArray: *mut u8, versionString: *const UChar);
         #[library("icuuc.dll")]
-        extern "C" fn u_versionToString(versionArray: UVersionInfo, versionString: *mut i8);
+        extern "C" fn u_versionToString(versionArray: *mut u8, versionString: *mut i8);
         #[arch(X64)]
         #[library("icuin.dll")]
         extern "C" fn u_vformatMessage(locale: *const i8, pattern: *const UChar, patternLength: i32, result: *mut UChar, resultLength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32;
@@ -3613,7 +3613,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ucnv_getStandardName(name: *const i8, standard: *const i8, pErrorCode: *mut UErrorCode) -> *const i8;
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_getStarters(converter: *const UConverter, starters: [UBool; 256], err: *mut UErrorCode);
+        extern "C" fn ucnv_getStarters(converter: *const UConverter, starters: *mut UBool, err: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_getSubstChars(converter: *const UConverter, subChars: *mut i8, len: *mut i8, err: *mut UErrorCode);
         #[library("icuuc.dll")]
@@ -3733,11 +3733,11 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCode) -> *mut USet;
         #[library("icuin.dll")]
-        extern "C" fn ucol_getUCAVersion(coll: *const UCollator, info: UVersionInfo);
+        extern "C" fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8);
         #[library("icuin.dll")]
         extern "C" fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCode) -> u32;
         #[library("icuin.dll")]
-        extern "C" fn ucol_getVersion(coll: *const UCollator, info: UVersionInfo);
+        extern "C" fn ucol_getVersion(coll: *const UCollator, info: *mut u8);
         #[library("icuin.dll")]
         extern "C" fn ucol_greater(coll: *const UCollator, source: *const UChar, sourceLength: i32, target: *const UChar, targetLength: i32) -> UBool;
         #[library("icuin.dll")]
@@ -3749,7 +3749,7 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
-        extern "C" fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharIterator, state: [u32; 2], dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32;
+        extern "C" fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharIterator, state: *mut u32, dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
         extern "C" fn ucol_open(loc: *const i8, status: *mut UErrorCode) -> *mut UCollator;
         #[library("icuin.dll")]
@@ -4223,7 +4223,7 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn ulocdata_close(uld: *mut ULocaleData);
         #[library("icuin.dll")]
-        extern "C" fn ulocdata_getCLDRVersion(versionArray: UVersionInfo, status: *mut UErrorCode);
+        extern "C" fn ulocdata_getCLDRVersion(versionArray: *mut u8, status: *mut UErrorCode);
         #[library("icuin.dll")]
         extern "C" fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDelimiterType, result: *mut UChar, resultLength: i32, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
@@ -4683,7 +4683,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ures_getUTF8StringByKey(resB: *const UResourceBundle, key: *const i8, dest: *mut i8, pLength: *mut i32, forceCopy: UBool, status: *mut UErrorCode) -> *const i8;
         #[library("icuuc.dll")]
-        extern "C" fn ures_getVersion(resB: *const UResourceBundle, versionInfo: UVersionInfo);
+        extern "C" fn ures_getVersion(resB: *const UResourceBundle, versionInfo: *mut u8);
         #[library("icuuc.dll")]
         extern "C" fn ures_hasNext(resourceBundle: *const UResourceBundle) -> UBool;
         #[library("icuuc.dll")]

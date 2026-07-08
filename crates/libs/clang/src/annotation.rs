@@ -329,6 +329,21 @@ pub(crate) fn parse_params(
                 1,
             );
         }
+        // An inline fixed-size array parameter (`T name[N]`) decays to a pointer in
+        // `param_metadata_type`; record its length as a `CountConst` so bindgen can
+        // reconstruct the `&[T; N]` safe wrapper, matching the reference. Only when the
+        // array's role is unambiguous — an explicit `[in]`/`[out]` direction or a `const`
+        // (input) pointer: the reference leaves an unannotated raw output buffer (e.g. ICU
+        // `ucnv_getStarters`) a bare pointer with no count. A SAL count, if any, takes
+        // precedence and is resolved by `resolve_param_array_info` below.
+        if annotation.size.is_none()
+            && (annotation.in_param
+                || annotation.out_param
+                || matches!(ty, metadata::Type::PtrConst(..)))
+            && let Some(n) = inline_array_param_count(&child.ty())
+        {
+            annotation.array = Some(ArrayInfo::CountConst(n));
+        }
         param_idx += 1;
         params.push(Param {
             name,
@@ -370,8 +385,12 @@ pub fn resolve_param_array_info(params: &mut [Param]) {
         })
         .collect();
 
+    // A SAL-resolved count overrides any inline-array `CountConst` pre-set in `parse_params`;
+    // when SAL resolves nothing, the inline count (if any) is preserved.
     for (p, info) in params.iter_mut().zip(resolved) {
-        p.annotation.array = info;
+        if info.is_some() {
+            p.annotation.array = info;
+        }
     }
 }
 

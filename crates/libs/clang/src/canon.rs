@@ -528,46 +528,47 @@ fn normalize_string_alias(namespace: &str, name: &str) -> Option<metadata::Type>
 }
 
 /// Decay a C array parameter to a pointer (C11 §6.7.6.3p7). [`Type::to_type`] maps both
-/// `T[]` and `T[N]` to `ArrayFixed` — faithful for a *struct field*, but wrong for a
-/// parameter (a by-value array is not a real ABI: an unsized `[T; 0]` is a zero-byte value
-/// that drops the argument and corrupts the call). Two cases decay to a pointer:
-///
-/// 1. An *unsized* flexible array (`T name[]` → `[T; 0]`).
-/// 2. A *counted* fixed-size buffer — an array that also carries a SAL count
-///    (`_Out_writes_(80) WCHAR szName[80]`): the `NativeArrayInfo` (`#[len_const]`/
-///    `#[len_param]`) already encodes the length, so keeping the `[T; N]` *type* as well
-///    would double-encode it (bindgen would wrap `&mut [[T; N]; N]`). The reference
-///    (win32metadata) representation is a pointer plus the count attribute.
-///
-/// A *plain* fixed-size array parameter with no count (`FLOAT ColorRGBA[4]`) is kept as
-/// `[T; N]` so bindgen can project a length-checked `&[T; N]`, matching the reference.
+/// `T[]` and `T[N]` to `ArrayFixed` (or, for a *named* array typedef such as `UVersionInfo`
+/// = `[u8; 4]`, to the alias) — faithful for a *struct field*, but wrong for a parameter (a
+/// by-value array is not a real ABI: it is FFI-unsafe and an unsized `[T; 0]` is a zero-byte
+/// value that drops the argument and corrupts the call). Every array parameter — whether
+/// spelled inline or reached through a typedef — decays to a pointer to its element,
+/// matching the reference (win32metadata), whose ABI carries no by-value array parameter:
+/// even a plain fixed-size buffer (`FLOAT ColorRGBA[4]`) is a pointer plus a
+/// `NativeArrayInfo(CountConst = N)` attribute, and bindgen reconstructs the length-checked
+/// `&[T; N]` from the count in the *safe* wrapper only (see [`inline_array_param_count`], and
+/// ledger #13). A typedef array (`UVersionInfo`) decays to a bare element pointer with no
+/// count, exactly as the reference does.
 ///
 /// The pointee const-ness follows the array element's C const-ness; SAL direction may
-/// override it in [`apply_sal_constness`]. See ledger #13.
+/// override it in [`apply_sal_constness`].
 fn decay_array_param(
     cursor_ty: &Type,
     base: metadata::Type,
-    annotation: &ParamAnnotation,
+    parser: &mut Parser<'_>,
 ) -> metadata::Type {
-    let metadata::Type::ArrayFixed(element, size) = base else {
-        return base;
-    };
-    if size != 0 && annotation.size.is_none() {
-        // A plain fixed-size buffer with no count — keep the length-checked array.
-        return metadata::Type::ArrayFixed(element, size);
-    }
     let canonical = cursor_ty.canonical_type();
-    let is_const = matches!(
+    if !matches!(
         canonical.kind(),
         CXType_ConstantArray | CXType_IncompleteArray
-    ) && canonical.array_element_type().is_const();
+    ) {
+        return base;
+    }
+    // Prefer the already-resolved `ArrayFixed` element (preserves inline element aliases);
+    // for a *named* array typedef the base is the alias, so resolve the element from the
+    // canonical array instead (e.g. `UVersionInfo` -> `u8`), matching the reference.
+    let element = match base {
+        metadata::Type::ArrayFixed(element, _size) => *element,
+        _ => canonical.array_element_type().to_type(parser),
+    };
+    let is_const = canonical.array_element_type().is_const();
     if is_const {
-        match *element {
+        match element {
             metadata::Type::PtrConst(t, n) => metadata::Type::PtrConst(t, n + 1),
             other => metadata::Type::PtrConst(Box::new(other), 1),
         }
     } else {
-        match *element {
+        match element {
             metadata::Type::PtrMut(t, n) => metadata::Type::PtrMut(t, n + 1),
             other => metadata::Type::PtrMut(Box::new(other), 1),
         }
@@ -585,12 +586,26 @@ pub(crate) fn param_metadata_type(
     parser: &mut Parser<'_>,
 ) -> metadata::Type {
     let base = cursor_ty.to_type(parser);
-    let base = decay_array_param(cursor_ty, base, annotation);
+    let base = decay_array_param(cursor_ty, base, parser);
     let base = collapse_pointer_alias_param(cursor_ty, base, parser);
     let ty = apply_sal_constness(base, annotation);
     let ty = normalize_pointer_const_chain(ty);
     let ty = promote_null_terminated_string(ty, annotation, parser);
     requalify_string_alias(ty, parser)
+}
+
+/// The `CountConst` for an *inline* fixed-size array parameter (`T name[N]`), which the
+/// reference metadata records as `NativeArrayInfo(CountConst = N)` alongside the decayed
+/// pointer so bindgen reconstructs a length-checked `&[T; N]` in the safe wrapper. Returns
+/// `None` for typedef arrays (e.g. `UVersionInfo`, whose length lives on the typedef, not
+/// the parameter), unsized arrays, and non-arrays — all of which the reference decays to a
+/// bare pointer with no count. See [`decay_array_param`].
+pub(crate) fn inline_array_param_count(cursor_ty: &Type) -> Option<i32> {
+    if cursor_ty.kind() != CXType_ConstantArray {
+        return None;
+    }
+    let size = cursor_ty.array_size();
+    (size > 0).then_some(size as i32)
 }
 
 /// Collapse a mixed-constness pointer chain (`*mut *const T`, `*const *mut T`) to a
