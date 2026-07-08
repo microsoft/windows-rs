@@ -158,7 +158,8 @@ fn test() -> Result<()> {
         assert_eq!(interface_variable.IsValid(), true);
 
         let mut audio = None;
-        XAudio2CreateWithVersionInfo(&mut audio, 0, XAUDIO2_DEFAULT_PROCESSOR, NTDDI_VERSION).ok()?;
+        XAudio2CreateWithVersionInfo(&mut audio, 0, XAUDIO2_DEFAULT_PROCESSOR, NTDDI_VERSION)
+            .ok()?;
         let audio = audio.unwrap();
 
         // Call the callback interface directly...

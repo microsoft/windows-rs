@@ -89,7 +89,9 @@ fn test() -> Result<()> {
         target.DragLeave().ok()?;
 
         let mut effect = DROPEFFECT_LINK;
-        target.DragEnter(&object, MK_MBUTTON, POINTL { x: 10, y: 20 }, &mut effect).ok()?;
+        target
+            .DragEnter(&object, MK_MBUTTON, POINTL { x: 10, y: 20 }, &mut effect)
+            .ok()?;
         assert_eq!(effect, DROPEFFECT_MOVE);
 
         Ok(())

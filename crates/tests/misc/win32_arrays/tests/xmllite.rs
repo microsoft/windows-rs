@@ -121,7 +121,9 @@ fn lite() -> Result<()> {
         writer.SetOutput(&stream).ok()?;
 
         writer.WriteStartElement(&HSTRING::from("html")).ok()?;
-        writer.WriteAttributeString(&HSTRING::from("no-value"), None).ok()?;
+        writer
+            .WriteAttributeString(&HSTRING::from("no-value"), None)
+            .ok()?;
         writer
             .WriteAttributeString(&HSTRING::from("with-value"), Some(&HSTRING::from("value")))
             .ok()?;

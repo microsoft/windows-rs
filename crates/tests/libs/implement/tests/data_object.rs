@@ -90,11 +90,13 @@ fn test() -> Result<()> {
     unsafe {
         let d: IDataObject = Test::default().into();
         d.GetData(&Default::default())?;
-        d.GetDataHere(&Default::default(), &mut Default::default()).ok()?;
+        d.GetDataHere(&Default::default(), &mut Default::default())
+            .ok()?;
         d.QueryGetData(&Default::default()).ok()?;
         d.GetCanonicalFormatEtc(&Default::default(), &mut Default::default())
             .ok()?;
-        d.SetData(&Default::default(), &Default::default(), false).ok()?;
+        d.SetData(&Default::default(), &Default::default(), false)
+            .ok()?;
 
         // EnumFormatEtc returns a null result value with a successful (S_OK) return code.
         let r = d.EnumFormatEtc(0);
