@@ -7,7 +7,7 @@ use windows_metadata::{Signature, Type};
 /// Both crates share the same namespace-to-feature taxonomy, so a single index
 /// answers "which feature do I enable?" for either crate.
 const WINMD: [&str; 3] = [
-    "crates/libs/bindgen/default/Windows.winmd",
+    "crates/tools/package/reference/Windows.winmd",
     "crates/tools/package/reference/Windows.Win32.winmd",
     "crates/tools/package/reference/Windows.Wdk.winmd",
 ];

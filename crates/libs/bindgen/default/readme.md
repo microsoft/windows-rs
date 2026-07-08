@@ -30,7 +30,7 @@ with `windows-metadata` (the same merger `tool_win32`/`tool_wdk` use), replacing
 external `mdmerge` tool.
 
 - Source: <https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts>
-- Version: `10.0.26100.7705` (pinned in `crates/tools/windows/src/main.rs`)
+- Version: `10.0.28000.2270` (pinned in `crates/tools/windows/src/main.rs`)
 
 ---
 
