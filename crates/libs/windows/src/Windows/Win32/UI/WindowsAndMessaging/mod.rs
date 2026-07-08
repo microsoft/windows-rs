@@ -423,13 +423,13 @@ pub unsafe fn CreatePopupMenu() -> windows_core::Result<HMENU> {
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn CreateResourceIndexer<P0, P1>(projectroot: P0, extensiondllpath: P1, ppresourceindexer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CreateResourceIndexer<P0, P1>(projectroot: P0, extensiondllpath: P1, ppresourceindexer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn CreateResourceIndexer(projectroot : windows_core::PCWSTR, extensiondllpath : windows_core::PCWSTR, ppresourceindexer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateResourceIndexer(projectroot.param().abi(), extensiondllpath.param().abi(), ppresourceindexer as _).ok() }
+    unsafe { CreateResourceIndexer(projectroot.param().abi(), extensiondllpath.param().abi(), ppresourceindexer as _) }
 }
 #[inline]
 pub unsafe fn CreateWindowExA<P1, P2>(dwexstyle: WINDOW_EX_STYLE, lpclassname: P1, lpwindowname: P2, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Option<super::super::Foundation::HWND>, hmenu: Option<HMENU>, hinstance: Option<super::super::Foundation::HINSTANCE>, lpparam: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HWND>
@@ -1236,12 +1236,12 @@ pub unsafe fn InSendMessageEx(lpreserved: Option<*const core::ffi::c_void>) -> u
     unsafe { InSendMessageEx(lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn IndexFilePath<P1>(resourceindexer: *const core::ffi::c_void, filepath: P1, ppresourceuri: *mut windows_core::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> windows_core::Result<()>
+pub unsafe fn IndexFilePath<P1>(resourceindexer: *const core::ffi::c_void, filepath: P1, ppresourceuri: *mut windows_core::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn IndexFilePath(resourceindexer : *const core::ffi::c_void, filepath : windows_core::PCWSTR, ppresourceuri : *mut windows_core::PWSTR, pqualifiercount : *mut u32, ppqualifiers : *mut *mut IndexedResourceQualifier) -> windows_core::HRESULT);
-    unsafe { IndexFilePath(resourceindexer, filepath.param().abi(), ppresourceuri as _, pqualifiercount as _, ppqualifiers as _).ok() }
+    unsafe { IndexFilePath(resourceindexer, filepath.param().abi(), ppresourceuri as _, pqualifiercount as _, ppqualifiers as _) }
 }
 #[inline]
 pub unsafe fn InheritWindowMonitor(hwnd: super::super::Foundation::HWND, hwndinherit: Option<super::super::Foundation::HWND>) -> windows_core::BOOL {
@@ -1631,134 +1631,134 @@ pub unsafe fn MoveWindow(hwnd: super::super::Foundation::HWND, x: i32, y: i32, n
     unsafe { MoveWindow(hwnd, x, y, nwidth, nheight, brepaint.into()).ok() }
 }
 #[inline]
-pub unsafe fn MrmCreateConfig<P1, P2>(platformversion: MrmPlatformVersion, defaultqualifiers: P1, outputxmlfile: P2) -> windows_core::Result<()>
+pub unsafe fn MrmCreateConfig<P1, P2>(platformversion: MrmPlatformVersion, defaultqualifiers: P1, outputxmlfile: P2) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateConfig(platformversion : MrmPlatformVersion, defaultqualifiers : windows_core::PCWSTR, outputxmlfile : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { MrmCreateConfig(platformversion, defaultqualifiers.param().abi(), outputxmlfile.param().abi()).ok() }
+    unsafe { MrmCreateConfig(platformversion, defaultqualifiers.param().abi(), outputxmlfile.param().abi()) }
 }
 #[inline]
-pub unsafe fn MrmCreateConfigInMemory<P1>(platformversion: MrmPlatformVersion, defaultqualifiers: P1, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> windows_core::Result<()>
+pub unsafe fn MrmCreateConfigInMemory<P1>(platformversion: MrmPlatformVersion, defaultqualifiers: P1, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateConfigInMemory(platformversion : MrmPlatformVersion, defaultqualifiers : windows_core::PCWSTR, outputxmldata : *mut *mut u8, outputxmlsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { MrmCreateConfigInMemory(platformversion, defaultqualifiers.param().abi(), outputxmldata as _, outputxmlsize as _).ok() }
+    unsafe { MrmCreateConfigInMemory(platformversion, defaultqualifiers.param().abi(), outputxmldata as _, outputxmlsize as _) }
 }
 #[inline]
-pub unsafe fn MrmCreateResourceFile<P3>(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: P3) -> windows_core::Result<()>
+pub unsafe fn MrmCreateResourceFile<P3>(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: P3) -> windows_core::HRESULT
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateResourceFile(indexer : MrmResourceIndexerHandle, packagingmode : MrmPackagingMode, packagingoptions : MrmPackagingOptions, outputdirectory : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { MrmCreateResourceFile(core::mem::transmute(indexer), packagingmode, packagingoptions, outputdirectory.param().abi()).ok() }
+    unsafe { MrmCreateResourceFile(core::mem::transmute(indexer), packagingmode, packagingoptions, outputdirectory.param().abi()) }
 }
 #[inline]
-pub unsafe fn MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: *mut *mut u8, outputprisize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: *mut *mut u8, outputprisize: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateResourceFileInMemory(indexer : MrmResourceIndexerHandle, packagingmode : MrmPackagingMode, packagingoptions : MrmPackagingOptions, outputpridata : *mut *mut u8, outputprisize : *mut u32) -> windows_core::HRESULT);
-    unsafe { MrmCreateResourceFileInMemory(core::mem::transmute(indexer), packagingmode, packagingoptions, outputpridata as _, outputprisize as _).ok() }
+    unsafe { MrmCreateResourceFileInMemory(core::mem::transmute(indexer), packagingmode, packagingoptions, outputpridata as _, outputprisize as _) }
 }
 #[inline]
-pub unsafe fn MrmCreateResourceFileWithChecksum<P4>(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: u32, outputdirectory: P4) -> windows_core::Result<()>
+pub unsafe fn MrmCreateResourceFileWithChecksum<P4>(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: u32, outputdirectory: P4) -> windows_core::HRESULT
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateResourceFileWithChecksum(indexer : MrmResourceIndexerHandle, packagingmode : MrmPackagingMode, packagingoptions : MrmPackagingOptions, checksum : u32, outputdirectory : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { MrmCreateResourceFileWithChecksum(core::mem::transmute(indexer), packagingmode, packagingoptions, checksum, outputdirectory.param().abi()).ok() }
+    unsafe { MrmCreateResourceFileWithChecksum(core::mem::transmute(indexer), packagingmode, packagingoptions, checksum, outputdirectory.param().abi()) }
 }
 #[inline]
-pub unsafe fn MrmCreateResourceIndexer<P0, P1, P3>(packagefamilyname: P0, projectroot: P1, platformversion: MrmPlatformVersion, defaultqualifiers: P3, indexer: *mut MrmResourceIndexerHandle) -> windows_core::Result<()>
+pub unsafe fn MrmCreateResourceIndexer<P0, P1, P3>(packagefamilyname: P0, projectroot: P1, platformversion: MrmPlatformVersion, defaultqualifiers: P3, indexer: *mut MrmResourceIndexerHandle) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateResourceIndexer(packagefamilyname : windows_core::PCWSTR, projectroot : windows_core::PCWSTR, platformversion : MrmPlatformVersion, defaultqualifiers : windows_core::PCWSTR, indexer : *mut MrmResourceIndexerHandle) -> windows_core::HRESULT);
-    unsafe { MrmCreateResourceIndexer(packagefamilyname.param().abi(), projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), indexer as _).ok() }
+    unsafe { MrmCreateResourceIndexer(packagefamilyname.param().abi(), projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), indexer as _) }
 }
 #[inline]
-pub unsafe fn MrmCreateResourceIndexerFromPreviousPriData<P0, P2>(projectroot: P0, platformversion: MrmPlatformVersion, defaultqualifiers: P2, pridata: &[u8], indexer: *mut MrmResourceIndexerHandle) -> windows_core::Result<()>
+pub unsafe fn MrmCreateResourceIndexerFromPreviousPriData<P0, P2>(projectroot: P0, platformversion: MrmPlatformVersion, defaultqualifiers: P2, pridata: &[u8], indexer: *mut MrmResourceIndexerHandle) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateResourceIndexerFromPreviousPriData(projectroot : windows_core::PCWSTR, platformversion : MrmPlatformVersion, defaultqualifiers : windows_core::PCWSTR, pridata : *const u8, prisize : u32, indexer : *mut MrmResourceIndexerHandle) -> windows_core::HRESULT);
-    unsafe { MrmCreateResourceIndexerFromPreviousPriData(projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), core::mem::transmute(pridata.as_ptr()), pridata.len().try_into().unwrap(), indexer as _).ok() }
+    unsafe { MrmCreateResourceIndexerFromPreviousPriData(projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), core::mem::transmute(pridata.as_ptr()), pridata.len().try_into().unwrap(), indexer as _) }
 }
 #[inline]
-pub unsafe fn MrmCreateResourceIndexerFromPreviousPriFile<P0, P2, P3>(projectroot: P0, platformversion: MrmPlatformVersion, defaultqualifiers: P2, prifile: P3, indexer: *mut MrmResourceIndexerHandle) -> windows_core::Result<()>
+pub unsafe fn MrmCreateResourceIndexerFromPreviousPriFile<P0, P2, P3>(projectroot: P0, platformversion: MrmPlatformVersion, defaultqualifiers: P2, prifile: P3, indexer: *mut MrmResourceIndexerHandle) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateResourceIndexerFromPreviousPriFile(projectroot : windows_core::PCWSTR, platformversion : MrmPlatformVersion, defaultqualifiers : windows_core::PCWSTR, prifile : windows_core::PCWSTR, indexer : *mut MrmResourceIndexerHandle) -> windows_core::HRESULT);
-    unsafe { MrmCreateResourceIndexerFromPreviousPriFile(projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), prifile.param().abi(), indexer as _).ok() }
+    unsafe { MrmCreateResourceIndexerFromPreviousPriFile(projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), prifile.param().abi(), indexer as _) }
 }
 #[inline]
-pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaData<P0, P2>(projectroot: P0, platformversion: MrmPlatformVersion, defaultqualifiers: P2, schemaxmldata: &[u8], indexer: *mut MrmResourceIndexerHandle) -> windows_core::Result<()>
+pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaData<P0, P2>(projectroot: P0, platformversion: MrmPlatformVersion, defaultqualifiers: P2, schemaxmldata: &[u8], indexer: *mut MrmResourceIndexerHandle) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateResourceIndexerFromPreviousSchemaData(projectroot : windows_core::PCWSTR, platformversion : MrmPlatformVersion, defaultqualifiers : windows_core::PCWSTR, schemaxmldata : *const u8, schemaxmlsize : u32, indexer : *mut MrmResourceIndexerHandle) -> windows_core::HRESULT);
-    unsafe { MrmCreateResourceIndexerFromPreviousSchemaData(projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), core::mem::transmute(schemaxmldata.as_ptr()), schemaxmldata.len().try_into().unwrap(), indexer as _).ok() }
+    unsafe { MrmCreateResourceIndexerFromPreviousSchemaData(projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), core::mem::transmute(schemaxmldata.as_ptr()), schemaxmldata.len().try_into().unwrap(), indexer as _) }
 }
 #[inline]
-pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaFile<P0, P2, P3>(projectroot: P0, platformversion: MrmPlatformVersion, defaultqualifiers: P2, schemafile: P3, indexer: *mut MrmResourceIndexerHandle) -> windows_core::Result<()>
+pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaFile<P0, P2, P3>(projectroot: P0, platformversion: MrmPlatformVersion, defaultqualifiers: P2, schemafile: P3, indexer: *mut MrmResourceIndexerHandle) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot : windows_core::PCWSTR, platformversion : MrmPlatformVersion, defaultqualifiers : windows_core::PCWSTR, schemafile : windows_core::PCWSTR, indexer : *mut MrmResourceIndexerHandle) -> windows_core::HRESULT);
-    unsafe { MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), schemafile.param().abi(), indexer as _).ok() }
+    unsafe { MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), schemafile.param().abi(), indexer as _) }
 }
 #[inline]
-pub unsafe fn MrmCreateResourceIndexerWithFlags<P0, P1, P3>(packagefamilyname: P0, projectroot: P1, platformversion: MrmPlatformVersion, defaultqualifiers: P3, flags: MrmIndexerFlags, indexer: *mut MrmResourceIndexerHandle) -> windows_core::Result<()>
+pub unsafe fn MrmCreateResourceIndexerWithFlags<P0, P1, P3>(packagefamilyname: P0, projectroot: P1, platformversion: MrmPlatformVersion, defaultqualifiers: P3, flags: MrmIndexerFlags, indexer: *mut MrmResourceIndexerHandle) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmCreateResourceIndexerWithFlags(packagefamilyname : windows_core::PCWSTR, projectroot : windows_core::PCWSTR, platformversion : MrmPlatformVersion, defaultqualifiers : windows_core::PCWSTR, flags : MrmIndexerFlags, indexer : *mut MrmResourceIndexerHandle) -> windows_core::HRESULT);
-    unsafe { MrmCreateResourceIndexerWithFlags(packagefamilyname.param().abi(), projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), flags, indexer as _).ok() }
+    unsafe { MrmCreateResourceIndexerWithFlags(packagefamilyname.param().abi(), projectroot.param().abi(), platformversion, defaultqualifiers.param().abi(), flags, indexer as _) }
 }
 #[inline]
-pub unsafe fn MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle) -> windows_core::Result<()> {
+pub unsafe fn MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle) -> windows_core::HRESULT {
     windows_core::link!("mrmsupport.dll" "system" fn MrmDestroyIndexerAndMessages(indexer : MrmResourceIndexerHandle) -> windows_core::HRESULT);
-    unsafe { MrmDestroyIndexerAndMessages(core::mem::transmute(indexer)).ok() }
+    unsafe { MrmDestroyIndexerAndMessages(core::mem::transmute(indexer)) }
 }
 #[inline]
-pub unsafe fn MrmDumpPriDataInMemory(inputpridata: &[u8], schemapridata: Option<&[u8]>, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn MrmDumpPriDataInMemory(inputpridata: &[u8], schemapridata: Option<&[u8]>, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mrmsupport.dll" "system" fn MrmDumpPriDataInMemory(inputpridata : *const u8, inputprisize : u32, schemapridata : *const u8, schemaprisize : u32, dumptype : MrmDumpType, outputxmldata : *mut *mut u8, outputxmlsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { MrmDumpPriDataInMemory(core::mem::transmute(inputpridata.as_ptr()), inputpridata.len().try_into().unwrap(), core::mem::transmute(schemapridata.map_or(core::ptr::null(), |slice| slice.as_ptr())), schemapridata.map_or(0, |slice| slice.len().try_into().unwrap()), dumptype, outputxmldata as _, outputxmlsize as _).ok() }
+    unsafe { MrmDumpPriDataInMemory(core::mem::transmute(inputpridata.as_ptr()), inputpridata.len().try_into().unwrap(), core::mem::transmute(schemapridata.map_or(core::ptr::null(), |slice| slice.as_ptr())), schemapridata.map_or(0, |slice| slice.len().try_into().unwrap()), dumptype, outputxmldata as _, outputxmlsize as _) }
 }
 #[inline]
-pub unsafe fn MrmDumpPriFile<P0, P1, P3>(indexfilename: P0, schemaprifile: P1, dumptype: MrmDumpType, outputxmlfile: P3) -> windows_core::Result<()>
+pub unsafe fn MrmDumpPriFile<P0, P1, P3>(indexfilename: P0, schemaprifile: P1, dumptype: MrmDumpType, outputxmlfile: P3) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmDumpPriFile(indexfilename : windows_core::PCWSTR, schemaprifile : windows_core::PCWSTR, dumptype : MrmDumpType, outputxmlfile : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { MrmDumpPriFile(indexfilename.param().abi(), schemaprifile.param().abi(), dumptype, outputxmlfile.param().abi()).ok() }
+    unsafe { MrmDumpPriFile(indexfilename.param().abi(), schemaprifile.param().abi(), dumptype, outputxmlfile.param().abi()) }
 }
 #[inline]
-pub unsafe fn MrmDumpPriFileInMemory<P0, P1>(indexfilename: P0, schemaprifile: P1, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> windows_core::Result<()>
+pub unsafe fn MrmDumpPriFileInMemory<P0, P1>(indexfilename: P0, schemaprifile: P1, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmDumpPriFileInMemory(indexfilename : windows_core::PCWSTR, schemaprifile : windows_core::PCWSTR, dumptype : MrmDumpType, outputxmldata : *mut *mut u8, outputxmlsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { MrmDumpPriFileInMemory(indexfilename.param().abi(), schemaprifile.param().abi(), dumptype, outputxmldata as _, outputxmlsize as _).ok() }
+    unsafe { MrmDumpPriFileInMemory(indexfilename.param().abi(), schemaprifile.param().abi(), dumptype, outputxmldata as _, outputxmlsize as _) }
 }
 #[inline]
-pub unsafe fn MrmFreeMemory(data: *const u8) -> windows_core::Result<()> {
+pub unsafe fn MrmFreeMemory(data: *const u8) -> windows_core::HRESULT {
     windows_core::link!("mrmsupport.dll" "system" fn MrmFreeMemory(data : *const u8) -> windows_core::HRESULT);
-    unsafe { MrmFreeMemory(data).ok() }
+    unsafe { MrmFreeMemory(data) }
 }
 #[inline]
 pub unsafe fn MrmGetPriFileContentChecksum<P0>(prifile: P0) -> windows_core::Result<u32>
@@ -1772,54 +1772,54 @@ where
     }
 }
 #[inline]
-pub unsafe fn MrmIndexEmbeddedData<P1, P4>(indexer: MrmResourceIndexerHandle, resourceuri: P1, embeddeddata: &[u8], qualifiers: P4) -> windows_core::Result<()>
+pub unsafe fn MrmIndexEmbeddedData<P1, P4>(indexer: MrmResourceIndexerHandle, resourceuri: P1, embeddeddata: &[u8], qualifiers: P4) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmIndexEmbeddedData(indexer : MrmResourceIndexerHandle, resourceuri : windows_core::PCWSTR, embeddeddata : *const u8, embeddeddatasize : u32, qualifiers : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { MrmIndexEmbeddedData(core::mem::transmute(indexer), resourceuri.param().abi(), core::mem::transmute(embeddeddata.as_ptr()), embeddeddata.len().try_into().unwrap(), qualifiers.param().abi()).ok() }
+    unsafe { MrmIndexEmbeddedData(core::mem::transmute(indexer), resourceuri.param().abi(), core::mem::transmute(embeddeddata.as_ptr()), embeddeddata.len().try_into().unwrap(), qualifiers.param().abi()) }
 }
 #[inline]
-pub unsafe fn MrmIndexFile<P1, P2, P3>(indexer: MrmResourceIndexerHandle, resourceuri: P1, filepath: P2, qualifiers: P3) -> windows_core::Result<()>
+pub unsafe fn MrmIndexFile<P1, P2, P3>(indexer: MrmResourceIndexerHandle, resourceuri: P1, filepath: P2, qualifiers: P3) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmIndexFile(indexer : MrmResourceIndexerHandle, resourceuri : windows_core::PCWSTR, filepath : windows_core::PCWSTR, qualifiers : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { MrmIndexFile(core::mem::transmute(indexer), resourceuri.param().abi(), filepath.param().abi(), qualifiers.param().abi()).ok() }
+    unsafe { MrmIndexFile(core::mem::transmute(indexer), resourceuri.param().abi(), filepath.param().abi(), qualifiers.param().abi()) }
 }
 #[inline]
-pub unsafe fn MrmIndexFileAutoQualifiers<P1>(indexer: MrmResourceIndexerHandle, filepath: P1) -> windows_core::Result<()>
+pub unsafe fn MrmIndexFileAutoQualifiers<P1>(indexer: MrmResourceIndexerHandle, filepath: P1) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmIndexFileAutoQualifiers(indexer : MrmResourceIndexerHandle, filepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { MrmIndexFileAutoQualifiers(core::mem::transmute(indexer), filepath.param().abi()).ok() }
+    unsafe { MrmIndexFileAutoQualifiers(core::mem::transmute(indexer), filepath.param().abi()) }
 }
 #[inline]
-pub unsafe fn MrmIndexResourceContainerAutoQualifiers<P1>(indexer: MrmResourceIndexerHandle, containerpath: P1) -> windows_core::Result<()>
+pub unsafe fn MrmIndexResourceContainerAutoQualifiers<P1>(indexer: MrmResourceIndexerHandle, containerpath: P1) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmIndexResourceContainerAutoQualifiers(indexer : MrmResourceIndexerHandle, containerpath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { MrmIndexResourceContainerAutoQualifiers(core::mem::transmute(indexer), containerpath.param().abi()).ok() }
+    unsafe { MrmIndexResourceContainerAutoQualifiers(core::mem::transmute(indexer), containerpath.param().abi()) }
 }
 #[inline]
-pub unsafe fn MrmIndexString<P1, P2, P3>(indexer: MrmResourceIndexerHandle, resourceuri: P1, resourcestring: P2, qualifiers: P3) -> windows_core::Result<()>
+pub unsafe fn MrmIndexString<P1, P2, P3>(indexer: MrmResourceIndexerHandle, resourceuri: P1, resourcestring: P2, qualifiers: P3) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn MrmIndexString(indexer : MrmResourceIndexerHandle, resourceuri : windows_core::PCWSTR, resourcestring : windows_core::PCWSTR, qualifiers : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { MrmIndexString(core::mem::transmute(indexer), resourceuri.param().abi(), resourcestring.param().abi(), qualifiers.param().abi()).ok() }
+    unsafe { MrmIndexString(core::mem::transmute(indexer), resourceuri.param().abi(), resourcestring.param().abi(), qualifiers.param().abi()) }
 }
 #[inline]
-pub unsafe fn MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: *mut *mut MrmResourceIndexerMessage, nummsgs: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: *mut *mut MrmResourceIndexerMessage, nummsgs: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mrmsupport.dll" "system" fn MrmPeekResourceIndexerMessages(handle : MrmResourceIndexerHandle, messages : *mut *mut MrmResourceIndexerMessage, nummsgs : *mut u32) -> windows_core::HRESULT);
-    unsafe { MrmPeekResourceIndexerMessages(core::mem::transmute(handle), messages as _, nummsgs as _).ok() }
+    unsafe { MrmPeekResourceIndexerMessages(core::mem::transmute(handle), messages as _, nummsgs as _) }
 }
 #[inline]
 pub unsafe fn MsgWaitForMultipleObjects(phandles: Option<&[super::super::Foundation::HANDLE]>, fwaitall: bool, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS) -> super::super::Foundation::WAIT_EVENT {

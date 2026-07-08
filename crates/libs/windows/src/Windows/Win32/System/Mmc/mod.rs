@@ -122,8 +122,8 @@ impl Column {
             (windows_core::Interface::vtable(self).Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWidth(&self, width: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetWidth)(windows_core::Interface::as_raw(self), width).ok() }
+    pub unsafe fn SetWidth(&self, width: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetWidth)(windows_core::Interface::as_raw(self), width) }
     }
     pub unsafe fn DisplayPosition(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -131,8 +131,8 @@ impl Column {
             (windows_core::Interface::vtable(self).DisplayPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDisplayPosition(&self, index: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDisplayPosition)(windows_core::Interface::as_raw(self), index).ok() }
+    pub unsafe fn SetDisplayPosition(&self, index: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDisplayPosition)(windows_core::Interface::as_raw(self), index) }
     }
     pub unsafe fn Hidden(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -140,11 +140,11 @@ impl Column {
             (windows_core::Interface::vtable(self).Hidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHidden(&self, hidden: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetHidden)(windows_core::Interface::as_raw(self), hidden.into()).ok() }
+    pub unsafe fn SetHidden(&self, hidden: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetHidden)(windows_core::Interface::as_raw(self), hidden.into()) }
     }
-    pub unsafe fn SetAsSortColumn(&self, sortorder: _ColumnSortOrder) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAsSortColumn)(windows_core::Interface::as_raw(self), sortorder).ok() }
+    pub unsafe fn SetAsSortColumn(&self, sortorder: _ColumnSortOrder) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAsSortColumn)(windows_core::Interface::as_raw(self), sortorder) }
     }
     pub unsafe fn IsSortColumn(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -505,14 +505,14 @@ impl core::ops::Deref for Document {
 windows_core::imp::interface_hierarchy!(Document, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl Document {
-    pub unsafe fn Save(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Save(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SaveAs(&self, filename: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SaveAs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filename)).ok() }
+    pub unsafe fn SaveAs(&self, filename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SaveAs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filename)) }
     }
-    pub unsafe fn Close(&self, savechanges: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), savechanges.into()).ok() }
+    pub unsafe fn Close(&self, savechanges: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), savechanges.into()) }
     }
     pub unsafe fn Views(&self) -> windows_core::Result<Views> {
         unsafe {
@@ -538,8 +538,8 @@ impl Document {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)) }
     }
     pub unsafe fn Location(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -559,8 +559,8 @@ impl Document {
             (windows_core::Interface::vtable(self).Mode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMode(&self, mode: _DocumentMode) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMode)(windows_core::Interface::as_raw(self), mode).ok() }
+    pub unsafe fn SetMode(&self, mode: _DocumentMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMode)(windows_core::Interface::as_raw(self), mode) }
     }
     pub unsafe fn RootNode(&self) -> windows_core::Result<Node> {
         unsafe {
@@ -871,11 +871,11 @@ impl Extension {
             (windows_core::Interface::vtable(self).SnapinCLSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn EnableAllExtensions(&self, enable: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnableAllExtensions)(windows_core::Interface::as_raw(self), enable.into()).ok() }
+    pub unsafe fn EnableAllExtensions(&self, enable: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnableAllExtensions)(windows_core::Interface::as_raw(self), enable.into()) }
     }
-    pub unsafe fn Enable(&self, enable: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), enable.into()).ok() }
+    pub unsafe fn Enable(&self, enable: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), enable.into()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1105,14 +1105,14 @@ impl core::ops::Deref for Frame {
 windows_core::imp::interface_hierarchy!(Frame, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl Frame {
-    pub unsafe fn Maximize(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Maximize)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Maximize(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Maximize)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Minimize(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Minimize)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Minimize(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Minimize)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Restore(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Restore(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Top(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -1120,8 +1120,8 @@ impl Frame {
             (windows_core::Interface::vtable(self).Top)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTop(&self, top: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetTop)(windows_core::Interface::as_raw(self), top).ok() }
+    pub unsafe fn SetTop(&self, top: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTop)(windows_core::Interface::as_raw(self), top) }
     }
     pub unsafe fn Bottom(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -1129,8 +1129,8 @@ impl Frame {
             (windows_core::Interface::vtable(self).Bottom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBottom(&self, bottom: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetBottom)(windows_core::Interface::as_raw(self), bottom).ok() }
+    pub unsafe fn SetBottom(&self, bottom: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBottom)(windows_core::Interface::as_raw(self), bottom) }
     }
     pub unsafe fn Left(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -1138,8 +1138,8 @@ impl Frame {
             (windows_core::Interface::vtable(self).Left)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLeft(&self, left: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetLeft)(windows_core::Interface::as_raw(self), left).ok() }
+    pub unsafe fn SetLeft(&self, left: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLeft)(windows_core::Interface::as_raw(self), left) }
     }
     pub unsafe fn Right(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -1147,8 +1147,8 @@ impl Frame {
             (windows_core::Interface::vtable(self).Right)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRight(&self, right: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetRight)(windows_core::Interface::as_raw(self), right).ok() }
+    pub unsafe fn SetRight(&self, right: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRight)(windows_core::Interface::as_raw(self), right) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1302,8 +1302,8 @@ pub const HIDE_COLUMN: i32 = -4;
 windows_core::imp::define_interface!(IColumnData, IColumnData_Vtbl, 0x547c1354_024d_11d3_a707_00c04f8ef4cb);
 windows_core::imp::interface_hierarchy!(IColumnData, windows_core::IUnknown);
 impl IColumnData {
-    pub unsafe fn SetColumnConfigData(&self, pcolid: *const SColumnSetID, pcolsetdata: *const MMC_COLUMN_SET_DATA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColumnConfigData)(windows_core::Interface::as_raw(self), pcolid, pcolsetdata).ok() }
+    pub unsafe fn SetColumnConfigData(&self, pcolid: *const SColumnSetID, pcolsetdata: *const MMC_COLUMN_SET_DATA) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColumnConfigData)(windows_core::Interface::as_raw(self), pcolid, pcolsetdata) }
     }
     pub unsafe fn GetColumnConfigData(&self, pcolid: *const SColumnSetID) -> windows_core::Result<*mut MMC_COLUMN_SET_DATA> {
         unsafe {
@@ -1311,8 +1311,8 @@ impl IColumnData {
             (windows_core::Interface::vtable(self).GetColumnConfigData)(windows_core::Interface::as_raw(self), pcolid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetColumnSortData(&self, pcolid: *const SColumnSetID, pcolsortdata: *const MMC_SORT_SET_DATA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColumnSortData)(windows_core::Interface::as_raw(self), pcolid, pcolsortdata).ok() }
+    pub unsafe fn SetColumnSortData(&self, pcolid: *const SColumnSetID, pcolsortdata: *const MMC_SORT_SET_DATA) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColumnSortData)(windows_core::Interface::as_raw(self), pcolid, pcolsortdata) }
     }
     pub unsafe fn GetColumnSortData(&self, pcolid: *const SColumnSetID) -> windows_core::Result<*mut MMC_SORT_SET_DATA> {
         unsafe {
@@ -1390,21 +1390,21 @@ impl windows_core::RuntimeName for IColumnData {}
 windows_core::imp::define_interface!(IComponent, IComponent_Vtbl, 0x43136eb2_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IComponent, windows_core::IUnknown);
 impl IComponent {
-    pub unsafe fn Initialize<P0>(&self, lpconsole: P0) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, lpconsole: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IConsole>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lpconsole.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lpconsole.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Notify<P0>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::Result<()>
+    pub unsafe fn Notify<P0>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), event, arg, param3).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), event, arg, param3) }
     }
-    pub unsafe fn Destroy(&self, cookie: isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self), cookie).ok() }
+    pub unsafe fn Destroy(&self, cookie: isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self), cookie) }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> windows_core::Result<super::Com::IDataObject> {
@@ -1413,19 +1413,19 @@ impl IComponent {
             (windows_core::Interface::vtable(self).QueryDataObject)(windows_core::Interface::as_raw(self), cookie, r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut windows_core::PWSTR, pviewoptions: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetResultViewType)(windows_core::Interface::as_raw(self), cookie, ppviewtype as _, pviewoptions as _).ok() }
+    pub unsafe fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut windows_core::PWSTR, pviewoptions: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetResultViewType)(windows_core::Interface::as_raw(self), cookie, ppviewtype as _, pviewoptions as _) }
     }
-    pub unsafe fn GetDisplayInfo(&self, presultdataitem: *mut RESULTDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayInfo)(windows_core::Interface::as_raw(self), presultdataitem as _).ok() }
+    pub unsafe fn GetDisplayInfo(&self, presultdataitem: *mut RESULTDATAITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayInfo)(windows_core::Interface::as_raw(self), presultdataitem as _) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> windows_core::Result<()>
+    pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
         P1: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CompareObjects)(windows_core::Interface::as_raw(self), lpdataobjecta.param().abi(), lpdataobjectb.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CompareObjects)(windows_core::Interface::as_raw(self), lpdataobjecta.param().abi(), lpdataobjectb.param().abi()) }
     }
 }
 #[repr(C)]
@@ -1543,11 +1543,11 @@ impl IComponent2 {
             (windows_core::Interface::vtable(self).QueryDispatch)(windows_core::Interface::as_raw(self), cookie, r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetResultViewType2(&self, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetResultViewType2)(windows_core::Interface::as_raw(self), cookie, core::mem::transmute(presultviewtype)).ok() }
+    pub unsafe fn GetResultViewType2(&self, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetResultViewType2)(windows_core::Interface::as_raw(self), cookie, core::mem::transmute(presultviewtype)) }
     }
-    pub unsafe fn RestoreResultView(&self, cookie: isize, presultviewtype: *const RESULT_VIEW_TYPE_INFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RestoreResultView)(windows_core::Interface::as_raw(self), cookie, core::mem::transmute(presultviewtype)).ok() }
+    pub unsafe fn RestoreResultView(&self, cookie: isize, presultviewtype: *const RESULT_VIEW_TYPE_INFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RestoreResultView)(windows_core::Interface::as_raw(self), cookie, core::mem::transmute(presultviewtype)) }
     }
 }
 #[repr(C)]
@@ -1610,11 +1610,11 @@ impl windows_core::RuntimeName for IComponent2 {}
 windows_core::imp::define_interface!(IComponentData, IComponentData_Vtbl, 0x955ab28a_5218_11d0_a985_00c04fd8d565);
 windows_core::imp::interface_hierarchy!(IComponentData, windows_core::IUnknown);
 impl IComponentData {
-    pub unsafe fn Initialize<P0>(&self, punknown: P0) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, punknown: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), punknown.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), punknown.param().abi()) }
     }
     pub unsafe fn CreateComponent(&self) -> windows_core::Result<IComponent> {
         unsafe {
@@ -1623,14 +1623,14 @@ impl IComponentData {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Notify<P0>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::Result<()>
+    pub unsafe fn Notify<P0>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), event, arg, param3).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), event, arg, param3) }
     }
-    pub unsafe fn Destroy(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Destroy(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> windows_core::Result<super::Com::IDataObject> {
@@ -1639,16 +1639,16 @@ impl IComponentData {
             (windows_core::Interface::vtable(self).QueryDataObject)(windows_core::Interface::as_raw(self), cookie, r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDisplayInfo(&self, pscopedataitem: *mut SCOPEDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayInfo)(windows_core::Interface::as_raw(self), pscopedataitem as _).ok() }
+    pub unsafe fn GetDisplayInfo(&self, pscopedataitem: *mut SCOPEDATAITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayInfo)(windows_core::Interface::as_raw(self), pscopedataitem as _) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> windows_core::Result<()>
+    pub unsafe fn CompareObjects<P0, P1>(&self, lpdataobjecta: P0, lpdataobjectb: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
         P1: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CompareObjects)(windows_core::Interface::as_raw(self), lpdataobjecta.param().abi(), lpdataobjectb.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CompareObjects)(windows_core::Interface::as_raw(self), lpdataobjecta.param().abi(), lpdataobjectb.param().abi()) }
     }
 }
 #[repr(C)]
@@ -1812,17 +1812,17 @@ impl windows_core::RuntimeName for IComponentData2 {}
 windows_core::imp::define_interface!(IConsole, IConsole_Vtbl, 0x43136eb1_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IConsole, windows_core::IUnknown);
 impl IConsole {
-    pub unsafe fn SetHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
+    pub unsafe fn SetHeader<P0>(&self, pheader: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IHeaderCtrl>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetHeader)(windows_core::Interface::as_raw(self), pheader.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetHeader)(windows_core::Interface::as_raw(self), pheader.param().abi()) }
     }
-    pub unsafe fn SetToolbar<P0>(&self, ptoolbar: P0) -> windows_core::Result<()>
+    pub unsafe fn SetToolbar<P0>(&self, ptoolbar: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IToolbar>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetToolbar)(windows_core::Interface::as_raw(self), ptoolbar.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetToolbar)(windows_core::Interface::as_raw(self), ptoolbar.param().abi()) }
     }
     pub unsafe fn QueryResultView(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -1843,11 +1843,11 @@ impl IConsole {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdateAllViews<P0>(&self, lpdataobject: P0, data: super::super::Foundation::LPARAM, hint: isize) -> windows_core::Result<()>
+    pub unsafe fn UpdateAllViews<P0>(&self, lpdataobject: P0, data: super::super::Foundation::LPARAM, hint: isize) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateAllViews)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), data, hint).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateAllViews)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), data, hint) }
     }
     pub unsafe fn MessageBox<P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> windows_core::Result<i32>
     where
@@ -1865,8 +1865,8 @@ impl IConsole {
             (windows_core::Interface::vtable(self).QueryConsoleVerb)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SelectScopeItem(&self, hscopeitem: isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SelectScopeItem)(windows_core::Interface::as_raw(self), hscopeitem).ok() }
+    pub unsafe fn SelectScopeItem(&self, hscopeitem: isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SelectScopeItem)(windows_core::Interface::as_raw(self), hscopeitem) }
     }
     pub unsafe fn GetMainWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
         unsafe {
@@ -1874,8 +1874,8 @@ impl IConsole {
             (windows_core::Interface::vtable(self).GetMainWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NewWindow(&self, hscopeitem: isize, loptions: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).NewWindow)(windows_core::Interface::as_raw(self), hscopeitem, loptions).ok() }
+    pub unsafe fn NewWindow(&self, hscopeitem: isize, loptions: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).NewWindow)(windows_core::Interface::as_raw(self), hscopeitem, loptions) }
     }
 }
 #[repr(C)]
@@ -2046,17 +2046,17 @@ impl core::ops::Deref for IConsole2 {
 }
 windows_core::imp::interface_hierarchy!(IConsole2, windows_core::IUnknown, IConsole);
 impl IConsole2 {
-    pub unsafe fn Expand(&self, hitem: isize, bexpand: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), hitem, bexpand.into()).ok() }
+    pub unsafe fn Expand(&self, hitem: isize, bexpand: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), hitem, bexpand.into()) }
     }
-    pub unsafe fn IsTaskpadViewPreferred(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsTaskpadViewPreferred)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn IsTaskpadViewPreferred(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsTaskpadViewPreferred)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetStatusText<P0>(&self, pszstatustext: P0) -> windows_core::Result<()>
+    pub unsafe fn SetStatusText<P0>(&self, pszstatustext: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetStatusText)(windows_core::Interface::as_raw(self), pszstatustext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetStatusText)(windows_core::Interface::as_raw(self), pszstatustext.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2116,8 +2116,8 @@ impl core::ops::Deref for IConsole3 {
 }
 windows_core::imp::interface_hierarchy!(IConsole3, windows_core::IUnknown, IConsole, IConsole2);
 impl IConsole3 {
-    pub unsafe fn RenameScopeItem(&self, hscopeitem: isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RenameScopeItem)(windows_core::Interface::as_raw(self), hscopeitem).ok() }
+    pub unsafe fn RenameScopeItem(&self, hscopeitem: isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RenameScopeItem)(windows_core::Interface::as_raw(self), hscopeitem) }
     }
 }
 #[repr(C)]
@@ -2150,26 +2150,26 @@ impl windows_core::RuntimeName for IConsole3 {}
 windows_core::imp::define_interface!(IConsoleNameSpace, IConsoleNameSpace_Vtbl, 0xbedeb620_f24d_11cf_8afc_00aa003ca9f6);
 windows_core::imp::interface_hierarchy!(IConsoleNameSpace, windows_core::IUnknown);
 impl IConsoleNameSpace {
-    pub unsafe fn InsertItem(&self, item: *mut SCOPEDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), item as _).ok() }
+    pub unsafe fn InsertItem(&self, item: *mut SCOPEDATAITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), item as _) }
     }
-    pub unsafe fn DeleteItem(&self, hitem: isize, fdeletethis: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), hitem, fdeletethis).ok() }
+    pub unsafe fn DeleteItem(&self, hitem: isize, fdeletethis: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), hitem, fdeletethis) }
     }
-    pub unsafe fn SetItem(&self, item: *const SCOPEDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), item).ok() }
+    pub unsafe fn SetItem(&self, item: *const SCOPEDATAITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), item) }
     }
-    pub unsafe fn GetItem(&self, item: *mut SCOPEDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), item as _).ok() }
+    pub unsafe fn GetItem(&self, item: *mut SCOPEDATAITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), item as _) }
     }
-    pub unsafe fn GetChildItem(&self, item: isize, pitemchild: *mut isize, pcookie: *mut isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChildItem)(windows_core::Interface::as_raw(self), item, pitemchild as _, pcookie as _).ok() }
+    pub unsafe fn GetChildItem(&self, item: isize, pitemchild: *mut isize, pcookie: *mut isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChildItem)(windows_core::Interface::as_raw(self), item, pitemchild as _, pcookie as _) }
     }
-    pub unsafe fn GetNextItem(&self, item: isize, pitemnext: *mut isize, pcookie: *mut isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), item, pitemnext as _, pcookie as _).ok() }
+    pub unsafe fn GetNextItem(&self, item: isize, pitemnext: *mut isize, pcookie: *mut isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), item, pitemnext as _, pcookie as _) }
     }
-    pub unsafe fn GetParentItem(&self, item: isize, pitemparent: *mut isize, pcookie: *mut isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetParentItem)(windows_core::Interface::as_raw(self), item, pitemparent as _, pcookie as _).ok() }
+    pub unsafe fn GetParentItem(&self, item: isize, pitemparent: *mut isize, pcookie: *mut isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetParentItem)(windows_core::Interface::as_raw(self), item, pitemparent as _, pcookie as _) }
     }
 }
 #[repr(C)]
@@ -2262,11 +2262,11 @@ impl core::ops::Deref for IConsoleNameSpace2 {
 }
 windows_core::imp::interface_hierarchy!(IConsoleNameSpace2, windows_core::IUnknown, IConsoleNameSpace);
 impl IConsoleNameSpace2 {
-    pub unsafe fn Expand(&self, hitem: isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), hitem).ok() }
+    pub unsafe fn Expand(&self, hitem: isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), hitem) }
     }
-    pub unsafe fn AddExtension(&self, hitem: isize, lpclsid: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), hitem, lpclsid).ok() }
+    pub unsafe fn AddExtension(&self, hitem: isize, lpclsid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), hitem, lpclsid) }
     }
 }
 #[repr(C)]
@@ -2304,11 +2304,11 @@ impl windows_core::RuntimeName for IConsoleNameSpace2 {}
 windows_core::imp::define_interface!(IConsolePower, IConsolePower_Vtbl, 0x1cfbdd0e_62ca_49ce_a3af_dbb2de61b068);
 windows_core::imp::interface_hierarchy!(IConsolePower, windows_core::IUnknown);
 impl IConsolePower {
-    pub unsafe fn SetExecutionState(&self, dwadd: u32, dwremove: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetExecutionState)(windows_core::Interface::as_raw(self), dwadd, dwremove).ok() }
+    pub unsafe fn SetExecutionState(&self, dwadd: u32, dwremove: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetExecutionState)(windows_core::Interface::as_raw(self), dwadd, dwremove) }
     }
-    pub unsafe fn ResetIdleTimer(&self, dwflags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ResetIdleTimer)(windows_core::Interface::as_raw(self), dwflags).ok() }
+    pub unsafe fn ResetIdleTimer(&self, dwflags: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ResetIdleTimer)(windows_core::Interface::as_raw(self), dwflags) }
     }
 }
 #[repr(C)]
@@ -2396,11 +2396,11 @@ impl IConsoleVerb {
             (windows_core::Interface::vtable(self).GetVerbState)(windows_core::Interface::as_raw(self), ecmdid, nstate, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetVerbState)(windows_core::Interface::as_raw(self), ecmdid, nstate, bstate.into()).ok() }
+    pub unsafe fn SetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetVerbState)(windows_core::Interface::as_raw(self), ecmdid, nstate, bstate.into()) }
     }
-    pub unsafe fn SetDefaultVerb(&self, ecmdid: MMC_CONSOLE_VERB) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDefaultVerb)(windows_core::Interface::as_raw(self), ecmdid).ok() }
+    pub unsafe fn SetDefaultVerb(&self, ecmdid: MMC_CONSOLE_VERB) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDefaultVerb)(windows_core::Interface::as_raw(self), ecmdid) }
     }
     pub unsafe fn GetDefaultVerb(&self) -> windows_core::Result<MMC_CONSOLE_VERB> {
         unsafe {
@@ -2478,8 +2478,8 @@ impl windows_core::RuntimeName for IConsoleVerb {}
 windows_core::imp::define_interface!(IContextMenuCallback, IContextMenuCallback_Vtbl, 0x43136eb7_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IContextMenuCallback, windows_core::IUnknown);
 impl IContextMenuCallback {
-    pub unsafe fn AddItem(&self, pitem: *const CONTEXTMENUITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pitem).ok() }
+    pub unsafe fn AddItem(&self, pitem: *const CONTEXTMENUITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pitem) }
     }
 }
 #[repr(C)]
@@ -2509,8 +2509,8 @@ impl windows_core::RuntimeName for IContextMenuCallback {}
 windows_core::imp::define_interface!(IContextMenuCallback2, IContextMenuCallback2_Vtbl, 0xe178bc0e_2ed0_4b5e_8097_42c9087e8b33);
 windows_core::imp::interface_hierarchy!(IContextMenuCallback2, windows_core::IUnknown);
 impl IContextMenuCallback2 {
-    pub unsafe fn AddItem(&self, pitem: *const CONTEXTMENUITEM2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pitem).ok() }
+    pub unsafe fn AddItem(&self, pitem: *const CONTEXTMENUITEM2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pitem) }
     }
 }
 #[repr(C)]
@@ -2546,23 +2546,23 @@ impl core::ops::Deref for IContextMenuProvider {
 }
 windows_core::imp::interface_hierarchy!(IContextMenuProvider, windows_core::IUnknown, IContextMenuCallback);
 impl IContextMenuProvider {
-    pub unsafe fn EmptyMenuList(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EmptyMenuList)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn EmptyMenuList(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EmptyMenuList)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPrimaryExtensionItems<P0, P1>(&self, piextension: P0, pidataobject: P1) -> windows_core::Result<()>
+    pub unsafe fn AddPrimaryExtensionItems<P0, P1>(&self, piextension: P0, pidataobject: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPrimaryExtensionItems)(windows_core::Interface::as_raw(self), piextension.param().abi(), pidataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPrimaryExtensionItems)(windows_core::Interface::as_raw(self), piextension.param().abi(), pidataobject.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddThirdPartyExtensionItems<P0>(&self, pidataobject: P0) -> windows_core::Result<()>
+    pub unsafe fn AddThirdPartyExtensionItems<P0>(&self, pidataobject: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddThirdPartyExtensionItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddThirdPartyExtensionItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi()) }
     }
     pub unsafe fn ShowContextMenu(&self, hwndparent: super::super::Foundation::HWND, xpos: i32, ypos: i32) -> windows_core::Result<i32> {
         unsafe {
@@ -2652,17 +2652,17 @@ impl IControlbar {
             (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), ntype, pextendcontrolbar.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Attach<P1>(&self, ntype: MMC_CONTROL_TYPE, lpunknown: P1) -> windows_core::Result<()>
+    pub unsafe fn Attach<P1>(&self, ntype: MMC_CONTROL_TYPE, lpunknown: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), ntype, lpunknown.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), ntype, lpunknown.param().abi()) }
     }
-    pub unsafe fn Detach<P0>(&self, lpunknown: P0) -> windows_core::Result<()>
+    pub unsafe fn Detach<P0>(&self, lpunknown: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Detach)(windows_core::Interface::as_raw(self), lpunknown.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Detach)(windows_core::Interface::as_raw(self), lpunknown.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2719,11 +2719,11 @@ impl windows_core::RuntimeName for IControlbar {}
 windows_core::imp::define_interface!(IDisplayHelp, IDisplayHelp_Vtbl, 0xcc593830_b926_11d1_8063_0000f875a9ce);
 windows_core::imp::interface_hierarchy!(IDisplayHelp, windows_core::IUnknown);
 impl IDisplayHelp {
-    pub unsafe fn ShowTopic<P0>(&self, pszhelptopic: P0) -> windows_core::Result<()>
+    pub unsafe fn ShowTopic<P0>(&self, pszhelptopic: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ShowTopic)(windows_core::Interface::as_raw(self), pszhelptopic.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ShowTopic)(windows_core::Interface::as_raw(self), pszhelptopic.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2753,14 +2753,14 @@ impl windows_core::RuntimeName for IDisplayHelp {}
 windows_core::imp::define_interface!(IEnumTASK, IEnumTASK_Vtbl, 0x338698b1_5a02_11d1_9fec_00600832db4a);
 windows_core::imp::interface_hierarchy!(IEnumTASK, windows_core::IUnknown);
 impl IEnumTASK {
-    pub unsafe fn Next(&self, rgelt: &mut [MMC_TASK], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, rgelt: &mut [MMC_TASK], pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _) }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
+    pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
@@ -2833,19 +2833,19 @@ windows_core::imp::define_interface!(IExtendContextMenu, IExtendContextMenu_Vtbl
 windows_core::imp::interface_hierarchy!(IExtendContextMenu, windows_core::IUnknown);
 impl IExtendContextMenu {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddMenuItems<P0, P1>(&self, pidataobject: P0, picallback: P1, pinsertionallowed: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn AddMenuItems<P0, P1>(&self, pidataobject: P0, picallback: P1, pinsertionallowed: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
         P1: windows_core::Param<IContextMenuCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddMenuItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi(), picallback.param().abi(), pinsertionallowed as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddMenuItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi(), picallback.param().abi(), pinsertionallowed as _) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Command<P1>(&self, lcommandid: i32, pidataobject: P1) -> windows_core::Result<()>
+    pub unsafe fn Command<P1>(&self, lcommandid: i32, pidataobject: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Command)(windows_core::Interface::as_raw(self), lcommandid, pidataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Command)(windows_core::Interface::as_raw(self), lcommandid, pidataobject.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2896,14 +2896,14 @@ impl windows_core::RuntimeName for IExtendContextMenu {}
 windows_core::imp::define_interface!(IExtendControlbar, IExtendControlbar_Vtbl, 0x49506520_6f40_11d0_a98b_00c04fd8d565);
 windows_core::imp::interface_hierarchy!(IExtendControlbar, windows_core::IUnknown);
 impl IExtendControlbar {
-    pub unsafe fn SetControlbar<P0>(&self, pcontrolbar: P0) -> windows_core::Result<()>
+    pub unsafe fn SetControlbar<P0>(&self, pcontrolbar: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IControlbar>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetControlbar)(windows_core::Interface::as_raw(self), pcontrolbar.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetControlbar)(windows_core::Interface::as_raw(self), pcontrolbar.param().abi()) }
     }
-    pub unsafe fn ControlbarNotify(&self, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ControlbarNotify)(windows_core::Interface::as_raw(self), event, arg, param2).ok() }
+    pub unsafe fn ControlbarNotify(&self, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ControlbarNotify)(windows_core::Interface::as_raw(self), event, arg, param2) }
     }
 }
 #[repr(C)]
@@ -2946,19 +2946,19 @@ windows_core::imp::define_interface!(IExtendPropertySheet, IExtendPropertySheet_
 windows_core::imp::interface_hierarchy!(IExtendPropertySheet, windows_core::IUnknown);
 impl IExtendPropertySheet {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePropertyPages<P0, P2>(&self, lpprovider: P0, handle: isize, lpidataobject: P2) -> windows_core::Result<()>
+    pub unsafe fn CreatePropertyPages<P0, P2>(&self, lpprovider: P0, handle: isize, lpidataobject: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IPropertySheetCallback>,
         P2: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePropertyPages)(windows_core::Interface::as_raw(self), lpprovider.param().abi(), handle, lpidataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePropertyPages)(windows_core::Interface::as_raw(self), lpprovider.param().abi(), handle, lpidataobject.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryPagesFor<P0>(&self, lpdataobject: P0) -> windows_core::Result<()>
+    pub unsafe fn QueryPagesFor<P0>(&self, lpdataobject: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryPagesFor)(windows_core::Interface::as_raw(self), lpdataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QueryPagesFor)(windows_core::Interface::as_raw(self), lpdataobject.param().abi()) }
     }
 }
 #[repr(C)]
@@ -3016,11 +3016,11 @@ impl core::ops::Deref for IExtendPropertySheet2 {
 windows_core::imp::interface_hierarchy!(IExtendPropertySheet2, windows_core::IUnknown, IExtendPropertySheet);
 impl IExtendPropertySheet2 {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn GetWatermarks<P0>(&self, lpidataobject: P0, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut windows_core::BOOL) -> windows_core::Result<()>
+    pub unsafe fn GetWatermarks<P0>(&self, lpidataobject: P0, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetWatermarks)(windows_core::Interface::as_raw(self), lpidataobject.param().abi(), lphwatermark as _, lphheader as _, lphpalette as _, bstretch as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetWatermarks)(windows_core::Interface::as_raw(self), lpidataobject.param().abi(), lphwatermark as _, lphheader as _, lphpalette as _, bstretch as _) }
     }
 }
 #[repr(C)]
@@ -3057,11 +3057,11 @@ windows_core::imp::define_interface!(IExtendTaskPad, IExtendTaskPad_Vtbl, 0x8dee
 windows_core::imp::interface_hierarchy!(IExtendTaskPad, windows_core::IUnknown);
 impl IExtendTaskPad {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn TaskNotify<P0>(&self, pdo: P0, arg: *const super::Variant::VARIANT, param2: *const super::Variant::VARIANT) -> windows_core::Result<()>
+    pub unsafe fn TaskNotify<P0>(&self, pdo: P0, arg: *const super::Variant::VARIANT, param2: *const super::Variant::VARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TaskNotify)(windows_core::Interface::as_raw(self), pdo.param().abi(), core::mem::transmute(arg), core::mem::transmute(param2)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TaskNotify)(windows_core::Interface::as_raw(self), pdo.param().abi(), core::mem::transmute(arg), core::mem::transmute(param2)) }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTasks<P0, P1>(&self, pdo: P0, sztaskgroup: P1) -> windows_core::Result<IEnumTASK>
@@ -3226,12 +3226,12 @@ windows_core::imp::define_interface!(IExtendView, IExtendView_Vtbl, 0x89995cee_d
 windows_core::imp::interface_hierarchy!(IExtendView, windows_core::IUnknown);
 impl IExtendView {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetViews<P0, P1>(&self, pdataobject: P0, pviewextensioncallback: P1) -> windows_core::Result<()>
+    pub unsafe fn GetViews<P0, P1>(&self, pdataobject: P0, pviewextensioncallback: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::Com::IDataObject>,
         P1: windows_core::Param<IViewExtensionCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetViews)(windows_core::Interface::as_raw(self), pdataobject.param().abi(), pviewextensioncallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetViews)(windows_core::Interface::as_raw(self), pdataobject.param().abi(), pviewextensioncallback.param().abi()) }
     }
 }
 #[repr(C)]
@@ -3267,20 +3267,20 @@ impl windows_core::RuntimeName for IExtendView {}
 windows_core::imp::define_interface!(IHeaderCtrl, IHeaderCtrl_Vtbl, 0x43136eb3_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IHeaderCtrl, windows_core::IUnknown);
 impl IHeaderCtrl {
-    pub unsafe fn InsertColumn<P1>(&self, ncol: i32, title: P1, nformat: i32, nwidth: i32) -> windows_core::Result<()>
+    pub unsafe fn InsertColumn<P1>(&self, ncol: i32, title: P1, nformat: i32, nwidth: i32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InsertColumn)(windows_core::Interface::as_raw(self), ncol, title.param().abi(), nformat, nwidth).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InsertColumn)(windows_core::Interface::as_raw(self), ncol, title.param().abi(), nformat, nwidth) }
     }
-    pub unsafe fn DeleteColumn(&self, ncol: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteColumn)(windows_core::Interface::as_raw(self), ncol).ok() }
+    pub unsafe fn DeleteColumn(&self, ncol: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteColumn)(windows_core::Interface::as_raw(self), ncol) }
     }
-    pub unsafe fn SetColumnText<P1>(&self, ncol: i32, title: P1) -> windows_core::Result<()>
+    pub unsafe fn SetColumnText<P1>(&self, ncol: i32, title: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetColumnText)(windows_core::Interface::as_raw(self), ncol, title.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetColumnText)(windows_core::Interface::as_raw(self), ncol, title.param().abi()) }
     }
     pub unsafe fn GetColumnText(&self, ncol: i32) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -3288,8 +3288,8 @@ impl IHeaderCtrl {
             (windows_core::Interface::vtable(self).GetColumnText)(windows_core::Interface::as_raw(self), ncol, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetColumnWidth(&self, ncol: i32, nwidth: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColumnWidth)(windows_core::Interface::as_raw(self), ncol, nwidth).ok() }
+    pub unsafe fn SetColumnWidth(&self, ncol: i32, nwidth: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColumnWidth)(windows_core::Interface::as_raw(self), ncol, nwidth) }
     }
     pub unsafe fn GetColumnWidth(&self, ncol: i32) -> windows_core::Result<i32> {
         unsafe {
@@ -3391,14 +3391,14 @@ impl core::ops::Deref for IHeaderCtrl2 {
 }
 windows_core::imp::interface_hierarchy!(IHeaderCtrl2, windows_core::IUnknown, IHeaderCtrl);
 impl IHeaderCtrl2 {
-    pub unsafe fn SetChangeTimeOut(&self, utimeout: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetChangeTimeOut)(windows_core::Interface::as_raw(self), utimeout).ok() }
+    pub unsafe fn SetChangeTimeOut(&self, utimeout: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetChangeTimeOut)(windows_core::Interface::as_raw(self), utimeout) }
     }
-    pub unsafe fn SetColumnFilter(&self, ncolumn: u32, dwtype: u32, pfilterdata: *const MMC_FILTERDATA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColumnFilter)(windows_core::Interface::as_raw(self), ncolumn, dwtype, pfilterdata).ok() }
+    pub unsafe fn SetColumnFilter(&self, ncolumn: u32, dwtype: u32, pfilterdata: *const MMC_FILTERDATA) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColumnFilter)(windows_core::Interface::as_raw(self), ncolumn, dwtype, pfilterdata) }
     }
-    pub unsafe fn GetColumnFilter(&self, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColumnFilter)(windows_core::Interface::as_raw(self), ncolumn, pdwtype as _, pfilterdata as _).ok() }
+    pub unsafe fn GetColumnFilter(&self, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColumnFilter)(windows_core::Interface::as_raw(self), ncolumn, pdwtype as _, pfilterdata as _) }
     }
 }
 #[repr(C)]
@@ -3449,11 +3449,11 @@ impl windows_core::RuntimeName for IHeaderCtrl2 {}
 windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0x43136eb8_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IImageList, windows_core::IUnknown);
 impl IImageList {
-    pub unsafe fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ImageListSetIcon)(windows_core::Interface::as_raw(self), picon, nloc).ok() }
+    pub unsafe fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ImageListSetIcon)(windows_core::Interface::as_raw(self), picon, nloc) }
     }
-    pub unsafe fn ImageListSetStrip(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ImageListSetStrip)(windows_core::Interface::as_raw(self), pbmapsm, pbmaplg, nstartloc, cmask).ok() }
+    pub unsafe fn ImageListSetStrip(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ImageListSetStrip)(windows_core::Interface::as_raw(self), pbmapsm, pbmaplg, nstartloc, cmask) }
     }
 }
 #[repr(C)]
@@ -3497,8 +3497,8 @@ pub const ILSIF_LEAVE_SMALL_ICON: u32 = 536870912;
 windows_core::imp::define_interface!(IMMCVersionInfo, IMMCVersionInfo_Vtbl, 0xa8d2c5fe_cdcb_4b9d_bde5_a27343ff54bc);
 windows_core::imp::interface_hierarchy!(IMMCVersionInfo, windows_core::IUnknown);
 impl IMMCVersionInfo {
-    pub unsafe fn GetMMCVersion(&self, pversionmajor: *mut i32, pversionminor: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMMCVersion)(windows_core::Interface::as_raw(self), pversionmajor as _, pversionminor as _).ok() }
+    pub unsafe fn GetMMCVersion(&self, pversionmajor: *mut i32, pversionminor: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMMCVersion)(windows_core::Interface::as_raw(self), pversionmajor as _, pversionminor as _) }
     }
 }
 #[repr(C)]
@@ -3528,22 +3528,22 @@ impl windows_core::RuntimeName for IMMCVersionInfo {}
 windows_core::imp::define_interface!(IMenuButton, IMenuButton_Vtbl, 0x951ed750_d080_11d0_b197_000000000000);
 windows_core::imp::interface_hierarchy!(IMenuButton, windows_core::IUnknown);
 impl IMenuButton {
-    pub unsafe fn AddButton<P1, P2>(&self, idcommand: i32, lpbuttontext: P1, lptooltiptext: P2) -> windows_core::Result<()>
+    pub unsafe fn AddButton<P1, P2>(&self, idcommand: i32, lpbuttontext: P1, lptooltiptext: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddButton)(windows_core::Interface::as_raw(self), idcommand, lpbuttontext.param().abi(), lptooltiptext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddButton)(windows_core::Interface::as_raw(self), idcommand, lpbuttontext.param().abi(), lptooltiptext.param().abi()) }
     }
-    pub unsafe fn SetButton<P1, P2>(&self, idcommand: i32, lpbuttontext: P1, lptooltiptext: P2) -> windows_core::Result<()>
+    pub unsafe fn SetButton<P1, P2>(&self, idcommand: i32, lpbuttontext: P1, lptooltiptext: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetButton)(windows_core::Interface::as_raw(self), idcommand, lpbuttontext.param().abi(), lptooltiptext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetButton)(windows_core::Interface::as_raw(self), idcommand, lpbuttontext.param().abi(), lptooltiptext.param().abi()) }
     }
-    pub unsafe fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetButtonState)(windows_core::Interface::as_raw(self), idcommand, nstate, bstate.into()).ok() }
+    pub unsafe fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetButtonState)(windows_core::Interface::as_raw(self), idcommand, nstate, bstate.into()) }
     }
 }
 #[repr(C)]
@@ -3594,23 +3594,23 @@ impl windows_core::RuntimeName for IMenuButton {}
 windows_core::imp::define_interface!(IMessageView, IMessageView_Vtbl, 0x80f94174_fccc_11d2_b991_00c04f8ecd78);
 windows_core::imp::interface_hierarchy!(IMessageView, windows_core::IUnknown);
 impl IMessageView {
-    pub unsafe fn SetTitleText<P0>(&self, psztitletext: P0) -> windows_core::Result<()>
+    pub unsafe fn SetTitleText<P0>(&self, psztitletext: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTitleText)(windows_core::Interface::as_raw(self), psztitletext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetTitleText)(windows_core::Interface::as_raw(self), psztitletext.param().abi()) }
     }
-    pub unsafe fn SetBodyText<P0>(&self, pszbodytext: P0) -> windows_core::Result<()>
+    pub unsafe fn SetBodyText<P0>(&self, pszbodytext: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBodyText)(windows_core::Interface::as_raw(self), pszbodytext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetBodyText)(windows_core::Interface::as_raw(self), pszbodytext.param().abi()) }
     }
-    pub unsafe fn SetIcon(&self, id: IconIdentifier) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetIcon)(windows_core::Interface::as_raw(self), id).ok() }
+    pub unsafe fn SetIcon(&self, id: IconIdentifier) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetIcon)(windows_core::Interface::as_raw(self), id) }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Clear(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -3722,12 +3722,12 @@ windows_core::imp::define_interface!(IPropertySheetCallback, IPropertySheetCallb
 windows_core::imp::interface_hierarchy!(IPropertySheetCallback, windows_core::IUnknown);
 impl IPropertySheetCallback {
     #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn AddPage(&self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), hpage).ok() }
+    pub unsafe fn AddPage(&self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), hpage) }
     }
     #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn RemovePage(&self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePage)(windows_core::Interface::as_raw(self), hpage).ok() }
+    pub unsafe fn RemovePage(&self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemovePage)(windows_core::Interface::as_raw(self), hpage) }
     }
 }
 #[repr(C)]
@@ -3775,32 +3775,32 @@ windows_core::imp::define_interface!(IPropertySheetProvider, IPropertySheetProvi
 windows_core::imp::interface_hierarchy!(IPropertySheetProvider, windows_core::IUnknown);
 impl IPropertySheetProvider {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePropertySheet<P0, P3>(&self, title: P0, r#type: u8, cookie: isize, pidataobjectm: P3, dwoptions: u32) -> windows_core::Result<()>
+    pub unsafe fn CreatePropertySheet<P0, P3>(&self, title: P0, r#type: u8, cookie: isize, pidataobjectm: P3, dwoptions: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePropertySheet)(windows_core::Interface::as_raw(self), title.param().abi(), r#type, cookie, pidataobjectm.param().abi(), dwoptions).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePropertySheet)(windows_core::Interface::as_raw(self), title.param().abi(), r#type, cookie, pidataobjectm.param().abi(), dwoptions) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FindPropertySheet<P1, P2>(&self, hitem: isize, lpcomponent: P1, lpdataobject: P2) -> windows_core::Result<()>
+    pub unsafe fn FindPropertySheet<P1, P2>(&self, hitem: isize, lpcomponent: P1, lpdataobject: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IComponent>,
         P2: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindPropertySheet)(windows_core::Interface::as_raw(self), hitem, lpcomponent.param().abi(), lpdataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindPropertySheet)(windows_core::Interface::as_raw(self), hitem, lpcomponent.param().abi(), lpdataobject.param().abi()) }
     }
-    pub unsafe fn AddPrimaryPages<P0>(&self, lpunknown: P0, bcreatehandle: bool, hnotifywindow: super::super::Foundation::HWND, bscopepane: bool) -> windows_core::Result<()>
+    pub unsafe fn AddPrimaryPages<P0>(&self, lpunknown: P0, bcreatehandle: bool, hnotifywindow: super::super::Foundation::HWND, bscopepane: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPrimaryPages)(windows_core::Interface::as_raw(self), lpunknown.param().abi(), bcreatehandle.into(), hnotifywindow, bscopepane.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPrimaryPages)(windows_core::Interface::as_raw(self), lpunknown.param().abi(), bcreatehandle.into(), hnotifywindow, bscopepane.into()) }
     }
-    pub unsafe fn AddExtensionPages(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddExtensionPages)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn AddExtensionPages(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddExtensionPages)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Show(&self, window: isize, page: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), window, page).ok() }
+    pub unsafe fn Show(&self, window: isize, page: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), window, page) }
     }
 }
 #[repr(C)]
@@ -3878,8 +3878,8 @@ impl windows_core::RuntimeName for IPropertySheetProvider {}
 windows_core::imp::define_interface!(IRequiredExtensions, IRequiredExtensions_Vtbl, 0x72782d7a_a4a0_11d1_af0f_00c04fb6dd2c);
 windows_core::imp::interface_hierarchy!(IRequiredExtensions, windows_core::IUnknown);
 impl IRequiredExtensions {
-    pub unsafe fn EnableAllExtensions(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnableAllExtensions)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn EnableAllExtensions(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnableAllExtensions)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetFirstExtension(&self) -> windows_core::Result<windows_core::GUID> {
         unsafe {
@@ -3954,11 +3954,11 @@ impl windows_core::RuntimeName for IRequiredExtensions {}
 windows_core::imp::define_interface!(IResultData, IResultData_Vtbl, 0x31da5fa0_e0eb_11cf_9f21_00aa003ca9f6);
 windows_core::imp::interface_hierarchy!(IResultData, windows_core::IUnknown);
 impl IResultData {
-    pub unsafe fn InsertItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), item as _).ok() }
+    pub unsafe fn InsertItem(&self, item: *mut RESULTDATAITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), item as _) }
     }
-    pub unsafe fn DeleteItem(&self, itemid: isize, ncol: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), itemid, ncol).ok() }
+    pub unsafe fn DeleteItem(&self, itemid: isize, ncol: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), itemid, ncol) }
     }
     pub unsafe fn FindItemByLParam(&self, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<isize> {
         unsafe {
@@ -3966,26 +3966,26 @@ impl IResultData {
             (windows_core::Interface::vtable(self).FindItemByLParam)(windows_core::Interface::as_raw(self), lparam, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeleteAllRsltItems(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAllRsltItems)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn DeleteAllRsltItems(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteAllRsltItems)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetItem(&self, item: *const RESULTDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), item).ok() }
+    pub unsafe fn SetItem(&self, item: *const RESULTDATAITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), item) }
     }
-    pub unsafe fn GetItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), item as _).ok() }
+    pub unsafe fn GetItem(&self, item: *mut RESULTDATAITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), item as _) }
     }
-    pub unsafe fn GetNextItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), item as _).ok() }
+    pub unsafe fn GetNextItem(&self, item: *mut RESULTDATAITEM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), item as _) }
     }
-    pub unsafe fn ModifyItemState(&self, nindex: i32, itemid: isize, uadd: u32, uremove: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ModifyItemState)(windows_core::Interface::as_raw(self), nindex, itemid, uadd, uremove).ok() }
+    pub unsafe fn ModifyItemState(&self, nindex: i32, itemid: isize, uadd: u32, uremove: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ModifyItemState)(windows_core::Interface::as_raw(self), nindex, itemid, uadd, uremove) }
     }
-    pub unsafe fn ModifyViewStyle(&self, add: MMC_RESULT_VIEW_STYLE, remove: MMC_RESULT_VIEW_STYLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ModifyViewStyle)(windows_core::Interface::as_raw(self), add, remove).ok() }
+    pub unsafe fn ModifyViewStyle(&self, add: MMC_RESULT_VIEW_STYLE, remove: MMC_RESULT_VIEW_STYLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ModifyViewStyle)(windows_core::Interface::as_raw(self), add, remove) }
     }
-    pub unsafe fn SetViewMode(&self, lviewmode: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetViewMode)(windows_core::Interface::as_raw(self), lviewmode).ok() }
+    pub unsafe fn SetViewMode(&self, lviewmode: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetViewMode)(windows_core::Interface::as_raw(self), lviewmode) }
     }
     pub unsafe fn GetViewMode(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -3993,20 +3993,20 @@ impl IResultData {
             (windows_core::Interface::vtable(self).GetViewMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UpdateItem(&self, itemid: isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UpdateItem)(windows_core::Interface::as_raw(self), itemid).ok() }
+    pub unsafe fn UpdateItem(&self, itemid: isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateItem)(windows_core::Interface::as_raw(self), itemid) }
     }
-    pub unsafe fn Sort(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), ncolumn, dwsortoptions, luserparam).ok() }
+    pub unsafe fn Sort(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), ncolumn, dwsortoptions, luserparam) }
     }
-    pub unsafe fn SetDescBarText<P0>(&self, desctext: P0) -> windows_core::Result<()>
+    pub unsafe fn SetDescBarText<P0>(&self, desctext: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDescBarText)(windows_core::Interface::as_raw(self), desctext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDescBarText)(windows_core::Interface::as_raw(self), desctext.param().abi()) }
     }
-    pub unsafe fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetItemCount)(windows_core::Interface::as_raw(self), nitemcount, dwoptions).ok() }
+    pub unsafe fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetItemCount)(windows_core::Interface::as_raw(self), nitemcount, dwoptions) }
     }
 }
 #[repr(C)]
@@ -4183,8 +4183,8 @@ impl core::ops::Deref for IResultData2 {
 }
 windows_core::imp::interface_hierarchy!(IResultData2, windows_core::IUnknown, IResultData);
 impl IResultData2 {
-    pub unsafe fn RenameResultItem(&self, itemid: isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RenameResultItem)(windows_core::Interface::as_raw(self), itemid).ok() }
+    pub unsafe fn RenameResultItem(&self, itemid: isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RenameResultItem)(windows_core::Interface::as_raw(self), itemid) }
     }
 }
 #[repr(C)]
@@ -4214,8 +4214,8 @@ impl windows_core::RuntimeName for IResultData2 {}
 windows_core::imp::define_interface!(IResultDataCompare, IResultDataCompare_Vtbl, 0xe8315a52_7a1a_11d0_a2d2_00c04fd909dd);
 windows_core::imp::interface_hierarchy!(IResultDataCompare, windows_core::IUnknown);
 impl IResultDataCompare {
-    pub unsafe fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), luserparam, cookiea, cookieb, pnresult as _).ok() }
+    pub unsafe fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), luserparam, cookiea, cookieb, pnresult as _) }
     }
 }
 #[repr(C)]
@@ -4291,11 +4291,11 @@ impl IResultOwnerData {
             (windows_core::Interface::vtable(self).FindItem)(windows_core::Interface::as_raw(self), pfindinfo, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CacheHint(&self, nstartindex: i32, nendindex: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CacheHint)(windows_core::Interface::as_raw(self), nstartindex, nendindex).ok() }
+    pub unsafe fn CacheHint(&self, nstartindex: i32, nendindex: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CacheHint)(windows_core::Interface::as_raw(self), nstartindex, nendindex) }
     }
-    pub unsafe fn SortItems(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SortItems)(windows_core::Interface::as_raw(self), ncolumn, dwsortoptions, luserparam).ok() }
+    pub unsafe fn SortItems(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SortItems)(windows_core::Interface::as_raw(self), ncolumn, dwsortoptions, luserparam) }
     }
 }
 #[repr(C)]
@@ -4378,8 +4378,8 @@ impl ISnapinAbout {
         }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetStaticFolderImage(&self, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut super::super::Foundation::COLORREF) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStaticFolderImage)(windows_core::Interface::as_raw(self), hsmallimage as _, hsmallimageopen as _, hlargeimage as _, cmask as _).ok() }
+    pub unsafe fn GetStaticFolderImage(&self, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut super::super::Foundation::COLORREF) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStaticFolderImage)(windows_core::Interface::as_raw(self), hsmallimage as _, hsmallimageopen as _, hlargeimage as _, cmask as _) }
     }
 }
 #[repr(C)]
@@ -4568,21 +4568,21 @@ windows_core::imp::define_interface!(ISnapinProperties, ISnapinProperties_Vtbl, 
 windows_core::imp::interface_hierarchy!(ISnapinProperties, windows_core::IUnknown);
 impl ISnapinProperties {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<P0>(&self, pproperties: P0) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pproperties: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Properties>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pproperties.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pproperties.param().abi()) }
     }
-    pub unsafe fn QueryPropertyNames<P0>(&self, pcallback: P0) -> windows_core::Result<()>
+    pub unsafe fn QueryPropertyNames<P0>(&self, pcallback: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISnapinPropertiesCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryPropertyNames)(windows_core::Interface::as_raw(self), pcallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QueryPropertyNames)(windows_core::Interface::as_raw(self), pcallback.param().abi()) }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PropertiesChanged(&self, pproperties: &[MMC_SNAPIN_PROPERTY]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PropertiesChanged)(windows_core::Interface::as_raw(self), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok() }
+    pub unsafe fn PropertiesChanged(&self, pproperties: &[MMC_SNAPIN_PROPERTY]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PropertiesChanged)(windows_core::Interface::as_raw(self), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())) }
     }
 }
 #[repr(C)]
@@ -4642,11 +4642,11 @@ impl windows_core::RuntimeName for ISnapinProperties {}
 windows_core::imp::define_interface!(ISnapinPropertiesCallback, ISnapinPropertiesCallback_Vtbl, 0xa50fa2e5_7e61_45eb_a8d4_9a07b3e851a8);
 windows_core::imp::interface_hierarchy!(ISnapinPropertiesCallback, windows_core::IUnknown);
 impl ISnapinPropertiesCallback {
-    pub unsafe fn AddPropertyName<P0>(&self, pszpropname: P0, dwflags: u32) -> windows_core::Result<()>
+    pub unsafe fn AddPropertyName<P0>(&self, pszpropname: P0, dwflags: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyName)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), dwflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyName)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), dwflags) }
     }
 }
 #[repr(C)]
@@ -4685,8 +4685,8 @@ impl IStringTable {
             (windows_core::Interface::vtable(self).AddString)(windows_core::Interface::as_raw(self), pszadd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetString(&self, stringid: u32, lpbuffer: &mut [u16], pcchout: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), stringid, lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpbuffer.as_ptr()), pcchout as _).ok() }
+    pub unsafe fn GetString(&self, stringid: u32, lpbuffer: &mut [u16], pcchout: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), stringid, lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpbuffer.as_ptr()), pcchout as _) }
     }
     pub unsafe fn GetStringLength(&self, stringid: u32) -> windows_core::Result<u32> {
         unsafe {
@@ -4694,11 +4694,11 @@ impl IStringTable {
             (windows_core::Interface::vtable(self).GetStringLength)(windows_core::Interface::as_raw(self), stringid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeleteString(&self, stringid: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteString)(windows_core::Interface::as_raw(self), stringid).ok() }
+    pub unsafe fn DeleteString(&self, stringid: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteString)(windows_core::Interface::as_raw(self), stringid) }
     }
-    pub unsafe fn DeleteAllStrings(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAllStrings)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn DeleteAllStrings(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteAllStrings)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn FindString<P0>(&self, pszfind: P0) -> windows_core::Result<u32>
     where
@@ -4832,17 +4832,17 @@ windows_core::imp::define_interface!(IToolbar, IToolbar_Vtbl, 0x43136eb9_d36c_11
 windows_core::imp::interface_hierarchy!(IToolbar, windows_core::IUnknown);
 impl IToolbar {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AddBitmap(&self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddBitmap)(windows_core::Interface::as_raw(self), nimages, hbmp, cxsize, cysize, crmask).ok() }
+    pub unsafe fn AddBitmap(&self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddBitmap)(windows_core::Interface::as_raw(self), nimages, hbmp, cxsize, cysize, crmask) }
     }
-    pub unsafe fn AddButtons(&self, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddButtons)(windows_core::Interface::as_raw(self), nbuttons, lpbuttons).ok() }
+    pub unsafe fn AddButtons(&self, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddButtons)(windows_core::Interface::as_raw(self), nbuttons, lpbuttons) }
     }
-    pub unsafe fn InsertButton(&self, nindex: i32, lpbutton: *const MMCBUTTON) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InsertButton)(windows_core::Interface::as_raw(self), nindex, lpbutton).ok() }
+    pub unsafe fn InsertButton(&self, nindex: i32, lpbutton: *const MMCBUTTON) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InsertButton)(windows_core::Interface::as_raw(self), nindex, lpbutton) }
     }
-    pub unsafe fn DeleteButton(&self, nindex: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteButton)(windows_core::Interface::as_raw(self), nindex).ok() }
+    pub unsafe fn DeleteButton(&self, nindex: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteButton)(windows_core::Interface::as_raw(self), nindex) }
     }
     pub unsafe fn GetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -4850,8 +4850,8 @@ impl IToolbar {
             (windows_core::Interface::vtable(self).GetButtonState)(windows_core::Interface::as_raw(self), idcommand, nstate, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetButtonState)(windows_core::Interface::as_raw(self), idcommand, nstate, bstate.into()).ok() }
+    pub unsafe fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetButtonState)(windows_core::Interface::as_raw(self), idcommand, nstate, bstate.into()) }
     }
 }
 #[repr(C)]
@@ -4941,8 +4941,8 @@ impl windows_core::RuntimeName for IToolbar {}
 windows_core::imp::define_interface!(IViewExtensionCallback, IViewExtensionCallback_Vtbl, 0x34dd928a_7599_41e5_9f5e_d6bc3062c2da);
 windows_core::imp::interface_hierarchy!(IViewExtensionCallback, windows_core::IUnknown);
 impl IViewExtensionCallback {
-    pub unsafe fn AddView(&self, pextviewdata: *const MMC_EXT_VIEW_DATA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddView)(windows_core::Interface::as_raw(self), pextviewdata).ok() }
+    pub unsafe fn AddView(&self, pextviewdata: *const MMC_EXT_VIEW_DATA) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddView)(windows_core::Interface::as_raw(self), pextviewdata) }
     }
 }
 #[repr(C)]
@@ -5368,8 +5368,8 @@ impl MenuItem {
             (windows_core::Interface::vtable(self).LanguageIndependentPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Execute(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Execute(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Enabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -5755,8 +5755,8 @@ impl Properties {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Remove(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
+    pub unsafe fn Remove(&self, name: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5856,8 +5856,8 @@ impl Property {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValue(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
+    pub unsafe fn SetValue(&self, value: &super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6178,11 +6178,11 @@ impl ScopeNamespace {
             (windows_core::Interface::vtable(self).GetRoot)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Expand<P0>(&self, node: P0) -> windows_core::Result<()>
+    pub unsafe fn Expand<P0>(&self, node: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), node.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), node.param().abi()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6325,8 +6325,8 @@ impl SnapIn {
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnableAllExtensions(&self, enable: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnableAllExtensions)(windows_core::Interface::as_raw(self), enable.into()).ok() }
+    pub unsafe fn EnableAllExtensions(&self, enable: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnableAllExtensions)(windows_core::Interface::as_raw(self), enable.into()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6488,11 +6488,11 @@ impl SnapIns {
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(snapinnameorclsid), core::mem::transmute_copy(parentsnapin), core::mem::transmute_copy(properties), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Remove<P0>(&self, snapin: P0) -> windows_core::Result<()>
+    pub unsafe fn Remove<P0>(&self, snapin: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<SnapIn>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), snapin.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), snapin.param().abi()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6611,11 +6611,11 @@ impl View {
             (windows_core::Interface::vtable(self).ActiveScopeNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetActiveScopeNode<P0>(&self, node: P0) -> windows_core::Result<()>
+    pub unsafe fn SetActiveScopeNode<P0>(&self, node: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetActiveScopeNode)(windows_core::Interface::as_raw(self), node.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetActiveScopeNode)(windows_core::Interface::as_raw(self), node.param().abi()) }
     }
     pub unsafe fn Selection(&self) -> windows_core::Result<Nodes> {
         unsafe {
@@ -6657,20 +6657,20 @@ impl View {
             (windows_core::Interface::vtable(self).Document)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SelectAll(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SelectAll)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn SelectAll(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SelectAll)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Select<P0>(&self, node: P0) -> windows_core::Result<()>
+    pub unsafe fn Select<P0>(&self, node: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self), node.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self), node.param().abi()) }
     }
-    pub unsafe fn Deselect<P0>(&self, node: P0) -> windows_core::Result<()>
+    pub unsafe fn Deselect<P0>(&self, node: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Deselect)(windows_core::Interface::as_raw(self), node.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Deselect)(windows_core::Interface::as_raw(self), node.param().abi()) }
     }
     pub unsafe fn IsSelected<P0>(&self, node: P0) -> windows_core::Result<windows_core::BOOL>
     where
@@ -6682,32 +6682,32 @@ impl View {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DisplayScopeNodePropertySheet(&self, scopenode: &super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DisplayScopeNodePropertySheet)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(scopenode)).ok() }
+    pub unsafe fn DisplayScopeNodePropertySheet(&self, scopenode: &super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DisplayScopeNodePropertySheet)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(scopenode)) }
     }
-    pub unsafe fn DisplaySelectionPropertySheet(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DisplaySelectionPropertySheet)(windows_core::Interface::as_raw(self)).ok() }
-    }
-    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CopyScopeNode(&self, scopenode: &super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CopyScopeNode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(scopenode)).ok() }
-    }
-    pub unsafe fn CopySelection(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CopySelection)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn DisplaySelectionPropertySheet(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DisplaySelectionPropertySheet)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteScopeNode(&self, scopenode: &super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteScopeNode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(scopenode)).ok() }
+    pub unsafe fn CopyScopeNode(&self, scopenode: &super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CopyScopeNode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(scopenode)) }
     }
-    pub unsafe fn DeleteSelection(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteSelection)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn CopySelection(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CopySelection)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RenameScopeNode(&self, newname: &windows_core::BSTR, scopenode: &super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RenameScopeNode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newname), core::mem::transmute_copy(scopenode)).ok() }
+    pub unsafe fn DeleteScopeNode(&self, scopenode: &super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteScopeNode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(scopenode)) }
     }
-    pub unsafe fn RenameSelectedItem(&self, newname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RenameSelectedItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newname)).ok() }
+    pub unsafe fn DeleteSelection(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteSelection)(windows_core::Interface::as_raw(self)) }
+    }
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn RenameScopeNode(&self, newname: &windows_core::BSTR, scopenode: &super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RenameScopeNode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newname), core::mem::transmute_copy(scopenode)) }
+    }
+    pub unsafe fn RenameSelectedItem(&self, newname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RenameSelectedItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newname)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_ScopeNodeContextMenu(&self, scopenode: &super::Variant::VARIANT) -> windows_core::Result<ContextMenu> {
@@ -6723,21 +6723,21 @@ impl View {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RefreshScopeNode(&self, scopenode: &super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RefreshScopeNode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(scopenode)).ok() }
+    pub unsafe fn RefreshScopeNode(&self, scopenode: &super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RefreshScopeNode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(scopenode)) }
     }
-    pub unsafe fn RefreshSelection(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RefreshSelection)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RefreshSelection(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RefreshSelection)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn ExecuteSelectionMenuItem(&self, menuitempath: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ExecuteSelectionMenuItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(menuitempath)).ok() }
+    pub unsafe fn ExecuteSelectionMenuItem(&self, menuitempath: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ExecuteSelectionMenuItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(menuitempath)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ExecuteScopeNodeMenuItem(&self, menuitempath: &windows_core::BSTR, scopenode: &super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ExecuteScopeNodeMenuItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(menuitempath), core::mem::transmute_copy(scopenode)).ok() }
+    pub unsafe fn ExecuteScopeNodeMenuItem(&self, menuitempath: &windows_core::BSTR, scopenode: &super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ExecuteScopeNodeMenuItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(menuitempath), core::mem::transmute_copy(scopenode)) }
     }
-    pub unsafe fn ExecuteShellCommand(&self, command: &windows_core::BSTR, directory: &windows_core::BSTR, parameters: &windows_core::BSTR, windowstate: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ExecuteShellCommand)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(command), core::mem::transmute_copy(directory), core::mem::transmute_copy(parameters), core::mem::transmute_copy(windowstate)).ok() }
+    pub unsafe fn ExecuteShellCommand(&self, command: &windows_core::BSTR, directory: &windows_core::BSTR, parameters: &windows_core::BSTR, windowstate: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ExecuteShellCommand)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(command), core::mem::transmute_copy(directory), core::mem::transmute_copy(parameters), core::mem::transmute_copy(windowstate)) }
     }
     pub unsafe fn Frame(&self) -> windows_core::Result<Frame> {
         unsafe {
@@ -6745,8 +6745,8 @@ impl View {
             (windows_core::Interface::vtable(self).Frame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn ScopeTreeVisible(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -6754,17 +6754,17 @@ impl View {
             (windows_core::Interface::vtable(self).ScopeTreeVisible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetScopeTreeVisible(&self, visible: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetScopeTreeVisible)(windows_core::Interface::as_raw(self), visible.into()).ok() }
+    pub unsafe fn SetScopeTreeVisible(&self, visible: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetScopeTreeVisible)(windows_core::Interface::as_raw(self), visible.into()) }
     }
-    pub unsafe fn Back(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Back)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Back(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Back)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Forward(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Forward)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Forward(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Forward)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetStatusBarText(&self, statusbartext: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetStatusBarText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(statusbartext)).ok() }
+    pub unsafe fn SetStatusBarText(&self, statusbartext: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetStatusBarText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(statusbartext)) }
     }
     pub unsafe fn Memento(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6772,8 +6772,8 @@ impl View {
             (windows_core::Interface::vtable(self).Memento)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ViewMemento(&self, memento: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ViewMemento)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(memento)).ok() }
+    pub unsafe fn ViewMemento(&self, memento: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ViewMemento)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(memento)) }
     }
     pub unsafe fn Columns(&self) -> windows_core::Result<Columns> {
         unsafe {
@@ -6790,8 +6790,8 @@ impl View {
             (windows_core::Interface::vtable(self).get_CellContents)(windows_core::Interface::as_raw(self), node.param().abi(), column, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ExportList(&self, file: &windows_core::BSTR, exportoptions: _ExportListOptions) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ExportList)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(file), exportoptions).ok() }
+    pub unsafe fn ExportList(&self, file: &windows_core::BSTR, exportoptions: _ExportListOptions) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ExportList)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(file), exportoptions) }
     }
     pub unsafe fn ListViewMode(&self) -> windows_core::Result<_ListViewMode> {
         unsafe {
@@ -6799,8 +6799,8 @@ impl View {
             (windows_core::Interface::vtable(self).ListViewMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetListViewMode(&self, mode: _ListViewMode) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetListViewMode)(windows_core::Interface::as_raw(self), mode).ok() }
+    pub unsafe fn SetListViewMode(&self, mode: _ListViewMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetListViewMode)(windows_core::Interface::as_raw(self), mode) }
     }
     pub unsafe fn ControlObject(&self) -> windows_core::Result<super::Com::IDispatch> {
         unsafe {
@@ -7365,11 +7365,11 @@ impl Views {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Add<P0>(&self, node: P0, viewoptions: _ViewOptions) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, node: P0, viewoptions: _ViewOptions) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), node.param().abi(), viewoptions).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), node.param().abi(), viewoptions) }
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -7467,78 +7467,78 @@ impl core::ops::Deref for _AppEvents {
 windows_core::imp::interface_hierarchy!(_AppEvents, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl _AppEvents {
-    pub unsafe fn OnQuit<P0>(&self, application: P0) -> windows_core::Result<()>
+    pub unsafe fn OnQuit<P0>(&self, application: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<_Application>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnQuit)(windows_core::Interface::as_raw(self), application.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnQuit)(windows_core::Interface::as_raw(self), application.param().abi()) }
     }
-    pub unsafe fn OnDocumentOpen<P0>(&self, document: P0, new: bool) -> windows_core::Result<()>
+    pub unsafe fn OnDocumentOpen<P0>(&self, document: P0, new: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Document>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDocumentOpen)(windows_core::Interface::as_raw(self), document.param().abi(), new.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDocumentOpen)(windows_core::Interface::as_raw(self), document.param().abi(), new.into()) }
     }
-    pub unsafe fn OnDocumentClose<P0>(&self, document: P0) -> windows_core::Result<()>
+    pub unsafe fn OnDocumentClose<P0>(&self, document: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Document>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDocumentClose)(windows_core::Interface::as_raw(self), document.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDocumentClose)(windows_core::Interface::as_raw(self), document.param().abi()) }
     }
-    pub unsafe fn OnSnapInAdded<P0, P1>(&self, document: P0, snapin: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<Document>,
-        P1: windows_core::Param<SnapIn>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).OnSnapInAdded)(windows_core::Interface::as_raw(self), document.param().abi(), snapin.param().abi()).ok() }
-    }
-    pub unsafe fn OnSnapInRemoved<P0, P1>(&self, document: P0, snapin: P1) -> windows_core::Result<()>
+    pub unsafe fn OnSnapInAdded<P0, P1>(&self, document: P0, snapin: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Document>,
         P1: windows_core::Param<SnapIn>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSnapInRemoved)(windows_core::Interface::as_raw(self), document.param().abi(), snapin.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSnapInAdded)(windows_core::Interface::as_raw(self), document.param().abi(), snapin.param().abi()) }
     }
-    pub unsafe fn OnNewView<P0>(&self, view: P0) -> windows_core::Result<()>
+    pub unsafe fn OnSnapInRemoved<P0, P1>(&self, document: P0, snapin: P1) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<Document>,
+        P1: windows_core::Param<SnapIn>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).OnSnapInRemoved)(windows_core::Interface::as_raw(self), document.param().abi(), snapin.param().abi()) }
+    }
+    pub unsafe fn OnNewView<P0>(&self, view: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<View>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnNewView)(windows_core::Interface::as_raw(self), view.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnNewView)(windows_core::Interface::as_raw(self), view.param().abi()) }
     }
-    pub unsafe fn OnViewClose<P0>(&self, view: P0) -> windows_core::Result<()>
+    pub unsafe fn OnViewClose<P0>(&self, view: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<View>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnViewClose)(windows_core::Interface::as_raw(self), view.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnViewClose)(windows_core::Interface::as_raw(self), view.param().abi()) }
     }
-    pub unsafe fn OnViewChange<P0, P1>(&self, view: P0, newownernode: P1) -> windows_core::Result<()>
+    pub unsafe fn OnViewChange<P0, P1>(&self, view: P0, newownernode: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<View>,
         P1: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnViewChange)(windows_core::Interface::as_raw(self), view.param().abi(), newownernode.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnViewChange)(windows_core::Interface::as_raw(self), view.param().abi(), newownernode.param().abi()) }
     }
-    pub unsafe fn OnSelectionChange<P0, P1>(&self, view: P0, newnodes: P1) -> windows_core::Result<()>
+    pub unsafe fn OnSelectionChange<P0, P1>(&self, view: P0, newnodes: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<View>,
         P1: windows_core::Param<Nodes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSelectionChange)(windows_core::Interface::as_raw(self), view.param().abi(), newnodes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSelectionChange)(windows_core::Interface::as_raw(self), view.param().abi(), newnodes.param().abi()) }
     }
-    pub unsafe fn OnContextMenuExecuted<P0>(&self, menuitem: P0) -> windows_core::Result<()>
+    pub unsafe fn OnContextMenuExecuted<P0>(&self, menuitem: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<MenuItem>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnContextMenuExecuted)(windows_core::Interface::as_raw(self), menuitem.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnContextMenuExecuted)(windows_core::Interface::as_raw(self), menuitem.param().abi()) }
     }
-    pub unsafe fn OnToolbarButtonClicked(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnToolbarButtonClicked)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn OnToolbarButtonClicked(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnToolbarButtonClicked)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn OnListUpdated<P0>(&self, view: P0) -> windows_core::Result<()>
+    pub unsafe fn OnListUpdated<P0>(&self, view: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<View>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnListUpdated)(windows_core::Interface::as_raw(self), view.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnListUpdated)(windows_core::Interface::as_raw(self), view.param().abi()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7700,8 +7700,8 @@ impl _Application {
             (windows_core::Interface::vtable(self).Document)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Load(&self, filename: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filename)).ok() }
+    pub unsafe fn Load(&self, filename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filename)) }
     }
     pub unsafe fn Frame(&self) -> windows_core::Result<Frame> {
         unsafe {
@@ -7715,11 +7715,11 @@ impl _Application {
             (windows_core::Interface::vtable(self).Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Show(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Show(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Hide(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Hide)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Hide(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Hide)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn UserControl(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -7727,8 +7727,8 @@ impl _Application {
             (windows_core::Interface::vtable(self).UserControl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUserControl(&self, usercontrol: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetUserControl)(windows_core::Interface::as_raw(self), usercontrol.into()).ok() }
+    pub unsafe fn SetUserControl(&self, usercontrol: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetUserControl)(windows_core::Interface::as_raw(self), usercontrol.into()) }
     }
     pub unsafe fn VersionMajor(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -7928,14 +7928,14 @@ impl core::ops::Deref for _EventConnector {
 windows_core::imp::interface_hierarchy!(_EventConnector, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl _EventConnector {
-    pub unsafe fn ConnectTo<P0>(&self, application: P0) -> windows_core::Result<()>
+    pub unsafe fn ConnectTo<P0>(&self, application: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<_Application>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ConnectTo)(windows_core::Interface::as_raw(self), application.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ConnectTo)(windows_core::Interface::as_raw(self), application.param().abi()) }
     }
-    pub unsafe fn Disconnect(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Disconnect(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]

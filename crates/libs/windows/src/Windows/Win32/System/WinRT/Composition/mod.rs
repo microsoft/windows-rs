@@ -58,20 +58,20 @@ impl ICompositionDrawingSurfaceInterop {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__, updateoffset as _).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn EndDraw(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Resize(&self, sizepixels: super::super::super::Foundation::SIZE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), core::mem::transmute(sizepixels)).ok() }
+    pub unsafe fn Resize(&self, sizepixels: super::super::super::Foundation::SIZE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), core::mem::transmute(sizepixels)) }
     }
-    pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::super::Foundation::RECT>, cliprect: Option<*const super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), scrollrect.unwrap_or(core::mem::zeroed()) as _, cliprect.unwrap_or(core::mem::zeroed()) as _, offsetx, offsety).ok() }
+    pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::super::Foundation::RECT>, cliprect: Option<*const super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), scrollrect.unwrap_or(core::mem::zeroed()) as _, cliprect.unwrap_or(core::mem::zeroed()) as _, offsetx, offsety) }
     }
-    pub unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn ResumeDraw(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SuspendDraw(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SuspendDraw)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn SuspendDraw(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SuspendDraw)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -155,11 +155,11 @@ impl core::ops::Deref for ICompositionDrawingSurfaceInterop2 {
 }
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop2, windows_core::IUnknown, ICompositionDrawingSurfaceInterop);
 impl ICompositionDrawingSurfaceInterop2 {
-    pub unsafe fn CopySurface<P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: Option<*const super::super::super::Foundation::RECT>) -> windows_core::Result<()>
+    pub unsafe fn CopySurface<P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: Option<*const super::super::super::Foundation::RECT>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), destinationoffsetx, destinationoffsety, sourcerectangle.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), destinationoffsetx, destinationoffsety, sourcerectangle.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -195,11 +195,11 @@ impl ICompositionGraphicsDeviceInterop {
             (windows_core::Interface::vtable(self).GetRenderingDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetRenderingDevice<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRenderingDevice<P0>(&self, value: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRenderingDevice)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetRenderingDevice)(windows_core::Interface::as_raw(self), value.param().abi()) }
     }
 }
 #[repr(C)]
@@ -247,8 +247,8 @@ impl windows_core::RuntimeName for ICompositionGraphicsDeviceInterop {}
 windows_core::imp::define_interface!(ICompositionTextureInterop, ICompositionTextureInterop_Vtbl, 0xd528a265_f0a5_422f_a39d_ef62d7cd1cc4);
 windows_core::imp::interface_hierarchy!(ICompositionTextureInterop, windows_core::IUnknown);
 impl ICompositionTextureInterop {
-    pub unsafe fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAvailableFence)(windows_core::Interface::as_raw(self), fencevalue as _, iid, availablefence as _).ok() }
+    pub unsafe fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAvailableFence)(windows_core::Interface::as_raw(self), fencevalue as _, iid, availablefence as _) }
     }
 }
 #[repr(C)]
@@ -285,8 +285,8 @@ impl ICompositorDesktopInterop {
             (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), hwndtarget, istopmost.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnsureOnThread(&self, threadid: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnsureOnThread)(windows_core::Interface::as_raw(self), threadid).ok() }
+    pub unsafe fn EnsureOnThread(&self, threadid: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnsureOnThread)(windows_core::Interface::as_raw(self), threadid) }
     }
 }
 #[repr(C)]
@@ -564,8 +564,8 @@ windows_core::imp::define_interface!(IVisualInteractionSourceInterop, IVisualInt
 windows_core::imp::interface_hierarchy!(IVisualInteractionSourceInterop, windows_core::IUnknown);
 impl IVisualInteractionSourceInterop {
     #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).TryRedirectForManipulation)(windows_core::Interface::as_raw(self), pointerinfo).ok() }
+    pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TryRedirectForManipulation)(windows_core::Interface::as_raw(self), pointerinfo) }
     }
 }
 #[repr(C)]

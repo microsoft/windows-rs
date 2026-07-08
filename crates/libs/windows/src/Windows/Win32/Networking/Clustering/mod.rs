@@ -5867,8 +5867,8 @@ pub struct HRESTYPEENUM(pub isize);
 windows_core::imp::define_interface!(IGetClusterDataInfo, IGetClusterDataInfo_Vtbl, 0x97dede51_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IGetClusterDataInfo, windows_core::IUnknown);
 impl IGetClusterDataInfo {
-    pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClusterName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), pcchname as _).ok() }
+    pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetClusterName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), pcchname as _) }
     }
     pub unsafe fn GetClusterHandle(&self) -> HCLUSTER {
         unsafe { (windows_core::Interface::vtable(self).GetClusterHandle)(windows_core::Interface::as_raw(self)) }
@@ -6049,8 +6049,8 @@ impl windows_core::RuntimeName for IGetClusterNodeInfo {}
 windows_core::imp::define_interface!(IGetClusterObjectInfo, IGetClusterObjectInfo_Vtbl, 0x97dede52_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IGetClusterObjectInfo, windows_core::IUnknown);
 impl IGetClusterObjectInfo {
-    pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpszname), pcchname as _).ok() }
+    pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetObjectName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpszname), pcchname as _) }
     }
     pub unsafe fn GetObjectType(&self, lobjindex: i32) -> CLUADMEX_OBJECT_TYPE {
         unsafe { (windows_core::Interface::vtable(self).GetObjectType)(windows_core::Interface::as_raw(self), lobjindex) }
@@ -6098,8 +6098,8 @@ impl IGetClusterResourceInfo {
     pub unsafe fn GetResourceHandle(&self, lobjindex: i32) -> HRESOURCE {
         unsafe { (windows_core::Interface::vtable(self).GetResourceHandle)(windows_core::Interface::as_raw(self), lobjindex) }
     }
-    pub unsafe fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: &windows_core::BSTR, pcchrestypename: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetResourceTypeName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpszrestypename), pcchrestypename as _).ok() }
+    pub unsafe fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: &windows_core::BSTR, pcchrestypename: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetResourceTypeName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpszrestypename), pcchrestypename as _) }
     }
     pub unsafe fn GetResourceNetworkName(&self, lobjindex: i32, lpsznetname: &windows_core::BSTR, pcchnetname: *mut u32) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetResourceNetworkName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpsznetname), pcchnetname as _) }
@@ -6153,8 +6153,8 @@ impl windows_core::RuntimeName for IGetClusterResourceInfo {}
 windows_core::imp::define_interface!(IGetClusterUIInfo, IGetClusterUIInfo_Vtbl, 0x97dede50_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IGetClusterUIInfo, windows_core::IUnknown);
 impl IGetClusterUIInfo {
-    pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClusterName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), pcchname as _).ok() }
+    pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetClusterName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), pcchname as _) }
     }
     pub unsafe fn GetLocale(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self)) }
@@ -6355,8 +6355,8 @@ impl ISClusCryptoKeys {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
@@ -6365,12 +6365,12 @@ impl ISClusCryptoKeys {
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn AddItem(&self, bstrcryptokey: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcryptokey)).ok() }
+    pub unsafe fn AddItem(&self, bstrcryptokey: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcryptokey)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6925,8 +6925,8 @@ impl ISClusNetInterfaces {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface> {
@@ -7064,8 +7064,8 @@ impl ISClusNetwork {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrnetworkname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrnetworkname)).ok() }
+    pub unsafe fn SetName(&self, bstrnetworkname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrnetworkname)) }
     }
     pub unsafe fn NetworkID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -7298,8 +7298,8 @@ impl ISClusNetworkNetInterfaces {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface> {
@@ -7413,8 +7413,8 @@ impl ISClusNetworks {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetwork> {
@@ -7564,14 +7564,14 @@ impl ISClusNode {
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Pause(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Pause(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Resume(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Resume(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Evict(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Evict(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn ResourceGroups(&self) -> windows_core::Result<ISClusResGroups> {
         unsafe {
@@ -7831,8 +7831,8 @@ impl ISClusNodeNetInterfaces {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface> {
@@ -7946,8 +7946,8 @@ impl ISClusNodes {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode> {
@@ -8488,8 +8488,8 @@ impl ISClusProperties {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusProperty> {
@@ -8506,8 +8506,8 @@ impl ISClusProperties {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn UseDefaultValue(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UseDefaultValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn UseDefaultValue(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UseDefaultValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SaveChanges(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -8789,8 +8789,8 @@ impl ISClusProperty {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varvalue)).ok() }
+    pub unsafe fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varvalue)) }
     }
     pub unsafe fn Type(&self) -> windows_core::Result<CLUSTER_PROPERTY_TYPE> {
         unsafe {
@@ -8798,8 +8798,8 @@ impl ISClusProperty {
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), r#type).ok() }
+    pub unsafe fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), r#type) }
     }
     pub unsafe fn Format(&self) -> windows_core::Result<CLUSTER_PROPERTY_FORMAT> {
         unsafe {
@@ -8807,8 +8807,8 @@ impl ISClusProperty {
             (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), format).ok() }
+    pub unsafe fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), format) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -8838,8 +8838,8 @@ impl ISClusProperty {
             (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UseDefaultValue(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UseDefaultValue)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn UseDefaultValue(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UseDefaultValue)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9104,8 +9104,8 @@ impl ISClusPropertyValue {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varvalue)).ok() }
+    pub unsafe fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varvalue)) }
     }
     pub unsafe fn Type(&self) -> windows_core::Result<CLUSTER_PROPERTY_TYPE> {
         unsafe {
@@ -9113,8 +9113,8 @@ impl ISClusPropertyValue {
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), r#type).ok() }
+    pub unsafe fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), r#type) }
     }
     pub unsafe fn Format(&self) -> windows_core::Result<CLUSTER_PROPERTY_FORMAT> {
         unsafe {
@@ -9122,8 +9122,8 @@ impl ISClusPropertyValue {
             (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), format).ok() }
+    pub unsafe fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), format) }
     }
     pub unsafe fn Length(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -9329,8 +9329,8 @@ impl ISClusPropertyValueData {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9473,8 +9473,8 @@ impl ISClusPropertyValues {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9656,8 +9656,8 @@ impl ISClusRegistryKeys {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
@@ -9666,12 +9666,12 @@ impl ISClusRegistryKeys {
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn AddItem(&self, bstrregistrykey: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrregistrykey)).ok() }
+    pub unsafe fn AddItem(&self, bstrregistrykey: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrregistrykey)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9799,8 +9799,8 @@ impl ISClusResDependencies {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource> {
@@ -9816,18 +9816,18 @@ impl ISClusResDependencies {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
-    pub unsafe fn AddItem<P0>(&self, presource: P0) -> windows_core::Result<()>
+    pub unsafe fn AddItem<P0>(&self, presource: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISClusResource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), presource.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), presource.param().abi()) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9982,8 +9982,8 @@ impl ISClusResDependents {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource> {
@@ -9999,18 +9999,18 @@ impl ISClusResDependents {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
-    pub unsafe fn AddItem<P0>(&self, presource: P0) -> windows_core::Result<()>
+    pub unsafe fn AddItem<P0>(&self, presource: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISClusResource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), presource.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), presource.param().abi()) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10189,8 +10189,8 @@ impl ISClusResGroup {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname)).ok() }
+    pub unsafe fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname)) }
     }
     pub unsafe fn State(&self) -> windows_core::Result<CLUSTER_GROUP_STATE> {
         unsafe {
@@ -10216,8 +10216,8 @@ impl ISClusResGroup {
             (windows_core::Interface::vtable(self).PreferredOwnerNodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Delete(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Online(&self, vartimeout: &super::super::System::Variant::VARIANT, varnode: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -10531,8 +10531,8 @@ impl ISClusResGroupPreferredOwnerNodes {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode> {
@@ -10541,15 +10541,15 @@ impl ISClusResGroupPreferredOwnerNodes {
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn InsertItem<P0>(&self, pnode: P0, nposition: i32) -> windows_core::Result<()>
+    pub unsafe fn InsertItem<P0>(&self, pnode: P0, nposition: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISClusNode>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), pnode.param().abi(), nposition).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), pnode.param().abi(), nposition) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -10558,14 +10558,14 @@ impl ISClusResGroupPreferredOwnerNodes {
             (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SaveChanges(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SaveChanges)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn SaveChanges(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SaveChanges)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn AddItem<P0>(&self, pnode: P0) -> windows_core::Result<()>
+    pub unsafe fn AddItem<P0>(&self, pnode: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISClusNode>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pnode.param().abi()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10729,8 +10729,8 @@ impl ISClusResGroupResources {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource> {
@@ -10746,8 +10746,8 @@ impl ISClusResGroupResources {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10881,8 +10881,8 @@ impl ISClusResGroups {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResGroup> {
@@ -10898,8 +10898,8 @@ impl ISClusResGroups {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11033,8 +11033,8 @@ impl ISClusResPossibleOwnerNodes {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode> {
@@ -11043,15 +11043,15 @@ impl ISClusResPossibleOwnerNodes {
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddItem<P0>(&self, pnode: P0) -> windows_core::Result<()>
+    pub unsafe fn AddItem<P0>(&self, pnode: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISClusNode>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pnode.param().abi()) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -11222,8 +11222,8 @@ impl ISClusResType {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Delete(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
         unsafe {
@@ -11441,8 +11441,8 @@ impl ISClusResTypePossibleOwnerNodes {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode> {
@@ -11556,8 +11556,8 @@ impl ISClusResTypeResources {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource> {
@@ -11573,8 +11573,8 @@ impl ISClusResTypeResources {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11708,8 +11708,8 @@ impl ISClusResTypes {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResType> {
@@ -11725,8 +11725,8 @@ impl ISClusResTypes {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11884,8 +11884,8 @@ impl ISClusResource {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrresourcename: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrresourcename)).ok() }
+    pub unsafe fn SetName(&self, bstrresourcename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrresourcename)) }
     }
     pub unsafe fn State(&self) -> windows_core::Result<CLUSTER_RESOURCE_STATE> {
         unsafe {
@@ -11899,14 +11899,14 @@ impl ISClusResource {
             (windows_core::Interface::vtable(self).CoreFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BecomeQuorumResource(&self, bstrdevicepath: &windows_core::BSTR, lmaxlogsize: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).BecomeQuorumResource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdevicepath), lmaxlogsize).ok() }
+    pub unsafe fn BecomeQuorumResource(&self, bstrdevicepath: &windows_core::BSTR, lmaxlogsize: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BecomeQuorumResource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdevicepath), lmaxlogsize) }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Delete(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Fail(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Fail)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Fail(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Fail)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Online(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -11922,23 +11922,23 @@ impl ISClusResource {
             (windows_core::Interface::vtable(self).Offline)(windows_core::Interface::as_raw(self), ntimeout, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ChangeResourceGroup<P0>(&self, presourcegroup: P0) -> windows_core::Result<()>
+    pub unsafe fn ChangeResourceGroup<P0>(&self, presourcegroup: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISClusResGroup>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ChangeResourceGroup)(windows_core::Interface::as_raw(self), presourcegroup.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ChangeResourceGroup)(windows_core::Interface::as_raw(self), presourcegroup.param().abi()) }
     }
-    pub unsafe fn AddResourceNode<P0>(&self, pnode: P0) -> windows_core::Result<()>
+    pub unsafe fn AddResourceNode<P0>(&self, pnode: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISClusNode>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddResourceNode)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddResourceNode)(windows_core::Interface::as_raw(self), pnode.param().abi()) }
     }
-    pub unsafe fn RemoveResourceNode<P0>(&self, pnode: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveResourceNode<P0>(&self, pnode: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISClusNode>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveResourceNode)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveResourceNode)(windows_core::Interface::as_raw(self), pnode.param().abi()) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CanResourceBeDependent<P0>(&self, presource: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
@@ -12028,8 +12028,8 @@ impl ISClusResource {
             (windows_core::Interface::vtable(self).MaintenanceMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaintenanceMode(&self, bmaintenancemode: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMaintenanceMode)(windows_core::Interface::as_raw(self), bmaintenancemode.into()).ok() }
+    pub unsafe fn SetMaintenanceMode(&self, bmaintenancemode: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMaintenanceMode)(windows_core::Interface::as_raw(self), bmaintenancemode.into()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12520,8 +12520,8 @@ impl ISClusResources {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource> {
@@ -12537,8 +12537,8 @@ impl ISClusResources {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13076,8 +13076,8 @@ impl ISCluster {
             (windows_core::Interface::vtable(self).Handle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Open(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclustername)).ok() }
+    pub unsafe fn Open(&self, bstrclustername: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclustername)) }
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -13085,8 +13085,8 @@ impl ISCluster {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclustername)).ok() }
+    pub unsafe fn SetName(&self, bstrclustername: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclustername)) }
     }
     pub unsafe fn Version(&self) -> windows_core::Result<ISClusVersion> {
         unsafe {
@@ -13094,11 +13094,11 @@ impl ISCluster {
             (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetQuorumResource<P0>(&self, pclusterresource: P0) -> windows_core::Result<()>
+    pub unsafe fn SetQuorumResource<P0>(&self, pclusterresource: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISClusResource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetQuorumResource)(windows_core::Interface::as_raw(self), pclusterresource.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetQuorumResource)(windows_core::Interface::as_raw(self), pclusterresource.param().abi()) }
     }
     pub unsafe fn QuorumResource(&self) -> windows_core::Result<ISClusResource> {
         unsafe {
@@ -13112,8 +13112,8 @@ impl ISCluster {
             (windows_core::Interface::vtable(self).QuorumLogSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetQuorumLogSize(&self, nlogsize: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetQuorumLogSize)(windows_core::Interface::as_raw(self), nlogsize).ok() }
+    pub unsafe fn SetQuorumLogSize(&self, nlogsize: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetQuorumLogSize)(windows_core::Interface::as_raw(self), nlogsize) }
     }
     pub unsafe fn QuorumPath(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -13121,8 +13121,8 @@ impl ISCluster {
             (windows_core::Interface::vtable(self).QuorumPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetQuorumPath(&self, ppath: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetQuorumPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(ppath)).ok() }
+    pub unsafe fn SetQuorumPath(&self, ppath: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetQuorumPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(ppath)) }
     }
     pub unsafe fn Nodes(&self) -> windows_core::Result<ISClusNodes> {
         unsafe {
@@ -13493,8 +13493,8 @@ impl ISClusterNames {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
@@ -13629,8 +13629,8 @@ impl ISDomainNames {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Refresh(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
@@ -13722,8 +13722,8 @@ impl windows_core::RuntimeName for ISDomainNames {}
 windows_core::imp::define_interface!(IWCContextMenuCallback, IWCContextMenuCallback_Vtbl, 0x97dede64_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWCContextMenuCallback, windows_core::IUnknown);
 impl IWCContextMenuCallback {
-    pub unsafe fn AddExtensionMenuItem(&self, lpszname: &windows_core::BSTR, lpszstatusbartext: &windows_core::BSTR, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddExtensionMenuItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), core::mem::transmute_copy(lpszstatusbartext), ncommandid, nsubmenucommandid, uflags).ok() }
+    pub unsafe fn AddExtensionMenuItem(&self, lpszname: &windows_core::BSTR, lpszstatusbartext: &windows_core::BSTR, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddExtensionMenuItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), core::mem::transmute_copy(lpszstatusbartext), ncommandid, nsubmenucommandid, uflags) }
     }
 }
 #[repr(C)]
@@ -13753,8 +13753,8 @@ impl windows_core::RuntimeName for IWCContextMenuCallback {}
 windows_core::imp::define_interface!(IWCPropertySheetCallback, IWCPropertySheetCallback_Vtbl, 0x97dede60_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWCPropertySheetCallback, windows_core::IUnknown);
 impl IWCPropertySheetCallback {
-    pub unsafe fn AddPropertySheetPage(&self, hpage: *const i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertySheetPage)(windows_core::Interface::as_raw(self), hpage).ok() }
+    pub unsafe fn AddPropertySheetPage(&self, hpage: *const i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPropertySheetPage)(windows_core::Interface::as_raw(self), hpage) }
     }
 }
 #[repr(C)]
@@ -13784,11 +13784,11 @@ impl windows_core::RuntimeName for IWCPropertySheetCallback {}
 windows_core::imp::define_interface!(IWCWizard97Callback, IWCWizard97Callback_Vtbl, 0x97dede67_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWCWizard97Callback, windows_core::IUnknown);
 impl IWCWizard97Callback {
-    pub unsafe fn AddWizard97Page(&self, hpage: *const i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddWizard97Page)(windows_core::Interface::as_raw(self), hpage).ok() }
+    pub unsafe fn AddWizard97Page(&self, hpage: *const i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddWizard97Page)(windows_core::Interface::as_raw(self), hpage) }
     }
-    pub unsafe fn EnableNext(&self, hpage: *const i32, benable: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), hpage, benable.into()).ok() }
+    pub unsafe fn EnableNext(&self, hpage: *const i32, benable: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), hpage, benable.into()) }
     }
 }
 #[repr(C)]
@@ -13830,11 +13830,11 @@ impl windows_core::RuntimeName for IWCWizard97Callback {}
 windows_core::imp::define_interface!(IWCWizardCallback, IWCWizardCallback_Vtbl, 0x97dede62_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWCWizardCallback, windows_core::IUnknown);
 impl IWCWizardCallback {
-    pub unsafe fn AddWizardPage(&self, hpage: *const i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddWizardPage)(windows_core::Interface::as_raw(self), hpage).ok() }
+    pub unsafe fn AddWizardPage(&self, hpage: *const i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddWizardPage)(windows_core::Interface::as_raw(self), hpage) }
     }
-    pub unsafe fn EnableNext(&self, hpage: *const i32, benable: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), hpage, benable.into()).ok() }
+    pub unsafe fn EnableNext(&self, hpage: *const i32, benable: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), hpage, benable.into()) }
     }
 }
 #[repr(C)]
@@ -13876,12 +13876,12 @@ impl windows_core::RuntimeName for IWCWizardCallback {}
 windows_core::imp::define_interface!(IWEExtendContextMenu, IWEExtendContextMenu_Vtbl, 0x97dede65_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWEExtendContextMenu, windows_core::IUnknown);
 impl IWEExtendContextMenu {
-    pub unsafe fn AddContextMenuItems<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
+    pub unsafe fn AddContextMenuItems<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IWCContextMenuCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddContextMenuItems)(windows_core::Interface::as_raw(self), pidata.param().abi(), picallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddContextMenuItems)(windows_core::Interface::as_raw(self), pidata.param().abi(), picallback.param().abi()) }
     }
 }
 #[repr(C)]
@@ -13911,12 +13911,12 @@ impl windows_core::RuntimeName for IWEExtendContextMenu {}
 windows_core::imp::define_interface!(IWEExtendPropertySheet, IWEExtendPropertySheet_Vtbl, 0x97dede61_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWEExtendPropertySheet, windows_core::IUnknown);
 impl IWEExtendPropertySheet {
-    pub unsafe fn CreatePropertySheetPages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
+    pub unsafe fn CreatePropertySheetPages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IWCPropertySheetCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePropertySheetPages)(windows_core::Interface::as_raw(self), pidata.param().abi(), picallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePropertySheetPages)(windows_core::Interface::as_raw(self), pidata.param().abi(), picallback.param().abi()) }
     }
 }
 #[repr(C)]
@@ -13946,12 +13946,12 @@ impl windows_core::RuntimeName for IWEExtendPropertySheet {}
 windows_core::imp::define_interface!(IWEExtendWizard, IWEExtendWizard_Vtbl, 0x97dede63_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWEExtendWizard, windows_core::IUnknown);
 impl IWEExtendWizard {
-    pub unsafe fn CreateWizardPages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
+    pub unsafe fn CreateWizardPages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IWCWizardCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateWizardPages)(windows_core::Interface::as_raw(self), pidata.param().abi(), picallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateWizardPages)(windows_core::Interface::as_raw(self), pidata.param().abi(), picallback.param().abi()) }
     }
 }
 #[repr(C)]
@@ -13981,12 +13981,12 @@ impl windows_core::RuntimeName for IWEExtendWizard {}
 windows_core::imp::define_interface!(IWEExtendWizard97, IWEExtendWizard97_Vtbl, 0x97dede68_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWEExtendWizard97, windows_core::IUnknown);
 impl IWEExtendWizard97 {
-    pub unsafe fn CreateWizard97Pages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
+    pub unsafe fn CreateWizard97Pages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IWCWizard97Callback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateWizard97Pages)(windows_core::Interface::as_raw(self), pidata.param().abi(), picallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateWizard97Pages)(windows_core::Interface::as_raw(self), pidata.param().abi(), picallback.param().abi()) }
     }
 }
 #[repr(C)]
@@ -14016,11 +14016,11 @@ impl windows_core::RuntimeName for IWEExtendWizard97 {}
 windows_core::imp::define_interface!(IWEInvokeCommand, IWEInvokeCommand_Vtbl, 0x97dede66_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWEInvokeCommand, windows_core::IUnknown);
 impl IWEInvokeCommand {
-    pub unsafe fn InvokeCommand<P1>(&self, ncommandid: u32, pidata: P1) -> windows_core::Result<()>
+    pub unsafe fn InvokeCommand<P1>(&self, ncommandid: u32, pidata: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InvokeCommand)(windows_core::Interface::as_raw(self), ncommandid, pidata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InvokeCommand)(windows_core::Interface::as_raw(self), ncommandid, pidata.param().abi()) }
     }
 }
 #[repr(C)]

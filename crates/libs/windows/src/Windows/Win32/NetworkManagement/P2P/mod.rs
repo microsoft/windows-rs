@@ -4,9 +4,9 @@ pub unsafe fn DrtClose(hdrt: *const core::ffi::c_void) {
     unsafe { DrtClose(hdrt) }
 }
 #[inline]
-pub unsafe fn DrtContinueSearch(hsearchcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DrtContinueSearch(hsearchcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("drt.dll" "system" fn DrtContinueSearch(hsearchcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DrtContinueSearch(hsearchcontext).ok() }
+    unsafe { DrtContinueSearch(hsearchcontext) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
@@ -38,9 +38,9 @@ where
     }
 }
 #[inline]
-pub unsafe fn DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: u32, dwlocalitythreshold: u32, pwport: *mut u16, phtransport: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: u32, dwlocalitythreshold: u32, pwport: *mut u16, phtransport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("drttransport.dll" "system" fn DrtCreateIpv6UdpTransport(scope : DRT_SCOPE, dwscopeid : u32, dwlocalitythreshold : u32, pwport : *mut u16, phtransport : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DrtCreateIpv6UdpTransport(scope, dwscopeid, dwlocalitythreshold, pwport as _, phtransport as _).ok() }
+    unsafe { DrtCreateIpv6UdpTransport(scope, dwscopeid, dwlocalitythreshold, pwport as _, phtransport as _) }
 }
 #[inline]
 pub unsafe fn DrtCreateNullSecurityProvider() -> windows_core::Result<*mut DRT_SECURITY_PROVIDER> {
@@ -74,9 +74,9 @@ pub unsafe fn DrtDeleteDnsBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROV
     unsafe { DrtDeleteDnsBootstrapResolver(presolver) }
 }
 #[inline]
-pub unsafe fn DrtDeleteIpv6UdpTransport(htransport: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DrtDeleteIpv6UdpTransport(htransport: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("drttransport.dll" "system" fn DrtDeleteIpv6UdpTransport(htransport : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DrtDeleteIpv6UdpTransport(htransport).ok() }
+    unsafe { DrtDeleteIpv6UdpTransport(htransport) }
 }
 #[inline]
 pub unsafe fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER) {
@@ -89,15 +89,15 @@ pub unsafe fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PRO
     unsafe { DrtDeletePnrpBootstrapResolver(presolver) }
 }
 #[inline]
-pub unsafe fn DrtEndSearch(hsearchcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DrtEndSearch(hsearchcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("drt.dll" "system" fn DrtEndSearch(hsearchcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DrtEndSearch(hsearchcontext).ok() }
+    unsafe { DrtEndSearch(hsearchcontext) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn DrtGetEventData(hdrt: *const core::ffi::c_void, uleventdatalen: u32, peventdata: *mut DRT_EVENT_DATA) -> windows_core::Result<()> {
+pub unsafe fn DrtGetEventData(hdrt: *const core::ffi::c_void, uleventdatalen: u32, peventdata: *mut DRT_EVENT_DATA) -> windows_core::HRESULT {
     windows_core::link!("drt.dll" "system" fn DrtGetEventData(hdrt : *const core::ffi::c_void, uleventdatalen : u32, peventdata : *mut DRT_EVENT_DATA) -> windows_core::HRESULT);
-    unsafe { DrtGetEventData(hdrt, uleventdatalen, peventdata as _).ok() }
+    unsafe { DrtGetEventData(hdrt, uleventdatalen, peventdata as _) }
 }
 #[inline]
 pub unsafe fn DrtGetEventDataSize(hdrt: *const core::ffi::c_void) -> windows_core::Result<u32> {
@@ -108,9 +108,9 @@ pub unsafe fn DrtGetEventDataSize(hdrt: *const core::ffi::c_void) -> windows_cor
     }
 }
 #[inline]
-pub unsafe fn DrtGetInstanceName(hdrt: *const core::ffi::c_void, ulcbinstancenamesize: u32, pwzdrtinstancename: windows_core::PWSTR) -> windows_core::Result<()> {
+pub unsafe fn DrtGetInstanceName(hdrt: *const core::ffi::c_void, ulcbinstancenamesize: u32, pwzdrtinstancename: windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("drt.dll" "system" fn DrtGetInstanceName(hdrt : *const core::ffi::c_void, ulcbinstancenamesize : u32, pwzdrtinstancename : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { DrtGetInstanceName(hdrt, ulcbinstancenamesize, core::mem::transmute(pwzdrtinstancename)).ok() }
+    unsafe { DrtGetInstanceName(hdrt, ulcbinstancenamesize, core::mem::transmute(pwzdrtinstancename)) }
 }
 #[inline]
 pub unsafe fn DrtGetInstanceNameSize(hdrt: *const core::ffi::c_void) -> windows_core::Result<u32> {
@@ -122,9 +122,9 @@ pub unsafe fn DrtGetInstanceNameSize(hdrt: *const core::ffi::c_void) -> windows_
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn DrtGetSearchPath(hsearchcontext: *const core::ffi::c_void, ulsearchpathsize: u32, psearchpath: *mut DRT_ADDRESS_LIST) -> windows_core::Result<()> {
+pub unsafe fn DrtGetSearchPath(hsearchcontext: *const core::ffi::c_void, ulsearchpathsize: u32, psearchpath: *mut DRT_ADDRESS_LIST) -> windows_core::HRESULT {
     windows_core::link!("drt.dll" "system" fn DrtGetSearchPath(hsearchcontext : *const core::ffi::c_void, ulsearchpathsize : u32, psearchpath : *mut DRT_ADDRESS_LIST) -> windows_core::HRESULT);
-    unsafe { DrtGetSearchPath(hsearchcontext, ulsearchpathsize, psearchpath as _).ok() }
+    unsafe { DrtGetSearchPath(hsearchcontext, ulsearchpathsize, psearchpath as _) }
 }
 #[inline]
 pub unsafe fn DrtGetSearchPathSize(hsearchcontext: *const core::ffi::c_void) -> windows_core::Result<u32> {
@@ -135,9 +135,9 @@ pub unsafe fn DrtGetSearchPathSize(hsearchcontext: *const core::ffi::c_void) -> 
     }
 }
 #[inline]
-pub unsafe fn DrtGetSearchResult(hsearchcontext: *const core::ffi::c_void, ulsearchresultsize: u32, psearchresult: *mut DRT_SEARCH_RESULT) -> windows_core::Result<()> {
+pub unsafe fn DrtGetSearchResult(hsearchcontext: *const core::ffi::c_void, ulsearchresultsize: u32, psearchresult: *mut DRT_SEARCH_RESULT) -> windows_core::HRESULT {
     windows_core::link!("drt.dll" "system" fn DrtGetSearchResult(hsearchcontext : *const core::ffi::c_void, ulsearchresultsize : u32, psearchresult : *mut DRT_SEARCH_RESULT) -> windows_core::HRESULT);
-    unsafe { DrtGetSearchResult(hsearchcontext, ulsearchresultsize, psearchresult as _).ok() }
+    unsafe { DrtGetSearchResult(hsearchcontext, ulsearchresultsize, psearchresult as _) }
 }
 #[inline]
 pub unsafe fn DrtGetSearchResultSize(hsearchcontext: *const core::ffi::c_void) -> windows_core::Result<u32> {
@@ -148,19 +148,19 @@ pub unsafe fn DrtGetSearchResultSize(hsearchcontext: *const core::ffi::c_void) -
     }
 }
 #[inline]
-pub unsafe fn DrtOpen(psettings: *const DRT_SETTINGS, hevent: Option<super::super::Foundation::HANDLE>, pvcontext: Option<*const core::ffi::c_void>, phdrt: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DrtOpen(psettings: *const DRT_SETTINGS, hevent: Option<super::super::Foundation::HANDLE>, pvcontext: Option<*const core::ffi::c_void>, phdrt: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("drt.dll" "system" fn DrtOpen(psettings : *const DRT_SETTINGS, hevent : super::super::Foundation::HANDLE, pvcontext : *const core::ffi::c_void, phdrt : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DrtOpen(psettings, hevent.unwrap_or(core::mem::zeroed()) as _, pvcontext.unwrap_or(core::mem::zeroed()) as _, phdrt as _).ok() }
+    unsafe { DrtOpen(psettings, hevent.unwrap_or(core::mem::zeroed()) as _, pvcontext.unwrap_or(core::mem::zeroed()) as _, phdrt as _) }
 }
 #[inline]
-pub unsafe fn DrtRegisterKey(hdrt: *const core::ffi::c_void, pregistration: *const DRT_REGISTRATION, pvkeycontext: Option<*const core::ffi::c_void>, phkeyregistration: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DrtRegisterKey(hdrt: *const core::ffi::c_void, pregistration: *const DRT_REGISTRATION, pvkeycontext: Option<*const core::ffi::c_void>, phkeyregistration: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("drt.dll" "system" fn DrtRegisterKey(hdrt : *const core::ffi::c_void, pregistration : *const DRT_REGISTRATION, pvkeycontext : *const core::ffi::c_void, phkeyregistration : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DrtRegisterKey(hdrt, pregistration, pvkeycontext.unwrap_or(core::mem::zeroed()) as _, phkeyregistration as _).ok() }
+    unsafe { DrtRegisterKey(hdrt, pregistration, pvkeycontext.unwrap_or(core::mem::zeroed()) as _, phkeyregistration as _) }
 }
 #[inline]
-pub unsafe fn DrtStartSearch(hdrt: *const core::ffi::c_void, pkey: *const DRT_DATA, pinfo: Option<*const DRT_SEARCH_INFO>, timeout: u32, hevent: super::super::Foundation::HANDLE, pvcontext: Option<*const core::ffi::c_void>, hsearchcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DrtStartSearch(hdrt: *const core::ffi::c_void, pkey: *const DRT_DATA, pinfo: Option<*const DRT_SEARCH_INFO>, timeout: u32, hevent: super::super::Foundation::HANDLE, pvcontext: Option<*const core::ffi::c_void>, hsearchcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("drt.dll" "system" fn DrtStartSearch(hdrt : *const core::ffi::c_void, pkey : *const DRT_DATA, pinfo : *const DRT_SEARCH_INFO, timeout : u32, hevent : super::super::Foundation::HANDLE, pvcontext : *const core::ffi::c_void, hsearchcontext : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DrtStartSearch(hdrt, pkey, pinfo.unwrap_or(core::mem::zeroed()) as _, timeout, hevent, pvcontext.unwrap_or(core::mem::zeroed()) as _, hsearchcontext as _).ok() }
+    unsafe { DrtStartSearch(hdrt, pkey, pinfo.unwrap_or(core::mem::zeroed()) as _, timeout, hevent, pvcontext.unwrap_or(core::mem::zeroed()) as _, hsearchcontext as _) }
 }
 #[inline]
 pub unsafe fn DrtUnregisterKey(hkeyregistration: *const core::ffi::c_void) {
@@ -168,90 +168,90 @@ pub unsafe fn DrtUnregisterKey(hkeyregistration: *const core::ffi::c_void) {
     unsafe { DrtUnregisterKey(hkeyregistration) }
 }
 #[inline]
-pub unsafe fn DrtUpdateKey(hkeyregistration: *const core::ffi::c_void, pappdata: *const DRT_DATA) -> windows_core::Result<()> {
+pub unsafe fn DrtUpdateKey(hkeyregistration: *const core::ffi::c_void, pappdata: *const DRT_DATA) -> windows_core::HRESULT {
     windows_core::link!("drt.dll" "system" fn DrtUpdateKey(hkeyregistration : *const core::ffi::c_void, pappdata : *const DRT_DATA) -> windows_core::HRESULT);
-    unsafe { DrtUpdateKey(hkeyregistration, pappdata).ok() }
+    unsafe { DrtUpdateKey(hkeyregistration, pappdata) }
 }
 #[inline]
-pub unsafe fn PeerCollabAddContact<P0>(pwzcontactdata: P0, ppcontact: Option<*mut *mut PEER_CONTACT>) -> windows_core::Result<()>
+pub unsafe fn PeerCollabAddContact<P0>(pwzcontactdata: P0, ppcontact: Option<*mut *mut PEER_CONTACT>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerCollabAddContact(pwzcontactdata : windows_core::PCWSTR, ppcontact : *mut *mut PEER_CONTACT) -> windows_core::HRESULT);
-    unsafe { PeerCollabAddContact(pwzcontactdata.param().abi(), ppcontact.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { PeerCollabAddContact(pwzcontactdata.param().abi(), ppcontact.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerCollabAsyncInviteContact(pccontact: Option<*const PEER_CONTACT>, pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: Option<super::super::Foundation::HANDLE>, phinvitation: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabAsyncInviteContact(pccontact: Option<*const PEER_CONTACT>, pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: Option<super::super::Foundation::HANDLE>, phinvitation: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabAsyncInviteContact(pccontact : *const PEER_CONTACT, pcendpoint : *const PEER_ENDPOINT, pcinvitation : *const PEER_INVITATION, hevent : super::super::Foundation::HANDLE, phinvitation : *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { PeerCollabAsyncInviteContact(pccontact.unwrap_or(core::mem::zeroed()) as _, pcendpoint, pcinvitation, hevent.unwrap_or(core::mem::zeroed()) as _, phinvitation.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { PeerCollabAsyncInviteContact(pccontact.unwrap_or(core::mem::zeroed()) as _, pcendpoint, pcinvitation, hevent.unwrap_or(core::mem::zeroed()) as _, phinvitation.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerCollabAsyncInviteEndpoint(pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: Option<super::super::Foundation::HANDLE>, phinvitation: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabAsyncInviteEndpoint(pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: Option<super::super::Foundation::HANDLE>, phinvitation: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabAsyncInviteEndpoint(pcendpoint : *const PEER_ENDPOINT, pcinvitation : *const PEER_INVITATION, hevent : super::super::Foundation::HANDLE, phinvitation : *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { PeerCollabAsyncInviteEndpoint(pcendpoint, pcinvitation, hevent.unwrap_or(core::mem::zeroed()) as _, phinvitation.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { PeerCollabAsyncInviteEndpoint(pcendpoint, pcinvitation, hevent.unwrap_or(core::mem::zeroed()) as _, phinvitation.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn PeerCollabCancelInvitation(hinvitation: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabCancelInvitation(hinvitation: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabCancelInvitation(hinvitation : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { PeerCollabCancelInvitation(hinvitation).ok() }
+    unsafe { PeerCollabCancelInvitation(hinvitation) }
 }
 #[inline]
-pub unsafe fn PeerCollabCloseHandle(hinvitation: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabCloseHandle(hinvitation: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabCloseHandle(hinvitation : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { PeerCollabCloseHandle(hinvitation).ok() }
+    unsafe { PeerCollabCloseHandle(hinvitation) }
 }
 #[inline]
-pub unsafe fn PeerCollabDeleteContact<P0>(pwzpeername: P0) -> windows_core::Result<()>
+pub unsafe fn PeerCollabDeleteContact<P0>(pwzpeername: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerCollabDeleteContact(pwzpeername : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerCollabDeleteContact(pwzpeername.param().abi()).ok() }
+    unsafe { PeerCollabDeleteContact(pwzpeername.param().abi()) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerCollabDeleteEndpointData(pcendpoint: *const PEER_ENDPOINT) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabDeleteEndpointData(pcendpoint: *const PEER_ENDPOINT) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabDeleteEndpointData(pcendpoint : *const PEER_ENDPOINT) -> windows_core::HRESULT);
-    unsafe { PeerCollabDeleteEndpointData(pcendpoint).ok() }
+    unsafe { PeerCollabDeleteEndpointData(pcendpoint) }
 }
 #[inline]
-pub unsafe fn PeerCollabDeleteObject(pobjectid: *const windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabDeleteObject(pobjectid: *const windows_core::GUID) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabDeleteObject(pobjectid : *const windows_core::GUID) -> windows_core::HRESULT);
-    unsafe { PeerCollabDeleteObject(pobjectid).ok() }
+    unsafe { PeerCollabDeleteObject(pobjectid) }
 }
 #[inline]
-pub unsafe fn PeerCollabEnumApplicationRegistrationInfo(registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabEnumApplicationRegistrationInfo(registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabEnumApplicationRegistrationInfo(registrationtype : PEER_APPLICATION_REGISTRATION_TYPE, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerCollabEnumApplicationRegistrationInfo(registrationtype, phpeerenum as _).ok() }
+    unsafe { PeerCollabEnumApplicationRegistrationInfo(registrationtype, phpeerenum as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerCollabEnumApplications(pcendpoint: Option<*const PEER_ENDPOINT>, papplicationid: Option<*const windows_core::GUID>, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabEnumApplications(pcendpoint: Option<*const PEER_ENDPOINT>, papplicationid: Option<*const windows_core::GUID>, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabEnumApplications(pcendpoint : *const PEER_ENDPOINT, papplicationid : *const windows_core::GUID, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerCollabEnumApplications(pcendpoint.unwrap_or(core::mem::zeroed()) as _, papplicationid.unwrap_or(core::mem::zeroed()) as _, phpeerenum as _).ok() }
+    unsafe { PeerCollabEnumApplications(pcendpoint.unwrap_or(core::mem::zeroed()) as _, papplicationid.unwrap_or(core::mem::zeroed()) as _, phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerCollabEnumContacts(phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabEnumContacts(phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabEnumContacts(phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerCollabEnumContacts(phpeerenum as _).ok() }
+    unsafe { PeerCollabEnumContacts(phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerCollabEnumEndpoints(pccontact: Option<*const PEER_CONTACT>, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabEnumEndpoints(pccontact: Option<*const PEER_CONTACT>, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabEnumEndpoints(pccontact : *const PEER_CONTACT, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerCollabEnumEndpoints(pccontact.unwrap_or(core::mem::zeroed()) as _, phpeerenum as _).ok() }
+    unsafe { PeerCollabEnumEndpoints(pccontact.unwrap_or(core::mem::zeroed()) as _, phpeerenum as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerCollabEnumObjects(pcendpoint: Option<*const PEER_ENDPOINT>, pobjectid: Option<*const windows_core::GUID>, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabEnumObjects(pcendpoint: Option<*const PEER_ENDPOINT>, pobjectid: Option<*const windows_core::GUID>, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabEnumObjects(pcendpoint : *const PEER_ENDPOINT, pobjectid : *const windows_core::GUID, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerCollabEnumObjects(pcendpoint.unwrap_or(core::mem::zeroed()) as _, pobjectid.unwrap_or(core::mem::zeroed()) as _, phpeerenum as _).ok() }
+    unsafe { PeerCollabEnumObjects(pcendpoint.unwrap_or(core::mem::zeroed()) as _, pobjectid.unwrap_or(core::mem::zeroed()) as _, phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerCollabEnumPeopleNearMe(phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabEnumPeopleNearMe(phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabEnumPeopleNearMe(phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerCollabEnumPeopleNearMe(phpeerenum as _).ok() }
+    unsafe { PeerCollabEnumPeopleNearMe(phpeerenum as _) }
 }
 #[inline]
 pub unsafe fn PeerCollabExportContact<P0>(pwzpeername: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -374,84 +374,84 @@ pub unsafe fn PeerCollabQueryContactData(pcendpoint: Option<*const PEER_ENDPOINT
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerCollabRefreshEndpointData(pcendpoint: *const PEER_ENDPOINT) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabRefreshEndpointData(pcendpoint: *const PEER_ENDPOINT) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabRefreshEndpointData(pcendpoint : *const PEER_ENDPOINT) -> windows_core::HRESULT);
-    unsafe { PeerCollabRefreshEndpointData(pcendpoint).ok() }
+    unsafe { PeerCollabRefreshEndpointData(pcendpoint) }
 }
 #[inline]
-pub unsafe fn PeerCollabRegisterApplication(pcapplication: *const PEER_APPLICATION_REGISTRATION_INFO, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabRegisterApplication(pcapplication: *const PEER_APPLICATION_REGISTRATION_INFO, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabRegisterApplication(pcapplication : *const PEER_APPLICATION_REGISTRATION_INFO, registrationtype : PEER_APPLICATION_REGISTRATION_TYPE) -> windows_core::HRESULT);
-    unsafe { PeerCollabRegisterApplication(pcapplication, registrationtype).ok() }
+    unsafe { PeerCollabRegisterApplication(pcapplication, registrationtype) }
 }
 #[inline]
-pub unsafe fn PeerCollabRegisterEvent(hevent: super::super::Foundation::HANDLE, peventregistrations: &[PEER_COLLAB_EVENT_REGISTRATION], phpeerevent: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabRegisterEvent(hevent: super::super::Foundation::HANDLE, peventregistrations: &[PEER_COLLAB_EVENT_REGISTRATION], phpeerevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabRegisterEvent(hevent : super::super::Foundation::HANDLE, ceventregistration : u32, peventregistrations : *const PEER_COLLAB_EVENT_REGISTRATION, phpeerevent : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerCollabRegisterEvent(hevent, peventregistrations.len().try_into().unwrap(), core::mem::transmute(peventregistrations.as_ptr()), phpeerevent as _).ok() }
+    unsafe { PeerCollabRegisterEvent(hevent, peventregistrations.len().try_into().unwrap(), core::mem::transmute(peventregistrations.as_ptr()), phpeerevent as _) }
 }
 #[inline]
-pub unsafe fn PeerCollabSetEndpointName<P0>(pwzendpointname: P0) -> windows_core::Result<()>
+pub unsafe fn PeerCollabSetEndpointName<P0>(pwzendpointname: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerCollabSetEndpointName(pwzendpointname : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerCollabSetEndpointName(pwzendpointname.param().abi()).ok() }
+    unsafe { PeerCollabSetEndpointName(pwzendpointname.param().abi()) }
 }
 #[inline]
-pub unsafe fn PeerCollabSetObject(pcobject: *const PEER_OBJECT) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabSetObject(pcobject: *const PEER_OBJECT) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabSetObject(pcobject : *const PEER_OBJECT) -> windows_core::HRESULT);
-    unsafe { PeerCollabSetObject(pcobject).ok() }
+    unsafe { PeerCollabSetObject(pcobject) }
 }
 #[inline]
-pub unsafe fn PeerCollabSetPresenceInfo(pcpresenceinfo: *const PEER_PRESENCE_INFO) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabSetPresenceInfo(pcpresenceinfo: *const PEER_PRESENCE_INFO) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabSetPresenceInfo(pcpresenceinfo : *const PEER_PRESENCE_INFO) -> windows_core::HRESULT);
-    unsafe { PeerCollabSetPresenceInfo(pcpresenceinfo).ok() }
+    unsafe { PeerCollabSetPresenceInfo(pcpresenceinfo) }
 }
 #[inline]
-pub unsafe fn PeerCollabShutdown() -> windows_core::Result<()> {
+pub unsafe fn PeerCollabShutdown() -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabShutdown() -> windows_core::HRESULT);
-    unsafe { PeerCollabShutdown().ok() }
+    unsafe { PeerCollabShutdown() }
 }
 #[inline]
-pub unsafe fn PeerCollabSignin(hwndparent: Option<super::super::Foundation::HWND>, dwsigninoptions: u32) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabSignin(hwndparent: Option<super::super::Foundation::HWND>, dwsigninoptions: u32) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabSignin(hwndparent : super::super::Foundation::HWND, dwsigninoptions : u32) -> windows_core::HRESULT);
-    unsafe { PeerCollabSignin(hwndparent.unwrap_or(core::mem::zeroed()) as _, dwsigninoptions).ok() }
+    unsafe { PeerCollabSignin(hwndparent.unwrap_or(core::mem::zeroed()) as _, dwsigninoptions) }
 }
 #[inline]
-pub unsafe fn PeerCollabSignout(dwsigninoptions: u32) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabSignout(dwsigninoptions: u32) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabSignout(dwsigninoptions : u32) -> windows_core::HRESULT);
-    unsafe { PeerCollabSignout(dwsigninoptions).ok() }
+    unsafe { PeerCollabSignout(dwsigninoptions) }
 }
 #[inline]
-pub unsafe fn PeerCollabStartup(wversionrequested: u16) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabStartup(wversionrequested: u16) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabStartup(wversionrequested : u16) -> windows_core::HRESULT);
-    unsafe { PeerCollabStartup(wversionrequested).ok() }
+    unsafe { PeerCollabStartup(wversionrequested) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerCollabSubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabSubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabSubscribeEndpointData(pcendpoint : *const PEER_ENDPOINT) -> windows_core::HRESULT);
-    unsafe { PeerCollabSubscribeEndpointData(pcendpoint).ok() }
+    unsafe { PeerCollabSubscribeEndpointData(pcendpoint) }
 }
 #[inline]
-pub unsafe fn PeerCollabUnregisterApplication(papplicationid: *const windows_core::GUID, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabUnregisterApplication(papplicationid: *const windows_core::GUID, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabUnregisterApplication(papplicationid : *const windows_core::GUID, registrationtype : PEER_APPLICATION_REGISTRATION_TYPE) -> windows_core::HRESULT);
-    unsafe { PeerCollabUnregisterApplication(papplicationid, registrationtype).ok() }
+    unsafe { PeerCollabUnregisterApplication(papplicationid, registrationtype) }
 }
 #[inline]
-pub unsafe fn PeerCollabUnregisterEvent(hpeerevent: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabUnregisterEvent(hpeerevent: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabUnregisterEvent(hpeerevent : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerCollabUnregisterEvent(hpeerevent).ok() }
+    unsafe { PeerCollabUnregisterEvent(hpeerevent) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerCollabUnsubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabUnsubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabUnsubscribeEndpointData(pcendpoint : *const PEER_ENDPOINT) -> windows_core::HRESULT);
-    unsafe { PeerCollabUnsubscribeEndpointData(pcendpoint).ok() }
+    unsafe { PeerCollabUnsubscribeEndpointData(pcendpoint) }
 }
 #[inline]
-pub unsafe fn PeerCollabUpdateContact(pcontact: *const PEER_CONTACT) -> windows_core::Result<()> {
+pub unsafe fn PeerCollabUpdateContact(pcontact: *const PEER_CONTACT) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerCollabUpdateContact(pcontact : *const PEER_CONTACT) -> windows_core::HRESULT);
-    unsafe { PeerCollabUpdateContact(pcontact).ok() }
+    unsafe { PeerCollabUpdateContact(pcontact) }
 }
 #[inline]
 pub unsafe fn PeerCreatePeerName<P0, P1>(pwzidentity: P0, pwzclassifier: P1) -> windows_core::Result<windows_core::PWSTR>
@@ -620,22 +620,22 @@ pub unsafe fn PeerDistUnregisterForStatusChangeNotification(hpeerdist: isize) ->
     unsafe { PeerDistUnregisterForStatusChangeNotification(hpeerdist) }
 }
 #[inline]
-pub unsafe fn PeerEndEnumeration(hpeerenum: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerEndEnumeration(hpeerenum: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerEndEnumeration(hpeerenum : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerEndEnumeration(hpeerenum).ok() }
+    unsafe { PeerEndEnumeration(hpeerenum) }
 }
 #[inline]
-pub unsafe fn PeerEnumGroups<P0>(pwzidentity: P0, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerEnumGroups<P0>(pwzidentity: P0, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerEnumGroups(pwzidentity : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerEnumGroups(pwzidentity.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerEnumGroups(pwzidentity.param().abi(), phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerEnumIdentities(phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerEnumIdentities(phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerEnumIdentities(phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerEnumIdentities(phpeerenum as _).ok() }
+    unsafe { PeerEnumIdentities(phpeerenum as _) }
 }
 #[inline]
 pub unsafe fn PeerFreeData(pvdata: Option<*const core::ffi::c_void>) {
@@ -651,9 +651,9 @@ pub unsafe fn PeerGetItemCount(hpeerenum: *const core::ffi::c_void) -> windows_c
     }
 }
 #[inline]
-pub unsafe fn PeerGetNextItem(hpeerenum: *const core::ffi::c_void, pcount: *mut u32, pppvitems: *mut *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGetNextItem(hpeerenum: *const core::ffi::c_void, pcount: *mut u32, pppvitems: *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGetNextItem(hpeerenum : *const core::ffi::c_void, pcount : *mut u32, pppvitems : *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGetNextItem(hpeerenum, pcount as _, pppvitems as _).ok() }
+    unsafe { PeerGetNextItem(hpeerenum, pcount as _, pppvitems as _) }
 }
 #[inline]
 pub unsafe fn PeerGraphAddRecord(hgraph: *const core::ffi::c_void, precord: *const PEER_RECORD) -> windows_core::Result<windows_core::GUID> {
@@ -664,14 +664,14 @@ pub unsafe fn PeerGraphAddRecord(hgraph: *const core::ffi::c_void, precord: *con
     }
 }
 #[inline]
-pub unsafe fn PeerGraphClose(hgraph: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphClose(hgraph: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphClose(hgraph : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphClose(hgraph).ok() }
+    unsafe { PeerGraphClose(hgraph) }
 }
 #[inline]
-pub unsafe fn PeerGraphCloseDirectConnection(hgraph: *const core::ffi::c_void, ullconnectionid: u64) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphCloseDirectConnection(hgraph: *const core::ffi::c_void, ullconnectionid: u64) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphCloseDirectConnection(hgraph : *const core::ffi::c_void, ullconnectionid : u64) -> windows_core::HRESULT);
-    unsafe { PeerGraphCloseDirectConnection(hgraph, ullconnectionid).ok() }
+    unsafe { PeerGraphCloseDirectConnection(hgraph, ullconnectionid) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -686,61 +686,61 @@ where
     }
 }
 #[inline]
-pub unsafe fn PeerGraphCreate<P1>(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: P1, psecurityinterface: Option<*const PEER_SECURITY_INTERFACE>, phgraph: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGraphCreate<P1>(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: P1, psecurityinterface: Option<*const PEER_SECURITY_INTERFACE>, phgraph: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphCreate(pgraphproperties : *const PEER_GRAPH_PROPERTIES, pwzdatabasename : windows_core::PCWSTR, psecurityinterface : *const PEER_SECURITY_INTERFACE, phgraph : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphCreate(pgraphproperties, pwzdatabasename.param().abi(), psecurityinterface.unwrap_or(core::mem::zeroed()) as _, phgraph as _).ok() }
+    unsafe { PeerGraphCreate(pgraphproperties, pwzdatabasename.param().abi(), psecurityinterface.unwrap_or(core::mem::zeroed()) as _, phgraph as _) }
 }
 #[inline]
-pub unsafe fn PeerGraphDelete<P0, P1, P2>(pwzgraphid: P0, pwzpeerid: P1, pwzdatabasename: P2) -> windows_core::Result<()>
+pub unsafe fn PeerGraphDelete<P0, P1, P2>(pwzgraphid: P0, pwzpeerid: P1, pwzdatabasename: P2) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphDelete(pwzgraphid : windows_core::PCWSTR, pwzpeerid : windows_core::PCWSTR, pwzdatabasename : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGraphDelete(pwzgraphid.param().abi(), pwzpeerid.param().abi(), pwzdatabasename.param().abi()).ok() }
+    unsafe { PeerGraphDelete(pwzgraphid.param().abi(), pwzpeerid.param().abi(), pwzdatabasename.param().abi()) }
 }
 #[inline]
-pub unsafe fn PeerGraphDeleteRecord(hgraph: *const core::ffi::c_void, precordid: *const windows_core::GUID, flocal: bool) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphDeleteRecord(hgraph: *const core::ffi::c_void, precordid: *const windows_core::GUID, flocal: bool) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphDeleteRecord(hgraph : *const core::ffi::c_void, precordid : *const windows_core::GUID, flocal : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { PeerGraphDeleteRecord(hgraph, precordid, flocal.into()).ok() }
+    unsafe { PeerGraphDeleteRecord(hgraph, precordid, flocal.into()) }
 }
 #[inline]
-pub unsafe fn PeerGraphEndEnumeration(hpeerenum: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphEndEnumeration(hpeerenum: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphEndEnumeration(hpeerenum : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphEndEnumeration(hpeerenum).ok() }
+    unsafe { PeerGraphEndEnumeration(hpeerenum) }
 }
 #[inline]
-pub unsafe fn PeerGraphEnumConnections(hgraph: *const core::ffi::c_void, dwflags: u32, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphEnumConnections(hgraph: *const core::ffi::c_void, dwflags: u32, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphEnumConnections(hgraph : *const core::ffi::c_void, dwflags : u32, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphEnumConnections(hgraph, dwflags, phpeerenum as _).ok() }
+    unsafe { PeerGraphEnumConnections(hgraph, dwflags, phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerGraphEnumNodes<P1>(hgraph: *const core::ffi::c_void, pwzpeerid: P1, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGraphEnumNodes<P1>(hgraph: *const core::ffi::c_void, pwzpeerid: P1, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphEnumNodes(hgraph : *const core::ffi::c_void, pwzpeerid : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphEnumNodes(hgraph, pwzpeerid.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerGraphEnumNodes(hgraph, pwzpeerid.param().abi(), phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerGraphEnumRecords<P2>(hgraph: *const core::ffi::c_void, precordtype: Option<*const windows_core::GUID>, pwzpeerid: P2, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGraphEnumRecords<P2>(hgraph: *const core::ffi::c_void, precordtype: Option<*const windows_core::GUID>, pwzpeerid: P2, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphEnumRecords(hgraph : *const core::ffi::c_void, precordtype : *const windows_core::GUID, pwzpeerid : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphEnumRecords(hgraph, precordtype.unwrap_or(core::mem::zeroed()) as _, pwzpeerid.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerGraphEnumRecords(hgraph, precordtype.unwrap_or(core::mem::zeroed()) as _, pwzpeerid.param().abi(), phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerGraphExportDatabase<P1>(hgraph: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>
+pub unsafe fn PeerGraphExportDatabase<P1>(hgraph: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphExportDatabase(hgraph : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGraphExportDatabase(hgraph, pwzfilepath.param().abi()).ok() }
+    unsafe { PeerGraphExportDatabase(hgraph, pwzfilepath.param().abi()) }
 }
 #[inline]
 pub unsafe fn PeerGraphFreeData(pvdata: *const core::ffi::c_void) {
@@ -764,9 +764,9 @@ pub unsafe fn PeerGraphGetItemCount(hpeerenum: *const core::ffi::c_void) -> wind
     }
 }
 #[inline]
-pub unsafe fn PeerGraphGetNextItem(hpeerenum: *const core::ffi::c_void, pcount: *mut u32, pppvitems: *mut *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphGetNextItem(hpeerenum: *const core::ffi::c_void, pcount: *mut u32, pppvitems: *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphGetNextItem(hpeerenum : *const core::ffi::c_void, pcount : *mut u32, pppvitems : *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphGetNextItem(hpeerenum, pcount as _, pppvitems as _).ok() }
+    unsafe { PeerGraphGetNextItem(hpeerenum, pcount as _, pppvitems as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -802,27 +802,27 @@ pub unsafe fn PeerGraphGetStatus(hgraph: *const core::ffi::c_void) -> windows_co
     }
 }
 #[inline]
-pub unsafe fn PeerGraphImportDatabase<P1>(hgraph: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>
+pub unsafe fn PeerGraphImportDatabase<P1>(hgraph: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphImportDatabase(hgraph : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGraphImportDatabase(hgraph, pwzfilepath.param().abi()).ok() }
+    unsafe { PeerGraphImportDatabase(hgraph, pwzfilepath.param().abi()) }
 }
 #[inline]
-pub unsafe fn PeerGraphListen(hgraph: *const core::ffi::c_void, dwscope: Option<u32>, dwscopeid: Option<u32>, wport: Option<u16>) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphListen(hgraph: *const core::ffi::c_void, dwscope: Option<u32>, dwscopeid: Option<u32>, wport: Option<u16>) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphListen(hgraph : *const core::ffi::c_void, dwscope : u32, dwscopeid : u32, wport : u16) -> windows_core::HRESULT);
-    unsafe { PeerGraphListen(hgraph, dwscope.unwrap_or(core::mem::zeroed()) as _, dwscopeid.unwrap_or(core::mem::zeroed()) as _, wport.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { PeerGraphListen(hgraph, dwscope.unwrap_or(core::mem::zeroed()) as _, dwscopeid.unwrap_or(core::mem::zeroed()) as _, wport.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn PeerGraphOpen<P0, P1, P2>(pwzgraphid: P0, pwzpeerid: P1, pwzdatabasename: P2, psecurityinterface: Option<*const PEER_SECURITY_INTERFACE>, precordtypesyncprecedence: Option<&[windows_core::GUID]>, phgraph: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGraphOpen<P0, P1, P2>(pwzgraphid: P0, pwzpeerid: P1, pwzdatabasename: P2, psecurityinterface: Option<*const PEER_SECURITY_INTERFACE>, precordtypesyncprecedence: Option<&[windows_core::GUID]>, phgraph: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphOpen(pwzgraphid : windows_core::PCWSTR, pwzpeerid : windows_core::PCWSTR, pwzdatabasename : windows_core::PCWSTR, psecurityinterface : *const PEER_SECURITY_INTERFACE, crecordtypesyncprecedence : u32, precordtypesyncprecedence : *const windows_core::GUID, phgraph : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphOpen(pwzgraphid.param().abi(), pwzpeerid.param().abi(), pwzdatabasename.param().abi(), psecurityinterface.unwrap_or(core::mem::zeroed()) as _, precordtypesyncprecedence.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(precordtypesyncprecedence.map_or(core::ptr::null(), |slice| slice.as_ptr())), phgraph as _).ok() }
+    unsafe { PeerGraphOpen(pwzgraphid.param().abi(), pwzpeerid.param().abi(), pwzdatabasename.param().abi(), psecurityinterface.unwrap_or(core::mem::zeroed()) as _, precordtypesyncprecedence.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(precordtypesyncprecedence.map_or(core::ptr::null(), |slice| slice.as_ptr())), phgraph as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -845,45 +845,45 @@ pub unsafe fn PeerGraphPeerTimeToUniversalTime(hgraph: *const core::ffi::c_void,
     }
 }
 #[inline]
-pub unsafe fn PeerGraphRegisterEvent(hgraph: *const core::ffi::c_void, hevent: super::super::Foundation::HANDLE, peventregistrations: &[PEER_GRAPH_EVENT_REGISTRATION], phpeerevent: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphRegisterEvent(hgraph: *const core::ffi::c_void, hevent: super::super::Foundation::HANDLE, peventregistrations: &[PEER_GRAPH_EVENT_REGISTRATION], phpeerevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphRegisterEvent(hgraph : *const core::ffi::c_void, hevent : super::super::Foundation::HANDLE, ceventregistrations : u32, peventregistrations : *const PEER_GRAPH_EVENT_REGISTRATION, phpeerevent : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphRegisterEvent(hgraph, hevent, peventregistrations.len().try_into().unwrap(), core::mem::transmute(peventregistrations.as_ptr()), phpeerevent as _).ok() }
+    unsafe { PeerGraphRegisterEvent(hgraph, hevent, peventregistrations.len().try_into().unwrap(), core::mem::transmute(peventregistrations.as_ptr()), phpeerevent as _) }
 }
 #[inline]
-pub unsafe fn PeerGraphSearchRecords<P1>(hgraph: *const core::ffi::c_void, pwzcriteria: P1, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGraphSearchRecords<P1>(hgraph: *const core::ffi::c_void, pwzcriteria: P1, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphSearchRecords(hgraph : *const core::ffi::c_void, pwzcriteria : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphSearchRecords(hgraph, pwzcriteria.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerGraphSearchRecords(hgraph, pwzcriteria.param().abi(), phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerGraphSendData(hgraph: *const core::ffi::c_void, ullconnectionid: u64, ptype: *const windows_core::GUID, cbdata: u32, pvdata: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphSendData(hgraph: *const core::ffi::c_void, ullconnectionid: u64, ptype: *const windows_core::GUID, cbdata: u32, pvdata: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphSendData(hgraph : *const core::ffi::c_void, ullconnectionid : u64, ptype : *const windows_core::GUID, cbdata : u32, pvdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphSendData(hgraph, ullconnectionid, ptype, cbdata, pvdata).ok() }
+    unsafe { PeerGraphSendData(hgraph, ullconnectionid, ptype, cbdata, pvdata) }
 }
 #[inline]
-pub unsafe fn PeerGraphSetNodeAttributes<P1>(hgraph: *const core::ffi::c_void, pwzattributes: P1) -> windows_core::Result<()>
+pub unsafe fn PeerGraphSetNodeAttributes<P1>(hgraph: *const core::ffi::c_void, pwzattributes: P1) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphSetNodeAttributes(hgraph : *const core::ffi::c_void, pwzattributes : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGraphSetNodeAttributes(hgraph, pwzattributes.param().abi()).ok() }
+    unsafe { PeerGraphSetNodeAttributes(hgraph, pwzattributes.param().abi()) }
 }
 #[inline]
-pub unsafe fn PeerGraphSetPresence(hgraph: *const core::ffi::c_void, fpresent: bool) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphSetPresence(hgraph: *const core::ffi::c_void, fpresent: bool) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphSetPresence(hgraph : *const core::ffi::c_void, fpresent : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { PeerGraphSetPresence(hgraph, fpresent.into()).ok() }
+    unsafe { PeerGraphSetPresence(hgraph, fpresent.into()) }
 }
 #[inline]
-pub unsafe fn PeerGraphSetProperties(hgraph: *const core::ffi::c_void, pgraphproperties: *const PEER_GRAPH_PROPERTIES) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphSetProperties(hgraph: *const core::ffi::c_void, pgraphproperties: *const PEER_GRAPH_PROPERTIES) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphSetProperties(hgraph : *const core::ffi::c_void, pgraphproperties : *const PEER_GRAPH_PROPERTIES) -> windows_core::HRESULT);
-    unsafe { PeerGraphSetProperties(hgraph, pgraphproperties).ok() }
+    unsafe { PeerGraphSetProperties(hgraph, pgraphproperties) }
 }
 #[inline]
-pub unsafe fn PeerGraphShutdown() -> windows_core::Result<()> {
+pub unsafe fn PeerGraphShutdown() -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphShutdown() -> windows_core::HRESULT);
-    unsafe { PeerGraphShutdown().ok() }
+    unsafe { PeerGraphShutdown() }
 }
 #[inline]
 pub unsafe fn PeerGraphStartup(wversionrequested: u16) -> windows_core::Result<PEER_VERSION_DATA> {
@@ -902,19 +902,19 @@ pub unsafe fn PeerGraphUniversalTimeToPeerTime(hgraph: *const core::ffi::c_void,
     }
 }
 #[inline]
-pub unsafe fn PeerGraphUnregisterEvent(hpeerevent: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphUnregisterEvent(hpeerevent: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphUnregisterEvent(hpeerevent : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphUnregisterEvent(hpeerevent).ok() }
+    unsafe { PeerGraphUnregisterEvent(hpeerevent) }
 }
 #[inline]
-pub unsafe fn PeerGraphUpdateRecord(hgraph: *const core::ffi::c_void, precord: *const PEER_RECORD) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphUpdateRecord(hgraph: *const core::ffi::c_void, precord: *const PEER_RECORD) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphUpdateRecord(hgraph : *const core::ffi::c_void, precord : *const PEER_RECORD) -> windows_core::HRESULT);
-    unsafe { PeerGraphUpdateRecord(hgraph, precord).ok() }
+    unsafe { PeerGraphUpdateRecord(hgraph, precord) }
 }
 #[inline]
-pub unsafe fn PeerGraphValidateDeferredRecords(hgraph: *const core::ffi::c_void, precordids: &[windows_core::GUID]) -> windows_core::Result<()> {
+pub unsafe fn PeerGraphValidateDeferredRecords(hgraph: *const core::ffi::c_void, precordids: &[windows_core::GUID]) -> windows_core::HRESULT {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphValidateDeferredRecords(hgraph : *const core::ffi::c_void, crecordids : u32, precordids : *const windows_core::GUID) -> windows_core::HRESULT);
-    unsafe { PeerGraphValidateDeferredRecords(hgraph, precordids.len().try_into().unwrap(), core::mem::transmute(precordids.as_ptr())).ok() }
+    unsafe { PeerGraphValidateDeferredRecords(hgraph, precordids.len().try_into().unwrap(), core::mem::transmute(precordids.as_ptr())) }
 }
 #[inline]
 pub unsafe fn PeerGroupAddRecord(hgroup: *const core::ffi::c_void, precord: *const PEER_RECORD) -> windows_core::Result<windows_core::GUID> {
@@ -925,30 +925,30 @@ pub unsafe fn PeerGroupAddRecord(hgroup: *const core::ffi::c_void, precord: *con
     }
 }
 #[inline]
-pub unsafe fn PeerGroupClose(hgroup: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupClose(hgroup: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupClose(hgroup : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupClose(hgroup).ok() }
+    unsafe { PeerGroupClose(hgroup) }
 }
 #[inline]
-pub unsafe fn PeerGroupCloseDirectConnection(hgroup: *const core::ffi::c_void, ullconnectionid: u64) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupCloseDirectConnection(hgroup: *const core::ffi::c_void, ullconnectionid: u64) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupCloseDirectConnection(hgroup : *const core::ffi::c_void, ullconnectionid : u64) -> windows_core::HRESULT);
-    unsafe { PeerGroupCloseDirectConnection(hgroup, ullconnectionid).ok() }
+    unsafe { PeerGroupCloseDirectConnection(hgroup, ullconnectionid) }
 }
 #[inline]
-pub unsafe fn PeerGroupConnect(hgroup: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupConnect(hgroup: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupConnect(hgroup : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupConnect(hgroup).ok() }
+    unsafe { PeerGroupConnect(hgroup) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerGroupConnectByAddress(hgroup: *const core::ffi::c_void, paddresses: &[PEER_ADDRESS]) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupConnectByAddress(hgroup: *const core::ffi::c_void, paddresses: &[PEER_ADDRESS]) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupConnectByAddress(hgroup : *const core::ffi::c_void, caddresses : u32, paddresses : *const PEER_ADDRESS) -> windows_core::HRESULT);
-    unsafe { PeerGroupConnectByAddress(hgroup, paddresses.len().try_into().unwrap(), core::mem::transmute(paddresses.as_ptr())).ok() }
+    unsafe { PeerGroupConnectByAddress(hgroup, paddresses.len().try_into().unwrap(), core::mem::transmute(paddresses.as_ptr())) }
 }
 #[inline]
-pub unsafe fn PeerGroupCreate(pproperties: *const PEER_GROUP_PROPERTIES, phgroup: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupCreate(pproperties: *const PEER_GROUP_PROPERTIES, phgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupCreate(pproperties : *const PEER_GROUP_PROPERTIES, phgroup : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupCreate(pproperties, phgroup as _).ok() }
+    unsafe { PeerGroupCreate(pproperties, phgroup as _) }
 }
 #[inline]
 pub unsafe fn PeerGroupCreateInvitation<P1>(hgroup: *const core::ffi::c_void, pwzidentityinfo: P1, pftexpiration: Option<*const super::super::Foundation::FILETIME>, proles: Option<&[windows_core::GUID]>) -> windows_core::Result<windows_core::PWSTR>
@@ -970,36 +970,36 @@ pub unsafe fn PeerGroupCreatePasswordInvitation(hgroup: *const core::ffi::c_void
     }
 }
 #[inline]
-pub unsafe fn PeerGroupDelete<P0, P1>(pwzidentity: P0, pwzgrouppeername: P1) -> windows_core::Result<()>
+pub unsafe fn PeerGroupDelete<P0, P1>(pwzidentity: P0, pwzgrouppeername: P1) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupDelete(pwzidentity : windows_core::PCWSTR, pwzgrouppeername : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGroupDelete(pwzidentity.param().abi(), pwzgrouppeername.param().abi()).ok() }
+    unsafe { PeerGroupDelete(pwzidentity.param().abi(), pwzgrouppeername.param().abi()) }
 }
 #[inline]
-pub unsafe fn PeerGroupDeleteRecord(hgroup: *const core::ffi::c_void, precordid: *const windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupDeleteRecord(hgroup: *const core::ffi::c_void, precordid: *const windows_core::GUID) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupDeleteRecord(hgroup : *const core::ffi::c_void, precordid : *const windows_core::GUID) -> windows_core::HRESULT);
-    unsafe { PeerGroupDeleteRecord(hgroup, precordid).ok() }
+    unsafe { PeerGroupDeleteRecord(hgroup, precordid) }
 }
 #[inline]
-pub unsafe fn PeerGroupEnumConnections(hgroup: *const core::ffi::c_void, dwflags: u32, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupEnumConnections(hgroup: *const core::ffi::c_void, dwflags: u32, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupEnumConnections(hgroup : *const core::ffi::c_void, dwflags : u32, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupEnumConnections(hgroup, dwflags, phpeerenum as _).ok() }
+    unsafe { PeerGroupEnumConnections(hgroup, dwflags, phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerGroupEnumMembers<P2>(hgroup: *const core::ffi::c_void, dwflags: u32, pwzidentity: P2, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGroupEnumMembers<P2>(hgroup: *const core::ffi::c_void, dwflags: u32, pwzidentity: P2, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupEnumMembers(hgroup : *const core::ffi::c_void, dwflags : u32, pwzidentity : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupEnumMembers(hgroup, dwflags, pwzidentity.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerGroupEnumMembers(hgroup, dwflags, pwzidentity.param().abi(), phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerGroupEnumRecords(hgroup: *const core::ffi::c_void, precordtype: Option<*const windows_core::GUID>, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupEnumRecords(hgroup: *const core::ffi::c_void, precordtype: Option<*const windows_core::GUID>, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupEnumRecords(hgroup : *const core::ffi::c_void, precordtype : *const windows_core::GUID, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupEnumRecords(hgroup, precordtype.unwrap_or(core::mem::zeroed()) as _, phpeerenum as _).ok() }
+    unsafe { PeerGroupEnumRecords(hgroup, precordtype.unwrap_or(core::mem::zeroed()) as _, phpeerenum as _) }
 }
 #[inline]
 pub unsafe fn PeerGroupExportConfig<P1>(hgroup: *const core::ffi::c_void, pwzpassword: P1) -> windows_core::Result<windows_core::PWSTR>
@@ -1013,12 +1013,12 @@ where
     }
 }
 #[inline]
-pub unsafe fn PeerGroupExportDatabase<P1>(hgroup: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>
+pub unsafe fn PeerGroupExportDatabase<P1>(hgroup: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupExportDatabase(hgroup : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGroupExportDatabase(hgroup, pwzfilepath.param().abi()).ok() }
+    unsafe { PeerGroupExportDatabase(hgroup, pwzfilepath.param().abi()) }
 }
 #[inline]
 pub unsafe fn PeerGroupGetEventData(hpeerevent: *const core::ffi::c_void) -> windows_core::Result<*mut PEER_GROUP_EVENT_DATA> {
@@ -1053,50 +1053,50 @@ pub unsafe fn PeerGroupGetStatus(hgroup: *const core::ffi::c_void) -> windows_co
     }
 }
 #[inline]
-pub unsafe fn PeerGroupImportConfig<P0, P1>(pwzxml: P0, pwzpassword: P1, foverwrite: bool, ppwzidentity: *mut windows_core::PWSTR, ppwzgroup: *mut windows_core::PWSTR) -> windows_core::Result<()>
+pub unsafe fn PeerGroupImportConfig<P0, P1>(pwzxml: P0, pwzpassword: P1, foverwrite: bool, ppwzidentity: *mut windows_core::PWSTR, ppwzgroup: *mut windows_core::PWSTR) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupImportConfig(pwzxml : windows_core::PCWSTR, pwzpassword : windows_core::PCWSTR, foverwrite : windows_core::BOOL, ppwzidentity : *mut windows_core::PWSTR, ppwzgroup : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGroupImportConfig(pwzxml.param().abi(), pwzpassword.param().abi(), foverwrite.into(), ppwzidentity as _, ppwzgroup as _).ok() }
+    unsafe { PeerGroupImportConfig(pwzxml.param().abi(), pwzpassword.param().abi(), foverwrite.into(), ppwzidentity as _, ppwzgroup as _) }
 }
 #[inline]
-pub unsafe fn PeerGroupImportDatabase<P1>(hgroup: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>
+pub unsafe fn PeerGroupImportDatabase<P1>(hgroup: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupImportDatabase(hgroup : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGroupImportDatabase(hgroup, pwzfilepath.param().abi()).ok() }
+    unsafe { PeerGroupImportDatabase(hgroup, pwzfilepath.param().abi()) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn PeerGroupIssueCredentials<P1>(hgroup: *const core::ffi::c_void, pwzsubjectidentity: P1, pcredentialinfo: Option<*const PEER_CREDENTIAL_INFO>, dwflags: u32, ppwzinvitation: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
+pub unsafe fn PeerGroupIssueCredentials<P1>(hgroup: *const core::ffi::c_void, pwzsubjectidentity: P1, pcredentialinfo: Option<*const PEER_CREDENTIAL_INFO>, dwflags: u32, ppwzinvitation: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupIssueCredentials(hgroup : *const core::ffi::c_void, pwzsubjectidentity : windows_core::PCWSTR, pcredentialinfo : *const PEER_CREDENTIAL_INFO, dwflags : u32, ppwzinvitation : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGroupIssueCredentials(hgroup, pwzsubjectidentity.param().abi(), pcredentialinfo.unwrap_or(core::mem::zeroed()) as _, dwflags, ppwzinvitation.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { PeerGroupIssueCredentials(hgroup, pwzsubjectidentity.param().abi(), pcredentialinfo.unwrap_or(core::mem::zeroed()) as _, dwflags, ppwzinvitation.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn PeerGroupJoin<P0, P1, P2>(pwzidentity: P0, pwzinvitation: P1, pwzcloud: P2, phgroup: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGroupJoin<P0, P1, P2>(pwzidentity: P0, pwzinvitation: P1, pwzcloud: P2, phgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupJoin(pwzidentity : windows_core::PCWSTR, pwzinvitation : windows_core::PCWSTR, pwzcloud : windows_core::PCWSTR, phgroup : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupJoin(pwzidentity.param().abi(), pwzinvitation.param().abi(), pwzcloud.param().abi(), phgroup as _).ok() }
+    unsafe { PeerGroupJoin(pwzidentity.param().abi(), pwzinvitation.param().abi(), pwzcloud.param().abi(), phgroup as _) }
 }
 #[inline]
-pub unsafe fn PeerGroupOpen<P0, P1, P2>(pwzidentity: P0, pwzgrouppeername: P1, pwzcloud: P2, phgroup: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGroupOpen<P0, P1, P2>(pwzidentity: P0, pwzgrouppeername: P1, pwzcloud: P2, phgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupOpen(pwzidentity : windows_core::PCWSTR, pwzgrouppeername : windows_core::PCWSTR, pwzcloud : windows_core::PCWSTR, phgroup : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupOpen(pwzidentity.param().abi(), pwzgrouppeername.param().abi(), pwzcloud.param().abi(), phgroup as _).ok() }
+    unsafe { PeerGroupOpen(pwzidentity.param().abi(), pwzgrouppeername.param().abi(), pwzcloud.param().abi(), phgroup as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1123,7 +1123,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn PeerGroupPasswordJoin<P0, P1, P2, P3>(pwzidentity: P0, pwzinvitation: P1, pwzpassword: P2, pwzcloud: P3, phgroup: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGroupPasswordJoin<P0, P1, P2, P3>(pwzidentity: P0, pwzinvitation: P1, pwzpassword: P2, pwzcloud: P3, phgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1131,7 +1131,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupPasswordJoin(pwzidentity : windows_core::PCWSTR, pwzinvitation : windows_core::PCWSTR, pwzpassword : windows_core::PCWSTR, pwzcloud : windows_core::PCWSTR, phgroup : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupPasswordJoin(pwzidentity.param().abi(), pwzinvitation.param().abi(), pwzpassword.param().abi(), pwzcloud.param().abi(), phgroup as _).ok() }
+    unsafe { PeerGroupPasswordJoin(pwzidentity.param().abi(), pwzinvitation.param().abi(), pwzpassword.param().abi(), pwzcloud.param().abi(), phgroup as _) }
 }
 #[inline]
 pub unsafe fn PeerGroupPeerTimeToUniversalTime(hgroup: *const core::ffi::c_void, pftpeertime: *const super::super::Foundation::FILETIME) -> windows_core::Result<super::super::Foundation::FILETIME> {
@@ -1142,37 +1142,37 @@ pub unsafe fn PeerGroupPeerTimeToUniversalTime(hgroup: *const core::ffi::c_void,
     }
 }
 #[inline]
-pub unsafe fn PeerGroupRegisterEvent(hgroup: *const core::ffi::c_void, hevent: super::super::Foundation::HANDLE, peventregistrations: &[PEER_GROUP_EVENT_REGISTRATION], phpeerevent: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupRegisterEvent(hgroup: *const core::ffi::c_void, hevent: super::super::Foundation::HANDLE, peventregistrations: &[PEER_GROUP_EVENT_REGISTRATION], phpeerevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupRegisterEvent(hgroup : *const core::ffi::c_void, hevent : super::super::Foundation::HANDLE, ceventregistration : u32, peventregistrations : *const PEER_GROUP_EVENT_REGISTRATION, phpeerevent : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupRegisterEvent(hgroup, hevent, peventregistrations.len().try_into().unwrap(), core::mem::transmute(peventregistrations.as_ptr()), phpeerevent as _).ok() }
+    unsafe { PeerGroupRegisterEvent(hgroup, hevent, peventregistrations.len().try_into().unwrap(), core::mem::transmute(peventregistrations.as_ptr()), phpeerevent as _) }
 }
 #[inline]
-pub unsafe fn PeerGroupResumePasswordAuthentication(hgroup: *const core::ffi::c_void, hpeereventhandle: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupResumePasswordAuthentication(hgroup: *const core::ffi::c_void, hpeereventhandle: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupResumePasswordAuthentication(hgroup : *const core::ffi::c_void, hpeereventhandle : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupResumePasswordAuthentication(hgroup, hpeereventhandle).ok() }
+    unsafe { PeerGroupResumePasswordAuthentication(hgroup, hpeereventhandle) }
 }
 #[inline]
-pub unsafe fn PeerGroupSearchRecords<P1>(hgroup: *const core::ffi::c_void, pwzcriteria: P1, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGroupSearchRecords<P1>(hgroup: *const core::ffi::c_void, pwzcriteria: P1, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupSearchRecords(hgroup : *const core::ffi::c_void, pwzcriteria : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupSearchRecords(hgroup, pwzcriteria.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerGroupSearchRecords(hgroup, pwzcriteria.param().abi(), phpeerenum as _) }
 }
 #[inline]
-pub unsafe fn PeerGroupSendData(hgroup: *const core::ffi::c_void, ullconnectionid: u64, ptype: *const windows_core::GUID, cbdata: u32, pvdata: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupSendData(hgroup: *const core::ffi::c_void, ullconnectionid: u64, ptype: *const windows_core::GUID, cbdata: u32, pvdata: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupSendData(hgroup : *const core::ffi::c_void, ullconnectionid : u64, ptype : *const windows_core::GUID, cbdata : u32, pvdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupSendData(hgroup, ullconnectionid, ptype, cbdata, pvdata).ok() }
+    unsafe { PeerGroupSendData(hgroup, ullconnectionid, ptype, cbdata, pvdata) }
 }
 #[inline]
-pub unsafe fn PeerGroupSetProperties(hgroup: *const core::ffi::c_void, pproperties: *const PEER_GROUP_PROPERTIES) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupSetProperties(hgroup: *const core::ffi::c_void, pproperties: *const PEER_GROUP_PROPERTIES) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupSetProperties(hgroup : *const core::ffi::c_void, pproperties : *const PEER_GROUP_PROPERTIES) -> windows_core::HRESULT);
-    unsafe { PeerGroupSetProperties(hgroup, pproperties).ok() }
+    unsafe { PeerGroupSetProperties(hgroup, pproperties) }
 }
 #[inline]
-pub unsafe fn PeerGroupShutdown() -> windows_core::Result<()> {
+pub unsafe fn PeerGroupShutdown() -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupShutdown() -> windows_core::HRESULT);
-    unsafe { PeerGroupShutdown().ok() }
+    unsafe { PeerGroupShutdown() }
 }
 #[inline]
 pub unsafe fn PeerGroupStartup(wversionrequested: u16) -> windows_core::Result<PEER_VERSION_DATA> {
@@ -1191,14 +1191,14 @@ pub unsafe fn PeerGroupUniversalTimeToPeerTime(hgroup: *const core::ffi::c_void,
     }
 }
 #[inline]
-pub unsafe fn PeerGroupUnregisterEvent(hpeerevent: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupUnregisterEvent(hpeerevent: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupUnregisterEvent(hpeerevent : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupUnregisterEvent(hpeerevent).ok() }
+    unsafe { PeerGroupUnregisterEvent(hpeerevent) }
 }
 #[inline]
-pub unsafe fn PeerGroupUpdateRecord(hgroup: *const core::ffi::c_void, precord: *const PEER_RECORD) -> windows_core::Result<()> {
+pub unsafe fn PeerGroupUpdateRecord(hgroup: *const core::ffi::c_void, precord: *const PEER_RECORD) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerGroupUpdateRecord(hgroup : *const core::ffi::c_void, precord : *const PEER_RECORD) -> windows_core::HRESULT);
-    unsafe { PeerGroupUpdateRecord(hgroup, precord).ok() }
+    unsafe { PeerGroupUpdateRecord(hgroup, precord) }
 }
 #[inline]
 pub unsafe fn PeerHostNameToPeerName<P0>(pwzhostname: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -1224,12 +1224,12 @@ where
     }
 }
 #[inline]
-pub unsafe fn PeerIdentityDelete<P0>(pwzidentity: P0) -> windows_core::Result<()>
+pub unsafe fn PeerIdentityDelete<P0>(pwzidentity: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerIdentityDelete(pwzidentity : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerIdentityDelete(pwzidentity.param().abi()).ok() }
+    unsafe { PeerIdentityDelete(pwzidentity.param().abi()) }
 }
 #[inline]
 pub unsafe fn PeerIdentityExport<P0, P1>(pwzidentity: P0, pwzpassword: P1) -> windows_core::Result<windows_core::PWSTR>
@@ -1297,13 +1297,13 @@ where
     }
 }
 #[inline]
-pub unsafe fn PeerIdentitySetFriendlyName<P0, P1>(pwzidentity: P0, pwzfriendlyname: P1) -> windows_core::Result<()>
+pub unsafe fn PeerIdentitySetFriendlyName<P0, P1>(pwzidentity: P0, pwzfriendlyname: P1) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerIdentitySetFriendlyName(pwzidentity : windows_core::PCWSTR, pwzfriendlyname : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerIdentitySetFriendlyName(pwzidentity.param().abi(), pwzfriendlyname.param().abi()).ok() }
+    unsafe { PeerIdentitySetFriendlyName(pwzidentity.param().abi(), pwzfriendlyname.param().abi()) }
 }
 #[inline]
 pub unsafe fn PeerNameToPeerHostName<P0>(pwzpeername: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -1317,14 +1317,14 @@ where
     }
 }
 #[inline]
-pub unsafe fn PeerPnrpEndResolve(hresolve: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerPnrpEndResolve(hresolve: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpEndResolve(hresolve : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerPnrpEndResolve(hresolve).ok() }
+    unsafe { PeerPnrpEndResolve(hresolve) }
 }
 #[inline]
-pub unsafe fn PeerPnrpGetCloudInfo(pcnumclouds: *mut u32, ppcloudinfo: *mut *mut PEER_PNRP_CLOUD_INFO) -> windows_core::Result<()> {
+pub unsafe fn PeerPnrpGetCloudInfo(pcnumclouds: *mut u32, ppcloudinfo: *mut *mut PEER_PNRP_CLOUD_INFO) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpGetCloudInfo(pcnumclouds : *mut u32, ppcloudinfo : *mut *mut PEER_PNRP_CLOUD_INFO) -> windows_core::HRESULT);
-    unsafe { PeerPnrpGetCloudInfo(pcnumclouds as _, ppcloudinfo as _).ok() }
+    unsafe { PeerPnrpGetCloudInfo(pcnumclouds as _, ppcloudinfo as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1337,52 +1337,52 @@ pub unsafe fn PeerPnrpGetEndpoint(hresolve: *const core::ffi::c_void) -> windows
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerPnrpRegister<P0>(pcwzpeername: P0, pregistrationinfo: Option<*const PEER_PNRP_REGISTRATION_INFO>, phregistration: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerPnrpRegister<P0>(pcwzpeername: P0, pregistrationinfo: Option<*const PEER_PNRP_REGISTRATION_INFO>, phregistration: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpRegister(pcwzpeername : windows_core::PCWSTR, pregistrationinfo : *const PEER_PNRP_REGISTRATION_INFO, phregistration : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerPnrpRegister(pcwzpeername.param().abi(), pregistrationinfo.unwrap_or(core::mem::zeroed()) as _, phregistration as _).ok() }
+    unsafe { PeerPnrpRegister(pcwzpeername.param().abi(), pregistrationinfo.unwrap_or(core::mem::zeroed()) as _, phregistration as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerPnrpResolve<P0, P1>(pcwzpeername: P0, pcwzcloudname: P1, pcendpoints: *mut u32, ppendpoints: *mut *mut PEER_PNRP_ENDPOINT_INFO) -> windows_core::Result<()>
+pub unsafe fn PeerPnrpResolve<P0, P1>(pcwzpeername: P0, pcwzcloudname: P1, pcendpoints: *mut u32, ppendpoints: *mut *mut PEER_PNRP_ENDPOINT_INFO) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpResolve(pcwzpeername : windows_core::PCWSTR, pcwzcloudname : windows_core::PCWSTR, pcendpoints : *mut u32, ppendpoints : *mut *mut PEER_PNRP_ENDPOINT_INFO) -> windows_core::HRESULT);
-    unsafe { PeerPnrpResolve(pcwzpeername.param().abi(), pcwzcloudname.param().abi(), pcendpoints as _, ppendpoints as _).ok() }
+    unsafe { PeerPnrpResolve(pcwzpeername.param().abi(), pcwzcloudname.param().abi(), pcendpoints as _, ppendpoints as _) }
 }
 #[inline]
-pub unsafe fn PeerPnrpShutdown() -> windows_core::Result<()> {
+pub unsafe fn PeerPnrpShutdown() -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpShutdown() -> windows_core::HRESULT);
-    unsafe { PeerPnrpShutdown().ok() }
+    unsafe { PeerPnrpShutdown() }
 }
 #[inline]
-pub unsafe fn PeerPnrpStartResolve<P0, P1>(pcwzpeername: P0, pcwzcloudname: P1, cmaxendpoints: Option<u32>, hevent: super::super::Foundation::HANDLE, phresolve: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerPnrpStartResolve<P0, P1>(pcwzpeername: P0, pcwzcloudname: P1, cmaxendpoints: Option<u32>, hevent: super::super::Foundation::HANDLE, phresolve: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpStartResolve(pcwzpeername : windows_core::PCWSTR, pcwzcloudname : windows_core::PCWSTR, cmaxendpoints : u32, hevent : super::super::Foundation::HANDLE, phresolve : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerPnrpStartResolve(pcwzpeername.param().abi(), pcwzcloudname.param().abi(), cmaxendpoints.unwrap_or(core::mem::zeroed()) as _, hevent, phresolve as _).ok() }
+    unsafe { PeerPnrpStartResolve(pcwzpeername.param().abi(), pcwzcloudname.param().abi(), cmaxendpoints.unwrap_or(core::mem::zeroed()) as _, hevent, phresolve as _) }
 }
 #[inline]
-pub unsafe fn PeerPnrpStartup(wversionrequested: u16) -> windows_core::Result<()> {
+pub unsafe fn PeerPnrpStartup(wversionrequested: u16) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpStartup(wversionrequested : u16) -> windows_core::HRESULT);
-    unsafe { PeerPnrpStartup(wversionrequested).ok() }
+    unsafe { PeerPnrpStartup(wversionrequested) }
 }
 #[inline]
-pub unsafe fn PeerPnrpUnregister(hregistration: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PeerPnrpUnregister(hregistration: *const core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpUnregister(hregistration : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerPnrpUnregister(hregistration).ok() }
+    unsafe { PeerPnrpUnregister(hregistration) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerPnrpUpdateRegistration(hregistration: *const core::ffi::c_void, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO) -> windows_core::Result<()> {
+pub unsafe fn PeerPnrpUpdateRegistration(hregistration: *const core::ffi::c_void, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO) -> windows_core::HRESULT {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpUpdateRegistration(hregistration : *const core::ffi::c_void, pregistrationinfo : *const PEER_PNRP_REGISTRATION_INFO) -> windows_core::HRESULT);
-    unsafe { PeerPnrpUpdateRegistration(hregistration, pregistrationinfo).ok() }
+    unsafe { PeerPnrpUpdateRegistration(hregistration, pregistrationinfo) }
 }
 pub const DRT_ACTIVE: DRT_STATUS = DRT_STATUS(0);
 #[repr(C)]

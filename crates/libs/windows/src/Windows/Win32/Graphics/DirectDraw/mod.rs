@@ -1,48 +1,48 @@
 #[inline]
-pub unsafe fn DirectDrawCreate<P2>(lpguid: *mut windows_core::GUID, lplpdd: *mut Option<IDirectDraw>, punkouter: P2) -> windows_core::Result<()>
+pub unsafe fn DirectDrawCreate<P2>(lpguid: *mut windows_core::GUID, lplpdd: *mut Option<IDirectDraw>, punkouter: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut windows_core::GUID, lplpdd : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DirectDrawCreate(lpguid as _, core::mem::transmute(lplpdd), punkouter.param().abi()).ok() }
+    unsafe { DirectDrawCreate(lpguid as _, core::mem::transmute(lplpdd), punkouter.param().abi()) }
 }
 #[inline]
-pub unsafe fn DirectDrawCreateClipper<P2>(dwflags: u32, lplpddclipper: *mut Option<IDirectDrawClipper>, punkouter: P2) -> windows_core::Result<()>
+pub unsafe fn DirectDrawCreateClipper<P2>(dwflags: u32, lplpddclipper: *mut Option<IDirectDrawClipper>, punkouter: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : u32, lplpddclipper : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DirectDrawCreateClipper(dwflags, core::mem::transmute(lplpddclipper), punkouter.param().abi()).ok() }
+    unsafe { DirectDrawCreateClipper(dwflags, core::mem::transmute(lplpddclipper), punkouter.param().abi()) }
 }
 #[inline]
-pub unsafe fn DirectDrawCreateEx<P3>(lpguid: *mut windows_core::GUID, lplpdd: *mut *mut core::ffi::c_void, iid: *const windows_core::GUID, punkouter: P3) -> windows_core::Result<()>
+pub unsafe fn DirectDrawCreateEx<P3>(lpguid: *mut windows_core::GUID, lplpdd: *mut *mut core::ffi::c_void, iid: *const windows_core::GUID, punkouter: P3) -> windows_core::HRESULT
 where
     P3: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut windows_core::GUID, lplpdd : *mut *mut core::ffi::c_void, iid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DirectDrawCreateEx(lpguid as _, lplpdd as _, iid, punkouter.param().abi()).ok() }
+    unsafe { DirectDrawCreateEx(lpguid as _, lplpdd as _, iid, punkouter.param().abi()) }
 }
 #[inline]
-pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DirectDrawEnumerateA(lpcallback, lpcontext as _).ok() }
+    unsafe { DirectDrawEnumerateA(lpcallback, lpcontext as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()> {
+pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawEnumerateExA(lpcallback : LPDDENUMCALLBACKEXA, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
-    unsafe { DirectDrawEnumerateExA(lpcallback, lpcontext as _, dwflags).ok() }
+    unsafe { DirectDrawEnumerateExA(lpcallback, lpcontext as _, dwflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()> {
+pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawEnumerateExW(lpcallback : LPDDENUMCALLBACKEXW, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_core::HRESULT);
-    unsafe { DirectDrawEnumerateExW(lpcallback, lpcontext as _, dwflags).ok() }
+    unsafe { DirectDrawEnumerateExW(lpcallback, lpcontext as _, dwflags) }
 }
 #[inline]
-pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawEnumerateW(lpcallback : LPDDENUMCALLBACKW, lpcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DirectDrawEnumerateW(lpcallback, lpcontext as _).ok() }
+    unsafe { DirectDrawEnumerateW(lpcallback, lpcontext as _) }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5792,20 +5792,20 @@ impl Default for HEAPALIGNMENT {
 windows_core::imp::define_interface!(IDDVideoPortContainer, IDDVideoPortContainer_Vtbl, 0x6c142760_a733_11ce_a521_0020af0be560);
 windows_core::imp::interface_hierarchy!(IDDVideoPortContainer, windows_core::IUnknown);
 impl IDDVideoPortContainer {
-    pub unsafe fn CreateVideoPort<P3>(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut Option<IDirectDrawVideoPort>, param3: P3) -> windows_core::Result<()>
+    pub unsafe fn CreateVideoPort<P3>(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut Option<IDirectDrawVideoPort>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateVideoPort)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoPort)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()) }
     }
-    pub unsafe fn EnumVideoPorts(&self, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumVideoPorts)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3).ok() }
+    pub unsafe fn EnumVideoPorts(&self, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumVideoPorts)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: *mut u32, param2: Option<*mut DDVIDEOPORTCONNECT>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVideoPortConnectInfo)(windows_core::Interface::as_raw(self), param0, pcinfo as _, param2.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: *mut u32, param2: Option<*mut DDVIDEOPORTCONNECT>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVideoPortConnectInfo)(windows_core::Interface::as_raw(self), param0, pcinfo as _, param2.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn QueryVideoPortStatus(&self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).QueryVideoPortStatus)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn QueryVideoPortStatus(&self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryVideoPortStatus)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
 }
 #[repr(C)]
@@ -5865,27 +5865,27 @@ impl windows_core::RuntimeName for IDDVideoPortContainer {}
 windows_core::imp::define_interface!(IDirectDraw, IDirectDraw_Vtbl, 0x6c14db80_a733_11ce_a521_0020af0be560);
 windows_core::imp::interface_hierarchy!(IDirectDraw, windows_core::IUnknown);
 impl IDirectDraw {
-    pub unsafe fn Compact(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Compact(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn CreateClipper<P2>(&self, param0: u32, param1: *mut Option<IDirectDrawClipper>, param2: P2) -> windows_core::Result<()>
+    pub unsafe fn CreateClipper<P2>(&self, param0: u32, param1: *mut Option<IDirectDrawClipper>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::Result<()>
+    pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()) }
     }
-    pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC, param1: *mut Option<IDirectDrawSurface>, param2: P2) -> windows_core::Result<()>
+    pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC, param1: *mut Option<IDirectDrawSurface>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()) }
     }
     pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> windows_core::Result<IDirectDrawSurface>
     where
@@ -5896,23 +5896,23 @@ impl IDirectDraw {
             (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3).ok() }
+    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3).ok() }
+    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    pub unsafe fn FlipToGDISurface(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FlipToGDISurface)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn FlipToGDISurface(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FlipToGDISurface)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
-    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
     pub unsafe fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface> {
         unsafe {
@@ -5920,29 +5920,29 @@ impl IDirectDraw {
             (windows_core::Interface::vtable(self).GetGDISurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMonitorFrequency)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMonitorFrequency)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn RestoreDisplayMode(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RestoreDisplayMode(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2).ok() }
+    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
-    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1) }
     }
 }
 #[repr(C)]
@@ -6164,27 +6164,27 @@ impl windows_core::RuntimeName for IDirectDraw {}
 windows_core::imp::define_interface!(IDirectDraw2, IDirectDraw2_Vtbl, 0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
 windows_core::imp::interface_hierarchy!(IDirectDraw2, windows_core::IUnknown);
 impl IDirectDraw2 {
-    pub unsafe fn Compact(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Compact(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn CreateClipper<P2>(&self, param0: u32, param1: *mut Option<IDirectDrawClipper>, param2: P2) -> windows_core::Result<()>
+    pub unsafe fn CreateClipper<P2>(&self, param0: u32, param1: *mut Option<IDirectDrawClipper>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::Result<()>
+    pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()) }
     }
-    pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC, param1: *mut Option<IDirectDrawSurface>, param2: P2) -> windows_core::Result<()>
+    pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC, param1: *mut Option<IDirectDrawSurface>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()) }
     }
     pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> windows_core::Result<IDirectDrawSurface>
     where
@@ -6195,23 +6195,23 @@ impl IDirectDraw2 {
             (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3).ok() }
+    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3).ok() }
+    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    pub unsafe fn FlipToGDISurface(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FlipToGDISurface)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn FlipToGDISurface(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FlipToGDISurface)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
-    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
     pub unsafe fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface> {
         unsafe {
@@ -6219,32 +6219,32 @@ impl IDirectDraw2 {
             (windows_core::Interface::vtable(self).GetGDISurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMonitorFrequency)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMonitorFrequency)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn RestoreDisplayMode(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RestoreDisplayMode(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok() }
+    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4) }
     }
-    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _).ok() }
+    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _) }
     }
 }
 #[repr(C)]
@@ -6475,27 +6475,27 @@ impl windows_core::RuntimeName for IDirectDraw2 {}
 windows_core::imp::define_interface!(IDirectDraw4, IDirectDraw4_Vtbl, 0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
 windows_core::imp::interface_hierarchy!(IDirectDraw4, windows_core::IUnknown);
 impl IDirectDraw4 {
-    pub unsafe fn Compact(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Compact(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn CreateClipper<P2>(&self, param0: u32, param1: *mut Option<IDirectDrawClipper>, param2: P2) -> windows_core::Result<()>
+    pub unsafe fn CreateClipper<P2>(&self, param0: u32, param1: *mut Option<IDirectDrawClipper>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::Result<()>
+    pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()) }
     }
-    pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC2, param1: *mut Option<IDirectDrawSurface4>, param2: P2) -> windows_core::Result<()>
+    pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC2, param1: *mut Option<IDirectDrawSurface4>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()) }
     }
     pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> windows_core::Result<IDirectDrawSurface4>
     where
@@ -6506,23 +6506,23 @@ impl IDirectDraw4 {
             (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3).ok() }
+    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3).ok() }
+    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    pub unsafe fn FlipToGDISurface(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FlipToGDISurface)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn FlipToGDISurface(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FlipToGDISurface)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
-    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
     pub unsafe fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface4> {
         unsafe {
@@ -6530,32 +6530,32 @@ impl IDirectDraw4 {
             (windows_core::Interface::vtable(self).GetGDISurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMonitorFrequency)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMonitorFrequency)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn RestoreDisplayMode(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RestoreDisplayMode(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok() }
+    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4) }
     }
-    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _).ok() }
+    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetSurfaceFromDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<IDirectDrawSurface4> {
@@ -6564,14 +6564,14 @@ impl IDirectDraw4 {
             (windows_core::Interface::vtable(self).GetSurfaceFromDC)(windows_core::Interface::as_raw(self), param0, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RestoreAllSurfaces(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RestoreAllSurfaces)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RestoreAllSurfaces(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RestoreAllSurfaces)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn TestCooperativeLevel(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).TestCooperativeLevel)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn TestCooperativeLevel(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TestCooperativeLevel)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceIdentifier)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceIdentifier)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
 }
 #[repr(C)]
@@ -6847,27 +6847,27 @@ impl windows_core::RuntimeName for IDirectDraw4 {}
 windows_core::imp::define_interface!(IDirectDraw7, IDirectDraw7_Vtbl, 0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
 windows_core::imp::interface_hierarchy!(IDirectDraw7, windows_core::IUnknown);
 impl IDirectDraw7 {
-    pub unsafe fn Compact(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Compact(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn CreateClipper<P2>(&self, param0: u32, param1: *mut Option<IDirectDrawClipper>, param2: P2) -> windows_core::Result<()>
+    pub unsafe fn CreateClipper<P2>(&self, param0: u32, param1: *mut Option<IDirectDrawClipper>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::Result<()>
+    pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()) }
     }
-    pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC2, param1: *mut Option<IDirectDrawSurface7>, param2: P2) -> windows_core::Result<()>
+    pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC2, param1: *mut Option<IDirectDrawSurface7>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()) }
     }
     pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> windows_core::Result<IDirectDrawSurface7>
     where
@@ -6878,23 +6878,23 @@ impl IDirectDraw7 {
             (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3).ok() }
+    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumDisplayModes)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3).ok() }
+    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumSurfaces)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
     }
-    pub unsafe fn FlipToGDISurface(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FlipToGDISurface)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn FlipToGDISurface(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FlipToGDISurface)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
-    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
     pub unsafe fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface7> {
         unsafe {
@@ -6902,32 +6902,32 @@ impl IDirectDraw7 {
             (windows_core::Interface::vtable(self).GetGDISurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMonitorFrequency)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMonitorFrequency)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn RestoreDisplayMode(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RestoreDisplayMode(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RestoreDisplayMode)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok() }
+    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDisplayMode)(windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4) }
     }
-    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WaitForVerticalBlank)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _).ok() }
+    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAvailableVidMem)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetSurfaceFromDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<IDirectDrawSurface7> {
@@ -6936,20 +6936,20 @@ impl IDirectDraw7 {
             (windows_core::Interface::vtable(self).GetSurfaceFromDC)(windows_core::Interface::as_raw(self), param0, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RestoreAllSurfaces(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RestoreAllSurfaces)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RestoreAllSurfaces(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RestoreAllSurfaces)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn TestCooperativeLevel(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).TestCooperativeLevel)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn TestCooperativeLevel(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TestCooperativeLevel)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceIdentifier)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceIdentifier)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    pub unsafe fn StartModeTest(&self, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StartModeTest)(windows_core::Interface::as_raw(self), param0 as _, param1, param2).ok() }
+    pub unsafe fn StartModeTest(&self, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).StartModeTest)(windows_core::Interface::as_raw(self), param0 as _, param1, param2) }
     }
-    pub unsafe fn EvaluateMode(&self, param0: u32, param1: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EvaluateMode)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn EvaluateMode(&self, param0: u32, param1: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EvaluateMode)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
 }
 #[repr(C)]
@@ -7244,27 +7244,27 @@ windows_core::imp::define_interface!(IDirectDrawClipper, IDirectDrawClipper_Vtbl
 windows_core::imp::interface_hierarchy!(IDirectDrawClipper, windows_core::IUnknown);
 impl IDirectDrawClipper {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetClipList(&self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClipList)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _).ok() }
+    pub unsafe fn GetClipList(&self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetClipList)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _) }
     }
-    pub unsafe fn GetHWnd(&self, param0: *mut super::super::Foundation::HWND) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetHWnd)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetHWnd(&self, param0: *mut super::super::Foundation::HWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetHWnd)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1) }
     }
-    pub unsafe fn IsClipListChanged(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsClipListChanged)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn IsClipListChanged(&self, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsClipListChanged)(windows_core::Interface::as_raw(self), param0 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SetClipList(&self, param0: *mut super::Gdi::RGNDATA, param1: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetClipList)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn SetClipList(&self, param0: *mut super::Gdi::RGNDATA, param1: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetClipList)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    pub unsafe fn SetHWnd(&self, param0: u32, param1: super::super::Foundation::HWND) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetHWnd)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn SetHWnd(&self, param0: u32, param1: super::super::Foundation::HWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetHWnd)(windows_core::Interface::as_raw(self), param0, param1) }
     }
 }
 #[repr(C)]
@@ -7351,11 +7351,11 @@ impl windows_core::RuntimeName for IDirectDrawClipper {}
 windows_core::imp::define_interface!(IDirectDrawColorControl, IDirectDrawColorControl_Vtbl, 0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
 windows_core::imp::interface_hierarchy!(IDirectDrawColorControl, windows_core::IUnknown);
 impl IDirectDrawColorControl {
-    pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColorControls)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorControls)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColorControls)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColorControls)(windows_core::Interface::as_raw(self), param0 as _) }
     }
 }
 #[repr(C)]
@@ -7397,11 +7397,11 @@ impl windows_core::RuntimeName for IDirectDrawColorControl {}
 windows_core::imp::define_interface!(IDirectDrawGammaControl, IDirectDrawGammaControl_Vtbl, 0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
 windows_core::imp::interface_hierarchy!(IDirectDrawGammaControl, windows_core::IUnknown);
 impl IDirectDrawGammaControl {
-    pub unsafe fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetGammaRamp)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetGammaRamp)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
-    pub unsafe fn SetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetGammaRamp)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn SetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetGammaRamp)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
 }
 #[repr(C)]
@@ -7443,14 +7443,14 @@ impl windows_core::RuntimeName for IDirectDrawGammaControl {}
 windows_core::imp::define_interface!(IDirectDrawKernel, IDirectDrawKernel_Vtbl, 0x8d56c120_6a08_11d0_9b06_00a0c903a3b8);
 windows_core::imp::interface_hierarchy!(IDirectDrawKernel, windows_core::IUnknown);
 impl IDirectDrawKernel {
-    pub unsafe fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelHandle)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetKernelHandle)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn ReleaseKernelHandle(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseKernelHandle)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn ReleaseKernelHandle(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseKernelHandle)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -7501,23 +7501,23 @@ impl windows_core::RuntimeName for IDirectDrawKernel {}
 windows_core::imp::define_interface!(IDirectDrawPalette, IDirectDrawPalette_Vtbl, 0x6c14db84_a733_11ce_a521_0020af0be560);
 windows_core::imp::interface_hierarchy!(IDirectDrawPalette, windows_core::IUnknown);
 impl IDirectDrawPalette {
-    pub unsafe fn GetCaps(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetEntries)(windows_core::Interface::as_raw(self), param0, param1, param2, param3 as _).ok() }
+    pub unsafe fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEntries)(windows_core::Interface::as_raw(self), param0, param1, param2, param3 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1, param2 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1, param2 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEntries)(windows_core::Interface::as_raw(self), param0, param1, param2, param3 as _).ok() }
+    pub unsafe fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEntries)(windows_core::Interface::as_raw(self), param0, param1, param2, param3 as _) }
     }
 }
 #[repr(C)]
@@ -7589,56 +7589,56 @@ impl windows_core::RuntimeName for IDirectDrawPalette {}
 windows_core::imp::define_interface!(IDirectDrawSurface, IDirectDrawSurface_Vtbl, 0x6c14db81_a733_11ce_a521_0020af0be560);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface, windows_core::IUnknown);
 impl IDirectDrawSurface {
-    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>
+    pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2).ok() }
+    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
     }
-    pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>
+    pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4) }
     }
-    pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2).ok() }
+    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
     }
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1) }
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<Self>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)) }
     }
-    pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBltStatus)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBltStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _) }
     }
     pub unsafe fn GetClipper(&self) -> windows_core::Result<IDirectDrawClipper> {
         unsafe {
@@ -7646,18 +7646,18 @@ impl IDirectDrawSurface {
             (windows_core::Interface::vtable(self).GetClipper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetFlipStatus(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFlipStatus)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn GetFlipStatus(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFlipStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
     pub unsafe fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette> {
         unsafe {
@@ -7665,66 +7665,66 @@ impl IDirectDrawSurface {
             (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _) }
     }
-    pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn IsLost(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3).ok() }
+    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn Restore(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Restore(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawClipper>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
-    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>
+    pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
 }
 #[repr(C)]
@@ -8066,56 +8066,56 @@ impl windows_core::RuntimeName for IDirectDrawSurface {}
 windows_core::imp::define_interface!(IDirectDrawSurface2, IDirectDrawSurface2_Vtbl, 0x57805885_6eec_11cf_9441_a82303c10e27);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface2, windows_core::IUnknown);
 impl IDirectDrawSurface2 {
-    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>
+    pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2).ok() }
+    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
     }
-    pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>
+    pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4) }
     }
-    pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2).ok() }
+    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
     }
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1) }
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<Self>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)) }
     }
-    pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBltStatus)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBltStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _) }
     }
     pub unsafe fn GetClipper(&self) -> windows_core::Result<IDirectDrawClipper> {
         unsafe {
@@ -8123,18 +8123,18 @@ impl IDirectDrawSurface2 {
             (windows_core::Interface::vtable(self).GetClipper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetFlipStatus(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFlipStatus)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn GetFlipStatus(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFlipStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
     pub unsafe fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette> {
         unsafe {
@@ -8142,75 +8142,75 @@ impl IDirectDrawSurface2 {
             (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _) }
     }
-    pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn IsLost(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3).ok() }
+    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn Restore(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Restore(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawClipper>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
-    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>
+    pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn PageLock(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PageLock)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn PageLock(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PageLock)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0) }
     }
 }
 #[repr(C)]
@@ -8579,56 +8579,56 @@ impl windows_core::RuntimeName for IDirectDrawSurface2 {}
 windows_core::imp::define_interface!(IDirectDrawSurface3, IDirectDrawSurface3_Vtbl, 0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface3, windows_core::IUnknown);
 impl IDirectDrawSurface3 {
-    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>
+    pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2).ok() }
+    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
     }
-    pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>
+    pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4) }
     }
-    pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2).ok() }
+    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
     }
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1) }
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<Self>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)) }
     }
-    pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBltStatus)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBltStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _) }
     }
     pub unsafe fn GetClipper(&self) -> windows_core::Result<IDirectDrawClipper> {
         unsafe {
@@ -8636,18 +8636,18 @@ impl IDirectDrawSurface3 {
             (windows_core::Interface::vtable(self).GetClipper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetFlipStatus(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFlipStatus)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn GetFlipStatus(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFlipStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
     pub unsafe fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette> {
         unsafe {
@@ -8655,78 +8655,78 @@ impl IDirectDrawSurface3 {
             (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _) }
     }
-    pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn IsLost(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3).ok() }
+    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn Restore(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Restore(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawClipper>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
-    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>
+    pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn PageLock(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PageLock)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn PageLock(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PageLock)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC, param1: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC, param1: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
 }
 #[repr(C)]
@@ -9104,56 +9104,56 @@ impl windows_core::RuntimeName for IDirectDrawSurface3 {}
 windows_core::imp::define_interface!(IDirectDrawSurface4, IDirectDrawSurface4_Vtbl, 0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface4, windows_core::IUnknown);
 impl IDirectDrawSurface4 {
-    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>
+    pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2).ok() }
+    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
     }
-    pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>
+    pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4) }
     }
-    pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2).ok() }
+    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
     }
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1) }
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut Option<Self>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)) }
     }
-    pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBltStatus)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBltStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _) }
     }
     pub unsafe fn GetClipper(&self) -> windows_core::Result<IDirectDrawClipper> {
         unsafe {
@@ -9161,18 +9161,18 @@ impl IDirectDrawSurface4 {
             (windows_core::Interface::vtable(self).GetClipper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetFlipStatus(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFlipStatus)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn GetFlipStatus(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFlipStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
     pub unsafe fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette> {
         unsafe {
@@ -9180,93 +9180,93 @@ impl IDirectDrawSurface4 {
             (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC2) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _) }
     }
-    pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn IsLost(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3).ok() }
+    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn Restore(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Restore(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawClipper>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
-    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>
+    pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn PageLock(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PageLock)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn PageLock(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PageLock)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    pub unsafe fn SetPrivateData(&self, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: u32, param3: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2, param3).ok() }
+    pub unsafe fn SetPrivateData(&self, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: u32, param3: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2, param3) }
     }
-    pub unsafe fn GetPrivateData(&self, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _).ok() }
+    pub unsafe fn GetPrivateData(&self, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _) }
     }
-    pub unsafe fn FreePrivateData(&self, param0: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FreePrivateData)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn FreePrivateData(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FreePrivateData)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetUniquenessValue(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetUniquenessValue)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetUniquenessValue(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetUniquenessValue)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn ChangeUniquenessValue(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ChangeUniquenessValue)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn ChangeUniquenessValue(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ChangeUniquenessValue)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -9689,56 +9689,56 @@ impl windows_core::RuntimeName for IDirectDrawSurface4 {}
 windows_core::imp::define_interface!(IDirectDrawSurface7, IDirectDrawSurface7_Vtbl, 0x06675a80_3b9b_11d2_b92f_00609797ea5b);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface7, windows_core::IUnknown);
 impl IDirectDrawSurface7 {
-    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>
+    pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2).ok() }
+    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
     }
-    pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>
+    pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4) }
     }
-    pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2).ok() }
+    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EnumOverlayZOrders)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
     }
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1) }
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut Option<Self>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)) }
     }
-    pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBltStatus)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBltStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), param0 as _) }
     }
     pub unsafe fn GetClipper(&self) -> windows_core::Result<IDirectDrawClipper> {
         unsafe {
@@ -9746,18 +9746,18 @@ impl IDirectDrawSurface7 {
             (windows_core::Interface::vtable(self).GetClipper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetFlipStatus(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFlipStatus)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn GetFlipStatus(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFlipStatus)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOverlayPosition)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
     pub unsafe fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette> {
         unsafe {
@@ -9765,105 +9765,105 @@ impl IDirectDrawSurface7 {
             (windows_core::Interface::vtable(self).GetPalette)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC2) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _) }
     }
-    pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn IsLost(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3).ok() }
+    pub unsafe fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2, param3) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn Restore(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Restore(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawClipper>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
+    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
-    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1).ok() }
+    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOverlayPosition)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> windows_core::Result<()>
+    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()) }
     }
-    pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>
+    pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
     }
-    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
+    pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()) }
     }
-    pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn PageLock(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PageLock)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn PageLock(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PageLock)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn PageUnlock(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PageUnlock)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
+    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSurfaceDesc)(windows_core::Interface::as_raw(self), param0 as _, param1) }
     }
-    pub unsafe fn SetPrivateData(&self, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: u32, param3: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2, param3).ok() }
+    pub unsafe fn SetPrivateData(&self, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: u32, param3: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2, param3) }
     }
-    pub unsafe fn GetPrivateData(&self, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _).ok() }
+    pub unsafe fn GetPrivateData(&self, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _) }
     }
-    pub unsafe fn FreePrivateData(&self, param0: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FreePrivateData)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn FreePrivateData(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FreePrivateData)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetUniquenessValue(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetUniquenessValue)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetUniquenessValue(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetUniquenessValue)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn ChangeUniquenessValue(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ChangeUniquenessValue)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn ChangeUniquenessValue(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ChangeUniquenessValue)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetPriority(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn SetPriority(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetPriority(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPriority)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetPriority(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPriority)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn SetLOD(&self, param0: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetLOD)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn SetLOD(&self, param0: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLOD)(windows_core::Interface::as_raw(self), param0) }
     }
-    pub unsafe fn GetLOD(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLOD)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetLOD(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLOD)(windows_core::Interface::as_raw(self), param0 as _) }
     }
 }
 #[repr(C)]
@@ -10322,11 +10322,11 @@ impl windows_core::RuntimeName for IDirectDrawSurface7 {}
 windows_core::imp::define_interface!(IDirectDrawSurfaceKernel, IDirectDrawSurfaceKernel_Vtbl, 0x60755da0_6a40_11d0_9b06_00a0c903a3b8);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurfaceKernel, windows_core::IUnknown);
 impl IDirectDrawSurfaceKernel {
-    pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelHandle)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetKernelHandle)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn ReleaseKernelHandle(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseKernelHandle)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn ReleaseKernelHandle(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseKernelHandle)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -10368,53 +10368,53 @@ impl windows_core::RuntimeName for IDirectDrawSurfaceKernel {}
 windows_core::imp::define_interface!(IDirectDrawVideoPort, IDirectDrawVideoPort_Vtbl, 0xb36d93e0_2b43_11cf_a2de_00aa00b93356);
 windows_core::imp::interface_hierarchy!(IDirectDrawVideoPort, windows_core::IUnknown);
 impl IDirectDrawVideoPort {
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1) }
     }
-    pub unsafe fn GetBandwidthInfo(&self, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBandwidthInfo)(windows_core::Interface::as_raw(self), param0 as _, param1, param2, param3, param4 as _).ok() }
+    pub unsafe fn GetBandwidthInfo(&self, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBandwidthInfo)(windows_core::Interface::as_raw(self), param0 as _, param1, param2, param3, param4 as _) }
     }
-    pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColorControls)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorControls)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetInputFormats(&self, lpnumformats: *mut u32, param1: Option<*mut DDPIXELFORMAT>, param2: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInputFormats)(windows_core::Interface::as_raw(self), lpnumformats as _, param1.unwrap_or(core::mem::zeroed()) as _, param2).ok() }
+    pub unsafe fn GetInputFormats(&self, lpnumformats: *mut u32, param1: Option<*mut DDPIXELFORMAT>, param2: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInputFormats)(windows_core::Interface::as_raw(self), lpnumformats as _, param1.unwrap_or(core::mem::zeroed()) as _, param2) }
     }
-    pub unsafe fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: Option<*mut DDPIXELFORMAT>, param3: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputFormats)(windows_core::Interface::as_raw(self), param0 as _, lpnumformats as _, param2.unwrap_or(core::mem::zeroed()) as _, param3).ok() }
+    pub unsafe fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: Option<*mut DDPIXELFORMAT>, param3: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOutputFormats)(windows_core::Interface::as_raw(self), param0 as _, lpnumformats as _, param2.unwrap_or(core::mem::zeroed()) as _, param3) }
     }
-    pub unsafe fn GetFieldPolarity(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFieldPolarity)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetFieldPolarity(&self, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFieldPolarity)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetVideoLine(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVideoLine)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetVideoLine(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVideoLine)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn GetVideoSignalStatus(&self, param0: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVideoSignalStatus)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn GetVideoSignalStatus(&self, param0: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVideoSignalStatus)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColorControls)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColorControls)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn SetTargetSurface<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
+    pub unsafe fn SetTargetSurface<P0>(&self, param0: P0, param1: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTargetSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetTargetSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), param1) }
     }
-    pub unsafe fn StartVideo(&self, param0: *mut DDVIDEOPORTINFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StartVideo)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn StartVideo(&self, param0: *mut DDVIDEOPORTINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).StartVideo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn StopVideo(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).StopVideo)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn StopVideo(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).StopVideo)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn UpdateVideo(&self, param0: *mut DDVIDEOPORTINFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).UpdateVideo)(windows_core::Interface::as_raw(self), param0 as _).ok() }
+    pub unsafe fn UpdateVideo(&self, param0: *mut DDVIDEOPORTINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateVideo)(windows_core::Interface::as_raw(self), param0 as _) }
     }
-    pub unsafe fn WaitForSync(&self, param0: u32, param1: u32, param2: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WaitForSync)(windows_core::Interface::as_raw(self), param0, param1, param2).ok() }
+    pub unsafe fn WaitForSync(&self, param0: u32, param1: u32, param2: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WaitForSync)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
 }
 #[repr(C)]
@@ -10564,11 +10564,11 @@ impl windows_core::RuntimeName for IDirectDrawVideoPort {}
 windows_core::imp::define_interface!(IDirectDrawVideoPortNotify, IDirectDrawVideoPortNotify_Vtbl, 0xa655fb94_0589_4e57_b333_567a89468c88);
 windows_core::imp::interface_hierarchy!(IDirectDrawVideoPortNotify, windows_core::IUnknown);
 impl IDirectDrawVideoPortNotify {
-    pub unsafe fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AcquireNotification)(windows_core::Interface::as_raw(self), param0 as _, param1 as _).ok() }
+    pub unsafe fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AcquireNotification)(windows_core::Interface::as_raw(self), param0 as _, param1 as _) }
     }
-    pub unsafe fn ReleaseNotification(&self, param0: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseNotification)(windows_core::Interface::as_raw(self), param0).ok() }
+    pub unsafe fn ReleaseNotification(&self, param0: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseNotification)(windows_core::Interface::as_raw(self), param0) }
     }
 }
 #[repr(C)]

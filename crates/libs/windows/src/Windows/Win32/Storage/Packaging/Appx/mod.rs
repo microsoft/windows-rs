@@ -7,20 +7,20 @@ pub unsafe fn ActivatePackageVirtualizationContext(context: PACKAGE_VIRTUALIZATI
     }
 }
 #[inline]
-pub unsafe fn AddPackageDependency<P0>(packagedependencyid: P0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
+pub unsafe fn AddPackageDependency<P0>(packagedependencyid: P0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernelbase.dll" "system" fn AddPackageDependency(packagedependencyid : windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { AddPackageDependency(packagedependencyid.param().abi(), rank, options, packagedependencycontext as _, packagefullname.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { AddPackageDependency(packagedependencyid.param().abi(), rank, options, packagedependencycontext as _, packagefullname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn AddPackageDependency2<P0>(packagedependencyid: P0, rank: i32, options: AddPackageDependencyOptions2, packagedependencycontext: *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
+pub unsafe fn AddPackageDependency2<P0>(packagedependencyid: P0, rank: i32, options: AddPackageDependencyOptions2, packagedependencycontext: *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn AddPackageDependency2(packagedependencyid : windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions2, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { AddPackageDependency2(packagedependencyid.param().abi(), rank, options, packagedependencycontext as _, packagefullname.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { AddPackageDependency2(packagedependencyid.param().abi(), rank, options, packagedependencycontext as _, packagefullname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn AppPolicyGetClrCompat(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyClrCompat) -> windows_core::WIN32_ERROR {
@@ -95,12 +95,12 @@ pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
     unsafe { DeactivatePackageVirtualizationContext(cookie) }
 }
 #[inline]
-pub unsafe fn DeletePackageDependency<P0>(packagedependencyid: P0) -> windows_core::Result<()>
+pub unsafe fn DeletePackageDependency<P0>(packagedependencyid: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernelbase.dll" "system" fn DeletePackageDependency(packagedependencyid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { DeletePackageDependency(packagedependencyid.param().abi()).ok() }
+    unsafe { DeletePackageDependency(packagedependencyid.param().abi()) }
 }
 #[inline]
 pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> windows_core::Result<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE> {
@@ -112,9 +112,9 @@ pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: PACKAGE_VIRTU
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FindPackageDependency(findpackagedependencycriteria: *const FindPackageDependencyCriteria, packagedependencyidscount: *mut u32, packagedependencyids: *mut *mut windows_core::PWSTR) -> windows_core::Result<()> {
+pub unsafe fn FindPackageDependency(findpackagedependencycriteria: *const FindPackageDependencyCriteria, packagedependencyidscount: *mut u32, packagedependencyids: *mut *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn FindPackageDependency(findpackagedependencycriteria : *const FindPackageDependencyCriteria, packagedependencyidscount : *mut u32, packagedependencyids : *mut *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { FindPackageDependency(findpackagedependencycriteria, packagedependencyidscount as _, packagedependencyids as _).ok() }
+    unsafe { FindPackageDependency(findpackagedependencycriteria, packagedependencyidscount as _, packagedependencyids as _) }
 }
 #[inline]
 pub unsafe fn FindPackagesByPackageFamily<P0>(packagefamilyname: P0, packagefilters: u32, count: *mut u32, packagefullnames: Option<*mut windows_core::PWSTR>, bufferlength: *mut u32, buffer: Option<windows_core::PWSTR>, packageproperties: Option<*mut u32>) -> windows_core::WIN32_ERROR
@@ -174,9 +174,9 @@ pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathTyp
     unsafe { GetCurrentPackageInfo2(flags, packagepathtype, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _, count.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetCurrentPackageInfo3(flags: u32, packageinfotype: PackageInfo3Type, bufferlength: *mut u32, buffer: Option<*mut core::ffi::c_void>, count: Option<*mut u32>) -> windows_core::Result<()> {
+pub unsafe fn GetCurrentPackageInfo3(flags: u32, packageinfotype: PackageInfo3Type, bufferlength: *mut u32, buffer: Option<*mut core::ffi::c_void>, count: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn GetCurrentPackageInfo3(flags : u32, packageinfotype : PackageInfo3Type, bufferlength : *mut u32, buffer : *mut core::ffi::c_void, count : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetCurrentPackageInfo3(flags, packageinfotype, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _, count.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { GetCurrentPackageInfo3(flags, packageinfotype, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _, count.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetCurrentPackagePath(pathlength: *mut u32, path: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR {
@@ -208,12 +208,12 @@ pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INF
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn GetPackageDependencyInformation<P0>(packagedependencyid: P0, user: Option<*mut super::super::super::Security::PSID>, packagefamilyname: Option<*mut windows_core::PWSTR>, minversion: Option<*mut PACKAGE_VERSION>, packagedependencyprocessorarchitectures: Option<*mut PackageDependencyProcessorArchitectures>, lifetimekind: Option<*mut PackageDependencyLifetimeKind>, lifetimeartifact: Option<*mut windows_core::PWSTR>, options: Option<*mut CreatePackageDependencyOptions>, lifetimeexpiration: Option<*mut super::super::super::Foundation::FILETIME>) -> windows_core::Result<()>
+pub unsafe fn GetPackageDependencyInformation<P0>(packagedependencyid: P0, user: Option<*mut super::super::super::Security::PSID>, packagefamilyname: Option<*mut windows_core::PWSTR>, minversion: Option<*mut PACKAGE_VERSION>, packagedependencyprocessorarchitectures: Option<*mut PackageDependencyProcessorArchitectures>, lifetimekind: Option<*mut PackageDependencyLifetimeKind>, lifetimeartifact: Option<*mut windows_core::PWSTR>, options: Option<*mut CreatePackageDependencyOptions>, lifetimeexpiration: Option<*mut super::super::super::Foundation::FILETIME>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetPackageDependencyInformation(packagedependencyid : windows_core::PCWSTR, user : *mut super::super::super::Security::PSID, packagefamilyname : *mut windows_core::PWSTR, minversion : *mut PACKAGE_VERSION, packagedependencyprocessorarchitectures : *mut PackageDependencyProcessorArchitectures, lifetimekind : *mut PackageDependencyLifetimeKind, lifetimeartifact : *mut windows_core::PWSTR, options : *mut CreatePackageDependencyOptions, lifetimeexpiration : *mut super::super::super::Foundation::FILETIME) -> windows_core::HRESULT);
-    unsafe { GetPackageDependencyInformation(packagedependencyid.param().abi(), user.unwrap_or(core::mem::zeroed()) as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _, minversion.unwrap_or(core::mem::zeroed()) as _, packagedependencyprocessorarchitectures.unwrap_or(core::mem::zeroed()) as _, lifetimekind.unwrap_or(core::mem::zeroed()) as _, lifetimeartifact.unwrap_or(core::mem::zeroed()) as _, options.unwrap_or(core::mem::zeroed()) as _, lifetimeexpiration.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { GetPackageDependencyInformation(packagedependencyid.param().abi(), user.unwrap_or(core::mem::zeroed()) as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _, minversion.unwrap_or(core::mem::zeroed()) as _, packagedependencyprocessorarchitectures.unwrap_or(core::mem::zeroed()) as _, lifetimekind.unwrap_or(core::mem::zeroed()) as _, lifetimeartifact.unwrap_or(core::mem::zeroed()) as _, options.unwrap_or(core::mem::zeroed()) as _, lifetimeexpiration.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetPackageFamilyName(hprocess: super::super::super::Foundation::HANDLE, packagefamilynamelength: *mut u32, packagefamilyname: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR {
@@ -285,21 +285,21 @@ where
     unsafe { GetPackagesByPackageFamily(packagefamilyname.param().abi(), count as _, packagefullnames.unwrap_or(core::mem::zeroed()) as _, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetProcessesInVirtualizationContext<P0>(packagefamilyname: P0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> windows_core::Result<()>
+pub unsafe fn GetProcessesInVirtualizationContext<P0>(packagefamilyname: P0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetProcessesInVirtualizationContext(packagefamilyname : windows_core::PCWSTR, count : *mut u32, processes : *mut *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { GetProcessesInVirtualizationContext(packagefamilyname.param().abi(), count as _, processes as _).ok() }
+    unsafe { GetProcessesInVirtualizationContext(packagefamilyname.param().abi(), count as _, processes as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn GetProcessesUsingPackageDependency<P0>(packagedependencyid: P0, user: Option<super::super::super::Security::PSID>, scopeissystem: bool, processidscount: *mut u32, processids: *mut *mut u32) -> windows_core::Result<()>
+pub unsafe fn GetProcessesUsingPackageDependency<P0>(packagedependencyid: P0, user: Option<super::super::super::Security::PSID>, scopeissystem: bool, processidscount: *mut u32, processids: *mut *mut u32) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetProcessesUsingPackageDependency(packagedependencyid : windows_core::PCWSTR, user : super::super::super::Security::PSID, scopeissystem : windows_core::BOOL, processidscount : *mut u32, processids : *mut *mut u32) -> windows_core::HRESULT);
-    unsafe { GetProcessesUsingPackageDependency(packagedependencyid.param().abi(), user.unwrap_or(core::mem::zeroed()) as _, scopeissystem.into(), processidscount as _, processids as _).ok() }
+    unsafe { GetProcessesUsingPackageDependency(packagedependencyid.param().abi(), user.unwrap_or(core::mem::zeroed()) as _, scopeissystem.into(), processidscount as _, processids as _) }
 }
 #[inline]
 pub unsafe fn GetResolvedPackageFullNameForPackageDependency<P0>(packagedependencyid: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -412,9 +412,9 @@ pub unsafe fn ReleasePackageVirtualizationContext(context: PACKAGE_VIRTUALIZATIO
     unsafe { ReleasePackageVirtualizationContext(context) }
 }
 #[inline]
-pub unsafe fn RemovePackageDependency(packagedependencycontext: PACKAGEDEPENDENCY_CONTEXT) -> windows_core::Result<()> {
+pub unsafe fn RemovePackageDependency(packagedependencycontext: PACKAGEDEPENDENCY_CONTEXT) -> windows_core::HRESULT {
     windows_core::link!("kernelbase.dll" "system" fn RemovePackageDependency(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT) -> windows_core::HRESULT);
-    unsafe { RemovePackageDependency(packagedependencycontext).ok() }
+    unsafe { RemovePackageDependency(packagedependencycontext) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2584,15 +2584,15 @@ windows_core::imp::define_interface!(IAppxBundleWriter, IAppxBundleWriter_Vtbl, 
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter, windows_core::IUnknown);
 impl IAppxBundleWriter {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadPackage<P0, P1>(&self, filename: P0, packagestream: P1) -> windows_core::Result<()>
+    pub unsafe fn AddPayloadPackage<P0, P1>(&self, filename: P0, packagestream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackage)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackage)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi()) }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -2641,12 +2641,12 @@ windows_core::imp::define_interface!(IAppxBundleWriter2, IAppxBundleWriter2_Vtbl
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter2, windows_core::IUnknown);
 impl IAppxBundleWriter2 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> windows_core::Result<()>
+    pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2683,18 +2683,18 @@ windows_core::imp::define_interface!(IAppxBundleWriter3, IAppxBundleWriter3_Vtbl
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter3, windows_core::IUnknown);
 impl IAppxBundleWriter3 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> windows_core::Result<()>
+    pub unsafe fn AddPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi()) }
     }
-    pub unsafe fn Close<P0>(&self, hashmethodstring: P0) -> windows_core::Result<()>
+    pub unsafe fn Close<P0>(&self, hashmethodstring: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), hashmethodstring.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), hashmethodstring.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2743,28 +2743,28 @@ windows_core::imp::define_interface!(IAppxBundleWriter4, IAppxBundleWriter4_Vtbl
 windows_core::imp::interface_hierarchy!(IAppxBundleWriter4, windows_core::IUnknown);
 impl IAppxBundleWriter4 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadPackage<P0, P1>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: bool) -> windows_core::Result<()>
+    pub unsafe fn AddPayloadPackage<P0, P1>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackage)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi(), isdefaultapplicablepackage.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackage)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi(), isdefaultapplicablepackage.into()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::Result<()>
+    pub unsafe fn AddPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi(), isdefaultapplicablepackage.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi(), isdefaultapplicablepackage.into()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::Result<()>
+    pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi(), isdefaultapplicablepackage.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi(), isdefaultapplicablepackage.into()) }
     }
 }
 #[repr(C)]
@@ -3036,20 +3036,20 @@ impl windows_core::RuntimeName for IAppxContentGroupMapReader {}
 windows_core::imp::define_interface!(IAppxContentGroupMapWriter, IAppxContentGroupMapWriter_Vtbl, 0xd07ab776_a9de_4798_8c14_3db31e687c78);
 windows_core::imp::interface_hierarchy!(IAppxContentGroupMapWriter, windows_core::IUnknown);
 impl IAppxContentGroupMapWriter {
-    pub unsafe fn AddAutomaticGroup<P0>(&self, groupname: P0) -> windows_core::Result<()>
+    pub unsafe fn AddAutomaticGroup<P0>(&self, groupname: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAutomaticGroup)(windows_core::Interface::as_raw(self), groupname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAutomaticGroup)(windows_core::Interface::as_raw(self), groupname.param().abi()) }
     }
-    pub unsafe fn AddAutomaticFile<P0>(&self, filename: P0) -> windows_core::Result<()>
+    pub unsafe fn AddAutomaticFile<P0>(&self, filename: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAutomaticFile)(windows_core::Interface::as_raw(self), filename.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAutomaticFile)(windows_core::Interface::as_raw(self), filename.param().abi()) }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -3226,15 +3226,15 @@ windows_core::imp::define_interface!(IAppxEncryptedBundleWriter, IAppxEncryptedB
 windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter, windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadPackageEncrypted<P0, P1>(&self, filename: P0, packagestream: P1) -> windows_core::Result<()>
+    pub unsafe fn AddPayloadPackageEncrypted<P0, P1>(&self, filename: P0, packagestream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackageEncrypted)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackageEncrypted)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi()) }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -3283,12 +3283,12 @@ windows_core::imp::define_interface!(IAppxEncryptedBundleWriter2, IAppxEncrypted
 windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter2, windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter2 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> windows_core::Result<()>
+    pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi()) }
     }
 }
 #[repr(C)]
@@ -3325,20 +3325,20 @@ windows_core::imp::define_interface!(IAppxEncryptedBundleWriter3, IAppxEncrypted
 windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter3, windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter3 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadPackageEncrypted<P0, P1>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: bool) -> windows_core::Result<()>
+    pub unsafe fn AddPayloadPackageEncrypted<P0, P1>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackageEncrypted)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi(), isdefaultapplicablepackage.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackageEncrypted)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi(), isdefaultapplicablepackage.into()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::Result<()>
+    pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi(), isdefaultapplicablepackage.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi(), isdefaultapplicablepackage.into()) }
     }
 }
 #[repr(C)]
@@ -3390,15 +3390,15 @@ windows_core::imp::define_interface!(IAppxEncryptedPackageWriter, IAppxEncrypted
 windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter, windows_core::IUnknown);
 impl IAppxEncryptedPackageWriter {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadFileEncrypted<P0, P2>(&self, filename: P0, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P2) -> windows_core::Result<()>
+    pub unsafe fn AddPayloadFileEncrypted<P0, P2>(&self, filename: P0, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFileEncrypted)(windows_core::Interface::as_raw(self), filename.param().abi(), compressionoption, inputstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFileEncrypted)(windows_core::Interface::as_raw(self), filename.param().abi(), compressionoption, inputstream.param().abi()) }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -3447,8 +3447,8 @@ windows_core::imp::define_interface!(IAppxEncryptedPackageWriter2, IAppxEncrypte
 windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter2, windows_core::IUnknown);
 impl IAppxEncryptedPackageWriter2 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadFilesEncrypted(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(windows_core::Interface::as_raw(self), payloadfiles.len().try_into().unwrap(), core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok() }
+    pub unsafe fn AddPayloadFilesEncrypted(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(windows_core::Interface::as_raw(self), payloadfiles.len().try_into().unwrap(), core::mem::transmute(payloadfiles.as_ptr()), memorylimit) }
     }
 }
 #[repr(C)]
@@ -3485,20 +3485,20 @@ windows_core::imp::define_interface!(IAppxEncryptionFactory, IAppxEncryptionFact
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory, windows_core::IUnknown);
 impl IAppxEncryptionFactory {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>
+    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DecryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>
+    pub unsafe fn DecryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DecryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), keyinfo).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DecryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), keyinfo) }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1>(&self, outputstream: P0, manifeststream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
@@ -3522,20 +3522,20 @@ impl IAppxEncryptionFactory {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>
+    pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DecryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>
+    pub unsafe fn DecryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DecryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), keyinfo).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DecryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), keyinfo) }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
@@ -3755,12 +3755,12 @@ windows_core::imp::define_interface!(IAppxEncryptionFactory3, IAppxEncryptionFac
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory3, windows_core::IUnknown);
 impl IAppxEncryptionFactory3 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>
+    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
@@ -3775,12 +3775,12 @@ impl IAppxEncryptionFactory3 {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>
+    pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
@@ -3878,12 +3878,12 @@ windows_core::imp::define_interface!(IAppxEncryptionFactory4, IAppxEncryptionFac
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory4, windows_core::IUnknown);
 impl IAppxEncryptionFactory4 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::Result<()>
+    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, memorylimit).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, memorylimit) }
     }
 }
 #[repr(C)]
@@ -7460,54 +7460,54 @@ impl windows_core::RuntimeName for IAppxManifestTargetDeviceFamily {}
 windows_core::imp::define_interface!(IAppxPackageEditor, IAppxPackageEditor_Vtbl, 0xe2adb6dc_5e71_4416_86b6_86e5f5291a6b);
 windows_core::imp::interface_hierarchy!(IAppxPackageEditor, windows_core::IUnknown);
 impl IAppxPackageEditor {
-    pub unsafe fn SetWorkingDirectory<P0>(&self, workingdirectory: P0) -> windows_core::Result<()>
+    pub unsafe fn SetWorkingDirectory<P0>(&self, workingdirectory: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), workingdirectory.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), workingdirectory.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDeltaPackage<P0, P1, P2>(&self, updatedpackagestream: P0, baselinepackagestream: P1, deltapackagestream: P2) -> windows_core::Result<()>
+    pub unsafe fn CreateDeltaPackage<P0, P1, P2>(&self, updatedpackagestream: P0, baselinepackagestream: P1, deltapackagestream: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
         P2: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDeltaPackage)(windows_core::Interface::as_raw(self), updatedpackagestream.param().abi(), baselinepackagestream.param().abi(), deltapackagestream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateDeltaPackage)(windows_core::Interface::as_raw(self), updatedpackagestream.param().abi(), baselinepackagestream.param().abi(), deltapackagestream.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDeltaPackageUsingBaselineBlockMap<P0, P1, P2, P3>(&self, updatedpackagestream: P0, baselineblockmapstream: P1, baselinepackagefullname: P2, deltapackagestream: P3) -> windows_core::Result<()>
+    pub unsafe fn CreateDeltaPackageUsingBaselineBlockMap<P0, P1, P2, P3>(&self, updatedpackagestream: P0, baselineblockmapstream: P1, baselinepackagefullname: P2, deltapackagestream: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDeltaPackageUsingBaselineBlockMap)(windows_core::Interface::as_raw(self), updatedpackagestream.param().abi(), baselineblockmapstream.param().abi(), baselinepackagefullname.param().abi(), deltapackagestream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateDeltaPackageUsingBaselineBlockMap)(windows_core::Interface::as_raw(self), updatedpackagestream.param().abi(), baselineblockmapstream.param().abi(), baselinepackagefullname.param().abi(), deltapackagestream.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdatePackage<P0, P1>(&self, baselinepackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::Result<()>
+    pub unsafe fn UpdatePackage<P0, P1>(&self, baselinepackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdatePackage)(windows_core::Interface::as_raw(self), baselinepackagestream.param().abi(), deltapackagestream.param().abi(), updateoption).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdatePackage)(windows_core::Interface::as_raw(self), baselinepackagestream.param().abi(), deltapackagestream.param().abi(), updateoption) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdateEncryptedPackage<P0, P1>(&self, baselineencryptedpackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>
+    pub unsafe fn UpdateEncryptedPackage<P0, P1>(&self, baselineencryptedpackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateEncryptedPackage)(windows_core::Interface::as_raw(self), baselineencryptedpackagestream.param().abi(), deltapackagestream.param().abi(), updateoption, core::mem::transmute(settings), keyinfo).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateEncryptedPackage)(windows_core::Interface::as_raw(self), baselineencryptedpackagestream.param().abi(), deltapackagestream.param().abi(), updateoption, core::mem::transmute(settings), keyinfo) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdatePackageManifest<P0, P1>(&self, packagestream: P0, updatedmanifeststream: P1, ispackageencrypted: bool, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::Result<()>
+    pub unsafe fn UpdatePackageManifest<P0, P1>(&self, packagestream: P0, updatedmanifeststream: P1, ispackageencrypted: bool, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdatePackageManifest)(windows_core::Interface::as_raw(self), packagestream.param().abi(), updatedmanifeststream.param().abi(), ispackageencrypted.into(), options).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdatePackageManifest)(windows_core::Interface::as_raw(self), packagestream.param().abi(), updatedmanifeststream.param().abi(), ispackageencrypted.into(), options) }
     }
 }
 #[repr(C)]
@@ -7734,20 +7734,20 @@ windows_core::imp::define_interface!(IAppxPackageWriter, IAppxPackageWriter_Vtbl
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter, windows_core::IUnknown);
 impl IAppxPackageWriter {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadFile<P0, P1, P3>(&self, filename: P0, contenttype: P1, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P3) -> windows_core::Result<()>
+    pub unsafe fn AddPayloadFile<P0, P1, P3>(&self, filename: P0, contenttype: P1, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFile)(windows_core::Interface::as_raw(self), filename.param().abi(), contenttype.param().abi(), compressionoption, inputstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFile)(windows_core::Interface::as_raw(self), filename.param().abi(), contenttype.param().abi(), compressionoption, inputstream.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Close<P0>(&self, manifest: P0) -> windows_core::Result<()>
+    pub unsafe fn Close<P0>(&self, manifest: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), manifest.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), manifest.param().abi()) }
     }
 }
 #[repr(C)]
@@ -7799,12 +7799,12 @@ windows_core::imp::define_interface!(IAppxPackageWriter2, IAppxPackageWriter2_Vt
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter2, windows_core::IUnknown);
 impl IAppxPackageWriter2 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Close<P0, P1>(&self, manifest: P0, contentgroupmap: P1) -> windows_core::Result<()>
+    pub unsafe fn Close<P0, P1>(&self, manifest: P0, contentgroupmap: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), manifest.param().abi(), contentgroupmap.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), manifest.param().abi(), contentgroupmap.param().abi()) }
     }
 }
 #[repr(C)]
@@ -7841,8 +7841,8 @@ windows_core::imp::define_interface!(IAppxPackageWriter3, IAppxPackageWriter3_Vt
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter3, windows_core::IUnknown);
 impl IAppxPackageWriter3 {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPayloadFiles(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFiles)(windows_core::Interface::as_raw(self), payloadfiles.len().try_into().unwrap(), core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok() }
+    pub unsafe fn AddPayloadFiles(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFiles)(windows_core::Interface::as_raw(self), payloadfiles.len().try_into().unwrap(), core::mem::transmute(payloadfiles.as_ptr()), memorylimit) }
     }
 }
 #[repr(C)]
@@ -7878,19 +7878,19 @@ impl windows_core::RuntimeName for IAppxPackageWriter3 {}
 windows_core::imp::define_interface!(IAppxPackagingDiagnosticEventSink, IAppxPackagingDiagnosticEventSink_Vtbl, 0x17239d47_6adb_45d2_80f6_f9cbc3bf059d);
 windows_core::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSink, windows_core::IUnknown);
 impl IAppxPackagingDiagnosticEventSink {
-    pub unsafe fn ReportContextChange<P2, P3, P4>(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: P2, contextmessage: P3, detailsmessage: P4) -> windows_core::Result<()>
+    pub unsafe fn ReportContextChange<P2, P3, P4>(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: P2, contextmessage: P3, detailsmessage: P4) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ReportContextChange)(windows_core::Interface::as_raw(self), changetype, contextid, contextname.param().abi(), contextmessage.param().abi(), detailsmessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReportContextChange)(windows_core::Interface::as_raw(self), changetype, contextid, contextname.param().abi(), contextmessage.param().abi(), detailsmessage.param().abi()) }
     }
-    pub unsafe fn ReportError<P0>(&self, errormessage: P0) -> windows_core::Result<()>
+    pub unsafe fn ReportError<P0>(&self, errormessage: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ReportError)(windows_core::Interface::as_raw(self), errormessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReportError)(windows_core::Interface::as_raw(self), errormessage.param().abi()) }
     }
 }
 #[repr(C)]
@@ -7932,11 +7932,11 @@ impl windows_core::RuntimeName for IAppxPackagingDiagnosticEventSink {}
 windows_core::imp::define_interface!(IAppxPackagingDiagnosticEventSinkManager, IAppxPackagingDiagnosticEventSinkManager_Vtbl, 0x369648fa_a7eb_4909_a15d_6954a078f18a);
 windows_core::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSinkManager, windows_core::IUnknown);
 impl IAppxPackagingDiagnosticEventSinkManager {
-    pub unsafe fn SetSinkForProcess<P0>(&self, sink: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSinkForProcess<P0>(&self, sink: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAppxPackagingDiagnosticEventSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSinkForProcess)(windows_core::Interface::as_raw(self), sink.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSinkForProcess)(windows_core::Interface::as_raw(self), sink.param().abi()) }
     }
 }
 #[repr(C)]

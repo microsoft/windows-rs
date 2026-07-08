@@ -17,13 +17,13 @@ impl core::ops::Deref for IAccessibleWinSAT {
 windows_core::imp::interface_hierarchy!(IAccessibleWinSAT, windows_core::IUnknown, super::Com::IDispatch, super::super::UI::Accessibility::IAccessible);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl IAccessibleWinSAT {
-    pub unsafe fn SetAccessiblityData<P0, P1, P2>(&self, wsname: P0, wsvalue: P1, wsdesc: P2) -> windows_core::Result<()>
+    pub unsafe fn SetAccessiblityData<P0, P1, P2>(&self, wsname: P0, wsvalue: P1, wsdesc: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAccessiblityData)(windows_core::Interface::as_raw(self), wsname.param().abi(), wsvalue.param().abi(), wsdesc.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetAccessiblityData)(windows_core::Interface::as_raw(self), wsname.param().abi(), wsvalue.param().abi(), wsdesc.param().abi()) }
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
@@ -60,21 +60,21 @@ impl windows_core::RuntimeName for IAccessibleWinSAT {}
 windows_core::imp::define_interface!(IInitiateWinSATAssessment, IInitiateWinSATAssessment_Vtbl, 0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
 windows_core::imp::interface_hierarchy!(IInitiateWinSATAssessment, windows_core::IUnknown);
 impl IInitiateWinSATAssessment {
-    pub unsafe fn InitiateAssessment<P0, P1>(&self, cmdline: P0, pcallbacks: P1, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()>
+    pub unsafe fn InitiateAssessment<P0, P1>(&self, cmdline: P0, pcallbacks: P1, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IWinSATInitiateEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitiateAssessment)(windows_core::Interface::as_raw(self), cmdline.param().abi(), pcallbacks.param().abi(), callerhwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InitiateAssessment)(windows_core::Interface::as_raw(self), cmdline.param().abi(), pcallbacks.param().abi(), callerhwnd.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn InitiateFormalAssessment<P0>(&self, pcallbacks: P0, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()>
+    pub unsafe fn InitiateFormalAssessment<P0>(&self, pcallbacks: P0, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IWinSATInitiateEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitiateFormalAssessment)(windows_core::Interface::as_raw(self), pcallbacks.param().abi(), callerhwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InitiateFormalAssessment)(windows_core::Interface::as_raw(self), pcallbacks.param().abi(), callerhwnd.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn CancelAssessment(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CancelAssessment)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn CancelAssessment(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CancelAssessment)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -592,17 +592,17 @@ impl windows_core::RuntimeName for IQueryRecentWinSATAssessment {}
 windows_core::imp::define_interface!(IWinSATInitiateEvents, IWinSATInitiateEvents_Vtbl, 0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
 windows_core::imp::interface_hierarchy!(IWinSATInitiateEvents, windows_core::IUnknown);
 impl IWinSATInitiateEvents {
-    pub unsafe fn WinSATComplete<P1>(&self, hresult: windows_core::HRESULT, strdescription: P1) -> windows_core::Result<()>
+    pub unsafe fn WinSATComplete<P1>(&self, hresult: windows_core::HRESULT, strdescription: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WinSATComplete)(windows_core::Interface::as_raw(self), hresult, strdescription.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WinSATComplete)(windows_core::Interface::as_raw(self), hresult, strdescription.param().abi()) }
     }
-    pub unsafe fn WinSATUpdate<P2>(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: P2) -> windows_core::Result<()>
+    pub unsafe fn WinSATUpdate<P2>(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WinSATUpdate)(windows_core::Interface::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WinSATUpdate)(windows_core::Interface::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.param().abi()) }
     }
 }
 #[repr(C)]

@@ -120,11 +120,11 @@ impl windows_core::RuntimeName for IWindowsDevicesAllJoynBusObjectFactoryInterop
 windows_core::imp::define_interface!(IWindowsDevicesAllJoynBusObjectInterop, IWindowsDevicesAllJoynBusObjectInterop_Vtbl, 0xd78aa3d5_5054_428f_99f2_ec3a5de3c3bc);
 windows_core::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IWindowsDevicesAllJoynBusObjectInterop {
-    pub unsafe fn AddPropertyGetHandler(&self, context: *const core::ffi::c_void, interfacename: &windows_core::HSTRING, callback: isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyGetHandler)(windows_core::Interface::as_raw(self), context, core::mem::transmute_copy(interfacename), callback).ok() }
+    pub unsafe fn AddPropertyGetHandler(&self, context: *const core::ffi::c_void, interfacename: &windows_core::HSTRING, callback: isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyGetHandler)(windows_core::Interface::as_raw(self), context, core::mem::transmute_copy(interfacename), callback) }
     }
-    pub unsafe fn AddPropertySetHandler(&self, context: *const core::ffi::c_void, interfacename: &windows_core::HSTRING, callback: isize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertySetHandler)(windows_core::Interface::as_raw(self), context, core::mem::transmute_copy(interfacename), callback).ok() }
+    pub unsafe fn AddPropertySetHandler(&self, context: *const core::ffi::c_void, interfacename: &windows_core::HSTRING, callback: isize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPropertySetHandler)(windows_core::Interface::as_raw(self), context, core::mem::transmute_copy(interfacename), callback) }
     }
     pub unsafe fn Win32Handle(&self) -> windows_core::Result<u64> {
         unsafe {

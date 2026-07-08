@@ -10,12 +10,12 @@ where
     }
 }
 #[inline]
-pub unsafe fn ValidateLicenseKeyProtection<P0>(licensekey: P0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> windows_core::Result<()>
+pub unsafe fn ValidateLicenseKeyProtection<P0>(licensekey: P0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("licenseprotection.dll" "system" fn ValidateLicenseKeyProtection(licensekey : windows_core::PCWSTR, notvalidbefore : *mut super::super::Foundation::FILETIME, notvalidafter : *mut super::super::Foundation::FILETIME, status : *mut LicenseProtectionStatus) -> windows_core::HRESULT);
-    unsafe { ValidateLicenseKeyProtection(licensekey.param().abi(), notvalidbefore as _, notvalidafter as _, status as _).ok() }
+    unsafe { ValidateLicenseKeyProtection(licensekey.param().abi(), notvalidbefore as _, notvalidafter as _, status as _) }
 }
 pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = LicenseProtectionStatus(4);
 pub const LicenseKeyCorrupted: LicenseProtectionStatus = LicenseProtectionStatus(3);

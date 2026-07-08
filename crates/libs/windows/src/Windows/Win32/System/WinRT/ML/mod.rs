@@ -98,8 +98,8 @@ impl windows_core::RuntimeName for ILearningModelOperatorProviderNative {}
 windows_core::imp::define_interface!(ILearningModelSessionOptionsNative, ILearningModelSessionOptionsNative_Vtbl, 0xc71e953f_37b4_4564_8658_d8396866db0d);
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative, windows_core::IUnknown);
 impl ILearningModelSessionOptionsNative {
-    pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetIntraOpNumThreadsOverride)(windows_core::Interface::as_raw(self), intraopnumthreads).ok() }
+    pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetIntraOpNumThreadsOverride)(windows_core::Interface::as_raw(self), intraopnumthreads) }
     }
 }
 #[repr(C)]
@@ -129,8 +129,8 @@ impl windows_core::RuntimeName for ILearningModelSessionOptionsNative {}
 windows_core::imp::define_interface!(ILearningModelSessionOptionsNative1, ILearningModelSessionOptionsNative1_Vtbl, 0x5da37a26_0526_414b_91e4_2a0fa3ddba40);
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative1, windows_core::IUnknown);
 impl ILearningModelSessionOptionsNative1 {
-    pub unsafe fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetIntraOpThreadSpinning)(windows_core::Interface::as_raw(self), allowspinning).ok() }
+    pub unsafe fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetIntraOpThreadSpinning)(windows_core::Interface::as_raw(self), allowspinning) }
     }
 }
 #[repr(C)]
@@ -160,8 +160,8 @@ impl windows_core::RuntimeName for ILearningModelSessionOptionsNative1 {}
 windows_core::imp::define_interface!(ITensorNative, ITensorNative_Vtbl, 0x52f547ef_5b03_49b5_82d6_565f1ee0dd49);
 windows_core::imp::interface_hierarchy!(ITensorNative, windows_core::IUnknown);
 impl ITensorNative {
-    pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), value as _, capacity as _).ok() }
+    pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), value as _, capacity as _) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetD3D12Resource(&self) -> windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
@@ -223,11 +223,11 @@ windows_core::imp::define_interface!(ITensorStaticsNative, ITensorStaticsNative_
 windows_core::imp::interface_hierarchy!(ITensorStaticsNative, windows_core::IUnknown);
 impl ITensorStaticsNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateFromD3D12Resource<P0>(&self, value: P0, shape: *mut i64, shapecount: i32, result: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn CreateFromD3D12Resource<P0>(&self, value: P0, shape: *mut i64, shapecount: i32, result: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateFromD3D12Resource)(windows_core::Interface::as_raw(self), value.param().abi(), shape as _, shapecount, core::mem::transmute(result)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateFromD3D12Resource)(windows_core::Interface::as_raw(self), value.param().abi(), shape as _, shapecount, core::mem::transmute(result)) }
     }
 }
 #[repr(C)]

@@ -58,8 +58,8 @@ impl IMbnConnection {
             (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetConnectionState(&self, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetConnectionState)(windows_core::Interface::as_raw(self), connectionstate as _, core::mem::transmute(profilename)).ok() }
+    pub unsafe fn GetConnectionState(&self, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetConnectionState)(windows_core::Interface::as_raw(self), connectionstate as _, core::mem::transmute(profilename)) }
     }
     pub unsafe fn GetVoiceCallState(&self) -> windows_core::Result<MBN_VOICE_CALL_STATE> {
         unsafe {
@@ -268,17 +268,17 @@ impl windows_core::RuntimeName for IMbnConnectionContext {}
 windows_core::imp::define_interface!(IMbnConnectionContextEvents, IMbnConnectionContextEvents_Vtbl, 0xdcbbbab6_200c_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnConnectionContextEvents, windows_core::IUnknown);
 impl IMbnConnectionContextEvents {
-    pub unsafe fn OnProvisionedContextListChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnProvisionedContextListChange<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnectionContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnProvisionedContextListChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnProvisionedContextListChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnSetProvisionedContextComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnSetProvisionedContextComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnectionContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetProvisionedContextComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetProvisionedContextComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status) }
     }
 }
 #[repr(C)]
@@ -320,29 +320,29 @@ impl windows_core::RuntimeName for IMbnConnectionContextEvents {}
 windows_core::imp::define_interface!(IMbnConnectionEvents, IMbnConnectionEvents_Vtbl, 0xdcbbbab6_200e_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnConnectionEvents, windows_core::IUnknown);
 impl IMbnConnectionEvents {
-    pub unsafe fn OnConnectComplete<P0>(&self, newconnection: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnConnectComplete<P0>(&self, newconnection: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectComplete)(windows_core::Interface::as_raw(self), newconnection.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectComplete)(windows_core::Interface::as_raw(self), newconnection.param().abi(), requestid, status) }
     }
-    pub unsafe fn OnDisconnectComplete<P0>(&self, newconnection: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnDisconnectComplete<P0>(&self, newconnection: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDisconnectComplete)(windows_core::Interface::as_raw(self), newconnection.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDisconnectComplete)(windows_core::Interface::as_raw(self), newconnection.param().abi(), requestid, status) }
     }
-    pub unsafe fn OnConnectStateChange<P0>(&self, newconnection: P0) -> windows_core::Result<()>
+    pub unsafe fn OnConnectStateChange<P0>(&self, newconnection: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectStateChange)(windows_core::Interface::as_raw(self), newconnection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectStateChange)(windows_core::Interface::as_raw(self), newconnection.param().abi()) }
     }
-    pub unsafe fn OnVoiceCallStateChange<P0>(&self, newconnection: P0) -> windows_core::Result<()>
+    pub unsafe fn OnVoiceCallStateChange<P0>(&self, newconnection: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnVoiceCallStateChange)(windows_core::Interface::as_raw(self), newconnection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnVoiceCallStateChange)(windows_core::Interface::as_raw(self), newconnection.param().abi()) }
     }
 }
 #[repr(C)]
@@ -476,17 +476,17 @@ impl windows_core::RuntimeName for IMbnConnectionManager {}
 windows_core::imp::define_interface!(IMbnConnectionManagerEvents, IMbnConnectionManagerEvents_Vtbl, 0xdcbbbab6_201e_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnConnectionManagerEvents, windows_core::IUnknown);
 impl IMbnConnectionManagerEvents {
-    pub unsafe fn OnConnectionArrival<P0>(&self, newconnection: P0) -> windows_core::Result<()>
+    pub unsafe fn OnConnectionArrival<P0>(&self, newconnection: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectionArrival)(windows_core::Interface::as_raw(self), newconnection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectionArrival)(windows_core::Interface::as_raw(self), newconnection.param().abi()) }
     }
-    pub unsafe fn OnConnectionRemoval<P0>(&self, oldconnection: P0) -> windows_core::Result<()>
+    pub unsafe fn OnConnectionRemoval<P0>(&self, oldconnection: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectionRemoval)(windows_core::Interface::as_raw(self), oldconnection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectionRemoval)(windows_core::Interface::as_raw(self), oldconnection.param().abi()) }
     }
 }
 #[repr(C)]
@@ -534,14 +534,14 @@ impl IMbnConnectionProfile {
             (windows_core::Interface::vtable(self).GetProfileXmlData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UpdateProfile<P0>(&self, strprofile: P0) -> windows_core::Result<()>
+    pub unsafe fn UpdateProfile<P0>(&self, strprofile: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateProfile)(windows_core::Interface::as_raw(self), strprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateProfile)(windows_core::Interface::as_raw(self), strprofile.param().abi()) }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Delete(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -598,11 +598,11 @@ impl windows_core::RuntimeName for IMbnConnectionProfile {}
 windows_core::imp::define_interface!(IMbnConnectionProfileEvents, IMbnConnectionProfileEvents_Vtbl, 0xdcbbbab6_2011_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnConnectionProfileEvents, windows_core::IUnknown);
 impl IMbnConnectionProfileEvents {
-    pub unsafe fn OnProfileUpdate<P0>(&self, newprofile: P0) -> windows_core::Result<()>
+    pub unsafe fn OnProfileUpdate<P0>(&self, newprofile: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnectionProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnProfileUpdate)(windows_core::Interface::as_raw(self), newprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnProfileUpdate)(windows_core::Interface::as_raw(self), newprofile.param().abi()) }
     }
 }
 #[repr(C)]
@@ -652,11 +652,11 @@ impl IMbnConnectionProfileManager {
             (windows_core::Interface::vtable(self).GetConnectionProfile)(windows_core::Interface::as_raw(self), mbninterface.param().abi(), profilename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateConnectionProfile<P0>(&self, xmlprofile: P0) -> windows_core::Result<()>
+    pub unsafe fn CreateConnectionProfile<P0>(&self, xmlprofile: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateConnectionProfile)(windows_core::Interface::as_raw(self), xmlprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateConnectionProfile)(windows_core::Interface::as_raw(self), xmlprofile.param().abi()) }
     }
 }
 #[repr(C)]
@@ -725,17 +725,17 @@ impl windows_core::RuntimeName for IMbnConnectionProfileManager {}
 windows_core::imp::define_interface!(IMbnConnectionProfileManagerEvents, IMbnConnectionProfileManagerEvents_Vtbl, 0xdcbbbab6_201f_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnConnectionProfileManagerEvents, windows_core::IUnknown);
 impl IMbnConnectionProfileManagerEvents {
-    pub unsafe fn OnConnectionProfileArrival<P0>(&self, newconnectionprofile: P0) -> windows_core::Result<()>
+    pub unsafe fn OnConnectionProfileArrival<P0>(&self, newconnectionprofile: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnectionProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectionProfileArrival)(windows_core::Interface::as_raw(self), newconnectionprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectionProfileArrival)(windows_core::Interface::as_raw(self), newconnectionprofile.param().abi()) }
     }
-    pub unsafe fn OnConnectionProfileRemoval<P0>(&self, oldconnectionprofile: P0) -> windows_core::Result<()>
+    pub unsafe fn OnConnectionProfileRemoval<P0>(&self, oldconnectionprofile: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnConnectionProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectionProfileRemoval)(windows_core::Interface::as_raw(self), oldconnectionprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectionProfileRemoval)(windows_core::Interface::as_raw(self), oldconnectionprofile.param().abi()) }
     }
 }
 #[repr(C)]
@@ -1066,8 +1066,8 @@ impl windows_core::RuntimeName for IMbnDeviceService {}
 windows_core::imp::define_interface!(IMbnDeviceServiceStateEvents, IMbnDeviceServiceStateEvents_Vtbl, 0x5d3ff196_89ee_49d8_8b60_33ffddffc58d);
 windows_core::imp::interface_hierarchy!(IMbnDeviceServiceStateEvents, windows_core::IUnknown);
 impl IMbnDeviceServiceStateEvents {
-    pub unsafe fn OnSessionsStateChange(&self, interfaceid: &windows_core::BSTR, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnSessionsStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(interfaceid), statechange).ok() }
+    pub unsafe fn OnSessionsStateChange(&self, interfaceid: &windows_core::BSTR, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnSessionsStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(interfaceid), statechange) }
     }
 }
 #[repr(C)]
@@ -1211,72 +1211,72 @@ windows_core::imp::define_interface!(IMbnDeviceServicesEvents, IMbnDeviceService
 windows_core::imp::interface_hierarchy!(IMbnDeviceServicesEvents, windows_core::IUnknown);
 impl IMbnDeviceServicesEvents {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnQuerySupportedCommandsComplete<P0>(&self, deviceservice: P0, commandidlist: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
+    pub unsafe fn OnQuerySupportedCommandsComplete<P0>(&self, deviceservice: P0, commandidlist: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnQuerySupportedCommandsComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), commandidlist, status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnQuerySupportedCommandsComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), commandidlist, status, requestid) }
     }
-    pub unsafe fn OnOpenCommandSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
+    pub unsafe fn OnOpenCommandSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOpenCommandSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOpenCommandSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid) }
     }
-    pub unsafe fn OnCloseCommandSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
+    pub unsafe fn OnCloseCommandSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnCloseCommandSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid).ok() }
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSetCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IMbnDeviceService>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).OnSetCommandComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), responseid, deviceservicedata, status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnCloseCommandSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnQueryCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
+    pub unsafe fn OnSetCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnQueryCommandComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), responseid, deviceservicedata, status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetCommandComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), responseid, deviceservicedata, status, requestid) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnEventNotification<P0>(&self, deviceservice: P0, eventid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn OnQueryCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEventNotification)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), eventid, deviceservicedata).ok() }
-    }
-    pub unsafe fn OnOpenDataSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IMbnDeviceService>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).OnOpenDataSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid).ok() }
-    }
-    pub unsafe fn OnCloseDataSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IMbnDeviceService>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).OnCloseDataSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid).ok() }
-    }
-    pub unsafe fn OnWriteDataComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IMbnDeviceService>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).OnWriteDataComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnQueryCommandComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), responseid, deviceservicedata, status, requestid) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnReadData<P0>(&self, deviceservice: P0, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn OnEventNotification<P0>(&self, deviceservice: P0, eventid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnReadData)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), deviceservicedata).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEventNotification)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), eventid, deviceservicedata) }
     }
-    pub unsafe fn OnInterfaceStateChange(&self, interfaceid: &windows_core::BSTR, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnInterfaceStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(interfaceid), statechange).ok() }
+    pub unsafe fn OnOpenDataSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<IMbnDeviceService>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).OnOpenDataSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid) }
+    }
+    pub unsafe fn OnCloseDataSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<IMbnDeviceService>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).OnCloseDataSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid) }
+    }
+    pub unsafe fn OnWriteDataComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<IMbnDeviceService>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).OnWriteDataComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid) }
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OnReadData<P0>(&self, deviceservice: P0, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<IMbnDeviceService>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).OnReadData)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), deviceservicedata) }
+    }
+    pub unsafe fn OnInterfaceStateChange(&self, interfaceid: &windows_core::BSTR, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnInterfaceStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(interfaceid), statechange) }
     }
 }
 #[repr(C)]
@@ -1463,8 +1463,8 @@ impl IMbnInterface {
             (windows_core::Interface::vtable(self).InterfaceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetInterfaceCapability(&self, interfacecaps: *mut MBN_INTERFACE_CAPS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInterfaceCapability)(windows_core::Interface::as_raw(self), core::mem::transmute(interfacecaps)).ok() }
+    pub unsafe fn GetInterfaceCapability(&self, interfacecaps: *mut MBN_INTERFACE_CAPS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInterfaceCapability)(windows_core::Interface::as_raw(self), core::mem::transmute(interfacecaps)) }
     }
     pub unsafe fn GetSubscriberInformation(&self) -> windows_core::Result<IMbnSubscriberInformation> {
         unsafe {
@@ -1716,53 +1716,53 @@ impl windows_core::RuntimeName for IMbnInterface {}
 windows_core::imp::define_interface!(IMbnInterfaceEvents, IMbnInterfaceEvents_Vtbl, 0xdcbbbab6_2002_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnInterfaceEvents, windows_core::IUnknown);
 impl IMbnInterfaceEvents {
-    pub unsafe fn OnInterfaceCapabilityAvailable<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnInterfaceCapabilityAvailable<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnInterfaceCapabilityAvailable)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnInterfaceCapabilityAvailable)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnSubscriberInformationChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnSubscriberInformationChange<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSubscriberInformationChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSubscriberInformationChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnReadyStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnReadyStateChange<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnReadyStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnReadyStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnEmergencyModeChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnEmergencyModeChange<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEmergencyModeChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEmergencyModeChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnHomeProviderAvailable<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnHomeProviderAvailable<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnHomeProviderAvailable)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnHomeProviderAvailable)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnPreferredProvidersChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnPreferredProvidersChange<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnPreferredProvidersChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnPreferredProvidersChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnSetPreferredProvidersComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnSetPreferredProvidersComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetPreferredProvidersComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetPreferredProvidersComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status) }
     }
-    pub unsafe fn OnScanNetworkComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnScanNetworkComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnScanNetworkComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnScanNetworkComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status) }
     }
 }
 #[repr(C)]
@@ -1932,17 +1932,17 @@ impl windows_core::RuntimeName for IMbnInterfaceManager {}
 windows_core::imp::define_interface!(IMbnInterfaceManagerEvents, IMbnInterfaceManagerEvents_Vtbl, 0xdcbbbab6_201c_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnInterfaceManagerEvents, windows_core::IUnknown);
 impl IMbnInterfaceManagerEvents {
-    pub unsafe fn OnInterfaceArrival<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnInterfaceArrival<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnInterfaceArrival)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnInterfaceArrival)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnInterfaceRemoval<P0>(&self, oldinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnInterfaceRemoval<P0>(&self, oldinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnInterfaceRemoval)(windows_core::Interface::as_raw(self), oldinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnInterfaceRemoval)(windows_core::Interface::as_raw(self), oldinterface.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2147,35 +2147,35 @@ impl windows_core::RuntimeName for IMbnMultiCarrier {}
 windows_core::imp::define_interface!(IMbnMultiCarrierEvents, IMbnMultiCarrierEvents_Vtbl, 0xdcdddab6_2021_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnMultiCarrierEvents, windows_core::IUnknown);
 impl IMbnMultiCarrierEvents {
-    pub unsafe fn OnSetHomeProviderComplete<P0>(&self, mbninterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnSetHomeProviderComplete<P0>(&self, mbninterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnMultiCarrier>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetHomeProviderComplete)(windows_core::Interface::as_raw(self), mbninterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetHomeProviderComplete)(windows_core::Interface::as_raw(self), mbninterface.param().abi(), requestid, status) }
     }
-    pub unsafe fn OnCurrentCellularClassChange<P0>(&self, mbninterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnCurrentCellularClassChange<P0>(&self, mbninterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnMultiCarrier>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnCurrentCellularClassChange)(windows_core::Interface::as_raw(self), mbninterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnCurrentCellularClassChange)(windows_core::Interface::as_raw(self), mbninterface.param().abi()) }
     }
-    pub unsafe fn OnPreferredProvidersChange<P0>(&self, mbninterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnPreferredProvidersChange<P0>(&self, mbninterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnMultiCarrier>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnPreferredProvidersChange)(windows_core::Interface::as_raw(self), mbninterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnPreferredProvidersChange)(windows_core::Interface::as_raw(self), mbninterface.param().abi()) }
     }
-    pub unsafe fn OnScanNetworkComplete<P0>(&self, mbninterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnScanNetworkComplete<P0>(&self, mbninterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnMultiCarrier>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnScanNetworkComplete)(windows_core::Interface::as_raw(self), mbninterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnScanNetworkComplete)(windows_core::Interface::as_raw(self), mbninterface.param().abi(), requestid, status) }
     }
-    pub unsafe fn OnInterfaceCapabilityChange<P0>(&self, mbninterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnInterfaceCapabilityChange<P0>(&self, mbninterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnMultiCarrier>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnInterfaceCapabilityChange)(windows_core::Interface::as_raw(self), mbninterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnInterfaceCapabilityChange)(windows_core::Interface::as_raw(self), mbninterface.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2514,35 +2514,35 @@ impl windows_core::RuntimeName for IMbnPin {}
 windows_core::imp::define_interface!(IMbnPinEvents, IMbnPinEvents_Vtbl, 0xdcbbbab6_2008_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnPinEvents, windows_core::IUnknown);
 impl IMbnPinEvents {
-    pub unsafe fn OnEnableComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnEnableComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEnableComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEnableComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status) }
     }
-    pub unsafe fn OnDisableComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnDisableComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDisableComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDisableComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status) }
     }
-    pub unsafe fn OnEnterComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnEnterComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEnterComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEnterComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status) }
     }
-    pub unsafe fn OnChangeComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnChangeComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnChangeComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnChangeComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status) }
     }
-    pub unsafe fn OnUnblockComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnUnblockComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnUnblockComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnUnblockComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status) }
     }
 }
 #[repr(C)]
@@ -2703,17 +2703,17 @@ impl windows_core::RuntimeName for IMbnPinManager {}
 windows_core::imp::define_interface!(IMbnPinManagerEvents, IMbnPinManagerEvents_Vtbl, 0xdcbbbab6_2006_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnPinManagerEvents, windows_core::IUnknown);
 impl IMbnPinManagerEvents {
-    pub unsafe fn OnPinListAvailable<P0>(&self, pinmanager: P0) -> windows_core::Result<()>
+    pub unsafe fn OnPinListAvailable<P0>(&self, pinmanager: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnPinManager>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnPinListAvailable)(windows_core::Interface::as_raw(self), pinmanager.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnPinListAvailable)(windows_core::Interface::as_raw(self), pinmanager.param().abi()) }
     }
-    pub unsafe fn OnGetPinStateComplete<P0>(&self, pinmanager: P0, pininfo: MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnGetPinStateComplete<P0>(&self, pinmanager: P0, pininfo: MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnPinManager>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnGetPinStateComplete)(windows_core::Interface::as_raw(self), pinmanager.param().abi(), core::mem::transmute(pininfo), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnGetPinStateComplete)(windows_core::Interface::as_raw(self), pinmanager.param().abi(), core::mem::transmute(pininfo), requestid, status) }
     }
 }
 #[repr(C)]
@@ -2840,17 +2840,17 @@ impl windows_core::RuntimeName for IMbnRadio {}
 windows_core::imp::define_interface!(IMbnRadioEvents, IMbnRadioEvents_Vtbl, 0xdcdddab6_201f_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnRadioEvents, windows_core::IUnknown);
 impl IMbnRadioEvents {
-    pub unsafe fn OnRadioStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnRadioStateChange<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnRadio>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnRadioStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnRadioStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnSetSoftwareRadioStateComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnSetSoftwareRadioStateComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnRadio>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetSoftwareRadioStateComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetSoftwareRadioStateComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status) }
     }
 }
 #[repr(C)]
@@ -3127,29 +3127,29 @@ impl windows_core::RuntimeName for IMbnRegistration {}
 windows_core::imp::define_interface!(IMbnRegistrationEvents, IMbnRegistrationEvents_Vtbl, 0xdcbbbab6_200a_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnRegistrationEvents, windows_core::IUnknown);
 impl IMbnRegistrationEvents {
-    pub unsafe fn OnRegisterModeAvailable<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnRegisterModeAvailable<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnRegistration>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnRegisterModeAvailable)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnRegisterModeAvailable)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnRegisterStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnRegisterStateChange<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnRegistration>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnRegisterStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnRegisterStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnPacketServiceStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnPacketServiceStateChange<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnRegistration>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnPacketServiceStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnPacketServiceStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
-    pub unsafe fn OnSetRegisterModeComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnSetRegisterModeComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnRegistration>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetRegisterModeComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetRegisterModeComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status) }
     }
 }
 #[repr(C)]
@@ -3257,11 +3257,11 @@ windows_core::imp::define_interface!(IMbnServiceActivationEvents, IMbnServiceAct
 windows_core::imp::interface_hierarchy!(IMbnServiceActivationEvents, windows_core::IUnknown);
 impl IMbnServiceActivationEvents {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnActivationComplete<P0>(&self, serviceactivation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: windows_core::HRESULT, networkerror: u32) -> windows_core::Result<()>
+    pub unsafe fn OnActivationComplete<P0>(&self, serviceactivation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: windows_core::HRESULT, networkerror: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnServiceActivation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnActivationComplete)(windows_core::Interface::as_raw(self), serviceactivation.param().abi(), vendorspecificdata, requestid, status, networkerror).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnActivationComplete)(windows_core::Interface::as_raw(self), serviceactivation.param().abi(), vendorspecificdata, requestid, status, networkerror) }
     }
 }
 #[repr(C)]
@@ -3361,11 +3361,11 @@ impl windows_core::RuntimeName for IMbnSignal {}
 windows_core::imp::define_interface!(IMbnSignalEvents, IMbnSignalEvents_Vtbl, 0xdcbbbab6_2004_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnSignalEvents, windows_core::IUnknown);
 impl IMbnSignalEvents {
-    pub unsafe fn OnSignalStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnSignalStateChange<P0>(&self, newinterface: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnSignal>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSignalStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSignalStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()) }
     }
 }
 #[repr(C)]
@@ -3611,11 +3611,11 @@ impl IMbnSmsConfiguration {
             (windows_core::Interface::vtable(self).ServiceCenterAddress)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetServiceCenterAddress<P0>(&self, scaddress: P0) -> windows_core::Result<()>
+    pub unsafe fn SetServiceCenterAddress<P0>(&self, scaddress: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetServiceCenterAddress)(windows_core::Interface::as_raw(self), scaddress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetServiceCenterAddress)(windows_core::Interface::as_raw(self), scaddress.param().abi()) }
     }
     pub unsafe fn MaxMessageIndex(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -3635,8 +3635,8 @@ impl IMbnSmsConfiguration {
             (windows_core::Interface::vtable(self).SmsFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSmsFormat(&self, smsformat: MBN_SMS_FORMAT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSmsFormat)(windows_core::Interface::as_raw(self), smsformat).ok() }
+    pub unsafe fn SetSmsFormat(&self, smsformat: MBN_SMS_FORMAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSmsFormat)(windows_core::Interface::as_raw(self), smsformat) }
     }
 }
 #[repr(C)]
@@ -3738,49 +3738,49 @@ impl windows_core::RuntimeName for IMbnSmsConfiguration {}
 windows_core::imp::define_interface!(IMbnSmsEvents, IMbnSmsEvents_Vtbl, 0xdcbbbab6_2016_4bbb_aaee_338e368af6fa);
 windows_core::imp::interface_hierarchy!(IMbnSmsEvents, windows_core::IUnknown);
 impl IMbnSmsEvents {
-    pub unsafe fn OnSmsConfigurationChange<P0>(&self, sms: P0) -> windows_core::Result<()>
+    pub unsafe fn OnSmsConfigurationChange<P0>(&self, sms: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsConfigurationChange)(windows_core::Interface::as_raw(self), sms.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsConfigurationChange)(windows_core::Interface::as_raw(self), sms.param().abi()) }
     }
-    pub unsafe fn OnSetSmsConfigurationComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnSetSmsConfigurationComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetSmsConfigurationComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetSmsConfigurationComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), requestid, status) }
     }
-    pub unsafe fn OnSmsSendComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnSmsSendComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsSendComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), requestid, status).ok() }
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSmsReadComplete<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: super::super::Foundation::VARIANT_BOOL, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IMbnSms>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsReadComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), smsformat, readmsgs, moremsgs, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsSendComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), requestid, status) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSmsNewClass0Message<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn OnSmsReadComplete<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: super::super::Foundation::VARIANT_BOOL, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsNewClass0Message)(windows_core::Interface::as_raw(self), sms.param().abi(), smsformat, readmsgs).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsReadComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), smsformat, readmsgs, moremsgs, requestid, status) }
     }
-    pub unsafe fn OnSmsDeleteComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OnSmsNewClass0Message<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsDeleteComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsNewClass0Message)(windows_core::Interface::as_raw(self), sms.param().abi(), smsformat, readmsgs) }
     }
-    pub unsafe fn OnSmsStatusChange<P0>(&self, sms: P0) -> windows_core::Result<()>
+    pub unsafe fn OnSmsDeleteComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsStatusChange)(windows_core::Interface::as_raw(self), sms.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsDeleteComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), requestid, status) }
+    }
+    pub unsafe fn OnSmsStatusChange<P0>(&self, sms: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<IMbnSms>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).OnSmsStatusChange)(windows_core::Interface::as_raw(self), sms.param().abi()) }
     }
 }
 #[repr(C)]
@@ -4279,18 +4279,18 @@ windows_core::imp::define_interface!(IMbnVendorSpecificEvents, IMbnVendorSpecifi
 windows_core::imp::interface_hierarchy!(IMbnVendorSpecificEvents, windows_core::IUnknown);
 impl IMbnVendorSpecificEvents {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnEventNotification<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn OnEventNotification<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnVendorSpecificOperation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEventNotification)(windows_core::Interface::as_raw(self), vendoroperation.param().abi(), vendorspecificdata).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEventNotification)(windows_core::Interface::as_raw(self), vendoroperation.param().abi(), vendorspecificdata) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSetVendorSpecificComplete<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32) -> windows_core::Result<()>
+    pub unsafe fn OnSetVendorSpecificComplete<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMbnVendorSpecificOperation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetVendorSpecificComplete)(windows_core::Interface::as_raw(self), vendoroperation.param().abi(), vendorspecificdata, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetVendorSpecificComplete)(windows_core::Interface::as_raw(self), vendoroperation.param().abi(), vendorspecificdata, requestid) }
     }
 }
 #[repr(C)]

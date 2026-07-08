@@ -35,9 +35,9 @@ pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLB
     }
 }
 #[inline]
-pub unsafe fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("ondemandconnroutehelper.dll" "system" fn OnDemandUnRegisterNotification(registrationhandle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { OnDemandUnRegisterNotification(registrationhandle).ok() }
+    unsafe { OnDemandUnRegisterNotification(registrationhandle) }
 }
 #[inline]
 pub unsafe fn WcmFreeMemory(pmemory: *mut core::ffi::c_void) {

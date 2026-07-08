@@ -8,7 +8,7 @@ windows_core::imp::define_interface!(IDDEInitializer, IDDEInitializer_Vtbl, 0x30
 windows_core::imp::interface_hierarchy!(IDDEInitializer, windows_core::IUnknown);
 impl IDDEInitializer {
     #[cfg(feature = "Win32_UI_Shell")]
-    pub unsafe fn Initialize<P0, P2, P3, P4, P5, P6, P7, P8>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P2, exectarget: P3, site: P4, application: P5, targetfile: P6, arguments: P7, verb: P8) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P2, P3, P4, P5, P6, P7, P8>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P2, exectarget: P3, site: P4, application: P5, targetfile: P6, arguments: P7, verb: P8) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -19,7 +19,7 @@ impl IDDEInitializer {
         P7: windows_core::Param<windows_core::PCWSTR>,
         P8: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fileextensionorprotocol.param().abi(), method, currentdirectory.param().abi(), exectarget.param().abi(), site.param().abi(), application.param().abi(), targetfile.param().abi(), arguments.param().abi(), verb.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fileextensionorprotocol.param().abi(), method, currentdirectory.param().abi(), exectarget.param().abi(), site.param().abi(), application.param().abi(), targetfile.param().abi(), arguments.param().abi(), verb.param().abi()) }
     }
 }
 #[repr(C)]

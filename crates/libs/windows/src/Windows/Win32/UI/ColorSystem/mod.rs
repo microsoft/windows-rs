@@ -164,17 +164,17 @@ pub unsafe fn ColorMatchToTarget(hdc: super::super::Graphics::Gdi::HDC, hdctarge
     unsafe { ColorMatchToTarget(hdc, hdctarget, action) }
 }
 #[inline]
-pub unsafe fn ColorProfileAddDisplayAssociation<P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: bool, associateasadvancedcolor: bool) -> windows_core::Result<()>
+pub unsafe fn ColorProfileAddDisplayAssociation<P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: bool, associateasadvancedcolor: bool) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscms.dll" "system" fn ColorProfileAddDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, targetadapterid : super::super::Foundation::LUID, sourceid : u32, setasdefault : windows_core::BOOL, associateasadvancedcolor : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { ColorProfileAddDisplayAssociation(scope, profilename.param().abi(), core::mem::transmute(targetadapterid), sourceid, setasdefault.into(), associateasadvancedcolor.into()).ok() }
+    unsafe { ColorProfileAddDisplayAssociation(scope, profilename.param().abi(), core::mem::transmute(targetadapterid), sourceid, setasdefault.into(), associateasadvancedcolor.into()) }
 }
 #[inline]
-pub unsafe fn ColorProfileGetDeviceCapabilities(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, capstype: WCS_DEVICE_CAPABILITIES_TYPE, outputcapabilities: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn ColorProfileGetDeviceCapabilities(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, capstype: WCS_DEVICE_CAPABILITIES_TYPE, outputcapabilities: *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("mscms.dll" "system" fn ColorProfileGetDeviceCapabilities(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::super::Foundation::LUID, sourceid : u32, capstype : WCS_DEVICE_CAPABILITIES_TYPE, outputcapabilities : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { ColorProfileGetDeviceCapabilities(scope, core::mem::transmute(targetadapterid), sourceid, capstype, outputcapabilities as _).ok() }
+    unsafe { ColorProfileGetDeviceCapabilities(scope, core::mem::transmute(targetadapterid), sourceid, capstype, outputcapabilities as _) }
 }
 #[inline]
 pub unsafe fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE) -> windows_core::Result<windows_core::PWSTR> {
@@ -185,9 +185,9 @@ pub unsafe fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE,
     }
 }
 #[inline]
-pub unsafe fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profilelist: *mut *mut windows_core::PWSTR, profilecount: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profilelist: *mut *mut windows_core::PWSTR, profilecount: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mscms.dll" "system" fn ColorProfileGetDisplayList(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::super::Foundation::LUID, sourceid : u32, profilelist : *mut *mut windows_core::PWSTR, profilecount : *mut u32) -> windows_core::HRESULT);
-    unsafe { ColorProfileGetDisplayList(scope, core::mem::transmute(targetadapterid), sourceid, profilelist as _, profilecount as _).ok() }
+    unsafe { ColorProfileGetDisplayList(scope, core::mem::transmute(targetadapterid), sourceid, profilelist as _, profilecount as _) }
 }
 #[inline]
 pub unsafe fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> windows_core::Result<WCS_PROFILE_MANAGEMENT_SCOPE> {
@@ -198,20 +198,20 @@ pub unsafe fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Fou
     }
 }
 #[inline]
-pub unsafe fn ColorProfileRemoveDisplayAssociation<P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, targetadapterid: super::super::Foundation::LUID, sourceid: u32, dissociateadvancedcolor: bool) -> windows_core::Result<()>
+pub unsafe fn ColorProfileRemoveDisplayAssociation<P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, targetadapterid: super::super::Foundation::LUID, sourceid: u32, dissociateadvancedcolor: bool) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscms.dll" "system" fn ColorProfileRemoveDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, targetadapterid : super::super::Foundation::LUID, sourceid : u32, dissociateadvancedcolor : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { ColorProfileRemoveDisplayAssociation(scope, profilename.param().abi(), core::mem::transmute(targetadapterid), sourceid, dissociateadvancedcolor.into()).ok() }
+    unsafe { ColorProfileRemoveDisplayAssociation(scope, profilename.param().abi(), core::mem::transmute(targetadapterid), sourceid, dissociateadvancedcolor.into()) }
 }
 #[inline]
-pub unsafe fn ColorProfileSetDisplayDefaultAssociation<P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> windows_core::Result<()>
+pub unsafe fn ColorProfileSetDisplayDefaultAssociation<P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P1, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscms.dll" "system" fn ColorProfileSetDisplayDefaultAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, targetadapterid : super::super::Foundation::LUID, sourceid : u32) -> windows_core::HRESULT);
-    unsafe { ColorProfileSetDisplayDefaultAssociation(scope, profilename.param().abi(), profiletype, profilesubtype, core::mem::transmute(targetadapterid), sourceid).ok() }
+    unsafe { ColorProfileSetDisplayDefaultAssociation(scope, profilename.param().abi(), profiletype, profilesubtype, core::mem::transmute(targetadapterid), sourceid) }
 }
 #[inline]
 pub unsafe fn ConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> windows_core::BOOL {
@@ -1211,8 +1211,8 @@ pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(6);
 windows_core::imp::define_interface!(IDeviceModelPlugIn, IDeviceModelPlugIn_Vtbl, 0x1cd63475_07c4_46fe_a903_d655316d11fd);
 windows_core::imp::interface_hierarchy!(IDeviceModelPlugIn, windows_core::IUnknown);
 impl IDeviceModelPlugIn {
-    pub unsafe fn Initialize(&self, bstrxml: &windows_core::BSTR, cnummodels: u32, imodelposition: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrxml), cnummodels, imodelposition).ok() }
+    pub unsafe fn Initialize(&self, bstrxml: &windows_core::BSTR, cnummodels: u32, imodelposition: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrxml), cnummodels, imodelposition) }
     }
     pub unsafe fn GetNumChannels(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1220,8 +1220,8 @@ impl IDeviceModelPlugIn {
             (windows_core::Interface::vtable(self).GetNumChannels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeviceToColorimetricColors(&self, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: &mut [XYZColorF]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeviceToColorimetricColors)(windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), cchannels, pdevicevalues, core::mem::transmute(pxyzcolors.as_ptr())).ok() }
+    pub unsafe fn DeviceToColorimetricColors(&self, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: &mut [XYZColorF]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeviceToColorimetricColors)(windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), cchannels, pdevicevalues, core::mem::transmute(pxyzcolors.as_ptr())) }
     }
     pub unsafe fn ColorimetricToDeviceColors(&self, cchannels: u32, pxyzcolors: &[XYZColorF]) -> windows_core::Result<f32> {
         unsafe {
@@ -1235,20 +1235,20 @@ impl IDeviceModelPlugIn {
             (windows_core::Interface::vtable(self).ColorimetricToDeviceColorsWithBlack)(windows_core::Interface::as_raw(self), ccolors, cchannels, pxyzcolors, pblackinformation, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTransformDeviceModelInfo<P1>(&self, imodelposition: u32, pidevicemodelother: P1) -> windows_core::Result<()>
+    pub unsafe fn SetTransformDeviceModelInfo<P1>(&self, imodelposition: u32, pidevicemodelother: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTransformDeviceModelInfo)(windows_core::Interface::as_raw(self), imodelposition, pidevicemodelother.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetTransformDeviceModelInfo)(windows_core::Interface::as_raw(self), imodelposition, pidevicemodelother.param().abi()) }
     }
-    pub unsafe fn GetPrimarySamples(&self, pprimarycolor: *mut PrimaryXYZColors) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPrimarySamples)(windows_core::Interface::as_raw(self), pprimarycolor as _).ok() }
+    pub unsafe fn GetPrimarySamples(&self, pprimarycolor: *mut PrimaryXYZColors) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPrimarySamples)(windows_core::Interface::as_raw(self), pprimarycolor as _) }
     }
-    pub unsafe fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetGamutBoundaryMeshSize)(windows_core::Interface::as_raw(self), pnumvertices as _, pnumtriangles as _).ok() }
+    pub unsafe fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetGamutBoundaryMeshSize)(windows_core::Interface::as_raw(self), pnumvertices as _, pnumtriangles as _) }
     }
-    pub unsafe fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, pvertices: *mut f32, ptriangles: &mut [GamutShellTriangle]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetGamutBoundaryMesh)(windows_core::Interface::as_raw(self), cchannels, cvertices, ptriangles.len().try_into().unwrap(), pvertices as _, core::mem::transmute(ptriangles.as_ptr())).ok() }
+    pub unsafe fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, pvertices: *mut f32, ptriangles: &mut [GamutShellTriangle]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetGamutBoundaryMesh)(windows_core::Interface::as_raw(self), cchannels, cvertices, ptriangles.len().try_into().unwrap(), pvertices as _, core::mem::transmute(ptriangles.as_ptr())) }
     }
     pub unsafe fn GetNeutralAxisSize(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1256,8 +1256,8 @@ impl IDeviceModelPlugIn {
             (windows_core::Interface::vtable(self).GetNeutralAxisSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetNeutralAxis(&self, pxyzcolors: &mut [XYZColorF]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNeutralAxis)(windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), core::mem::transmute(pxyzcolors.as_ptr())).ok() }
+    pub unsafe fn GetNeutralAxis(&self, pxyzcolors: &mut [XYZColorF]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNeutralAxis)(windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), core::mem::transmute(pxyzcolors.as_ptr())) }
     }
 }
 #[repr(C)]
@@ -1404,15 +1404,15 @@ impl windows_core::RuntimeName for IDeviceModelPlugIn {}
 windows_core::imp::define_interface!(IGamutMapModelPlugIn, IGamutMapModelPlugIn_Vtbl, 0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
 windows_core::imp::interface_hierarchy!(IGamutMapModelPlugIn, windows_core::IUnknown);
 impl IGamutMapModelPlugIn {
-    pub unsafe fn Initialize<P1, P2>(&self, bstrxml: &windows_core::BSTR, psrcplugin: P1, pdestplugin: P2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P1, P2>(&self, bstrxml: &windows_core::BSTR, psrcplugin: P1, pdestplugin: P2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IDeviceModelPlugIn>,
         P2: windows_core::Param<IDeviceModelPlugIn>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrxml), psrcplugin.param().abi(), pdestplugin.param().abi(), psrcgbd, pdestgbd).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrxml), psrcplugin.param().abi(), pdestplugin.param().abi(), psrcgbd, pdestgbd) }
     }
-    pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SourceToDestinationAppearanceColors)(windows_core::Interface::as_raw(self), ccolors, pinputcolors, poutputcolors as _).ok() }
+    pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SourceToDestinationAppearanceColors)(windows_core::Interface::as_raw(self), ccolors, pinputcolors, poutputcolors as _) }
     }
 }
 #[repr(C)]

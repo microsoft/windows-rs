@@ -62,44 +62,44 @@ pub unsafe fn BackupWrite(hfile: super::super::Foundation::HANDLE, lpbuffer: &[u
     unsafe { BackupWrite(hfile, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofbyteswritten as _, babort.into(), bprocesssecurity.into(), lpcontext as _).ok() }
 }
 #[inline]
-pub unsafe fn BuildIoRingCancelRequest(ioring: HIORING, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> windows_core::Result<()> {
+pub unsafe fn BuildIoRingCancelRequest(ioring: HIORING, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingCancelRequest(ioring : HIORING, file : IORING_HANDLE_REF, optocancel : usize, userdata : usize) -> windows_core::HRESULT);
-    unsafe { BuildIoRingCancelRequest(ioring, core::mem::transmute(file), optocancel, userdata).ok() }
+    unsafe { BuildIoRingCancelRequest(ioring, core::mem::transmute(file), optocancel, userdata) }
 }
 #[inline]
-pub unsafe fn BuildIoRingFlushFile(ioring: HIORING, fileref: IORING_HANDLE_REF, flushmode: FILE_FLUSH_MODE, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::Result<()> {
+pub unsafe fn BuildIoRingFlushFile(ioring: HIORING, fileref: IORING_HANDLE_REF, flushmode: FILE_FLUSH_MODE, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn BuildIoRingFlushFile(ioring : HIORING, fileref : IORING_HANDLE_REF, flushmode : FILE_FLUSH_MODE, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_core::HRESULT);
-    unsafe { BuildIoRingFlushFile(ioring, core::mem::transmute(fileref), flushmode, userdata, sqeflags).ok() }
+    unsafe { BuildIoRingFlushFile(ioring, core::mem::transmute(fileref), flushmode, userdata, sqeflags) }
 }
 #[inline]
-pub unsafe fn BuildIoRingReadFile(ioring: HIORING, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::Result<()> {
+pub unsafe fn BuildIoRingReadFile(ioring: HIORING, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingReadFile(ioring : HIORING, fileref : IORING_HANDLE_REF, dataref : IORING_BUFFER_REF, numberofbytestoread : u32, fileoffset : u64, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_core::HRESULT);
-    unsafe { BuildIoRingReadFile(ioring, core::mem::transmute(fileref), core::mem::transmute(dataref), numberofbytestoread, fileoffset, userdata, sqeflags).ok() }
+    unsafe { BuildIoRingReadFile(ioring, core::mem::transmute(fileref), core::mem::transmute(dataref), numberofbytestoread, fileoffset, userdata, sqeflags) }
 }
 #[inline]
-pub unsafe fn BuildIoRingReadFileScatter(ioring: HIORING, fileref: IORING_HANDLE_REF, segmentarray: &[FILE_SEGMENT_ELEMENT], numberofbytestoread: u32, fileoffset: u64, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::Result<()> {
+pub unsafe fn BuildIoRingReadFileScatter(ioring: HIORING, fileref: IORING_HANDLE_REF, segmentarray: &[FILE_SEGMENT_ELEMENT], numberofbytestoread: u32, fileoffset: u64, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn BuildIoRingReadFileScatter(ioring : HIORING, fileref : IORING_HANDLE_REF, segmentcount : u32, segmentarray : *const FILE_SEGMENT_ELEMENT, numberofbytestoread : u32, fileoffset : u64, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_core::HRESULT);
-    unsafe { BuildIoRingReadFileScatter(ioring, core::mem::transmute(fileref), segmentarray.len().try_into().unwrap(), core::mem::transmute(segmentarray.as_ptr()), numberofbytestoread, fileoffset, userdata, sqeflags).ok() }
+    unsafe { BuildIoRingReadFileScatter(ioring, core::mem::transmute(fileref), segmentarray.len().try_into().unwrap(), core::mem::transmute(segmentarray.as_ptr()), numberofbytestoread, fileoffset, userdata, sqeflags) }
 }
 #[inline]
-pub unsafe fn BuildIoRingRegisterBuffers(ioring: HIORING, buffers: &[IORING_BUFFER_INFO], userdata: usize) -> windows_core::Result<()> {
+pub unsafe fn BuildIoRingRegisterBuffers(ioring: HIORING, buffers: &[IORING_BUFFER_INFO], userdata: usize) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingRegisterBuffers(ioring : HIORING, count : u32, buffers : *const IORING_BUFFER_INFO, userdata : usize) -> windows_core::HRESULT);
-    unsafe { BuildIoRingRegisterBuffers(ioring, buffers.len().try_into().unwrap(), core::mem::transmute(buffers.as_ptr()), userdata).ok() }
+    unsafe { BuildIoRingRegisterBuffers(ioring, buffers.len().try_into().unwrap(), core::mem::transmute(buffers.as_ptr()), userdata) }
 }
 #[inline]
-pub unsafe fn BuildIoRingRegisterFileHandles(ioring: HIORING, handles: &[super::super::Foundation::HANDLE], userdata: usize) -> windows_core::Result<()> {
+pub unsafe fn BuildIoRingRegisterFileHandles(ioring: HIORING, handles: &[super::super::Foundation::HANDLE], userdata: usize) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingRegisterFileHandles(ioring : HIORING, count : u32, handles : *const super::super::Foundation::HANDLE, userdata : usize) -> windows_core::HRESULT);
-    unsafe { BuildIoRingRegisterFileHandles(ioring, handles.len().try_into().unwrap(), core::mem::transmute(handles.as_ptr()), userdata).ok() }
+    unsafe { BuildIoRingRegisterFileHandles(ioring, handles.len().try_into().unwrap(), core::mem::transmute(handles.as_ptr()), userdata) }
 }
 #[inline]
-pub unsafe fn BuildIoRingWriteFile(ioring: HIORING, fileref: IORING_HANDLE_REF, bufferref: IORING_BUFFER_REF, numberofbytestowrite: u32, fileoffset: u64, writeflags: FILE_WRITE_FLAGS, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::Result<()> {
+pub unsafe fn BuildIoRingWriteFile(ioring: HIORING, fileref: IORING_HANDLE_REF, bufferref: IORING_BUFFER_REF, numberofbytestowrite: u32, fileoffset: u64, writeflags: FILE_WRITE_FLAGS, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn BuildIoRingWriteFile(ioring : HIORING, fileref : IORING_HANDLE_REF, bufferref : IORING_BUFFER_REF, numberofbytestowrite : u32, fileoffset : u64, writeflags : FILE_WRITE_FLAGS, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_core::HRESULT);
-    unsafe { BuildIoRingWriteFile(ioring, core::mem::transmute(fileref), core::mem::transmute(bufferref), numberofbytestowrite, fileoffset, writeflags, userdata, sqeflags).ok() }
+    unsafe { BuildIoRingWriteFile(ioring, core::mem::transmute(fileref), core::mem::transmute(bufferref), numberofbytestowrite, fileoffset, writeflags, userdata, sqeflags) }
 }
 #[inline]
-pub unsafe fn BuildIoRingWriteFileGather(ioring: HIORING, fileref: IORING_HANDLE_REF, segmentarray: &[FILE_SEGMENT_ELEMENT], numberofbytestowrite: u32, fileoffset: u64, writeflags: FILE_WRITE_FLAGS, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::Result<()> {
+pub unsafe fn BuildIoRingWriteFileGather(ioring: HIORING, fileref: IORING_HANDLE_REF, segmentarray: &[FILE_SEGMENT_ELEMENT], numberofbytestowrite: u32, fileoffset: u64, writeflags: FILE_WRITE_FLAGS, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn BuildIoRingWriteFileGather(ioring : HIORING, fileref : IORING_HANDLE_REF, segmentcount : u32, segmentarray : *const FILE_SEGMENT_ELEMENT, numberofbytestowrite : u32, fileoffset : u64, writeflags : FILE_WRITE_FLAGS, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_core::HRESULT);
-    unsafe { BuildIoRingWriteFileGather(ioring, core::mem::transmute(fileref), segmentarray.len().try_into().unwrap(), core::mem::transmute(segmentarray.as_ptr()), numberofbytestowrite, fileoffset, writeflags, userdata, sqeflags).ok() }
+    unsafe { BuildIoRingWriteFileGather(ioring, core::mem::transmute(fileref), segmentarray.len().try_into().unwrap(), core::mem::transmute(segmentarray.as_ptr()), numberofbytestowrite, fileoffset, writeflags, userdata, sqeflags) }
 }
 #[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3A<P0>(lpname: P0, lpoemname: Option<&mut [u8]>, pbnamecontainsspaces: Option<*mut windows_core::BOOL>, pbnamelegal: *mut windows_core::BOOL) -> windows_core::Result<()>
@@ -128,9 +128,9 @@ pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const core::ffi::c_void) {
     unsafe { CloseEncryptedFileRaw(pvcontext) }
 }
 #[inline]
-pub unsafe fn CloseIoRing(ioring: HIORING) -> windows_core::Result<()> {
+pub unsafe fn CloseIoRing(ioring: HIORING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn CloseIoRing(ioring : HIORING) -> windows_core::HRESULT);
-    unsafe { CloseIoRing(ioring).ok() }
+    unsafe { CloseIoRing(ioring) }
 }
 #[inline]
 pub unsafe fn CommitComplete(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_core::Result<()> {
@@ -158,13 +158,13 @@ pub unsafe fn CompareFileTime(lpfiletime1: *const super::super::Foundation::FILE
     unsafe { CompareFileTime(lpfiletime1, lpfiletime2) }
 }
 #[inline]
-pub unsafe fn CopyFile2<P0, P1>(pwszexistingfilename: P0, pwsznewfilename: P1, pextendedparameters: Option<*const COPYFILE2_EXTENDED_PARAMETERS>) -> windows_core::Result<()>
+pub unsafe fn CopyFile2<P0, P1>(pwszexistingfilename: P0, pwsznewfilename: P1, pextendedparameters: Option<*const COPYFILE2_EXTENDED_PARAMETERS>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CopyFile2(pwszexistingfilename : windows_core::PCWSTR, pwsznewfilename : windows_core::PCWSTR, pextendedparameters : *const COPYFILE2_EXTENDED_PARAMETERS) -> windows_core::HRESULT);
-    unsafe { CopyFile2(pwszexistingfilename.param().abi(), pwsznewfilename.param().abi(), pextendedparameters.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CopyFile2(pwszexistingfilename.param().abi(), pwsznewfilename.param().abi(), pextendedparameters.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CopyFileA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: bool) -> windows_core::Result<()>
@@ -235,13 +235,13 @@ pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     unsafe { CopyLZFile(hfsource, hfdest) }
 }
 #[inline]
-pub unsafe fn CreateBindLink<P0, P1>(virtualpath: P0, backingpath: P1, createbindlinkflags: CREATE_BIND_LINK_FLAGS, exceptionpaths: Option<&[windows_core::PCWSTR]>) -> windows_core::Result<()>
+pub unsafe fn CreateBindLink<P0, P1>(virtualpath: P0, backingpath: P1, createbindlinkflags: CREATE_BIND_LINK_FLAGS, exceptionpaths: Option<&[windows_core::PCWSTR]>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bindfltapi.dll" "system" fn CreateBindLink(virtualpath : windows_core::PCWSTR, backingpath : windows_core::PCWSTR, createbindlinkflags : CREATE_BIND_LINK_FLAGS, exceptioncount : u32, exceptionpaths : *const windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { CreateBindLink(virtualpath.param().abi(), backingpath.param().abi(), createbindlinkflags, exceptionpaths.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(exceptionpaths.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+    unsafe { CreateBindLink(virtualpath.param().abi(), backingpath.param().abi(), createbindlinkflags, exceptionpaths.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(exceptionpaths.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -1071,20 +1071,20 @@ where
     unsafe { GetDiskFreeSpaceW(lprootpathname.param().abi(), lpsectorspercluster.unwrap_or(core::mem::zeroed()) as _, lpbytespersector.unwrap_or(core::mem::zeroed()) as _, lpnumberoffreeclusters.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofclusters.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn GetDiskSpaceInformationA<P0>(rootpath: P0, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> windows_core::Result<()>
+pub unsafe fn GetDiskSpaceInformationA<P0>(rootpath: P0, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetDiskSpaceInformationA(rootpath : windows_core::PCSTR, diskspaceinfo : *mut DISK_SPACE_INFORMATION) -> windows_core::HRESULT);
-    unsafe { GetDiskSpaceInformationA(rootpath.param().abi(), diskspaceinfo as _).ok() }
+    unsafe { GetDiskSpaceInformationA(rootpath.param().abi(), diskspaceinfo as _) }
 }
 #[inline]
-pub unsafe fn GetDiskSpaceInformationW<P0>(rootpath: P0, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> windows_core::Result<()>
+pub unsafe fn GetDiskSpaceInformationW<P0>(rootpath: P0, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetDiskSpaceInformationW(rootpath : windows_core::PCWSTR, diskspaceinfo : *mut DISK_SPACE_INFORMATION) -> windows_core::HRESULT);
-    unsafe { GetDiskSpaceInformationW(rootpath.param().abi(), diskspaceinfo as _).ok() }
+    unsafe { GetDiskSpaceInformationW(rootpath.param().abi(), diskspaceinfo as _) }
 }
 #[inline]
 pub unsafe fn GetDriveTypeA<P0>(lprootpathname: P0) -> u32
@@ -1342,9 +1342,9 @@ where
     unsafe { GetFullPathNameW(lpfilename.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetIoRingInfo(ioring: HIORING, info: *mut IORING_INFO) -> windows_core::Result<()> {
+pub unsafe fn GetIoRingInfo(ioring: HIORING, info: *mut IORING_INFO) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn GetIoRingInfo(ioring : HIORING, info : *mut IORING_INFO) -> windows_core::HRESULT);
-    unsafe { GetIoRingInfo(ioring, info as _).ok() }
+    unsafe { GetIoRingInfo(ioring, info as _) }
 }
 #[inline]
 pub unsafe fn GetLogContainerName<P2>(hlog: super::super::Foundation::HANDLE, cidlogicalcontainer: u32, pwstrcontainername: P2, clencontainername: u32, pcactuallencontainername: *mut u32) -> windows_core::Result<()>
@@ -2263,12 +2263,12 @@ pub unsafe fn RegisterManageableLogClient(hlog: super::super::Foundation::HANDLE
     unsafe { RegisterManageableLogClient(hlog, pcallbacks as _).ok() }
 }
 #[inline]
-pub unsafe fn RemoveBindLink<P0>(virtualpath: P0) -> windows_core::Result<()>
+pub unsafe fn RemoveBindLink<P0>(virtualpath: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bindfltapi.dll" "system" fn RemoveBindLink(virtualpath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { RemoveBindLink(virtualpath.param().abi()).ok() }
+    unsafe { RemoveBindLink(virtualpath.param().abi()) }
 }
 #[inline]
 pub unsafe fn RemoveDirectory2A<P0>(lppathname: P0, directoryflags: DIRECTORY_FLAGS) -> windows_core::BOOL
@@ -2585,9 +2585,9 @@ pub unsafe fn SetFileValidData(hfile: super::super::Foundation::HANDLE, validdat
     unsafe { SetFileValidData(hfile, validdatalength).ok() }
 }
 #[inline]
-pub unsafe fn SetIoRingCompletionEvent(ioring: HIORING, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn SetIoRingCompletionEvent(ioring: HIORING, hevent: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn SetIoRingCompletionEvent(ioring : HIORING, hevent : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { SetIoRingCompletionEvent(ioring, hevent).ok() }
+    unsafe { SetIoRingCompletionEvent(ioring, hevent) }
 }
 #[inline]
 pub unsafe fn SetLogArchiveMode(hlog: super::super::Foundation::HANDLE, emode: CLFS_LOG_ARCHIVE_MODE) -> windows_core::Result<()> {
@@ -2686,9 +2686,9 @@ pub unsafe fn SinglePhaseReject(enlistmenthandle: super::super::Foundation::HAND
     unsafe { SinglePhaseReject(enlistmenthandle, tmvirtualclock as _).ok() }
 }
 #[inline]
-pub unsafe fn SubmitIoRing(ioring: HIORING, waitoperations: u32, milliseconds: u32, submittedentries: Option<*mut u32>) -> windows_core::Result<()> {
+pub unsafe fn SubmitIoRing(ioring: HIORING, waitoperations: u32, milliseconds: u32, submittedentries: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn SubmitIoRing(ioring : HIORING, waitoperations : u32, milliseconds : u32, submittedentries : *mut u32) -> windows_core::HRESULT);
-    unsafe { SubmitIoRing(ioring, waitoperations, milliseconds, submittedentries.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SubmitIoRing(ioring, waitoperations, milliseconds, submittedentries.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn TerminateLogArchive(pvarchivecontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -2852,20 +2852,20 @@ where
     unsafe { VerQueryValueW(pblock, lpsubblock.param().abi(), lplpbuffer as _, pulen as _) }
 }
 #[inline]
-pub unsafe fn WofEnumEntries<P0>(volumename: P0, provider: u32, enumproc: WofEnumEntryProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn WofEnumEntries<P0>(volumename: P0, provider: u32, enumproc: WofEnumEntryProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofEnumEntries(volumename : windows_core::PCWSTR, provider : u32, enumproc : WofEnumEntryProc, userdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WofEnumEntries(volumename.param().abi(), provider, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WofEnumEntries(volumename.param().abi(), provider, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WofFileEnumFiles<P0>(volumename: P0, algorithm: u32, enumproc: WofEnumFilesProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn WofFileEnumFiles<P0>(volumename: P0, algorithm: u32, enumproc: WofEnumFilesProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofFileEnumFiles(volumename : windows_core::PCWSTR, algorithm : u32, enumproc : WofEnumFilesProc, userdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WofFileEnumFiles(volumename.param().abi(), algorithm, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WofFileEnumFiles(volumename.param().abi(), algorithm, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WofGetDriverVersion(fileorvolumehandle: super::super::Foundation::HANDLE, provider: u32) -> windows_core::Result<u32> {
@@ -2876,17 +2876,17 @@ pub unsafe fn WofGetDriverVersion(fileorvolumehandle: super::super::Foundation::
     }
 }
 #[inline]
-pub unsafe fn WofIsExternalFile<P0>(filepath: P0, isexternalfile: Option<*mut windows_core::BOOL>, provider: Option<*mut u32>, externalfileinfo: Option<*mut core::ffi::c_void>, bufferlength: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn WofIsExternalFile<P0>(filepath: P0, isexternalfile: Option<*mut windows_core::BOOL>, provider: Option<*mut u32>, externalfileinfo: Option<*mut core::ffi::c_void>, bufferlength: Option<*mut u32>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofIsExternalFile(filepath : windows_core::PCWSTR, isexternalfile : *mut windows_core::BOOL, provider : *mut u32, externalfileinfo : *mut core::ffi::c_void, bufferlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { WofIsExternalFile(filepath.param().abi(), isexternalfile.unwrap_or(core::mem::zeroed()) as _, provider.unwrap_or(core::mem::zeroed()) as _, externalfileinfo.unwrap_or(core::mem::zeroed()) as _, bufferlength.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WofIsExternalFile(filepath.param().abi(), isexternalfile.unwrap_or(core::mem::zeroed()) as _, provider.unwrap_or(core::mem::zeroed()) as _, externalfileinfo.unwrap_or(core::mem::zeroed()) as _, bufferlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WofSetFileDataLocation(filehandle: super::super::Foundation::HANDLE, provider: u32, externalfileinfo: *const core::ffi::c_void, length: u32) -> windows_core::Result<()> {
+pub unsafe fn WofSetFileDataLocation(filehandle: super::super::Foundation::HANDLE, provider: u32, externalfileinfo: *const core::ffi::c_void, length: u32) -> windows_core::HRESULT {
     windows_core::link!("wofutil.dll" "system" fn WofSetFileDataLocation(filehandle : super::super::Foundation::HANDLE, provider : u32, externalfileinfo : *const core::ffi::c_void, length : u32) -> windows_core::HRESULT);
-    unsafe { WofSetFileDataLocation(filehandle, provider, externalfileinfo, length).ok() }
+    unsafe { WofSetFileDataLocation(filehandle, provider, externalfileinfo, length) }
 }
 #[inline]
 pub unsafe fn WofShouldCompressBinaries<P0>(volume: P0, algorithm: *mut u32) -> windows_core::BOOL
@@ -2909,37 +2909,37 @@ where
     }
 }
 #[inline]
-pub unsafe fn WofWimEnumFiles<P0>(volumename: P0, datasourceid: i64, enumproc: WofEnumFilesProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn WofWimEnumFiles<P0>(volumename: P0, datasourceid: i64, enumproc: WofEnumFilesProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofWimEnumFiles(volumename : windows_core::PCWSTR, datasourceid : i64, enumproc : WofEnumFilesProc, userdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WofWimEnumFiles(volumename.param().abi(), datasourceid, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WofWimEnumFiles(volumename.param().abi(), datasourceid, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WofWimRemoveEntry<P0>(volumename: P0, datasourceid: i64) -> windows_core::Result<()>
+pub unsafe fn WofWimRemoveEntry<P0>(volumename: P0, datasourceid: i64) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofWimRemoveEntry(volumename : windows_core::PCWSTR, datasourceid : i64) -> windows_core::HRESULT);
-    unsafe { WofWimRemoveEntry(volumename.param().abi(), datasourceid).ok() }
+    unsafe { WofWimRemoveEntry(volumename.param().abi(), datasourceid) }
 }
 #[inline]
-pub unsafe fn WofWimSuspendEntry<P0>(volumename: P0, datasourceid: i64) -> windows_core::Result<()>
+pub unsafe fn WofWimSuspendEntry<P0>(volumename: P0, datasourceid: i64) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofWimSuspendEntry(volumename : windows_core::PCWSTR, datasourceid : i64) -> windows_core::HRESULT);
-    unsafe { WofWimSuspendEntry(volumename.param().abi(), datasourceid).ok() }
+    unsafe { WofWimSuspendEntry(volumename.param().abi(), datasourceid) }
 }
 #[inline]
-pub unsafe fn WofWimUpdateEntry<P0, P2>(volumename: P0, datasourceid: i64, newwimpath: P2) -> windows_core::Result<()>
+pub unsafe fn WofWimUpdateEntry<P0, P2>(volumename: P0, datasourceid: i64, newwimpath: P2) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofWimUpdateEntry(volumename : windows_core::PCWSTR, datasourceid : i64, newwimpath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WofWimUpdateEntry(volumename.param().abi(), datasourceid, newwimpath.param().abi()).ok() }
+    unsafe { WofWimUpdateEntry(volumename.param().abi(), datasourceid, newwimpath.param().abi()) }
 }
 #[inline]
 pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -5098,47 +5098,47 @@ impl core::ops::Deref for IDiskQuotaControl {
 windows_core::imp::interface_hierarchy!(IDiskQuotaControl, windows_core::IUnknown, super::super::System::Com::IConnectionPointContainer);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiskQuotaControl {
-    pub unsafe fn Initialize<P0>(&self, pszpath: P0, breadwrite: bool) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pszpath: P0, breadwrite: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszpath.param().abi(), breadwrite.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszpath.param().abi(), breadwrite.into()) }
     }
-    pub unsafe fn SetQuotaState(&self, dwstate: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetQuotaState)(windows_core::Interface::as_raw(self), dwstate).ok() }
+    pub unsafe fn SetQuotaState(&self, dwstate: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetQuotaState)(windows_core::Interface::as_raw(self), dwstate) }
     }
-    pub unsafe fn GetQuotaState(&self, pdwstate: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaState)(windows_core::Interface::as_raw(self), pdwstate as _).ok() }
+    pub unsafe fn GetQuotaState(&self, pdwstate: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaState)(windows_core::Interface::as_raw(self), pdwstate as _) }
     }
-    pub unsafe fn SetQuotaLogFlags(&self, dwflags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetQuotaLogFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
+    pub unsafe fn SetQuotaLogFlags(&self, dwflags: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetQuotaLogFlags)(windows_core::Interface::as_raw(self), dwflags) }
     }
-    pub unsafe fn GetQuotaLogFlags(&self, pdwflags: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaLogFlags)(windows_core::Interface::as_raw(self), pdwflags as _).ok() }
+    pub unsafe fn GetQuotaLogFlags(&self, pdwflags: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaLogFlags)(windows_core::Interface::as_raw(self), pdwflags as _) }
     }
-    pub unsafe fn SetDefaultQuotaThreshold(&self, llthreshold: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDefaultQuotaThreshold)(windows_core::Interface::as_raw(self), llthreshold).ok() }
+    pub unsafe fn SetDefaultQuotaThreshold(&self, llthreshold: i64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDefaultQuotaThreshold)(windows_core::Interface::as_raw(self), llthreshold) }
     }
-    pub unsafe fn GetDefaultQuotaThreshold(&self, pllthreshold: *mut i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaThreshold)(windows_core::Interface::as_raw(self), pllthreshold as _).ok() }
+    pub unsafe fn GetDefaultQuotaThreshold(&self, pllthreshold: *mut i64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaThreshold)(windows_core::Interface::as_raw(self), pllthreshold as _) }
     }
-    pub unsafe fn GetDefaultQuotaThresholdText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::Result<()>
+    pub unsafe fn GetDefaultQuotaThresholdText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaThresholdText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaThresholdText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext) }
     }
-    pub unsafe fn SetDefaultQuotaLimit(&self, lllimit: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDefaultQuotaLimit)(windows_core::Interface::as_raw(self), lllimit).ok() }
+    pub unsafe fn SetDefaultQuotaLimit(&self, lllimit: i64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDefaultQuotaLimit)(windows_core::Interface::as_raw(self), lllimit) }
     }
-    pub unsafe fn GetDefaultQuotaLimit(&self, plllimit: *mut i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaLimit)(windows_core::Interface::as_raw(self), plllimit as _).ok() }
+    pub unsafe fn GetDefaultQuotaLimit(&self, plllimit: *mut i64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaLimit)(windows_core::Interface::as_raw(self), plllimit as _) }
     }
-    pub unsafe fn GetDefaultQuotaLimitText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::Result<()>
+    pub unsafe fn GetDefaultQuotaLimitText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext) }
     }
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn AddUserSid(&self, pusersid: super::super::Security::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser> {
@@ -5156,11 +5156,11 @@ impl IDiskQuotaControl {
             (windows_core::Interface::vtable(self).AddUserName)(windows_core::Interface::as_raw(self), pszlogonname.param().abi(), fnameresolution, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteUser<P0>(&self, puser: P0) -> windows_core::Result<()>
+    pub unsafe fn DeleteUser<P0>(&self, puser: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDiskQuotaUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteUser)(windows_core::Interface::as_raw(self), puser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteUser)(windows_core::Interface::as_raw(self), puser.param().abi()) }
     }
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn FindUserSid(&self, pusersid: super::super::Security::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser> {
@@ -5179,8 +5179,8 @@ impl IDiskQuotaControl {
         }
     }
     #[cfg(feature = "Win32_Security")]
-    pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Security::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut Option<IEnumDiskQuotaUsers>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateEnumUsers)(windows_core::Interface::as_raw(self), rgpusersids as _, cpsids, fnameresolution, core::mem::transmute(ppenum)).ok() }
+    pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Security::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut Option<IEnumDiskQuotaUsers>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateEnumUsers)(windows_core::Interface::as_raw(self), rgpusersids as _, cpsids, fnameresolution, core::mem::transmute(ppenum)) }
     }
     pub unsafe fn CreateUserBatch(&self) -> windows_core::Result<IDiskQuotaUserBatch> {
         unsafe {
@@ -5188,17 +5188,17 @@ impl IDiskQuotaControl {
             (windows_core::Interface::vtable(self).CreateUserBatch)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn InvalidateSidNameCache(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InvalidateSidNameCache)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn InvalidateSidNameCache(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InvalidateSidNameCache)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GiveUserNameResolutionPriority<P0>(&self, puser: P0) -> windows_core::Result<()>
+    pub unsafe fn GiveUserNameResolutionPriority<P0>(&self, puser: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDiskQuotaUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GiveUserNameResolutionPriority)(windows_core::Interface::as_raw(self), puser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GiveUserNameResolutionPriority)(windows_core::Interface::as_raw(self), puser.param().abi()) }
     }
-    pub unsafe fn ShutdownNameResolution(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ShutdownNameResolution)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn ShutdownNameResolution(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ShutdownNameResolution)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5454,11 +5454,11 @@ impl windows_core::RuntimeName for IDiskQuotaControl {}
 windows_core::imp::define_interface!(IDiskQuotaEvents, IDiskQuotaEvents_Vtbl, 0x7988b579_ec89_11cf_9c00_00aa00a14f56);
 windows_core::imp::interface_hierarchy!(IDiskQuotaEvents, windows_core::IUnknown);
 impl IDiskQuotaEvents {
-    pub unsafe fn OnUserNameChanged<P0>(&self, puser: P0) -> windows_core::Result<()>
+    pub unsafe fn OnUserNameChanged<P0>(&self, puser: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDiskQuotaUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnUserNameChanged)(windows_core::Interface::as_raw(self), puser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnUserNameChanged)(windows_core::Interface::as_raw(self), puser.param().abi()) }
     }
 }
 #[repr(C)]
@@ -5488,64 +5488,64 @@ impl windows_core::RuntimeName for IDiskQuotaEvents {}
 windows_core::imp::define_interface!(IDiskQuotaUser, IDiskQuotaUser_Vtbl, 0x7988b574_ec89_11cf_9c00_00aa00a14f56);
 windows_core::imp::interface_hierarchy!(IDiskQuotaUser, windows_core::IUnknown);
 impl IDiskQuotaUser {
-    pub unsafe fn GetID(&self, pulid: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), pulid as _).ok() }
+    pub unsafe fn GetID(&self, pulid: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), pulid as _) }
     }
-    pub unsafe fn GetName<P0, P2, P4>(&self, pszaccountcontainer: P0, cchaccountcontainer: u32, pszlogonname: P2, cchlogonname: u32, pszdisplayname: P4, cchdisplayname: u32) -> windows_core::Result<()>
+    pub unsafe fn GetName<P0, P2, P4>(&self, pszaccountcontainer: P0, cchaccountcontainer: u32, pszlogonname: P2, cchlogonname: u32, pszdisplayname: P4, cchdisplayname: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pszaccountcontainer.param().abi(), cchaccountcontainer, pszlogonname.param().abi(), cchlogonname, pszdisplayname.param().abi(), cchdisplayname).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pszaccountcontainer.param().abi(), cchaccountcontainer, pszlogonname.param().abi(), cchlogonname, pszdisplayname.param().abi(), cchdisplayname) }
     }
-    pub unsafe fn GetSidLength(&self, pdwlength: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSidLength)(windows_core::Interface::as_raw(self), pdwlength as _).ok() }
+    pub unsafe fn GetSidLength(&self, pdwlength: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSidLength)(windows_core::Interface::as_raw(self), pdwlength as _) }
     }
-    pub unsafe fn GetSid(&self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSid)(windows_core::Interface::as_raw(self), pbsidbuffer as _, cbsidbuffer).ok() }
+    pub unsafe fn GetSid(&self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSid)(windows_core::Interface::as_raw(self), pbsidbuffer as _, cbsidbuffer) }
     }
-    pub unsafe fn GetQuotaThreshold(&self, pllthreshold: *mut i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaThreshold)(windows_core::Interface::as_raw(self), pllthreshold as _).ok() }
+    pub unsafe fn GetQuotaThreshold(&self, pllthreshold: *mut i64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaThreshold)(windows_core::Interface::as_raw(self), pllthreshold as _) }
     }
-    pub unsafe fn GetQuotaThresholdText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::Result<()>
+    pub unsafe fn GetQuotaThresholdText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaThresholdText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaThresholdText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext) }
     }
-    pub unsafe fn GetQuotaLimit(&self, plllimit: *mut i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaLimit)(windows_core::Interface::as_raw(self), plllimit as _).ok() }
+    pub unsafe fn GetQuotaLimit(&self, plllimit: *mut i64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaLimit)(windows_core::Interface::as_raw(self), plllimit as _) }
     }
-    pub unsafe fn GetQuotaLimitText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::Result<()>
+    pub unsafe fn GetQuotaLimitText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext) }
     }
-    pub unsafe fn GetQuotaUsed(&self, pllused: *mut i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaUsed)(windows_core::Interface::as_raw(self), pllused as _).ok() }
+    pub unsafe fn GetQuotaUsed(&self, pllused: *mut i64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaUsed)(windows_core::Interface::as_raw(self), pllused as _) }
     }
-    pub unsafe fn GetQuotaUsedText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::Result<()>
+    pub unsafe fn GetQuotaUsedText<P0>(&self, psztext: P0, cchtext: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaUsedText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaUsedText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext) }
     }
-    pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut core::ffi::c_void, cbquotainfo: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaInformation)(windows_core::Interface::as_raw(self), pbquotainfo as _, cbquotainfo).ok() }
+    pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut core::ffi::c_void, cbquotainfo: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaInformation)(windows_core::Interface::as_raw(self), pbquotainfo as _, cbquotainfo) }
     }
-    pub unsafe fn SetQuotaThreshold(&self, llthreshold: i64, fwritethrough: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetQuotaThreshold)(windows_core::Interface::as_raw(self), llthreshold, fwritethrough.into()).ok() }
+    pub unsafe fn SetQuotaThreshold(&self, llthreshold: i64, fwritethrough: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetQuotaThreshold)(windows_core::Interface::as_raw(self), llthreshold, fwritethrough.into()) }
     }
-    pub unsafe fn SetQuotaLimit(&self, lllimit: i64, fwritethrough: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetQuotaLimit)(windows_core::Interface::as_raw(self), lllimit, fwritethrough.into()).ok() }
+    pub unsafe fn SetQuotaLimit(&self, lllimit: i64, fwritethrough: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetQuotaLimit)(windows_core::Interface::as_raw(self), lllimit, fwritethrough.into()) }
     }
-    pub unsafe fn Invalidate(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Invalidate)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Invalidate(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Invalidate)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetAccountStatus(&self, pdwstatus: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAccountStatus)(windows_core::Interface::as_raw(self), pdwstatus as _).ok() }
+    pub unsafe fn GetAccountStatus(&self, pdwstatus: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAccountStatus)(windows_core::Interface::as_raw(self), pdwstatus as _) }
     }
 }
 #[repr(C)]
@@ -5704,23 +5704,23 @@ impl windows_core::RuntimeName for IDiskQuotaUser {}
 windows_core::imp::define_interface!(IDiskQuotaUserBatch, IDiskQuotaUserBatch_Vtbl, 0x7988b576_ec89_11cf_9c00_00aa00a14f56);
 windows_core::imp::interface_hierarchy!(IDiskQuotaUserBatch, windows_core::IUnknown);
 impl IDiskQuotaUserBatch {
-    pub unsafe fn Add<P0>(&self, puser: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, puser: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDiskQuotaUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), puser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), puser.param().abi()) }
     }
-    pub unsafe fn Remove<P0>(&self, puser: P0) -> windows_core::Result<()>
+    pub unsafe fn Remove<P0>(&self, puser: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDiskQuotaUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), puser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), puser.param().abi()) }
     }
-    pub unsafe fn RemoveAll(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAll)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn RemoveAll(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveAll)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn FlushToDisk(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FlushToDisk)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn FlushToDisk(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FlushToDisk)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -5780,14 +5780,14 @@ impl windows_core::RuntimeName for IDiskQuotaUserBatch {}
 windows_core::imp::define_interface!(IEnumDiskQuotaUsers, IEnumDiskQuotaUsers_Vtbl, 0x7988b577_ec89_11cf_9c00_00aa00a14f56);
 windows_core::imp::interface_hierarchy!(IEnumDiskQuotaUsers, windows_core::IUnknown);
 impl IEnumDiskQuotaUsers {
-    pub unsafe fn Next(&self, cusers: u32, rgusers: *mut Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cusers, core::mem::transmute(rgusers), pcusersfetched as _).ok() }
+    pub unsafe fn Next(&self, cusers: u32, rgusers: *mut Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cusers, core::mem::transmute(rgusers), pcusersfetched as _) }
     }
-    pub unsafe fn Skip(&self, cusers: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cusers).ok() }
+    pub unsafe fn Skip(&self, cusers: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cusers) }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {

@@ -72,23 +72,23 @@ impl core::ops::Deref for IObjectCollection {
 }
 windows_core::imp::interface_hierarchy!(IObjectCollection, windows_core::IUnknown, IObjectArray);
 impl IObjectCollection {
-    pub unsafe fn AddObject<P0>(&self, punk: P0) -> windows_core::Result<()>
+    pub unsafe fn AddObject<P0>(&self, punk: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddObject)(windows_core::Interface::as_raw(self), punk.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddObject)(windows_core::Interface::as_raw(self), punk.param().abi()) }
     }
-    pub unsafe fn AddFromArray<P0>(&self, poasource: P0) -> windows_core::Result<()>
+    pub unsafe fn AddFromArray<P0>(&self, poasource: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IObjectArray>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddFromArray)(windows_core::Interface::as_raw(self), poasource.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddFromArray)(windows_core::Interface::as_raw(self), poasource.param().abi()) }
     }
-    pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveObjectAt)(windows_core::Interface::as_raw(self), uiindex).ok() }
+    pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveObjectAt)(windows_core::Interface::as_raw(self), uiindex) }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Clear(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]

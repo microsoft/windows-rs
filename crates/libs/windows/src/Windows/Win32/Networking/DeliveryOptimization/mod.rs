@@ -89,20 +89,20 @@ pub const DeliveryOptimization: windows_core::GUID = windows_core::GUID::from_u1
 windows_core::imp::define_interface!(IDODownload, IDODownload_Vtbl, 0xfbbd7fc0_c147_4727_a38d_827ef071ee77);
 windows_core::imp::interface_hierarchy!(IDODownload, windows_core::IUnknown);
 impl IDODownload {
-    pub unsafe fn Start(&self, ranges: *const DO_DOWNLOAD_RANGES_INFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), ranges).ok() }
+    pub unsafe fn Start(&self, ranges: *const DO_DOWNLOAD_RANGES_INFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), ranges) }
     }
-    pub unsafe fn Pause(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Pause(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Abort(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Abort(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Finalize(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Finalize)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Finalize(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Finalize)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetStatus(&self, status: *mut DO_DOWNLOAD_STATUS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), status as _).ok() }
+    pub unsafe fn GetStatus(&self, status: *mut DO_DOWNLOAD_STATUS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), status as _) }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty(&self, propid: DODownloadProperty) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -112,8 +112,8 @@ impl IDODownload {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, propid: DODownloadProperty, propval: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), propid, core::mem::transmute(propval)).ok() }
+    pub unsafe fn SetProperty(&self, propid: DODownloadProperty, propval: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), propid, core::mem::transmute(propval)) }
     }
 }
 #[repr(C)]
@@ -215,11 +215,11 @@ impl windows_core::RuntimeName for IDODownload {}
 windows_core::imp::define_interface!(IDODownloadStatusCallback, IDODownloadStatusCallback_Vtbl, 0xd166e8e3_a90e_4392_8e87_05e996d3747d);
 windows_core::imp::interface_hierarchy!(IDODownloadStatusCallback, windows_core::IUnknown);
 impl IDODownloadStatusCallback {
-    pub unsafe fn OnStatusChange<P0>(&self, download: P0, status: *const DO_DOWNLOAD_STATUS) -> windows_core::Result<()>
+    pub unsafe fn OnStatusChange<P0>(&self, download: P0, status: *const DO_DOWNLOAD_STATUS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDODownload>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnStatusChange)(windows_core::Interface::as_raw(self), download.param().abi(), status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnStatusChange)(windows_core::Interface::as_raw(self), download.param().abi(), status) }
     }
 }
 #[repr(C)]

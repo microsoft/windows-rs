@@ -12,12 +12,12 @@ where
     }
 }
 #[inline]
-pub unsafe fn DeleteAppContainerProfile<P0>(pszappcontainername: P0) -> windows_core::Result<()>
+pub unsafe fn DeleteAppContainerProfile<P0>(pszappcontainername: P0) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn DeleteAppContainerProfile(pszappcontainername : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { DeleteAppContainerProfile(pszappcontainername.param().abi()).ok() }
+    unsafe { DeleteAppContainerProfile(pszappcontainername.param().abi()) }
 }
 #[inline]
 pub unsafe fn DeriveAppContainerSidFromAppContainerName<P0>(pszappcontainername: P0) -> windows_core::Result<super::PSID>
@@ -101,12 +101,12 @@ pub unsafe fn IsProcessInWDAGContainer(reserved: *const core::ffi::c_void) -> wi
 windows_core::imp::define_interface!(IIsolatedAppLauncher, IIsolatedAppLauncher_Vtbl, 0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
 windows_core::imp::interface_hierarchy!(IIsolatedAppLauncher, windows_core::IUnknown);
 impl IIsolatedAppLauncher {
-    pub unsafe fn Launch<P0, P1>(&self, appusermodelid: P0, arguments: P1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> windows_core::Result<()>
+    pub unsafe fn Launch<P0, P1>(&self, appusermodelid: P0, arguments: P1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Launch)(windows_core::Interface::as_raw(self), appusermodelid.param().abi(), arguments.param().abi(), telemetryparameters).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Launch)(windows_core::Interface::as_raw(self), appusermodelid.param().abi(), arguments.param().abi(), telemetryparameters) }
     }
 }
 #[repr(C)]
@@ -136,20 +136,20 @@ impl windows_core::RuntimeName for IIsolatedAppLauncher {}
 windows_core::imp::define_interface!(IIsolatedProcessLauncher, IIsolatedProcessLauncher_Vtbl, 0x1aa24232_9a91_4201_88cb_122f9d6522e0);
 windows_core::imp::interface_hierarchy!(IIsolatedProcessLauncher, windows_core::IUnknown);
 impl IIsolatedProcessLauncher {
-    pub unsafe fn LaunchProcess<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2) -> windows_core::Result<()>
+    pub unsafe fn LaunchProcess<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LaunchProcess)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LaunchProcess)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi()) }
     }
-    pub unsafe fn ShareDirectory<P0, P1>(&self, hostpath: P0, containerpath: P1, readonly: bool) -> windows_core::Result<()>
+    pub unsafe fn ShareDirectory<P0, P1>(&self, hostpath: P0, containerpath: P1, readonly: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ShareDirectory)(windows_core::Interface::as_raw(self), hostpath.param().abi(), containerpath.param().abi(), readonly.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ShareDirectory)(windows_core::Interface::as_raw(self), hostpath.param().abi(), containerpath.param().abi(), readonly.into()) }
     }
     pub unsafe fn GetContainerGuid(&self) -> windows_core::Result<windows_core::GUID> {
         unsafe {
@@ -157,8 +157,8 @@ impl IIsolatedProcessLauncher {
             (windows_core::Interface::vtable(self).GetContainerGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AllowSetForegroundAccess(&self, pid: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AllowSetForegroundAccess)(windows_core::Interface::as_raw(self), pid).ok() }
+    pub unsafe fn AllowSetForegroundAccess(&self, pid: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AllowSetForegroundAccess)(windows_core::Interface::as_raw(self), pid) }
     }
     pub unsafe fn IsContainerRunning(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -251,13 +251,13 @@ impl core::ops::Deref for IIsolatedProcessLauncher2 {
 }
 windows_core::imp::interface_hierarchy!(IIsolatedProcessLauncher2, windows_core::IUnknown, IIsolatedProcessLauncher);
 impl IIsolatedProcessLauncher2 {
-    pub unsafe fn LaunchProcess2<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2, correlationguid: *const windows_core::GUID) -> windows_core::Result<()>
+    pub unsafe fn LaunchProcess2<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2, correlationguid: *const windows_core::GUID) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LaunchProcess2)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi(), correlationguid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LaunchProcess2)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi(), correlationguid) }
     }
 }
 #[repr(C)]

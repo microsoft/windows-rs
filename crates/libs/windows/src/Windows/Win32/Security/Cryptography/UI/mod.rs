@@ -1,7 +1,7 @@
 #[inline]
-pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut core::ffi::c_void, puloutbuffersize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut core::ffi::c_void, puloutbuffersize: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("cryptui.dll" "system" fn CertSelectionGetSerializedBlob(pcsi : *const CERT_SELECTUI_INPUT, ppoutbuffer : *mut *mut core::ffi::c_void, puloutbuffersize : *mut u32) -> windows_core::HRESULT);
-    unsafe { CertSelectionGetSerializedBlob(pcsi, ppoutbuffer as _, puloutbuffersize as _).ok() }
+    unsafe { CertSelectionGetSerializedBlob(pcsi, ppoutbuffer as _, puloutbuffersize as _) }
 }
 #[inline]
 pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT) -> windows_core::BOOL {

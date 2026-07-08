@@ -115,12 +115,12 @@ windows_core::imp::define_interface!(IOpcCertificateSet, IOpcCertificateSet_Vtbl
 windows_core::imp::interface_hierarchy!(IOpcCertificateSet, windows_core::IUnknown);
 impl IOpcCertificateSet {
     #[cfg(feature = "Win32_Security_Cryptography")]
-    pub unsafe fn Add(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), certificate).ok() }
+    pub unsafe fn Add(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), certificate) }
     }
     #[cfg(feature = "Win32_Security_Cryptography")]
-    pub unsafe fn Remove(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), certificate).ok() }
+    pub unsafe fn Remove(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), certificate) }
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcCertificateEnumerator> {
         unsafe {
@@ -192,8 +192,8 @@ impl windows_core::RuntimeName for IOpcCertificateSet {}
 windows_core::imp::define_interface!(IOpcDigitalSignature, IOpcDigitalSignature_Vtbl, 0x52ab21dd_1cd0_4949_bc80_0c1232d00cb4);
 windows_core::imp::interface_hierarchy!(IOpcDigitalSignature, windows_core::IUnknown);
 impl IOpcDigitalSignature {
-    pub unsafe fn GetNamespaces(&self, prefixes: *mut *mut windows_core::PWSTR, namespaces: *mut *mut windows_core::PWSTR, count: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetNamespaces)(windows_core::Interface::as_raw(self), prefixes as _, namespaces as _, count as _).ok() }
+    pub unsafe fn GetNamespaces(&self, prefixes: *mut *mut windows_core::PWSTR, namespaces: *mut *mut windows_core::PWSTR, count: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetNamespaces)(windows_core::Interface::as_raw(self), prefixes as _, namespaces as _, count as _) }
     }
     pub unsafe fn GetSignatureId(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -220,8 +220,8 @@ impl IOpcDigitalSignature {
             (windows_core::Interface::vtable(self).GetCanonicalizationMethod)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSignatureValue(&self, signaturevalue: *mut *mut u8, count: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSignatureValue)(windows_core::Interface::as_raw(self), signaturevalue as _, count as _).ok() }
+    pub unsafe fn GetSignatureValue(&self, signaturevalue: *mut *mut u8, count: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSignatureValue)(windows_core::Interface::as_raw(self), signaturevalue as _, count as _) }
     }
     pub unsafe fn GetSignaturePartReferenceEnumerator(&self) -> windows_core::Result<IOpcSignaturePartReferenceEnumerator> {
         unsafe {
@@ -271,8 +271,8 @@ impl IOpcDigitalSignature {
             (windows_core::Interface::vtable(self).GetCustomObjectEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetSignatureXml(&self, signaturexml: *mut *mut u8, count: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSignatureXml)(windows_core::Interface::as_raw(self), signaturexml as _, count as _).ok() }
+    pub unsafe fn GetSignatureXml(&self, signaturexml: *mut *mut u8, count: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSignatureXml)(windows_core::Interface::as_raw(self), signaturexml as _, count as _) }
     }
 }
 #[repr(C)]
@@ -623,11 +623,11 @@ impl IOpcDigitalSignatureManager {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignatureOriginPartName<P0>(&self, signatureoriginpartname: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSignatureOriginPartName<P0>(&self, signatureoriginpartname: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IOpcPartUri>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSignatureOriginPartName)(windows_core::Interface::as_raw(self), signatureoriginpartname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSignatureOriginPartName)(windows_core::Interface::as_raw(self), signatureoriginpartname.param().abi()) }
     }
     pub unsafe fn GetSignatureEnumerator(&self) -> windows_core::Result<IOpcDigitalSignatureEnumerator> {
         unsafe {
@@ -636,11 +636,11 @@ impl IOpcDigitalSignatureManager {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RemoveSignature<P0>(&self, signaturepartname: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveSignature<P0>(&self, signaturepartname: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IOpcPartUri>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSignature)(windows_core::Interface::as_raw(self), signaturepartname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveSignature)(windows_core::Interface::as_raw(self), signaturepartname.param().abi()) }
     }
     pub unsafe fn CreateSigningOptions(&self) -> windows_core::Result<IOpcSigningOptions> {
         unsafe {
@@ -873,12 +873,12 @@ impl IOpcFactory {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn WritePackageToStream<P0, P2>(&self, package: P0, flags: OPC_WRITE_FLAGS, stream: P2) -> windows_core::Result<()>
+    pub unsafe fn WritePackageToStream<P0, P2>(&self, package: P0, flags: OPC_WRITE_FLAGS, stream: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IOpcPackage>,
         P2: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WritePackageToStream)(windows_core::Interface::as_raw(self), package.param().abi(), flags, stream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WritePackageToStream)(windows_core::Interface::as_raw(self), package.param().abi(), flags, stream.param().abi()) }
     }
     pub unsafe fn CreateDigitalSignatureManager<P0>(&self, package: P0) -> windows_core::Result<IOpcDigitalSignatureManager>
     where
@@ -1358,11 +1358,11 @@ impl IOpcPartSet {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeletePart<P0>(&self, name: P0) -> windows_core::Result<()>
+    pub unsafe fn DeletePart<P0>(&self, name: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IOpcPartUri>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeletePart)(windows_core::Interface::as_raw(self), name.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeletePart)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PartExists<P0>(&self, name: P0) -> windows_core::Result<windows_core::BOOL>
@@ -2011,11 +2011,11 @@ impl IOpcRelationshipSelectorSet {
             (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), selector, selectioncriterion.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete<P0>(&self, relationshipselector: P0) -> windows_core::Result<()>
+    pub unsafe fn Delete<P0>(&self, relationshipselector: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IOpcRelationshipSelector>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), relationshipselector.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), relationshipselector.param().abi()) }
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcRelationshipSelectorEnumerator> {
         unsafe {
@@ -2105,11 +2105,11 @@ impl IOpcRelationshipSet {
             (windows_core::Interface::vtable(self).CreateRelationship)(windows_core::Interface::as_raw(self), relationshipidentifier.param().abi(), relationshiptype.param().abi(), targeturi.param().abi(), targetmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteRelationship<P0>(&self, relationshipidentifier: P0) -> windows_core::Result<()>
+    pub unsafe fn DeleteRelationship<P0>(&self, relationshipidentifier: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteRelationship)(windows_core::Interface::as_raw(self), relationshipidentifier.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteRelationship)(windows_core::Interface::as_raw(self), relationshipidentifier.param().abi()) }
     }
     pub unsafe fn RelationshipExists<P0>(&self, relationshipidentifier: P0) -> windows_core::Result<windows_core::BOOL>
     where
@@ -2272,8 +2272,8 @@ impl windows_core::RuntimeName for IOpcRelationshipSet {}
 windows_core::imp::define_interface!(IOpcSignatureCustomObject, IOpcSignatureCustomObject_Vtbl, 0x5d77a19e_62c1_44e7_becd_45da5ae51a56);
 windows_core::imp::interface_hierarchy!(IOpcSignatureCustomObject, windows_core::IUnknown);
 impl IOpcSignatureCustomObject {
-    pub unsafe fn GetXml(&self, xmlmarkup: *mut *mut u8, count: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetXml)(windows_core::Interface::as_raw(self), xmlmarkup as _, count as _).ok() }
+    pub unsafe fn GetXml(&self, xmlmarkup: *mut *mut u8, count: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetXml)(windows_core::Interface::as_raw(self), xmlmarkup as _, count as _) }
     }
 }
 #[repr(C)]
@@ -2415,11 +2415,11 @@ impl IOpcSignatureCustomObjectSet {
             (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), core::mem::transmute(xmlmarkup.as_ptr()), xmlmarkup.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete<P0>(&self, customobject: P0) -> windows_core::Result<()>
+    pub unsafe fn Delete<P0>(&self, customobject: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IOpcSignatureCustomObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), customobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), customobject.param().abi()) }
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcSignatureCustomObjectEnumerator> {
         unsafe {
@@ -2507,8 +2507,8 @@ impl IOpcSignaturePartReference {
             (windows_core::Interface::vtable(self).GetDigestMethod)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDigestValue)(windows_core::Interface::as_raw(self), digestvalue as _, count as _).ok() }
+    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDigestValue)(windows_core::Interface::as_raw(self), digestvalue as _, count as _) }
     }
     pub unsafe fn GetTransformMethod(&self) -> windows_core::Result<OPC_CANONICALIZATION_METHOD> {
         unsafe {
@@ -2730,11 +2730,11 @@ impl IOpcSignaturePartReferenceSet {
             (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), parturi.param().abi(), digestmethod.param().abi(), transformmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete<P0>(&self, partreference: P0) -> windows_core::Result<()>
+    pub unsafe fn Delete<P0>(&self, partreference: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IOpcSignaturePartReference>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), partreference.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), partreference.param().abi()) }
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcSignaturePartReferenceEnumerator> {
         unsafe {
@@ -2840,8 +2840,8 @@ impl IOpcSignatureReference {
             (windows_core::Interface::vtable(self).GetDigestMethod)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDigestValue)(windows_core::Interface::as_raw(self), digestvalue as _, count as _).ok() }
+    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDigestValue)(windows_core::Interface::as_raw(self), digestvalue as _, count as _) }
     }
 }
 #[repr(C)]
@@ -3074,11 +3074,11 @@ impl IOpcSignatureReferenceSet {
             (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), referenceuri.param().abi(), referenceid.param().abi(), r#type.param().abi(), digestmethod.param().abi(), transformmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete<P0>(&self, reference: P0) -> windows_core::Result<()>
+    pub unsafe fn Delete<P0>(&self, reference: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IOpcSignatureReference>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), reference.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), reference.param().abi()) }
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcSignatureReferenceEnumerator> {
         unsafe {
@@ -3166,8 +3166,8 @@ impl IOpcSignatureRelationshipReference {
             (windows_core::Interface::vtable(self).GetDigestMethod)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDigestValue)(windows_core::Interface::as_raw(self), digestvalue as _, count as _).ok() }
+    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDigestValue)(windows_core::Interface::as_raw(self), digestvalue as _, count as _) }
     }
     pub unsafe fn GetTransformMethod(&self) -> windows_core::Result<OPC_CANONICALIZATION_METHOD> {
         unsafe {
@@ -3423,11 +3423,11 @@ impl IOpcSignatureRelationshipReferenceSet {
             (windows_core::Interface::vtable(self).CreateRelationshipSelectorSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete<P0>(&self, relationshipreference: P0) -> windows_core::Result<()>
+    pub unsafe fn Delete<P0>(&self, relationshipreference: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IOpcSignatureRelationshipReference>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), relationshipreference.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), relationshipreference.param().abi()) }
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcSignatureRelationshipReferenceEnumerator> {
         unsafe {
@@ -3523,11 +3523,11 @@ impl IOpcSigningOptions {
             (windows_core::Interface::vtable(self).GetSignatureId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSignatureId<P0>(&self, signatureid: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSignatureId<P0>(&self, signatureid: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSignatureId)(windows_core::Interface::as_raw(self), signatureid.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSignatureId)(windows_core::Interface::as_raw(self), signatureid.param().abi()) }
     }
     pub unsafe fn GetSignatureMethod(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -3535,11 +3535,11 @@ impl IOpcSigningOptions {
             (windows_core::Interface::vtable(self).GetSignatureMethod)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSignatureMethod<P0>(&self, signaturemethod: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSignatureMethod<P0>(&self, signaturemethod: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSignatureMethod)(windows_core::Interface::as_raw(self), signaturemethod.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSignatureMethod)(windows_core::Interface::as_raw(self), signaturemethod.param().abi()) }
     }
     pub unsafe fn GetDefaultDigestMethod(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -3547,11 +3547,11 @@ impl IOpcSigningOptions {
             (windows_core::Interface::vtable(self).GetDefaultDigestMethod)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDefaultDigestMethod<P0>(&self, digestmethod: P0) -> windows_core::Result<()>
+    pub unsafe fn SetDefaultDigestMethod<P0>(&self, digestmethod: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDefaultDigestMethod)(windows_core::Interface::as_raw(self), digestmethod.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDefaultDigestMethod)(windows_core::Interface::as_raw(self), digestmethod.param().abi()) }
     }
     pub unsafe fn GetCertificateEmbeddingOption(&self) -> windows_core::Result<OPC_CERTIFICATE_EMBEDDING_OPTION> {
         unsafe {
@@ -3559,8 +3559,8 @@ impl IOpcSigningOptions {
             (windows_core::Interface::vtable(self).GetCertificateEmbeddingOption)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCertificateEmbeddingOption(&self, embeddingoption: OPC_CERTIFICATE_EMBEDDING_OPTION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetCertificateEmbeddingOption)(windows_core::Interface::as_raw(self), embeddingoption).ok() }
+    pub unsafe fn SetCertificateEmbeddingOption(&self, embeddingoption: OPC_CERTIFICATE_EMBEDDING_OPTION) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCertificateEmbeddingOption)(windows_core::Interface::as_raw(self), embeddingoption) }
     }
     pub unsafe fn GetTimeFormat(&self) -> windows_core::Result<OPC_SIGNATURE_TIME_FORMAT> {
         unsafe {
@@ -3568,8 +3568,8 @@ impl IOpcSigningOptions {
             (windows_core::Interface::vtable(self).GetTimeFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTimeFormat(&self, timeformat: OPC_SIGNATURE_TIME_FORMAT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetTimeFormat)(windows_core::Interface::as_raw(self), timeformat).ok() }
+    pub unsafe fn SetTimeFormat(&self, timeformat: OPC_SIGNATURE_TIME_FORMAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTimeFormat)(windows_core::Interface::as_raw(self), timeformat) }
     }
     pub unsafe fn GetSignaturePartReferenceSet(&self) -> windows_core::Result<IOpcSignaturePartReferenceSet> {
         unsafe {
@@ -3609,11 +3609,11 @@ impl IOpcSigningOptions {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignaturePartName<P0>(&self, signaturepartname: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSignaturePartName<P0>(&self, signaturepartname: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IOpcPartUri>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSignaturePartName)(windows_core::Interface::as_raw(self), signaturepartname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSignaturePartName)(windows_core::Interface::as_raw(self), signaturepartname.param().abi()) }
     }
 }
 #[repr(C)]

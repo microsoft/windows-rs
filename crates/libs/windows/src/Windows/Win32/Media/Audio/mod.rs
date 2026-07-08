@@ -22,12 +22,12 @@ where
     }
 }
 #[inline]
-pub unsafe fn CoRegisterMessageFilter<P0>(lpmessagefilter: P0, lplpmessagefilter: Option<*mut Option<IMessageFilter>>) -> windows_core::Result<()>
+pub unsafe fn CoRegisterMessageFilter<P0>(lpmessagefilter: P0, lplpmessagefilter: Option<*mut Option<IMessageFilter>>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IMessageFilter>,
 {
     windows_core::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : *mut core::ffi::c_void, lplpmessagefilter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoRegisterMessageFilter(lpmessagefilter.param().abi(), lplpmessagefilter.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CoRegisterMessageFilter(lpmessagefilter.param().abi(), lplpmessagefilter.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitor() -> windows_core::Result<IAudioStateMonitor> {
@@ -2157,11 +2157,11 @@ pub const Headset: EndpointFormFactor = EndpointFormFactor(5);
 windows_core::imp::define_interface!(IAcousticEchoCancellationControl, IAcousticEchoCancellationControl_Vtbl, 0xf4ae25b5_aaa3_437d_b6b3_dbbe2d0e9549);
 windows_core::imp::interface_hierarchy!(IAcousticEchoCancellationControl, windows_core::IUnknown);
 impl IAcousticEchoCancellationControl {
-    pub unsafe fn SetEchoCancellationRenderEndpoint<P0>(&self, endpointid: P0) -> windows_core::Result<()>
+    pub unsafe fn SetEchoCancellationRenderEndpoint<P0>(&self, endpointid: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetEchoCancellationRenderEndpoint)(windows_core::Interface::as_raw(self), endpointid.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetEchoCancellationRenderEndpoint)(windows_core::Interface::as_raw(self), endpointid.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2194,8 +2194,8 @@ impl windows_core::RuntimeName for IAcousticEchoCancellationControl {}
 windows_core::imp::define_interface!(IActivateAudioInterfaceAsyncOperation, IActivateAudioInterfaceAsyncOperation_Vtbl, 0x72a22d78_cde4_431d_b8cc_843a71199b6d);
 windows_core::imp::interface_hierarchy!(IActivateAudioInterfaceAsyncOperation, windows_core::IUnknown);
 impl IActivateAudioInterfaceAsyncOperation {
-    pub unsafe fn GetActivateResult(&self, activateresult: *mut windows_core::HRESULT, activatedinterface: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetActivateResult)(windows_core::Interface::as_raw(self), activateresult as _, core::mem::transmute(activatedinterface)).ok() }
+    pub unsafe fn GetActivateResult(&self, activateresult: *mut windows_core::HRESULT, activatedinterface: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetActivateResult)(windows_core::Interface::as_raw(self), activateresult as _, core::mem::transmute(activatedinterface)) }
     }
 }
 #[repr(C)]
@@ -2225,11 +2225,11 @@ impl windows_core::RuntimeName for IActivateAudioInterfaceAsyncOperation {}
 windows_core::imp::define_interface!(IActivateAudioInterfaceCompletionHandler, IActivateAudioInterfaceCompletionHandler_Vtbl, 0x41d949ab_9862_444a_80f6_c261334da5eb);
 windows_core::imp::interface_hierarchy!(IActivateAudioInterfaceCompletionHandler, windows_core::IUnknown);
 impl IActivateAudioInterfaceCompletionHandler {
-    pub unsafe fn ActivateCompleted<P0>(&self, activateoperation: P0) -> windows_core::Result<()>
+    pub unsafe fn ActivateCompleted<P0>(&self, activateoperation: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IActivateAudioInterfaceAsyncOperation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ActivateCompleted)(windows_core::Interface::as_raw(self), activateoperation.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ActivateCompleted)(windows_core::Interface::as_raw(self), activateoperation.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2259,11 +2259,11 @@ impl windows_core::RuntimeName for IActivateAudioInterfaceCompletionHandler {}
 windows_core::imp::define_interface!(IAudioAmbisonicsControl, IAudioAmbisonicsControl_Vtbl, 0x28724c91_df35_4856_9f76_d6a26413f3df);
 windows_core::imp::interface_hierarchy!(IAudioAmbisonicsControl, windows_core::IUnknown);
 impl IAudioAmbisonicsControl {
-    pub unsafe fn SetData(&self, pambisonicsparams: &[AMBISONICS_PARAMS]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pambisonicsparams.as_ptr()), pambisonicsparams.len().try_into().unwrap()).ok() }
+    pub unsafe fn SetData(&self, pambisonicsparams: &[AMBISONICS_PARAMS]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pambisonicsparams.as_ptr()), pambisonicsparams.len().try_into().unwrap()) }
     }
-    pub unsafe fn SetHeadTracking(&self, benableheadtracking: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetHeadTracking)(windows_core::Interface::as_raw(self), benableheadtracking.into()).ok() }
+    pub unsafe fn SetHeadTracking(&self, benableheadtracking: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetHeadTracking)(windows_core::Interface::as_raw(self), benableheadtracking.into()) }
     }
     pub unsafe fn GetHeadTracking(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -2271,8 +2271,8 @@ impl IAudioAmbisonicsControl {
             (windows_core::Interface::vtable(self).GetHeadTracking)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRotation(&self, x: f32, y: f32, z: f32, w: f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetRotation)(windows_core::Interface::as_raw(self), x, y, z, w).ok() }
+    pub unsafe fn SetRotation(&self, x: f32, y: f32, z: f32, w: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRotation)(windows_core::Interface::as_raw(self), x, y, z, w) }
     }
 }
 #[repr(C)]
@@ -2344,8 +2344,8 @@ impl IAudioAutoGainControl {
             (windows_core::Interface::vtable(self).GetEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, benable: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.into(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetEnabled(&self, benable: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.into(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -2416,11 +2416,11 @@ impl windows_core::RuntimeName for IAudioBass {}
 windows_core::imp::define_interface!(IAudioCaptureClient, IAudioCaptureClient_Vtbl, 0xc8adbd64_e71e_48a0_a4de_185c395cd317);
 windows_core::imp::interface_hierarchy!(IAudioCaptureClient, windows_core::IUnknown);
 impl IAudioCaptureClient {
-    pub unsafe fn GetBuffer(&self, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: Option<*mut u64>, pu64qpcposition: Option<*mut u64>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), ppdata as _, pnumframestoread as _, pdwflags as _, pu64deviceposition.unwrap_or(core::mem::zeroed()) as _, pu64qpcposition.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn GetBuffer(&self, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: Option<*mut u64>, pu64qpcposition: Option<*mut u64>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), ppdata as _, pnumframestoread as _, pdwflags as _, pu64deviceposition.unwrap_or(core::mem::zeroed()) as _, pu64qpcposition.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn ReleaseBuffer(&self, numframesread: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseBuffer)(windows_core::Interface::as_raw(self), numframesread).ok() }
+    pub unsafe fn ReleaseBuffer(&self, numframesread: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseBuffer)(windows_core::Interface::as_raw(self), numframesread) }
     }
     pub unsafe fn GetNextPacketSize(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2483,8 +2483,8 @@ impl windows_core::RuntimeName for IAudioCaptureClient {}
 windows_core::imp::define_interface!(IAudioChannelConfig, IAudioChannelConfig_Vtbl, 0xbb11c46f_ec28_493c_b88a_5db88062ce98);
 windows_core::imp::interface_hierarchy!(IAudioChannelConfig, windows_core::IUnknown);
 impl IAudioChannelConfig {
-    pub unsafe fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetChannelConfig)(windows_core::Interface::as_raw(self), dwconfig, pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetChannelConfig)(windows_core::Interface::as_raw(self), dwconfig, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetChannelConfig(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2538,8 +2538,8 @@ impl windows_core::RuntimeName for IAudioChannelConfig {}
 windows_core::imp::define_interface!(IAudioClient, IAudioClient_Vtbl, 0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2);
 windows_core::imp::interface_hierarchy!(IAudioClient, windows_core::IUnknown);
 impl IAudioClient {
-    pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), sharemode, streamflags, hnsbufferduration, hnsperiodicity, pformat, audiosessionguid.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), sharemode, streamflags, hnsbufferduration, hnsperiodicity, pformat, audiosessionguid.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetBufferSize(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2568,20 +2568,20 @@ impl IAudioClient {
             (windows_core::Interface::vtable(self).GetMixFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDevicePeriod(&self, phnsdefaultdeviceperiod: Option<*mut i64>, phnsminimumdeviceperiod: Option<*mut i64>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDevicePeriod)(windows_core::Interface::as_raw(self), phnsdefaultdeviceperiod.unwrap_or(core::mem::zeroed()) as _, phnsminimumdeviceperiod.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn GetDevicePeriod(&self, phnsdefaultdeviceperiod: Option<*mut i64>, phnsminimumdeviceperiod: Option<*mut i64>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDevicePeriod)(windows_core::Interface::as_raw(self), phnsdefaultdeviceperiod.unwrap_or(core::mem::zeroed()) as _, phnsminimumdeviceperiod.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Start(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Start(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Stop(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetEventHandle(&self, eventhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEventHandle)(windows_core::Interface::as_raw(self), eventhandle).ok() }
+    pub unsafe fn SetEventHandle(&self, eventhandle: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEventHandle)(windows_core::Interface::as_raw(self), eventhandle) }
     }
     pub unsafe fn GetService<T>(&self) -> windows_core::Result<T>
     where
@@ -2756,11 +2756,11 @@ impl IAudioClient2 {
             (windows_core::Interface::vtable(self).IsOffloadCapable)(windows_core::Interface::as_raw(self), category, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClientProperties(&self, pproperties: *const AudioClientProperties) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetClientProperties)(windows_core::Interface::as_raw(self), pproperties).ok() }
+    pub unsafe fn SetClientProperties(&self, pproperties: *const AudioClientProperties) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetClientProperties)(windows_core::Interface::as_raw(self), pproperties) }
     }
-    pub unsafe fn GetBufferSizeLimits(&self, pformat: *const WAVEFORMATEX, beventdriven: bool, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBufferSizeLimits)(windows_core::Interface::as_raw(self), pformat, beventdriven.into(), phnsminbufferduration as _, phnsmaxbufferduration as _).ok() }
+    pub unsafe fn GetBufferSizeLimits(&self, pformat: *const WAVEFORMATEX, beventdriven: bool, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBufferSizeLimits)(windows_core::Interface::as_raw(self), pformat, beventdriven.into(), phnsminbufferduration as _, phnsmaxbufferduration as _) }
     }
 }
 #[repr(C)]
@@ -2823,14 +2823,14 @@ impl core::ops::Deref for IAudioClient3 {
 }
 windows_core::imp::interface_hierarchy!(IAudioClient3, windows_core::IUnknown, IAudioClient, IAudioClient2);
 impl IAudioClient3 {
-    pub unsafe fn GetSharedModeEnginePeriod(&self, pformat: *const WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSharedModeEnginePeriod)(windows_core::Interface::as_raw(self), pformat, pdefaultperiodinframes as _, pfundamentalperiodinframes as _, pminperiodinframes as _, pmaxperiodinframes as _).ok() }
+    pub unsafe fn GetSharedModeEnginePeriod(&self, pformat: *const WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSharedModeEnginePeriod)(windows_core::Interface::as_raw(self), pformat, pdefaultperiodinframes as _, pfundamentalperiodinframes as _, pminperiodinframes as _, pmaxperiodinframes as _) }
     }
-    pub unsafe fn GetCurrentSharedModeEnginePeriod(&self, ppformat: *mut *mut WAVEFORMATEX, pcurrentperiodinframes: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentSharedModeEnginePeriod)(windows_core::Interface::as_raw(self), ppformat as _, pcurrentperiodinframes as _).ok() }
+    pub unsafe fn GetCurrentSharedModeEnginePeriod(&self, ppformat: *mut *mut WAVEFORMATEX, pcurrentperiodinframes: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentSharedModeEnginePeriod)(windows_core::Interface::as_raw(self), ppformat as _, pcurrentperiodinframes as _) }
     }
-    pub unsafe fn InitializeSharedAudioStream(&self, streamflags: u32, periodinframes: u32, pformat: *const WAVEFORMATEX, audiosessionguid: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InitializeSharedAudioStream)(windows_core::Interface::as_raw(self), streamflags, periodinframes, pformat, audiosessionguid.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn InitializeSharedAudioStream(&self, streamflags: u32, periodinframes: u32, pformat: *const WAVEFORMATEX, audiosessionguid: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InitializeSharedAudioStream)(windows_core::Interface::as_raw(self), streamflags, periodinframes, pformat, audiosessionguid.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -2881,8 +2881,8 @@ impl windows_core::RuntimeName for IAudioClient3 {}
 windows_core::imp::define_interface!(IAudioClientDuckingControl, IAudioClientDuckingControl_Vtbl, 0xc789d381_a28c_4168_b28f_d3a837924dc3);
 windows_core::imp::interface_hierarchy!(IAudioClientDuckingControl, windows_core::IUnknown);
 impl IAudioClientDuckingControl {
-    pub unsafe fn SetDuckingOptionsForCurrentStream(&self, options: AUDIO_DUCKING_OPTIONS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDuckingOptionsForCurrentStream)(windows_core::Interface::as_raw(self), options).ok() }
+    pub unsafe fn SetDuckingOptionsForCurrentStream(&self, options: AUDIO_DUCKING_OPTIONS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDuckingOptionsForCurrentStream)(windows_core::Interface::as_raw(self), options) }
     }
 }
 #[repr(C)]
@@ -2921,8 +2921,8 @@ impl IAudioClock {
             (windows_core::Interface::vtable(self).GetFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPosition(&self, pu64position: *mut u64, pu64qpcposition: Option<*mut u64>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPosition)(windows_core::Interface::as_raw(self), pu64position as _, pu64qpcposition.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn GetPosition(&self, pu64position: *mut u64, pu64qpcposition: Option<*mut u64>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPosition)(windows_core::Interface::as_raw(self), pu64position as _, pu64qpcposition.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCharacteristics(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2991,8 +2991,8 @@ impl windows_core::RuntimeName for IAudioClock {}
 windows_core::imp::define_interface!(IAudioClock2, IAudioClock2_Vtbl, 0x6f49ff73_6727_49ac_a008_d98cf5e70048);
 windows_core::imp::interface_hierarchy!(IAudioClock2, windows_core::IUnknown);
 impl IAudioClock2 {
-    pub unsafe fn GetDevicePosition(&self, deviceposition: *mut u64, qpcposition: Option<*mut u64>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDevicePosition)(windows_core::Interface::as_raw(self), deviceposition as _, qpcposition.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn GetDevicePosition(&self, deviceposition: *mut u64, qpcposition: Option<*mut u64>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDevicePosition)(windows_core::Interface::as_raw(self), deviceposition as _, qpcposition.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -3022,8 +3022,8 @@ impl windows_core::RuntimeName for IAudioClock2 {}
 windows_core::imp::define_interface!(IAudioClockAdjustment, IAudioClockAdjustment_Vtbl, 0xf6e4c0a0_46d9_4fb8_be21_57a3ef2b626c);
 windows_core::imp::interface_hierarchy!(IAudioClockAdjustment, windows_core::IUnknown);
 impl IAudioClockAdjustment {
-    pub unsafe fn SetSampleRate(&self, flsamplerate: f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSampleRate)(windows_core::Interface::as_raw(self), flsamplerate).ok() }
+    pub unsafe fn SetSampleRate(&self, flsamplerate: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSampleRate)(windows_core::Interface::as_raw(self), flsamplerate) }
     }
 }
 #[repr(C)]
@@ -3053,8 +3053,8 @@ impl windows_core::RuntimeName for IAudioClockAdjustment {}
 windows_core::imp::define_interface!(IAudioEffectsChangedNotificationClient, IAudioEffectsChangedNotificationClient_Vtbl, 0xa5ded44f_3c5d_4b2b_bd1e_5dc1ee20bbf6);
 windows_core::imp::interface_hierarchy!(IAudioEffectsChangedNotificationClient, windows_core::IUnknown);
 impl IAudioEffectsChangedNotificationClient {
-    pub unsafe fn OnAudioEffectsChanged(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnAudioEffectsChanged)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn OnAudioEffectsChanged(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnAudioEffectsChanged)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -3084,23 +3084,23 @@ impl windows_core::RuntimeName for IAudioEffectsChangedNotificationClient {}
 windows_core::imp::define_interface!(IAudioEffectsManager, IAudioEffectsManager_Vtbl, 0x4460b3ae_4b44_4527_8676_7548a8acd260);
 windows_core::imp::interface_hierarchy!(IAudioEffectsManager, windows_core::IUnknown);
 impl IAudioEffectsManager {
-    pub unsafe fn RegisterAudioEffectsChangedNotificationCallback<P0>(&self, client: P0) -> windows_core::Result<()>
+    pub unsafe fn RegisterAudioEffectsChangedNotificationCallback<P0>(&self, client: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAudioEffectsChangedNotificationClient>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterAudioEffectsChangedNotificationCallback)(windows_core::Interface::as_raw(self), client.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterAudioEffectsChangedNotificationCallback)(windows_core::Interface::as_raw(self), client.param().abi()) }
     }
-    pub unsafe fn UnregisterAudioEffectsChangedNotificationCallback<P0>(&self, client: P0) -> windows_core::Result<()>
+    pub unsafe fn UnregisterAudioEffectsChangedNotificationCallback<P0>(&self, client: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAudioEffectsChangedNotificationClient>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterAudioEffectsChangedNotificationCallback)(windows_core::Interface::as_raw(self), client.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterAudioEffectsChangedNotificationCallback)(windows_core::Interface::as_raw(self), client.param().abi()) }
     }
-    pub unsafe fn GetAudioEffects(&self, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAudioEffects)(windows_core::Interface::as_raw(self), effects as _, numeffects as _).ok() }
+    pub unsafe fn GetAudioEffects(&self, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAudioEffects)(windows_core::Interface::as_raw(self), effects as _, numeffects as _) }
     }
-    pub unsafe fn SetAudioEffectState(&self, effectid: windows_core::GUID, state: AUDIO_EFFECT_STATE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAudioEffectState)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), state).ok() }
+    pub unsafe fn SetAudioEffectState(&self, effectid: windows_core::GUID, state: AUDIO_EFFECT_STATE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAudioEffectState)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), state) }
     }
 }
 #[repr(C)]
@@ -3226,8 +3226,8 @@ impl IAudioInputSelector {
             (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), nidselect, pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), nidselect, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -3281,8 +3281,8 @@ impl IAudioLoudness {
             (windows_core::Interface::vtable(self).GetEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, benable: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.into(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetEnabled(&self, benable: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.into(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -3353,8 +3353,8 @@ impl windows_core::RuntimeName for IAudioMidrange {}
 windows_core::imp::define_interface!(IAudioMute, IAudioMute_Vtbl, 0xdf45aeea_b74a_4b6b_afad_2366b6aa012e);
 windows_core::imp::interface_hierarchy!(IAudioMute, windows_core::IUnknown);
 impl IAudioMute {
-    pub unsafe fn SetMute(&self, bmuted: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmuted.into(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetMute(&self, bmuted: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmuted.into(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -3410,8 +3410,8 @@ impl IAudioOutputSelector {
             (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), nidselect, pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), nidselect, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -3529,8 +3529,8 @@ impl IAudioRenderClient {
             (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), numframesrequested, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ReleaseBuffer(&self, numframeswritten: u32, dwflags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseBuffer)(windows_core::Interface::as_raw(self), numframeswritten, dwflags).ok() }
+    pub unsafe fn ReleaseBuffer(&self, numframeswritten: u32, dwflags: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseBuffer)(windows_core::Interface::as_raw(self), numframeswritten, dwflags) }
     }
 }
 #[repr(C)]
@@ -3590,11 +3590,11 @@ impl IAudioSessionControl {
             (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDisplayName<P0>(&self, value: P0, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>
+    pub unsafe fn SetDisplayName<P0>(&self, value: P0, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), value.param().abi(), eventcontext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), value.param().abi(), eventcontext) }
     }
     pub unsafe fn GetIconPath(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -3602,11 +3602,11 @@ impl IAudioSessionControl {
             (windows_core::Interface::vtable(self).GetIconPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIconPath<P0>(&self, value: P0, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>
+    pub unsafe fn SetIconPath<P0>(&self, value: P0, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetIconPath)(windows_core::Interface::as_raw(self), value.param().abi(), eventcontext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetIconPath)(windows_core::Interface::as_raw(self), value.param().abi(), eventcontext) }
     }
     pub unsafe fn GetGroupingParam(&self) -> windows_core::Result<windows_core::GUID> {
         unsafe {
@@ -3614,20 +3614,20 @@ impl IAudioSessionControl {
             (windows_core::Interface::vtable(self).GetGroupingParam)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGroupingParam(&self, r#override: *const windows_core::GUID, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetGroupingParam)(windows_core::Interface::as_raw(self), r#override, eventcontext).ok() }
+    pub unsafe fn SetGroupingParam(&self, r#override: *const windows_core::GUID, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetGroupingParam)(windows_core::Interface::as_raw(self), r#override, eventcontext) }
     }
-    pub unsafe fn RegisterAudioSessionNotification<P0>(&self, newnotifications: P0) -> windows_core::Result<()>
+    pub unsafe fn RegisterAudioSessionNotification<P0>(&self, newnotifications: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAudioSessionEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterAudioSessionNotification)(windows_core::Interface::as_raw(self), newnotifications.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterAudioSessionNotification)(windows_core::Interface::as_raw(self), newnotifications.param().abi()) }
     }
-    pub unsafe fn UnregisterAudioSessionNotification<P0>(&self, newnotifications: P0) -> windows_core::Result<()>
+    pub unsafe fn UnregisterAudioSessionNotification<P0>(&self, newnotifications: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAudioSessionEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterAudioSessionNotification)(windows_core::Interface::as_raw(self), newnotifications.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterAudioSessionNotification)(windows_core::Interface::as_raw(self), newnotifications.param().abi()) }
     }
 }
 #[repr(C)]
@@ -3783,8 +3783,8 @@ impl IAudioSessionControl2 {
     pub unsafe fn IsSystemSoundsSession(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsSystemSoundsSession)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetDuckingPreference(&self, optout: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDuckingPreference)(windows_core::Interface::as_raw(self), optout.into()).ok() }
+    pub unsafe fn SetDuckingPreference(&self, optout: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDuckingPreference)(windows_core::Interface::as_raw(self), optout.into()) }
     }
 }
 #[repr(C)]
@@ -3935,32 +3935,32 @@ impl windows_core::RuntimeName for IAudioSessionEnumerator {}
 windows_core::imp::define_interface!(IAudioSessionEvents, IAudioSessionEvents_Vtbl, 0x24918acc_64b3_37c1_8ca9_74a66e9957a8);
 windows_core::imp::interface_hierarchy!(IAudioSessionEvents, windows_core::IUnknown);
 impl IAudioSessionEvents {
-    pub unsafe fn OnDisplayNameChanged<P0>(&self, newdisplayname: P0, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>
+    pub unsafe fn OnDisplayNameChanged<P0>(&self, newdisplayname: P0, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDisplayNameChanged)(windows_core::Interface::as_raw(self), newdisplayname.param().abi(), eventcontext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDisplayNameChanged)(windows_core::Interface::as_raw(self), newdisplayname.param().abi(), eventcontext) }
     }
-    pub unsafe fn OnIconPathChanged<P0>(&self, newiconpath: P0, eventcontext: *const windows_core::GUID) -> windows_core::Result<()>
+    pub unsafe fn OnIconPathChanged<P0>(&self, newiconpath: P0, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIconPathChanged)(windows_core::Interface::as_raw(self), newiconpath.param().abi(), eventcontext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIconPathChanged)(windows_core::Interface::as_raw(self), newiconpath.param().abi(), eventcontext) }
     }
-    pub unsafe fn OnSimpleVolumeChanged(&self, newvolume: f32, newmute: bool, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnSimpleVolumeChanged)(windows_core::Interface::as_raw(self), newvolume, newmute.into(), eventcontext).ok() }
+    pub unsafe fn OnSimpleVolumeChanged(&self, newvolume: f32, newmute: bool, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnSimpleVolumeChanged)(windows_core::Interface::as_raw(self), newvolume, newmute.into(), eventcontext) }
     }
-    pub unsafe fn OnChannelVolumeChanged(&self, newchannelvolumearray: &[f32], changedchannel: u32, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnChannelVolumeChanged)(windows_core::Interface::as_raw(self), newchannelvolumearray.len().try_into().unwrap(), core::mem::transmute(newchannelvolumearray.as_ptr()), changedchannel, eventcontext).ok() }
+    pub unsafe fn OnChannelVolumeChanged(&self, newchannelvolumearray: &[f32], changedchannel: u32, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnChannelVolumeChanged)(windows_core::Interface::as_raw(self), newchannelvolumearray.len().try_into().unwrap(), core::mem::transmute(newchannelvolumearray.as_ptr()), changedchannel, eventcontext) }
     }
-    pub unsafe fn OnGroupingParamChanged(&self, newgroupingparam: *const windows_core::GUID, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnGroupingParamChanged)(windows_core::Interface::as_raw(self), newgroupingparam, eventcontext).ok() }
+    pub unsafe fn OnGroupingParamChanged(&self, newgroupingparam: *const windows_core::GUID, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnGroupingParamChanged)(windows_core::Interface::as_raw(self), newgroupingparam, eventcontext) }
     }
-    pub unsafe fn OnStateChanged(&self, newstate: AudioSessionState) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnStateChanged)(windows_core::Interface::as_raw(self), newstate).ok() }
+    pub unsafe fn OnStateChanged(&self, newstate: AudioSessionState) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnStateChanged)(windows_core::Interface::as_raw(self), newstate) }
     }
-    pub unsafe fn OnSessionDisconnected(&self, disconnectreason: AudioSessionDisconnectReason) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnSessionDisconnected)(windows_core::Interface::as_raw(self), disconnectreason).ok() }
+    pub unsafe fn OnSessionDisconnected(&self, disconnectreason: AudioSessionDisconnectReason) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnSessionDisconnected)(windows_core::Interface::as_raw(self), disconnectreason) }
     }
 }
 #[repr(C)]
@@ -4123,30 +4123,30 @@ impl IAudioSessionManager2 {
             (windows_core::Interface::vtable(self).GetSessionEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RegisterSessionNotification<P0>(&self, sessionnotification: P0) -> windows_core::Result<()>
+    pub unsafe fn RegisterSessionNotification<P0>(&self, sessionnotification: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAudioSessionNotification>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterSessionNotification)(windows_core::Interface::as_raw(self), sessionnotification.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterSessionNotification)(windows_core::Interface::as_raw(self), sessionnotification.param().abi()) }
     }
-    pub unsafe fn UnregisterSessionNotification<P0>(&self, sessionnotification: P0) -> windows_core::Result<()>
+    pub unsafe fn UnregisterSessionNotification<P0>(&self, sessionnotification: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAudioSessionNotification>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterSessionNotification)(windows_core::Interface::as_raw(self), sessionnotification.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterSessionNotification)(windows_core::Interface::as_raw(self), sessionnotification.param().abi()) }
     }
-    pub unsafe fn RegisterDuckNotification<P0, P1>(&self, sessionid: P0, ducknotification: P1) -> windows_core::Result<()>
+    pub unsafe fn RegisterDuckNotification<P0, P1>(&self, sessionid: P0, ducknotification: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IAudioVolumeDuckNotification>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterDuckNotification)(windows_core::Interface::as_raw(self), sessionid.param().abi(), ducknotification.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterDuckNotification)(windows_core::Interface::as_raw(self), sessionid.param().abi(), ducknotification.param().abi()) }
     }
-    pub unsafe fn UnregisterDuckNotification<P0>(&self, ducknotification: P0) -> windows_core::Result<()>
+    pub unsafe fn UnregisterDuckNotification<P0>(&self, ducknotification: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAudioVolumeDuckNotification>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterDuckNotification)(windows_core::Interface::as_raw(self), ducknotification.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterDuckNotification)(windows_core::Interface::as_raw(self), ducknotification.param().abi()) }
     }
 }
 #[repr(C)]
@@ -4221,11 +4221,11 @@ impl windows_core::RuntimeName for IAudioSessionManager2 {}
 windows_core::imp::define_interface!(IAudioSessionNotification, IAudioSessionNotification_Vtbl, 0x641dd20b_4d41_49cc_aba3_174b9477bb08);
 windows_core::imp::interface_hierarchy!(IAudioSessionNotification, windows_core::IUnknown);
 impl IAudioSessionNotification {
-    pub unsafe fn OnSessionCreated<P0>(&self, newsession: P0) -> windows_core::Result<()>
+    pub unsafe fn OnSessionCreated<P0>(&self, newsession: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAudioSessionControl>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSessionCreated)(windows_core::Interface::as_raw(self), newsession.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSessionCreated)(windows_core::Interface::as_raw(self), newsession.param().abi()) }
     }
 }
 #[repr(C)]
@@ -4330,8 +4330,8 @@ impl IAudioStreamVolume {
             (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetChannelVolume(&self, dwindex: u32, flevel: f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, flevel).ok() }
+    pub unsafe fn SetChannelVolume(&self, dwindex: u32, flevel: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, flevel) }
     }
     pub unsafe fn GetChannelVolume(&self, dwindex: u32) -> windows_core::Result<f32> {
         unsafe {
@@ -4339,11 +4339,11 @@ impl IAudioStreamVolume {
             (windows_core::Interface::vtable(self).GetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())).ok() }
+    pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())) }
     }
-    pub unsafe fn GetAllVolumes(&self, pfvolumes: &mut [f32]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())).ok() }
+    pub unsafe fn GetAllVolumes(&self, pfvolumes: &mut [f32]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())) }
     }
 }
 #[repr(C)]
@@ -4424,8 +4424,8 @@ impl windows_core::RuntimeName for IAudioStreamVolume {}
 windows_core::imp::define_interface!(IAudioSystemEffectsPropertyChangeNotificationClient, IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl, 0x20049d40_56d5_400e_a2ef_385599feed49);
 windows_core::imp::interface_hierarchy!(IAudioSystemEffectsPropertyChangeNotificationClient, windows_core::IUnknown);
 impl IAudioSystemEffectsPropertyChangeNotificationClient {
-    pub unsafe fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnPropertyChanged)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(key)).ok() }
+    pub unsafe fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnPropertyChanged)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(key)) }
     }
 }
 #[repr(C)]
@@ -4476,23 +4476,23 @@ impl IAudioSystemEffectsPropertyStore {
             (windows_core::Interface::vtable(self).OpenVolatilePropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ResetUserPropertyStore(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ResetUserPropertyStore)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn ResetUserPropertyStore(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ResetUserPropertyStore)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn ResetVolatilePropertyStore(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ResetVolatilePropertyStore)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn ResetVolatilePropertyStore(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ResetVolatilePropertyStore)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn RegisterPropertyChangeNotification<P0>(&self, callback: P0) -> windows_core::Result<()>
+    pub unsafe fn RegisterPropertyChangeNotification<P0>(&self, callback: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAudioSystemEffectsPropertyChangeNotificationClient>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterPropertyChangeNotification)(windows_core::Interface::as_raw(self), callback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterPropertyChangeNotification)(windows_core::Interface::as_raw(self), callback.param().abi()) }
     }
-    pub unsafe fn UnregisterPropertyChangeNotification<P0>(&self, callback: P0) -> windows_core::Result<()>
+    pub unsafe fn UnregisterPropertyChangeNotification<P0>(&self, callback: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IAudioSystemEffectsPropertyChangeNotificationClient>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterPropertyChangeNotification)(windows_core::Interface::as_raw(self), callback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterPropertyChangeNotification)(windows_core::Interface::as_raw(self), callback.param().abi()) }
     }
 }
 #[repr(C)]
@@ -4632,8 +4632,8 @@ impl windows_core::RuntimeName for IAudioTreble {}
 windows_core::imp::define_interface!(IAudioViewManagerService, IAudioViewManagerService_Vtbl, 0xa7a7ef10_1f49_45e0_ad35_612057cc8f74);
 windows_core::imp::interface_hierarchy!(IAudioViewManagerService, windows_core::IUnknown);
 impl IAudioViewManagerService {
-    pub unsafe fn SetAudioStreamWindow(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAudioStreamWindow)(windows_core::Interface::as_raw(self), hwnd).ok() }
+    pub unsafe fn SetAudioStreamWindow(&self, hwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAudioStreamWindow)(windows_core::Interface::as_raw(self), hwnd) }
     }
 }
 #[repr(C)]
@@ -4663,17 +4663,17 @@ impl windows_core::RuntimeName for IAudioViewManagerService {}
 windows_core::imp::define_interface!(IAudioVolumeDuckNotification, IAudioVolumeDuckNotification_Vtbl, 0xc3b284d4_6d39_4359_b3cf_b56ddb3bb39c);
 windows_core::imp::interface_hierarchy!(IAudioVolumeDuckNotification, windows_core::IUnknown);
 impl IAudioVolumeDuckNotification {
-    pub unsafe fn OnVolumeDuckNotification<P0>(&self, sessionid: P0, countcommunicationsessions: u32) -> windows_core::Result<()>
+    pub unsafe fn OnVolumeDuckNotification<P0>(&self, sessionid: P0, countcommunicationsessions: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnVolumeDuckNotification)(windows_core::Interface::as_raw(self), sessionid.param().abi(), countcommunicationsessions).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnVolumeDuckNotification)(windows_core::Interface::as_raw(self), sessionid.param().abi(), countcommunicationsessions) }
     }
-    pub unsafe fn OnVolumeUnduckNotification<P0>(&self, sessionid: P0) -> windows_core::Result<()>
+    pub unsafe fn OnVolumeUnduckNotification<P0>(&self, sessionid: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnVolumeUnduckNotification)(windows_core::Interface::as_raw(self), sessionid.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnVolumeUnduckNotification)(windows_core::Interface::as_raw(self), sessionid.param().abi()) }
     }
 }
 #[repr(C)]
@@ -4744,8 +4744,8 @@ impl IChannelAudioVolume {
             (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetChannelVolume(&self, dwindex: u32, flevel: f32, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, flevel, eventcontext).ok() }
+    pub unsafe fn SetChannelVolume(&self, dwindex: u32, flevel: f32, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, flevel, eventcontext) }
     }
     pub unsafe fn GetChannelVolume(&self, dwindex: u32) -> windows_core::Result<f32> {
         unsafe {
@@ -4753,11 +4753,11 @@ impl IChannelAudioVolume {
             (windows_core::Interface::vtable(self).GetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32], eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr()), eventcontext).ok() }
+    pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32], eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr()), eventcontext) }
     }
-    pub unsafe fn GetAllVolumes(&self, pfvolumes: &mut [f32]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())).ok() }
+    pub unsafe fn GetAllVolumes(&self, pfvolumes: &mut [f32]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())) }
     }
 }
 #[repr(C)]
@@ -4850,14 +4850,14 @@ impl IConnector {
             (windows_core::Interface::vtable(self).GetDataFlow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ConnectTo<P0>(&self, pconnectto: P0) -> windows_core::Result<()>
+    pub unsafe fn ConnectTo<P0>(&self, pconnectto: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ConnectTo)(windows_core::Interface::as_raw(self), pconnectto.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ConnectTo)(windows_core::Interface::as_raw(self), pconnectto.param().abi()) }
     }
-    pub unsafe fn Disconnect(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Disconnect(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn IsConnected(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -5013,8 +5013,8 @@ impl windows_core::RuntimeName for IConnector {}
 windows_core::imp::define_interface!(IControlChangeNotify, IControlChangeNotify_Vtbl, 0xa09513ed_c709_4d21_bd7b_5f34c47f3947);
 windows_core::imp::interface_hierarchy!(IControlChangeNotify, windows_core::IUnknown);
 impl IControlChangeNotify {
-    pub unsafe fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnNotify)(windows_core::Interface::as_raw(self), dwsenderprocessid, pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnNotify)(windows_core::Interface::as_raw(self), dwsenderprocessid, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -5110,14 +5110,14 @@ impl IDeviceSpecificProperty {
             (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetValue(&self, pvvalue: *mut core::ffi::c_void, pcbvalue: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pvvalue as _, pcbvalue as _).ok() }
+    pub unsafe fn GetValue(&self, pvvalue: *mut core::ffi::c_void, pcbvalue: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pvvalue as _, pcbvalue as _) }
     }
-    pub unsafe fn SetValue(&self, pvvalue: *const core::ffi::c_void, cbvalue: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), pvvalue, cbvalue, pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetValue(&self, pvvalue: *const core::ffi::c_void, cbvalue: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), pvvalue, cbvalue, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Get4BRange(&self, plmin: *mut i32, plmax: *mut i32, plstepping: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Get4BRange)(windows_core::Interface::as_raw(self), plmin as _, plmax as _, plstepping as _).ok() }
+    pub unsafe fn Get4BRange(&self, plmin: *mut i32, plmax: *mut i32, plstepping: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Get4BRange)(windows_core::Interface::as_raw(self), plmin as _, plmax as _, plstepping as _) }
     }
 }
 #[repr(C)]
@@ -5469,11 +5469,11 @@ windows_core::imp::define_interface!(IMMDeviceActivator, IMMDeviceActivator_Vtbl
 windows_core::imp::interface_hierarchy!(IMMDeviceActivator, windows_core::IUnknown);
 impl IMMDeviceActivator {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn Activate<P1>(&self, iid: *const windows_core::GUID, pdevice: P1, pactivationparams: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+    pub unsafe fn Activate<P1>(&self, iid: *const windows_core::GUID, pdevice: P1, pactivationparams: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IMMDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), iid, pdevice.param().abi(), pactivationparams.unwrap_or(core::mem::zeroed()) as _, ppinterface as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), iid, pdevice.param().abi(), pactivationparams.unwrap_or(core::mem::zeroed()) as _, ppinterface as _) }
     }
 }
 #[repr(C)]
@@ -5590,17 +5590,17 @@ impl IMMDeviceEnumerator {
             (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), pwstrid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RegisterEndpointNotificationCallback<P0>(&self, pclient: P0) -> windows_core::Result<()>
+    pub unsafe fn RegisterEndpointNotificationCallback<P0>(&self, pclient: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMMNotificationClient>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterEndpointNotificationCallback)(windows_core::Interface::as_raw(self), pclient.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterEndpointNotificationCallback)(windows_core::Interface::as_raw(self), pclient.param().abi()) }
     }
-    pub unsafe fn UnregisterEndpointNotificationCallback<P0>(&self, pclient: P0) -> windows_core::Result<()>
+    pub unsafe fn UnregisterEndpointNotificationCallback<P0>(&self, pclient: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IMMNotificationClient>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterEndpointNotificationCallback)(windows_core::Interface::as_raw(self), pclient.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterEndpointNotificationCallback)(windows_core::Interface::as_raw(self), pclient.param().abi()) }
     }
 }
 #[repr(C)]
@@ -5727,35 +5727,35 @@ impl windows_core::RuntimeName for IMMEndpoint {}
 windows_core::imp::define_interface!(IMMNotificationClient, IMMNotificationClient_Vtbl, 0x7991eec9_7e89_4d85_8390_6c703cec60c0);
 windows_core::imp::interface_hierarchy!(IMMNotificationClient, windows_core::IUnknown);
 impl IMMNotificationClient {
-    pub unsafe fn OnDeviceStateChanged<P0>(&self, pwstrdeviceid: P0, dwnewstate: DEVICE_STATE) -> windows_core::Result<()>
+    pub unsafe fn OnDeviceStateChanged<P0>(&self, pwstrdeviceid: P0, dwnewstate: DEVICE_STATE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDeviceStateChanged)(windows_core::Interface::as_raw(self), pwstrdeviceid.param().abi(), dwnewstate).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDeviceStateChanged)(windows_core::Interface::as_raw(self), pwstrdeviceid.param().abi(), dwnewstate) }
     }
-    pub unsafe fn OnDeviceAdded<P0>(&self, pwstrdeviceid: P0) -> windows_core::Result<()>
+    pub unsafe fn OnDeviceAdded<P0>(&self, pwstrdeviceid: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDeviceAdded)(windows_core::Interface::as_raw(self), pwstrdeviceid.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDeviceAdded)(windows_core::Interface::as_raw(self), pwstrdeviceid.param().abi()) }
     }
-    pub unsafe fn OnDeviceRemoved<P0>(&self, pwstrdeviceid: P0) -> windows_core::Result<()>
+    pub unsafe fn OnDeviceRemoved<P0>(&self, pwstrdeviceid: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDeviceRemoved)(windows_core::Interface::as_raw(self), pwstrdeviceid.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDeviceRemoved)(windows_core::Interface::as_raw(self), pwstrdeviceid.param().abi()) }
     }
-    pub unsafe fn OnDefaultDeviceChanged<P2>(&self, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: P2) -> windows_core::Result<()>
+    pub unsafe fn OnDefaultDeviceChanged<P2>(&self, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDefaultDeviceChanged)(windows_core::Interface::as_raw(self), flow, role, pwstrdefaultdeviceid.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDefaultDeviceChanged)(windows_core::Interface::as_raw(self), flow, role, pwstrdefaultdeviceid.param().abi()) }
     }
-    pub unsafe fn OnPropertyValueChanged<P0>(&self, pwstrdeviceid: P0, key: super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>
+    pub unsafe fn OnPropertyValueChanged<P0>(&self, pwstrdeviceid: P0, key: super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnPropertyValueChanged)(windows_core::Interface::as_raw(self), pwstrdeviceid.param().abi(), core::mem::transmute(key)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnPropertyValueChanged)(windows_core::Interface::as_raw(self), pwstrdeviceid.param().abi(), core::mem::transmute(key)) }
     }
 }
 #[repr(C)]
@@ -5949,20 +5949,20 @@ impl IPart {
             (windows_core::Interface::vtable(self).GetTopologyObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Activate(&self, dwclscontext: u32, refiid: *const windows_core::GUID, ppvobject: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), dwclscontext, refiid, ppvobject.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn Activate(&self, dwclscontext: u32, refiid: *const windows_core::GUID, ppvobject: Option<*mut *mut core::ffi::c_void>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), dwclscontext, refiid, ppvobject.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn RegisterControlChangeCallback<P1>(&self, riid: *const windows_core::GUID, pnotify: P1) -> windows_core::Result<()>
+    pub unsafe fn RegisterControlChangeCallback<P1>(&self, riid: *const windows_core::GUID, pnotify: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IControlChangeNotify>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterControlChangeCallback)(windows_core::Interface::as_raw(self), riid, pnotify.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterControlChangeCallback)(windows_core::Interface::as_raw(self), riid, pnotify.param().abi()) }
     }
-    pub unsafe fn UnregisterControlChangeCallback<P0>(&self, pnotify: P0) -> windows_core::Result<()>
+    pub unsafe fn UnregisterControlChangeCallback<P0>(&self, pnotify: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IControlChangeNotify>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterControlChangeCallback)(windows_core::Interface::as_raw(self), pnotify.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterControlChangeCallback)(windows_core::Interface::as_raw(self), pnotify.param().abi()) }
     }
 }
 #[repr(C)]
@@ -6229,8 +6229,8 @@ impl IPerChannelDbLevel {
             (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLevelRange(&self, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLevelRange)(windows_core::Interface::as_raw(self), nchannel, pfminleveldb as _, pfmaxleveldb as _, pfstepping as _).ok() }
+    pub unsafe fn GetLevelRange(&self, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLevelRange)(windows_core::Interface::as_raw(self), nchannel, pfminleveldb as _, pfmaxleveldb as _, pfstepping as _) }
     }
     pub unsafe fn GetLevel(&self, nchannel: u32) -> windows_core::Result<f32> {
         unsafe {
@@ -6238,14 +6238,14 @@ impl IPerChannelDbLevel {
             (windows_core::Interface::vtable(self).GetLevel)(windows_core::Interface::as_raw(self), nchannel, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetLevel)(windows_core::Interface::as_raw(self), nchannel, fleveldb, pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLevel)(windows_core::Interface::as_raw(self), nchannel, fleveldb, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetLevelUniform)(windows_core::Interface::as_raw(self), fleveldb, pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLevelUniform)(windows_core::Interface::as_raw(self), fleveldb, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetLevelAllChannels)(windows_core::Interface::as_raw(self), core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len().try_into().unwrap(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLevelAllChannels)(windows_core::Interface::as_raw(self), core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len().try_into().unwrap(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -6335,8 +6335,8 @@ impl windows_core::RuntimeName for IPerChannelDbLevel {}
 windows_core::imp::define_interface!(ISimpleAudioVolume, ISimpleAudioVolume_Vtbl, 0x87ce5498_68d6_44e5_9215_6da47ef883d8);
 windows_core::imp::interface_hierarchy!(ISimpleAudioVolume, windows_core::IUnknown);
 impl ISimpleAudioVolume {
-    pub unsafe fn SetMasterVolume(&self, flevel: f32, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMasterVolume)(windows_core::Interface::as_raw(self), flevel, eventcontext).ok() }
+    pub unsafe fn SetMasterVolume(&self, flevel: f32, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMasterVolume)(windows_core::Interface::as_raw(self), flevel, eventcontext) }
     }
     pub unsafe fn GetMasterVolume(&self) -> windows_core::Result<f32> {
         unsafe {
@@ -6344,8 +6344,8 @@ impl ISimpleAudioVolume {
             (windows_core::Interface::vtable(self).GetMasterVolume)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMute(&self, bmute: bool, eventcontext: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.into(), eventcontext).ok() }
+    pub unsafe fn SetMute(&self, bmute: bool, eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.into(), eventcontext) }
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -6423,8 +6423,8 @@ impl windows_core::RuntimeName for ISimpleAudioVolume {}
 windows_core::imp::define_interface!(ISpatialAudioClient, ISpatialAudioClient_Vtbl, 0xbbf8e066_aaaa_49be_9a4d_fd2a858ea27f);
 windows_core::imp::interface_hierarchy!(ISpatialAudioClient, windows_core::IUnknown);
 impl ISpatialAudioClient {
-    pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStaticObjectPosition)(windows_core::Interface::as_raw(self), r#type, x as _, y as _, z as _).ok() }
+    pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStaticObjectPosition)(windows_core::Interface::as_raw(self), r#type, x as _, y as _, z as _) }
     }
     pub unsafe fn GetNativeStaticObjectTypeMask(&self) -> windows_core::Result<AudioObjectType> {
         unsafe {
@@ -6450,12 +6450,12 @@ impl ISpatialAudioClient {
             (windows_core::Interface::vtable(self).GetMaxFrameCount)(windows_core::Interface::as_raw(self), objectformat, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsAudioObjectFormatSupported(&self, objectformat: *const WAVEFORMATEX) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsAudioObjectFormatSupported)(windows_core::Interface::as_raw(self), objectformat).ok() }
+    pub unsafe fn IsAudioObjectFormatSupported(&self, objectformat: *const WAVEFORMATEX) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsAudioObjectFormatSupported)(windows_core::Interface::as_raw(self), objectformat) }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsSpatialAudioStreamAvailable(&self, streamuuid: *const windows_core::GUID, auxiliaryinfo: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsSpatialAudioStreamAvailable)(windows_core::Interface::as_raw(self), streamuuid, auxiliaryinfo.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn IsSpatialAudioStreamAvailable(&self, streamuuid: *const windows_core::GUID, auxiliaryinfo: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsSpatialAudioStreamAvailable)(windows_core::Interface::as_raw(self), streamuuid, auxiliaryinfo.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn ActivateSpatialAudioStream<T>(&self, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<T>
@@ -6665,8 +6665,8 @@ impl windows_core::RuntimeName for ISpatialAudioClient2 {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataClient, ISpatialAudioMetadataClient_Vtbl, 0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataClient, windows_core::IUnknown);
 impl ISpatialAudioMetadataClient {
-    pub unsafe fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: Option<*mut Option<ISpatialAudioMetadataItemsBuffer>>, metadataitems: *mut Option<ISpatialAudioMetadataItems>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ActivateSpatialAudioMetadataItems)(windows_core::Interface::as_raw(self), maxitemcount, framecount, metadataitemsbuffer.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(metadataitems)).ok() }
+    pub unsafe fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: Option<*mut Option<ISpatialAudioMetadataItemsBuffer>>, metadataitems: *mut Option<ISpatialAudioMetadataItems>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ActivateSpatialAudioMetadataItems)(windows_core::Interface::as_raw(self), maxitemcount, framecount, metadataitemsbuffer.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(metadataitems)) }
     }
     pub unsafe fn GetSpatialAudioMetadataItemsBufferLength(&self, maxitemcount: u16) -> windows_core::Result<u32> {
         unsafe {
@@ -6783,11 +6783,11 @@ impl windows_core::RuntimeName for ISpatialAudioMetadataClient {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataCopier, ISpatialAudioMetadataCopier_Vtbl, 0xd224b233_e251_4fd0_9ca2_d5ecf9a68404);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataCopier, windows_core::IUnknown);
 impl ISpatialAudioMetadataCopier {
-    pub unsafe fn Open<P0>(&self, metadataitems: P0) -> windows_core::Result<()>
+    pub unsafe fn Open<P0>(&self, metadataitems: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISpatialAudioMetadataItems>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), metadataitems.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), metadataitems.param().abi()) }
     }
     pub unsafe fn CopyMetadataForFrames<P2>(&self, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: P2) -> windows_core::Result<u16>
     where
@@ -6798,8 +6798,8 @@ impl ISpatialAudioMetadataCopier {
             (windows_core::Interface::vtable(self).CopyMetadataForFrames)(windows_core::Interface::as_raw(self), copyframecount, copymode, dstmetadataitems.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -6983,14 +6983,14 @@ impl windows_core::RuntimeName for ISpatialAudioMetadataItems {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataItemsBuffer, ISpatialAudioMetadataItemsBuffer_Vtbl, 0x42640a16_e1bd_42d9_9ff6_031ab71a2dba);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataItemsBuffer, windows_core::IUnknown);
 impl ISpatialAudioMetadataItemsBuffer {
-    pub unsafe fn AttachToBuffer(&self, buffer: &mut [u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AttachToBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()).ok() }
+    pub unsafe fn AttachToBuffer(&self, buffer: &mut [u8]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AttachToBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
     }
-    pub unsafe fn AttachToPopulatedBuffer(&self, buffer: &mut [u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AttachToPopulatedBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()).ok() }
+    pub unsafe fn AttachToPopulatedBuffer(&self, buffer: &mut [u8]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AttachToPopulatedBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
     }
-    pub unsafe fn DetachBuffer(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DetachBuffer)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn DetachBuffer(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DetachBuffer)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -7041,20 +7041,20 @@ impl windows_core::RuntimeName for ISpatialAudioMetadataItemsBuffer {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataReader, ISpatialAudioMetadataReader_Vtbl, 0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataReader, windows_core::IUnknown);
 impl ISpatialAudioMetadataReader {
-    pub unsafe fn Open<P0>(&self, metadataitems: P0) -> windows_core::Result<()>
+    pub unsafe fn Open<P0>(&self, metadataitems: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISpatialAudioMetadataItems>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), metadataitems.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), metadataitems.param().abi()) }
     }
-    pub unsafe fn ReadNextItem(&self, commandcount: *mut u8, frameoffset: *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReadNextItem)(windows_core::Interface::as_raw(self), commandcount as _, frameoffset as _).ok() }
+    pub unsafe fn ReadNextItem(&self, commandcount: *mut u8, frameoffset: *mut u16) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReadNextItem)(windows_core::Interface::as_raw(self), commandcount as _, frameoffset as _) }
     }
-    pub unsafe fn ReadNextItemCommand(&self, commandid: *mut u8, valuebuffer: *mut core::ffi::c_void, maxvaluebufferlength: u32, valuebufferlength: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReadNextItemCommand)(windows_core::Interface::as_raw(self), commandid as _, valuebuffer as _, maxvaluebufferlength, valuebufferlength as _).ok() }
+    pub unsafe fn ReadNextItemCommand(&self, commandid: *mut u8, valuebuffer: *mut core::ffi::c_void, maxvaluebufferlength: u32, valuebufferlength: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReadNextItemCommand)(windows_core::Interface::as_raw(self), commandid as _, valuebuffer as _, maxvaluebufferlength, valuebufferlength as _) }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -7114,20 +7114,20 @@ impl windows_core::RuntimeName for ISpatialAudioMetadataReader {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataWriter, ISpatialAudioMetadataWriter_Vtbl, 0x1b17ca01_2955_444d_a430_537dc589a844);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataWriter, windows_core::IUnknown);
 impl ISpatialAudioMetadataWriter {
-    pub unsafe fn Open<P0>(&self, metadataitems: P0) -> windows_core::Result<()>
+    pub unsafe fn Open<P0>(&self, metadataitems: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISpatialAudioMetadataItems>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), metadataitems.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), metadataitems.param().abi()) }
     }
-    pub unsafe fn WriteNextItem(&self, frameoffset: u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteNextItem)(windows_core::Interface::as_raw(self), frameoffset).ok() }
+    pub unsafe fn WriteNextItem(&self, frameoffset: u16) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WriteNextItem)(windows_core::Interface::as_raw(self), frameoffset) }
     }
-    pub unsafe fn WriteNextItemCommand(&self, commandid: u8, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteNextItemCommand)(windows_core::Interface::as_raw(self), commandid, valuebuffer.unwrap_or(core::mem::zeroed()) as _, valuebufferlength).ok() }
+    pub unsafe fn WriteNextItemCommand(&self, commandid: u8, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WriteNextItemCommand)(windows_core::Interface::as_raw(self), commandid, valuebuffer.unwrap_or(core::mem::zeroed()) as _, valuebufferlength) }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -7193,11 +7193,11 @@ impl core::ops::Deref for ISpatialAudioObject {
 }
 windows_core::imp::interface_hierarchy!(ISpatialAudioObject, windows_core::IUnknown, ISpatialAudioObjectBase);
 impl ISpatialAudioObject {
-    pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), x, y, z).ok() }
+    pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), x, y, z) }
     }
-    pub unsafe fn SetVolume(&self, volume: f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetVolume)(windows_core::Interface::as_raw(self), volume).ok() }
+    pub unsafe fn SetVolume(&self, volume: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetVolume)(windows_core::Interface::as_raw(self), volume) }
     }
 }
 #[repr(C)]
@@ -7239,11 +7239,11 @@ impl windows_core::RuntimeName for ISpatialAudioObject {}
 windows_core::imp::define_interface!(ISpatialAudioObjectBase, ISpatialAudioObjectBase_Vtbl, 0xcce0b8f2_8d4d_4efb_a8cf_3d6ecf1c30e0);
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectBase, windows_core::IUnknown);
 impl ISpatialAudioObjectBase {
-    pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), buffer as _, bufferlength as _).ok() }
+    pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), buffer as _, bufferlength as _) }
     }
-    pub unsafe fn SetEndOfStream(&self, framecount: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEndOfStream)(windows_core::Interface::as_raw(self), framecount).ok() }
+    pub unsafe fn SetEndOfStream(&self, framecount: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEndOfStream)(windows_core::Interface::as_raw(self), framecount) }
     }
     pub unsafe fn IsActive(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -7333,23 +7333,23 @@ impl core::ops::Deref for ISpatialAudioObjectForHrtf {
 }
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectForHrtf, windows_core::IUnknown, ISpatialAudioObjectBase);
 impl ISpatialAudioObjectForHrtf {
-    pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), x, y, z).ok() }
+    pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), x, y, z) }
     }
-    pub unsafe fn SetGain(&self, gain: f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetGain)(windows_core::Interface::as_raw(self), gain).ok() }
+    pub unsafe fn SetGain(&self, gain: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetGain)(windows_core::Interface::as_raw(self), gain) }
     }
-    pub unsafe fn SetOrientation(&self, orientation: *const *const f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetOrientation)(windows_core::Interface::as_raw(self), orientation).ok() }
+    pub unsafe fn SetOrientation(&self, orientation: *const *const f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOrientation)(windows_core::Interface::as_raw(self), orientation) }
     }
-    pub unsafe fn SetEnvironment(&self, environment: SpatialAudioHrtfEnvironmentType) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEnvironment)(windows_core::Interface::as_raw(self), environment).ok() }
+    pub unsafe fn SetEnvironment(&self, environment: SpatialAudioHrtfEnvironmentType) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEnvironment)(windows_core::Interface::as_raw(self), environment) }
     }
-    pub unsafe fn SetDistanceDecay(&self, distancedecay: *const SpatialAudioHrtfDistanceDecay) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDistanceDecay)(windows_core::Interface::as_raw(self), distancedecay).ok() }
+    pub unsafe fn SetDistanceDecay(&self, distancedecay: *const SpatialAudioHrtfDistanceDecay) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDistanceDecay)(windows_core::Interface::as_raw(self), distancedecay) }
     }
-    pub unsafe fn SetDirectivity(&self, directivity: *const SpatialAudioHrtfDirectivityUnion) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDirectivity)(windows_core::Interface::as_raw(self), directivity).ok() }
+    pub unsafe fn SetDirectivity(&self, directivity: *const SpatialAudioHrtfDirectivityUnion) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDirectivity)(windows_core::Interface::as_raw(self), directivity) }
     }
 }
 #[repr(C)]
@@ -7433,8 +7433,8 @@ impl core::ops::Deref for ISpatialAudioObjectForMetadataCommands {
 }
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectForMetadataCommands, windows_core::IUnknown, ISpatialAudioObjectBase);
 impl ISpatialAudioObjectForMetadataCommands {
-    pub unsafe fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteNextMetadataCommand)(windows_core::Interface::as_raw(self), commandid, valuebuffer.unwrap_or(core::mem::zeroed()) as _, valuebufferlength).ok() }
+    pub unsafe fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WriteNextMetadataCommand)(windows_core::Interface::as_raw(self), commandid, valuebuffer.unwrap_or(core::mem::zeroed()) as _, valuebufferlength) }
     }
 }
 #[repr(C)]
@@ -7572,20 +7572,20 @@ impl ISpatialAudioObjectRenderStreamBase {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn Start(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Start(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Stop(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn BeginUpdatingAudioObjects(&self, availabledynamicobjectcount: *mut u32, framecountperbuffer: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).BeginUpdatingAudioObjects)(windows_core::Interface::as_raw(self), availabledynamicobjectcount as _, framecountperbuffer as _).ok() }
+    pub unsafe fn BeginUpdatingAudioObjects(&self, availabledynamicobjectcount: *mut u32, framecountperbuffer: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BeginUpdatingAudioObjects)(windows_core::Interface::as_raw(self), availabledynamicobjectcount as _, framecountperbuffer as _) }
     }
-    pub unsafe fn EndUpdatingAudioObjects(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EndUpdatingAudioObjects)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn EndUpdatingAudioObjects(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).EndUpdatingAudioObjects)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -7797,11 +7797,11 @@ impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamForMetadata {}
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamNotify, ISpatialAudioObjectRenderStreamNotify_Vtbl, 0xdddf83e6_68d7_4c70_883f_a1836afb4a50);
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectRenderStreamNotify, windows_core::IUnknown);
 impl ISpatialAudioObjectRenderStreamNotify {
-    pub unsafe fn OnAvailableDynamicObjectCountChange<P0>(&self, sender: P0, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> windows_core::Result<()>
+    pub unsafe fn OnAvailableDynamicObjectCountChange<P0>(&self, sender: P0, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISpatialAudioObjectRenderStreamBase>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnAvailableDynamicObjectCountChange)(windows_core::Interface::as_raw(self), sender.param().abi(), hnscompliancedeadlinetime, availabledynamicobjectcountchange).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnAvailableDynamicObjectCountChange)(windows_core::Interface::as_raw(self), sender.param().abi(), hnscompliancedeadlinetime, availabledynamicobjectcountchange) }
     }
 }
 #[repr(C)]

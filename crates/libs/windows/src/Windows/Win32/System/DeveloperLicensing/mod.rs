@@ -15,7 +15,7 @@ pub unsafe fn CheckDeveloperLicense() -> windows_core::Result<super::super::Foun
     }
 }
 #[inline]
-pub unsafe fn RemoveDeveloperLicense(hwndparent: Option<super::super::Foundation::HWND>) -> windows_core::Result<()> {
+pub unsafe fn RemoveDeveloperLicense(hwndparent: Option<super::super::Foundation::HWND>) -> windows_core::HRESULT {
     windows_core::link!("wsclient.dll" "system" fn RemoveDeveloperLicense(hwndparent : super::super::Foundation::HWND) -> windows_core::HRESULT);
-    unsafe { RemoveDeveloperLicense(hwndparent.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { RemoveDeveloperLicense(hwndparent.unwrap_or(core::mem::zeroed()) as _) }
 }

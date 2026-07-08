@@ -121,9 +121,9 @@ pub unsafe fn DecodePointer(ptr: Option<*const core::ffi::c_void>) -> *mut core:
     unsafe { DecodePointer(ptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DecodeRemotePointer(processhandle: super::super::super::Foundation::HANDLE, ptr: Option<*const core::ffi::c_void>, decodedptr: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DecodeRemotePointer(processhandle: super::super::super::Foundation::HANDLE, ptr: Option<*const core::ffi::c_void>, decodedptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn DecodeRemotePointer(processhandle : super::super::super::Foundation::HANDLE, ptr : *const core::ffi::c_void, decodedptr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DecodeRemotePointer(processhandle, ptr.unwrap_or(core::mem::zeroed()) as _, decodedptr as _).ok() }
+    unsafe { DecodeRemotePointer(processhandle, ptr.unwrap_or(core::mem::zeroed()) as _, decodedptr as _) }
 }
 #[inline]
 pub unsafe fn DecodeSystemPointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
@@ -136,9 +136,9 @@ pub unsafe fn EncodePointer(ptr: Option<*const core::ffi::c_void>) -> *mut core:
     unsafe { EncodePointer(ptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn EncodeRemotePointer(processhandle: super::super::super::Foundation::HANDLE, ptr: Option<*const core::ffi::c_void>, encodedptr: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn EncodeRemotePointer(processhandle: super::super::super::Foundation::HANDLE, ptr: Option<*const core::ffi::c_void>, encodedptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn EncodeRemotePointer(processhandle : super::super::super::Foundation::HANDLE, ptr : *const core::ffi::c_void, encodedptr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { EncodeRemotePointer(processhandle, ptr.unwrap_or(core::mem::zeroed()) as _, encodedptr as _).ok() }
+    unsafe { EncodeRemotePointer(processhandle, ptr.unwrap_or(core::mem::zeroed()) as _, encodedptr as _) }
 }
 #[inline]
 pub unsafe fn EncodeSystemPointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
@@ -3757,8 +3757,8 @@ impl core::ops::Deref for IDebugExtendedProperty {
 windows_core::imp::interface_hierarchy!(IDebugExtendedProperty, windows_core::IUnknown, IDebugProperty);
 impl IDebugExtendedProperty {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(pextendedpropertyinfo)).ok() }
+    pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(pextendedpropertyinfo)) }
     }
     pub unsafe fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
         unsafe {
@@ -3818,18 +3818,18 @@ impl windows_core::RuntimeName for IDebugExtendedProperty {}
 windows_core::imp::define_interface!(IDebugProperty, IDebugProperty_Vtbl, 0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a);
 windows_core::imp::interface_hierarchy!(IDebugProperty, windows_core::IUnknown);
 impl IDebugProperty {
-    pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(ppropertyinfo)).ok() }
+    pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(ppropertyinfo)) }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetExtendedInfo)(windows_core::Interface::as_raw(self), cinfos, rgguidextendedinfo, core::mem::transmute(rgvar)).ok() }
+    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetExtendedInfo)(windows_core::Interface::as_raw(self), cinfos, rgguidextendedinfo, core::mem::transmute(rgvar)) }
     }
-    pub unsafe fn SetValueAsString<P0>(&self, pszvalue: P0, nradix: u32) -> windows_core::Result<()>
+    pub unsafe fn SetValueAsString<P0>(&self, pszvalue: P0, nradix: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue.param().abi(), nradix).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue.param().abi(), nradix) }
     }
     pub unsafe fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const windows_core::GUID) -> windows_core::Result<IEnumDebugPropertyInfo> {
         unsafe {
@@ -4061,14 +4061,14 @@ windows_core::imp::define_interface!(IEnumDebugExtendedPropertyInfo, IEnumDebugE
 windows_core::imp::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, windows_core::IUnknown);
 impl IEnumDebugExtendedPropertyInfo {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Next(&self, rgextendedpropertyinfo: &mut [ExtendedDebugPropertyInfo], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgextendedpropertyinfo.len().try_into().unwrap(), core::mem::transmute(rgextendedpropertyinfo.as_ptr()), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, rgextendedpropertyinfo: &mut [ExtendedDebugPropertyInfo], pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgextendedpropertyinfo.len().try_into().unwrap(), core::mem::transmute(rgextendedpropertyinfo.as_ptr()), pceltfetched as _) }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
+    pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
@@ -4167,14 +4167,14 @@ impl windows_core::RuntimeName for IEnumDebugExtendedPropertyInfo {}
 windows_core::imp::define_interface!(IEnumDebugPropertyInfo, IEnumDebugPropertyInfo_Vtbl, 0x51973c51_cb0c_11d0_b5c9_00a0244a0e7a);
 windows_core::imp::interface_hierarchy!(IEnumDebugPropertyInfo, windows_core::IUnknown);
 impl IEnumDebugPropertyInfo {
-    pub unsafe fn Next(&self, pi: &mut [DebugPropertyInfo], pceltsfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pi.len().try_into().unwrap(), core::mem::transmute(pi.as_ptr()), pceltsfetched as _).ok() }
+    pub unsafe fn Next(&self, pi: &mut [DebugPropertyInfo], pceltsfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pi.len().try_into().unwrap(), core::mem::transmute(pi.as_ptr()), pceltsfetched as _) }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
+    pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
@@ -5595,11 +5595,11 @@ pub const IO_THREADPOOL_DEADLOCK_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(453);
 windows_core::imp::define_interface!(IObjectSafety, IObjectSafety_Vtbl, 0xcb5bdc81_93c1_11cf_8f20_00805f2cd064);
 windows_core::imp::interface_hierarchy!(IObjectSafety, windows_core::IUnknown);
 impl IObjectSafety {
-    pub unsafe fn GetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, pdwsupportedoptions as _, pdwenabledoptions as _).ok() }
+    pub unsafe fn GetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, pdwsupportedoptions as _, pdwenabledoptions as _) }
     }
-    pub unsafe fn SetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, dwoptionsetmask: u32, dwenabledoptions: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, dwoptionsetmask, dwenabledoptions).ok() }
+    pub unsafe fn SetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, dwoptionsetmask: u32, dwenabledoptions: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, dwoptionsetmask, dwenabledoptions) }
     }
 }
 #[repr(C)]
@@ -5677,11 +5677,11 @@ impl IPerPropertyBrowsing2 {
         }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetPredefinedStrings(&self, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPredefinedStrings)(windows_core::Interface::as_raw(self), dispid, pcastrings as _, pcacookies as _).ok() }
+    pub unsafe fn GetPredefinedStrings(&self, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPredefinedStrings)(windows_core::Interface::as_raw(self), dispid, pcastrings as _, pcacookies as _) }
     }
-    pub unsafe fn SetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPredefinedValue)(windows_core::Interface::as_raw(self), dispid, dwcookie).ok() }
+    pub unsafe fn SetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPredefinedValue)(windows_core::Interface::as_raw(self), dispid, dwcookie) }
     }
 }
 #[repr(C)]

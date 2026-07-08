@@ -7,30 +7,30 @@ pub unsafe fn WscGetAntiMalwareUri() -> windows_core::Result<windows_core::PWSTR
     }
 }
 #[inline]
-pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::Result<()> {
+pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT {
     windows_core::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT);
-    unsafe { WscGetSecurityProviderHealth(providers, phealth as _).ok() }
+    unsafe { WscGetSecurityProviderHealth(providers, phealth as _) }
 }
 #[inline]
-pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::Result<()> {
+pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::HRESULT {
     windows_core::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> windows_core::HRESULT);
-    unsafe { WscQueryAntiMalwareUri().ok() }
+    unsafe { WscQueryAntiMalwareUri() }
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
-pub unsafe fn WscRegisterForChanges(reserved: *mut core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn WscRegisterForChanges(reserved: *mut core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation::HANDLE, lpcallbackaddress : super::Threading::LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WscRegisterForChanges(reserved as _, phcallbackregistration as _, lpcallbackaddress, pcontext as _).ok() }
+    unsafe { WscRegisterForChanges(reserved as _, phcallbackregistration as _, lpcallbackaddress, pcontext as _) }
 }
 #[inline]
-pub unsafe fn WscRegisterForUserNotifications() -> windows_core::Result<()> {
+pub unsafe fn WscRegisterForUserNotifications() -> windows_core::HRESULT {
     windows_core::link!("wscapi.dll" "system" fn WscRegisterForUserNotifications() -> windows_core::HRESULT);
-    unsafe { WscRegisterForUserNotifications().ok() }
+    unsafe { WscRegisterForUserNotifications() }
 }
 #[inline]
-pub unsafe fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
-    unsafe { WscUnRegisterChanges(hregistrationhandle).ok() }
+    unsafe { WscUnRegisterChanges(hregistrationhandle) }
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSCDefaultProduct, IWSCDefaultProduct_Vtbl, 0x0476d69c_f21a_11e5_9ce9_5e5517507c66);
@@ -45,8 +45,8 @@ impl core::ops::Deref for IWSCDefaultProduct {
 windows_core::imp::interface_hierarchy!(IWSCDefaultProduct, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCDefaultProduct {
-    pub unsafe fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetDefaultProduct)(windows_core::Interface::as_raw(self), etype, core::mem::transmute_copy(pguid)).ok() }
+    pub unsafe fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDefaultProduct)(windows_core::Interface::as_raw(self), etype, core::mem::transmute_copy(pguid)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -90,8 +90,8 @@ impl core::ops::Deref for IWSCProductList {
 windows_core::imp::interface_hierarchy!(IWSCProductList, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
-    pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), provider.0 as _).ok() }
+    pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), provider.0 as _) }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         unsafe {

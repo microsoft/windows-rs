@@ -1,11 +1,11 @@
 windows_core::imp::define_interface!(IUIApplication, IUIApplication_Vtbl, 0xd428903c_729a_491d_910d_682a08ff2522);
 windows_core::imp::interface_hierarchy!(IUIApplication, windows_core::IUnknown);
 impl IUIApplication {
-    pub unsafe fn OnViewChanged<P2>(&self, viewid: u32, typeid: UI_VIEWTYPE, view: P2, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::Result<()>
+    pub unsafe fn OnViewChanged<P2>(&self, viewid: u32, typeid: UI_VIEWTYPE, view: P2, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnViewChanged)(windows_core::Interface::as_raw(self), viewid, typeid, view.param().abi(), verb, ureasoncode).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnViewChanged)(windows_core::Interface::as_raw(self), viewid, typeid, view.param().abi(), verb, ureasoncode) }
     }
     pub unsafe fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_core::Result<IUICommandHandler> {
         unsafe {
@@ -13,11 +13,11 @@ impl IUIApplication {
             (windows_core::Interface::vtable(self).OnCreateUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn OnDestroyUICommand<P2>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P2) -> windows_core::Result<()>
+    pub unsafe fn OnDestroyUICommand<P2>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IUICommandHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDestroyUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, commandhandler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDestroyUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, commandhandler.param().abi()) }
     }
 }
 #[repr(C)]
@@ -86,29 +86,29 @@ impl IUICollection {
             (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), item.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), item.param().abi()) }
     }
-    pub unsafe fn Insert<P1>(&self, index: u32, item: P1) -> windows_core::Result<()>
+    pub unsafe fn Insert<P1>(&self, index: u32, item: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), index, item.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), index, item.param().abi()) }
     }
-    pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok() }
+    pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn Replace<P1>(&self, indexreplaced: u32, itemreplacewith: P1) -> windows_core::Result<()>
+    pub unsafe fn Replace<P1>(&self, indexreplaced: u32, itemreplacewith: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), indexreplaced, itemreplacewith.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), indexreplaced, itemreplacewith.param().abi()) }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Clear(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
@@ -207,12 +207,12 @@ impl windows_core::RuntimeName for IUICollection {}
 windows_core::imp::define_interface!(IUICollectionChangedEvent, IUICollectionChangedEvent_Vtbl, 0x6502ae91_a14d_44b5_bbd0_62aacc581d52);
 windows_core::imp::interface_hierarchy!(IUICollectionChangedEvent, windows_core::IUnknown);
 impl IUICollectionChangedEvent {
-    pub unsafe fn OnChanged<P2, P4>(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: P2, newindex: u32, newitem: P4) -> windows_core::Result<()>
+    pub unsafe fn OnChanged<P2, P4>(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: P2, newindex: u32, newitem: P4) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
         P4: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnChanged)(windows_core::Interface::as_raw(self), action, oldindex, olditem.param().abi(), newindex, newitem.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnChanged)(windows_core::Interface::as_raw(self), action, oldindex, olditem.param().abi(), newindex, newitem.param().abi()) }
     }
 }
 #[repr(C)]
@@ -243,11 +243,11 @@ windows_core::imp::define_interface!(IUICommandHandler, IUICommandHandler_Vtbl, 
 windows_core::imp::interface_hierarchy!(IUICommandHandler, windows_core::IUnknown);
 impl IUICommandHandler {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn Execute<P4>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: Option<*const super::super::Foundation::PROPERTYKEY>, currentvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, commandexecutionproperties: P4) -> windows_core::Result<()>
+    pub unsafe fn Execute<P4>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: Option<*const super::super::Foundation::PROPERTYKEY>, currentvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, commandexecutionproperties: P4) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IUISimplePropertySet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), commandid, verb, key.unwrap_or(core::mem::zeroed()) as _, currentvalue.unwrap_or(core::mem::zeroed()) as _, commandexecutionproperties.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), commandid, verb, key.unwrap_or(core::mem::zeroed()) as _, currentvalue.unwrap_or(core::mem::zeroed()) as _, commandexecutionproperties.param().abi()) }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn UpdateProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -311,8 +311,8 @@ impl windows_core::RuntimeName for IUICommandHandler {}
 windows_core::imp::define_interface!(IUIContextualUI, IUIContextualUI_Vtbl, 0xeea11f37_7c46_437c_8e55_b52122b29293);
 windows_core::imp::interface_hierarchy!(IUIContextualUI, windows_core::IUnknown);
 impl IUIContextualUI {
-    pub unsafe fn ShowAtLocation(&self, x: i32, y: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ShowAtLocation)(windows_core::Interface::as_raw(self), x, y).ok() }
+    pub unsafe fn ShowAtLocation(&self, x: i32, y: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ShowAtLocation)(windows_core::Interface::as_raw(self), x, y) }
     }
 }
 #[repr(C)]
@@ -375,11 +375,11 @@ impl windows_core::RuntimeName for IUIEventLogger {}
 windows_core::imp::define_interface!(IUIEventingManager, IUIEventingManager_Vtbl, 0x3be6ea7f_9a9b_4198_9368_9b0f923bd534);
 windows_core::imp::interface_hierarchy!(IUIEventingManager, windows_core::IUnknown);
 impl IUIEventingManager {
-    pub unsafe fn SetEventLogger<P0>(&self, eventlogger: P0) -> windows_core::Result<()>
+    pub unsafe fn SetEventLogger<P0>(&self, eventlogger: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIEventLogger>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetEventLogger)(windows_core::Interface::as_raw(self), eventlogger.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetEventLogger)(windows_core::Interface::as_raw(self), eventlogger.param().abi()) }
     }
 }
 #[repr(C)]
@@ -409,23 +409,23 @@ impl windows_core::RuntimeName for IUIEventingManager {}
 windows_core::imp::define_interface!(IUIFramework, IUIFramework_Vtbl, 0xf4f0385d_6872_43a8_ad09_4c339cb3f5c5);
 windows_core::imp::interface_hierarchy!(IUIFramework, windows_core::IUnknown);
 impl IUIFramework {
-    pub unsafe fn Initialize<P1>(&self, framewnd: super::super::Foundation::HWND, application: P1) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P1>(&self, framewnd: super::super::Foundation::HWND, application: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IUIApplication>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), framewnd, application.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), framewnd, application.param().abi()) }
     }
-    pub unsafe fn Destroy(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Destroy(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn LoadUI<P1>(&self, instance: super::super::Foundation::HINSTANCE, resourcename: P1) -> windows_core::Result<()>
+    pub unsafe fn LoadUI<P1>(&self, instance: super::super::Foundation::HINSTANCE, resourcename: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LoadUI)(windows_core::Interface::as_raw(self), instance, resourcename.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LoadUI)(windows_core::Interface::as_raw(self), instance, resourcename.param().abi()) }
     }
-    pub unsafe fn GetView(&self, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), viewid, riid, ppv as _).ok() }
+    pub unsafe fn GetView(&self, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), viewid, riid, ppv as _) }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -435,17 +435,17 @@ impl IUIFramework {
         }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetUICommandProperty)(windows_core::Interface::as_raw(self), commandid, key, core::mem::transmute(value)).ok() }
+    pub unsafe fn SetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetUICommandProperty)(windows_core::Interface::as_raw(self), commandid, key, core::mem::transmute(value)) }
     }
-    pub unsafe fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: Option<*const super::super::Foundation::PROPERTYKEY>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InvalidateUICommand)(windows_core::Interface::as_raw(self), commandid, flags, key.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: Option<*const super::super::Foundation::PROPERTYKEY>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InvalidateUICommand)(windows_core::Interface::as_raw(self), commandid, flags, key.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn FlushPendingInvalidations(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FlushPendingInvalidations)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn FlushPendingInvalidations(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FlushPendingInvalidations)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetModes(&self, imodes: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetModes)(windows_core::Interface::as_raw(self), imodes).ok() }
+    pub unsafe fn SetModes(&self, imodes: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetModes)(windows_core::Interface::as_raw(self), imodes) }
     }
 }
 #[repr(C)]
@@ -666,18 +666,18 @@ impl IUIRibbon {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadSettingsFromStream<P0>(&self, pstream: P0) -> windows_core::Result<()>
+    pub unsafe fn LoadSettingsFromStream<P0>(&self, pstream: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LoadSettingsFromStream)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LoadSettingsFromStream)(windows_core::Interface::as_raw(self), pstream.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveSettingsToStream<P0>(&self, pstream: P0) -> windows_core::Result<()>
+    pub unsafe fn SaveSettingsToStream<P0>(&self, pstream: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SaveSettingsToStream)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SaveSettingsToStream)(windows_core::Interface::as_raw(self), pstream.param().abi()) }
     }
 }
 #[repr(C)]

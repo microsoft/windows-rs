@@ -24,9 +24,9 @@ pub unsafe fn AllocConsole() -> windows_core::Result<()> {
     unsafe { AllocConsole().ok() }
 }
 #[inline]
-pub unsafe fn AllocConsoleWithOptions(options: Option<*const ALLOC_CONSOLE_OPTIONS>, result: Option<*mut ALLOC_CONSOLE_RESULT>) -> windows_core::Result<()> {
+pub unsafe fn AllocConsoleWithOptions(options: Option<*const ALLOC_CONSOLE_OPTIONS>, result: Option<*mut ALLOC_CONSOLE_RESULT>) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn AllocConsoleWithOptions(options : *const ALLOC_CONSOLE_OPTIONS, result : *mut ALLOC_CONSOLE_RESULT) -> windows_core::HRESULT);
-    unsafe { AllocConsoleWithOptions(options.unwrap_or(core::mem::zeroed()) as _, result.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { AllocConsoleWithOptions(options.unwrap_or(core::mem::zeroed()) as _, result.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn AttachConsole(dwprocessid: u32) -> windows_core::Result<()> {
@@ -482,14 +482,14 @@ pub unsafe fn RegisterConsoleVDM(dwregisterflags: u32, hstarthardwareevent: supe
     unsafe { RegisterConsoleVDM(dwregisterflags, hstarthardwareevent, hendhardwareevent, herrorhardwareevent, reserved.unwrap_or(core::mem::zeroed()) as _, lpstatelength as _, lpstate as _, vdmbuffersize.unwrap_or(core::mem::zeroed()) as _, lpvdmbuffer as _) }
 }
 #[inline]
-pub unsafe fn ReleasePseudoConsole(hpc: HPCON) -> windows_core::Result<()> {
+pub unsafe fn ReleasePseudoConsole(hpc: HPCON) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn ReleasePseudoConsole(hpc : HPCON) -> windows_core::HRESULT);
-    unsafe { ReleasePseudoConsole(hpc).ok() }
+    unsafe { ReleasePseudoConsole(hpc) }
 }
 #[inline]
-pub unsafe fn ResizePseudoConsole(hpc: HPCON, size: COORD) -> windows_core::Result<()> {
+pub unsafe fn ResizePseudoConsole(hpc: HPCON, size: COORD) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn ResizePseudoConsole(hpc : HPCON, size : COORD) -> windows_core::HRESULT);
-    unsafe { ResizePseudoConsole(hpc, core::mem::transmute(size)).ok() }
+    unsafe { ResizePseudoConsole(hpc, core::mem::transmute(size)) }
 }
 #[inline]
 pub unsafe fn ScrollConsoleScreenBufferA(hconsoleoutput: super::super::Foundation::HANDLE, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: Option<*const SMALL_RECT>, dwdestinationorigin: COORD, lpfill: *const CHAR_INFO) -> windows_core::Result<()> {

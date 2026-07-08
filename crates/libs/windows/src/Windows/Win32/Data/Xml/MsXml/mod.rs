@@ -569,40 +569,40 @@ impl core::ops::Deref for IMXAttributes {
 windows_core::imp::interface_hierarchy!(IMXAttributes, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXAttributes {
-    pub unsafe fn addAttribute(&self, struri: &windows_core::BSTR, strlocalname: &windows_core::BSTR, strqname: &windows_core::BSTR, strtype: &windows_core::BSTR, strvalue: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).addAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(struri), core::mem::transmute_copy(strlocalname), core::mem::transmute_copy(strqname), core::mem::transmute_copy(strtype), core::mem::transmute_copy(strvalue)).ok() }
+    pub unsafe fn addAttribute(&self, struri: &windows_core::BSTR, strlocalname: &windows_core::BSTR, strqname: &windows_core::BSTR, strtype: &windows_core::BSTR, strvalue: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).addAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(struri), core::mem::transmute_copy(strlocalname), core::mem::transmute_copy(strqname), core::mem::transmute_copy(strtype), core::mem::transmute_copy(strvalue)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn addAttributeFromIndex(&self, varatts: &super::super::super::System::Variant::VARIANT, nindex: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).addAttributeFromIndex)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varatts), nindex).ok() }
+    pub unsafe fn addAttributeFromIndex(&self, varatts: &super::super::super::System::Variant::VARIANT, nindex: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).addAttributeFromIndex)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varatts), nindex) }
     }
-    pub unsafe fn clear(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).clear)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn clear(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).clear)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn removeAttribute(&self, nindex: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), nindex).ok() }
+    pub unsafe fn removeAttribute(&self, nindex: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), nindex) }
     }
-    pub unsafe fn setAttribute(&self, nindex: i32, struri: &windows_core::BSTR, strlocalname: &windows_core::BSTR, strqname: &windows_core::BSTR, strtype: &windows_core::BSTR, strvalue: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(struri), core::mem::transmute_copy(strlocalname), core::mem::transmute_copy(strqname), core::mem::transmute_copy(strtype), core::mem::transmute_copy(strvalue)).ok() }
+    pub unsafe fn setAttribute(&self, nindex: i32, struri: &windows_core::BSTR, strlocalname: &windows_core::BSTR, strqname: &windows_core::BSTR, strtype: &windows_core::BSTR, strvalue: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(struri), core::mem::transmute_copy(strlocalname), core::mem::transmute_copy(strqname), core::mem::transmute_copy(strtype), core::mem::transmute_copy(strvalue)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn setAttributes(&self, varatts: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varatts)).ok() }
+    pub unsafe fn setAttributes(&self, varatts: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varatts)) }
     }
-    pub unsafe fn setLocalName(&self, nindex: i32, strlocalname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setLocalName)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(strlocalname)).ok() }
+    pub unsafe fn setLocalName(&self, nindex: i32, strlocalname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setLocalName)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(strlocalname)) }
     }
-    pub unsafe fn setQName(&self, nindex: i32, strqname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setQName)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(strqname)).ok() }
+    pub unsafe fn setQName(&self, nindex: i32, strqname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setQName)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(strqname)) }
     }
-    pub unsafe fn setType(&self, nindex: i32, strtype: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setType)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(strtype)).ok() }
+    pub unsafe fn setType(&self, nindex: i32, strtype: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setType)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(strtype)) }
     }
-    pub unsafe fn setURI(&self, nindex: i32, struri: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setURI)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(struri)).ok() }
+    pub unsafe fn setURI(&self, nindex: i32, struri: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setURI)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(struri)) }
     }
-    pub unsafe fn setValue(&self, nindex: i32, strvalue: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setValue)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(strvalue)).ok() }
+    pub unsafe fn setValue(&self, nindex: i32, strvalue: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setValue)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute_copy(strvalue)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -735,8 +735,8 @@ impl windows_core::RuntimeName for IMXAttributes {}
 windows_core::imp::define_interface!(IMXNamespaceManager, IMXNamespaceManager_Vtbl, 0xc90352f6_643c_4fbc_bb23_e996eb2d51fd);
 windows_core::imp::interface_hierarchy!(IMXNamespaceManager, windows_core::IUnknown);
 impl IMXNamespaceManager {
-    pub unsafe fn putAllowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).putAllowOverride)(windows_core::Interface::as_raw(self), foverride).ok() }
+    pub unsafe fn putAllowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).putAllowOverride)(windows_core::Interface::as_raw(self), foverride) }
     }
     pub unsafe fn getAllowOverride(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -744,45 +744,45 @@ impl IMXNamespaceManager {
             (windows_core::Interface::vtable(self).getAllowOverride)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn pushContext(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).pushContext)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn pushContext(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).pushContext)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn pushNodeContext<P0>(&self, contextnode: P0, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
+    pub unsafe fn pushNodeContext<P0>(&self, contextnode: P0, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLDOMNode>,
     {
-        unsafe { (windows_core::Interface::vtable(self).pushNodeContext)(windows_core::Interface::as_raw(self), contextnode.param().abi(), fdeep).ok() }
+        unsafe { (windows_core::Interface::vtable(self).pushNodeContext)(windows_core::Interface::as_raw(self), contextnode.param().abi(), fdeep) }
     }
-    pub unsafe fn popContext(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).popContext)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn popContext(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).popContext)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn declarePrefix<P0, P1>(&self, prefix: P0, namespaceuri: P1) -> windows_core::Result<()>
+    pub unsafe fn declarePrefix<P0, P1>(&self, prefix: P0, namespaceuri: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).declarePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi(), namespaceuri.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).declarePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi(), namespaceuri.param().abi()) }
     }
-    pub unsafe fn getDeclaredPrefix(&self, nindex: i32, pwchprefix: windows_core::PWSTR, pcchprefix: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).getDeclaredPrefix)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(pwchprefix), pcchprefix as _).ok() }
+    pub unsafe fn getDeclaredPrefix(&self, nindex: i32, pwchprefix: windows_core::PWSTR, pcchprefix: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).getDeclaredPrefix)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(pwchprefix), pcchprefix as _) }
     }
-    pub unsafe fn getPrefix<P0>(&self, pwsznamespaceuri: P0, nindex: i32, pwchprefix: windows_core::PWSTR, pcchprefix: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn getPrefix<P0>(&self, pwsznamespaceuri: P0, nindex: i32, pwchprefix: windows_core::PWSTR, pcchprefix: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).getPrefix)(windows_core::Interface::as_raw(self), pwsznamespaceuri.param().abi(), nindex, core::mem::transmute(pwchprefix), pcchprefix as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).getPrefix)(windows_core::Interface::as_raw(self), pwsznamespaceuri.param().abi(), nindex, core::mem::transmute(pwchprefix), pcchprefix as _) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn getURI<P0, P1>(&self, pwchprefix: P0, pcontextnode: P1, pwchuri: windows_core::PWSTR, pcchuri: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn getURI<P0, P1>(&self, pwchprefix: P0, pcontextnode: P1, pwchuri: windows_core::PWSTR, pcchuri: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IXMLDOMNode>,
     {
-        unsafe { (windows_core::Interface::vtable(self).getURI)(windows_core::Interface::as_raw(self), pwchprefix.param().abi(), pcontextnode.param().abi(), core::mem::transmute(pwchuri), pcchuri as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).getURI)(windows_core::Interface::as_raw(self), pwchprefix.param().abi(), pcontextnode.param().abi(), core::mem::transmute(pwchuri), pcchuri as _) }
     }
 }
 #[repr(C)]
@@ -1020,14 +1020,14 @@ impl core::ops::Deref for IMXReaderControl {
 windows_core::imp::interface_hierarchy!(IMXReaderControl, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXReaderControl {
-    pub unsafe fn abort(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).abort)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn abort(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).abort)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn resume(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).resume)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn resume(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).resume)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn suspend(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).suspend)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn suspend(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).suspend)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1092,11 +1092,11 @@ impl core::ops::Deref for IMXSchemaDeclHandler {
 windows_core::imp::interface_hierarchy!(IMXSchemaDeclHandler, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXSchemaDeclHandler {
-    pub unsafe fn schemaElementDecl<P0>(&self, oschemaelement: P0) -> windows_core::Result<()>
+    pub unsafe fn schemaElementDecl<P0>(&self, oschemaelement: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISchemaElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).schemaElementDecl)(windows_core::Interface::as_raw(self), oschemaelement.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).schemaElementDecl)(windows_core::Interface::as_raw(self), oschemaelement.param().abi()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1141,8 +1141,8 @@ windows_core::imp::interface_hierarchy!(IMXWriter, windows_core::IUnknown, super
 #[cfg(feature = "Win32_System_Com")]
 impl IMXWriter {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Setoutput(&self, vardestination: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setoutput)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vardestination)).ok() }
+    pub unsafe fn Setoutput(&self, vardestination: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setoutput)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vardestination)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn output(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -1151,8 +1151,8 @@ impl IMXWriter {
             (windows_core::Interface::vtable(self).output)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Setencoding(&self, strencoding: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setencoding)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strencoding)).ok() }
+    pub unsafe fn Setencoding(&self, strencoding: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setencoding)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strencoding)) }
     }
     pub unsafe fn encoding(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1160,8 +1160,8 @@ impl IMXWriter {
             (windows_core::Interface::vtable(self).encoding)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetbyteOrderMark(&self, fwritebyteordermark: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetbyteOrderMark)(windows_core::Interface::as_raw(self), fwritebyteordermark).ok() }
+    pub unsafe fn SetbyteOrderMark(&self, fwritebyteordermark: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetbyteOrderMark)(windows_core::Interface::as_raw(self), fwritebyteordermark) }
     }
     pub unsafe fn byteOrderMark(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -1169,8 +1169,8 @@ impl IMXWriter {
             (windows_core::Interface::vtable(self).byteOrderMark)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Setindent(&self, findentmode: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setindent)(windows_core::Interface::as_raw(self), findentmode).ok() }
+    pub unsafe fn Setindent(&self, findentmode: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setindent)(windows_core::Interface::as_raw(self), findentmode) }
     }
     pub unsafe fn indent(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -1178,8 +1178,8 @@ impl IMXWriter {
             (windows_core::Interface::vtable(self).indent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Setstandalone(&self, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setstandalone)(windows_core::Interface::as_raw(self), fvalue).ok() }
+    pub unsafe fn Setstandalone(&self, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setstandalone)(windows_core::Interface::as_raw(self), fvalue) }
     }
     pub unsafe fn standalone(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -1187,8 +1187,8 @@ impl IMXWriter {
             (windows_core::Interface::vtable(self).standalone)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetomitXMLDeclaration(&self, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetomitXMLDeclaration)(windows_core::Interface::as_raw(self), fvalue).ok() }
+    pub unsafe fn SetomitXMLDeclaration(&self, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetomitXMLDeclaration)(windows_core::Interface::as_raw(self), fvalue) }
     }
     pub unsafe fn omitXMLDeclaration(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -1196,8 +1196,8 @@ impl IMXWriter {
             (windows_core::Interface::vtable(self).omitXMLDeclaration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Setversion(&self, strversion: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setversion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strversion)).ok() }
+    pub unsafe fn Setversion(&self, strversion: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setversion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strversion)) }
     }
     pub unsafe fn version(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1205,8 +1205,8 @@ impl IMXWriter {
             (windows_core::Interface::vtable(self).version)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetdisableOutputEscaping(&self, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetdisableOutputEscaping)(windows_core::Interface::as_raw(self), fvalue).ok() }
+    pub unsafe fn SetdisableOutputEscaping(&self, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetdisableOutputEscaping)(windows_core::Interface::as_raw(self), fvalue) }
     }
     pub unsafe fn disableOutputEscaping(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -1214,8 +1214,8 @@ impl IMXWriter {
             (windows_core::Interface::vtable(self).disableOutputEscaping)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn flush(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).flush)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn flush(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).flush)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1466,8 +1466,8 @@ impl IMXXMLFilter {
             (windows_core::Interface::vtable(self).getFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn putFeature(&self, strname: &windows_core::BSTR, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), fvalue).ok() }
+    pub unsafe fn putFeature(&self, strname: &windows_core::BSTR, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), fvalue) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getProperty(&self, strname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -1477,8 +1477,8 @@ impl IMXXMLFilter {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn putProperty(&self, strname: &windows_core::BSTR, varvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).putProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute_copy(varvalue)).ok() }
+    pub unsafe fn putProperty(&self, strname: &windows_core::BSTR, varvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).putProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute_copy(varvalue)) }
     }
     pub unsafe fn entityResolver(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -1486,11 +1486,11 @@ impl IMXXMLFilter {
             (windows_core::Interface::vtable(self).entityResolver)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_entityResolver<P0>(&self, oresolver: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_entityResolver<P0>(&self, oresolver: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_entityResolver)(windows_core::Interface::as_raw(self), oresolver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_entityResolver)(windows_core::Interface::as_raw(self), oresolver.param().abi()) }
     }
     pub unsafe fn contentHandler(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -1498,11 +1498,11 @@ impl IMXXMLFilter {
             (windows_core::Interface::vtable(self).contentHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_contentHandler<P0>(&self, ohandler: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_contentHandler<P0>(&self, ohandler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_contentHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_contentHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()) }
     }
     pub unsafe fn dtdHandler(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -1510,11 +1510,11 @@ impl IMXXMLFilter {
             (windows_core::Interface::vtable(self).dtdHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_dtdHandler<P0>(&self, ohandler: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_dtdHandler<P0>(&self, ohandler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_dtdHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_dtdHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()) }
     }
     pub unsafe fn errorHandler(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -1522,11 +1522,11 @@ impl IMXXMLFilter {
             (windows_core::Interface::vtable(self).errorHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_errorHandler<P0>(&self, ohandler: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_errorHandler<P0>(&self, ohandler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_errorHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_errorHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1710,17 +1710,17 @@ impl ISAXAttributes {
             (windows_core::Interface::vtable(self).getLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn getURI(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).getURI)(windows_core::Interface::as_raw(self), nindex, ppwchuri as _, pcchuri as _).ok() }
+    pub unsafe fn getURI(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).getURI)(windows_core::Interface::as_raw(self), nindex, ppwchuri as _, pcchuri as _) }
     }
-    pub unsafe fn getLocalName(&self, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).getLocalName)(windows_core::Interface::as_raw(self), nindex, ppwchlocalname as _, pcchlocalname as _).ok() }
+    pub unsafe fn getLocalName(&self, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).getLocalName)(windows_core::Interface::as_raw(self), nindex, ppwchlocalname as _, pcchlocalname as _) }
     }
-    pub unsafe fn getQName(&self, nindex: i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).getQName)(windows_core::Interface::as_raw(self), nindex, ppwchqname as _, pcchqname as _).ok() }
+    pub unsafe fn getQName(&self, nindex: i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).getQName)(windows_core::Interface::as_raw(self), nindex, ppwchqname as _, pcchqname as _) }
     }
-    pub unsafe fn getName(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).getName)(windows_core::Interface::as_raw(self), nindex, ppwchuri as _, pcchuri as _, ppwchlocalname as _, pcchlocalname as _, ppwchqname as _, pcchqname as _).ok() }
+    pub unsafe fn getName(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).getName)(windows_core::Interface::as_raw(self), nindex, ppwchuri as _, pcchuri as _, ppwchlocalname as _, pcchlocalname as _, ppwchqname as _, pcchqname as _) }
     }
     pub unsafe fn getIndexFromName<P0, P2>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P2, cchlocalname: i32) -> windows_core::Result<i32>
     where
@@ -1741,37 +1741,37 @@ impl ISAXAttributes {
             (windows_core::Interface::vtable(self).getIndexFromQName)(windows_core::Interface::as_raw(self), pwchqname.param().abi(), cchqname, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn getType(&self, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).getType)(windows_core::Interface::as_raw(self), nindex, ppwchtype as _, pcchtype as _).ok() }
+    pub unsafe fn getType(&self, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).getType)(windows_core::Interface::as_raw(self), nindex, ppwchtype as _, pcchtype as _) }
     }
-    pub unsafe fn getTypeFromName<P0, P2>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P2, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn getTypeFromName<P0, P2>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P2, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).getTypeFromName)(windows_core::Interface::as_raw(self), pwchuri.param().abi(), cchuri, pwchlocalname.param().abi(), cchlocalname, ppwchtype as _, pcchtype as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).getTypeFromName)(windows_core::Interface::as_raw(self), pwchuri.param().abi(), cchuri, pwchlocalname.param().abi(), cchlocalname, ppwchtype as _, pcchtype as _) }
     }
-    pub unsafe fn getTypeFromQName<P0>(&self, pwchqname: P0, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn getTypeFromQName<P0>(&self, pwchqname: P0, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).getTypeFromQName)(windows_core::Interface::as_raw(self), pwchqname.param().abi(), cchqname, ppwchtype as _, pcchtype as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).getTypeFromQName)(windows_core::Interface::as_raw(self), pwchqname.param().abi(), cchqname, ppwchtype as _, pcchtype as _) }
     }
-    pub unsafe fn getValue(&self, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).getValue)(windows_core::Interface::as_raw(self), nindex, ppwchvalue as _, pcchvalue as _).ok() }
+    pub unsafe fn getValue(&self, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).getValue)(windows_core::Interface::as_raw(self), nindex, ppwchvalue as _, pcchvalue as _) }
     }
-    pub unsafe fn getValueFromName<P0, P2>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P2, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn getValueFromName<P0, P2>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P2, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).getValueFromName)(windows_core::Interface::as_raw(self), pwchuri.param().abi(), cchuri, pwchlocalname.param().abi(), cchlocalname, ppwchvalue as _, pcchvalue as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).getValueFromName)(windows_core::Interface::as_raw(self), pwchuri.param().abi(), cchuri, pwchlocalname.param().abi(), cchlocalname, ppwchvalue as _, pcchvalue as _) }
     }
-    pub unsafe fn getValueFromQName<P0>(&self, pwchqname: P0, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn getValueFromQName<P0>(&self, pwchqname: P0, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).getValueFromQName)(windows_core::Interface::as_raw(self), pwchqname.param().abi(), cchqname, ppwchvalue as _, pcchvalue as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).getValueFromQName)(windows_core::Interface::as_raw(self), pwchqname.param().abi(), cchqname, ppwchvalue as _, pcchvalue as _) }
     }
 }
 #[repr(C)]
@@ -1930,72 +1930,72 @@ impl windows_core::RuntimeName for ISAXAttributes {}
 windows_core::imp::define_interface!(ISAXContentHandler, ISAXContentHandler_Vtbl, 0x1545cdfa_9e4e_4497_a8a4_2bf7d0112c44);
 windows_core::imp::interface_hierarchy!(ISAXContentHandler, windows_core::IUnknown);
 impl ISAXContentHandler {
-    pub unsafe fn putDocumentLocator<P0>(&self, plocator: P0) -> windows_core::Result<()>
+    pub unsafe fn putDocumentLocator<P0>(&self, plocator: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISAXLocator>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putDocumentLocator)(windows_core::Interface::as_raw(self), plocator.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putDocumentLocator)(windows_core::Interface::as_raw(self), plocator.param().abi()) }
     }
-    pub unsafe fn startDocument(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).startDocument)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn startDocument(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).startDocument)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn endDocument(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endDocument)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn endDocument(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).endDocument)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn startPrefixMapping<P0, P2>(&self, pwchprefix: P0, cchprefix: i32, pwchuri: P2, cchuri: i32) -> windows_core::Result<()>
+    pub unsafe fn startPrefixMapping<P0, P2>(&self, pwchprefix: P0, cchprefix: i32, pwchuri: P2, cchuri: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).startPrefixMapping)(windows_core::Interface::as_raw(self), pwchprefix.param().abi(), cchprefix, pwchuri.param().abi(), cchuri).ok() }
+        unsafe { (windows_core::Interface::vtable(self).startPrefixMapping)(windows_core::Interface::as_raw(self), pwchprefix.param().abi(), cchprefix, pwchuri.param().abi(), cchuri) }
     }
-    pub unsafe fn endPrefixMapping<P0>(&self, pwchprefix: P0, cchprefix: i32) -> windows_core::Result<()>
+    pub unsafe fn endPrefixMapping<P0>(&self, pwchprefix: P0, cchprefix: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), pwchprefix.param().abi(), cchprefix).ok() }
+        unsafe { (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), pwchprefix.param().abi(), cchprefix) }
     }
-    pub unsafe fn startElement<P0, P2, P4, P6>(&self, pwchnamespaceuri: P0, cchnamespaceuri: i32, pwchlocalname: P2, cchlocalname: i32, pwchqname: P4, cchqname: i32, pattributes: P6) -> windows_core::Result<()>
+    pub unsafe fn startElement<P0, P2, P4, P6>(&self, pwchnamespaceuri: P0, cchnamespaceuri: i32, pwchlocalname: P2, cchlocalname: i32, pwchqname: P4, cchqname: i32, pattributes: P6) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
         P6: windows_core::Param<ISAXAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).startElement)(windows_core::Interface::as_raw(self), pwchnamespaceuri.param().abi(), cchnamespaceuri, pwchlocalname.param().abi(), cchlocalname, pwchqname.param().abi(), cchqname, pattributes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).startElement)(windows_core::Interface::as_raw(self), pwchnamespaceuri.param().abi(), cchnamespaceuri, pwchlocalname.param().abi(), cchlocalname, pwchqname.param().abi(), cchqname, pattributes.param().abi()) }
     }
-    pub unsafe fn endElement<P0, P2, P4>(&self, pwchnamespaceuri: P0, cchnamespaceuri: i32, pwchlocalname: P2, cchlocalname: i32, pwchqname: P4, cchqname: i32) -> windows_core::Result<()>
+    pub unsafe fn endElement<P0, P2, P4>(&self, pwchnamespaceuri: P0, cchnamespaceuri: i32, pwchlocalname: P2, cchlocalname: i32, pwchqname: P4, cchqname: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).endElement)(windows_core::Interface::as_raw(self), pwchnamespaceuri.param().abi(), cchnamespaceuri, pwchlocalname.param().abi(), cchlocalname, pwchqname.param().abi(), cchqname).ok() }
+        unsafe { (windows_core::Interface::vtable(self).endElement)(windows_core::Interface::as_raw(self), pwchnamespaceuri.param().abi(), cchnamespaceuri, pwchlocalname.param().abi(), cchlocalname, pwchqname.param().abi(), cchqname) }
     }
-    pub unsafe fn characters<P0>(&self, pwchchars: P0, cchchars: i32) -> windows_core::Result<()>
+    pub unsafe fn characters<P0>(&self, pwchchars: P0, cchchars: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).characters)(windows_core::Interface::as_raw(self), pwchchars.param().abi(), cchchars).ok() }
+        unsafe { (windows_core::Interface::vtable(self).characters)(windows_core::Interface::as_raw(self), pwchchars.param().abi(), cchchars) }
     }
-    pub unsafe fn ignorableWhitespace<P0>(&self, pwchchars: P0, cchchars: i32) -> windows_core::Result<()>
+    pub unsafe fn ignorableWhitespace<P0>(&self, pwchchars: P0, cchchars: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), pwchchars.param().abi(), cchchars).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), pwchchars.param().abi(), cchchars) }
     }
-    pub unsafe fn processingInstruction<P0, P2>(&self, pwchtarget: P0, cchtarget: i32, pwchdata: P2, cchdata: i32) -> windows_core::Result<()>
+    pub unsafe fn processingInstruction<P0, P2>(&self, pwchtarget: P0, cchtarget: i32, pwchdata: P2, cchdata: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).processingInstruction)(windows_core::Interface::as_raw(self), pwchtarget.param().abi(), cchtarget, pwchdata.param().abi(), cchdata).ok() }
+        unsafe { (windows_core::Interface::vtable(self).processingInstruction)(windows_core::Interface::as_raw(self), pwchtarget.param().abi(), cchtarget, pwchdata.param().abi(), cchdata) }
     }
-    pub unsafe fn skippedEntity<P0>(&self, pwchname: P0, cchname: i32) -> windows_core::Result<()>
+    pub unsafe fn skippedEntity<P0>(&self, pwchname: P0, cchname: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).skippedEntity)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname).ok() }
+        unsafe { (windows_core::Interface::vtable(self).skippedEntity)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname) }
     }
 }
 #[repr(C)]
@@ -2118,22 +2118,22 @@ impl windows_core::RuntimeName for ISAXContentHandler {}
 windows_core::imp::define_interface!(ISAXDTDHandler, ISAXDTDHandler_Vtbl, 0xe15c1baf_afb3_4d60_8c36_19a8c45defed);
 windows_core::imp::interface_hierarchy!(ISAXDTDHandler, windows_core::IUnknown);
 impl ISAXDTDHandler {
-    pub unsafe fn notationDecl<P0, P2, P4>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32) -> windows_core::Result<()>
+    pub unsafe fn notationDecl<P0, P2, P4>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).notationDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).notationDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid) }
     }
-    pub unsafe fn unparsedEntityDecl<P0, P2, P4, P6>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32, pwchnotationname: P6, cchnotationname: i32) -> windows_core::Result<()>
+    pub unsafe fn unparsedEntityDecl<P0, P2, P4, P6>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32, pwchnotationname: P6, cchnotationname: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
         P6: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).unparsedEntityDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid, pwchnotationname.param().abi(), cchnotationname).ok() }
+        unsafe { (windows_core::Interface::vtable(self).unparsedEntityDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid, pwchnotationname.param().abi(), cchnotationname) }
     }
 }
 #[repr(C)]
@@ -2175,14 +2175,14 @@ impl windows_core::RuntimeName for ISAXDTDHandler {}
 windows_core::imp::define_interface!(ISAXDeclHandler, ISAXDeclHandler_Vtbl, 0x862629ac_771a_47b2_8337_4e6843c1be90);
 windows_core::imp::interface_hierarchy!(ISAXDeclHandler, windows_core::IUnknown);
 impl ISAXDeclHandler {
-    pub unsafe fn elementDecl<P0, P2>(&self, pwchname: P0, cchname: i32, pwchmodel: P2, cchmodel: i32) -> windows_core::Result<()>
+    pub unsafe fn elementDecl<P0, P2>(&self, pwchname: P0, cchname: i32, pwchmodel: P2, cchmodel: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).elementDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchmodel.param().abi(), cchmodel).ok() }
+        unsafe { (windows_core::Interface::vtable(self).elementDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchmodel.param().abi(), cchmodel) }
     }
-    pub unsafe fn attributeDecl<P0, P2, P4, P6, P8>(&self, pwchelementname: P0, cchelementname: i32, pwchattributename: P2, cchattributename: i32, pwchtype: P4, cchtype: i32, pwchvaluedefault: P6, cchvaluedefault: i32, pwchvalue: P8, cchvalue: i32) -> windows_core::Result<()>
+    pub unsafe fn attributeDecl<P0, P2, P4, P6, P8>(&self, pwchelementname: P0, cchelementname: i32, pwchattributename: P2, cchattributename: i32, pwchtype: P4, cchtype: i32, pwchvaluedefault: P6, cchvaluedefault: i32, pwchvalue: P8, cchvalue: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -2190,22 +2190,22 @@ impl ISAXDeclHandler {
         P6: windows_core::Param<windows_core::PCWSTR>,
         P8: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).attributeDecl)(windows_core::Interface::as_raw(self), pwchelementname.param().abi(), cchelementname, pwchattributename.param().abi(), cchattributename, pwchtype.param().abi(), cchtype, pwchvaluedefault.param().abi(), cchvaluedefault, pwchvalue.param().abi(), cchvalue).ok() }
+        unsafe { (windows_core::Interface::vtable(self).attributeDecl)(windows_core::Interface::as_raw(self), pwchelementname.param().abi(), cchelementname, pwchattributename.param().abi(), cchattributename, pwchtype.param().abi(), cchtype, pwchvaluedefault.param().abi(), cchvaluedefault, pwchvalue.param().abi(), cchvalue) }
     }
-    pub unsafe fn internalEntityDecl<P0, P2>(&self, pwchname: P0, cchname: i32, pwchvalue: P2, cchvalue: i32) -> windows_core::Result<()>
+    pub unsafe fn internalEntityDecl<P0, P2>(&self, pwchname: P0, cchname: i32, pwchvalue: P2, cchvalue: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).internalEntityDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchvalue.param().abi(), cchvalue).ok() }
+        unsafe { (windows_core::Interface::vtable(self).internalEntityDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchvalue.param().abi(), cchvalue) }
     }
-    pub unsafe fn externalEntityDecl<P0, P2, P4>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32) -> windows_core::Result<()>
+    pub unsafe fn externalEntityDecl<P0, P2, P4>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).externalEntityDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).externalEntityDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid) }
     }
 }
 #[repr(C)]
@@ -2316,26 +2316,26 @@ impl windows_core::RuntimeName for ISAXEntityResolver {}
 windows_core::imp::define_interface!(ISAXErrorHandler, ISAXErrorHandler_Vtbl, 0xa60511c4_ccf5_479e_98a3_dc8dc545b7d0);
 windows_core::imp::interface_hierarchy!(ISAXErrorHandler, windows_core::IUnknown);
 impl ISAXErrorHandler {
-    pub unsafe fn error<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn error<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISAXLocator>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), plocator.param().abi(), pwcherrormessage.param().abi(), hrerrorcode).ok() }
+        unsafe { (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), plocator.param().abi(), pwcherrormessage.param().abi(), hrerrorcode) }
     }
-    pub unsafe fn fatalError<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn fatalError<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISAXLocator>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).fatalError)(windows_core::Interface::as_raw(self), plocator.param().abi(), pwcherrormessage.param().abi(), hrerrorcode).ok() }
+        unsafe { (windows_core::Interface::vtable(self).fatalError)(windows_core::Interface::as_raw(self), plocator.param().abi(), pwcherrormessage.param().abi(), hrerrorcode) }
     }
-    pub unsafe fn ignorableWarning<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn ignorableWarning<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISAXLocator>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ignorableWarning)(windows_core::Interface::as_raw(self), plocator.param().abi(), pwcherrormessage.param().abi(), hrerrorcode).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ignorableWarning)(windows_core::Interface::as_raw(self), plocator.param().abi(), pwcherrormessage.param().abi(), hrerrorcode) }
     }
 }
 #[repr(C)]
@@ -2386,40 +2386,40 @@ impl windows_core::RuntimeName for ISAXErrorHandler {}
 windows_core::imp::define_interface!(ISAXLexicalHandler, ISAXLexicalHandler_Vtbl, 0x7f85d5f5_47a8_4497_bda5_84ba04819ea6);
 windows_core::imp::interface_hierarchy!(ISAXLexicalHandler, windows_core::IUnknown);
 impl ISAXLexicalHandler {
-    pub unsafe fn startDTD<P0, P2, P4>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32) -> windows_core::Result<()>
+    pub unsafe fn startDTD<P0, P2, P4>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).startDTD)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).startDTD)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid) }
     }
-    pub unsafe fn endDTD(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endDTD)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn endDTD(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).endDTD)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn startEntity<P0>(&self, pwchname: P0, cchname: i32) -> windows_core::Result<()>
+    pub unsafe fn startEntity<P0>(&self, pwchname: P0, cchname: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).startEntity)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname).ok() }
+        unsafe { (windows_core::Interface::vtable(self).startEntity)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname) }
     }
-    pub unsafe fn endEntity<P0>(&self, pwchname: P0, cchname: i32) -> windows_core::Result<()>
+    pub unsafe fn endEntity<P0>(&self, pwchname: P0, cchname: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).endEntity)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname).ok() }
+        unsafe { (windows_core::Interface::vtable(self).endEntity)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname) }
     }
-    pub unsafe fn startCDATA(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).startCDATA)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn startCDATA(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).startCDATA)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn endCDATA(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endCDATA)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn endCDATA(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).endCDATA)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn comment<P0>(&self, pwchchars: P0, cchchars: i32) -> windows_core::Result<()>
+    pub unsafe fn comment<P0>(&self, pwchchars: P0, cchchars: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).comment)(windows_core::Interface::as_raw(self), pwchchars.param().abi(), cchchars).ok() }
+        unsafe { (windows_core::Interface::vtable(self).comment)(windows_core::Interface::as_raw(self), pwchchars.param().abi(), cchchars) }
     }
 }
 #[repr(C)]
@@ -2624,11 +2624,11 @@ impl ISAXXMLFilter {
             (windows_core::Interface::vtable(self).getParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putParent<P0>(&self, preader: P0) -> windows_core::Result<()>
+    pub unsafe fn putParent<P0>(&self, preader: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISAXXMLReader>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putParent)(windows_core::Interface::as_raw(self), preader.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putParent)(windows_core::Interface::as_raw(self), preader.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2684,11 +2684,11 @@ impl ISAXXMLReader {
             (windows_core::Interface::vtable(self).getFeature)(windows_core::Interface::as_raw(self), pwchname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn putFeature<P0>(&self, pwchname: P0, vfvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
+    pub unsafe fn putFeature<P0>(&self, pwchname: P0, vfvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), pwchname.param().abi(), vfvalue).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), pwchname.param().abi(), vfvalue) }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getProperty<P0>(&self, pwchname: P0) -> windows_core::Result<super::super::super::System::Variant::VARIANT>
@@ -2701,11 +2701,11 @@ impl ISAXXMLReader {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn putProperty<P0>(&self, pwchname: P0, varvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>
+    pub unsafe fn putProperty<P0>(&self, pwchname: P0, varvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putProperty)(windows_core::Interface::as_raw(self), pwchname.param().abi(), core::mem::transmute_copy(varvalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putProperty)(windows_core::Interface::as_raw(self), pwchname.param().abi(), core::mem::transmute_copy(varvalue)) }
     }
     pub unsafe fn getEntityResolver(&self) -> windows_core::Result<ISAXEntityResolver> {
         unsafe {
@@ -2713,11 +2713,11 @@ impl ISAXXMLReader {
             (windows_core::Interface::vtable(self).getEntityResolver)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putEntityResolver<P0>(&self, presolver: P0) -> windows_core::Result<()>
+    pub unsafe fn putEntityResolver<P0>(&self, presolver: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISAXEntityResolver>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putEntityResolver)(windows_core::Interface::as_raw(self), presolver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putEntityResolver)(windows_core::Interface::as_raw(self), presolver.param().abi()) }
     }
     pub unsafe fn getContentHandler(&self) -> windows_core::Result<ISAXContentHandler> {
         unsafe {
@@ -2725,11 +2725,11 @@ impl ISAXXMLReader {
             (windows_core::Interface::vtable(self).getContentHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putContentHandler<P0>(&self, phandler: P0) -> windows_core::Result<()>
+    pub unsafe fn putContentHandler<P0>(&self, phandler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISAXContentHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putContentHandler)(windows_core::Interface::as_raw(self), phandler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putContentHandler)(windows_core::Interface::as_raw(self), phandler.param().abi()) }
     }
     pub unsafe fn getDTDHandler(&self) -> windows_core::Result<ISAXDTDHandler> {
         unsafe {
@@ -2737,11 +2737,11 @@ impl ISAXXMLReader {
             (windows_core::Interface::vtable(self).getDTDHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putDTDHandler<P0>(&self, phandler: P0) -> windows_core::Result<()>
+    pub unsafe fn putDTDHandler<P0>(&self, phandler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISAXDTDHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putDTDHandler)(windows_core::Interface::as_raw(self), phandler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putDTDHandler)(windows_core::Interface::as_raw(self), phandler.param().abi()) }
     }
     pub unsafe fn getErrorHandler(&self) -> windows_core::Result<ISAXErrorHandler> {
         unsafe {
@@ -2749,11 +2749,11 @@ impl ISAXXMLReader {
             (windows_core::Interface::vtable(self).getErrorHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putErrorHandler<P0>(&self, phandler: P0) -> windows_core::Result<()>
+    pub unsafe fn putErrorHandler<P0>(&self, phandler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISAXErrorHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putErrorHandler)(windows_core::Interface::as_raw(self), phandler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putErrorHandler)(windows_core::Interface::as_raw(self), phandler.param().abi()) }
     }
     pub unsafe fn getBaseURL(&self) -> windows_core::Result<*mut u16> {
         unsafe {
@@ -2761,11 +2761,11 @@ impl ISAXXMLReader {
             (windows_core::Interface::vtable(self).getBaseURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn putBaseURL<P0>(&self, pwchbaseurl: P0) -> windows_core::Result<()>
+    pub unsafe fn putBaseURL<P0>(&self, pwchbaseurl: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putBaseURL)(windows_core::Interface::as_raw(self), pwchbaseurl.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putBaseURL)(windows_core::Interface::as_raw(self), pwchbaseurl.param().abi()) }
     }
     pub unsafe fn getSecureBaseURL(&self) -> windows_core::Result<*mut u16> {
         unsafe {
@@ -2773,21 +2773,21 @@ impl ISAXXMLReader {
             (windows_core::Interface::vtable(self).getSecureBaseURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn putSecureBaseURL<P0>(&self, pwchsecurebaseurl: P0) -> windows_core::Result<()>
+    pub unsafe fn putSecureBaseURL<P0>(&self, pwchsecurebaseurl: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putSecureBaseURL)(windows_core::Interface::as_raw(self), pwchsecurebaseurl.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putSecureBaseURL)(windows_core::Interface::as_raw(self), pwchsecurebaseurl.param().abi()) }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn parse(&self, varinput: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).parse)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varinput)).ok() }
+    pub unsafe fn parse(&self, varinput: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).parse)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varinput)) }
     }
-    pub unsafe fn parseURL<P0>(&self, pwchurl: P0) -> windows_core::Result<()>
+    pub unsafe fn parseURL<P0>(&self, pwchurl: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).parseURL)(windows_core::Interface::as_raw(self), pwchurl.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).parseURL)(windows_core::Interface::as_raw(self), pwchurl.param().abi()) }
     }
 }
 #[repr(C)]
@@ -5163,8 +5163,8 @@ impl core::ops::Deref for IServerXMLHTTPRequest {
 windows_core::imp::interface_hierarchy!(IServerXMLHTTPRequest, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLHTTPRequest);
 #[cfg(feature = "Win32_System_Com")]
 impl IServerXMLHTTPRequest {
-    pub unsafe fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setTimeouts)(windows_core::Interface::as_raw(self), resolvetimeout, connecttimeout, sendtimeout, receivetimeout).ok() }
+    pub unsafe fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setTimeouts)(windows_core::Interface::as_raw(self), resolvetimeout, connecttimeout, sendtimeout, receivetimeout) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn waitForResponse(&self, timeoutinseconds: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
@@ -5181,8 +5181,8 @@ impl IServerXMLHTTPRequest {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn setOption(&self, option: SERVERXMLHTTP_OPTION, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setOption)(windows_core::Interface::as_raw(self), option, core::mem::transmute_copy(value)).ok() }
+    pub unsafe fn setOption(&self, option: SERVERXMLHTTP_OPTION, value: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setOption)(windows_core::Interface::as_raw(self), option, core::mem::transmute_copy(value)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5278,11 +5278,11 @@ windows_core::imp::interface_hierarchy!(IServerXMLHTTPRequest2, windows_core::IU
 #[cfg(feature = "Win32_System_Com")]
 impl IServerXMLHTTPRequest2 {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn setProxy(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: &super::super::super::System::Variant::VARIANT, varbypasslist: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setProxy)(windows_core::Interface::as_raw(self), proxysetting, core::mem::transmute_copy(varproxyserver), core::mem::transmute_copy(varbypasslist)).ok() }
+    pub unsafe fn setProxy(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: &super::super::super::System::Variant::VARIANT, varbypasslist: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setProxy)(windows_core::Interface::as_raw(self), proxysetting, core::mem::transmute_copy(varproxyserver), core::mem::transmute_copy(varbypasslist)) }
     }
-    pub unsafe fn setProxyCredentials(&self, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setProxyCredentials)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrpassword)).ok() }
+    pub unsafe fn setProxyCredentials(&self, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setProxyCredentials)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrpassword)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5341,8 +5341,8 @@ impl core::ops::Deref for IVBMXNamespaceManager {
 windows_core::imp::interface_hierarchy!(IVBMXNamespaceManager, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBMXNamespaceManager {
-    pub unsafe fn SetallowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetallowOverride)(windows_core::Interface::as_raw(self), foverride).ok() }
+    pub unsafe fn SetallowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetallowOverride)(windows_core::Interface::as_raw(self), foverride) }
     }
     pub unsafe fn allowOverride(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -5350,23 +5350,23 @@ impl IVBMXNamespaceManager {
             (windows_core::Interface::vtable(self).allowOverride)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn pushContext(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).pushContext)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn pushContext(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).pushContext)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn pushNodeContext<P0>(&self, contextnode: P0, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
+    pub unsafe fn pushNodeContext<P0>(&self, contextnode: P0, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLDOMNode>,
     {
-        unsafe { (windows_core::Interface::vtable(self).pushNodeContext)(windows_core::Interface::as_raw(self), contextnode.param().abi(), fdeep).ok() }
+        unsafe { (windows_core::Interface::vtable(self).pushNodeContext)(windows_core::Interface::as_raw(self), contextnode.param().abi(), fdeep) }
     }
-    pub unsafe fn popContext(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).popContext)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn popContext(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).popContext)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn declarePrefix(&self, prefix: &windows_core::BSTR, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).declarePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(prefix), core::mem::transmute_copy(namespaceuri)).ok() }
+    pub unsafe fn declarePrefix(&self, prefix: &windows_core::BSTR, namespaceuri: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).declarePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(prefix), core::mem::transmute_copy(namespaceuri)) }
     }
     pub unsafe fn getDeclaredPrefixes(&self) -> windows_core::Result<IMXNamespacePrefixes> {
         unsafe {
@@ -5856,44 +5856,44 @@ impl core::ops::Deref for IVBSAXContentHandler {
 windows_core::imp::interface_hierarchy!(IVBSAXContentHandler, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXContentHandler {
-    pub unsafe fn putref_documentLocator<P0>(&self, olocator: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_documentLocator<P0>(&self, olocator: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXLocator>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_documentLocator)(windows_core::Interface::as_raw(self), olocator.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_documentLocator)(windows_core::Interface::as_raw(self), olocator.param().abi()) }
     }
-    pub unsafe fn startDocument(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).startDocument)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn startDocument(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).startDocument)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn endDocument(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endDocument)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn endDocument(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).endDocument)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn startPrefixMapping(&self, strprefix: *mut windows_core::BSTR, struri: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).startPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix), core::mem::transmute(struri)).ok() }
+    pub unsafe fn startPrefixMapping(&self, strprefix: *mut windows_core::BSTR, struri: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).startPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix), core::mem::transmute(struri)) }
     }
-    pub unsafe fn endPrefixMapping(&self, strprefix: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix)).ok() }
+    pub unsafe fn endPrefixMapping(&self, strprefix: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix)) }
     }
-    pub unsafe fn startElement<P3>(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: P3) -> windows_core::Result<()>
+    pub unsafe fn startElement<P3>(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<IVBSAXAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).startElement)(windows_core::Interface::as_raw(self), core::mem::transmute(strnamespaceuri), core::mem::transmute(strlocalname), core::mem::transmute(strqname), oattributes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).startElement)(windows_core::Interface::as_raw(self), core::mem::transmute(strnamespaceuri), core::mem::transmute(strlocalname), core::mem::transmute(strqname), oattributes.param().abi()) }
     }
-    pub unsafe fn endElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endElement)(windows_core::Interface::as_raw(self), core::mem::transmute(strnamespaceuri), core::mem::transmute(strlocalname), core::mem::transmute(strqname)).ok() }
+    pub unsafe fn endElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).endElement)(windows_core::Interface::as_raw(self), core::mem::transmute(strnamespaceuri), core::mem::transmute(strlocalname), core::mem::transmute(strqname)) }
     }
-    pub unsafe fn characters(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).characters)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)).ok() }
+    pub unsafe fn characters(&self, strchars: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).characters)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)) }
     }
-    pub unsafe fn ignorableWhitespace(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)).ok() }
+    pub unsafe fn ignorableWhitespace(&self, strchars: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)) }
     }
-    pub unsafe fn processingInstruction(&self, strtarget: *mut windows_core::BSTR, strdata: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).processingInstruction)(windows_core::Interface::as_raw(self), core::mem::transmute(strtarget), core::mem::transmute(strdata)).ok() }
+    pub unsafe fn processingInstruction(&self, strtarget: *mut windows_core::BSTR, strdata: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).processingInstruction)(windows_core::Interface::as_raw(self), core::mem::transmute(strtarget), core::mem::transmute(strdata)) }
     }
-    pub unsafe fn skippedEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).skippedEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)).ok() }
+    pub unsafe fn skippedEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).skippedEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6030,11 +6030,11 @@ impl core::ops::Deref for IVBSAXDTDHandler {
 windows_core::imp::interface_hierarchy!(IVBSAXDTDHandler, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXDTDHandler {
-    pub unsafe fn notationDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).notationDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid)).ok() }
+    pub unsafe fn notationDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).notationDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid)) }
     }
-    pub unsafe fn unparsedEntityDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR, strnotationname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).unparsedEntityDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid), core::mem::transmute(strnotationname)).ok() }
+    pub unsafe fn unparsedEntityDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR, strnotationname: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).unparsedEntityDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid), core::mem::transmute(strnotationname)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6090,17 +6090,17 @@ impl core::ops::Deref for IVBSAXDeclHandler {
 windows_core::imp::interface_hierarchy!(IVBSAXDeclHandler, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXDeclHandler {
-    pub unsafe fn elementDecl(&self, strname: *mut windows_core::BSTR, strmodel: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).elementDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strmodel)).ok() }
+    pub unsafe fn elementDecl(&self, strname: *mut windows_core::BSTR, strmodel: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).elementDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strmodel)) }
     }
-    pub unsafe fn attributeDecl(&self, strelementname: *mut windows_core::BSTR, strattributename: *mut windows_core::BSTR, strtype: *mut windows_core::BSTR, strvaluedefault: *mut windows_core::BSTR, strvalue: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).attributeDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strelementname), core::mem::transmute(strattributename), core::mem::transmute(strtype), core::mem::transmute(strvaluedefault), core::mem::transmute(strvalue)).ok() }
+    pub unsafe fn attributeDecl(&self, strelementname: *mut windows_core::BSTR, strattributename: *mut windows_core::BSTR, strtype: *mut windows_core::BSTR, strvaluedefault: *mut windows_core::BSTR, strvalue: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).attributeDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strelementname), core::mem::transmute(strattributename), core::mem::transmute(strtype), core::mem::transmute(strvaluedefault), core::mem::transmute(strvalue)) }
     }
-    pub unsafe fn internalEntityDecl(&self, strname: *mut windows_core::BSTR, strvalue: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).internalEntityDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strvalue)).ok() }
+    pub unsafe fn internalEntityDecl(&self, strname: *mut windows_core::BSTR, strvalue: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).internalEntityDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strvalue)) }
     }
-    pub unsafe fn externalEntityDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).externalEntityDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid)).ok() }
+    pub unsafe fn externalEntityDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).externalEntityDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6232,23 +6232,23 @@ impl core::ops::Deref for IVBSAXErrorHandler {
 windows_core::imp::interface_hierarchy!(IVBSAXErrorHandler, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXErrorHandler {
-    pub unsafe fn error<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>
+    pub unsafe fn error<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXLocator>,
     {
-        unsafe { (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode).ok() }
+        unsafe { (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode) }
     }
-    pub unsafe fn fatalError<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>
+    pub unsafe fn fatalError<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXLocator>,
     {
-        unsafe { (windows_core::Interface::vtable(self).fatalError)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode).ok() }
+        unsafe { (windows_core::Interface::vtable(self).fatalError)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode) }
     }
-    pub unsafe fn ignorableWarning<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>
+    pub unsafe fn ignorableWarning<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXLocator>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ignorableWarning)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ignorableWarning)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6313,26 +6313,26 @@ impl core::ops::Deref for IVBSAXLexicalHandler {
 windows_core::imp::interface_hierarchy!(IVBSAXLexicalHandler, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXLexicalHandler {
-    pub unsafe fn startDTD(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).startDTD)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid)).ok() }
+    pub unsafe fn startDTD(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).startDTD)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid)) }
     }
-    pub unsafe fn endDTD(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endDTD)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn endDTD(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).endDTD)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn startEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).startEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)).ok() }
+    pub unsafe fn startEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).startEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)) }
     }
-    pub unsafe fn endEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)).ok() }
+    pub unsafe fn endEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).endEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)) }
     }
-    pub unsafe fn startCDATA(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).startCDATA)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn startCDATA(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).startCDATA)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn endCDATA(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endCDATA)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn endCDATA(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).endCDATA)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn comment(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).comment)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)).ok() }
+    pub unsafe fn comment(&self, strchars: *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).comment)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6559,11 +6559,11 @@ impl IVBSAXXMLFilter {
             (windows_core::Interface::vtable(self).parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_parent<P0>(&self, oreader: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_parent<P0>(&self, oreader: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXXMLReader>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_parent)(windows_core::Interface::as_raw(self), oreader.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_parent)(windows_core::Interface::as_raw(self), oreader.param().abi()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6631,8 +6631,8 @@ impl IVBSAXXMLReader {
             (windows_core::Interface::vtable(self).getFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn putFeature(&self, strname: &windows_core::BSTR, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), fvalue).ok() }
+    pub unsafe fn putFeature(&self, strname: &windows_core::BSTR, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).putFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), fvalue) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getProperty(&self, strname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -6642,8 +6642,8 @@ impl IVBSAXXMLReader {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn putProperty(&self, strname: &windows_core::BSTR, varvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).putProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute_copy(varvalue)).ok() }
+    pub unsafe fn putProperty(&self, strname: &windows_core::BSTR, varvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).putProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute_copy(varvalue)) }
     }
     pub unsafe fn entityResolver(&self) -> windows_core::Result<IVBSAXEntityResolver> {
         unsafe {
@@ -6651,11 +6651,11 @@ impl IVBSAXXMLReader {
             (windows_core::Interface::vtable(self).entityResolver)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_entityResolver<P0>(&self, oresolver: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_entityResolver<P0>(&self, oresolver: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXEntityResolver>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_entityResolver)(windows_core::Interface::as_raw(self), oresolver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_entityResolver)(windows_core::Interface::as_raw(self), oresolver.param().abi()) }
     }
     pub unsafe fn contentHandler(&self) -> windows_core::Result<IVBSAXContentHandler> {
         unsafe {
@@ -6663,11 +6663,11 @@ impl IVBSAXXMLReader {
             (windows_core::Interface::vtable(self).contentHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_contentHandler<P0>(&self, ohandler: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_contentHandler<P0>(&self, ohandler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXContentHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_contentHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_contentHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()) }
     }
     pub unsafe fn dtdHandler(&self) -> windows_core::Result<IVBSAXDTDHandler> {
         unsafe {
@@ -6675,11 +6675,11 @@ impl IVBSAXXMLReader {
             (windows_core::Interface::vtable(self).dtdHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_dtdHandler<P0>(&self, ohandler: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_dtdHandler<P0>(&self, ohandler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXDTDHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_dtdHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_dtdHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()) }
     }
     pub unsafe fn errorHandler(&self) -> windows_core::Result<IVBSAXErrorHandler> {
         unsafe {
@@ -6687,11 +6687,11 @@ impl IVBSAXXMLReader {
             (windows_core::Interface::vtable(self).errorHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_errorHandler<P0>(&self, ohandler: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_errorHandler<P0>(&self, ohandler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXErrorHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_errorHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_errorHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()) }
     }
     pub unsafe fn baseURL(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6699,8 +6699,8 @@ impl IVBSAXXMLReader {
             (windows_core::Interface::vtable(self).baseURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetbaseURL(&self, strbaseurl: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetbaseURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strbaseurl)).ok() }
+    pub unsafe fn SetbaseURL(&self, strbaseurl: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetbaseURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strbaseurl)) }
     }
     pub unsafe fn secureBaseURL(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -6708,15 +6708,15 @@ impl IVBSAXXMLReader {
             (windows_core::Interface::vtable(self).secureBaseURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetsecureBaseURL(&self, strsecurebaseurl: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetsecureBaseURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strsecurebaseurl)).ok() }
+    pub unsafe fn SetsecureBaseURL(&self, strsecurebaseurl: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetsecureBaseURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strsecurebaseurl)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn parse(&self, varinput: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).parse)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varinput)).ok() }
+    pub unsafe fn parse(&self, varinput: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).parse)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varinput)) }
     }
-    pub unsafe fn parseURL(&self, strurl: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).parseURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strurl)).ok() }
+    pub unsafe fn parseURL(&self, strurl: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).parseURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strurl)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7065,8 +7065,8 @@ impl IXMLDOMAttribute {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Setvalue(&self, attributevalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setvalue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(attributevalue)).ok() }
+    pub unsafe fn Setvalue(&self, attributevalue: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setvalue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(attributevalue)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7185,8 +7185,8 @@ impl IXMLDOMCharacterData {
             (windows_core::Interface::vtable(self).data)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Setdata(&self, data: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setdata)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(data)).ok() }
+    pub unsafe fn Setdata(&self, data: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setdata)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(data)) }
     }
     pub unsafe fn length(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -7200,17 +7200,17 @@ impl IXMLDOMCharacterData {
             (windows_core::Interface::vtable(self).substringData)(windows_core::Interface::as_raw(self), offset, count, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn appendData(&self, data: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).appendData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(data)).ok() }
+    pub unsafe fn appendData(&self, data: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).appendData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(data)) }
     }
-    pub unsafe fn insertData(&self, offset: i32, data: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).insertData)(windows_core::Interface::as_raw(self), offset, core::mem::transmute_copy(data)).ok() }
+    pub unsafe fn insertData(&self, offset: i32, data: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).insertData)(windows_core::Interface::as_raw(self), offset, core::mem::transmute_copy(data)) }
     }
-    pub unsafe fn deleteData(&self, offset: i32, count: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).deleteData)(windows_core::Interface::as_raw(self), offset, count).ok() }
+    pub unsafe fn deleteData(&self, offset: i32, count: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).deleteData)(windows_core::Interface::as_raw(self), offset, count) }
     }
-    pub unsafe fn replaceData(&self, offset: i32, count: i32, data: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).replaceData)(windows_core::Interface::as_raw(self), offset, count, core::mem::transmute_copy(data)).ok() }
+    pub unsafe fn replaceData(&self, offset: i32, count: i32, data: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).replaceData)(windows_core::Interface::as_raw(self), offset, count, core::mem::transmute_copy(data)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7386,11 +7386,11 @@ impl IXMLDOMDocument {
             (windows_core::Interface::vtable(self).documentElement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_documentElement<P0>(&self, domelement: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_documentElement<P0>(&self, domelement: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLDOMElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_documentElement)(windows_core::Interface::as_raw(self), domelement.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_documentElement)(windows_core::Interface::as_raw(self), domelement.param().abi()) }
     }
     pub unsafe fn createElement(&self, tagname: &windows_core::BSTR) -> windows_core::Result<IXMLDOMElement> {
         unsafe {
@@ -7490,11 +7490,11 @@ impl IXMLDOMDocument {
             (windows_core::Interface::vtable(self).r#async)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Setasync(&self, isasync: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setasync)(windows_core::Interface::as_raw(self), isasync).ok() }
+    pub unsafe fn Setasync(&self, isasync: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setasync)(windows_core::Interface::as_raw(self), isasync) }
     }
-    pub unsafe fn abort(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).abort)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn abort(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).abort)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn loadXML(&self, bstrxml: &windows_core::BSTR) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -7503,8 +7503,8 @@ impl IXMLDOMDocument {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn save(&self, destination: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).save)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(destination)).ok() }
+    pub unsafe fn save(&self, destination: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).save)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(destination)) }
     }
     pub unsafe fn validateOnParse(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -7512,8 +7512,8 @@ impl IXMLDOMDocument {
             (windows_core::Interface::vtable(self).validateOnParse)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetvalidateOnParse(&self, isvalidating: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetvalidateOnParse)(windows_core::Interface::as_raw(self), isvalidating).ok() }
+    pub unsafe fn SetvalidateOnParse(&self, isvalidating: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetvalidateOnParse)(windows_core::Interface::as_raw(self), isvalidating) }
     }
     pub unsafe fn resolveExternals(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -7521,8 +7521,8 @@ impl IXMLDOMDocument {
             (windows_core::Interface::vtable(self).resolveExternals)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetresolveExternals(&self, isresolving: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetresolveExternals)(windows_core::Interface::as_raw(self), isresolving).ok() }
+    pub unsafe fn SetresolveExternals(&self, isresolving: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetresolveExternals)(windows_core::Interface::as_raw(self), isresolving) }
     }
     pub unsafe fn preserveWhiteSpace(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -7530,20 +7530,20 @@ impl IXMLDOMDocument {
             (windows_core::Interface::vtable(self).preserveWhiteSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetpreserveWhiteSpace(&self, ispreserving: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetpreserveWhiteSpace)(windows_core::Interface::as_raw(self), ispreserving).ok() }
+    pub unsafe fn SetpreserveWhiteSpace(&self, ispreserving: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetpreserveWhiteSpace)(windows_core::Interface::as_raw(self), ispreserving) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Setonreadystatechange(&self, readystatechangesink: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setonreadystatechange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(readystatechangesink)).ok() }
+    pub unsafe fn Setonreadystatechange(&self, readystatechangesink: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setonreadystatechange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(readystatechangesink)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Setondataavailable(&self, ondataavailablesink: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setondataavailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(ondataavailablesink)).ok() }
+    pub unsafe fn Setondataavailable(&self, ondataavailablesink: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setondataavailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(ondataavailablesink)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Setontransformnode(&self, ontransformnodesink: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setontransformnode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(ontransformnodesink)).ok() }
+    pub unsafe fn Setontransformnode(&self, ontransformnodesink: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setontransformnode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(ontransformnodesink)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8048,8 +8048,8 @@ impl IXMLDOMDocument2 {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn putref_schemas(&self, othercollection: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).putref_schemas)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(othercollection)).ok() }
+    pub unsafe fn putref_schemas(&self, othercollection: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).putref_schemas)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(othercollection)) }
     }
     pub unsafe fn validate(&self) -> windows_core::Result<IXMLDOMParseError> {
         unsafe {
@@ -8058,8 +8058,8 @@ impl IXMLDOMDocument2 {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn setProperty(&self, name: &windows_core::BSTR, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
+    pub unsafe fn setProperty(&self, name: &windows_core::BSTR, value: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getProperty(&self, name: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -8421,11 +8421,11 @@ impl IXMLDOMElement {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn setAttribute(&self, name: &windows_core::BSTR, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
+    pub unsafe fn setAttribute(&self, name: &windows_core::BSTR, value: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)) }
     }
-    pub unsafe fn removeAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
+    pub unsafe fn removeAttribute(&self, name: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)) }
     }
     pub unsafe fn getAttributeNode(&self, name: &windows_core::BSTR) -> windows_core::Result<IXMLDOMAttribute> {
         unsafe {
@@ -8457,8 +8457,8 @@ impl IXMLDOMElement {
             (windows_core::Interface::vtable(self).getElementsByTagName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(tagname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn normalize(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).normalize)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn normalize(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).normalize)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8861,8 +8861,8 @@ impl IXMLDOMNamedNodeMap {
             (windows_core::Interface::vtable(self).nextNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -9064,8 +9064,8 @@ impl IXMLDOMNode {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetnodeValue(&self, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetnodeValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
+    pub unsafe fn SetnodeValue(&self, value: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetnodeValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
     pub unsafe fn nodeType(&self) -> windows_core::Result<DOMNodeType> {
         unsafe {
@@ -9183,8 +9183,8 @@ impl IXMLDOMNode {
             (windows_core::Interface::vtable(self).text)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Settext(&self, text: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Settext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text)).ok() }
+    pub unsafe fn Settext(&self, text: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Settext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text)) }
     }
     pub unsafe fn specified(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -9206,8 +9206,8 @@ impl IXMLDOMNode {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetnodeTypedValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typedvalue)).ok() }
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetnodeTypedValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typedvalue)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn dataType(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -9216,8 +9216,8 @@ impl IXMLDOMNode {
             (windows_core::Interface::vtable(self).dataType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetdataType(&self, datatypename: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetdataType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(datatypename)).ok() }
+    pub unsafe fn SetdataType(&self, datatypename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetdataType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(datatypename)) }
     }
     pub unsafe fn xml(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -9271,11 +9271,11 @@ impl IXMLDOMNode {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).transformNodeToObject)(windows_core::Interface::as_raw(self), stylesheet.param().abi(), core::mem::transmute_copy(outputobject)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).transformNodeToObject)(windows_core::Interface::as_raw(self), stylesheet.param().abi(), core::mem::transmute_copy(outputobject)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9862,8 +9862,8 @@ impl IXMLDOMNodeList {
             (windows_core::Interface::vtable(self).nextNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -10379,8 +10379,8 @@ impl IXMLDOMParseErrorCollection {
             (windows_core::Interface::vtable(self).next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -10505,8 +10505,8 @@ impl IXMLDOMProcessingInstruction {
             (windows_core::Interface::vtable(self).data)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Setdata(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setdata)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
+    pub unsafe fn Setdata(&self, value: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setdata)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10584,8 +10584,8 @@ windows_core::imp::interface_hierarchy!(IXMLDOMSchemaCollection, windows_core::I
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMSchemaCollection {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn add(&self, namespaceuri: &windows_core::BSTR, var: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(namespaceuri), core::mem::transmute_copy(var)).ok() }
+    pub unsafe fn add(&self, namespaceuri: &windows_core::BSTR, var: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(namespaceuri), core::mem::transmute_copy(var)) }
     }
     pub unsafe fn get(&self, namespaceuri: &windows_core::BSTR) -> windows_core::Result<IXMLDOMNode> {
         unsafe {
@@ -10593,8 +10593,8 @@ impl IXMLDOMSchemaCollection {
             (windows_core::Interface::vtable(self).get)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(namespaceuri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn remove(&self, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(namespaceuri)).ok() }
+    pub unsafe fn remove(&self, namespaceuri: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(namespaceuri)) }
     }
     pub unsafe fn length(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -10608,11 +10608,11 @@ impl IXMLDOMSchemaCollection {
             (windows_core::Interface::vtable(self).get_namespaceURI)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn addCollection<P0>(&self, othercollection: P0) -> windows_core::Result<()>
+    pub unsafe fn addCollection<P0>(&self, othercollection: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).addCollection)(windows_core::Interface::as_raw(self), othercollection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).addCollection)(windows_core::Interface::as_raw(self), othercollection.param().abi()) }
     }
     pub unsafe fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -10746,11 +10746,11 @@ impl core::ops::Deref for IXMLDOMSchemaCollection2 {
 windows_core::imp::interface_hierarchy!(IXMLDOMSchemaCollection2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMSchemaCollection);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMSchemaCollection2 {
-    pub unsafe fn validate(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).validate)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn validate(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).validate)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetvalidateOnLoad(&self, validateonload: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetvalidateOnLoad)(windows_core::Interface::as_raw(self), validateonload).ok() }
+    pub unsafe fn SetvalidateOnLoad(&self, validateonload: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetvalidateOnLoad)(windows_core::Interface::as_raw(self), validateonload) }
     }
     pub unsafe fn validateOnLoad(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -10878,8 +10878,8 @@ impl IXMLDOMSelection {
             (windows_core::Interface::vtable(self).expr)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Setexpr(&self, expression: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setexpr)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(expression)).ok() }
+    pub unsafe fn Setexpr(&self, expression: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setexpr)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(expression)) }
     }
     pub unsafe fn context(&self) -> windows_core::Result<IXMLDOMNode> {
         unsafe {
@@ -10887,11 +10887,11 @@ impl IXMLDOMSelection {
             (windows_core::Interface::vtable(self).context)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_context<P0>(&self, pnode: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_context<P0>(&self, pnode: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLDOMNode>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_context)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_context)(windows_core::Interface::as_raw(self), pnode.param().abi()) }
     }
     pub unsafe fn peekNode(&self) -> windows_core::Result<IXMLDOMNode> {
         unsafe {
@@ -10914,8 +10914,8 @@ impl IXMLDOMSelection {
             (windows_core::Interface::vtable(self).removeNext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn removeAll(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).removeAll)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn removeAll(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).removeAll)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn clone(&self) -> windows_core::Result<Self> {
         unsafe {
@@ -10931,8 +10931,8 @@ impl IXMLDOMSelection {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn setProperty(&self, name: &windows_core::BSTR, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
+    pub unsafe fn setProperty(&self, name: &windows_core::BSTR, value: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11177,11 +11177,11 @@ impl IXMLDSOControl {
             (windows_core::Interface::vtable(self).XMLDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetXMLDocument<P0>(&self, ppdoc: P0) -> windows_core::Result<()>
+    pub unsafe fn SetXMLDocument<P0>(&self, ppdoc: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLDOMDocument>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetXMLDocument)(windows_core::Interface::as_raw(self), ppdoc.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetXMLDocument)(windows_core::Interface::as_raw(self), ppdoc.param().abi()) }
     }
     pub unsafe fn JavaDSOCompatible(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -11189,8 +11189,8 @@ impl IXMLDSOControl {
             (windows_core::Interface::vtable(self).JavaDSOCompatible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetJavaDSOCompatible(&self, fjavadsocompatible: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetJavaDSOCompatible)(windows_core::Interface::as_raw(self), fjavadsocompatible.into()).ok() }
+    pub unsafe fn SetJavaDSOCompatible(&self, fjavadsocompatible: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetJavaDSOCompatible)(windows_core::Interface::as_raw(self), fjavadsocompatible.into()) }
     }
     pub unsafe fn readyState(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -11327,8 +11327,8 @@ impl IXMLDocument {
             (windows_core::Interface::vtable(self).URL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetURL(&self, p: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)).ok() }
+    pub unsafe fn SetURL(&self, p: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)) }
     }
     pub unsafe fn mimeType(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -11348,8 +11348,8 @@ impl IXMLDocument {
             (windows_core::Interface::vtable(self).charset)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Setcharset(&self, p: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setcharset)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)).ok() }
+    pub unsafe fn Setcharset(&self, p: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setcharset)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)) }
     }
     pub unsafe fn version(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -11643,8 +11643,8 @@ impl IXMLDocument2 {
             (windows_core::Interface::vtable(self).URL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetURL(&self, p: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)).ok() }
+    pub unsafe fn SetURL(&self, p: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetURL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)) }
     }
     pub unsafe fn mimeType(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -11664,8 +11664,8 @@ impl IXMLDocument2 {
             (windows_core::Interface::vtable(self).charset)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Setcharset(&self, p: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setcharset)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)).ok() }
+    pub unsafe fn Setcharset(&self, p: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setcharset)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)) }
     }
     pub unsafe fn version(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -11698,8 +11698,8 @@ impl IXMLDocument2 {
             (windows_core::Interface::vtable(self).r#async)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Setasync(&self, f: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setasync)(windows_core::Interface::as_raw(self), f).ok() }
+    pub unsafe fn Setasync(&self, f: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setasync)(windows_core::Interface::as_raw(self), f) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11968,8 +11968,8 @@ impl IXMLElement {
             (windows_core::Interface::vtable(self).tagName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SettagName(&self, p: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SettagName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)).ok() }
+    pub unsafe fn SettagName(&self, p: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SettagName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)) }
     }
     pub unsafe fn parent(&self) -> windows_core::Result<Self> {
         unsafe {
@@ -11978,8 +11978,8 @@ impl IXMLElement {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn setAttribute(&self, strpropertyname: &windows_core::BSTR, propertyvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), core::mem::transmute_copy(propertyvalue)).ok() }
+    pub unsafe fn setAttribute(&self, strpropertyname: &windows_core::BSTR, propertyvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), core::mem::transmute_copy(propertyvalue)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getAttribute(&self, strpropertyname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -11988,8 +11988,8 @@ impl IXMLElement {
             (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn removeAttribute(&self, strpropertyname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname)).ok() }
+    pub unsafe fn removeAttribute(&self, strpropertyname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname)) }
     }
     pub unsafe fn children(&self) -> windows_core::Result<IXMLElementCollection> {
         unsafe {
@@ -12009,20 +12009,20 @@ impl IXMLElement {
             (windows_core::Interface::vtable(self).text)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Settext(&self, p: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Settext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)).ok() }
+    pub unsafe fn Settext(&self, p: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Settext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)) }
     }
-    pub unsafe fn addChild<P0>(&self, pchildelem: P0, lindex: i32, lreserved: i32) -> windows_core::Result<()>
+    pub unsafe fn addChild<P0>(&self, pchildelem: P0, lindex: i32, lreserved: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).addChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi(), lindex, lreserved).ok() }
+        unsafe { (windows_core::Interface::vtable(self).addChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi(), lindex, lreserved) }
     }
-    pub unsafe fn removeChild<P0>(&self, pchildelem: P0) -> windows_core::Result<()>
+    pub unsafe fn removeChild<P0>(&self, pchildelem: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).removeChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).removeChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12216,8 +12216,8 @@ impl IXMLElement2 {
             (windows_core::Interface::vtable(self).tagName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SettagName(&self, p: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SettagName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)).ok() }
+    pub unsafe fn SettagName(&self, p: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SettagName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)) }
     }
     pub unsafe fn parent(&self) -> windows_core::Result<Self> {
         unsafe {
@@ -12226,8 +12226,8 @@ impl IXMLElement2 {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn setAttribute(&self, strpropertyname: &windows_core::BSTR, propertyvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), core::mem::transmute_copy(propertyvalue)).ok() }
+    pub unsafe fn setAttribute(&self, strpropertyname: &windows_core::BSTR, propertyvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), core::mem::transmute_copy(propertyvalue)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getAttribute(&self, strpropertyname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -12236,8 +12236,8 @@ impl IXMLElement2 {
             (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn removeAttribute(&self, strpropertyname: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname)).ok() }
+    pub unsafe fn removeAttribute(&self, strpropertyname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname)) }
     }
     pub unsafe fn children(&self) -> windows_core::Result<IXMLElementCollection> {
         unsafe {
@@ -12257,20 +12257,20 @@ impl IXMLElement2 {
             (windows_core::Interface::vtable(self).text)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Settext(&self, p: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Settext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)).ok() }
+    pub unsafe fn Settext(&self, p: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Settext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)) }
     }
-    pub unsafe fn addChild<P0>(&self, pchildelem: P0, lindex: i32, lreserved: i32) -> windows_core::Result<()>
+    pub unsafe fn addChild<P0>(&self, pchildelem: P0, lindex: i32, lreserved: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).addChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi(), lindex, lreserved).ok() }
+        unsafe { (windows_core::Interface::vtable(self).addChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi(), lindex, lreserved) }
     }
-    pub unsafe fn removeChild<P0>(&self, pchildelem: P0) -> windows_core::Result<()>
+    pub unsafe fn removeChild<P0>(&self, pchildelem: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).removeChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).removeChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi()) }
     }
     pub unsafe fn attributes(&self) -> windows_core::Result<IXMLElementCollection> {
         unsafe {
@@ -12479,8 +12479,8 @@ impl core::ops::Deref for IXMLElementCollection {
 windows_core::imp::interface_hierarchy!(IXMLElementCollection, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLElementCollection {
-    pub unsafe fn Setlength(&self, v: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setlength)(windows_core::Interface::as_raw(self), v).ok() }
+    pub unsafe fn Setlength(&self, v: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setlength)(windows_core::Interface::as_raw(self), v) }
     }
     pub unsafe fn length(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -12584,8 +12584,8 @@ impl windows_core::RuntimeName for IXMLElementCollection {}
 windows_core::imp::define_interface!(IXMLError, IXMLError_Vtbl, 0x948c5ad3_c58d_11d0_9c0b_00c04fc99c8e);
 windows_core::imp::interface_hierarchy!(IXMLError, windows_core::IUnknown);
 impl IXMLError {
-    pub unsafe fn GetErrorInfo(&self, perrorreturn: *mut XML_ERROR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(perrorreturn)).ok() }
+    pub unsafe fn GetErrorInfo(&self, perrorreturn: *mut XML_ERROR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(perrorreturn)) }
     }
 }
 #[repr(C)]
@@ -12626,11 +12626,11 @@ windows_core::imp::interface_hierarchy!(IXMLHTTPRequest, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn open(&self, bstrmethod: &windows_core::BSTR, bstrurl: &windows_core::BSTR, varasync: &super::super::super::System::Variant::VARIANT, bstruser: &super::super::super::System::Variant::VARIANT, bstrpassword: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrmethod), core::mem::transmute_copy(bstrurl), core::mem::transmute_copy(varasync), core::mem::transmute_copy(bstruser), core::mem::transmute_copy(bstrpassword)).ok() }
+    pub unsafe fn open(&self, bstrmethod: &windows_core::BSTR, bstrurl: &windows_core::BSTR, varasync: &super::super::super::System::Variant::VARIANT, bstruser: &super::super::super::System::Variant::VARIANT, bstrpassword: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrmethod), core::mem::transmute_copy(bstrurl), core::mem::transmute_copy(varasync), core::mem::transmute_copy(bstruser), core::mem::transmute_copy(bstrpassword)) }
     }
-    pub unsafe fn setRequestHeader(&self, bstrheader: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setRequestHeader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrheader), core::mem::transmute_copy(bstrvalue)).ok() }
+    pub unsafe fn setRequestHeader(&self, bstrheader: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setRequestHeader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrheader), core::mem::transmute_copy(bstrvalue)) }
     }
     pub unsafe fn getResponseHeader(&self, bstrheader: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -12645,11 +12645,11 @@ impl IXMLHTTPRequest {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn send(&self, varbody: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).send)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varbody)).ok() }
+    pub unsafe fn send(&self, varbody: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).send)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varbody)) }
     }
-    pub unsafe fn abort(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).abort)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn abort(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).abort)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn status(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -12695,11 +12695,11 @@ impl IXMLHTTPRequest {
             (windows_core::Interface::vtable(self).readyState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Setonreadystatechange<P0>(&self, preadystatesink: P0) -> windows_core::Result<()>
+    pub unsafe fn Setonreadystatechange<P0>(&self, preadystatesink: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Setonreadystatechange)(windows_core::Interface::as_raw(self), preadystatesink.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Setonreadystatechange)(windows_core::Interface::as_raw(self), preadystatesink.param().abi()) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12919,7 +12919,7 @@ impl windows_core::RuntimeName for IXMLHTTPRequest {}
 windows_core::imp::define_interface!(IXMLHTTPRequest2, IXMLHTTPRequest2_Vtbl, 0xe5d37dc0_552a_4d52_9cc0_a14d546fbd04);
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest2, windows_core::IUnknown);
 impl IXMLHTTPRequest2 {
-    pub unsafe fn Open<P0, P1, P2, P3, P4, P5, P6>(&self, pwszmethod: P0, pwszurl: P1, pstatuscallback: P2, pwszusername: P3, pwszpassword: P4, pwszproxyusername: P5, pwszproxypassword: P6) -> windows_core::Result<()>
+    pub unsafe fn Open<P0, P1, P2, P3, P4, P5, P6>(&self, pwszmethod: P0, pwszurl: P1, pstatuscallback: P2, pwszusername: P3, pwszpassword: P4, pwszproxyusername: P5, pwszproxypassword: P6) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -12929,17 +12929,17 @@ impl IXMLHTTPRequest2 {
         P5: windows_core::Param<windows_core::PCWSTR>,
         P6: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), pwszmethod.param().abi(), pwszurl.param().abi(), pstatuscallback.param().abi(), pwszusername.param().abi(), pwszpassword.param().abi(), pwszproxyusername.param().abi(), pwszproxypassword.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), pwszmethod.param().abi(), pwszurl.param().abi(), pstatuscallback.param().abi(), pwszusername.param().abi(), pwszpassword.param().abi(), pwszproxyusername.param().abi(), pwszproxypassword.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Send<P0>(&self, pbody: P0, cbbody: u64) -> windows_core::Result<()>
+    pub unsafe fn Send<P0>(&self, pbody: P0, cbbody: u64) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::ISequentialStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), pbody.param().abi(), cbbody).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), pbody.param().abi(), cbbody) }
     }
-    pub unsafe fn Abort(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn Abort(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> windows_core::Result<u32> {
         unsafe {
@@ -12948,21 +12948,21 @@ impl IXMLHTTPRequest2 {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCustomResponseStream<P0>(&self, psequentialstream: P0) -> windows_core::Result<()>
+    pub unsafe fn SetCustomResponseStream<P0>(&self, psequentialstream: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::ISequentialStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCustomResponseStream)(windows_core::Interface::as_raw(self), psequentialstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetCustomResponseStream)(windows_core::Interface::as_raw(self), psequentialstream.param().abi()) }
     }
-    pub unsafe fn SetProperty(&self, eproperty: XHR_PROPERTY, ullvalue: u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), eproperty, ullvalue).ok() }
+    pub unsafe fn SetProperty(&self, eproperty: XHR_PROPERTY, ullvalue: u64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), eproperty, ullvalue) }
     }
-    pub unsafe fn SetRequestHeader<P0, P1>(&self, pwszheader: P0, pwszvalue: P1) -> windows_core::Result<()>
+    pub unsafe fn SetRequestHeader<P0, P1>(&self, pwszheader: P0, pwszvalue: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRequestHeader)(windows_core::Interface::as_raw(self), pwszheader.param().abi(), pwszvalue.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetRequestHeader)(windows_core::Interface::as_raw(self), pwszheader.param().abi(), pwszvalue.param().abi()) }
     }
     pub unsafe fn GetAllResponseHeaders(&self) -> windows_core::Result<*mut u16> {
         unsafe {
@@ -12970,12 +12970,12 @@ impl IXMLHTTPRequest2 {
             (windows_core::Interface::vtable(self).GetAllResponseHeaders)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetCookie<P0, P1>(&self, pwszurl: P0, pwszname: P1, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> windows_core::Result<()>
+    pub unsafe fn GetCookie<P0, P1>(&self, pwszurl: P0, pwszname: P1, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetCookie)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), pwszname.param().abi(), dwflags, pccookies as _, ppcookies as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCookie)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), pwszname.param().abi(), dwflags, pccookies as _, ppcookies as _) }
     }
     pub unsafe fn GetResponseHeader<P0>(&self, pwszheader: P0) -> windows_core::Result<*mut u16>
     where
@@ -13125,41 +13125,41 @@ impl windows_core::RuntimeName for IXMLHTTPRequest2 {}
 windows_core::imp::define_interface!(IXMLHTTPRequest2Callback, IXMLHTTPRequest2Callback_Vtbl, 0xa44a9299_e321_40de_8866_341b41669162);
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest2Callback, windows_core::IUnknown);
 impl IXMLHTTPRequest2Callback {
-    pub unsafe fn OnRedirect<P0, P1>(&self, pxhr: P0, pwszredirecturl: P1) -> windows_core::Result<()>
+    pub unsafe fn OnRedirect<P0, P1>(&self, pxhr: P0, pwszredirecturl: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLHTTPRequest2>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnRedirect)(windows_core::Interface::as_raw(self), pxhr.param().abi(), pwszredirecturl.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnRedirect)(windows_core::Interface::as_raw(self), pxhr.param().abi(), pwszredirecturl.param().abi()) }
     }
-    pub unsafe fn OnHeadersAvailable<P0, P2>(&self, pxhr: P0, dwstatus: u32, pwszstatus: P2) -> windows_core::Result<()>
+    pub unsafe fn OnHeadersAvailable<P0, P2>(&self, pxhr: P0, dwstatus: u32, pwszstatus: P2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLHTTPRequest2>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnHeadersAvailable)(windows_core::Interface::as_raw(self), pxhr.param().abi(), dwstatus, pwszstatus.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnHeadersAvailable)(windows_core::Interface::as_raw(self), pxhr.param().abi(), dwstatus, pwszstatus.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnDataAvailable<P0, P1>(&self, pxhr: P0, presponsestream: P1) -> windows_core::Result<()>
+    pub unsafe fn OnDataAvailable<P0, P1>(&self, pxhr: P0, presponsestream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLHTTPRequest2>,
         P1: windows_core::Param<super::super::super::System::Com::ISequentialStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDataAvailable)(windows_core::Interface::as_raw(self), pxhr.param().abi(), presponsestream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDataAvailable)(windows_core::Interface::as_raw(self), pxhr.param().abi(), presponsestream.param().abi()) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnResponseReceived<P0, P1>(&self, pxhr: P0, presponsestream: P1) -> windows_core::Result<()>
+    pub unsafe fn OnResponseReceived<P0, P1>(&self, pxhr: P0, presponsestream: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLHTTPRequest2>,
         P1: windows_core::Param<super::super::super::System::Com::ISequentialStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnResponseReceived)(windows_core::Interface::as_raw(self), pxhr.param().abi(), presponsestream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnResponseReceived)(windows_core::Interface::as_raw(self), pxhr.param().abi(), presponsestream.param().abi()) }
     }
-    pub unsafe fn OnError<P0>(&self, pxhr: P0, hrerror: windows_core::HRESULT) -> windows_core::Result<()>
+    pub unsafe fn OnError<P0>(&self, pxhr: P0, hrerror: windows_core::HRESULT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLHTTPRequest2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), pxhr.param().abi(), hrerror).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), pxhr.param().abi(), hrerror) }
     }
 }
 #[repr(C)]
@@ -13243,11 +13243,11 @@ impl core::ops::Deref for IXMLHTTPRequest3 {
 }
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3, windows_core::IUnknown, IXMLHTTPRequest2);
 impl IXMLHTTPRequest3 {
-    pub unsafe fn SetClientCertificate<P2>(&self, pbclientcertificatehash: &[u8], pwszpin: P2) -> windows_core::Result<()>
+    pub unsafe fn SetClientCertificate<P2>(&self, pbclientcertificatehash: &[u8], pwszpin: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClientCertificate)(windows_core::Interface::as_raw(self), pbclientcertificatehash.len().try_into().unwrap(), core::mem::transmute(pbclientcertificatehash.as_ptr()), pwszpin.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClientCertificate)(windows_core::Interface::as_raw(self), pbclientcertificatehash.len().try_into().unwrap(), core::mem::transmute(pbclientcertificatehash.as_ptr()), pwszpin.param().abi()) }
     }
 }
 #[repr(C)]
@@ -13286,17 +13286,17 @@ impl core::ops::Deref for IXMLHTTPRequest3Callback {
 }
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3Callback, windows_core::IUnknown, IXMLHTTPRequest2Callback);
 impl IXMLHTTPRequest3Callback {
-    pub unsafe fn OnServerCertificateReceived<P0>(&self, pxhr: P0, dwcertificateerrors: u32, rgservercertificatechain: &[XHR_CERT]) -> windows_core::Result<()>
+    pub unsafe fn OnServerCertificateReceived<P0>(&self, pxhr: P0, dwcertificateerrors: u32, rgservercertificatechain: &[XHR_CERT]) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLHTTPRequest3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnServerCertificateReceived)(windows_core::Interface::as_raw(self), pxhr.param().abi(), dwcertificateerrors, rgservercertificatechain.len().try_into().unwrap(), core::mem::transmute(rgservercertificatechain.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnServerCertificateReceived)(windows_core::Interface::as_raw(self), pxhr.param().abi(), dwcertificateerrors, rgservercertificatechain.len().try_into().unwrap(), core::mem::transmute(rgservercertificatechain.as_ptr())) }
     }
-    pub unsafe fn OnClientCertificateRequested<P0>(&self, pxhr: P0, rgpwszissuerlist: &[*const u16]) -> windows_core::Result<()>
+    pub unsafe fn OnClientCertificateRequested<P0>(&self, pxhr: P0, rgpwszissuerlist: &[*const u16]) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLHTTPRequest3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnClientCertificateRequested)(windows_core::Interface::as_raw(self), pxhr.param().abi(), rgpwszissuerlist.len().try_into().unwrap(), core::mem::transmute(rgpwszissuerlist.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnClientCertificateRequested)(windows_core::Interface::as_raw(self), pxhr.param().abi(), rgpwszissuerlist.len().try_into().unwrap(), core::mem::transmute(rgpwszissuerlist.as_ptr())) }
     }
 }
 #[repr(C)]
@@ -13352,8 +13352,8 @@ windows_core::imp::interface_hierarchy!(IXSLProcessor, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IXSLProcessor {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Setinput(&self, var: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setinput)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(var)).ok() }
+    pub unsafe fn Setinput(&self, var: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setinput)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(var)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn input(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -13368,8 +13368,8 @@ impl IXSLProcessor {
             (windows_core::Interface::vtable(self).ownerTemplate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn setStartMode(&self, mode: &windows_core::BSTR, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).setStartMode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mode), core::mem::transmute_copy(namespaceuri)).ok() }
+    pub unsafe fn setStartMode(&self, mode: &windows_core::BSTR, namespaceuri: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).setStartMode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mode), core::mem::transmute_copy(namespaceuri)) }
     }
     pub unsafe fn startMode(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -13384,8 +13384,8 @@ impl IXSLProcessor {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Setoutput(&self, output: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Setoutput)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(output)).ok() }
+    pub unsafe fn Setoutput(&self, output: &super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Setoutput)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(output)) }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn output(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
@@ -13400,8 +13400,8 @@ impl IXSLProcessor {
             (windows_core::Interface::vtable(self).transform)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn reset(&self) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)).ok() }
+    pub unsafe fn reset(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).reset)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn readyState(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -13410,14 +13410,14 @@ impl IXSLProcessor {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn addParameter(&self, basename: &windows_core::BSTR, parameter: &super::super::super::System::Variant::VARIANT, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).addParameter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(basename), core::mem::transmute_copy(parameter), core::mem::transmute_copy(namespaceuri)).ok() }
+    pub unsafe fn addParameter(&self, basename: &windows_core::BSTR, parameter: &super::super::super::System::Variant::VARIANT, namespaceuri: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).addParameter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(basename), core::mem::transmute_copy(parameter), core::mem::transmute_copy(namespaceuri)) }
     }
-    pub unsafe fn addObject<P0>(&self, obj: P0, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()>
+    pub unsafe fn addObject<P0>(&self, obj: P0, namespaceuri: &windows_core::BSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).addObject)(windows_core::Interface::as_raw(self), obj.param().abi(), core::mem::transmute_copy(namespaceuri)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).addObject)(windows_core::Interface::as_raw(self), obj.param().abi(), core::mem::transmute_copy(namespaceuri)) }
     }
     pub unsafe fn stylesheet(&self) -> windows_core::Result<IXMLDOMNode> {
         unsafe {
@@ -13650,11 +13650,11 @@ impl core::ops::Deref for IXSLTemplate {
 windows_core::imp::interface_hierarchy!(IXSLTemplate, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IXSLTemplate {
-    pub unsafe fn putref_stylesheet<P0>(&self, stylesheet: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_stylesheet<P0>(&self, stylesheet: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXMLDOMNode>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_stylesheet)(windows_core::Interface::as_raw(self), stylesheet.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_stylesheet)(windows_core::Interface::as_raw(self), stylesheet.param().abi()) }
     }
     pub unsafe fn stylesheet(&self) -> windows_core::Result<IXMLDOMNode> {
         unsafe {
