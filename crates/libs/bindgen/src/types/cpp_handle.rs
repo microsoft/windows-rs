@@ -7,14 +7,33 @@ impl Config<'_> {
         let ty_name = ty.write_name(self);
 
         if self.bindgen.style.emit_bare_typedef() {
+            // An arch-split enum collapses to a single name-keyed entry whose underlying
+            // alias (`-> i32`) is the same on every arch — only its constants, which are
+            // separate items, are arch-specific. Emitting that lone entry's cfg would hide
+            // the type on the arches where its constants live, so drop it for enums. A plain
+            // typedef keeps the def's cfg: an arch-divergent alias (`HALF_PTR = i16` on x86,
+            // `= i32` on x64) has a distinct per-arch definition that must stay gated, and a
+            // pointer alias (`P* = *mut Struct`) may reference an arch-gated pointee.
+            let is_enum = def.category() == windows_metadata::reader::TypeCategory::Enum;
+            let arches = if is_enum {
+                quote! {}
+            } else {
+                write_arches(def)
+            };
             quote! {
+                #arches
                 pub type #name = #ty_name;
             }
         } else {
+            // Called once per metadata row, so an arch-divergent handle (e.g.
+            // `HALF_PTR` or `PCONTEXT`) reaches here twice. Every emitted item must
+            // carry the def's arch cfg or the variants collide.
+            let arches = write_arches(def);
             let mut derive = quote! { Clone, Copy, Debug, PartialEq, Eq, };
 
             let default = if ty.is_pointer() {
                 quote! {
+                    #arches
                     impl Default for #name {
                         fn default() -> Self {
                             unsafe { core::mem::zeroed() }
@@ -30,6 +49,7 @@ impl Config<'_> {
 
             let is_invalid = if ty.is_pointer() && (invalid.is_empty() || invalid == [0]) {
                 quote! {
+                    #arches
                     impl #name {
                         pub fn is_invalid(&self) -> bool {
                             self.0.is_null()
@@ -49,6 +69,7 @@ impl Config<'_> {
                     }
                 });
                 quote! {
+                    #arches
                     impl #name {
                         pub fn is_invalid(&self) -> bool {
                             #(#invalid)||*
@@ -66,6 +87,7 @@ impl Config<'_> {
                     let free = to_ident(function.method.name());
 
                     quote! {
+                        #arches
                         impl windows_core::Free for #name {
                             #[inline]
                             unsafe fn free(&mut self) {
@@ -82,6 +104,7 @@ impl Config<'_> {
             };
 
             let mut result = quote! {
+                #arches
                 #[repr(transparent)]
                 #[derive(#derive)]
                 pub struct #name(pub #ty_name);
@@ -97,7 +120,9 @@ impl Config<'_> {
                     let ty = ty.write_name(self);
 
                     result.combine(quote! {
+                        #arches
                         impl windows_core::imp::CanInto<#ty> for #name {}
+                        #arches
                         impl From<#name> for #ty {
                             fn from(value: #name) -> Self {
                                 Self(value.0)

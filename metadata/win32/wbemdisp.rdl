@@ -1,0 +1,696 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x5e97458a_cf77_11d3_b38f_00105a1f473a)]
+        interface ISWbemDateTime: IDispatch {
+            #[special]
+            fn get_Value(&self, #[retval] strValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Value(&self, strValue: BSTR) -> HRESULT;
+            #[special]
+            fn get_Year(&self, #[retval] iYear: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Year(&self, iYear: i32) -> HRESULT;
+            #[special]
+            fn get_YearSpecified(&self, #[retval] bYearSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_YearSpecified(&self, bYearSpecified: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Month(&self, #[retval] iMonth: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Month(&self, iMonth: i32) -> HRESULT;
+            #[special]
+            fn get_MonthSpecified(&self, #[retval] bMonthSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_MonthSpecified(&self, bMonthSpecified: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Day(&self, #[retval] iDay: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Day(&self, iDay: i32) -> HRESULT;
+            #[special]
+            fn get_DaySpecified(&self, #[retval] bDaySpecified: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_DaySpecified(&self, bDaySpecified: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Hours(&self, #[retval] iHours: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Hours(&self, iHours: i32) -> HRESULT;
+            #[special]
+            fn get_HoursSpecified(&self, #[retval] bHoursSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_HoursSpecified(&self, bHoursSpecified: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Minutes(&self, #[retval] iMinutes: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Minutes(&self, iMinutes: i32) -> HRESULT;
+            #[special]
+            fn get_MinutesSpecified(&self, #[retval] bMinutesSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_MinutesSpecified(&self, bMinutesSpecified: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Seconds(&self, #[retval] iSeconds: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Seconds(&self, iSeconds: i32) -> HRESULT;
+            #[special]
+            fn get_SecondsSpecified(&self, #[retval] bSecondsSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_SecondsSpecified(&self, bSecondsSpecified: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Microseconds(&self, #[retval] iMicroseconds: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Microseconds(&self, iMicroseconds: i32) -> HRESULT;
+            #[special]
+            fn get_MicrosecondsSpecified(&self, #[retval] bMicrosecondsSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_MicrosecondsSpecified(&self, bMicrosecondsSpecified: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UTC(&self, #[retval] iUTC: *mut i32) -> HRESULT;
+            #[special]
+            fn put_UTC(&self, iUTC: i32) -> HRESULT;
+            #[special]
+            fn get_UTCSpecified(&self, #[retval] bUTCSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_UTCSpecified(&self, bUTCSpecified: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsInterval(&self, #[retval] bIsInterval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_IsInterval(&self, bIsInterval: VARIANT_BOOL) -> HRESULT;
+            fn GetVarDate(&self, bIsLocal: VARIANT_BOOL, #[retval] dVarDate: *mut f64) -> HRESULT;
+            fn SetVarDate(&self, dVarDate: f64, bIsLocal: VARIANT_BOOL) -> HRESULT;
+            fn GetFileTime(&self, bIsLocal: VARIANT_BOOL, #[retval] strFileTime: *mut BSTR) -> HRESULT;
+            fn SetFileTime(&self, strFileTime: BSTR, bIsLocal: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x27d54d92_0ebe_11d2_8b22_00600806d9b6)]
+        interface ISWbemEventSource: IDispatch {
+            fn NextEvent(&self, iTimeoutMs: i32, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            #[special]
+            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+        }
+        #[guid(0xd962db84_d4bb_11d1_8b09_00600806d9b6)]
+        interface ISWbemLastError: ISWbemObject {}
+        #[guid(0x76a6415b_cb41_11d1_8b02_00600806d9b6)]
+        interface ISWbemLocator: IDispatch {
+            fn ConnectServer(&self, strServer: BSTR, strNamespace: BSTR, strUser: BSTR, strPassword: BSTR, strLocale: BSTR, strAuthority: BSTR, iSecurityFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemServices: *mut ISWbemServices) -> HRESULT;
+            #[special]
+            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+        }
+        #[guid(0x422e8e90_d955_11d1_8b09_00600806d9b6)]
+        interface ISWbemMethod: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Origin(&self, #[retval] strOrigin: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_InParameters(&self, #[retval] objWbemInParameters: *mut ISWbemObject) -> HRESULT;
+            #[special]
+            fn get_OutParameters(&self, #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
+            #[special]
+            fn get_Qualifiers_(&self, #[retval] objWbemQualifierSet: *mut ISWbemQualifierSet) -> HRESULT;
+        }
+        #[guid(0xc93ba292_d955_11d1_8b09_00600806d9b6)]
+        interface ISWbemMethodSet: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, strName: BSTR, iFlags: i32, #[retval] objWbemMethod: *mut ISWbemMethod) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
+        }
+        #[guid(0x76a64164_cb41_11d1_8b02_00600806d9b6)]
+        interface ISWbemNamedValue: IDispatch {
+            #[special]
+            fn get_Value(&self, #[retval] varValue: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Value(&self, varValue: *const VARIANT) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xcf2376ea_ce8c_11d1_8b05_00600806d9b6)]
+        interface ISWbemNamedValueSet: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, strName: BSTR, iFlags: i32, #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
+            fn Add(&self, strName: BSTR, varValue: *const VARIANT, iFlags: i32, #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
+            fn Remove(&self, strName: BSTR, iFlags: i32) -> HRESULT;
+            fn Clone(&self, #[retval] objWbemNamedValueSet: *mut ISWbemNamedValueSet) -> HRESULT;
+            fn DeleteAll(&self) -> HRESULT;
+        }
+        #[guid(0x76a6415a_cb41_11d1_8b02_00600806d9b6)]
+        interface ISWbemObject: IDispatch {
+            fn Put_(&self, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
+            fn PutAsync_(&self, objWbemSink: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Delete_(&self, iFlags: i32, objWbemNamedValueSet: IDispatch) -> HRESULT;
+            fn DeleteAsync_(&self, objWbemSink: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Instances_(&self, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn InstancesAsync_(&self, objWbemSink: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Subclasses_(&self, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn SubclassesAsync_(&self, objWbemSink: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Associators_(&self, strAssocClass: BSTR, strResultClass: BSTR, strResultRole: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredAssocQualifier: BSTR, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn AssociatorsAsync_(&self, objWbemSink: IDispatch, strAssocClass: BSTR, strResultClass: BSTR, strResultRole: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredAssocQualifier: BSTR, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn References_(&self, strResultClass: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn ReferencesAsync_(&self, objWbemSink: IDispatch, strResultClass: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecMethod_(&self, strMethodName: BSTR, objWbemInParameters: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
+            fn ExecMethodAsync_(&self, objWbemSink: IDispatch, strMethodName: BSTR, objWbemInParameters: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Clone_(&self, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn GetObjectText_(&self, iFlags: i32, #[retval] strObjectText: *mut BSTR) -> HRESULT;
+            fn SpawnDerivedClass_(&self, iFlags: i32, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn SpawnInstance_(&self, iFlags: i32, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn CompareTo_(&self, objWbemObject: IDispatch, iFlags: i32, #[retval] bResult: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Qualifiers_(&self, #[retval] objWbemQualifierSet: *mut ISWbemQualifierSet) -> HRESULT;
+            #[special]
+            fn get_Properties_(&self, #[retval] objWbemPropertySet: *mut ISWbemPropertySet) -> HRESULT;
+            #[special]
+            fn get_Methods_(&self, #[retval] objWbemMethodSet: *mut ISWbemMethodSet) -> HRESULT;
+            #[special]
+            fn get_Derivation_(&self, #[retval] strClassNameArray: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Path_(&self, #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
+            #[special]
+            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+        }
+        #[guid(0x269ad56a_8a67_4129_bc8c_0506dcfe9880)]
+        interface ISWbemObjectEx: ISWbemObject {
+            fn Refresh_(&self, iFlags: i32, objWbemNamedValueSet: IDispatch) -> HRESULT;
+            #[special]
+            fn get_SystemProperties_(&self, #[retval] objWbemPropertySet: *mut ISWbemPropertySet) -> HRESULT;
+            fn GetText_(&self, iObjectTextFormat: WbemObjectTextFormatEnum, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] bsText: *mut BSTR) -> HRESULT;
+            fn SetFromText_(&self, bsText: BSTR, iObjectTextFormat: WbemObjectTextFormatEnum, iFlags: i32, objWbemNamedValueSet: IDispatch) -> HRESULT;
+        }
+        #[guid(0x5791bc27_ce9c_11d1_97bf_0000f81e849c)]
+        interface ISWbemObjectPath: IDispatch {
+            #[special]
+            fn get_Path(&self, #[retval] strPath: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Path(&self, strPath: BSTR) -> HRESULT;
+            #[special]
+            fn get_RelPath(&self, #[retval] strRelPath: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RelPath(&self, strRelPath: BSTR) -> HRESULT;
+            #[special]
+            fn get_Server(&self, #[retval] strServer: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Server(&self, strServer: BSTR) -> HRESULT;
+            #[special]
+            fn get_Namespace(&self, #[retval] strNamespace: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Namespace(&self, strNamespace: BSTR) -> HRESULT;
+            #[special]
+            fn get_ParentNamespace(&self, #[retval] strParentNamespace: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] strDisplayName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DisplayName(&self, strDisplayName: BSTR) -> HRESULT;
+            #[special]
+            fn get_Class(&self, #[retval] strClass: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Class(&self, strClass: BSTR) -> HRESULT;
+            #[special]
+            fn get_IsClass(&self, #[retval] bIsClass: *mut VARIANT_BOOL) -> HRESULT;
+            fn SetAsClass(&self) -> HRESULT;
+            #[special]
+            fn get_IsSingleton(&self, #[retval] bIsSingleton: *mut VARIANT_BOOL) -> HRESULT;
+            fn SetAsSingleton(&self) -> HRESULT;
+            #[special]
+            fn get_Keys(&self, #[retval] objWbemNamedValueSet: *mut ISWbemNamedValueSet) -> HRESULT;
+            #[special]
+            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+            #[special]
+            fn get_Locale(&self, #[retval] strLocale: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Locale(&self, strLocale: BSTR) -> HRESULT;
+            #[special]
+            fn get_Authority(&self, #[retval] strAuthority: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Authority(&self, strAuthority: BSTR) -> HRESULT;
+        }
+        #[guid(0x76a6415f_cb41_11d1_8b02_00600806d9b6)]
+        interface ISWbemObjectSet: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, strObjectPath: BSTR, iFlags: i32, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+            fn ItemIndex(&self, lIndex: i32, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+        }
+        #[guid(0x26ee67bd_5804_11d2_8b4a_00600806d9b6)]
+        interface ISWbemPrivilege: IDispatch {
+            #[special]
+            fn get_IsEnabled(&self, #[retval] bIsEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_IsEnabled(&self, bIsEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] strDisplayName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] strDisplayName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Identifier(&self, #[retval] iPrivilege: *mut WbemPrivilegeEnum) -> HRESULT;
+        }
+        #[guid(0x26ee67bf_5804_11d2_8b4a_00600806d9b6)]
+        interface ISWbemPrivilegeSet: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, iPrivilege: WbemPrivilegeEnum, #[retval] objWbemPrivilege: *mut ISWbemPrivilege) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
+            fn Add(&self, iPrivilege: WbemPrivilegeEnum, bIsEnabled: VARIANT_BOOL, #[retval] objWbemPrivilege: *mut ISWbemPrivilege) -> HRESULT;
+            fn Remove(&self, iPrivilege: WbemPrivilegeEnum) -> HRESULT;
+            fn DeleteAll(&self) -> HRESULT;
+            fn AddAsString(&self, strPrivilege: BSTR, bIsEnabled: VARIANT_BOOL, #[retval] objWbemPrivilege: *mut ISWbemPrivilege) -> HRESULT;
+        }
+        #[guid(0x1a388f98_d4ba_11d1_8b09_00600806d9b6)]
+        interface ISWbemProperty: IDispatch {
+            #[special]
+            fn get_Value(&self, #[retval] varValue: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Value(&self, varValue: *const VARIANT) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_IsLocal(&self, #[retval] bIsLocal: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Origin(&self, #[retval] strOrigin: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_CIMType(&self, #[retval] iCimType: *mut WbemCimtypeEnum) -> HRESULT;
+            #[special]
+            fn get_Qualifiers_(&self, #[retval] objWbemQualifierSet: *mut ISWbemQualifierSet) -> HRESULT;
+            #[special]
+            fn get_IsArray(&self, #[retval] bIsArray: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xdea0a7b2_d4ba_11d1_8b09_00600806d9b6)]
+        interface ISWbemPropertySet: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, strName: BSTR, iFlags: i32, #[retval] objWbemProperty: *mut ISWbemProperty) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
+            fn Add(&self, strName: BSTR, iCIMType: WbemCimtypeEnum, bIsArray: VARIANT_BOOL, iFlags: i32, #[retval] objWbemProperty: *mut ISWbemProperty) -> HRESULT;
+            fn Remove(&self, strName: BSTR, iFlags: i32) -> HRESULT;
+        }
+        #[guid(0x79b05932_d3b7_11d1_8b06_00600806d9b6)]
+        interface ISWbemQualifier: IDispatch {
+            #[special]
+            fn get_Value(&self, #[retval] varValue: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Value(&self, varValue: *const VARIANT) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_IsLocal(&self, #[retval] bIsLocal: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_PropagatesToSubclass(&self, #[retval] bPropagatesToSubclass: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_PropagatesToSubclass(&self, bPropagatesToSubclass: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_PropagatesToInstance(&self, #[retval] bPropagatesToInstance: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_PropagatesToInstance(&self, bPropagatesToInstance: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsOverridable(&self, #[retval] bIsOverridable: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_IsOverridable(&self, bIsOverridable: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsAmended(&self, #[retval] bIsAmended: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x9b16ed16_d3df_11d1_8b08_00600806d9b6)]
+        interface ISWbemQualifierSet: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, name: BSTR, iFlags: i32, #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
+            fn Add(&self, strName: BSTR, varVal: *const VARIANT, bPropagatesToSubclass: VARIANT_BOOL, bPropagatesToInstance: VARIANT_BOOL, bIsOverridable: VARIANT_BOOL, iFlags: i32, #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
+            fn Remove(&self, strName: BSTR, iFlags: i32) -> HRESULT;
+        }
+        #[guid(0x5ad4bf92_daab_11d3_b38f_00105a1f473a)]
+        interface ISWbemRefreshableItem: IDispatch {
+            #[special]
+            fn get_Index(&self, #[retval] iIndex: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Refresher(&self, #[retval] objWbemRefresher: *mut ISWbemRefresher) -> HRESULT;
+            #[special]
+            fn get_IsSet(&self, #[retval] bIsSet: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Object(&self, #[retval] objWbemObject: *mut ISWbemObjectEx) -> HRESULT;
+            #[special]
+            fn get_ObjectSet(&self, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn Remove(&self, iFlags: i32) -> HRESULT;
+        }
+        #[guid(0x14d8250e_d9c2_11d3_b38f_00105a1f473a)]
+        interface ISWbemRefresher: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, iIndex: i32, #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
+            fn Add(&self, objWbemServices: ISWbemServicesEx, bsInstancePath: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
+            fn AddEnum(&self, objWbemServices: ISWbemServicesEx, bsClassName: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
+            fn Remove(&self, iIndex: i32, iFlags: i32) -> HRESULT;
+            fn Refresh(&self, iFlags: i32) -> HRESULT;
+            #[special]
+            fn get_AutoReconnect(&self, #[retval] bCount: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AutoReconnect(&self, bCount: VARIANT_BOOL) -> HRESULT;
+            fn DeleteAll(&self) -> HRESULT;
+        }
+        #[guid(0xb54d66e6_2287_11d2_8b33_00600806d9b6)]
+        interface ISWbemSecurity: IDispatch {
+            #[special]
+            fn get_ImpersonationLevel(&self, #[retval] iImpersonationLevel: *mut WbemImpersonationLevelEnum) -> HRESULT;
+            #[special]
+            fn put_ImpersonationLevel(&self, iImpersonationLevel: WbemImpersonationLevelEnum) -> HRESULT;
+            #[special]
+            fn get_AuthenticationLevel(&self, #[retval] iAuthenticationLevel: *mut WbemAuthenticationLevelEnum) -> HRESULT;
+            #[special]
+            fn put_AuthenticationLevel(&self, iAuthenticationLevel: WbemAuthenticationLevelEnum) -> HRESULT;
+            #[special]
+            fn get_Privileges(&self, #[retval] objWbemPrivilegeSet: *mut ISWbemPrivilegeSet) -> HRESULT;
+        }
+        #[guid(0x76a6415c_cb41_11d1_8b02_00600806d9b6)]
+        interface ISWbemServices: IDispatch {
+            fn Get(&self, strObjectPath: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn GetAsync(&self, objWbemSink: IDispatch, strObjectPath: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Delete(&self, strObjectPath: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch) -> HRESULT;
+            fn DeleteAsync(&self, objWbemSink: IDispatch, strObjectPath: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn InstancesOf(&self, strClass: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn InstancesOfAsync(&self, objWbemSink: IDispatch, strClass: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn SubclassesOf(&self, strSuperclass: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn SubclassesOfAsync(&self, objWbemSink: IDispatch, strSuperclass: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecQuery(&self, strQuery: BSTR, strQueryLanguage: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn ExecQueryAsync(&self, objWbemSink: IDispatch, strQuery: BSTR, strQueryLanguage: BSTR, lFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn AssociatorsOf(&self, strObjectPath: BSTR, strAssocClass: BSTR, strResultClass: BSTR, strResultRole: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredAssocQualifier: BSTR, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn AssociatorsOfAsync(&self, objWbemSink: IDispatch, strObjectPath: BSTR, strAssocClass: BSTR, strResultClass: BSTR, strResultRole: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredAssocQualifier: BSTR, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ReferencesTo(&self, strObjectPath: BSTR, strResultClass: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn ReferencesToAsync(&self, objWbemSink: IDispatch, strObjectPath: BSTR, strResultClass: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecNotificationQuery(&self, strQuery: BSTR, strQueryLanguage: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemEventSource: *mut ISWbemEventSource) -> HRESULT;
+            fn ExecNotificationQueryAsync(&self, objWbemSink: IDispatch, strQuery: BSTR, strQueryLanguage: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecMethod(&self, strObjectPath: BSTR, strMethodName: BSTR, objWbemInParameters: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
+            fn ExecMethodAsync(&self, objWbemSink: IDispatch, strObjectPath: BSTR, strMethodName: BSTR, objWbemInParameters: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            #[special]
+            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+        }
+        #[guid(0xd2f68443_85dc_427e_91d8_366554cc754c)]
+        interface ISWbemServicesEx: ISWbemServices {
+            fn Put(&self, objWbemObject: ISWbemObjectEx, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
+            fn PutAsync(&self, objWbemSink: ISWbemSink, objWbemObject: ISWbemObjectEx, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+        }
+        #[guid(0x75718c9f_f029_11d1_a1ac_00c04fb6c223)]
+        interface ISWbemSink: IDispatch {
+            fn Cancel(&self) -> HRESULT;
+        }
+        #[guid(0x75718ca0_f029_11d1_a1ac_00c04fb6c223)]
+        interface ISWbemSinkEvents: IDispatch {}
+        const SWbemDateTime: GUID = 0x47dfbe54_cf76_11d3_b38f_00105a1f473a;
+        const SWbemEventSource: GUID = 0x04b83d58_21ae_11d2_8b33_00600806d9b6;
+        const SWbemLastError: GUID = 0xc2feeeac_cfcd_11d1_8b05_00600806d9b6;
+        const SWbemLocator: GUID = 0x76a64158_cb41_11d1_8b02_00600806d9b6;
+        const SWbemMethod: GUID = 0x04b83d5b_21ae_11d2_8b33_00600806d9b6;
+        const SWbemMethodSet: GUID = 0x04b83d5a_21ae_11d2_8b33_00600806d9b6;
+        const SWbemNamedValue: GUID = 0x04b83d60_21ae_11d2_8b33_00600806d9b6;
+        const SWbemNamedValueSet: GUID = 0x9aed384e_ce8b_11d1_8b05_00600806d9b6;
+        const SWbemObject: GUID = 0x04b83d62_21ae_11d2_8b33_00600806d9b6;
+        const SWbemObjectEx: GUID = 0xd6bdafb2_9435_491f_bb87_6aa0f0bc31a2;
+        const SWbemObjectPath: GUID = 0x5791bc26_ce9c_11d1_97bf_0000f81e849c;
+        const SWbemObjectSet: GUID = 0x04b83d61_21ae_11d2_8b33_00600806d9b6;
+        const SWbemPrivilege: GUID = 0x26ee67bc_5804_11d2_8b4a_00600806d9b6;
+        const SWbemPrivilegeSet: GUID = 0x26ee67be_5804_11d2_8b4a_00600806d9b6;
+        const SWbemProperty: GUID = 0x04b83d5d_21ae_11d2_8b33_00600806d9b6;
+        const SWbemPropertySet: GUID = 0x04b83d5c_21ae_11d2_8b33_00600806d9b6;
+        const SWbemQualifier: GUID = 0x04b83d5f_21ae_11d2_8b33_00600806d9b6;
+        const SWbemQualifierSet: GUID = 0x04b83d5e_21ae_11d2_8b33_00600806d9b6;
+        const SWbemRefreshableItem: GUID = 0x8c6854bc_de4b_11d3_b390_00105a1f473a;
+        const SWbemRefresher: GUID = 0xd269bf5c_d9c1_11d3_b38f_00105a1f473a;
+        const SWbemSecurity: GUID = 0xb54d66e9_2287_11d2_8b33_00600806d9b6;
+        const SWbemServices: GUID = 0x04b83d63_21ae_11d2_8b33_00600806d9b6;
+        const SWbemServicesEx: GUID = 0x62e522dc_8cf3_40a8_8b2e_37d595651e40;
+        const SWbemSink: GUID = 0x75718c9a_f029_11d1_a1ac_00c04fb6c223;
+        const WBEMS_DISPID_COMPLETED: u32 = 2;
+        const WBEMS_DISPID_CONNECTION_READY: u32 = 5;
+        const WBEMS_DISPID_DERIVATION: u32 = 23;
+        const WBEMS_DISPID_OBJECT_PUT: u32 = 4;
+        const WBEMS_DISPID_OBJECT_READY: u32 = 1;
+        const WBEMS_DISPID_PROGRESS: u32 = 3;
+        #[repr(i32)]
+        enum WbemAuthenticationLevelEnum {
+            wbemAuthenticationLevelDefault = 0,
+            wbemAuthenticationLevelNone = 1,
+            wbemAuthenticationLevelConnect = 2,
+            wbemAuthenticationLevelCall = 3,
+            wbemAuthenticationLevelPkt = 4,
+            wbemAuthenticationLevelPktIntegrity = 5,
+            wbemAuthenticationLevelPktPrivacy = 6,
+        }
+        #[repr(i32)]
+        enum WbemChangeFlagEnum {
+            wbemChangeFlagCreateOrUpdate = 0,
+            wbemChangeFlagUpdateOnly = 1,
+            wbemChangeFlagCreateOnly = 2,
+            wbemChangeFlagUpdateCompatible = 0,
+            wbemChangeFlagUpdateSafeMode = 32,
+            wbemChangeFlagUpdateForceMode = 64,
+            wbemChangeFlagStrongValidation = 128,
+            wbemChangeFlagAdvisory = 65536,
+        }
+        #[repr(i32)]
+        enum WbemCimtypeEnum {
+            wbemCimtypeSint8 = 16,
+            wbemCimtypeUint8 = 17,
+            wbemCimtypeSint16 = 2,
+            wbemCimtypeUint16 = 18,
+            wbemCimtypeSint32 = 3,
+            wbemCimtypeUint32 = 19,
+            wbemCimtypeSint64 = 20,
+            wbemCimtypeUint64 = 21,
+            wbemCimtypeReal32 = 4,
+            wbemCimtypeReal64 = 5,
+            wbemCimtypeBoolean = 11,
+            wbemCimtypeString = 8,
+            wbemCimtypeDatetime = 101,
+            wbemCimtypeReference = 102,
+            wbemCimtypeChar16 = 103,
+            wbemCimtypeObject = 13,
+        }
+        #[repr(i32)]
+        enum WbemComparisonFlagEnum {
+            wbemComparisonFlagIncludeAll = 0,
+            wbemComparisonFlagIgnoreQualifiers = 1,
+            wbemComparisonFlagIgnoreObjectSource = 2,
+            wbemComparisonFlagIgnoreDefaultValues = 4,
+            wbemComparisonFlagIgnoreClass = 8,
+            wbemComparisonFlagIgnoreCase = 16,
+            wbemComparisonFlagIgnoreFlavor = 32,
+        }
+        #[repr(i32)]
+        enum WbemConnectOptionsEnum {
+            wbemConnectFlagUseMaxWait = 128,
+        }
+        #[repr(i32)]
+        enum WbemErrorEnum {
+            wbemNoErr = 0,
+            wbemErrFailed = -2147217407,
+            wbemErrNotFound = -2147217406,
+            wbemErrAccessDenied = -2147217405,
+            wbemErrProviderFailure = -2147217404,
+            wbemErrTypeMismatch = -2147217403,
+            wbemErrOutOfMemory = -2147217402,
+            wbemErrInvalidContext = -2147217401,
+            wbemErrInvalidParameter = -2147217400,
+            wbemErrNotAvailable = -2147217399,
+            wbemErrCriticalError = -2147217398,
+            wbemErrInvalidStream = -2147217397,
+            wbemErrNotSupported = -2147217396,
+            wbemErrInvalidSuperclass = -2147217395,
+            wbemErrInvalidNamespace = -2147217394,
+            wbemErrInvalidObject = -2147217393,
+            wbemErrInvalidClass = -2147217392,
+            wbemErrProviderNotFound = -2147217391,
+            wbemErrInvalidProviderRegistration = -2147217390,
+            wbemErrProviderLoadFailure = -2147217389,
+            wbemErrInitializationFailure = -2147217388,
+            wbemErrTransportFailure = -2147217387,
+            wbemErrInvalidOperation = -2147217386,
+            wbemErrInvalidQuery = -2147217385,
+            wbemErrInvalidQueryType = -2147217384,
+            wbemErrAlreadyExists = -2147217383,
+            wbemErrOverrideNotAllowed = -2147217382,
+            wbemErrPropagatedQualifier = -2147217381,
+            wbemErrPropagatedProperty = -2147217380,
+            wbemErrUnexpected = -2147217379,
+            wbemErrIllegalOperation = -2147217378,
+            wbemErrCannotBeKey = -2147217377,
+            wbemErrIncompleteClass = -2147217376,
+            wbemErrInvalidSyntax = -2147217375,
+            wbemErrNondecoratedObject = -2147217374,
+            wbemErrReadOnly = -2147217373,
+            wbemErrProviderNotCapable = -2147217372,
+            wbemErrClassHasChildren = -2147217371,
+            wbemErrClassHasInstances = -2147217370,
+            wbemErrQueryNotImplemented = -2147217369,
+            wbemErrIllegalNull = -2147217368,
+            wbemErrInvalidQualifierType = -2147217367,
+            wbemErrInvalidPropertyType = -2147217366,
+            wbemErrValueOutOfRange = -2147217365,
+            wbemErrCannotBeSingleton = -2147217364,
+            wbemErrInvalidCimType = -2147217363,
+            wbemErrInvalidMethod = -2147217362,
+            wbemErrInvalidMethodParameters = -2147217361,
+            wbemErrSystemProperty = -2147217360,
+            wbemErrInvalidProperty = -2147217359,
+            wbemErrCallCancelled = -2147217358,
+            wbemErrShuttingDown = -2147217357,
+            wbemErrPropagatedMethod = -2147217356,
+            wbemErrUnsupportedParameter = -2147217355,
+            wbemErrMissingParameter = -2147217354,
+            wbemErrInvalidParameterId = -2147217353,
+            wbemErrNonConsecutiveParameterIds = -2147217352,
+            wbemErrParameterIdOnRetval = -2147217351,
+            wbemErrInvalidObjectPath = -2147217350,
+            wbemErrOutOfDiskSpace = -2147217349,
+            wbemErrBufferTooSmall = -2147217348,
+            wbemErrUnsupportedPutExtension = -2147217347,
+            wbemErrUnknownObjectType = -2147217346,
+            wbemErrUnknownPacketType = -2147217345,
+            wbemErrMarshalVersionMismatch = -2147217344,
+            wbemErrMarshalInvalidSignature = -2147217343,
+            wbemErrInvalidQualifier = -2147217342,
+            wbemErrInvalidDuplicateParameter = -2147217341,
+            wbemErrTooMuchData = -2147217340,
+            wbemErrServerTooBusy = -2147217339,
+            wbemErrInvalidFlavor = -2147217338,
+            wbemErrCircularReference = -2147217337,
+            wbemErrUnsupportedClassUpdate = -2147217336,
+            wbemErrCannotChangeKeyInheritance = -2147217335,
+            wbemErrCannotChangeIndexInheritance = -2147217328,
+            wbemErrTooManyProperties = -2147217327,
+            wbemErrUpdateTypeMismatch = -2147217326,
+            wbemErrUpdateOverrideNotAllowed = -2147217325,
+            wbemErrUpdatePropagatedMethod = -2147217324,
+            wbemErrMethodNotImplemented = -2147217323,
+            wbemErrMethodDisabled = -2147217322,
+            wbemErrRefresherBusy = -2147217321,
+            wbemErrUnparsableQuery = -2147217320,
+            wbemErrNotEventClass = -2147217319,
+            wbemErrMissingGroupWithin = -2147217318,
+            wbemErrMissingAggregationList = -2147217317,
+            wbemErrPropertyNotAnObject = -2147217316,
+            wbemErrAggregatingByObject = -2147217315,
+            wbemErrUninterpretableProviderQuery = -2147217313,
+            wbemErrBackupRestoreWinmgmtRunning = -2147217312,
+            wbemErrQueueOverflow = -2147217311,
+            wbemErrPrivilegeNotHeld = -2147217310,
+            wbemErrInvalidOperator = -2147217309,
+            wbemErrLocalCredentials = -2147217308,
+            wbemErrCannotBeAbstract = -2147217307,
+            wbemErrAmendedObject = -2147217306,
+            wbemErrClientTooSlow = -2147217305,
+            wbemErrNullSecurityDescriptor = -2147217304,
+            wbemErrTimeout = -2147217303,
+            wbemErrInvalidAssociation = -2147217302,
+            wbemErrAmbiguousOperation = -2147217301,
+            wbemErrQuotaViolation = -2147217300,
+            wbemErrTransactionConflict = -2147217299,
+            wbemErrForcedRollback = -2147217298,
+            wbemErrUnsupportedLocale = -2147217297,
+            wbemErrHandleOutOfDate = -2147217296,
+            wbemErrConnectionFailed = -2147217295,
+            wbemErrInvalidHandleRequest = -2147217294,
+            wbemErrPropertyNameTooWide = -2147217293,
+            wbemErrClassNameTooWide = -2147217292,
+            wbemErrMethodNameTooWide = -2147217291,
+            wbemErrQualifierNameTooWide = -2147217290,
+            wbemErrRerunCommand = -2147217289,
+            wbemErrDatabaseVerMismatch = -2147217288,
+            wbemErrVetoPut = -2147217287,
+            wbemErrVetoDelete = -2147217286,
+            wbemErrInvalidLocale = -2147217280,
+            wbemErrProviderSuspended = -2147217279,
+            wbemErrSynchronizationRequired = -2147217278,
+            wbemErrNoSchema = -2147217277,
+            wbemErrProviderAlreadyRegistered = -2147217276,
+            wbemErrProviderNotRegistered = -2147217275,
+            wbemErrFatalTransportError = -2147217274,
+            wbemErrEncryptedConnectionRequired = -2147217273,
+            wbemErrRegistrationTooBroad = -2147213311,
+            wbemErrRegistrationTooPrecise = -2147213310,
+            wbemErrTimedout = -2147209215,
+            wbemErrResetToDefault = -2147209214,
+        }
+        #[repr(i32)]
+        enum WbemFlagEnum {
+            wbemFlagReturnImmediately = 16,
+            wbemFlagReturnWhenComplete = 0,
+            wbemFlagBidirectional = 0,
+            wbemFlagForwardOnly = 32,
+            wbemFlagNoErrorObject = 64,
+            wbemFlagReturnErrorObject = 0,
+            wbemFlagSendStatus = 128,
+            wbemFlagDontSendStatus = 0,
+            wbemFlagEnsureLocatable = 256,
+            wbemFlagDirectRead = 512,
+            wbemFlagSendOnlySelected = 0,
+            wbemFlagUseAmendedQualifiers = 131072,
+            wbemFlagGetDefault = 0,
+            wbemFlagSpawnInstance = 1,
+            wbemFlagUseCurrentTime = 1,
+        }
+        #[repr(i32)]
+        enum WbemImpersonationLevelEnum {
+            wbemImpersonationLevelAnonymous = 1,
+            wbemImpersonationLevelIdentify = 2,
+            wbemImpersonationLevelImpersonate = 3,
+            wbemImpersonationLevelDelegate = 4,
+        }
+        #[repr(i32)]
+        enum WbemObjectTextFormatEnum {
+            wbemObjectTextFormatCIMDTD20 = 1,
+            wbemObjectTextFormatWMIDTD20 = 2,
+        }
+        #[repr(i32)]
+        enum WbemPrivilegeEnum {
+            wbemPrivilegeCreateToken = 1,
+            wbemPrivilegePrimaryToken = 2,
+            wbemPrivilegeLockMemory = 3,
+            wbemPrivilegeIncreaseQuota = 4,
+            wbemPrivilegeMachineAccount = 5,
+            wbemPrivilegeTcb = 6,
+            wbemPrivilegeSecurity = 7,
+            wbemPrivilegeTakeOwnership = 8,
+            wbemPrivilegeLoadDriver = 9,
+            wbemPrivilegeSystemProfile = 10,
+            wbemPrivilegeSystemtime = 11,
+            wbemPrivilegeProfileSingleProcess = 12,
+            wbemPrivilegeIncreaseBasePriority = 13,
+            wbemPrivilegeCreatePagefile = 14,
+            wbemPrivilegeCreatePermanent = 15,
+            wbemPrivilegeBackup = 16,
+            wbemPrivilegeRestore = 17,
+            wbemPrivilegeShutdown = 18,
+            wbemPrivilegeDebug = 19,
+            wbemPrivilegeAudit = 20,
+            wbemPrivilegeSystemEnvironment = 21,
+            wbemPrivilegeChangeNotify = 22,
+            wbemPrivilegeRemoteShutdown = 23,
+            wbemPrivilegeUndock = 24,
+            wbemPrivilegeSyncAgent = 25,
+            wbemPrivilegeEnableDelegation = 26,
+            wbemPrivilegeManageVolume = 27,
+        }
+        #[repr(i32)]
+        enum WbemQueryFlagEnum {
+            wbemQueryFlagDeep = 0,
+            wbemQueryFlagShallow = 1,
+            wbemQueryFlagPrototype = 2,
+        }
+        #[repr(i32)]
+        enum WbemTextFlagEnum {
+            wbemTextFlagNoFlavors = 1,
+        }
+        #[repr(i32)]
+        enum WbemTimeout {
+            wbemTimeoutInfinite = -1,
+        }
+    }
+}

@@ -1,0 +1,53 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PRIORESULT = *mut RIORESULT;
+        type PRIO_BUF = *mut RIO_BUF;
+        type PRIO_BUFFERID = *mut *mut RIO_BUFFERID_t;
+        type PRIO_CMSG_BUFFER = *mut RIO_CMSG_BUFFER;
+        type PRIO_CQ = *mut *mut RIO_CQ_t;
+        type PRIO_RQ = *mut *mut RIO_RQ_t;
+        type PWSA_COMPATIBILITY_BEHAVIOR_ID = *mut WSA_COMPATIBILITY_BEHAVIOR_ID;
+        type PWSA_COMPATIBILITY_MODE = *mut WSA_COMPATIBILITY_MODE;
+        struct RIORESULT {
+            Status: i32,
+            BytesTransferred: u32,
+            SocketContext: u64,
+            RequestContext: u64,
+        }
+        struct RIO_BUF {
+            BufferId: RIO_BUFFERID,
+            Offset: u32,
+            Length: u32,
+        }
+        type RIO_BUFFERID = *mut RIO_BUFFERID_t;
+        struct RIO_BUFFERID_t {}
+        struct RIO_CMSG_BUFFER {
+            TotalLength: u32,
+        }
+        const RIO_CORRUPT_CQ: u32 = 4294967295;
+        type RIO_CQ = *mut RIO_CQ_t;
+        struct RIO_CQ_t {}
+        const RIO_INVALID_BUFFERID: RIO_BUFFERID = 4294967295;
+        const RIO_INVALID_CQ: RIO_CQ = 0;
+        const RIO_INVALID_RQ: RIO_RQ = 0;
+        const RIO_MAX_CQ_SIZE: u32 = 134217728;
+        const RIO_MSG_COMMIT_ONLY: u32 = 8;
+        const RIO_MSG_DEFER: u32 = 2;
+        const RIO_MSG_DONT_NOTIFY: u32 = 1;
+        const RIO_MSG_WAITALL: u32 = 4;
+        type RIO_RQ = *mut RIO_RQ_t;
+        struct RIO_RQ_t {}
+        const SIO_SET_COMPATIBILITY_MODE: i32 = -1744830164;
+        #[repr(i32)]
+        enum WSA_COMPATIBILITY_BEHAVIOR_ID {
+            WsaBehaviorAll = 0,
+            WsaBehaviorReceiveBuffering = 1,
+            WsaBehaviorAutoTuning = 2,
+        }
+        struct WSA_COMPATIBILITY_MODE {
+            BehaviorId: WSA_COMPATIBILITY_BEHAVIOR_ID,
+            TargetOsVersion: u32,
+        }
+    }
+}

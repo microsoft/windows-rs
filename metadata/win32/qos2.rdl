@@ -1,0 +1,106 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PQOS_FLOWID = *mut u32;
+        type PQOS_FLOWRATE_OUTGOING = *mut QOS_FLOWRATE_OUTGOING;
+        type PQOS_FLOWRATE_REASON = *mut QOS_FLOWRATE_REASON;
+        type PQOS_FLOW_FUNDAMENTALS = *mut QOS_FLOW_FUNDAMENTALS;
+        type PQOS_NOTIFY_FLOW = *mut QOS_NOTIFY_FLOW;
+        type PQOS_PACKET_PRIORITY = *mut QOS_PACKET_PRIORITY;
+        type PQOS_QUERY_FLOW = *mut QOS_QUERY_FLOW;
+        type PQOS_SET_FLOW = *mut QOS_SET_FLOW;
+        type PQOS_SHAPING = *mut QOS_SHAPING;
+        type PQOS_TRAFFIC_TYPE = *mut QOS_TRAFFIC_TYPE;
+        type PQOS_VERSION = *mut QOS_VERSION;
+        #[library("qwave.dll")]
+        extern fn QOSAddSocketToFlow(QOSHandle: HANDLE, Socket: SOCKET, #[opt] DestAddr: *const SOCKADDR, TrafficType: QOS_TRAFFIC_TYPE, #[opt] Flags: u32, #[in] #[out] FlowId: *mut u32) -> BOOL;
+        #[library("qwave.dll")]
+        extern fn QOSCancel(QOSHandle: HANDLE, Overlapped: *const OVERLAPPED) -> BOOL;
+        #[library("qwave.dll")]
+        extern fn QOSCloseHandle(QOSHandle: HANDLE) -> BOOL;
+        #[library("qwave.dll")]
+        extern fn QOSCreateHandle(Version: *const QOS_VERSION, QOSHandle: *mut HANDLE) -> BOOL;
+        #[library("qwave.dll")]
+        extern fn QOSEnumerateFlows(QOSHandle: HANDLE, #[in] #[out] Size: *mut u32, #[size_param(1)] Buffer: *mut void) -> BOOL;
+        #[library("qwave.dll")]
+        extern fn QOSNotifyFlow(QOSHandle: HANDLE, FlowId: QOS_FLOWID, Operation: QOS_NOTIFY_FLOW, #[in] #[out] #[opt] Size: *mut u32, #[size_param(3)] #[in] #[out] #[opt] Buffer: *mut void, #[reserved] Flags: u32, #[opt] Overlapped: *mut OVERLAPPED) -> BOOL;
+        #[library("qwave.dll")]
+        extern fn QOSQueryFlow(QOSHandle: HANDLE, FlowId: QOS_FLOWID, Operation: QOS_QUERY_FLOW, #[in] #[out] Size: *mut u32, #[size_param(3)] Buffer: *mut void, #[opt] Flags: u32, #[opt] Overlapped: *mut OVERLAPPED) -> BOOL;
+        #[library("qwave.dll")]
+        extern fn QOSRemoveSocketFromFlow(QOSHandle: HANDLE, #[opt] Socket: SOCKET, FlowId: QOS_FLOWID, #[reserved] Flags: u32) -> BOOL;
+        #[library("qwave.dll")]
+        extern fn QOSSetFlow(QOSHandle: HANDLE, FlowId: QOS_FLOWID, Operation: QOS_SET_FLOW, Size: u32, #[size_param(3)] Buffer: *const void, #[reserved] Flags: u32, #[opt] Overlapped: *mut OVERLAPPED) -> BOOL;
+        #[library("qwave.dll")]
+        extern fn QOSStartTrackingClient(QOSHandle: HANDLE, DestAddr: *const SOCKADDR, #[reserved] Flags: u32) -> BOOL;
+        #[library("qwave.dll")]
+        extern fn QOSStopTrackingClient(QOSHandle: HANDLE, DestAddr: *const SOCKADDR, #[reserved] Flags: u32) -> BOOL;
+        type QOS_FLOWID = u32;
+        struct QOS_FLOWRATE_OUTGOING {
+            Bandwidth: u64,
+            ShapingBehavior: QOS_SHAPING,
+            Reason: QOS_FLOWRATE_REASON,
+        }
+        #[repr(i32)]
+        enum QOS_FLOWRATE_REASON {
+            QOSFlowRateNotApplicable = 0,
+            QOSFlowRateContentChange = 1,
+            QOSFlowRateCongestion = 2,
+            QOSFlowRateHigherContentEncoding = 3,
+            QOSFlowRateUserCaused = 4,
+        }
+        struct QOS_FLOW_FUNDAMENTALS {
+            BottleneckBandwidthSet: BOOL,
+            BottleneckBandwidth: u64,
+            AvailableBandwidthSet: BOOL,
+            AvailableBandwidth: u64,
+            RTTSet: BOOL,
+            RTT: u32,
+        }
+        const QOS_NON_ADAPTIVE_FLOW: u32 = 2;
+        #[repr(i32)]
+        enum QOS_NOTIFY_FLOW {
+            QOSNotifyCongested = 0,
+            QOSNotifyUncongested = 1,
+            QOSNotifyAvailable = 2,
+        }
+        const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295;
+        struct QOS_PACKET_PRIORITY {
+            ConformantDSCPValue: u32,
+            NonConformantDSCPValue: u32,
+            ConformantL2Value: u32,
+            NonConformantL2Value: u32,
+        }
+        const QOS_QUERYFLOW_FRESH: u32 = 1;
+        #[repr(i32)]
+        enum QOS_QUERY_FLOW {
+            QOSQueryFlowFundamentals = 0,
+            QOSQueryPacketPriority = 1,
+            QOSQueryOutgoingRate = 2,
+        }
+        #[repr(i32)]
+        enum QOS_SET_FLOW {
+            QOSSetTrafficType = 0,
+            QOSSetOutgoingRate = 1,
+            QOSSetOutgoingDSCPValue = 2,
+        }
+        #[repr(i32)]
+        enum QOS_SHAPING {
+            QOSShapeOnly = 0,
+            QOSShapeAndMark = 1,
+            QOSUseNonConformantMarkings = 2,
+        }
+        #[repr(i32)]
+        enum QOS_TRAFFIC_TYPE {
+            QOSTrafficTypeBestEffort = 0,
+            QOSTrafficTypeBackground = 1,
+            QOSTrafficTypeExcellentEffort = 2,
+            QOSTrafficTypeAudioVideo = 3,
+            QOSTrafficTypeVoice = 4,
+            QOSTrafficTypeControl = 5,
+        }
+        struct QOS_VERSION {
+            MajorVersion: u16,
+            MinorVersion: u16,
+        }
+    }
+}

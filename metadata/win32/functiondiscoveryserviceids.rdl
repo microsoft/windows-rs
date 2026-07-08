@@ -1,0 +1,17 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const SID_DeviceDisplayStatusManager: GUID = 0xf59aa553_8309_46ca_9736_1ac3c62d6031;
+        const SID_EnumDeviceFunction: GUID = 0x13e0e9e2_c3fa_4e3c_906e_64502fa4dc95;
+        const SID_EnumInterface: GUID = 0x40eab0b9_4d7f_4b53_a334_1581dd9041f4;
+        const SID_FDPairingHandler: GUID = 0x383b69fa_5486_49da_91f5_d63c24c8e9d0;
+        const SID_FunctionDiscoveryProviderRefresh: GUID = 0x2b4cbdc9_31c4_40d4_a62d_772aa174ed52;
+        const SID_PNPXAssociation: GUID = 0xcee8ccc9_4f6b_4469_a235_5a22869eef03;
+        const SID_PNPXPropertyStore: GUID = 0xa86530b1_542f_439f_b71c_b0756b13677a;
+        const SID_PNPXServiceCollection: GUID = 0x439e80ee_a217_4712_9fa6_deabd9c2a727;
+        const SID_PnpProvider: GUID = 0x8101368e_cabb_4426_acff_96c410812000;
+        const SID_UPnPActivator: GUID = 0x0d0d66eb_cf74_4164_b52f_08344672dd46;
+        const SID_UninstallDeviceFunction: GUID = 0xc920566e_5671_4496_8025_bf0b89bd44cd;
+        const SID_UnpairProvider: GUID = 0x89a502fc_857b_4698_a0b7_027192002f9e;
+    }
+}

@@ -1,0 +1,338 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DeviceDiscoveryMechanism {
+            MulticastDiscovery = 0,
+            DirectedDiscovery = 1,
+            SecureDirectedDiscovery = 2,
+        }
+        extern fn PWSD_SOAP_MESSAGE_HANDLER(thisUnknown: IUnknown, event: *mut WSD_EVENT) -> HRESULT;
+        struct REQUESTBODY_GetStatus {
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct REQUESTBODY_Renew {
+            Expires: *mut WSD_EVENTING_EXPIRES,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct REQUESTBODY_Subscribe {
+            EndTo: *mut WSD_ENDPOINT_REFERENCE,
+            Delivery: *mut WSD_EVENTING_DELIVERY_MODE,
+            Expires: *mut WSD_EVENTING_EXPIRES,
+            Filter: *mut WSD_EVENTING_FILTER,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct REQUESTBODY_Unsubscribe {
+            any: *mut WSDXML_ELEMENT,
+        }
+        struct RESPONSEBODY_GetMetadata {
+            Metadata: *mut WSD_METADATA_SECTION_LIST,
+        }
+        struct RESPONSEBODY_GetStatus {
+            expires: *mut WSD_EVENTING_EXPIRES,
+            any: *mut WSDXML_ELEMENT,
+        }
+        struct RESPONSEBODY_Renew {
+            expires: *mut WSD_EVENTING_EXPIRES,
+            any: *mut WSDXML_ELEMENT,
+        }
+        struct RESPONSEBODY_Subscribe {
+            SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
+            expires: *mut WSD_EVENTING_EXPIRES,
+            any: *mut WSDXML_ELEMENT,
+        }
+        struct RESPONSEBODY_SubscriptionEnd {
+            SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
+            Status: *const u16,
+            Reason: *mut WSD_LOCALIZED_STRING,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        const TYPE_ENCODING_WSD11_BYE: u32 = 38;
+        const TYPE_ENCODING_WSD11_HELLO: u32 = 39;
+        const TYPE_ENCODING_WSD11_PROBE: u32 = 37;
+        const TYPE_ENCODING_WSD11_PROBE_MATCH: u32 = 35;
+        const TYPE_ENCODING_WSD11_PROBE_MATCHES: u32 = 36;
+        const TYPE_ENCODING_WSD11_RESOLVE: u32 = 34;
+        const TYPE_ENCODING_WSD11_RESOLVE_MATCH: u32 = 32;
+        const TYPE_ENCODING_WSD11_RESOLVE_MATCHES: u32 = 33;
+        const TYPE_ENCODING_WSD_APP_SEQUENCE: u32 = 9;
+        const TYPE_ENCODING_WSD_BYE: u32 = 19;
+        const TYPE_ENCODING_WSD_ENDPOINT_REFERENCE: u32 = 24;
+        const TYPE_ENCODING_WSD_EVENTING_DELIVERY_MODE: u32 = 30;
+        const TYPE_ENCODING_WSD_EVENTING_DELIVERY_MODE_PUSH: u32 = 29;
+        const TYPE_ENCODING_WSD_EVENTING_EXPIRES: u32 = 28;
+        const TYPE_ENCODING_WSD_EVENTING_FILTER: u32 = 27;
+        const TYPE_ENCODING_WSD_EVENTING_FILTER_ACTION: u32 = 26;
+        const TYPE_ENCODING_WSD_HEADER_RELATESTO: u32 = 10;
+        const TYPE_ENCODING_WSD_HELLO: u32 = 21;
+        const TYPE_ENCODING_WSD_HOST_METADATA: u32 = 1;
+        const TYPE_ENCODING_WSD_LOCALIZED_STRING: u32 = 31;
+        const TYPE_ENCODING_WSD_METADATA_SECTION: u32 = 25;
+        const TYPE_ENCODING_WSD_PROBE: u32 = 18;
+        const TYPE_ENCODING_WSD_PROBE_MATCH: u32 = 16;
+        const TYPE_ENCODING_WSD_PROBE_MATCHES: u32 = 17;
+        const TYPE_ENCODING_WSD_REFERENCE_PARAMETERS: u32 = 22;
+        const TYPE_ENCODING_WSD_REFERENCE_PROPERTIES: u32 = 23;
+        const TYPE_ENCODING_WSD_RELATIONSHIP_METADATA: u32 = 0;
+        const TYPE_ENCODING_WSD_RESOLVE: u32 = 15;
+        const TYPE_ENCODING_WSD_RESOLVE_MATCH: u32 = 14;
+        const TYPE_ENCODING_WSD_RESOLVE_MATCHES: u32 = 13;
+        const TYPE_ENCODING_WSD_SCOPES: u32 = 20;
+        const TYPE_ENCODING_WSD_SERVICE_METADATA: u32 = 2;
+        const TYPE_ENCODING_WSD_SOAP_FAULT: u32 = 8;
+        const TYPE_ENCODING_WSD_SOAP_FAULT_CODE: u32 = 7;
+        const TYPE_ENCODING_WSD_SOAP_FAULT_REASON: u32 = 5;
+        const TYPE_ENCODING_WSD_SOAP_FAULT_SUBCODE: u32 = 6;
+        const TYPE_ENCODING_WSD_SOAP_HEADER: u32 = 11;
+        const TYPE_ENCODING_WSD_SOAP_MESSAGE: u32 = 12;
+        const TYPE_ENCODING_WSD_THIS_DEVICE_METADATA: u32 = 3;
+        const TYPE_ENCODING_WSD_THIS_MODEL_METADATA: u32 = 4;
+        #[repr(i32)]
+        enum WSDEventType {
+            WSDET_NONE = 0,
+            WSDET_INCOMING_MESSAGE = 1,
+            WSDET_INCOMING_FAULT = 2,
+            WSDET_TRANSMISSION_FAILURE = 3,
+            WSDET_RESPONSE_TIMEOUT = 4,
+        }
+        struct WSD_APP_SEQUENCE {
+            InstanceId: u64,
+            SequenceId: *const u16,
+            MessageNumber: u64,
+        }
+        struct WSD_BYE {
+            EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_ENDPOINT_REFERENCE {
+            Address: *const u16,
+            ReferenceProperties: WSD_REFERENCE_PROPERTIES,
+            ReferenceParameters: WSD_REFERENCE_PARAMETERS,
+            PortType: *mut WSDXML_NAME,
+            ServiceName: *mut WSDXML_NAME,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_ENDPOINT_REFERENCE_LIST {
+            Next: *mut WSD_ENDPOINT_REFERENCE_LIST,
+            Element: *mut WSD_ENDPOINT_REFERENCE,
+        }
+        struct WSD_EVENT {
+            Hr: HRESULT,
+            EventType: u32,
+            DispatchTag: *mut u16,
+            HandlerContext: WSD_HANDLER_CONTEXT,
+            Soap: *mut WSD_SOAP_MESSAGE,
+            Operation: *mut WSD_OPERATION,
+            MessageParameters: IWSDMessageParameters,
+        }
+        struct WSD_EVENTING_DELIVERY_MODE {
+            Mode: *const u16,
+            Push: *mut WSD_EVENTING_DELIVERY_MODE_PUSH,
+            Data: *mut void,
+        }
+        struct WSD_EVENTING_DELIVERY_MODE_PUSH {
+            NotifyTo: *mut WSD_ENDPOINT_REFERENCE,
+        }
+        struct WSD_EVENTING_EXPIRES {
+            Duration: *mut WSD_DURATION,
+            DateTime: *mut WSD_DATETIME,
+        }
+        struct WSD_EVENTING_FILTER {
+            Dialect: *const u16,
+            FilterAction: *mut WSD_EVENTING_FILTER_ACTION,
+            Data: *mut void,
+        }
+        struct WSD_EVENTING_FILTER_ACTION {
+            Actions: *mut WSD_URI_LIST,
+        }
+        struct WSD_HANDLER_CONTEXT {
+            Handler: PWSD_SOAP_MESSAGE_HANDLER,
+            PVoid: *mut void,
+            Unknown: IUnknown,
+        }
+        struct WSD_HEADER_RELATESTO {
+            RelationshipType: *mut WSDXML_NAME,
+            MessageID: *const u16,
+        }
+        struct WSD_HELLO {
+            EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
+            Types: *mut WSD_NAME_LIST,
+            Scopes: *mut WSD_SCOPES,
+            XAddrs: *mut WSD_URI_LIST,
+            MetadataVersion: u64,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_HOST_METADATA {
+            Host: *mut WSD_SERVICE_METADATA,
+            Hosted: *mut WSD_SERVICE_METADATA_LIST,
+        }
+        struct WSD_LOCALIZED_STRING {
+            lang: *const u16,
+            String: *const u16,
+        }
+        struct WSD_LOCALIZED_STRING_LIST {
+            Next: *mut WSD_LOCALIZED_STRING_LIST,
+            Element: *mut WSD_LOCALIZED_STRING,
+        }
+        struct WSD_METADATA_SECTION {
+            Dialect: *const u16,
+            Identifier: *const u16,
+            Data: *mut void,
+            MetadataReference: *mut WSD_ENDPOINT_REFERENCE,
+            Location: *const u16,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_METADATA_SECTION_LIST {
+            Next: *mut WSD_METADATA_SECTION_LIST,
+            Element: *mut WSD_METADATA_SECTION,
+        }
+        struct WSD_NAME_LIST {
+            Next: *mut WSD_NAME_LIST,
+            Element: *mut WSDXML_NAME,
+        }
+        struct WSD_OPERATION {
+            RequestType: *mut WSDXML_TYPE,
+            ResponseType: *mut WSDXML_TYPE,
+            RequestStubFunction: WSD_STUB_FUNCTION,
+        }
+        struct WSD_PORT_TYPE {
+            EncodedName: u32,
+            OperationCount: u32,
+            Operations: *mut WSD_OPERATION,
+            ProtocolType: WSD_PROTOCOL_TYPE,
+        }
+        struct WSD_PROBE {
+            Types: *mut WSD_NAME_LIST,
+            Scopes: *mut WSD_SCOPES,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_PROBE_MATCH {
+            EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
+            Types: *mut WSD_NAME_LIST,
+            Scopes: *mut WSD_SCOPES,
+            XAddrs: *mut WSD_URI_LIST,
+            MetadataVersion: u64,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_PROBE_MATCHES {
+            ProbeMatch: *mut WSD_PROBE_MATCH_LIST,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_PROBE_MATCH_LIST {
+            Next: *mut WSD_PROBE_MATCH_LIST,
+            Element: *mut WSD_PROBE_MATCH,
+        }
+        #[repr(i32)]
+        enum WSD_PROTOCOL_TYPE {
+            WSD_PT_NONE = 0,
+            WSD_PT_UDP = 1,
+            WSD_PT_HTTP = 2,
+            WSD_PT_HTTPS = 4,
+            WSD_PT_ALL = 255,
+        }
+        struct WSD_REFERENCE_PARAMETERS {
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_REFERENCE_PROPERTIES {
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_RELATIONSHIP_METADATA {
+            Type: *const u16,
+            Data: *mut WSD_HOST_METADATA,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_RESOLVE {
+            EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_RESOLVE_MATCH {
+            EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
+            Types: *mut WSD_NAME_LIST,
+            Scopes: *mut WSD_SCOPES,
+            XAddrs: *mut WSD_URI_LIST,
+            MetadataVersion: u64,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_RESOLVE_MATCHES {
+            ResolveMatch: *mut WSD_RESOLVE_MATCH,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_SCOPES {
+            MatchBy: *const u16,
+            Scopes: *mut WSD_URI_LIST,
+        }
+        struct WSD_SERVICE_METADATA {
+            EndpointReference: *mut WSD_ENDPOINT_REFERENCE_LIST,
+            Types: *mut WSD_NAME_LIST,
+            ServiceId: *const u16,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_SERVICE_METADATA_LIST {
+            Next: *mut WSD_SERVICE_METADATA_LIST,
+            Element: *mut WSD_SERVICE_METADATA,
+        }
+        struct WSD_SOAP_FAULT {
+            Code: *mut WSD_SOAP_FAULT_CODE,
+            Reason: *mut WSD_SOAP_FAULT_REASON,
+            Node: *const u16,
+            Role: *const u16,
+            Detail: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_SOAP_FAULT_CODE {
+            Value: *mut WSDXML_NAME,
+            Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
+        }
+        struct WSD_SOAP_FAULT_REASON {
+            Text: *mut WSD_LOCALIZED_STRING_LIST,
+        }
+        struct WSD_SOAP_FAULT_SUBCODE {
+            Value: *mut WSDXML_NAME,
+            Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
+        }
+        struct WSD_SOAP_HEADER {
+            To: *const u16,
+            Action: *const u16,
+            MessageID: *const u16,
+            RelatesTo: WSD_HEADER_RELATESTO,
+            ReplyTo: *mut WSD_ENDPOINT_REFERENCE,
+            From: *mut WSD_ENDPOINT_REFERENCE,
+            FaultTo: *mut WSD_ENDPOINT_REFERENCE,
+            AppSequence: *mut WSD_APP_SEQUENCE,
+            AnyHeaders: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_SOAP_MESSAGE {
+            Header: WSD_SOAP_HEADER,
+            Body: *mut void,
+            BodyType: *mut WSDXML_TYPE,
+        }
+        extern fn WSD_STUB_FUNCTION(server: IUnknown, session: IWSDServiceMessaging, event: *mut WSD_EVENT) -> HRESULT;
+        struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
+            hr: HRESULT,
+            eventHandle: HANDLE,
+            messageParameters: IWSDMessageParameters,
+            results: *mut void,
+        }
+        struct WSD_THIS_DEVICE_METADATA {
+            FriendlyName: *mut WSD_LOCALIZED_STRING_LIST,
+            FirmwareVersion: *const u16,
+            SerialNumber: *const u16,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_THIS_MODEL_METADATA {
+            Manufacturer: *mut WSD_LOCALIZED_STRING_LIST,
+            ManufacturerUrl: *const u16,
+            ModelName: *mut WSD_LOCALIZED_STRING_LIST,
+            ModelNumber: *const u16,
+            ModelUrl: *const u16,
+            PresentationUrl: *const u16,
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_UNKNOWN_LOOKUP {
+            Any: *mut WSDXML_ELEMENT,
+        }
+        struct WSD_URI_LIST {
+            Next: *mut WSD_URI_LIST,
+            Element: *const u16,
+        }
+    }
+}

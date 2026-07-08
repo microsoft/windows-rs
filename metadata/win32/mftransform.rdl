@@ -1,0 +1,203 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DeviceStreamState {
+            DeviceStreamState_Stop = 0,
+            DeviceStreamState_Pause = 1,
+            DeviceStreamState_Run = 2,
+            DeviceStreamState_Disabled = 3,
+        }
+        #[guid(0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32)]
+        interface IMFDeviceTransform: IUnknown {
+            fn InitializeTransform(&self, pAttributes: IMFAttributes) -> HRESULT;
+            fn GetInputAvailableType(&self, dwInputStreamID: u32, dwTypeIndex: u32, pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputCurrentType(&self, dwInputStreamID: u32, pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputStreamAttributes(&self, dwInputStreamID: u32, ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetOutputAvailableType(&self, dwOutputStreamID: u32, dwTypeIndex: u32, pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputCurrentType(&self, dwOutputStreamID: u32, pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputStreamAttributes(&self, dwOutputStreamID: u32, ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetStreamCount(&self, pcInputStreams: *mut u32, pcOutputStreams: *mut u32) -> HRESULT;
+            fn GetStreamIDs(&self, dwInputIDArraySize: u32, pdwInputStreamIds: *mut u32, dwOutputIDArraySize: u32, pdwOutputStreamIds: *mut u32) -> HRESULT;
+            fn ProcessEvent(&self, dwInputStreamID: u32, pEvent: IMFMediaEvent) -> HRESULT;
+            fn ProcessInput(&self, dwInputStreamID: u32, pSample: IMFSample, dwFlags: u32) -> HRESULT;
+            fn ProcessMessage(&self, eMessage: MFT_MESSAGE_TYPE, ulParam: usize) -> HRESULT;
+            fn ProcessOutput(&self, dwFlags: u32, cOutputBufferCount: u32, #[in] #[out] pOutputSample: *mut MFT_OUTPUT_DATA_BUFFER, pdwStatus: *mut u32) -> HRESULT;
+            fn SetInputStreamState(&self, dwStreamID: u32, pMediaType: IMFMediaType, value: DeviceStreamState, dwFlags: u32) -> HRESULT;
+            fn GetInputStreamState(&self, dwStreamID: u32, value: *mut DeviceStreamState) -> HRESULT;
+            fn SetOutputStreamState(&self, dwStreamID: u32, pMediaType: IMFMediaType, value: DeviceStreamState, dwFlags: u32) -> HRESULT;
+            fn GetOutputStreamState(&self, dwStreamID: u32, value: *mut DeviceStreamState) -> HRESULT;
+            fn GetInputStreamPreferredState(&self, dwStreamID: u32, value: *mut DeviceStreamState, ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn FlushInputStream(&self, dwStreamIndex: u32, dwFlags: u32) -> HRESULT;
+            fn FlushOutputStream(&self, dwStreamIndex: u32, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0xf5980fed_b521_488f_909f_1a5fcecedb14)]
+        interface IMFDeviceTransform2: IMFDeviceTransform {
+            fn GetTransformAttributes(&self, ppAttributes: *mut IMFAttributes) -> HRESULT;
+        }
+        #[guid(0x6d5cb646_29ec_41fb_8179_8c4c6d750811)]
+        interface IMFDeviceTransformCallback: IUnknown {
+            fn OnBufferSent(&self, pCallbackAttributes: IMFAttributes, pinId: u32) -> HRESULT;
+        }
+        #[guid(0xbf94c121_5b05_4e6f_8000_ba598961414d)]
+        interface IMFTransform: IUnknown {
+            fn GetStreamLimits(&self, pdwInputMinimum: *mut u32, pdwInputMaximum: *mut u32, pdwOutputMinimum: *mut u32, pdwOutputMaximum: *mut u32) -> HRESULT;
+            fn GetStreamCount(&self, pcInputStreams: *mut u32, pcOutputStreams: *mut u32) -> HRESULT;
+            fn GetStreamIDs(&self, dwInputIDArraySize: u32, pdwInputIDs: *mut u32, dwOutputIDArraySize: u32, pdwOutputIDs: *mut u32) -> HRESULT;
+            fn GetInputStreamInfo(&self, dwInputStreamID: u32, pStreamInfo: *mut MFT_INPUT_STREAM_INFO) -> HRESULT;
+            fn GetOutputStreamInfo(&self, dwOutputStreamID: u32, pStreamInfo: *mut MFT_OUTPUT_STREAM_INFO) -> HRESULT;
+            fn GetAttributes(&self, pAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetInputStreamAttributes(&self, dwInputStreamID: u32, pAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetOutputStreamAttributes(&self, dwOutputStreamID: u32, pAttributes: *mut IMFAttributes) -> HRESULT;
+            fn DeleteInputStream(&self, dwStreamID: u32) -> HRESULT;
+            fn AddInputStreams(&self, cStreams: u32, adwStreamIDs: *const u32) -> HRESULT;
+            fn GetInputAvailableType(&self, dwInputStreamID: u32, dwTypeIndex: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputAvailableType(&self, dwOutputStreamID: u32, dwTypeIndex: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn SetInputType(&self, dwInputStreamID: u32, pType: IMFMediaType, dwFlags: u32) -> HRESULT;
+            fn SetOutputType(&self, dwOutputStreamID: u32, pType: IMFMediaType, dwFlags: u32) -> HRESULT;
+            fn GetInputCurrentType(&self, dwInputStreamID: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputCurrentType(&self, dwOutputStreamID: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputStatus(&self, dwInputStreamID: u32, pdwFlags: *mut u32) -> HRESULT;
+            fn GetOutputStatus(&self, pdwFlags: *mut u32) -> HRESULT;
+            fn SetOutputBounds(&self, hnsLowerBound: i64, hnsUpperBound: i64) -> HRESULT;
+            fn ProcessEvent(&self, dwInputStreamID: u32, pEvent: IMFMediaEvent) -> HRESULT;
+            fn ProcessMessage(&self, eMessage: MFT_MESSAGE_TYPE, ulParam: usize) -> HRESULT;
+            fn ProcessInput(&self, dwInputStreamID: u32, pSample: IMFSample, dwFlags: u32) -> HRESULT;
+            fn ProcessOutput(&self, dwFlags: u32, cOutputBufferCount: u32, #[in] #[out] pOutputSamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwStatus: *mut u32) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum MF3DVideoOutputType {
+            MF3DVideoOutputType_BaseView = 0,
+            MF3DVideoOutputType_Stereo = 1,
+        }
+        struct MFAudioDecoderDegradationInfo {
+            eDegradationReason: MFT_AUDIO_DECODER_DEGRADATION_REASON,
+            eType: MFT_AUDIO_DECODER_DEGRADATION_TYPE,
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateTransformActivate(ppActivate: *mut IMFActivate) -> HRESULT;
+        #[repr(i32)]
+        enum MFT_AUDIO_DECODER_DEGRADATION_REASON {
+            MFT_AUDIO_DECODER_DEGRADATION_REASON_NONE = 0,
+            MFT_AUDIO_DECODER_DEGRADATION_REASON_LICENSING_REQUIREMENT = 1,
+        }
+        #[repr(i32)]
+        enum MFT_AUDIO_DECODER_DEGRADATION_TYPE {
+            MFT_AUDIO_DECODER_DEGRADATION_TYPE_NONE = 0,
+            MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX2CHANNEL = 1,
+            MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX6CHANNEL = 2,
+            MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX8CHANNEL = 3,
+        }
+        struct MFT_INPUT_STREAM_INFO {
+            hnsMaxLatency: i64,
+            dwFlags: u32,
+            cbSize: u32,
+            cbMaxLookahead: u32,
+            cbAlignment: u32,
+        }
+        #[repr(i32)]
+        enum MFT_MESSAGE_TYPE {
+            MFT_MESSAGE_COMMAND_FLUSH = 0,
+            MFT_MESSAGE_COMMAND_DRAIN = 1,
+            MFT_MESSAGE_SET_D3D_MANAGER = 2,
+            MFT_MESSAGE_DROP_SAMPLES = 3,
+            MFT_MESSAGE_COMMAND_TICK = 4,
+            MFT_MESSAGE_NOTIFY_BEGIN_STREAMING = 268435456,
+            MFT_MESSAGE_NOTIFY_END_STREAMING = 268435457,
+            MFT_MESSAGE_NOTIFY_END_OF_STREAM = 268435458,
+            MFT_MESSAGE_NOTIFY_START_OF_STREAM = 268435459,
+            MFT_MESSAGE_NOTIFY_RELEASE_RESOURCES = 268435460,
+            MFT_MESSAGE_NOTIFY_REACQUIRE_RESOURCES = 268435461,
+            MFT_MESSAGE_NOTIFY_EVENT = 268435462,
+            MFT_MESSAGE_COMMAND_SET_OUTPUT_STREAM_STATE = 268435463,
+            MFT_MESSAGE_COMMAND_FLUSH_OUTPUT_STREAM = 268435464,
+            MFT_MESSAGE_COMMAND_MARKER = 536870912,
+        }
+        const MFT_OUTPUT_BOUND_LOWER_UNBOUNDED: u32 = 0;
+        const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: i32 = -1;
+        struct MFT_OUTPUT_DATA_BUFFER {
+            dwStreamID: u32,
+            pSample: IMFSample,
+            dwStatus: u32,
+            pEvents: IMFCollection,
+        }
+        struct MFT_OUTPUT_STREAM_INFO {
+            dwFlags: u32,
+            cbSize: u32,
+            cbAlignment: u32,
+        }
+        const MFT_STREAMS_UNLIMITED: u32 = 4294967295;
+        struct MFT_STREAM_STATE_PARAM {
+            StreamId: u32,
+            State: MF_STREAM_STATE,
+        }
+        type PDeviceStreamState = *mut DeviceStreamState;
+        type PMFT_OUTPUT_DATA_BUFFER = *mut MFT_OUTPUT_DATA_BUFFER;
+        type PMFT_STREAM_STATE_PARAM = *mut MFT_STREAM_STATE_PARAM;
+        type PSTREAM_MEDIUM = *mut STREAM_MEDIUM;
+        struct STREAM_MEDIUM {
+            gidMedium: GUID,
+            unMediumInstance: u32,
+        }
+        #[repr(i32)]
+        enum _MFT_DRAIN_TYPE {
+            MFT_DRAIN_PRODUCE_TAILS = 0,
+            MFT_DRAIN_NO_TAILS = 1,
+        }
+        #[repr(i32)]
+        enum _MFT_INPUT_DATA_BUFFER_FLAGS {
+            MFT_INPUT_DATA_BUFFER_PLACEHOLDER = -1,
+        }
+        #[repr(i32)]
+        enum _MFT_INPUT_STATUS_FLAGS {
+            MFT_INPUT_STATUS_ACCEPT_DATA = 1,
+        }
+        #[repr(i32)]
+        enum _MFT_INPUT_STREAM_INFO_FLAGS {
+            MFT_INPUT_STREAM_WHOLE_SAMPLES = 1,
+            MFT_INPUT_STREAM_SINGLE_SAMPLE_PER_BUFFER = 2,
+            MFT_INPUT_STREAM_FIXED_SAMPLE_SIZE = 4,
+            MFT_INPUT_STREAM_HOLDS_BUFFERS = 8,
+            MFT_INPUT_STREAM_DOES_NOT_ADDREF = 256,
+            MFT_INPUT_STREAM_REMOVABLE = 512,
+            MFT_INPUT_STREAM_OPTIONAL = 1024,
+            MFT_INPUT_STREAM_PROCESSES_IN_PLACE = 2048,
+        }
+        #[repr(i32)]
+        enum _MFT_OUTPUT_DATA_BUFFER_FLAGS {
+            MFT_OUTPUT_DATA_BUFFER_INCOMPLETE = 16777216,
+            MFT_OUTPUT_DATA_BUFFER_FORMAT_CHANGE = 256,
+            MFT_OUTPUT_DATA_BUFFER_STREAM_END = 512,
+            MFT_OUTPUT_DATA_BUFFER_NO_SAMPLE = 768,
+        }
+        #[repr(i32)]
+        enum _MFT_OUTPUT_STATUS_FLAGS {
+            MFT_OUTPUT_STATUS_SAMPLE_READY = 1,
+        }
+        #[repr(i32)]
+        enum _MFT_OUTPUT_STREAM_INFO_FLAGS {
+            MFT_OUTPUT_STREAM_WHOLE_SAMPLES = 1,
+            MFT_OUTPUT_STREAM_SINGLE_SAMPLE_PER_BUFFER = 2,
+            MFT_OUTPUT_STREAM_FIXED_SAMPLE_SIZE = 4,
+            MFT_OUTPUT_STREAM_DISCARDABLE = 8,
+            MFT_OUTPUT_STREAM_OPTIONAL = 16,
+            MFT_OUTPUT_STREAM_PROVIDES_SAMPLES = 256,
+            MFT_OUTPUT_STREAM_CAN_PROVIDE_SAMPLES = 512,
+            MFT_OUTPUT_STREAM_LAZY_READ = 1024,
+            MFT_OUTPUT_STREAM_REMOVABLE = 2048,
+        }
+        #[repr(i32)]
+        enum _MFT_PROCESS_OUTPUT_FLAGS {
+            MFT_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER = 1,
+            MFT_PROCESS_OUTPUT_REGENERATE_LAST_OUTPUT = 2,
+        }
+        #[repr(i32)]
+        enum _MFT_PROCESS_OUTPUT_STATUS {
+            MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS = 256,
+        }
+        #[repr(i32)]
+        enum _MFT_SET_TYPE_FLAGS {
+            MFT_SET_TYPE_TEST_ONLY = 1,
+        }
+    }
+}

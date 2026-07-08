@@ -1,0 +1,55 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const GUID_DEVINTERFACE_HID: GUID = 0x4d1e55b2_f16f_11cf_88cb_001111000030;
+        const GUID_HID_INTERFACE_HIDPARSE: GUID = 0xf5c315a5_69ac_4bc2_9279_d0b64576f44b;
+        const GUID_HID_INTERFACE_NOTIFY: GUID = 0x2c4e2e88_25e6_4c33_882f_3d82e6073681;
+        struct HID_COLLECTION_INFORMATION {
+            DescriptorSize: u32,
+            Polled: BOOLEAN,
+            Reserved1: [u8; 1],
+            VendorID: u16,
+            ProductID: u16,
+            VersionNumber: u16,
+        }
+        struct HID_DRIVER_CONFIG {
+            Size: u32,
+            RingBufferSize: u32,
+        }
+        const HID_REVISION: u32 = 1;
+        struct HID_XFER_PACKET {
+            reportBuffer: PUCHAR,
+            reportBufferLen: u32,
+            reportId: u8,
+        }
+        const IOCTL_GET_NUM_DEVICE_INPUT_BUFFERS: u32 = 721312;
+        const IOCTL_GET_PHYSICAL_DESCRIPTOR: u32 = 721306;
+        const IOCTL_HID_DEVICERESET_NOTIFICATION: u32 = 721459;
+        const IOCTL_HID_DISABLE_SECURE_READ: u32 = 721423;
+        const IOCTL_HID_ENABLE_SECURE_READ: u32 = 721419;
+        const IOCTL_HID_ENABLE_WAKE_ON_SX: u32 = 721324;
+        const IOCTL_HID_FLUSH_QUEUE: u32 = 721303;
+        const IOCTL_HID_GET_COLLECTION_DESCRIPTOR: u32 = 721299;
+        const IOCTL_HID_GET_COLLECTION_INFORMATION: u32 = 721320;
+        const IOCTL_HID_GET_DRIVER_CONFIG: u32 = 721296;
+        const IOCTL_HID_GET_FEATURE: u32 = 721298;
+        const IOCTL_HID_GET_HARDWARE_ID: u32 = 721310;
+        const IOCTL_HID_GET_INDEXED_STRING: u32 = 721378;
+        const IOCTL_HID_GET_INPUT_REPORT: u32 = 721314;
+        const IOCTL_HID_GET_MANUFACTURER_STRING: u32 = 721338;
+        const IOCTL_HID_GET_MS_GENRE_DESCRIPTOR: u32 = 721382;
+        const IOCTL_HID_GET_OUTPUT_REPORT: u32 = 721318;
+        const IOCTL_HID_GET_POLL_FREQUENCY_MSEC: u32 = 721304;
+        const IOCTL_HID_GET_PRODUCT_STRING: u32 = 721342;
+        const IOCTL_HID_GET_SERIALNUMBER_STRING: u32 = 721346;
+        const IOCTL_HID_SET_DRIVER_CONFIG: u32 = 721300;
+        const IOCTL_HID_SET_FEATURE: u32 = 721297;
+        const IOCTL_HID_SET_OUTPUT_REPORT: u32 = 721301;
+        const IOCTL_HID_SET_POLL_FREQUENCY_MSEC: u32 = 721308;
+        const IOCTL_HID_SET_S0_IDLE_TIMEOUT: u32 = 721328;
+        const IOCTL_SET_NUM_DEVICE_INPUT_BUFFERS: u32 = 721316;
+        type PHID_COLLECTION_INFORMATION = *mut HID_COLLECTION_INFORMATION;
+        type PHID_DRIVER_CONFIG = *mut HID_DRIVER_CONFIG;
+        type PHID_XFER_PACKET = *mut HID_XFER_PACKET;
+    }
+}

@@ -1,0 +1,49 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum CONDITION_OPERATION {
+            COP_IMPLICIT = 0,
+            COP_EQUAL = 1,
+            COP_NOTEQUAL = 2,
+            COP_LESSTHAN = 3,
+            COP_GREATERTHAN = 4,
+            COP_LESSTHANOREQUAL = 5,
+            COP_GREATERTHANOREQUAL = 6,
+            COP_VALUE_STARTSWITH = 7,
+            COP_VALUE_ENDSWITH = 8,
+            COP_VALUE_CONTAINS = 9,
+            COP_VALUE_NOTCONTAINS = 10,
+            COP_DOSWILDCARDS = 11,
+            COP_WORD_EQUAL = 12,
+            COP_WORD_STARTSWITH = 13,
+            COP_APPLICATION_SPECIFIC = 14,
+        }
+        #[repr(i32)]
+        enum CONDITION_TYPE {
+            CT_AND_CONDITION = 0,
+            CT_OR_CONDITION = 1,
+            CT_NOT_CONDITION = 2,
+            CT_LEAF_CONDITION = 3,
+        }
+        #[guid(0x0fc988d4_c935_4b97_a973_46282ea175c8)]
+        interface ICondition: IPersistStream {
+            fn GetConditionType(&self, #[retval] pNodeType: *mut CONDITION_TYPE) -> HRESULT;
+            fn GetSubConditions(&self, riid: *const GUID, #[retval] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetComparisonInfo(&self, ppszPropertyName: *mut PWSTR, #[opt] pcop: *mut CONDITION_OPERATION, #[opt] ppropvar: *mut PROPVARIANT) -> HRESULT;
+            fn GetValueType(&self, #[retval] ppszValueTypeName: *mut PWSTR) -> HRESULT;
+            fn GetValueNormalization(&self, #[retval] ppszNormalization: *mut PWSTR) -> HRESULT;
+            fn GetInputTerms(&self, #[opt] ppPropertyTerm: *mut IRichChunk, #[opt] ppOperationTerm: *mut IRichChunk, #[opt] ppValueTerm: *mut IRichChunk) -> HRESULT;
+            fn Clone(&self, #[retval] ppc: *mut ICondition) -> HRESULT;
+        }
+        #[guid(0x0db8851d_2e5b_47eb_9208_d28c325a01d7)]
+        interface ICondition2: ICondition {
+            fn GetLocale(&self, ppszLocaleName: *mut PWSTR) -> HRESULT;
+            fn GetLeafConditionInfo(&self, #[opt] ppropkey: *mut PROPERTYKEY, #[opt] pcop: *mut CONDITION_OPERATION, #[opt] ppropvar: *mut PROPVARIANT) -> HRESULT;
+        }
+        #[guid(0x4fdef69c_dbc9_454e_9910_b34f3c64b510)]
+        interface IRichChunk: IUnknown {
+            fn GetData(&self, #[opt] pFirstPos: *mut u32, #[opt] pLength: *mut u32, ppsz: *mut PWSTR, #[opt] pValue: *mut PROPVARIANT) -> HRESULT;
+        }
+    }
+}

@@ -1,0 +1,176 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("d3d10.dll")]
+        extern fn D3D10CompileShader(#[size_param(1)] pSrcData: PCSTR, SrcDataSize: usize, #[opt] pFileName: PCSTR, #[opt] pDefines: *const D3D10_SHADER_MACRO, #[opt] pInclude: ID3DInclude, pFunctionName: PCSTR, pProfile: PCSTR, Flags: u32, ppShader: *mut ID3D10Blob, #[opt] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
+        #[library("d3d10.dll")]
+        extern fn D3D10DisassembleShader(#[size_param(1)] pShader: *const void, BytecodeLength: usize, EnableColorCode: BOOL, #[opt] pComments: PCSTR, ppDisassembly: *mut ID3D10Blob) -> HRESULT;
+        #[library("d3d10.dll")]
+        extern fn D3D10GetGeometryShaderProfile(pDevice: ID3D10Device) -> PCSTR;
+        #[library("d3d10.dll")]
+        extern fn D3D10GetInputAndOutputSignatureBlob(#[size_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, ppSignatureBlob: *mut ID3D10Blob) -> HRESULT;
+        #[library("d3d10.dll")]
+        extern fn D3D10GetInputSignatureBlob(#[size_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, ppSignatureBlob: *mut ID3D10Blob) -> HRESULT;
+        #[library("d3d10.dll")]
+        extern fn D3D10GetOutputSignatureBlob(#[size_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, ppSignatureBlob: *mut ID3D10Blob) -> HRESULT;
+        #[library("d3d10.dll")]
+        extern fn D3D10GetPixelShaderProfile(pDevice: ID3D10Device) -> PCSTR;
+        #[library("d3d10.dll")]
+        extern fn D3D10GetShaderDebugInfo(#[size_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, ppDebugInfo: *mut ID3D10Blob) -> HRESULT;
+        #[library("d3d10.dll")]
+        extern fn D3D10GetVertexShaderProfile(pDevice: ID3D10Device) -> PCSTR;
+        #[library("d3d10.dll")]
+        extern fn D3D10PreprocessShader(#[size_param(1)] pSrcData: PCSTR, SrcDataSize: usize, #[opt] pFileName: PCSTR, #[opt] pDefines: *const D3D10_SHADER_MACRO, #[opt] pInclude: ID3DInclude, ppShaderText: *mut ID3D10Blob, #[opt] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
+        #[library("d3d10.dll")]
+        extern fn D3D10ReflectShader(#[size_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, ppReflector: *mut ID3D10ShaderReflection) -> HRESULT;
+        const D3D10_ALL_RESOURCES_BOUND: u32 = 2097152;
+        type D3D10_CBUFFER_TYPE = D3D_CBUFFER_TYPE;
+        const D3D10_ENABLE_UNBOUNDED_DESCRIPTOR_TABLES: u32 = 1048576;
+        type D3D10_INCLUDE_TYPE = D3D_INCLUDE_TYPE;
+        type D3D10_NAME = D3D_NAME;
+        type D3D10_REGISTER_COMPONENT_TYPE = D3D_REGISTER_COMPONENT_TYPE;
+        type D3D10_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE;
+        const D3D10_SHADER_AVOID_FLOW_CONTROL: u32 = 512;
+        struct D3D10_SHADER_BUFFER_DESC {
+            Name: PCSTR,
+            Type: D3D10_CBUFFER_TYPE,
+            Variables: u32,
+            Size: u32,
+            uFlags: u32,
+        }
+        type D3D10_SHADER_CBUFFER_FLAGS = D3D_SHADER_CBUFFER_FLAGS;
+        const D3D10_SHADER_DEBUG: u32 = 1;
+        const D3D10_SHADER_DEBUG_NAME_FOR_BINARY: u32 = 8388608;
+        const D3D10_SHADER_DEBUG_NAME_FOR_SOURCE: u32 = 4194304;
+        struct D3D10_SHADER_DESC {
+            Version: u32,
+            Creator: PCSTR,
+            Flags: u32,
+            ConstantBuffers: u32,
+            BoundResources: u32,
+            InputParameters: u32,
+            OutputParameters: u32,
+            InstructionCount: u32,
+            TempRegisterCount: u32,
+            TempArrayCount: u32,
+            DefCount: u32,
+            DclCount: u32,
+            TextureNormalInstructions: u32,
+            TextureLoadInstructions: u32,
+            TextureCompInstructions: u32,
+            TextureBiasInstructions: u32,
+            TextureGradientInstructions: u32,
+            FloatInstructionCount: u32,
+            IntInstructionCount: u32,
+            UintInstructionCount: u32,
+            StaticFlowControlCount: u32,
+            DynamicFlowControlCount: u32,
+            MacroInstructionCount: u32,
+            ArrayInstructionCount: u32,
+            CutInstructionCount: u32,
+            EmitInstructionCount: u32,
+            GSOutputTopology: D3D10_PRIMITIVE_TOPOLOGY,
+            GSMaxOutputVertexCount: u32,
+        }
+        const D3D10_SHADER_ENABLE_BACKWARDS_COMPATIBILITY: u32 = 4096;
+        const D3D10_SHADER_ENABLE_STRICTNESS: u32 = 2048;
+        const D3D10_SHADER_FLAGS2_FORCE_ROOT_SIGNATURE_1_0: u32 = 16;
+        const D3D10_SHADER_FLAGS2_FORCE_ROOT_SIGNATURE_1_1: u32 = 32;
+        const D3D10_SHADER_FLAGS2_FORCE_ROOT_SIGNATURE_LATEST: u32 = 0;
+        const D3D10_SHADER_FORCE_PS_SOFTWARE_NO_OPT: u32 = 128;
+        const D3D10_SHADER_FORCE_VS_SOFTWARE_NO_OPT: u32 = 64;
+        const D3D10_SHADER_IEEE_STRICTNESS: u32 = 8192;
+        struct D3D10_SHADER_INPUT_BIND_DESC {
+            Name: PCSTR,
+            Type: D3D10_SHADER_INPUT_TYPE,
+            BindPoint: u32,
+            BindCount: u32,
+            uFlags: u32,
+            ReturnType: D3D10_RESOURCE_RETURN_TYPE,
+            Dimension: D3D10_SRV_DIMENSION,
+            NumSamples: u32,
+        }
+        type D3D10_SHADER_INPUT_FLAGS = D3D_SHADER_INPUT_FLAGS;
+        type D3D10_SHADER_INPUT_TYPE = D3D_SHADER_INPUT_TYPE;
+        type D3D10_SHADER_MACRO = D3D_SHADER_MACRO;
+        const D3D10_SHADER_NO_PRESHADER: u32 = 256;
+        const D3D10_SHADER_OPTIMIZATION_LEVEL0: u32 = 16384;
+        const D3D10_SHADER_OPTIMIZATION_LEVEL1: u32 = 0;
+        const D3D10_SHADER_OPTIMIZATION_LEVEL2: u32 = 49152;
+        const D3D10_SHADER_OPTIMIZATION_LEVEL3: u32 = 32768;
+        const D3D10_SHADER_PACK_MATRIX_COLUMN_MAJOR: u32 = 16;
+        const D3D10_SHADER_PACK_MATRIX_ROW_MAJOR: u32 = 8;
+        const D3D10_SHADER_PARTIAL_PRECISION: u32 = 32;
+        const D3D10_SHADER_PREFER_FLOW_CONTROL: u32 = 1024;
+        const D3D10_SHADER_RESOURCES_MAY_ALIAS: u32 = 524288;
+        const D3D10_SHADER_SKIP_OPTIMIZATION: u32 = 4;
+        const D3D10_SHADER_SKIP_VALIDATION: u32 = 2;
+        struct D3D10_SHADER_TYPE_DESC {
+            Class: D3D10_SHADER_VARIABLE_CLASS,
+            Type: D3D10_SHADER_VARIABLE_TYPE,
+            Rows: u32,
+            Columns: u32,
+            Elements: u32,
+            Members: u32,
+            Offset: u32,
+        }
+        type D3D10_SHADER_VARIABLE_CLASS = D3D_SHADER_VARIABLE_CLASS;
+        struct D3D10_SHADER_VARIABLE_DESC {
+            Name: PCSTR,
+            StartOffset: u32,
+            Size: u32,
+            uFlags: u32,
+            DefaultValue: *mut void,
+        }
+        type D3D10_SHADER_VARIABLE_FLAGS = D3D_SHADER_VARIABLE_FLAGS;
+        type D3D10_SHADER_VARIABLE_TYPE = D3D_SHADER_VARIABLE_TYPE;
+        const D3D10_SHADER_WARNINGS_ARE_ERRORS: u32 = 262144;
+        struct D3D10_SIGNATURE_PARAMETER_DESC {
+            SemanticName: PCSTR,
+            SemanticIndex: u32,
+            Register: u32,
+            SystemValueType: D3D10_NAME,
+            ComponentType: D3D10_REGISTER_COMPONENT_TYPE,
+            Mask: u8,
+            ReadWriteMask: u8,
+        }
+        #[guid(0xd40e20b6_f8f7_42ad_ab20_4baf8f15dfaa)]
+        interface ID3D10ShaderReflection: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetDesc(&self, pDesc: *mut D3D10_SHADER_DESC) -> HRESULT;
+            fn GetConstantBufferByIndex(&self, Index: u32) -> ID3D10ShaderReflectionConstantBuffer;
+            fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D10ShaderReflectionConstantBuffer;
+            fn GetResourceBindingDesc(&self, ResourceIndex: u32, pDesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetInputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetOutputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+        }
+        #[guid(0x66c66a94_dddd_4b62_a66a_f0da33c2b4d0)]
+        interface ID3D10ShaderReflectionConstantBuffer {
+            fn GetDesc(&self, pDesc: *mut D3D10_SHADER_BUFFER_DESC) -> HRESULT;
+            fn GetVariableByIndex(&self, Index: u32) -> ID3D10ShaderReflectionVariable;
+            fn GetVariableByName(&self, Name: PCSTR) -> ID3D10ShaderReflectionVariable;
+        }
+        #[guid(0xc530ad7d_9b16_4395_a979_ba2ecff83add)]
+        interface ID3D10ShaderReflectionType {
+            fn GetDesc(&self, pDesc: *mut D3D10_SHADER_TYPE_DESC) -> HRESULT;
+            fn GetMemberTypeByIndex(&self, Index: u32) -> ID3D10ShaderReflectionType;
+            fn GetMemberTypeByName(&self, Name: PCSTR) -> ID3D10ShaderReflectionType;
+            fn GetMemberTypeName(&self, Index: u32) -> PCSTR;
+        }
+        #[guid(0x1bf63c95_2650_405d_99c1_3636bd1da0a1)]
+        interface ID3D10ShaderReflectionVariable {
+            fn GetDesc(&self, pDesc: *mut D3D10_SHADER_VARIABLE_DESC) -> HRESULT;
+            fn GetType(&self) -> ID3D10ShaderReflectionType;
+        }
+        type LPD3D10_CBUFFER_TYPE = *mut D3D10_CBUFFER_TYPE;
+        type LPD3D10_SHADER_CBUFFER_FLAGS = *mut D3D10_SHADER_CBUFFER_FLAGS;
+        type LPD3D10_SHADER_INPUT_FLAGS = *mut D3D10_SHADER_INPUT_FLAGS;
+        type LPD3D10_SHADER_INPUT_TYPE = *mut D3D10_SHADER_INPUT_TYPE;
+        type LPD3D10_SHADER_MACRO = *mut D3D10_SHADER_MACRO;
+        type LPD3D10_SHADER_VARIABLE_CLASS = *mut D3D10_SHADER_VARIABLE_CLASS;
+        type LPD3D10_SHADER_VARIABLE_FLAGS = *mut D3D10_SHADER_VARIABLE_FLAGS;
+        type LPD3D10_SHADER_VARIABLE_TYPE = *mut D3D10_SHADER_VARIABLE_TYPE;
+    }
+}

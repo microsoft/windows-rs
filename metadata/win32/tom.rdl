@@ -1,0 +1,1381 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3)]
+        interface ITextDisplays: IDispatch {}
+        #[guid(0x8cc497c0_a1df_11ce_8098_00aa0047be5d)]
+        interface ITextDocument: IDispatch {
+            #[special]
+            fn GetName(&self, #[retval] pName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn GetSelection(&self, #[retval] ppSel: *mut ITextSelection) -> HRESULT;
+            #[special]
+            fn GetStoryCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn GetStoryRanges(&self, #[retval] ppStories: *mut ITextStoryRanges) -> HRESULT;
+            #[special]
+            fn GetSaved(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetSaved(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetDefaultTabStop(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn SetDefaultTabStop(&self, Value: f32) -> HRESULT;
+            fn New(&self) -> HRESULT;
+            fn Open(&self, pVar: *const VARIANT, Flags: i32, CodePage: i32) -> HRESULT;
+            fn Save(&self, pVar: *const VARIANT, Flags: i32, CodePage: i32) -> HRESULT;
+            fn Freeze(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            fn Unfreeze(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            fn BeginEditCollection(&self) -> HRESULT;
+            fn EndEditCollection(&self) -> HRESULT;
+            fn Undo(&self, Count: i32, #[retval] pCount: *mut i32) -> HRESULT;
+            fn Redo(&self, Count: i32, #[retval] pCount: *mut i32) -> HRESULT;
+            fn Range(&self, cpActive: i32, cpAnchor: i32, #[retval] ppRange: *mut ITextRange) -> HRESULT;
+            fn RangeFromPoint(&self, x: i32, y: i32, #[retval] ppRange: *mut ITextRange) -> HRESULT;
+        }
+        #[guid(0xc241f5e0_7206_11d8_a2c7_00a0d1d6c6b3)]
+        interface ITextDocument2: ITextDocument {
+            #[special]
+            fn GetCaretType(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCaretType(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetDisplays(&self, #[retval] ppDisplays: *mut ITextDisplays) -> HRESULT;
+            #[special]
+            fn GetDocumentFont(&self, #[retval] ppFont: *mut ITextFont2) -> HRESULT;
+            #[special]
+            fn SetDocumentFont(&self, pFont: ITextFont2) -> HRESULT;
+            #[special]
+            fn GetDocumentPara(&self, #[retval] ppPara: *mut ITextPara2) -> HRESULT;
+            #[special]
+            fn SetDocumentPara(&self, pPara: ITextPara2) -> HRESULT;
+            #[special]
+            fn GetEastAsianFlags(&self, #[retval] pFlags: *mut i32) -> HRESULT;
+            #[special]
+            fn GetGenerator(&self, #[retval] pbstr: *mut BSTR) -> HRESULT;
+            #[special]
+            fn SetIMEInProgress(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetNotificationMode(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetNotificationMode(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetSelection2(&self, #[retval] ppSel: *mut ITextSelection2) -> HRESULT;
+            #[special]
+            fn GetStoryRanges2(&self, #[retval] ppStories: *mut ITextStoryRanges2) -> HRESULT;
+            #[special]
+            fn GetTypographyOptions(&self, #[retval] pOptions: *mut i32) -> HRESULT;
+            #[special]
+            fn GetVersion(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn GetWindow(&self, #[retval] pHwnd: *mut i64) -> HRESULT;
+            fn AttachMsgFilter(&self, pFilter: IUnknown) -> HRESULT;
+            fn CheckTextLimit(&self, cch: i32, pcch: *mut i32) -> HRESULT;
+            fn GetCallManager(&self, #[retval] ppVoid: *mut IUnknown) -> HRESULT;
+            fn GetClientRect(&self, Type: i32, pLeft: *mut i32, pTop: *mut i32, pRight: *mut i32, pBottom: *mut i32) -> HRESULT;
+            fn GetEffectColor(&self, Index: i32, pValue: *mut i32) -> HRESULT;
+            fn GetImmContext(&self, #[retval] pContext: *mut i64) -> HRESULT;
+            fn GetPreferredFont(&self, cp: i32, CharRep: i32, Options: i32, curCharRep: i32, curFontSize: i32, pbstr: *mut BSTR, pPitchAndFamily: *mut i32, pNewFontSize: *mut i32) -> HRESULT;
+            fn GetProperty(&self, Type: i32, pValue: *mut i32) -> HRESULT;
+            fn GetStrings(&self, ppStrs: *mut ITextStrings) -> HRESULT;
+            fn Notify(&self, Notify: i32) -> HRESULT;
+            fn Range2(&self, cpActive: i32, cpAnchor: i32, #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            fn RangeFromPoint2(&self, x: i32, y: i32, Type: i32, #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            fn ReleaseCallManager(&self, pVoid: IUnknown) -> HRESULT;
+            fn ReleaseImmContext(&self, Context: i64) -> HRESULT;
+            fn SetEffectColor(&self, Index: i32, Value: i32) -> HRESULT;
+            fn SetProperty(&self, Type: i32, Value: i32) -> HRESULT;
+            fn SetTypographyOptions(&self, Options: i32, Mask: i32) -> HRESULT;
+            fn SysBeep(&self) -> HRESULT;
+            fn Update(&self, Value: i32) -> HRESULT;
+            fn UpdateWindow(&self) -> HRESULT;
+            fn GetMathProperties(&self, pOptions: *mut i32) -> HRESULT;
+            fn SetMathProperties(&self, Options: i32, Mask: i32) -> HRESULT;
+            #[special]
+            fn GetActiveStory(&self, #[retval] ppStory: *mut ITextStory) -> HRESULT;
+            #[special]
+            fn SetActiveStory(&self, pStory: ITextStory) -> HRESULT;
+            #[special]
+            fn GetMainStory(&self, #[retval] ppStory: *mut ITextStory) -> HRESULT;
+            #[special]
+            fn GetNewStory(&self, #[retval] ppStory: *mut ITextStory) -> HRESULT;
+            fn GetStory(&self, Index: i32, #[retval] ppStory: *mut ITextStory) -> HRESULT;
+        }
+        #[guid(0x01c25500_4268_11d1_883a_3c8b00c10000)]
+        interface ITextDocument2Old: ITextDocument {
+            fn AttachMsgFilter(&self, pFilter: IUnknown) -> HRESULT;
+            fn SetEffectColor(&self, Index: i32, cr: COLORREF) -> HRESULT;
+            fn GetEffectColor(&self, Index: i32, pcr: *mut COLORREF) -> HRESULT;
+            #[special]
+            fn GetCaretType(&self, #[retval] pCaretType: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCaretType(&self, CaretType: i32) -> HRESULT;
+            fn GetImmContext(&self, #[retval] pContext: *mut i64) -> HRESULT;
+            fn ReleaseImmContext(&self, Context: i64) -> HRESULT;
+            fn GetPreferredFont(&self, cp: i32, CharRep: i32, Option: i32, CharRepCur: i32, curFontSize: i32, pbstr: *mut BSTR, pPitchAndFamily: *mut i32, pNewFontSize: *mut i32) -> HRESULT;
+            #[special]
+            fn GetNotificationMode(&self, #[retval] pMode: *mut i32) -> HRESULT;
+            #[special]
+            fn SetNotificationMode(&self, Mode: i32) -> HRESULT;
+            fn GetClientRect(&self, Type: i32, pLeft: *mut i32, pTop: *mut i32, pRight: *mut i32, pBottom: *mut i32) -> HRESULT;
+            #[special]
+            fn GetSelection2(&self, #[retval] ppSel: *mut ITextSelection) -> HRESULT;
+            fn GetWindow(&self, phWnd: *mut i32) -> HRESULT;
+            fn GetFEFlags(&self, pFlags: *mut i32) -> HRESULT;
+            fn UpdateWindow(&self) -> HRESULT;
+            fn CheckTextLimit(&self, cch: i32, pcch: *mut i32) -> HRESULT;
+            fn IMEInProgress(&self, Value: i32) -> HRESULT;
+            fn SysBeep(&self) -> HRESULT;
+            fn Update(&self, Mode: i32) -> HRESULT;
+            fn Notify(&self, Notify: i32) -> HRESULT;
+            fn GetDocumentFont(&self, #[retval] ppITextFont: *mut ITextFont) -> HRESULT;
+            fn GetDocumentPara(&self, #[retval] ppITextPara: *mut ITextPara) -> HRESULT;
+            fn GetCallManager(&self, #[retval] ppVoid: *mut IUnknown) -> HRESULT;
+            fn ReleaseCallManager(&self, pVoid: IUnknown) -> HRESULT;
+        }
+        #[guid(0x8cc497c3_a1df_11ce_8098_00aa0047be5d)]
+        interface ITextFont: IDispatch {
+            #[special]
+            fn GetDuplicate(&self, #[retval] ppFont: *mut ITextFont) -> HRESULT;
+            #[special]
+            fn SetDuplicate(&self, pFont: ITextFont) -> HRESULT;
+            fn CanChange(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            fn IsEqual(&self, pFont: ITextFont, #[retval] pValue: *mut i32) -> HRESULT;
+            fn Reset(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetStyle(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetStyle(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetAllCaps(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetAllCaps(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetAnimation(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetAnimation(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetBackColor(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetBackColor(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetBold(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetBold(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetEmboss(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetEmboss(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetForeColor(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetForeColor(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetHidden(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetHidden(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetEngrave(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetEngrave(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetItalic(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetItalic(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetKerning(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn SetKerning(&self, Value: f32) -> HRESULT;
+            #[special]
+            fn GetLanguageID(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetLanguageID(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetName(&self, #[retval] pbstr: *mut BSTR) -> HRESULT;
+            #[special]
+            fn SetName(&self, bstr: BSTR) -> HRESULT;
+            #[special]
+            fn GetOutline(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetOutline(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetPosition(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn SetPosition(&self, Value: f32) -> HRESULT;
+            #[special]
+            fn GetProtected(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetProtected(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetShadow(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetShadow(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetSize(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn SetSize(&self, Value: f32) -> HRESULT;
+            #[special]
+            fn GetSmallCaps(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetSmallCaps(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetSpacing(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn SetSpacing(&self, Value: f32) -> HRESULT;
+            #[special]
+            fn GetStrikeThrough(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetStrikeThrough(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetSubscript(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetSubscript(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetSuperscript(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetSuperscript(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetUnderline(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetUnderline(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetWeight(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetWeight(&self, Value: i32) -> HRESULT;
+        }
+        #[guid(0xc241f5e3_7206_11d8_a2c7_00a0d1d6c6b3)]
+        interface ITextFont2: ITextFont {
+            #[special]
+            fn GetCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn GetAutoLigatures(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetAutoLigatures(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetAutospaceAlpha(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetAutospaceAlpha(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetAutospaceNumeric(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetAutospaceNumeric(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetAutospaceParens(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetAutospaceParens(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCharRep(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCharRep(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCompressionMode(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCompressionMode(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCookie(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCookie(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetDoubleStrike(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetDoubleStrike(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetDuplicate2(&self, #[retval] ppFont: *mut ITextFont2) -> HRESULT;
+            #[special]
+            fn SetDuplicate2(&self, pFont: ITextFont2) -> HRESULT;
+            #[special]
+            fn GetLinkType(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn GetMathZone(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetMathZone(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetModWidthPairs(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetModWidthPairs(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetModWidthSpace(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetModWidthSpace(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetOldNumbers(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetOldNumbers(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetOverlapping(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetOverlapping(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetPositionSubSuper(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetPositionSubSuper(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetScaling(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetScaling(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetSpaceExtension(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn SetSpaceExtension(&self, Value: f32) -> HRESULT;
+            #[special]
+            fn GetUnderlinePositionMode(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetUnderlinePositionMode(&self, Value: i32) -> HRESULT;
+            fn GetEffects(&self, pValue: *mut i32, pMask: *mut i32) -> HRESULT;
+            fn GetEffects2(&self, pValue: *mut i32, pMask: *mut i32) -> HRESULT;
+            fn GetProperty(&self, Type: i32, #[retval] pValue: *mut i32) -> HRESULT;
+            fn GetPropertyInfo(&self, Index: i32, pType: *mut i32, pValue: *mut i32) -> HRESULT;
+            fn IsEqual2(&self, pFont: ITextFont2, #[retval] pB: *mut i32) -> HRESULT;
+            fn SetEffects(&self, Value: i32, Mask: i32) -> HRESULT;
+            fn SetEffects2(&self, Value: i32, Mask: i32) -> HRESULT;
+            fn SetProperty(&self, Type: i32, Value: i32) -> HRESULT;
+        }
+        #[guid(0x8cc497c4_a1df_11ce_8098_00aa0047be5d)]
+        interface ITextPara: IDispatch {
+            #[special]
+            fn GetDuplicate(&self, #[retval] ppPara: *mut ITextPara) -> HRESULT;
+            #[special]
+            fn SetDuplicate(&self, pPara: ITextPara) -> HRESULT;
+            fn CanChange(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            fn IsEqual(&self, pPara: ITextPara, #[retval] pValue: *mut i32) -> HRESULT;
+            fn Reset(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetStyle(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetStyle(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetAlignment(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetAlignment(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetHyphenation(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetHyphenation(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetFirstLineIndent(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn GetKeepTogether(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetKeepTogether(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetKeepWithNext(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetKeepWithNext(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetLeftIndent(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn GetLineSpacing(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn GetLineSpacingRule(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn GetListAlignment(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetListAlignment(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetListLevelIndex(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetListLevelIndex(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetListStart(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetListStart(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetListTab(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn SetListTab(&self, Value: f32) -> HRESULT;
+            #[special]
+            fn GetListType(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetListType(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetNoLineNumber(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetNoLineNumber(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetPageBreakBefore(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetPageBreakBefore(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetRightIndent(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn SetRightIndent(&self, Value: f32) -> HRESULT;
+            fn SetIndents(&self, First: f32, Left: f32, Right: f32) -> HRESULT;
+            fn SetLineSpacing(&self, Rule: i32, Spacing: f32) -> HRESULT;
+            #[special]
+            fn GetSpaceAfter(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn SetSpaceAfter(&self, Value: f32) -> HRESULT;
+            #[special]
+            fn GetSpaceBefore(&self, #[retval] pValue: *mut f32) -> HRESULT;
+            #[special]
+            fn SetSpaceBefore(&self, Value: f32) -> HRESULT;
+            #[special]
+            fn GetWidowControl(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetWidowControl(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetTabCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            fn AddTab(&self, tbPos: f32, tbAlign: i32, tbLeader: i32) -> HRESULT;
+            fn ClearAllTabs(&self) -> HRESULT;
+            fn DeleteTab(&self, tbPos: f32) -> HRESULT;
+            fn GetTab(&self, iTab: i32, ptbPos: *mut f32, ptbAlign: *mut i32, ptbLeader: *mut i32) -> HRESULT;
+        }
+        #[guid(0xc241f5e4_7206_11d8_a2c7_00a0d1d6c6b3)]
+        interface ITextPara2: ITextPara {
+            #[special]
+            fn GetBorders(&self, #[retval] ppBorders: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn GetDuplicate2(&self, #[retval] ppPara: *mut ITextPara2) -> HRESULT;
+            #[special]
+            fn SetDuplicate2(&self, pPara: ITextPara2) -> HRESULT;
+            #[special]
+            fn GetFontAlignment(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetFontAlignment(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetHangingPunctuation(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetHangingPunctuation(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetSnapToGrid(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetSnapToGrid(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetTrimPunctuationAtStart(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetTrimPunctuationAtStart(&self, Value: i32) -> HRESULT;
+            fn GetEffects(&self, pValue: *mut i32, pMask: *mut i32) -> HRESULT;
+            fn GetProperty(&self, Type: i32, #[retval] pValue: *mut i32) -> HRESULT;
+            fn IsEqual2(&self, pPara: ITextPara2, #[retval] pB: *mut i32) -> HRESULT;
+            fn SetEffects(&self, Value: i32, Mask: i32) -> HRESULT;
+            fn SetProperty(&self, Type: i32, Value: i32) -> HRESULT;
+        }
+        #[guid(0x8cc497c2_a1df_11ce_8098_00aa0047be5d)]
+        interface ITextRange: IDispatch {
+            #[special]
+            fn GetText(&self, #[retval] pbstr: *mut BSTR) -> HRESULT;
+            #[special]
+            fn SetText(&self, bstr: BSTR) -> HRESULT;
+            #[special]
+            fn GetChar(&self, #[retval] pChar: *mut i32) -> HRESULT;
+            #[special]
+            fn SetChar(&self, Char: i32) -> HRESULT;
+            #[special]
+            fn GetDuplicate(&self, #[retval] ppRange: *mut ITextRange) -> HRESULT;
+            #[special]
+            fn GetFormattedText(&self, #[retval] ppRange: *mut ITextRange) -> HRESULT;
+            #[special]
+            fn SetFormattedText(&self, pRange: ITextRange) -> HRESULT;
+            #[special]
+            fn GetStart(&self, #[retval] pcpFirst: *mut i32) -> HRESULT;
+            #[special]
+            fn SetStart(&self, cpFirst: i32) -> HRESULT;
+            #[special]
+            fn GetEnd(&self, #[retval] pcpLim: *mut i32) -> HRESULT;
+            #[special]
+            fn SetEnd(&self, cpLim: i32) -> HRESULT;
+            #[special]
+            fn GetFont(&self, #[retval] ppFont: *mut ITextFont) -> HRESULT;
+            #[special]
+            fn SetFont(&self, pFont: ITextFont) -> HRESULT;
+            #[special]
+            fn GetPara(&self, #[retval] ppPara: *mut ITextPara) -> HRESULT;
+            #[special]
+            fn SetPara(&self, pPara: ITextPara) -> HRESULT;
+            #[special]
+            fn GetStoryLength(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn GetStoryType(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            fn Collapse(&self, bStart: i32) -> HRESULT;
+            fn Expand(&self, Unit: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn GetIndex(&self, Unit: i32, #[retval] pIndex: *mut i32) -> HRESULT;
+            fn SetIndex(&self, Unit: i32, Index: i32, Extend: i32) -> HRESULT;
+            fn SetRange(&self, cpAnchor: i32, cpActive: i32) -> HRESULT;
+            fn InRange(&self, pRange: ITextRange, #[retval] pValue: *mut i32) -> HRESULT;
+            fn InStory(&self, pRange: ITextRange, #[retval] pValue: *mut i32) -> HRESULT;
+            fn IsEqual(&self, pRange: ITextRange, #[retval] pValue: *mut i32) -> HRESULT;
+            fn Select(&self) -> HRESULT;
+            fn StartOf(&self, Unit: i32, Extend: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn EndOf(&self, Unit: i32, Extend: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn Move(&self, Unit: i32, Count: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveStart(&self, Unit: i32, Count: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveEnd(&self, Unit: i32, Count: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveWhile(&self, Cset: *const VARIANT, Count: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveStartWhile(&self, Cset: *const VARIANT, Count: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveEndWhile(&self, Cset: *const VARIANT, Count: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveUntil(&self, Cset: *const VARIANT, Count: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveStartUntil(&self, Cset: *const VARIANT, Count: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveEndUntil(&self, Cset: *const VARIANT, Count: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn FindText(&self, bstr: BSTR, Count: i32, Flags: i32, #[retval] pLength: *mut i32) -> HRESULT;
+            fn FindTextStart(&self, bstr: BSTR, Count: i32, Flags: i32, #[retval] pLength: *mut i32) -> HRESULT;
+            fn FindTextEnd(&self, bstr: BSTR, Count: i32, Flags: i32, #[retval] pLength: *mut i32) -> HRESULT;
+            fn Delete(&self, Unit: i32, Count: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn Cut(&self, pVar: *mut VARIANT) -> HRESULT;
+            fn Copy(&self, pVar: *mut VARIANT) -> HRESULT;
+            fn Paste(&self, pVar: *const VARIANT, Format: i32) -> HRESULT;
+            fn CanPaste(&self, pVar: *const VARIANT, Format: i32, #[retval] pValue: *mut i32) -> HRESULT;
+            fn CanEdit(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            fn ChangeCase(&self, Type: i32) -> HRESULT;
+            fn GetPoint(&self, Type: i32, px: *mut i32, py: *mut i32) -> HRESULT;
+            fn SetPoint(&self, x: i32, y: i32, Type: i32, Extend: i32) -> HRESULT;
+            fn ScrollIntoView(&self, Value: i32) -> HRESULT;
+            fn GetEmbeddedObject(&self, #[retval] ppObject: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xc241f5e2_7206_11d8_a2c7_00a0d1d6c6b3)]
+        interface ITextRange2: ITextSelection {
+            #[special]
+            fn GetCch(&self, #[retval] pcch: *mut i32) -> HRESULT;
+            #[special]
+            fn GetCells(&self, #[retval] ppCells: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn GetColumn(&self, #[retval] ppColumn: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn GetCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            #[special]
+            fn GetDuplicate2(&self, #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            #[special]
+            fn GetFont2(&self, #[retval] ppFont: *mut ITextFont2) -> HRESULT;
+            #[special]
+            fn SetFont2(&self, pFont: ITextFont2) -> HRESULT;
+            #[special]
+            fn GetFormattedText2(&self, #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            #[special]
+            fn SetFormattedText2(&self, pRange: ITextRange2) -> HRESULT;
+            #[special]
+            fn GetGravity(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetGravity(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetPara2(&self, #[retval] ppPara: *mut ITextPara2) -> HRESULT;
+            #[special]
+            fn SetPara2(&self, pPara: ITextPara2) -> HRESULT;
+            #[special]
+            fn GetRow(&self, #[retval] ppRow: *mut ITextRow) -> HRESULT;
+            #[special]
+            fn GetStartPara(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn GetTable(&self, #[retval] ppTable: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn GetURL(&self, #[retval] pbstr: *mut BSTR) -> HRESULT;
+            #[special]
+            fn SetURL(&self, bstr: BSTR) -> HRESULT;
+            fn AddSubrange(&self, cp1: i32, cp2: i32, Activate: i32) -> HRESULT;
+            fn BuildUpMath(&self, Flags: i32) -> HRESULT;
+            fn DeleteSubrange(&self, cpFirst: i32, cpLim: i32) -> HRESULT;
+            fn Find(&self, pRange: ITextRange2, Count: i32, Flags: i32, pDelta: *mut i32) -> HRESULT;
+            fn GetChar2(&self, pChar: *mut i32, Offset: i32) -> HRESULT;
+            fn GetDropCap(&self, pcLine: *mut i32, pPosition: *mut i32) -> HRESULT;
+            fn GetInlineObject(&self, pType: *mut i32, pAlign: *mut i32, pChar: *mut i32, pChar1: *mut i32, pChar2: *mut i32, pCount: *mut i32, pTeXStyle: *mut i32, pcCol: *mut i32, pLevel: *mut i32) -> HRESULT;
+            fn GetProperty(&self, Type: i32, pValue: *mut i32) -> HRESULT;
+            fn GetRect(&self, Type: i32, pLeft: *mut i32, pTop: *mut i32, pRight: *mut i32, pBottom: *mut i32, pHit: *mut i32) -> HRESULT;
+            fn GetSubrange(&self, iSubrange: i32, pcpFirst: *mut i32, pcpLim: *mut i32) -> HRESULT;
+            fn GetText2(&self, Flags: i32, pbstr: *mut BSTR) -> HRESULT;
+            fn HexToUnicode(&self) -> HRESULT;
+            fn InsertTable(&self, cCol: i32, cRow: i32, AutoFit: i32) -> HRESULT;
+            fn Linearize(&self, Flags: i32) -> HRESULT;
+            fn SetActiveSubrange(&self, cpAnchor: i32, cpActive: i32) -> HRESULT;
+            fn SetDropCap(&self, cLine: i32, Position: i32) -> HRESULT;
+            fn SetProperty(&self, Type: i32, Value: i32) -> HRESULT;
+            fn SetText2(&self, Flags: i32, bstr: BSTR) -> HRESULT;
+            fn UnicodeToHex(&self) -> HRESULT;
+            fn SetInlineObject(&self, Type: i32, Align: i32, Char: i32, Char1: i32, Char2: i32, Count: i32, TeXStyle: i32, cCol: i32) -> HRESULT;
+            fn GetMathFunctionType(&self, bstr: BSTR, pValue: *mut i32) -> HRESULT;
+            fn InsertImage(&self, width: i32, height: i32, ascent: i32, Type: i32, bstrAltText: BSTR, pStream: IStream) -> HRESULT;
+        }
+        #[guid(0xc241f5ef_7206_11d8_a2c7_00a0d1d6c6b3)]
+        interface ITextRow: IDispatch {
+            #[special]
+            fn GetAlignment(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetAlignment(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellCount(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellCount(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellCountCache(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellCountCache(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellIndex(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellIndex(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellMargin(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellMargin(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetHeight(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetHeight(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetIndent(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetIndent(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetKeepTogether(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetKeepTogether(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetKeepWithNext(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetKeepWithNext(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetNestLevel(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn GetRTL(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetRTL(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellAlignment(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellAlignment(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellColorBack(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellColorBack(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellColorFore(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellColorFore(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellMergeFlags(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellMergeFlags(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellShading(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellShading(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellVerticalText(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellVerticalText(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetCellWidth(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetCellWidth(&self, Value: i32) -> HRESULT;
+            fn GetCellBorderColors(&self, pcrLeft: *mut i32, pcrTop: *mut i32, pcrRight: *mut i32, pcrBottom: *mut i32) -> HRESULT;
+            fn GetCellBorderWidths(&self, pduLeft: *mut i32, pduTop: *mut i32, pduRight: *mut i32, pduBottom: *mut i32) -> HRESULT;
+            fn SetCellBorderColors(&self, crLeft: i32, crTop: i32, crRight: i32, crBottom: i32) -> HRESULT;
+            fn SetCellBorderWidths(&self, duLeft: i32, duTop: i32, duRight: i32, duBottom: i32) -> HRESULT;
+            fn Apply(&self, cRow: i32, Flags: i32) -> HRESULT;
+            fn CanChange(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            fn GetProperty(&self, Type: i32, pValue: *mut i32) -> HRESULT;
+            fn Insert(&self, cRow: i32) -> HRESULT;
+            fn IsEqual(&self, pRow: ITextRow, #[retval] pB: *mut i32) -> HRESULT;
+            fn Reset(&self, Value: i32) -> HRESULT;
+            fn SetProperty(&self, Type: i32, Value: i32) -> HRESULT;
+        }
+        #[guid(0x8cc497c1_a1df_11ce_8098_00aa0047be5d)]
+        interface ITextSelection: ITextRange {
+            #[special]
+            fn GetFlags(&self, #[retval] pFlags: *mut i32) -> HRESULT;
+            #[special]
+            fn SetFlags(&self, Flags: i32) -> HRESULT;
+            #[special]
+            fn GetType(&self, #[retval] pType: *mut i32) -> HRESULT;
+            fn MoveLeft(&self, Unit: i32, Count: i32, Extend: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveRight(&self, Unit: i32, Count: i32, Extend: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveUp(&self, Unit: i32, Count: i32, Extend: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn MoveDown(&self, Unit: i32, Count: i32, Extend: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn HomeKey(&self, Unit: i32, Extend: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn EndKey(&self, Unit: i32, Extend: i32, #[retval] pDelta: *mut i32) -> HRESULT;
+            fn TypeText(&self, bstr: BSTR) -> HRESULT;
+        }
+        #[guid(0xc241f5e1_7206_11d8_a2c7_00a0d1d6c6b3)]
+        interface ITextSelection2: ITextRange2 {}
+        #[guid(0xc241f5f3_7206_11d8_a2c7_00a0d1d6c6b3)]
+        interface ITextStory: IUnknown {
+            #[special]
+            fn GetActive(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetActive(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn GetDisplay(&self, #[retval] ppDisplay: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn GetIndex(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn GetType(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn SetType(&self, Value: i32) -> HRESULT;
+            fn GetProperty(&self, Type: i32, pValue: *mut i32) -> HRESULT;
+            fn GetRange(&self, cpActive: i32, cpAnchor: i32, #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            fn GetText(&self, Flags: i32, #[retval] pbstr: *mut BSTR) -> HRESULT;
+            fn SetFormattedText(&self, pUnk: IUnknown) -> HRESULT;
+            fn SetProperty(&self, Type: i32, Value: i32) -> HRESULT;
+            fn SetText(&self, Flags: i32, bstr: BSTR) -> HRESULT;
+        }
+        #[guid(0x8cc497c5_a1df_11ce_8098_00aa0047be5d)]
+        interface ITextStoryRanges: IDispatch {
+            fn _NewEnum(&self, #[retval] ppunkEnum: *mut IUnknown) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] ppRange: *mut ITextRange) -> HRESULT;
+            #[special]
+            fn GetCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
+        }
+        #[guid(0xc241f5e5_7206_11d8_a2c7_00a0d1d6c6b3)]
+        interface ITextStoryRanges2: ITextStoryRanges {
+            fn Item2(&self, Index: i32, #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+        }
+        #[guid(0xc241f5e7_7206_11d8_a2c7_00a0d1d6c6b3)]
+        interface ITextStrings: IDispatch {
+            fn Item(&self, Index: i32, #[retval] ppRange: *mut ITextRange2) -> HRESULT;
+            #[special]
+            fn GetCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
+            fn Add(&self, bstr: BSTR) -> HRESULT;
+            fn Append(&self, pRange: ITextRange2, iString: i32) -> HRESULT;
+            fn Cat2(&self, iString: i32) -> HRESULT;
+            fn CatTop2(&self, bstr: BSTR) -> HRESULT;
+            fn DeleteRange(&self, pRange: ITextRange2) -> HRESULT;
+            fn EncodeFunction(&self, Type: i32, Align: i32, Char: i32, Char1: i32, Char2: i32, Count: i32, TeXStyle: i32, cCol: i32, pRange: ITextRange2) -> HRESULT;
+            fn GetCch(&self, iString: i32, pcch: *mut i32) -> HRESULT;
+            fn InsertNullStr(&self, iString: i32) -> HRESULT;
+            fn MoveBoundary(&self, iString: i32, cch: i32) -> HRESULT;
+            fn PrefixTop(&self, bstr: BSTR) -> HRESULT;
+            fn Remove(&self, iString: i32, cString: i32) -> HRESULT;
+            fn SetFormattedText(&self, pRangeD: ITextRange2, pRangeS: ITextRange2) -> HRESULT;
+            fn SetOpCp(&self, iString: i32, cp: i32) -> HRESULT;
+            fn SuffixTop(&self, bstr: BSTR, pRange: ITextRange2) -> HRESULT;
+            fn Swap(&self) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum MANCODE {
+            MBOLD = 16,
+            MITAL = 32,
+            MGREEK = 64,
+            MROMN = 0,
+            MSCRP = 1,
+            MFRAK = 2,
+            MOPEN = 3,
+            MSANS = 4,
+            MMONO = 5,
+            MMATH = 6,
+            MISOL = 7,
+            MINIT = 8,
+            MTAIL = 9,
+            MSTRCH = 10,
+            MLOOP = 11,
+            MOPENA = 12,
+        }
+        #[repr(i32)]
+        enum OBJECTTYPE {
+            tomSimpleText = 0,
+            tomRuby = 1,
+            tomHorzVert = 2,
+            tomWarichu = 3,
+            tomEq = 9,
+            tomMath = 10,
+            tomAccent = 10,
+            tomBox = 11,
+            tomBoxedFormula = 12,
+            tomBrackets = 13,
+            tomBracketsWithSeps = 14,
+            tomEquationArray = 15,
+            tomFraction = 16,
+            tomFunctionApply = 17,
+            tomLeftSubSup = 18,
+            tomLowerLimit = 19,
+            tomMatrix = 20,
+            tomNary = 21,
+            tomOpChar = 22,
+            tomOverbar = 23,
+            tomPhantom = 24,
+            tomRadical = 25,
+            tomSlashedFraction = 26,
+            tomStack = 27,
+            tomStretchStack = 28,
+            tomSubscript = 29,
+            tomSubSup = 30,
+            tomSuperscript = 31,
+            tomUnderbar = 32,
+            tomUpperLimit = 33,
+            tomObjectMax = 33,
+        }
+        #[repr(i32)]
+        enum tomConstants {
+            tomFalse = 0,
+            tomTrue = -1,
+            tomUndefined = -9999999,
+            tomToggle = -9999998,
+            tomAutoColor = -9999997,
+            tomDefault = -9999996,
+            tomSuspend = -9999995,
+            tomResume = -9999994,
+            tomApplyNow = 0,
+            tomApplyLater = 1,
+            tomTrackParms = 2,
+            tomCacheParms = 3,
+            tomApplyTmp = 4,
+            tomDisableSmartFont = 8,
+            tomEnableSmartFont = 9,
+            tomUsePoints = 10,
+            tomUseTwips = 11,
+            tomBackward = -1073741823,
+            tomForward = 1073741823,
+            tomMove = 0,
+            tomExtend = 1,
+            tomNoSelection = 0,
+            tomSelectionIP = 1,
+            tomSelectionNormal = 2,
+            tomSelectionFrame = 3,
+            tomSelectionColumn = 4,
+            tomSelectionRow = 5,
+            tomSelectionBlock = 6,
+            tomSelectionInlineShape = 7,
+            tomSelectionShape = 8,
+            tomSelStartActive = 1,
+            tomSelAtEOL = 2,
+            tomSelOvertype = 4,
+            tomSelActive = 8,
+            tomSelReplace = 16,
+            tomEnd = 0,
+            tomStart = 32,
+            tomCollapseEnd = 0,
+            tomCollapseStart = 1,
+            tomClientCoord = 256,
+            tomAllowOffClient = 512,
+            tomTransform = 1024,
+            tomObjectArg = 2048,
+            tomAtEnd = 4096,
+            tomNone = 0,
+            tomSingle = 1,
+            tomWords = 2,
+            tomDouble = 3,
+            tomDotted = 4,
+            tomDash = 5,
+            tomDashDot = 6,
+            tomDashDotDot = 7,
+            tomWave = 8,
+            tomThick = 9,
+            tomHair = 10,
+            tomDoubleWave = 11,
+            tomHeavyWave = 12,
+            tomLongDash = 13,
+            tomThickDash = 14,
+            tomThickDashDot = 15,
+            tomThickDashDotDot = 16,
+            tomThickDotted = 17,
+            tomThickLongDash = 18,
+            tomLineSpaceSingle = 0,
+            tomLineSpace1pt5 = 1,
+            tomLineSpaceDouble = 2,
+            tomLineSpaceAtLeast = 3,
+            tomLineSpaceExactly = 4,
+            tomLineSpaceMultiple = 5,
+            tomLineSpacePercent = 6,
+            tomAlignLeft = 0,
+            tomAlignCenter = 1,
+            tomAlignRight = 2,
+            tomAlignJustify = 3,
+            tomAlignDecimal = 3,
+            tomAlignBar = 4,
+            tomDefaultTab = 5,
+            tomAlignInterWord = 3,
+            tomAlignNewspaper = 4,
+            tomAlignInterLetter = 5,
+            tomAlignScaled = 6,
+            tomSpaces = 0,
+            tomDots = 1,
+            tomDashes = 2,
+            tomLines = 3,
+            tomThickLines = 4,
+            tomEquals = 5,
+            tomTabBack = -3,
+            tomTabNext = -2,
+            tomTabHere = -1,
+            tomListNone = 0,
+            tomListBullet = 1,
+            tomListNumberAsArabic = 2,
+            tomListNumberAsLCLetter = 3,
+            tomListNumberAsUCLetter = 4,
+            tomListNumberAsLCRoman = 5,
+            tomListNumberAsUCRoman = 6,
+            tomListNumberAsSequence = 7,
+            tomListNumberedCircle = 8,
+            tomListNumberedBlackCircleWingding = 9,
+            tomListNumberedWhiteCircleWingding = 10,
+            tomListNumberedArabicWide = 11,
+            tomListNumberedChS = 12,
+            tomListNumberedChT = 13,
+            tomListNumberedJpnChS = 14,
+            tomListNumberedJpnKor = 15,
+            tomListNumberedArabic1 = 16,
+            tomListNumberedArabic2 = 17,
+            tomListNumberedHebrew = 18,
+            tomListNumberedThaiAlpha = 19,
+            tomListNumberedThaiNum = 20,
+            tomListNumberedHindiAlpha = 21,
+            tomListNumberedHindiAlpha1 = 22,
+            tomListNumberedHindiNum = 23,
+            tomListParentheses = 65536,
+            tomListPeriod = 131072,
+            tomListPlain = 196608,
+            tomListNoNumber = 262144,
+            tomListMinus = 524288,
+            tomIgnoreNumberStyle = 16777216,
+            tomParaStyleNormal = -1,
+            tomParaStyleHeading1 = -2,
+            tomParaStyleHeading2 = -3,
+            tomParaStyleHeading3 = -4,
+            tomParaStyleHeading4 = -5,
+            tomParaStyleHeading5 = -6,
+            tomParaStyleHeading6 = -7,
+            tomParaStyleHeading7 = -8,
+            tomParaStyleHeading8 = -9,
+            tomParaStyleHeading9 = -10,
+            tomCharacter = 1,
+            tomWord = 2,
+            tomSentence = 3,
+            tomParagraph = 4,
+            tomLine = 5,
+            tomStory = 6,
+            tomScreen = 7,
+            tomSection = 8,
+            tomTableColumn = 9,
+            tomColumn = 9,
+            tomRow = 10,
+            tomWindow = 11,
+            tomCell = 12,
+            tomCharFormat = 13,
+            tomParaFormat = 14,
+            tomTable = 15,
+            tomObject = 16,
+            tomPage = 17,
+            tomHardParagraph = 18,
+            tomCluster = 19,
+            tomInlineObject = 20,
+            tomInlineObjectArg = 21,
+            tomLeafLine = 22,
+            tomLayoutColumn = 23,
+            tomProcessId = 1073741825,
+            tomMatchWord = 2,
+            tomMatchCase = 4,
+            tomMatchPattern = 8,
+            tomUnknownStory = 0,
+            tomMainTextStory = 1,
+            tomFootnotesStory = 2,
+            tomEndnotesStory = 3,
+            tomCommentsStory = 4,
+            tomTextFrameStory = 5,
+            tomEvenPagesHeaderStory = 6,
+            tomPrimaryHeaderStory = 7,
+            tomEvenPagesFooterStory = 8,
+            tomPrimaryFooterStory = 9,
+            tomFirstPageHeaderStory = 10,
+            tomFirstPageFooterStory = 11,
+            tomScratchStory = 127,
+            tomFindStory = 128,
+            tomReplaceStory = 129,
+            tomStoryInactive = 0,
+            tomStoryActiveDisplay = 1,
+            tomStoryActiveUI = 2,
+            tomStoryActiveDisplayUI = 3,
+            tomNoAnimation = 0,
+            tomLasVegasLights = 1,
+            tomBlinkingBackground = 2,
+            tomSparkleText = 3,
+            tomMarchingBlackAnts = 4,
+            tomMarchingRedAnts = 5,
+            tomShimmer = 6,
+            tomWipeDown = 7,
+            tomWipeRight = 8,
+            tomAnimationMax = 8,
+            tomLowerCase = 0,
+            tomUpperCase = 1,
+            tomTitleCase = 2,
+            tomSentenceCase = 4,
+            tomToggleCase = 5,
+            tomReadOnly = 256,
+            tomShareDenyRead = 512,
+            tomShareDenyWrite = 1024,
+            tomPasteFile = 4096,
+            tomCreateNew = 16,
+            tomCreateAlways = 32,
+            tomOpenExisting = 48,
+            tomOpenAlways = 64,
+            tomTruncateExisting = 80,
+            tomRTF = 1,
+            tomText = 2,
+            tomHTML = 3,
+            tomWordDocument = 4,
+            tomBold = -2147483647,
+            tomItalic = -2147483646,
+            tomUnderline = -2147483644,
+            tomStrikeout = -2147483640,
+            tomProtected = -2147483632,
+            tomLink = -2147483616,
+            tomSmallCaps = -2147483584,
+            tomAllCaps = -2147483520,
+            tomHidden = -2147483392,
+            tomOutline = -2147483136,
+            tomShadow = -2147482624,
+            tomEmboss = -2147481600,
+            tomImprint = -2147479552,
+            tomDisabled = -2147475456,
+            tomRevised = -2147467264,
+            tomSubscriptCF = -2147418112,
+            tomSuperscriptCF = -2147352576,
+            tomFontBound = -2146435072,
+            tomLinkProtected = -2139095040,
+            tomInlineObjectStart = -2130706432,
+            tomExtendedChar = -2113929216,
+            tomAutoBackColor = -2080374784,
+            tomMathZoneNoBuildUp = -2013265920,
+            tomMathZone = -1879048192,
+            tomMathZoneOrdinary = -1610612736,
+            tomAutoTextColor = -1073741824,
+            tomMathZoneDisplay = 262144,
+            tomParaEffectRTL = 1,
+            tomParaEffectKeep = 2,
+            tomParaEffectKeepNext = 4,
+            tomParaEffectPageBreakBefore = 8,
+            tomParaEffectNoLineNumber = 16,
+            tomParaEffectNoWidowControl = 32,
+            tomParaEffectDoNotHyphen = 64,
+            tomParaEffectSideBySide = 128,
+            tomParaEffectCollapsed = 256,
+            tomParaEffectOutlineLevel = 512,
+            tomParaEffectBox = 1024,
+            tomParaEffectTableRowDelimiter = 4096,
+            tomParaEffectTable = 16384,
+            tomModWidthPairs = 1,
+            tomModWidthSpace = 2,
+            tomAutoSpaceAlpha = 4,
+            tomAutoSpaceNumeric = 8,
+            tomAutoSpaceParens = 16,
+            tomEmbeddedFont = 32,
+            tomDoublestrike = 64,
+            tomOverlapping = 128,
+            tomNormalCaret = 0,
+            tomKoreanBlockCaret = 1,
+            tomNullCaret = 2,
+            tomIncludeInset = 1,
+            tomUnicodeBiDi = 1,
+            tomMathCFCheck = 4,
+            tomUnlink = 8,
+            tomUnhide = 16,
+            tomCheckTextLimit = 32,
+            tomIgnoreCurrentFont = 0,
+            tomMatchCharRep = 1,
+            tomMatchFontSignature = 2,
+            tomMatchAscii = 4,
+            tomGetHeightOnly = 8,
+            tomMatchMathFont = 16,
+            tomCharset = -2147483648,
+            tomCharRepFromLcid = 1073741824,
+            tomAnsi = 0,
+            tomEastEurope = 1,
+            tomCyrillic = 2,
+            tomGreek = 3,
+            tomTurkish = 4,
+            tomHebrew = 5,
+            tomArabic = 6,
+            tomBaltic = 7,
+            tomVietnamese = 8,
+            tomDefaultCharRep = 9,
+            tomSymbol = 10,
+            tomThai = 11,
+            tomShiftJIS = 12,
+            tomGB2312 = 13,
+            tomHangul = 14,
+            tomBIG5 = 15,
+            tomPC437 = 16,
+            tomOEM = 17,
+            tomMac = 18,
+            tomArmenian = 19,
+            tomSyriac = 20,
+            tomThaana = 21,
+            tomDevanagari = 22,
+            tomBengali = 23,
+            tomGurmukhi = 24,
+            tomGujarati = 25,
+            tomOriya = 26,
+            tomTamil = 27,
+            tomTelugu = 28,
+            tomKannada = 29,
+            tomMalayalam = 30,
+            tomSinhala = 31,
+            tomLao = 32,
+            tomTibetan = 33,
+            tomMyanmar = 34,
+            tomGeorgian = 35,
+            tomJamo = 36,
+            tomEthiopic = 37,
+            tomCherokee = 38,
+            tomAboriginal = 39,
+            tomOgham = 40,
+            tomRunic = 41,
+            tomKhmer = 42,
+            tomMongolian = 43,
+            tomBraille = 44,
+            tomYi = 45,
+            tomLimbu = 46,
+            tomTaiLe = 47,
+            tomNewTaiLue = 48,
+            tomSylotiNagri = 49,
+            tomKharoshthi = 50,
+            tomKayahli = 51,
+            tomUsymbol = 52,
+            tomEmoji = 53,
+            tomGlagolitic = 54,
+            tomLisu = 55,
+            tomVai = 56,
+            tomNKo = 57,
+            tomOsmanya = 58,
+            tomPhagsPa = 59,
+            tomGothic = 60,
+            tomDeseret = 61,
+            tomTifinagh = 62,
+            tomCharRepMax = 63,
+            tomRE10Mode = 1,
+            tomUseAtFont = 2,
+            tomTextFlowMask = 12,
+            tomTextFlowES = 0,
+            tomTextFlowSW = 4,
+            tomTextFlowWN = 8,
+            tomTextFlowNE = 12,
+            tomNoIME = 524288,
+            tomSelfIME = 262144,
+            tomNoUpScroll = 65536,
+            tomNoVpScroll = 262144,
+            tomNoLink = 0,
+            tomClientLink = 1,
+            tomFriendlyLinkName = 2,
+            tomFriendlyLinkAddress = 3,
+            tomAutoLinkURL = 4,
+            tomAutoLinkEmail = 5,
+            tomAutoLinkPhone = 6,
+            tomAutoLinkPath = 7,
+            tomCompressNone = 0,
+            tomCompressPunctuation = 1,
+            tomCompressPunctuationAndKana = 2,
+            tomCompressMax = 2,
+            tomUnderlinePositionAuto = 0,
+            tomUnderlinePositionBelow = 1,
+            tomUnderlinePositionAbove = 2,
+            tomUnderlinePositionMax = 2,
+            tomFontAlignmentAuto = 0,
+            tomFontAlignmentTop = 1,
+            tomFontAlignmentBaseline = 2,
+            tomFontAlignmentBottom = 3,
+            tomFontAlignmentCenter = 4,
+            tomFontAlignmentMax = 4,
+            tomRubyBelow = 128,
+            tomRubyAlignCenter = 0,
+            tomRubyAlign010 = 1,
+            tomRubyAlign121 = 2,
+            tomRubyAlignLeft = 3,
+            tomRubyAlignRight = 4,
+            tomLimitsDefault = 0,
+            tomLimitsUnderOver = 1,
+            tomLimitsSubSup = 2,
+            tomUpperLimitAsSuperScript = 3,
+            tomLimitsOpposite = 4,
+            tomShowLLimPlaceHldr = 8,
+            tomShowULimPlaceHldr = 16,
+            tomDontGrowWithContent = 64,
+            tomGrowWithContent = 128,
+            tomSubSupAlign = 1,
+            tomLimitAlignMask = 3,
+            tomLimitAlignCenter = 0,
+            tomLimitAlignLeft = 1,
+            tomLimitAlignRight = 2,
+            tomShowDegPlaceHldr = 8,
+            tomAlignDefault = 0,
+            tomAlignMatchAscentDescent = 2,
+            tomMathVariant = 32,
+            tomStyleDefault = 0,
+            tomStyleScriptScriptCramped = 1,
+            tomStyleScriptScript = 2,
+            tomStyleScriptCramped = 3,
+            tomStyleScript = 4,
+            tomStyleTextCramped = 5,
+            tomStyleText = 6,
+            tomStyleDisplayCramped = 7,
+            tomStyleDisplay = 8,
+            tomMathRelSize = 64,
+            tomDecDecSize = 254,
+            tomDecSize = 255,
+            tomIncSize = 65,
+            tomIncIncSize = 66,
+            tomGravityUI = 0,
+            tomGravityBack = 1,
+            tomGravityFore = 2,
+            tomGravityIn = 3,
+            tomGravityOut = 4,
+            tomGravityBackward = 536870912,
+            tomGravityForward = 1073741824,
+            tomAdjustCRLF = 1,
+            tomUseCRLF = 2,
+            tomTextize = 4,
+            tomAllowFinalEOP = 8,
+            tomFoldMathAlpha = 16,
+            tomNoHidden = 32,
+            tomIncludeNumbering = 64,
+            tomTranslateTableCell = 128,
+            tomNoMathZoneBrackets = 256,
+            tomConvertMathChar = 512,
+            tomNoUCGreekItalic = 1024,
+            tomAllowMathBold = 2048,
+            tomLanguageTag = 4096,
+            tomConvertRTF = 8192,
+            tomApplyRtfDocProps = 16384,
+            tomPhantomShow = 1,
+            tomPhantomZeroWidth = 2,
+            tomPhantomZeroAscent = 4,
+            tomPhantomZeroDescent = 8,
+            tomPhantomTransparent = 16,
+            tomPhantomASmash = 5,
+            tomPhantomDSmash = 9,
+            tomPhantomHSmash = 3,
+            tomPhantomSmash = 13,
+            tomPhantomHorz = 12,
+            tomPhantomVert = 2,
+            tomBoxHideTop = 1,
+            tomBoxHideBottom = 2,
+            tomBoxHideLeft = 4,
+            tomBoxHideRight = 8,
+            tomBoxStrikeH = 16,
+            tomBoxStrikeV = 32,
+            tomBoxStrikeTLBR = 64,
+            tomBoxStrikeBLTR = 128,
+            tomBoxAlignCenter = 1,
+            tomSpaceMask = 28,
+            tomSpaceDefault = 0,
+            tomSpaceUnary = 4,
+            tomSpaceBinary = 8,
+            tomSpaceRelational = 12,
+            tomSpaceSkip = 16,
+            tomSpaceOrd = 20,
+            tomSpaceDifferential = 24,
+            tomSizeText = 32,
+            tomSizeScript = 64,
+            tomSizeScriptScript = 96,
+            tomNoBreak = 128,
+            tomTransparentForPositioning = 256,
+            tomTransparentForSpacing = 512,
+            tomStretchCharBelow = 0,
+            tomStretchCharAbove = 1,
+            tomStretchBaseBelow = 2,
+            tomStretchBaseAbove = 3,
+            tomMatrixAlignMask = 3,
+            tomMatrixAlignCenter = 0,
+            tomMatrixAlignTopRow = 1,
+            tomMatrixAlignBottomRow = 3,
+            tomShowMatPlaceHldr = 8,
+            tomEqArrayLayoutWidth = 1,
+            tomEqArrayAlignMask = 12,
+            tomEqArrayAlignCenter = 0,
+            tomEqArrayAlignTopRow = 4,
+            tomEqArrayAlignBottomRow = 12,
+            tomMathManualBreakMask = 127,
+            tomMathBreakLeft = 125,
+            tomMathBreakCenter = 126,
+            tomMathBreakRight = 127,
+            tomMathEqAlign = 128,
+            tomMathArgShadingStart = 593,
+            tomMathArgShadingEnd = 594,
+            tomMathObjShadingStart = 595,
+            tomMathObjShadingEnd = 596,
+            tomFunctionTypeNone = 0,
+            tomFunctionTypeTakesArg = 1,
+            tomFunctionTypeTakesLim = 2,
+            tomFunctionTypeTakesLim2 = 3,
+            tomFunctionTypeIsLim = 4,
+            tomMathParaAlignDefault = 0,
+            tomMathParaAlignCenterGroup = 1,
+            tomMathParaAlignCenter = 2,
+            tomMathParaAlignLeft = 3,
+            tomMathParaAlignRight = 4,
+            tomMathDispAlignMask = 3,
+            tomMathDispAlignCenterGroup = 0,
+            tomMathDispAlignCenter = 1,
+            tomMathDispAlignLeft = 2,
+            tomMathDispAlignRight = 3,
+            tomMathDispIntUnderOver = 4,
+            tomMathDispFracTeX = 8,
+            tomMathDispNaryGrow = 16,
+            tomMathDocEmptyArgMask = 96,
+            tomMathDocEmptyArgAuto = 0,
+            tomMathDocEmptyArgAlways = 32,
+            tomMathDocEmptyArgNever = 64,
+            tomMathDocSbSpOpUnchanged = 128,
+            tomMathDocDiffMask = 768,
+            tomMathDocDiffDefault = 0,
+            tomMathDocDiffUpright = 256,
+            tomMathDocDiffItalic = 512,
+            tomMathDocDiffOpenItalic = 768,
+            tomMathDispNarySubSup = 1024,
+            tomMathDispDef = 2048,
+            tomMathEnableRtl = 4096,
+            tomMathBrkBinMask = 196608,
+            tomMathBrkBinBefore = 0,
+            tomMathBrkBinAfter = 65536,
+            tomMathBrkBinDup = 131072,
+            tomMathBrkBinSubMask = 786432,
+            tomMathBrkBinSubMM = 0,
+            tomMathBrkBinSubPM = 262144,
+            tomMathBrkBinSubMP = 524288,
+            tomSelRange = 597,
+            tomHstring = 596,
+            tomFontPropTeXStyle = 828,
+            tomFontPropAlign = 829,
+            tomFontStretch = 830,
+            tomFontStyle = 831,
+            tomFontStyleUpright = 0,
+            tomFontStyleOblique = 1,
+            tomFontStyleItalic = 2,
+            tomFontStretchDefault = 0,
+            tomFontStretchUltraCondensed = 1,
+            tomFontStretchExtraCondensed = 2,
+            tomFontStretchCondensed = 3,
+            tomFontStretchSemiCondensed = 4,
+            tomFontStretchNormal = 5,
+            tomFontStretchSemiExpanded = 6,
+            tomFontStretchExpanded = 7,
+            tomFontStretchExtraExpanded = 8,
+            tomFontStretchUltraExpanded = 9,
+            tomFontWeightDefault = 0,
+            tomFontWeightThin = 100,
+            tomFontWeightExtraLight = 200,
+            tomFontWeightLight = 300,
+            tomFontWeightNormal = 400,
+            tomFontWeightRegular = 400,
+            tomFontWeightMedium = 500,
+            tomFontWeightSemiBold = 600,
+            tomFontWeightBold = 700,
+            tomFontWeightExtraBold = 800,
+            tomFontWeightBlack = 900,
+            tomFontWeightHeavy = 900,
+            tomFontWeightExtraBlack = 950,
+            tomParaPropMathAlign = 1079,
+            tomDocMathBuild = 128,
+            tomMathLMargin = 129,
+            tomMathRMargin = 130,
+            tomMathWrapIndent = 131,
+            tomMathWrapRight = 132,
+            tomMathPostSpace = 134,
+            tomMathPreSpace = 133,
+            tomMathInterSpace = 135,
+            tomMathIntraSpace = 136,
+            tomCanCopy = 137,
+            tomCanRedo = 138,
+            tomCanUndo = 139,
+            tomUndoLimit = 140,
+            tomDocAutoLink = 141,
+            tomEllipsisMode = 142,
+            tomEllipsisState = 143,
+            tomEllipsisNone = 0,
+            tomEllipsisEnd = 1,
+            tomEllipsisWord = 3,
+            tomEllipsisPresent = 1,
+            tomVTopCell = 1,
+            tomVLowCell = 2,
+            tomHStartCell = 4,
+            tomHContCell = 8,
+            tomRowUpdate = 1,
+            tomRowApplyDefault = 0,
+            tomCellStructureChangeOnly = 1,
+            tomRowHeightActual = 2059,
+        }
+    }
+}

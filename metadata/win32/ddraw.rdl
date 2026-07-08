@@ -1,0 +1,1481 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CLSID_DirectDraw: GUID = 0xd7b70ee0_4340_11cf_b063_0020afc2cd35;
+        const CLSID_DirectDraw7: GUID = 0x3c305196_50db_11d3_9cfe_00c04fd930c5;
+        const CLSID_DirectDrawClipper: GUID = 0x593817a0_7db3_11cf_a2de_00aa00b93356;
+        struct DDARGB {
+            blue: u8,
+            green: u8,
+            red: u8,
+            alpha: u8,
+        }
+        const DDBD_1: u32 = 16384;
+        const DDBD_16: u32 = 1024;
+        const DDBD_2: u32 = 8192;
+        const DDBD_24: u32 = 512;
+        const DDBD_32: u32 = 256;
+        const DDBD_4: u32 = 4096;
+        const DDBD_8: u32 = 2048;
+        struct DDBLTBATCH {
+            lprDest: LPRECT,
+            lpDDSSrc: IDirectDrawSurface,
+            lprSrc: LPRECT,
+            dwFlags: u32,
+            lpDDBltFx: LPDDBLTFX,
+        }
+        const DDBLTFAST_DESTCOLORKEY: u32 = 2;
+        const DDBLTFAST_DONOTWAIT: u32 = 32;
+        const DDBLTFAST_NOCOLORKEY: u32 = 0;
+        const DDBLTFAST_SRCCOLORKEY: u32 = 1;
+        const DDBLTFAST_WAIT: u32 = 16;
+        struct DDBLTFX {
+            dwSize: u32,
+            dwDDFX: u32,
+            dwROP: u32,
+            dwDDROP: u32,
+            dwRotationAngle: u32,
+            dwZBufferOpCode: u32,
+            dwZBufferLow: u32,
+            dwZBufferHigh: u32,
+            dwZBufferBaseDest: u32,
+            dwZDestConstBitDepth: u32,
+            Anonymous: union {
+                dwZDestConst: u32,
+                lpDDSZBufferDest: IDirectDrawSurface,
+            },
+            dwZSrcConstBitDepth: u32,
+            Anonymous2: union {
+                dwZSrcConst: u32,
+                lpDDSZBufferSrc: IDirectDrawSurface,
+            },
+            dwAlphaEdgeBlendBitDepth: u32,
+            dwAlphaEdgeBlend: u32,
+            dwReserved: u32,
+            dwAlphaDestConstBitDepth: u32,
+            Anonymous3: union {
+                dwAlphaDestConst: u32,
+                lpDDSAlphaDest: IDirectDrawSurface,
+            },
+            dwAlphaSrcConstBitDepth: u32,
+            Anonymous4: union {
+                dwAlphaSrcConst: u32,
+                lpDDSAlphaSrc: IDirectDrawSurface,
+            },
+            Anonymous5: union {
+                dwFillColor: u32,
+                dwFillDepth: u32,
+                dwFillPixel: u32,
+                lpDDSPattern: IDirectDrawSurface,
+            },
+            ddckDestColorkey: DDCOLORKEY,
+            ddckSrcColorkey: DDCOLORKEY,
+        }
+        const DDBLTFX_ARITHSTRETCHY: u32 = 1;
+        const DDBLTFX_MIRRORLEFTRIGHT: u32 = 2;
+        const DDBLTFX_MIRRORUPDOWN: u32 = 4;
+        const DDBLTFX_NOTEARING: u32 = 8;
+        const DDBLTFX_ROTATE180: u32 = 16;
+        const DDBLTFX_ROTATE270: u32 = 32;
+        const DDBLTFX_ROTATE90: u32 = 64;
+        const DDBLTFX_ZBUFFERBASEDEST: u32 = 256;
+        const DDBLTFX_ZBUFFERRANGE: u32 = 128;
+        const DDBLT_ALPHADEST: u32 = 1;
+        const DDBLT_ALPHADESTCONSTOVERRIDE: u32 = 2;
+        const DDBLT_ALPHADESTNEG: u32 = 4;
+        const DDBLT_ALPHADESTSURFACEOVERRIDE: u32 = 8;
+        const DDBLT_ALPHAEDGEBLEND: u32 = 16;
+        const DDBLT_ALPHASRC: u32 = 32;
+        const DDBLT_ALPHASRCCONSTOVERRIDE: u32 = 64;
+        const DDBLT_ALPHASRCNEG: u32 = 128;
+        const DDBLT_ALPHASRCSURFACEOVERRIDE: u32 = 256;
+        const DDBLT_ASYNC: u32 = 512;
+        const DDBLT_COLORFILL: u32 = 1024;
+        const DDBLT_DDFX: u32 = 2048;
+        const DDBLT_DDROPS: u32 = 4096;
+        const DDBLT_DEPTHFILL: u32 = 33554432;
+        const DDBLT_DONOTWAIT: u32 = 134217728;
+        const DDBLT_EXTENDED_FLAGS: u32 = 1073741824;
+        const DDBLT_EXTENDED_LINEAR_CONTENT: u32 = 4;
+        const DDBLT_KEYDEST: u32 = 8192;
+        const DDBLT_KEYDESTOVERRIDE: u32 = 16384;
+        const DDBLT_KEYSRC: u32 = 32768;
+        const DDBLT_KEYSRCOVERRIDE: u32 = 65536;
+        const DDBLT_LAST_PRESENTATION: u32 = 536870912;
+        const DDBLT_PRESENTATION: u32 = 268435456;
+        const DDBLT_ROP: u32 = 131072;
+        const DDBLT_ROTATIONANGLE: u32 = 262144;
+        const DDBLT_WAIT: u32 = 16777216;
+        const DDBLT_ZBUFFER: u32 = 524288;
+        const DDBLT_ZBUFFERDESTCONSTOVERRIDE: u32 = 1048576;
+        const DDBLT_ZBUFFERDESTOVERRIDE: u32 = 2097152;
+        const DDBLT_ZBUFFERSRCCONSTOVERRIDE: u32 = 4194304;
+        const DDBLT_ZBUFFERSRCOVERRIDE: u32 = 8388608;
+        type DDCAPS = DDCAPS_DX7;
+        const DDCAPS2_AUTOFLIPOVERLAY: u32 = 8;
+        const DDCAPS2_CANAUTOGENMIPMAP: u32 = 1073741824;
+        const DDCAPS2_CANBOBHARDWARE: u32 = 16384;
+        const DDCAPS2_CANBOBINTERLEAVED: u32 = 16;
+        const DDCAPS2_CANBOBNONINTERLEAVED: u32 = 32;
+        const DDCAPS2_CANCALIBRATEGAMMA: u32 = 1048576;
+        const DDCAPS2_CANDROPZ16BIT: u32 = 256;
+        const DDCAPS2_CANFLIPODDEVEN: u32 = 8192;
+        const DDCAPS2_CANMANAGERESOURCE: u32 = 268435456;
+        const DDCAPS2_CANMANAGETEXTURE: u32 = 8388608;
+        const DDCAPS2_CANRENDERWINDOWED: u32 = 524288;
+        const DDCAPS2_CANSHARERESOURCE: u32 = 2147483648;
+        const DDCAPS2_CERTIFIED: u32 = 1;
+        const DDCAPS2_COLORCONTROLOVERLAY: u32 = 64;
+        const DDCAPS2_COLORCONTROLPRIMARY: u32 = 128;
+        const DDCAPS2_COPYFOURCC: u32 = 32768;
+        const DDCAPS2_DYNAMICTEXTURES: u32 = 536870912;
+        const DDCAPS2_FLIPINTERVAL: u32 = 2097152;
+        const DDCAPS2_FLIPNOVSYNC: u32 = 4194304;
+        const DDCAPS2_NO2DDURING3DSCENE: u32 = 2;
+        const DDCAPS2_NONLOCALVIDMEM: u32 = 512;
+        const DDCAPS2_NONLOCALVIDMEMCAPS: u32 = 1024;
+        const DDCAPS2_NOPAGELOCKREQUIRED: u32 = 2048;
+        const DDCAPS2_PRIMARYGAMMA: u32 = 131072;
+        const DDCAPS2_RESERVED1: u32 = 134217728;
+        const DDCAPS2_STEREO: u32 = 33554432;
+        const DDCAPS2_SYSTONONLOCAL_AS_SYSTOLOCAL: u32 = 67108864;
+        const DDCAPS2_TEXMANINNONLOCALVIDMEM: u32 = 16777216;
+        const DDCAPS2_VIDEOPORT: u32 = 4;
+        const DDCAPS2_WIDESURFACES: u32 = 4096;
+        const DDCAPS_3D: u32 = 1;
+        const DDCAPS_ALIGNBOUNDARYDEST: u32 = 2;
+        const DDCAPS_ALIGNBOUNDARYSRC: u32 = 8;
+        const DDCAPS_ALIGNSIZEDEST: u32 = 4;
+        const DDCAPS_ALIGNSIZESRC: u32 = 16;
+        const DDCAPS_ALIGNSTRIDE: u32 = 32;
+        const DDCAPS_ALPHA: u32 = 8388608;
+        const DDCAPS_BANKSWITCHED: u32 = 134217728;
+        const DDCAPS_BLT: u32 = 64;
+        const DDCAPS_BLTCOLORFILL: u32 = 67108864;
+        const DDCAPS_BLTDEPTHFILL: u32 = 268435456;
+        const DDCAPS_BLTFOURCC: u32 = 256;
+        const DDCAPS_BLTQUEUE: u32 = 128;
+        const DDCAPS_BLTSTRETCH: u32 = 512;
+        const DDCAPS_CANBLTSYSMEM: u32 = 2147483648;
+        const DDCAPS_CANCLIP: u32 = 536870912;
+        const DDCAPS_CANCLIPSTRETCHED: u32 = 1073741824;
+        const DDCAPS_COLORKEY: u32 = 4194304;
+        const DDCAPS_COLORKEYHWASSIST: u32 = 16777216;
+        struct DDCAPS_DX1 {
+            dwSize: u32,
+            dwCaps: u32,
+            dwCaps2: u32,
+            dwCKeyCaps: u32,
+            dwFXCaps: u32,
+            dwFXAlphaCaps: u32,
+            dwPalCaps: u32,
+            dwSVCaps: u32,
+            dwAlphaBltConstBitDepths: u32,
+            dwAlphaBltPixelBitDepths: u32,
+            dwAlphaBltSurfaceBitDepths: u32,
+            dwAlphaOverlayConstBitDepths: u32,
+            dwAlphaOverlayPixelBitDepths: u32,
+            dwAlphaOverlaySurfaceBitDepths: u32,
+            dwZBufferBitDepths: u32,
+            dwVidMemTotal: u32,
+            dwVidMemFree: u32,
+            dwMaxVisibleOverlays: u32,
+            dwCurrVisibleOverlays: u32,
+            dwNumFourCCCodes: u32,
+            dwAlignBoundarySrc: u32,
+            dwAlignSizeSrc: u32,
+            dwAlignBoundaryDest: u32,
+            dwAlignSizeDest: u32,
+            dwAlignStrideAlign: u32,
+            dwRops: [u32; 8],
+            ddsCaps: DDSCAPS,
+            dwMinOverlayStretch: u32,
+            dwMaxOverlayStretch: u32,
+            dwMinLiveVideoStretch: u32,
+            dwMaxLiveVideoStretch: u32,
+            dwMinHwCodecStretch: u32,
+            dwMaxHwCodecStretch: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwReserved3: u32,
+        }
+        struct DDCAPS_DX3 {
+            dwSize: u32,
+            dwCaps: u32,
+            dwCaps2: u32,
+            dwCKeyCaps: u32,
+            dwFXCaps: u32,
+            dwFXAlphaCaps: u32,
+            dwPalCaps: u32,
+            dwSVCaps: u32,
+            dwAlphaBltConstBitDepths: u32,
+            dwAlphaBltPixelBitDepths: u32,
+            dwAlphaBltSurfaceBitDepths: u32,
+            dwAlphaOverlayConstBitDepths: u32,
+            dwAlphaOverlayPixelBitDepths: u32,
+            dwAlphaOverlaySurfaceBitDepths: u32,
+            dwZBufferBitDepths: u32,
+            dwVidMemTotal: u32,
+            dwVidMemFree: u32,
+            dwMaxVisibleOverlays: u32,
+            dwCurrVisibleOverlays: u32,
+            dwNumFourCCCodes: u32,
+            dwAlignBoundarySrc: u32,
+            dwAlignSizeSrc: u32,
+            dwAlignBoundaryDest: u32,
+            dwAlignSizeDest: u32,
+            dwAlignStrideAlign: u32,
+            dwRops: [u32; 8],
+            ddsCaps: DDSCAPS,
+            dwMinOverlayStretch: u32,
+            dwMaxOverlayStretch: u32,
+            dwMinLiveVideoStretch: u32,
+            dwMaxLiveVideoStretch: u32,
+            dwMinHwCodecStretch: u32,
+            dwMaxHwCodecStretch: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwReserved3: u32,
+            dwSVBCaps: u32,
+            dwSVBCKeyCaps: u32,
+            dwSVBFXCaps: u32,
+            dwSVBRops: [u32; 8],
+            dwVSBCaps: u32,
+            dwVSBCKeyCaps: u32,
+            dwVSBFXCaps: u32,
+            dwVSBRops: [u32; 8],
+            dwSSBCaps: u32,
+            dwSSBCKeyCaps: u32,
+            dwSSBFXCaps: u32,
+            dwSSBRops: [u32; 8],
+            dwReserved4: u32,
+            dwReserved5: u32,
+            dwReserved6: u32,
+        }
+        struct DDCAPS_DX5 {
+            dwSize: u32,
+            dwCaps: u32,
+            dwCaps2: u32,
+            dwCKeyCaps: u32,
+            dwFXCaps: u32,
+            dwFXAlphaCaps: u32,
+            dwPalCaps: u32,
+            dwSVCaps: u32,
+            dwAlphaBltConstBitDepths: u32,
+            dwAlphaBltPixelBitDepths: u32,
+            dwAlphaBltSurfaceBitDepths: u32,
+            dwAlphaOverlayConstBitDepths: u32,
+            dwAlphaOverlayPixelBitDepths: u32,
+            dwAlphaOverlaySurfaceBitDepths: u32,
+            dwZBufferBitDepths: u32,
+            dwVidMemTotal: u32,
+            dwVidMemFree: u32,
+            dwMaxVisibleOverlays: u32,
+            dwCurrVisibleOverlays: u32,
+            dwNumFourCCCodes: u32,
+            dwAlignBoundarySrc: u32,
+            dwAlignSizeSrc: u32,
+            dwAlignBoundaryDest: u32,
+            dwAlignSizeDest: u32,
+            dwAlignStrideAlign: u32,
+            dwRops: [u32; 8],
+            ddsCaps: DDSCAPS,
+            dwMinOverlayStretch: u32,
+            dwMaxOverlayStretch: u32,
+            dwMinLiveVideoStretch: u32,
+            dwMaxLiveVideoStretch: u32,
+            dwMinHwCodecStretch: u32,
+            dwMaxHwCodecStretch: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwReserved3: u32,
+            dwSVBCaps: u32,
+            dwSVBCKeyCaps: u32,
+            dwSVBFXCaps: u32,
+            dwSVBRops: [u32; 8],
+            dwVSBCaps: u32,
+            dwVSBCKeyCaps: u32,
+            dwVSBFXCaps: u32,
+            dwVSBRops: [u32; 8],
+            dwSSBCaps: u32,
+            dwSSBCKeyCaps: u32,
+            dwSSBFXCaps: u32,
+            dwSSBRops: [u32; 8],
+            dwMaxVideoPorts: u32,
+            dwCurrVideoPorts: u32,
+            dwSVBCaps2: u32,
+            dwNLVBCaps: u32,
+            dwNLVBCaps2: u32,
+            dwNLVBCKeyCaps: u32,
+            dwNLVBFXCaps: u32,
+            dwNLVBRops: [u32; 8],
+        }
+        struct DDCAPS_DX6 {
+            dwSize: u32,
+            dwCaps: u32,
+            dwCaps2: u32,
+            dwCKeyCaps: u32,
+            dwFXCaps: u32,
+            dwFXAlphaCaps: u32,
+            dwPalCaps: u32,
+            dwSVCaps: u32,
+            dwAlphaBltConstBitDepths: u32,
+            dwAlphaBltPixelBitDepths: u32,
+            dwAlphaBltSurfaceBitDepths: u32,
+            dwAlphaOverlayConstBitDepths: u32,
+            dwAlphaOverlayPixelBitDepths: u32,
+            dwAlphaOverlaySurfaceBitDepths: u32,
+            dwZBufferBitDepths: u32,
+            dwVidMemTotal: u32,
+            dwVidMemFree: u32,
+            dwMaxVisibleOverlays: u32,
+            dwCurrVisibleOverlays: u32,
+            dwNumFourCCCodes: u32,
+            dwAlignBoundarySrc: u32,
+            dwAlignSizeSrc: u32,
+            dwAlignBoundaryDest: u32,
+            dwAlignSizeDest: u32,
+            dwAlignStrideAlign: u32,
+            dwRops: [u32; 8],
+            ddsOldCaps: DDSCAPS,
+            dwMinOverlayStretch: u32,
+            dwMaxOverlayStretch: u32,
+            dwMinLiveVideoStretch: u32,
+            dwMaxLiveVideoStretch: u32,
+            dwMinHwCodecStretch: u32,
+            dwMaxHwCodecStretch: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwReserved3: u32,
+            dwSVBCaps: u32,
+            dwSVBCKeyCaps: u32,
+            dwSVBFXCaps: u32,
+            dwSVBRops: [u32; 8],
+            dwVSBCaps: u32,
+            dwVSBCKeyCaps: u32,
+            dwVSBFXCaps: u32,
+            dwVSBRops: [u32; 8],
+            dwSSBCaps: u32,
+            dwSSBCKeyCaps: u32,
+            dwSSBFXCaps: u32,
+            dwSSBRops: [u32; 8],
+            dwMaxVideoPorts: u32,
+            dwCurrVideoPorts: u32,
+            dwSVBCaps2: u32,
+            dwNLVBCaps: u32,
+            dwNLVBCaps2: u32,
+            dwNLVBCKeyCaps: u32,
+            dwNLVBFXCaps: u32,
+            dwNLVBRops: [u32; 8],
+            ddsCaps: DDSCAPS2,
+        }
+        struct DDCAPS_DX7 {
+            dwSize: u32,
+            dwCaps: u32,
+            dwCaps2: u32,
+            dwCKeyCaps: u32,
+            dwFXCaps: u32,
+            dwFXAlphaCaps: u32,
+            dwPalCaps: u32,
+            dwSVCaps: u32,
+            dwAlphaBltConstBitDepths: u32,
+            dwAlphaBltPixelBitDepths: u32,
+            dwAlphaBltSurfaceBitDepths: u32,
+            dwAlphaOverlayConstBitDepths: u32,
+            dwAlphaOverlayPixelBitDepths: u32,
+            dwAlphaOverlaySurfaceBitDepths: u32,
+            dwZBufferBitDepths: u32,
+            dwVidMemTotal: u32,
+            dwVidMemFree: u32,
+            dwMaxVisibleOverlays: u32,
+            dwCurrVisibleOverlays: u32,
+            dwNumFourCCCodes: u32,
+            dwAlignBoundarySrc: u32,
+            dwAlignSizeSrc: u32,
+            dwAlignBoundaryDest: u32,
+            dwAlignSizeDest: u32,
+            dwAlignStrideAlign: u32,
+            dwRops: [u32; 8],
+            ddsOldCaps: DDSCAPS,
+            dwMinOverlayStretch: u32,
+            dwMaxOverlayStretch: u32,
+            dwMinLiveVideoStretch: u32,
+            dwMaxLiveVideoStretch: u32,
+            dwMinHwCodecStretch: u32,
+            dwMaxHwCodecStretch: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwReserved3: u32,
+            dwSVBCaps: u32,
+            dwSVBCKeyCaps: u32,
+            dwSVBFXCaps: u32,
+            dwSVBRops: [u32; 8],
+            dwVSBCaps: u32,
+            dwVSBCKeyCaps: u32,
+            dwVSBFXCaps: u32,
+            dwVSBRops: [u32; 8],
+            dwSSBCaps: u32,
+            dwSSBCKeyCaps: u32,
+            dwSSBFXCaps: u32,
+            dwSSBRops: [u32; 8],
+            dwMaxVideoPorts: u32,
+            dwCurrVideoPorts: u32,
+            dwSVBCaps2: u32,
+            dwNLVBCaps: u32,
+            dwNLVBCaps2: u32,
+            dwNLVBCKeyCaps: u32,
+            dwNLVBFXCaps: u32,
+            dwNLVBRops: [u32; 8],
+            ddsCaps: DDSCAPS2,
+        }
+        const DDCAPS_GDI: u32 = 1024;
+        const DDCAPS_NOHARDWARE: u32 = 33554432;
+        const DDCAPS_OVERLAY: u32 = 2048;
+        const DDCAPS_OVERLAYCANTCLIP: u32 = 4096;
+        const DDCAPS_OVERLAYFOURCC: u32 = 8192;
+        const DDCAPS_OVERLAYSTRETCH: u32 = 16384;
+        const DDCAPS_PALETTE: u32 = 32768;
+        const DDCAPS_PALETTEVSYNC: u32 = 65536;
+        const DDCAPS_READSCANLINE: u32 = 131072;
+        const DDCAPS_RESERVED1: u32 = 262144;
+        const DDCAPS_VBI: u32 = 524288;
+        const DDCAPS_ZBLTS: u32 = 1048576;
+        const DDCAPS_ZOVERLAYS: u32 = 2097152;
+        const DDCKEYCAPS_DESTBLT: u32 = 1;
+        const DDCKEYCAPS_DESTBLTCLRSPACE: u32 = 2;
+        const DDCKEYCAPS_DESTBLTCLRSPACEYUV: u32 = 4;
+        const DDCKEYCAPS_DESTBLTYUV: u32 = 8;
+        const DDCKEYCAPS_DESTOVERLAY: u32 = 16;
+        const DDCKEYCAPS_DESTOVERLAYCLRSPACE: u32 = 32;
+        const DDCKEYCAPS_DESTOVERLAYCLRSPACEYUV: u32 = 64;
+        const DDCKEYCAPS_DESTOVERLAYONEACTIVE: u32 = 128;
+        const DDCKEYCAPS_DESTOVERLAYYUV: u32 = 256;
+        const DDCKEYCAPS_NOCOSTOVERLAY: u32 = 262144;
+        const DDCKEYCAPS_SRCBLT: u32 = 512;
+        const DDCKEYCAPS_SRCBLTCLRSPACE: u32 = 1024;
+        const DDCKEYCAPS_SRCBLTCLRSPACEYUV: u32 = 2048;
+        const DDCKEYCAPS_SRCBLTYUV: u32 = 4096;
+        const DDCKEYCAPS_SRCOVERLAY: u32 = 8192;
+        const DDCKEYCAPS_SRCOVERLAYCLRSPACE: u32 = 16384;
+        const DDCKEYCAPS_SRCOVERLAYCLRSPACEYUV: u32 = 32768;
+        const DDCKEYCAPS_SRCOVERLAYONEACTIVE: u32 = 65536;
+        const DDCKEYCAPS_SRCOVERLAYYUV: u32 = 131072;
+        const DDCKEY_COLORSPACE: u32 = 1;
+        const DDCKEY_DESTBLT: u32 = 2;
+        const DDCKEY_DESTOVERLAY: u32 = 4;
+        const DDCKEY_SRCBLT: u32 = 8;
+        const DDCKEY_SRCOVERLAY: u32 = 16;
+        struct DDCOLORCONTROL {
+            dwSize: u32,
+            dwFlags: u32,
+            lBrightness: i32,
+            lContrast: i32,
+            lHue: i32,
+            lSaturation: i32,
+            lSharpness: i32,
+            lGamma: i32,
+            lColorEnable: i32,
+            dwReserved1: u32,
+        }
+        struct DDCOLORKEY {
+            dwColorSpaceLowValue: u32,
+            dwColorSpaceHighValue: u32,
+        }
+        const DDCOLOR_BRIGHTNESS: u32 = 1;
+        const DDCOLOR_COLORENABLE: u32 = 64;
+        const DDCOLOR_CONTRAST: u32 = 2;
+        const DDCOLOR_GAMMA: u32 = 32;
+        const DDCOLOR_HUE: u32 = 4;
+        const DDCOLOR_SATURATION: u32 = 8;
+        const DDCOLOR_SHARPNESS: u32 = 16;
+        const DDCREATE_EMULATIONONLY: u32 = 2;
+        const DDCREATE_HARDWAREONLY: u32 = 1;
+        struct DDDEVICEIDENTIFIER {
+            szDriver: [i8; 512],
+            szDescription: [i8; 512],
+            liDriverVersion: LARGE_INTEGER,
+            dwVendorId: u32,
+            dwDeviceId: u32,
+            dwSubSysId: u32,
+            dwRevision: u32,
+            guidDeviceIdentifier: GUID,
+        }
+        struct DDDEVICEIDENTIFIER2 {
+            szDriver: [i8; 512],
+            szDescription: [i8; 512],
+            liDriverVersion: LARGE_INTEGER,
+            dwVendorId: u32,
+            dwDeviceId: u32,
+            dwSubSysId: u32,
+            dwRevision: u32,
+            guidDeviceIdentifier: GUID,
+            dwWHQLLevel: u32,
+        }
+        const DDEDM_REFRESHRATES: u32 = 1;
+        const DDEDM_STANDARDVGAMODES: u32 = 2;
+        const DDEM_MODEFAILED: u32 = 2;
+        const DDEM_MODEPASSED: u32 = 1;
+        const DDENUMOVERLAYZ_BACKTOFRONT: u32 = 0;
+        const DDENUMOVERLAYZ_FRONTTOBACK: u32 = 1;
+        const DDENUMRET_CANCEL: u32 = 0;
+        const DDENUMRET_OK: u32 = 1;
+        const DDENUMSURFACES_ALL: u32 = 1;
+        const DDENUMSURFACES_CANBECREATED: u32 = 8;
+        const DDENUMSURFACES_DOESEXIST: u32 = 16;
+        const DDENUMSURFACES_MATCH: u32 = 2;
+        const DDENUMSURFACES_NOMATCH: u32 = 4;
+        const DDENUM_ATTACHEDSECONDARYDEVICES: u32 = 1;
+        const DDENUM_DETACHEDSECONDARYDEVICES: u32 = 2;
+        const DDENUM_NONDISPLAYDEVICES: u32 = 4;
+        const DDERR_ALREADYINITIALIZED: i32 = -2005532667;
+        const DDERR_BLTFASTCANTCLIP: i32 = -2005532098;
+        const DDERR_CANNOTATTACHSURFACE: i32 = -2005532662;
+        const DDERR_CANNOTDETACHSURFACE: i32 = -2005532652;
+        const DDERR_CANTCREATEDC: i32 = -2005532087;
+        const DDERR_CANTDUPLICATE: i32 = -2005532089;
+        const DDERR_CANTLOCKSURFACE: i32 = -2005532237;
+        const DDERR_CANTPAGELOCK: i32 = -2005532032;
+        const DDERR_CANTPAGEUNLOCK: i32 = -2005532012;
+        const DDERR_CLIPPERISUSINGHWND: i32 = -2005532105;
+        const DDERR_COLORKEYNOTSET: i32 = -2005532272;
+        const DDERR_CURRENTLYNOTAVAIL: i32 = -2005532632;
+        const DDERR_D3DNOTINITIALIZED: i32 = -2005531978;
+        const DDERR_DCALREADYCREATED: i32 = -2005532052;
+        const DDERR_DDSCAPSCOMPLEXREQUIRED: i32 = -2005532130;
+        const DDERR_DEVICEDOESNTOWNSURFACE: i32 = -2005531973;
+        const DDERR_DIRECTDRAWALREADYCREATED: i32 = -2005532110;
+        const DDERR_EXCEPTION: i32 = -2005532617;
+        const DDERR_EXCLUSIVEMODEALREADYSET: i32 = -2005532091;
+        const DDERR_EXPIRED: i32 = -2005531981;
+        const DDERR_GENERIC: i32 = -2147467259;
+        const DDERR_HEIGHTALIGN: i32 = -2005532582;
+        const DDERR_HWNDALREADYSET: i32 = -2005532101;
+        const DDERR_HWNDSUBCLASSED: i32 = -2005532102;
+        const DDERR_IMPLICITLYCREATED: i32 = -2005532084;
+        const DDERR_INCOMPATIBLEPRIMARY: i32 = -2005532577;
+        const DDERR_INVALIDCAPS: i32 = -2005532572;
+        const DDERR_INVALIDCLIPLIST: i32 = -2005532562;
+        const DDERR_INVALIDDIRECTDRAWGUID: i32 = -2005532111;
+        const DDERR_INVALIDMODE: i32 = -2005532552;
+        const DDERR_INVALIDOBJECT: i32 = -2005532542;
+        const DDERR_INVALIDPARAMS: i32 = -2147024809;
+        const DDERR_INVALIDPIXELFORMAT: i32 = -2005532527;
+        const DDERR_INVALIDPOSITION: i32 = -2005532093;
+        const DDERR_INVALIDRECT: i32 = -2005532522;
+        const DDERR_INVALIDSTREAM: i32 = -2005532151;
+        const DDERR_INVALIDSURFACETYPE: i32 = -2005532080;
+        const DDERR_LOCKEDSURFACES: i32 = -2005532512;
+        const DDERR_MOREDATA: i32 = -2005531982;
+        const DDERR_NEWMODE: i32 = -2005531979;
+        const DDERR_NO3D: i32 = -2005532502;
+        const DDERR_NOALPHAHW: i32 = -2005532492;
+        const DDERR_NOBLTHW: i32 = -2005532097;
+        const DDERR_NOCLIPLIST: i32 = -2005532467;
+        const DDERR_NOCLIPPERATTACHED: i32 = -2005532104;
+        const DDERR_NOCOLORCONVHW: i32 = -2005532462;
+        const DDERR_NOCOLORKEY: i32 = -2005532457;
+        const DDERR_NOCOLORKEYHW: i32 = -2005532452;
+        const DDERR_NOCOOPERATIVELEVELSET: i32 = -2005532460;
+        const DDERR_NODC: i32 = -2005532086;
+        const DDERR_NODDROPSHW: i32 = -2005532096;
+        const DDERR_NODIRECTDRAWHW: i32 = -2005532109;
+        const DDERR_NODIRECTDRAWSUPPORT: i32 = -2005532450;
+        const DDERR_NODRIVERSUPPORT: i32 = -2005531975;
+        const DDERR_NOEMULATION: i32 = -2005532107;
+        const DDERR_NOEXCLUSIVEMODE: i32 = -2005532447;
+        const DDERR_NOFLIPHW: i32 = -2005532442;
+        const DDERR_NOFOCUSWINDOW: i32 = -2005532070;
+        const DDERR_NOGDI: i32 = -2005532432;
+        const DDERR_NOHWND: i32 = -2005532103;
+        const DDERR_NOMIPMAPHW: i32 = -2005532081;
+        const DDERR_NOMIRRORHW: i32 = -2005532422;
+        const DDERR_NOMONITORINFORMATION: i32 = -2005531976;
+        const DDERR_NONONLOCALVIDMEM: i32 = -2005532042;
+        const DDERR_NOOPTIMIZEHW: i32 = -2005532072;
+        const DDERR_NOOVERLAYDEST: i32 = -2005532094;
+        const DDERR_NOOVERLAYHW: i32 = -2005532412;
+        const DDERR_NOPALETTEATTACHED: i32 = -2005532100;
+        const DDERR_NOPALETTEHW: i32 = -2005532099;
+        const DDERR_NORASTEROPHW: i32 = -2005532392;
+        const DDERR_NOROTATIONHW: i32 = -2005532382;
+        const DDERR_NOSTEREOHARDWARE: i32 = -2005532491;
+        const DDERR_NOSTRETCHHW: i32 = -2005532362;
+        const DDERR_NOSURFACELEFT: i32 = -2005532490;
+        const DDERR_NOT4BITCOLOR: i32 = -2005532356;
+        const DDERR_NOT4BITCOLORINDEX: i32 = -2005532355;
+        const DDERR_NOT8BITCOLOR: i32 = -2005532352;
+        const DDERR_NOTAOVERLAYSURFACE: i32 = -2005532092;
+        const DDERR_NOTEXTUREHW: i32 = -2005532342;
+        const DDERR_NOTFLIPPABLE: i32 = -2005532090;
+        const DDERR_NOTFOUND: i32 = -2005532417;
+        const DDERR_NOTINITIALIZED: i32 = -2147221008;
+        const DDERR_NOTLOADED: i32 = -2005532071;
+        const DDERR_NOTLOCKED: i32 = -2005532088;
+        const DDERR_NOTONMIPMAPSUBLEVEL: i32 = -2005532069;
+        const DDERR_NOTPAGELOCKED: i32 = -2005531992;
+        const DDERR_NOTPALETTIZED: i32 = -2005532083;
+        const DDERR_NOVSYNCHW: i32 = -2005532337;
+        const DDERR_NOZBUFFERHW: i32 = -2005532332;
+        const DDERR_NOZOVERLAYHW: i32 = -2005532322;
+        const DDERR_OUTOFCAPS: i32 = -2005532312;
+        const DDERR_OUTOFMEMORY: i32 = -2147024882;
+        const DDERR_OUTOFVIDEOMEMORY: i32 = -2005532292;
+        const DDERR_OVERLAPPINGRECTS: i32 = -2005532402;
+        const DDERR_OVERLAYCANTCLIP: i32 = -2005532290;
+        const DDERR_OVERLAYCOLORKEYONLYONEACTIVE: i32 = -2005532288;
+        const DDERR_OVERLAYNOTVISIBLE: i32 = -2005532095;
+        const DDERR_PALETTEBUSY: i32 = -2005532285;
+        const DDERR_PRIMARYSURFACEALREADYEXISTS: i32 = -2005532108;
+        const DDERR_REGIONTOOSMALL: i32 = -2005532106;
+        const DDERR_SURFACEALREADYATTACHED: i32 = -2005532262;
+        const DDERR_SURFACEALREADYDEPENDENT: i32 = -2005532252;
+        const DDERR_SURFACEBUSY: i32 = -2005532242;
+        const DDERR_SURFACEISOBSCURED: i32 = -2005532232;
+        const DDERR_SURFACELOST: i32 = -2005532222;
+        const DDERR_SURFACENOTATTACHED: i32 = -2005532212;
+        const DDERR_TESTFINISHED: i32 = -2005531980;
+        const DDERR_TOOBIGHEIGHT: i32 = -2005532202;
+        const DDERR_TOOBIGSIZE: i32 = -2005532192;
+        const DDERR_TOOBIGWIDTH: i32 = -2005532182;
+        const DDERR_UNSUPPORTED: i32 = -2147467263;
+        const DDERR_UNSUPPORTEDFORMAT: i32 = -2005532162;
+        const DDERR_UNSUPPORTEDMASK: i32 = -2005532152;
+        const DDERR_UNSUPPORTEDMODE: i32 = -2005532082;
+        const DDERR_VERTICALBLANKINPROGRESS: i32 = -2005532135;
+        const DDERR_VIDEONOTACTIVE: i32 = -2005531977;
+        const DDERR_WASSTILLDRAWING: i32 = -2005532132;
+        const DDERR_WRONGMODE: i32 = -2005532085;
+        const DDERR_XALIGN: i32 = -2005532112;
+        const DDFLIP_DONOTWAIT: u32 = 32;
+        const DDFLIP_EVEN: u32 = 2;
+        const DDFLIP_INTERVAL2: u32 = 33554432;
+        const DDFLIP_INTERVAL3: u32 = 50331648;
+        const DDFLIP_INTERVAL4: u32 = 67108864;
+        const DDFLIP_NOVSYNC: u32 = 8;
+        const DDFLIP_ODD: u32 = 4;
+        const DDFLIP_STEREO: u32 = 16;
+        const DDFLIP_WAIT: u32 = 1;
+        const DDFXALPHACAPS_BLTALPHAEDGEBLEND: u32 = 1;
+        const DDFXALPHACAPS_BLTALPHAPIXELS: u32 = 2;
+        const DDFXALPHACAPS_BLTALPHAPIXELSNEG: u32 = 4;
+        const DDFXALPHACAPS_BLTALPHASURFACES: u32 = 8;
+        const DDFXALPHACAPS_BLTALPHASURFACESNEG: u32 = 16;
+        const DDFXALPHACAPS_OVERLAYALPHAEDGEBLEND: u32 = 32;
+        const DDFXALPHACAPS_OVERLAYALPHAPIXELS: u32 = 64;
+        const DDFXALPHACAPS_OVERLAYALPHAPIXELSNEG: u32 = 128;
+        const DDFXALPHACAPS_OVERLAYALPHASURFACES: u32 = 256;
+        const DDFXALPHACAPS_OVERLAYALPHASURFACESNEG: u32 = 512;
+        const DDFXCAPS_BLTALPHA: u32 = 1;
+        const DDFXCAPS_BLTARITHSTRETCHY: u32 = 32;
+        const DDFXCAPS_BLTARITHSTRETCHYN: u32 = 16;
+        const DDFXCAPS_BLTFILTER: u32 = 32;
+        const DDFXCAPS_BLTMIRRORLEFTRIGHT: u32 = 64;
+        const DDFXCAPS_BLTMIRRORUPDOWN: u32 = 128;
+        const DDFXCAPS_BLTROTATION: u32 = 256;
+        const DDFXCAPS_BLTROTATION90: u32 = 512;
+        const DDFXCAPS_BLTSHRINKX: u32 = 1024;
+        const DDFXCAPS_BLTSHRINKXN: u32 = 2048;
+        const DDFXCAPS_BLTSHRINKY: u32 = 4096;
+        const DDFXCAPS_BLTSHRINKYN: u32 = 8192;
+        const DDFXCAPS_BLTSTRETCHX: u32 = 16384;
+        const DDFXCAPS_BLTSTRETCHXN: u32 = 32768;
+        const DDFXCAPS_BLTSTRETCHY: u32 = 65536;
+        const DDFXCAPS_BLTSTRETCHYN: u32 = 131072;
+        const DDFXCAPS_OVERLAYALPHA: u32 = 4;
+        const DDFXCAPS_OVERLAYARITHSTRETCHY: u32 = 262144;
+        const DDFXCAPS_OVERLAYARITHSTRETCHYN: u32 = 8;
+        const DDFXCAPS_OVERLAYDEINTERLACE: u32 = 536870912;
+        const DDFXCAPS_OVERLAYFILTER: u32 = 262144;
+        const DDFXCAPS_OVERLAYMIRRORLEFTRIGHT: u32 = 134217728;
+        const DDFXCAPS_OVERLAYMIRRORUPDOWN: u32 = 268435456;
+        const DDFXCAPS_OVERLAYSHRINKX: u32 = 524288;
+        const DDFXCAPS_OVERLAYSHRINKXN: u32 = 1048576;
+        const DDFXCAPS_OVERLAYSHRINKY: u32 = 2097152;
+        const DDFXCAPS_OVERLAYSHRINKYN: u32 = 4194304;
+        const DDFXCAPS_OVERLAYSTRETCHX: u32 = 8388608;
+        const DDFXCAPS_OVERLAYSTRETCHXN: u32 = 16777216;
+        const DDFXCAPS_OVERLAYSTRETCHY: u32 = 33554432;
+        const DDFXCAPS_OVERLAYSTRETCHYN: u32 = 67108864;
+        struct DDGAMMARAMP {
+            red: [u16; 256],
+            green: [u16; 256],
+            blue: [u16; 256],
+        }
+        const DDGBS_CANBLT: u32 = 1;
+        const DDGBS_ISBLTDONE: u32 = 2;
+        const DDGDI_GETHOSTIDENTIFIER: u32 = 1;
+        const DDGFS_CANFLIP: u32 = 1;
+        const DDGFS_ISFLIPDONE: u32 = 2;
+        const DDLOCK_DISCARDCONTENTS: u32 = 8192;
+        const DDLOCK_DONOTWAIT: u32 = 16384;
+        const DDLOCK_EVENT: u32 = 2;
+        const DDLOCK_HASVOLUMETEXTUREBOXRECT: u32 = 32768;
+        const DDLOCK_NODIRTYUPDATE: u32 = 65536;
+        const DDLOCK_NOOVERWRITE: u32 = 4096;
+        const DDLOCK_NOSYSLOCK: u32 = 2048;
+        const DDLOCK_OKTOSWAP: u32 = 8192;
+        const DDLOCK_READONLY: u32 = 16;
+        const DDLOCK_SURFACEMEMORYPTR: u32 = 0;
+        const DDLOCK_WAIT: u32 = 1;
+        const DDLOCK_WRITEONLY: u32 = 32;
+        struct DDOPTSURFACEDESC {
+            dwSize: u32,
+            dwFlags: u32,
+            ddSCaps: DDSCAPS2,
+            ddOSCaps: DDOSCAPS,
+            guid: GUID,
+            dwCompressionRatio: u32,
+        }
+        struct DDOSCAPS {
+            dwCaps: u32,
+        }
+        const DDOSDCAPS_MONOLITHICMIPMAP: u32 = 4;
+        const DDOSDCAPS_OPTCOMPRESSED: u32 = 1;
+        const DDOSDCAPS_OPTREORDERED: u32 = 2;
+        const DDOSDCAPS_VALIDOSCAPS: u32 = 7;
+        const DDOSDCAPS_VALIDSCAPS: u32 = 805324800;
+        const DDOSD_ALL: u32 = 15;
+        const DDOSD_COMPRESSION_RATIO: u32 = 2;
+        const DDOSD_GUID: u32 = 1;
+        const DDOSD_OSCAPS: u32 = 8;
+        const DDOSD_SCAPS: u32 = 4;
+        const DDOVERFX_ARITHSTRETCHY: u32 = 1;
+        const DDOVERFX_DEINTERLACE: u32 = 8;
+        const DDOVERFX_MIRRORLEFTRIGHT: u32 = 2;
+        const DDOVERFX_MIRRORUPDOWN: u32 = 4;
+        struct DDOVERLAYFX {
+            dwSize: u32,
+            dwAlphaEdgeBlendBitDepth: u32,
+            dwAlphaEdgeBlend: u32,
+            dwReserved: u32,
+            dwAlphaDestConstBitDepth: u32,
+            Anonymous: union {
+                dwAlphaDestConst: u32,
+                lpDDSAlphaDest: IDirectDrawSurface,
+            },
+            dwAlphaSrcConstBitDepth: u32,
+            Anonymous2: union {
+                dwAlphaSrcConst: u32,
+                lpDDSAlphaSrc: IDirectDrawSurface,
+            },
+            dckDestColorkey: DDCOLORKEY,
+            dckSrcColorkey: DDCOLORKEY,
+            dwDDFX: u32,
+            dwFlags: u32,
+        }
+        const DDOVERZ_INSERTINBACKOF: u32 = 5;
+        const DDOVERZ_INSERTINFRONTOF: u32 = 4;
+        const DDOVERZ_MOVEBACKWARD: u32 = 3;
+        const DDOVERZ_MOVEFORWARD: u32 = 2;
+        const DDOVERZ_SENDTOBACK: u32 = 1;
+        const DDOVERZ_SENDTOFRONT: u32 = 0;
+        const DDOVER_ADDDIRTYRECT: u32 = 32768;
+        const DDOVER_ALPHADEST: u32 = 1;
+        const DDOVER_ALPHADESTCONSTOVERRIDE: u32 = 2;
+        const DDOVER_ALPHADESTNEG: u32 = 4;
+        const DDOVER_ALPHADESTSURFACEOVERRIDE: u32 = 8;
+        const DDOVER_ALPHAEDGEBLEND: u32 = 16;
+        const DDOVER_ALPHASRC: u32 = 32;
+        const DDOVER_ALPHASRCCONSTOVERRIDE: u32 = 64;
+        const DDOVER_ALPHASRCNEG: u32 = 128;
+        const DDOVER_ALPHASRCSURFACEOVERRIDE: u32 = 256;
+        const DDOVER_ARGBSCALEFACTORS: u32 = 33554432;
+        const DDOVER_AUTOFLIP: u32 = 1048576;
+        const DDOVER_BOB: u32 = 2097152;
+        const DDOVER_BOBHARDWARE: u32 = 16777216;
+        const DDOVER_DDFX: u32 = 524288;
+        const DDOVER_DEGRADEARGBSCALING: u32 = 67108864;
+        const DDOVER_HIDE: u32 = 512;
+        const DDOVER_INTERLEAVED: u32 = 8388608;
+        const DDOVER_KEYDEST: u32 = 1024;
+        const DDOVER_KEYDESTOVERRIDE: u32 = 2048;
+        const DDOVER_KEYSRC: u32 = 4096;
+        const DDOVER_KEYSRCOVERRIDE: u32 = 8192;
+        const DDOVER_OVERRIDEBOBWEAVE: u32 = 4194304;
+        const DDOVER_REFRESHALL: u32 = 131072;
+        const DDOVER_REFRESHDIRTYRECTS: u32 = 65536;
+        const DDOVER_SHOW: u32 = 16384;
+        const DDPCAPS_1BIT: u32 = 256;
+        const DDPCAPS_2BIT: u32 = 512;
+        const DDPCAPS_4BIT: u32 = 1;
+        const DDPCAPS_8BIT: u32 = 4;
+        const DDPCAPS_8BITENTRIES: u32 = 2;
+        const DDPCAPS_ALLOW256: u32 = 64;
+        const DDPCAPS_ALPHA: u32 = 1024;
+        const DDPCAPS_INITIALIZE: u32 = 0;
+        const DDPCAPS_PRIMARYSURFACE: u32 = 16;
+        const DDPCAPS_PRIMARYSURFACELEFT: u32 = 32;
+        const DDPCAPS_VSYNC: u32 = 128;
+        const DDPF_ALPHA: u32 = 2;
+        const DDPF_ALPHAPIXELS: u32 = 1;
+        const DDPF_ALPHAPREMULT: u32 = 32768;
+        const DDPF_BUMPDUDV: u32 = 524288;
+        const DDPF_BUMPLUMINANCE: u32 = 262144;
+        const DDPF_COMPRESSED: u32 = 128;
+        const DDPF_LUMINANCE: u32 = 131072;
+        const DDPF_PALETTEINDEXED1: u32 = 2048;
+        const DDPF_PALETTEINDEXED2: u32 = 4096;
+        const DDPF_PALETTEINDEXED4: u32 = 8;
+        const DDPF_PALETTEINDEXED8: u32 = 32;
+        const DDPF_PALETTEINDEXEDTO8: u32 = 16;
+        const DDPF_RGB: u32 = 64;
+        const DDPF_RGBTOYUV: u32 = 256;
+        const DDPF_STENCILBUFFER: u32 = 16384;
+        const DDPF_YUV: u32 = 512;
+        const DDPF_ZBUFFER: u32 = 1024;
+        const DDPF_ZPIXELS: u32 = 8192;
+        struct DDRGBA {
+            red: u8,
+            green: u8,
+            blue: u8,
+            alpha: u8,
+        }
+        struct DDSCAPS {
+            dwCaps: u32,
+        }
+        struct DDSCAPS2 {
+            dwCaps: u32,
+            dwCaps2: u32,
+            dwCaps3: u32,
+            Anonymous: union {
+                dwCaps4: u32,
+                dwVolumeDepth: u32,
+            },
+        }
+        const DDSCAPS2_ADDITIONALPRIMARY: u32 = 2147483648;
+        const DDSCAPS2_CUBEMAP: u32 = 512;
+        const DDSCAPS2_CUBEMAP_ALLFACES: u32 = 64512;
+        const DDSCAPS2_CUBEMAP_NEGATIVEX: u32 = 2048;
+        const DDSCAPS2_CUBEMAP_NEGATIVEY: u32 = 8192;
+        const DDSCAPS2_CUBEMAP_NEGATIVEZ: u32 = 32768;
+        const DDSCAPS2_CUBEMAP_POSITIVEX: u32 = 1024;
+        const DDSCAPS2_CUBEMAP_POSITIVEY: u32 = 4096;
+        const DDSCAPS2_CUBEMAP_POSITIVEZ: u32 = 16384;
+        const DDSCAPS2_D3DTEXTUREMANAGE: u32 = 131072;
+        const DDSCAPS2_DISCARDBACKBUFFER: u32 = 268435456;
+        const DDSCAPS2_DONOTPERSIST: u32 = 262144;
+        const DDSCAPS2_ENABLEALPHACHANNEL: u32 = 536870912;
+        const DDSCAPS2_EXTENDEDFORMATPRIMARY: u32 = 1073741824;
+        const DDSCAPS2_HARDWAREDEINTERLACE: u32 = 0;
+        const DDSCAPS2_HINTANTIALIASING: u32 = 256;
+        const DDSCAPS2_HINTDYNAMIC: u32 = 4;
+        const DDSCAPS2_HINTSTATIC: u32 = 8;
+        const DDSCAPS2_MIPMAPSUBLEVEL: u32 = 65536;
+        const DDSCAPS2_NOTUSERLOCKABLE: u32 = 4194304;
+        const DDSCAPS2_NPATCHES: u32 = 33554432;
+        const DDSCAPS2_OPAQUE: u32 = 128;
+        const DDSCAPS2_POINTS: u32 = 8388608;
+        const DDSCAPS2_RESERVED1: u32 = 32;
+        const DDSCAPS2_RESERVED2: u32 = 64;
+        const DDSCAPS2_RESERVED3: u32 = 67108864;
+        const DDSCAPS2_RESERVED4: u32 = 2;
+        const DDSCAPS2_RTPATCHES: u32 = 16777216;
+        const DDSCAPS2_STEREOSURFACELEFT: u32 = 524288;
+        const DDSCAPS2_TEXTUREMANAGE: u32 = 16;
+        const DDSCAPS2_VOLUME: u32 = 2097152;
+        const DDSCAPS3_AUTOGENMIPMAP: u32 = 2048;
+        const DDSCAPS3_CREATESHAREDRESOURCE: u32 = 8192;
+        const DDSCAPS3_DMAP: u32 = 4096;
+        const DDSCAPS3_LIGHTWEIGHTMIPMAP: u32 = 1024;
+        const DDSCAPS3_MULTISAMPLE_MASK: u32 = 31;
+        const DDSCAPS3_MULTISAMPLE_QUALITY_MASK: u32 = 224;
+        const DDSCAPS3_MULTISAMPLE_QUALITY_SHIFT: u32 = 5;
+        const DDSCAPS3_OPENSHAREDRESOURCE: u32 = 32768;
+        const DDSCAPS3_READONLYRESOURCE: u32 = 16384;
+        const DDSCAPS3_RESERVED1: u32 = 256;
+        const DDSCAPS3_RESERVED2: u32 = 512;
+        struct DDSCAPSEX {
+            dwCaps2: u32,
+            dwCaps3: u32,
+            Anonymous: union {
+                dwCaps4: u32,
+                dwVolumeDepth: u32,
+            },
+        }
+        const DDSCAPS_3DDEVICE: u32 = 8192;
+        const DDSCAPS_ALLOCONLOAD: u32 = 67108864;
+        const DDSCAPS_ALPHA: u32 = 2;
+        const DDSCAPS_BACKBUFFER: u32 = 4;
+        const DDSCAPS_COMPLEX: u32 = 8;
+        const DDSCAPS_FLIP: u32 = 16;
+        const DDSCAPS_FRONTBUFFER: u32 = 32;
+        const DDSCAPS_HWCODEC: u32 = 1048576;
+        const DDSCAPS_LIVEVIDEO: u32 = 524288;
+        const DDSCAPS_LOCALVIDMEM: u32 = 268435456;
+        const DDSCAPS_MIPMAP: u32 = 4194304;
+        const DDSCAPS_MODEX: u32 = 2097152;
+        const DDSCAPS_NONLOCALVIDMEM: u32 = 536870912;
+        const DDSCAPS_OFFSCREENPLAIN: u32 = 64;
+        const DDSCAPS_OPTIMIZED: u32 = 2147483648;
+        const DDSCAPS_OVERLAY: u32 = 128;
+        const DDSCAPS_OWNDC: u32 = 262144;
+        const DDSCAPS_PALETTE: u32 = 256;
+        const DDSCAPS_PRIMARYSURFACE: u32 = 512;
+        const DDSCAPS_PRIMARYSURFACELEFT: u32 = 0;
+        const DDSCAPS_RESERVED1: u32 = 1;
+        const DDSCAPS_RESERVED2: u32 = 8388608;
+        const DDSCAPS_RESERVED3: u32 = 1024;
+        const DDSCAPS_STANDARDVGAMODE: u32 = 1073741824;
+        const DDSCAPS_SYSTEMMEMORY: u32 = 2048;
+        const DDSCAPS_TEXTURE: u32 = 4096;
+        const DDSCAPS_VIDEOMEMORY: u32 = 16384;
+        const DDSCAPS_VIDEOPORT: u32 = 134217728;
+        const DDSCAPS_VISIBLE: u32 = 32768;
+        const DDSCAPS_WRITEONLY: u32 = 65536;
+        const DDSCAPS_ZBUFFER: u32 = 131072;
+        const DDSCL_ALLOWMODEX: u32 = 64;
+        const DDSCL_ALLOWREBOOT: u32 = 2;
+        const DDSCL_CREATEDEVICEWINDOW: u32 = 512;
+        const DDSCL_EXCLUSIVE: u32 = 16;
+        const DDSCL_FPUPRESERVE: u32 = 4096;
+        const DDSCL_FPUSETUP: u32 = 2048;
+        const DDSCL_FULLSCREEN: u32 = 1;
+        const DDSCL_MULTITHREADED: u32 = 1024;
+        const DDSCL_NORMAL: u32 = 8;
+        const DDSCL_NOWINDOWCHANGES: u32 = 4;
+        const DDSCL_SETDEVICEWINDOW: u32 = 256;
+        const DDSCL_SETFOCUSWINDOW: u32 = 128;
+        const DDSDM_STANDARDVGAMODE: u32 = 1;
+        const DDSD_ALL: u32 = 16775662;
+        const DDSD_ALPHABITDEPTH: u32 = 128;
+        const DDSD_BACKBUFFERCOUNT: u32 = 32;
+        const DDSD_CAPS: u32 = 1;
+        const DDSD_CKDESTBLT: u32 = 16384;
+        const DDSD_CKDESTOVERLAY: u32 = 8192;
+        const DDSD_CKSRCBLT: u32 = 65536;
+        const DDSD_CKSRCOVERLAY: u32 = 32768;
+        const DDSD_DEPTH: u32 = 8388608;
+        const DDSD_FVF: u32 = 2097152;
+        const DDSD_HEIGHT: u32 = 2;
+        const DDSD_LINEARSIZE: u32 = 524288;
+        const DDSD_LPSURFACE: u32 = 2048;
+        const DDSD_MIPMAPCOUNT: u32 = 131072;
+        const DDSD_PITCH: u32 = 8;
+        const DDSD_PIXELFORMAT: u32 = 4096;
+        const DDSD_REFRESHRATE: u32 = 262144;
+        const DDSD_SRCVBHANDLE: u32 = 4194304;
+        const DDSD_TEXTURESTAGE: u32 = 1048576;
+        const DDSD_WIDTH: u32 = 4;
+        const DDSD_ZBUFFERBITDEPTH: u32 = 64;
+        const DDSGR_CALIBRATE: u32 = 1;
+        const DDSMT_ISTESTREQUIRED: u32 = 1;
+        const DDSPD_IUNKNOWNPOINTER: u32 = 1;
+        const DDSPD_VOLATILE: u32 = 2;
+        struct DDSURFACEDESC {
+            dwSize: u32,
+            dwFlags: u32,
+            dwHeight: u32,
+            dwWidth: u32,
+            Anonymous: union {
+                lPitch: i32,
+                dwLinearSize: u32,
+            },
+            dwBackBufferCount: u32,
+            Anonymous2: union {
+                dwMipMapCount: u32,
+                dwZBufferBitDepth: u32,
+                dwRefreshRate: u32,
+            },
+            dwAlphaBitDepth: u32,
+            dwReserved: u32,
+            lpSurface: *mut void,
+            ddckCKDestOverlay: DDCOLORKEY,
+            ddckCKDestBlt: DDCOLORKEY,
+            ddckCKSrcOverlay: DDCOLORKEY,
+            ddckCKSrcBlt: DDCOLORKEY,
+            ddpfPixelFormat: DDPIXELFORMAT,
+            ddsCaps: DDSCAPS,
+        }
+        struct DDSURFACEDESC2 {
+            dwSize: u32,
+            dwFlags: u32,
+            dwHeight: u32,
+            dwWidth: u32,
+            Anonymous: union {
+                lPitch: i32,
+                dwLinearSize: u32,
+            },
+            Anonymous2: union {
+                dwBackBufferCount: u32,
+                dwDepth: u32,
+            },
+            Anonymous3: union {
+                dwMipMapCount: u32,
+                dwRefreshRate: u32,
+                dwSrcVBHandle: u32,
+            },
+            dwAlphaBitDepth: u32,
+            dwReserved: u32,
+            lpSurface: *mut void,
+            Anonymous4: union {
+                ddckCKDestOverlay: DDCOLORKEY,
+                dwEmptyFaceColor: u32,
+            },
+            ddckCKDestBlt: DDCOLORKEY,
+            ddckCKSrcOverlay: DDCOLORKEY,
+            ddckCKSrcBlt: DDCOLORKEY,
+            Anonymous5: union {
+                ddpfPixelFormat: DDPIXELFORMAT,
+                dwFVF: u32,
+            },
+            ddsCaps: DDSCAPS2,
+            dwTextureStage: u32,
+        }
+        const DDSVCAPS_RESERVED1: u32 = 1;
+        const DDSVCAPS_RESERVED2: u32 = 2;
+        const DDSVCAPS_RESERVED3: u32 = 4;
+        const DDSVCAPS_RESERVED4: u32 = 8;
+        const DDSVCAPS_STEREOSEQUENTIAL: u32 = 16;
+        const DDWAITVB_BLOCKBEGIN: u32 = 1;
+        const DDWAITVB_BLOCKBEGINEVENT: u32 = 2;
+        const DDWAITVB_BLOCKEND: u32 = 4;
+        const DD_FALSE: u32 = 1;
+        const DD_OK: u32 = 0;
+        const DD_ROP_SPACE: u32 = 8;
+        const DIRECTDRAW_VERSION: u32 = 1792;
+        #[library("DDRAW.dll")]
+        extern fn DirectDrawCreate(lpGUID: *mut GUID, lplpDD: *mut IDirectDraw, pUnkOuter: IUnknown) -> HRESULT;
+        #[library("DDRAW.dll")]
+        extern fn DirectDrawCreateClipper(dwFlags: u32, lplpDDClipper: *mut IDirectDrawClipper, pUnkOuter: IUnknown) -> HRESULT;
+        #[library("DDRAW.dll")]
+        extern fn DirectDrawCreateEx(lpGuid: *mut GUID, lplpDD: *mut *mut void, iid: *const GUID, pUnkOuter: IUnknown) -> HRESULT;
+        #[library("DDRAW.dll")]
+        extern fn DirectDrawEnumerateA(lpCallback: LPDDENUMCALLBACKA, lpContext: *mut void) -> HRESULT;
+        #[library("DDRAW.dll")]
+        extern fn DirectDrawEnumerateExA(lpCallback: LPDDENUMCALLBACKEXA, lpContext: *mut void, dwFlags: u32) -> HRESULT;
+        #[library("DDRAW.dll")]
+        extern fn DirectDrawEnumerateExW(lpCallback: LPDDENUMCALLBACKEXW, lpContext: *mut void, dwFlags: u32) -> HRESULT;
+        #[library("DDRAW.dll")]
+        extern fn DirectDrawEnumerateW(lpCallback: LPDDENUMCALLBACKW, lpContext: *mut void) -> HRESULT;
+        const FOURCC_DXT1: u32 = 827611204;
+        const FOURCC_DXT2: u32 = 844388420;
+        const FOURCC_DXT3: u32 = 861165636;
+        const FOURCC_DXT4: u32 = 877942852;
+        const FOURCC_DXT5: u32 = 894720068;
+        #[guid(0x6c14db80_a733_11ce_a521_0020af0be560)]
+        interface IDirectDraw: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Compact(&self) -> HRESULT;
+            fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
+            fn CreatePalette(&self, param0: u32, param1: *mut PALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
+            fn CreateSurface(&self, param0: *mut DDSURFACEDESC, param1: *mut IDirectDrawSurface, param2: IUnknown) -> HRESULT;
+            fn DuplicateSurface(&self, param0: IDirectDrawSurface, param1: *mut IDirectDrawSurface) -> HRESULT;
+            fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut void, param3: LPDDENUMMODESCALLBACK) -> HRESULT;
+            fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut void, param3: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn FlipToGDISurface(&self) -> HRESULT;
+            fn GetCaps(&self, param0: *mut DDCAPS, param1: *mut DDCAPS) -> HRESULT;
+            fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> HRESULT;
+            fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> HRESULT;
+            fn GetGDISurface(&self, param0: *mut IDirectDrawSurface) -> HRESULT;
+            fn GetMonitorFrequency(&self, param0: *mut u32) -> HRESULT;
+            fn GetScanLine(&self, param0: *mut u32) -> HRESULT;
+            fn GetVerticalBlankStatus(&self, param0: *mut BOOL) -> HRESULT;
+            fn Initialize(&self, param0: *mut GUID) -> HRESULT;
+            fn RestoreDisplayMode(&self) -> HRESULT;
+            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> HRESULT;
+            fn WaitForVerticalBlank(&self, param0: u32, param1: HANDLE) -> HRESULT;
+        }
+        #[guid(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356)]
+        interface IDirectDraw2: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Compact(&self) -> HRESULT;
+            fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
+            fn CreatePalette(&self, param0: u32, param1: *mut PALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
+            fn CreateSurface(&self, param0: *mut DDSURFACEDESC, param1: *mut IDirectDrawSurface, param2: IUnknown) -> HRESULT;
+            fn DuplicateSurface(&self, param0: IDirectDrawSurface, param1: *mut IDirectDrawSurface) -> HRESULT;
+            fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut void, param3: LPDDENUMMODESCALLBACK) -> HRESULT;
+            fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut void, param3: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn FlipToGDISurface(&self) -> HRESULT;
+            fn GetCaps(&self, param0: *mut DDCAPS, param1: *mut DDCAPS) -> HRESULT;
+            fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> HRESULT;
+            fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> HRESULT;
+            fn GetGDISurface(&self, param0: *mut IDirectDrawSurface) -> HRESULT;
+            fn GetMonitorFrequency(&self, param0: *mut u32) -> HRESULT;
+            fn GetScanLine(&self, param0: *mut u32) -> HRESULT;
+            fn GetVerticalBlankStatus(&self, param0: *mut BOOL) -> HRESULT;
+            fn Initialize(&self, param0: *mut GUID) -> HRESULT;
+            fn RestoreDisplayMode(&self) -> HRESULT;
+            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> HRESULT;
+            fn WaitForVerticalBlank(&self, param0: u32, param1: HANDLE) -> HRESULT;
+            fn GetAvailableVidMem(&self, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> HRESULT;
+        }
+        #[guid(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5)]
+        interface IDirectDraw4: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Compact(&self) -> HRESULT;
+            fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
+            fn CreatePalette(&self, param0: u32, param1: *mut PALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
+            fn CreateSurface(&self, param0: *mut DDSURFACEDESC2, param1: *mut IDirectDrawSurface4, param2: IUnknown) -> HRESULT;
+            fn DuplicateSurface(&self, param0: IDirectDrawSurface4, param1: *mut IDirectDrawSurface4) -> HRESULT;
+            fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut void, param3: LPDDENUMMODESCALLBACK2) -> HRESULT;
+            fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut void, param3: LPDDENUMSURFACESCALLBACK2) -> HRESULT;
+            fn FlipToGDISurface(&self) -> HRESULT;
+            fn GetCaps(&self, param0: *mut DDCAPS, param1: *mut DDCAPS) -> HRESULT;
+            fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> HRESULT;
+            fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> HRESULT;
+            fn GetGDISurface(&self, param0: *mut IDirectDrawSurface4) -> HRESULT;
+            fn GetMonitorFrequency(&self, param0: *mut u32) -> HRESULT;
+            fn GetScanLine(&self, param0: *mut u32) -> HRESULT;
+            fn GetVerticalBlankStatus(&self, param0: *mut BOOL) -> HRESULT;
+            fn Initialize(&self, param0: *mut GUID) -> HRESULT;
+            fn RestoreDisplayMode(&self) -> HRESULT;
+            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> HRESULT;
+            fn WaitForVerticalBlank(&self, param0: u32, param1: HANDLE) -> HRESULT;
+            fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> HRESULT;
+            fn GetSurfaceFromDC(&self, param0: HDC, param1: *mut IDirectDrawSurface4) -> HRESULT;
+            fn RestoreAllSurfaces(&self) -> HRESULT;
+            fn TestCooperativeLevel(&self) -> HRESULT;
+            fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> HRESULT;
+        }
+        #[guid(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b)]
+        interface IDirectDraw7: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Compact(&self) -> HRESULT;
+            fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
+            fn CreatePalette(&self, param0: u32, param1: *mut PALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
+            fn CreateSurface(&self, param0: *mut DDSURFACEDESC2, param1: *mut IDirectDrawSurface7, param2: IUnknown) -> HRESULT;
+            fn DuplicateSurface(&self, param0: IDirectDrawSurface7, param1: *mut IDirectDrawSurface7) -> HRESULT;
+            fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut void, param3: LPDDENUMMODESCALLBACK2) -> HRESULT;
+            fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut void, param3: LPDDENUMSURFACESCALLBACK7) -> HRESULT;
+            fn FlipToGDISurface(&self) -> HRESULT;
+            fn GetCaps(&self, param0: *mut DDCAPS, param1: *mut DDCAPS) -> HRESULT;
+            fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> HRESULT;
+            fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> HRESULT;
+            fn GetGDISurface(&self, param0: *mut IDirectDrawSurface7) -> HRESULT;
+            fn GetMonitorFrequency(&self, param0: *mut u32) -> HRESULT;
+            fn GetScanLine(&self, param0: *mut u32) -> HRESULT;
+            fn GetVerticalBlankStatus(&self, param0: *mut BOOL) -> HRESULT;
+            fn Initialize(&self, param0: *mut GUID) -> HRESULT;
+            fn RestoreDisplayMode(&self) -> HRESULT;
+            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> HRESULT;
+            fn WaitForVerticalBlank(&self, param0: u32, param1: HANDLE) -> HRESULT;
+            fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> HRESULT;
+            fn GetSurfaceFromDC(&self, param0: HDC, param1: *mut IDirectDrawSurface7) -> HRESULT;
+            fn RestoreAllSurfaces(&self) -> HRESULT;
+            fn TestCooperativeLevel(&self) -> HRESULT;
+            fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> HRESULT;
+            fn StartModeTest(&self, param0: *mut SIZE, param1: u32, param2: u32) -> HRESULT;
+            fn EvaluateMode(&self, param0: u32, param1: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6c14db85_a733_11ce_a521_0020af0be560)]
+        interface IDirectDrawClipper: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetClipList(&self, param0: *mut RECT, param1: *mut RGNDATA, param2: *mut u32) -> HRESULT;
+            fn GetHWnd(&self, param0: *mut HWND) -> HRESULT;
+            fn Initialize(&self, param0: IDirectDraw, param1: u32) -> HRESULT;
+            fn IsClipListChanged(&self, param0: *mut BOOL) -> HRESULT;
+            fn SetClipList(&self, param0: *mut RGNDATA, param1: u32) -> HRESULT;
+            fn SetHWnd(&self, param0: u32, param1: HWND) -> HRESULT;
+        }
+        #[guid(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8)]
+        interface IDirectDrawColorControl: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> HRESULT;
+            fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> HRESULT;
+        }
+        #[guid(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e)]
+        interface IDirectDrawGammaControl: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> HRESULT;
+            fn SetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> HRESULT;
+        }
+        #[guid(0x6c14db84_a733_11ce_a521_0020af0be560)]
+        interface IDirectDrawPalette: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetCaps(&self, param0: *mut u32) -> HRESULT;
+            fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut PALETTEENTRY) -> HRESULT;
+            fn Initialize(&self, param0: IDirectDraw, param1: u32, param2: *mut PALETTEENTRY) -> HRESULT;
+            fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut PALETTEENTRY) -> HRESULT;
+        }
+        #[guid(0x6c14db81_a733_11ce_a521_0020af0be560)]
+        interface IDirectDrawSurface: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn AddAttachedSurface(&self, param0: IDirectDrawSurface) -> HRESULT;
+            fn AddOverlayDirtyRect(&self, param0: *mut RECT) -> HRESULT;
+            fn Blt(&self, param0: *mut RECT, param1: IDirectDrawSurface, param2: *mut RECT, param3: u32, param4: *mut DDBLTFX) -> HRESULT;
+            fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> HRESULT;
+            fn BltFast(&self, param0: u32, param1: u32, param2: IDirectDrawSurface, param3: *mut RECT, param4: u32) -> HRESULT;
+            fn DeleteAttachedSurface(&self, param0: u32, param1: IDirectDrawSurface) -> HRESULT;
+            fn EnumAttachedSurfaces(&self, param0: *mut void, param1: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn EnumOverlayZOrders(&self, param0: u32, param1: *mut void, param2: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn Flip(&self, param0: IDirectDrawSurface, param1: u32) -> HRESULT;
+            fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut IDirectDrawSurface) -> HRESULT;
+            fn GetBltStatus(&self, param0: u32) -> HRESULT;
+            fn GetCaps(&self, param0: *mut DDSCAPS) -> HRESULT;
+            fn GetClipper(&self, param0: *mut IDirectDrawClipper) -> HRESULT;
+            fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> HRESULT;
+            fn GetDC(&self, param0: *mut HDC) -> HRESULT;
+            fn GetFlipStatus(&self, param0: u32) -> HRESULT;
+            fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> HRESULT;
+            fn GetPalette(&self, param0: *mut IDirectDrawPalette) -> HRESULT;
+            fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> HRESULT;
+            fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> HRESULT;
+            fn Initialize(&self, param0: IDirectDraw, param1: *mut DDSURFACEDESC) -> HRESULT;
+            fn IsLost(&self) -> HRESULT;
+            fn Lock(&self, param0: *mut RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: HANDLE) -> HRESULT;
+            fn ReleaseDC(&self, param0: HDC) -> HRESULT;
+            fn Restore(&self) -> HRESULT;
+            fn SetClipper(&self, param0: IDirectDrawClipper) -> HRESULT;
+            fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> HRESULT;
+            fn SetOverlayPosition(&self, param0: i32, param1: i32) -> HRESULT;
+            fn SetPalette(&self, param0: IDirectDrawPalette) -> HRESULT;
+            fn Unlock(&self, param0: *mut void) -> HRESULT;
+            fn UpdateOverlay(&self, param0: *mut RECT, param1: IDirectDrawSurface, param2: *mut RECT, param3: u32, param4: *mut DDOVERLAYFX) -> HRESULT;
+            fn UpdateOverlayDisplay(&self, param0: u32) -> HRESULT;
+            fn UpdateOverlayZOrder(&self, param0: u32, param1: IDirectDrawSurface) -> HRESULT;
+        }
+        #[guid(0x57805885_6eec_11cf_9441_a82303c10e27)]
+        interface IDirectDrawSurface2: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn AddAttachedSurface(&self, param0: IDirectDrawSurface2) -> HRESULT;
+            fn AddOverlayDirtyRect(&self, param0: *mut RECT) -> HRESULT;
+            fn Blt(&self, param0: *mut RECT, param1: IDirectDrawSurface2, param2: *mut RECT, param3: u32, param4: *mut DDBLTFX) -> HRESULT;
+            fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> HRESULT;
+            fn BltFast(&self, param0: u32, param1: u32, param2: IDirectDrawSurface2, param3: *mut RECT, param4: u32) -> HRESULT;
+            fn DeleteAttachedSurface(&self, param0: u32, param1: IDirectDrawSurface2) -> HRESULT;
+            fn EnumAttachedSurfaces(&self, param0: *mut void, param1: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn EnumOverlayZOrders(&self, param0: u32, param1: *mut void, param2: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn Flip(&self, param0: IDirectDrawSurface2, param1: u32) -> HRESULT;
+            fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut IDirectDrawSurface2) -> HRESULT;
+            fn GetBltStatus(&self, param0: u32) -> HRESULT;
+            fn GetCaps(&self, param0: *mut DDSCAPS) -> HRESULT;
+            fn GetClipper(&self, param0: *mut IDirectDrawClipper) -> HRESULT;
+            fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> HRESULT;
+            fn GetDC(&self, param0: *mut HDC) -> HRESULT;
+            fn GetFlipStatus(&self, param0: u32) -> HRESULT;
+            fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> HRESULT;
+            fn GetPalette(&self, param0: *mut IDirectDrawPalette) -> HRESULT;
+            fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> HRESULT;
+            fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> HRESULT;
+            fn Initialize(&self, param0: IDirectDraw, param1: *mut DDSURFACEDESC) -> HRESULT;
+            fn IsLost(&self) -> HRESULT;
+            fn Lock(&self, param0: *mut RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: HANDLE) -> HRESULT;
+            fn ReleaseDC(&self, param0: HDC) -> HRESULT;
+            fn Restore(&self) -> HRESULT;
+            fn SetClipper(&self, param0: IDirectDrawClipper) -> HRESULT;
+            fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> HRESULT;
+            fn SetOverlayPosition(&self, param0: i32, param1: i32) -> HRESULT;
+            fn SetPalette(&self, param0: IDirectDrawPalette) -> HRESULT;
+            fn Unlock(&self, param0: *mut void) -> HRESULT;
+            fn UpdateOverlay(&self, param0: *mut RECT, param1: IDirectDrawSurface2, param2: *mut RECT, param3: u32, param4: *mut DDOVERLAYFX) -> HRESULT;
+            fn UpdateOverlayDisplay(&self, param0: u32) -> HRESULT;
+            fn UpdateOverlayZOrder(&self, param0: u32, param1: IDirectDrawSurface2) -> HRESULT;
+            fn GetDDInterface(&self, param0: *mut *mut void) -> HRESULT;
+            fn PageLock(&self, param0: u32) -> HRESULT;
+            fn PageUnlock(&self, param0: u32) -> HRESULT;
+        }
+        #[guid(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb)]
+        interface IDirectDrawSurface3: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn AddAttachedSurface(&self, param0: IDirectDrawSurface3) -> HRESULT;
+            fn AddOverlayDirtyRect(&self, param0: *mut RECT) -> HRESULT;
+            fn Blt(&self, param0: *mut RECT, param1: IDirectDrawSurface3, param2: *mut RECT, param3: u32, param4: *mut DDBLTFX) -> HRESULT;
+            fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> HRESULT;
+            fn BltFast(&self, param0: u32, param1: u32, param2: IDirectDrawSurface3, param3: *mut RECT, param4: u32) -> HRESULT;
+            fn DeleteAttachedSurface(&self, param0: u32, param1: IDirectDrawSurface3) -> HRESULT;
+            fn EnumAttachedSurfaces(&self, param0: *mut void, param1: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn EnumOverlayZOrders(&self, param0: u32, param1: *mut void, param2: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn Flip(&self, param0: IDirectDrawSurface3, param1: u32) -> HRESULT;
+            fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut IDirectDrawSurface3) -> HRESULT;
+            fn GetBltStatus(&self, param0: u32) -> HRESULT;
+            fn GetCaps(&self, param0: *mut DDSCAPS) -> HRESULT;
+            fn GetClipper(&self, param0: *mut IDirectDrawClipper) -> HRESULT;
+            fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> HRESULT;
+            fn GetDC(&self, param0: *mut HDC) -> HRESULT;
+            fn GetFlipStatus(&self, param0: u32) -> HRESULT;
+            fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> HRESULT;
+            fn GetPalette(&self, param0: *mut IDirectDrawPalette) -> HRESULT;
+            fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> HRESULT;
+            fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> HRESULT;
+            fn Initialize(&self, param0: IDirectDraw, param1: *mut DDSURFACEDESC) -> HRESULT;
+            fn IsLost(&self) -> HRESULT;
+            fn Lock(&self, param0: *mut RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: HANDLE) -> HRESULT;
+            fn ReleaseDC(&self, param0: HDC) -> HRESULT;
+            fn Restore(&self) -> HRESULT;
+            fn SetClipper(&self, param0: IDirectDrawClipper) -> HRESULT;
+            fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> HRESULT;
+            fn SetOverlayPosition(&self, param0: i32, param1: i32) -> HRESULT;
+            fn SetPalette(&self, param0: IDirectDrawPalette) -> HRESULT;
+            fn Unlock(&self, param0: *mut void) -> HRESULT;
+            fn UpdateOverlay(&self, param0: *mut RECT, param1: IDirectDrawSurface3, param2: *mut RECT, param3: u32, param4: *mut DDOVERLAYFX) -> HRESULT;
+            fn UpdateOverlayDisplay(&self, param0: u32) -> HRESULT;
+            fn UpdateOverlayZOrder(&self, param0: u32, param1: IDirectDrawSurface3) -> HRESULT;
+            fn GetDDInterface(&self, param0: *mut *mut void) -> HRESULT;
+            fn PageLock(&self, param0: u32) -> HRESULT;
+            fn PageUnlock(&self, param0: u32) -> HRESULT;
+            fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC, param1: u32) -> HRESULT;
+        }
+        #[guid(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b)]
+        interface IDirectDrawSurface4: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn AddAttachedSurface(&self, param0: IDirectDrawSurface4) -> HRESULT;
+            fn AddOverlayDirtyRect(&self, param0: *mut RECT) -> HRESULT;
+            fn Blt(&self, param0: *mut RECT, param1: IDirectDrawSurface4, param2: *mut RECT, param3: u32, param4: *mut DDBLTFX) -> HRESULT;
+            fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> HRESULT;
+            fn BltFast(&self, param0: u32, param1: u32, param2: IDirectDrawSurface4, param3: *mut RECT, param4: u32) -> HRESULT;
+            fn DeleteAttachedSurface(&self, param0: u32, param1: IDirectDrawSurface4) -> HRESULT;
+            fn EnumAttachedSurfaces(&self, param0: *mut void, param1: LPDDENUMSURFACESCALLBACK2) -> HRESULT;
+            fn EnumOverlayZOrders(&self, param0: u32, param1: *mut void, param2: LPDDENUMSURFACESCALLBACK2) -> HRESULT;
+            fn Flip(&self, param0: IDirectDrawSurface4, param1: u32) -> HRESULT;
+            fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut IDirectDrawSurface4) -> HRESULT;
+            fn GetBltStatus(&self, param0: u32) -> HRESULT;
+            fn GetCaps(&self, param0: *mut DDSCAPS2) -> HRESULT;
+            fn GetClipper(&self, param0: *mut IDirectDrawClipper) -> HRESULT;
+            fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> HRESULT;
+            fn GetDC(&self, param0: *mut HDC) -> HRESULT;
+            fn GetFlipStatus(&self, param0: u32) -> HRESULT;
+            fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> HRESULT;
+            fn GetPalette(&self, param0: *mut IDirectDrawPalette) -> HRESULT;
+            fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> HRESULT;
+            fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> HRESULT;
+            fn Initialize(&self, param0: IDirectDraw, param1: *mut DDSURFACEDESC2) -> HRESULT;
+            fn IsLost(&self) -> HRESULT;
+            fn Lock(&self, param0: *mut RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: HANDLE) -> HRESULT;
+            fn ReleaseDC(&self, param0: HDC) -> HRESULT;
+            fn Restore(&self) -> HRESULT;
+            fn SetClipper(&self, param0: IDirectDrawClipper) -> HRESULT;
+            fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> HRESULT;
+            fn SetOverlayPosition(&self, param0: i32, param1: i32) -> HRESULT;
+            fn SetPalette(&self, param0: IDirectDrawPalette) -> HRESULT;
+            fn Unlock(&self, param0: *mut RECT) -> HRESULT;
+            fn UpdateOverlay(&self, param0: *mut RECT, param1: IDirectDrawSurface4, param2: *mut RECT, param3: u32, param4: *mut DDOVERLAYFX) -> HRESULT;
+            fn UpdateOverlayDisplay(&self, param0: u32) -> HRESULT;
+            fn UpdateOverlayZOrder(&self, param0: u32, param1: IDirectDrawSurface4) -> HRESULT;
+            fn GetDDInterface(&self, param0: *mut *mut void) -> HRESULT;
+            fn PageLock(&self, param0: u32) -> HRESULT;
+            fn PageUnlock(&self, param0: u32) -> HRESULT;
+            fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> HRESULT;
+            fn SetPrivateData(&self, param0: *const GUID, param1: *mut void, param2: u32, param3: u32) -> HRESULT;
+            fn GetPrivateData(&self, param0: *const GUID, param1: *mut void, param2: *mut u32) -> HRESULT;
+            fn FreePrivateData(&self, param0: *const GUID) -> HRESULT;
+            fn GetUniquenessValue(&self, param0: *mut u32) -> HRESULT;
+            fn ChangeUniquenessValue(&self) -> HRESULT;
+        }
+        #[guid(0x06675a80_3b9b_11d2_b92f_00609797ea5b)]
+        interface IDirectDrawSurface7: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn AddAttachedSurface(&self, param0: IDirectDrawSurface7) -> HRESULT;
+            fn AddOverlayDirtyRect(&self, param0: *mut RECT) -> HRESULT;
+            fn Blt(&self, param0: *mut RECT, param1: IDirectDrawSurface7, param2: *mut RECT, param3: u32, param4: *mut DDBLTFX) -> HRESULT;
+            fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> HRESULT;
+            fn BltFast(&self, param0: u32, param1: u32, param2: IDirectDrawSurface7, param3: *mut RECT, param4: u32) -> HRESULT;
+            fn DeleteAttachedSurface(&self, param0: u32, param1: IDirectDrawSurface7) -> HRESULT;
+            fn EnumAttachedSurfaces(&self, param0: *mut void, param1: LPDDENUMSURFACESCALLBACK7) -> HRESULT;
+            fn EnumOverlayZOrders(&self, param0: u32, param1: *mut void, param2: LPDDENUMSURFACESCALLBACK7) -> HRESULT;
+            fn Flip(&self, param0: IDirectDrawSurface7, param1: u32) -> HRESULT;
+            fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut IDirectDrawSurface7) -> HRESULT;
+            fn GetBltStatus(&self, param0: u32) -> HRESULT;
+            fn GetCaps(&self, param0: *mut DDSCAPS2) -> HRESULT;
+            fn GetClipper(&self, param0: *mut IDirectDrawClipper) -> HRESULT;
+            fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> HRESULT;
+            fn GetDC(&self, param0: *mut HDC) -> HRESULT;
+            fn GetFlipStatus(&self, param0: u32) -> HRESULT;
+            fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> HRESULT;
+            fn GetPalette(&self, param0: *mut IDirectDrawPalette) -> HRESULT;
+            fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> HRESULT;
+            fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> HRESULT;
+            fn Initialize(&self, param0: IDirectDraw, param1: *mut DDSURFACEDESC2) -> HRESULT;
+            fn IsLost(&self) -> HRESULT;
+            fn Lock(&self, param0: *mut RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: HANDLE) -> HRESULT;
+            fn ReleaseDC(&self, param0: HDC) -> HRESULT;
+            fn Restore(&self) -> HRESULT;
+            fn SetClipper(&self, param0: IDirectDrawClipper) -> HRESULT;
+            fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> HRESULT;
+            fn SetOverlayPosition(&self, param0: i32, param1: i32) -> HRESULT;
+            fn SetPalette(&self, param0: IDirectDrawPalette) -> HRESULT;
+            fn Unlock(&self, param0: *mut RECT) -> HRESULT;
+            fn UpdateOverlay(&self, param0: *mut RECT, param1: IDirectDrawSurface7, param2: *mut RECT, param3: u32, param4: *mut DDOVERLAYFX) -> HRESULT;
+            fn UpdateOverlayDisplay(&self, param0: u32) -> HRESULT;
+            fn UpdateOverlayZOrder(&self, param0: u32, param1: IDirectDrawSurface7) -> HRESULT;
+            fn GetDDInterface(&self, param0: *mut *mut void) -> HRESULT;
+            fn PageLock(&self, param0: u32) -> HRESULT;
+            fn PageUnlock(&self, param0: u32) -> HRESULT;
+            fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> HRESULT;
+            fn SetPrivateData(&self, param0: *const GUID, param1: *mut void, param2: u32, param3: u32) -> HRESULT;
+            fn GetPrivateData(&self, param0: *const GUID, param1: *mut void, param2: *mut u32) -> HRESULT;
+            fn FreePrivateData(&self, param0: *const GUID) -> HRESULT;
+            fn GetUniquenessValue(&self, param0: *mut u32) -> HRESULT;
+            fn ChangeUniquenessValue(&self) -> HRESULT;
+            fn SetPriority(&self, param0: u32) -> HRESULT;
+            fn GetPriority(&self, param0: *mut u32) -> HRESULT;
+            fn SetLOD(&self, param0: u32) -> HRESULT;
+            fn GetLOD(&self, param0: *mut u32) -> HRESULT;
+        }
+        extern fn LPCLIPPERCALLBACK(lpDDClipper: IDirectDrawClipper, hWnd: HWND, code: u32, lpContext: *mut void) -> u32;
+        type LPDDARGB = *mut DDARGB;
+        type LPDDBLTBATCH = *mut DDBLTBATCH;
+        type LPDDBLTFX = *mut DDBLTFX;
+        type LPDDCAPS = *mut DDCAPS;
+        type LPDDCAPS_DX1 = *mut DDCAPS_DX1;
+        type LPDDCAPS_DX3 = *mut DDCAPS_DX3;
+        type LPDDCAPS_DX5 = *mut DDCAPS_DX5;
+        type LPDDCAPS_DX6 = *mut DDCAPS_DX6;
+        type LPDDCAPS_DX7 = *mut DDCAPS_DX7;
+        type LPDDCOLORCONTROL = *mut DDCOLORCONTROL;
+        type LPDDCOLORKEY = *mut DDCOLORKEY;
+        type LPDDDEVICEIDENTIFIER = *mut DDDEVICEIDENTIFIER;
+        type LPDDDEVICEIDENTIFIER2 = *mut DDDEVICEIDENTIFIER2;
+        type LPDDENUMCALLBACK = LPDDENUMCALLBACKA;
+        extern fn LPDDENUMCALLBACKA(param0: *mut GUID, param1: PSTR, param2: PSTR, param3: *mut void) -> BOOL;
+        type LPDDENUMCALLBACKEX = LPDDENUMCALLBACKEXA;
+        extern fn LPDDENUMCALLBACKEXA(param0: *mut GUID, param1: PSTR, param2: PSTR, param3: *mut void, param4: HMONITOR) -> BOOL;
+        extern fn LPDDENUMCALLBACKEXW(param0: *mut GUID, param1: PWSTR, param2: PWSTR, param3: *mut void, param4: HMONITOR) -> BOOL;
+        extern fn LPDDENUMCALLBACKW(param0: *mut GUID, param1: PWSTR, param2: PWSTR, param3: *mut void) -> BOOL;
+        extern fn LPDDENUMMODESCALLBACK(param0: *mut DDSURFACEDESC, param1: *mut void) -> HRESULT;
+        extern fn LPDDENUMMODESCALLBACK2(param0: *mut DDSURFACEDESC2, param1: *mut void) -> HRESULT;
+        extern fn LPDDENUMSURFACESCALLBACK(param0: IDirectDrawSurface, param1: *mut DDSURFACEDESC, param2: *mut void) -> HRESULT;
+        extern fn LPDDENUMSURFACESCALLBACK2(param0: IDirectDrawSurface4, param1: *mut DDSURFACEDESC2, param2: *mut void) -> HRESULT;
+        extern fn LPDDENUMSURFACESCALLBACK7(param0: IDirectDrawSurface7, param1: *mut DDSURFACEDESC2, param2: *mut void) -> HRESULT;
+        type LPDDFXROP = *mut _DDFXROP;
+        type LPDDGAMMARAMP = *mut DDGAMMARAMP;
+        type LPDDOSCAPS = *mut DDOSCAPS;
+        type LPDDOVERLAYFX = *mut DDOVERLAYFX;
+        type LPDDRGBA = *mut DDRGBA;
+        type LPDDSCAPS = *mut DDSCAPS;
+        type LPDDSCAPS2 = *mut DDSCAPS2;
+        type LPDDSCAPSEX = *mut DDSCAPSEX;
+        type LPDDSURFACEDESC = *mut DDSURFACEDESC;
+        type LPDDSURFACEDESC2 = *mut DDSURFACEDESC2;
+        type LPDIRECTDRAWENUMERATEEX = LPDIRECTDRAWENUMERATEEXA;
+        extern fn LPDIRECTDRAWENUMERATEEXA(lpCallback: LPDDENUMCALLBACKEXA, lpContext: *mut void, dwFlags: u32) -> HRESULT;
+        extern fn LPDIRECTDRAWENUMERATEEXW(lpCallback: LPDDENUMCALLBACKEXW, lpContext: *mut void, dwFlags: u32) -> HRESULT;
+        const MAX_DDDEVICEID_STRING: u32 = 512;
+        #[encoding("ansi")]
+        const REGSTR_KEY_DDHW_DESCRIPTION: String = "Description";
+        #[encoding("ansi")]
+        const REGSTR_KEY_DDHW_DRIVERNAME: String = "DriverName";
+        #[encoding("ansi")]
+        const REGSTR_PATH_DDHW: String = "Hardware\\DirectDrawDrivers";
+        struct _DDFXROP {}
+    }
+}

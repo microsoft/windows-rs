@@ -1,0 +1,11 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BackgroundCopyManager10_2: GUID = 0x4575438f_a6c8_4976_b0fe_2f26b80d959e;
+        #[guid(0xb591a192_a405_4fc3_8323_4c5c542578fc)]
+        interface IBackgroundCopyJobHttpOptions2: IBackgroundCopyJobHttpOptions {
+            fn SetHttpMethod(&self, method: PCWSTR) -> HRESULT;
+            fn GetHttpMethod(&self, method: *mut PWSTR) -> HRESULT;
+        }
+    }
+}

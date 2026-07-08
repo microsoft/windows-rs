@@ -1,0 +1,104 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("ADVAPI32.dll")]
+        extern fn BuildExplicitAccessWithNameA(#[in] #[out] pExplicitAccess: *mut EXPLICIT_ACCESS_A, #[opt] pTrusteeName: PCSTR, AccessPermissions: u32, AccessMode: ACCESS_MODE, Inheritance: u32);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildExplicitAccessWithNameW(#[in] #[out] pExplicitAccess: *mut EXPLICIT_ACCESS_W, #[opt] pTrusteeName: PCWSTR, AccessPermissions: u32, AccessMode: ACCESS_MODE, Inheritance: u32);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildImpersonateExplicitAccessWithNameA(#[in] #[out] pExplicitAccess: *mut EXPLICIT_ACCESS_A, #[opt] pTrusteeName: PCSTR, #[opt] pTrustee: *const TRUSTEE_A, AccessPermissions: u32, AccessMode: ACCESS_MODE, Inheritance: u32);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildImpersonateExplicitAccessWithNameW(#[in] #[out] pExplicitAccess: *mut EXPLICIT_ACCESS_W, #[opt] pTrusteeName: PCWSTR, #[opt] pTrustee: *const TRUSTEE_W, AccessPermissions: u32, AccessMode: ACCESS_MODE, Inheritance: u32);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildImpersonateTrusteeA(#[in] #[out] pTrustee: *mut TRUSTEE_A, #[opt] pImpersonateTrustee: *const TRUSTEE_A);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildImpersonateTrusteeW(#[in] #[out] pTrustee: *mut TRUSTEE_W, #[opt] pImpersonateTrustee: *const TRUSTEE_W);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildSecurityDescriptorA(#[opt] pOwner: *const TRUSTEE_A, #[opt] pGroup: *const TRUSTEE_A, cCountOfAccessEntries: u32, #[len_param(2)] #[opt] pListOfAccessEntries: *const EXPLICIT_ACCESS_A, cCountOfAuditEntries: u32, #[len_param(4)] #[opt] pListOfAuditEntries: *const EXPLICIT_ACCESS_A, #[opt] pOldSD: PSECURITY_DESCRIPTOR, pSizeNewSD: *mut u32, pNewSD: *mut PSECURITY_DESCRIPTOR) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn BuildSecurityDescriptorW(#[opt] pOwner: *const TRUSTEE_W, #[opt] pGroup: *const TRUSTEE_W, cCountOfAccessEntries: u32, #[len_param(2)] #[opt] pListOfAccessEntries: *const EXPLICIT_ACCESS_W, cCountOfAuditEntries: u32, #[len_param(4)] #[opt] pListOfAuditEntries: *const EXPLICIT_ACCESS_W, #[opt] pOldSD: PSECURITY_DESCRIPTOR, pSizeNewSD: *mut u32, pNewSD: *mut PSECURITY_DESCRIPTOR) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn BuildTrusteeWithNameA(#[in] #[out] pTrustee: *mut TRUSTEE_A, #[opt] pName: PCSTR);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildTrusteeWithNameW(#[in] #[out] pTrustee: *mut TRUSTEE_W, #[opt] pName: PCWSTR);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildTrusteeWithObjectsAndNameA(#[in] #[out] pTrustee: *mut TRUSTEE_A, #[opt] pObjName: *const OBJECTS_AND_NAME_A, #[opt] ObjectType: SE_OBJECT_TYPE, #[opt] ObjectTypeName: PCSTR, #[opt] InheritedObjectTypeName: PCSTR, #[opt] Name: PCSTR);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildTrusteeWithObjectsAndNameW(#[in] #[out] pTrustee: *mut TRUSTEE_W, #[opt] pObjName: *const OBJECTS_AND_NAME_W, #[opt] ObjectType: SE_OBJECT_TYPE, #[opt] ObjectTypeName: PCWSTR, #[opt] InheritedObjectTypeName: PCWSTR, #[opt] Name: PCWSTR);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildTrusteeWithObjectsAndSidA(#[in] #[out] pTrustee: *mut TRUSTEE_A, #[opt] pObjSid: *const OBJECTS_AND_SID, #[opt] pObjectGuid: *const GUID, #[opt] pInheritedObjectGuid: *const GUID, #[opt] pSid: PSID);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildTrusteeWithObjectsAndSidW(#[in] #[out] pTrustee: *mut TRUSTEE_W, #[opt] pObjSid: *const OBJECTS_AND_SID, #[opt] pObjectGuid: *const GUID, #[opt] pInheritedObjectGuid: *const GUID, #[opt] pSid: PSID);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildTrusteeWithSidA(#[in] #[out] pTrustee: *mut TRUSTEE_A, #[opt] pSid: PSID);
+        #[library("ADVAPI32.dll")]
+        extern fn BuildTrusteeWithSidW(#[in] #[out] pTrustee: *mut TRUSTEE_W, #[opt] pSid: PSID);
+        extern fn FN_PROGRESS(pObjectName: PCWSTR, Status: u32, #[in] #[out] pInvokeSetting: *mut PROG_INVOKE_SETTING, Args: *const void, SecuritySet: BOOL);
+        #[library("ADVAPI32.dll")]
+        extern fn FreeInheritedFromArray(#[len_param(1)] pInheritArray: *const INHERITED_FROMW, AceCnt: u16, #[opt] pfnArray: *const FN_OBJECT_MGR_FUNCTS) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetAuditedPermissionsFromAclA(pacl: *const ACL, pTrustee: *const TRUSTEE_A, pSuccessfulAuditedRights: *mut ACCESS_MASK, pFailedAuditRights: *mut ACCESS_MASK) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetAuditedPermissionsFromAclW(pacl: *const ACL, pTrustee: *const TRUSTEE_W, pSuccessfulAuditedRights: *mut ACCESS_MASK, pFailedAuditRights: *mut ACCESS_MASK) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetEffectiveRightsFromAclA(pacl: *const ACL, pTrustee: *const TRUSTEE_A, pAccessRights: *mut ACCESS_MASK) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetEffectiveRightsFromAclW(pacl: *const ACL, pTrustee: *const TRUSTEE_W, pAccessRights: *mut ACCESS_MASK) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetExplicitEntriesFromAclA(pacl: *const ACL, pcCountOfExplicitEntries: *mut u32, pListOfExplicitEntries: *mut PEXPLICIT_ACCESS_A) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetExplicitEntriesFromAclW(pacl: *const ACL, pcCountOfExplicitEntries: *mut u32, pListOfExplicitEntries: *mut PEXPLICIT_ACCESS_W) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetInheritanceSourceA(pObjectName: PCSTR, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, Container: BOOL, #[len_param(5)] #[opt] pObjectClassGuids: *const *const GUID, GuidCount: u32, pAcl: *const ACL, #[opt] pfnArray: *const FN_OBJECT_MGR_FUNCTS, pGenericMapping: *const GENERIC_MAPPING, pInheritArray: *mut INHERITED_FROMA) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetInheritanceSourceW(pObjectName: PCWSTR, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, Container: BOOL, #[len_param(5)] #[opt] pObjectClassGuids: *const *const GUID, GuidCount: u32, pAcl: *const ACL, #[opt] pfnArray: *const FN_OBJECT_MGR_FUNCTS, pGenericMapping: *const GENERIC_MAPPING, pInheritArray: *mut INHERITED_FROMW) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetMultipleTrusteeA(#[opt] pTrustee: *const TRUSTEE_A) -> PTRUSTEE_A;
+        #[library("ADVAPI32.dll")]
+        extern fn GetMultipleTrusteeOperationA(#[opt] pTrustee: *const TRUSTEE_A) -> MULTIPLE_TRUSTEE_OPERATION;
+        #[library("ADVAPI32.dll")]
+        extern fn GetMultipleTrusteeOperationW(#[opt] pTrustee: *const TRUSTEE_W) -> MULTIPLE_TRUSTEE_OPERATION;
+        #[library("ADVAPI32.dll")]
+        extern fn GetMultipleTrusteeW(#[opt] pTrustee: *const TRUSTEE_W) -> PTRUSTEE_W;
+        #[library("ADVAPI32.dll")]
+        extern fn GetNamedSecurityInfoA(pObjectName: PCSTR, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, #[opt] ppsidOwner: *mut PSID, #[opt] ppsidGroup: *mut PSID, #[opt] ppDacl: *mut PACL, #[opt] ppSacl: *mut PACL, ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetNamedSecurityInfoW(pObjectName: PCWSTR, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, #[opt] ppsidOwner: *mut PSID, #[opt] ppsidGroup: *mut PSID, #[opt] ppDacl: *mut PACL, #[opt] ppSacl: *mut PACL, ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetSecurityInfo(handle: HANDLE, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, #[opt] ppsidOwner: *mut PSID, #[opt] ppsidGroup: *mut PSID, #[opt] ppDacl: *mut PACL, #[opt] ppSacl: *mut PACL, #[opt] ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn GetTrusteeFormA(pTrustee: *const TRUSTEE_A) -> TRUSTEE_FORM;
+        #[library("ADVAPI32.dll")]
+        extern fn GetTrusteeFormW(pTrustee: *const TRUSTEE_W) -> TRUSTEE_FORM;
+        #[library("ADVAPI32.dll")]
+        extern fn GetTrusteeNameA(pTrustee: *const TRUSTEE_A) -> PSTR;
+        #[library("ADVAPI32.dll")]
+        extern fn GetTrusteeNameW(pTrustee: *const TRUSTEE_W) -> PWSTR;
+        #[library("ADVAPI32.dll")]
+        extern fn GetTrusteeTypeA(#[opt] pTrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE;
+        #[library("ADVAPI32.dll")]
+        extern fn GetTrusteeTypeW(#[opt] pTrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupSecurityDescriptorPartsA(#[opt] ppOwner: *mut PTRUSTEE_A, #[opt] ppGroup: *mut PTRUSTEE_A, #[opt] pcCountOfAccessEntries: *mut u32, ppListOfAccessEntries: *mut PEXPLICIT_ACCESS_A, #[opt] pcCountOfAuditEntries: *mut u32, ppListOfAuditEntries: *mut PEXPLICIT_ACCESS_A, pSD: PSECURITY_DESCRIPTOR) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupSecurityDescriptorPartsW(#[opt] ppOwner: *mut PTRUSTEE_W, #[opt] ppGroup: *mut PTRUSTEE_W, #[opt] pcCountOfAccessEntries: *mut u32, ppListOfAccessEntries: *mut PEXPLICIT_ACCESS_W, #[opt] pcCountOfAuditEntries: *mut u32, ppListOfAuditEntries: *mut PEXPLICIT_ACCESS_W, pSD: PSECURITY_DESCRIPTOR) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn SetEntriesInAclA(cCountOfExplicitEntries: u32, #[len_param(0)] #[opt] pListOfExplicitEntries: *const EXPLICIT_ACCESS_A, #[opt] OldAcl: *const ACL, NewAcl: *mut PACL) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn SetEntriesInAclW(cCountOfExplicitEntries: u32, #[len_param(0)] #[opt] pListOfExplicitEntries: *const EXPLICIT_ACCESS_W, #[opt] OldAcl: *const ACL, NewAcl: *mut PACL) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn SetNamedSecurityInfoA(pObjectName: PCSTR, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, #[opt] psidOwner: PSID, #[opt] psidGroup: PSID, #[opt] pDacl: *const ACL, #[opt] pSacl: *const ACL) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn SetNamedSecurityInfoW(pObjectName: PCWSTR, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, #[opt] psidOwner: PSID, #[opt] psidGroup: PSID, #[opt] pDacl: *const ACL, #[opt] pSacl: *const ACL) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn SetSecurityInfo(handle: HANDLE, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, #[opt] psidOwner: PSID, #[opt] psidGroup: PSID, #[opt] pDacl: *const ACL, #[opt] pSacl: *const ACL) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn TreeResetNamedSecurityInfoA(pObjectName: PCSTR, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, #[opt] pOwner: PSID, #[opt] pGroup: PSID, #[opt] pDacl: *const ACL, #[opt] pSacl: *const ACL, KeepExplicit: BOOL, #[opt] fnProgress: FN_PROGRESS, ProgressInvokeSetting: PROG_INVOKE_SETTING, #[opt] Args: *const void) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn TreeResetNamedSecurityInfoW(pObjectName: PCWSTR, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, #[opt] pOwner: PSID, #[opt] pGroup: PSID, #[opt] pDacl: *const ACL, #[opt] pSacl: *const ACL, KeepExplicit: BOOL, #[opt] fnProgress: FN_PROGRESS, ProgressInvokeSetting: PROG_INVOKE_SETTING, #[opt] Args: *const void) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn TreeSetNamedSecurityInfoA(pObjectName: PCSTR, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, #[opt] pOwner: PSID, #[opt] pGroup: PSID, #[opt] pDacl: *const ACL, #[opt] pSacl: *const ACL, dwAction: u32, #[opt] fnProgress: FN_PROGRESS, ProgressInvokeSetting: PROG_INVOKE_SETTING, #[opt] Args: *const void) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn TreeSetNamedSecurityInfoW(pObjectName: PCWSTR, ObjectType: SE_OBJECT_TYPE, SecurityInfo: SECURITY_INFORMATION, #[opt] pOwner: PSID, #[opt] pGroup: PSID, #[opt] pDacl: *const ACL, #[opt] pSacl: *const ACL, dwAction: u32, #[opt] fnProgress: FN_PROGRESS, ProgressInvokeSetting: PROG_INVOKE_SETTING, #[opt] Args: *const void) -> u32;
+    }
+}

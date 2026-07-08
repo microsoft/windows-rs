@@ -1,0 +1,83 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum CHUNKSTATE {
+            CHUNK_TEXT = 1,
+            CHUNK_VALUE = 2,
+            CHUNK_FILTER_OWNED_VALUE = 4,
+            CHUNK_IMAGE = 8,
+        }
+        #[repr(i32)]
+        enum CHUNK_BREAKTYPE {
+            CHUNK_NO_BREAK = 0,
+            CHUNK_EOW = 1,
+            CHUNK_EOS = 2,
+            CHUNK_EOP = 3,
+            CHUNK_EOC = 4,
+        }
+        struct FILTERREGION {
+            idChunk: u32,
+            cwcStart: u32,
+            cwcExtent: u32,
+        }
+        struct FULLPROPSPEC {
+            guidPropSet: GUID,
+            psProperty: PROPSPEC,
+        }
+        #[repr(i32)]
+        enum IFILTER_FLAGS {
+            IFILTER_FLAGS_OLE_PROPERTIES = 1,
+        }
+        #[repr(i32)]
+        enum IFILTER_INIT {
+            IFILTER_INIT_CANON_PARAGRAPHS = 1,
+            IFILTER_INIT_HARD_LINE_BREAKS = 2,
+            IFILTER_INIT_CANON_HYPHENS = 4,
+            IFILTER_INIT_CANON_SPACES = 8,
+            IFILTER_INIT_APPLY_INDEX_ATTRIBUTES = 16,
+            IFILTER_INIT_APPLY_OTHER_ATTRIBUTES = 32,
+            IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES = 256,
+            IFILTER_INIT_INDEXING_ONLY = 64,
+            IFILTER_INIT_SEARCH_LINKS = 128,
+            IFILTER_INIT_FILTER_OWNED_VALUE_OK = 512,
+            IFILTER_INIT_FILTER_AGGRESSIVE_BREAK = 1024,
+            IFILTER_INIT_DISABLE_EMBEDDED = 2048,
+            IFILTER_INIT_EMIT_FORMATTING = 4096,
+        }
+        #[guid(0x89bcb740_6119_101a_bcb7_00dd010655af)]
+        interface IFilter: IUnknown {
+            fn Init(&self, grfFlags: u32, cAttributes: u32, aAttributes: *const FULLPROPSPEC, pFlags: *mut u32) -> SCODE;
+            fn GetChunk(&self, pStat: *mut STAT_CHUNK) -> SCODE;
+            fn GetText(&self, #[in] #[out] pcwcBuffer: *mut u32, awcBuffer: *mut u16) -> SCODE;
+            fn GetValue(&self, ppPropValue: *mut *mut PROPVARIANT) -> SCODE;
+            fn BindRegion(&self, origPos: FILTERREGION, riid: *const GUID, ppunk: *mut *mut void) -> SCODE;
+        }
+        struct IMAGE_INFO {
+            Width: u32,
+            Height: u32,
+            Format: IMAGE_PIXELFORMAT,
+        }
+        #[repr(i32)]
+        enum IMAGE_PIXELFORMAT {
+            FILTER_PIXELFORMAT_BGRA8 = 0,
+            FILTER_PIXELFORMAT_PBGRA8 = 1,
+            FILTER_PIXELFORMAT_BGR8 = 2,
+        }
+        #[guid(0x3d7df9a7_8da6_4fbf_a45b_7592f06d93a9)]
+        interface IPixelFilter: IFilter {
+            fn GetImageInfo(&self, imageInfo: *mut IMAGE_INFO) -> HRESULT;
+            fn GetPixelsForImage(&self, scalingFactor: f32, sourceRect: *const RECT, pixelBufferSize: u32, pixelBuffer: *mut u8) -> HRESULT;
+        }
+        struct STAT_CHUNK {
+            idChunk: u32,
+            breakType: CHUNK_BREAKTYPE,
+            flags: CHUNKSTATE,
+            locale: LCID,
+            attribute: FULLPROPSPEC,
+            idChunkSource: u32,
+            cwcStartSource: u32,
+            cwcLenSource: u32,
+        }
+    }
+}

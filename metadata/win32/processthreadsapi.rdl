@@ -1,0 +1,370 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct APC_CALLBACK_DATA {
+            Parameter: usize,
+            ContextRecord: PCONTEXT,
+            Reserved0: usize,
+            Reserved1: usize,
+        }
+        struct APP_MEMORY_INFORMATION {
+            AvailableCommit: u64,
+            PrivateCommitUsage: u64,
+            PeakPrivateCommitUsage: u64,
+            TotalCommitUsage: u64,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn CreateProcessA(#[opt] lpApplicationName: PCSTR, #[in] #[out] #[opt] lpCommandLine: PSTR, #[opt] lpProcessAttributes: *const SECURITY_ATTRIBUTES, #[opt] lpThreadAttributes: *const SECURITY_ATTRIBUTES, bInheritHandles: BOOL, dwCreationFlags: u32, #[opt] lpEnvironment: *const void, #[opt] lpCurrentDirectory: PCSTR, lpStartupInfo: *const STARTUPINFOA, lpProcessInformation: *mut PROCESS_INFORMATION) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CreateProcessAsUserA(#[opt] hToken: HANDLE, #[opt] lpApplicationName: PCSTR, #[in] #[out] #[opt] lpCommandLine: PSTR, #[opt] lpProcessAttributes: *const SECURITY_ATTRIBUTES, #[opt] lpThreadAttributes: *const SECURITY_ATTRIBUTES, bInheritHandles: BOOL, dwCreationFlags: u32, #[opt] lpEnvironment: *const void, #[opt] lpCurrentDirectory: PCSTR, lpStartupInfo: *const STARTUPINFOA, lpProcessInformation: *mut PROCESS_INFORMATION) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CreateProcessAsUserW(#[opt] hToken: HANDLE, #[opt] lpApplicationName: PCWSTR, #[in] #[out] #[opt] lpCommandLine: PWSTR, #[opt] lpProcessAttributes: *const SECURITY_ATTRIBUTES, #[opt] lpThreadAttributes: *const SECURITY_ATTRIBUTES, bInheritHandles: BOOL, dwCreationFlags: u32, #[opt] lpEnvironment: *const void, #[opt] lpCurrentDirectory: PCWSTR, lpStartupInfo: *const STARTUPINFOW, lpProcessInformation: *mut PROCESS_INFORMATION) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateProcessW(#[opt] lpApplicationName: PCWSTR, #[in] #[out] #[opt] lpCommandLine: PWSTR, #[opt] lpProcessAttributes: *const SECURITY_ATTRIBUTES, #[opt] lpThreadAttributes: *const SECURITY_ATTRIBUTES, bInheritHandles: BOOL, dwCreationFlags: u32, #[opt] lpEnvironment: *const void, #[opt] lpCurrentDirectory: PCWSTR, lpStartupInfo: *const STARTUPINFOW, lpProcessInformation: *mut PROCESS_INFORMATION) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateRemoteThread(hProcess: HANDLE, #[opt] lpThreadAttributes: *const SECURITY_ATTRIBUTES, dwStackSize: usize, lpStartAddress: LPTHREAD_START_ROUTINE, #[opt] lpParameter: *const void, dwCreationFlags: u32, #[opt] lpThreadId: *mut u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateRemoteThreadEx(hProcess: HANDLE, #[opt] lpThreadAttributes: *const SECURITY_ATTRIBUTES, dwStackSize: usize, lpStartAddress: LPTHREAD_START_ROUTINE, #[opt] lpParameter: *const void, dwCreationFlags: u32, #[opt] lpAttributeList: *const _PROC_THREAD_ATTRIBUTE_LIST, #[opt] lpThreadId: *mut u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateThread(#[opt] lpThreadAttributes: *const SECURITY_ATTRIBUTES, dwStackSize: usize, lpStartAddress: LPTHREAD_START_ROUTINE, #[opt] lpParameter: *const void, dwCreationFlags: u32, #[opt] lpThreadId: *mut u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteProcThreadAttributeList(#[in] #[out] lpAttributeList: *mut _PROC_THREAD_ATTRIBUTE_LIST);
+        #[noreturn]
+        #[library("KERNEL32.dll")]
+        extern fn ExitProcess(uExitCode: u32);
+        #[noreturn]
+        #[library("KERNEL32.dll")]
+        extern fn ExitThread(dwExitCode: u32);
+        #[library("KERNEL32.dll")]
+        extern fn FlushInstructionCache(hProcess: HANDLE, #[size_param(2)] #[opt] lpBaseAddress: *const void, dwSize: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FlushProcessWriteBuffers();
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentProcess() -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentProcessId() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentProcessorNumber() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentProcessorNumberEx(ProcNumber: *mut PROCESSOR_NUMBER);
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentThread() -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentThreadId() -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentThreadStackLimits(LowLimit: *mut u64, HighLimit: *mut u64);
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentThreadStackLimits(LowLimit: *mut u32, HighLimit: *mut u32);
+        #[library("KERNEL32.dll")]
+        extern fn GetExitCodeProcess(hProcess: HANDLE, lpExitCode: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetExitCodeThread(hThread: HANDLE, lpExitCode: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetMachineTypeAttributes(Machine: u16, MachineTypeAttributes: *mut MACHINE_ATTRIBUTES) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn GetPriorityClass(hProcess: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessDefaultCpuSetMasks(Process: HANDLE, #[len_param(2)] #[opt] CpuSetMasks: *mut GROUP_AFFINITY, CpuSetMaskCount: u16, RequiredMaskCount: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessDefaultCpuSets(Process: HANDLE, #[len_param(2)] #[opt] CpuSetIds: *mut u32, CpuSetIdCount: u32, RequiredIdCount: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessHandleCount(hProcess: HANDLE, pdwHandleCount: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessId(Process: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessIdOfThread(Thread: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessInformation(hProcess: HANDLE, ProcessInformationClass: PROCESS_INFORMATION_CLASS, #[size_param(3)] ProcessInformation: *mut void, ProcessInformationSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessMitigationPolicy(hProcess: HANDLE, MitigationPolicy: PROCESS_MITIGATION_POLICY, #[size_param(3)] lpBuffer: *mut void, dwLength: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessPriorityBoost(hProcess: HANDLE, pDisablePriorityBoost: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessShutdownParameters(lpdwLevel: *mut u32, lpdwFlags: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessTimes(hProcess: HANDLE, lpCreationTime: *mut FILETIME, lpExitTime: *mut FILETIME, lpKernelTime: *mut FILETIME, lpUserTime: *mut FILETIME) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessVersion(ProcessId: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetStartupInfoW(lpStartupInfo: *mut STARTUPINFOW);
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemCpuSetInformation(#[size_param(1)] #[opt] Information: *mut SYSTEM_CPU_SET_INFORMATION, BufferLength: u32, ReturnedLength: *mut u32, #[opt] Process: HANDLE, #[reserved] Flags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemTimes(#[opt] lpIdleTime: *mut FILETIME, #[opt] lpKernelTime: *mut FILETIME, #[opt] lpUserTime: *mut FILETIME) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadContext(hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadDescription(hThread: HANDLE, ppszThreadDescription: *mut PWSTR) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadIOPendingFlag(hThread: HANDLE, lpIOIsPending: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadId(Thread: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadIdealProcessorEx(hThread: HANDLE, lpIdealProcessor: *mut PROCESSOR_NUMBER) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadInformation(hThread: HANDLE, ThreadInformationClass: THREAD_INFORMATION_CLASS, #[size_param(3)] ThreadInformation: *mut void, ThreadInformationSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadPriority(hThread: HANDLE) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadPriorityBoost(hThread: HANDLE, pDisablePriorityBoost: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadSelectedCpuSetMasks(Thread: HANDLE, #[len_param(2)] #[opt] CpuSetMasks: *mut GROUP_AFFINITY, CpuSetMaskCount: u16, RequiredMaskCount: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadSelectedCpuSets(Thread: HANDLE, #[len_param(2)] #[opt] CpuSetIds: *mut u32, CpuSetIdCount: u32, RequiredIdCount: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadTimes(hThread: HANDLE, lpCreationTime: *mut FILETIME, lpExitTime: *mut FILETIME, lpKernelTime: *mut FILETIME, lpUserTime: *mut FILETIME) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn InitializeProcThreadAttributeList(#[size_param(3)] #[opt] lpAttributeList: *mut _PROC_THREAD_ATTRIBUTE_LIST, dwAttributeCount: u32, #[reserved] dwFlags: u32, lpSize: *mut usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsProcessCritical(hProcess: HANDLE, Critical: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsProcessorFeaturePresent(ProcessorFeature: u32) -> BOOL;
+        type LPPROCESS_INFORMATION = *mut PROCESS_INFORMATION;
+        type LPPROC_THREAD_ATTRIBUTE_LIST = *mut _PROC_THREAD_ATTRIBUTE_LIST;
+        type LPSTARTUPINFO = LPSTARTUPINFOA;
+        type LPSTARTUPINFOA = *mut STARTUPINFOA;
+        type LPSTARTUPINFOW = *mut STARTUPINFOW;
+        #[repr(u32)]
+        #[flags]
+        enum MACHINE_ATTRIBUTES {
+            UserEnabled = 1,
+            KernelEnabled = 2,
+            Wow64Container = 4,
+        }
+        struct MEMORY_PRIORITY_INFORMATION {
+            MemoryPriority: u32,
+        }
+        struct OVERRIDE_PREFETCH_PARAMETER {
+            Value: u32,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn OpenProcess(dwDesiredAccess: u32, bInheritHandle: BOOL, dwProcessId: u32) -> HANDLE;
+        #[library("ADVAPI32.dll")]
+        extern fn OpenProcessToken(ProcessHandle: HANDLE, DesiredAccess: u32, TokenHandle: *mut HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn OpenThread(dwDesiredAccess: u32, bInheritHandle: BOOL, dwThreadId: u32) -> HANDLE;
+        #[library("ADVAPI32.dll")]
+        extern fn OpenThreadToken(ThreadHandle: HANDLE, DesiredAccess: u32, OpenAsSelf: BOOL, TokenHandle: *mut HANDLE) -> BOOL;
+        type PAPC_CALLBACK_DATA = *mut APC_CALLBACK_DATA;
+        type PAPP_MEMORY_INFORMATION = *mut APP_MEMORY_INFORMATION;
+        type PMEMORY_PRIORITY_INFORMATION = *mut MEMORY_PRIORITY_INFORMATION;
+        const PME_CURRENT_VERSION: u32 = 1;
+        const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0;
+        const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1;
+        type PPROCESS_INFORMATION = *mut PROCESS_INFORMATION;
+        type PPROCESS_LEAP_SECOND_INFO = *mut PROCESS_LEAP_SECOND_INFO;
+        type PPROCESS_MEMORY_EXHAUSTION_INFO = *mut PROCESS_MEMORY_EXHAUSTION_INFO;
+        type PPROCESS_MEMORY_EXHAUSTION_TYPE = *mut PROCESS_MEMORY_EXHAUSTION_TYPE;
+        type PPROCESS_POWER_THROTTLING_STATE = *mut PROCESS_POWER_THROTTLING_STATE;
+        type PPROC_THREAD_ATTRIBUTE_LIST = *mut _PROC_THREAD_ATTRIBUTE_LIST;
+        const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: u32 = 1;
+        struct PROCESS_INFORMATION {
+            hProcess: HANDLE,
+            hThread: HANDLE,
+            dwProcessId: u32,
+            dwThreadId: u32,
+        }
+        #[repr(i32)]
+        enum PROCESS_INFORMATION_CLASS {
+            ProcessMemoryPriority = 0,
+            ProcessMemoryExhaustionInfo = 1,
+            ProcessAppMemoryInfo = 2,
+            ProcessInPrivateInfo = 3,
+            ProcessPowerThrottling = 4,
+            ProcessReservedValue1 = 5,
+            ProcessTelemetryCoverageInfo = 6,
+            ProcessProtectionLevelInfo = 7,
+            ProcessLeapSecondInfo = 8,
+            ProcessMachineTypeInfo = 9,
+            ProcessOverrideSubsequentPrefetchParameter = 10,
+            ProcessMaxOverridePrefetchParameter = 11,
+            ProcessInformationClassMax = 12,
+        }
+        struct PROCESS_LEAP_SECOND_INFO {
+            Flags: u32,
+            Reserved: u32,
+        }
+        const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1;
+        const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1;
+        struct PROCESS_MACHINE_INFORMATION {
+            ProcessMachine: u16,
+            Res0: u16,
+            MachineAttributes: MACHINE_ATTRIBUTES,
+        }
+        struct PROCESS_MEMORY_EXHAUSTION_INFO {
+            Version: u16,
+            Reserved: u16,
+            Type: PROCESS_MEMORY_EXHAUSTION_TYPE,
+            Value: usize,
+        }
+        #[repr(i32)]
+        enum PROCESS_MEMORY_EXHAUSTION_TYPE {
+            PMETypeFailFastOnCommitFailure = 0,
+            PMETypeMax = 1,
+        }
+        const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1;
+        const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1;
+        const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4;
+        struct PROCESS_POWER_THROTTLING_STATE {
+            Version: u32,
+            ControlMask: u32,
+            StateMask: u32,
+        }
+        const PROCESS_POWER_THROTTLING_VALID_FLAGS: u32 = 5;
+        struct PROCESS_PROTECTION_LEVEL_INFORMATION {
+            ProtectionLevel: u32,
+        }
+        const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1;
+        #[library("KERNEL32.dll")]
+        extern fn ProcessIdToSessionId(dwProcessId: u32, pSessionId: *mut u32) -> BOOL;
+        #[repr(i32)]
+        enum QUEUE_USER_APC_FLAGS {
+            QUEUE_USER_APC_FLAGS_NONE = 0,
+            QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC = 1,
+            QUEUE_USER_APC_CALLBACK_DATA_CONTEXT = 65536,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn QueryProcessAffinityUpdateMode(hProcess: HANDLE, #[opt] lpdwFlags: *mut u32) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn QueryProtectedPolicy(PolicyGuid: *const GUID, PolicyValue: *mut u64) -> BOOL;
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn QueryProtectedPolicy(PolicyGuid: *const GUID, PolicyValue: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn QueueUserAPC(pfnAPC: PAPCFUNC, hThread: HANDLE, dwData: usize) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn QueueUserAPC2(ApcRoutine: PAPCFUNC, Thread: HANDLE, Data: usize, Flags: QUEUE_USER_APC_FLAGS) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ResumeThread(hThread: HANDLE) -> u32;
+        type STARTUPINFO = STARTUPINFOA;
+        struct STARTUPINFOA {
+            cb: u32,
+            lpReserved: PSTR,
+            lpDesktop: PSTR,
+            lpTitle: PSTR,
+            dwX: u32,
+            dwY: u32,
+            dwXSize: u32,
+            dwYSize: u32,
+            dwXCountChars: u32,
+            dwYCountChars: u32,
+            dwFillAttribute: u32,
+            dwFlags: u32,
+            wShowWindow: u16,
+            cbReserved2: u16,
+            lpReserved2: LPBYTE,
+            hStdInput: HANDLE,
+            hStdOutput: HANDLE,
+            hStdError: HANDLE,
+        }
+        struct STARTUPINFOW {
+            cb: u32,
+            lpReserved: PWSTR,
+            lpDesktop: PWSTR,
+            lpTitle: PWSTR,
+            dwX: u32,
+            dwY: u32,
+            dwXSize: u32,
+            dwYSize: u32,
+            dwXCountChars: u32,
+            dwYCountChars: u32,
+            dwFillAttribute: u32,
+            dwFlags: u32,
+            wShowWindow: u16,
+            cbReserved2: u16,
+            lpReserved2: LPBYTE,
+            hStdInput: HANDLE,
+            hStdOutput: HANDLE,
+            hStdError: HANDLE,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn SetPriorityClass(hProcess: HANDLE, dwPriorityClass: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessAffinityUpdateMode(hProcess: HANDLE, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessDefaultCpuSetMasks(Process: HANDLE, #[len_param(2)] #[opt] CpuSetMasks: *const GROUP_AFFINITY, CpuSetMaskCount: u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessDefaultCpuSets(Process: HANDLE, #[len_param(2)] #[opt] CpuSetIds: *const u32, CpuSetIdCount: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessDynamicEHContinuationTargets(Process: HANDLE, NumberOfTargets: u16, #[len_param(1)] #[in] #[out] Targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessDynamicEnforcedCetCompatibleRanges(Process: HANDLE, NumberOfRanges: u16, #[len_param(1)] #[in] #[out] Ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessInformation(hProcess: HANDLE, ProcessInformationClass: PROCESS_INFORMATION_CLASS, #[size_param(3)] ProcessInformation: *const void, ProcessInformationSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessMitigationPolicy(MitigationPolicy: PROCESS_MITIGATION_POLICY, #[size_param(2)] lpBuffer: *const void, dwLength: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessPriorityBoost(hProcess: HANDLE, bDisablePriorityBoost: BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessShutdownParameters(dwLevel: u32, dwFlags: u32) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn SetProtectedPolicy(PolicyGuid: *const GUID, PolicyValue: usize, #[opt] OldPolicyValue: *mut u64) -> BOOL;
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn SetProtectedPolicy(PolicyGuid: *const GUID, PolicyValue: usize, #[opt] OldPolicyValue: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadContext(hThread: HANDLE, lpContext: *const CONTEXT) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadDescription(hThread: HANDLE, lpThreadDescription: PCWSTR) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadIdealProcessor(hThread: HANDLE, dwIdealProcessor: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadIdealProcessorEx(hThread: HANDLE, lpIdealProcessor: *const PROCESSOR_NUMBER, #[opt] lpPreviousIdealProcessor: *mut PROCESSOR_NUMBER) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadInformation(hThread: HANDLE, ThreadInformationClass: THREAD_INFORMATION_CLASS, #[size_param(3)] ThreadInformation: *const void, ThreadInformationSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadPriority(hThread: HANDLE, nPriority: i32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadPriorityBoost(hThread: HANDLE, bDisablePriorityBoost: BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadSelectedCpuSetMasks(Thread: HANDLE, #[len_param(2)] #[opt] CpuSetMasks: *const GROUP_AFFINITY, CpuSetMaskCount: u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadSelectedCpuSets(Thread: HANDLE, #[len_param(2)] CpuSetIds: *const u32, CpuSetIdCount: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadStackGuarantee(#[in] #[out] StackSizeInBytes: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SetThreadToken(#[opt] Thread: *const HANDLE, #[opt] Token: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SuspendThread(hThread: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn SwitchToThread() -> BOOL;
+        #[repr(i32)]
+        enum THREAD_INFORMATION_CLASS {
+            ThreadMemoryPriority = 0,
+            ThreadAbsoluteCpuPriority = 1,
+            ThreadDynamicCodePolicy = 2,
+            ThreadPowerThrottling = 3,
+            ThreadInformationClassMax = 4,
+        }
+        const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1;
+        const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1;
+        struct THREAD_POWER_THROTTLING_STATE {
+            Version: u32,
+            ControlMask: u32,
+            StateMask: u32,
+        }
+        const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1;
+        const TLS_OUT_OF_INDEXES: u32 = 4294967295;
+        #[library("KERNEL32.dll")]
+        extern fn TerminateProcess(hProcess: HANDLE, uExitCode: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn TerminateThread(hThread: HANDLE, dwExitCode: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn TlsAlloc() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn TlsFree(dwTlsIndex: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn TlsGetValue(dwTlsIndex: u32) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn TlsGetValue2(dwTlsIndex: u32) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn TlsSetValue(dwTlsIndex: u32, #[opt] lpTlsValue: *const void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn UpdateProcThreadAttribute(#[in] #[out] lpAttributeList: *mut _PROC_THREAD_ATTRIBUTE_LIST, dwFlags: u32, Attribute: usize, #[size_param(4)] #[opt] lpValue: *const void, cbSize: usize, #[size_param(4)] #[opt] lpPreviousValue: *mut void, #[opt] lpReturnSize: *const usize) -> BOOL;
+        struct _PROC_THREAD_ATTRIBUTE_LIST {}
+    }
+}

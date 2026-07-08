@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x6d5140c1_7436_11ce_8034_00aa006009fa)]
+        interface IServiceProvider: IUnknown {
+            fn QueryService(&self, guidService: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        }
+    }
+}

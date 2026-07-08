@@ -88,8 +88,8 @@ impl ControllerOptions {
         let options = unsafe { environment.CreateCoreWebView2ControllerOptions()? };
 
         if let Some(profile_name) = &self.profile_name {
-            let profile_name = string::encode(profile_name);
-            unsafe { options.SetProfileName(profile_name.as_ptr())? };
+            let profile_name = HSTRING::from(profile_name);
+            unsafe { options.SetProfileName(&profile_name)? };
         }
         unsafe { options.SetIsInPrivateModeEnabled(self.is_in_private_mode)? };
         if let Some(color) = self.default_background_color {

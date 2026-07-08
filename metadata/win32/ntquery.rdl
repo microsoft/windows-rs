@@ -1,0 +1,135 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("query.dll")]
+        extern fn BindIFilterFromStorage(pStg: IStorage, pUnkOuter: IUnknown, ppIUnk: *mut *mut void) -> HRESULT;
+        #[library("query.dll")]
+        extern fn BindIFilterFromStream(pStm: IStream, pUnkOuter: IUnknown, ppIUnk: *mut *mut void) -> HRESULT;
+        #[encoding("utf-16")]
+        const CIADMIN: String = "::_nodocstore_::";
+        const CICAT_ALL_OPENED: u32 = 32;
+        const CICAT_GET_STATE: u32 = 16;
+        const CICAT_NO_QUERY: u32 = 8;
+        const CICAT_READONLY: u32 = 2;
+        const CICAT_STOPPED: u32 = 1;
+        const CICAT_WRITABLE: u32 = 4;
+        #[encoding("utf-16")]
+        const CINULLCATALOG: String = "::_noindex_::";
+        const CI_PROVIDER_ALL: u32 = 4294967295;
+        const CI_PROVIDER_INDEXING_SERVICE: u32 = 2;
+        const CI_PROVIDER_MSSEARCH: u32 = 1;
+        struct CI_STATE {
+            cbStruct: u32,
+            cWordList: u32,
+            cPersistentIndex: u32,
+            cQueries: u32,
+            cDocuments: u32,
+            cFreshTest: u32,
+            dwMergeProgress: u32,
+            eState: u32,
+            cFilteredDocuments: u32,
+            cTotalDocuments: u32,
+            cPendingScans: u32,
+            dwIndexSize: u32,
+            cUniqueKeys: u32,
+            cSecQDocuments: u32,
+            dwPropCacheSize: u32,
+        }
+        const CI_STATE_ANNEALING_MERGE: u32 = 8;
+        const CI_STATE_BATTERY_POLICY: u32 = 262144;
+        const CI_STATE_BATTERY_POWER: u32 = 2048;
+        const CI_STATE_CONTENT_SCAN_REQUIRED: u32 = 4;
+        const CI_STATE_DELETION_MERGE: u32 = 32768;
+        const CI_STATE_HIGH_CPU: u32 = 131072;
+        const CI_STATE_HIGH_IO: u32 = 256;
+        const CI_STATE_INDEX_MIGRATION_MERGE: u32 = 64;
+        const CI_STATE_LOW_DISK: u32 = 65536;
+        const CI_STATE_LOW_MEMORY: u32 = 128;
+        const CI_STATE_MASTER_MERGE: u32 = 2;
+        const CI_STATE_MASTER_MERGE_PAUSED: u32 = 512;
+        const CI_STATE_READING_USNS: u32 = 16384;
+        const CI_STATE_READ_ONLY: u32 = 1024;
+        const CI_STATE_RECOVERING: u32 = 32;
+        const CI_STATE_SCANNING: u32 = 16;
+        const CI_STATE_SHADOW_MERGE: u32 = 1;
+        const CI_STATE_STARTING: u32 = 8192;
+        const CI_STATE_USER_ACTIVE: u32 = 4096;
+        const CI_VERSION_CORRID: u32 = 2048;
+        const CI_VERSION_QUERY_METADATA: u32 = 2304;
+        const CI_VERSION_WDS30: u32 = 258;
+        const CI_VERSION_WDS40: u32 = 265;
+        const CI_VERSION_WIN70: u32 = 1792;
+        const DBPROP_APPLICATION_NAME: u32 = 11;
+        const DBPROP_CATALOGLISTID: u32 = 9;
+        const DBPROP_CI_CATALOG_NAME: u32 = 2;
+        const DBPROP_CI_DEPTHS: u32 = 4;
+        const DBPROP_CI_EXCLUDE_SCOPES: u32 = 5;
+        const DBPROP_CI_INCLUDE_SCOPES: u32 = 3;
+        const DBPROP_CI_PROVIDER: u32 = 8;
+        const DBPROP_CI_QUERY_TYPE: u32 = 7;
+        const DBPROP_CI_SCOPE_FLAGS: u32 = 4;
+        const DBPROP_CI_SECURITY_ID: u32 = 6;
+        const DBPROP_CLIENT_CLSID: u32 = 3;
+        const DBPROP_DEFAULT_EQUALS_BEHAVIOR: u32 = 2;
+        const DBPROP_DEFERCATALOGVERIFICATION: u32 = 8;
+        const DBPROP_DEFERNONINDEXEDTRIMMING: u32 = 3;
+        const DBPROP_DONOTCOMPUTEEXPENSIVEPROPS: u32 = 15;
+        const DBPROP_ENABLEROWSETEVENTS: u32 = 16;
+        const DBPROP_FIRSTROWS: u32 = 7;
+        const DBPROP_FREETEXTANYTERM: u32 = 12;
+        const DBPROP_FREETEXTUSESTEMMING: u32 = 13;
+        const DBPROP_GENERATEPARSETREE: u32 = 10;
+        const DBPROP_GENERICOPTIONS_STRING: u32 = 6;
+        const DBPROP_IGNORENOISEONLYCLAUSES: u32 = 5;
+        const DBPROP_IGNORESBRI: u32 = 14;
+        const DBPROP_MACHINE: u32 = 2;
+        const DBPROP_QUERY_ID: u32 = 18;
+        const DBPROP_SESSION_ID: u32 = 17;
+        const DBPROP_USECONTENTINDEX: u32 = 2;
+        const DBPROP_USEEXTENDEDDBTYPES: u32 = 4;
+        const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3;
+        const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: u32 = 2;
+        const LIFF_LOAD_DEFINED_FILTER: u32 = 1;
+        #[library("query.dll")]
+        extern fn LoadIFilter(pwcsPath: PCWSTR, pUnkOuter: IUnknown, ppIUnk: *mut *mut void) -> HRESULT;
+        #[library("query.dll")]
+        extern fn LoadIFilterEx(pwcsPath: PCWSTR, dwFlags: u32, riid: *const GUID, ppIUnk: *mut *mut void) -> HRESULT;
+        const MSIDXSPROP_COMMAND_LOCALE_STRING: u32 = 3;
+        const MSIDXSPROP_MAX_RANK: u32 = 6;
+        const MSIDXSPROP_PARSE_TREE: u32 = 5;
+        const MSIDXSPROP_QUERY_RESTRICTION: u32 = 4;
+        const MSIDXSPROP_RESULTS_FOUND: u32 = 7;
+        const MSIDXSPROP_ROWSETQUERYSTATUS: u32 = 2;
+        const MSIDXSPROP_SAME_SORTORDER_USED: u32 = 14;
+        const MSIDXSPROP_SERVER_NLSVERSION: u32 = 12;
+        const MSIDXSPROP_SERVER_NLSVER_DEFINED: u32 = 13;
+        const MSIDXSPROP_SERVER_VERSION: u32 = 9;
+        const MSIDXSPROP_SERVER_WINVER_MAJOR: u32 = 10;
+        const MSIDXSPROP_SERVER_WINVER_MINOR: u32 = 11;
+        const MSIDXSPROP_WHEREID: u32 = 8;
+        const PID_FILENAME: u32 = 100;
+        const PROPID_QUERY_LASTSEENTIME: u32 = 10;
+        const PROPID_QUERY_UNFILTERED: u32 = 7;
+        const PROPID_QUERY_VIRTUALPATH: u32 = 9;
+        const PROPID_QUERY_WORKID: u32 = 5;
+        const QUERY_DEEP: u32 = 1;
+        const QUERY_PHYSICAL_PATH: u32 = 0;
+        const QUERY_SHALLOW: u32 = 0;
+        const QUERY_VIRTUAL_PATH: u32 = 2;
+        const STAT_BUSY: u32 = 0;
+        const STAT_COALESCE_COMP_ALL_NOISE: u32 = 8192;
+        const STAT_CONTENT_OUT_OF_DATE: u32 = 32;
+        const STAT_CONTENT_QUERY_INCOMPLETE: u32 = 128;
+        const STAT_DONE: u32 = 2;
+        const STAT_ERROR: u32 = 1;
+        const STAT_MISSING_PROP_IN_RELDOC: u32 = 2048;
+        const STAT_MISSING_RELDOC: u32 = 1024;
+        const STAT_NOISE_WORDS: u32 = 16;
+        const STAT_PARTIAL_SCOPE: u32 = 8;
+        const STAT_REFRESH: u32 = 3;
+        const STAT_REFRESH_INCOMPLETE: u32 = 64;
+        const STAT_RELDOC_ACCESS_DENIED: u32 = 4096;
+        const STAT_SHARING_VIOLATION: u32 = 512;
+        const STAT_TIME_LIMIT_EXCEEDED: u32 = 256;
+    }
+}

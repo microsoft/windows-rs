@@ -1,0 +1,930 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const AVENC_H263V_LEVELCOUNT: u32 = 8;
+        const AVENC_H264V_LEVELCOUNT: u32 = 16;
+        const AVENC_H264V_MAX_MBBITS: u32 = 3200;
+        struct CODECAPI_AVAudioChannelConfig {}
+        struct CODECAPI_AVAudioChannelCount {}
+        struct CODECAPI_AVAudioSampleRate {}
+        struct CODECAPI_AVDDSurroundMode {}
+        struct CODECAPI_AVDSPLoudnessEqualization {}
+        struct CODECAPI_AVDSPSpeakerFill {}
+        struct CODECAPI_AVDecAACDownmixMode {}
+        struct CODECAPI_AVDecAudioDualMono {}
+        struct CODECAPI_AVDecAudioDualMonoReproMode {}
+        struct CODECAPI_AVDecCommonInputFormat {}
+        struct CODECAPI_AVDecCommonMeanBitRate {}
+        struct CODECAPI_AVDecCommonMeanBitRateInterval {}
+        struct CODECAPI_AVDecCommonOutputFormat {}
+        struct CODECAPI_AVDecDDDynamicRangeScaleHigh {}
+        struct CODECAPI_AVDecDDDynamicRangeScaleLow {}
+        struct CODECAPI_AVDecDDMatrixDecodingMode {}
+        struct CODECAPI_AVDecDDOperationalMode {}
+        struct CODECAPI_AVDecDDStereoDownMixMode {}
+        struct CODECAPI_AVDecDisableVideoPostProcessing {}
+        struct CODECAPI_AVDecHEAACDynamicRangeControl {}
+        struct CODECAPI_AVDecNumWorkerThreads {}
+        struct CODECAPI_AVDecSoftwareDynamicFormatChange {}
+        struct CODECAPI_AVDecVideoAcceleration_H264 {}
+        struct CODECAPI_AVDecVideoAcceleration_MPEG2 {}
+        struct CODECAPI_AVDecVideoAcceleration_VC1 {}
+        struct CODECAPI_AVDecVideoCodecType {}
+        struct CODECAPI_AVDecVideoDXVABusEncryption {}
+        struct CODECAPI_AVDecVideoDXVAMode {}
+        struct CODECAPI_AVDecVideoDropPicWithMissingRef {}
+        struct CODECAPI_AVDecVideoFastDecodeMode {}
+        struct CODECAPI_AVDecVideoH264ErrorConcealment {}
+        struct CODECAPI_AVDecVideoImageSize {}
+        struct CODECAPI_AVDecVideoInputScanType {}
+        struct CODECAPI_AVDecVideoMPEG2ErrorConcealment {}
+        struct CODECAPI_AVDecVideoMaxCodedHeight {}
+        struct CODECAPI_AVDecVideoMaxCodedWidth {}
+        struct CODECAPI_AVDecVideoPixelAspectRatio {}
+        struct CODECAPI_AVDecVideoProcDeinterlaceCSC {}
+        struct CODECAPI_AVDecVideoSWPowerLevel {}
+        struct CODECAPI_AVDecVideoSoftwareDeinterlaceMode {}
+        struct CODECAPI_AVDecVideoThumbnailGenerationMode {}
+        struct CODECAPI_AVEnableInLoopDeblockFilter {}
+        struct CODECAPI_AVEncAACEnableVBR {}
+        struct CODECAPI_AVEncAdaptiveMode {}
+        struct CODECAPI_AVEncAudioDualMono {}
+        struct CODECAPI_AVEncAudioInputContent {}
+        struct CODECAPI_AVEncAudioIntervalToEncode {}
+        struct CODECAPI_AVEncAudioIntervalToSkip {}
+        struct CODECAPI_AVEncAudioMapDestChannel0 {}
+        struct CODECAPI_AVEncAudioMapDestChannel1 {}
+        struct CODECAPI_AVEncAudioMapDestChannel10 {}
+        struct CODECAPI_AVEncAudioMapDestChannel11 {}
+        struct CODECAPI_AVEncAudioMapDestChannel12 {}
+        struct CODECAPI_AVEncAudioMapDestChannel13 {}
+        struct CODECAPI_AVEncAudioMapDestChannel14 {}
+        struct CODECAPI_AVEncAudioMapDestChannel15 {}
+        struct CODECAPI_AVEncAudioMapDestChannel2 {}
+        struct CODECAPI_AVEncAudioMapDestChannel3 {}
+        struct CODECAPI_AVEncAudioMapDestChannel4 {}
+        struct CODECAPI_AVEncAudioMapDestChannel5 {}
+        struct CODECAPI_AVEncAudioMapDestChannel6 {}
+        struct CODECAPI_AVEncAudioMapDestChannel7 {}
+        struct CODECAPI_AVEncAudioMapDestChannel8 {}
+        struct CODECAPI_AVEncAudioMapDestChannel9 {}
+        struct CODECAPI_AVEncAudioMeanBitRate {}
+        struct CODECAPI_AVEncChromaEncodeMode {}
+        struct CODECAPI_AVEncChromaUpdateTime {}
+        struct CODECAPI_AVEncCodecType {}
+        struct CODECAPI_AVEncCommonAllowFrameDrops {}
+        struct CODECAPI_AVEncCommonBufferInLevel {}
+        struct CODECAPI_AVEncCommonBufferOutLevel {}
+        struct CODECAPI_AVEncCommonBufferSize {}
+        struct CODECAPI_AVEncCommonFormatConstraint {}
+        struct CODECAPI_AVEncCommonLowLatency {}
+        struct CODECAPI_AVEncCommonMaxBitRate {}
+        struct CODECAPI_AVEncCommonMeanBitRate {}
+        struct CODECAPI_AVEncCommonMeanBitRateInterval {}
+        struct CODECAPI_AVEncCommonMinBitRate {}
+        struct CODECAPI_AVEncCommonMultipassMode {}
+        struct CODECAPI_AVEncCommonPassEnd {}
+        struct CODECAPI_AVEncCommonPassStart {}
+        struct CODECAPI_AVEncCommonQuality {}
+        struct CODECAPI_AVEncCommonQualityVsSpeed {}
+        struct CODECAPI_AVEncCommonRateControlMode {}
+        struct CODECAPI_AVEncCommonRealTime {}
+        struct CODECAPI_AVEncCommonStreamEndHandling {}
+        struct CODECAPI_AVEncCommonTranscodeEncodingProfile {}
+        struct CODECAPI_AVEncDDAtoDConverterType {}
+        struct CODECAPI_AVEncDDCentreDownMixLevel {}
+        struct CODECAPI_AVEncDDChannelBWLowPassFilter {}
+        struct CODECAPI_AVEncDDCopyright {}
+        struct CODECAPI_AVEncDDDCHighPassFilter {}
+        struct CODECAPI_AVEncDDDialogNormalization {}
+        struct CODECAPI_AVEncDDDigitalDeemphasis {}
+        struct CODECAPI_AVEncDDDynamicRangeCompressionControl {}
+        struct CODECAPI_AVEncDDHeadphoneMode {}
+        struct CODECAPI_AVEncDDLFELowPassFilter {}
+        struct CODECAPI_AVEncDDLoRoCenterMixLvl_x10 {}
+        struct CODECAPI_AVEncDDLoRoSurroundMixLvl_x10 {}
+        struct CODECAPI_AVEncDDLtRtCenterMixLvl_x10 {}
+        struct CODECAPI_AVEncDDLtRtSurroundMixLvl_x10 {}
+        struct CODECAPI_AVEncDDOriginalBitstream {}
+        struct CODECAPI_AVEncDDPreferredStereoDownMixMode {}
+        struct CODECAPI_AVEncDDProductionInfoExists {}
+        struct CODECAPI_AVEncDDProductionMixLevel {}
+        struct CODECAPI_AVEncDDProductionRoomType {}
+        struct CODECAPI_AVEncDDRFPreEmphasisFilter {}
+        struct CODECAPI_AVEncDDService {}
+        struct CODECAPI_AVEncDDSurround3dBAttenuation {}
+        struct CODECAPI_AVEncDDSurround90DegreeePhaseShift {}
+        struct CODECAPI_AVEncDDSurroundDownMixLevel {}
+        struct CODECAPI_AVEncDDSurroundExMode {}
+        struct CODECAPI_AVEncEnableVideoProcessing {}
+        struct CODECAPI_AVEncH264CABACEnable {}
+        struct CODECAPI_AVEncH264PPSID {}
+        struct CODECAPI_AVEncH264SPSID {}
+        struct CODECAPI_AVEncInputVideoSystem {}
+        struct CODECAPI_AVEncLowPowerEncoder {}
+        struct CODECAPI_AVEncMP12MuxDVDNavPacks {}
+        struct CODECAPI_AVEncMP12MuxEarliestPTS {}
+        struct CODECAPI_AVEncMP12MuxInitialSCR {}
+        struct CODECAPI_AVEncMP12MuxLargestPacketSize {}
+        struct CODECAPI_AVEncMP12MuxMuxRate {}
+        struct CODECAPI_AVEncMP12MuxNumStreams {}
+        struct CODECAPI_AVEncMP12MuxPackSize {}
+        struct CODECAPI_AVEncMP12MuxPacketOverhead {}
+        struct CODECAPI_AVEncMP12MuxSysAudioLock {}
+        struct CODECAPI_AVEncMP12MuxSysCSPS {}
+        struct CODECAPI_AVEncMP12MuxSysFixed {}
+        struct CODECAPI_AVEncMP12MuxSysRateBound {}
+        struct CODECAPI_AVEncMP12MuxSysSTDBufferBound {}
+        struct CODECAPI_AVEncMP12MuxSysVideoLock {}
+        struct CODECAPI_AVEncMP12MuxTargetPacketizer {}
+        struct CODECAPI_AVEncMP12PktzCopyright {}
+        struct CODECAPI_AVEncMP12PktzInitialPTS {}
+        struct CODECAPI_AVEncMP12PktzOriginal {}
+        struct CODECAPI_AVEncMP12PktzPacketSize {}
+        struct CODECAPI_AVEncMP12PktzSTDBuffer {}
+        struct CODECAPI_AVEncMP12PktzStreamID {}
+        struct CODECAPI_AVEncMPACodingMode {}
+        struct CODECAPI_AVEncMPACopyright {}
+        struct CODECAPI_AVEncMPAEmphasisType {}
+        struct CODECAPI_AVEncMPAEnableRedundancyProtection {}
+        struct CODECAPI_AVEncMPALayer {}
+        struct CODECAPI_AVEncMPAOriginalBitstream {}
+        struct CODECAPI_AVEncMPAPrivateUserBit {}
+        struct CODECAPI_AVEncMPVAddSeqEndCode {}
+        struct CODECAPI_AVEncMPVDefaultBPictureCount {}
+        struct CODECAPI_AVEncMPVFrameFieldMode {}
+        struct CODECAPI_AVEncMPVGOPOpen {}
+        struct CODECAPI_AVEncMPVGOPSInSeq {}
+        struct CODECAPI_AVEncMPVGOPSize {}
+        struct CODECAPI_AVEncMPVGOPSizeMax {}
+        struct CODECAPI_AVEncMPVGOPSizeMin {}
+        struct CODECAPI_AVEncMPVGenerateHeaderPicDispExt {}
+        struct CODECAPI_AVEncMPVGenerateHeaderPicExt {}
+        struct CODECAPI_AVEncMPVGenerateHeaderSeqDispExt {}
+        struct CODECAPI_AVEncMPVGenerateHeaderSeqExt {}
+        struct CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt {}
+        struct CODECAPI_AVEncMPVIntraDCPrecision {}
+        struct CODECAPI_AVEncMPVIntraVLCTable {}
+        struct CODECAPI_AVEncMPVLevel {}
+        struct CODECAPI_AVEncMPVProfile {}
+        struct CODECAPI_AVEncMPVQScaleType {}
+        struct CODECAPI_AVEncMPVQuantMatrixChromaIntra {}
+        struct CODECAPI_AVEncMPVQuantMatrixChromaNonIntra {}
+        struct CODECAPI_AVEncMPVQuantMatrixIntra {}
+        struct CODECAPI_AVEncMPVQuantMatrixNonIntra {}
+        struct CODECAPI_AVEncMPVScanPattern {}
+        struct CODECAPI_AVEncMPVSceneDetection {}
+        struct CODECAPI_AVEncMPVUseConcealmentMotionVectors {}
+        struct CODECAPI_AVEncMaxFrameRate {}
+        struct CODECAPI_AVEncMuxOutputStreamType {}
+        struct CODECAPI_AVEncNoInputCopy {}
+        struct CODECAPI_AVEncNumWorkerThreads {}
+        struct CODECAPI_AVEncProgressiveUpdateTime {}
+        struct CODECAPI_AVEncSliceControlMode {}
+        struct CODECAPI_AVEncSliceControlSize {}
+        struct CODECAPI_AVEncSliceGenerationMode {}
+        struct CODECAPI_AVEncStatAudioAverageBPS {}
+        struct CODECAPI_AVEncStatAudioAveragePCMValue {}
+        struct CODECAPI_AVEncStatAudioPeakPCMValue {}
+        struct CODECAPI_AVEncStatAverageBPS {}
+        struct CODECAPI_AVEncStatCommonCompletedPasses {}
+        struct CODECAPI_AVEncStatHardwareBandwidthUtilitization {}
+        struct CODECAPI_AVEncStatHardwareProcessorUtilitization {}
+        struct CODECAPI_AVEncStatMPVSkippedEmptyFrames {}
+        struct CODECAPI_AVEncStatVideoCodedFrames {}
+        struct CODECAPI_AVEncStatVideoOutputFrameRate {}
+        struct CODECAPI_AVEncStatVideoTotalFrames {}
+        struct CODECAPI_AVEncStatWMVCBAvg {}
+        struct CODECAPI_AVEncStatWMVCBMax {}
+        struct CODECAPI_AVEncStatWMVDecoderComplexityProfile {}
+        struct CODECAPI_AVEncTileColumns {}
+        struct CODECAPI_AVEncTileRows {}
+        struct CODECAPI_AVEncVideoCBRMotionTradeoff {}
+        struct CODECAPI_AVEncVideoCTBSize {}
+        struct CODECAPI_AVEncVideoCodedVideoAccessUnitSize {}
+        struct CODECAPI_AVEncVideoConsecutiveFramesForLayer {}
+        struct CODECAPI_AVEncVideoContentType {}
+        struct CODECAPI_AVEncVideoD3D12ReconstructedPictureOutputMode {}
+        struct CODECAPI_AVEncVideoDefaultUpperFieldDominant {}
+        struct CODECAPI_AVEncVideoDirtyRectEnabled {}
+        struct CODECAPI_AVEncVideoDisplayDimension {}
+        struct CODECAPI_AVEncVideoEnableFramePsnrYuv {}
+        struct CODECAPI_AVEncVideoEnableSpatialAdaptiveQuantization {}
+        struct CODECAPI_AVEncVideoEncodeDimension {}
+        struct CODECAPI_AVEncVideoEncodeFrameTypeQP {}
+        struct CODECAPI_AVEncVideoEncodeOffsetOrigin {}
+        struct CODECAPI_AVEncVideoEncodeQP {}
+        struct CODECAPI_AVEncVideoFieldSwap {}
+        struct CODECAPI_AVEncVideoForceKeyFrame {}
+        struct CODECAPI_AVEncVideoForceSourceScanType {}
+        struct CODECAPI_AVEncVideoGradualIntraRefresh {}
+        struct CODECAPI_AVEncVideoHeaderDropFrame {}
+        struct CODECAPI_AVEncVideoHeaderFrames {}
+        struct CODECAPI_AVEncVideoHeaderHours {}
+        struct CODECAPI_AVEncVideoHeaderMinutes {}
+        struct CODECAPI_AVEncVideoHeaderSeconds {}
+        struct CODECAPI_AVEncVideoInputAbsoluteQPBlockSettings {}
+        struct CODECAPI_AVEncVideoInputChromaResolution {}
+        struct CODECAPI_AVEncVideoInputChromaSubsampling {}
+        struct CODECAPI_AVEncVideoInputColorLighting {}
+        struct CODECAPI_AVEncVideoInputColorNominalRange {}
+        struct CODECAPI_AVEncVideoInputColorPrimaries {}
+        struct CODECAPI_AVEncVideoInputColorTransferFunction {}
+        struct CODECAPI_AVEncVideoInputColorTransferMatrix {}
+        struct CODECAPI_AVEncVideoInputDeltaQPBlockSettings {}
+        struct CODECAPI_AVEncVideoInstantTemporalUpSwitching {}
+        struct CODECAPI_AVEncVideoIntraLayerPrediction {}
+        struct CODECAPI_AVEncVideoInverseTelecineEnable {}
+        struct CODECAPI_AVEncVideoInverseTelecineThreshold {}
+        struct CODECAPI_AVEncVideoLTRBufferControl {}
+        struct CODECAPI_AVEncVideoMarkLTRFrame {}
+        struct CODECAPI_AVEncVideoMaxCTBSize {}
+        struct CODECAPI_AVEncVideoMaxKeyframeDistance {}
+        struct CODECAPI_AVEncVideoMaxNumRefFrame {}
+        struct CODECAPI_AVEncVideoMaxNumRefFrameForLayer {}
+        struct CODECAPI_AVEncVideoMaxQP {}
+        struct CODECAPI_AVEncVideoMaxTemporalLayers {}
+        struct CODECAPI_AVEncVideoMeanAbsoluteDifference {}
+        struct CODECAPI_AVEncVideoMinQP {}
+        struct CODECAPI_AVEncVideoNoOfFieldsToEncode {}
+        struct CODECAPI_AVEncVideoNoOfFieldsToSkip {}
+        struct CODECAPI_AVEncVideoNumGOPsPerIDR {}
+        struct CODECAPI_AVEncVideoOutputBitsUsedMapBlockSize {}
+        struct CODECAPI_AVEncVideoOutputChromaResolution {}
+        struct CODECAPI_AVEncVideoOutputChromaSubsampling {}
+        struct CODECAPI_AVEncVideoOutputColorLighting {}
+        struct CODECAPI_AVEncVideoOutputColorNominalRange {}
+        struct CODECAPI_AVEncVideoOutputColorPrimaries {}
+        struct CODECAPI_AVEncVideoOutputColorTransferFunction {}
+        struct CODECAPI_AVEncVideoOutputColorTransferMatrix {}
+        struct CODECAPI_AVEncVideoOutputFrameRate {}
+        struct CODECAPI_AVEncVideoOutputFrameRateConversion {}
+        struct CODECAPI_AVEncVideoOutputQPMapBlockSize {}
+        struct CODECAPI_AVEncVideoOutputScanType {}
+        struct CODECAPI_AVEncVideoPixelAspectRatio {}
+        struct CODECAPI_AVEncVideoROIEnabled {}
+        struct CODECAPI_AVEncVideoRateControlParams {}
+        struct CODECAPI_AVEncVideoSatdMapBlockSize {}
+        struct CODECAPI_AVEncVideoSelectLayer {}
+        struct CODECAPI_AVEncVideoSourceFilmContent {}
+        struct CODECAPI_AVEncVideoSourceIsBW {}
+        struct CODECAPI_AVEncVideoSupportedControls {}
+        struct CODECAPI_AVEncVideoTemporalLayerCount {}
+        struct CODECAPI_AVEncVideoUsage {}
+        struct CODECAPI_AVEncVideoUseLTRFrame {}
+        struct CODECAPI_AVEncWMVDecoderComplexity {}
+        struct CODECAPI_AVEncWMVInterlacedEncoding {}
+        struct CODECAPI_AVEncWMVKeyFrameBufferLevelMarker {}
+        struct CODECAPI_AVEncWMVKeyFrameDistance {}
+        struct CODECAPI_AVEncWMVProduceDummyFrames {}
+        struct CODECAPI_AVLowLatencyMode {}
+        struct CODECAPI_AVPriorityControl {}
+        struct CODECAPI_AVRealtimeControl {}
+        struct CODECAPI_AVScenarioInfo {}
+        struct CODECAPI_FeatureMapFlagsUsed {}
+        struct CODECAPI_GUID_AVDecAudioInputAAC {}
+        struct CODECAPI_GUID_AVDecAudioInputDTS {}
+        struct CODECAPI_GUID_AVDecAudioInputDolby {}
+        struct CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus {}
+        struct CODECAPI_GUID_AVDecAudioInputHEAAC {}
+        struct CODECAPI_GUID_AVDecAudioInputMPEG {}
+        struct CODECAPI_GUID_AVDecAudioInputPCM {}
+        struct CODECAPI_GUID_AVDecAudioInputWMA {}
+        struct CODECAPI_GUID_AVDecAudioInputWMAPro {}
+        struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM {}
+        struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones {}
+        struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto {}
+        struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded {}
+        struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream {}
+        struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM {}
+        struct CODECAPI_GUID_AVEncCommonFormatATSC {}
+        struct CODECAPI_GUID_AVEncCommonFormatDVB {}
+        struct CODECAPI_GUID_AVEncCommonFormatDVD_DashVR {}
+        struct CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR {}
+        struct CODECAPI_GUID_AVEncCommonFormatDVD_V {}
+        struct CODECAPI_GUID_AVEncCommonFormatHighMAT {}
+        struct CODECAPI_GUID_AVEncCommonFormatHighMPV {}
+        struct CODECAPI_GUID_AVEncCommonFormatMP3 {}
+        struct CODECAPI_GUID_AVEncCommonFormatSVCD {}
+        struct CODECAPI_GUID_AVEncCommonFormatUnSpecified {}
+        struct CODECAPI_GUID_AVEncCommonFormatVCD {}
+        struct CODECAPI_GUID_AVEncDTS {}
+        struct CODECAPI_GUID_AVEncDTSHD {}
+        struct CODECAPI_GUID_AVEncDV {}
+        struct CODECAPI_GUID_AVEncDolbyDigitalConsumer {}
+        struct CODECAPI_GUID_AVEncDolbyDigitalPlus {}
+        struct CODECAPI_GUID_AVEncDolbyDigitalPro {}
+        struct CODECAPI_GUID_AVEncH264Video {}
+        struct CODECAPI_GUID_AVEncMLP {}
+        struct CODECAPI_GUID_AVEncMPEG1Audio {}
+        struct CODECAPI_GUID_AVEncMPEG1Video {}
+        struct CODECAPI_GUID_AVEncMPEG2Audio {}
+        struct CODECAPI_GUID_AVEncMPEG2Video {}
+        struct CODECAPI_GUID_AVEncPCM {}
+        struct CODECAPI_GUID_AVEncSDDS {}
+        struct CODECAPI_GUID_AVEncWMALossless {}
+        struct CODECAPI_GUID_AVEncWMAPro {}
+        struct CODECAPI_GUID_AVEncWMAVoice {}
+        struct CODECAPI_GUID_AVEncWMV {}
+        struct CODECAPI_GUID_AVEndMPEG4Video {}
+        struct CODECAPI_GetOPMContext {}
+        struct CODECAPI_SetHDCPManagerContext {}
+        struct CODECAPI_VideoEncoderDisplayContentType {}
+        #[repr(i32)]
+        enum eAVAudioChannelConfig {
+            eAVAudioChannelConfig_FRONT_LEFT = 1,
+            eAVAudioChannelConfig_FRONT_RIGHT = 2,
+            eAVAudioChannelConfig_FRONT_CENTER = 4,
+            eAVAudioChannelConfig_LOW_FREQUENCY = 8,
+            eAVAudioChannelConfig_BACK_LEFT = 16,
+            eAVAudioChannelConfig_BACK_RIGHT = 32,
+            eAVAudioChannelConfig_FRONT_LEFT_OF_CENTER = 64,
+            eAVAudioChannelConfig_FRONT_RIGHT_OF_CENTER = 128,
+            eAVAudioChannelConfig_BACK_CENTER = 256,
+            eAVAudioChannelConfig_SIDE_LEFT = 512,
+            eAVAudioChannelConfig_SIDE_RIGHT = 1024,
+            eAVAudioChannelConfig_TOP_CENTER = 2048,
+            eAVAudioChannelConfig_TOP_FRONT_LEFT = 4096,
+            eAVAudioChannelConfig_TOP_FRONT_CENTER = 8192,
+            eAVAudioChannelConfig_TOP_FRONT_RIGHT = 16384,
+            eAVAudioChannelConfig_TOP_BACK_LEFT = 32768,
+            eAVAudioChannelConfig_TOP_BACK_CENTER = 65536,
+            eAVAudioChannelConfig_TOP_BACK_RIGHT = 131072,
+        }
+        #[repr(i32)]
+        enum eAVDDSurroundMode {
+            eAVDDSurroundMode_NotIndicated = 0,
+            eAVDDSurroundMode_No = 1,
+            eAVDDSurroundMode_Yes = 2,
+        }
+        #[repr(i32)]
+        enum eAVDSPLoudnessEqualization {
+            eAVDSPLoudnessEqualization_OFF = 0,
+            eAVDSPLoudnessEqualization_ON = 1,
+            eAVDSPLoudnessEqualization_AUTO = 2,
+        }
+        #[repr(i32)]
+        enum eAVDSPSpeakerFill {
+            eAVDSPSpeakerFill_OFF = 0,
+            eAVDSPSpeakerFill_ON = 1,
+            eAVDSPSpeakerFill_AUTO = 2,
+        }
+        #[repr(i32)]
+        enum eAVDecAACDownmixMode {
+            eAVDecAACUseISODownmix = 0,
+            eAVDecAACUseARIBDownmix = 1,
+        }
+        #[repr(i32)]
+        enum eAVDecAudioDualMono {
+            eAVDecAudioDualMono_IsNotDualMono = 0,
+            eAVDecAudioDualMono_IsDualMono = 1,
+            eAVDecAudioDualMono_UnSpecified = 2,
+        }
+        #[repr(i32)]
+        enum eAVDecAudioDualMonoReproMode {
+            eAVDecAudioDualMonoReproMode_STEREO = 0,
+            eAVDecAudioDualMonoReproMode_LEFT_MONO = 1,
+            eAVDecAudioDualMonoReproMode_RIGHT_MONO = 2,
+            eAVDecAudioDualMonoReproMode_MIX_MONO = 3,
+        }
+        #[repr(i32)]
+        enum eAVDecDDMatrixDecodingMode {
+            eAVDecDDMatrixDecodingMode_OFF = 0,
+            eAVDecDDMatrixDecodingMode_ON = 1,
+            eAVDecDDMatrixDecodingMode_AUTO = 2,
+        }
+        #[repr(i32)]
+        enum eAVDecDDOperationalMode {
+            eAVDecDDOperationalMode_NONE = 0,
+            eAVDecDDOperationalMode_LINE = 1,
+            eAVDecDDOperationalMode_RF = 2,
+            eAVDecDDOperationalMode_CUSTOM0 = 3,
+            eAVDecDDOperationalMode_CUSTOM1 = 4,
+            eAVDecDDOperationalMode_PORTABLE8 = 5,
+            eAVDecDDOperationalMode_PORTABLE11 = 6,
+            eAVDecDDOperationalMode_PORTABLE14 = 7,
+            eAVDecDDOperationalMode_PORTABLE16 = 8,
+        }
+        #[repr(i32)]
+        enum eAVDecDDStereoDownMixMode {
+            eAVDecDDStereoDownMixMode_Auto = 0,
+            eAVDecDDStereoDownMixMode_LtRt = 1,
+            eAVDecDDStereoDownMixMode_LoRo = 2,
+        }
+        #[repr(i32)]
+        enum eAVDecHEAACDynamicRangeControl {
+            eAVDecHEAACDynamicRangeControl_OFF = 0,
+            eAVDecHEAACDynamicRangeControl_ON = 1,
+        }
+        #[repr(i32)]
+        enum eAVDecVideoCodecType {
+            eAVDecVideoCodecType_NOTPLAYING = 0,
+            eAVDecVideoCodecType_MPEG2 = 1,
+            eAVDecVideoCodecType_H264 = 2,
+        }
+        #[repr(i32)]
+        enum eAVDecVideoDXVABusEncryption {
+            eAVDecVideoDXVABusEncryption_NONE = 0,
+            eAVDecVideoDXVABusEncryption_PRIVATE = 1,
+            eAVDecVideoDXVABusEncryption_AES = 2,
+        }
+        #[repr(i32)]
+        enum eAVDecVideoDXVAMode {
+            eAVDecVideoDXVAMode_NOTPLAYING = 0,
+            eAVDecVideoDXVAMode_SW = 1,
+            eAVDecVideoDXVAMode_MC = 2,
+            eAVDecVideoDXVAMode_IDCT = 3,
+            eAVDecVideoDXVAMode_VLD = 4,
+        }
+        #[repr(i32)]
+        enum eAVDecVideoH264ErrorConcealment {
+            eErrorConcealmentTypeDrop = 0,
+            eErrorConcealmentTypeBasic = 1,
+            eErrorConcealmentTypeAdvanced = 2,
+            eErrorConcealmentTypeDXVASetBlack = 3,
+        }
+        #[repr(i32)]
+        enum eAVDecVideoInputScanType {
+            eAVDecVideoInputScan_Unknown = 0,
+            eAVDecVideoInputScan_Progressive = 1,
+            eAVDecVideoInputScan_Interlaced_UpperFieldFirst = 2,
+            eAVDecVideoInputScan_Interlaced_LowerFieldFirst = 3,
+        }
+        #[repr(i32)]
+        enum eAVDecVideoMPEG2ErrorConcealment {
+            eErrorConcealmentOff = 0,
+            eErrorConcealmentOn = 1,
+        }
+        #[repr(i32)]
+        enum eAVDecVideoSWPowerLevel {
+            eAVDecVideoSWPowerLevel_BatteryLife = 0,
+            eAVDecVideoSWPowerLevel_Balanced = 50,
+            eAVDecVideoSWPowerLevel_VideoQuality = 100,
+        }
+        #[repr(i32)]
+        enum eAVDecVideoSoftwareDeinterlaceMode {
+            eAVDecVideoSoftwareDeinterlaceMode_NoDeinterlacing = 0,
+            eAVDecVideoSoftwareDeinterlaceMode_ProgressiveDeinterlacing = 1,
+            eAVDecVideoSoftwareDeinterlaceMode_BOBDeinterlacing = 2,
+            eAVDecVideoSoftwareDeinterlaceMode_SmartBOBDeinterlacing = 3,
+        }
+        #[repr(i32)]
+        enum eAVEncAV1PictureType {
+            eAVEncAV1PictureType_Key = 0,
+            eAVEncAV1PictureType_Intra_Only = 1,
+            eAVEncAV1PictureType_Inter = 2,
+            eAVEncAV1PictureType_Switch = 3,
+        }
+        #[repr(i32)]
+        enum eAVEncAV1VLevel {
+            eAVEncAV1VLevel2 = 0,
+            eAVEncAV1VLevel2_1 = 1,
+            eAVEncAV1VLevel3 = 4,
+            eAVEncAV1VLevel3_1 = 5,
+            eAVEncAV1VLevel4 = 8,
+            eAVEncAV1VLevel4_1 = 9,
+            eAVEncAV1VLevel5 = 12,
+            eAVEncAV1VLevel5_1 = 13,
+            eAVEncAV1VLevel5_2 = 14,
+            eAVEncAV1VLevel5_3 = 15,
+            eAVEncAV1VLevel6 = 16,
+            eAVEncAV1VLevel6_1 = 17,
+            eAVEncAV1VLevel6_2 = 18,
+            eAVEncAV1VLevel6_3 = 19,
+        }
+        #[repr(i32)]
+        enum eAVEncAV1VProfile {
+            eAVEncAV1VProfile_unknown = 0,
+            eAVEncAV1VProfile_Main_420_8 = 1,
+            eAVEncAV1VProfile_Main_420_10 = 2,
+            eAVEncAV1VProfile_Main_400_8 = 3,
+            eAVEncAV1VProfile_Main_400_10 = 4,
+            eAVEncAV1VProfile_High_444_8 = 5,
+            eAVEncAV1VProfile_High_444_10 = 6,
+            eAVEncAV1VProfile_Professional_420_12 = 7,
+            eAVEncAV1VProfile_Professional_400_12 = 8,
+            eAVEncAV1VProfile_Professional_444_12 = 9,
+            eAVEncAV1VProfile_Professional_422_8 = 10,
+            eAVEncAV1VProfile_Professional_422_10 = 11,
+            eAVEncAV1VProfile_Professional_422_12 = 12,
+        }
+        #[repr(i32)]
+        enum eAVEncAdaptiveMode {
+            eAVEncAdaptiveMode_None = 0,
+            eAVEncAdaptiveMode_Resolution = 1,
+            eAVEncAdaptiveMode_FrameRate = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncAudioDualMono {
+            eAVEncAudioDualMono_SameAsInput = 0,
+            eAVEncAudioDualMono_Off = 1,
+            eAVEncAudioDualMono_On = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncAudioInputContent {
+            AVEncAudioInputContent_Unknown = 0,
+            AVEncAudioInputContent_Voice = 1,
+            AVEncAudioInputContent_Music = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncChromaEncodeMode {
+            eAVEncChromaEncodeMode_420 = 0,
+            eAVEncChromaEncodeMode_444 = 1,
+            eAVEncChromaEncodeMode_444_v2 = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncCommonRateControlMode {
+            eAVEncCommonRateControlMode_CBR = 0,
+            eAVEncCommonRateControlMode_PeakConstrainedVBR = 1,
+            eAVEncCommonRateControlMode_UnconstrainedVBR = 2,
+            eAVEncCommonRateControlMode_Quality = 3,
+            eAVEncCommonRateControlMode_LowDelayVBR = 4,
+            eAVEncCommonRateControlMode_GlobalVBR = 5,
+            eAVEncCommonRateControlMode_GlobalLowDelayVBR = 6,
+        }
+        #[repr(i32)]
+        enum eAVEncCommonStreamEndHandling {
+            eAVEncCommonStreamEndHandling_DiscardPartial = 0,
+            eAVEncCommonStreamEndHandling_EnsureComplete = 1,
+        }
+        #[repr(i32)]
+        enum eAVEncDDAtoDConverterType {
+            eAVEncDDAtoDConverterType_Standard = 0,
+            eAVEncDDAtoDConverterType_HDCD = 1,
+        }
+        #[repr(i32)]
+        enum eAVEncDDDynamicRangeCompressionControl {
+            eAVEncDDDynamicRangeCompressionControl_None = 0,
+            eAVEncDDDynamicRangeCompressionControl_FilmStandard = 1,
+            eAVEncDDDynamicRangeCompressionControl_FilmLight = 2,
+            eAVEncDDDynamicRangeCompressionControl_MusicStandard = 3,
+            eAVEncDDDynamicRangeCompressionControl_MusicLight = 4,
+            eAVEncDDDynamicRangeCompressionControl_Speech = 5,
+        }
+        #[repr(i32)]
+        enum eAVEncDDHeadphoneMode {
+            eAVEncDDHeadphoneMode_NotIndicated = 0,
+            eAVEncDDHeadphoneMode_NotEncoded = 1,
+            eAVEncDDHeadphoneMode_Encoded = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncDDPreferredStereoDownMixMode {
+            eAVEncDDPreferredStereoDownMixMode_LtRt = 0,
+            eAVEncDDPreferredStereoDownMixMode_LoRo = 1,
+        }
+        #[repr(i32)]
+        enum eAVEncDDProductionRoomType {
+            eAVEncDDProductionRoomType_NotIndicated = 0,
+            eAVEncDDProductionRoomType_Large = 1,
+            eAVEncDDProductionRoomType_Small = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncDDService {
+            eAVEncDDService_CM = 0,
+            eAVEncDDService_ME = 1,
+            eAVEncDDService_VI = 2,
+            eAVEncDDService_HI = 3,
+            eAVEncDDService_D = 4,
+            eAVEncDDService_C = 5,
+            eAVEncDDService_E = 6,
+            eAVEncDDService_VO = 7,
+        }
+        #[repr(i32)]
+        enum eAVEncDDSurroundExMode {
+            eAVEncDDSurroundExMode_NotIndicated = 0,
+            eAVEncDDSurroundExMode_No = 1,
+            eAVEncDDSurroundExMode_Yes = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncH263PictureType {
+            eAVEncH263PictureType_I = 0,
+            eAVEncH263PictureType_P = 1,
+            eAVEncH263PictureType_B = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncH263VLevel {
+            eAVEncH263VLevel1 = 10,
+            eAVEncH263VLevel2 = 20,
+            eAVEncH263VLevel3 = 30,
+            eAVEncH263VLevel4 = 40,
+            eAVEncH263VLevel4_5 = 45,
+            eAVEncH263VLevel5 = 50,
+            eAVEncH263VLevel6 = 60,
+            eAVEncH263VLevel7 = 70,
+        }
+        #[repr(i32)]
+        enum eAVEncH263VProfile {
+            eAVEncH263VProfile_Base = 0,
+            eAVEncH263VProfile_CompatibilityV2 = 1,
+            eAVEncH263VProfile_CompatibilityV1 = 2,
+            eAVEncH263VProfile_WirelessV2 = 3,
+            eAVEncH263VProfile_WirelessV3 = 4,
+            eAVEncH263VProfile_HighCompression = 5,
+            eAVEncH263VProfile_Internet = 6,
+            eAVEncH263VProfile_Interlace = 7,
+            eAVEncH263VProfile_HighLatency = 8,
+        }
+        #[repr(i32)]
+        enum eAVEncH264PictureType {
+            eAVEncH264PictureType_IDR = 0,
+            eAVEncH264PictureType_P = 1,
+            eAVEncH264PictureType_B = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncH264VLevel {
+            eAVEncH264VLevel1 = 10,
+            eAVEncH264VLevel1_b = 11,
+            eAVEncH264VLevel1_1 = 11,
+            eAVEncH264VLevel1_2 = 12,
+            eAVEncH264VLevel1_3 = 13,
+            eAVEncH264VLevel2 = 20,
+            eAVEncH264VLevel2_1 = 21,
+            eAVEncH264VLevel2_2 = 22,
+            eAVEncH264VLevel3 = 30,
+            eAVEncH264VLevel3_1 = 31,
+            eAVEncH264VLevel3_2 = 32,
+            eAVEncH264VLevel4 = 40,
+            eAVEncH264VLevel4_1 = 41,
+            eAVEncH264VLevel4_2 = 42,
+            eAVEncH264VLevel5 = 50,
+            eAVEncH264VLevel5_1 = 51,
+            eAVEncH264VLevel5_2 = 52,
+            eAVEncH264VLevel6 = 60,
+            eAVEncH264VLevel6_1 = 61,
+            eAVEncH264VLevel6_2 = 62,
+        }
+        #[repr(i32)]
+        enum eAVEncH264VProfile {
+            eAVEncH264VProfile_unknown = 0,
+            eAVEncH264VProfile_Simple = 66,
+            eAVEncH264VProfile_Base = 66,
+            eAVEncH264VProfile_Main = 77,
+            eAVEncH264VProfile_High = 100,
+            eAVEncH264VProfile_422 = 122,
+            eAVEncH264VProfile_High10 = 110,
+            eAVEncH264VProfile_444 = 244,
+            eAVEncH264VProfile_Extended = 88,
+            eAVEncH264VProfile_ScalableBase = 83,
+            eAVEncH264VProfile_ScalableHigh = 86,
+            eAVEncH264VProfile_MultiviewHigh = 118,
+            eAVEncH264VProfile_StereoHigh = 128,
+            eAVEncH264VProfile_ConstrainedBase = 256,
+            eAVEncH264VProfile_UCConstrainedHigh = 257,
+            eAVEncH264VProfile_UCScalableConstrainedBase = 258,
+            eAVEncH264VProfile_UCScalableConstrainedHigh = 259,
+        }
+        const eAVEncH264VProfile_ConstrainedHigh: u32 = 257;
+        #[repr(i32)]
+        enum eAVEncH265VLevel {
+            eAVEncH265VLevel1 = 30,
+            eAVEncH265VLevel2 = 60,
+            eAVEncH265VLevel2_1 = 63,
+            eAVEncH265VLevel3 = 90,
+            eAVEncH265VLevel3_1 = 93,
+            eAVEncH265VLevel4 = 120,
+            eAVEncH265VLevel4_1 = 123,
+            eAVEncH265VLevel5 = 150,
+            eAVEncH265VLevel5_1 = 153,
+            eAVEncH265VLevel5_2 = 156,
+            eAVEncH265VLevel6 = 180,
+            eAVEncH265VLevel6_1 = 183,
+            eAVEncH265VLevel6_2 = 186,
+        }
+        #[repr(i32)]
+        enum eAVEncH265VProfile {
+            eAVEncH265VProfile_unknown = 0,
+            eAVEncH265VProfile_Main_420_8 = 1,
+            eAVEncH265VProfile_Main_420_10 = 2,
+            eAVEncH265VProfile_Main_420_12 = 3,
+            eAVEncH265VProfile_Main_422_10 = 4,
+            eAVEncH265VProfile_Main_422_12 = 5,
+            eAVEncH265VProfile_Main_444_8 = 6,
+            eAVEncH265VProfile_Main_444_10 = 7,
+            eAVEncH265VProfile_Main_444_12 = 8,
+            eAVEncH265VProfile_Monochrome_12 = 9,
+            eAVEncH265VProfile_Monochrome_16 = 10,
+            eAVEncH265VProfile_MainIntra_420_8 = 11,
+            eAVEncH265VProfile_MainIntra_420_10 = 12,
+            eAVEncH265VProfile_MainIntra_420_12 = 13,
+            eAVEncH265VProfile_MainIntra_422_10 = 14,
+            eAVEncH265VProfile_MainIntra_422_12 = 15,
+            eAVEncH265VProfile_MainIntra_444_8 = 16,
+            eAVEncH265VProfile_MainIntra_444_10 = 17,
+            eAVEncH265VProfile_MainIntra_444_12 = 18,
+            eAVEncH265VProfile_MainIntra_444_16 = 19,
+            eAVEncH265VProfile_MainStill_420_8 = 20,
+            eAVEncH265VProfile_MainStill_444_8 = 21,
+            eAVEncH265VProfile_MainStill_444_16 = 22,
+        }
+        #[repr(i32)]
+        enum eAVEncInputVideoSystem {
+            eAVEncInputVideoSystem_Unspecified = 0,
+            eAVEncInputVideoSystem_PAL = 1,
+            eAVEncInputVideoSystem_NTSC = 2,
+            eAVEncInputVideoSystem_SECAM = 3,
+            eAVEncInputVideoSystem_MAC = 4,
+            eAVEncInputVideoSystem_HDV = 5,
+            eAVEncInputVideoSystem_Component = 6,
+        }
+        #[repr(i32)]
+        enum eAVEncMPACodingMode {
+            eAVEncMPACodingMode_Mono = 0,
+            eAVEncMPACodingMode_Stereo = 1,
+            eAVEncMPACodingMode_DualChannel = 2,
+            eAVEncMPACodingMode_JointStereo = 3,
+            eAVEncMPACodingMode_Surround = 4,
+        }
+        #[repr(i32)]
+        enum eAVEncMPAEmphasisType {
+            eAVEncMPAEmphasisType_None = 0,
+            eAVEncMPAEmphasisType_50_15 = 1,
+            eAVEncMPAEmphasisType_Reserved = 2,
+            eAVEncMPAEmphasisType_CCITT_J17 = 3,
+        }
+        #[repr(i32)]
+        enum eAVEncMPALayer {
+            eAVEncMPALayer_1 = 1,
+            eAVEncMPALayer_2 = 2,
+            eAVEncMPALayer_3 = 3,
+        }
+        #[repr(i32)]
+        enum eAVEncMPVFrameFieldMode {
+            eAVEncMPVFrameFieldMode_FieldMode = 0,
+            eAVEncMPVFrameFieldMode_FrameMode = 1,
+        }
+        #[repr(i32)]
+        enum eAVEncMPVIntraVLCTable {
+            eAVEncMPVIntraVLCTable_Auto = 0,
+            eAVEncMPVIntraVLCTable_MPEG1 = 1,
+            eAVEncMPVIntraVLCTable_Alternate = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncMPVLevel {
+            eAVEncMPVLevel_Low = 1,
+            eAVEncMPVLevel_Main = 2,
+            eAVEncMPVLevel_High1440 = 3,
+            eAVEncMPVLevel_High = 4,
+        }
+        #[repr(i32)]
+        enum eAVEncMPVProfile {
+            eAVEncMPVProfile_unknown = 0,
+            eAVEncMPVProfile_Simple = 1,
+            eAVEncMPVProfile_Main = 2,
+            eAVEncMPVProfile_High = 3,
+            eAVEncMPVProfile_422 = 4,
+        }
+        #[repr(i32)]
+        enum eAVEncMPVQScaleType {
+            eAVEncMPVQScaleType_Auto = 0,
+            eAVEncMPVQScaleType_Linear = 1,
+            eAVEncMPVQScaleType_NonLinear = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncMPVScanPattern {
+            eAVEncMPVScanPattern_Auto = 0,
+            eAVEncMPVScanPattern_ZigZagScan = 1,
+            eAVEncMPVScanPattern_AlternateScan = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncMPVSceneDetection {
+            eAVEncMPVSceneDetection_None = 0,
+            eAVEncMPVSceneDetection_InsertIPicture = 1,
+            eAVEncMPVSceneDetection_StartNewGOP = 2,
+            eAVEncMPVSceneDetection_StartNewLocatableGOP = 3,
+        }
+        #[repr(i32)]
+        enum eAVEncMuxOutput {
+            eAVEncMuxOutputAuto = 0,
+            eAVEncMuxOutputPS = 1,
+            eAVEncMuxOutputTS = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncVP9VProfile {
+            eAVEncVP9VProfile_unknown = 0,
+            eAVEncVP9VProfile_420_8 = 1,
+            eAVEncVP9VProfile_420_10 = 2,
+            eAVEncVP9VProfile_420_12 = 3,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoChromaResolution {
+            eAVEncVideoChromaResolution_SameAsSource = 0,
+            eAVEncVideoChromaResolution_444 = 1,
+            eAVEncVideoChromaResolution_422 = 2,
+            eAVEncVideoChromaResolution_420 = 3,
+            eAVEncVideoChromaResolution_411 = 4,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoChromaSubsampling {
+            eAVEncVideoChromaSubsamplingFormat_SameAsSource = 0,
+            eAVEncVideoChromaSubsamplingFormat_ProgressiveChroma = 8,
+            eAVEncVideoChromaSubsamplingFormat_Horizontally_Cosited = 4,
+            eAVEncVideoChromaSubsamplingFormat_Vertically_Cosited = 2,
+            eAVEncVideoChromaSubsamplingFormat_Vertically_AlignedChromaPlanes = 1,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoColorLighting {
+            eAVEncVideoColorLighting_SameAsSource = 0,
+            eAVEncVideoColorLighting_Unknown = 1,
+            eAVEncVideoColorLighting_Bright = 2,
+            eAVEncVideoColorLighting_Office = 3,
+            eAVEncVideoColorLighting_Dim = 4,
+            eAVEncVideoColorLighting_Dark = 5,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoColorNominalRange {
+            eAVEncVideoColorNominalRange_SameAsSource = 0,
+            eAVEncVideoColorNominalRange_0_255 = 1,
+            eAVEncVideoColorNominalRange_16_235 = 2,
+            eAVEncVideoColorNominalRange_48_208 = 3,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoColorPrimaries {
+            eAVEncVideoColorPrimaries_SameAsSource = 0,
+            eAVEncVideoColorPrimaries_Reserved = 1,
+            eAVEncVideoColorPrimaries_BT709 = 2,
+            eAVEncVideoColorPrimaries_BT470_2_SysM = 3,
+            eAVEncVideoColorPrimaries_BT470_2_SysBG = 4,
+            eAVEncVideoColorPrimaries_SMPTE170M = 5,
+            eAVEncVideoColorPrimaries_SMPTE240M = 6,
+            eAVEncVideoColorPrimaries_EBU3231 = 7,
+            eAVEncVideoColorPrimaries_SMPTE_C = 8,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoColorTransferFunction {
+            eAVEncVideoColorTransferFunction_SameAsSource = 0,
+            eAVEncVideoColorTransferFunction_10 = 1,
+            eAVEncVideoColorTransferFunction_18 = 2,
+            eAVEncVideoColorTransferFunction_20 = 3,
+            eAVEncVideoColorTransferFunction_22 = 4,
+            eAVEncVideoColorTransferFunction_22_709 = 5,
+            eAVEncVideoColorTransferFunction_22_240M = 6,
+            eAVEncVideoColorTransferFunction_22_8bit_sRGB = 7,
+            eAVEncVideoColorTransferFunction_28 = 8,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoColorTransferMatrix {
+            eAVEncVideoColorTransferMatrix_SameAsSource = 0,
+            eAVEncVideoColorTransferMatrix_BT709 = 1,
+            eAVEncVideoColorTransferMatrix_BT601 = 2,
+            eAVEncVideoColorTransferMatrix_SMPTE240M = 3,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoContentType {
+            eAVEncVideoContentType_Unknown = 0,
+            eAVEncVideoContentType_FixedCameraAngle = 1,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoD3D12ReconstructedPictureOutputMode {
+            eAVEncVideoEncodeD3D12ReconstructedPictureMode_None = 0,
+            eAVEncVideoEncodeD3D12ReconstructedPictureMode_Copy = 1,
+            eAVEncVideoEncodeD3D12ReconstructedPictureMode_Shared = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoFilmContent {
+            eAVEncVideoFilmContent_VideoOnly = 0,
+            eAVEncVideoFilmContent_FilmOnly = 1,
+            eAVEncVideoFilmContent_Mixed = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoOutputFrameRateConversion {
+            eAVEncVideoOutputFrameRateConversion_Disable = 0,
+            eAVEncVideoOutputFrameRateConversion_Enable = 1,
+            eAVEncVideoOutputFrameRateConversion_Alias = 2,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoOutputScanType {
+            eAVEncVideoOutputScan_Progressive = 0,
+            eAVEncVideoOutputScan_Interlaced = 1,
+            eAVEncVideoOutputScan_SameAsInput = 2,
+            eAVEncVideoOutputScan_Automatic = 3,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoSourceScanType {
+            eAVEncVideoSourceScan_Automatic = 0,
+            eAVEncVideoSourceScan_Interlaced = 1,
+            eAVEncVideoSourceScan_Progressive = 2,
+        }
+        #[repr(i32)]
+        enum eAVFastDecodeMode {
+            eVideoDecodeCompliant = 0,
+            eVideoDecodeOptimalLF = 1,
+            eVideoDecodeDisableLF = 2,
+            eVideoDecodeFastest = 32,
+        }
+        #[repr(i32)]
+        enum eAVScenarioInfo {
+            eAVScenarioInfo_Unknown = 0,
+            eAVScenarioInfo_DisplayRemoting = 1,
+            eAVScenarioInfo_VideoConference = 2,
+            eAVScenarioInfo_Archive = 3,
+            eAVScenarioInfo_LiveStreaming = 4,
+            eAVScenarioInfo_CameraRecord = 5,
+            eAVScenarioInfo_DisplayRemotingWithFeatureMap = 6,
+        }
+        #[repr(i32)]
+        enum eVideoEncoderDisplayContentType {
+            eVideoEncoderDisplayContent_Unknown = 0,
+            eVideoEncoderDisplayContent_FullScreenVideo = 1,
+        }
+    }
+}

@@ -1,0 +1,89 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x00020d00_0000_0000_c000_000000000046)]
+        interface IRichEditOle: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, lplpObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetClientSite(&self, lplpolesite: *mut IOleClientSite) -> HRESULT;
+            fn GetObjectCount(&self) -> i32;
+            fn GetLinkCount(&self) -> i32;
+            fn GetObject(&self, iob: i32, lpreobject: *mut REOBJECT, dwFlags: u32) -> HRESULT;
+            fn InsertObject(&self, lpreobject: *mut REOBJECT) -> HRESULT;
+            fn ConvertObject(&self, iob: i32, rclsidNew: *const GUID, lpstrUserTypeNew: PCSTR) -> HRESULT;
+            fn ActivateAs(&self, rclsid: *const GUID, rclsidAs: *const GUID) -> HRESULT;
+            fn SetHostNames(&self, lpstrContainerApp: PCSTR, lpstrContainerObj: PCSTR) -> HRESULT;
+            fn SetLinkAvailable(&self, iob: i32, fAvailable: BOOL) -> HRESULT;
+            fn SetDvaspect(&self, iob: i32, dvaspect: u32) -> HRESULT;
+            fn HandsOffStorage(&self, iob: i32) -> HRESULT;
+            fn SaveCompleted(&self, iob: i32, lpstg: IStorage) -> HRESULT;
+            fn InPlaceDeactivate(&self) -> HRESULT;
+            fn ContextSensitiveHelp(&self, fEnterMode: BOOL) -> HRESULT;
+            fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut IDataObject) -> HRESULT;
+            fn ImportDataObject(&self, lpdataobj: IDataObject, cf: CLIPFORMAT, hMetaPict: HGLOBAL) -> HRESULT;
+        }
+        #[guid(0x00020d03_0000_0000_c000_000000000046)]
+        interface IRichEditOleCallback: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, lplpObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetNewStorage(&self, lplpstg: *mut IStorage) -> HRESULT;
+            fn GetInPlaceContext(&self, lplpFrame: *mut IOleInPlaceFrame, lplpDoc: *mut IOleInPlaceUIWindow, lpFrameInfo: *mut OLEINPLACEFRAMEINFO) -> HRESULT;
+            fn ShowContainerUI(&self, fShow: BOOL) -> HRESULT;
+            fn QueryInsertObject(&self, lpclsid: *mut GUID, lpstg: IStorage, cp: i32) -> HRESULT;
+            fn DeleteObject(&self, lpoleobj: IOleObject) -> HRESULT;
+            fn QueryAcceptData(&self, lpdataobj: IDataObject, lpcfFormat: *mut CLIPFORMAT, reco: u32, fReally: BOOL, hMetaPict: HGLOBAL) -> HRESULT;
+            fn ContextSensitiveHelp(&self, fEnterMode: BOOL) -> HRESULT;
+            fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut IDataObject) -> HRESULT;
+            fn GetDragDropEffect(&self, fDrag: BOOL, grfKeyState: u32, pdwEffect: *mut u32) -> HRESULT;
+            fn GetContextMenu(&self, seltype: u16, lpoleobj: IOleObject, lpchrg: *mut CHARRANGE, lphmenu: *mut HMENU) -> HRESULT;
+        }
+        const RECO_COPY: u32 = 2;
+        const RECO_CUT: u32 = 3;
+        const RECO_DRAG: u32 = 4;
+        const RECO_DROP: u32 = 1;
+        const RECO_PASTE: u32 = 0;
+        struct REOBJECT {
+            cbStruct: u32,
+            cp: i32,
+            clsid: GUID,
+            poleobj: IOleObject,
+            pstg: IStorage,
+            polesite: IOleClientSite,
+            sizel: SIZEL,
+            dvaspect: u32,
+            dwFlags: u32,
+            dwUser: u32,
+        }
+        const REO_ALIGNTORIGHT: u32 = 256;
+        const REO_BELOWBASELINE: u32 = 2;
+        const REO_BLANK: u32 = 16;
+        const REO_CANROTATE: u32 = 128;
+        const REO_CP_SELECTION: u32 = 4294967295;
+        const REO_DONTNEEDPALETTE: u32 = 32;
+        const REO_DYNAMICSIZE: u32 = 8;
+        const REO_GETMETAFILE: u32 = 4194304;
+        const REO_GETOBJ_ALL_INTERFACES: u32 = 7;
+        const REO_GETOBJ_NO_INTERFACES: u32 = 0;
+        const REO_GETOBJ_POLEOBJ: u32 = 1;
+        const REO_GETOBJ_POLESITE: u32 = 4;
+        const REO_GETOBJ_PSTG: u32 = 2;
+        const REO_HILITED: u32 = 16777216;
+        const REO_INPLACEACTIVE: u32 = 33554432;
+        const REO_INVERTEDSELECT: u32 = 4;
+        const REO_IOB_SELECTION: u32 = 4294967295;
+        const REO_IOB_USE_CP: u32 = 4294967294;
+        const REO_LINK: u32 = 2147483648;
+        const REO_LINKAVAILABLE: u32 = 8388608;
+        const REO_NULL: u32 = 0;
+        const REO_OPEN: u32 = 67108864;
+        const REO_OWNERDRAWSELECT: u32 = 64;
+        const REO_READWRITEMASK: u32 = 2047;
+        const REO_RESIZABLE: u32 = 1;
+        const REO_SELECTED: u32 = 134217728;
+        const REO_STATIC: u32 = 1073741824;
+        const REO_USEASBACKGROUND: u32 = 1024;
+        const REO_WRAPTEXTAROUND: u32 = 512;
+    }
+}

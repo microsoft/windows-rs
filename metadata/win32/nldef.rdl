@@ -1,0 +1,226 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const NET_IF_CURRENT_SESSION: u32 = 4294967295;
+        #[repr(i32)]
+        enum NL_ADDRESS_TYPE {
+            NlatUnspecified = 0,
+            NlatUnicast = 1,
+            NlatAnycast = 2,
+            NlatMulticast = 3,
+            NlatBroadcast = 4,
+            NlatInvalid = 5,
+        }
+        #[repr(i32)]
+        enum NL_BANDWIDTH_FLAG {
+            NlbwDisabled = 0,
+            NlbwEnabled = 1,
+            NlbwUnchanged = -1,
+        }
+        struct NL_BANDWIDTH_INFORMATION {
+            Bandwidth: u64,
+            Instability: u64,
+            BandwidthPeaked: BOOLEAN,
+        }
+        #[repr(i32)]
+        enum NL_DAD_STATE {
+            NldsInvalid = 0,
+            NldsTentative = 1,
+            NldsDuplicate = 2,
+            NldsDeprecated = 3,
+            NldsPreferred = 4,
+            IpDadStateInvalid = 0,
+            IpDadStateTentative = 1,
+            IpDadStateDuplicate = 2,
+            IpDadStateDeprecated = 3,
+            IpDadStatePreferred = 4,
+        }
+        #[repr(i32)]
+        enum NL_INTERFACE_NETWORK_CATEGORY_STATE {
+            NlincCategoryUnknown = 0,
+            NlincPublic = 1,
+            NlincPrivate = 2,
+            NlincDomainAuthenticated = 3,
+            NlincCategoryStateMax = 4,
+        }
+        struct NL_INTERFACE_OFFLOAD_ROD {
+            _bitfield: BOOLEAN,
+        }
+        #[repr(i32)]
+        enum NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
+            LinkLocalAlwaysOff = 0,
+            LinkLocalDelayed = 1,
+            LinkLocalAlwaysOn = 2,
+            LinkLocalUnchanged = -1,
+        }
+        const NL_MAX_METRIC_COMPONENT: u32 = 2147483647;
+        #[repr(i32)]
+        enum NL_NEIGHBOR_STATE {
+            NlnsUnreachable = 0,
+            NlnsIncomplete = 1,
+            NlnsProbe = 2,
+            NlnsDelay = 3,
+            NlnsStale = 4,
+            NlnsReachable = 5,
+            NlnsPermanent = 6,
+            NlnsMaximum = 7,
+        }
+        #[repr(i32)]
+        enum NL_NETWORK_CATEGORY {
+            NetworkCategoryPublic = 0,
+            NetworkCategoryPrivate = 1,
+            NetworkCategoryDomainAuthenticated = 2,
+            NetworkCategoryUnchanged = -1,
+            NetworkCategoryUnknown = -1,
+        }
+        #[repr(i32)]
+        enum NL_NETWORK_CONNECTIVITY_COST_HINT {
+            NetworkConnectivityCostHintUnknown = 0,
+            NetworkConnectivityCostHintUnrestricted = 1,
+            NetworkConnectivityCostHintFixed = 2,
+            NetworkConnectivityCostHintVariable = 3,
+        }
+        struct NL_NETWORK_CONNECTIVITY_HINT {
+            ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
+            ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT,
+            ApproachingDataLimit: BOOLEAN,
+            OverDataLimit: BOOLEAN,
+            Roaming: BOOLEAN,
+        }
+        #[repr(i32)]
+        enum NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
+            NetworkConnectivityLevelHintUnknown = 0,
+            NetworkConnectivityLevelHintNone = 1,
+            NetworkConnectivityLevelHintLocalAccess = 2,
+            NetworkConnectivityLevelHintInternetAccess = 3,
+            NetworkConnectivityLevelHintConstrainedInternetAccess = 4,
+            NetworkConnectivityLevelHintHidden = 5,
+        }
+        struct NL_PATH_BANDWIDTH_ROD {
+            Bandwidth: u64,
+            Instability: u64,
+            BandwidthPeaked: BOOLEAN,
+        }
+        #[repr(i32)]
+        enum NL_PREFIX_ORIGIN {
+            IpPrefixOriginOther = 0,
+            IpPrefixOriginManual = 1,
+            IpPrefixOriginWellKnown = 2,
+            IpPrefixOriginDhcp = 3,
+            IpPrefixOriginRouterAdvertisement = 4,
+            IpPrefixOriginUnchanged = 16,
+        }
+        #[repr(i32)]
+        enum NL_ROUTER_DISCOVERY_BEHAVIOR {
+            RouterDiscoveryDisabled = 0,
+            RouterDiscoveryEnabled = 1,
+            RouterDiscoveryDhcp = 2,
+            RouterDiscoveryUnchanged = -1,
+        }
+        #[repr(i32)]
+        enum NL_ROUTE_ORIGIN {
+            NlroManual = 0,
+            NlroWellKnown = 1,
+            NlroDHCP = 2,
+            NlroRouterAdvertisement = 3,
+            Nlro6to4 = 4,
+        }
+        #[repr(i32)]
+        enum NL_ROUTE_PROTOCOL {
+            RouteProtocolOther = 1,
+            RouteProtocolLocal = 2,
+            RouteProtocolNetMgmt = 3,
+            RouteProtocolIcmp = 4,
+            RouteProtocolEgp = 5,
+            RouteProtocolGgp = 6,
+            RouteProtocolHello = 7,
+            RouteProtocolRip = 8,
+            RouteProtocolIsIs = 9,
+            RouteProtocolEsIs = 10,
+            RouteProtocolCisco = 11,
+            RouteProtocolBbn = 12,
+            RouteProtocolOspf = 13,
+            RouteProtocolBgp = 14,
+            RouteProtocolIdpr = 15,
+            RouteProtocolEigrp = 16,
+            RouteProtocolDvmrp = 17,
+            RouteProtocolRpl = 18,
+            RouteProtocolDhcp = 19,
+            MIB_IPPROTO_OTHER = 1,
+            PROTO_IP_OTHER = 1,
+            MIB_IPPROTO_LOCAL = 2,
+            PROTO_IP_LOCAL = 2,
+            MIB_IPPROTO_NETMGMT = 3,
+            PROTO_IP_NETMGMT = 3,
+            MIB_IPPROTO_ICMP = 4,
+            PROTO_IP_ICMP = 4,
+            MIB_IPPROTO_EGP = 5,
+            PROTO_IP_EGP = 5,
+            MIB_IPPROTO_GGP = 6,
+            PROTO_IP_GGP = 6,
+            MIB_IPPROTO_HELLO = 7,
+            PROTO_IP_HELLO = 7,
+            MIB_IPPROTO_RIP = 8,
+            PROTO_IP_RIP = 8,
+            MIB_IPPROTO_IS_IS = 9,
+            PROTO_IP_IS_IS = 9,
+            MIB_IPPROTO_ES_IS = 10,
+            PROTO_IP_ES_IS = 10,
+            MIB_IPPROTO_CISCO = 11,
+            PROTO_IP_CISCO = 11,
+            MIB_IPPROTO_BBN = 12,
+            PROTO_IP_BBN = 12,
+            MIB_IPPROTO_OSPF = 13,
+            PROTO_IP_OSPF = 13,
+            MIB_IPPROTO_BGP = 14,
+            PROTO_IP_BGP = 14,
+            MIB_IPPROTO_IDPR = 15,
+            PROTO_IP_IDPR = 15,
+            MIB_IPPROTO_EIGRP = 16,
+            PROTO_IP_EIGRP = 16,
+            MIB_IPPROTO_DVMRP = 17,
+            PROTO_IP_DVMRP = 17,
+            MIB_IPPROTO_RPL = 18,
+            PROTO_IP_RPL = 18,
+            MIB_IPPROTO_DHCP = 19,
+            PROTO_IP_DHCP = 19,
+            MIB_IPPROTO_NT_AUTOSTATIC = 10002,
+            PROTO_IP_NT_AUTOSTATIC = 10002,
+            MIB_IPPROTO_NT_STATIC = 10006,
+            PROTO_IP_NT_STATIC = 10006,
+            MIB_IPPROTO_NT_STATIC_NON_DOD = 10007,
+            PROTO_IP_NT_STATIC_NON_DOD = 10007,
+        }
+        #[repr(i32)]
+        enum NL_SUFFIX_ORIGIN {
+            NlsoOther = 0,
+            NlsoManual = 1,
+            NlsoWellKnown = 2,
+            NlsoDhcp = 3,
+            NlsoLinkLayerAddress = 4,
+            NlsoRandom = 5,
+            IpSuffixOriginOther = 0,
+            IpSuffixOriginManual = 1,
+            IpSuffixOriginWellKnown = 2,
+            IpSuffixOriginDhcp = 3,
+            IpSuffixOriginLinkLayerAddress = 4,
+            IpSuffixOriginRandom = 5,
+            IpSuffixOriginUnchanged = 16,
+        }
+        const NlpoDhcp: u32 = 3;
+        const NlpoManual: u32 = 1;
+        const NlpoOther: u32 = 0;
+        const NlpoRouterAdvertisement: u32 = 4;
+        const NlpoWellKnown: u32 = 2;
+        type PNL_ADDRESS_TYPE = *mut NL_ADDRESS_TYPE;
+        type PNL_BANDWIDTH_FLAG = *mut NL_BANDWIDTH_FLAG;
+        type PNL_BANDWIDTH_INFORMATION = *mut NL_BANDWIDTH_INFORMATION;
+        type PNL_INTERFACE_NETWORK_CATEGORY_STATE = *mut NL_INTERFACE_NETWORK_CATEGORY_STATE;
+        type PNL_INTERFACE_OFFLOAD_ROD = *mut NL_INTERFACE_OFFLOAD_ROD;
+        type PNL_NEIGHBOR_STATE = *mut NL_NEIGHBOR_STATE;
+        type PNL_NETWORK_CATEGORY = *mut NL_NETWORK_CATEGORY;
+        type PNL_PATH_BANDWIDTH_ROD = *mut NL_PATH_BANDWIDTH_ROD;
+        type PNL_ROUTE_ORIGIN = *mut NL_ROUTE_ORIGIN;
+        type PNL_ROUTE_PROTOCOL = *mut NL_ROUTE_PROTOCOL;
+    }
+}

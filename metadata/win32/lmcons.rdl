@@ -1,0 +1,56 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ALERTSZ: u32 = 128;
+        const CLTYPE_LEN: u32 = 12;
+        const CNLEN: u32 = 15;
+        const CRYPT_KEY_LEN: u32 = 7;
+        const CRYPT_TXT_LEN: u32 = 8;
+        const DEVLEN: u32 = 80;
+        const DNLEN: u32 = 15;
+        const ENCRYPTED_PWLEN: u32 = 16;
+        const EVLEN: u32 = 16;
+        const GNLEN: u32 = 256;
+        const LM20_CNLEN: u32 = 15;
+        const LM20_DEVLEN: u32 = 8;
+        const LM20_DNLEN: u32 = 15;
+        const LM20_GNLEN: u32 = 20;
+        const LM20_MAXCOMMENTSZ: u32 = 48;
+        const LM20_NNLEN: u32 = 12;
+        const LM20_PATHLEN: u32 = 256;
+        const LM20_PWLEN: u32 = 14;
+        const LM20_QNLEN: u32 = 12;
+        const LM20_RMLEN: u32 = 30;
+        const LM20_SNLEN: u32 = 15;
+        const LM20_STXTLEN: u32 = 63;
+        const LM20_UNCLEN: u32 = 17;
+        const LM20_UNLEN: u32 = 20;
+        const LM_DNS_MAX_NAME_LENGTH: u32 = 255;
+        const MAXCOMMENTSZ: u32 = 256;
+        const MAX_LANMAN_MESSAGE_ID: u32 = 5899;
+        const MAX_PREFERRED_LENGTH: u32 = 4294967295;
+        const MIN_LANMAN_MESSAGE_ID: u32 = 2100;
+        const NETBIOS_NAME_LEN: u32 = 16;
+        const NNLEN: u32 = 80;
+        const PARMNUM_ALL: u32 = 0;
+        const PARMNUM_BASE_INFOLEVEL: u32 = 1000;
+        const PARM_ERROR_NONE: u32 = 0;
+        const PARM_ERROR_UNKNOWN: i32 = -1;
+        const PATHLEN: u32 = 256;
+        const PLATFORM_ID_DOS: u32 = 300;
+        const PLATFORM_ID_NT: u32 = 500;
+        const PLATFORM_ID_OS2: u32 = 400;
+        const PLATFORM_ID_OSF: u32 = 600;
+        const PLATFORM_ID_VMS: u32 = 700;
+        const PWLEN: u32 = 256;
+        const QNLEN: u32 = 80;
+        const RMLEN: u32 = 98;
+        const SESSION_CRYPT_KLEN: u32 = 21;
+        const SESSION_PWLEN: u32 = 24;
+        const SHPWLEN: u32 = 8;
+        const SNLEN: u32 = 80;
+        const STXTLEN: u32 = 256;
+        const UNCLEN: u32 = 17;
+        const UNLEN: u32 = 256;
+    }
+}

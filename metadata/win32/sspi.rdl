@@ -1,0 +1,1135 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        extern fn ACCEPT_SECURITY_CONTEXT_FN(param0: PCredHandle, param1: PCtxtHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: PCtxtHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        extern fn ACQUIRE_CREDENTIALS_HANDLE_FN_A(param0: *mut SEC_CHAR, param1: *mut SEC_CHAR, param2: u32, param3: *mut void, param4: *mut void, param5: SEC_GET_KEY_FN, param6: *mut void, param7: PCredHandle, param8: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        extern fn ACQUIRE_CREDENTIALS_HANDLE_FN_W(param0: *mut SEC_WCHAR, param1: *mut SEC_WCHAR, param2: u32, param3: *mut void, param4: *mut void, param5: SEC_GET_KEY_FN, param6: *mut void, param7: PCredHandle, param8: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        extern fn ADD_CREDENTIALS_FN_A(param0: PCredHandle, param1: *mut SEC_CHAR, param2: *mut SEC_CHAR, param3: u32, param4: *mut void, param5: SEC_GET_KEY_FN, param6: *mut void, param7: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        extern fn ADD_CREDENTIALS_FN_W(param0: PCredHandle, param1: *mut SEC_WCHAR, param2: *mut SEC_WCHAR, param3: u32, param4: *mut void, param5: SEC_GET_KEY_FN, param6: *mut void, param7: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        extern fn APPLY_CONTROL_TOKEN_FN(param0: PCtxtHandle, param1: *mut SecBufferDesc) -> SECURITY_STATUS;
+        const ASC_REQ_ALLOCATE_MEMORY: u32 = 256;
+        const ASC_REQ_ALLOW_CONTEXT_REPLAY: u32 = 4194304;
+        const ASC_REQ_ALLOW_MISSING_BINDINGS: u32 = 268435456;
+        const ASC_REQ_ALLOW_NON_USER_LOGONS: u32 = 2097152;
+        const ASC_REQ_ALLOW_NULL_SESSION: u32 = 1048576;
+        const ASC_REQ_CALL_LEVEL: u32 = 4096;
+        const ASC_REQ_CONFIDENTIALITY: u32 = 16;
+        const ASC_REQ_CONNECTION: u32 = 2048;
+        const ASC_REQ_DATAGRAM: u32 = 1024;
+        const ASC_REQ_DELEGATE: u32 = 1;
+        const ASC_REQ_EXPLICIT_SESSION: u64 = 68719476736;
+        const ASC_REQ_EXTENDED_ERROR: u32 = 32768;
+        const ASC_REQ_FRAGMENT_SUPPLIED: u32 = 8192;
+        const ASC_REQ_FRAGMENT_TO_FIT: u32 = 8388608;
+        const ASC_REQ_IDENTIFY: u32 = 524288;
+        const ASC_REQ_INTEGRITY: u32 = 131072;
+        const ASC_REQ_LICENSING: u32 = 262144;
+        const ASC_REQ_MESSAGES: u64 = 4294967296;
+        const ASC_REQ_MUTUAL_AUTH: u32 = 2;
+        const ASC_REQ_NO_TOKEN: u32 = 16777216;
+        const ASC_REQ_PROXY_BINDINGS: u32 = 67108864;
+        const ASC_REQ_REPLAY_DETECT: u32 = 4;
+        const ASC_REQ_SEQUENCE_DETECT: u32 = 8;
+        const ASC_REQ_SESSION_TICKET: u32 = 64;
+        const ASC_REQ_STREAM: u32 = 65536;
+        const ASC_REQ_USE_DCE_STYLE: u32 = 512;
+        const ASC_REQ_USE_SESSION_KEY: u32 = 32;
+        const ASC_RET_ALLOCATED_MEMORY: u32 = 256;
+        const ASC_RET_ALLOW_CONTEXT_REPLAY: u32 = 4194304;
+        const ASC_RET_ALLOW_NON_USER_LOGONS: u32 = 2097152;
+        const ASC_RET_CALL_LEVEL: u32 = 8192;
+        const ASC_RET_CONFIDENTIALITY: u32 = 16;
+        const ASC_RET_CONNECTION: u32 = 2048;
+        const ASC_RET_DATAGRAM: u32 = 1024;
+        const ASC_RET_DELEGATE: u32 = 1;
+        const ASC_RET_EXPLICIT_SESSION: u64 = 68719476736;
+        const ASC_RET_EXTENDED_ERROR: u32 = 32768;
+        const ASC_RET_FRAGMENT_ONLY: u32 = 8388608;
+        const ASC_RET_IDENTIFY: u32 = 524288;
+        const ASC_RET_INTEGRITY: u32 = 131072;
+        const ASC_RET_LICENSING: u32 = 262144;
+        const ASC_RET_MESSAGES: u64 = 4294967296;
+        const ASC_RET_MUTUAL_AUTH: u32 = 2;
+        const ASC_RET_NO_ADDITIONAL_TOKEN: u32 = 33554432;
+        const ASC_RET_NO_TOKEN: u32 = 16777216;
+        const ASC_RET_NULL_SESSION: u32 = 1048576;
+        const ASC_RET_REPLAY_DETECT: u32 = 4;
+        const ASC_RET_REUSE_SESSION_TICKETS: u64 = 34359738368;
+        const ASC_RET_SEQUENCE_DETECT: u32 = 8;
+        const ASC_RET_SESSION_TICKET: u32 = 64;
+        const ASC_RET_STREAM: u32 = 65536;
+        const ASC_RET_THIRD_LEG_FAILED: u32 = 16384;
+        const ASC_RET_USED_DCE_STYLE: u32 = 512;
+        const ASC_RET_USE_SESSION_KEY: u32 = 32;
+        #[library("Secur32.dll")]
+        extern fn AcceptSecurityContext(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[opt] pInput: *const SecBufferDesc, fContextReq: u32, TargetDataRep: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: *mut SecBufferDesc, pfContextAttr: *mut u32, #[opt] ptsExpiry: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn AcquireCredentialsHandleA(#[opt] pszPrincipal: PCSTR, pszPackage: PCSTR, fCredentialUse: u32, #[opt] pvLogonId: *const void, #[opt] pAuthData: *const void, #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[opt] pvGetKeyArgument: *const void, #[out] phCredential: PCredHandle, #[opt] ptsExpiry: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn AcquireCredentialsHandleW(#[opt] pszPrincipal: PCWSTR, pszPackage: PCWSTR, fCredentialUse: u32, #[opt] pvLogonId: *const void, #[opt] pAuthData: *const void, #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[opt] pvGetKeyArgument: *const void, #[out] phCredential: PCredHandle, #[opt] ptsExpiry: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn AddCredentialsA(hCredentials: PCredHandle, #[opt] pszPrincipal: PCSTR, pszPackage: PCSTR, fCredentialUse: u32, #[opt] pAuthData: *const void, #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[opt] pvGetKeyArgument: *const void, #[opt] ptsExpiry: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn AddCredentialsW(hCredentials: PCredHandle, #[opt] pszPrincipal: PCWSTR, pszPackage: PCWSTR, fCredentialUse: u32, #[opt] pAuthData: *const void, #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[opt] pvGetKeyArgument: *const void, #[opt] ptsExpiry: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn AddSecurityPackageA(pszPackageName: PCSTR, #[opt] pOptions: *const SECURITY_PACKAGE_OPTIONS) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn AddSecurityPackageW(pszPackageName: PCWSTR, #[opt] pOptions: *const SECURITY_PACKAGE_OPTIONS) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn ApplyControlToken(phContext: PCtxtHandle, pInput: *const SecBufferDesc) -> SECURITY_STATUS;
+        extern fn CHANGE_PASSWORD_FN_A(param0: *mut SEC_CHAR, param1: *mut SEC_CHAR, param2: *mut SEC_CHAR, param3: *mut SEC_CHAR, param4: *mut SEC_CHAR, param5: BOOLEAN, param6: u32, param7: *mut SecBufferDesc) -> SECURITY_STATUS;
+        extern fn CHANGE_PASSWORD_FN_W(param0: *mut SEC_WCHAR, param1: *mut SEC_WCHAR, param2: *mut SEC_WCHAR, param3: *mut SEC_WCHAR, param4: *mut SEC_WCHAR, param5: BOOLEAN, param6: u32, param7: *mut SecBufferDesc) -> SECURITY_STATUS;
+        extern fn COMPLETE_AUTH_TOKEN_FN(param0: PCtxtHandle, param1: *mut SecBufferDesc) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn ChangeAccountPasswordA(pszPackageName: *const SEC_CHAR, pszDomainName: *const SEC_CHAR, pszAccountName: *const SEC_CHAR, pszOldPassword: *const SEC_CHAR, pszNewPassword: *const SEC_CHAR, bImpersonating: BOOLEAN, dwReserved: u32, #[in] #[out] pOutput: *mut SecBufferDesc) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn ChangeAccountPasswordW(pszPackageName: *const SEC_WCHAR, pszDomainName: *const SEC_WCHAR, pszAccountName: *const SEC_WCHAR, pszOldPassword: *const SEC_WCHAR, pszNewPassword: *const SEC_WCHAR, bImpersonating: BOOLEAN, dwReserved: u32, #[in] #[out] pOutput: *mut SecBufferDesc) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn CompleteAuthToken(phContext: PCtxtHandle, pToken: *const SecBufferDesc) -> SECURITY_STATUS;
+        type CredHandle = SecHandle;
+        type CtxtHandle = SecHandle;
+        extern fn DECRYPT_MESSAGE_FN(param0: PCtxtHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> SECURITY_STATUS;
+        extern fn DELETE_SECURITY_CONTEXT_FN(param0: PCtxtHandle) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn DecryptMessage(phContext: PCtxtHandle, pMessage: *const SecBufferDesc, MessageSeqNo: u32, #[opt] pfQOP: *mut u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn DeleteSecurityContext(phContext: PCtxtHandle) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn DeleteSecurityPackageA(pszPackageName: PCSTR) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn DeleteSecurityPackageW(pszPackageName: PCWSTR) -> SECURITY_STATUS;
+        extern fn ENCRYPT_MESSAGE_FN(param0: PCtxtHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> SECURITY_STATUS;
+        extern fn ENUMERATE_SECURITY_PACKAGES_FN_A(param0: *mut u32, param1: *mut PSecPkgInfoA) -> SECURITY_STATUS;
+        extern fn ENUMERATE_SECURITY_PACKAGES_FN_W(param0: *mut u32, param1: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        extern fn EXPORT_SECURITY_CONTEXT_FN(param0: PCtxtHandle, param1: u32, param2: *mut SecBuffer, param3: *mut *mut void) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn EncryptMessage(phContext: PCtxtHandle, fQOP: u32, pMessage: *const SecBufferDesc, MessageSeqNo: u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn EnumerateSecurityPackagesA(pcPackages: *mut u32, ppPackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn EnumerateSecurityPackagesW(pcPackages: *mut u32, ppPackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn ExportSecurityContext(phContext: PCtxtHandle, fFlags: u32, pPackedContext: *mut SecBuffer, pToken: *mut *mut void) -> SECURITY_STATUS;
+        extern fn FREE_CONTEXT_BUFFER_FN(#[in] #[out] param0: *mut void) -> SECURITY_STATUS;
+        extern fn FREE_CREDENTIALS_HANDLE_FN(param0: PCredHandle) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn FreeContextBuffer(#[in] #[out] pvContextBuffer: *mut void) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn FreeCredentialsHandle(phCredential: PCredHandle) -> SECURITY_STATUS;
+        extern fn IMPERSONATE_SECURITY_CONTEXT_FN(param0: PCtxtHandle) -> SECURITY_STATUS;
+        extern fn IMPORT_SECURITY_CONTEXT_FN_A(param0: *mut SEC_CHAR, param1: *mut SecBuffer, param2: *mut void, param3: PCtxtHandle) -> SECURITY_STATUS;
+        extern fn IMPORT_SECURITY_CONTEXT_FN_W(param0: *mut SEC_WCHAR, param1: *mut SecBuffer, param2: *mut void, param3: PCtxtHandle) -> SECURITY_STATUS;
+        extern fn INITIALIZE_SECURITY_CONTEXT_FN_A(param0: PCredHandle, param1: PCtxtHandle, param2: *mut SEC_CHAR, param3: u32, param4: u32, param5: u32, param6: *mut SecBufferDesc, param7: u32, param8: PCtxtHandle, param9: *mut SecBufferDesc, param10: *mut u32, param11: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        extern fn INITIALIZE_SECURITY_CONTEXT_FN_W(param0: PCredHandle, param1: PCtxtHandle, param2: *mut SEC_WCHAR, param3: u32, param4: u32, param5: u32, param6: *mut SecBufferDesc, param7: u32, param8: PCtxtHandle, param9: *mut SecBufferDesc, param10: *mut u32, param11: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        extern fn INIT_SECURITY_INTERFACE_A() -> PSecurityFunctionTableA;
+        extern fn INIT_SECURITY_INTERFACE_W() -> PSecurityFunctionTableW;
+        const ISC_REQ_ALLOCATE_MEMORY: u32 = 256;
+        const ISC_REQ_CALL_LEVEL: u32 = 4096;
+        const ISC_REQ_CONFIDENTIALITY: u32 = 16;
+        const ISC_REQ_CONFIDENTIALITY_ONLY: u32 = 1073741824;
+        const ISC_REQ_CONNECTION: u32 = 2048;
+        const ISC_REQ_DATAGRAM: u32 = 1024;
+        const ISC_REQ_DEFERRED_CRED_VALIDATION: u64 = 8589934592;
+        const ISC_REQ_DELEGATE: u32 = 1;
+        const ISC_REQ_EXPLICIT_SESSION: u64 = 68719476736;
+        const ISC_REQ_EXTENDED_ERROR: u32 = 16384;
+        const ISC_REQ_FORWARD_CREDENTIALS: u32 = 4194304;
+        const ISC_REQ_FRAGMENT_SUPPLIED: u32 = 8192;
+        const ISC_REQ_FRAGMENT_TO_FIT: u32 = 2097152;
+        const ISC_REQ_IDENTIFY: u32 = 131072;
+        const ISC_REQ_INTEGRITY: u32 = 65536;
+        const ISC_REQ_MANUAL_CRED_VALIDATION: u32 = 524288;
+        const ISC_REQ_MESSAGES: u64 = 4294967296;
+        const ISC_REQ_MUTUAL_AUTH: u32 = 2;
+        const ISC_REQ_NO_INTEGRITY: u32 = 8388608;
+        const ISC_REQ_NO_POST_HANDSHAKE_AUTH: u64 = 17179869184;
+        const ISC_REQ_NULL_SESSION: u32 = 262144;
+        const ISC_REQ_PROMPT_FOR_CREDS: u32 = 64;
+        const ISC_REQ_REPLAY_DETECT: u32 = 4;
+        const ISC_REQ_RESERVED1: u32 = 1048576;
+        const ISC_REQ_REUSE_SESSION_TICKETS: u64 = 34359738368;
+        const ISC_REQ_SEQUENCE_DETECT: u32 = 8;
+        const ISC_REQ_STREAM: u32 = 32768;
+        const ISC_REQ_UNVERIFIED_TARGET_NAME: u32 = 536870912;
+        const ISC_REQ_USE_DCE_STYLE: u32 = 512;
+        const ISC_REQ_USE_HTTP_STYLE: u32 = 16777216;
+        const ISC_REQ_USE_SESSION_KEY: u32 = 32;
+        const ISC_REQ_USE_SUPPLIED_CREDS: u32 = 128;
+        const ISC_RET_ALLOCATED_MEMORY: u32 = 256;
+        const ISC_RET_CALL_LEVEL: u32 = 8192;
+        const ISC_RET_CONFIDENTIALITY: u32 = 16;
+        const ISC_RET_CONFIDENTIALITY_ONLY: u32 = 1073741824;
+        const ISC_RET_CONNECTION: u32 = 2048;
+        const ISC_RET_DATAGRAM: u32 = 1024;
+        const ISC_RET_DEFERRED_CRED_VALIDATION: u64 = 8589934592;
+        const ISC_RET_DELEGATE: u32 = 1;
+        const ISC_RET_EXPLICIT_SESSION: u64 = 68719476736;
+        const ISC_RET_EXTENDED_ERROR: u32 = 16384;
+        const ISC_RET_FORWARD_CREDENTIALS: u32 = 4194304;
+        const ISC_RET_FRAGMENT_ONLY: u32 = 2097152;
+        const ISC_RET_IDENTIFY: u32 = 131072;
+        const ISC_RET_INTEGRITY: u32 = 65536;
+        const ISC_RET_INTERMEDIATE_RETURN: u32 = 4096;
+        const ISC_RET_MANUAL_CRED_VALIDATION: u32 = 524288;
+        const ISC_RET_MESSAGES: u64 = 4294967296;
+        const ISC_RET_MUTUAL_AUTH: u32 = 2;
+        const ISC_RET_NO_ADDITIONAL_TOKEN: u32 = 33554432;
+        const ISC_RET_NO_POST_HANDSHAKE_AUTH: u64 = 17179869184;
+        const ISC_RET_NULL_SESSION: u32 = 262144;
+        const ISC_RET_REAUTHENTICATION: u32 = 134217728;
+        const ISC_RET_REPLAY_DETECT: u32 = 4;
+        const ISC_RET_RESERVED1: u32 = 1048576;
+        const ISC_RET_REUSE_SESSION_TICKETS: u64 = 34359738368;
+        const ISC_RET_SEQUENCE_DETECT: u32 = 8;
+        const ISC_RET_STREAM: u32 = 32768;
+        const ISC_RET_USED_COLLECTED_CREDS: u32 = 64;
+        const ISC_RET_USED_DCE_STYLE: u32 = 512;
+        const ISC_RET_USED_HTTP_STYLE: u32 = 16777216;
+        const ISC_RET_USED_SUPPLIED_CREDS: u32 = 128;
+        const ISC_RET_USE_SESSION_KEY: u32 = 32;
+        const ISSP_LEVEL: u32 = 32;
+        const ISSP_MODE: u32 = 1;
+        #[library("Secur32.dll")]
+        extern fn ImpersonateSecurityContext(phContext: PCtxtHandle) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn ImportSecurityContextA(pszPackage: PCSTR, pPackedContext: *const SecBuffer, Token: *const void, #[out] phContext: PCtxtHandle) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn ImportSecurityContextW(pszPackage: PCWSTR, pPackedContext: *const SecBuffer, Token: *const void, #[out] phContext: PCtxtHandle) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn InitSecurityInterfaceA() -> PSecurityFunctionTableA;
+        #[library("Secur32.dll")]
+        extern fn InitSecurityInterfaceW() -> PSecurityFunctionTableW;
+        #[library("Secur32.dll")]
+        extern fn InitializeSecurityContextA(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[opt] pszTargetName: *const SEC_CHAR, fContextReq: u32, Reserved1: u32, TargetDataRep: u32, #[opt] pInput: *const SecBufferDesc, Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: *mut SecBufferDesc, pfContextAttr: *mut u32, #[opt] ptsExpiry: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn InitializeSecurityContextW(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[opt] pszTargetName: *const SEC_WCHAR, fContextReq: u32, Reserved1: u32, TargetDataRep: u32, #[opt] pInput: *const SecBufferDesc, Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: *mut SecBufferDesc, pfContextAttr: *mut u32, #[opt] ptsExpiry: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        const KDC_NETWORK_DISCOVERY_FLAGS_DS13_REQUIRED: u32 = 2147483648;
+        const KDC_NETWORK_SETTINGS_FLAGS_CONFIGURE_DISCOVERY: u32 = 1073741824;
+        const KDC_NETWORK_SETTINGS_FLAGS_CONFIGURE_PROXY: u32 = 2147483648;
+        const KDC_NETWORK_SETTINGS_FLAGS_FORCEPROXY: u32 = 1;
+        const KDC_NETWORK_SETTINGS_V2: u32 = 2;
+        const KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY: u32 = 1;
+        const KDC_PROXY_SETTINGS_V1: u32 = 1;
+        extern fn MAKE_SIGNATURE_FN(param0: PCtxtHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> SECURITY_STATUS;
+        const MAX_PROTOCOL_ID_SIZE: u32 = 255;
+        #[library("Secur32.dll")]
+        extern fn MakeSignature(phContext: PCtxtHandle, fQOP: u32, pMessage: *const SecBufferDesc, MessageSeqNo: u32) -> SECURITY_STATUS;
+        type PCredHandle = PSecHandle;
+        type PCtxtHandle = PSecHandle;
+        type PSECPKG_APP_MODE_INFO = *mut SECPKG_APP_MODE_INFO;
+        type PSECPKG_ATTR_LCT_STATUS = *mut SECPKG_ATTR_LCT_STATUS;
+        type PSECPKG_CRED_CLASS = *mut SECPKG_CRED_CLASS;
+        type PSECURITY_INTEGER = *mut LARGE_INTEGER;
+        type PSECURITY_PACKAGE_OPTIONS = *mut SECURITY_PACKAGE_OPTIONS;
+        type PSECURITY_STRING = *mut SECURITY_STRING;
+        type PSEC_APPLICATION_PROTOCOLS = *mut SEC_APPLICATION_PROTOCOLS;
+        type PSEC_APPLICATION_PROTOCOL_LIST = *mut SEC_APPLICATION_PROTOCOL_LIST;
+        type PSEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = *mut SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT;
+        type PSEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = *mut SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS;
+        type PSEC_APP_SESSION_STATE = *mut SEC_APP_SESSION_STATE;
+        type PSEC_CERTIFICATE_REQUEST_CONTEXT = *mut SEC_CERTIFICATE_REQUEST_CONTEXT;
+        type PSEC_CHANNEL_BINDINGS = *mut SEC_CHANNEL_BINDINGS;
+        type PSEC_CHANNEL_BINDINGS_EX = *mut SEC_CHANNEL_BINDINGS_EX;
+        type PSEC_CHANNEL_BINDINGS_RESULT = *mut SEC_CHANNEL_BINDINGS_RESULT;
+        type PSEC_DTLS_MTU = *mut SEC_DTLS_MTU;
+        type PSEC_FLAGS = *mut SEC_FLAGS;
+        type PSEC_NEGOTIATION_INFO = *mut SEC_NEGOTIATION_INFO;
+        type PSEC_PRESHAREDKEY = *mut SEC_PRESHAREDKEY;
+        type PSEC_PRESHAREDKEY_IDENTITY = *mut SEC_PRESHAREDKEY_IDENTITY;
+        type PSEC_SESSION_TICKET = *mut SEC_SESSION_TICKET;
+        type PSEC_SRTP_MASTER_KEY_IDENTIFIER = *mut SEC_SRTP_MASTER_KEY_IDENTIFIER;
+        type PSEC_SRTP_PROTECTION_PROFILES = *mut SEC_SRTP_PROTECTION_PROFILES;
+        type PSEC_TOKEN_BINDING = *mut SEC_TOKEN_BINDING;
+        type PSEC_TRAFFIC_SECRETS = *mut SEC_TRAFFIC_SECRETS;
+        type PSEC_TRAFFIC_SECRET_TYPE = *mut SEC_TRAFFIC_SECRET_TYPE;
+        type PSEC_WINNT_AUTH_IDENTITY_EX2 = *mut SEC_WINNT_AUTH_IDENTITY_EX2;
+        type PSEC_WINNT_AUTH_IDENTITY_EXA = *mut SEC_WINNT_AUTH_IDENTITY_EXA;
+        type PSEC_WINNT_AUTH_IDENTITY_EXW = *mut SEC_WINNT_AUTH_IDENTITY_EXW;
+        type PSEC_WINNT_AUTH_IDENTITY_INFO = *mut SEC_WINNT_AUTH_IDENTITY_INFO;
+        type PSEC_WINNT_AUTH_IDENTITY_OPAQUE = *mut void;
+        type PSecBuffer = *mut SecBuffer;
+        type PSecBufferDesc = *mut SecBufferDesc;
+        type PSecDelegationType = *mut SecDelegationType;
+        type PSecHandle = *mut SecHandle;
+        type PSecPkgContext_AccessToken = *mut SecPkgContext_AccessToken;
+        type PSecPkgContext_ApplicationProtocol = *mut SecPkgContext_ApplicationProtocol;
+        type PSecPkgContext_AuthorityA = *mut SecPkgContext_AuthorityA;
+        type PSecPkgContext_AuthorityW = *mut SecPkgContext_AuthorityW;
+        type PSecPkgContext_AuthzID = *mut SecPkgContext_AuthzID;
+        type PSecPkgContext_Bindings = *mut SecPkgContext_Bindings;
+        type PSecPkgContext_ClientSpecifiedTarget = *mut SecPkgContext_ClientSpecifiedTarget;
+        type PSecPkgContext_CredInfo = *mut SecPkgContext_CredInfo;
+        type PSecPkgContext_CredentialNameA = *mut SecPkgContext_CredentialNameA;
+        type PSecPkgContext_CredentialNameW = *mut SecPkgContext_CredentialNameW;
+        type PSecPkgContext_DatagramSizes = PSecPkgContext_StreamSizes;
+        type PSecPkgContext_DceInfo = *mut SecPkgContext_DceInfo;
+        type PSecPkgContext_Flags = *mut SecPkgContext_Flags;
+        type PSecPkgContext_KeyInfoA = *mut SecPkgContext_KeyInfoA;
+        type PSecPkgContext_KeyInfoW = *mut SecPkgContext_KeyInfoW;
+        type PSecPkgContext_LastClientTokenStatus = *mut SecPkgContext_LastClientTokenStatus;
+        type PSecPkgContext_Lifespan = *mut SecPkgContext_Lifespan;
+        type PSecPkgContext_LogoffTime = *mut SecPkgContext_LogoffTime;
+        type PSecPkgContext_NamesA = *mut SecPkgContext_NamesA;
+        type PSecPkgContext_NamesW = *mut SecPkgContext_NamesW;
+        type PSecPkgContext_NativeNamesA = *mut SecPkgContext_NativeNamesA;
+        type PSecPkgContext_NativeNamesW = *mut SecPkgContext_NativeNamesW;
+        type PSecPkgContext_NegoKeys = *mut SecPkgContext_NegoKeys;
+        type PSecPkgContext_NegoPackageInfo = *mut SecPkgContext_NegoPackageInfo;
+        type PSecPkgContext_NegoStatus = *mut SecPkgContext_NegoStatus;
+        type PSecPkgContext_NegotiatedTlsExtensions = *mut SecPkgContext_NegotiatedTlsExtensions;
+        type PSecPkgContext_NegotiationInfoA = *mut SecPkgContext_NegotiationInfoA;
+        type PSecPkgContext_NegotiationInfoW = *mut SecPkgContext_NegotiationInfoW;
+        type PSecPkgContext_PackageInfoA = *mut SecPkgContext_PackageInfoA;
+        type PSecPkgContext_PackageInfoW = *mut SecPkgContext_PackageInfoW;
+        type PSecPkgContext_PasswordExpiry = *mut SecPkgContext_PasswordExpiry;
+        type PSecPkgContext_ProtoInfoA = *mut SecPkgContext_ProtoInfoA;
+        type PSecPkgContext_ProtoInfoW = *mut SecPkgContext_ProtoInfoW;
+        type PSecPkgContext_SessionKey = *mut SecPkgContext_SessionKey;
+        type PSecPkgContext_Sizes = *mut SecPkgContext_Sizes;
+        type PSecPkgContext_StreamSizes = *mut SecPkgContext_StreamSizes;
+        type PSecPkgContext_SubjectAttributes = *mut SecPkgContext_SubjectAttributes;
+        type PSecPkgContext_Target = *mut SecPkgContext_Target;
+        type PSecPkgContext_TargetInformation = *mut SecPkgContext_TargetInformation;
+        type PSecPkgContext_UserFlags = *mut SecPkgContext_UserFlags;
+        type PSecPkgCredentials_Cert = *mut SecPkgCredentials_Cert;
+        type PSecPkgCredentials_KdcNetworkSettingsW = *mut SecPkgCredentials_KdcNetworkSettingsW;
+        type PSecPkgCredentials_KdcProxySettingsW = *mut SecPkgCredentials_KdcProxySettingsW;
+        type PSecPkgCredentials_NamesA = *mut SecPkgCredentials_NamesA;
+        type PSecPkgCredentials_NamesW = *mut SecPkgCredentials_NamesW;
+        type PSecPkgCredentials_SSIProviderA = *mut SecPkgCredentials_SSIProviderA;
+        type PSecPkgCredentials_SSIProviderW = *mut SecPkgCredentials_SSIProviderW;
+        type PSecPkgInfoA = *mut SecPkgInfoA;
+        type PSecPkgInfoW = *mut SecPkgInfoW;
+        type PSecurityFunctionTableA = *mut SecurityFunctionTableA;
+        type PSecurityFunctionTableW = *mut SecurityFunctionTableW;
+        type PTimeStamp = *mut SECURITY_INTEGER;
+        extern fn QUERY_CONTEXT_ATTRIBUTES_EX_FN_A(param0: PCtxtHandle, param1: u32, param2: *mut void, param3: u32) -> SECURITY_STATUS;
+        extern fn QUERY_CONTEXT_ATTRIBUTES_EX_FN_W(param0: PCtxtHandle, param1: u32, param2: *mut void, param3: u32) -> SECURITY_STATUS;
+        extern fn QUERY_CONTEXT_ATTRIBUTES_FN_A(param0: PCtxtHandle, param1: u32, param2: *mut void) -> SECURITY_STATUS;
+        extern fn QUERY_CONTEXT_ATTRIBUTES_FN_W(param0: PCtxtHandle, param1: u32, param2: *mut void) -> SECURITY_STATUS;
+        extern fn QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A(param0: PCredHandle, param1: u32, param2: *mut void, param3: u32) -> SECURITY_STATUS;
+        extern fn QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W(param0: PCredHandle, param1: u32, param2: *mut void, param3: u32) -> SECURITY_STATUS;
+        extern fn QUERY_CREDENTIALS_ATTRIBUTES_FN_A(param0: PCredHandle, param1: u32, param2: *mut void) -> SECURITY_STATUS;
+        extern fn QUERY_CREDENTIALS_ATTRIBUTES_FN_W(param0: PCredHandle, param1: u32, param2: *mut void) -> SECURITY_STATUS;
+        extern fn QUERY_SECURITY_CONTEXT_TOKEN_FN(param0: PCtxtHandle, param1: *mut *mut void) -> SECURITY_STATUS;
+        extern fn QUERY_SECURITY_PACKAGE_INFO_FN_A(param0: *mut SEC_CHAR, param1: *mut PSecPkgInfoA) -> SECURITY_STATUS;
+        extern fn QUERY_SECURITY_PACKAGE_INFO_FN_W(param0: *mut SEC_WCHAR, param1: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn QueryContextAttributesA(phContext: PCtxtHandle, ulAttribute: u32, pBuffer: *mut void) -> SECURITY_STATUS;
+        #[library("SspiCli.dll")]
+        extern fn QueryContextAttributesExA(phContext: PCtxtHandle, ulAttribute: u32, #[size_param(3)] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        #[library("SspiCli.dll")]
+        extern fn QueryContextAttributesExW(phContext: PCtxtHandle, ulAttribute: u32, #[size_param(3)] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn QueryContextAttributesW(phContext: PCtxtHandle, ulAttribute: u32, pBuffer: *mut void) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn QueryCredentialsAttributesA(phCredential: PCredHandle, ulAttribute: u32, #[in] #[out] pBuffer: *mut void) -> SECURITY_STATUS;
+        #[library("SspiCli.dll")]
+        extern fn QueryCredentialsAttributesExA(phCredential: PCredHandle, ulAttribute: u32, #[size_param(3)] #[in] #[out] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        #[library("SspiCli.dll")]
+        extern fn QueryCredentialsAttributesExW(phCredential: PCredHandle, ulAttribute: u32, #[size_param(3)] #[in] #[out] pBuffer: *mut void, cbBuffer: u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn QueryCredentialsAttributesW(phCredential: PCredHandle, ulAttribute: u32, #[in] #[out] pBuffer: *mut void) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn QuerySecurityContextToken(phContext: PCtxtHandle, Token: *mut *mut void) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn QuerySecurityPackageInfoA(pszPackageName: PCSTR, ppPackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn QuerySecurityPackageInfoW(pszPackageName: PCWSTR, ppPackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        extern fn REVERT_SECURITY_CONTEXT_FN(param0: PCtxtHandle) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn RevertSecurityContext(phContext: PCtxtHandle) -> SECURITY_STATUS;
+        #[repr(i32)]
+        enum SASL_AUTHZID_STATE {
+            Sasl_AuthZIDForbidden = 0,
+            Sasl_AuthZIDProcessed = 1,
+        }
+        const SASL_OPTION_AUTHZ_PROCESSING: u32 = 4;
+        const SASL_OPTION_AUTHZ_STRING: u32 = 3;
+        const SASL_OPTION_RECV_SIZE: u32 = 2;
+        const SASL_OPTION_SEND_SIZE: u32 = 1;
+        const SECBUFFER_ALERT: u32 = 17;
+        const SECBUFFER_APPLICATION_PROTOCOLS: u32 = 18;
+        const SECBUFFER_APP_SESSION_STATE: u32 = 31;
+        const SECBUFFER_ATTRMASK: u32 = 4026531840;
+        const SECBUFFER_CERTIFICATE_REQUEST_CONTEXT: u32 = 29;
+        const SECBUFFER_CHANGE_PASS_RESPONSE: u32 = 15;
+        const SECBUFFER_CHANNEL_BINDINGS: u32 = 14;
+        const SECBUFFER_CHANNEL_BINDINGS_RESULT: u32 = 30;
+        const SECBUFFER_DATA: u32 = 1;
+        const SECBUFFER_DTLS_MTU: u32 = 24;
+        const SECBUFFER_EMPTY: u32 = 0;
+        const SECBUFFER_EXTRA: u32 = 5;
+        const SECBUFFER_FLAGS: u32 = 27;
+        const SECBUFFER_MECHLIST: u32 = 11;
+        const SECBUFFER_MECHLIST_SIGNATURE: u32 = 12;
+        const SECBUFFER_MISSING: u32 = 4;
+        const SECBUFFER_NEGOTIATION_INFO: u32 = 8;
+        const SECBUFFER_PADDING: u32 = 9;
+        const SECBUFFER_PKG_PARAMS: u32 = 3;
+        const SECBUFFER_PRESHARED_KEY: u32 = 22;
+        const SECBUFFER_PRESHARED_KEY_IDENTITY: u32 = 23;
+        const SECBUFFER_READONLY: u32 = 2147483648;
+        const SECBUFFER_READONLY_WITH_CHECKSUM: u32 = 268435456;
+        const SECBUFFER_RESERVED: u32 = 1610612736;
+        const SECBUFFER_SEND_GENERIC_TLS_EXTENSION: u32 = 25;
+        const SECBUFFER_SESSION_TICKET: u32 = 32;
+        const SECBUFFER_SRTP_MASTER_KEY_IDENTIFIER: u32 = 20;
+        const SECBUFFER_SRTP_PROTECTION_PROFILES: u32 = 19;
+        const SECBUFFER_STREAM: u32 = 10;
+        const SECBUFFER_STREAM_HEADER: u32 = 7;
+        const SECBUFFER_STREAM_TRAILER: u32 = 6;
+        const SECBUFFER_SUBSCRIBE_GENERIC_TLS_EXTENSION: u32 = 26;
+        const SECBUFFER_TARGET: u32 = 13;
+        const SECBUFFER_TARGET_HOST: u32 = 16;
+        const SECBUFFER_TOKEN: u32 = 2;
+        const SECBUFFER_TOKEN_BINDING: u32 = 21;
+        const SECBUFFER_TRAFFIC_SECRETS: u32 = 28;
+        const SECBUFFER_VERSION: u32 = 0;
+        struct SECPKG_APP_MODE_INFO {
+            UserFunction: u32,
+            Argument1: usize,
+            Argument2: usize,
+            UserData: SecBuffer,
+            ReturnToLsa: BOOLEAN,
+        }
+        const SECPKG_ATTR_ACCESS_TOKEN: u32 = 18;
+        const SECPKG_ATTR_APPLICATION_PROTOCOL: u32 = 35;
+        const SECPKG_ATTR_AUTHENTICATION_ID: u32 = 20;
+        const SECPKG_ATTR_AUTHORITY: u32 = 6;
+        const SECPKG_ATTR_CLIENT_SPECIFIED_TARGET: u32 = 27;
+        const SECPKG_ATTR_CONTEXT_DELETED: u32 = 33;
+        const SECPKG_ATTR_CREDENTIAL_NAME: u32 = 16;
+        const SECPKG_ATTR_DATAGRAM_SIZES: u32 = 4;
+        const SECPKG_ATTR_DCE_INFO: u32 = 3;
+        const SECPKG_ATTR_DTLS_MTU: u32 = 34;
+        const SECPKG_ATTR_ENDPOINT_BINDINGS: u32 = 26;
+        const SECPKG_ATTR_FLAGS: u32 = 14;
+        const SECPKG_ATTR_IS_LOOPBACK: u32 = 37;
+        const SECPKG_ATTR_KEY_INFO: u32 = 5;
+        const SECPKG_ATTR_LAST_CLIENT_TOKEN_STATUS: u32 = 30;
+        #[repr(i32)]
+        enum SECPKG_ATTR_LCT_STATUS {
+            SecPkgAttrLastClientTokenYes = 0,
+            SecPkgAttrLastClientTokenNo = 1,
+            SecPkgAttrLastClientTokenMaybe = 2,
+        }
+        const SECPKG_ATTR_LIFESPAN: u32 = 2;
+        const SECPKG_ATTR_LOGOFF_TIME: u32 = 21;
+        const SECPKG_ATTR_NAMES: u32 = 1;
+        const SECPKG_ATTR_NATIVE_NAMES: u32 = 13;
+        const SECPKG_ATTR_NEGOTIATED_TLS_EXTENSIONS: u32 = 36;
+        const SECPKG_ATTR_NEGOTIATION_INFO: u32 = 12;
+        const SECPKG_ATTR_NEGO_INFO_FLAG_NO_KERBEROS: u32 = 1;
+        const SECPKG_ATTR_NEGO_INFO_FLAG_NO_NTLM: u32 = 2;
+        const SECPKG_ATTR_NEGO_KEYS: u32 = 22;
+        const SECPKG_ATTR_NEGO_PKG_INFO: u32 = 31;
+        const SECPKG_ATTR_NEGO_STATUS: u32 = 32;
+        const SECPKG_ATTR_PACKAGE_INFO: u32 = 10;
+        const SECPKG_ATTR_PASSWORD_EXPIRY: u32 = 8;
+        const SECPKG_ATTR_PROMPTING_NEEDED: u32 = 24;
+        const SECPKG_ATTR_PROTO_INFO: u32 = 7;
+        const SECPKG_ATTR_SESSION_KEY: u32 = 9;
+        const SECPKG_ATTR_SIZES: u32 = 0;
+        const SECPKG_ATTR_STREAM_SIZES: u32 = 4;
+        const SECPKG_ATTR_SUBJECT_SECURITY_ATTRIBUTES: u32 = 128;
+        const SECPKG_ATTR_TARGET: u32 = 19;
+        const SECPKG_ATTR_TARGET_INFORMATION: u32 = 17;
+        const SECPKG_ATTR_UNIQUE_BINDINGS: u32 = 25;
+        const SECPKG_ATTR_USER_FLAGS: u32 = 11;
+        const SECPKG_ATTR_USE_VALIDATED: u32 = 15;
+        const SECPKG_CALLFLAGS_APPCONTAINER: u32 = 1;
+        const SECPKG_CALLFLAGS_APPCONTAINER_AUTHCAPABLE: u32 = 2;
+        const SECPKG_CALLFLAGS_APPCONTAINER_UPNCAPABLE: u32 = 8;
+        const SECPKG_CALLFLAGS_FORCE_SUPPLIED: u32 = 4;
+        const SECPKG_CONTEXT_EXPORT_DELETE_OLD: u32 = 2;
+        const SECPKG_CONTEXT_EXPORT_RESET_NEW: u32 = 1;
+        const SECPKG_CONTEXT_EXPORT_TO_KERNEL: u32 = 4;
+        const SECPKG_CRED_ATTR_CERT: u32 = 4;
+        const SECPKG_CRED_ATTR_KDC_NETWORK_SETTINGS: u32 = 3;
+        const SECPKG_CRED_ATTR_KDC_PROXY_SETTINGS: u32 = 3;
+        const SECPKG_CRED_ATTR_NAMES: u32 = 1;
+        const SECPKG_CRED_ATTR_PAC_BYPASS: u32 = 5;
+        const SECPKG_CRED_ATTR_SSI_PROVIDER: u32 = 2;
+        const SECPKG_CRED_AUTOLOGON_RESTRICTED: u32 = 16;
+        const SECPKG_CRED_BOTH: u32 = 3;
+        #[repr(i32)]
+        enum SECPKG_CRED_CLASS {
+            SecPkgCredClass_None = 0,
+            SecPkgCredClass_Ephemeral = 10,
+            SecPkgCredClass_PersistedGeneric = 20,
+            SecPkgCredClass_PersistedSpecific = 30,
+            SecPkgCredClass_Explicit = 40,
+        }
+        const SECPKG_CRED_DEFAULT: u32 = 4;
+        const SECPKG_CRED_INBOUND: u32 = 1;
+        const SECPKG_CRED_KERB_ANCHOR_DS_VERSION: u32 = 64;
+        const SECPKG_CRED_OUTBOUND: u32 = 2;
+        const SECPKG_CRED_PROCESS_POLICY_ONLY: u32 = 32;
+        const SECPKG_CRED_RESERVED: u32 = 4026531840;
+        const SECPKG_FLAG_ACCEPT_WIN32_NAME: u32 = 512;
+        const SECPKG_FLAG_APPCONTAINER_CHECKS: u32 = 8388608;
+        const SECPKG_FLAG_APPCONTAINER_PASSTHROUGH: u32 = 4194304;
+        const SECPKG_FLAG_APPLY_LOOPBACK: u32 = 33554432;
+        const SECPKG_FLAG_ASCII_BUFFERS: u32 = 16384;
+        const SECPKG_FLAG_CLIENT_ONLY: u32 = 64;
+        const SECPKG_FLAG_CONNECTION: u32 = 16;
+        const SECPKG_FLAG_CREDENTIAL_ISOLATION_ENABLED: u32 = 16777216;
+        const SECPKG_FLAG_DATAGRAM: u32 = 8;
+        const SECPKG_FLAG_DELEGATION: u32 = 131072;
+        const SECPKG_FLAG_EXTENDED_ERROR: u32 = 128;
+        const SECPKG_FLAG_FRAGMENT: u32 = 32768;
+        const SECPKG_FLAG_GSS_COMPATIBLE: u32 = 4096;
+        const SECPKG_FLAG_IMPERSONATION: u32 = 256;
+        const SECPKG_FLAG_INTEGRITY: u32 = 1;
+        const SECPKG_FLAG_LOGON: u32 = 8192;
+        const SECPKG_FLAG_MULTI_REQUIRED: u32 = 32;
+        const SECPKG_FLAG_MUTUAL_AUTH: u32 = 65536;
+        const SECPKG_FLAG_NEGOTIABLE: u32 = 2048;
+        const SECPKG_FLAG_NEGOTIABLE2: u32 = 2097152;
+        const SECPKG_FLAG_NEGO_EXTENDER: u32 = 1048576;
+        const SECPKG_FLAG_PRIVACY: u32 = 2;
+        const SECPKG_FLAG_READONLY_WITH_CHECKSUM: u32 = 262144;
+        const SECPKG_FLAG_RESTRICTED_TOKENS: u32 = 524288;
+        const SECPKG_FLAG_STREAM: u32 = 1024;
+        const SECPKG_FLAG_TOKEN_ONLY: u32 = 4;
+        const SECPKG_ID_NONE: u32 = 65535;
+        const SECPKG_NEGOTIATION_COMPLETE: u32 = 0;
+        const SECPKG_NEGOTIATION_DIRECT: u32 = 3;
+        const SECPKG_NEGOTIATION_IN_PROGRESS: u32 = 2;
+        const SECPKG_NEGOTIATION_OPTIMISTIC: u32 = 1;
+        const SECPKG_NEGOTIATION_TRY_MULTICRED: u32 = 4;
+        const SECPKG_OPTIONS_PERMANENT: u32 = 1;
+        const SECPKG_OPTIONS_TYPE_LSA: u32 = 1;
+        const SECPKG_OPTIONS_TYPE_SSPI: u32 = 2;
+        const SECPKG_OPTIONS_TYPE_UNKNOWN: u32 = 0;
+        const SECQOP_WRAP_NO_ENCRYPT: u32 = 2147483649;
+        const SECQOP_WRAP_OOB_DATA: u32 = 1073741824;
+        #[encoding("ansi")]
+        const SECURITY_ENTRYPOINT16: String = "INITSECURITYINTERFACEA";
+        #[encoding("ansi")]
+        const SECURITY_ENTRYPOINT_ANSIA: String = "InitSecurityInterfaceA";
+        #[encoding("ansi")]
+        const SECURITY_ENTRYPOINT_ANSIW: String = "InitSecurityInterfaceW";
+        type SECURITY_INTEGER = LARGE_INTEGER;
+        const SECURITY_NATIVE_DREP: u32 = 16;
+        const SECURITY_NETWORK_DREP: u32 = 0;
+        struct SECURITY_PACKAGE_OPTIONS {
+            Size: u32,
+            Type: u32,
+            Flags: u32,
+            SignatureSize: u32,
+            Signature: *mut void,
+        }
+        type SECURITY_PCSTR = *const SEC_CHAR;
+        type SECURITY_PSTR = *mut SEC_CHAR;
+        struct SECURITY_STRING {
+            Length: u16,
+            MaximumLength: u16,
+            Buffer: *mut u16,
+        }
+        const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION: u32 = 1;
+        const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_2: u32 = 2;
+        const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_3: u32 = 3;
+        const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_4: u32 = 4;
+        const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_5: u32 = 5;
+        struct SEC_APPLICATION_PROTOCOLS {
+            ProtocolListsSize: u32,
+            ProtocolLists: [SEC_APPLICATION_PROTOCOL_LIST; 1],
+        }
+        struct SEC_APPLICATION_PROTOCOL_LIST {
+            ProtoNegoExt: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT,
+            ProtocolListSize: u16,
+            ProtocolList: [u8; 1],
+        }
+        #[repr(i32)]
+        enum SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
+            SecApplicationProtocolNegotiationExt_None = 0,
+            SecApplicationProtocolNegotiationExt_NPN = 1,
+            SecApplicationProtocolNegotiationExt_ALPN = 2,
+        }
+        #[repr(i32)]
+        enum SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
+            SecApplicationProtocolNegotiationStatus_None = 0,
+            SecApplicationProtocolNegotiationStatus_Success = 1,
+            SecApplicationProtocolNegotiationStatus_SelectedClientOnly = 2,
+        }
+        struct SEC_APP_SESSION_STATE {
+            AppSessionStateSize: u16,
+            AppSessionState: [u8; 1],
+        }
+        struct SEC_CERTIFICATE_REQUEST_CONTEXT {
+            cbCertificateRequestContext: u8,
+            rgCertificateRequestContext: [u8; 1],
+        }
+        struct SEC_CHANNEL_BINDINGS {
+            dwInitiatorAddrType: u32,
+            cbInitiatorLength: u32,
+            dwInitiatorOffset: u32,
+            dwAcceptorAddrType: u32,
+            cbAcceptorLength: u32,
+            dwAcceptorOffset: u32,
+            cbApplicationDataLength: u32,
+            dwApplicationDataOffset: u32,
+        }
+        const SEC_CHANNEL_BINDINGS_AUDIT_BINDINGS: u32 = 1;
+        struct SEC_CHANNEL_BINDINGS_EX {
+            magicNumber: u32,
+            flags: u32,
+            cbHeaderLength: u32,
+            cbStructureLength: u32,
+            dwInitiatorAddrType: u32,
+            cbInitiatorLength: u32,
+            dwInitiatorOffset: u32,
+            dwAcceptorAddrType: u32,
+            cbAcceptorLength: u32,
+            dwAcceptorOffset: u32,
+            cbApplicationDataLength: u32,
+            dwApplicationDataOffset: u32,
+        }
+        const SEC_CHANNEL_BINDINGS_EX_MAGIC: u32 = 1480933955;
+        struct SEC_CHANNEL_BINDINGS_RESULT {
+            flags: u32,
+        }
+        const SEC_CHANNEL_BINDINGS_RESULT_ABSENT: u32 = 2;
+        const SEC_CHANNEL_BINDINGS_RESULT_CLIENT_SUPPORT: u32 = 1;
+        const SEC_CHANNEL_BINDINGS_RESULT_NOTVALID: u32 = 12;
+        const SEC_CHANNEL_BINDINGS_RESULT_NOTVALID_MISMATCH: u32 = 4;
+        const SEC_CHANNEL_BINDINGS_RESULT_NOTVALID_MISSING: u32 = 8;
+        const SEC_CHANNEL_BINDINGS_RESULT_VALID: u32 = 112;
+        const SEC_CHANNEL_BINDINGS_RESULT_VALID_MATCHED: u32 = 16;
+        const SEC_CHANNEL_BINDINGS_RESULT_VALID_MISSING: u32 = 64;
+        const SEC_CHANNEL_BINDINGS_RESULT_VALID_PROXY: u32 = 32;
+        const SEC_CHANNEL_BINDINGS_VALID_FLAGS: u32 = 1;
+        type SEC_CHAR = i8;
+        const SEC_DELETED_HANDLE: i32 = -2;
+        struct SEC_DTLS_MTU {
+            PathMTU: u16,
+        }
+        struct SEC_FLAGS {
+            Flags: u64,
+        }
+        extern fn SEC_GET_KEY_FN(Arg: *mut void, Principal: *mut void, KeyVer: u32, Key: *mut *mut void, Status: *mut SECURITY_STATUS);
+        struct SEC_NEGOTIATION_INFO {
+            Size: u32,
+            NameLength: u32,
+            Name: *mut SEC_WCHAR,
+            Reserved: *mut void,
+        }
+        struct SEC_PRESHAREDKEY {
+            KeySize: u16,
+            Key: [u8; 1],
+        }
+        struct SEC_PRESHAREDKEY_IDENTITY {
+            KeyIdentitySize: u16,
+            KeyIdentity: [u8; 1],
+        }
+        struct SEC_SESSION_TICKET {
+            SessionTicketSize: u16,
+            SessionTicket: [u8; 1],
+        }
+        struct SEC_SRTP_MASTER_KEY_IDENTIFIER {
+            MasterKeyIdentifierSize: u8,
+            MasterKeyIdentifier: [u8; 1],
+        }
+        struct SEC_SRTP_PROTECTION_PROFILES {
+            ProfilesSize: u16,
+            ProfilesList: [u16; 1],
+        }
+        struct SEC_TOKEN_BINDING {
+            MajorVersion: u8,
+            MinorVersion: u8,
+            KeyParametersSize: u16,
+            KeyParameters: [u8; 1],
+        }
+        struct SEC_TRAFFIC_SECRETS {
+            SymmetricAlgId: [u16; 64],
+            ChainingMode: [u16; 64],
+            HashAlgId: [u16; 64],
+            KeySize: u16,
+            IvSize: u16,
+            MsgSequenceStart: u16,
+            MsgSequenceEnd: u16,
+            TrafficSecretType: SEC_TRAFFIC_SECRET_TYPE,
+            TrafficSecretSize: u16,
+            TrafficSecret: [u8; 1],
+        }
+        #[repr(i32)]
+        enum SEC_TRAFFIC_SECRET_TYPE {
+            SecTrafficSecret_None = 0,
+            SecTrafficSecret_Client = 1,
+            SecTrafficSecret_Server = 2,
+        }
+        type SEC_WCHAR = u16;
+        const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_FOR_SYSTEM: u32 = 4;
+        const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_LOGON: u32 = 1;
+        const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_PROCESS: u32 = 2;
+        struct SEC_WINNT_AUTH_IDENTITY_EX2 {
+            Version: u32,
+            cbHeaderLength: u16,
+            cbStructureLength: u32,
+            UserOffset: u32,
+            UserLength: u16,
+            DomainOffset: u32,
+            DomainLength: u16,
+            PackedCredentialsOffset: u32,
+            PackedCredentialsLength: u16,
+            Flags: u32,
+            PackageListOffset: u32,
+            PackageListLength: u16,
+        }
+        struct SEC_WINNT_AUTH_IDENTITY_EXA {
+            Version: u32,
+            Length: u32,
+            User: *mut u8,
+            UserLength: u32,
+            Domain: *mut u8,
+            DomainLength: u32,
+            Password: *mut u8,
+            PasswordLength: u32,
+            Flags: u32,
+            PackageList: *mut u8,
+            PackageListLength: u32,
+        }
+        struct SEC_WINNT_AUTH_IDENTITY_EXW {
+            Version: u32,
+            Length: u32,
+            User: *mut u16,
+            UserLength: u32,
+            Domain: *mut u16,
+            DomainLength: u32,
+            Password: *mut u16,
+            PasswordLength: u32,
+            Flags: u32,
+            PackageList: *mut u16,
+            PackageListLength: u32,
+        }
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_ID_PROVIDER: u32 = 524288;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_NULL_DOMAIN: u32 = 262144;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_NULL_USER: u32 = 131072;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_PROCESS_ENCRYPTED: u32 = 16;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_RESERVED: u32 = 65536;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_CREDPROV_DO_NOT_LOAD: u32 = 268435456;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_CREDPROV_DO_NOT_SAVE: u32 = 2147483648;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_NO_CHECKBOX: u32 = 536870912;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_SAVE_CRED_BY_CALLER: i32 = -2147483648;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_SAVE_CRED_CHECKED: u32 = 1073741824;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_USE_MASK: u32 = 4278190080;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_SYSTEM_ENCRYPTED: u32 = 128;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_SYSTEM_PROTECTED: u32 = 32;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_USER_PROTECTED: u32 = 64;
+        const SEC_WINNT_AUTH_IDENTITY_FLAGS_VALID_SSPIPFC_FLAGS: i32 = -268435456;
+        union SEC_WINNT_AUTH_IDENTITY_INFO {
+            AuthIdExw: SEC_WINNT_AUTH_IDENTITY_EXW,
+            AuthIdExa: SEC_WINNT_AUTH_IDENTITY_EXA,
+            AuthId_a: SEC_WINNT_AUTH_IDENTITY_A,
+            AuthId_w: SEC_WINNT_AUTH_IDENTITY_W,
+            AuthIdEx2: SEC_WINNT_AUTH_IDENTITY_EX2,
+        }
+        const SEC_WINNT_AUTH_IDENTITY_MARSHALLED: u32 = 4;
+        const SEC_WINNT_AUTH_IDENTITY_ONLY: u32 = 8;
+        const SEC_WINNT_AUTH_IDENTITY_VERSION: u32 = 512;
+        const SEC_WINNT_AUTH_IDENTITY_VERSION_2: u32 = 513;
+        extern fn SET_CONTEXT_ATTRIBUTES_FN_A(param0: PCtxtHandle, param1: u32, param2: *mut void, param3: u32) -> SECURITY_STATUS;
+        extern fn SET_CONTEXT_ATTRIBUTES_FN_W(param0: PCtxtHandle, param1: u32, param2: *mut void, param3: u32) -> SECURITY_STATUS;
+        extern fn SET_CREDENTIALS_ATTRIBUTES_FN_A(param0: PCredHandle, param1: u32, param2: *mut void, param3: u32) -> SECURITY_STATUS;
+        extern fn SET_CREDENTIALS_ATTRIBUTES_FN_W(param0: PCredHandle, param1: u32, param2: *mut void, param3: u32) -> SECURITY_STATUS;
+        const SSPIPFC_CREDPROV_DO_NOT_LOAD: u32 = 4;
+        const SSPIPFC_CREDPROV_DO_NOT_SAVE: u32 = 1;
+        const SSPIPFC_NO_CHECKBOX: u32 = 2;
+        const SSPIPFC_SAVE_CRED_BY_CALLER: u32 = 1;
+        const SSPIPFC_USE_CREDUIBROKER: u32 = 8;
+        const SSPIPFC_VALID_FLAGS: u32 = 15;
+        const SZ_ALG_MAX_SIZE: u32 = 64;
+        #[library("Secur32.dll")]
+        extern fn SaslAcceptSecurityContext(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[opt] pInput: *const SecBufferDesc, fContextReq: u32, TargetDataRep: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: *mut SecBufferDesc, pfContextAttr: *mut u32, #[opt] ptsExpiry: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SaslEnumerateProfilesA(ProfileList: *mut PSTR, ProfileCount: *mut u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SaslEnumerateProfilesW(ProfileList: *mut PWSTR, ProfileCount: *mut u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SaslGetContextOption(ContextHandle: PCtxtHandle, Option: u32, Value: *mut void, Size: u32, #[opt] Needed: *mut u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SaslGetProfilePackageA(ProfileName: PCSTR, PackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SaslGetProfilePackageW(ProfileName: PCWSTR, PackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SaslIdentifyPackageA(pInput: *const SecBufferDesc, PackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SaslIdentifyPackageW(pInput: *const SecBufferDesc, PackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SaslInitializeSecurityContextA(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[opt] pszTargetName: PCSTR, fContextReq: u32, Reserved1: u32, TargetDataRep: u32, #[opt] pInput: *const SecBufferDesc, Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: *mut SecBufferDesc, pfContextAttr: *mut u32, #[opt] ptsExpiry: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SaslInitializeSecurityContextW(#[opt] phCredential: PCredHandle, #[opt] phContext: PCtxtHandle, #[opt] pszTargetName: PCWSTR, fContextReq: u32, Reserved1: u32, TargetDataRep: u32, #[opt] pInput: *const SecBufferDesc, Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: *mut SecBufferDesc, pfContextAttr: *mut u32, #[opt] ptsExpiry: *mut SECURITY_INTEGER) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SaslSetContextOption(ContextHandle: PCtxtHandle, Option: u32, Value: *const void, Size: u32) -> SECURITY_STATUS;
+        #[library("SspiCli.dll")]
+        extern fn SecAllocateAndSetCallTarget(#[size_param(1)] #[opt] lpIpAddress: *const u8, cchIpAddress: u32, #[opt] TargetName: PCWSTR, FreeCallContext: *mut i32) -> SECURITY_STATUS;
+        #[library("SspiCli.dll")]
+        extern fn SecAllocateAndSetIPAddress(#[size_param(1)] lpIpAddress: *const u8, cchIpAddress: u32, FreeCallContext: *mut i32) -> SECURITY_STATUS;
+        struct SecBuffer {
+            cbBuffer: u32,
+            BufferType: u32,
+            pvBuffer: *mut void,
+        }
+        struct SecBufferDesc {
+            ulVersion: u32,
+            cBuffers: u32,
+            pBuffers: PSecBuffer,
+        }
+        #[repr(i32)]
+        enum SecDelegationType {
+            SecFull = 0,
+            SecService = 1,
+            SecTree = 2,
+            SecDirectory = 3,
+            SecObject = 4,
+        }
+        #[library("SspiCli.dll")]
+        extern fn SecFreeCallContext();
+        struct SecHandle {
+            dwLower: usize,
+            dwUpper: usize,
+        }
+        struct SecPkgContext_AccessToken {
+            AccessToken: *mut void,
+        }
+        struct SecPkgContext_ApplicationProtocol {
+            ProtoNegoStatus: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS,
+            ProtoNegoExt: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT,
+            ProtocolIdSize: u8,
+            ProtocolId: [u8; 255],
+        }
+        struct SecPkgContext_AuthorityA {
+            sAuthorityName: *mut SEC_CHAR,
+        }
+        struct SecPkgContext_AuthorityW {
+            sAuthorityName: *mut SEC_WCHAR,
+        }
+        struct SecPkgContext_AuthzID {
+            AuthzIDLength: u32,
+            AuthzID: *mut i8,
+        }
+        struct SecPkgContext_Bindings {
+            BindingsLength: u32,
+            Bindings: *mut SEC_CHANNEL_BINDINGS,
+        }
+        struct SecPkgContext_ClientSpecifiedTarget {
+            sTargetName: *mut SEC_WCHAR,
+        }
+        struct SecPkgContext_CredInfo {
+            CredClass: SECPKG_CRED_CLASS,
+            IsPromptingNeeded: u32,
+        }
+        struct SecPkgContext_CredentialNameA {
+            CredentialType: u32,
+            sCredentialName: *mut SEC_CHAR,
+        }
+        struct SecPkgContext_CredentialNameW {
+            CredentialType: u32,
+            sCredentialName: *mut SEC_WCHAR,
+        }
+        type SecPkgContext_DatagramSizes = SecPkgContext_StreamSizes;
+        struct SecPkgContext_DceInfo {
+            AuthzSvc: u32,
+            pPac: *mut void,
+        }
+        struct SecPkgContext_Flags {
+            Flags: u32,
+        }
+        struct SecPkgContext_KeyInfoA {
+            sSignatureAlgorithmName: *mut SEC_CHAR,
+            sEncryptAlgorithmName: *mut SEC_CHAR,
+            KeySize: u32,
+            SignatureAlgorithm: u32,
+            EncryptAlgorithm: u32,
+        }
+        struct SecPkgContext_KeyInfoW {
+            sSignatureAlgorithmName: *mut SEC_WCHAR,
+            sEncryptAlgorithmName: *mut SEC_WCHAR,
+            KeySize: u32,
+            SignatureAlgorithm: u32,
+            EncryptAlgorithm: u32,
+        }
+        struct SecPkgContext_LastClientTokenStatus {
+            LastClientTokenStatus: SECPKG_ATTR_LCT_STATUS,
+        }
+        struct SecPkgContext_Lifespan {
+            tsStart: TimeStamp,
+            tsExpiry: TimeStamp,
+        }
+        struct SecPkgContext_LogoffTime {
+            tsLogoffTime: TimeStamp,
+        }
+        struct SecPkgContext_NamesA {
+            sUserName: *mut SEC_CHAR,
+        }
+        struct SecPkgContext_NamesW {
+            sUserName: *mut SEC_WCHAR,
+        }
+        struct SecPkgContext_NativeNamesA {
+            sClientName: *mut SEC_CHAR,
+            sServerName: *mut SEC_CHAR,
+        }
+        struct SecPkgContext_NativeNamesW {
+            sClientName: *mut SEC_WCHAR,
+            sServerName: *mut SEC_WCHAR,
+        }
+        struct SecPkgContext_NegoKeys {
+            KeyType: u32,
+            KeyLength: u16,
+            KeyValue: *mut u8,
+            VerifyKeyType: u32,
+            VerifyKeyLength: u16,
+            VerifyKeyValue: *mut u8,
+        }
+        struct SecPkgContext_NegoPackageInfo {
+            PackageMask: u32,
+        }
+        struct SecPkgContext_NegoStatus {
+            LastStatus: u32,
+        }
+        struct SecPkgContext_NegotiatedTlsExtensions {
+            ExtensionsCount: u32,
+            Extensions: *mut u16,
+        }
+        struct SecPkgContext_NegotiationInfoA {
+            PackageInfo: PSecPkgInfoA,
+            NegotiationState: u32,
+        }
+        struct SecPkgContext_NegotiationInfoW {
+            PackageInfo: PSecPkgInfoW,
+            NegotiationState: u32,
+        }
+        struct SecPkgContext_PackageInfoA {
+            PackageInfo: PSecPkgInfoA,
+        }
+        struct SecPkgContext_PackageInfoW {
+            PackageInfo: PSecPkgInfoW,
+        }
+        struct SecPkgContext_PasswordExpiry {
+            tsPasswordExpires: TimeStamp,
+        }
+        struct SecPkgContext_ProtoInfoA {
+            sProtocolName: *mut SEC_CHAR,
+            majorVersion: u32,
+            minorVersion: u32,
+        }
+        struct SecPkgContext_ProtoInfoW {
+            sProtocolName: *mut SEC_WCHAR,
+            majorVersion: u32,
+            minorVersion: u32,
+        }
+        struct SecPkgContext_SessionKey {
+            SessionKeyLength: u32,
+            SessionKey: *mut u8,
+        }
+        struct SecPkgContext_Sizes {
+            cbMaxToken: u32,
+            cbMaxSignature: u32,
+            cbBlockSize: u32,
+            cbSecurityTrailer: u32,
+        }
+        struct SecPkgContext_StreamSizes {
+            cbHeader: u32,
+            cbTrailer: u32,
+            cbMaximumMessage: u32,
+            cBuffers: u32,
+            cbBlockSize: u32,
+        }
+        struct SecPkgContext_SubjectAttributes {
+            AttributeInfo: *mut void,
+        }
+        struct SecPkgContext_Target {
+            TargetLength: u32,
+            Target: *mut i8,
+        }
+        struct SecPkgContext_TargetInformation {
+            MarshalledTargetInfoLength: u32,
+            MarshalledTargetInfo: *mut u8,
+        }
+        struct SecPkgContext_UserFlags {
+            UserFlags: u32,
+        }
+        struct SecPkgCredentials_Cert {
+            EncodedCertSize: u32,
+            EncodedCert: *mut u8,
+        }
+        struct SecPkgCredentials_KdcNetworkSettingsW {
+            Version: u32,
+            Flags: u32,
+            ProxyServerOffset: u16,
+            ProxyServerLength: u16,
+            ClientTlsCredOffset: u16,
+            ClientTlsCredLength: u16,
+            DcDiscoveryFlags: u32,
+        }
+        struct SecPkgCredentials_KdcProxySettingsW {
+            Version: u32,
+            Flags: u32,
+            ProxyServerOffset: u16,
+            ProxyServerLength: u16,
+            ClientTlsCredOffset: u16,
+            ClientTlsCredLength: u16,
+        }
+        struct SecPkgCredentials_NamesA {
+            sUserName: *mut SEC_CHAR,
+        }
+        struct SecPkgCredentials_NamesW {
+            sUserName: *mut SEC_WCHAR,
+        }
+        struct SecPkgCredentials_SSIProviderA {
+            sProviderName: *mut SEC_CHAR,
+            ProviderInfoLength: u32,
+            ProviderInfo: *mut i8,
+        }
+        struct SecPkgCredentials_SSIProviderW {
+            sProviderName: *mut SEC_WCHAR,
+            ProviderInfoLength: u32,
+            ProviderInfo: *mut i8,
+        }
+        struct SecPkgInfoA {
+            fCapabilities: u32,
+            wVersion: u16,
+            wRPCID: u16,
+            cbMaxToken: u32,
+            Name: *mut SEC_CHAR,
+            Comment: *mut SEC_CHAR,
+        }
+        struct SecPkgInfoW {
+            fCapabilities: u32,
+            wVersion: u16,
+            wRPCID: u16,
+            cbMaxToken: u32,
+            Name: *mut SEC_WCHAR,
+            Comment: *mut SEC_WCHAR,
+        }
+        struct SecurityFunctionTableA {
+            dwVersion: u32,
+            EnumerateSecurityPackagesA: ENUMERATE_SECURITY_PACKAGES_FN_A,
+            QueryCredentialsAttributesA: QUERY_CREDENTIALS_ATTRIBUTES_FN_A,
+            AcquireCredentialsHandleA: ACQUIRE_CREDENTIALS_HANDLE_FN_A,
+            FreeCredentialsHandle: FREE_CREDENTIALS_HANDLE_FN,
+            Reserved2: *mut void,
+            InitializeSecurityContextA: INITIALIZE_SECURITY_CONTEXT_FN_A,
+            AcceptSecurityContext: ACCEPT_SECURITY_CONTEXT_FN,
+            CompleteAuthToken: COMPLETE_AUTH_TOKEN_FN,
+            DeleteSecurityContext: DELETE_SECURITY_CONTEXT_FN,
+            ApplyControlToken: APPLY_CONTROL_TOKEN_FN,
+            QueryContextAttributesA: QUERY_CONTEXT_ATTRIBUTES_FN_A,
+            ImpersonateSecurityContext: IMPERSONATE_SECURITY_CONTEXT_FN,
+            RevertSecurityContext: REVERT_SECURITY_CONTEXT_FN,
+            MakeSignature: MAKE_SIGNATURE_FN,
+            VerifySignature: VERIFY_SIGNATURE_FN,
+            FreeContextBuffer: FREE_CONTEXT_BUFFER_FN,
+            QuerySecurityPackageInfoA: QUERY_SECURITY_PACKAGE_INFO_FN_A,
+            Reserved3: *mut void,
+            Reserved4: *mut void,
+            ExportSecurityContext: EXPORT_SECURITY_CONTEXT_FN,
+            ImportSecurityContextA: IMPORT_SECURITY_CONTEXT_FN_A,
+            AddCredentialsA: ADD_CREDENTIALS_FN_A,
+            Reserved8: *mut void,
+            QuerySecurityContextToken: QUERY_SECURITY_CONTEXT_TOKEN_FN,
+            EncryptMessage: ENCRYPT_MESSAGE_FN,
+            DecryptMessage: DECRYPT_MESSAGE_FN,
+            SetContextAttributesA: SET_CONTEXT_ATTRIBUTES_FN_A,
+            SetCredentialsAttributesA: SET_CREDENTIALS_ATTRIBUTES_FN_A,
+            ChangeAccountPasswordA: CHANGE_PASSWORD_FN_A,
+            QueryContextAttributesExA: QUERY_CONTEXT_ATTRIBUTES_EX_FN_A,
+            QueryCredentialsAttributesExA: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A,
+        }
+        struct SecurityFunctionTableW {
+            dwVersion: u32,
+            EnumerateSecurityPackagesW: ENUMERATE_SECURITY_PACKAGES_FN_W,
+            QueryCredentialsAttributesW: QUERY_CREDENTIALS_ATTRIBUTES_FN_W,
+            AcquireCredentialsHandleW: ACQUIRE_CREDENTIALS_HANDLE_FN_W,
+            FreeCredentialsHandle: FREE_CREDENTIALS_HANDLE_FN,
+            Reserved2: *mut void,
+            InitializeSecurityContextW: INITIALIZE_SECURITY_CONTEXT_FN_W,
+            AcceptSecurityContext: ACCEPT_SECURITY_CONTEXT_FN,
+            CompleteAuthToken: COMPLETE_AUTH_TOKEN_FN,
+            DeleteSecurityContext: DELETE_SECURITY_CONTEXT_FN,
+            ApplyControlToken: APPLY_CONTROL_TOKEN_FN,
+            QueryContextAttributesW: QUERY_CONTEXT_ATTRIBUTES_FN_W,
+            ImpersonateSecurityContext: IMPERSONATE_SECURITY_CONTEXT_FN,
+            RevertSecurityContext: REVERT_SECURITY_CONTEXT_FN,
+            MakeSignature: MAKE_SIGNATURE_FN,
+            VerifySignature: VERIFY_SIGNATURE_FN,
+            FreeContextBuffer: FREE_CONTEXT_BUFFER_FN,
+            QuerySecurityPackageInfoW: QUERY_SECURITY_PACKAGE_INFO_FN_W,
+            Reserved3: *mut void,
+            Reserved4: *mut void,
+            ExportSecurityContext: EXPORT_SECURITY_CONTEXT_FN,
+            ImportSecurityContextW: IMPORT_SECURITY_CONTEXT_FN_W,
+            AddCredentialsW: ADD_CREDENTIALS_FN_W,
+            Reserved8: *mut void,
+            QuerySecurityContextToken: QUERY_SECURITY_CONTEXT_TOKEN_FN,
+            EncryptMessage: ENCRYPT_MESSAGE_FN,
+            DecryptMessage: DECRYPT_MESSAGE_FN,
+            SetContextAttributesW: SET_CONTEXT_ATTRIBUTES_FN_W,
+            SetCredentialsAttributesW: SET_CREDENTIALS_ATTRIBUTES_FN_W,
+            ChangeAccountPasswordW: CHANGE_PASSWORD_FN_W,
+            QueryContextAttributesExW: QUERY_CONTEXT_ATTRIBUTES_EX_FN_W,
+            QueryCredentialsAttributesExW: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W,
+        }
+        #[library("Secur32.dll")]
+        extern fn SetContextAttributesA(phContext: PCtxtHandle, ulAttribute: u32, #[size_param(3)] pBuffer: *const void, cbBuffer: u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SetContextAttributesW(phContext: PCtxtHandle, ulAttribute: u32, #[size_param(3)] pBuffer: *const void, cbBuffer: u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SetCredentialsAttributesA(phCredential: PCredHandle, ulAttribute: u32, #[size_param(3)] pBuffer: *const void, cbBuffer: u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SetCredentialsAttributesW(phCredential: PCredHandle, ulAttribute: u32, #[size_param(3)] pBuffer: *const void, cbBuffer: u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiCompareAuthIdentities(#[opt] AuthIdentity1: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] AuthIdentity2: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] SameSuppliedUser: *mut BOOLEAN, #[opt] SameSuppliedIdentity: *mut BOOLEAN) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiCopyAuthIdentity(AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, AuthDataCopy: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiDecryptAuthIdentity(#[in] #[out] EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        #[library("SspiCli.dll")]
+        extern fn SspiDecryptAuthIdentityEx(Options: u32, #[in] #[out] EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiEncodeAuthIdentityAsStrings(pAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppszUserName: *mut PCWSTR, ppszDomainName: *mut PCWSTR, ppszPackedCredentialsString: *mut PCWSTR) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiEncodeStringsAsAuthIdentity(#[opt] pszUserName: PCWSTR, #[opt] pszDomainName: PCWSTR, #[opt] pszPackedCredentialsString: PCWSTR, ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiEncryptAuthIdentity(#[in] #[out] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        #[library("SspiCli.dll")]
+        extern fn SspiEncryptAuthIdentityEx(Options: u32, #[in] #[out] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiExcludePackage(#[opt] AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pszPackageName: PCWSTR, ppNewAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiFreeAuthIdentity(#[opt] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE);
+        #[library("Secur32.dll")]
+        extern fn SspiGetTargetHostName(pszTargetName: PCWSTR, pszHostName: *mut PWSTR) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiIsAuthIdentityEncrypted(EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> BOOLEAN;
+        #[library("credui.dll")]
+        extern fn SspiIsPromptingNeeded(ErrorOrNtStatus: u32) -> BOOLEAN;
+        #[library("Secur32.dll")]
+        extern fn SspiLocalFree(#[opt] DataBuffer: *const void);
+        #[library("Secur32.dll")]
+        extern fn SspiMarshalAuthIdentity(AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, AuthIdentityLength: *mut u32, AuthIdentityByteArray: *mut *mut i8) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiPrepareForCredRead(AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pszTargetName: PCWSTR, pCredmanCredentialType: *mut u32, ppszCredmanTargetName: *mut PCWSTR) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiPrepareForCredWrite(AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] pszTargetName: PCWSTR, pCredmanCredentialType: *mut u32, ppszCredmanTargetName: *mut PCWSTR, ppszCredmanUserName: *mut PCWSTR, ppCredentialBlob: *mut PUCHAR, pCredentialBlobSize: *mut u32) -> SECURITY_STATUS;
+        #[library("credui.dll")]
+        extern fn SspiPromptForCredentialsA(pszTargetName: PCSTR, #[opt] pUiInfo: *const void, dwAuthError: u32, pszPackage: PCSTR, #[opt] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[out] #[opt] pfSave: *mut i32, dwFlags: u32) -> u32;
+        #[library("credui.dll")]
+        extern fn SspiPromptForCredentialsW(pszTargetName: PCWSTR, #[opt] pUiInfo: *const void, dwAuthError: u32, pszPackage: PCWSTR, #[opt] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[out] #[opt] pfSave: *mut i32, dwFlags: u32) -> u32;
+        #[library("SspiCli.dll")]
+        extern fn SspiSetChannelBindingFlags(#[in] #[out] pBindings: *mut SecPkgContext_Bindings, flags: u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiUnmarshalAuthIdentity(AuthIdentityLength: u32, #[size_param(0)] AuthIdentityByteArray: *const i8, ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiValidateAuthIdentity(AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn SspiZeroAuthIdentity(#[opt] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE);
+        type TimeStamp = SECURITY_INTEGER;
+        extern fn VERIFY_SIGNATURE_FN(param0: PCtxtHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> SECURITY_STATUS;
+        #[library("Secur32.dll")]
+        extern fn VerifySignature(phContext: PCtxtHandle, pMessage: *const SecBufferDesc, MessageSeqNo: u32, pfQOP: *mut u32) -> SECURITY_STATUS;
+        type _SECURITY_INTEGER = LARGE_INTEGER;
+    }
+}

@@ -1,0 +1,817 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type LPMCI_ANIM_OPEN_PARMS = LPMCI_ANIM_OPEN_PARMSA;
+        type LPMCI_ANIM_OPEN_PARMSA = *mut MCI_ANIM_OPEN_PARMSA;
+        type LPMCI_ANIM_OPEN_PARMSW = *mut MCI_ANIM_OPEN_PARMSW;
+        type LPMCI_ANIM_PLAY_PARMS = *mut MCI_ANIM_PLAY_PARMS;
+        type LPMCI_ANIM_RECT_PARMS = *mut MCI_ANIM_RECT_PARMS;
+        type LPMCI_ANIM_STEP_PARMS = *mut MCI_ANIM_STEP_PARMS;
+        type LPMCI_ANIM_UPDATE_PARMS = *mut MCI_ANIM_UPDATE_PARMS;
+        type LPMCI_ANIM_WINDOW_PARMS = LPMCI_ANIM_WINDOW_PARMSA;
+        type LPMCI_ANIM_WINDOW_PARMSA = *mut MCI_ANIM_WINDOW_PARMSA;
+        type LPMCI_ANIM_WINDOW_PARMSW = *mut MCI_ANIM_WINDOW_PARMSW;
+        type LPMCI_BREAK_PARMS = *mut MCI_BREAK_PARMS;
+        type LPMCI_GENERIC_PARMS = *mut MCI_GENERIC_PARMS;
+        type LPMCI_GETDEVCAPS_PARMS = *mut MCI_GETDEVCAPS_PARMS;
+        type LPMCI_INFO_PARMS = LPMCI_INFO_PARMSA;
+        type LPMCI_INFO_PARMSA = *mut MCI_INFO_PARMSA;
+        type LPMCI_INFO_PARMSW = *mut MCI_INFO_PARMSW;
+        type LPMCI_LOAD_PARMS = LPMCI_LOAD_PARMSA;
+        type LPMCI_LOAD_PARMSA = *mut MCI_LOAD_PARMSA;
+        type LPMCI_LOAD_PARMSW = *mut MCI_LOAD_PARMSW;
+        type LPMCI_OPEN_PARMS = LPMCI_OPEN_PARMSA;
+        type LPMCI_OPEN_PARMSA = *mut MCI_OPEN_PARMSA;
+        type LPMCI_OPEN_PARMSW = *mut MCI_OPEN_PARMSW;
+        type LPMCI_OVLY_LOAD_PARMS = LPMCI_OVLY_LOAD_PARMSA;
+        type LPMCI_OVLY_LOAD_PARMSA = *mut MCI_OVLY_LOAD_PARMSA;
+        type LPMCI_OVLY_LOAD_PARMSW = *mut MCI_OVLY_LOAD_PARMSW;
+        type LPMCI_OVLY_OPEN_PARMS = LPMCI_OVLY_OPEN_PARMSA;
+        type LPMCI_OVLY_OPEN_PARMSA = *mut MCI_OVLY_OPEN_PARMSA;
+        type LPMCI_OVLY_OPEN_PARMSW = *mut MCI_OVLY_OPEN_PARMSW;
+        type LPMCI_OVLY_RECT_PARMS = *mut MCI_OVLY_RECT_PARMS;
+        type LPMCI_OVLY_SAVE_PARMS = LPMCI_OVLY_SAVE_PARMSA;
+        type LPMCI_OVLY_SAVE_PARMSA = *mut MCI_OVLY_SAVE_PARMSA;
+        type LPMCI_OVLY_SAVE_PARMSW = *mut MCI_OVLY_SAVE_PARMSW;
+        type LPMCI_OVLY_WINDOW_PARMS = LPMCI_OVLY_WINDOW_PARMSA;
+        type LPMCI_OVLY_WINDOW_PARMSA = *mut MCI_OVLY_WINDOW_PARMSA;
+        type LPMCI_OVLY_WINDOW_PARMSW = *mut MCI_OVLY_WINDOW_PARMSW;
+        type LPMCI_PLAY_PARMS = *mut MCI_PLAY_PARMS;
+        type LPMCI_RECORD_PARMS = *mut MCI_RECORD_PARMS;
+        type LPMCI_SAVE_PARMS = LPMCI_SAVE_PARMSA;
+        type LPMCI_SAVE_PARMSA = *mut MCI_SAVE_PARMSA;
+        type LPMCI_SAVE_PARMSW = *mut MCI_SAVE_PARMSW;
+        type LPMCI_SEEK_PARMS = *mut MCI_SEEK_PARMS;
+        type LPMCI_SEQ_SET_PARMS = *mut MCI_SEQ_SET_PARMS;
+        type LPMCI_SET_PARMS = *mut MCI_SET_PARMS;
+        type LPMCI_STATUS_PARMS = *mut MCI_STATUS_PARMS;
+        type LPMCI_SYSINFO_PARMS = LPMCI_SYSINFO_PARMSA;
+        type LPMCI_SYSINFO_PARMSA = *mut MCI_SYSINFO_PARMSA;
+        type LPMCI_SYSINFO_PARMSW = *mut MCI_SYSINFO_PARMSW;
+        type LPMCI_VD_ESCAPE_PARMS = LPMCI_VD_ESCAPE_PARMSA;
+        type LPMCI_VD_ESCAPE_PARMSA = *mut MCI_VD_ESCAPE_PARMSA;
+        type LPMCI_VD_ESCAPE_PARMSW = *mut MCI_VD_ESCAPE_PARMSW;
+        type LPMCI_VD_PLAY_PARMS = *mut MCI_VD_PLAY_PARMS;
+        type LPMCI_VD_STEP_PARMS = *mut MCI_VD_STEP_PARMS;
+        type LPMCI_WAVE_DELETE_PARMS = *mut MCI_WAVE_DELETE_PARMS;
+        type LPMCI_WAVE_OPEN_PARMS = LPMCI_WAVE_OPEN_PARMSA;
+        type LPMCI_WAVE_OPEN_PARMSA = *mut MCI_WAVE_OPEN_PARMSA;
+        type LPMCI_WAVE_OPEN_PARMSW = *mut MCI_WAVE_OPEN_PARMSW;
+        type LPMCI_WAVE_SET_PARMS = *mut MCI_WAVE_SET_PARMS;
+        type MCIDEVICEID = u32;
+        type MCIERROR = u32;
+        const MCIERR_BAD_CONSTANT: u32 = 290;
+        const MCIERR_BAD_INTEGER: u32 = 270;
+        const MCIERR_BAD_TIME_FORMAT: u32 = 293;
+        const MCIERR_CANNOT_LOAD_DRIVER: u32 = 266;
+        const MCIERR_CANNOT_USE_ALL: u32 = 279;
+        const MCIERR_CREATEWINDOW: u32 = 347;
+        const MCIERR_CUSTOM_DRIVER_BASE: u32 = 512;
+        const MCIERR_DEVICE_LENGTH: u32 = 310;
+        const MCIERR_DEVICE_LOCKED: u32 = 288;
+        const MCIERR_DEVICE_NOT_INSTALLED: u32 = 306;
+        const MCIERR_DEVICE_NOT_READY: u32 = 276;
+        const MCIERR_DEVICE_OPEN: u32 = 265;
+        const MCIERR_DEVICE_ORD_LENGTH: u32 = 311;
+        const MCIERR_DEVICE_TYPE_REQUIRED: u32 = 287;
+        const MCIERR_DRIVER: u32 = 278;
+        const MCIERR_DRIVER_INTERNAL: u32 = 272;
+        const MCIERR_DUPLICATE_ALIAS: u32 = 289;
+        const MCIERR_DUPLICATE_FLAGS: u32 = 295;
+        const MCIERR_EXTENSION_NOT_FOUND: u32 = 281;
+        const MCIERR_EXTRA_CHARACTERS: u32 = 305;
+        const MCIERR_FILENAME_REQUIRED: u32 = 304;
+        const MCIERR_FILE_NOT_FOUND: u32 = 275;
+        const MCIERR_FILE_NOT_SAVED: u32 = 286;
+        const MCIERR_FILE_READ: u32 = 348;
+        const MCIERR_FILE_WRITE: u32 = 349;
+        const MCIERR_FLAGS_NOT_COMPATIBLE: u32 = 284;
+        const MCIERR_GET_CD: u32 = 307;
+        const MCIERR_HARDWARE: u32 = 262;
+        const MCIERR_ILLEGAL_FOR_AUTO_OPEN: u32 = 303;
+        const MCIERR_INTERNAL: u32 = 277;
+        const MCIERR_INVALID_DEVICE_ID: u32 = 257;
+        const MCIERR_INVALID_DEVICE_NAME: u32 = 263;
+        const MCIERR_INVALID_FILE: u32 = 296;
+        const MCIERR_MISSING_COMMAND_STRING: u32 = 267;
+        const MCIERR_MISSING_DEVICE_NAME: u32 = 292;
+        const MCIERR_MISSING_PARAMETER: u32 = 273;
+        const MCIERR_MISSING_STRING_ARGUMENT: u32 = 269;
+        const MCIERR_MULTIPLE: u32 = 280;
+        const MCIERR_MUST_USE_SHAREABLE: u32 = 291;
+        const MCIERR_NEW_REQUIRES_ALIAS: u32 = 299;
+        const MCIERR_NONAPPLICABLE_FUNCTION: u32 = 302;
+        const MCIERR_NOTIFY_ON_AUTO_OPEN: u32 = 300;
+        const MCIERR_NO_CLOSING_QUOTE: u32 = 294;
+        const MCIERR_NO_ELEMENT_ALLOWED: u32 = 301;
+        const MCIERR_NO_IDENTITY: u32 = 350;
+        const MCIERR_NO_INTEGER: u32 = 312;
+        const MCIERR_NO_WINDOW: u32 = 346;
+        const MCIERR_NULL_PARAMETER_BLOCK: u32 = 297;
+        const MCIERR_OUTOFRANGE: u32 = 282;
+        const MCIERR_OUT_OF_MEMORY: u32 = 264;
+        const MCIERR_PARAM_OVERFLOW: u32 = 268;
+        const MCIERR_PARSER_INTERNAL: u32 = 271;
+        const MCIERR_SEQ_DIV_INCOMPATIBLE: u32 = 336;
+        const MCIERR_SEQ_NOMIDIPRESENT: u32 = 343;
+        const MCIERR_SEQ_PORTUNSPECIFIED: u32 = 342;
+        const MCIERR_SEQ_PORT_INUSE: u32 = 337;
+        const MCIERR_SEQ_PORT_MAPNODEVICE: u32 = 339;
+        const MCIERR_SEQ_PORT_MISCERROR: u32 = 340;
+        const MCIERR_SEQ_PORT_NONEXISTENT: u32 = 338;
+        const MCIERR_SEQ_TIMER: u32 = 341;
+        const MCIERR_SET_CD: u32 = 308;
+        const MCIERR_SET_DRIVE: u32 = 309;
+        const MCIERR_UNNAMED_RESOURCE: u32 = 298;
+        const MCIERR_UNRECOGNIZED_COMMAND: u32 = 261;
+        const MCIERR_UNRECOGNIZED_KEYWORD: u32 = 259;
+        const MCIERR_UNSUPPORTED_FUNCTION: u32 = 274;
+        const MCIERR_WAVE_INPUTSINUSE: u32 = 322;
+        const MCIERR_WAVE_INPUTSUNSUITABLE: u32 = 328;
+        const MCIERR_WAVE_INPUTUNSPECIFIED: u32 = 325;
+        const MCIERR_WAVE_OUTPUTSINUSE: u32 = 320;
+        const MCIERR_WAVE_OUTPUTSUNSUITABLE: u32 = 326;
+        const MCIERR_WAVE_OUTPUTUNSPECIFIED: u32 = 324;
+        const MCIERR_WAVE_SETINPUTINUSE: u32 = 323;
+        const MCIERR_WAVE_SETINPUTUNSUITABLE: u32 = 329;
+        const MCIERR_WAVE_SETOUTPUTINUSE: u32 = 321;
+        const MCIERR_WAVE_SETOUTPUTUNSUITABLE: u32 = 327;
+        const MCI_ALL_DEVICE_ID: MCIDEVICEID = 4294967295;
+        const MCI_ANIM_GETDEVCAPS_CAN_REVERSE: u32 = 16385;
+        const MCI_ANIM_GETDEVCAPS_CAN_STRETCH: u32 = 16391;
+        const MCI_ANIM_GETDEVCAPS_FAST_RATE: u32 = 16386;
+        const MCI_ANIM_GETDEVCAPS_MAX_WINDOWS: u32 = 16392;
+        const MCI_ANIM_GETDEVCAPS_NORMAL_RATE: u32 = 16388;
+        const MCI_ANIM_GETDEVCAPS_PALETTES: u32 = 16390;
+        const MCI_ANIM_GETDEVCAPS_SLOW_RATE: u32 = 16387;
+        const MCI_ANIM_INFO_TEXT: u32 = 65536;
+        const MCI_ANIM_OPEN_NOSTATIC: u32 = 262144;
+        const MCI_ANIM_OPEN_PARENT: u32 = 131072;
+        type MCI_ANIM_OPEN_PARMS = MCI_ANIM_OPEN_PARMSA;
+        #[packed(1)]
+        struct MCI_ANIM_OPEN_PARMSA {
+            dwCallback: usize,
+            wDeviceID: MCIDEVICEID,
+            lpstrDeviceType: PCSTR,
+            lpstrElementName: PCSTR,
+            lpstrAlias: PCSTR,
+            dwStyle: u32,
+            hWndParent: HWND,
+        }
+        #[packed(1)]
+        struct MCI_ANIM_OPEN_PARMSW {
+            dwCallback: usize,
+            wDeviceID: MCIDEVICEID,
+            lpstrDeviceType: PCWSTR,
+            lpstrElementName: PCWSTR,
+            lpstrAlias: PCWSTR,
+            dwStyle: u32,
+            hWndParent: HWND,
+        }
+        const MCI_ANIM_OPEN_WS: u32 = 65536;
+        const MCI_ANIM_PLAY_FAST: u32 = 262144;
+        #[packed(1)]
+        struct MCI_ANIM_PLAY_PARMS {
+            dwCallback: usize,
+            dwFrom: u32,
+            dwTo: u32,
+            dwSpeed: u32,
+        }
+        const MCI_ANIM_PLAY_REVERSE: u32 = 131072;
+        const MCI_ANIM_PLAY_SCAN: u32 = 1048576;
+        const MCI_ANIM_PLAY_SLOW: u32 = 524288;
+        const MCI_ANIM_PLAY_SPEED: u32 = 65536;
+        const MCI_ANIM_PUT_DESTINATION: u32 = 262144;
+        const MCI_ANIM_PUT_SOURCE: u32 = 131072;
+        const MCI_ANIM_REALIZE_BKGD: u32 = 131072;
+        const MCI_ANIM_REALIZE_NORM: u32 = 65536;
+        const MCI_ANIM_RECT: u32 = 65536;
+        #[packed(1)]
+        struct MCI_ANIM_RECT_PARMS {
+            dwCallback: usize,
+            rc: RECT,
+        }
+        const MCI_ANIM_STATUS_FORWARD: u32 = 16386;
+        const MCI_ANIM_STATUS_HPAL: u32 = 16388;
+        const MCI_ANIM_STATUS_HWND: u32 = 16387;
+        const MCI_ANIM_STATUS_SPEED: u32 = 16385;
+        const MCI_ANIM_STATUS_STRETCH: u32 = 16389;
+        const MCI_ANIM_STEP_FRAMES: u32 = 131072;
+        #[packed(1)]
+        struct MCI_ANIM_STEP_PARMS {
+            dwCallback: usize,
+            dwFrames: u32,
+        }
+        const MCI_ANIM_STEP_REVERSE: u32 = 65536;
+        const MCI_ANIM_UPDATE_HDC: u32 = 131072;
+        #[packed(1)]
+        struct MCI_ANIM_UPDATE_PARMS {
+            dwCallback: usize,
+            rc: RECT,
+            hDC: HDC,
+        }
+        const MCI_ANIM_WHERE_DESTINATION: u32 = 262144;
+        const MCI_ANIM_WHERE_SOURCE: u32 = 131072;
+        const MCI_ANIM_WINDOW_DEFAULT: u32 = 0;
+        const MCI_ANIM_WINDOW_DISABLE_STRETCH: u32 = 2097152;
+        const MCI_ANIM_WINDOW_ENABLE_STRETCH: u32 = 1048576;
+        const MCI_ANIM_WINDOW_HWND: u32 = 65536;
+        type MCI_ANIM_WINDOW_PARMS = MCI_ANIM_WINDOW_PARMSA;
+        #[packed(1)]
+        struct MCI_ANIM_WINDOW_PARMSA {
+            dwCallback: usize,
+            hWnd: HWND,
+            nCmdShow: u32,
+            lpstrText: PCSTR,
+        }
+        #[packed(1)]
+        struct MCI_ANIM_WINDOW_PARMSW {
+            dwCallback: usize,
+            hWnd: HWND,
+            nCmdShow: u32,
+            lpstrText: PCWSTR,
+        }
+        const MCI_ANIM_WINDOW_STATE: u32 = 262144;
+        const MCI_ANIM_WINDOW_TEXT: u32 = 524288;
+        const MCI_BREAK: u32 = 2065;
+        const MCI_BREAK_HWND: u32 = 512;
+        const MCI_BREAK_KEY: u32 = 256;
+        const MCI_BREAK_OFF: u32 = 1024;
+        #[packed(1)]
+        struct MCI_BREAK_PARMS {
+            dwCallback: usize,
+            nVirtKey: i32,
+            hwndBreak: HWND,
+        }
+        const MCI_CDA_STATUS_TYPE_TRACK: u32 = 16385;
+        const MCI_CDA_TRACK_AUDIO: u32 = 1088;
+        const MCI_CDA_TRACK_OTHER: u32 = 1089;
+        const MCI_CLOSE: u32 = 2052;
+        const MCI_COPY: u32 = 2130;
+        const MCI_CUE: u32 = 2096;
+        const MCI_CUT: u32 = 2129;
+        const MCI_DELETE: u32 = 2134;
+        const MCI_DEVTYPE_ANIMATION: u32 = 519;
+        const MCI_DEVTYPE_CD_AUDIO: u32 = 516;
+        const MCI_DEVTYPE_DAT: u32 = 517;
+        const MCI_DEVTYPE_DIGITAL_VIDEO: u32 = 520;
+        const MCI_DEVTYPE_FIRST: u32 = 513;
+        const MCI_DEVTYPE_FIRST_USER: u32 = 4096;
+        const MCI_DEVTYPE_LAST: u32 = 523;
+        const MCI_DEVTYPE_OTHER: u32 = 521;
+        const MCI_DEVTYPE_OVERLAY: u32 = 515;
+        const MCI_DEVTYPE_SCANNER: u32 = 518;
+        const MCI_DEVTYPE_SEQUENCER: u32 = 523;
+        const MCI_DEVTYPE_VCR: u32 = 513;
+        const MCI_DEVTYPE_VIDEODISC: u32 = 514;
+        const MCI_DEVTYPE_WAVEFORM_AUDIO: u32 = 522;
+        const MCI_ESCAPE: u32 = 2053;
+        const MCI_FIRST: u32 = 2048;
+        const MCI_FORMAT_BYTES: u32 = 8;
+        const MCI_FORMAT_FRAMES: u32 = 3;
+        const MCI_FORMAT_HMS: u32 = 1;
+        const MCI_FORMAT_MILLISECONDS: u32 = 0;
+        const MCI_FORMAT_MSF: u32 = 2;
+        const MCI_FORMAT_SAMPLES: u32 = 9;
+        const MCI_FORMAT_SMPTE_24: u32 = 4;
+        const MCI_FORMAT_SMPTE_25: u32 = 5;
+        const MCI_FORMAT_SMPTE_30: u32 = 6;
+        const MCI_FORMAT_SMPTE_30DROP: u32 = 7;
+        const MCI_FORMAT_TMSF: u32 = 10;
+        const MCI_FREEZE: u32 = 2116;
+        const MCI_FROM: u32 = 4;
+        #[packed(1)]
+        struct MCI_GENERIC_PARMS {
+            dwCallback: usize,
+        }
+        const MCI_GETDEVCAPS: u32 = 2059;
+        const MCI_GETDEVCAPS_CAN_EJECT: u32 = 7;
+        const MCI_GETDEVCAPS_CAN_PLAY: u32 = 8;
+        const MCI_GETDEVCAPS_CAN_RECORD: u32 = 1;
+        const MCI_GETDEVCAPS_CAN_SAVE: u32 = 9;
+        const MCI_GETDEVCAPS_COMPOUND_DEVICE: u32 = 6;
+        const MCI_GETDEVCAPS_DEVICE_TYPE: u32 = 4;
+        const MCI_GETDEVCAPS_HAS_AUDIO: u32 = 2;
+        const MCI_GETDEVCAPS_HAS_VIDEO: u32 = 3;
+        const MCI_GETDEVCAPS_ITEM: u32 = 256;
+        #[packed(1)]
+        struct MCI_GETDEVCAPS_PARMS {
+            dwCallback: usize,
+            dwReturn: u32,
+            dwItem: u32,
+        }
+        const MCI_GETDEVCAPS_USES_FILES: u32 = 5;
+        const MCI_INFO: u32 = 2058;
+        const MCI_INFO_COPYRIGHT: u32 = 8192;
+        const MCI_INFO_FILE: u32 = 512;
+        const MCI_INFO_MEDIA_IDENTITY: u32 = 2048;
+        const MCI_INFO_MEDIA_UPC: u32 = 1024;
+        const MCI_INFO_NAME: u32 = 4096;
+        type MCI_INFO_PARMS = MCI_INFO_PARMSA;
+        #[packed(1)]
+        struct MCI_INFO_PARMSA {
+            dwCallback: usize,
+            lpstrReturn: PSTR,
+            dwRetSize: u32,
+        }
+        #[packed(1)]
+        struct MCI_INFO_PARMSW {
+            dwCallback: usize,
+            lpstrReturn: PWSTR,
+            dwRetSize: u32,
+        }
+        const MCI_INFO_PRODUCT: u32 = 256;
+        const MCI_LAST: u32 = 4095;
+        const MCI_LOAD: u32 = 2128;
+        const MCI_LOAD_FILE: u32 = 256;
+        type MCI_LOAD_PARMS = MCI_LOAD_PARMSA;
+        #[packed(1)]
+        struct MCI_LOAD_PARMSA {
+            dwCallback: usize,
+            lpfilename: PCSTR,
+        }
+        #[packed(1)]
+        struct MCI_LOAD_PARMSW {
+            dwCallback: usize,
+            lpfilename: PCWSTR,
+        }
+        const MCI_MODE_NOT_READY: u32 = 524;
+        const MCI_MODE_OPEN: u32 = 530;
+        const MCI_MODE_PAUSE: u32 = 529;
+        const MCI_MODE_PLAY: u32 = 526;
+        const MCI_MODE_RECORD: u32 = 527;
+        const MCI_MODE_SEEK: u32 = 528;
+        const MCI_MODE_STOP: u32 = 525;
+        const MCI_NOTIFY: u32 = 1;
+        const MCI_NOTIFY_ABORTED: u32 = 4;
+        const MCI_NOTIFY_FAILURE: u32 = 8;
+        const MCI_NOTIFY_SUCCESSFUL: u32 = 1;
+        const MCI_NOTIFY_SUPERSEDED: u32 = 2;
+        const MCI_OPEN: u32 = 2051;
+        const MCI_OPEN_ALIAS: u32 = 1024;
+        const MCI_OPEN_ELEMENT: u32 = 512;
+        const MCI_OPEN_ELEMENT_ID: u32 = 2048;
+        type MCI_OPEN_PARMS = MCI_OPEN_PARMSA;
+        #[packed(1)]
+        struct MCI_OPEN_PARMSA {
+            dwCallback: usize,
+            wDeviceID: MCIDEVICEID,
+            lpstrDeviceType: PCSTR,
+            lpstrElementName: PCSTR,
+            lpstrAlias: PCSTR,
+        }
+        #[packed(1)]
+        struct MCI_OPEN_PARMSW {
+            dwCallback: usize,
+            wDeviceID: MCIDEVICEID,
+            lpstrDeviceType: PCWSTR,
+            lpstrElementName: PCWSTR,
+            lpstrAlias: PCWSTR,
+        }
+        const MCI_OPEN_SHAREABLE: u32 = 256;
+        const MCI_OPEN_TYPE: u32 = 8192;
+        const MCI_OPEN_TYPE_ID: u32 = 4096;
+        const MCI_OVLY_GETDEVCAPS_CAN_FREEZE: u32 = 16386;
+        const MCI_OVLY_GETDEVCAPS_CAN_STRETCH: u32 = 16385;
+        const MCI_OVLY_GETDEVCAPS_MAX_WINDOWS: u32 = 16387;
+        const MCI_OVLY_INFO_TEXT: u32 = 65536;
+        type MCI_OVLY_LOAD_PARMS = MCI_OVLY_LOAD_PARMSA;
+        #[packed(1)]
+        struct MCI_OVLY_LOAD_PARMSA {
+            dwCallback: usize,
+            lpfilename: PCSTR,
+            rc: RECT,
+        }
+        #[packed(1)]
+        struct MCI_OVLY_LOAD_PARMSW {
+            dwCallback: usize,
+            lpfilename: PCWSTR,
+            rc: RECT,
+        }
+        const MCI_OVLY_OPEN_PARENT: u32 = 131072;
+        type MCI_OVLY_OPEN_PARMS = MCI_OVLY_OPEN_PARMSA;
+        #[packed(1)]
+        struct MCI_OVLY_OPEN_PARMSA {
+            dwCallback: usize,
+            wDeviceID: MCIDEVICEID,
+            lpstrDeviceType: PCSTR,
+            lpstrElementName: PCSTR,
+            lpstrAlias: PCSTR,
+            dwStyle: u32,
+            hWndParent: HWND,
+        }
+        #[packed(1)]
+        struct MCI_OVLY_OPEN_PARMSW {
+            dwCallback: usize,
+            wDeviceID: MCIDEVICEID,
+            lpstrDeviceType: PCWSTR,
+            lpstrElementName: PCWSTR,
+            lpstrAlias: PCWSTR,
+            dwStyle: u32,
+            hWndParent: HWND,
+        }
+        const MCI_OVLY_OPEN_WS: u32 = 65536;
+        const MCI_OVLY_PUT_DESTINATION: u32 = 262144;
+        const MCI_OVLY_PUT_FRAME: u32 = 524288;
+        const MCI_OVLY_PUT_SOURCE: u32 = 131072;
+        const MCI_OVLY_PUT_VIDEO: u32 = 1048576;
+        const MCI_OVLY_RECT: u32 = 65536;
+        #[packed(1)]
+        struct MCI_OVLY_RECT_PARMS {
+            dwCallback: usize,
+            rc: RECT,
+        }
+        type MCI_OVLY_SAVE_PARMS = MCI_OVLY_SAVE_PARMSA;
+        #[packed(1)]
+        struct MCI_OVLY_SAVE_PARMSA {
+            dwCallback: usize,
+            lpfilename: PCSTR,
+            rc: RECT,
+        }
+        #[packed(1)]
+        struct MCI_OVLY_SAVE_PARMSW {
+            dwCallback: usize,
+            lpfilename: PCWSTR,
+            rc: RECT,
+        }
+        const MCI_OVLY_STATUS_HWND: u32 = 16385;
+        const MCI_OVLY_STATUS_STRETCH: u32 = 16386;
+        const MCI_OVLY_WHERE_DESTINATION: u32 = 262144;
+        const MCI_OVLY_WHERE_FRAME: u32 = 524288;
+        const MCI_OVLY_WHERE_SOURCE: u32 = 131072;
+        const MCI_OVLY_WHERE_VIDEO: u32 = 1048576;
+        const MCI_OVLY_WINDOW_DEFAULT: u32 = 0;
+        const MCI_OVLY_WINDOW_DISABLE_STRETCH: u32 = 2097152;
+        const MCI_OVLY_WINDOW_ENABLE_STRETCH: u32 = 1048576;
+        const MCI_OVLY_WINDOW_HWND: u32 = 65536;
+        type MCI_OVLY_WINDOW_PARMS = MCI_OVLY_WINDOW_PARMSA;
+        #[packed(1)]
+        struct MCI_OVLY_WINDOW_PARMSA {
+            dwCallback: usize,
+            hWnd: HWND,
+            nCmdShow: u32,
+            lpstrText: PCSTR,
+        }
+        #[packed(1)]
+        struct MCI_OVLY_WINDOW_PARMSW {
+            dwCallback: usize,
+            hWnd: HWND,
+            nCmdShow: u32,
+            lpstrText: PCWSTR,
+        }
+        const MCI_OVLY_WINDOW_STATE: u32 = 262144;
+        const MCI_OVLY_WINDOW_TEXT: u32 = 524288;
+        const MCI_PASTE: u32 = 2131;
+        const MCI_PAUSE: u32 = 2057;
+        const MCI_PLAY: u32 = 2054;
+        #[packed(1)]
+        struct MCI_PLAY_PARMS {
+            dwCallback: usize,
+            dwFrom: u32,
+            dwTo: u32,
+        }
+        const MCI_PUT: u32 = 2114;
+        const MCI_REALIZE: u32 = 2112;
+        const MCI_RECORD: u32 = 2063;
+        const MCI_RECORD_INSERT: u32 = 256;
+        const MCI_RECORD_OVERWRITE: u32 = 512;
+        #[packed(1)]
+        struct MCI_RECORD_PARMS {
+            dwCallback: usize,
+            dwFrom: u32,
+            dwTo: u32,
+        }
+        const MCI_RESUME: u32 = 2133;
+        const MCI_SAVE: u32 = 2067;
+        const MCI_SAVE_FILE: u32 = 256;
+        type MCI_SAVE_PARMS = MCI_SAVE_PARMSA;
+        #[packed(1)]
+        struct MCI_SAVE_PARMSA {
+            dwCallback: usize,
+            lpfilename: PCSTR,
+        }
+        #[packed(1)]
+        struct MCI_SAVE_PARMSW {
+            dwCallback: usize,
+            lpfilename: PCWSTR,
+        }
+        const MCI_SEEK: u32 = 2055;
+        #[packed(1)]
+        struct MCI_SEEK_PARMS {
+            dwCallback: usize,
+            dwTo: u32,
+        }
+        const MCI_SEEK_TO_END: u32 = 512;
+        const MCI_SEEK_TO_START: u32 = 256;
+        const MCI_SEQ_DIV_PPQN: u32 = 1216;
+        const MCI_SEQ_DIV_SMPTE_24: u32 = 1217;
+        const MCI_SEQ_DIV_SMPTE_25: u32 = 1218;
+        const MCI_SEQ_DIV_SMPTE_30: u32 = 1220;
+        const MCI_SEQ_DIV_SMPTE_30DROP: u32 = 1219;
+        const MCI_SEQ_FILE: u32 = 16386;
+        const MCI_SEQ_FORMAT_SONGPTR: u32 = 16385;
+        const MCI_SEQ_MAPPER: u32 = 65535;
+        const MCI_SEQ_MIDI: u32 = 16387;
+        const MCI_SEQ_NONE: u32 = 65533;
+        const MCI_SEQ_SET_MASTER: u32 = 524288;
+        const MCI_SEQ_SET_OFFSET: u32 = 16777216;
+        #[packed(1)]
+        struct MCI_SEQ_SET_PARMS {
+            dwCallback: usize,
+            dwTimeFormat: u32,
+            dwAudio: u32,
+            dwTempo: u32,
+            dwPort: u32,
+            dwSlave: u32,
+            dwMaster: u32,
+            dwOffset: u32,
+        }
+        const MCI_SEQ_SET_PORT: u32 = 131072;
+        const MCI_SEQ_SET_SLAVE: u32 = 262144;
+        const MCI_SEQ_SET_TEMPO: u32 = 65536;
+        const MCI_SEQ_SMPTE: u32 = 16388;
+        const MCI_SEQ_STATUS_COPYRIGHT: u32 = 16396;
+        const MCI_SEQ_STATUS_DIVTYPE: u32 = 16394;
+        const MCI_SEQ_STATUS_MASTER: u32 = 16392;
+        const MCI_SEQ_STATUS_NAME: u32 = 16395;
+        const MCI_SEQ_STATUS_OFFSET: u32 = 16393;
+        const MCI_SEQ_STATUS_PORT: u32 = 16387;
+        const MCI_SEQ_STATUS_SLAVE: u32 = 16391;
+        const MCI_SEQ_STATUS_TEMPO: u32 = 16386;
+        const MCI_SET: u32 = 2061;
+        const MCI_SET_AUDIO: u32 = 2048;
+        const MCI_SET_AUDIO_ALL: u32 = 0;
+        const MCI_SET_AUDIO_LEFT: u32 = 1;
+        const MCI_SET_AUDIO_RIGHT: u32 = 2;
+        const MCI_SET_DOOR_CLOSED: u32 = 512;
+        const MCI_SET_DOOR_OPEN: u32 = 256;
+        const MCI_SET_OFF: u32 = 16384;
+        const MCI_SET_ON: u32 = 8192;
+        #[packed(1)]
+        struct MCI_SET_PARMS {
+            dwCallback: usize,
+            dwTimeFormat: u32,
+            dwAudio: u32,
+        }
+        const MCI_SET_TIME_FORMAT: u32 = 1024;
+        const MCI_SET_VIDEO: u32 = 4096;
+        const MCI_SPIN: u32 = 2060;
+        const MCI_STATUS: u32 = 2068;
+        const MCI_STATUS_CURRENT_TRACK: u32 = 8;
+        const MCI_STATUS_ITEM: u32 = 256;
+        const MCI_STATUS_LENGTH: u32 = 1;
+        const MCI_STATUS_MEDIA_PRESENT: u32 = 5;
+        const MCI_STATUS_MODE: u32 = 4;
+        const MCI_STATUS_NUMBER_OF_TRACKS: u32 = 3;
+        #[packed(1)]
+        struct MCI_STATUS_PARMS {
+            dwCallback: usize,
+            dwReturn: usize,
+            dwItem: u32,
+            dwTrack: u32,
+        }
+        const MCI_STATUS_POSITION: u32 = 2;
+        const MCI_STATUS_READY: u32 = 7;
+        const MCI_STATUS_START: u32 = 512;
+        const MCI_STATUS_TIME_FORMAT: u32 = 6;
+        const MCI_STEP: u32 = 2062;
+        const MCI_STOP: u32 = 2056;
+        const MCI_SYSINFO: u32 = 2064;
+        const MCI_SYSINFO_INSTALLNAME: u32 = 2048;
+        const MCI_SYSINFO_NAME: u32 = 1024;
+        const MCI_SYSINFO_OPEN: u32 = 512;
+        type MCI_SYSINFO_PARMS = MCI_SYSINFO_PARMSA;
+        #[packed(1)]
+        struct MCI_SYSINFO_PARMSA {
+            dwCallback: usize,
+            lpstrReturn: PSTR,
+            dwRetSize: u32,
+            dwNumber: u32,
+            wDeviceType: u32,
+        }
+        #[packed(1)]
+        struct MCI_SYSINFO_PARMSW {
+            dwCallback: usize,
+            lpstrReturn: PWSTR,
+            dwRetSize: u32,
+            dwNumber: u32,
+            wDeviceType: u32,
+        }
+        const MCI_SYSINFO_QUANTITY: u32 = 256;
+        const MCI_TO: u32 = 8;
+        const MCI_TRACK: u32 = 16;
+        const MCI_UNFREEZE: u32 = 2117;
+        const MCI_UPDATE: u32 = 2132;
+        const MCI_USER_MESSAGES: u32 = 3072;
+        type MCI_VD_ESCAPE_PARMS = MCI_VD_ESCAPE_PARMSA;
+        #[packed(1)]
+        struct MCI_VD_ESCAPE_PARMSA {
+            dwCallback: usize,
+            lpstrCommand: PCSTR,
+        }
+        #[packed(1)]
+        struct MCI_VD_ESCAPE_PARMSW {
+            dwCallback: usize,
+            lpstrCommand: PCWSTR,
+        }
+        const MCI_VD_ESCAPE_STRING: u32 = 256;
+        const MCI_VD_FORMAT_TRACK: u32 = 16385;
+        const MCI_VD_GETDEVCAPS_CAN_REVERSE: u32 = 16386;
+        const MCI_VD_GETDEVCAPS_CAV: u32 = 131072;
+        const MCI_VD_GETDEVCAPS_CLV: u32 = 65536;
+        const MCI_VD_GETDEVCAPS_FAST_RATE: u32 = 16387;
+        const MCI_VD_GETDEVCAPS_NORMAL_RATE: u32 = 16389;
+        const MCI_VD_GETDEVCAPS_SLOW_RATE: u32 = 16388;
+        const MCI_VD_MEDIA_CAV: u32 = 1027;
+        const MCI_VD_MEDIA_CLV: u32 = 1026;
+        const MCI_VD_MEDIA_OTHER: u32 = 1028;
+        const MCI_VD_MODE_PARK: u32 = 1025;
+        const MCI_VD_PLAY_FAST: u32 = 131072;
+        #[packed(1)]
+        struct MCI_VD_PLAY_PARMS {
+            dwCallback: usize,
+            dwFrom: u32,
+            dwTo: u32,
+            dwSpeed: u32,
+        }
+        const MCI_VD_PLAY_REVERSE: u32 = 65536;
+        const MCI_VD_PLAY_SCAN: u32 = 524288;
+        const MCI_VD_PLAY_SLOW: u32 = 1048576;
+        const MCI_VD_PLAY_SPEED: u32 = 262144;
+        const MCI_VD_SEEK_REVERSE: u32 = 65536;
+        const MCI_VD_SPIN_DOWN: u32 = 131072;
+        const MCI_VD_SPIN_UP: u32 = 65536;
+        const MCI_VD_STATUS_DISC_SIZE: u32 = 16390;
+        const MCI_VD_STATUS_FORWARD: u32 = 16387;
+        const MCI_VD_STATUS_MEDIA_TYPE: u32 = 16388;
+        const MCI_VD_STATUS_SIDE: u32 = 16389;
+        const MCI_VD_STATUS_SPEED: u32 = 16386;
+        const MCI_VD_STEP_FRAMES: u32 = 65536;
+        #[packed(1)]
+        struct MCI_VD_STEP_PARMS {
+            dwCallback: usize,
+            dwFrames: u32,
+        }
+        const MCI_VD_STEP_REVERSE: u32 = 131072;
+        const MCI_WAIT: u32 = 2;
+        #[packed(1)]
+        struct MCI_WAVE_DELETE_PARMS {
+            dwCallback: usize,
+            dwFrom: u32,
+            dwTo: u32,
+        }
+        const MCI_WAVE_GETDEVCAPS_INPUTS: u32 = 16385;
+        const MCI_WAVE_GETDEVCAPS_OUTPUTS: u32 = 16386;
+        const MCI_WAVE_INPUT: u32 = 4194304;
+        const MCI_WAVE_MAPPER: u32 = 1153;
+        const MCI_WAVE_OPEN_BUFFER: u32 = 65536;
+        type MCI_WAVE_OPEN_PARMS = MCI_WAVE_OPEN_PARMSA;
+        #[packed(1)]
+        struct MCI_WAVE_OPEN_PARMSA {
+            dwCallback: usize,
+            wDeviceID: MCIDEVICEID,
+            lpstrDeviceType: PCSTR,
+            lpstrElementName: PCSTR,
+            lpstrAlias: PCSTR,
+            dwBufferSeconds: u32,
+        }
+        #[packed(1)]
+        struct MCI_WAVE_OPEN_PARMSW {
+            dwCallback: usize,
+            wDeviceID: MCIDEVICEID,
+            lpstrDeviceType: PCWSTR,
+            lpstrElementName: PCWSTR,
+            lpstrAlias: PCWSTR,
+            dwBufferSeconds: u32,
+        }
+        const MCI_WAVE_OUTPUT: u32 = 8388608;
+        const MCI_WAVE_PCM: u32 = 1152;
+        const MCI_WAVE_SET_ANYINPUT: u32 = 67108864;
+        const MCI_WAVE_SET_ANYOUTPUT: u32 = 134217728;
+        const MCI_WAVE_SET_AVGBYTESPERSEC: u32 = 524288;
+        const MCI_WAVE_SET_BITSPERSAMPLE: u32 = 2097152;
+        const MCI_WAVE_SET_BLOCKALIGN: u32 = 1048576;
+        const MCI_WAVE_SET_CHANNELS: u32 = 131072;
+        const MCI_WAVE_SET_FORMATTAG: u32 = 65536;
+        #[packed(1)]
+        struct MCI_WAVE_SET_PARMS {
+            dwCallback: usize,
+            dwTimeFormat: u32,
+            dwAudio: u32,
+            wInput: u32,
+            wOutput: u32,
+            wFormatTag: u16,
+            wReserved2: u16,
+            nChannels: u16,
+            wReserved3: u16,
+            nSamplesPerSec: u32,
+            nAvgBytesPerSec: u32,
+            nBlockAlign: u16,
+            wReserved4: u16,
+            wBitsPerSample: u16,
+            wReserved5: u16,
+        }
+        const MCI_WAVE_SET_SAMPLESPERSEC: u32 = 262144;
+        const MCI_WAVE_STATUS_AVGBYTESPERSEC: u32 = 16388;
+        const MCI_WAVE_STATUS_BITSPERSAMPLE: u32 = 16390;
+        const MCI_WAVE_STATUS_BLOCKALIGN: u32 = 16389;
+        const MCI_WAVE_STATUS_CHANNELS: u32 = 16386;
+        const MCI_WAVE_STATUS_FORMATTAG: u32 = 16385;
+        const MCI_WAVE_STATUS_LEVEL: u32 = 16391;
+        const MCI_WAVE_STATUS_SAMPLESPERSEC: u32 = 16387;
+        const MCI_WHERE: u32 = 2115;
+        const MCI_WINDOW: u32 = 2113;
+        type PMCI_ANIM_OPEN_PARMS = PMCI_ANIM_OPEN_PARMSA;
+        type PMCI_ANIM_OPEN_PARMSA = *mut MCI_ANIM_OPEN_PARMSA;
+        type PMCI_ANIM_OPEN_PARMSW = *mut MCI_ANIM_OPEN_PARMSW;
+        type PMCI_ANIM_PLAY_PARMS = *mut MCI_ANIM_PLAY_PARMS;
+        type PMCI_ANIM_RECT_PARMS = *mut MCI_ANIM_RECT_PARMS;
+        type PMCI_ANIM_STEP_PARMS = *mut MCI_ANIM_STEP_PARMS;
+        type PMCI_ANIM_UPDATE_PARMS = *mut MCI_ANIM_UPDATE_PARMS;
+        type PMCI_ANIM_WINDOW_PARMS = PMCI_ANIM_WINDOW_PARMSA;
+        type PMCI_ANIM_WINDOW_PARMSA = *mut MCI_ANIM_WINDOW_PARMSA;
+        type PMCI_ANIM_WINDOW_PARMSW = *mut MCI_ANIM_WINDOW_PARMSW;
+        type PMCI_BREAK_PARMS = *mut MCI_BREAK_PARMS;
+        type PMCI_GENERIC_PARMS = *mut MCI_GENERIC_PARMS;
+        type PMCI_GETDEVCAPS_PARMS = *mut MCI_GETDEVCAPS_PARMS;
+        type PMCI_LOAD_PARMS = PMCI_LOAD_PARMSA;
+        type PMCI_LOAD_PARMSA = *mut MCI_LOAD_PARMSA;
+        type PMCI_LOAD_PARMSW = *mut MCI_LOAD_PARMSW;
+        type PMCI_OPEN_PARMS = PMCI_OPEN_PARMSA;
+        type PMCI_OPEN_PARMSA = *mut MCI_OPEN_PARMSA;
+        type PMCI_OPEN_PARMSW = *mut MCI_OPEN_PARMSW;
+        type PMCI_OVLY_LOAD_PARMS = PMCI_OVLY_LOAD_PARMSA;
+        type PMCI_OVLY_LOAD_PARMSA = *mut MCI_OVLY_LOAD_PARMSA;
+        type PMCI_OVLY_LOAD_PARMSW = *mut MCI_OVLY_LOAD_PARMSW;
+        type PMCI_OVLY_OPEN_PARMS = PMCI_OVLY_OPEN_PARMSA;
+        type PMCI_OVLY_OPEN_PARMSA = *mut MCI_OVLY_OPEN_PARMSA;
+        type PMCI_OVLY_OPEN_PARMSW = *mut MCI_OVLY_OPEN_PARMSW;
+        type PMCI_OVLY_RECT_PARMS = *mut MCI_OVLY_RECT_PARMS;
+        type PMCI_OVLY_SAVE_PARMS = PMCI_OVLY_SAVE_PARMSA;
+        type PMCI_OVLY_SAVE_PARMSA = *mut MCI_OVLY_SAVE_PARMSA;
+        type PMCI_OVLY_SAVE_PARMSW = *mut MCI_OVLY_SAVE_PARMSW;
+        type PMCI_OVLY_WINDOW_PARMS = PMCI_OVLY_WINDOW_PARMSA;
+        type PMCI_OVLY_WINDOW_PARMSA = *mut MCI_OVLY_WINDOW_PARMSA;
+        type PMCI_OVLY_WINDOW_PARMSW = *mut MCI_OVLY_WINDOW_PARMSW;
+        type PMCI_PLAY_PARMS = *mut MCI_PLAY_PARMS;
+        type PMCI_SAVE_PARMS = PMCI_SAVE_PARMSA;
+        type PMCI_SAVE_PARMSA = *mut MCI_SAVE_PARMSA;
+        type PMCI_SAVE_PARMSW = *mut MCI_SAVE_PARMSW;
+        type PMCI_SEEK_PARMS = *mut MCI_SEEK_PARMS;
+        type PMCI_SEQ_SET_PARMS = *mut MCI_SEQ_SET_PARMS;
+        type PMCI_SET_PARMS = *mut MCI_SET_PARMS;
+        type PMCI_STATUS_PARMS = *mut MCI_STATUS_PARMS;
+        type PMCI_SYSINFO_PARMS = PMCI_SYSINFO_PARMSA;
+        type PMCI_SYSINFO_PARMSA = *mut MCI_SYSINFO_PARMSA;
+        type PMCI_SYSINFO_PARMSW = *mut MCI_SYSINFO_PARMSW;
+        type PMCI_VD_ESCAPE_PARMS = PMCI_VD_ESCAPE_PARMSA;
+        type PMCI_VD_ESCAPE_PARMSA = *mut MCI_VD_ESCAPE_PARMSA;
+        type PMCI_VD_ESCAPE_PARMSW = *mut MCI_VD_ESCAPE_PARMSW;
+        type PMCI_VD_PLAY_PARMS = *mut MCI_VD_PLAY_PARMS;
+        type PMCI_VD_STEP_PARMS = *mut MCI_VD_STEP_PARMS;
+        type PMCI_WAVE_DELETE_PARMS = *mut MCI_WAVE_DELETE_PARMS;
+        type PMCI_WAVE_OPEN_PARMS = PMCI_WAVE_OPEN_PARMSA;
+        type PMCI_WAVE_OPEN_PARMSA = *mut MCI_WAVE_OPEN_PARMSA;
+        type PMCI_WAVE_OPEN_PARMSW = *mut MCI_WAVE_OPEN_PARMSW;
+        type PMCI_WAVE_SET_PARMS = *mut MCI_WAVE_SET_PARMS;
+        extern fn YIELDPROC(mciId: MCIDEVICEID, dwYieldData: u32) -> u32;
+        #[library("WINMM.dll")]
+        extern fn mciDriverNotify(hwndCallback: HANDLE, wDeviceID: MCIDEVICEID, uStatus: u32) -> BOOL;
+        #[library("WINMM.dll")]
+        extern fn mciDriverYield(wDeviceID: MCIDEVICEID) -> u32;
+        #[library("WINMM.dll")]
+        extern fn mciFreeCommandResource(wTable: u32) -> BOOL;
+        #[library("WINMM.dll")]
+        extern fn mciGetCreatorTask(mciId: MCIDEVICEID) -> HTASK;
+        #[library("WINMM.dll")]
+        extern fn mciGetDeviceIDA(pszDevice: PCSTR) -> MCIDEVICEID;
+        #[library("WINMM.dll")]
+        extern fn mciGetDeviceIDFromElementIDA(dwElementID: u32, lpstrType: PCSTR) -> MCIDEVICEID;
+        #[library("WINMM.dll")]
+        extern fn mciGetDeviceIDFromElementIDW(dwElementID: u32, lpstrType: PCWSTR) -> MCIDEVICEID;
+        #[library("WINMM.dll")]
+        extern fn mciGetDeviceIDW(pszDevice: PCWSTR) -> MCIDEVICEID;
+        #[library("WINMM.dll")]
+        extern fn mciGetDriverData(wDeviceID: MCIDEVICEID) -> usize;
+        #[library("WINMM.dll")]
+        extern fn mciGetErrorStringA(mcierr: MCIERROR, #[len_param(2)] #[out] pszText: PSTR, cchText: u32) -> BOOL;
+        #[library("WINMM.dll")]
+        extern fn mciGetErrorStringW(mcierr: MCIERROR, #[len_param(2)] #[out] pszText: PWSTR, cchText: u32) -> BOOL;
+        #[library("WINMM.dll")]
+        extern fn mciGetYieldProc(mciId: MCIDEVICEID, pdwYieldData: *const u32) -> YIELDPROC;
+        #[library("WINMM.dll")]
+        extern fn mciLoadCommandResource(hInstance: HANDLE, lpResName: PCWSTR, wType: u32) -> u32;
+        #[library("WINMM.dll")]
+        extern fn mciSendCommandA(mciId: MCIDEVICEID, uMsg: u32, #[opt] dwParam1: usize, #[opt] dwParam2: usize) -> MCIERROR;
+        #[library("WINMM.dll")]
+        extern fn mciSendCommandW(mciId: MCIDEVICEID, uMsg: u32, #[opt] dwParam1: usize, #[opt] dwParam2: usize) -> MCIERROR;
+        #[library("WINMM.dll")]
+        extern fn mciSendStringA(lpstrCommand: PCSTR, #[len_param(2)] #[out] #[opt] lpstrReturnString: PSTR, uReturnLength: u32, #[opt] hwndCallback: HWND) -> MCIERROR;
+        #[library("WINMM.dll")]
+        extern fn mciSendStringW(lpstrCommand: PCWSTR, #[len_param(2)] #[out] #[opt] lpstrReturnString: PWSTR, uReturnLength: u32, #[opt] hwndCallback: HWND) -> MCIERROR;
+        #[library("WINMM.dll")]
+        extern fn mciSetDriverData(wDeviceID: MCIDEVICEID, dwData: usize) -> BOOL;
+        #[library("WINMM.dll")]
+        extern fn mciSetYieldProc(mciId: MCIDEVICEID, #[opt] fpYieldProc: YIELDPROC, dwYieldData: u32) -> BOOL;
+    }
+}

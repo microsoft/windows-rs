@@ -1,0 +1,8 @@
+//! --filter Test --sys --flat
+#[win32]
+mod Test {
+    #[arch(X64 | Arm64)]
+    type ArchScalar = i32;
+    #[arch(X86)]
+    type ArchScalar = i16;
+}

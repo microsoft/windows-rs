@@ -1,0 +1,203 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvAcceptPartitionMigration(MigrationHandle: HANDLE, Partition: *mut WHV_PARTITION_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvAdviseGpaRange(Partition: WHV_PARTITION_HANDLE, #[len_param(2)] GpaRanges: *const WHV_MEMORY_RANGE_ENTRY, GpaRangesCount: u32, Advice: WHV_ADVISE_GPA_RANGE_CODE, #[size_param(5)] AdviceBuffer: *const void, AdviceBufferSizeInBytes: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvAllocateVpciResource(#[opt] ProviderId: *const GUID, Flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, #[len_param(3)] #[opt] ResourceDescriptor: *const void, ResourceDescriptorSizeInBytes: u32, VpciResource: *mut HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern "C" fn WHvCancelPartitionMigration(Partition: WHV_PARTITION_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvCancelRunVirtualProcessor(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, Flags: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern "C" fn WHvCompletePartitionMigration(Partition: WHV_PARTITION_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvCreateNotificationPort(Partition: WHV_PARTITION_HANDLE, Parameters: *const WHV_NOTIFICATION_PORT_PARAMETERS, EventHandle: HANDLE, PortHandle: *mut WHV_NOTIFICATION_PORT_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvCreatePartition(Partition: *mut WHV_PARTITION_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvCreateTrigger(Partition: WHV_PARTITION_HANDLE, Parameters: *const WHV_TRIGGER_PARAMETERS, TriggerHandle: *mut WHV_TRIGGER_HANDLE, EventHandle: *mut HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvCreateVirtualProcessor(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, Flags: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvCreateVirtualProcessor2(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, #[len_param(3)] Properties: *const WHV_VIRTUAL_PROCESSOR_PROPERTY, PropertyCount: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvCreateVpciDevice(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, VpciResource: HANDLE, Flags: WHV_CREATE_VPCI_DEVICE_FLAGS, #[opt] NotificationEventHandle: HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvDeleteNotificationPort(Partition: WHV_PARTITION_HANDLE, PortHandle: WHV_NOTIFICATION_PORT_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvDeletePartition(Partition: WHV_PARTITION_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvDeleteTrigger(Partition: WHV_PARTITION_HANDLE, TriggerHandle: WHV_TRIGGER_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvDeleteVirtualProcessor(Partition: WHV_PARTITION_HANDLE, VpIndex: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvDeleteVpciDevice(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetCapability(CapabilityCode: WHV_CAPABILITY_CODE, #[size_param(2)] CapabilityBuffer: *mut void, CapabilityBufferSizeInBytes: u32, #[opt] WrittenSizeInBytes: *mut u32) -> HRESULT;
+        #[arch(X64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetInterruptTargetVpSet(Partition: WHV_PARTITION_HANDLE, Destination: u64, DestinationMode: WHV_INTERRUPT_DESTINATION_MODE, #[len_param(4)] TargetVps: *mut u32, VpCount: u32, TargetVpCount: *mut u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetPartitionCounters(Partition: WHV_PARTITION_HANDLE, CounterSet: WHV_PARTITION_COUNTER_SET, #[size_param(3)] Buffer: *mut void, BufferSizeInBytes: u32, #[opt] BytesWritten: *mut u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetPartitionProperty(Partition: WHV_PARTITION_HANDLE, PropertyCode: WHV_PARTITION_PROPERTY_CODE, #[size_param(3)] PropertyBuffer: *mut void, PropertyBufferSizeInBytes: u32, #[opt] WrittenSizeInBytes: *mut u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetVirtualProcessorCounters(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, CounterSet: WHV_PROCESSOR_COUNTER_SET, #[size_param(4)] Buffer: *mut void, BufferSizeInBytes: u32, #[opt] BytesWritten: *mut u32) -> HRESULT;
+        #[arch(X64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetVirtualProcessorCpuidOutput(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, Eax: u32, Ecx: u32, CpuidOutput: *mut WHV_CPUID_OUTPUT) -> HRESULT;
+        #[arch(X64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetVirtualProcessorInterruptControllerState(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, #[size_param(3)] State: *mut void, StateSize: u32, #[opt] WrittenSize: *mut u32) -> HRESULT;
+        #[arch(X64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetVirtualProcessorInterruptControllerState2(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, #[size_param(3)] State: *mut void, StateSize: u32, #[opt] WrittenSize: *mut u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetVirtualProcessorRegisters(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, #[len_param(3)] RegisterNames: *const WHV_REGISTER_NAME, RegisterCount: u32, #[len_param(3)] RegisterValues: *mut WHV_REGISTER_VALUE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetVirtualProcessorState(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, StateType: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, #[size_param(4)] Buffer: *mut void, BufferSizeInBytes: u32, #[opt] BytesWritten: *mut u32) -> HRESULT;
+        #[arch(X64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetVirtualProcessorXsaveState(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, #[size_param(3)] Buffer: *mut void, BufferSizeInBytes: u32, BytesWritten: *mut u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetVpciDeviceInterruptTarget(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, Index: u32, MultiMessageNumber: u32, #[size_param(5)] Target: *mut WHV_VPCI_INTERRUPT_TARGET, TargetSizeInBytes: u32, #[opt] BytesWritten: *mut u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetVpciDeviceNotification(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, #[size_param(3)] Notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, NotificationSizeInBytes: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvGetVpciDeviceProperty(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, PropertyCode: WHV_VPCI_DEVICE_PROPERTY_CODE, #[size_param(4)] PropertyBuffer: *mut void, PropertyBufferSizeInBytes: u32, #[opt] WrittenSizeInBytes: *mut u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvMapGpaRange(Partition: WHV_PARTITION_HANDLE, SourceAddress: *const void, GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, SizeInBytes: u64, Flags: WHV_MAP_GPA_RANGE_FLAGS) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvMapGpaRange2(Partition: WHV_PARTITION_HANDLE, Process: HANDLE, SourceAddress: *const void, GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, SizeInBytes: u64, Flags: WHV_MAP_GPA_RANGE_FLAGS) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvMapVpciDeviceInterrupt(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, Index: u32, MessageCount: u32, Target: *const WHV_VPCI_INTERRUPT_TARGET, MsiAddress: *mut u64, MsiData: *mut u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvMapVpciDeviceMmioRanges(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, MappingCount: *mut u32, Mappings: *mut *mut WHV_VPCI_MMIO_MAPPING) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvPostVirtualProcessorSynicMessage(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, SintIndex: u32, #[size_param(4)] Message: *const void, MessageSizeInBytes: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvQueryGpaRangeDirtyBitmap(Partition: WHV_PARTITION_HANDLE, GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, RangeSizeInBytes: u64, #[size_param(4)] #[opt] Bitmap: *mut u64, BitmapSizeInBytes: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvReadGpaRange(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, Controls: WHV_ACCESS_GPA_CONTROLS, #[size_param(5)] Data: *mut void, DataSizeInBytes: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvReadVpciDeviceRegister(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, Register: *const WHV_VPCI_DEVICE_REGISTER, Data: *mut void) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvRegisterPartitionDoorbellEvent(Partition: WHV_PARTITION_HANDLE, MatchData: *const WHV_DOORBELL_MATCH_DATA, EventHandle: HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvRequestInterrupt(Partition: WHV_PARTITION_HANDLE, Interrupt: *const WHV_INTERRUPT_CONTROL, InterruptControlSize: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvRequestVpciDeviceInterrupt(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, MsiAddress: u64, MsiData: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvResetPartition(Partition: WHV_PARTITION_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvResumePartitionTime(Partition: WHV_PARTITION_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvRetargetVpciDeviceInterrupt(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, MsiAddress: u64, MsiData: u32, Target: *const WHV_VPCI_INTERRUPT_TARGET) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvRunVirtualProcessor(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, #[size_param(3)] ExitContext: *mut void, ExitContextSizeInBytes: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSetNotificationPortProperty(Partition: WHV_PARTITION_HANDLE, PortHandle: WHV_NOTIFICATION_PORT_HANDLE, PropertyCode: WHV_NOTIFICATION_PORT_PROPERTY_CODE, PropertyValue: WHV_NOTIFICATION_PORT_PROPERTY) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSetPartitionProperty(Partition: WHV_PARTITION_HANDLE, PropertyCode: WHV_PARTITION_PROPERTY_CODE, #[size_param(3)] PropertyBuffer: *const void, PropertyBufferSizeInBytes: u32) -> HRESULT;
+        #[arch(X64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSetVirtualProcessorInterruptControllerState(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, #[size_param(3)] State: *const void, StateSize: u32) -> HRESULT;
+        #[arch(X64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSetVirtualProcessorInterruptControllerState2(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, #[size_param(3)] State: *const void, StateSize: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSetVirtualProcessorRegisters(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, #[len_param(3)] RegisterNames: *const WHV_REGISTER_NAME, RegisterCount: u32, #[len_param(3)] RegisterValues: *const WHV_REGISTER_VALUE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSetVirtualProcessorState(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, StateType: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, #[size_param(4)] Buffer: *const void, BufferSizeInBytes: u32) -> HRESULT;
+        #[arch(X64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSetVirtualProcessorXsaveState(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, #[size_param(3)] Buffer: *const void, BufferSizeInBytes: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSetVpciDevicePowerState(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, PowerState: DEVICE_POWER_STATE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSetupPartition(Partition: WHV_PARTITION_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSignalVirtualProcessorSynicEvent(Partition: WHV_PARTITION_HANDLE, SynicEvent: WHV_SYNIC_EVENT_PARAMETERS, #[opt] NewlySignaled: *mut BOOL) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvStartPartitionMigration(Partition: WHV_PARTITION_HANDLE, MigrationHandle: *mut HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvSuspendPartitionTime(Partition: WHV_PARTITION_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvTranslateGva(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, Gva: WHV_GUEST_VIRTUAL_ADDRESS, TranslateFlags: WHV_TRANSLATE_GVA_FLAGS, TranslationResult: *mut WHV_TRANSLATE_GVA_RESULT, Gpa: *mut WHV_GUEST_PHYSICAL_ADDRESS) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvUnmapGpaRange(Partition: WHV_PARTITION_HANDLE, GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, SizeInBytes: u64) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvUnmapVpciDeviceInterrupt(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, Index: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvUnmapVpciDeviceMmioRanges(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvUnregisterPartitionDoorbellEvent(Partition: WHV_PARTITION_HANDLE, MatchData: *const WHV_DOORBELL_MATCH_DATA) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvUpdateTriggerParameters(Partition: WHV_PARTITION_HANDLE, Parameters: *const WHV_TRIGGER_PARAMETERS, TriggerHandle: WHV_TRIGGER_HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvWriteGpaRange(Partition: WHV_PARTITION_HANDLE, VpIndex: u32, GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, Controls: WHV_ACCESS_GPA_CONTROLS, #[size_param(5)] Data: *const void, DataSizeInBytes: u32) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WinHvPlatform.dll")]
+        extern fn WHvWriteVpciDeviceRegister(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, Register: *const WHV_VPCI_DEVICE_REGISTER, Data: *const void) -> HRESULT;
+    }
+}

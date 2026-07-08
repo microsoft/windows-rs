@@ -1,0 +1,92 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct VDS_INTERCONNECT {
+            m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
+            m_cbPort: u32,
+            m_pbPort: *mut u8,
+            m_cbAddress: u32,
+            m_pbAddress: *mut u8,
+        }
+        #[repr(i32)]
+        enum VDS_INTERCONNECT_ADDRESS_TYPE {
+            VDS_IA_UNKNOWN = 0,
+            VDS_IA_FCFS = 1,
+            VDS_IA_FCPH = 2,
+            VDS_IA_FCPH3 = 3,
+            VDS_IA_MAC = 4,
+            VDS_IA_SCSI = 5,
+        }
+        struct VDS_LUN_INFORMATION {
+            m_version: u32,
+            m_DeviceType: u8,
+            m_DeviceTypeModifier: u8,
+            m_bCommandQueueing: BOOL,
+            m_BusType: VDS_STORAGE_BUS_TYPE,
+            m_szVendorId: *mut i8,
+            m_szProductId: *mut i8,
+            m_szProductRevision: *mut i8,
+            m_szSerialNumber: *mut i8,
+            m_diskSignature: GUID,
+            m_deviceIdDescriptor: VDS_STORAGE_DEVICE_ID_DESCRIPTOR,
+            m_cInterconnects: u32,
+            m_rgInterconnects: *mut VDS_INTERCONNECT,
+        }
+        #[repr(i32)]
+        enum VDS_STORAGE_BUS_TYPE {
+            VDSBusTypeUnknown = 0,
+            VDSBusTypeScsi = 1,
+            VDSBusTypeAtapi = 2,
+            VDSBusTypeAta = 3,
+            VDSBusType1394 = 4,
+            VDSBusTypeSsa = 5,
+            VDSBusTypeFibre = 6,
+            VDSBusTypeUsb = 7,
+            VDSBusTypeRAID = 8,
+            VDSBusTypeiScsi = 9,
+            VDSBusTypeSas = 10,
+            VDSBusTypeSata = 11,
+            VDSBusTypeSd = 12,
+            VDSBusTypeMmc = 13,
+            VDSBusTypeMax = 14,
+            VDSBusTypeVirtual = 14,
+            VDSBusTypeFileBackedVirtual = 15,
+            VDSBusTypeSpaces = 16,
+            VDSBusTypeNVMe = 17,
+            VDSBusTypeScm = 18,
+            VDSBusTypeUfs = 19,
+            VDSBusTypeMaxReserved = 127,
+        }
+        struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
+            m_version: u32,
+            m_cIdentifiers: u32,
+            m_rgIdentifiers: *mut VDS_STORAGE_IDENTIFIER,
+        }
+        struct VDS_STORAGE_IDENTIFIER {
+            m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
+            m_Type: VDS_STORAGE_IDENTIFIER_TYPE,
+            m_cbIdentifier: u32,
+            m_rgbIdentifier: *mut u8,
+        }
+        #[repr(i32)]
+        enum VDS_STORAGE_IDENTIFIER_CODE_SET {
+            VDSStorageIdCodeSetReserved = 0,
+            VDSStorageIdCodeSetBinary = 1,
+            VDSStorageIdCodeSetAscii = 2,
+            VDSStorageIdCodeSetUtf8 = 3,
+        }
+        #[repr(i32)]
+        enum VDS_STORAGE_IDENTIFIER_TYPE {
+            VDSStorageIdTypeVendorSpecific = 0,
+            VDSStorageIdTypeVendorId = 1,
+            VDSStorageIdTypeEUI64 = 2,
+            VDSStorageIdTypeFCPHName = 3,
+            VDSStorageIdTypePortRelative = 4,
+            VDSStorageIdTypeTargetPortGroup = 5,
+            VDSStorageIdTypeLogicalUnitGroup = 6,
+            VDSStorageIdTypeMD5LogicalUnitIdentifier = 7,
+            VDSStorageIdTypeScsiNameString = 8,
+        }
+        const VER_VDS_LUN_INFORMATION: u32 = 1;
+    }
+}

@@ -1,0 +1,31 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn CallNamedPipeW(lpNamedPipeName: PCWSTR, #[size_param(2)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(4)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, lpBytesRead: *mut u32, nTimeOut: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ConnectNamedPipe(hNamedPipe: HANDLE, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateNamedPipeW(lpName: PCWSTR, dwOpenMode: u32, dwPipeMode: u32, nMaxInstances: u32, nOutBufferSize: u32, nInBufferSize: u32, nDefaultTimeOut: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreatePipe(hReadPipe: *mut HANDLE, hWritePipe: *mut HANDLE, #[opt] lpPipeAttributes: *const SECURITY_ATTRIBUTES, nSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DisconnectNamedPipe(hNamedPipe: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNamedPipeClientComputerNameW(Pipe: HANDLE, #[size_param(2)] #[out] ClientComputerName: PWSTR, ClientComputerNameLength: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNamedPipeHandleStateW(hNamedPipe: HANDLE, #[opt] lpState: *mut u32, #[opt] lpCurInstances: *mut u32, #[opt] lpMaxCollectionCount: *mut u32, #[opt] lpCollectDataTimeout: *mut u32, #[len_param(6)] #[out] #[opt] lpUserName: PWSTR, nMaxUserNameSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNamedPipeInfo(hNamedPipe: HANDLE, #[opt] lpFlags: *mut u32, #[opt] lpOutBufferSize: *mut u32, #[opt] lpInBufferSize: *mut u32, #[opt] lpMaxInstances: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ImpersonateNamedPipeClient(hNamedPipe: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn PeekNamedPipe(hNamedPipe: HANDLE, #[size_param(2)] #[opt] lpBuffer: *mut void, nBufferSize: u32, #[opt] lpBytesRead: *mut u32, #[opt] lpTotalBytesAvail: *mut u32, #[opt] lpBytesLeftThisMessage: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetNamedPipeHandleState(hNamedPipe: HANDLE, #[opt] lpMode: *const u32, #[opt] lpMaxCollectionCount: *const u32, #[opt] lpCollectDataTimeout: *const u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn TransactNamedPipe(hNamedPipe: HANDLE, #[size_param(2)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(4)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, lpBytesRead: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WaitNamedPipeW(lpNamedPipeName: PCWSTR, nTimeOut: u32) -> BOOL;
+    }
+}

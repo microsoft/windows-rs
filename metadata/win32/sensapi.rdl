@@ -1,0 +1,22 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("SensApi.dll")]
+        extern fn IsDestinationReachableA(lpszDestination: PCSTR, lpQOCInfo: *mut QOCINFO) -> BOOL;
+        #[library("SensApi.dll")]
+        extern fn IsDestinationReachableW(lpszDestination: PCWSTR, lpQOCInfo: *mut QOCINFO) -> BOOL;
+        #[library("SensApi.dll")]
+        extern fn IsNetworkAlive(lpdwFlags: *mut u32) -> BOOL;
+        type LPQOCINFO = *mut QOCINFO;
+        const NETWORK_ALIVE_AOL: u32 = 4;
+        const NETWORK_ALIVE_INTERNET: u32 = 8;
+        const NETWORK_ALIVE_LAN: u32 = 1;
+        const NETWORK_ALIVE_WAN: u32 = 2;
+        struct QOCINFO {
+            dwSize: u32,
+            dwFlags: u32,
+            dwInSpeed: u32,
+            dwOutSpeed: u32,
+        }
+    }
+}

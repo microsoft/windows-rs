@@ -1,0 +1,14 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[no_guid]
+        interface CFunctionDiscoveryNotificationWrapper: IFunctionDiscoveryNotification {}
+        const FD_EVENTID: u32 = 1000;
+        const FD_EVENTID_ASYNCTHREADEXIT: u32 = 1001;
+        const FD_EVENTID_IPADDRESSCHANGE: u32 = 1003;
+        const FD_EVENTID_PRIVATE: u32 = 100;
+        const FD_EVENTID_QUERYREFRESH: u32 = 1004;
+        const FD_EVENTID_SEARCHCOMPLETE: u32 = 1000;
+        const FD_EVENTID_SEARCHSTART: u32 = 1002;
+    }
+}

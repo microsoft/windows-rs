@@ -1,0 +1,166 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xb9574c6c_12a6_4f74_93a1_3318ff605759)]
+        interface IWSDAddress: IUnknown {
+            fn Serialize(&self, #[len_param(1)] #[out] pszBuffer: PWSTR, cchLength: u32, fSafe: BOOL) -> HRESULT;
+            fn Deserialize(&self, pszBuffer: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0)]
+        interface IWSDHttpAddress: IWSDTransportAddress {
+            fn GetSecure(&self) -> HRESULT;
+            fn SetSecure(&self, fSecure: BOOL) -> HRESULT;
+            fn GetPath(&self, ppszPath: *mut PCWSTR) -> HRESULT;
+            fn SetPath(&self, pszPath: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x0b476df0_8dac_480d_b05c_99781a5884aa)]
+        interface IWSDHttpAuthParameters: IUnknown {
+            fn GetClientAccessToken(&self, phToken: *mut HANDLE) -> HRESULT;
+            fn GetAuthType(&self, pAuthType: *mut u32) -> HRESULT;
+        }
+        #[guid(0x540bd122_5c83_4dec_b396_ea62a2697fdf)]
+        interface IWSDHttpMessageParameters: IWSDMessageParameters {
+            fn SetInboundHttpHeaders(&self, #[opt] pszHeaders: PCWSTR) -> HRESULT;
+            fn GetInboundHttpHeaders(&self, ppszHeaders: *mut PCWSTR) -> HRESULT;
+            fn SetOutboundHttpHeaders(&self, #[opt] pszHeaders: PCWSTR) -> HRESULT;
+            fn GetOutboundHttpHeaders(&self, ppszHeaders: *mut PCWSTR) -> HRESULT;
+            fn SetID(&self, #[opt] pszId: PCWSTR) -> HRESULT;
+            fn GetID(&self, ppszId: *mut PCWSTR) -> HRESULT;
+            fn SetContext(&self, pContext: IUnknown) -> HRESULT;
+            fn GetContext(&self, ppContext: *mut IUnknown) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c)]
+        interface IWSDMessageParameters: IUnknown {
+            fn GetLocalAddress(&self, ppAddress: *mut IWSDAddress) -> HRESULT;
+            fn SetLocalAddress(&self, pAddress: IWSDAddress) -> HRESULT;
+            fn GetRemoteAddress(&self, ppAddress: *mut IWSDAddress) -> HRESULT;
+            fn SetRemoteAddress(&self, pAddress: IWSDAddress) -> HRESULT;
+            fn GetLowerParameters(&self, ppTxParams: *mut IWSDMessageParameters) -> HRESULT;
+        }
+        #[guid(0xde105e87_a0da_418e_98ad_27b9eed87bdc)]
+        interface IWSDSSLClientCertificate: IUnknown {
+            fn GetClientCertificate(&self, #[in] #[out] ppCertContext: *mut PCCERT_CONTEXT) -> HRESULT;
+            fn GetMappedAccessToken(&self, phToken: *mut HANDLE) -> HRESULT;
+        }
+        #[guid(0x03ce20aa_71c4_45e2_b32e_3766c61c790f)]
+        interface IWSDSignatureProperty: IUnknown {
+            fn IsMessageSigned(&self, pbSigned: *mut BOOL) -> HRESULT;
+            fn IsMessageSignatureTrusted(&self, pbSignatureTrusted: *mut BOOL) -> HRESULT;
+            fn GetKeyInfo(&self, #[size_param(1)] #[opt] pbKeyInfo: *mut u8, #[in] #[out] pdwKeyInfoSize: *mut u32) -> HRESULT;
+            fn GetSignature(&self, #[size_param(1)] #[opt] pbSignature: *mut u8, #[in] #[out] pdwSignatureSize: *mut u32) -> HRESULT;
+            fn GetSignedInfoHash(&self, #[size_param(1)] #[opt] pbSignedInfoHash: *mut u8, #[in] #[out] pdwHashSize: *mut u32) -> HRESULT;
+        }
+        #[guid(0x70d23498_4ee6_4340_a3df_d845d2235467)]
+        interface IWSDTransportAddress: IWSDAddress {
+            fn GetPort(&self, pwPort: *mut u16) -> HRESULT;
+            fn SetPort(&self, wPort: u16) -> HRESULT;
+            fn GetTransportAddress(&self, ppszAddress: *mut PCWSTR) -> HRESULT;
+            fn GetTransportAddressEx(&self, fSafe: BOOL, ppszAddress: *mut PCWSTR) -> HRESULT;
+            fn SetTransportAddress(&self, #[opt] pszAddress: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x74d6124a_a441_4f78_a1eb_97a8d1996893)]
+        interface IWSDUdpAddress: IWSDTransportAddress {
+            fn SetSockaddr(&self, pSockAddr: *const SOCKADDR_STORAGE) -> HRESULT;
+            fn GetSockaddr(&self, pSockAddr: *mut SOCKADDR_STORAGE) -> HRESULT;
+            fn SetExclusive(&self, fExclusive: BOOL) -> HRESULT;
+            fn GetExclusive(&self) -> HRESULT;
+            fn SetMessageType(&self, messageType: WSDUdpMessageType) -> HRESULT;
+            fn GetMessageType(&self, pMessageType: *mut WSDUdpMessageType) -> HRESULT;
+            fn SetTTL(&self, dwTTL: u32) -> HRESULT;
+            fn GetTTL(&self, pdwTTL: *mut u32) -> HRESULT;
+            fn SetAlias(&self, pAlias: *const GUID) -> HRESULT;
+            fn GetAlias(&self, pAlias: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x9934149f_8f0c_447b_aa0b_73124b0ca7f0)]
+        interface IWSDUdpMessageParameters: IWSDMessageParameters {
+            fn SetRetransmitParams(&self, pParams: *const WSDUdpRetransmitParams) -> HRESULT;
+            fn GetRetransmitParams(&self, pParams: *mut WSDUdpRetransmitParams) -> HRESULT;
+        }
+        type PWSD_CONFIG_ADDRESSES = *mut WSD_CONFIG_ADDRESSES;
+        type PWSD_CONFIG_PARAM = *mut WSD_CONFIG_PARAM;
+        type PWSD_SECURITY_CERT_VALIDATION = *mut WSD_SECURITY_CERT_VALIDATION;
+        type PWSD_SECURITY_HTTP_AUTH_SCHEMES = *mut u32;
+        type PWSD_SECURITY_SIGNATURE_VALIDATION = *mut WSD_SECURITY_SIGNATURE_VALIDATION;
+        const WSDAPI_ADDRESSFAMILY_IPV4: u32 = 1;
+        const WSDAPI_ADDRESSFAMILY_IPV6: u32 = 2;
+        const WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES: u32 = 1;
+        const WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS: u32 = 0;
+        const WSDAPI_SSL_CERT_IGNORE_EXPIRY: u32 = 2;
+        const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16;
+        const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1;
+        const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8;
+        const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4;
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateHttpAddress(ppAddress: *mut IWSDHttpAddress) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateHttpMessageParameters(ppTxParams: *mut IWSDHttpMessageParameters) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateUdpAddress(ppAddress: *mut IWSDUdpAddress) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateUdpMessageParameters(ppTxParams: *mut IWSDUdpMessageParameters) -> HRESULT;
+        #[repr(i32)]
+        enum WSDUdpMessageType {
+            ONE_WAY = 0,
+            TWO_WAY = 1,
+        }
+        struct WSDUdpRetransmitParams {
+            ulSendDelay: u32,
+            ulRepeat: u32,
+            ulRepeatMinDelay: u32,
+            ulRepeatMaxDelay: u32,
+            ulRepeatUpperDelay: u32,
+        }
+        struct WSD_CONFIG_ADDRESSES {
+            addresses: *mut IWSDAddress,
+            dwAddressCount: u32,
+        }
+        struct WSD_CONFIG_PARAM {
+            configParamType: WSD_CONFIG_PARAM_TYPE,
+            pConfigData: *mut void,
+            dwConfigDataSize: u32,
+        }
+        #[repr(i32)]
+        enum WSD_CONFIG_PARAM_TYPE {
+            WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE = 1,
+            WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE = 2,
+            WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH = 3,
+            WSD_SECURITY_SSL_SERVER_CERT_VALIDATION = 4,
+            WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION = 5,
+            WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT = 6,
+            WSD_SECURITY_COMPACTSIG_SIGNING_CERT = 7,
+            WSD_SECURITY_COMPACTSIG_VALIDATION = 8,
+            WSD_CONFIG_HOSTING_ADDRESSES = 9,
+            WSD_CONFIG_DEVICE_ADDRESSES = 10,
+            WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH = 11,
+            WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH = 12,
+            WSD_SECURITY_USE_HTTP_CLIENT_AUTH = 13,
+        }
+        struct WSD_SECURITY_CERT_VALIDATION {
+            certMatchArray: *mut PCCERT_CONTEXT,
+            dwCertMatchArrayCount: u32,
+            hCertMatchStore: HCERTSTORE,
+            hCertIssuerStore: HCERTSTORE,
+            dwCertCheckOptions: u32,
+            pszCNGHashAlgId: PCWSTR,
+            pbCertHash: *mut u8,
+            dwCertHashSize: u32,
+        }
+        struct WSD_SECURITY_CERT_VALIDATION_V1 {
+            certMatchArray: *mut PCCERT_CONTEXT,
+            dwCertMatchArrayCount: u32,
+            hCertMatchStore: HCERTSTORE,
+            hCertIssuerStore: HCERTSTORE,
+            dwCertCheckOptions: u32,
+        }
+        type WSD_SECURITY_HTTP_AUTH_SCHEMES = u32;
+        const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1;
+        const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2;
+        struct WSD_SECURITY_SIGNATURE_VALIDATION {
+            signingCertArray: *mut PCCERT_CONTEXT,
+            dwSigningCertArrayCount: u32,
+            hSigningCertStore: HCERTSTORE,
+            dwFlags: u32,
+        }
+    }
+}

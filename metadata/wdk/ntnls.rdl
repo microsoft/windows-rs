@@ -1,0 +1,40 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct CPTABLEINFO {
+            CodePage: u16,
+            MaximumCharacterSize: u16,
+            DefaultChar: u16,
+            UniDefaultChar: u16,
+            TransDefaultChar: u16,
+            TransUniDefaultChar: u16,
+            DBCSCodePage: u16,
+            LeadByte: [u8; 12],
+            MultiByteTable: PUSHORT,
+            WideCharTable: *mut void,
+            DBCSRanges: PUSHORT,
+            DBCSOffsets: PUSHORT,
+        }
+        const MAXIMUM_LEADBYTES: u32 = 12;
+        struct NLSTABLEINFO {
+            OemTableInfo: CPTABLEINFO,
+            AnsiTableInfo: CPTABLEINFO,
+            UpperCaseTable: PUSHORT,
+            LowerCaseTable: PUSHORT,
+        }
+        type PCPTABLEINFO = *mut CPTABLEINFO;
+        type PNLSTABLEINFO = *mut NLSTABLEINFO;
+        type PRTL_NLS_STATE = *mut RTL_NLS_STATE;
+        struct RTL_NLS_STATE {
+            DefaultAcpTableInfo: CPTABLEINFO,
+            DefaultOemTableInfo: CPTABLEINFO,
+            ActiveCodePageData: PUSHORT,
+            OemCodePageData: PUSHORT,
+            LeadByteInfo: PUSHORT,
+            OemLeadByteInfo: PUSHORT,
+            CaseMappingData: PUSHORT,
+            UnicodeUpcaseTable844: PUSHORT,
+            UnicodeLowercaseTable844: PUSHORT,
+        }
+    }
+}

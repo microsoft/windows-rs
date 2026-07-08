@@ -1,0 +1,318 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type BASEBROWSERDATA = BASEBROWSERDATALH;
+        struct BASEBROWSERDATALH {
+            _hwnd: HWND,
+            _ptl: ITravelLog,
+            _phlf: IHlinkFrame,
+            _pautoWB2: IWebBrowser2,
+            _pautoEDS: IExpDispSupport,
+            _pautoSS: IShellService,
+            _eSecureLockIcon: i32,
+            _bitfield: u32,
+            _uActivateState: u32,
+            _pidlViewState: LPCITEMIDLIST,
+            _pctView: IOleCommandTarget,
+            _pidlCur: LPITEMIDLIST,
+            _psv: IShellView,
+            _psf: IShellFolder,
+            _hwndView: HWND,
+            _pszTitleCur: PWSTR,
+            _pidlPending: LPITEMIDLIST,
+            _psvPending: IShellView,
+            _psfPending: IShellFolder,
+            _hwndViewPending: HWND,
+            _pszTitlePending: PWSTR,
+            _fIsViewMSHTML: BOOL,
+            _fPrivacyImpacted: BOOL,
+            _clsidView: GUID,
+            _clsidViewPending: GUID,
+            _hwndFrame: HWND,
+            _lPhishingFilterStatus: i32,
+        }
+        struct BASEBROWSERDATAXP {
+            _hwnd: HWND,
+            _ptl: ITravelLog,
+            _phlf: IHlinkFrame,
+            _pautoWB2: IWebBrowser2,
+            _pautoEDS: IExpDispSupportXP,
+            _pautoSS: IShellService,
+            _eSecureLockIcon: i32,
+            _bitfield: u32,
+            _uActivateState: u32,
+            _pidlViewState: LPCITEMIDLIST,
+            _pctView: IOleCommandTarget,
+            _pidlCur: LPITEMIDLIST,
+            _psv: IShellView,
+            _psf: IShellFolder,
+            _hwndView: HWND,
+            _pszTitleCur: PWSTR,
+            _pidlPending: LPITEMIDLIST,
+            _psvPending: IShellView,
+            _psfPending: IShellFolder,
+            _hwndViewPending: HWND,
+            _pszTitlePending: PWSTR,
+            _fIsViewMSHTML: BOOL,
+            _fPrivacyImpacted: BOOL,
+            _clsidView: GUID,
+            _clsidViewPending: GUID,
+            _hwndFrame: HWND,
+        }
+        #[repr(i32)]
+        enum BNSTATE {
+            BNS_NORMAL = 0,
+            BNS_BEGIN_NAVIGATE = 1,
+            BNS_NAVIGATE = 2,
+        }
+        const BSF_CANMAXIMIZE: u32 = 1024;
+        const BSF_DELEGATEDNAVIGATION: u32 = 65536;
+        const BSF_DONTSHOWNAVCANCELPAGE: u32 = 16384;
+        const BSF_FEEDNAVIGATION: u32 = 524288;
+        const BSF_FEEDSUBSCRIBED: u32 = 1048576;
+        const BSF_HTMLNAVCANCELED: u32 = 8192;
+        const BSF_MERGEDMENUS: u32 = 262144;
+        const BSF_NAVNOHISTORY: u32 = 4096;
+        const BSF_NOLOCALFILEWARNING: u32 = 16;
+        const BSF_REGISTERASDROPTARGET: u32 = 1;
+        const BSF_RESIZABLE: u32 = 512;
+        const BSF_SETNAVIGATABLECODEPAGE: u32 = 32768;
+        const BSF_THEATERMODE: u32 = 2;
+        const BSF_TOPBROWSER: u32 = 2048;
+        const BSF_TRUSTEDFORACTIVEX: u32 = 131072;
+        const BSF_UISETBYAUTOMATION: u32 = 256;
+        #[no_guid]
+        interface CIE4ConnectionPoint: IConnectionPoint {
+            fn DoInvokeIE4(&self, pf: *mut BOOL, ppv: *mut *mut void, dispid: DISPID, pdispparams: *mut DISPPARAMS) -> HRESULT;
+            fn DoInvokePIDLIE4(&self, dispid: DISPID, pidl: *const ITEMIDLIST, fCanCancel: BOOL) -> HRESULT;
+        }
+        struct FOLDERSETDATA {
+            _fs: FOLDERSETTINGS,
+            _vidRestore: SHELLVIEWID,
+            _dwViewPriority: u32,
+        }
+        const HLNF_ALLOW_AUTONAVIGATE: u32 = 536870912;
+        const HLNF_CALLERUNTRUSTED: u32 = 2097152;
+        const HLNF_DISABLEWINDOWRESTRICTIONS: u32 = 8388608;
+        const HLNF_EXTERNALNAVIGATE: u32 = 268435456;
+        const HLNF_NEWWINDOWSMANAGED: u32 = 2147483648;
+        const HLNF_TRUSTEDFORACTIVEX: u32 = 4194304;
+        const HLNF_TRUSTFIRSTDOWNLOAD: u32 = 16777216;
+        const HLNF_UNTRUSTEDFORDOWNLOAD: u32 = 33554432;
+        #[guid(0x02ba3b52_0547_11d1_b833_00c04fc9b31f)]
+        interface IBrowserService: IUnknown {
+            fn GetParentSite(&self, ppipsite: *mut IOleInPlaceSite) -> HRESULT;
+            fn SetTitle(&self, psv: IShellView, pszName: PCWSTR) -> HRESULT;
+            fn GetTitle(&self, psv: IShellView, #[len_param(2)] #[out] pszName: PWSTR, cchName: u32) -> HRESULT;
+            fn GetOleObject(&self, ppobjv: *mut IOleObject) -> HRESULT;
+            fn GetTravelLog(&self, pptl: *mut ITravelLog) -> HRESULT;
+            fn ShowControlWindow(&self, id: u32, fShow: BOOL) -> HRESULT;
+            fn IsControlWindowShown(&self, id: u32, pfShown: *mut BOOL) -> HRESULT;
+            fn IEGetDisplayName(&self, pidl: *const ITEMIDLIST, #[out] pwszName: PWSTR, uFlags: u32) -> HRESULT;
+            fn IEParseDisplayName(&self, uiCP: u32, pwszPath: PCWSTR, ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
+            fn DisplayParseError(&self, hres: HRESULT, pwszPath: PCWSTR) -> HRESULT;
+            fn NavigateToPidl(&self, pidl: *const ITEMIDLIST, grfHLNF: u32) -> HRESULT;
+            fn SetNavigateState(&self, bnstate: BNSTATE) -> HRESULT;
+            fn GetNavigateState(&self, pbnstate: *mut BNSTATE) -> HRESULT;
+            fn NotifyRedirect(&self, psv: IShellView, pidl: *const ITEMIDLIST, pfDidBrowse: *mut BOOL) -> HRESULT;
+            fn UpdateWindowList(&self) -> HRESULT;
+            fn UpdateBackForwardState(&self) -> HRESULT;
+            fn SetFlags(&self, dwFlags: u32, dwFlagMask: u32) -> HRESULT;
+            fn GetFlags(&self, pdwFlags: *mut u32) -> HRESULT;
+            fn CanNavigateNow(&self) -> HRESULT;
+            fn GetPidl(&self, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+            fn SetReferrer(&self, pidl: *const ITEMIDLIST) -> HRESULT;
+            fn GetBrowserIndex(&self) -> u32;
+            fn GetBrowserByIndex(&self, dwID: u32, ppunk: *mut IUnknown) -> HRESULT;
+            fn GetHistoryObject(&self, ppole: *mut IOleObject, pstm: *mut IStream, ppbc: *mut IBindCtx) -> HRESULT;
+            fn SetHistoryObject(&self, pole: IOleObject, fIsLocalAnchor: BOOL) -> HRESULT;
+            fn CacheOLEServer(&self, pole: IOleObject) -> HRESULT;
+            fn GetSetCodePage(&self, pvarIn: *const VARIANT, pvarOut: *mut VARIANT) -> HRESULT;
+            fn OnHttpEquiv(&self, psv: IShellView, fDone: BOOL, pvarargIn: *const VARIANT, pvarargOut: *mut VARIANT) -> HRESULT;
+            fn GetPalette(&self, hpal: *mut HPALETTE) -> HRESULT;
+            fn RegisterWindow(&self, fForceRegister: BOOL, swc: i32) -> HRESULT;
+        }
+        #[guid(0x68bd21cc_438b_11d2_a560_00a0c92dbfe8)]
+        interface IBrowserService2: IBrowserService {
+            fn WndProcBS(&self, hwnd: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+            fn SetAsDefFolderSettings(&self) -> HRESULT;
+            fn GetViewRect(&self, prc: *mut RECT) -> HRESULT;
+            fn OnSize(&self, wParam: WPARAM) -> HRESULT;
+            fn OnCreate(&self, pcs: *const CREATESTRUCTW) -> HRESULT;
+            fn OnCommand(&self, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+            fn OnDestroy(&self) -> HRESULT;
+            fn OnNotify(&self, pnm: *const NMHDR) -> LRESULT;
+            fn OnSetFocus(&self) -> HRESULT;
+            fn OnFrameWindowActivateBS(&self, fActive: BOOL) -> HRESULT;
+            fn ReleaseShellView(&self) -> HRESULT;
+            fn ActivatePendingView(&self) -> HRESULT;
+            fn CreateViewWindow(&self, psvNew: IShellView, psvOld: IShellView, prcView: *const RECT, phwnd: *mut HWND) -> HRESULT;
+            fn CreateBrowserPropSheetExt(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetViewWindow(&self, phwndView: *mut HWND) -> HRESULT;
+            fn GetBaseBrowserData(&self, pbbd: *mut LPCBASEBROWSERDATA) -> HRESULT;
+            fn PutBaseBrowserData(&self) -> LPBASEBROWSERDATA;
+            fn InitializeTravelLog(&self, ptl: ITravelLog, dw: u32) -> HRESULT;
+            fn SetTopBrowser(&self) -> HRESULT;
+            fn Offline(&self, iCmd: i32) -> HRESULT;
+            fn AllowViewResize(&self, f: BOOL) -> HRESULT;
+            fn SetActivateState(&self, u: u32) -> HRESULT;
+            fn UpdateSecureLockIcon(&self, eSecureLock: i32) -> HRESULT;
+            fn InitializeDownloadManager(&self) -> HRESULT;
+            fn InitializeTransitionSite(&self) -> HRESULT;
+            fn _Initialize(&self, hwnd: HWND, pauto: IUnknown) -> HRESULT;
+            fn _CancelPendingNavigationAsync(&self) -> HRESULT;
+            fn _CancelPendingView(&self) -> HRESULT;
+            fn _MaySaveChanges(&self) -> HRESULT;
+            fn _PauseOrResumeView(&self, fPaused: BOOL) -> HRESULT;
+            fn _DisableModeless(&self) -> HRESULT;
+            fn _NavigateToPidl(&self, pidl: *const ITEMIDLIST, grfHLNF: u32, dwFlags: u32) -> HRESULT;
+            fn _TryShell2Rename(&self, psv: IShellView, pidlNew: *const ITEMIDLIST) -> HRESULT;
+            fn _SwitchActivationNow(&self) -> HRESULT;
+            fn _ExecChildren(&self, punkBar: IUnknown, fBroadcast: BOOL, #[opt] pguidCmdGroup: *const GUID, nCmdID: u32, nCmdexecopt: u32, #[opt] pvarargIn: *const VARIANTARG, #[in] #[out] #[opt] pvarargOut: *mut VARIANTARG) -> HRESULT;
+            fn _SendChildren(&self, hwndBar: HWND, fBroadcast: BOOL, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+            fn GetFolderSetData(&self, pfsd: *mut FOLDERSETDATA) -> HRESULT;
+            fn _OnFocusChange(&self, itb: u32) -> HRESULT;
+            fn v_ShowHideChildWindows(&self, fChildOnly: BOOL) -> HRESULT;
+            fn _get_itbLastFocus(&self) -> u32;
+            fn _put_itbLastFocus(&self, itbLastFocus: u32) -> HRESULT;
+            fn _UIActivateView(&self, uState: u32) -> HRESULT;
+            fn _GetViewBorderRect(&self, prc: *mut RECT) -> HRESULT;
+            fn _UpdateViewRectSize(&self) -> HRESULT;
+            fn _ResizeNextBorder(&self, itb: u32) -> HRESULT;
+            fn _ResizeView(&self) -> HRESULT;
+            fn _GetEffectiveClientArea(&self, lprectBorder: *mut RECT, hmon: HMONITOR) -> HRESULT;
+            fn v_GetViewStream(&self, pidl: *const ITEMIDLIST, grfMode: u32, pwszName: PCWSTR) -> IStream;
+            fn ForwardViewMsg(&self, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+            fn SetAcceleratorMenu(&self, hacc: HACCEL) -> HRESULT;
+            fn _GetToolbarCount(&self) -> i32;
+            fn _GetToolbarItem(&self, itb: i32) -> LPTOOLBARITEM;
+            fn _SaveToolbars(&self, pstm: IStream) -> HRESULT;
+            fn _LoadToolbars(&self, pstm: IStream) -> HRESULT;
+            fn _CloseAndReleaseToolbars(&self, fClose: BOOL) -> HRESULT;
+            fn v_MayGetNextToolbarFocus(&self, lpMsg: *const MSG, itbNext: u32, citb: i32, pptbi: *mut LPTOOLBARITEM, phwnd: *mut HWND) -> HRESULT;
+            fn _ResizeNextBorderHelper(&self, itb: u32, bUseHmonitor: BOOL) -> HRESULT;
+            fn _FindTBar(&self, punkSrc: IUnknown) -> u32;
+            fn _SetFocus(&self, ptbi: *const TOOLBARITEM, hwnd: HWND, lpMsg: *const MSG) -> HRESULT;
+            fn v_MayTranslateAccelerator(&self, pmsg: *const MSG) -> HRESULT;
+            fn _GetBorderDWHelper(&self, punkSrc: IUnknown, lprectBorder: *mut RECT, bUseHmonitor: BOOL) -> HRESULT;
+            fn v_CheckZoneCrossing(&self, pidl: *const ITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0x27d7ce21_762d_48f3_86f3_40e2fd3749c4)]
+        interface IBrowserService3: IBrowserService2 {
+            fn _PositionViewWindow(&self, hwnd: HWND, prc: *const RECT) -> HRESULT;
+            fn IEParseDisplayNameEx(&self, uiCP: u32, pwszPath: PCWSTR, dwFlags: u32, ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0x639f1bff_e135_4096_abd8_e0f504d649a4)]
+        interface IBrowserService4: IBrowserService3 {
+            fn ActivateView(&self, fPendingView: BOOL) -> HRESULT;
+            fn SaveViewState(&self) -> HRESULT;
+            fn _ResizeAllBorders(&self) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum IEPDNFLAGS {
+            IEPDN_BINDINGUI = 1,
+        }
+        #[guid(0x0d7d1d00_6fc0_11d0_a974_00c04fd705a2)]
+        interface IExpDispSupport: IUnknown {
+            fn FindConnectionPoint(&self, riid: *const GUID, ppccp: *mut IConnectionPoint) -> HRESULT;
+            fn OnTranslateAccelerator(&self, pMsg: *const MSG, grfModifiers: u32) -> HRESULT;
+            fn OnInvoke(&self, dispidMember: DISPID, iid: *const GUID, lcid: LCID, wFlags: u16, pdispparams: *const DISPPARAMS, pVarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
+        }
+        #[guid(0x2f0dd58c_f789_4f14_99fb_9293b3c9c212)]
+        interface IExpDispSupportXP: IUnknown {
+            fn FindCIE4ConnectionPoint(&self, riid: *const GUID, ppccp: *mut CIE4ConnectionPoint) -> HRESULT;
+            fn OnTranslateAccelerator(&self, pMsg: *const MSG, grfModifiers: u32) -> HRESULT;
+            fn OnInvoke(&self, dispidMember: DISPID, iid: *const GUID, lcid: LCID, wFlags: u16, pdispparams: *const DISPPARAMS, pVarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
+        }
+        #[guid(0x5836fb00_8187_11cf_a12b_00aa004ae837)]
+        interface IShellService: IUnknown {
+            fn SetOwner(&self, #[opt] punkOwner: IUnknown) -> HRESULT;
+        }
+        const ITB_VIEW: u32 = 4294967295;
+        #[guid(0x8278f932_2a3e_11d2_838f_00c04fd918d0)]
+        interface ITrackShellMenu: IShellMenu {
+            fn SetObscured(&self, hwndTB: HWND, punkBand: IUnknown, dwSMSetFlags: u32) -> HRESULT;
+            fn Popup(&self, hwnd: HWND, ppt: *const POINTL, prcExclude: *const RECTL, dwFlags: MP_POPUPFLAGS) -> HRESULT;
+        }
+        #[guid(0xf46edb3b_bc2f_11d0_9412_00aa00a3ebd3)]
+        interface ITravelEntry: IUnknown {
+            fn Invoke(&self, punk: IUnknown) -> HRESULT;
+            fn Update(&self, punk: IUnknown, fIsLocalAnchor: BOOL) -> HRESULT;
+            fn GetPidl(&self, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0x66a9cb08_4802_11d2_a561_00a0c92dbfe8)]
+        interface ITravelLog: IUnknown {
+            fn AddEntry(&self, punk: IUnknown, fIsLocalAnchor: BOOL) -> HRESULT;
+            fn UpdateEntry(&self, punk: IUnknown, fIsLocalAnchor: BOOL) -> HRESULT;
+            fn UpdateExternal(&self, punk: IUnknown, punkHLBrowseContext: IUnknown) -> HRESULT;
+            fn Travel(&self, punk: IUnknown, iOffset: i32) -> HRESULT;
+            fn GetTravelEntry(&self, punk: IUnknown, iOffset: i32, ppte: *mut ITravelEntry) -> HRESULT;
+            fn FindTravelEntry(&self, punk: IUnknown, pidl: *const ITEMIDLIST, ppte: *mut ITravelEntry) -> HRESULT;
+            fn GetToolTipText(&self, punk: IUnknown, iOffset: i32, idsTemplate: i32, #[out] pwzText: PWSTR, cchText: u32) -> HRESULT;
+            fn InsertMenuEntries(&self, punk: IUnknown, hmenu: HMENU, nPos: i32, idFirst: i32, idLast: i32, dwFlags: u32) -> HRESULT;
+            fn Clone(&self, pptl: *mut ITravelLog) -> HRESULT;
+            fn CountEntries(&self, punk: IUnknown) -> u32;
+            fn Revert(&self) -> HRESULT;
+        }
+        type LPBASEBROWSERDATA = *mut BASEBROWSERDATA;
+        type LPBASEBROWSERDATALH = *mut BASEBROWSERDATALH;
+        type LPBASEBROWSERDATAXP = *mut BASEBROWSERDATAXP;
+        type LPCBASEBROWSERDATA = *const BASEBROWSERDATA;
+        type LPFOLDERSETDATA = *mut FOLDERSETDATA;
+        type LPTOOLBARITEM = *mut TOOLBARITEM;
+        #[repr(i32)]
+        enum SECURELOCKCODE {
+            SECURELOCK_NOCHANGE = -1,
+            SECURELOCK_SET_UNSECURE = 0,
+            SECURELOCK_SET_MIXED = 1,
+            SECURELOCK_SET_SECUREUNKNOWNBIT = 2,
+            SECURELOCK_SET_SECURE40BIT = 3,
+            SECURELOCK_SET_SECURE56BIT = 4,
+            SECURELOCK_SET_FORTEZZA = 5,
+            SECURELOCK_SET_SECURE128BIT = 6,
+            SECURELOCK_FIRSTSUGGEST = 7,
+            SECURELOCK_SUGGEST_UNSECURE = 7,
+            SECURELOCK_SUGGEST_MIXED = 8,
+            SECURELOCK_SUGGEST_SECUREUNKNOWNBIT = 9,
+            SECURELOCK_SUGGEST_SECURE40BIT = 10,
+            SECURELOCK_SUGGEST_SECURE56BIT = 11,
+            SECURELOCK_SUGGEST_FORTEZZA = 12,
+            SECURELOCK_SUGGEST_SECURE128BIT = 13,
+        }
+        #[repr(i32)]
+        enum SHELLBROWSERSHOWCONTROL {
+            SBSC_HIDE = 0,
+            SBSC_SHOW = 1,
+            SBSC_TOGGLE = 2,
+            SBSC_QUERY = 3,
+        }
+        const SHHLNF_NOAUTOSELECT: u32 = 67108864;
+        const SHHLNF_WRITENOHISTORY: u32 = 134217728;
+        const TLMENUF_BACK: u32 = 16;
+        const TLMENUF_BACKANDFORTH: u32 = 49;
+        const TLMENUF_CHECKCURRENT: u32 = 3;
+        const TLMENUF_FORE: u32 = 32;
+        const TLMENUF_INCLUDECURRENT: u32 = 1;
+        const TLOG_BACK: i32 = -1;
+        const TLOG_CURRENT: u32 = 0;
+        const TLOG_FORE: u32 = 1;
+        struct TOOLBARITEM {
+            ptbar: IDockingWindow,
+            rcBorderTool: BORDERWIDTHS,
+            pwszItem: PWSTR,
+            fShow: BOOL,
+            hMon: HMONITOR,
+        }
+        const TrackShellMenu: GUID = 0x8278f931_2a3e_11d2_838f_00c04fd918d0;
+        const VIEW_PRIORITY_CACHEHIT: u32 = 80;
+        const VIEW_PRIORITY_CACHEMISS: u32 = 48;
+        const VIEW_PRIORITY_DESPERATE: u32 = 16;
+        const VIEW_PRIORITY_INHERIT: u32 = 32;
+        const VIEW_PRIORITY_NONE: u32 = 0;
+        const VIEW_PRIORITY_RESTRICTED: u32 = 112;
+        const VIEW_PRIORITY_SHELLEXT: u32 = 64;
+        const VIEW_PRIORITY_SHELLEXT_ASBACKUP: u32 = 21;
+        const VIEW_PRIORITY_STALECACHEHIT: u32 = 69;
+        const VIEW_PRIORITY_USEASDEFAULT: u32 = 67;
+    }
+}

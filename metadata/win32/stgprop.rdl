@@ -1,0 +1,28 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CSTORAGEPROPERTY: u32 = 23;
+        const PID_STG_ACCESSTIME: PROPID = 16;
+        const PID_STG_ALLOCSIZE: PROPID = 18;
+        const PID_STG_ATTRIBUTES: PROPID = 13;
+        const PID_STG_CHANGETIME: PROPID = 17;
+        const PID_STG_CLASSID: PROPID = 3;
+        const PID_STG_CONTENTS: PROPID = 19;
+        const PID_STG_CREATETIME: PROPID = 15;
+        const PID_STG_DIRECTORY: PROPID = 2;
+        const PID_STG_FILEINDEX: PROPID = 8;
+        const PID_STG_FRN: PROPID = 21;
+        const PID_STG_LASTCHANGEUSN: PROPID = 9;
+        const PID_STG_MAX: u32 = 22;
+        const PID_STG_NAME: PROPID = 10;
+        const PID_STG_PARENT_WORKID: PROPID = 6;
+        const PID_STG_PATH: PROPID = 11;
+        const PID_STG_SCOPE: PROPID = 22;
+        const PID_STG_SECONDARYSTORE: PROPID = 7;
+        const PID_STG_SHORTNAME: PROPID = 20;
+        const PID_STG_SIZE: PROPID = 12;
+        const PID_STG_STORAGETYPE: PROPID = 4;
+        const PID_STG_VOLUME_ID: PROPID = 5;
+        const PID_STG_WRITETIME: PROPID = 14;
+    }
+}

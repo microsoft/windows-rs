@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    const E_FAIL: HRESULT = 2147500037;
+    const E_UNEXPECTED: HRESULT = 2147549183;
+    const NDIS_STATUS_SUCCESS: u32 = 0;
+    const S_OK: HRESULT = 0;
+}

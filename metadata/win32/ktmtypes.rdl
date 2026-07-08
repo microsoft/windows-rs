@@ -1,0 +1,132 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2;
+        const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1;
+        type CRM_PROTOCOL_ID = GUID;
+        const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3;
+        const ENLISTMENT_MAXIMUM_OPTION: u32 = 1;
+        #[encoding("utf-16")]
+        const ENLISTMENT_OBJECT_PATH: String = "\\Enlistment\\";
+        const ENLISTMENT_SUPERIOR: u32 = 1;
+        struct KCRM_MARSHAL_HEADER {
+            VersionMajor: u32,
+            VersionMinor: u32,
+            NumProtocols: u32,
+            Unused: u32,
+        }
+        struct KCRM_PROTOCOL_BLOB {
+            ProtocolId: CRM_PROTOCOL_ID,
+            StaticInfoLength: u32,
+            TransactionIdInfoLength: u32,
+            Unused1: u32,
+            Unused2: u32,
+        }
+        struct KCRM_TRANSACTION_BLOB {
+            UOW: UOW,
+            TmIdentity: GUID,
+            IsolationLevel: u32,
+            IsolationFlags: u32,
+            Timeout: u32,
+            Description: [u16; 64],
+        }
+        const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1;
+        const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1;
+        const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64;
+        const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64;
+        type NOTIFICATION_MASK = u32;
+        type PCRM_PROTOCOL_ID = *mut GUID;
+        type PKCRM_MARSHAL_HEADER = *mut KCRM_MARSHAL_HEADER;
+        type PKCRM_PROTOCOL_BLOB = *mut KCRM_PROTOCOL_BLOB;
+        type PKCRM_TRANSACTION_BLOB = *mut KCRM_TRANSACTION_BLOB;
+        type PRKCRM_MARSHAL_HEADER = *mut KCRM_MARSHAL_HEADER;
+        type PRKCRM_PROTOCOL_BLOB = *mut KCRM_PROTOCOL_BLOB;
+        type PRKCRM_TRANSACTION_BLOB = *mut KCRM_TRANSACTION_BLOB;
+        type PSAVEPOINT_ID = *mut u32;
+        type PTRANSACTION_NOTIFICATION = *mut TRANSACTION_NOTIFICATION;
+        type PTRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT = *mut TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT;
+        type PTRANSACTION_NOTIFICATION_PROMOTE_ARGUMENT = *mut TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT;
+        type PTRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT = *mut TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT;
+        type PTRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT = *mut TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT;
+        type PTRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT = *mut TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT;
+        type PTRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT = *mut TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT;
+        type PUOW = *mut GUID;
+        const RESOURCE_MANAGER_COMMUNICATION: u32 = 2;
+        const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3;
+        #[encoding("utf-16")]
+        const RESOURCE_MANAGER_OBJECT_PATH: String = "\\ResourceManager\\";
+        const RESOURCE_MANAGER_VOLATILE: u32 = 1;
+        type SAVEPOINT_ID = u32;
+        #[encoding("utf-16")]
+        const TRANSACTIONMANAGER_OBJECT_PATH: String = "\\TransactionManager\\";
+        const TRANSACTION_DO_NOT_PROMOTE: u32 = 1;
+        const TRANSACTION_MANAGER_COMMIT_DEFAULT: u32 = 0;
+        const TRANSACTION_MANAGER_COMMIT_LOWEST: u32 = 8;
+        const TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES: u32 = 4;
+        const TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME: u32 = 2;
+        const TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS: u32 = 32;
+        const TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY: u32 = 16;
+        const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63;
+        const TRANSACTION_MANAGER_VOLATILE: u32 = 1;
+        const TRANSACTION_MAXIMUM_OPTION: u32 = 1;
+        struct TRANSACTION_NOTIFICATION {
+            TransactionKey: *mut void,
+            TransactionNotification: u32,
+            TmVirtualClock: LARGE_INTEGER,
+            ArgumentLength: u32,
+        }
+        struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+            MarshalCookie: u32,
+            UOW: GUID,
+        }
+        type TRANSACTION_NOTIFICATION_PROMOTE_ARGUMENT = TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT;
+        struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+            PropagationCookie: u32,
+            UOW: GUID,
+            TmIdentity: GUID,
+            BufferLength: u32,
+        }
+        struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+            EnlistmentId: GUID,
+            UOW: UOW,
+        }
+        struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+            SavepointId: SAVEPOINT_ID,
+        }
+        struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+            TmIdentity: GUID,
+            Flags: u32,
+        }
+        const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: u32 = 1;
+        const TRANSACTION_NOTIFY_COMMIT: u32 = 4;
+        const TRANSACTION_NOTIFY_COMMIT_COMPLETE: u32 = 64;
+        const TRANSACTION_NOTIFY_COMMIT_FINALIZE: u32 = 1073741824;
+        const TRANSACTION_NOTIFY_COMMIT_REQUEST: u32 = 67108864;
+        const TRANSACTION_NOTIFY_DELEGATE_COMMIT: u32 = 1024;
+        const TRANSACTION_NOTIFY_ENLIST_MASK: u32 = 262144;
+        const TRANSACTION_NOTIFY_ENLIST_PREPREPARE: u32 = 4096;
+        const TRANSACTION_NOTIFY_INDOUBT: u32 = 16384;
+        const TRANSACTION_NOTIFY_LAST_RECOVER: u32 = 8192;
+        const TRANSACTION_NOTIFY_MARSHAL: u32 = 131072;
+        const TRANSACTION_NOTIFY_MASK: u32 = 1073741823;
+        const TRANSACTION_NOTIFY_PREPARE: u32 = 2;
+        const TRANSACTION_NOTIFY_PREPARE_COMPLETE: u32 = 32;
+        const TRANSACTION_NOTIFY_PREPREPARE: u32 = 1;
+        const TRANSACTION_NOTIFY_PREPREPARE_COMPLETE: u32 = 16;
+        const TRANSACTION_NOTIFY_PROMOTE: u32 = 134217728;
+        const TRANSACTION_NOTIFY_PROMOTE_NEW: u32 = 268435456;
+        const TRANSACTION_NOTIFY_PROPAGATE_PULL: u32 = 32768;
+        const TRANSACTION_NOTIFY_PROPAGATE_PUSH: u32 = 65536;
+        const TRANSACTION_NOTIFY_RECOVER: u32 = 256;
+        const TRANSACTION_NOTIFY_RECOVER_QUERY: u32 = 2048;
+        const TRANSACTION_NOTIFY_REQUEST_OUTCOME: u32 = 536870912;
+        const TRANSACTION_NOTIFY_RM_DISCONNECTED: u32 = 16777216;
+        const TRANSACTION_NOTIFY_ROLLBACK: u32 = 8;
+        const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: u32 = 128;
+        const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512;
+        const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432;
+        #[encoding("utf-16")]
+        const TRANSACTION_OBJECT_PATH: String = "\\Transaction\\";
+        type UOW = GUID;
+    }
+}

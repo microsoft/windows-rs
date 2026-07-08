@@ -1,0 +1,323 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const FSRM_DISPID_CLASSIFICATION_EVENTS: u32 = 90177536;
+        const FSRM_DISPID_CLASSIFICATION_MANAGER: u32 = 89128960;
+        const FSRM_DISPID_CLASSIFICATION_MANAGER2: u32 = 89194496;
+        const FSRM_DISPID_CLASSIFICATION_RULE: u32 = 87097344;
+        const FSRM_DISPID_CLASSIFIER_MODULE_DEFINITION: u32 = 88145920;
+        const FSRM_DISPID_CLASSIFIER_MODULE_IMPLEMENTATION: u32 = 102825984;
+        const FSRM_DISPID_EXPIRATION_RULE: u32 = 87162880;
+        const FSRM_DISPID_PIPELINE_MODULE_CONNECTOR: u32 = 103809024;
+        const FSRM_DISPID_PIPELINE_MODULE_DEFINITION: u32 = 88080384;
+        const FSRM_DISPID_PIPELINE_MODULE_IMPLEMENTATION: u32 = 102760448;
+        const FSRM_DISPID_PROPERTY: u32 = 85983232;
+        const FSRM_DISPID_PROPERTY_BAG: u32 = 101711872;
+        const FSRM_DISPID_PROPERTY_BAG2: u32 = 101777408;
+        const FSRM_DISPID_PROPERTY_DEFINITION: u32 = 84934656;
+        const FSRM_DISPID_PROPERTY_DEFINITION2: u32 = 85000192;
+        const FSRM_DISPID_PROPERTY_DEFINITION_VALUE: u32 = 91226112;
+        const FSRM_DISPID_RULE: u32 = 87031808;
+        const FSRM_DISPID_STORAGE_MODULE_DEFINITION: u32 = 88211456;
+        const FSRM_DISPID_STORAGE_MODULE_IMPLEMENTATION: u32 = 102891520;
+        const FsrmAlwaysModified: i32 = -1;
+        const FsrmMaxNumberPropertyDefinitions: u32 = 100;
+        const FsrmNeverModified: u32 = 0;
+        #[guid(0xd2dc89da_ee91_48a0_85d8_cc72a56f7d04)]
+        interface IFsrmClassificationManager: IDispatch {
+            #[special]
+            fn get_ClassificationReportFormats(&self, #[retval] formats: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_ClassificationReportFormats(&self, formats: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_Logging(&self, #[retval] logging: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Logging(&self, logging: i32) -> HRESULT;
+            #[special]
+            fn get_ClassificationReportMailTo(&self, #[retval] mailTo: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ClassificationReportMailTo(&self, mailTo: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClassificationReportEnabled(&self, #[retval] reportEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_ClassificationReportEnabled(&self, reportEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ClassificationLastReportPathWithoutExtension(&self, #[retval] lastReportPath: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ClassificationLastError(&self, #[retval] lastError: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ClassificationRunningStatus(&self, #[retval] runningStatus: *mut FsrmReportRunningStatus) -> HRESULT;
+            fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions, #[retval] propertyDefinitions: *mut IFsrmCollection) -> HRESULT;
+            fn CreatePropertyDefinition(&self, #[retval] propertyDefinition: *mut IFsrmPropertyDefinition) -> HRESULT;
+            fn GetPropertyDefinition(&self, propertyName: BSTR, #[retval] propertyDefinition: *mut IFsrmPropertyDefinition) -> HRESULT;
+            fn EnumRules(&self, ruleType: FsrmRuleType, options: FsrmEnumOptions, #[retval] Rules: *mut IFsrmCollection) -> HRESULT;
+            fn CreateRule(&self, ruleType: FsrmRuleType, #[retval] Rule: *mut IFsrmRule) -> HRESULT;
+            fn GetRule(&self, ruleName: BSTR, ruleType: FsrmRuleType, #[retval] Rule: *mut IFsrmRule) -> HRESULT;
+            fn EnumModuleDefinitions(&self, moduleType: FsrmPipelineModuleType, options: FsrmEnumOptions, #[retval] moduleDefinitions: *mut IFsrmCollection) -> HRESULT;
+            fn CreateModuleDefinition(&self, moduleType: FsrmPipelineModuleType, #[retval] moduleDefinition: *mut IFsrmPipelineModuleDefinition) -> HRESULT;
+            fn GetModuleDefinition(&self, moduleName: BSTR, moduleType: FsrmPipelineModuleType, #[retval] moduleDefinition: *mut IFsrmPipelineModuleDefinition) -> HRESULT;
+            fn RunClassification(&self, context: FsrmReportGenerationContext, reserved: BSTR) -> HRESULT;
+            fn WaitForClassificationCompletion(&self, waitSeconds: i32, #[retval] completed: *mut VARIANT_BOOL) -> HRESULT;
+            fn CancelClassification(&self) -> HRESULT;
+            fn EnumFileProperties(&self, filePath: BSTR, options: FsrmGetFilePropertyOptions, #[retval] fileProperties: *mut IFsrmCollection) -> HRESULT;
+            fn GetFileProperty(&self, filePath: BSTR, propertyName: BSTR, options: FsrmGetFilePropertyOptions, #[retval] property: *mut IFsrmProperty) -> HRESULT;
+            fn SetFileProperty(&self, filePath: BSTR, propertyName: BSTR, propertyValue: BSTR) -> HRESULT;
+            fn ClearFileProperty(&self, filePath: BSTR, property: BSTR) -> HRESULT;
+        }
+        #[guid(0x0004c1c9_127e_4765_ba07_6a3147bca112)]
+        interface IFsrmClassificationManager2: IFsrmClassificationManager {
+            fn ClassifyFiles(&self, filePaths: *const SAFEARRAY, propertyNames: *const SAFEARRAY, propertyValues: *const SAFEARRAY, options: FsrmGetFilePropertyOptions) -> HRESULT;
+        }
+        #[guid(0xafc052c2_5315_45ab_841b_c6db0e120148)]
+        interface IFsrmClassificationRule: IFsrmRule {
+            #[special]
+            fn get_ExecutionOption(&self, #[retval] executionOption: *mut FsrmExecutionOption) -> HRESULT;
+            #[special]
+            fn put_ExecutionOption(&self, executionOption: FsrmExecutionOption) -> HRESULT;
+            #[special]
+            fn get_PropertyAffected(&self, #[retval] property: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_PropertyAffected(&self, property: BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Value(&self, value: BSTR) -> HRESULT;
+        }
+        #[guid(0xbb36ea26_6318_4b8c_8592_f72dd602e7a5)]
+        interface IFsrmClassifierModuleDefinition: IFsrmPipelineModuleDefinition {
+            #[special]
+            fn get_PropertiesAffected(&self, #[retval] propertiesAffected: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_PropertiesAffected(&self, propertiesAffected: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_PropertiesUsed(&self, #[retval] propertiesUsed: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_PropertiesUsed(&self, propertiesUsed: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_NeedsExplicitValue(&self, #[retval] needsExplicitValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_NeedsExplicitValue(&self, needsExplicitValue: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x4c968fc6_6edb_4051_9c18_73b7291ae106)]
+        interface IFsrmClassifierModuleImplementation: IFsrmPipelineModuleImplementation {
+            #[special]
+            fn get_LastModified(&self, #[retval] lastModified: *mut VARIANT) -> HRESULT;
+            fn UseRulesAndDefinitions(&self, rules: IFsrmCollection, propertyDefinitions: IFsrmCollection) -> HRESULT;
+            fn OnBeginFile(&self, propertyBag: IFsrmPropertyBag, arrayRuleIds: *const SAFEARRAY) -> HRESULT;
+            fn DoesPropertyValueApply(&self, property: BSTR, value: BSTR, applyValue: *mut VARIANT_BOOL, idRule: FSRM_OBJECT_ID, idPropDef: FSRM_OBJECT_ID) -> HRESULT;
+            fn GetPropertyValueToApply(&self, property: BSTR, value: *mut BSTR, idRule: FSRM_OBJECT_ID, idPropDef: FSRM_OBJECT_ID) -> HRESULT;
+            fn OnEndFile(&self) -> HRESULT;
+        }
+        #[guid(0xc16014f3_9aa1_46b3_b0a7_ab146eb205f2)]
+        interface IFsrmPipelineModuleConnector: IDispatch {
+            #[special]
+            fn get_ModuleImplementation(&self, #[retval] pipelineModuleImplementation: *mut IFsrmPipelineModuleImplementation) -> HRESULT;
+            #[special]
+            fn get_ModuleName(&self, #[retval] userName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_HostingUserAccount(&self, #[retval] userAccount: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_HostingProcessPid(&self, #[retval] pid: *mut i32) -> HRESULT;
+            fn Bind(&self, moduleDefinition: IFsrmPipelineModuleDefinition, moduleImplementation: IFsrmPipelineModuleImplementation) -> HRESULT;
+        }
+        #[guid(0x515c1277_2c81_440e_8fcf_367921ed4f59)]
+        interface IFsrmPipelineModuleDefinition: IFsrmObject {
+            #[special]
+            fn get_ModuleClsid(&self, #[retval] moduleClsid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ModuleClsid(&self, moduleClsid: BSTR) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_Company(&self, #[retval] company: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Company(&self, company: BSTR) -> HRESULT;
+            #[special]
+            fn get_Version(&self, #[retval] version: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Version(&self, version: BSTR) -> HRESULT;
+            #[special]
+            fn get_ModuleType(&self, #[retval] moduleType: *mut FsrmPipelineModuleType) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_NeedsFileContent(&self, #[retval] needsFileContent: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_NeedsFileContent(&self, needsFileContent: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Account(&self, #[retval] retrievalAccount: *mut FsrmAccountType) -> HRESULT;
+            #[special]
+            fn put_Account(&self, retrievalAccount: FsrmAccountType) -> HRESULT;
+            #[special]
+            fn get_SupportedExtensions(&self, #[retval] supportedExtensions: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_SupportedExtensions(&self, supportedExtensions: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_Parameters(&self, #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_Parameters(&self, parameters: *const SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0xb7907906_2b02_4cb5_84a9_fdf54613d6cd)]
+        interface IFsrmPipelineModuleImplementation: IDispatch {
+            fn OnLoad(&self, moduleDefinition: IFsrmPipelineModuleDefinition, moduleConnector: *mut IFsrmPipelineModuleConnector) -> HRESULT;
+            fn OnUnload(&self) -> HRESULT;
+        }
+        #[guid(0x4a73fee4_4102_4fcc_9ffb_38614f9ee768)]
+        interface IFsrmProperty: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Sources(&self, #[retval] sources: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_PropertyFlags(&self, #[retval] flags: *mut i32) -> HRESULT;
+        }
+        #[guid(0x774589d1_d300_4f7a_9a24_f7b766800250)]
+        interface IFsrmPropertyBag: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RelativePath(&self, #[retval] path: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VolumeName(&self, #[retval] volumeName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RelativeNamespaceRoot(&self, #[retval] relativeNamespaceRoot: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VolumeIndex(&self, #[retval] volumeId: *mut u32) -> HRESULT;
+            #[special]
+            fn get_FileId(&self, #[retval] fileId: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_ParentDirectoryId(&self, #[retval] parentDirectoryId: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Size(&self, #[retval] size: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_SizeAllocated(&self, #[retval] sizeAllocated: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_CreationTime(&self, #[retval] creationTime: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_LastAccessTime(&self, #[retval] lastAccessTime: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_LastModificationTime(&self, #[retval] lastModificationTime: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Attributes(&self, #[retval] attributes: *mut u32) -> HRESULT;
+            #[special]
+            fn get_OwnerSid(&self, #[retval] ownerSid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_FilePropertyNames(&self, #[retval] filePropertyNames: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_Messages(&self, #[retval] messages: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_PropertyBagFlags(&self, #[retval] flags: *mut u32) -> HRESULT;
+            fn GetFileProperty(&self, name: BSTR, #[retval] fileProperty: *mut IFsrmProperty) -> HRESULT;
+            fn SetFileProperty(&self, name: BSTR, value: BSTR) -> HRESULT;
+            fn AddMessage(&self, message: BSTR) -> HRESULT;
+            fn GetFileStreamInterface(&self, accessMode: FsrmFileStreamingMode, interfaceType: FsrmFileStreamingInterfaceType, #[retval] pStreamInterface: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x0e46bdbd_2402_4fed_9c30_9266e6eb2cc9)]
+        interface IFsrmPropertyBag2: IFsrmPropertyBag {
+            fn GetFieldValue(&self, field: FsrmPropertyBagField, #[retval] value: *mut VARIANT) -> HRESULT;
+            fn GetUntrustedInFileProperties(&self, #[retval] props: *mut IFsrmCollection) -> HRESULT;
+        }
+        #[guid(0xede0150f_e9a3_419c_877c_01fe5d24c5d3)]
+        interface IFsrmPropertyDefinition: IFsrmObject {
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] r#type: *mut FsrmPropertyDefinitionType) -> HRESULT;
+            #[special]
+            fn put_Type(&self, r#type: FsrmPropertyDefinitionType) -> HRESULT;
+            #[special]
+            fn get_PossibleValues(&self, #[retval] possibleValues: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_PossibleValues(&self, possibleValues: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_ValueDescriptions(&self, #[retval] valueDescriptions: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_ValueDescriptions(&self, valueDescriptions: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_Parameters(&self, #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_Parameters(&self, parameters: *const SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x47782152_d16c_4229_b4e1_0ddfe308b9f6)]
+        interface IFsrmPropertyDefinition2: IFsrmPropertyDefinition {
+            #[special]
+            fn get_PropertyDefinitionFlags(&self, #[retval] propertyDefinitionFlags: *mut i32) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DisplayName(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_AppliesTo(&self, #[retval] appliesTo: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ValueDefinitions(&self, #[retval] valueDefinitions: *mut IFsrmCollection) -> HRESULT;
+        }
+        #[guid(0xe946d148_bd67_4178_8e22_1c44925ed710)]
+        interface IFsrmPropertyDefinitionValue: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] displayName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] description: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_UniqueID(&self, #[retval] uniqueID: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xcb0df960_16f5_4495_9079_3f9360d831df)]
+        interface IFsrmRule: IFsrmObject {
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_RuleType(&self, #[retval] ruleType: *mut FsrmRuleType) -> HRESULT;
+            #[special]
+            fn get_ModuleDefinitionName(&self, #[retval] moduleDefinitionName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ModuleDefinitionName(&self, moduleDefinitionName: BSTR) -> HRESULT;
+            #[special]
+            fn get_NamespaceRoots(&self, #[retval] namespaceRoots: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_NamespaceRoots(&self, namespaceRoots: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_RuleFlags(&self, #[retval] ruleFlags: *mut i32) -> HRESULT;
+            #[special]
+            fn put_RuleFlags(&self, ruleFlags: i32) -> HRESULT;
+            #[special]
+            fn get_Parameters(&self, #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_Parameters(&self, parameters: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_LastModified(&self, #[retval] lastModified: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x15a81350_497d_4aba_80e9_d4dbcc5521fe)]
+        interface IFsrmStorageModuleDefinition: IFsrmPipelineModuleDefinition {
+            #[special]
+            fn get_Capabilities(&self, #[retval] capabilities: *mut FsrmStorageModuleCaps) -> HRESULT;
+            #[special]
+            fn put_Capabilities(&self, capabilities: FsrmStorageModuleCaps) -> HRESULT;
+            #[special]
+            fn get_StorageType(&self, #[retval] storageType: *mut FsrmStorageModuleType) -> HRESULT;
+            #[special]
+            fn put_StorageType(&self, storageType: FsrmStorageModuleType) -> HRESULT;
+            #[special]
+            fn get_UpdatesFileContent(&self, #[retval] updatesFileContent: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_UpdatesFileContent(&self, updatesFileContent: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x0af4a0da_895a_4e50_8712_a96724bcec64)]
+        interface IFsrmStorageModuleImplementation: IFsrmPipelineModuleImplementation {
+            fn UseDefinitions(&self, propertyDefinitions: IFsrmCollection) -> HRESULT;
+            fn LoadProperties(&self, propertyBag: IFsrmPropertyBag) -> HRESULT;
+            fn SaveProperties(&self, propertyBag: IFsrmPropertyBag) -> HRESULT;
+        }
+        const MessageSizeLimit: u32 = 4096;
+    }
+}

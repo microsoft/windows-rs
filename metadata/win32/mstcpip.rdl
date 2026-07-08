@@ -1,0 +1,404 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ASSOCIATE_NAMERES_CONTEXT: GUID = 0x59a38b67_d4fe_46e1_ba3c_87ea74ca3049;
+        struct ASSOCIATE_NAMERES_CONTEXT_INPUT {
+            TransportSettingId: TRANSPORT_SETTING_ID,
+            Handle: u64,
+        }
+        #[repr(i32)]
+        enum CONTROL_CHANNEL_TRIGGER_STATUS {
+            CONTROL_CHANNEL_TRIGGER_STATUS_INVALID = 0,
+            CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED = 1,
+            CONTROL_CHANNEL_TRIGGER_STATUS_HARDWARE_SLOT_ALLOCATED = 2,
+            CONTROL_CHANNEL_TRIGGER_STATUS_POLICY_ERROR = 3,
+            CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR = 4,
+            CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED = 5,
+            CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE = 6,
+        }
+        const CONTROL_CHANNEL_TRIGGER_STATUS_MAX: u32 = 4;
+        struct DL_EUI48 {}
+        const IN4ADDR_ANY: u32 = 0;
+        const IN4ADDR_BROADCAST: i32 = -1;
+        const IN4ADDR_LINKLOCALPREFIX_LENGTH: u32 = 16;
+        const IN4ADDR_LOOPBACK: u32 = 16777343;
+        const IN4ADDR_LOOPBACKPREFIX_LENGTH: u32 = 8;
+        const IN4ADDR_MULTICASTPREFIX_LENGTH: u32 = 4;
+        const IN4ADDR_NONE: i32 = -1;
+        struct INET_PORT_RANGE {
+            StartPort: u16,
+            NumberOfPorts: u16,
+        }
+        type INET_PORT_RESERVATION = INET_PORT_RANGE;
+        struct INET_PORT_RESERVATION_INFORMATION {
+            OwningPid: u32,
+        }
+        struct INET_PORT_RESERVATION_INSTANCE {
+            Reservation: INET_PORT_RESERVATION,
+            Token: INET_PORT_RESERVATION_TOKEN,
+        }
+        struct INET_PORT_RESERVATION_TOKEN {
+            Token: u64,
+        }
+        const INVALID_PORT_RESERVATION_TOKEN: u64 = 0;
+        type PASSOCIATE_NAMERES_CONTEXT_INPUT = *mut ASSOCIATE_NAMERES_CONTEXT_INPUT;
+        type PCONTROL_CHANNEL_TRIGGER_STATUS = *mut CONTROL_CHANNEL_TRIGGER_STATUS;
+        type PDL_EUI48 = *mut DL_EUI48;
+        type PINET_PORT_RANGE = *mut INET_PORT_RANGE;
+        type PINET_PORT_RESERVATION = *mut INET_PORT_RANGE;
+        type PINET_PORT_RESERVATION_INFORMATION = *mut INET_PORT_RESERVATION_INFORMATION;
+        type PINET_PORT_RESERVATION_INSTANCE = *mut INET_PORT_RESERVATION_INSTANCE;
+        type PINET_PORT_RESERVATION_TOKEN = *mut INET_PORT_RESERVATION_TOKEN;
+        type PPRIORITY_STATUS = *mut PRIORITY_STATUS;
+        type PRCVALL_IF = *mut RCVALL_IF;
+        type PRCVALL_VALUE = *mut RCVALL_VALUE;
+        type PREAL_TIME_NOTIFICATION_SETTING_INPUT = *mut REAL_TIME_NOTIFICATION_SETTING_INPUT;
+        type PREAL_TIME_NOTIFICATION_SETTING_INPUT_EX = *mut REAL_TIME_NOTIFICATION_SETTING_INPUT_EX;
+        type PREAL_TIME_NOTIFICATION_SETTING_OUTPUT = *mut REAL_TIME_NOTIFICATION_SETTING_OUTPUT;
+        struct PRIORITY_STATUS {
+            Sender: SOCKET_PRIORITY_HINT,
+            Receiver: SOCKET_PRIORITY_HINT,
+        }
+        type PRSS_SCALABILITY_INFO = *mut RSS_SCALABILITY_INFO;
+        type PSOCKET_PRIORITY_HINT = *mut SOCKET_PRIORITY_HINT;
+        type PTCP_ACK_FREQUENCY_PARAMETERS = *mut TCP_ACK_FREQUENCY_PARAMETERS;
+        type PTCP_ICW_LEVEL = *mut TCP_ICW_LEVEL;
+        type PTCP_ICW_PARAMETERS = *mut TCP_ICW_PARAMETERS;
+        type PTCP_INFO_v0 = *mut TCP_INFO_v0;
+        type PTCP_INFO_v1 = *mut TCP_INFO_v1;
+        type PTCP_INFO_v2 = *mut TCP_INFO_v2;
+        type PTCP_INITIAL_RTO_PARAMETERS = *mut TCP_INITIAL_RTO_PARAMETERS;
+        type PTIMESTAMPING_CONFIG = *mut TIMESTAMPING_CONFIG;
+        type PTRANSPORT_SETTING_ID = *mut TRANSPORT_SETTING_ID;
+        struct RCVALL_IF {
+            Mode: RCVALL_VALUE,
+            Interface: u32,
+        }
+        const RCVALL_MAX: u32 = 3;
+        #[repr(i32)]
+        enum RCVALL_VALUE {
+            RCVALL_OFF = 0,
+            RCVALL_ON = 1,
+            RCVALL_SOCKETLEVELONLY = 2,
+            RCVALL_IPLEVEL = 3,
+        }
+        const REAL_TIME_NOTIFICATION_CAPABILITY: GUID = 0x6b59819a_5cae_492d_a901_2a3c2c50164f;
+        const REAL_TIME_NOTIFICATION_CAPABILITY_EX: GUID = 0x6843da03_154a_4616_a508_44371295f96b;
+        struct REAL_TIME_NOTIFICATION_SETTING_INPUT {
+            TransportSettingId: TRANSPORT_SETTING_ID,
+            BrokerEventGuid: GUID,
+        }
+        struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
+            TransportSettingId: TRANSPORT_SETTING_ID,
+            BrokerEventGuid: GUID,
+            Unmark: BOOLEAN,
+        }
+        struct REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
+            ChannelStatus: CONTROL_CHANNEL_TRIGGER_STATUS,
+        }
+        struct RSS_SCALABILITY_INFO {
+            RssEnabled: BOOLEAN,
+        }
+        #[library("ntdll.dll")]
+        extern fn RtlEthernetAddressToStringA(Addr: *const DL_EUI48, #[len_const(18)] #[out] S: PSTR) -> PSTR;
+        #[library("ntdll.dll")]
+        extern fn RtlEthernetAddressToStringW(Addr: *const DL_EUI48, #[len_const(18)] #[out] S: PWSTR) -> PWSTR;
+        #[library("ntdll.dll")]
+        extern fn RtlEthernetStringToAddressA(S: PCSTR, Terminator: *mut PCSTR, Addr: *mut DL_EUI48) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlEthernetStringToAddressW(S: PCWSTR, Terminator: *mut PCWSTR, Addr: *mut DL_EUI48) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv4AddressToStringA(Addr: *const IN_ADDR, #[len_const(16)] #[out] S: PSTR) -> PSTR;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv4AddressToStringExA(Address: *const IN_ADDR, Port: u16, #[len_param(3)] #[out] AddressString: PSTR, #[in] #[out] AddressStringLength: *mut u32) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv4AddressToStringExW(Address: *const IN_ADDR, Port: u16, #[len_param(3)] #[out] AddressString: PWSTR, #[in] #[out] AddressStringLength: *mut u32) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv4AddressToStringW(Addr: *const IN_ADDR, #[len_const(16)] #[out] S: PWSTR) -> PWSTR;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv4StringToAddressA(S: PCSTR, Strict: BOOLEAN, Terminator: *mut PCSTR, Addr: *mut IN_ADDR) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv4StringToAddressExA(AddressString: PCSTR, Strict: BOOLEAN, Address: *mut IN_ADDR, Port: *mut u16) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv4StringToAddressExW(AddressString: PCWSTR, Strict: BOOLEAN, Address: *mut IN_ADDR, Port: *mut u16) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv4StringToAddressW(S: PCWSTR, Strict: BOOLEAN, Terminator: *mut PCWSTR, Addr: *mut IN_ADDR) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv6AddressToStringA(Addr: *const IN6_ADDR, #[len_const(46)] #[out] S: PSTR) -> PSTR;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv6AddressToStringExA(Address: *const IN6_ADDR, ScopeId: u32, Port: u16, #[len_param(4)] #[out] AddressString: PSTR, #[in] #[out] AddressStringLength: *mut u32) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv6AddressToStringExW(Address: *const IN6_ADDR, ScopeId: u32, Port: u16, #[len_param(4)] #[out] AddressString: PWSTR, #[in] #[out] AddressStringLength: *mut u32) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv6AddressToStringW(Addr: *const IN6_ADDR, #[len_const(46)] #[out] S: PWSTR) -> PWSTR;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv6StringToAddressA(S: PCSTR, Terminator: *mut PCSTR, Addr: *mut IN6_ADDR) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv6StringToAddressExA(AddressString: PCSTR, Address: *mut IN6_ADDR, ScopeId: *mut u32, Port: *mut u16) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv6StringToAddressExW(AddressString: PCWSTR, Address: *mut IN6_ADDR, ScopeId: *mut u32, Port: *mut u16) -> i32;
+        #[library("ntdll.dll")]
+        extern fn RtlIpv6StringToAddressW(S: PCWSTR, Terminator: *mut PCWSTR, Addr: *mut IN6_ADDR) -> i32;
+        const SIO_ABSORB_RTRALERT: i32 = -1744830459;
+        const SIO_ACQUIRE_PORT_RESERVATION: i32 = -1744830364;
+        const SIO_APPLY_TRANSPORT_SETTING: i32 = -1744830445;
+        const SIO_ASSOCIATE_PORT_RESERVATION: i32 = -1744830362;
+        const SIO_CPU_AFFINITY: i32 = -1744830443;
+        const SIO_DELETE_PEER_TARGET_NAME: i32 = -1744830261;
+        const SIO_GET_TX_TIMESTAMP: i32 = -1744830230;
+        const SIO_INDEX_ADD_MCAST: i32 = -1744830454;
+        const SIO_INDEX_BIND: i32 = -1744830456;
+        const SIO_INDEX_DEL_MCAST: i32 = -1744830453;
+        const SIO_INDEX_MCASTIF: i32 = -1744830455;
+        const SIO_KEEPALIVE_VALS: i32 = -1744830460;
+        const SIO_LIMIT_BROADCASTS: i32 = -1744830457;
+        const SIO_LOOPBACK_FAST_PATH: i32 = -1744830448;
+        const SIO_PRIORITY_HINT: i32 = -1744830440;
+        const SIO_QUERY_RSS_SCALABILITY_INFO: u32 = 1476395218;
+        const SIO_QUERY_SECURITY: i32 = -671088439;
+        const SIO_QUERY_TRANSPORT_SETTING: i32 = -1744830444;
+        const SIO_QUERY_WFP_ALE_ENDPOINT_HANDLE: u32 = 1476395213;
+        const SIO_QUERY_WFP_CONNECTION_REDIRECT_CONTEXT: i32 = -1744830243;
+        const SIO_QUERY_WFP_CONNECTION_REDIRECT_RECORDS: i32 = -1744830244;
+        const SIO_RCVALL: i32 = -1744830463;
+        const SIO_RCVALL_IF: i32 = -1744830450;
+        const SIO_RCVALL_IGMPMCAST: i32 = -1744830461;
+        const SIO_RCVALL_MCAST: i32 = -1744830462;
+        const SIO_RCVALL_MCAST_IF: i32 = -1744830451;
+        const SIO_RELEASE_PORT_RESERVATION: i32 = -1744830363;
+        const SIO_SET_PEER_TARGET_NAME: i32 = -1744830262;
+        const SIO_SET_PRIORITY_HINT: i32 = -1744830440;
+        const SIO_SET_SECURITY: i32 = -1744830264;
+        const SIO_SET_WFP_CONNECTION_REDIRECT_RECORDS: i32 = -1744830242;
+        const SIO_SOCKET_USAGE_NOTIFICATION: i32 = -1744830260;
+        const SIO_TCP_INFO: i32 = -671088601;
+        const SIO_TCP_INITIAL_RTO: i32 = -1744830447;
+        const SIO_TCP_SET_ACK_FREQUENCY: i32 = -1744830441;
+        const SIO_TCP_SET_ICW: i32 = -1744830442;
+        const SIO_TIMESTAMPING: i32 = -1744830229;
+        const SIO_UCAST_IF: i32 = -1744830458;
+        const SOCKET_DEFAULT2_QM_POLICY: GUID = 0xaec2ef9c_3a4d_4d3e_8842_239942e39a47;
+        const SOCKET_INFO_CONNECTION_ENCRYPTED: u32 = 2;
+        const SOCKET_INFO_CONNECTION_IMPERSONATED: u32 = 4;
+        const SOCKET_INFO_CONNECTION_SECURED: u32 = 1;
+        struct SOCKET_PEER_TARGET_NAME {
+            SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
+            PeerAddress: SOCKADDR_STORAGE,
+            PeerTargetNameStringLen: u32,
+            AllStrings: [u16; 0],
+        }
+        #[repr(i32)]
+        enum SOCKET_PRIORITY_HINT {
+            SocketPriorityHintVeryLow = 0,
+            SocketPriorityHintLow = 1,
+            SocketPriorityHintNormal = 2,
+            SocketMaximumPriorityHintType = 3,
+        }
+        const SOCKET_QUERY_IPSEC2_ABORT_CONNECTION_ON_FIELD_CHANGE: u32 = 1;
+        const SOCKET_QUERY_IPSEC2_FIELD_MASK_MM_SA_ID: u32 = 1;
+        const SOCKET_QUERY_IPSEC2_FIELD_MASK_QM_SA_ID: u32 = 2;
+        #[repr(i32)]
+        enum SOCKET_SECURITY_PROTOCOL {
+            SOCKET_SECURITY_PROTOCOL_DEFAULT = 0,
+            SOCKET_SECURITY_PROTOCOL_IPSEC = 1,
+            SOCKET_SECURITY_PROTOCOL_IPSEC2 = 2,
+            SOCKET_SECURITY_PROTOCOL_INVALID = 3,
+        }
+        struct SOCKET_SECURITY_QUERY_INFO {
+            SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
+            Flags: u32,
+            PeerApplicationAccessTokenHandle: u64,
+            PeerMachineAccessTokenHandle: u64,
+        }
+        struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
+            SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
+            Flags: u32,
+            PeerApplicationAccessTokenHandle: u64,
+            PeerMachineAccessTokenHandle: u64,
+            MmSaId: u64,
+            QmSaId: u64,
+            NegotiationWinerr: u32,
+            SaLookupContext: GUID,
+        }
+        struct SOCKET_SECURITY_QUERY_TEMPLATE {
+            SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
+            PeerAddress: SOCKADDR_STORAGE,
+            PeerTokenAccessMask: u32,
+        }
+        struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
+            SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
+            PeerAddress: SOCKADDR_STORAGE,
+            PeerTokenAccessMask: u32,
+            Flags: u32,
+            FieldMask: u32,
+        }
+        struct SOCKET_SECURITY_SETTINGS {
+            SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
+            SecurityFlags: u32,
+        }
+        struct SOCKET_SECURITY_SETTINGS_IPSEC {
+            SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
+            SecurityFlags: u32,
+            IpsecFlags: u32,
+            AuthipMMPolicyKey: GUID,
+            AuthipQMPolicyKey: GUID,
+            Reserved: GUID,
+            Reserved2: u64,
+            UserNameStringLen: u32,
+            DomainNameStringLen: u32,
+            PasswordStringLen: u32,
+            AllStrings: [u16; 0],
+        }
+        const SOCKET_SETTINGS_ALLOW_INSECURE: u32 = 2;
+        const SOCKET_SETTINGS_GUARANTEE_ENCRYPTION: u32 = 1;
+        const SOCKET_SETTINGS_IPSEC_ALLOW_FIRST_INBOUND_PKT_UNENCRYPTED: u32 = 4;
+        const SOCKET_SETTINGS_IPSEC_OPTIONAL_PEER_NAME_VERIFICATION: u32 = 2;
+        const SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT: u32 = 8;
+        const SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: u32 = 1;
+        #[repr(i32)]
+        enum SOCKET_USAGE_TYPE {
+            SYSTEM_CRITICAL_SOCKET = 1,
+        }
+        const SO_TIMESTAMP: u32 = 12298;
+        const SO_TIMESTAMP_ID: u32 = 12299;
+        #[repr(i32)]
+        enum TCPSTATE {
+            TCPSTATE_CLOSED = 0,
+            TCPSTATE_LISTEN = 1,
+            TCPSTATE_SYN_SENT = 2,
+            TCPSTATE_SYN_RCVD = 3,
+            TCPSTATE_ESTABLISHED = 4,
+            TCPSTATE_FIN_WAIT_1 = 5,
+            TCPSTATE_FIN_WAIT_2 = 6,
+            TCPSTATE_CLOSE_WAIT = 7,
+            TCPSTATE_CLOSING = 8,
+            TCPSTATE_LAST_ACK = 9,
+            TCPSTATE_TIME_WAIT = 10,
+            TCPSTATE_MAX = 11,
+        }
+        struct TCP_ACK_FREQUENCY_PARAMETERS {
+            TcpDelayedAckFrequency: u8,
+        }
+        #[repr(i32)]
+        enum TCP_ICW_LEVEL {
+            TCP_ICW_LEVEL_DEFAULT = 0,
+            TCP_ICW_LEVEL_HIGH = 1,
+            TCP_ICW_LEVEL_VERY_HIGH = 2,
+            TCP_ICW_LEVEL_AGGRESSIVE = 3,
+            TCP_ICW_LEVEL_EXPERIMENTAL = 4,
+            TCP_ICW_LEVEL_COMPAT = 254,
+            TCP_ICW_LEVEL_MAX = 255,
+        }
+        struct TCP_ICW_PARAMETERS {
+            Level: TCP_ICW_LEVEL,
+        }
+        struct TCP_INFO_v0 {
+            State: TCPSTATE,
+            Mss: u32,
+            ConnectionTimeMs: u64,
+            TimestampsEnabled: BOOLEAN,
+            RttUs: u32,
+            MinRttUs: u32,
+            BytesInFlight: u32,
+            Cwnd: u32,
+            SndWnd: u32,
+            RcvWnd: u32,
+            RcvBuf: u32,
+            BytesOut: u64,
+            BytesIn: u64,
+            BytesReordered: u32,
+            BytesRetrans: u32,
+            FastRetrans: u32,
+            DupAcksIn: u32,
+            TimeoutEpisodes: u32,
+            SynRetrans: u8,
+        }
+        struct TCP_INFO_v1 {
+            State: TCPSTATE,
+            Mss: u32,
+            ConnectionTimeMs: u64,
+            TimestampsEnabled: BOOLEAN,
+            RttUs: u32,
+            MinRttUs: u32,
+            BytesInFlight: u32,
+            Cwnd: u32,
+            SndWnd: u32,
+            RcvWnd: u32,
+            RcvBuf: u32,
+            BytesOut: u64,
+            BytesIn: u64,
+            BytesReordered: u32,
+            BytesRetrans: u32,
+            FastRetrans: u32,
+            DupAcksIn: u32,
+            TimeoutEpisodes: u32,
+            SynRetrans: u8,
+            SndLimTransRwin: u32,
+            SndLimTimeRwin: u32,
+            SndLimBytesRwin: u64,
+            SndLimTransCwnd: u32,
+            SndLimTimeCwnd: u32,
+            SndLimBytesCwnd: u64,
+            SndLimTransSnd: u32,
+            SndLimTimeSnd: u32,
+            SndLimBytesSnd: u64,
+        }
+        struct TCP_INFO_v2 {
+            State: TCPSTATE,
+            Mss: u32,
+            ConnectionTimeMs: u64,
+            TimestampsEnabled: BOOLEAN,
+            RttUs: u32,
+            MinRttUs: u32,
+            BytesInFlight: u32,
+            Cwnd: u32,
+            SndWnd: u32,
+            RcvWnd: u32,
+            RcvBuf: u32,
+            BytesOut: u64,
+            BytesIn: u64,
+            BytesReordered: u32,
+            BytesRetrans: u32,
+            FastRetrans: u32,
+            DupAcksIn: u32,
+            TimeoutEpisodes: u32,
+            SynRetrans: u8,
+            SndLimTransRwin: u32,
+            SndLimTimeRwin: u32,
+            SndLimBytesRwin: u64,
+            SndLimTransCwnd: u32,
+            SndLimTimeCwnd: u32,
+            SndLimBytesCwnd: u64,
+            SndLimTransSnd: u32,
+            SndLimTimeSnd: u32,
+            SndLimBytesSnd: u64,
+            OutOfOrderPktsIn: u32,
+            EcnNegotiated: BOOLEAN,
+            EceAcksIn: u32,
+            PtoEpisodes: u32,
+        }
+        const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: u32 = 0;
+        const TCP_INITIAL_RTO_DEFAULT_RTT: u32 = 0;
+        const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: u8 = 254;
+        struct TCP_INITIAL_RTO_PARAMETERS {
+            Rtt: u16,
+            MaxSynRetransmissions: u8,
+        }
+        const TCP_INITIAL_RTO_UNSPECIFIED_MAX_SYN_RETRANSMISSIONS: u8 = 255;
+        const TCP_INITIAL_RTO_UNSPECIFIED_RTT: u16 = 65535;
+        struct TIMESTAMPING_CONFIG {
+            Flags: u32,
+            TxTimestampsBuffered: u16,
+        }
+        const TIMESTAMPING_FLAG_RX: u32 = 1;
+        const TIMESTAMPING_FLAG_TX: u32 = 2;
+        struct TRANSPORT_SETTING_ID {
+            Guid: GUID,
+        }
+        struct tcp_keepalive {
+            onoff: u32,
+            keepalivetime: u32,
+            keepaliveinterval: u32,
+        }
+    }
+}

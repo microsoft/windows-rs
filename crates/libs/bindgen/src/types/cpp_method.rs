@@ -681,14 +681,30 @@ impl CppMethod {
                         ParamHint::ArrayRelativePtr(relative) => {
                             let relative_param = &self.signature.params[relative];
                             let name = relative_param.write_ident();
+                            // The new metadata keeps scalar count typedefs (e.g.
+                            // `JET_UINT32`) as named types, which render as newtypes in
+                            // full mode; wrap the length so it matches the ABI param
+                            // type. In sys/minimal these collapse to bare integers, so
+                            // the wrap is a no-op.
+                            let zero = write_newtype_wrap(&param.ty, &quote! { 0 }, config);
+                            let len = write_newtype_wrap(
+                                &param.ty,
+                                &quote! { slice.len().try_into().unwrap() },
+                                config,
+                            );
                             if relative_param.is_optional() {
                                 if relative_param.is_input() {
-                                    quote! { #name.map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                    quote! { #name.map_or(#zero, |slice| #len), }
                                 } else {
-                                    quote! { #name.as_deref().map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                    quote! { #name.as_deref().map_or(#zero, |slice| #len), }
                                 }
                             } else {
-                                quote! { #name.len().try_into().unwrap(), }
+                                let len = write_newtype_wrap(
+                                    &param.ty,
+                                    &quote! { #name.len().try_into().unwrap() },
+                                    config,
+                                );
+                                quote! { #len, }
                             }
                         }
                         ParamHint::IntoParam => {

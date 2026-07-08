@@ -1,0 +1,45 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type LPQOS_DIFFSERV = *mut QOS_DIFFSERV;
+        type LPQOS_DIFFSERV_RULE = *mut QOS_DIFFSERV_RULE;
+        type LPQOS_DS_CLASS = *mut QOS_DS_CLASS;
+        type LPQOS_FRIENDLY_NAME = *mut QOS_FRIENDLY_NAME;
+        type LPQOS_TCP_TRAFFIC = *mut QOS_TCP_TRAFFIC;
+        type LPQOS_TRAFFIC_CLASS = *mut QOS_TRAFFIC_CLASS;
+        struct QOS_DIFFSERV {
+            ObjectHdr: QOS_OBJECT_HDR,
+            DSFieldCount: u32,
+            DiffservRule: [u8; 1],
+        }
+        struct QOS_DIFFSERV_RULE {
+            InboundDSField: u8,
+            ConformingOutboundDSField: u8,
+            NonConformingOutboundDSField: u8,
+            ConformingUserPriority: u8,
+            NonConformingUserPriority: u8,
+        }
+        struct QOS_DS_CLASS {
+            ObjectHdr: QOS_OBJECT_HDR,
+            DSField: u32,
+        }
+        struct QOS_FRIENDLY_NAME {
+            ObjectHdr: QOS_OBJECT_HDR,
+            FriendlyName: [u16; 256],
+        }
+        const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256;
+        const QOS_OBJECT_DIFFSERV: u32 = 4003;
+        const QOS_OBJECT_DS_CLASS: u32 = 4001;
+        const QOS_OBJECT_FRIENDLY_NAME: u32 = 4005;
+        const QOS_OBJECT_TCP_TRAFFIC: u32 = 4004;
+        const QOS_OBJECT_TRAFFIC_CLASS: u32 = 4002;
+        struct QOS_TCP_TRAFFIC {
+            ObjectHdr: QOS_OBJECT_HDR,
+        }
+        struct QOS_TRAFFIC_CLASS {
+            ObjectHdr: QOS_OBJECT_HDR,
+            TrafficClass: u32,
+        }
+        const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000;
+    }
+}

@@ -347,14 +347,14 @@ fn get_default_display_size(hwnd: HWND, dpi: u32) -> WindowSize {
     unsafe {
         let monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
         let mut monitor_info_ex = MONITORINFOEXW {
-            monitorInfo: MONITORINFO {
+            Base: MONITORINFO {
                 cbSize: size_of::<MONITORINFOEXW>() as u32,
                 ..MONITORINFO::default()
             },
             ..MONITORINFOEXW::default()
         };
-        if GetMonitorInfoW(monitor, &mut monitor_info_ex.monitorInfo).as_bool() {
-            let work = monitor_info_ex.monitorInfo.rcWork;
+        if GetMonitorInfoW(monitor, &mut monitor_info_ex.Base).as_bool() {
+            let work = monitor_info_ex.Base.rcWork;
             let work_width = work.right.saturating_sub(work.left);
             let work_height = work.bottom.saturating_sub(work.top);
             let scale = dpi as f64 / 96.0;
@@ -378,16 +378,16 @@ fn center_window_on_display(
     unsafe {
         let monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
         let mut monitor_info_ex = MONITORINFOEXW {
-            monitorInfo: MONITORINFO {
+            Base: MONITORINFO {
                 cbSize: size_of::<MONITORINFOEXW>() as u32,
                 ..MONITORINFO::default()
             },
             ..MONITORINFOEXW::default()
         };
-        if !GetMonitorInfoW(monitor, &mut monitor_info_ex.monitorInfo).as_bool() {
+        if !GetMonitorInfoW(monitor, &mut monitor_info_ex.Base).as_bool() {
             return;
         }
-        let work = monitor_info_ex.monitorInfo.rcWork;
+        let work = monitor_info_ex.Base.rcWork;
         let work_width = work.right.saturating_sub(work.left);
         let work_height = work.bottom.saturating_sub(work.top);
 

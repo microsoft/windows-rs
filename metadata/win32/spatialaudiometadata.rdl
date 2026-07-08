@@ -1,0 +1,135 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4)]
+        interface ISpatialAudioMetadataClient: IUnknown {
+            fn ActivateSpatialAudioMetadataItems(&self, maxItemCount: u16, frameCount: u16, metadataItemsBuffer: *mut ISpatialAudioMetadataItemsBuffer, metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+            fn GetSpatialAudioMetadataItemsBufferLength(&self, maxItemCount: u16, bufferLength: *mut u32) -> HRESULT;
+            fn ActivateSpatialAudioMetadataWriter(&self, overflowMode: SpatialAudioMetadataWriterOverflowMode, metadataWriter: *mut ISpatialAudioMetadataWriter) -> HRESULT;
+            fn ActivateSpatialAudioMetadataCopier(&self, metadataCopier: *mut ISpatialAudioMetadataCopier) -> HRESULT;
+            fn ActivateSpatialAudioMetadataReader(&self, metadataReader: *mut ISpatialAudioMetadataReader) -> HRESULT;
+        }
+        #[guid(0xd224b233_e251_4fd0_9ca2_d5ecf9a68404)]
+        interface ISpatialAudioMetadataCopier: IUnknown {
+            fn Open(&self, metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
+            fn CopyMetadataForFrames(&self, copyFrameCount: u16, copyMode: SpatialAudioMetadataCopyMode, dstMetadataItems: ISpatialAudioMetadataItems, itemsCopied: *mut u16) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xbcd7c78f_3098_4f22_b547_a2f25a381269)]
+        interface ISpatialAudioMetadataItems: IUnknown {
+            fn GetFrameCount(&self, frameCount: *mut u16) -> HRESULT;
+            fn GetItemCount(&self, itemCount: *mut u16) -> HRESULT;
+            fn GetMaxItemCount(&self, maxItemCount: *mut u16) -> HRESULT;
+            fn GetMaxValueBufferLength(&self, maxValueBufferLength: *mut u32) -> HRESULT;
+            fn GetInfo(&self, info: *mut SpatialAudioMetadataItemsInfo) -> HRESULT;
+        }
+        #[guid(0x42640a16_e1bd_42d9_9ff6_031ab71a2dba)]
+        interface ISpatialAudioMetadataItemsBuffer: IUnknown {
+            fn AttachToBuffer(&self, #[size_param(1)] buffer: *mut u8, bufferLength: u32) -> HRESULT;
+            fn AttachToPopulatedBuffer(&self, #[size_param(1)] buffer: *mut u8, bufferLength: u32) -> HRESULT;
+            fn DetachBuffer(&self) -> HRESULT;
+        }
+        #[guid(0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec)]
+        interface ISpatialAudioMetadataReader: IUnknown {
+            fn Open(&self, metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
+            fn ReadNextItem(&self, commandCount: *mut u8, frameOffset: *mut u16) -> HRESULT;
+            fn ReadNextItemCommand(&self, commandID: *mut u8, #[size_param(2)] valueBuffer: *mut void, maxValueBufferLength: u32, valueBufferLength: *mut u32) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x1b17ca01_2955_444d_a430_537dc589a844)]
+        interface ISpatialAudioMetadataWriter: IUnknown {
+            fn Open(&self, metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
+            fn WriteNextItem(&self, frameOffset: u16) -> HRESULT;
+            fn WriteNextItemCommand(&self, commandID: u8, #[size_param(2)] #[opt] valueBuffer: *const void, valueBufferLength: u32) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05)]
+        interface ISpatialAudioObjectForMetadataCommands: ISpatialAudioObjectBase {
+            fn WriteNextMetadataCommand(&self, commandID: u8, #[size_param(2)] #[opt] valueBuffer: *const void, valueBufferLength: u32) -> HRESULT;
+        }
+        #[guid(0xddea49ff_3bc0_4377_8aad_9fbcfd808566)]
+        interface ISpatialAudioObjectForMetadataItems: ISpatialAudioObjectBase {
+            fn GetSpatialAudioMetadataItems(&self, metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+        }
+        #[guid(0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1)]
+        interface ISpatialAudioObjectRenderStreamForMetadata: ISpatialAudioObjectRenderStreamBase {
+            fn ActivateSpatialAudioObjectForMetadataCommands(&self, r#type: AudioObjectType, audioObject: *mut ISpatialAudioObjectForMetadataCommands) -> HRESULT;
+            fn ActivateSpatialAudioObjectForMetadataItems(&self, r#type: AudioObjectType, audioObject: *mut ISpatialAudioObjectForMetadataItems) -> HRESULT;
+        }
+        const SPATIAL_AUDIO_POSITION: u32 = 200;
+        const SPATIAL_AUDIO_STANDARD_COMMANDS_START: u32 = 200;
+        const SPTLAUD_MD_CLNT_E_ATTACH_FAILED_INTERNAL_BUFFER: i32 = -2004286956;
+        const SPTLAUD_MD_CLNT_E_BUFFER_ALREADY_ATTACHED: i32 = -2004286969;
+        const SPTLAUD_MD_CLNT_E_BUFFER_NOT_ATTACHED: i32 = -2004286968;
+        const SPTLAUD_MD_CLNT_E_BUFFER_STILL_ATTACHED: i32 = -2004286940;
+        const SPTLAUD_MD_CLNT_E_COMMAND_ALREADY_WRITTEN: i32 = -2004286942;
+        const SPTLAUD_MD_CLNT_E_COMMAND_NOT_FOUND: i32 = -2004286976;
+        const SPTLAUD_MD_CLNT_E_DETACH_FAILED_INTERNAL_BUFFER: i32 = -2004286955;
+        const SPTLAUD_MD_CLNT_E_FORMAT_MISMATCH: i32 = -2004286941;
+        const SPTLAUD_MD_CLNT_E_FRAMECOUNT_OUT_OF_RANGE: i32 = -2004286967;
+        const SPTLAUD_MD_CLNT_E_FRAMEOFFSET_OUT_OF_RANGE: i32 = -2004286952;
+        const SPTLAUD_MD_CLNT_E_INVALID_ARGS: i32 = -2004286974;
+        const SPTLAUD_MD_CLNT_E_ITEMS_ALREADY_OPEN: i32 = -2004286957;
+        const SPTLAUD_MD_CLNT_E_ITEMS_LOCKED_FOR_WRITING: i32 = -2004286939;
+        const SPTLAUD_MD_CLNT_E_ITEM_COPY_OVERFLOW: i32 = -2004286959;
+        const SPTLAUD_MD_CLNT_E_ITEM_MUST_HAVE_COMMANDS: i32 = -2004286951;
+        const SPTLAUD_MD_CLNT_E_MEMORY_BOUNDS: i32 = -2004286971;
+        const SPTLAUD_MD_CLNT_E_METADATA_FORMAT_NOT_FOUND: i32 = -2004286973;
+        const SPTLAUD_MD_CLNT_E_NO_BUFFER_ATTACHED: i32 = -2004286954;
+        const SPTLAUD_MD_CLNT_E_NO_ITEMOFFSET_WRITTEN: i32 = -2004286944;
+        const SPTLAUD_MD_CLNT_E_NO_ITEMS_FOUND: i32 = -2004286960;
+        const SPTLAUD_MD_CLNT_E_NO_ITEMS_OPEN: i32 = -2004286958;
+        const SPTLAUD_MD_CLNT_E_NO_ITEMS_WRITTEN: i32 = -2004286943;
+        const SPTLAUD_MD_CLNT_E_NO_MORE_COMMANDS: i32 = -2004286970;
+        const SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS: i32 = -2004286953;
+        const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: i32 = -2004286975;
+        const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: i32 = -2004286972;
+        #[repr(i32)]
+        enum SpatialAudioMetadataCopyMode {
+            SpatialAudioMetadataCopy_Overwrite = 0,
+            SpatialAudioMetadataCopy_Append = 1,
+            SpatialAudioMetadataCopy_AppendMergeWithLast = 2,
+            SpatialAudioMetadataCopy_AppendMergeWithFirst = 3,
+        }
+        #[packed(1)]
+        struct SpatialAudioMetadataItemsInfo {
+            FrameCount: u16,
+            ItemCount: u16,
+            MaxItemCount: u16,
+            MaxValueBufferLength: u32,
+        }
+        #[repr(i32)]
+        enum SpatialAudioMetadataWriterOverflowMode {
+            SpatialAudioMetadataWriterOverflow_Fail = 0,
+            SpatialAudioMetadataWriterOverflow_MergeWithNew = 1,
+            SpatialAudioMetadataWriterOverflow_MergeWithLast = 2,
+        }
+        #[packed(1)]
+        struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
+            ObjectFormat: *const WAVEFORMATEX,
+            StaticObjectTypeMask: AudioObjectType,
+            MinDynamicObjectCount: u32,
+            MaxDynamicObjectCount: u32,
+            Category: AUDIO_STREAM_CATEGORY,
+            EventHandle: HANDLE,
+            MetadataFormatId: GUID,
+            MaxMetadataItemCount: u16,
+            MetadataActivationParams: *const PROPVARIANT,
+            NotifyObject: ISpatialAudioObjectRenderStreamNotify,
+        }
+        #[packed(1)]
+        struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
+            ObjectFormat: *const WAVEFORMATEX,
+            StaticObjectTypeMask: AudioObjectType,
+            MinDynamicObjectCount: u32,
+            MaxDynamicObjectCount: u32,
+            Category: AUDIO_STREAM_CATEGORY,
+            EventHandle: HANDLE,
+            MetadataFormatId: GUID,
+            MaxMetadataItemCount: u32,
+            MetadataActivationParams: *const PROPVARIANT,
+            NotifyObject: ISpatialAudioObjectRenderStreamNotify,
+            Options: SPATIAL_AUDIO_STREAM_OPTIONS,
+        }
+    }
+}

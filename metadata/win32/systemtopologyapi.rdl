@@ -1,0 +1,13 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaHighestNodeNumber(HighestNodeNumber: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaNodeProcessorMask2(NodeNumber: u16, #[len_param(2)] #[opt] ProcessorMasks: *mut GROUP_AFFINITY, ProcessorMaskCount: u16, RequiredMaskCount: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaNodeProcessorMaskEx(Node: u16, ProcessorMask: *mut GROUP_AFFINITY) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaProximityNodeEx(ProximityId: u32, NodeNumber: *mut u16) -> BOOL;
+    }
+}

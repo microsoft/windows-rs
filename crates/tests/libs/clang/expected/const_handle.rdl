@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    type HANDLE = *mut void;
+    type HKEY = *mut void;
+    const HKEY_CLASSES_ROOT: HKEY = -2147483648;
+    const HKEY_LOCAL_MACHINE: HKEY = -2147483646;
+    struct HKEY__ {
+        unused: i32,
+    }
+    const INVALID_HANDLE_VALUE: HANDLE = -1;
+    type LONG = i32;
+    type LONG_PTR = isize;
+    type ULONG_PTR = usize;
+}

@@ -1,0 +1,939 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DL_ADDRESS_TYPE {
+            DlUnicast = 0,
+            DlMulticast = 1,
+            DlBroadcast = 2,
+        }
+        struct FWPM_ACTION0 {
+            r#type: FWP_ACTION_TYPE,
+            Anonymous: union {
+                filterType: GUID,
+                calloutKey: GUID,
+            },
+        }
+        #[repr(i32)]
+        enum FWPM_APPC_NETWORK_CAPABILITY_TYPE {
+            FWPM_APPC_NETWORK_CAPABILITY_INTERNET_CLIENT = 0,
+            FWPM_APPC_NETWORK_CAPABILITY_INTERNET_CLIENT_SERVER = 1,
+            FWPM_APPC_NETWORK_CAPABILITY_INTERNET_PRIVATE_NETWORK = 2,
+        }
+        struct FWPM_CALLOUT0 {
+            calloutKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            providerKey: *mut GUID,
+            providerData: FWP_BYTE_BLOB,
+            applicableLayer: GUID,
+            calloutId: u32,
+        }
+        struct FWPM_CALLOUT_CHANGE0 {
+            changeType: FWPM_CHANGE_TYPE,
+            calloutKey: GUID,
+            calloutId: u32,
+        }
+        struct FWPM_CALLOUT_ENUM_TEMPLATE0 {
+            providerKey: *mut GUID,
+            layerKey: GUID,
+        }
+        const FWPM_CALLOUT_FLAG_PERSISTENT: u32 = 65536;
+        const FWPM_CALLOUT_FLAG_REGISTERED: u32 = 262144;
+        const FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT: u32 = 131072;
+        struct FWPM_CALLOUT_SUBSCRIPTION0 {
+            enumTemplate: *mut FWPM_CALLOUT_ENUM_TEMPLATE0,
+            flags: u32,
+            sessionKey: GUID,
+        }
+        #[repr(i32)]
+        enum FWPM_CHANGE_TYPE {
+            FWPM_CHANGE_ADD = 1,
+            FWPM_CHANGE_DELETE = 2,
+            FWPM_CHANGE_TYPE_MAX = 3,
+        }
+        struct FWPM_CLASSIFY_OPTION0 {
+            r#type: FWP_CLASSIFY_OPTION_TYPE,
+            value: FWP_VALUE0,
+        }
+        struct FWPM_CLASSIFY_OPTIONS0 {
+            numOptions: u32,
+            options: *mut FWPM_CLASSIFY_OPTION0,
+        }
+        struct FWPM_CONNECTION0 {
+            connectionId: u64,
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                localV4Address: u32,
+                localV6Address: [u8; 16],
+            },
+            Anonymous2: union {
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
+            },
+            providerKey: *mut GUID,
+            ipsecTrafficModeType: IPSEC_TRAFFIC_TYPE,
+            keyModuleType: IKEEXT_KEY_MODULE_TYPE,
+            mmCrypto: IKEEXT_PROPOSAL0,
+            mmPeer: IKEEXT_CREDENTIAL2,
+            emPeer: IKEEXT_CREDENTIAL2,
+            bytesTransferredIn: u64,
+            bytesTransferredOut: u64,
+            bytesTransferredTotal: u64,
+            startSysTime: FILETIME,
+        }
+        const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1;
+        struct FWPM_CONNECTION_ENUM_TEMPLATE0 {
+            connectionId: u64,
+            flags: u32,
+        }
+        #[repr(i32)]
+        enum FWPM_CONNECTION_EVENT_TYPE {
+            FWPM_CONNECTION_EVENT_ADD = 0,
+            FWPM_CONNECTION_EVENT_DELETE = 1,
+            FWPM_CONNECTION_EVENT_MAX = 2,
+        }
+        struct FWPM_CONNECTION_SUBSCRIPTION0 {
+            enumTemplate: *mut FWPM_CONNECTION_ENUM_TEMPLATE0,
+            flags: u32,
+            sessionKey: GUID,
+        }
+        #[repr(i32)]
+        enum FWPM_ENGINE_OPTION {
+            FWPM_ENGINE_COLLECT_NET_EVENTS = 0,
+            FWPM_ENGINE_NET_EVENT_MATCH_ANY_KEYWORDS = 1,
+            FWPM_ENGINE_NAME_CACHE = 2,
+            FWPM_ENGINE_MONITOR_IPSEC_CONNECTIONS = 3,
+            FWPM_ENGINE_PACKET_QUEUING = 4,
+            FWPM_ENGINE_TXN_WATCHDOG_TIMEOUT_IN_MSEC = 5,
+            FWPM_ENGINE_OPTION_MAX = 6,
+        }
+        const FWPM_ENGINE_OPTION_PACKET_BATCH_INBOUND: u32 = 4;
+        const FWPM_ENGINE_OPTION_PACKET_QUEUE_FORWARD: u32 = 2;
+        const FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND: u32 = 1;
+        const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: u32 = 0;
+        struct FWPM_FIELD0 {
+            fieldKey: *mut GUID,
+            r#type: FWPM_FIELD_TYPE,
+            dataType: FWP_DATA_TYPE,
+        }
+        #[repr(i32)]
+        enum FWPM_FIELD_TYPE {
+            FWPM_FIELD_RAW_DATA = 0,
+            FWPM_FIELD_IP_ADDRESS = 1,
+            FWPM_FIELD_FLAGS = 2,
+            FWPM_FIELD_TYPE_MAX = 3,
+        }
+        struct FWPM_FILTER0 {
+            filterKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            providerKey: *mut GUID,
+            providerData: FWP_BYTE_BLOB,
+            layerKey: GUID,
+            subLayerKey: GUID,
+            weight: FWP_VALUE0,
+            numFilterConditions: u32,
+            filterCondition: *mut FWPM_FILTER_CONDITION0,
+            action: FWPM_ACTION0,
+            Anonymous: union {
+                rawContext: u64,
+                providerContextKey: GUID,
+            },
+            reserved: *mut GUID,
+            filterId: u64,
+            effectiveWeight: FWP_VALUE0,
+        }
+        struct FWPM_FILTER_CHANGE0 {
+            changeType: FWPM_CHANGE_TYPE,
+            filterKey: GUID,
+            filterId: u64,
+        }
+        struct FWPM_FILTER_CONDITION0 {
+            fieldKey: GUID,
+            matchType: FWP_MATCH_TYPE,
+            conditionValue: FWP_CONDITION_VALUE0,
+        }
+        struct FWPM_FILTER_ENUM_TEMPLATE0 {
+            providerKey: *mut GUID,
+            layerKey: GUID,
+            enumType: FWP_FILTER_ENUM_TYPE,
+            flags: u32,
+            providerContextTemplate: *mut FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0,
+            numFilterConditions: u32,
+            filterCondition: *mut FWPM_FILTER_CONDITION0,
+            actionMask: u32,
+            calloutKey: *mut GUID,
+        }
+        const FWPM_FILTER_FLAG_BOOTTIME: u32 = 2;
+        const FWPM_FILTER_FLAG_CLEAR_ACTION_RIGHT: u32 = 8;
+        const FWPM_FILTER_FLAG_DISABLED: u32 = 32;
+        const FWPM_FILTER_FLAG_GAMEOS_ONLY: u32 = 512;
+        const FWPM_FILTER_FLAG_HAS_PROVIDER_CONTEXT: u32 = 4;
+        const FWPM_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT: u32 = 128;
+        const FWPM_FILTER_FLAG_INDEXED: u32 = 64;
+        const FWPM_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE: u32 = 2048;
+        const FWPM_FILTER_FLAG_NONE: u32 = 0;
+        const FWPM_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED: u32 = 16;
+        const FWPM_FILTER_FLAG_PERSISTENT: u32 = 1;
+        const FWPM_FILTER_FLAG_RESERVED0: u32 = 4096;
+        const FWPM_FILTER_FLAG_RESERVED1: u32 = 8192;
+        const FWPM_FILTER_FLAG_RESERVED2: u32 = 16384;
+        const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024;
+        const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256;
+        struct FWPM_FILTER_SUBSCRIPTION0 {
+            enumTemplate: *mut FWPM_FILTER_ENUM_TEMPLATE0,
+            flags: u32,
+            sessionKey: GUID,
+        }
+        struct FWPM_LAYER0 {
+            layerKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            numFields: u32,
+            field: *mut FWPM_FIELD0,
+            defaultSubLayerKey: GUID,
+            layerId: u16,
+        }
+        struct FWPM_LAYER_ENUM_TEMPLATE0 {
+            reserved: u64,
+        }
+        const FWPM_LAYER_FLAG_BUFFERED: u32 = 8;
+        const FWPM_LAYER_FLAG_BUILTIN: u32 = 2;
+        const FWPM_LAYER_FLAG_CLASSIFY_MOSTLY: u32 = 4;
+        const FWPM_LAYER_FLAG_KERNEL: u32 = 1;
+        struct FWPM_LAYER_STATISTICS1 {
+            layerId: GUID,
+            classifyPermitCount: u32,
+            classifyBlockCount: u32,
+            classifyVetoCount: u32,
+            numCacheEntries: u32,
+            filterCount: u32,
+            totalFilterSize: u32,
+        }
+        struct FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
+            r#type: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE,
+            value: FWP_VALUE0,
+        }
+        struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
+            numSettings: u32,
+            settings: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTING0,
+        }
+        struct FWPM_NET_EVENT0 {
+            header: FWPM_NET_EVENT_HEADER0,
+            r#type: FWPM_NET_EVENT_TYPE,
+            Anonymous: union {
+                ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE0,
+                ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
+                ikeEmFailure: *mut FWPM_NET_EVENT_IKEEXT_EM_FAILURE0,
+                classifyDrop: *mut FWPM_NET_EVENT_CLASSIFY_DROP0,
+                ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
+                idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
+            },
+        }
+        struct FWPM_NET_EVENT1 {
+            header: FWPM_NET_EVENT_HEADER1,
+            r#type: FWPM_NET_EVENT_TYPE,
+            Anonymous: union {
+                ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
+                ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
+                ikeEmFailure: *mut FWPM_NET_EVENT_IKEEXT_EM_FAILURE1,
+                classifyDrop: *mut FWPM_NET_EVENT_CLASSIFY_DROP1,
+                ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
+                idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
+            },
+        }
+        struct FWPM_NET_EVENT2 {
+            header: FWPM_NET_EVENT_HEADER2,
+            r#type: FWPM_NET_EVENT_TYPE,
+            Anonymous: union {
+                ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
+                ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
+                ikeEmFailure: *mut FWPM_NET_EVENT_IKEEXT_EM_FAILURE1,
+                classifyDrop: *mut FWPM_NET_EVENT_CLASSIFY_DROP2,
+                ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
+                idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
+                classifyAllow: *mut FWPM_NET_EVENT_CLASSIFY_ALLOW0,
+                capabilityDrop: *mut FWPM_NET_EVENT_CAPABILITY_DROP0,
+                capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
+                classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
+            },
+        }
+        struct FWPM_NET_EVENT3 {
+            header: FWPM_NET_EVENT_HEADER3,
+            r#type: FWPM_NET_EVENT_TYPE,
+            Anonymous: union {
+                ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
+                ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
+                ikeEmFailure: *mut FWPM_NET_EVENT_IKEEXT_EM_FAILURE1,
+                classifyDrop: *mut FWPM_NET_EVENT_CLASSIFY_DROP2,
+                ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
+                idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
+                classifyAllow: *mut FWPM_NET_EVENT_CLASSIFY_ALLOW0,
+                capabilityDrop: *mut FWPM_NET_EVENT_CAPABILITY_DROP0,
+                capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
+                classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
+            },
+        }
+        struct FWPM_NET_EVENT4 {
+            header: FWPM_NET_EVENT_HEADER3,
+            r#type: FWPM_NET_EVENT_TYPE,
+            Anonymous: union {
+                ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2,
+                ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1,
+                ikeEmFailure: *mut FWPM_NET_EVENT_IKEEXT_EM_FAILURE1,
+                classifyDrop: *mut FWPM_NET_EVENT_CLASSIFY_DROP2,
+                ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
+                idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
+                classifyAllow: *mut FWPM_NET_EVENT_CLASSIFY_ALLOW0,
+                capabilityDrop: *mut FWPM_NET_EVENT_CAPABILITY_DROP0,
+                capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
+                classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
+            },
+        }
+        struct FWPM_NET_EVENT5 {
+            header: FWPM_NET_EVENT_HEADER3,
+            r#type: FWPM_NET_EVENT_TYPE,
+            Anonymous: union {
+                ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2,
+                ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1,
+                ikeEmFailure: *mut FWPM_NET_EVENT_IKEEXT_EM_FAILURE1,
+                classifyDrop: *mut FWPM_NET_EVENT_CLASSIFY_DROP2,
+                ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
+                idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
+                classifyAllow: *mut FWPM_NET_EVENT_CLASSIFY_ALLOW0,
+                capabilityDrop: *mut FWPM_NET_EVENT_CAPABILITY_DROP0,
+                capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
+                classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
+                lpmPacketArrival: *mut FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0,
+            },
+        }
+        struct FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
+            networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
+            filterId: u64,
+            isLoopback: BOOL,
+        }
+        struct FWPM_NET_EVENT_CAPABILITY_DROP0 {
+            networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
+            filterId: u64,
+            isLoopback: BOOL,
+        }
+        struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
+            filterId: u64,
+            layerId: u16,
+            reauthReason: u32,
+            originalProfile: u32,
+            currentProfile: u32,
+            msFwpDirection: u32,
+            isLoopback: BOOL,
+        }
+        struct FWPM_NET_EVENT_CLASSIFY_DROP0 {
+            filterId: u64,
+            layerId: u16,
+        }
+        struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
+            filterId: u64,
+            layerId: u16,
+            reauthReason: u32,
+            originalProfile: u32,
+            currentProfile: u32,
+            msFwpDirection: u32,
+            isLoopback: BOOL,
+        }
+        struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
+            filterId: u64,
+            layerId: u16,
+            reauthReason: u32,
+            originalProfile: u32,
+            currentProfile: u32,
+            msFwpDirection: u32,
+            isLoopback: BOOL,
+            vSwitchId: FWP_BYTE_BLOB,
+            vSwitchSourcePort: u32,
+            vSwitchDestinationPort: u32,
+        }
+        struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
+            localMacAddr: FWP_BYTE_ARRAY6,
+            remoteMacAddr: FWP_BYTE_ARRAY6,
+            mediaType: u32,
+            ifType: u32,
+            etherType: u16,
+            ndisPortNumber: u32,
+            reserved: u32,
+            vlanTag: u16,
+            ifLuid: u64,
+            filterId: u64,
+            layerId: u16,
+            reauthReason: u32,
+            originalProfile: u32,
+            currentProfile: u32,
+            msFwpDirection: u32,
+            isLoopback: BOOL,
+            vSwitchId: FWP_BYTE_BLOB,
+            vSwitchSourcePort: u32,
+            vSwitchDestinationPort: u32,
+        }
+        struct FWPM_NET_EVENT_ENUM_TEMPLATE0 {
+            startTime: FILETIME,
+            endTime: FILETIME,
+            numFilterConditions: u32,
+            filterCondition: *mut FWPM_FILTER_CONDITION0,
+        }
+        const FWPM_NET_EVENT_FLAG_APP_ID_SET: u32 = 32;
+        const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: u32 = 8192;
+        const FWPM_NET_EVENT_FLAG_ENTERPRISE_ID_SET: u32 = 2048;
+        const FWPM_NET_EVENT_FLAG_IP_PROTOCOL_SET: u32 = 1;
+        const FWPM_NET_EVENT_FLAG_IP_VERSION_SET: u32 = 256;
+        const FWPM_NET_EVENT_FLAG_LOCAL_ADDR_SET: u32 = 2;
+        const FWPM_NET_EVENT_FLAG_LOCAL_PORT_SET: u32 = 8;
+        const FWPM_NET_EVENT_FLAG_PACKAGE_ID_SET: u32 = 1024;
+        const FWPM_NET_EVENT_FLAG_POLICY_FLAGS_SET: u32 = 4096;
+        const FWPM_NET_EVENT_FLAG_REAUTH_REASON_SET: u32 = 512;
+        const FWPM_NET_EVENT_FLAG_REMOTE_ADDR_SET: u32 = 4;
+        const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: u32 = 16;
+        const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: u32 = 128;
+        const FWPM_NET_EVENT_FLAG_USER_ID_SET: u32 = 64;
+        struct FWPM_NET_EVENT_HEADER0 {
+            timeStamp: FILETIME,
+            flags: u32,
+            ipVersion: FWP_IP_VERSION,
+            ipProtocol: u8,
+            Anonymous: union {
+                localAddrV4: u32,
+                localAddrV6: FWP_BYTE_ARRAY16,
+            },
+            Anonymous2: union {
+                remoteAddrV4: u32,
+                remoteAddrV6: FWP_BYTE_ARRAY16,
+            },
+            localPort: u16,
+            remotePort: u16,
+            scopeId: u32,
+            appId: FWP_BYTE_BLOB,
+            userId: *mut SID,
+        }
+        struct FWPM_NET_EVENT_HEADER1 {
+            timeStamp: FILETIME,
+            flags: u32,
+            ipVersion: FWP_IP_VERSION,
+            ipProtocol: u8,
+            Anonymous: union {
+                localAddrV4: u32,
+                localAddrV6: FWP_BYTE_ARRAY16,
+            },
+            Anonymous2: union {
+                remoteAddrV4: u32,
+                remoteAddrV6: FWP_BYTE_ARRAY16,
+            },
+            localPort: u16,
+            remotePort: u16,
+            scopeId: u32,
+            appId: FWP_BYTE_BLOB,
+            userId: *mut SID,
+            Anonymous3: union {
+                Anonymous: struct {
+                    reserved1: FWP_AF,
+                    Anonymous: union {
+                        Anonymous: struct {
+                            reserved2: FWP_BYTE_ARRAY6,
+                            reserved3: FWP_BYTE_ARRAY6,
+                            reserved4: u32,
+                            reserved5: u32,
+                            reserved6: u16,
+                            reserved7: u32,
+                            reserved8: u32,
+                            reserved9: u16,
+                            reserved10: u64,
+                        },
+                    },
+                },
+            },
+        }
+        struct FWPM_NET_EVENT_HEADER2 {
+            timeStamp: FILETIME,
+            flags: u32,
+            ipVersion: FWP_IP_VERSION,
+            ipProtocol: u8,
+            Anonymous: union {
+                localAddrV4: u32,
+                localAddrV6: FWP_BYTE_ARRAY16,
+            },
+            Anonymous2: union {
+                remoteAddrV4: u32,
+                remoteAddrV6: FWP_BYTE_ARRAY16,
+            },
+            localPort: u16,
+            remotePort: u16,
+            scopeId: u32,
+            appId: FWP_BYTE_BLOB,
+            userId: *mut SID,
+            addressFamily: FWP_AF,
+            packageSid: *mut SID,
+        }
+        struct FWPM_NET_EVENT_HEADER3 {
+            timeStamp: FILETIME,
+            flags: u32,
+            ipVersion: FWP_IP_VERSION,
+            ipProtocol: u8,
+            Anonymous: union {
+                localAddrV4: u32,
+                localAddrV6: FWP_BYTE_ARRAY16,
+            },
+            Anonymous2: union {
+                remoteAddrV4: u32,
+                remoteAddrV6: FWP_BYTE_ARRAY16,
+            },
+            localPort: u16,
+            remotePort: u16,
+            scopeId: u32,
+            appId: FWP_BYTE_BLOB,
+            userId: *mut SID,
+            addressFamily: FWP_AF,
+            packageSid: *mut SID,
+            enterpriseId: *mut u16,
+            policyFlags: u64,
+            effectiveName: FWP_BYTE_BLOB,
+        }
+        struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
+            failureErrorCode: u32,
+            failurePoint: IPSEC_FAILURE_POINT,
+            flags: u32,
+            emState: IKEEXT_EM_SA_STATE,
+            saRole: IKEEXT_SA_ROLE,
+            emAuthMethod: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            endCertHash: [u8; 20],
+            mmId: u64,
+            qmFilterId: u64,
+        }
+        struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
+            failureErrorCode: u32,
+            failurePoint: IPSEC_FAILURE_POINT,
+            flags: u32,
+            emState: IKEEXT_EM_SA_STATE,
+            saRole: IKEEXT_SA_ROLE,
+            emAuthMethod: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            endCertHash: [u8; 20],
+            mmId: u64,
+            qmFilterId: u64,
+            localPrincipalNameForAuth: *mut u16,
+            remotePrincipalNameForAuth: *mut u16,
+            numLocalPrincipalGroupSids: u32,
+            localPrincipalGroupSids: *mut PWSTR,
+            numRemotePrincipalGroupSids: u32,
+            remotePrincipalGroupSids: *mut PWSTR,
+            saTrafficType: IPSEC_TRAFFIC_TYPE,
+        }
+        const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2;
+        const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1;
+        struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
+            failureErrorCode: u32,
+            failurePoint: IPSEC_FAILURE_POINT,
+            flags: u32,
+            keyingModuleType: IKEEXT_KEY_MODULE_TYPE,
+            mmState: IKEEXT_MM_SA_STATE,
+            saRole: IKEEXT_SA_ROLE,
+            mmAuthMethod: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            endCertHash: [u8; 20],
+            mmId: u64,
+            mmFilterId: u64,
+        }
+        struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
+            failureErrorCode: u32,
+            failurePoint: IPSEC_FAILURE_POINT,
+            flags: u32,
+            keyingModuleType: IKEEXT_KEY_MODULE_TYPE,
+            mmState: IKEEXT_MM_SA_STATE,
+            saRole: IKEEXT_SA_ROLE,
+            mmAuthMethod: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            endCertHash: [u8; 20],
+            mmId: u64,
+            mmFilterId: u64,
+            localPrincipalNameForAuth: *mut u16,
+            remotePrincipalNameForAuth: *mut u16,
+            numLocalPrincipalGroupSids: u32,
+            localPrincipalGroupSids: *mut PWSTR,
+            numRemotePrincipalGroupSids: u32,
+            remotePrincipalGroupSids: *mut PWSTR,
+        }
+        struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
+            failureErrorCode: u32,
+            failurePoint: IPSEC_FAILURE_POINT,
+            flags: u32,
+            keyingModuleType: IKEEXT_KEY_MODULE_TYPE,
+            mmState: IKEEXT_MM_SA_STATE,
+            saRole: IKEEXT_SA_ROLE,
+            mmAuthMethod: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            endCertHash: [u8; 20],
+            mmId: u64,
+            mmFilterId: u64,
+            localPrincipalNameForAuth: *mut u16,
+            remotePrincipalNameForAuth: *mut u16,
+            numLocalPrincipalGroupSids: u32,
+            localPrincipalGroupSids: *mut PWSTR,
+            numRemotePrincipalGroupSids: u32,
+            remotePrincipalGroupSids: *mut PWSTR,
+            providerContextKey: *mut GUID,
+        }
+        const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1;
+        const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2;
+        struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
+            failureErrorCode: u32,
+            failurePoint: IPSEC_FAILURE_POINT,
+            keyingModuleType: IKEEXT_KEY_MODULE_TYPE,
+            qmState: IKEEXT_QM_SA_STATE,
+            saRole: IKEEXT_SA_ROLE,
+            saTrafficType: IPSEC_TRAFFIC_TYPE,
+            Anonymous: union {
+                localSubNet: FWP_CONDITION_VALUE0,
+            },
+            Anonymous2: union {
+                remoteSubNet: FWP_CONDITION_VALUE0,
+            },
+            qmFilterId: u64,
+        }
+        struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
+            failureErrorCode: u32,
+            failurePoint: IPSEC_FAILURE_POINT,
+            keyingModuleType: IKEEXT_KEY_MODULE_TYPE,
+            qmState: IKEEXT_QM_SA_STATE,
+            saRole: IKEEXT_SA_ROLE,
+            saTrafficType: IPSEC_TRAFFIC_TYPE,
+            Anonymous: union {
+                localSubNet: FWP_CONDITION_VALUE0,
+            },
+            Anonymous2: union {
+                remoteSubNet: FWP_CONDITION_VALUE0,
+            },
+            qmFilterId: u64,
+            mmSaLuid: u64,
+            mmProviderContextKey: GUID,
+        }
+        struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                publicHostV4Addr: u32,
+                publicHostV6Addr: [u8; 16],
+            },
+            Anonymous2: union {
+                internalHostV4Addr: u32,
+                internalHostV6Addr: [u8; 16],
+            },
+            failureStatus: i32,
+            direction: FWP_DIRECTION,
+        }
+        struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
+            failureStatus: i32,
+            direction: FWP_DIRECTION,
+            spi: IPSEC_SA_SPI,
+            filterId: u64,
+            layerId: u16,
+        }
+        const FWPM_NET_EVENT_KEYWORD_CAPABILITY_ALLOW: u32 = 8;
+        const FWPM_NET_EVENT_KEYWORD_CAPABILITY_DROP: u32 = 4;
+        const FWPM_NET_EVENT_KEYWORD_CLASSIFY_ALLOW: u32 = 16;
+        const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: u32 = 2;
+        const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1;
+        const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32;
+        struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
+            spi: IPSEC_SA_SPI,
+        }
+        struct FWPM_NET_EVENT_SUBSCRIPTION0 {
+            enumTemplate: *mut FWPM_NET_EVENT_ENUM_TEMPLATE0,
+            flags: u32,
+            sessionKey: GUID,
+        }
+        #[repr(i32)]
+        enum FWPM_NET_EVENT_TYPE {
+            FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE = 0,
+            FWPM_NET_EVENT_TYPE_IKEEXT_QM_FAILURE = 1,
+            FWPM_NET_EVENT_TYPE_IKEEXT_EM_FAILURE = 2,
+            FWPM_NET_EVENT_TYPE_CLASSIFY_DROP = 3,
+            FWPM_NET_EVENT_TYPE_IPSEC_KERNEL_DROP = 4,
+            FWPM_NET_EVENT_TYPE_IPSEC_DOSP_DROP = 5,
+            FWPM_NET_EVENT_TYPE_CLASSIFY_ALLOW = 6,
+            FWPM_NET_EVENT_TYPE_CAPABILITY_DROP = 7,
+            FWPM_NET_EVENT_TYPE_CAPABILITY_ALLOW = 8,
+            FWPM_NET_EVENT_TYPE_CLASSIFY_DROP_MAC = 9,
+            FWPM_NET_EVENT_TYPE_LPM_PACKET_ARRIVAL = 10,
+            FWPM_NET_EVENT_TYPE_MAX = 11,
+        }
+        struct FWPM_PROVIDER0 {
+            providerKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            providerData: FWP_BYTE_BLOB,
+            serviceName: *mut u16,
+        }
+        struct FWPM_PROVIDER_CHANGE0 {
+            changeType: FWPM_CHANGE_TYPE,
+            providerKey: GUID,
+        }
+        struct FWPM_PROVIDER_CONTEXT0 {
+            providerContextKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            providerKey: *mut GUID,
+            providerData: FWP_BYTE_BLOB,
+            r#type: FWPM_PROVIDER_CONTEXT_TYPE,
+            Anonymous: union {
+                keyingPolicy: *mut IPSEC_KEYING_POLICY0,
+                ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY0,
+                ikeQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY0,
+                authipQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY0,
+                authipQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY0,
+                ikeMmPolicy: *mut IKEEXT_POLICY0,
+                authIpMmPolicy: *mut IKEEXT_POLICY0,
+                dataBuffer: *mut FWP_BYTE_BLOB,
+                classifyOptions: *mut FWPM_CLASSIFY_OPTIONS0,
+            },
+            providerContextId: u64,
+        }
+        struct FWPM_PROVIDER_CONTEXT1 {
+            providerContextKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            providerKey: *mut GUID,
+            providerData: FWP_BYTE_BLOB,
+            r#type: FWPM_PROVIDER_CONTEXT_TYPE,
+            Anonymous: union {
+                keyingPolicy: *mut IPSEC_KEYING_POLICY0,
+                ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY1,
+                ikeQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY1,
+                authipQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY1,
+                authipQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY1,
+                ikeMmPolicy: *mut IKEEXT_POLICY1,
+                authIpMmPolicy: *mut IKEEXT_POLICY1,
+                dataBuffer: *mut FWP_BYTE_BLOB,
+                classifyOptions: *mut FWPM_CLASSIFY_OPTIONS0,
+                ikeV2QmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY1,
+                ikeV2MmPolicy: *mut IKEEXT_POLICY1,
+                idpOptions: *mut IPSEC_DOSP_OPTIONS0,
+            },
+            providerContextId: u64,
+        }
+        struct FWPM_PROVIDER_CONTEXT2 {
+            providerContextKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            providerKey: *mut GUID,
+            providerData: FWP_BYTE_BLOB,
+            r#type: FWPM_PROVIDER_CONTEXT_TYPE,
+            Anonymous: union {
+                keyingPolicy: *mut IPSEC_KEYING_POLICY1,
+                ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
+                ikeQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY2,
+                authipQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
+                authipQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY2,
+                ikeMmPolicy: *mut IKEEXT_POLICY2,
+                authIpMmPolicy: *mut IKEEXT_POLICY2,
+                dataBuffer: *mut FWP_BYTE_BLOB,
+                classifyOptions: *mut FWPM_CLASSIFY_OPTIONS0,
+                ikeV2QmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY2,
+                ikeV2QmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
+                ikeV2MmPolicy: *mut IKEEXT_POLICY2,
+                idpOptions: *mut IPSEC_DOSP_OPTIONS0,
+            },
+            providerContextId: u64,
+        }
+        struct FWPM_PROVIDER_CONTEXT3 {
+            providerContextKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            providerKey: *mut GUID,
+            providerData: FWP_BYTE_BLOB,
+            r#type: FWPM_PROVIDER_CONTEXT_TYPE,
+            Anonymous: union {
+                keyingPolicy: *mut IPSEC_KEYING_POLICY1,
+                ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
+                ikeQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY3,
+                authipQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
+                authipQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY3,
+                ikeMmPolicy: *mut IKEEXT_POLICY2,
+                authIpMmPolicy: *mut IKEEXT_POLICY2,
+                dataBuffer: *mut FWP_BYTE_BLOB,
+                classifyOptions: *mut FWPM_CLASSIFY_OPTIONS0,
+                ikeV2QmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY3,
+                ikeV2QmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
+                ikeV2MmPolicy: *mut IKEEXT_POLICY2,
+                idpOptions: *mut IPSEC_DOSP_OPTIONS0,
+                networkConnectionPolicy: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0,
+            },
+            providerContextId: u64,
+        }
+        struct FWPM_PROVIDER_CONTEXT_CHANGE0 {
+            changeType: FWPM_CHANGE_TYPE,
+            providerContextKey: GUID,
+            providerContextId: u64,
+        }
+        struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
+            providerKey: *mut GUID,
+            providerContextType: FWPM_PROVIDER_CONTEXT_TYPE,
+        }
+        const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2;
+        const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1;
+        struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
+            enumTemplate: *mut FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0,
+            flags: u32,
+            sessionKey: GUID,
+        }
+        #[repr(i32)]
+        enum FWPM_PROVIDER_CONTEXT_TYPE {
+            FWPM_IPSEC_KEYING_CONTEXT = 0,
+            FWPM_IPSEC_IKE_QM_TRANSPORT_CONTEXT = 1,
+            FWPM_IPSEC_IKE_QM_TUNNEL_CONTEXT = 2,
+            FWPM_IPSEC_AUTHIP_QM_TRANSPORT_CONTEXT = 3,
+            FWPM_IPSEC_AUTHIP_QM_TUNNEL_CONTEXT = 4,
+            FWPM_IPSEC_IKE_MM_CONTEXT = 5,
+            FWPM_IPSEC_AUTHIP_MM_CONTEXT = 6,
+            FWPM_CLASSIFY_OPTIONS_CONTEXT = 7,
+            FWPM_GENERAL_CONTEXT = 8,
+            FWPM_IPSEC_IKEV2_QM_TUNNEL_CONTEXT = 9,
+            FWPM_IPSEC_IKEV2_MM_CONTEXT = 10,
+            FWPM_IPSEC_DOSP_CONTEXT = 11,
+            FWPM_IPSEC_IKEV2_QM_TRANSPORT_CONTEXT = 12,
+            FWPM_NETWORK_CONNECTION_POLICY_CONTEXT = 13,
+            FWPM_PROVIDER_CONTEXT_TYPE_MAX = 14,
+        }
+        struct FWPM_PROVIDER_ENUM_TEMPLATE0 {
+            reserved: u64,
+        }
+        const FWPM_PROVIDER_FLAG_DISABLED: u32 = 16;
+        const FWPM_PROVIDER_FLAG_PERSISTENT: u32 = 1;
+        struct FWPM_PROVIDER_SUBSCRIPTION0 {
+            enumTemplate: *mut FWPM_PROVIDER_ENUM_TEMPLATE0,
+            flags: u32,
+            sessionKey: GUID,
+        }
+        #[repr(i32)]
+        enum FWPM_SERVICE_STATE {
+            FWPM_SERVICE_STOPPED = 0,
+            FWPM_SERVICE_START_PENDING = 1,
+            FWPM_SERVICE_STOP_PENDING = 2,
+            FWPM_SERVICE_RUNNING = 3,
+            FWPM_SERVICE_STATE_MAX = 4,
+        }
+        struct FWPM_SESSION0 {
+            sessionKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            txnWaitTimeoutInMSec: u32,
+            processId: u32,
+            sid: *mut SID,
+            username: *mut u16,
+            kernelMode: BOOL,
+        }
+        struct FWPM_SESSION_ENUM_TEMPLATE0 {
+            reserved: u64,
+        }
+        const FWPM_SESSION_FLAG_DYNAMIC: u32 = 1;
+        const FWPM_SESSION_FLAG_RESERVED: u32 = 268435456;
+        struct FWPM_STATISTICS1 {
+            numLayerStatistics: u32,
+            layerStatistics: *mut FWPM_LAYER_STATISTICS1,
+            inboundAllowedConnectionsV4: u32,
+            inboundBlockedConnectionsV4: u32,
+            outboundAllowedConnectionsV4: u32,
+            outboundBlockedConnectionsV4: u32,
+            inboundAllowedConnectionsV6: u32,
+            inboundBlockedConnectionsV6: u32,
+            outboundAllowedConnectionsV6: u32,
+            outboundBlockedConnectionsV6: u32,
+            inboundActiveConnectionsV4: u32,
+            outboundActiveConnectionsV4: u32,
+            inboundActiveConnectionsV6: u32,
+            outboundActiveConnectionsV6: u32,
+            reauthDirInbound: u64,
+            reauthDirOutbound: u64,
+            reauthFamilyV4: u64,
+            reauthFamilyV6: u64,
+            reauthProtoOther: u64,
+            reauthProtoIPv4: u64,
+            reauthProtoIPv6: u64,
+            reauthProtoICMP: u64,
+            reauthProtoICMP6: u64,
+            reauthProtoUDP: u64,
+            reauthProtoTCP: u64,
+            reauthReasonPolicyChange: u64,
+            reauthReasonNewArrivalInterface: u64,
+            reauthReasonNewNextHopInterface: u64,
+            reauthReasonProfileCrossing: u64,
+            reauthReasonClassifyCompletion: u64,
+            reauthReasonIPSecPropertiesChanged: u64,
+            reauthReasonMidStreamInspection: u64,
+            reauthReasonSocketPropertyChanged: u64,
+            reauthReasonNewInboundMCastBCastPacket: u64,
+            reauthReasonEDPPolicyChanged: u64,
+            reauthReasonProxyHandleChanged: u64,
+        }
+        struct FWPM_SUBLAYER0 {
+            subLayerKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            providerKey: *mut GUID,
+            providerData: FWP_BYTE_BLOB,
+            weight: u16,
+        }
+        struct FWPM_SUBLAYER_CHANGE0 {
+            changeType: FWPM_CHANGE_TYPE,
+            subLayerKey: GUID,
+        }
+        struct FWPM_SUBLAYER_ENUM_TEMPLATE0 {
+            providerKey: *mut GUID,
+        }
+        const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1;
+        struct FWPM_SUBLAYER_SUBSCRIPTION0 {
+            enumTemplate: *mut FWPM_SUBLAYER_ENUM_TEMPLATE0,
+            flags: u32,
+            sessionKey: GUID,
+        }
+        const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_ADD: u32 = 1;
+        const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_DELETE: u32 = 2;
+        struct FWPM_SYSTEM_PORTS0 {
+            numTypes: u32,
+            types: *mut FWPM_SYSTEM_PORTS_BY_TYPE0,
+        }
+        struct FWPM_SYSTEM_PORTS_BY_TYPE0 {
+            r#type: FWPM_SYSTEM_PORT_TYPE,
+            numPorts: u32,
+            ports: *mut u16,
+        }
+        #[repr(i32)]
+        enum FWPM_SYSTEM_PORT_TYPE {
+            FWPM_SYSTEM_PORT_RPC_EPMAP = 0,
+            FWPM_SYSTEM_PORT_TEREDO = 1,
+            FWPM_SYSTEM_PORT_IPHTTPS_IN = 2,
+            FWPM_SYSTEM_PORT_IPHTTPS_OUT = 3,
+            FWPM_SYSTEM_PORT_TYPE_MAX = 4,
+        }
+        struct FWPM_VSWITCH_EVENT0 {
+            eventType: FWPM_VSWITCH_EVENT_TYPE,
+            vSwitchId: *mut u16,
+            Anonymous: union {
+                positionInfo: struct {
+                    numvSwitchFilterExtensions: u32,
+                    vSwitchFilterExtensions: *mut PWSTR,
+                },
+                reorderInfo: struct {
+                    inRequiredPosition: BOOL,
+                    numvSwitchFilterExtensions: u32,
+                    vSwitchFilterExtensions: *mut PWSTR,
+                },
+            },
+        }
+        struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
+            flags: u32,
+            sessionKey: GUID,
+        }
+        #[repr(i32)]
+        enum FWPM_VSWITCH_EVENT_TYPE {
+            FWPM_VSWITCH_EVENT_FILTER_ADD_TO_INCOMPLETE_LAYER = 0,
+            FWPM_VSWITCH_EVENT_FILTER_ENGINE_NOT_IN_REQUIRED_POSITION = 1,
+            FWPM_VSWITCH_EVENT_ENABLED_FOR_INSPECTION = 2,
+            FWPM_VSWITCH_EVENT_DISABLED_FOR_INSPECTION = 3,
+            FWPM_VSWITCH_EVENT_FILTER_ENGINE_REORDER = 4,
+            FWPM_VSWITCH_EVENT_MAX = 5,
+        }
+        const IKEEXT_CERT_HASH_LEN: u32 = 20;
+        type PDL_ADDRESS_TYPE = *mut DL_ADDRESS_TYPE;
+    }
+}

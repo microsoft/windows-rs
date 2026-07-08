@@ -1,0 +1,342 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const APPUSERMODEL_STARTPINOPTION_DEFAULT: u32 = 0;
+        const APPUSERMODEL_STARTPINOPTION_NOPINONINSTALL: u32 = 1;
+        const APPUSERMODEL_STARTPINOPTION_USERPINNED: u32 = 2;
+        const AUDIO_CHANNELCOUNT_MONO: u32 = 1;
+        const AUDIO_CHANNELCOUNT_STEREO: u32 = 2;
+        const BLUETOOTH_ADDRESS_TYPE_PUBLIC: u32 = 0;
+        const BLUETOOTH_ADDRESS_TYPE_RANDOM: u32 = 1;
+        const BLUETOOTH_CACHED_MODE_UNCACHED: u32 = 1;
+        const BLUETOOTH_CACHE_MODE_CACHED: u32 = 0;
+        const CALENDAR_RESPONSESTATUS_ACCEPTED: u32 = 3;
+        const CALENDAR_RESPONSESTATUS_DECLINED: u32 = 4;
+        const CALENDAR_RESPONSESTATUS_NONE: u32 = 0;
+        const CALENDAR_RESPONSESTATUS_NOTRESPONDED: u32 = 5;
+        const CALENDAR_RESPONSESTATUS_ORGANIZED: u32 = 1;
+        const CALENDAR_RESPONSESTATUS_TENTATIVE: u32 = 2;
+        const CALENDAR_SHOWTIMEAS_BUSY: u32 = 2;
+        const CALENDAR_SHOWTIMEAS_FREE: u32 = 0;
+        const CALENDAR_SHOWTIMEAS_OOF: u32 = 3;
+        const CALENDAR_SHOWTIMEAS_TENTATIVE: u32 = 1;
+        const COMMUNICATION_DIRECTION_INCOMING: u32 = 1;
+        const COMMUNICATION_DIRECTION_OUTGOING: u32 = 2;
+        const COMMUNICATION_DIRECTION_UNKNOWN: u32 = 0;
+        const CREATOROPENWITHUIOPTION_HIDDEN: u32 = 0;
+        const CREATOROPENWITHUIOPTION_VISIBLE: u32 = 1;
+        const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2;
+        const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE_PINNED: u32 = 3;
+        const FILEOFFLINEAVAILABILITYSTATUS_EXCLUDED: u32 = 4;
+        const FILEOFFLINEAVAILABILITYSTATUS_FOLDER_EMPTY: u32 = 5;
+        const FILEOFFLINEAVAILABILITYSTATUS_NOTAVAILABLEOFFLINE: u32 = 0;
+        const FILEOFFLINEAVAILABILITYSTATUS_PARTIAL: u32 = 1;
+        const FLAGCOLOR_BLUE: u32 = 5;
+        const FLAGCOLOR_GREEN: u32 = 3;
+        const FLAGCOLOR_ORANGE: u32 = 2;
+        const FLAGCOLOR_PURPLE: u32 = 1;
+        const FLAGCOLOR_RED: u32 = 6;
+        const FLAGCOLOR_YELLOW: u32 = 4;
+        const FLAGSTATUS_COMPLETED: u32 = 1;
+        const FLAGSTATUS_FOLLOWUP: u32 = 2;
+        const FLAGSTATUS_NOTFLAGGED: u32 = 0;
+        const GENDERVALUE_FEMALE: u32 = 1;
+        const GENDERVALUE_MALE: u32 = 2;
+        const GENDERVALUE_UNSPECIFIED: u32 = 0;
+        const HOMEGROUPING_FREQUENT: u32 = 1;
+        const HOMEGROUPING_PINNED: u32 = 2;
+        const HOMEGROUPING_RECENT: u32 = 3;
+        const HOMEGROUPING_RECOMMENDATIONS: u32 = 4;
+        const HOMEGROUPING_SHARED: u32 = 5;
+        const HOMEGROUPING_UNSPECIFIED: u32 = 0;
+        const IMAGE_COLORSPACE_SRGB: u32 = 1;
+        const IMAGE_COLORSPACE_UNCALIBRATED: u32 = 65535;
+        const IMAGE_COMPRESSION_CCITT_T3: u32 = 2;
+        const IMAGE_COMPRESSION_CCITT_T4: u32 = 3;
+        const IMAGE_COMPRESSION_CCITT_T6: u32 = 4;
+        const IMAGE_COMPRESSION_JPEG: u32 = 6;
+        const IMAGE_COMPRESSION_LZW: u32 = 5;
+        const IMAGE_COMPRESSION_PACKBITS: u32 = 32773;
+        const IMAGE_COMPRESSION_UNCOMPRESSED: u32 = 1;
+        const IMPORTANCE_HIGH_MAX: u32 = 5;
+        const IMPORTANCE_HIGH_MIN: u32 = 5;
+        const IMPORTANCE_HIGH_SET: u32 = 5;
+        const IMPORTANCE_LOW_MAX: u32 = 1;
+        const IMPORTANCE_LOW_MIN: u32 = 0;
+        const IMPORTANCE_LOW_SET: u32 = 1;
+        const IMPORTANCE_NORMAL_MAX: u32 = 4;
+        const IMPORTANCE_NORMAL_MIN: u32 = 2;
+        const IMPORTANCE_NORMAL_SET: u32 = 3;
+        const ISDEFAULTSAVE_BOTH: u32 = 3;
+        const ISDEFAULTSAVE_NONE: u32 = 0;
+        const ISDEFAULTSAVE_NONOWNER: u32 = 2;
+        const ISDEFAULTSAVE_OWNER: u32 = 1;
+        #[encoding("utf-16")]
+        const KIND_CALENDAR: String = "calendar";
+        #[encoding("utf-16")]
+        const KIND_COMMUNICATION: String = "communication";
+        #[encoding("utf-16")]
+        const KIND_CONTACT: String = "contact";
+        #[encoding("utf-16")]
+        const KIND_DOCUMENT: String = "document";
+        #[encoding("utf-16")]
+        const KIND_EMAIL: String = "email";
+        #[encoding("utf-16")]
+        const KIND_FEED: String = "feed";
+        #[encoding("utf-16")]
+        const KIND_FOLDER: String = "folder";
+        #[encoding("utf-16")]
+        const KIND_GAME: String = "game";
+        #[encoding("utf-16")]
+        const KIND_INSTANTMESSAGE: String = "instantmessage";
+        #[encoding("utf-16")]
+        const KIND_JOURNAL: String = "journal";
+        #[encoding("utf-16")]
+        const KIND_LINK: String = "link";
+        #[encoding("utf-16")]
+        const KIND_MOVIE: String = "movie";
+        #[encoding("utf-16")]
+        const KIND_MUSIC: String = "music";
+        #[encoding("utf-16")]
+        const KIND_NOTE: String = "note";
+        #[encoding("utf-16")]
+        const KIND_PICTURE: String = "picture";
+        #[encoding("utf-16")]
+        const KIND_PLAYLIST: String = "playlist";
+        #[encoding("utf-16")]
+        const KIND_PROGRAM: String = "program";
+        #[encoding("utf-16")]
+        const KIND_RECORDEDTV: String = "recordedtv";
+        #[encoding("utf-16")]
+        const KIND_SEARCHFOLDER: String = "searchfolder";
+        #[encoding("utf-16")]
+        const KIND_TASK: String = "task";
+        #[encoding("utf-16")]
+        const KIND_UNKNOWN: String = "unknown";
+        #[encoding("utf-16")]
+        const KIND_VIDEO: String = "video";
+        #[encoding("utf-16")]
+        const KIND_WEBHISTORY: String = "webhistory";
+        #[encoding("utf-16")]
+        const LAYOUTPATTERN_CVMFB_ALPHA: String = "alpha";
+        #[encoding("utf-16")]
+        const LAYOUTPATTERN_CVMFB_BETA: String = "beta";
+        #[encoding("utf-16")]
+        const LAYOUTPATTERN_CVMFB_DELTA: String = "delta";
+        #[encoding("utf-16")]
+        const LAYOUTPATTERN_CVMFB_GAMMA: String = "gamma";
+        #[encoding("utf-16")]
+        const LAYOUTPATTERN_CVMFS_ALPHA: String = "alpha";
+        #[encoding("utf-16")]
+        const LAYOUTPATTERN_CVMFS_BETA: String = "beta";
+        #[encoding("utf-16")]
+        const LAYOUTPATTERN_CVMFS_DELTA: String = "delta";
+        #[encoding("utf-16")]
+        const LAYOUTPATTERN_CVMFS_GAMMA: String = "gamma";
+        const LINK_STATUS_BROKEN: u32 = 2;
+        const LINK_STATUS_RESOLVED: u32 = 1;
+        const MATCH_KIND_LEXICAL: u32 = 1;
+        const MATCH_KIND_SEMANTIC: u32 = 2;
+        const NOTE_COLOR_BLUE: u32 = 0;
+        const NOTE_COLOR_GREEN: u32 = 1;
+        const NOTE_COLOR_LIGHTGREEN: u32 = 5;
+        const NOTE_COLOR_PINK: u32 = 2;
+        const NOTE_COLOR_WHITE: u32 = 4;
+        const NOTE_COLOR_YELLOW: u32 = 3;
+        const OFFLINEAVAILABILITY_ALWAYS_AVAILABLE: u32 = 2;
+        const OFFLINEAVAILABILITY_AVAILABLE: u32 = 1;
+        const OFFLINEAVAILABILITY_NOT_AVAILABLE: u32 = 0;
+        const OFFLINESTATUS_OFFLINE: u32 = 1;
+        const OFFLINESTATUS_OFFLINE_ERROR: u32 = 4;
+        const OFFLINESTATUS_OFFLINE_FORCED: u32 = 2;
+        const OFFLINESTATUS_OFFLINE_ITEM_VERSION_CONFLICT: u32 = 5;
+        const OFFLINESTATUS_OFFLINE_SLOW: u32 = 3;
+        const OFFLINESTATUS_OFFLINE_SUSPENDED: u32 = 6;
+        const OFFLINESTATUS_ONLINE: u32 = 0;
+        const PHOTO_CONTRAST_HARD: u32 = 2;
+        const PHOTO_CONTRAST_NORMAL: u32 = 0;
+        const PHOTO_CONTRAST_SOFT: u32 = 1;
+        const PHOTO_EXPOSUREPROGRAM_ACTION: u32 = 6;
+        const PHOTO_EXPOSUREPROGRAM_APERTURE: u32 = 3;
+        const PHOTO_EXPOSUREPROGRAM_CREATIVE: u32 = 5;
+        const PHOTO_EXPOSUREPROGRAM_LANDSCAPE: u32 = 8;
+        const PHOTO_EXPOSUREPROGRAM_MANUAL: u32 = 1;
+        const PHOTO_EXPOSUREPROGRAM_NORMAL: u32 = 2;
+        const PHOTO_EXPOSUREPROGRAM_PORTRAIT: u32 = 7;
+        const PHOTO_EXPOSUREPROGRAM_SHUTTER: u32 = 4;
+        const PHOTO_EXPOSUREPROGRAM_UNKNOWN: u32 = 0;
+        const PHOTO_FLASH_FLASH: u32 = 1;
+        const PHOTO_FLASH_FLASH_AUTO: u32 = 25;
+        const PHOTO_FLASH_FLASH_AUTO_NORETURNLIGHT: u32 = 29;
+        const PHOTO_FLASH_FLASH_AUTO_REDEYE: u32 = 89;
+        const PHOTO_FLASH_FLASH_AUTO_REDEYE_NORETURNLIGHT: u32 = 93;
+        const PHOTO_FLASH_FLASH_AUTO_REDEYE_RETURNLIGHT: u32 = 95;
+        const PHOTO_FLASH_FLASH_AUTO_RETURNLIGHT: u32 = 31;
+        const PHOTO_FLASH_FLASH_COMPULSORY: u32 = 9;
+        const PHOTO_FLASH_FLASH_COMPULSORY_NORETURNLIGHT: u32 = 13;
+        const PHOTO_FLASH_FLASH_COMPULSORY_REDEYE: u32 = 73;
+        const PHOTO_FLASH_FLASH_COMPULSORY_REDEYE_NORETURNLIGHT: u32 = 77;
+        const PHOTO_FLASH_FLASH_COMPULSORY_REDEYE_RETURNLIGHT: u32 = 79;
+        const PHOTO_FLASH_FLASH_COMPULSORY_RETURNLIGHT: u32 = 15;
+        const PHOTO_FLASH_FLASH_REDEYE: u32 = 65;
+        const PHOTO_FLASH_FLASH_REDEYE_NORETURNLIGHT: u32 = 69;
+        const PHOTO_FLASH_FLASH_REDEYE_RETURNLIGHT: u32 = 71;
+        const PHOTO_FLASH_NOFUNCTION: u32 = 32;
+        const PHOTO_FLASH_NONE: u32 = 0;
+        const PHOTO_FLASH_NONE_AUTO: u32 = 24;
+        const PHOTO_FLASH_NONE_COMPULSORY: u32 = 16;
+        const PHOTO_FLASH_WITHOUTSTROBE: u32 = 5;
+        const PHOTO_FLASH_WITHSTROBE: u32 = 7;
+        const PHOTO_LIGHTSOURCE_D55: u32 = 20;
+        const PHOTO_LIGHTSOURCE_D65: u32 = 21;
+        const PHOTO_LIGHTSOURCE_D75: u32 = 22;
+        const PHOTO_LIGHTSOURCE_DAYLIGHT: u32 = 1;
+        const PHOTO_LIGHTSOURCE_FLUORESCENT: u32 = 2;
+        const PHOTO_LIGHTSOURCE_STANDARD_A: u32 = 17;
+        const PHOTO_LIGHTSOURCE_STANDARD_B: u32 = 18;
+        const PHOTO_LIGHTSOURCE_STANDARD_C: u32 = 19;
+        const PHOTO_LIGHTSOURCE_TUNGSTEN: u32 = 3;
+        const PHOTO_LIGHTSOURCE_UNKNOWN: u32 = 0;
+        const PHOTO_METERINGMODE_AVERAGE: u32 = 1;
+        const PHOTO_METERINGMODE_CENTER: u32 = 2;
+        const PHOTO_METERINGMODE_MULTISPOT: u32 = 4;
+        const PHOTO_METERINGMODE_PARTIAL: u32 = 6;
+        const PHOTO_METERINGMODE_PATTERN: u32 = 5;
+        const PHOTO_METERINGMODE_SPOT: u32 = 3;
+        const PHOTO_METERINGMODE_UNKNOWN: u32 = 0;
+        const PHOTO_ORIENTATION_FLIPHORIZONTAL: u32 = 2;
+        const PHOTO_ORIENTATION_FLIPVERTICAL: u32 = 4;
+        const PHOTO_ORIENTATION_NORMAL: u32 = 1;
+        const PHOTO_ORIENTATION_ROTATE180: u32 = 3;
+        const PHOTO_ORIENTATION_ROTATE270: u32 = 6;
+        const PHOTO_ORIENTATION_ROTATE90: u32 = 8;
+        const PHOTO_ORIENTATION_TRANSPOSE: u32 = 5;
+        const PHOTO_ORIENTATION_TRANSVERSE: u32 = 7;
+        const PHOTO_PHOTOMETRIC_RGB: u32 = 2;
+        const PHOTO_PHOTOMETRIC_YCBCR: u32 = 6;
+        const PHOTO_PROGRAMMODE_ACTION: u32 = 6;
+        const PHOTO_PROGRAMMODE_APERTURE: u32 = 3;
+        const PHOTO_PROGRAMMODE_CREATIVE: u32 = 5;
+        const PHOTO_PROGRAMMODE_LANDSCAPE: u32 = 8;
+        const PHOTO_PROGRAMMODE_MANUAL: u32 = 1;
+        const PHOTO_PROGRAMMODE_NORMAL: u32 = 2;
+        const PHOTO_PROGRAMMODE_NOTDEFINED: u32 = 0;
+        const PHOTO_PROGRAMMODE_PORTRAIT: u32 = 7;
+        const PHOTO_PROGRAMMODE_SHUTTER: u32 = 4;
+        const PHOTO_SATURATION_HIGH: u32 = 2;
+        const PHOTO_SATURATION_LOW: u32 = 1;
+        const PHOTO_SATURATION_NORMAL: u32 = 0;
+        const PHOTO_SHARPNESS_HARD: u32 = 2;
+        const PHOTO_SHARPNESS_NORMAL: u32 = 0;
+        const PHOTO_SHARPNESS_SOFT: u32 = 1;
+        const PHOTO_WHITEBALANCE_AUTO: u32 = 0;
+        const PHOTO_WHITEBALANCE_MANUAL: u32 = 1;
+        const PLAYBACKSTATE_NOMEDIA: u32 = 7;
+        const PLAYBACKSTATE_PAUSED: u32 = 4;
+        const PLAYBACKSTATE_PLAYING: u32 = 2;
+        const PLAYBACKSTATE_RECORDING: u32 = 6;
+        const PLAYBACKSTATE_RECORDINGPAUSED: u32 = 5;
+        const PLAYBACKSTATE_STOPPED: u32 = 1;
+        const PLAYBACKSTATE_TRANSITIONING: u32 = 3;
+        const PLAYBACKSTATE_UNKNOWN: u32 = 0;
+        const PRIORITY_PROP_HIGH: u32 = 2;
+        const PRIORITY_PROP_LOW: u32 = 0;
+        const PRIORITY_PROP_NORMAL: u32 = 1;
+        const RATING_FIVE_STARS_MAX: u32 = 99;
+        const RATING_FIVE_STARS_MIN: u32 = 88;
+        const RATING_FIVE_STARS_SET: u32 = 99;
+        const RATING_FOUR_STARS_MAX: u32 = 87;
+        const RATING_FOUR_STARS_MIN: u32 = 63;
+        const RATING_FOUR_STARS_SET: u32 = 75;
+        const RATING_ONE_STAR_MAX: u32 = 12;
+        const RATING_ONE_STAR_MIN: u32 = 1;
+        const RATING_ONE_STAR_SET: u32 = 1;
+        const RATING_THREE_STARS_MAX: u32 = 62;
+        const RATING_THREE_STARS_MIN: u32 = 38;
+        const RATING_THREE_STARS_SET: u32 = 50;
+        const RATING_TWO_STARS_MAX: u32 = 37;
+        const RATING_TWO_STARS_MIN: u32 = 13;
+        const RATING_TWO_STARS_SET: u32 = 25;
+        const SENSITIVITY_PROP_CONFIDENTIAL: u32 = 3;
+        const SENSITIVITY_PROP_NORMAL: u32 = 0;
+        const SENSITIVITY_PROP_PERSONAL: u32 = 1;
+        const SENSITIVITY_PROP_PRIVATE: u32 = 2;
+        #[encoding("utf-16")]
+        const SFGAOSTR_BROWSABLE: String = "browsable";
+        #[encoding("utf-16")]
+        const SFGAOSTR_FILEANC: String = "fileanc";
+        #[encoding("utf-16")]
+        const SFGAOSTR_FILESYS: String = "filesys";
+        #[encoding("utf-16")]
+        const SFGAOSTR_FOLDER: String = "folder";
+        #[encoding("utf-16")]
+        const SFGAOSTR_HIDDEN: String = "hidden";
+        #[encoding("utf-16")]
+        const SFGAOSTR_LINK: String = "link";
+        #[encoding("utf-16")]
+        const SFGAOSTR_NONENUM: String = "nonenum";
+        #[encoding("utf-16")]
+        const SFGAOSTR_PLACEHOLDER: String = "placeholder";
+        #[encoding("utf-16")]
+        const SFGAOSTR_STORAGEANC: String = "storageanc";
+        #[encoding("utf-16")]
+        const SFGAOSTR_STREAM: String = "stream";
+        #[encoding("utf-16")]
+        const SFGAOSTR_SUPERHIDDEN: String = "superhidden";
+        #[encoding("utf-16")]
+        const SFGAOSTR_SYSTEM: String = "system";
+        const SHARINGSTATUS_NOTSHARED: u32 = 0;
+        const SHARINGSTATUS_PRIVATE: u32 = 2;
+        const SHARINGSTATUS_SHARED: u32 = 1;
+        const STORAGEPROVIDERCUSTOM_ICON_PHONE: u32 = 0;
+        const STORAGEPROVIDERSTATE_ERROR: u32 = 7;
+        const STORAGEPROVIDERSTATE_EXCLUDED: u32 = 9;
+        const STORAGEPROVIDERSTATE_IN_SYNC: u32 = 2;
+        const STORAGEPROVIDERSTATE_NONE: u32 = 0;
+        const STORAGEPROVIDERSTATE_PENDING_DOWNLOAD: u32 = 5;
+        const STORAGEPROVIDERSTATE_PENDING_UNSPECIFIED: u32 = 10;
+        const STORAGEPROVIDERSTATE_PENDING_UPLOAD: u32 = 4;
+        const STORAGEPROVIDERSTATE_PINNED: u32 = 3;
+        const STORAGEPROVIDERSTATE_SPARSE: u32 = 1;
+        const STORAGEPROVIDERSTATE_TRANSFERRING: u32 = 6;
+        const STORAGEPROVIDERSTATE_WARNING: u32 = 8;
+        const STORAGEPROVIDERUSERACCOUNTKIND_BUSINESS: u32 = 2;
+        const STORAGEPROVIDERUSERACCOUNTKIND_CONSUMER: u32 = 1;
+        const STORAGEPROVIDERUSERACCOUNTKIND_UNKNOWN: u32 = 0;
+        #[encoding("utf-16")]
+        const STORAGE_PROVIDER_SHARE_STATUS_GROUP: String = "Group";
+        #[encoding("utf-16")]
+        const STORAGE_PROVIDER_SHARE_STATUS_OWNER: String = "Owner";
+        #[encoding("utf-16")]
+        const STORAGE_PROVIDER_SHARE_STATUS_PRIVATE: String = "Private";
+        #[encoding("utf-16")]
+        const STORAGE_PROVIDER_SHARE_STATUS_PUBLIC: String = "Public";
+        #[encoding("utf-16")]
+        const STORAGE_PROVIDER_SHARE_STATUS_SHARED: String = "Shared";
+        const STORAGE_PROVIDER_SHARINGSTATUS_NOTSHARED: u32 = 0;
+        const STORAGE_PROVIDER_SHARINGSTATUS_PRIVATE: u32 = 2;
+        const STORAGE_PROVIDER_SHARINGSTATUS_PUBLIC: u32 = 3;
+        const STORAGE_PROVIDER_SHARINGSTATUS_PUBLIC_COOWNED: u32 = 7;
+        const STORAGE_PROVIDER_SHARINGSTATUS_PUBLIC_OWNED: u32 = 6;
+        const STORAGE_PROVIDER_SHARINGSTATUS_SHARED: u32 = 1;
+        const STORAGE_PROVIDER_SHARINGSTATUS_SHARED_COOWNED: u32 = 5;
+        const STORAGE_PROVIDER_SHARINGSTATUS_SHARED_OWNED: u32 = 4;
+        const SYNC_HANDLERTYPE_COMPUTERS: u32 = 5;
+        const SYNC_HANDLERTYPE_DEVICES: u32 = 2;
+        const SYNC_HANDLERTYPE_FOLDERS: u32 = 3;
+        const SYNC_HANDLERTYPE_OTHER: u32 = 0;
+        const SYNC_HANDLERTYPE_PROGRAMS: u32 = 1;
+        const SYNC_HANDLERTYPE_WEBSERVICES: u32 = 4;
+        const SYNC_STATE_ERROR: u32 = 3;
+        const SYNC_STATE_IDLE: u32 = 2;
+        const SYNC_STATE_NOTSETUP: u32 = 0;
+        const SYNC_STATE_PENDING: u32 = 4;
+        const SYNC_STATE_SYNCING: u32 = 5;
+        const SYNC_STATE_SYNCNOTRUN: u32 = 1;
+        const TASKSTATUS_COMPLETE: u32 = 2;
+        const TASKSTATUS_DEFERRED: u32 = 4;
+        const TASKSTATUS_INPROGRESS: u32 = 1;
+        const TASKSTATUS_NOTSTARTED: u32 = 0;
+        const TASKSTATUS_WAITING: u32 = 3;
+    }
+}

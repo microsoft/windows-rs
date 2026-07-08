@@ -1,0 +1,8 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const NEWTRANSPARENT: u32 = 3;
+        const QUERYROPSUPPORT: u32 = 40;
+        const SELECTDIB: u32 = 41;
+    }
+}

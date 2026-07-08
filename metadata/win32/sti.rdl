@@ -1,0 +1,203 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CLSID_Sti: GUID = 0xb323f8e0_2e68_11d0_90ea_00aa0060f86c;
+        type DIAG = STI_DIAG;
+        const GUID_DeviceArrivedLaunch: GUID = 0x740d9ee6_70f1_11d1_ad10_00a02438ad48;
+        const GUID_STIUserDefined1: GUID = 0xc00eb795_8c6e_11d2_977a_0000f87a926f;
+        const GUID_STIUserDefined2: GUID = 0xc77ae9c5_8c6e_11d2_977a_0000f87a926f;
+        const GUID_STIUserDefined3: GUID = 0xc77ae9c6_8c6e_11d2_977a_0000f87a926f;
+        const GUID_ScanFaxImage: GUID = 0xc00eb793_8c6e_11d2_977a_0000f87a926f;
+        const GUID_ScanImage: GUID = 0xa6c5a715_8c6e_11d2_977a_0000f87a926f;
+        const GUID_ScanPrintImage: GUID = 0xb441f425_8c6e_11d2_977a_0000f87a926f;
+        #[guid(0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c)]
+        interface IStiDevice: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Initialize(&self, hinst: HINSTANCE, pwszDeviceName: PCWSTR, dwVersion: u32, dwMode: u32) -> HRESULT;
+            fn GetCapabilities(&self, #[in] #[out] pDevCaps: *mut STI_DEV_CAPS) -> HRESULT;
+            fn GetStatus(&self, #[in] #[out] pDevStatus: *mut STI_DEVICE_STATUS) -> HRESULT;
+            fn DeviceReset(&self) -> HRESULT;
+            fn Diagnostic(&self, #[in] #[out] pBuffer: *mut STI_DIAG) -> HRESULT;
+            fn Escape(&self, EscapeFunction: STI_RAW_CONTROL_CODE, #[size_param(2)] lpInData: *const void, cbInDataSize: u32, #[size_param(4)] #[in] #[out] pOutData: *mut void, dwOutDataSize: u32, pdwActualData: *mut u32) -> HRESULT;
+            fn GetLastError(&self, pdwLastDeviceError: *mut u32) -> HRESULT;
+            fn LockDevice(&self, dwTimeOut: u32) -> HRESULT;
+            fn UnLockDevice(&self) -> HRESULT;
+            fn RawReadData(&self, #[size_param(1)] #[in] #[out] lpBuffer: *mut void, #[in] #[out] lpdwNumberOfBytes: *mut u32, #[opt] lpOverlapped: *const OVERLAPPED) -> HRESULT;
+            fn RawWriteData(&self, #[size_param(1)] lpBuffer: *const void, nNumberOfBytes: u32, #[opt] lpOverlapped: *const OVERLAPPED) -> HRESULT;
+            fn RawReadCommand(&self, #[size_param(1)] #[in] #[out] lpBuffer: *mut void, #[in] #[out] lpdwNumberOfBytes: *mut u32, #[opt] lpOverlapped: *const OVERLAPPED) -> HRESULT;
+            fn RawWriteCommand(&self, #[size_param(1)] lpBuffer: *const void, nNumberOfBytes: u32, #[opt] lpOverlapped: *const OVERLAPPED) -> HRESULT;
+            fn Subscribe(&self, #[in] #[out] lpSubsribe: *mut STISUBSCRIBE) -> HRESULT;
+            fn GetLastNotificationData(&self, lpNotify: *mut STINOTIFY) -> HRESULT;
+            fn UnSubscribe(&self) -> HRESULT;
+            fn GetLastErrorInfo(&self, pLastErrorInfo: *mut STI_ERROR_INFO) -> HRESULT;
+        }
+        struct IStiDeviceW {}
+        #[guid(0x641bd880_2dc8_11d0_90ea_00aa0060f86c)]
+        interface IStillImageW: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Initialize(&self, hinst: HINSTANCE, dwVersion: u32) -> HRESULT;
+            fn GetDeviceList(&self, dwType: u32, dwFlags: u32, pdwItemsReturned: *mut u32, ppBuffer: *mut *mut void) -> HRESULT;
+            fn GetDeviceInfo(&self, pwszDeviceName: PCWSTR, ppBuffer: *mut *mut void) -> HRESULT;
+            fn CreateDevice(&self, pwszDeviceName: PCWSTR, dwMode: u32, pDevice: *mut IStiDevice, #[opt] punkOuter: IUnknown) -> HRESULT;
+            fn GetSTILaunchInformation(&self, #[out] pwszDeviceName: PWSTR, #[opt] pdwEventCode: *mut u32, #[out] pwszEventName: PWSTR) -> HRESULT;
+            fn RegisterLaunchApplication(&self, pwszAppName: PCWSTR, pwszCommandLine: PCWSTR) -> HRESULT;
+            fn UnregisterLaunchApplication(&self, pwszAppName: PCWSTR) -> HRESULT;
+            fn EnableHwNotifications(&self, pwszDeviceName: PCWSTR, bNewState: BOOL) -> HRESULT;
+            fn GetHwNotificationState(&self, pwszDeviceName: PCWSTR, pbCurrentState: *mut BOOL) -> HRESULT;
+            fn RefreshDeviceBus(&self, pwszDeviceName: PCWSTR) -> HRESULT;
+            fn WriteToErrorLog(&self, dwMessageType: u32, pszMessage: PCWSTR) -> HRESULT;
+        }
+        type LPDIAG = LPSTI_DIAG;
+        type LPSTINOTIFY = *mut STINOTIFY;
+        type LPSTISUBSCRIBE = *mut STISUBSCRIBE;
+        type LPSTI_DIAG = *mut STI_DIAG;
+        const MAX_NOTIFICATION_DATA: u32 = 64;
+        type PSTIDEVICEW = *mut IStiDeviceW;
+        type PSTI_DEVICE_INFORMATION = PSTI_DEVICE_INFORMATIONW;
+        type PSTI_DEVICE_INFORMATIONW = *mut STI_DEVICE_INFORMATIONW;
+        type PSTI_DEVICE_STATUS = *mut STI_DEVICE_STATUS;
+        type PSTI_DEV_CAPS = *mut STI_DEV_CAPS;
+        type PSTI_ERROR_INFO = *mut STI_ERROR_INFO;
+        type PSTI_ERROR_INFOW = *mut STI_ERROR_INFOW;
+        type PSTI_WIA_DEVICE_INFORMATION = PSTI_WIA_DEVICE_INFORMATIONW;
+        type PSTI_WIA_DEVICE_INFORMATIONW = *mut STI_WIA_DEVICE_INFORMATIONW;
+        const STIEDFL_ALLDEVICES: u32 = 0;
+        const STIEDFL_ATTACHEDONLY: u32 = 1;
+        struct STINOTIFY {
+            dwSize: u32,
+            guidNotificationCode: GUID,
+            abNotificationData: [u8; 64],
+        }
+        struct STISUBSCRIBE {
+            dwSize: u32,
+            dwFlags: u32,
+            dwFilter: u32,
+            hWndNotify: HWND,
+            hEvent: HANDLE,
+            uiNotificationMessage: u32,
+        }
+        #[encoding("ansi")]
+        const STI_ADD_DEVICE_BROADCAST_ACTION: String = "Arrival";
+        const STI_DEVICE_CREATE_BOTH: u32 = 3;
+        const STI_DEVICE_CREATE_DATA: u32 = 2;
+        const STI_DEVICE_CREATE_MASK: u32 = 65535;
+        const STI_DEVICE_CREATE_STATUS: u32 = 1;
+        type STI_DEVICE_INFORMATION = STI_DEVICE_INFORMATIONW;
+        struct STI_DEVICE_INFORMATIONW {
+            dwSize: u32,
+            DeviceType: STI_DEVICE_TYPE,
+            szDeviceInternalName: [u16; 128],
+            DeviceCapabilitiesA: STI_DEV_CAPS,
+            dwHardwareConfiguration: u32,
+            pszVendorDescription: PWSTR,
+            pszDeviceDescription: PWSTR,
+            pszPortName: PWSTR,
+            pszPropProvider: PWSTR,
+            pszLocalName: PWSTR,
+        }
+        #[repr(i32)]
+        enum STI_DEVICE_MJ_TYPE {
+            StiDeviceTypeDefault = 0,
+            StiDeviceTypeScanner = 1,
+            StiDeviceTypeDigitalCamera = 2,
+            StiDeviceTypeStreamingVideo = 3,
+        }
+        struct STI_DEVICE_STATUS {
+            dwSize: u32,
+            StatusMask: u32,
+            dwOnlineState: u32,
+            dwHardwareStatusCode: u32,
+            dwEventHandlingState: u32,
+            dwPollingInterval: u32,
+        }
+        type STI_DEVICE_TYPE = u32;
+        const STI_DEVSTATUS_EVENTS_STATE: u32 = 2;
+        const STI_DEVSTATUS_ONLINE_STATE: u32 = 1;
+        struct STI_DEV_CAPS {
+            dwGeneric: u32,
+        }
+        struct STI_DIAG {
+            dwSize: u32,
+            dwBasicDiagCode: u32,
+            dwVendorDiagCode: u32,
+            dwStatusMask: u32,
+            sErrorInfo: STI_ERROR_INFO,
+        }
+        const STI_DIAGCODE_HWPRESENCE: u32 = 1;
+        type STI_ERROR_INFO = STI_ERROR_INFOW;
+        struct STI_ERROR_INFOW {
+            dwSize: u32,
+            dwGenericError: u32,
+            dwVendorError: u32,
+            szExtendedErrorText: [u16; 255],
+        }
+        const STI_EVENTHANDLING_ENABLED: u32 = 1;
+        const STI_EVENTHANDLING_PENDING: u32 = 4;
+        const STI_EVENTHANDLING_POLLING: u32 = 2;
+        const STI_GENCAP_AUTO_PORTSELECT: u32 = 8;
+        const STI_GENCAP_COMMON_MASK: u32 = 255;
+        const STI_GENCAP_GENERATE_ARRIVALEVENT: u32 = 4;
+        const STI_GENCAP_NOTIFICATIONS: u32 = 1;
+        const STI_GENCAP_POLLING_NEEDED: u32 = 2;
+        const STI_GENCAP_SUBSET: u32 = 32;
+        const STI_GENCAP_WIA: u32 = 16;
+        const STI_HW_CONFIG_PARALLEL: u32 = 16;
+        const STI_HW_CONFIG_SCSI: u32 = 2;
+        const STI_HW_CONFIG_SERIAL: u32 = 8;
+        const STI_HW_CONFIG_UNKNOWN: u32 = 1;
+        const STI_HW_CONFIG_USB: u32 = 4;
+        const STI_MAX_INTERNAL_NAME_LENGTH: u32 = 128;
+        const STI_ONLINESTATE_BUSY: u32 = 256;
+        const STI_ONLINESTATE_ERROR: u32 = 4;
+        const STI_ONLINESTATE_INITIALIZING: u32 = 1024;
+        const STI_ONLINESTATE_IO_ACTIVE: u32 = 128;
+        const STI_ONLINESTATE_OFFLINE: u32 = 64;
+        const STI_ONLINESTATE_OPERATIONAL: u32 = 1;
+        const STI_ONLINESTATE_PAPER_JAM: u32 = 16;
+        const STI_ONLINESTATE_PAPER_PROBLEM: u32 = 32;
+        const STI_ONLINESTATE_PAUSED: u32 = 8;
+        const STI_ONLINESTATE_PENDING: u32 = 2;
+        const STI_ONLINESTATE_POWER_SAVE: u32 = 8192;
+        const STI_ONLINESTATE_TRANSFERRING: u32 = 512;
+        const STI_ONLINESTATE_USER_INTERVENTION: u32 = 4096;
+        const STI_ONLINESTATE_WARMING_UP: u32 = 2048;
+        type STI_RAW_CONTROL_CODE = u32;
+        const STI_RAW_RESERVED: u32 = 4096;
+        #[encoding("ansi")]
+        const STI_REMOVE_DEVICE_BROADCAST_ACTION: String = "Removal";
+        const STI_SUBSCRIBE_FLAG_EVENT: u32 = 2;
+        const STI_SUBSCRIBE_FLAG_WINDOW: u32 = 1;
+        const STI_TRACE_ERROR: u32 = 4;
+        const STI_TRACE_INFORMATION: u32 = 1;
+        const STI_TRACE_WARNING: u32 = 2;
+        const STI_UNICODE: u32 = 1;
+        const STI_VERSION: u32 = 2;
+        const STI_VERSION_3: u32 = 16777219;
+        const STI_VERSION_FLAG_MASK: u32 = 4278190080;
+        const STI_VERSION_FLAG_UNICODE: u32 = 16777216;
+        const STI_VERSION_MIN_ALLOWED: u32 = 2;
+        const STI_VERSION_REAL: u32 = 2;
+        type STI_WIA_DEVICE_INFORMATION = STI_WIA_DEVICE_INFORMATIONW;
+        struct STI_WIA_DEVICE_INFORMATIONW {
+            dwSize: u32,
+            DeviceType: STI_DEVICE_TYPE,
+            szDeviceInternalName: [u16; 128],
+            DeviceCapabilitiesA: STI_DEV_CAPS,
+            dwHardwareConfiguration: u32,
+            pszVendorDescription: PWSTR,
+            pszDeviceDescription: PWSTR,
+            pszPortName: PWSTR,
+            pszPropProvider: PWSTR,
+            pszLocalName: PWSTR,
+            pszUiDll: PWSTR,
+            pszServer: PWSTR,
+        }
+        #[library("STI.dll")]
+        extern fn StiCreateInstanceW(hinst: HINSTANCE, dwVer: u32, ppSti: *mut IStillImageW, punkOuter: IUnknown) -> HRESULT;
+        const WIA_INCOMPAT_XP: u32 = 1;
+    }
+}

@@ -1,0 +1,64 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BITS_COST_OPTION_IGNORE_CONGESTION: u32 = 2147483648;
+        const BITS_COST_STATE_BELOW_CAP: u32 = 4;
+        const BITS_COST_STATE_CAPPED_USAGE_UNKNOWN: u32 = 2;
+        const BITS_COST_STATE_NEAR_CAP: u32 = 8;
+        const BITS_COST_STATE_OVERCAP_CHARGED: u32 = 16;
+        const BITS_COST_STATE_OVERCAP_THROTTLED: u32 = 32;
+        const BITS_COST_STATE_RESERVED: u32 = 1073741824;
+        const BITS_COST_STATE_ROAMING: u32 = 128;
+        const BITS_COST_STATE_TRANSFER_ALWAYS: i32 = -2147483393;
+        const BITS_COST_STATE_TRANSFER_NOT_ROAMING: i32 = -2147483521;
+        const BITS_COST_STATE_TRANSFER_NO_SURCHARGE: i32 = -2147483537;
+        const BITS_COST_STATE_TRANSFER_STANDARD: i32 = -2147483545;
+        const BITS_COST_STATE_TRANSFER_UNRESTRICTED: i32 = -2147483615;
+        const BITS_COST_STATE_UNRESTRICTED: u32 = 1;
+        const BITS_COST_STATE_USAGE_BASED: u32 = 64;
+        #[repr(i32)]
+        enum BITS_FILE_PROPERTY_ID {
+            BITS_FILE_PROPERTY_ID_HTTP_RESPONSE_HEADERS = 1,
+        }
+        union BITS_FILE_PROPERTY_VALUE {
+            String: PWSTR,
+        }
+        #[repr(i32)]
+        enum BITS_JOB_PROPERTY_ID {
+            BITS_JOB_PROPERTY_ID_COST_FLAGS = 1,
+            BITS_JOB_PROPERTY_NOTIFICATION_CLSID = 2,
+            BITS_JOB_PROPERTY_DYNAMIC_CONTENT = 3,
+            BITS_JOB_PROPERTY_HIGH_PERFORMANCE = 4,
+            BITS_JOB_PROPERTY_MAX_DOWNLOAD_SIZE = 5,
+            BITS_JOB_PROPERTY_USE_STORED_CREDENTIALS = 7,
+            BITS_JOB_PROPERTY_MINIMUM_NOTIFICATION_INTERVAL_MS = 9,
+            BITS_JOB_PROPERTY_ON_DEMAND_MODE = 10,
+        }
+        union BITS_JOB_PROPERTY_VALUE {
+            Dword: u32,
+            ClsID: GUID,
+            Enable: BOOL,
+            Uint64: u64,
+            Target: BG_AUTH_TARGET,
+        }
+        #[repr(i32)]
+        enum BITS_JOB_TRANSFER_POLICY {
+            BITS_JOB_TRANSFER_POLICY_ALWAYS = -2147483393,
+            BITS_JOB_TRANSFER_POLICY_NOT_ROAMING = -2147483521,
+            BITS_JOB_TRANSFER_POLICY_NO_SURCHARGE = -2147483537,
+            BITS_JOB_TRANSFER_POLICY_STANDARD = -2147483545,
+            BITS_JOB_TRANSFER_POLICY_UNRESTRICTED = -2147483615,
+        }
+        const BackgroundCopyManager5_0: GUID = 0x1ecca34c_e88a_44e3_8d6a_8921bde9e452;
+        #[guid(0x85c1657f_dafc_40e8_8834_df18ea25717e)]
+        interface IBackgroundCopyFile5: IBackgroundCopyFile4 {
+            fn SetProperty(&self, PropertyId: BITS_FILE_PROPERTY_ID, PropertyValue: BITS_FILE_PROPERTY_VALUE) -> HRESULT;
+            fn GetProperty(&self, PropertyId: BITS_FILE_PROPERTY_ID, PropertyValue: *mut BITS_FILE_PROPERTY_VALUE) -> HRESULT;
+        }
+        #[guid(0xe847030c_bbba_4657_af6d_484aa42bf1fe)]
+        interface IBackgroundCopyJob5: IBackgroundCopyJob4 {
+            fn SetProperty(&self, PropertyId: BITS_JOB_PROPERTY_ID, PropertyValue: BITS_JOB_PROPERTY_VALUE) -> HRESULT;
+            fn GetProperty(&self, PropertyId: BITS_JOB_PROPERTY_ID, PropertyValue: *mut BITS_JOB_PROPERTY_VALUE) -> HRESULT;
+        }
+    }
+}

@@ -1,0 +1,738 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const AACMFTEncoder: GUID = 0x93af0c51_2275_45d2_a35b_f2ba21caed00;
+        #[repr(i32)]
+        enum AEC_INPUT_STREAM {
+            AEC_CAPTURE_STREAM = 0,
+            AEC_REFERENCE_STREAM = 1,
+        }
+        const AEC_MAX_SYSTEM_MODES: u32 = 6;
+        #[repr(i32)]
+        enum AEC_SYSTEM_MODE {
+            SINGLE_CHANNEL_AEC = 0,
+            ADAPTIVE_ARRAY_ONLY = 1,
+            OPTIBEAM_ARRAY_ONLY = 2,
+            ADAPTIVE_ARRAY_AND_AEC = 3,
+            OPTIBEAM_ARRAY_AND_AEC = 4,
+            SINGLE_CHANNEL_NSAGC = 5,
+            MODE_NOT_SET = 6,
+        }
+        #[repr(i32)]
+        enum AEC_VAD_MODE {
+            AEC_VAD_DISABLED = 0,
+            AEC_VAD_NORMAL = 1,
+            AEC_VAD_FOR_AGC = 2,
+            AEC_VAD_FOR_SILENCE_SUPPRESSION = 3,
+        }
+        const ALawCodecWrapper: GUID = 0x36cb6e0c_78c1_42b2_9943_846262f31786;
+        struct AecQualityMetrics_Struct {
+            i64Timestamp: i64,
+            ConvergenceFlag: u8,
+            MicClippedFlag: u8,
+            MicSilenceFlag: u8,
+            PstvFeadbackFlag: u8,
+            SpkClippedFlag: u8,
+            SpkMuteFlag: u8,
+            GlitchFlag: u8,
+            DoubleTalkFlag: u8,
+            uGlitchCount: u32,
+            uMicClipCount: u32,
+            fDuration: f32,
+            fTSVariance: f32,
+            fTSDriftRate: f32,
+            fVoiceLevel: f32,
+            fNoiseLevel: f32,
+            fERLE: f32,
+            fAvgERLE: f32,
+            dwReserved: u32,
+        }
+        const CAC3DecMediaObject: GUID = 0x03d7c802_ecfa_47d9_b268_5fb3e310dee4;
+        const CClusterDetectorDmo: GUID = 0x36e820c4_165a_4521_863c_619e1160d4d4;
+        const CColorControlDmo: GUID = 0x798059f0_89ca_4160_b325_aeb48efe4f9a;
+        const CColorConvertDMO: GUID = 0x98230571_0087_4204_b020_3282538e57d3;
+        const CColorLegalizerDmo: GUID = 0xfdfaa753_e48e_4e33_9c74_98a27fc6726a;
+        const CDTVAudDecoderDS: GUID = 0x8e269032_fe03_4753_9b17_18253c21722e;
+        const CDTVVidDecoderDS: GUID = 0x64777dc8_4e24_4beb_9d19_60a35be1daaf;
+        const CDVDecoderMediaObject: GUID = 0xe54709c5_1e17_4c8d_94e7_478940433584;
+        const CDVEncoderMediaObject: GUID = 0xc82ae729_c327_4cce_914d_8171fefebefb;
+        const CDeColorConvMediaObject: GUID = 0x49034c05_f43c_400f_84c1_90a683195a3a;
+        const CFrameInterpDMO: GUID = 0x0a7cfe1b_6ab5_4334_9ed8_3f97cb37daa1;
+        const CFrameRateConvertDmo: GUID = 0x01f36ce2_0907_4d8b_979d_f151be91c883;
+        const CInterlaceMediaObject: GUID = 0xb5a89c80_4901_407b_9abc_90d9a644bb46;
+        const CLSID_CAsfTocParser: GUID = 0x9b77c0f2_8735_46c5_b90f_5f0b303ef6ab;
+        const CLSID_CAviTocParser: GUID = 0x3adce5cc_13c8_4573_b328_ed438eb694f9;
+        const CLSID_CClusterDetectorEx: GUID = 0x47354492_827e_4b8a_b318_c80eba1381f0;
+        const CLSID_CFileClient: GUID = 0xbfccd195_1244_4840_ab44_480975c4ffe4;
+        const CLSID_CFileIo: GUID = 0x11993195_1244_4840_ab44_480975c4ffe4;
+        const CLSID_CToc: GUID = 0x4fe24495_28ce_4920_a4c4_e556e1f0df2a;
+        const CLSID_CTocCollection: GUID = 0x5058292d_a244_4840_ab44_480975c4ffe4;
+        const CLSID_CTocEntry: GUID = 0xf22f5e05_585c_4def_8523_6555cfbc0cb3;
+        const CLSID_CTocEntryList: GUID = 0x3a8cccbc_0efd_43a3_b838_f38a552ba237;
+        const CLSID_CTocParser: GUID = 0x499eaeea_2737_4849_8bb6_47f107eaf358;
+        const CMP3DecMediaObject: GUID = 0xbbeea841_0a63_4f52_a7ab_a9b3a84ed38a;
+        const CMPEG2AudDecoderDS: GUID = 0xe1f1a0b8_beee_490d_ba7c_066c40b5e2b9;
+        const CMPEG2AudioEncoderMFT: GUID = 0x46a4dd5c_73f8_4304_94df_308f760974f4;
+        const CMPEG2EncoderAudioDS: GUID = 0xacd453bc_c58a_44d1_bbf5_bfb325be2d78;
+        const CMPEG2EncoderDS: GUID = 0x5f5aff4a_2f7f_4279_88c2_cd88eb39d144;
+        const CMPEG2EncoderVideoDS: GUID = 0x42150cd9_ca9a_4ea5_9939_30ee037f6e74;
+        const CMPEG2VidDecoderDS: GUID = 0x212690fb_83e5_4526_8fd7_74478b7939cd;
+        const CMPEG2VideoEncoderMFT: GUID = 0xe6335f02_80b7_4dc4_adfa_dfe7210d20d5;
+        const CMPEGAACDecMediaObject: GUID = 0x8dde1772_edad_41c3_b4be_1f30fb4ee0d6;
+        const CMSAACDecMFT: GUID = 0x32d186a7_218f_4c75_8876_dd77273a8999;
+        const CMSAC3Enc: GUID = 0xc6b400e2_20a7_4e58_a2fe_24619682ce6c;
+        const CMSALACDecMFT: GUID = 0xc0cd7d12_31fc_4bbc_b363_7322ee3e1879;
+        const CMSALACEncMFT: GUID = 0x9ab6a28c_748e_4b6a_bfff_cc443b8e8fb4;
+        const CMSDDPlusDecMFT: GUID = 0x177c0afe_900b_48d4_9e4c_57add250b3d4;
+        const CMSDolbyDigitalEncMFT: GUID = 0xac3315c9_f481_45d7_826c_0b406c1f64b8;
+        const CMSFLACDecMFT: GUID = 0x6b0b3e6b_a2c5_4514_8055_afe8a95242d9;
+        const CMSFLACEncMFT: GUID = 0x128509e9_c44e_45dc_95e9_c255b8f466a6;
+        const CMSH263EncoderMFT: GUID = 0xbc47fcfe_98a0_4f27_bb07_698af24f2b38;
+        const CMSH264DecoderMFT: GUID = 0x62ce7e72_4c71_4d20_b15d_452831a87d9d;
+        const CMSH264EncoderMFT: GUID = 0x6ca50344_051a_4ded_9779_a43305165e35;
+        const CMSH264RemuxMFT: GUID = 0x05a47ebb_8bf0_4cbf_ad2f_3b71d75866f5;
+        const CMSH265EncoderMFT: GUID = 0xf2f84074_8bca_40bd_9159_e880f673dd3b;
+        const CMSMPEGAudDecMFT: GUID = 0x70707b39_b2ca_4015_abea_f8447d22d88b;
+        const CMSMPEGDecoderMFT: GUID = 0x2d709e52_123f_49b5_9cbc_9af5cde28fb9;
+        const CMSOpusDecMFT: GUID = 0x63e17c10_2d43_4c42_8fe3_8d8b63e46a6a;
+        const CMSSCDecMediaObject: GUID = 0x7bafb3b1_d8f4_4279_9253_27da423108de;
+        const CMSSCEncMediaObject: GUID = 0x8cb9cc06_d139_4ae6_8bb4_41e612e141d5;
+        const CMSSCEncMediaObject2: GUID = 0xf7ffe0a0_a4f5_44b5_949e_15ed2bc66f9d;
+        const CMSVPXEncoderMFT: GUID = 0xaeb6c755_2546_4881_82cc_e15ae5ebff3d;
+        const CMSVideoDSPMFT: GUID = 0x51571744_7fe4_4ff2_a498_2dc34ff74f1b;
+        const CMpeg2DecMediaObject: GUID = 0x863d66cd_cdce_4617_b47f_c8929cfc28a6;
+        const CMpeg43DecMediaObject: GUID = 0xcba9e78b_49a3_49ea_93d4_6bcba8c4de07;
+        const CMpeg4DecMediaObject: GUID = 0xf371728a_6052_4d47_827c_d039335dfe0a;
+        const CMpeg4EncMediaObject: GUID = 0x24f258d8_c651_4042_93e4_ca654abb682c;
+        const CMpeg4sDecMFT: GUID = 0x5686a0d9_fe39_409f_9dff_3fdbc849f9f5;
+        const CMpeg4sDecMediaObject: GUID = 0x2a11bae2_fe6e_4249_864b_9e9ed6e8dbc2;
+        const CMpeg4sEncMediaObject: GUID = 0x6ec5a7be_d81e_4f9e_ada3_cd1bf262b6d8;
+        const CNokiaAACCCDecMediaObject: GUID = 0xeabf7a6f_ccba_4d60_8620_b152cc977263;
+        const CNokiaAACDecMediaObject: GUID = 0x3cb2bde4_4e29_4c44_a73e_2d7c2c46d6ec;
+        const CPK_DS_AC3Decoder: GUID = 0x6c9c69d6_0ffc_4481_afdb_cdf1c79c6f3e;
+        const CPK_DS_MPEG2Decoder: GUID = 0x9910c5cd_95c9_4e06_865a_efa1c8016bf4;
+        const CResamplerMediaObject: GUID = 0xf447b69e_1884_4a7e_8055_346f74d6edb3;
+        const CResizerDMO: GUID = 0x1ea1ea14_48f4_4054_ad1a_e8aee10ac805;
+        const CResizerMediaObject: GUID = 0xd3ec8b8b_7728_4fd8_9fe0_7b67d19f73a3;
+        const CShotDetectorDmo: GUID = 0x56aefacd_110c_4397_9292_b0a0c61b6750;
+        const CSmpteTransformsDmo: GUID = 0xbde6388b_da25_485d_ba7f_fabc28b20318;
+        const CThumbnailGeneratorDmo: GUID = 0x559c6bad_1ea8_4963_a087_8a6810f9218b;
+        const CTocGeneratorDmo: GUID = 0x4dda1941_77a0_4fb1_a518_e2185041d70c;
+        const CVodafoneAACCCDecMediaObject: GUID = 0x7e76bf7f_c993_4e26_8fab_470a70c0d59c;
+        const CVodafoneAACDecMediaObject: GUID = 0x7f36f942_dcf3_4d82_9289_5b1820278f7c;
+        const CWMADecMediaObject: GUID = 0x2eeb4adf_4578_4d10_bca7_bb955f56320a;
+        const CWMAEncMediaObject: GUID = 0x70f598e9_f4ab_495a_99e2_a7c4d3d89abf;
+        const CWMATransMediaObject: GUID = 0xedcad9cb_3127_40df_b527_0152ccb3f6f5;
+        const CWMAudioAEC: GUID = 0x745057c7_f353_4f2d_a7ee_58434477730e;
+        const CWMAudioCAPXGFXAPO: GUID = 0x13ab3ebd_137e_4903_9d89_60be8277fd17;
+        const CWMAudioCAPXLFXAPO: GUID = 0xc9453e73_8c5c_4463_9984_af8bab2f5447;
+        const CWMAudioGFXAPO: GUID = 0x637c490d_eee3_4c0a_973f_371958802da2;
+        const CWMAudioLFXAPO: GUID = 0x62dc1a93_ae24_464c_a43e_452f824c4250;
+        const CWMAudioSpdTxDMO: GUID = 0x5210f8e4_b0bb_47c3_a8d9_7b2282cc79ed;
+        const CWMSPDecMediaObject: GUID = 0x874131cb_4ecc_443b_8948_746b89595d20;
+        const CWMSPEncMediaObject: GUID = 0x67841b03_c689_4188_ad3f_4c9ebeec710b;
+        const CWMSPEncMediaObject2: GUID = 0x1f1f4e1a_2252_4063_84bb_eee75f8856d5;
+        const CWMTDecMediaObject: GUID = 0xf9dbc64e_2dd0_45dd_9b52_66642ef94431;
+        const CWMTEncMediaObject: GUID = 0x60b67652_e46b_4e44_8609_f74bffdc083c;
+        const CWMV9EncMediaObject: GUID = 0xd23b90d0_144f_46bd_841d_59e4eb19dc59;
+        const CWMVDecMediaObject: GUID = 0x82d353df_90bd_4382_8bc2_3f6192b76e34;
+        const CWMVEncMediaObject2: GUID = 0x96b57cdd_8966_410c_bb1f_c97eea765c04;
+        const CWMVXEncMediaObject: GUID = 0x7e320092_596a_41b2_bbeb_175d10504eb6;
+        const CWVC1DecMediaObject: GUID = 0xc9bfbccf_e60e_4588_a3df_5a03b1fd9585;
+        const CWVC1EncMediaObject: GUID = 0x44653d0d_8cca_41e7_baca_884337b747ac;
+        const CZuneAACCCDecMediaObject: GUID = 0xa74e98f2_52d6_4b4e_885b_e0a6ca4f187a;
+        const CZuneM4S2DecMediaObject: GUID = 0xc56fc25c_0fc6_404a_9503_b10bf51a8ab9;
+        const E_TOCPARSER_INVALIDASFFILE: HRESULT = -1728053247;
+        const E_TOCPARSER_INVALIDRIFFFILE: HRESULT = -1728053246;
+        #[repr(i32)]
+        enum FILE_ACCESSMODE {
+            ACCESSMODE_READ = 1,
+            ACCESSMODE_WRITE = 2,
+            ACCESSMODE_READWRITE = 3,
+            ACCESSMODE_WRITE_EXCLUSIVE = 4,
+        }
+        #[repr(i32)]
+        enum FILE_OPENMODE {
+            OPENMODE_FAIL_IF_NOT_EXIST = 0,
+            OPENMODE_FAIL_IF_EXIST = 1,
+            OPENMODE_RESET_IF_EXIST = 2,
+            OPENMODE_APPEND_IF_EXIST = 3,
+            OPENMODE_DELETE_IF_EXIST = 4,
+        }
+        #[guid(0x3f07f7b7_c680_41d9_9423_915107ec9ff9)]
+        interface IClusterDetector: IUnknown {
+            fn Initialize(&self, wBaseEntryLevel: u16, wClusterEntryLevel: u16) -> HRESULT;
+            fn Detect(&self, dwMaxNumClusters: u32, fMinClusterDuration: f32, fMaxClusterDuration: f32, pSrcToc: IToc, ppDstToc: *mut IToc) -> HRESULT;
+        }
+        #[guid(0xbfccd196_1244_4840_ab44_480975c4ffe4)]
+        interface IFileClient: IUnknown {
+            fn GetObjectDiskSize(&self, pqwSize: *mut u64) -> HRESULT;
+            fn Write(&self, pFio: IFileIo) -> HRESULT;
+            fn Read(&self, pFio: IFileIo) -> HRESULT;
+        }
+        #[guid(0x11993196_1244_4840_ab44_480975c4ffe4)]
+        interface IFileIo: IUnknown {
+            fn Initialize(&self, eAccessMode: FILE_ACCESSMODE, eOpenMode: FILE_OPENMODE, pwszFileName: PCWSTR) -> HRESULT;
+            fn GetLength(&self, pqwLength: *mut u64) -> HRESULT;
+            fn SetLength(&self, qwLength: u64) -> HRESULT;
+            fn GetCurrentPosition(&self, pqwPosition: *mut u64) -> HRESULT;
+            fn SetCurrentPosition(&self, qwPosition: u64) -> HRESULT;
+            fn IsEndOfStream(&self, pbEndOfStream: *mut BOOL) -> HRESULT;
+            fn Read(&self, pbt: *const u8, ul: u32, pulRead: *mut u32) -> HRESULT;
+            fn Write(&self, pbt: *const u8, ul: u32, pulWritten: *mut u32) -> HRESULT;
+            fn Seek(&self, eSeekOrigin: SEEK_ORIGIN, qwSeekOffset: u64, dwSeekFlags: u32, pqwCurrentPosition: *mut u64) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xd6f05441_a919_423b_91a0_89d5b4a8ab77)]
+        interface IToc: IUnknown {
+            fn SetDescriptor(&self, pDescriptor: *const TOC_DESCRIPTOR) -> HRESULT;
+            fn GetDescriptor(&self, pDescriptor: *mut TOC_DESCRIPTOR) -> HRESULT;
+            fn SetDescription(&self, pwszDescription: PCWSTR) -> HRESULT;
+            fn GetDescription(&self, #[in] #[out] pwDescriptionSize: *mut u16, #[len_param(0)] #[out] #[opt] pwszDescription: PWSTR) -> HRESULT;
+            fn SetContext(&self, dwContextSize: u32, pbtContext: *const u8) -> HRESULT;
+            fn GetContext(&self, #[in] #[out] pdwContextSize: *mut u32, pbtContext: *mut u8) -> HRESULT;
+            fn GetEntryListCount(&self, pwCount: *mut u16) -> HRESULT;
+            fn GetEntryListByIndex(&self, wEntryListIndex: u16, ppEntryList: *mut ITocEntryList) -> HRESULT;
+            fn AddEntryList(&self, pEntryList: ITocEntryList, pwEntryListIndex: *mut u16) -> HRESULT;
+            fn AddEntryListByIndex(&self, wEntryListIndex: u16, pEntryList: ITocEntryList) -> HRESULT;
+            fn RemoveEntryListByIndex(&self, wEntryListIndex: u16) -> HRESULT;
+        }
+        #[guid(0x23fee831_ae96_42df_b170_25a04847a3ca)]
+        interface ITocCollection: IUnknown {
+            fn GetEntryCount(&self, pdwEntryCount: *mut u32) -> HRESULT;
+            fn GetEntryByIndex(&self, dwEntryIndex: u32, ppToc: *mut IToc) -> HRESULT;
+            fn AddEntry(&self, pToc: IToc, pdwEntryIndex: *mut u32) -> HRESULT;
+            fn AddEntryByIndex(&self, dwEntryIndex: u32, pToc: IToc) -> HRESULT;
+            fn RemoveEntryByIndex(&self, dwEntryIndex: u32) -> HRESULT;
+        }
+        #[guid(0xf22f5e06_585c_4def_8523_6555cfbc0cb3)]
+        interface ITocEntry: IUnknown {
+            fn SetTitle(&self, pwszTitle: PCWSTR) -> HRESULT;
+            fn GetTitle(&self, #[in] #[out] pwTitleSize: *mut u16, #[len_param(0)] #[out] #[opt] pwszTitle: PWSTR) -> HRESULT;
+            fn SetDescriptor(&self, pDescriptor: *const TOC_ENTRY_DESCRIPTOR) -> HRESULT;
+            fn GetDescriptor(&self, pDescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> HRESULT;
+            fn SetSubEntries(&self, dwNumSubEntries: u32, pwSubEntryIndices: *const u16) -> HRESULT;
+            fn GetSubEntries(&self, #[in] #[out] pdwNumSubEntries: *mut u32, pwSubEntryIndices: *mut u16) -> HRESULT;
+            fn SetDescriptionData(&self, dwDescriptionDataSize: u32, pbtDescriptionData: *const u8, pguidType: *const GUID) -> HRESULT;
+            fn GetDescriptionData(&self, #[in] #[out] pdwDescriptionDataSize: *mut u32, pbtDescriptionData: *mut u8, pGuidType: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x3a8cccbd_0efd_43a3_b838_f38a552ba237)]
+        interface ITocEntryList: IUnknown {
+            fn GetEntryCount(&self, pdwEntryCount: *mut u32) -> HRESULT;
+            fn GetEntryByIndex(&self, dwEntryIndex: u32, ppEntry: *mut ITocEntry) -> HRESULT;
+            fn AddEntry(&self, pEntry: ITocEntry, pdwEntryIndex: *mut u32) -> HRESULT;
+            fn AddEntryByIndex(&self, dwEntryIndex: u32, pEntry: ITocEntry) -> HRESULT;
+            fn RemoveEntryByIndex(&self, dwEntryIndex: u32) -> HRESULT;
+        }
+        #[guid(0xecfb9a55_9298_4f49_887f_0b36206599d2)]
+        interface ITocParser: IUnknown {
+            fn Init(&self, pwszFileName: PCWSTR) -> HRESULT;
+            fn GetTocCount(&self, enumTocPosType: TOC_POS_TYPE, pdwTocCount: *mut u32) -> HRESULT;
+            fn GetTocByIndex(&self, enumTocPosType: TOC_POS_TYPE, dwTocIndex: u32, ppToc: *mut IToc) -> HRESULT;
+            fn GetTocByType(&self, enumTocPosType: TOC_POS_TYPE, guidTocType: GUID, ppTocs: *mut ITocCollection) -> HRESULT;
+            fn AddToc(&self, enumTocPosType: TOC_POS_TYPE, pToc: IToc, pdwTocIndex: *mut u32) -> HRESULT;
+            fn RemoveTocByIndex(&self, enumTocPosType: TOC_POS_TYPE, dwTocIndex: u32) -> HRESULT;
+            fn RemoveTocByType(&self, enumTocPosType: TOC_POS_TYPE, guidTocType: GUID) -> HRESULT;
+            fn Commit(&self) -> HRESULT;
+        }
+        #[guid(0x04a578b2_e778_422a_a805_b3ee54d90bd9)]
+        interface IValidateBinding: IUnknown {
+            fn GetIdentifier(&self, guidLicensorID: GUID, pbEphemeron: *const u8, cbEphemeron: u32, ppbBlobValidationID: *mut *mut u8, pcbBlobSize: *mut u32) -> HRESULT;
+        }
+        #[guid(0xa81ba647_6227_43b7_b231_c7b15135dd7d)]
+        interface IWMCodecLeakyBucket: IUnknown {
+            fn SetBufferSizeBits(&self, ulBufferSize: u32) -> HRESULT;
+            fn GetBufferSizeBits(&self, pulBufferSize: *mut u32) -> HRESULT;
+            fn SetBufferFullnessBits(&self, ulBufferFullness: u32) -> HRESULT;
+            fn GetBufferFullnessBits(&self, pulBufferFullness: *mut u32) -> HRESULT;
+        }
+        #[guid(0xb72adf95_7adc_4a72_bc05_577d8ea6bf68)]
+        interface IWMCodecOutputTimestamp: IUnknown {
+            fn GetNextOutputTime(&self, prtTime: *mut REFERENCE_TIME) -> HRESULT;
+        }
+        #[guid(0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e)]
+        interface IWMCodecPrivateData: IUnknown {
+            fn SetPartialOutputType(&self, pmt: *const DMO_MEDIA_TYPE) -> HRESULT;
+            fn GetPrivateData(&self, #[in] #[out] pbData: *mut u8, #[in] #[out] pcbData: *mut u32) -> HRESULT;
+        }
+        #[guid(0x2573e11a_f01a_4fdd_a98d_63b8e0ba9589)]
+        interface IWMCodecProps: IUnknown {
+            fn GetFormatProp(&self, pmt: *const DMO_MEDIA_TYPE, pszName: PCWSTR, pType: *mut WMT_PROP_DATATYPE, #[in] #[out] pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
+            fn GetCodecProp(&self, dwFormat: u32, pszName: PCWSTR, pType: *mut WMT_PROP_DATATYPE, #[in] #[out] pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
+        }
+        #[guid(0xa7b2504b_e58a_47fb_958b_cac7165a057d)]
+        interface IWMCodecStrings: IUnknown {
+            fn GetName(&self, pmt: *const DMO_MEDIA_TYPE, cchLength: u32, #[len_param(1)] #[out] #[opt] szName: PWSTR, pcchLength: *mut u32) -> HRESULT;
+            fn GetDescription(&self, pmt: *const DMO_MEDIA_TYPE, cchLength: u32, #[len_param(1)] #[out] #[opt] szDescription: PWSTR, pcchLength: *mut u32) -> HRESULT;
+        }
+        #[guid(0xe6a49e22_c099_421d_aad3_c061fb4ae85b)]
+        interface IWMColorConvProps: IUnknown {
+            fn SetMode(&self, lMode: i32) -> HRESULT;
+            fn SetFullCroppingParam(&self, lSrcCropLeft: i32, lSrcCropTop: i32, lDstCropLeft: i32, lDstCropTop: i32, lCropWidth: i32, lCropHeight: i32) -> HRESULT;
+        }
+        #[guid(0x776c93b3_b72d_4508_b6d0_208785f553e7)]
+        interface IWMColorLegalizerProps: IUnknown {
+            fn SetColorLegalizerQuality(&self, lquality: i32) -> HRESULT;
+        }
+        #[guid(0x4c06bb9b_626c_4614_8329_cc6a21b93fa0)]
+        interface IWMFrameInterpProps: IUnknown {
+            fn SetFrameRateIn(&self, lFrameRate: i32, lScale: i32) -> HRESULT;
+            fn SetFrameRateOut(&self, lFrameRate: i32, lScale: i32) -> HRESULT;
+            fn SetFrameInterpEnabled(&self, bFIEnabled: BOOL) -> HRESULT;
+            fn SetComplexityLevel(&self, iComplexity: i32) -> HRESULT;
+        }
+        #[guid(0x7b12e5d1_bd22_48ea_bc06_98e893221c89)]
+        interface IWMInterlaceProps: IUnknown {
+            fn SetProcessType(&self, iProcessType: i32) -> HRESULT;
+            fn SetInitInverseTeleCinePattern(&self, iInitPattern: i32) -> HRESULT;
+            fn SetLastFrame(&self) -> HRESULT;
+        }
+        #[guid(0xe7e9984f_f09f_4da4_903f_6e2e0efe56b5)]
+        interface IWMResamplerProps: IUnknown {
+            fn SetHalfFilterLength(&self, lhalfFilterLen: i32) -> HRESULT;
+            fn SetUserChannelMtx(&self, userChannelMtx: *const f32) -> HRESULT;
+        }
+        #[guid(0x57665d4c_0414_4faa_905b_10e546f81c33)]
+        interface IWMResizerProps: IUnknown {
+            fn SetResizerQuality(&self, lquality: i32) -> HRESULT;
+            fn SetInterlaceMode(&self, lmode: i32) -> HRESULT;
+            fn SetClipRegion(&self, lClipOriXSrc: i32, lClipOriYSrc: i32, lClipWidthSrc: i32, lClipHeightSrc: i32) -> HRESULT;
+            fn SetFullCropRegion(&self, lClipOriXSrc: i32, lClipOriYSrc: i32, lClipWidthSrc: i32, lClipHeightSrc: i32, lClipOriXDst: i32, lClipOriYDst: i32, lClipWidthDst: i32, lClipHeightDst: i32) -> HRESULT;
+            fn GetFullCropRegion(&self, lClipOriXSrc: *mut i32, lClipOriYSrc: *mut i32, lClipWidthSrc: *mut i32, lClipHeightSrc: *mut i32, lClipOriXDst: *mut i32, lClipOriYDst: *mut i32, lClipWidthDst: *mut i32, lClipHeightDst: *mut i32) -> HRESULT;
+        }
+        #[guid(0x9bca9884_0604_4c2a_87da_793ff4d586c3)]
+        interface IWMSampleExtensionSupport: IUnknown {
+            fn SetUseSampleExtensions(&self, fUseExtensions: BOOL) -> HRESULT;
+        }
+        #[guid(0xcee3def2_3808_414d_be66_fafd472210bc)]
+        interface IWMValidate: IUnknown {
+            fn SetIdentifier(&self, guidValidationID: GUID) -> HRESULT;
+        }
+        #[guid(0x352bb3bd_2d4d_4323_9e71_dcdcfbd53ca6)]
+        interface IWMVideoDecoderHurryup: IUnknown {
+            fn SetHurryup(&self, lHurryup: i32) -> HRESULT;
+            fn GetHurryup(&self, plHurryup: *mut i32) -> HRESULT;
+        }
+        #[guid(0x45bda2ac_88e2_4923_98ba_3949080711a3)]
+        interface IWMVideoDecoderReconBuffer: IUnknown {
+            fn GetReconstructedVideoFrameSize(&self, pdwSize: *mut u32) -> HRESULT;
+            fn GetReconstructedVideoFrame(&self, #[out] pBuf: IMediaBuffer) -> HRESULT;
+            fn SetReconstructedVideoFrame(&self, pBuf: IMediaBuffer) -> HRESULT;
+        }
+        #[guid(0x9f8496be_5b9a_41b9_a9e8_f21cd80596c2)]
+        interface IWMVideoForceKeyFrame: IUnknown {
+            fn SetKeyFrame(&self) -> HRESULT;
+        }
+        const MEDIASUBTYPE_AVC1: GUID = 0x31435641_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_DOLBY_DDPLUS: GUID = 0xa7fb87af_2d02_42fb_a4d4_05cd93843bdd;
+        const MEDIASUBTYPE_DOLBY_TRUEHD: GUID = 0xeb27cec4_163e_4ca3_8b74_8e25f91b517e;
+        const MEDIASUBTYPE_DTS2: GUID = 0x00002001_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_DTS_HD: GUID = 0xa2e58eb7_0fa9_48bb_a40c_fa0e156d0645;
+        const MEDIASUBTYPE_DTS_HD_HRA: GUID = 0xa61ac364_ad0e_4744_89ff_213ce0df8804;
+        const MEDIASUBTYPE_DVM: GUID = 0x00002000_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_I420: GUID = 0x30323449_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_M4S2: GUID = 0x3253344d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MP42: GUID = 0x3234504d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MP43: GUID = 0x3334504d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MP4S: GUID = 0x5334504d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MPEG_ADTS_AAC: GUID = 0x00001600_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MPEG_HEAAC: GUID = 0x00001610_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MPEG_LOAS: GUID = 0x00001602_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MPEG_RAW_AAC: GUID = 0x00001601_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MPG4: GUID = 0x3447504d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MSAUDIO1: GUID = 0x00000160_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MSS1: GUID = 0x3153534d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_MSS2: GUID = 0x3253534d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_NOKIA_MPEG_ADTS_AAC: GUID = 0x00001608_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_NOKIA_MPEG_RAW_AAC: GUID = 0x00001609_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_RAW_AAC1: GUID = 0x000000ff_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_V216: GUID = 0x36313256_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_V410: GUID = 0x30313456_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_VODAFONE_MPEG_ADTS_AAC: GUID = 0x0000160a_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_VODAFONE_MPEG_RAW_AAC: GUID = 0x0000160b_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMASPDIF: GUID = 0x00000164_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMAUDIO2: GUID = 0x00000161_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMAUDIO3: GUID = 0x00000162_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMAUDIO4: GUID = 0x00000168_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMAUDIO_LOSSLESS: GUID = 0x00000163_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMV1: GUID = 0x31564d57_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMV2: GUID = 0x32564d57_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMV3: GUID = 0x33564d57_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMVA: GUID = 0x41564d57_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMVB: GUID = 0x42564d57_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMVP: GUID = 0x50564d57_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WMVR: GUID = 0x52564d57_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WVC1: GUID = 0x31435657_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_WVP2: GUID = 0x32505657_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_X264: GUID = 0x34363258_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_Y41T: GUID = 0x54313459_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_Y42T: GUID = 0x54323459_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_h264: GUID = 0x34363268_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_m4s2: GUID = 0x3273346d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_mp42: GUID = 0x3234706d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_mp43: GUID = 0x3334706d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_mp4s: GUID = 0x7334706d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_mpg4: GUID = 0x3467706d_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_v210: GUID = 0x30313276_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_wmv1: GUID = 0x31766d77_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_wmv2: GUID = 0x32766d77_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_wmv3: GUID = 0x33766d77_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_wmva: GUID = 0x61766d77_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_wmvb: GUID = 0x62766d77_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_wmvp: GUID = 0x70766d77_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_wmvr: GUID = 0x72766d77_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_wvc1: GUID = 0x31637677_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_wvp2: GUID = 0x32707677_0000_0010_8000_00aa00389b71;
+        const MEDIASUBTYPE_x264: GUID = 0x34363278_0000_0010_8000_00aa00389b71;
+        const MFAMRNBByteStreamHandler: GUID = 0xefe6208a_0a2c_49fa_8a01_3768b559b6da;
+        const MFAMRNBSinkClassFactory: GUID = 0xb0271158_70d2_4c5b_9f94_76f549d90fdf;
+        const MFFLACBytestreamHandler: GUID = 0x0e41cfb8_0506_40f4_a516_77cc23642d91;
+        const MFFLACSinkClassFactory: GUID = 0x7d39c56f_6075_47c9_9bae_8cf9e531b5f5;
+        const MFSampleExtension_VideoDSPMode: GUID = 0xc12d55cb_d7d9_476d_81f3_69117f163ea0;
+        #[repr(i32)]
+        enum MFVideoDSPMode {
+            MFVideoDSPMode_Passthrough = 1,
+            MFVideoDSPMode_Stabilization = 4,
+        }
+        #[repr(i32)]
+        enum MF_AUVRHP_ROOMMODEL {
+            VRHP_SMALLROOM = 0,
+            VRHP_MEDIUMROOM = 1,
+            VRHP_BIGROOM = 2,
+            VRHP_CUSTUMIZEDROOM = 3,
+        }
+        const MF_VIDEODSP_MODE: GUID = 0x16d720f0_768c_11de_8a39_0800200c9a66;
+        #[repr(i32)]
+        enum MIC_ARRAY_MODE {
+            MICARRAY_SINGLE_CHAN = 0,
+            MICARRAY_SIMPLE_SUM = 256,
+            MICARRAY_SINGLE_BEAM = 512,
+            MICARRAY_FIXED_BEAM = 1024,
+            MICARRAY_EXTERN_BEAM = 2048,
+        }
+        const MP3ACMCodecWrapper: GUID = 0x11103421_354c_4cca_a7a3_1aff9a5b6701;
+        const MSAMRNBDecoder: GUID = 0x265011ae_5481_4f77_a295_abb6ffe8d63e;
+        const MSAMRNBEncoder: GUID = 0x2fae8afe_04a3_423a_a814_85db454712b0;
+        const MULawCodecWrapper: GUID = 0x92b66080_5e2d_449e_90c4_c41f268e5514;
+        #[repr(i32)]
+        enum SEEK_ORIGIN {
+            _msoBegin = 0,
+            _msoCurrent = 1,
+        }
+        const SYSFXUI_DONOTSHOW_BASSBOOST: u32 = 8;
+        const SYSFXUI_DONOTSHOW_BASSMANAGEMENT: u32 = 4;
+        const SYSFXUI_DONOTSHOW_CHANNELPHANTOMING: u32 = 128;
+        const SYSFXUI_DONOTSHOW_HEADPHONEVIRTUALIZATION: u32 = 16;
+        const SYSFXUI_DONOTSHOW_LOUDNESSEQUALIZATION: u32 = 1;
+        const SYSFXUI_DONOTSHOW_ROOMCORRECTION: u32 = 2;
+        const SYSFXUI_DONOTSHOW_SPEAKERFILLING: u32 = 64;
+        const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: u32 = 32;
+        struct TOC_DESCRIPTOR {
+            guidID: GUID,
+            wStreamNumber: u16,
+            guidType: GUID,
+            wLanguageIndex: u16,
+        }
+        struct TOC_ENTRY_DESCRIPTOR {
+            qwStartTime: u64,
+            qwEndTime: u64,
+            qwStartPacketOffset: u64,
+            qwEndPacketOffset: u64,
+            qwRepresentativeFrameTime: u64,
+        }
+        const TOC_ENTRY_MAX_TITLE_SIZE: u32 = 65535;
+        const TOC_MAX_DESCRIPTION_SIZE: u32 = 65535;
+        #[repr(i32)]
+        enum TOC_POS_TYPE {
+            TOC_POS_INHEADER = 0,
+            TOC_POS_TOPLEVELOBJECT = 1,
+        }
+        const VorbisDecoderMFT: GUID = 0x1a198ef2_60e5_4ea8_90d8_da1f2832c288;
+        const WMAAECMA_E_NO_ACTIVE_RENDER_STREAM: u32 = 2278293514;
+        #[repr(i32)]
+        enum WMT_PROP_DATATYPE {
+            WMT_PROP_TYPE_DWORD = 0,
+            WMT_PROP_TYPE_STRING = 1,
+            WMT_PROP_TYPE_BINARY = 2,
+            WMT_PROP_TYPE_BOOL = 3,
+            WMT_PROP_TYPE_QWORD = 4,
+            WMT_PROP_TYPE_WORD = 5,
+            WMT_PROP_TYPE_GUID = 6,
+        }
+        #[repr(i32)]
+        enum WMV_DYNAMIC_FLAGS {
+            WMV_DYNAMIC_BITRATE = 1,
+            WMV_DYNAMIC_RESOLUTION = 2,
+            WMV_DYNAMIC_COMPLEXITY = 4,
+        }
+        const WM_CODEC_ONEPASS_CBR: u32 = 1;
+        const WM_CODEC_ONEPASS_VBR: u32 = 2;
+        const WM_CODEC_TWOPASS_CBR: u32 = 4;
+        const WM_CODEC_TWOPASS_VBR_PEAKCONSTRAINED: u32 = 16;
+        const WM_CODEC_TWOPASS_VBR_UNCONSTRAINED: u32 = 8;
+        #[encoding("utf-16")]
+        const g_wszSpeechFormatCaps: String = "SpeechFormatCap";
+        #[encoding("utf-16")]
+        const g_wszWMACAvgBytesPerSec: String = "AvgBytesPerSec";
+        #[encoding("utf-16")]
+        const g_wszWMACAvgPCMValue: String = "AverageLevel";
+        #[encoding("utf-16")]
+        const g_wszWMACDRCSetting: String = "DynamicRangeControl";
+        #[encoding("utf-16")]
+        const g_wszWMACHiResOutput: String = "_HIRESOUTPUT";
+        #[encoding("utf-16")]
+        const g_wszWMACIncludeNumPasses: String = "_INCLUDENUMPASSES";
+        #[encoding("utf-16")]
+        const g_wszWMACInputFormatName: String = "_INPUTFORMATNAME";
+        #[encoding("utf-16")]
+        const g_wszWMACMixTable: String = "MixTable";
+        #[encoding("utf-16")]
+        const g_wszWMACMusicSpeechClassMode: String = "MusicSpeechClassMode";
+        #[encoding("utf-16")]
+        const g_wszWMACOriginalWaveFormat: String = "_ORIGINALWAVEFORMAT";
+        #[encoding("utf-16")]
+        const g_wszWMACPeakPCMValue: String = "PeakValue";
+        #[encoding("utf-16")]
+        const g_wszWMACSourceFormatTag: String = "_SOURCEFORMATTAG";
+        #[encoding("utf-16")]
+        const g_wszWMACSpeakerConfig: String = "SpeakerConfig";
+        #[encoding("utf-16")]
+        const g_wszWMACVoiceBuffer: String = "BufferWindow";
+        #[encoding("utf-16")]
+        const g_wszWMACVoiceEDL: String = "_EDL";
+        #[encoding("utf-16")]
+        const g_wszWMADRCAverageReference: String = "WMADRCAverageReference";
+        #[encoding("utf-16")]
+        const g_wszWMADRCAverageTarget: String = "WMADRCAverageTarget";
+        #[encoding("utf-16")]
+        const g_wszWMADRCPeakReference: String = "WMADRCPeakReference";
+        #[encoding("utf-16")]
+        const g_wszWMADRCPeakTarget: String = "WMADRCPeakTarget";
+        #[encoding("utf-16")]
+        const g_wszWMVAspectHorizSize: String = "_AspectHorizSize";
+        #[encoding("utf-16")]
+        const g_wszWMVAspectVertSize: String = "_AspectVertSize";
+        #[encoding("utf-16")]
+        const g_wszWMVCAdaptiveResolution: String = "_ADAPTIVERESOLUTION";
+        #[encoding("utf-16")]
+        const g_wszWMVCAvgBitrate: String = "_RAVG";
+        #[encoding("utf-16")]
+        const g_wszWMVCAvgFrameRate: String = "_AVGFRAMERATE";
+        #[encoding("utf-16")]
+        const g_wszWMVCBAvg: String = "_BAVG";
+        #[encoding("utf-16")]
+        const g_wszWMVCBDeltaQP: String = "_BDELTAQP";
+        #[encoding("utf-16")]
+        const g_wszWMVCBMax: String = "_BMAX";
+        #[encoding("utf-16")]
+        const g_wszWMVCBufferFullnessInFirstByte: String = "_BUFFERFULLNESSINFIRSTBYTE";
+        #[encoding("utf-16")]
+        const g_wszWMVCChangeBitRate: String = "_CHANGEBITRATE";
+        #[encoding("utf-16")]
+        const g_wszWMVCChangeFrameRate: String = "_CHANGEFRAMERATE";
+        #[encoding("utf-16")]
+        const g_wszWMVCChangeMaxBitRate: String = "_CHANGEMAXBITRATE";
+        #[encoding("utf-16")]
+        const g_wszWMVCClosedEntryPoint: String = "_CLOSEDENTRYPOINT";
+        #[encoding("utf-16")]
+        const g_wszWMVCCodedFrames: String = "_CODEDFRAMES";
+        #[encoding("utf-16")]
+        const g_wszWMVCComplexityEx: String = "_COMPLEXITYEX";
+        #[encoding("utf-16")]
+        const g_wszWMVCComplexityLive: String = "_COMPLEXITYEXLIVE";
+        #[encoding("utf-16")]
+        const g_wszWMVCComplexityMax: String = "_COMPLEXITYEXMAX";
+        #[encoding("utf-16")]
+        const g_wszWMVCComplexityMode: String = "_COMPLEXITY";
+        #[encoding("utf-16")]
+        const g_wszWMVCComplexityOffline: String = "_COMPLEXITYEXOFFLINE";
+        #[encoding("utf-16")]
+        const g_wszWMVCCompressionOptimizationType: String = "_COMPRESSIONOPTIMIZATIONTYPE";
+        #[encoding("utf-16")]
+        const g_wszWMVCCrisp: String = "_CRISP";
+        #[encoding("utf-16")]
+        const g_wszWMVCDatarate: String = "_DATARATE";
+        #[encoding("utf-16")]
+        const g_wszWMVCDecoderComplexityProfile: String = "_DECODERCOMPLEXITYPROFILE";
+        #[encoding("utf-16")]
+        const g_wszWMVCDecoderComplexityRequested: String = "_DECODERCOMPLEXITYREQUESTED";
+        #[encoding("utf-16")]
+        const g_wszWMVCDecoderDeinterlacing: String = "_DECODERDEINTERLACING";
+        #[encoding("utf-16")]
+        const g_wszWMVCDecoderForceNoResizeOutput: String = "_FORCENORESIZE";
+        #[encoding("utf-16")]
+        const g_wszWMVCDefaultCrisp: String = "_DEFAULTCRISP";
+        #[encoding("utf-16")]
+        const g_wszWMVCDeltaMVRangeIndex: String = "_DELTAMVRANGEINDEX";
+        #[encoding("utf-16")]
+        const g_wszWMVCDenoiseOption: String = "_DENOISEOPTION";
+        #[encoding("utf-16")]
+        const g_wszWMVCDquantOption: String = "_DQUANTOPTION";
+        #[encoding("utf-16")]
+        const g_wszWMVCDquantStrength: String = "_DQUANTSTRENGTH";
+        #[encoding("utf-16")]
+        const g_wszWMVCDynComplexityLevel: String = "_DYNCOMPLEXLEVEL";
+        #[encoding("utf-16")]
+        const g_wszWMVCDynamicEncoderMode: String = "_DYNENCMODE";
+        #[encoding("utf-16")]
+        const g_wszWMVCDynamicVideoResolution: String = "_SETDYNVIDRES";
+        #[encoding("utf-16")]
+        const g_wszWMVCEncodedHeight_Dec: String = "_ENCODEDHEIGHT_DEC";
+        #[encoding("utf-16")]
+        const g_wszWMVCEncodedWidth_Dec: String = "_ENCODEDWIDTH_DEC";
+        #[encoding("utf-16")]
+        const g_wszWMVCEncodercomplexity: String = "_ENCODERCOMPLEXITY";
+        #[encoding("utf-16")]
+        const g_wszWMVCEncodingHeight: String = "_ENCODINGHEIGHT";
+        #[encoding("utf-16")]
+        const g_wszWMVCEncodingWidth: String = "_ENCODINGWIDTH";
+        #[encoding("utf-16")]
+        const g_wszWMVCEndOfPass: String = "_ENDOFPASS";
+        #[encoding("utf-16")]
+        const g_wszWMVCFOURCC: String = "_FOURCC";
+        #[encoding("utf-16")]
+        const g_wszWMVCForceFrameHeight: String = "_FORCEFRAMEHEIGHT";
+        #[encoding("utf-16")]
+        const g_wszWMVCForceFrameWidth: String = "_FORCEFRAMEWIDTH";
+        #[encoding("utf-16")]
+        const g_wszWMVCForceMedianSetting: String = "_FORCEMEDIANSETTING";
+        #[encoding("utf-16")]
+        const g_wszWMVCForceOverlap: String = "_FORCEOVERLAP";
+        #[encoding("utf-16")]
+        const g_wszWMVCForcePostProcessMode: String = "_POSTPROCESSMODE";
+        #[encoding("utf-16")]
+        const g_wszWMVCFrameCount: String = "_FRAMECOUNT";
+        #[encoding("utf-16")]
+        const g_wszWMVCFrameInterpolationEnabled: String = "_FRAMEINTERPOLATIONENABLED";
+        #[encoding("utf-16")]
+        const g_wszWMVCFrameInterpolationSupported: String = "_FRAMEINTERPOLATIONSUPPORTED";
+        #[encoding("utf-16")]
+        const g_wszWMVCFullFrameRate: String = "_FULLFRAMERATE";
+        #[encoding("utf-16")]
+        const g_wszWMVCHonorKeyFrameSettings: String = "_HONORKEYSETTINGS";
+        #[encoding("utf-16")]
+        const g_wszWMVCHonorTSFrameQP: String = "_HONORTSFRAMEQP";
+        #[encoding("utf-16")]
+        const g_wszWMVCInterlacedCodingEnabled: String = "_INTERLACEDCODINGENABLED";
+        #[encoding("utf-16")]
+        const g_wszWMVCInverseTelecinedInput: String = "_INVERSETELECINEDINPUT";
+        #[encoding("utf-16")]
+        const g_wszWMVCKeyframeDistance: String = "_KEYDIST";
+        #[encoding("utf-16")]
+        const g_wszWMVCLegacy411InterlacedFormat: String = "_LEGACY411INTERLACEDFORMAT";
+        #[encoding("utf-16")]
+        const g_wszWMVCLetterboxpresent: String = "_LETTERBOXPRESENT";
+        #[encoding("utf-16")]
+        const g_wszWMVCLiveEncode: String = "_LIVEENCODE";
+        #[encoding("utf-16")]
+        const g_wszWMVCLookAhead: String = "_LOOKAHEAD";
+        #[encoding("utf-16")]
+        const g_wszWMVCLookaheadRC: String = "_LOOKAHEADRC";
+        #[encoding("utf-16")]
+        const g_wszWMVCLoopFilter: String = "_LOOPFILTER";
+        #[encoding("utf-16")]
+        const g_wszWMVCMacroblockModeCostMethod: String = "_MACROBLOCKMODECOSTMETHOD";
+        #[encoding("utf-16")]
+        const g_wszWMVCMaxBitrate: String = "_RMAX";
+        #[encoding("utf-16")]
+        const g_wszWMVCMirrorDisplayOn: String = "_MIRRORDISPLAYON";
+        #[encoding("utf-16")]
+        const g_wszWMVCMotionMatchMethod: String = "_MOTIONMATCHMETHOD";
+        #[encoding("utf-16")]
+        const g_wszWMVCMotionSearchLevel: String = "_MOTIONSEARCHLEVEL";
+        #[encoding("utf-16")]
+        const g_wszWMVCMotionSearchRange: String = "_MOTIONSEARCHRANGE";
+        #[encoding("utf-16")]
+        const g_wszWMVCMotionVectorCostMethod: String = "_MOTIONVECTORCOSTMETHOD";
+        #[encoding("utf-16")]
+        const g_wszWMVCNeedsDrain: String = "_DECODERNEEDSDRAIN";
+        #[encoding("utf-16")]
+        const g_wszWMVCNoiseEdgeRemoval: String = "_NOISEEDGEREMOVAL";
+        #[encoding("utf-16")]
+        const g_wszWMVCNumBFrames: String = "_NUMBFRAMES";
+        #[encoding("utf-16")]
+        const g_wszWMVCNumThreads: String = "_NUMTHREADS";
+        #[encoding("utf-16")]
+        const g_wszWMVCNumThreadsDec: String = "_NUMTHREADSDEC";
+        #[encoding("utf-16")]
+        const g_wszWMVCPacketOverhead: String = "_ASFOVERHEADPERFRAME";
+        #[encoding("utf-16")]
+        const g_wszWMVCPassesRecommended: String = "_PASSESRECOMMENDED";
+        #[encoding("utf-16")]
+        const g_wszWMVCPassesUsed: String = "_PASSESUSED";
+        #[encoding("utf-16")]
+        const g_wszWMVCPerceptualOptLevel: String = "_PERCEPTUALOPTLEVEL";
+        #[encoding("utf-16")]
+        const g_wszWMVCPeriodicalSPDistance: String = "_PERIODICALSPDISTANCE";
+        #[encoding("utf-16")]
+        const g_wszWMVCProduceDummyFrames: String = "_PRODUCEDUMMYFRAMES";
+        #[encoding("utf-16")]
+        const g_wszWMVCQPPerFrame: String = "_QPPERFRAME";
+        #[encoding("utf-16")]
+        const g_wszWMVCQueryTimeStampTag: String = "_QUERYTIMESTAMPTAG";
+        #[encoding("utf-16")]
+        const g_wszWMVCQueryTimeStampTagDec: String = "_QUERYTIMESTAMPTAGDEC";
+        #[encoding("utf-16")]
+        const g_wszWMVCRDSubpixelSearch: String = "_RDSUBPIXELSEARCH";
+        #[encoding("utf-16")]
+        const g_wszWMVCRangeRedux: String = "_RANGEREDUX";
+        #[encoding("utf-16")]
+        const g_wszWMVCReencDuration: String = "_REENCDURATION";
+        #[encoding("utf-16")]
+        const g_wszWMVCReencEndBufferSize: String = "_REENCENDBUFFERSIZE";
+        #[encoding("utf-16")]
+        const g_wszWMVCReencQPRef: String = "_REENCQPREF";
+        #[encoding("utf-16")]
+        const g_wszWMVCReencStartBufferSize: String = "_REENCSTARTBUFFERSIZE";
+        #[encoding("utf-16")]
+        const g_wszWMVCSceneChangeI: String = "_SCENECHANGEI";
+        #[encoding("utf-16")]
+        const g_wszWMVCScenechange: String = "_SCENECHANGE";
+        #[encoding("utf-16")]
+        const g_wszWMVCSupportOneInMultiOut: String = "_SUPPORTONEINMULTIOUT";
+        #[encoding("utf-16")]
+        const g_wszWMVCSupportOneInMultiOut_Dec: String = "_SUPPORTONEINMULTIOUT_DEC";
+        #[encoding("utf-16")]
+        const g_wszWMVCTargetEncodeDelta: String = "_TARGETENCDELTA";
+        #[encoding("utf-16")]
+        const g_wszWMVCTargetEncodeRate: String = "_TARGETENCRATE";
+        #[encoding("utf-16")]
+        const g_wszWMVCThreadAffinityMask: String = "_THREADAFFINITYMASK";
+        #[encoding("utf-16")]
+        const g_wszWMVCTotalFrames: String = "_TOTALFRAMES";
+        #[encoding("utf-16")]
+        const g_wszWMVCTotalWindow: String = "_TOTALWINDOW";
+        #[encoding("utf-16")]
+        const g_wszWMVCUserdatasize: String = "_USERDATASIZE";
+        #[encoding("utf-16")]
+        const g_wszWMVCVBREnabled: String = "_VBRENABLED";
+        #[encoding("utf-16")]
+        const g_wszWMVCVBRQuality: String = "_VBRQUALITY";
+        #[encoding("utf-16")]
+        const g_wszWMVCVType: String = "_VTYPE";
+        #[encoding("utf-16")]
+        const g_wszWMVCVariableGOP: String = "_VARIABLEGOP";
+        #[encoding("utf-16")]
+        const g_wszWMVCVideoScaling: String = "_VIDEOSCALING";
+        #[encoding("utf-16")]
+        const g_wszWMVCVideoWIndow: String = "_VIDEOWINDOW";
+        #[encoding("utf-16")]
+        const g_wszWMVCWatermarkConfig: String = "WatermarkConfig";
+        #[encoding("utf-16")]
+        const g_wszWMVCWatermarkDelay: String = "WatermarkDelay";
+        #[encoding("utf-16")]
+        const g_wszWMVDisplayHeight: String = "_DisplayHeight";
+        #[encoding("utf-16")]
+        const g_wszWMVDisplayWidth: String = "_DisplayWidth";
+        #[encoding("utf-16")]
+        const g_wszWMVEncodeHeight: String = "_EncodeHeight";
+        #[encoding("utf-16")]
+        const g_wszWMVEncodeWidth: String = "_EncodeWidth";
+        #[encoding("utf-16")]
+        const g_wszWMVForceStartCode: String = "_FORCESTARTCODE";
+        #[encoding("utf-16")]
+        const g_wszWMVTimeStampFixed: String = "TSFixed";
+        #[encoding("utf-16")]
+        const g_wszWMVTranscodeMode: String = "_TranscodeMode";
+    }
+}

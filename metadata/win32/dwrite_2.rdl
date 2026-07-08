@@ -1,0 +1,105 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type DWRITE_COLOR_F = D3DCOLORVALUE;
+        struct DWRITE_COLOR_GLYPH_RUN {
+            glyphRun: DWRITE_GLYPH_RUN,
+            glyphRunDescription: *mut DWRITE_GLYPH_RUN_DESCRIPTION,
+            baselineOriginX: f32,
+            baselineOriginY: f32,
+            runColor: DWRITE_COLOR_F,
+            paletteIndex: u16,
+        }
+        #[repr(i32)]
+        enum DWRITE_GRID_FIT_MODE {
+            DWRITE_GRID_FIT_MODE_DEFAULT = 0,
+            DWRITE_GRID_FIT_MODE_DISABLED = 1,
+            DWRITE_GRID_FIT_MODE_ENABLED = 2,
+        }
+        const DWRITE_NO_PALETTE_INDEX: u32 = 65535;
+        #[repr(i32)]
+        enum DWRITE_OPTICAL_ALIGNMENT {
+            DWRITE_OPTICAL_ALIGNMENT_NONE = 0,
+            DWRITE_OPTICAL_ALIGNMENT_NO_SIDE_BEARINGS = 1,
+        }
+        struct DWRITE_TEXT_METRICS1 {
+            Base: DWRITE_TEXT_METRICS,
+            heightIncludingTrailingWhitespace: f32,
+        }
+        #[guid(0xd31fbe17_f157_41a2_8d24_cb779e0560e8)]
+        interface IDWriteColorGlyphRunEnumerator: IUnknown {
+            fn MoveNext(&self, hasRun: *mut BOOL) -> HRESULT;
+            fn GetCurrentRun(&self, colorGlyphRun: *mut *mut DWRITE_COLOR_GLYPH_RUN) -> HRESULT;
+        }
+        #[guid(0x0439fc60_ca44_4994_8dee_3a9af7b732ec)]
+        interface IDWriteFactory2: IDWriteFactory1 {
+            fn GetSystemFontFallback(&self, fontFallback: *mut IDWriteFontFallback) -> HRESULT;
+            fn CreateFontFallbackBuilder(&self, fontFallbackBuilder: *mut IDWriteFontFallbackBuilder) -> HRESULT;
+            fn TranslateColorGlyphRun(&self, baselineOriginX: f32, baselineOriginY: f32, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringMode: DWRITE_MEASURING_MODE, #[opt] worldToDeviceTransform: *const DWRITE_MATRIX, colorPaletteIndex: u32, colorLayers: *mut IDWriteColorGlyphRunEnumerator) -> HRESULT;
+            fn CreateCustomRenderingParams(&self, gamma: f32, enhancedContrast: f32, grayscaleEnhancedContrast: f32, clearTypeLevel: f32, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, gridFitMode: DWRITE_GRID_FIT_MODE, renderingParams: *mut IDWriteRenderingParams2) -> HRESULT;
+            fn CreateGlyphRunAnalysis(&self, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] transform: *const DWRITE_MATRIX, renderingMode: DWRITE_RENDERING_MODE, measuringMode: DWRITE_MEASURING_MODE, gridFitMode: DWRITE_GRID_FIT_MODE, antialiasMode: DWRITE_TEXT_ANTIALIAS_MODE, baselineOriginX: f32, baselineOriginY: f32, glyphRunAnalysis: *mut IDWriteGlyphRunAnalysis) -> HRESULT;
+        }
+        #[guid(0x29748ed6_8c9c_4a6a_be0b_d912e8538944)]
+        interface IDWriteFont2: IDWriteFont1 {
+            fn IsColorFont(&self) -> BOOL;
+        }
+        #[guid(0xd8b768ff_64bc_4e66_982b_ec8e87f693f7)]
+        interface IDWriteFontFace2: IDWriteFontFace1 {
+            fn IsColorFont(&self) -> BOOL;
+            fn GetColorPaletteCount(&self) -> u32;
+            fn GetPaletteEntryCount(&self) -> u32;
+            fn GetPaletteEntries(&self, colorPaletteIndex: u32, firstEntryIndex: u32, entryCount: u32, #[len_param(2)] paletteEntries: *mut DWRITE_COLOR_F) -> HRESULT;
+            fn GetRecommendedRenderingMode(&self, fontEmSize: f32, dpiX: f32, dpiY: f32, #[opt] transform: *const DWRITE_MATRIX, isSideways: BOOL, outlineThreshold: DWRITE_OUTLINE_THRESHOLD, measuringMode: DWRITE_MEASURING_MODE, #[opt] renderingParams: IDWriteRenderingParams, renderingMode: *mut DWRITE_RENDERING_MODE, gridFitMode: *mut DWRITE_GRID_FIT_MODE) -> HRESULT;
+        }
+        #[guid(0xefa008f9_f7a1_48bf_b05c_f224713cc0ff)]
+        interface IDWriteFontFallback: IUnknown {
+            fn MapCharacters(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: u32, textLength: u32, #[opt] baseFontCollection: IDWriteFontCollection, #[opt] baseFamilyName: PCWSTR, baseWeight: DWRITE_FONT_WEIGHT, baseStyle: DWRITE_FONT_STYLE, baseStretch: DWRITE_FONT_STRETCH, mappedLength: *mut u32, mappedFont: *mut IDWriteFont, scale: *mut f32) -> HRESULT;
+        }
+        #[guid(0xfd882d06_8aba_4fb8_b849_8be8b73e14de)]
+        interface IDWriteFontFallbackBuilder: IUnknown {
+            fn AddMapping(&self, #[len_param(1)] ranges: *const DWRITE_UNICODE_RANGE, rangesCount: u32, #[len_param(3)] targetFamilyNames: *const *const u16, targetFamilyNamesCount: u32, #[opt] fontCollection: IDWriteFontCollection, #[opt] localeName: PCWSTR, #[opt] baseFamilyName: PCWSTR, scale: f32) -> HRESULT;
+            fn AddMappings(&self, fontFallback: IDWriteFontFallback) -> HRESULT;
+            fn CreateFontFallback(&self, fontFallback: *mut IDWriteFontFallback) -> HRESULT;
+        }
+        #[guid(0xf9d711c3_9777_40ae_87e8_3e5af9bf0948)]
+        interface IDWriteRenderingParams2: IDWriteRenderingParams1 {
+            fn GetGridFitMode(&self) -> DWRITE_GRID_FIT_MODE;
+        }
+        #[guid(0x553a9ff3_5693_4df7_b52b_74806f7f2eb9)]
+        interface IDWriteTextAnalyzer2: IDWriteTextAnalyzer1 {
+            fn GetGlyphOrientationTransform(&self, glyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, isSideways: BOOL, originX: f32, originY: f32, transform: *mut DWRITE_MATRIX) -> HRESULT;
+            fn GetTypographicFeatures(&self, fontFace: IDWriteFontFace, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: PCWSTR, maxTagCount: u32, actualTagCount: *mut u32, #[len_param(3)] tags: *mut DWRITE_FONT_FEATURE_TAG) -> HRESULT;
+            fn CheckTypographicFeature(&self, fontFace: IDWriteFontFace, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: PCWSTR, featureTag: DWRITE_FONT_FEATURE_TAG, glyphCount: u32, #[len_param(4)] glyphIndices: *const u16, #[len_param(4)] featureApplies: *mut u8) -> HRESULT;
+        }
+        #[guid(0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67)]
+        interface IDWriteTextFormat1: IDWriteTextFormat {
+            fn SetVerticalGlyphOrientation(&self, glyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> HRESULT;
+            fn GetVerticalGlyphOrientation(&self) -> DWRITE_VERTICAL_GLYPH_ORIENTATION;
+            fn SetLastLineWrapping(&self, isLastLineWrappingEnabled: BOOL) -> HRESULT;
+            fn GetLastLineWrapping(&self) -> BOOL;
+            fn SetOpticalAlignment(&self, opticalAlignment: DWRITE_OPTICAL_ALIGNMENT) -> HRESULT;
+            fn GetOpticalAlignment(&self) -> DWRITE_OPTICAL_ALIGNMENT;
+            fn SetFontFallback(&self, fontFallback: IDWriteFontFallback) -> HRESULT;
+            fn GetFontFallback(&self, fontFallback: *mut IDWriteFontFallback) -> HRESULT;
+        }
+        #[guid(0x1093c18f_8d5e_43f0_b064_0917311b525e)]
+        interface IDWriteTextLayout2: IDWriteTextLayout1 {
+            fn GetMetrics(&self, textMetrics: *mut DWRITE_TEXT_METRICS1) -> HRESULT;
+            fn SetVerticalGlyphOrientation(&self, glyphOrientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> HRESULT;
+            fn GetVerticalGlyphOrientation(&self) -> DWRITE_VERTICAL_GLYPH_ORIENTATION;
+            fn SetLastLineWrapping(&self, isLastLineWrappingEnabled: BOOL) -> HRESULT;
+            fn GetLastLineWrapping(&self) -> BOOL;
+            fn SetOpticalAlignment(&self, opticalAlignment: DWRITE_OPTICAL_ALIGNMENT) -> HRESULT;
+            fn GetOpticalAlignment(&self) -> DWRITE_OPTICAL_ALIGNMENT;
+            fn SetFontFallback(&self, fontFallback: IDWriteFontFallback) -> HRESULT;
+            fn GetFontFallback(&self, fontFallback: *mut IDWriteFontFallback) -> HRESULT;
+        }
+        #[guid(0xd3e0e934_22a0_427e_aae4_7d9574b59db1)]
+        interface IDWriteTextRenderer1: IDWriteTextRenderer {
+            fn DrawGlyphRun(&self, #[opt] clientDrawingContext: *const void, baselineOriginX: f32, baselineOriginY: f32, orientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringMode: DWRITE_MEASURING_MODE, glyphRun: *const DWRITE_GLYPH_RUN, glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
+            fn DrawUnderline(&self, #[opt] clientDrawingContext: *const void, baselineOriginX: f32, baselineOriginY: f32, orientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, underline: *const DWRITE_UNDERLINE, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
+            fn DrawStrikethrough(&self, #[opt] clientDrawingContext: *const void, baselineOriginX: f32, baselineOriginY: f32, orientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, strikethrough: *const DWRITE_STRIKETHROUGH, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
+            fn DrawInlineObject(&self, #[opt] clientDrawingContext: *const void, originX: f32, originY: f32, orientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, inlineObject: IDWriteInlineObject, isSideways: BOOL, isRightToLeft: BOOL, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
+        }
+    }
+}

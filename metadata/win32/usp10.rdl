@@ -1,0 +1,202 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct GOFFSET {
+            du: i32,
+            dv: i32,
+        }
+        struct OPENTYPE_FEATURE_RECORD {
+            tagFeature: OPENTYPE_TAG,
+            lParameter: i32,
+        }
+        type OPENTYPE_TAG = u32;
+        struct SCRIPT_ANALYSIS {
+            _bitfield: u16,
+            s: SCRIPT_STATE,
+        }
+        type SCRIPT_CACHE = *mut void;
+        struct SCRIPT_CHARPROP {
+            _bitfield: u16,
+        }
+        struct SCRIPT_CONTROL {
+            _bitfield: u32,
+        }
+        struct SCRIPT_DIGITSUBSTITUTE {
+            _bitfield1: u32,
+            _bitfield2: u32,
+            dwReserved: u32,
+        }
+        const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0;
+        const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2;
+        const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1;
+        const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3;
+        struct SCRIPT_FONTPROPERTIES {
+            cBytes: i32,
+            wgBlank: u16,
+            wgDefault: u16,
+            wgInvalid: u16,
+            wgKashida: u16,
+            iKashidaWidth: i32,
+        }
+        struct SCRIPT_GLYPHPROP {
+            sva: SCRIPT_VISATTR,
+            reserved: u16,
+        }
+        struct SCRIPT_ITEM {
+            iCharPos: i32,
+            a: SCRIPT_ANALYSIS,
+        }
+        #[repr(i32)]
+        enum SCRIPT_JUSTIFY {
+            SCRIPT_JUSTIFY_NONE = 0,
+            SCRIPT_JUSTIFY_ARABIC_BLANK = 1,
+            SCRIPT_JUSTIFY_CHARACTER = 2,
+            SCRIPT_JUSTIFY_RESERVED1 = 3,
+            SCRIPT_JUSTIFY_BLANK = 4,
+            SCRIPT_JUSTIFY_RESERVED2 = 5,
+            SCRIPT_JUSTIFY_RESERVED3 = 6,
+            SCRIPT_JUSTIFY_ARABIC_NORMAL = 7,
+            SCRIPT_JUSTIFY_ARABIC_KASHIDA = 8,
+            SCRIPT_JUSTIFY_ARABIC_ALEF = 9,
+            SCRIPT_JUSTIFY_ARABIC_HA = 10,
+            SCRIPT_JUSTIFY_ARABIC_RA = 11,
+            SCRIPT_JUSTIFY_ARABIC_BA = 12,
+            SCRIPT_JUSTIFY_ARABIC_BARA = 13,
+            SCRIPT_JUSTIFY_ARABIC_SEEN = 14,
+            SCRIPT_JUSTIFY_ARABIC_SEEN_M = 15,
+        }
+        struct SCRIPT_LOGATTR {
+            _bitfield: u8,
+        }
+        struct SCRIPT_PROPERTIES {
+            _bitfield1: u32,
+            _bitfield2: u32,
+        }
+        struct SCRIPT_STATE {
+            _bitfield: u16,
+        }
+        type SCRIPT_STRING_ANALYSIS = *mut void;
+        struct SCRIPT_TABDEF {
+            cTabStops: i32,
+            iScale: i32,
+            pTabStops: *mut i32,
+            iTabOrigin: i32,
+        }
+        const SCRIPT_TAG_UNKNOWN: u32 = 0;
+        const SCRIPT_UNDEFINED: u32 = 0;
+        struct SCRIPT_VISATTR {
+            _bitfield: u16,
+        }
+        const SGCM_RTL: u32 = 1;
+        const SIC_ASCIIDIGIT: u32 = 2;
+        const SIC_COMPLEX: u32 = 1;
+        const SIC_NEUTRAL: u32 = 4;
+        const SSA_BREAK: u32 = 64;
+        const SSA_CLIP: u32 = 4;
+        const SSA_DONTGLYPH: u32 = 1073741824;
+        const SSA_DZWG: u32 = 16;
+        const SSA_FALLBACK: u32 = 32;
+        const SSA_FIT: u32 = 8;
+        const SSA_FULLMEASURE: u32 = 67108864;
+        const SSA_GCP: u32 = 512;
+        const SSA_GLYPHS: u32 = 128;
+        const SSA_HIDEHOTKEY: u32 = 8192;
+        const SSA_HOTKEY: u32 = 1024;
+        const SSA_HOTKEYONLY: u32 = 9216;
+        const SSA_LAYOUTRTL: u32 = 536870912;
+        const SSA_LINK: u32 = 4096;
+        const SSA_LPKANSIFALLBACK: u32 = 134217728;
+        const SSA_METAFILE: u32 = 2048;
+        const SSA_NOKASHIDA: u32 = 2147483648;
+        const SSA_PASSWORD: u32 = 1;
+        const SSA_PIDX: u32 = 268435456;
+        const SSA_RTL: u32 = 256;
+        const SSA_TAB: u32 = 2;
+        #[library("USP10.dll")]
+        extern fn ScriptApplyDigitSubstitution(#[len_const(1)] psds: *const SCRIPT_DIGITSUBSTITUTE, #[len_const(1)] psc: *mut SCRIPT_CONTROL, #[len_const(1)] pss: *mut SCRIPT_STATE) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptApplyLogicalWidth(#[len_param(1)] piDx: *const i32, cChars: i32, cGlyphs: i32, #[len_param(1)] pwLogClust: *const u16, #[len_param(2)] psva: *const SCRIPT_VISATTR, #[len_param(2)] piAdvance: *const i32, #[len_const(1)] psa: *const SCRIPT_ANALYSIS, #[len_const(1)] #[in] #[out] #[opt] pABC: *mut ABC, #[len_param(2)] piJustify: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptBreak(#[len_param(1)] pwcChars: *const u16, cChars: i32, #[len_const(1)] psa: *const SCRIPT_ANALYSIS, #[len_param(1)] psla: *mut SCRIPT_LOGATTR) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptCPtoX(iCP: i32, fTrailing: BOOL, cChars: i32, cGlyphs: i32, #[len_param(2)] pwLogClust: *const u16, #[len_param(3)] psva: *const SCRIPT_VISATTR, #[len_param(3)] piAdvance: *const i32, #[len_const(1)] psa: *const SCRIPT_ANALYSIS, piX: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptCacheGetHeight(hdc: HDC, #[len_const(1)] #[in] #[out] psc: *mut SCRIPT_CACHE, #[len_const(1)] tmHeight: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptFreeCache(#[len_const(1)] #[in] #[out] psc: *mut SCRIPT_CACHE) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptGetCMap(hdc: HDC, #[len_const(1)] #[in] #[out] psc: *mut SCRIPT_CACHE, #[len_param(3)] pwcInChars: *const u16, cChars: i32, dwFlags: u32, #[len_param(3)] pwOutGlyphs: *mut u16) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptGetFontAlternateGlyphs(#[opt] hdc: HDC, #[in] #[out] psc: *mut SCRIPT_CACHE, #[opt] psa: *const SCRIPT_ANALYSIS, tagScript: OPENTYPE_TAG, tagLangSys: OPENTYPE_TAG, tagFeature: OPENTYPE_TAG, wGlyphId: u16, cMaxAlternates: i32, #[len_param(7)] pAlternateGlyphs: *mut u16, pcAlternates: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptGetFontFeatureTags(#[opt] hdc: HDC, #[in] #[out] psc: *mut SCRIPT_CACHE, #[opt] psa: *const SCRIPT_ANALYSIS, tagScript: OPENTYPE_TAG, tagLangSys: OPENTYPE_TAG, cMaxTags: i32, #[len_param(5)] pFeatureTags: *mut OPENTYPE_TAG, pcTags: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptGetFontLanguageTags(#[opt] hdc: HDC, #[in] #[out] psc: *mut SCRIPT_CACHE, #[opt] psa: *const SCRIPT_ANALYSIS, tagScript: OPENTYPE_TAG, cMaxTags: i32, #[len_param(4)] pLangsysTags: *mut OPENTYPE_TAG, pcTags: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptGetFontProperties(hdc: HDC, #[len_const(1)] #[in] #[out] psc: *mut SCRIPT_CACHE, #[len_const(1)] sfp: *mut SCRIPT_FONTPROPERTIES) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptGetFontScriptTags(#[opt] hdc: HDC, #[in] #[out] psc: *mut SCRIPT_CACHE, #[opt] psa: *const SCRIPT_ANALYSIS, cMaxTags: i32, #[len_param(3)] pScriptTags: *mut OPENTYPE_TAG, pcTags: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptGetGlyphABCWidth(hdc: HDC, #[len_const(1)] #[in] #[out] psc: *mut SCRIPT_CACHE, wGlyph: u16, #[len_const(1)] pABC: *mut ABC) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptGetLogicalWidths(#[len_const(1)] psa: *const SCRIPT_ANALYSIS, cChars: i32, cGlyphs: i32, #[len_param(2)] piGlyphWidth: *const i32, #[len_param(1)] pwLogClust: *const u16, #[len_param(2)] psva: *const SCRIPT_VISATTR, #[len_param(1)] piDx: *const i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptGetProperties(ppSp: *mut *mut *mut SCRIPT_PROPERTIES, piNumScripts: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptIsComplex(#[len_param(1)] pwcInChars: *const u16, cInChars: i32, dwFlags: u32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptItemize(#[len_param(1)] pwcInChars: *const u16, cInChars: i32, cMaxItems: i32, #[len_const(1)] #[opt] psControl: *const SCRIPT_CONTROL, #[len_const(1)] #[opt] psState: *const SCRIPT_STATE, #[len_param(2)] pItems: *mut SCRIPT_ITEM, #[len_const(1)] pcItems: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptItemizeOpenType(#[len_param(1)] pwcInChars: *const u16, cInChars: i32, cMaxItems: i32, #[opt] psControl: *const SCRIPT_CONTROL, #[opt] psState: *const SCRIPT_STATE, #[len_param(2)] pItems: *mut SCRIPT_ITEM, #[len_param(2)] pScriptTags: *mut OPENTYPE_TAG, pcItems: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptJustify(#[len_param(2)] psva: *const SCRIPT_VISATTR, #[len_param(2)] piAdvance: *const i32, cGlyphs: i32, iDx: i32, iMinKashida: i32, #[len_param(2)] piJustify: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptLayout(cRuns: i32, #[len_param(0)] pbLevel: *const u8, #[len_param(0)] #[opt] piVisualToLogical: *mut i32, #[len_param(0)] #[opt] piLogicalToVisual: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptPlace(hdc: HDC, #[len_const(1)] #[in] #[out] psc: *mut SCRIPT_CACHE, #[len_param(3)] pwGlyphs: *const u16, cGlyphs: i32, #[len_param(3)] psva: *const SCRIPT_VISATTR, #[len_const(1)] #[in] #[out] psa: *mut SCRIPT_ANALYSIS, #[len_param(3)] piAdvance: *mut i32, #[len_param(3)] #[opt] pGoffset: *mut GOFFSET, #[len_const(1)] pABC: *mut ABC) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptPlaceOpenType(#[opt] hdc: HDC, #[in] #[out] psc: *mut SCRIPT_CACHE, #[in] #[out] psa: *mut SCRIPT_ANALYSIS, tagScript: OPENTYPE_TAG, tagLangSys: OPENTYPE_TAG, #[len_param(7)] #[opt] rcRangeChars: *const i32, #[len_param(7)] #[opt] rpRangeProperties: *const *const TEXTRANGE_PROPERTIES, cRanges: i32, #[len_param(11)] pwcChars: *const u16, #[len_param(11)] pwLogClust: *const u16, #[len_param(11)] pCharProps: *const SCRIPT_CHARPROP, cChars: i32, #[len_param(14)] pwGlyphs: *const u16, #[len_param(14)] pGlyphProps: *const SCRIPT_GLYPHPROP, cGlyphs: i32, #[len_param(14)] piAdvance: *mut i32, #[len_param(14)] pGoffset: *mut GOFFSET, #[opt] pABC: *mut ABC) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptPositionSingleGlyph(#[opt] hdc: HDC, #[in] #[out] psc: *mut SCRIPT_CACHE, #[opt] psa: *const SCRIPT_ANALYSIS, tagScript: OPENTYPE_TAG, tagLangSys: OPENTYPE_TAG, tagFeature: OPENTYPE_TAG, lParameter: i32, wGlyphId: u16, iAdvance: i32, GOffset: GOFFSET, piOutAdvance: *mut i32, pOutGoffset: *mut GOFFSET) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptRecordDigitSubstitution(Locale: LCID, #[len_const(1)] psds: *mut SCRIPT_DIGITSUBSTITUTE) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptShape(hdc: HDC, #[len_const(1)] #[in] #[out] psc: *mut SCRIPT_CACHE, #[len_param(3)] pwcChars: *const u16, cChars: i32, cMaxGlyphs: i32, #[len_const(1)] #[in] #[out] psa: *mut SCRIPT_ANALYSIS, #[len_param(4)] pwOutGlyphs: *mut u16, #[len_param(3)] pwLogClust: *mut u16, #[len_param(4)] psva: *mut SCRIPT_VISATTR, #[len_const(1)] pcGlyphs: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptShapeOpenType(#[opt] hdc: HDC, #[in] #[out] psc: *mut SCRIPT_CACHE, #[in] #[out] psa: *mut SCRIPT_ANALYSIS, tagScript: OPENTYPE_TAG, tagLangSys: OPENTYPE_TAG, #[len_param(7)] #[opt] rcRangeChars: *const i32, #[len_param(7)] #[opt] rpRangeProperties: *const *const TEXTRANGE_PROPERTIES, cRanges: i32, #[len_param(9)] pwcChars: *const u16, cChars: i32, cMaxGlyphs: i32, #[len_param(9)] pwLogClust: *mut u16, #[len_param(9)] pCharProps: *mut SCRIPT_CHARPROP, #[len_param(10)] pwOutGlyphs: *mut u16, #[len_param(10)] pOutGlyphProps: *mut SCRIPT_GLYPHPROP, pcGlyphs: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptStringAnalyse(hdc: HDC, pString: *const void, cString: i32, cGlyphs: i32, iCharset: i32, dwFlags: u32, iReqWidth: i32, #[len_const(1)] #[opt] psControl: *const SCRIPT_CONTROL, #[len_const(1)] #[opt] psState: *const SCRIPT_STATE, #[len_param(2)] #[opt] piDx: *const i32, #[len_const(1)] #[opt] pTabdef: *const SCRIPT_TABDEF, pbInClass: *const u8, pssa: *mut SCRIPT_STRING_ANALYSIS) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptStringCPtoX(#[len_const(1)] ssa: SCRIPT_STRING_ANALYSIS, icp: i32, fTrailing: BOOL, #[len_const(1)] pX: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptStringFree(#[len_const(1)] #[in] #[out] pssa: *mut SCRIPT_STRING_ANALYSIS) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptStringGetLogicalWidths(#[len_const(1)] ssa: SCRIPT_STRING_ANALYSIS, piDx: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptStringGetOrder(#[len_const(1)] ssa: SCRIPT_STRING_ANALYSIS, puOrder: *mut u32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptStringOut(#[len_const(1)] ssa: SCRIPT_STRING_ANALYSIS, iX: i32, iY: i32, uOptions: u32, #[len_const(1)] #[opt] prc: *const RECT, iMinSel: i32, iMaxSel: i32, fDisabled: BOOL) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptStringValidate(#[len_const(1)] ssa: SCRIPT_STRING_ANALYSIS) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptStringXtoCP(#[len_const(1)] ssa: SCRIPT_STRING_ANALYSIS, iX: i32, #[len_const(1)] piCh: *mut i32, #[len_const(1)] piTrailing: *mut i32) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptString_pLogAttr(#[len_const(1)] ssa: SCRIPT_STRING_ANALYSIS) -> *const SCRIPT_LOGATTR;
+        #[library("USP10.dll")]
+        extern fn ScriptString_pSize(#[len_const(1)] ssa: SCRIPT_STRING_ANALYSIS) -> *const SIZE;
+        #[library("USP10.dll")]
+        extern fn ScriptString_pcOutChars(#[len_const(1)] ssa: SCRIPT_STRING_ANALYSIS) -> *const i32;
+        #[library("USP10.dll")]
+        extern fn ScriptSubstituteSingleGlyph(#[opt] hdc: HDC, #[in] #[out] psc: *mut SCRIPT_CACHE, #[opt] psa: *const SCRIPT_ANALYSIS, tagScript: OPENTYPE_TAG, tagLangSys: OPENTYPE_TAG, tagFeature: OPENTYPE_TAG, lParameter: i32, wGlyphId: u16, pwOutGlyphId: *mut u16) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptTextOut(hdc: HDC, #[len_const(1)] #[in] #[out] psc: *mut SCRIPT_CACHE, x: i32, y: i32, fuOptions: u32, #[len_const(1)] #[opt] lprc: *const RECT, #[len_const(1)] psa: *const SCRIPT_ANALYSIS, #[reserved] pwcReserved: *const u16, #[reserved] iReserved: i32, #[len_param(10)] pwGlyphs: *const u16, cGlyphs: i32, #[len_param(10)] piAdvance: *const i32, #[len_param(10)] #[opt] piJustify: *const i32, #[len_param(10)] pGoffset: *const GOFFSET) -> HRESULT;
+        #[library("USP10.dll")]
+        extern fn ScriptXtoCP(iX: i32, cChars: i32, cGlyphs: i32, #[len_param(1)] pwLogClust: *const u16, #[len_param(2)] psva: *const SCRIPT_VISATTR, #[len_param(2)] piAdvance: *const i32, #[len_const(1)] psa: *const SCRIPT_ANALYSIS, #[len_const(1)] piCP: *mut i32, #[len_const(1)] piTrailing: *mut i32) -> HRESULT;
+        struct TEXTRANGE_PROPERTIES {
+            potfRecords: *mut OPENTYPE_FEATURE_RECORD,
+            cotfRecords: i32,
+        }
+        const UNISCRIBE_OPENTYPE: u32 = 256;
+        const USP_E_SCRIPT_NOT_IN_FONT: i32 = -2147220992;
+    }
+}

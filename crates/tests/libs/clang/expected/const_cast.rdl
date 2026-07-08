@@ -1,9 +1,14 @@
 #[win32]
 mod Test {
-    const CAST_DOUBLE: DWORD = 2147500037;
-    const CAST_NEG_DOUBLE: LONG = -2;
-    const CAST_NEG_SINGLE: LONG = -1;
-    const CAST_SINGLE: DWORD = 2147500037;
+    const CAST_DOUBLE: u32 = 2147500037;
+    const CAST_ENUM: COLOR_MODE = 1;
+    const CAST_NEG_DOUBLE: i32 = -2;
+    const CAST_NEG_SINGLE: i32 = -1;
+    const CAST_SINGLE: u32 = 2147500037;
+    #[repr(i32)]
+    enum COLOR_MODE {
+        COLOR_MODE_A = 0,
+    }
     type DWORD = u32;
     type LONG = i32;
 }

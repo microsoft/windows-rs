@@ -1,0 +1,948 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x2735413c_7f64_5b0f_8f00_5d77afbe261e)]
+        interface DDiscFormat2DataEvents: IDispatch {
+            fn Update(&self, object: IDispatch, progress: IDispatch) -> HRESULT;
+        }
+        #[guid(0x2735413a_7f64_5b0f_8f00_5d77afbe261e)]
+        interface DDiscFormat2EraseEvents: IDispatch {
+            fn Update(&self, object: IDispatch, elapsedSeconds: i32, estimatedTotalSeconds: i32) -> HRESULT;
+        }
+        #[guid(0x27354142_7f64_5b0f_8f00_5d77afbe261e)]
+        interface DDiscFormat2RawCDEvents: IDispatch {
+            fn Update(&self, object: IDispatch, progress: IDispatch) -> HRESULT;
+        }
+        #[guid(0x2735413f_7f64_5b0f_8f00_5d77afbe261e)]
+        interface DDiscFormat2TrackAtOnceEvents: IDispatch {
+            fn Update(&self, object: IDispatch, progress: IDispatch) -> HRESULT;
+        }
+        #[guid(0x27354131_7f64_5b0f_8f00_5d77afbe261e)]
+        interface DDiscMaster2Events: IDispatch {
+            fn NotifyDeviceAdded(&self, object: IDispatch, uniqueId: BSTR) -> HRESULT;
+            fn NotifyDeviceRemoved(&self, object: IDispatch, uniqueId: BSTR) -> HRESULT;
+        }
+        const DISPID_DDISCFORMAT2DATAEVENTS_UPDATE: u32 = 512;
+        const DISPID_DDISCFORMAT2RAWCDEVENTS_UPDATE: u32 = 512;
+        const DISPID_DDISCFORMAT2TAOEVENTS_UPDATE: u32 = 512;
+        const DISPID_DDISCMASTER2EVENTS_DEVICEADDED: u32 = 256;
+        const DISPID_DDISCMASTER2EVENTS_DEVICEREMOVED: u32 = 257;
+        const DISPID_DWRITEENGINE2EVENTS_UPDATE: u32 = 256;
+        const DISPID_IBLOCKRANGELIST_BLOCKRANGES: u32 = 256;
+        const DISPID_IBLOCKRANGE_ENDLBA: u32 = 257;
+        const DISPID_IBLOCKRANGE_STARTLBA: u32 = 256;
+        const DISPID_IDISCFORMAT2DATAEVENTARGS_CURRENTACTION: u32 = 771;
+        const DISPID_IDISCFORMAT2DATAEVENTARGS_ELAPSEDTIME: u32 = 768;
+        const DISPID_IDISCFORMAT2DATAEVENTARGS_ESTIMATEDREMAININGTIME: u32 = 769;
+        const DISPID_IDISCFORMAT2DATAEVENTARGS_ESTIMATEDTOTALTIME: u32 = 770;
+        const DISPID_IDISCFORMAT2DATA_BUFFERUNDERRUNFREEDISABLED: u32 = 257;
+        const DISPID_IDISCFORMAT2DATA_CANCELWRITE: u32 = 513;
+        const DISPID_IDISCFORMAT2DATA_CLIENTNAME: u32 = 272;
+        const DISPID_IDISCFORMAT2DATA_CURRENTMEDIASTATUS: u32 = 262;
+        const DISPID_IDISCFORMAT2DATA_CURRENTMEDIATYPE: u32 = 271;
+        const DISPID_IDISCFORMAT2DATA_CURRENTROTATIONTYPEISPURECAV: u32 = 276;
+        const DISPID_IDISCFORMAT2DATA_CURRENTWRITESPEED: u32 = 275;
+        const DISPID_IDISCFORMAT2DATA_DISABLEDVDCOMPATIBILITYMODE: u32 = 270;
+        const DISPID_IDISCFORMAT2DATA_FORCEMEDIATOBECLOSED: u32 = 269;
+        const DISPID_IDISCFORMAT2DATA_FORCEOVERWRITE: u32 = 279;
+        const DISPID_IDISCFORMAT2DATA_FREESECTORS: u32 = 265;
+        const DISPID_IDISCFORMAT2DATA_LASTSECTOROFPREVIOUSSESSION: u32 = 268;
+        const DISPID_IDISCFORMAT2DATA_MUTLISESSIONINTERFACES: u32 = 280;
+        const DISPID_IDISCFORMAT2DATA_NEXTWRITABLEADDRESS: u32 = 266;
+        const DISPID_IDISCFORMAT2DATA_POSTGAPALREADYINIMAGE: u32 = 260;
+        const DISPID_IDISCFORMAT2DATA_RECORDER: u32 = 256;
+        const DISPID_IDISCFORMAT2DATA_REQUESTEDROTATIONTYPEISPURECAV: u32 = 274;
+        const DISPID_IDISCFORMAT2DATA_REQUESTEDWRITESPEED: u32 = 273;
+        const DISPID_IDISCFORMAT2DATA_SETWRITESPEED: u32 = 514;
+        const DISPID_IDISCFORMAT2DATA_STARTSECTOROFPREVIOUSSESSION: u32 = 267;
+        const DISPID_IDISCFORMAT2DATA_SUPPORTEDWRITESPEEDDESCRIPTORS: u32 = 278;
+        const DISPID_IDISCFORMAT2DATA_SUPPORTEDWRITESPEEDS: u32 = 277;
+        const DISPID_IDISCFORMAT2DATA_TOTALSECTORS: u32 = 264;
+        const DISPID_IDISCFORMAT2DATA_WRITE: u32 = 512;
+        const DISPID_IDISCFORMAT2DATA_WRITEPROTECTSTATUS: u32 = 263;
+        const DISPID_IDISCFORMAT2ERASEEVENTS_UPDATE: u32 = 512;
+        const DISPID_IDISCFORMAT2ERASE_CLIENTNAME: u32 = 259;
+        const DISPID_IDISCFORMAT2ERASE_ERASEMEDIA: u32 = 513;
+        const DISPID_IDISCFORMAT2ERASE_FULLERASE: u32 = 257;
+        const DISPID_IDISCFORMAT2ERASE_MEDIATYPE: u32 = 258;
+        const DISPID_IDISCFORMAT2ERASE_RECORDER: u32 = 256;
+        const DISPID_IDISCFORMAT2RAWCDEVENTARGS_CURRENTACTION: u32 = 769;
+        const DISPID_IDISCFORMAT2RAWCDEVENTARGS_CURRENTTRACKNUMBER: u32 = 768;
+        const DISPID_IDISCFORMAT2RAWCDEVENTARGS_ELAPSEDTIME: u32 = 768;
+        const DISPID_IDISCFORMAT2RAWCDEVENTARGS_ESTIMATEDREMAININGTIME: u32 = 769;
+        const DISPID_IDISCFORMAT2RAWCDEVENTARGS_ESTIMATEDTOTALTIME: u32 = 770;
+        const DISPID_IDISCFORMAT2RAWCD_BUFFERUNDERRUNFREEDISABLED: u32 = 258;
+        const DISPID_IDISCFORMAT2RAWCD_CANCELWRITE: u32 = 515;
+        const DISPID_IDISCFORMAT2RAWCD_CLIENTNAME: u32 = 266;
+        const DISPID_IDISCFORMAT2RAWCD_CURRENTMEDIATYPE: u32 = 261;
+        const DISPID_IDISCFORMAT2RAWCD_CURRENTROTATIONTYPEISPURECAV: u32 = 270;
+        const DISPID_IDISCFORMAT2RAWCD_CURRENTWRITESPEED: u32 = 269;
+        const DISPID_IDISCFORMAT2RAWCD_LASTPOSSIBLESTARTOFLEADOUT: u32 = 260;
+        const DISPID_IDISCFORMAT2RAWCD_PREPAREMEDIA: u32 = 512;
+        const DISPID_IDISCFORMAT2RAWCD_RECORDER: u32 = 256;
+        const DISPID_IDISCFORMAT2RAWCD_RELEASEMEDIA: u32 = 516;
+        const DISPID_IDISCFORMAT2RAWCD_REQUESTEDDATASECTORTYPE: u32 = 265;
+        const DISPID_IDISCFORMAT2RAWCD_REQUESTEDROTATIONTYPEISPURECAV: u32 = 268;
+        const DISPID_IDISCFORMAT2RAWCD_REQUESTEDWRITESPEED: u32 = 267;
+        const DISPID_IDISCFORMAT2RAWCD_SETWRITESPEED: u32 = 517;
+        const DISPID_IDISCFORMAT2RAWCD_STARTOFNEXTSESSION: u32 = 259;
+        const DISPID_IDISCFORMAT2RAWCD_SUPPORTEDDATASECTORTYPES: u32 = 264;
+        const DISPID_IDISCFORMAT2RAWCD_SUPPORTEDWRITESPEEDDESCRIPTORS: u32 = 272;
+        const DISPID_IDISCFORMAT2RAWCD_SUPPORTEDWRITESPEEDS: u32 = 271;
+        const DISPID_IDISCFORMAT2RAWCD_WRITEMEDIA: u32 = 513;
+        const DISPID_IDISCFORMAT2RAWCD_WRITEMEDIAWITHVALIDATION: u32 = 514;
+        const DISPID_IDISCFORMAT2TAOEVENTARGS_CURRENTACTION: u32 = 769;
+        const DISPID_IDISCFORMAT2TAOEVENTARGS_CURRENTTRACKNUMBER: u32 = 768;
+        const DISPID_IDISCFORMAT2TAOEVENTARGS_ELAPSEDTIME: u32 = 770;
+        const DISPID_IDISCFORMAT2TAOEVENTARGS_ESTIMATEDREMAININGTIME: u32 = 771;
+        const DISPID_IDISCFORMAT2TAOEVENTARGS_ESTIMATEDTOTALTIME: u32 = 772;
+        const DISPID_IDISCFORMAT2TAO_ADDAUDIOTRACK: u32 = 513;
+        const DISPID_IDISCFORMAT2TAO_BUFFERUNDERRUNFREEDISABLED: u32 = 258;
+        const DISPID_IDISCFORMAT2TAO_CANCELADDTRACK: u32 = 514;
+        const DISPID_IDISCFORMAT2TAO_CLIENTNAME: u32 = 270;
+        const DISPID_IDISCFORMAT2TAO_CURRENTMEDIATYPE: u32 = 267;
+        const DISPID_IDISCFORMAT2TAO_CURRENTROTATIONTYPEISPURECAV: u32 = 274;
+        const DISPID_IDISCFORMAT2TAO_CURRENTWRITESPEED: u32 = 273;
+        const DISPID_IDISCFORMAT2TAO_DONOTFINALIZEMEDIA: u32 = 263;
+        const DISPID_IDISCFORMAT2TAO_EXPECTEDTABLEOFCONTENTS: u32 = 266;
+        const DISPID_IDISCFORMAT2TAO_FINISHMEDIA: u32 = 515;
+        const DISPID_IDISCFORMAT2TAO_FREESECTORSONMEDIA: u32 = 261;
+        const DISPID_IDISCFORMAT2TAO_NUMBEROFEXISTINGTRACKS: u32 = 259;
+        const DISPID_IDISCFORMAT2TAO_PREPAREMEDIA: u32 = 512;
+        const DISPID_IDISCFORMAT2TAO_RECORDER: u32 = 256;
+        const DISPID_IDISCFORMAT2TAO_REQUESTEDROTATIONTYPEISPURECAV: u32 = 272;
+        const DISPID_IDISCFORMAT2TAO_REQUESTEDWRITESPEED: u32 = 271;
+        const DISPID_IDISCFORMAT2TAO_SETWRITESPEED: u32 = 516;
+        const DISPID_IDISCFORMAT2TAO_SUPPORTEDWRITESPEEDDESCRIPTORS: u32 = 276;
+        const DISPID_IDISCFORMAT2TAO_SUPPORTEDWRITESPEEDS: u32 = 275;
+        const DISPID_IDISCFORMAT2TAO_TOTALSECTORSONMEDIA: u32 = 260;
+        const DISPID_IDISCFORMAT2TAO_USEDSECTORSONMEDIA: u32 = 262;
+        const DISPID_IDISCFORMAT2_MEDIAHEURISTICALLYBLANK: u32 = 1793;
+        const DISPID_IDISCFORMAT2_MEDIAPHYSICALLYBLANK: u32 = 1792;
+        const DISPID_IDISCFORMAT2_MEDIASUPPORTED: u32 = 2049;
+        const DISPID_IDISCFORMAT2_RECORDERSUPPORTED: u32 = 2048;
+        const DISPID_IDISCFORMAT2_SUPPORTEDMEDIATYPES: u32 = 1794;
+        const DISPID_IDISCRECORDER2_ACQUIREEXCLUSIVEACCESS: u32 = 258;
+        const DISPID_IDISCRECORDER2_ACTIVEDISCRECORDER: u32 = 0;
+        const DISPID_IDISCRECORDER2_CLOSETRAY: u32 = 257;
+        const DISPID_IDISCRECORDER2_CURRENTFEATUREPAGES: u32 = 521;
+        const DISPID_IDISCRECORDER2_CURRENTPROFILES: u32 = 523;
+        const DISPID_IDISCRECORDER2_DEVICECANLOADMEDIA: u32 = 518;
+        const DISPID_IDISCRECORDER2_DISABLEMCN: u32 = 260;
+        const DISPID_IDISCRECORDER2_EJECTMEDIA: u32 = 256;
+        const DISPID_IDISCRECORDER2_ENABLEMCN: u32 = 261;
+        const DISPID_IDISCRECORDER2_EXCLUSIVEACCESSOWNER: u32 = 525;
+        const DISPID_IDISCRECORDER2_INITIALIZEDISCRECORDER: u32 = 262;
+        const DISPID_IDISCRECORDER2_LEGACYDEVICENUMBER: u32 = 519;
+        const DISPID_IDISCRECORDER2_PRODUCTID: u32 = 514;
+        const DISPID_IDISCRECORDER2_PRODUCTREVISION: u32 = 515;
+        const DISPID_IDISCRECORDER2_RELEASEEXCLUSIVEACCESS: u32 = 259;
+        const DISPID_IDISCRECORDER2_SUPPORTEDFEATUREPAGES: u32 = 520;
+        const DISPID_IDISCRECORDER2_SUPPORTEDMODEPAGES: u32 = 524;
+        const DISPID_IDISCRECORDER2_SUPPORTEDPROFILES: u32 = 522;
+        const DISPID_IDISCRECORDER2_VENDORID: u32 = 513;
+        const DISPID_IDISCRECORDER2_VOLUMENAME: u32 = 516;
+        const DISPID_IDISCRECORDER2_VOLUMEPATHNAMES: u32 = 517;
+        const DISPID_IMULTISESSION_FIRSTDATASESSION: u32 = 512;
+        const DISPID_IMULTISESSION_FREESECTORS: u32 = 516;
+        const DISPID_IMULTISESSION_IMPORTRECORDER: u32 = 258;
+        const DISPID_IMULTISESSION_INUSE: u32 = 257;
+        const DISPID_IMULTISESSION_LASTSECTOROFPREVIOUSSESSION: u32 = 514;
+        const DISPID_IMULTISESSION_LASTWRITTENADDRESS: u32 = 518;
+        const DISPID_IMULTISESSION_NEXTWRITABLEADDRESS: u32 = 515;
+        const DISPID_IMULTISESSION_SECTORSONMEDIA: u32 = 519;
+        const DISPID_IMULTISESSION_STARTSECTOROFPREVIOUSSESSION: u32 = 513;
+        const DISPID_IMULTISESSION_SUPPORTEDONCURRENTMEDIA: u32 = 256;
+        const DISPID_IMULTISESSION_WRITEUNITSIZE: u32 = 517;
+        const DISPID_IRAWCDIMAGECREATOR_ADDSPECIALPREGAP: u32 = 514;
+        const DISPID_IRAWCDIMAGECREATOR_ADDSUBCODERWGENERATOR: u32 = 515;
+        const DISPID_IRAWCDIMAGECREATOR_ADDTRACK: u32 = 513;
+        const DISPID_IRAWCDIMAGECREATOR_CREATERESULTIMAGE: u32 = 512;
+        const DISPID_IRAWCDIMAGECREATOR_DISABLEGAPLESSAUDIO: u32 = 259;
+        const DISPID_IRAWCDIMAGECREATOR_EXPECTEDTABLEOFCONTENTS: u32 = 265;
+        const DISPID_IRAWCDIMAGECREATOR_MEDIACATALOGNUMBER: u32 = 260;
+        const DISPID_IRAWCDIMAGECREATOR_NUMBEROFEXISTINGTRACKS: u32 = 263;
+        const DISPID_IRAWCDIMAGECREATOR_RESULTINGIMAGETYPE: u32 = 256;
+        const DISPID_IRAWCDIMAGECREATOR_STARTINGTRACKNUMBER: u32 = 261;
+        const DISPID_IRAWCDIMAGECREATOR_STARTOFLEADOUT: u32 = 257;
+        const DISPID_IRAWCDIMAGECREATOR_STARTOFLEADOUTLIMIT: u32 = 258;
+        const DISPID_IRAWCDIMAGECREATOR_TRACKINFO: u32 = 262;
+        const DISPID_IRAWCDIMAGECREATOR_USEDSECTORSONDISC: u32 = 264;
+        const DISPID_IRAWCDTRACKINFO_AUDIOHASPREEMPHASIS: u32 = 262;
+        const DISPID_IRAWCDTRACKINFO_DIGITALAUDIOCOPYSETTING: u32 = 261;
+        const DISPID_IRAWCDTRACKINFO_ISRC: u32 = 260;
+        const DISPID_IRAWCDTRACKINFO_SECTORCOUNT: u32 = 257;
+        const DISPID_IRAWCDTRACKINFO_SECTORTYPE: u32 = 259;
+        const DISPID_IRAWCDTRACKINFO_STARTINGLBA: u32 = 256;
+        const DISPID_IRAWCDTRACKINFO_TRACKNUMBER: u32 = 258;
+        const DISPID_IWRITEENGINE2EVENTARGS_FREESYSTEMBUFFER: u32 = 264;
+        const DISPID_IWRITEENGINE2EVENTARGS_LASTREADLBA: u32 = 258;
+        const DISPID_IWRITEENGINE2EVENTARGS_LASTWRITTENLBA: u32 = 259;
+        const DISPID_IWRITEENGINE2EVENTARGS_SECTORCOUNT: u32 = 257;
+        const DISPID_IWRITEENGINE2EVENTARGS_STARTLBA: u32 = 256;
+        const DISPID_IWRITEENGINE2EVENTARGS_TOTALDEVICEBUFFER: u32 = 260;
+        const DISPID_IWRITEENGINE2EVENTARGS_TOTALSYSTEMBUFFER: u32 = 262;
+        const DISPID_IWRITEENGINE2EVENTARGS_USEDDEVICEBUFFER: u32 = 261;
+        const DISPID_IWRITEENGINE2EVENTARGS_USEDSYSTEMBUFFER: u32 = 263;
+        const DISPID_IWRITEENGINE2_BYTESPERSECTOR: u32 = 260;
+        const DISPID_IWRITEENGINE2_CANCELWRITE: u32 = 513;
+        const DISPID_IWRITEENGINE2_DISCRECORDER: u32 = 256;
+        const DISPID_IWRITEENGINE2_ENDINGSECTORSPERSECOND: u32 = 259;
+        const DISPID_IWRITEENGINE2_STARTINGSECTORSPERSECOND: u32 = 258;
+        const DISPID_IWRITEENGINE2_USESTREAMINGWRITE12: u32 = 257;
+        const DISPID_IWRITEENGINE2_WRITEINPROGRESS: u32 = 261;
+        const DISPID_IWRITEENGINE2_WRITESECTION: u32 = 512;
+        #[guid(0x27354137_7f64_5b0f_8f00_5d77afbe261e)]
+        interface DWriteEngine2Events: IDispatch {
+            fn Update(&self, object: IDispatch, progress: IDispatch) -> HRESULT;
+        }
+        #[guid(0xb507ca25_2204_11dd_966a_001aa01bbc58)]
+        interface IBlockRange: IDispatch {
+            #[special]
+            fn get_StartLba(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_EndLba(&self, #[retval] value: *mut i32) -> HRESULT;
+        }
+        #[guid(0xb507ca26_2204_11dd_966a_001aa01bbc58)]
+        interface IBlockRangeList: IDispatch {
+            #[special]
+            fn get_BlockRanges(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0xd2ffd834_958b_426d_8470_2a13879c6a91)]
+        interface IBurnVerification: IUnknown {
+            #[special]
+            fn put_BurnVerificationLevel(&self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> HRESULT;
+            #[special]
+            fn get_BurnVerificationLevel(&self, #[retval] value: *mut IMAPI_BURN_VERIFICATION_LEVEL) -> HRESULT;
+        }
+        #[guid(0x27354152_8f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscFormat2: IDispatch {
+            fn IsRecorderSupported(&self, recorder: IDiscRecorder2, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsCurrentMediaSupported(&self, recorder: IDiscRecorder2, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MediaPhysicallyBlank(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MediaHeuristicallyBlank(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SupportedMediaTypes(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x27354153_9f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscFormat2Data: IDiscFormat2 {
+            #[special]
+            fn put_Recorder(&self, value: IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn get_Recorder(&self, #[retval] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn put_BufferUnderrunFreeDisabled(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_BufferUnderrunFreeDisabled(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_PostgapAlreadyInImage(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_PostgapAlreadyInImage(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentMediaStatus(&self, #[retval] value: *mut IMAPI_FORMAT2_DATA_MEDIA_STATE) -> HRESULT;
+            #[special]
+            fn get_WriteProtectStatus(&self, #[retval] value: *mut IMAPI_MEDIA_WRITE_PROTECT_STATE) -> HRESULT;
+            #[special]
+            fn get_TotalSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FreeSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NextWritableAddress(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_StartAddressOfPreviousSession(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastWrittenAddressOfPreviousSession(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ForceMediaToBeClosed(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ForceMediaToBeClosed(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_DisableConsumerDvdCompatibilityMode(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_DisableConsumerDvdCompatibilityMode(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentPhysicalMediaType(&self, #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn put_ClientName(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClientName(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RequestedWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RequestedRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeeds(&self, #[retval] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeedDescriptors(&self, #[retval] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_ForceOverwrite(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ForceOverwrite(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MultisessionInterfaces(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn Write(&self, data: IStream) -> HRESULT;
+            fn CancelWrite(&self) -> HRESULT;
+            fn SetWriteSpeed(&self, RequestedSectorsPerSecond: i32, RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x2735413d_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscFormat2DataEventArgs: IWriteEngine2EventArgs {
+            #[special]
+            fn get_ElapsedTime(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RemainingTime(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TotalTime(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentAction(&self, #[retval] value: *mut IMAPI_FORMAT2_DATA_WRITE_ACTION) -> HRESULT;
+        }
+        #[guid(0x27354156_8f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscFormat2Erase: IDiscFormat2 {
+            #[special]
+            fn put_Recorder(&self, value: IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn get_Recorder(&self, #[retval] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn put_FullErase(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_FullErase(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentPhysicalMediaType(&self, #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn put_ClientName(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClientName(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            fn EraseMedia(&self) -> HRESULT;
+        }
+        #[guid(0x27354155_8f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscFormat2RawCD: IDiscFormat2 {
+            fn PrepareMedia(&self) -> HRESULT;
+            fn WriteMedia(&self, data: IStream) -> HRESULT;
+            fn WriteMedia2(&self, data: IStream, streamLeadInSectors: i32) -> HRESULT;
+            fn CancelWrite(&self) -> HRESULT;
+            fn ReleaseMedia(&self) -> HRESULT;
+            fn SetWriteSpeed(&self, RequestedSectorsPerSecond: i32, RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Recorder(&self, value: IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn get_Recorder(&self, #[retval] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn put_BufferUnderrunFreeDisabled(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_BufferUnderrunFreeDisabled(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_StartOfNextSession(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastPossibleStartOfLeadout(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentPhysicalMediaType(&self, #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn get_SupportedSectorTypes(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_RequestedSectorType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
+            #[special]
+            fn get_RequestedSectorType(&self, #[retval] value: *mut IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
+            #[special]
+            fn put_ClientName(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClientName(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RequestedWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RequestedRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeeds(&self, #[retval] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeedDescriptors(&self, #[retval] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x27354143_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscFormat2RawCDEventArgs: IWriteEngine2EventArgs {
+            #[special]
+            fn get_CurrentAction(&self, #[retval] value: *mut IMAPI_FORMAT2_RAW_CD_WRITE_ACTION) -> HRESULT;
+            #[special]
+            fn get_ElapsedTime(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RemainingTime(&self, #[retval] value: *mut i32) -> HRESULT;
+        }
+        #[guid(0x27354154_8f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscFormat2TrackAtOnce: IDiscFormat2 {
+            fn PrepareMedia(&self) -> HRESULT;
+            fn AddAudioTrack(&self, data: IStream) -> HRESULT;
+            fn CancelAddTrack(&self) -> HRESULT;
+            fn ReleaseMedia(&self) -> HRESULT;
+            fn SetWriteSpeed(&self, RequestedSectorsPerSecond: i32, RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Recorder(&self, value: IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn get_Recorder(&self, #[retval] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn put_BufferUnderrunFreeDisabled(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_BufferUnderrunFreeDisabled(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_NumberOfExistingTracks(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TotalSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FreeSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_UsedSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_DoNotFinalizeMedia(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_DoNotFinalizeMedia(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ExpectedTableOfContents(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_CurrentPhysicalMediaType(&self, #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn put_ClientName(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClientName(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RequestedWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RequestedRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeeds(&self, #[retval] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeedDescriptors(&self, #[retval] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x27354140_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscFormat2TrackAtOnceEventArgs: IWriteEngine2EventArgs {
+            #[special]
+            fn get_CurrentTrackNumber(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentAction(&self, #[retval] value: *mut IMAPI_FORMAT2_TAO_WRITE_ACTION) -> HRESULT;
+            #[special]
+            fn get_ElapsedTime(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RemainingTime(&self, #[retval] value: *mut i32) -> HRESULT;
+        }
+        #[guid(0x27354130_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscMaster2: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppunk: *mut IEnumVARIANT) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_IsSupportedEnvironment(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x27354133_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscRecorder2: IDispatch {
+            fn EjectMedia(&self) -> HRESULT;
+            fn CloseTray(&self) -> HRESULT;
+            fn AcquireExclusiveAccess(&self, force: VARIANT_BOOL, param1: BSTR) -> HRESULT;
+            fn ReleaseExclusiveAccess(&self) -> HRESULT;
+            fn DisableMcn(&self) -> HRESULT;
+            fn EnableMcn(&self) -> HRESULT;
+            fn InitializeDiscRecorder(&self, recorderUniqueId: BSTR) -> HRESULT;
+            #[special]
+            fn get_ActiveDiscRecorder(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VendorId(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ProductId(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ProductRevision(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VolumeName(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VolumePathNames(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_DeviceCanLoadMedia(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_LegacyDeviceNumber(&self, #[retval] legacyDeviceNumber: *mut i32) -> HRESULT;
+            #[special]
+            fn get_SupportedFeaturePages(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_CurrentFeaturePages(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedProfiles(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_CurrentProfiles(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedModePages(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_ExclusiveAccessOwner(&self, #[retval] value: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x27354132_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IDiscRecorder2Ex: IUnknown {
+            fn SendCommandNoData(&self, Cdb: *const u8, CdbSize: u32, #[len_const(18)] SenseBuffer: *mut u8, Timeout: u32) -> HRESULT;
+            fn SendCommandSendDataToDevice(&self, Cdb: *const u8, CdbSize: u32, #[len_const(18)] SenseBuffer: *mut u8, Timeout: u32, Buffer: *const u8, BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
+            fn SendCommandGetDataFromDevice(&self, Cdb: *const u8, CdbSize: u32, #[len_const(18)] SenseBuffer: *mut u8, Timeout: u32, Buffer: *mut u8, BufferSize: ULONG_IMAPI2_NONZERO, BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
+            fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
+            fn SendDvdStructure(&self, format: u32, data: *const u8, count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
+            fn GetAdapterDescriptor(&self, data: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> HRESULT;
+            fn GetDeviceDescriptor(&self, data: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> HRESULT;
+            fn GetDiscInformation(&self, discInformation: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> HRESULT;
+            fn GetTrackInformation(&self, address: u32, addressType: IMAPI_READ_TRACK_ADDRESS_TYPE, trackInformation: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> HRESULT;
+            fn GetFeaturePage(&self, requestedFeature: IMAPI_FEATURE_PAGE_TYPE, currentFeatureOnly: BOOLEAN, featureData: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
+            fn GetModePage(&self, requestedModePage: IMAPI_MODE_PAGE_TYPE, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, modePageData: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
+            fn SetModePage(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, byteSize: ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
+            fn GetSupportedFeaturePages(&self, currentFeatureOnly: BOOLEAN, featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
+            fn GetSupportedProfiles(&self, currentOnly: BOOLEAN, profileTypes: *mut *mut IMAPI_PROFILE_TYPE, validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
+            fn GetSupportedModePages(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, modePageTypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validPages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> HRESULT;
+            fn GetByteAlignmentMask(&self, #[retval] value: *mut u32) -> HRESULT;
+            fn GetMaximumNonPageAlignedTransferSize(&self, #[retval] value: *mut u32) -> HRESULT;
+            fn GetMaximumPageAlignedTransferSize(&self, #[retval] value: *mut u32) -> HRESULT;
+        }
+        const IMAPI2_DEFAULT_COMMAND_TIMEOUT: u32 = 10;
+        const IMAPILib2_MajorVersion: u32 = 1;
+        const IMAPILib2_MinorVersion: u32 = 0;
+        #[repr(i32)]
+        enum IMAPI_BURN_VERIFICATION_LEVEL {
+            IMAPI_BURN_VERIFICATION_NONE = 0,
+            IMAPI_BURN_VERIFICATION_QUICK = 1,
+            IMAPI_BURN_VERIFICATION_FULL = 2,
+        }
+        #[repr(i32)]
+        enum IMAPI_CD_SECTOR_TYPE {
+            IMAPI_CD_SECTOR_AUDIO = 0,
+            IMAPI_CD_SECTOR_MODE_ZERO = 1,
+            IMAPI_CD_SECTOR_MODE1 = 2,
+            IMAPI_CD_SECTOR_MODE2FORM0 = 3,
+            IMAPI_CD_SECTOR_MODE2FORM1 = 4,
+            IMAPI_CD_SECTOR_MODE2FORM2 = 5,
+            IMAPI_CD_SECTOR_MODE1RAW = 6,
+            IMAPI_CD_SECTOR_MODE2FORM0RAW = 7,
+            IMAPI_CD_SECTOR_MODE2FORM1RAW = 8,
+            IMAPI_CD_SECTOR_MODE2FORM2RAW = 9,
+        }
+        #[repr(i32)]
+        enum IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
+            IMAPI_CD_TRACK_DIGITAL_COPY_PERMITTED = 0,
+            IMAPI_CD_TRACK_DIGITAL_COPY_PROHIBITED = 1,
+            IMAPI_CD_TRACK_DIGITAL_COPY_SCMS = 2,
+        }
+        #[repr(i32)]
+        enum IMAPI_FEATURE_PAGE_TYPE {
+            IMAPI_FEATURE_PAGE_TYPE_PROFILE_LIST = 0,
+            IMAPI_FEATURE_PAGE_TYPE_CORE = 1,
+            IMAPI_FEATURE_PAGE_TYPE_MORPHING = 2,
+            IMAPI_FEATURE_PAGE_TYPE_REMOVABLE_MEDIUM = 3,
+            IMAPI_FEATURE_PAGE_TYPE_WRITE_PROTECT = 4,
+            IMAPI_FEATURE_PAGE_TYPE_RANDOMLY_READABLE = 16,
+            IMAPI_FEATURE_PAGE_TYPE_CD_MULTIREAD = 29,
+            IMAPI_FEATURE_PAGE_TYPE_CD_READ = 30,
+            IMAPI_FEATURE_PAGE_TYPE_DVD_READ = 31,
+            IMAPI_FEATURE_PAGE_TYPE_RANDOMLY_WRITABLE = 32,
+            IMAPI_FEATURE_PAGE_TYPE_INCREMENTAL_STREAMING_WRITABLE = 33,
+            IMAPI_FEATURE_PAGE_TYPE_SECTOR_ERASABLE = 34,
+            IMAPI_FEATURE_PAGE_TYPE_FORMATTABLE = 35,
+            IMAPI_FEATURE_PAGE_TYPE_HARDWARE_DEFECT_MANAGEMENT = 36,
+            IMAPI_FEATURE_PAGE_TYPE_WRITE_ONCE = 37,
+            IMAPI_FEATURE_PAGE_TYPE_RESTRICTED_OVERWRITE = 38,
+            IMAPI_FEATURE_PAGE_TYPE_CDRW_CAV_WRITE = 39,
+            IMAPI_FEATURE_PAGE_TYPE_MRW = 40,
+            IMAPI_FEATURE_PAGE_TYPE_ENHANCED_DEFECT_REPORTING = 41,
+            IMAPI_FEATURE_PAGE_TYPE_DVD_PLUS_RW = 42,
+            IMAPI_FEATURE_PAGE_TYPE_DVD_PLUS_R = 43,
+            IMAPI_FEATURE_PAGE_TYPE_RIGID_RESTRICTED_OVERWRITE = 44,
+            IMAPI_FEATURE_PAGE_TYPE_CD_TRACK_AT_ONCE = 45,
+            IMAPI_FEATURE_PAGE_TYPE_CD_MASTERING = 46,
+            IMAPI_FEATURE_PAGE_TYPE_DVD_DASH_WRITE = 47,
+            IMAPI_FEATURE_PAGE_TYPE_DOUBLE_DENSITY_CD_READ = 48,
+            IMAPI_FEATURE_PAGE_TYPE_DOUBLE_DENSITY_CD_R_WRITE = 49,
+            IMAPI_FEATURE_PAGE_TYPE_DOUBLE_DENSITY_CD_RW_WRITE = 50,
+            IMAPI_FEATURE_PAGE_TYPE_LAYER_JUMP_RECORDING = 51,
+            IMAPI_FEATURE_PAGE_TYPE_CD_RW_MEDIA_WRITE_SUPPORT = 55,
+            IMAPI_FEATURE_PAGE_TYPE_BD_PSEUDO_OVERWRITE = 56,
+            IMAPI_FEATURE_PAGE_TYPE_DVD_PLUS_R_DUAL_LAYER = 59,
+            IMAPI_FEATURE_PAGE_TYPE_BD_READ = 64,
+            IMAPI_FEATURE_PAGE_TYPE_BD_WRITE = 65,
+            IMAPI_FEATURE_PAGE_TYPE_HD_DVD_READ = 80,
+            IMAPI_FEATURE_PAGE_TYPE_HD_DVD_WRITE = 81,
+            IMAPI_FEATURE_PAGE_TYPE_POWER_MANAGEMENT = 256,
+            IMAPI_FEATURE_PAGE_TYPE_SMART = 257,
+            IMAPI_FEATURE_PAGE_TYPE_EMBEDDED_CHANGER = 258,
+            IMAPI_FEATURE_PAGE_TYPE_CD_ANALOG_PLAY = 259,
+            IMAPI_FEATURE_PAGE_TYPE_MICROCODE_UPDATE = 260,
+            IMAPI_FEATURE_PAGE_TYPE_TIMEOUT = 261,
+            IMAPI_FEATURE_PAGE_TYPE_DVD_CSS = 262,
+            IMAPI_FEATURE_PAGE_TYPE_REAL_TIME_STREAMING = 263,
+            IMAPI_FEATURE_PAGE_TYPE_LOGICAL_UNIT_SERIAL_NUMBER = 264,
+            IMAPI_FEATURE_PAGE_TYPE_MEDIA_SERIAL_NUMBER = 265,
+            IMAPI_FEATURE_PAGE_TYPE_DISC_CONTROL_BLOCKS = 266,
+            IMAPI_FEATURE_PAGE_TYPE_DVD_CPRM = 267,
+            IMAPI_FEATURE_PAGE_TYPE_FIRMWARE_INFORMATION = 268,
+            IMAPI_FEATURE_PAGE_TYPE_AACS = 269,
+            IMAPI_FEATURE_PAGE_TYPE_VCPS = 272,
+        }
+        #[repr(i32)]
+        enum IMAPI_FORMAT2_DATA_MEDIA_STATE {
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_UNKNOWN = 0,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_INFORMATIONAL_MASK = 15,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_UNSUPPORTED_MASK = 64512,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_OVERWRITE_ONLY = 1,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_RANDOMLY_WRITABLE = 1,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_BLANK = 2,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_APPENDABLE = 4,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_FINAL_SESSION = 8,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_DAMAGED = 1024,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_ERASE_REQUIRED = 2048,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_NON_EMPTY_SESSION = 4096,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_WRITE_PROTECTED = 8192,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_FINALIZED = 16384,
+            IMAPI_FORMAT2_DATA_MEDIA_STATE_UNSUPPORTED_MEDIA = 32768,
+        }
+        #[repr(i32)]
+        enum IMAPI_FORMAT2_DATA_WRITE_ACTION {
+            IMAPI_FORMAT2_DATA_WRITE_ACTION_VALIDATING_MEDIA = 0,
+            IMAPI_FORMAT2_DATA_WRITE_ACTION_FORMATTING_MEDIA = 1,
+            IMAPI_FORMAT2_DATA_WRITE_ACTION_INITIALIZING_HARDWARE = 2,
+            IMAPI_FORMAT2_DATA_WRITE_ACTION_CALIBRATING_POWER = 3,
+            IMAPI_FORMAT2_DATA_WRITE_ACTION_WRITING_DATA = 4,
+            IMAPI_FORMAT2_DATA_WRITE_ACTION_FINALIZATION = 5,
+            IMAPI_FORMAT2_DATA_WRITE_ACTION_COMPLETED = 6,
+            IMAPI_FORMAT2_DATA_WRITE_ACTION_VERIFYING = 7,
+        }
+        #[repr(i32)]
+        enum IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
+            IMAPI_FORMAT2_RAW_CD_SUBCODE_PQ_ONLY = 1,
+            IMAPI_FORMAT2_RAW_CD_SUBCODE_IS_COOKED = 2,
+            IMAPI_FORMAT2_RAW_CD_SUBCODE_IS_RAW = 3,
+        }
+        #[repr(i32)]
+        enum IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
+            IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_UNKNOWN = 0,
+            IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_PREPARING = 1,
+            IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_WRITING = 2,
+            IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_FINISHING = 3,
+        }
+        #[repr(i32)]
+        enum IMAPI_FORMAT2_TAO_WRITE_ACTION {
+            IMAPI_FORMAT2_TAO_WRITE_ACTION_UNKNOWN = 0,
+            IMAPI_FORMAT2_TAO_WRITE_ACTION_PREPARING = 1,
+            IMAPI_FORMAT2_TAO_WRITE_ACTION_WRITING = 2,
+            IMAPI_FORMAT2_TAO_WRITE_ACTION_FINISHING = 3,
+            IMAPI_FORMAT2_TAO_WRITE_ACTION_VERIFYING = 4,
+        }
+        #[repr(i32)]
+        enum IMAPI_MEDIA_PHYSICAL_TYPE {
+            IMAPI_MEDIA_TYPE_UNKNOWN = 0,
+            IMAPI_MEDIA_TYPE_CDROM = 1,
+            IMAPI_MEDIA_TYPE_CDR = 2,
+            IMAPI_MEDIA_TYPE_CDRW = 3,
+            IMAPI_MEDIA_TYPE_DVDROM = 4,
+            IMAPI_MEDIA_TYPE_DVDRAM = 5,
+            IMAPI_MEDIA_TYPE_DVDPLUSR = 6,
+            IMAPI_MEDIA_TYPE_DVDPLUSRW = 7,
+            IMAPI_MEDIA_TYPE_DVDPLUSR_DUALLAYER = 8,
+            IMAPI_MEDIA_TYPE_DVDDASHR = 9,
+            IMAPI_MEDIA_TYPE_DVDDASHRW = 10,
+            IMAPI_MEDIA_TYPE_DVDDASHR_DUALLAYER = 11,
+            IMAPI_MEDIA_TYPE_DISK = 12,
+            IMAPI_MEDIA_TYPE_DVDPLUSRW_DUALLAYER = 13,
+            IMAPI_MEDIA_TYPE_HDDVDROM = 14,
+            IMAPI_MEDIA_TYPE_HDDVDR = 15,
+            IMAPI_MEDIA_TYPE_HDDVDRAM = 16,
+            IMAPI_MEDIA_TYPE_BDROM = 17,
+            IMAPI_MEDIA_TYPE_BDR = 18,
+            IMAPI_MEDIA_TYPE_BDRE = 19,
+            IMAPI_MEDIA_TYPE_MAX = 19,
+        }
+        #[repr(i32)]
+        enum IMAPI_MEDIA_WRITE_PROTECT_STATE {
+            IMAPI_WRITEPROTECTED_UNTIL_POWERDOWN = 1,
+            IMAPI_WRITEPROTECTED_BY_CARTRIDGE = 2,
+            IMAPI_WRITEPROTECTED_BY_MEDIA_SPECIFIC_REASON = 4,
+            IMAPI_WRITEPROTECTED_BY_SOFTWARE_WRITE_PROTECT = 8,
+            IMAPI_WRITEPROTECTED_BY_DISC_CONTROL_BLOCK = 16,
+            IMAPI_WRITEPROTECTED_READ_ONLY_MEDIA = 16384,
+        }
+        #[repr(i32)]
+        enum IMAPI_MODE_PAGE_REQUEST_TYPE {
+            IMAPI_MODE_PAGE_REQUEST_TYPE_CURRENT_VALUES = 0,
+            IMAPI_MODE_PAGE_REQUEST_TYPE_CHANGEABLE_VALUES = 1,
+            IMAPI_MODE_PAGE_REQUEST_TYPE_DEFAULT_VALUES = 2,
+            IMAPI_MODE_PAGE_REQUEST_TYPE_SAVED_VALUES = 3,
+        }
+        #[repr(i32)]
+        enum IMAPI_MODE_PAGE_TYPE {
+            IMAPI_MODE_PAGE_TYPE_READ_WRITE_ERROR_RECOVERY = 1,
+            IMAPI_MODE_PAGE_TYPE_MRW = 3,
+            IMAPI_MODE_PAGE_TYPE_WRITE_PARAMETERS = 5,
+            IMAPI_MODE_PAGE_TYPE_CACHING = 8,
+            IMAPI_MODE_PAGE_TYPE_INFORMATIONAL_EXCEPTIONS = 28,
+            IMAPI_MODE_PAGE_TYPE_TIMEOUT_AND_PROTECT = 29,
+            IMAPI_MODE_PAGE_TYPE_POWER_CONDITION = 26,
+            IMAPI_MODE_PAGE_TYPE_LEGACY_CAPABILITIES = 42,
+        }
+        #[repr(i32)]
+        enum IMAPI_PROFILE_TYPE {
+            IMAPI_PROFILE_TYPE_INVALID = 0,
+            IMAPI_PROFILE_TYPE_NON_REMOVABLE_DISK = 1,
+            IMAPI_PROFILE_TYPE_REMOVABLE_DISK = 2,
+            IMAPI_PROFILE_TYPE_MO_ERASABLE = 3,
+            IMAPI_PROFILE_TYPE_MO_WRITE_ONCE = 4,
+            IMAPI_PROFILE_TYPE_AS_MO = 5,
+            IMAPI_PROFILE_TYPE_CDROM = 8,
+            IMAPI_PROFILE_TYPE_CD_RECORDABLE = 9,
+            IMAPI_PROFILE_TYPE_CD_REWRITABLE = 10,
+            IMAPI_PROFILE_TYPE_DVDROM = 16,
+            IMAPI_PROFILE_TYPE_DVD_DASH_RECORDABLE = 17,
+            IMAPI_PROFILE_TYPE_DVD_RAM = 18,
+            IMAPI_PROFILE_TYPE_DVD_DASH_REWRITABLE = 19,
+            IMAPI_PROFILE_TYPE_DVD_DASH_RW_SEQUENTIAL = 20,
+            IMAPI_PROFILE_TYPE_DVD_DASH_R_DUAL_SEQUENTIAL = 21,
+            IMAPI_PROFILE_TYPE_DVD_DASH_R_DUAL_LAYER_JUMP = 22,
+            IMAPI_PROFILE_TYPE_DVD_PLUS_RW = 26,
+            IMAPI_PROFILE_TYPE_DVD_PLUS_R = 27,
+            IMAPI_PROFILE_TYPE_DDCDROM = 32,
+            IMAPI_PROFILE_TYPE_DDCD_RECORDABLE = 33,
+            IMAPI_PROFILE_TYPE_DDCD_REWRITABLE = 34,
+            IMAPI_PROFILE_TYPE_DVD_PLUS_RW_DUAL = 42,
+            IMAPI_PROFILE_TYPE_DVD_PLUS_R_DUAL = 43,
+            IMAPI_PROFILE_TYPE_BD_ROM = 64,
+            IMAPI_PROFILE_TYPE_BD_R_SEQUENTIAL = 65,
+            IMAPI_PROFILE_TYPE_BD_R_RANDOM_RECORDING = 66,
+            IMAPI_PROFILE_TYPE_BD_REWRITABLE = 67,
+            IMAPI_PROFILE_TYPE_HD_DVD_ROM = 80,
+            IMAPI_PROFILE_TYPE_HD_DVD_RECORDABLE = 81,
+            IMAPI_PROFILE_TYPE_HD_DVD_RAM = 82,
+            IMAPI_PROFILE_TYPE_NON_STANDARD = 65535,
+        }
+        #[repr(i32)]
+        enum IMAPI_READ_TRACK_ADDRESS_TYPE {
+            IMAPI_READ_TRACK_ADDRESS_TYPE_LBA = 0,
+            IMAPI_READ_TRACK_ADDRESS_TYPE_TRACK = 1,
+            IMAPI_READ_TRACK_ADDRESS_TYPE_SESSION = 2,
+        }
+        const IMAPI_SECTORS_PER_SECOND_AT_1X_BD: u32 = 2195;
+        const IMAPI_SECTORS_PER_SECOND_AT_1X_CD: u32 = 75;
+        const IMAPI_SECTORS_PER_SECOND_AT_1X_DVD: u32 = 680;
+        const IMAPI_SECTORS_PER_SECOND_AT_1X_HD_DVD: u32 = 4568;
+        const IMAPI_SECTOR_SIZE: u32 = 2048;
+        #[guid(0x27354150_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IMultisession: IDispatch {
+            #[special]
+            fn get_IsSupportedOnCurrentMediaState(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_InUse(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_InUse(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ImportRecorder(&self, #[retval] value: *mut IDiscRecorder2) -> HRESULT;
+        }
+        #[guid(0xb507ca23_2204_11dd_966a_001aa01bbc58)]
+        interface IMultisessionRandomWrite: IMultisession {
+            #[special]
+            fn get_WriteUnitSize(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastWrittenAddress(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TotalSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+        }
+        #[guid(0x27354151_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IMultisessionSequential: IMultisession {
+            #[special]
+            fn get_IsFirstDataSession(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_StartAddressOfPreviousSession(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastWrittenAddressOfPreviousSession(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NextWritableAddress(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FreeSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+        }
+        #[guid(0xb507ca22_2204_11dd_966a_001aa01bbc58)]
+        interface IMultisessionSequential2: IMultisessionSequential {
+            #[special]
+            fn get_WriteUnitSize(&self, #[retval] value: *mut i32) -> HRESULT;
+        }
+        #[guid(0x25983550_9d65_49ce_b335_40630d901227)]
+        interface IRawCDImageCreator: IDispatch {
+            fn CreateResultImage(&self, #[retval] resultStream: *mut IStream) -> HRESULT;
+            fn AddTrack(&self, dataType: IMAPI_CD_SECTOR_TYPE, data: IStream, #[retval] trackIndex: *mut i32) -> HRESULT;
+            fn AddSpecialPregap(&self, data: IStream) -> HRESULT;
+            fn AddSubcodeRWGenerator(&self, subcode: IStream) -> HRESULT;
+            #[special]
+            fn put_ResultingImageType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
+            #[special]
+            fn get_ResultingImageType(&self, #[retval] value: *mut IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
+            #[special]
+            fn get_StartOfLeadout(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_StartOfLeadoutLimit(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_StartOfLeadoutLimit(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_DisableGaplessAudio(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_DisableGaplessAudio(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_MediaCatalogNumber(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_MediaCatalogNumber(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_StartingTrackNumber(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_StartingTrackNumber(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TrackInfo(&self, trackIndex: i32, #[retval] value: *mut IRawCDImageTrackInfo) -> HRESULT;
+            #[special]
+            fn get_NumberOfExistingTracks(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastUsedUserSectorInImage(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ExpectedTableOfContents(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x25983551_9d65_49ce_b335_40630d901227)]
+        interface IRawCDImageTrackInfo: IDispatch {
+            #[special]
+            fn get_StartingLba(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_SectorCount(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TrackNumber(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_SectorType(&self, #[retval] value: *mut IMAPI_CD_SECTOR_TYPE) -> HRESULT;
+            #[special]
+            fn get_ISRC(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ISRC(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_DigitalAudioCopySetting(&self, #[retval] value: *mut IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> HRESULT;
+            #[special]
+            fn put_DigitalAudioCopySetting(&self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> HRESULT;
+            #[special]
+            fn get_AudioHasPreemphasis(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AudioHasPreemphasis(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_TrackIndexes(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn AddTrackIndex(&self, lbaOffset: i32) -> HRESULT;
+            fn ClearTrackIndex(&self, lbaOffset: i32) -> HRESULT;
+        }
+        #[guid(0x27354146_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IStreamConcatenate: IStream {
+            fn Initialize(&self, stream1: IStream, stream2: IStream) -> HRESULT;
+            fn Initialize2(&self, streams: *const IStream, streamCount: u32) -> HRESULT;
+            fn Append(&self, stream: IStream) -> HRESULT;
+            fn Append2(&self, streams: *const IStream, streamCount: u32) -> HRESULT;
+        }
+        #[guid(0x27354147_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IStreamInterleave: IStream {
+            fn Initialize(&self, streams: *const IStream, interleaveSizes: *const u32, streamCount: u32) -> HRESULT;
+        }
+        #[guid(0x27354145_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IStreamPseudoRandomBased: IStream {
+            fn put_Seed(&self, value: u32) -> HRESULT;
+            fn get_Seed(&self, value: *mut u32) -> HRESULT;
+            fn put_ExtendedSeed(&self, values: *const u32, eCount: u32) -> HRESULT;
+            fn get_ExtendedSeed(&self, values: *mut *mut u32, eCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0x27354135_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IWriteEngine2: IDispatch {
+            fn WriteSection(&self, data: IStream, startingBlockAddress: i32, numberOfBlocks: i32) -> HRESULT;
+            fn CancelWrite(&self) -> HRESULT;
+            #[special]
+            fn put_Recorder(&self, value: IDiscRecorder2Ex) -> HRESULT;
+            #[special]
+            fn get_Recorder(&self, #[retval] value: *mut IDiscRecorder2Ex) -> HRESULT;
+            #[special]
+            fn put_UseStreamingWrite12(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UseStreamingWrite12(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_StartingSectorsPerSecond(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_StartingSectorsPerSecond(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_EndingSectorsPerSecond(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_EndingSectorsPerSecond(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_BytesPerSector(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_BytesPerSector(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_WriteInProgress(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x27354136_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IWriteEngine2EventArgs: IDispatch {
+            #[special]
+            fn get_StartLba(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_SectorCount(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastReadLba(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastWrittenLba(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TotalSystemBuffer(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_UsedSystemBuffer(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FreeSystemBuffer(&self, #[retval] value: *mut i32) -> HRESULT;
+        }
+        #[guid(0x27354144_7f64_5b0f_8f00_5d77afbe261e)]
+        interface IWriteSpeedDescriptor: IDispatch {
+            #[special]
+            fn get_MediaType(&self, #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn get_RotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_WriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+        }
+        const MsftDiscFormat2Data: GUID = 0x2735412a_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftDiscFormat2Erase: GUID = 0x2735412b_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftDiscFormat2RawCD: GUID = 0x27354128_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftDiscFormat2TrackAtOnce: GUID = 0x27354129_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftDiscMaster2: GUID = 0x2735412e_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftDiscRecorder2: GUID = 0x2735412d_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftMultisessionRandomWrite: GUID = 0xb507ca24_2204_11dd_966a_001aa01bbc58;
+        const MsftMultisessionSequential: GUID = 0x27354122_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftRawCDImageCreator: GUID = 0x25983561_9d65_49ce_b335_40630d901227;
+        const MsftStreamConcatenate: GUID = 0x27354125_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftStreamInterleave: GUID = 0x27354124_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftStreamPrng001: GUID = 0x27354126_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftStreamZero: GUID = 0x27354127_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftWriteEngine2: GUID = 0x2735412c_7f64_5b0f_8f00_5d77afbe261e;
+        const MsftWriteSpeedDescriptor: GUID = 0x27354123_7f64_5b0f_8f00_5d77afbe261e;
+        type PIMAPI_BURN_VERIFICATION_LEVEL = *mut IMAPI_BURN_VERIFICATION_LEVEL;
+        type PIMAPI_CD_SECTOR_TYPE = *mut IMAPI_CD_SECTOR_TYPE;
+        type PIMAPI_CD_TRACK_DIGITAL_COPY_SETTING = *mut IMAPI_CD_TRACK_DIGITAL_COPY_SETTING;
+        type PIMAPI_FEATURE_PAGE_TYPE = *mut IMAPI_FEATURE_PAGE_TYPE;
+        type PIMAPI_FORMAT2_DATA_MEDIA_STATE = *mut IMAPI_FORMAT2_DATA_MEDIA_STATE;
+        type PIMAPI_FORMAT2_DATA_WRITE_ACTION = *mut IMAPI_FORMAT2_DATA_WRITE_ACTION;
+        type PIMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE = *mut IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE;
+        type PIMAPI_FORMAT2_RAW_CD_WRITE_ACTION = *mut IMAPI_FORMAT2_RAW_CD_WRITE_ACTION;
+        type PIMAPI_FORMAT2_TAO_WRITE_ACTION = *mut IMAPI_FORMAT2_TAO_WRITE_ACTION;
+        type PIMAPI_MEDIA_PHYSICAL_TYPE = *mut IMAPI_MEDIA_PHYSICAL_TYPE;
+        type PIMAPI_MEDIA_WRITE_PROTECT_STATE = *mut IMAPI_MEDIA_WRITE_PROTECT_STATE;
+        type PIMAPI_MODE_PAGE_REQUEST_TYPE = *mut IMAPI_MODE_PAGE_REQUEST_TYPE;
+        type PIMAPI_MODE_PAGE_TYPE = *mut IMAPI_MODE_PAGE_TYPE;
+        type PIMAPI_PROFILE_TYPE = *mut IMAPI_PROFILE_TYPE;
+        type PIMAPI_READ_TRACK_ADDRESS_TYPE = *mut IMAPI_READ_TRACK_ADDRESS_TYPE;
+        type ULONG_IMAPI2_ADAPTER_DESCRIPTOR = u32;
+        type ULONG_IMAPI2_ALL_FEATURE_PAGES = u32;
+        type ULONG_IMAPI2_ALL_MODE_PAGES = u32;
+        type ULONG_IMAPI2_ALL_PROFILES = u32;
+        type ULONG_IMAPI2_DEVICE_DESCRIPTOR = u32;
+        type ULONG_IMAPI2_DISC_INFORMATION = u32;
+        type ULONG_IMAPI2_DVD_STRUCTURE = u32;
+        type ULONG_IMAPI2_FEATURE_PAGE = u32;
+        type ULONG_IMAPI2_MODE_PAGE = u32;
+        type ULONG_IMAPI2_NONZERO = u32;
+        type ULONG_IMAPI2_NOT_NEGATIVE = u32;
+        type ULONG_IMAPI2_TRACK_INFORMATION = u32;
+    }
+}

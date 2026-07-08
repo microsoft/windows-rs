@@ -32,6 +32,7 @@ pub struct Writer {
     filter: Vec<String>,
     output: String,
     split: bool,
+    partition: Option<HashMap<String, String>>,
 }
 
 impl Writer {
@@ -98,6 +99,16 @@ impl Writer {
         self
     }
 
+    /// Partitions the output into one `<stem>.rdl` file per *defining header* rather than
+    /// per namespace, routing each item by an explicit item-name → header-stem map. The
+    /// `output` is treated as a directory. Items missing from the map are skipped. This is
+    /// how the arch-merged corpus is decompiled back to the per-header file layout that the
+    /// clang scraper produces (the winmd itself does not carry the defining header).
+    pub fn partition(&mut self, map: HashMap<String, String>) -> &mut Self {
+        self.partition = Some(map);
+        self
+    }
+
     /// Converts the inputs and writes the RDL to the configured output.
     pub fn write(&self) -> Result<(), Error> {
         let mut files = vec![];
@@ -111,6 +122,62 @@ impl Writer {
 
         let index = metadata::reader::Index::new(files);
         let rules = resolve_filter(&self.filter, &index);
+
+        if let Some(map) = &self.partition {
+            // Remove any stale rdl files from a previous run before writing.
+            if let Ok(entries) = std::fs::read_dir(&self.output) {
+                for entry in entries.flatten() {
+                    let path = entry.path();
+                    if path
+                        .extension()
+                        .is_some_and(|ext| ext.eq_ignore_ascii_case("rdl"))
+                    {
+                        let _ = std::fs::remove_file(path);
+                    }
+                }
+            }
+
+            // Group items into one Layout per header stem, routing each by the supplied map.
+            let mut layouts: BTreeMap<String, Layout> = BTreeMap::new();
+            for namespace in index.namespaces() {
+                if namespace.is_empty() {
+                    continue;
+                }
+                for (name, item) in index.namespace_items(namespace) {
+                    if !item_included(&rules, namespace, name) {
+                        continue;
+                    }
+                    let Some(stem) = map.get(name) else {
+                        continue;
+                    };
+                    let layout = layouts.entry(stem.clone()).or_default();
+                    for (item_name, tokens) in write_items(namespace, item)? {
+                        layout.insert(namespace, &item_name, item_winrt(item), tokens.to_string());
+                    }
+                }
+            }
+
+            for (stem, layout) in &layouts {
+                let output = layout.to_string();
+                if output.is_empty() {
+                    continue;
+                }
+
+                let mut path = std::path::PathBuf::new();
+                path.push(&self.output);
+                path.push(format!("{stem}.rdl"));
+
+                let path_str = path
+                    .to_str()
+                    .ok_or_else(|| writer_err!("output path contains non-UTF-8 characters"))?;
+                write_to_file(
+                    path_str,
+                    formatter::format(&output).replace("#[r#in]", "#[in]"),
+                )?;
+            }
+
+            return Ok(());
+        }
 
         if self.split {
             // Remove any stale rdl files from a previous run before writing.
@@ -226,14 +293,14 @@ fn resolve_filter(filter: &[String], index: &metadata::reader::Index) -> Vec<(Fi
         }
 
         // 2. Qualified type name: "Namespace.TypeName".
-        if let Some((namespace, name)) = rule_str.rsplit_once('.') {
-            if index.get_item(namespace, name).next().is_some() {
-                rules.push((
-                    FilterRule::Type(namespace.to_string(), name.to_string()),
-                    include,
-                ));
-                continue;
-            }
+        if let Some((namespace, name)) = rule_str.rsplit_once('.')
+            && index.get_item(namespace, name).next().is_some()
+        {
+            rules.push((
+                FilterRule::Type(namespace.to_string(), name.to_string()),
+                include,
+            ));
+            continue;
         }
 
         // 3. Unqualified type name: search every namespace.
@@ -318,8 +385,7 @@ fn write_type_def_items(
     if item.category() == metadata::reader::TypeCategory::Struct {
         // A struct with NativeTypedefAttribute is written as `type NAME = TYPE;`.
         if item.attributes().any(|attr| {
-            attr.namespace() == "Windows.Win32.Foundation.Metadata"
-                && attr.name() == "NativeTypedefAttribute"
+            attr.namespace() == METADATA_NAMESPACE && attr.name() == "NativeTypedefAttribute"
         }) {
             let name = write_ident(item.name());
             let field = item
@@ -327,7 +393,8 @@ fn write_type_def_items(
                 .next()
                 .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
             let ty = write_type(namespace, &field.ty());
-            let tokens = quote! { type #name = #ty; };
+            let arch_attr = write_arch_attr(item.arches());
+            let tokens = quote! { #arch_attr type #name = #ty; };
             return Ok(vec![(item.name().to_string(), tokens)]);
         }
         write_struct_items(item)
@@ -342,11 +409,17 @@ fn write_type_def_items(
 }
 
 fn write_const(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
-    match item.ty() {
-        metadata::Type::ValueName(tn) if &tn == ("System", "Guid") => {
-            write_const_guid(namespace, item)
-        }
-        _ => write_const_value(namespace, item),
+    // A GUID-typed constant carries its value in a `GuidAttribute` (the faithful scrape types
+    // it as `Windows.Win32.GUID`; win32metadata types it as `System.Guid`). Either way, emit
+    // the inline `= 0x…` literal rather than the raw attribute.
+    let is_guid = match item.ty() {
+        metadata::Type::ValueName(tn) => &tn == ("System", "Guid") || tn.name == "GUID",
+        _ => false,
+    };
+    if is_guid && item.find_attribute("GuidAttribute").is_some() {
+        write_const_guid(namespace, item)
+    } else {
+        write_const_value(namespace, item)
     }
 }
 
@@ -357,16 +430,24 @@ fn write_const_value(
     let name = write_ident(item.name());
     let constant = item.constant();
     let ty = write_type(namespace, &item.ty());
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let arch_attr = write_arch_attr(item.arches());
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["SupportedArchitectureAttribute"],
+    )?;
 
     Ok(if let Some(constant) = constant {
         let value = write_value(namespace, &constant.value());
         quote! {
+            #arch_attr
             #(#custom_attrs)*
             const #name: #ty = #value;
         }
     } else {
         quote! {
+            #arch_attr
             #(#custom_attrs)*
             const #name: #ty;
         }
@@ -378,6 +459,7 @@ fn write_const_guid(
     item: &metadata::reader::Field,
 ) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
+    let arch_attr = write_arch_attr(item.arches());
     let attribute = item
         .find_attribute("GuidAttribute")
         .ok_or_else(|| writer_err!("GUID constant `{}` has no `GuidAttribute`", item.name()))?;
@@ -406,7 +488,7 @@ fn write_const_guid(
     );
 
     let literal = syn::LitInt::new(&value, Span::call_site());
-    Ok(quote! { const #name: GUID = #literal; })
+    Ok(quote! { #arch_attr const #name: GUID = #literal; })
 }
 
 fn write_params(
@@ -440,23 +522,11 @@ fn write_params(
             } else {
                 quote! {}
             };
-            // `RetValAttribute` is emitted as the `#[retval]` pseudo-attribute.
-            // Exclude it from the generic custom-attributes path to avoid emitting
-            // an unresolvable `#[RetVal]` name on round-trip.
-            let retval_attr = if param.find_attribute("RetValAttribute").is_some() {
-                quote! { #[retval] }
-            } else {
-                quote! {}
-            };
             let name = write_ident(param.name());
-            let param_attrs = write_custom_attributes_except(
-                param.attributes(),
-                namespace,
-                method.index(),
-                &["RetValAttribute"],
-            )?;
+            let param_attrs =
+                write_custom_attributes_except(param.attributes(), namespace, method.index(), &[])?;
             let ty = write_type(namespace, &ty);
-            Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #retval_attr #name: #ty })
+            Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty })
         })
         .collect()
 }
@@ -501,33 +571,51 @@ fn write_custom_attributes_except<'a>(
             !(namespace_starts_with(attr.namespace(), "System")
                 || exclude.contains(&attr.name())
                 // `NativeTypedefAttribute` is handled by the typedef writer; skip it here.
-                || (attr.namespace() == "Windows.Win32.Foundation.Metadata"
+                || (attr.namespace() == METADATA_NAMESPACE
                     && attr.name() == "NativeTypedefAttribute"))
         })
         .map(|attr| {
             let attr_ns = attr.namespace();
-            let attr_short = attr
-                .name()
-                .strip_suffix("Attribute")
-                .unwrap_or_else(|| attr.name());
+            let values = attr.value();
 
-            // Build the (possibly qualified) attribute path token stream.
-            let name_ts = if attr_ns.is_empty() || attr_ns == item_namespace {
-                write_ident(attr_short)
+            // A naturalized pseudo-attribute renders as its short RDL spelling (e.g.
+            // `RetValAttribute` → `#[retval]`, `NativeArrayInfoAttribute(CountParamIndex = 2)` →
+            // `#[len_param(2)]`). Pseudos that bind a named metadata property re-emit its value
+            // positionally; property-less pseudos carry their arguments through unchanged.
+            let pseudo = if attr_ns == METADATA_NAMESPACE {
+                let arg_names: Vec<String> = values.iter().map(|(n, _)| n.clone()).collect();
+                pseudo_for_metadata(attr.name(), &arg_names)
             } else {
-                let mut tokens = TokenStream::new();
-                for part in attr_ns.split('.') {
-                    let ident = write_ident(part);
-                    tokens = quote! { #tokens #ident :: };
-                }
-                let short = write_ident(attr_short);
-                quote! { #tokens #short }
+                None
             };
 
-            // Build the args token stream.  Positional args are emitted as plain values;
-            // named args (non-empty name) are emitted as `name = value`.
-            let args: Vec<TokenStream> = attr
-                .value()
+            let name_ts = if let Some(pseudo) = pseudo {
+                write_ident(pseudo.short)
+            } else {
+                let attr_short = attr
+                    .name()
+                    .strip_suffix("Attribute")
+                    .unwrap_or_else(|| attr.name());
+
+                // Build the (possibly qualified) attribute path token stream.
+                if attr_ns.is_empty() || attr_ns == item_namespace {
+                    write_ident(attr_short)
+                } else {
+                    let mut tokens = TokenStream::new();
+                    for part in attr_ns.split('.') {
+                        let ident = write_ident(part);
+                        tokens = quote! { #tokens #ident :: };
+                    }
+                    let short = write_ident(attr_short);
+                    quote! { #tokens #short }
+                }
+            };
+
+            // A pseudo that binds a named metadata property drops the property name and emits the
+            // value positionally (`#[len_param(2)]`); otherwise positional args stay positional and
+            // named args are emitted as `name = value`.
+            let drop_names = pseudo.and_then(|p| p.prop).is_some();
+            let args: Vec<TokenStream> = values
                 .into_iter()
                 .map(|(name, v)| {
                     let value_ts = match &v {
@@ -536,7 +624,7 @@ fn write_custom_attributes_except<'a>(
                         }
                         _ => write_value(item_namespace, &v),
                     };
-                    let ts = if name.is_empty() {
+                    let ts = if name.is_empty() || drop_names {
                         value_ts
                     } else {
                         let name_ident = write_ident(&name);
@@ -577,19 +665,19 @@ fn write_enum_value(
         if typedef.category() == metadata::reader::TypeCategory::Enum {
             // First try an exact variant match.
             for field in typedef.fields() {
-                if field.flags().contains(metadata::FieldAttributes::Literal) {
-                    if let Some(constant) = field.constant() {
-                        let matches = match constant.value() {
-                            metadata::Value::I32(v) => v == inner_i32,
-                            // Use bit-equal comparison so that `U32(0xFFFFFFFF)` matches
-                            // the `I32(-1)` that attribute blobs carry for that value.
-                            metadata::Value::U32(v) => v == inner_i32 as u32,
-                            _ => false,
-                        };
-                        if matches {
-                            let variant = write_ident(field.name());
-                            return Ok(quote! { #variant });
-                        }
+                if field.flags().contains(metadata::FieldAttributes::Literal)
+                    && let Some(constant) = field.constant()
+                {
+                    let matches = match constant.value() {
+                        metadata::Value::I32(v) => v == inner_i32,
+                        // Use bit-equal comparison so that `U32(0xFFFFFFFF)` matches
+                        // the `I32(-1)` that attribute blobs carry for that value.
+                        metadata::Value::U32(v) => v == inner_i32 as u32,
+                        _ => false,
+                    };
+                    if matches {
+                        let variant = write_ident(field.name());
+                        return Ok(quote! { #variant });
                     }
                 }
             }
@@ -599,10 +687,10 @@ fn write_enum_value(
                 attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"
             });
 
-            if has_flags {
-                if let Some(flags_ts) = write_flags_combination(namespace, &typedef, inner_i32) {
-                    return Ok(flags_ts);
-                }
+            if has_flags
+                && let Some(flags_ts) = write_flags_combination(namespace, &typedef, inner_i32)
+            {
+                return Ok(flags_ts);
             }
         }
     }
@@ -861,10 +949,10 @@ fn read_unmanaged_abi(item: &metadata::reader::TypeDef) -> Option<i32> {
     item.find_attribute("UnmanagedFunctionPointerAttribute")
         .and_then(|attribute| attribute.value().into_iter().next())
         .and_then(|(_, v)| {
-            if let metadata::Value::EnumValue(_, value) = v {
-                if let metadata::Value::I32(n) = *value {
-                    return Some(n);
-                }
+            if let metadata::Value::EnumValue(_, value) = v
+                && let metadata::Value::I32(n) = *value
+            {
+                return Some(n);
             }
             None
         })

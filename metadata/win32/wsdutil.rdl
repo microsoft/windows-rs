@@ -1,0 +1,44 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE: u32 = 1;
+        const WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER: u32 = 2;
+        const WSDAPI_OPTION_TRACE_XML_TO_FILE: u32 = 3;
+        #[library("wsdapi.dll")]
+        extern fn WSDAllocateLinkedMemory(pParent: *mut void, cbSize: usize) -> *mut void;
+        #[library("wsdapi.dll")]
+        extern fn WSDAttachLinkedMemory(pParent: *mut void, pChild: *mut void);
+        #[library("wsdapi.dll")]
+        extern fn WSDDetachLinkedMemory(pVoid: *mut void);
+        #[library("wsdapi.dll")]
+        extern fn WSDFreeLinkedMemory(pVoid: *mut void);
+        #[library("wsdapi.dll")]
+        extern fn WSDGenerateFault(pszCode: PCWSTR, #[opt] pszSubCode: PCWSTR, pszReason: PCWSTR, #[opt] pszDetail: PCWSTR, pContext: IWSDXMLContext, ppFault: *mut *mut WSD_SOAP_FAULT) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDGenerateFaultEx(pCode: *const WSDXML_NAME, #[opt] pSubCode: *const WSDXML_NAME, pReasons: *const WSD_LOCALIZED_STRING_LIST, #[opt] pszDetail: PCWSTR, ppFault: *mut *mut WSD_SOAP_FAULT) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDGetConfigurationOption(dwOption: u32, #[size_param(2)] pVoid: *mut void, cbOutBuffer: u32) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDSetConfigurationOption(dwOption: u32, #[size_param(2)] pVoid: *const void, cbInBuffer: u32) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDUriDecode(#[len_param(1)] source: PCWSTR, cchSource: u32, #[len_param(3)] destOut: *mut PWSTR, #[opt] cchDestOut: *mut u32) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDUriEncode(#[len_param(1)] source: PCWSTR, cchSource: u32, #[len_param(3)] destOut: *mut PWSTR, #[opt] cchDestOut: *mut u32) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDXMLAddChild(pParent: *mut WSDXML_ELEMENT, pChild: *mut WSDXML_ELEMENT) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDXMLAddSibling(pFirst: *mut WSDXML_ELEMENT, pSecond: *mut WSDXML_ELEMENT) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDXMLBuildAnyForSingleElement(pElementName: *mut WSDXML_NAME, #[opt] pszText: PCWSTR, ppAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDXMLCleanupElement(pAny: *mut WSDXML_ELEMENT) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDXMLGetValueFromAny(pszNamespace: PCWSTR, pszName: PCWSTR, pAny: *mut WSDXML_ELEMENT, ppszValue: *mut PCWSTR) -> HRESULT;
+        #[encoding("utf-16")]
+        const WSD_DEFAULT_EVENTING_ADDRESS: String = "http://*:5357/";
+        #[encoding("utf-16")]
+        const WSD_DEFAULT_HOSTING_ADDRESS: String = "http://*:5357/";
+        #[encoding("utf-16")]
+        const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: String = "https://*:5358/";
+    }
+}

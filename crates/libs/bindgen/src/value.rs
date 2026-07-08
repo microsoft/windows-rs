@@ -42,6 +42,14 @@ impl ValueExt for Value {
                 let lit = Literal::i64_unsuffixed(*value);
                 quote! { #lit }
             }
+            Self::USize(value) => {
+                let lit = Literal::u64_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::ISize(value) => {
+                let lit = Literal::i64_unsuffixed(*value);
+                quote! { #lit }
+            }
             Self::F32(value) => {
                 let lit = Literal::f32_unsuffixed(*value);
                 quote! { #lit }

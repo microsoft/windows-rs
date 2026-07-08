@@ -57,13 +57,113 @@ impl CppStruct {
         fields.next().is_none()
     }
 
+    // A `typedef void X;` is represented in metadata as a single-field `Value: void`
+    // struct. A C struct can never have a bare `void` field, so this shape is
+    // unambiguously a void typedef (possibly chained through another void typedef,
+    // e.g. `MENUTEMPLATE -> MENUTEMPLATEA -> void`). It is only ever used behind a
+    // pointer, so it is rendered as a plain alias rather than a struct (which could
+    // not derive `Copy`/`Default`).
+    pub fn is_void_typedef(&self, reader: &Reader) -> bool {
+        let mut fields = self.def.fields();
+
+        let Some(field) = fields.next() else {
+            return false;
+        };
+
+        if field.name() != "Value" {
+            return false;
+        }
+
+        if fields.next().is_some() {
+            return false;
+        }
+
+        match field.field_type(Some(self), reader) {
+            Type::Void => true,
+            Type::CppStruct(ty) => ty.is_void_typedef(reader),
+            _ => false,
+        }
+    }
+
     pub fn write_cfg(&self, config: &Config) -> TokenStream {
         write_simple_cfg(self, config)
+    }
+
+    // A `typedef Y X;` whose target `Y` is a named struct or interface — e.g.
+    // `typedef GUID IID;` or `typedef IUnknown *LPUNKNOWN;` — is represented in
+    // metadata as a single-field `Value: Y` struct carrying `NativeTypedefAttribute`.
+    // Primitive- and void-typed typedefs are already collapsed by `is_handle` and
+    // `is_void_typedef`; this covers the remaining non-primitive case, which must
+    // render as a transparent alias rather than a (broken) wrapper struct.
+    pub fn is_native_typedef(&self, _reader: &Reader) -> bool {
+        if self.def.find_attribute("NativeTypedefAttribute").is_none() {
+            return false;
+        }
+
+        let mut fields = self.def.fields();
+
+        let Some(field) = fields.next() else {
+            return false;
+        };
+
+        field.name() == "Value" && fields.next().is_none()
+    }
+
+    // A native typedef whose underlying type is (possibly through a chain of further
+    // native typedefs) a fixed-size array — e.g. `WINBIO_STRING = [u16; 256]`. Such an
+    // alias has no `Default` impl, so a struct field of this type cannot derive it.
+    fn resolves_to_fixed_array(&self, reader: &Reader) -> bool {
+        if !self.is_native_typedef(reader) {
+            return false;
+        }
+
+        match self
+            .def
+            .fields()
+            .next()
+            .unwrap()
+            .field_type(Some(self), reader)
+        {
+            Type::ArrayFixed(..) => true,
+            Type::CppStruct(inner) => inner.resolves_to_fixed_array(reader),
+            _ => false,
+        }
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
         if self.is_handle(config.reader) {
             return config.write_cpp_handle(self.def);
+        }
+
+        if self.is_void_typedef(config.reader) {
+            let name = to_ident(self.name);
+            let field = self.def.fields().next().unwrap();
+            let ty = match field.field_type(Some(self), config.reader) {
+                Type::Void => quote! { core::ffi::c_void },
+                ty => ty.write_name(config),
+            };
+            let arches = write_arches(self.def);
+            let cfg = self.write_cfg(config);
+            return quote! {
+                #arches
+                #cfg
+                pub type #name = #ty;
+            };
+        }
+
+        if self.is_native_typedef(config.reader) {
+            let name = to_ident(self.name);
+            let field = self.def.fields().next().unwrap();
+            let ty = field
+                .field_type(Some(self), config.reader)
+                .write_name(config);
+            let arches = write_arches(self.def);
+            let cfg = self.write_cfg(config);
+            return quote! {
+                #arches
+                #cfg
+                pub type #name = #ty;
+            };
         }
 
         if self.def.fields().next().is_none() {
@@ -190,7 +290,13 @@ impl CppStruct {
             quote! { struct }
         };
 
-        let repr = if let Some(layout) = self.def.class_layout() {
+        let repr = if let Some(align) = self.forced_align() {
+            // `__declspec(align(N))` raises alignment above the natural field
+            // alignment; Rust expresses this as `repr(align(N))`. Forced
+            // over-alignment and packing are mutually exclusive by construction.
+            let align = Literal::usize_unsuffixed(align);
+            quote! { #[repr(C, align(#align))] }
+        } else if let Some(layout) = self.def.class_layout() {
             let packing = Literal::usize_unsuffixed(layout.packing_size() as usize);
             quote! { #[repr(C, packed(#packing))] }
         } else {
@@ -254,11 +360,30 @@ impl CppStruct {
             && !self.def.fields().any(|field| {
                 let ty = field.field_type(Some(self), config.reader);
 
+                // Resolve transparent native-typedef aliases to a fixed-size array,
+                // which has no derivable `Default`; treat like a directly-spelled array.
+                if let Type::CppStruct(inner) = &ty {
+                    if inner.resolves_to_fixed_array(config.reader) {
+                        return true;
+                    }
+                }
+
                 if config.bindgen.style.is_sys() {
                     if let Type::CppStruct(ty) = &ty {
                         if ty.is_handle(config.reader)
                             && ty.def.underlying_type_ext(config.reader).is_pointer()
                         {
+                            return true;
+                        }
+                    }
+
+                    // A scoped C++ enum projects to a newtype that does not derive
+                    // `Default` in sys mode (matching the published `windows-sys`), so a
+                    // struct embedding one cannot derive `Default` either; fall back to
+                    // the zeroed impl. Non-scoped enums are bare integer typedefs and
+                    // remain fine.
+                    if let Type::CppEnum(inner) = &ty {
+                        if inner.def.has_attribute("ScopedEnumAttribute") {
                             return true;
                         }
                     }
@@ -373,11 +498,34 @@ impl CppStruct {
     }
 
     pub fn align(&self, reader: &Reader) -> usize {
-        self.def
+        let derived = self
+            .def
             .fields()
             .map(|field| field.field_type(Some(self), reader).align(reader))
             .max()
-            .unwrap_or(1)
+            .unwrap_or(1);
+
+        // Forced over-alignment (`__declspec(align(N))`) can raise the type's
+        // alignment above what its fields imply, so it must win when larger.
+        self.forced_align()
+            .map_or(derived, |forced| forced.max(derived))
+    }
+
+    /// The forced over-alignment in bytes recorded by `[AlignmentAttribute(N)]`
+    /// (from `__declspec(align(N))` / `alignas(N)`), or `None` when the type uses
+    /// its natural field alignment. The winmd `ClassLayout` can only lower
+    /// alignment via its packing size, so raised alignment is carried by this
+    /// custom attribute instead.
+    pub fn forced_align(&self) -> Option<usize> {
+        match self
+            .def
+            .find_attribute("AlignmentAttribute")?
+            .value()
+            .first()
+        {
+            Some((_, Value::I32(n))) if *n > 0 => Some(*n as usize),
+            _ => None,
+        }
     }
 }
 

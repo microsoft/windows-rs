@@ -1,0 +1,14 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xcbfd91d9_51b2_45e4_b3de_d19ccfb863c5)]
+        interface IDCompositionAnimation: IUnknown {
+            fn Reset(&self) -> HRESULT;
+            fn SetAbsoluteBeginTime(&self, beginTime: LARGE_INTEGER) -> HRESULT;
+            fn AddCubic(&self, beginOffset: f64, constantCoefficient: f32, linearCoefficient: f32, quadraticCoefficient: f32, cubicCoefficient: f32) -> HRESULT;
+            fn AddSinusoidal(&self, beginOffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> HRESULT;
+            fn AddRepeat(&self, beginOffset: f64, durationToRepeat: f64) -> HRESULT;
+            fn End(&self, endOffset: f64, endValue: f32) -> HRESULT;
+        }
+    }
+}

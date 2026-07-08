@@ -1,0 +1,7 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type I_RPC_HANDLE = *mut void;
+        type RPC_STATUS = i32;
+    }
+}

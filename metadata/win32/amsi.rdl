@@ -1,0 +1,153 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum AMSI_ATTRIBUTE {
+            AMSI_ATTRIBUTE_APP_NAME = 0,
+            AMSI_ATTRIBUTE_CONTENT_NAME = 1,
+            AMSI_ATTRIBUTE_CONTENT_SIZE = 2,
+            AMSI_ATTRIBUTE_CONTENT_ADDRESS = 3,
+            AMSI_ATTRIBUTE_SESSION = 4,
+            AMSI_ATTRIBUTE_REDIRECT_CHAIN_SIZE = 5,
+            AMSI_ATTRIBUTE_REDIRECT_CHAIN_ADDRESS = 6,
+            AMSI_ATTRIBUTE_ALL_SIZE = 7,
+            AMSI_ATTRIBUTE_ALL_ADDRESS = 8,
+            AMSI_ATTRIBUTE_QUIET = 9,
+        }
+        #[repr(i32)]
+        enum AMSI_RESULT {
+            AMSI_RESULT_CLEAN = 0,
+            AMSI_RESULT_NOT_DETECTED = 1,
+            AMSI_RESULT_BLOCKED_BY_ADMIN_START = 16384,
+            AMSI_RESULT_BLOCKED_BY_ADMIN_END = 20479,
+            AMSI_RESULT_DETECTED = 32768,
+        }
+        #[repr(i32)]
+        enum AMSI_UAC_MSI_ACTION {
+            AMSI_UAC_MSI_ACTION_INSTALL = 0,
+            AMSI_UAC_MSI_ACTION_UNINSTALL = 1,
+            AMSI_UAC_MSI_ACTION_UPDATE = 2,
+            AMSI_UAC_MSI_ACTION_MAINTENANCE = 3,
+            AMSI_UAC_MSI_ACTION_MAX = 4,
+        }
+        struct AMSI_UAC_REQUEST_AX_INFO {
+            ulLength: u32,
+            lpwszLocalInstallPath: PWSTR,
+            lpwszSourceURL: PWSTR,
+        }
+        struct AMSI_UAC_REQUEST_COM_INFO {
+            ulLength: u32,
+            lpwszServerBinary: PWSTR,
+            lpwszRequestor: PWSTR,
+            Clsid: GUID,
+        }
+        struct AMSI_UAC_REQUEST_CONTEXT {
+            ulLength: u32,
+            ulRequestorProcessId: u32,
+            UACTrustState: AMSI_UAC_TRUST_STATE,
+            Type: AMSI_UAC_REQUEST_TYPE,
+            RequestType: union {
+                ExeInfo: AMSI_UAC_REQUEST_EXE_INFO,
+                ComInfo: AMSI_UAC_REQUEST_COM_INFO,
+                MsiInfo: AMSI_UAC_REQUEST_MSI_INFO,
+                ActiveXInfo: AMSI_UAC_REQUEST_AX_INFO,
+                PackagedAppInfo: AMSI_UAC_REQUEST_PACKAGED_APP_INFO,
+            },
+            bAutoElevateRequest: BOOL,
+        }
+        struct AMSI_UAC_REQUEST_EXE_INFO {
+            ulLength: u32,
+            lpwszApplicationName: PWSTR,
+            lpwszCommandLine: PWSTR,
+            lpwszDLLParameter: PWSTR,
+        }
+        struct AMSI_UAC_REQUEST_MSI_INFO {
+            ulLength: u32,
+            MsiAction: AMSI_UAC_MSI_ACTION,
+            lpwszProductName: PWSTR,
+            lpwszVersion: PWSTR,
+            lpwszLanguage: PWSTR,
+            lpwszManufacturer: PWSTR,
+            lpwszPackagePath: PWSTR,
+            lpwszPackageSource: PWSTR,
+            ulUpdates: u32,
+            ppwszUpdates: *mut PWSTR,
+            ppwszUpdateSources: *mut PWSTR,
+        }
+        struct AMSI_UAC_REQUEST_PACKAGED_APP_INFO {
+            ulLength: u32,
+            lpwszApplicationName: PWSTR,
+            lpwszCommandLine: PWSTR,
+            lpPackageFamilyName: PWSTR,
+            lpApplicationId: PWSTR,
+        }
+        #[repr(i32)]
+        enum AMSI_UAC_REQUEST_TYPE {
+            AMSI_UAC_REQUEST_TYPE_EXE = 0,
+            AMSI_UAC_REQUEST_TYPE_COM = 1,
+            AMSI_UAC_REQUEST_TYPE_MSI = 2,
+            AMSI_UAC_REQUEST_TYPE_AX = 3,
+            AMSI_UAC_REQUEST_TYPE_PACKAGED_APP = 4,
+            AMSI_UAC_REQUEST_TYPE_MAX = 5,
+        }
+        #[repr(i32)]
+        enum AMSI_UAC_TRUST_STATE {
+            AMSI_UAC_TRUST_STATE_TRUSTED = 0,
+            AMSI_UAC_TRUST_STATE_UNTRUSTED = 1,
+            AMSI_UAC_TRUST_STATE_BLOCKED = 2,
+            AMSI_UAC_TRUST_STATE_MAX = 3,
+        }
+        #[library("Amsi.dll")]
+        extern fn AmsiCloseSession(amsiContext: HAMSICONTEXT, amsiSession: HAMSISESSION);
+        #[library("Amsi.dll")]
+        extern fn AmsiInitialize(appName: PCWSTR, amsiContext: *mut HAMSICONTEXT) -> HRESULT;
+        #[library("Amsi.dll")]
+        extern fn AmsiNotifyOperation(amsiContext: HAMSICONTEXT, #[size_param(2)] buffer: *const void, length: u32, #[opt] contentName: PCWSTR, result: *mut AMSI_RESULT) -> HRESULT;
+        #[library("Amsi.dll")]
+        extern fn AmsiOpenSession(amsiContext: HAMSICONTEXT, amsiSession: *mut HAMSISESSION) -> HRESULT;
+        #[library("Amsi.dll")]
+        extern fn AmsiScanBuffer(amsiContext: HAMSICONTEXT, #[size_param(2)] buffer: *const void, length: u32, #[opt] contentName: PCWSTR, #[opt] amsiSession: HAMSISESSION, result: *mut AMSI_RESULT) -> HRESULT;
+        #[library("Amsi.dll")]
+        extern fn AmsiScanString(amsiContext: HAMSICONTEXT, string: PCWSTR, #[opt] contentName: PCWSTR, #[opt] amsiSession: HAMSISESSION, result: *mut AMSI_RESULT) -> HRESULT;
+        #[library("Amsi.dll")]
+        extern fn AmsiUninitialize(amsiContext: HAMSICONTEXT);
+        const CAntimalware: GUID = 0xfdb00e52_a214_4aa1_8fba_4357bb0072ec;
+        type HAMSICONTEXT = *mut void;
+        type HAMSISESSION = *mut void;
+        #[guid(0x3e47f2e5_81d4_4d3b_897f_545096770373)]
+        interface IAmsiStream: IUnknown {
+            fn GetAttribute(&self, attribute: AMSI_ATTRIBUTE, dataSize: u32, data: *mut u8, retData: *mut u32) -> HRESULT;
+            fn Read(&self, position: u64, size: u32, buffer: *mut u8, readSize: *mut u32) -> HRESULT;
+        }
+        #[guid(0x82d29c2e_f062_44e6_b5c9_3d9a2f24a2df)]
+        interface IAntimalware: IUnknown {
+            fn Scan(&self, stream: IAmsiStream, result: *mut AMSI_RESULT, provider: *mut IAntimalwareProvider) -> HRESULT;
+            fn CloseSession(&self, session: u64);
+        }
+        #[guid(0x301035b5_2d42_4f56_8c65_2dcaa7fb3cdc)]
+        interface IAntimalware2: IAntimalware {
+            fn Notify(&self, buffer: *const void, length: u32, contentName: PCWSTR, appName: PCWSTR, pResult: *mut AMSI_RESULT) -> HRESULT;
+        }
+        #[guid(0xb2cabfe3_fe04_42b1_a5df_08d483d4d125)]
+        interface IAntimalwareProvider: IUnknown {
+            fn Scan(&self, stream: IAmsiStream, result: *mut AMSI_RESULT) -> HRESULT;
+            fn CloseSession(&self, session: u64);
+            fn DisplayName(&self, displayName: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x7c1e6570_3f73_4e0f_8ad4_98b94cd3290f)]
+        interface IAntimalwareProvider2: IAntimalwareProvider {
+            fn Notify(&self, buffer: *const void, length: u32, contentName: PCWSTR, appName: PCWSTR, pResult: *mut AMSI_RESULT) -> HRESULT;
+        }
+        #[guid(0xb2cabfe4_fe04_42b1_a5df_08d483d4d125)]
+        interface IAntimalwareUacProvider: IUnknown {
+            fn UacScan(&self, context: *const AMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> HRESULT;
+            fn DisplayName(&self, displayName: *mut PWSTR) -> HRESULT;
+        }
+        type LPAMSI_UAC_REQUEST_AX_INFO = *mut AMSI_UAC_REQUEST_AX_INFO;
+        type LPAMSI_UAC_REQUEST_COM_INFO = *mut AMSI_UAC_REQUEST_COM_INFO;
+        type LPAMSI_UAC_REQUEST_CONTEXT = *mut AMSI_UAC_REQUEST_CONTEXT;
+        type LPAMSI_UAC_REQUEST_EXE_INFO = *mut AMSI_UAC_REQUEST_EXE_INFO;
+        type LPAMSI_UAC_REQUEST_MSI_INFO = *mut AMSI_UAC_REQUEST_MSI_INFO;
+        type LPAMSI_UAC_REQUEST_PACKAGED_APP_INFO = *mut AMSI_UAC_REQUEST_PACKAGED_APP_INFO;
+    }
+}

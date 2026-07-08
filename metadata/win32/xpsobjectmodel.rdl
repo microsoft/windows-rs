@@ -1,0 +1,872 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b)]
+        interface IXpsOMBrush: IXpsOMShareable {
+            fn GetOpacity(&self, #[retval] opacity: *mut f32) -> HRESULT;
+            fn SetOpacity(&self, opacity: f32) -> HRESULT;
+        }
+        #[guid(0x221d1452_331e_47c6_87e9_6ccefb9b5ba3)]
+        interface IXpsOMCanvas: IXpsOMVisual {
+            fn GetVisuals(&self, #[retval] visuals: *mut IXpsOMVisualCollection) -> HRESULT;
+            fn GetUseAliasedEdgeMode(&self, #[retval] useAliasedEdgeMode: *mut BOOL) -> HRESULT;
+            fn SetUseAliasedEdgeMode(&self, useAliasedEdgeMode: BOOL) -> HRESULT;
+            fn GetAccessibilityShortDescription(&self, #[retval] shortDescription: *mut PWSTR) -> HRESULT;
+            fn SetAccessibilityShortDescription(&self, shortDescription: PCWSTR) -> HRESULT;
+            fn GetAccessibilityLongDescription(&self, #[retval] longDescription: *mut PWSTR) -> HRESULT;
+            fn SetAccessibilityLongDescription(&self, longDescription: PCWSTR) -> HRESULT;
+            fn GetDictionary(&self, #[retval] resourceDictionary: *mut IXpsOMDictionary) -> HRESULT;
+            fn GetDictionaryLocal(&self, #[retval] resourceDictionary: *mut IXpsOMDictionary) -> HRESULT;
+            fn SetDictionaryLocal(&self, resourceDictionary: IXpsOMDictionary) -> HRESULT;
+            fn GetDictionaryResource(&self, #[retval] remoteDictionaryResource: *mut IXpsOMRemoteDictionaryResource) -> HRESULT;
+            fn SetDictionaryResource(&self, remoteDictionaryResource: IXpsOMRemoteDictionaryResource) -> HRESULT;
+            fn Clone(&self, #[retval] canvas: *mut IXpsOMCanvas) -> HRESULT;
+        }
+        #[guid(0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe)]
+        interface IXpsOMColorProfileResource: IXpsOMResource {
+            fn GetStream(&self, #[retval] stream: *mut IStream) -> HRESULT;
+            fn SetContent(&self, sourceStream: IStream, partName: IOpcPartUri) -> HRESULT;
+        }
+        #[guid(0x12759630_5fba_4283_8f7d_cca849809edb)]
+        interface IXpsOMColorProfileResourceCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] object: *mut IXpsOMColorProfileResource) -> HRESULT;
+            fn InsertAt(&self, index: u32, object: IXpsOMColorProfileResource) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, object: IXpsOMColorProfileResource) -> HRESULT;
+            fn Append(&self, object: IXpsOMColorProfileResource) -> HRESULT;
+            fn GetByPartName(&self, partName: IOpcPartUri, #[retval] part: *mut IXpsOMColorProfileResource) -> HRESULT;
+        }
+        #[guid(0x3340fe8f_4027_4aa1_8f5f_d35ae45fe597)]
+        interface IXpsOMCoreProperties: IXpsOMPart {
+            fn GetOwner(&self, #[retval] package: *mut IXpsOMPackage) -> HRESULT;
+            fn GetCategory(&self, #[retval] category: *mut PWSTR) -> HRESULT;
+            fn SetCategory(&self, category: PCWSTR) -> HRESULT;
+            fn GetContentStatus(&self, #[retval] contentStatus: *mut PWSTR) -> HRESULT;
+            fn SetContentStatus(&self, contentStatus: PCWSTR) -> HRESULT;
+            fn GetContentType(&self, #[retval] contentType: *mut PWSTR) -> HRESULT;
+            fn SetContentType(&self, contentType: PCWSTR) -> HRESULT;
+            fn GetCreated(&self, #[retval] created: *mut SYSTEMTIME) -> HRESULT;
+            fn SetCreated(&self, created: *const SYSTEMTIME) -> HRESULT;
+            fn GetCreator(&self, #[retval] creator: *mut PWSTR) -> HRESULT;
+            fn SetCreator(&self, creator: PCWSTR) -> HRESULT;
+            fn GetDescription(&self, #[retval] description: *mut PWSTR) -> HRESULT;
+            fn SetDescription(&self, description: PCWSTR) -> HRESULT;
+            fn GetIdentifier(&self, #[retval] identifier: *mut PWSTR) -> HRESULT;
+            fn SetIdentifier(&self, identifier: PCWSTR) -> HRESULT;
+            fn GetKeywords(&self, #[retval] keywords: *mut PWSTR) -> HRESULT;
+            fn SetKeywords(&self, keywords: PCWSTR) -> HRESULT;
+            fn GetLanguage(&self, #[retval] language: *mut PWSTR) -> HRESULT;
+            fn SetLanguage(&self, language: PCWSTR) -> HRESULT;
+            fn GetLastModifiedBy(&self, #[retval] lastModifiedBy: *mut PWSTR) -> HRESULT;
+            fn SetLastModifiedBy(&self, lastModifiedBy: PCWSTR) -> HRESULT;
+            fn GetLastPrinted(&self, #[retval] lastPrinted: *mut SYSTEMTIME) -> HRESULT;
+            fn SetLastPrinted(&self, lastPrinted: *const SYSTEMTIME) -> HRESULT;
+            fn GetModified(&self, #[retval] modified: *mut SYSTEMTIME) -> HRESULT;
+            fn SetModified(&self, modified: *const SYSTEMTIME) -> HRESULT;
+            fn GetRevision(&self, #[retval] revision: *mut PWSTR) -> HRESULT;
+            fn SetRevision(&self, revision: PCWSTR) -> HRESULT;
+            fn GetSubject(&self, #[retval] subject: *mut PWSTR) -> HRESULT;
+            fn SetSubject(&self, subject: PCWSTR) -> HRESULT;
+            fn GetTitle(&self, #[retval] title: *mut PWSTR) -> HRESULT;
+            fn SetTitle(&self, title: PCWSTR) -> HRESULT;
+            fn GetVersion(&self, #[retval] version: *mut PWSTR) -> HRESULT;
+            fn SetVersion(&self, version: PCWSTR) -> HRESULT;
+            fn Clone(&self, #[retval] coreProperties: *mut IXpsOMCoreProperties) -> HRESULT;
+        }
+        #[guid(0x081613f4_74eb_48f2_83b3_37a9ce2d7dc6)]
+        interface IXpsOMDashCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] dash: *mut XPS_DASH) -> HRESULT;
+            fn InsertAt(&self, index: u32, dash: *const XPS_DASH) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, dash: *const XPS_DASH) -> HRESULT;
+            fn Append(&self, dash: *const XPS_DASH) -> HRESULT;
+        }
+        #[guid(0x897c86b8_8eaf_4ae3_bdde_56419fcf4236)]
+        interface IXpsOMDictionary: IUnknown {
+            fn GetOwner(&self, #[retval] owner: *mut IUnknown) -> HRESULT;
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, key: *mut PWSTR, #[retval] entry: *mut IXpsOMShareable) -> HRESULT;
+            fn GetByKey(&self, key: PCWSTR, beforeEntry: IXpsOMShareable, #[retval] entry: *mut IXpsOMShareable) -> HRESULT;
+            fn GetIndex(&self, entry: IXpsOMShareable, #[retval] index: *mut u32) -> HRESULT;
+            fn Append(&self, key: PCWSTR, entry: IXpsOMShareable) -> HRESULT;
+            fn InsertAt(&self, index: u32, key: PCWSTR, entry: IXpsOMShareable) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, key: PCWSTR, entry: IXpsOMShareable) -> HRESULT;
+            fn Clone(&self, #[retval] dictionary: *mut IXpsOMDictionary) -> HRESULT;
+        }
+        #[guid(0x2c2c94cb_ac5f_4254_8ee9_23948309d9f0)]
+        interface IXpsOMDocument: IXpsOMPart {
+            fn GetOwner(&self, #[retval] documentSequence: *mut IXpsOMDocumentSequence) -> HRESULT;
+            fn GetPageReferences(&self, #[retval] pageReferences: *mut IXpsOMPageReferenceCollection) -> HRESULT;
+            fn GetPrintTicketResource(&self, #[retval] printTicketResource: *mut IXpsOMPrintTicketResource) -> HRESULT;
+            fn SetPrintTicketResource(&self, printTicketResource: IXpsOMPrintTicketResource) -> HRESULT;
+            fn GetDocumentStructureResource(&self, #[retval] documentStructureResource: *mut IXpsOMDocumentStructureResource) -> HRESULT;
+            fn SetDocumentStructureResource(&self, documentStructureResource: IXpsOMDocumentStructureResource) -> HRESULT;
+            fn GetSignatureBlockResources(&self, #[retval] signatureBlockResources: *mut IXpsOMSignatureBlockResourceCollection) -> HRESULT;
+            fn Clone(&self, #[retval] document: *mut IXpsOMDocument) -> HRESULT;
+        }
+        #[guid(0xd1c87f0d_e947_4754_8a25_971478f7e83e)]
+        interface IXpsOMDocumentCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] document: *mut IXpsOMDocument) -> HRESULT;
+            fn InsertAt(&self, index: u32, document: IXpsOMDocument) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, document: IXpsOMDocument) -> HRESULT;
+            fn Append(&self, document: IXpsOMDocument) -> HRESULT;
+        }
+        #[guid(0x56492eb4_d8d5_425e_8256_4c2b64ad0264)]
+        interface IXpsOMDocumentSequence: IXpsOMPart {
+            fn GetOwner(&self, #[retval] package: *mut IXpsOMPackage) -> HRESULT;
+            fn GetDocuments(&self, #[retval] documents: *mut IXpsOMDocumentCollection) -> HRESULT;
+            fn GetPrintTicketResource(&self, #[retval] printTicketResource: *mut IXpsOMPrintTicketResource) -> HRESULT;
+            fn SetPrintTicketResource(&self, printTicketResource: IXpsOMPrintTicketResource) -> HRESULT;
+        }
+        #[guid(0x85febc8a_6b63_48a9_af07_7064e4ecff30)]
+        interface IXpsOMDocumentStructureResource: IXpsOMResource {
+            fn GetOwner(&self, #[retval] owner: *mut IXpsOMDocument) -> HRESULT;
+            fn GetStream(&self, #[retval] stream: *mut IStream) -> HRESULT;
+            fn SetContent(&self, sourceStream: IStream, partName: IOpcPartUri) -> HRESULT;
+        }
+        #[guid(0xa8c45708_47d9_4af4_8d20_33b48c9b8485)]
+        interface IXpsOMFontResource: IXpsOMResource {
+            fn GetStream(&self, #[retval] readerStream: *mut IStream) -> HRESULT;
+            fn SetContent(&self, sourceStream: IStream, embeddingOption: XPS_FONT_EMBEDDING, partName: IOpcPartUri) -> HRESULT;
+            fn GetEmbeddingOption(&self, #[retval] embeddingOption: *mut XPS_FONT_EMBEDDING) -> HRESULT;
+        }
+        #[guid(0x70b4a6bb_88d4_4fa8_aaf9_6d9c596fdbad)]
+        interface IXpsOMFontResourceCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] value: *mut IXpsOMFontResource) -> HRESULT;
+            fn SetAt(&self, index: u32, value: IXpsOMFontResource) -> HRESULT;
+            fn InsertAt(&self, index: u32, value: IXpsOMFontResource) -> HRESULT;
+            fn Append(&self, value: IXpsOMFontResource) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn GetByPartName(&self, partName: IOpcPartUri, #[retval] part: *mut IXpsOMFontResource) -> HRESULT;
+        }
+        #[guid(0x64fcf3d7_4d58_44ba_ad73_a13af6492072)]
+        interface IXpsOMGeometry: IXpsOMShareable {
+            fn GetFigures(&self, #[retval] figures: *mut IXpsOMGeometryFigureCollection) -> HRESULT;
+            fn GetFillRule(&self, #[retval] fillRule: *mut XPS_FILL_RULE) -> HRESULT;
+            fn SetFillRule(&self, fillRule: XPS_FILL_RULE) -> HRESULT;
+            fn GetTransform(&self, #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
+            fn GetTransformLocal(&self, #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
+            fn SetTransformLocal(&self, transform: IXpsOMMatrixTransform) -> HRESULT;
+            fn GetTransformLookup(&self, #[retval] lookup: *mut PWSTR) -> HRESULT;
+            fn SetTransformLookup(&self, lookup: PCWSTR) -> HRESULT;
+            fn Clone(&self, #[retval] geometry: *mut IXpsOMGeometry) -> HRESULT;
+        }
+        #[guid(0xd410dc83_908c_443e_8947_b1795d3c165a)]
+        interface IXpsOMGeometryFigure: IUnknown {
+            fn GetOwner(&self, #[retval] owner: *mut IXpsOMGeometry) -> HRESULT;
+            fn GetSegmentData(&self, #[in] #[out] dataCount: *mut u32, #[in] #[out] segmentData: *mut f32) -> HRESULT;
+            fn GetSegmentTypes(&self, #[in] #[out] segmentCount: *mut u32, #[in] #[out] segmentTypes: *mut XPS_SEGMENT_TYPE) -> HRESULT;
+            fn GetSegmentStrokes(&self, #[in] #[out] segmentCount: *mut u32, #[in] #[out] segmentStrokes: *mut BOOL) -> HRESULT;
+            fn SetSegments(&self, segmentCount: u32, segmentDataCount: u32, segmentTypes: *const XPS_SEGMENT_TYPE, segmentData: *const f32, segmentStrokes: *const BOOL) -> HRESULT;
+            fn GetStartPoint(&self, #[retval] startPoint: *mut XPS_POINT) -> HRESULT;
+            fn SetStartPoint(&self, startPoint: *const XPS_POINT) -> HRESULT;
+            fn GetIsClosed(&self, #[retval] isClosed: *mut BOOL) -> HRESULT;
+            fn SetIsClosed(&self, isClosed: BOOL) -> HRESULT;
+            fn GetIsFilled(&self, #[retval] isFilled: *mut BOOL) -> HRESULT;
+            fn SetIsFilled(&self, isFilled: BOOL) -> HRESULT;
+            fn GetSegmentCount(&self, #[retval] segmentCount: *mut u32) -> HRESULT;
+            fn GetSegmentDataCount(&self, #[retval] segmentDataCount: *mut u32) -> HRESULT;
+            fn GetSegmentStrokePattern(&self, #[retval] segmentStrokePattern: *mut XPS_SEGMENT_STROKE_PATTERN) -> HRESULT;
+            fn Clone(&self, #[retval] geometryFigure: *mut IXpsOMGeometryFigure) -> HRESULT;
+        }
+        #[guid(0xfd48c3f3_a58e_4b5a_8826_1de54abe72b2)]
+        interface IXpsOMGeometryFigureCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] geometryFigure: *mut IXpsOMGeometryFigure) -> HRESULT;
+            fn InsertAt(&self, index: u32, geometryFigure: IXpsOMGeometryFigure) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, geometryFigure: IXpsOMGeometryFigure) -> HRESULT;
+            fn Append(&self, geometryFigure: IXpsOMGeometryFigure) -> HRESULT;
+        }
+        #[guid(0x819b3199_0a5a_4b64_bec7_a9e17e780de2)]
+        interface IXpsOMGlyphs: IXpsOMVisual {
+            fn GetUnicodeString(&self, #[retval] unicodeString: *mut PWSTR) -> HRESULT;
+            fn GetGlyphIndexCount(&self, #[retval] indexCount: *mut u32) -> HRESULT;
+            fn GetGlyphIndices(&self, #[in] #[out] indexCount: *mut u32, #[in] #[out] glyphIndices: *mut XPS_GLYPH_INDEX) -> HRESULT;
+            fn GetGlyphMappingCount(&self, #[retval] glyphMappingCount: *mut u32) -> HRESULT;
+            fn GetGlyphMappings(&self, #[in] #[out] glyphMappingCount: *mut u32, #[in] #[out] glyphMappings: *mut XPS_GLYPH_MAPPING) -> HRESULT;
+            fn GetProhibitedCaretStopCount(&self, #[retval] prohibitedCaretStopCount: *mut u32) -> HRESULT;
+            fn GetProhibitedCaretStops(&self, #[in] #[out] prohibitedCaretStopCount: *mut u32, prohibitedCaretStops: *mut u32) -> HRESULT;
+            fn GetBidiLevel(&self, #[retval] bidiLevel: *mut u32) -> HRESULT;
+            fn GetIsSideways(&self, #[retval] isSideways: *mut BOOL) -> HRESULT;
+            fn GetDeviceFontName(&self, #[retval] deviceFontName: *mut PWSTR) -> HRESULT;
+            fn GetStyleSimulations(&self, #[retval] styleSimulations: *mut XPS_STYLE_SIMULATION) -> HRESULT;
+            fn SetStyleSimulations(&self, styleSimulations: XPS_STYLE_SIMULATION) -> HRESULT;
+            fn GetOrigin(&self, #[retval] origin: *mut XPS_POINT) -> HRESULT;
+            fn SetOrigin(&self, origin: *const XPS_POINT) -> HRESULT;
+            fn GetFontRenderingEmSize(&self, #[retval] fontRenderingEmSize: *mut f32) -> HRESULT;
+            fn SetFontRenderingEmSize(&self, fontRenderingEmSize: f32) -> HRESULT;
+            fn GetFontResource(&self, #[retval] fontResource: *mut IXpsOMFontResource) -> HRESULT;
+            fn SetFontResource(&self, fontResource: IXpsOMFontResource) -> HRESULT;
+            fn GetFontFaceIndex(&self, #[retval] fontFaceIndex: *mut i16) -> HRESULT;
+            fn SetFontFaceIndex(&self, fontFaceIndex: i16) -> HRESULT;
+            fn GetFillBrush(&self, #[retval] fillBrush: *mut IXpsOMBrush) -> HRESULT;
+            fn GetFillBrushLocal(&self, #[retval] fillBrush: *mut IXpsOMBrush) -> HRESULT;
+            fn SetFillBrushLocal(&self, fillBrush: IXpsOMBrush) -> HRESULT;
+            fn GetFillBrushLookup(&self, #[retval] key: *mut PWSTR) -> HRESULT;
+            fn SetFillBrushLookup(&self, key: PCWSTR) -> HRESULT;
+            fn GetGlyphsEditor(&self, #[retval] editor: *mut IXpsOMGlyphsEditor) -> HRESULT;
+            fn Clone(&self, #[retval] glyphs: *mut IXpsOMGlyphs) -> HRESULT;
+        }
+        #[guid(0xa5ab8616_5b16_4b9f_9629_89b323ed7909)]
+        interface IXpsOMGlyphsEditor: IUnknown {
+            fn ApplyEdits(&self) -> HRESULT;
+            fn GetUnicodeString(&self, #[retval] unicodeString: *mut PWSTR) -> HRESULT;
+            fn SetUnicodeString(&self, unicodeString: PCWSTR) -> HRESULT;
+            fn GetGlyphIndexCount(&self, #[retval] indexCount: *mut u32) -> HRESULT;
+            fn GetGlyphIndices(&self, #[in] #[out] indexCount: *mut u32, glyphIndices: *mut XPS_GLYPH_INDEX) -> HRESULT;
+            fn SetGlyphIndices(&self, indexCount: u32, glyphIndices: *const XPS_GLYPH_INDEX) -> HRESULT;
+            fn GetGlyphMappingCount(&self, #[retval] glyphMappingCount: *mut u32) -> HRESULT;
+            fn GetGlyphMappings(&self, #[in] #[out] glyphMappingCount: *mut u32, glyphMappings: *mut XPS_GLYPH_MAPPING) -> HRESULT;
+            fn SetGlyphMappings(&self, glyphMappingCount: u32, glyphMappings: *const XPS_GLYPH_MAPPING) -> HRESULT;
+            fn GetProhibitedCaretStopCount(&self, #[retval] prohibitedCaretStopCount: *mut u32) -> HRESULT;
+            fn GetProhibitedCaretStops(&self, #[in] #[out] count: *mut u32, prohibitedCaretStops: *mut u32) -> HRESULT;
+            fn SetProhibitedCaretStops(&self, count: u32, prohibitedCaretStops: *const u32) -> HRESULT;
+            fn GetBidiLevel(&self, #[retval] bidiLevel: *mut u32) -> HRESULT;
+            fn SetBidiLevel(&self, bidiLevel: u32) -> HRESULT;
+            fn GetIsSideways(&self, #[retval] isSideways: *mut BOOL) -> HRESULT;
+            fn SetIsSideways(&self, isSideways: BOOL) -> HRESULT;
+            fn GetDeviceFontName(&self, #[retval] deviceFontName: *mut PWSTR) -> HRESULT;
+            fn SetDeviceFontName(&self, deviceFontName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xedb59622_61a2_42c3_bace_acf2286c06bf)]
+        interface IXpsOMGradientBrush: IXpsOMBrush {
+            fn GetGradientStops(&self, #[retval] gradientStops: *mut IXpsOMGradientStopCollection) -> HRESULT;
+            fn GetTransform(&self, #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
+            fn GetTransformLocal(&self, #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
+            fn SetTransformLocal(&self, transform: IXpsOMMatrixTransform) -> HRESULT;
+            fn GetTransformLookup(&self, #[retval] key: *mut PWSTR) -> HRESULT;
+            fn SetTransformLookup(&self, key: PCWSTR) -> HRESULT;
+            fn GetSpreadMethod(&self, #[retval] spreadMethod: *mut XPS_SPREAD_METHOD) -> HRESULT;
+            fn SetSpreadMethod(&self, spreadMethod: XPS_SPREAD_METHOD) -> HRESULT;
+            fn GetColorInterpolationMode(&self, #[retval] colorInterpolationMode: *mut XPS_COLOR_INTERPOLATION) -> HRESULT;
+            fn SetColorInterpolationMode(&self, colorInterpolationMode: XPS_COLOR_INTERPOLATION) -> HRESULT;
+        }
+        #[guid(0x5cf4f5cc_3969_49b5_a70a_5550b618fe49)]
+        interface IXpsOMGradientStop: IUnknown {
+            fn GetOwner(&self, #[retval] owner: *mut IXpsOMGradientBrush) -> HRESULT;
+            fn GetOffset(&self, #[retval] offset: *mut f32) -> HRESULT;
+            fn SetOffset(&self, offset: f32) -> HRESULT;
+            fn GetColor(&self, color: *mut XPS_COLOR, #[retval] colorProfile: *mut IXpsOMColorProfileResource) -> HRESULT;
+            fn SetColor(&self, color: *const XPS_COLOR, colorProfile: IXpsOMColorProfileResource) -> HRESULT;
+            fn Clone(&self, #[retval] gradientStop: *mut IXpsOMGradientStop) -> HRESULT;
+        }
+        #[guid(0xc9174c3a_3cd3_4319_bda4_11a39392ceef)]
+        interface IXpsOMGradientStopCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] stop: *mut IXpsOMGradientStop) -> HRESULT;
+            fn InsertAt(&self, index: u32, stop: IXpsOMGradientStop) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, stop: IXpsOMGradientStop) -> HRESULT;
+            fn Append(&self, stop: IXpsOMGradientStop) -> HRESULT;
+        }
+        #[guid(0x3df0b466_d382_49ef_8550_dd94c80242e4)]
+        interface IXpsOMImageBrush: IXpsOMTileBrush {
+            fn GetImageResource(&self, #[retval] imageResource: *mut IXpsOMImageResource) -> HRESULT;
+            fn SetImageResource(&self, imageResource: IXpsOMImageResource) -> HRESULT;
+            fn GetColorProfileResource(&self, #[retval] colorProfileResource: *mut IXpsOMColorProfileResource) -> HRESULT;
+            fn SetColorProfileResource(&self, colorProfileResource: IXpsOMColorProfileResource) -> HRESULT;
+            fn Clone(&self, #[retval] imageBrush: *mut IXpsOMImageBrush) -> HRESULT;
+        }
+        #[guid(0x3db8417d_ae50_485e_9a44_d7758f78a23f)]
+        interface IXpsOMImageResource: IXpsOMResource {
+            fn GetStream(&self, #[retval] readerStream: *mut IStream) -> HRESULT;
+            fn SetContent(&self, sourceStream: IStream, imageType: XPS_IMAGE_TYPE, partName: IOpcPartUri) -> HRESULT;
+            fn GetImageType(&self, #[retval] imageType: *mut XPS_IMAGE_TYPE) -> HRESULT;
+        }
+        #[guid(0x7a4a1a71_9cde_4b71_b33f_62de843eabfe)]
+        interface IXpsOMImageResourceCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] object: *mut IXpsOMImageResource) -> HRESULT;
+            fn InsertAt(&self, index: u32, object: IXpsOMImageResource) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, object: IXpsOMImageResource) -> HRESULT;
+            fn Append(&self, object: IXpsOMImageResource) -> HRESULT;
+            fn GetByPartName(&self, partName: IOpcPartUri, #[retval] part: *mut IXpsOMImageResource) -> HRESULT;
+        }
+        #[guid(0x005e279f_c30d_40ff_93ec_1950d3c528db)]
+        interface IXpsOMLinearGradientBrush: IXpsOMGradientBrush {
+            fn GetStartPoint(&self, #[retval] startPoint: *mut XPS_POINT) -> HRESULT;
+            fn SetStartPoint(&self, startPoint: *const XPS_POINT) -> HRESULT;
+            fn GetEndPoint(&self, #[retval] endPoint: *mut XPS_POINT) -> HRESULT;
+            fn SetEndPoint(&self, endPoint: *const XPS_POINT) -> HRESULT;
+            fn Clone(&self, #[retval] linearGradientBrush: *mut IXpsOMLinearGradientBrush) -> HRESULT;
+        }
+        #[guid(0xb77330ff_bb37_4501_a93e_f1b1e50bfc46)]
+        interface IXpsOMMatrixTransform: IXpsOMShareable {
+            fn GetMatrix(&self, #[retval] matrix: *mut XPS_MATRIX) -> HRESULT;
+            fn SetMatrix(&self, matrix: *const XPS_MATRIX) -> HRESULT;
+            fn Clone(&self, #[retval] matrixTransform: *mut IXpsOMMatrixTransform) -> HRESULT;
+        }
+        #[guid(0x4bddf8ec_c915_421b_a166_d173d25653d2)]
+        interface IXpsOMNameCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] name: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xf9b2a685_a50d_4fc2_b764_b56e093ea0ca)]
+        interface IXpsOMObjectFactory: IUnknown {
+            fn CreatePackage(&self, #[retval] package: *mut IXpsOMPackage) -> HRESULT;
+            fn CreatePackageFromFile(&self, filename: PCWSTR, reuseObjects: BOOL, #[retval] package: *mut IXpsOMPackage) -> HRESULT;
+            fn CreatePackageFromStream(&self, stream: IStream, reuseObjects: BOOL, #[retval] package: *mut IXpsOMPackage) -> HRESULT;
+            fn CreateStoryFragmentsResource(&self, acquiredStream: IStream, partUri: IOpcPartUri, #[retval] storyFragmentsResource: *mut IXpsOMStoryFragmentsResource) -> HRESULT;
+            fn CreateDocumentStructureResource(&self, acquiredStream: IStream, partUri: IOpcPartUri, #[retval] documentStructureResource: *mut IXpsOMDocumentStructureResource) -> HRESULT;
+            fn CreateSignatureBlockResource(&self, acquiredStream: IStream, partUri: IOpcPartUri, #[retval] signatureBlockResource: *mut IXpsOMSignatureBlockResource) -> HRESULT;
+            fn CreateRemoteDictionaryResource(&self, dictionary: IXpsOMDictionary, partUri: IOpcPartUri, #[retval] remoteDictionaryResource: *mut IXpsOMRemoteDictionaryResource) -> HRESULT;
+            fn CreateRemoteDictionaryResourceFromStream(&self, dictionaryMarkupStream: IStream, dictionaryPartUri: IOpcPartUri, resources: IXpsOMPartResources, #[retval] dictionaryResource: *mut IXpsOMRemoteDictionaryResource) -> HRESULT;
+            fn CreatePartResources(&self, #[retval] partResources: *mut IXpsOMPartResources) -> HRESULT;
+            fn CreateDocumentSequence(&self, partUri: IOpcPartUri, #[retval] documentSequence: *mut IXpsOMDocumentSequence) -> HRESULT;
+            fn CreateDocument(&self, partUri: IOpcPartUri, #[retval] document: *mut IXpsOMDocument) -> HRESULT;
+            fn CreatePageReference(&self, advisoryPageDimensions: *const XPS_SIZE, #[retval] pageReference: *mut IXpsOMPageReference) -> HRESULT;
+            fn CreatePage(&self, pageDimensions: *const XPS_SIZE, language: PCWSTR, partUri: IOpcPartUri, #[retval] page: *mut IXpsOMPage) -> HRESULT;
+            fn CreatePageFromStream(&self, pageMarkupStream: IStream, partUri: IOpcPartUri, resources: IXpsOMPartResources, reuseObjects: BOOL, #[retval] page: *mut IXpsOMPage) -> HRESULT;
+            fn CreateCanvas(&self, #[retval] canvas: *mut IXpsOMCanvas) -> HRESULT;
+            fn CreateGlyphs(&self, fontResource: IXpsOMFontResource, #[retval] glyphs: *mut IXpsOMGlyphs) -> HRESULT;
+            fn CreatePath(&self, #[retval] path: *mut IXpsOMPath) -> HRESULT;
+            fn CreateGeometry(&self, #[retval] geometry: *mut IXpsOMGeometry) -> HRESULT;
+            fn CreateGeometryFigure(&self, startPoint: *const XPS_POINT, #[retval] figure: *mut IXpsOMGeometryFigure) -> HRESULT;
+            fn CreateMatrixTransform(&self, matrix: *const XPS_MATRIX, #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
+            fn CreateSolidColorBrush(&self, color: *const XPS_COLOR, colorProfile: IXpsOMColorProfileResource, #[retval] solidColorBrush: *mut IXpsOMSolidColorBrush) -> HRESULT;
+            fn CreateColorProfileResource(&self, acquiredStream: IStream, partUri: IOpcPartUri, #[retval] colorProfileResource: *mut IXpsOMColorProfileResource) -> HRESULT;
+            fn CreateImageBrush(&self, image: IXpsOMImageResource, viewBox: *const XPS_RECT, viewPort: *const XPS_RECT, #[retval] imageBrush: *mut IXpsOMImageBrush) -> HRESULT;
+            fn CreateVisualBrush(&self, viewBox: *const XPS_RECT, viewPort: *const XPS_RECT, #[retval] visualBrush: *mut IXpsOMVisualBrush) -> HRESULT;
+            fn CreateImageResource(&self, acquiredStream: IStream, contentType: XPS_IMAGE_TYPE, partUri: IOpcPartUri, #[retval] imageResource: *mut IXpsOMImageResource) -> HRESULT;
+            fn CreatePrintTicketResource(&self, acquiredStream: IStream, partUri: IOpcPartUri, #[retval] printTicketResource: *mut IXpsOMPrintTicketResource) -> HRESULT;
+            fn CreateFontResource(&self, acquiredStream: IStream, fontEmbedding: XPS_FONT_EMBEDDING, partUri: IOpcPartUri, isObfSourceStream: BOOL, #[retval] fontResource: *mut IXpsOMFontResource) -> HRESULT;
+            fn CreateGradientStop(&self, color: *const XPS_COLOR, colorProfile: IXpsOMColorProfileResource, offset: f32, #[retval] gradientStop: *mut IXpsOMGradientStop) -> HRESULT;
+            fn CreateLinearGradientBrush(&self, gradStop1: IXpsOMGradientStop, gradStop2: IXpsOMGradientStop, startPoint: *const XPS_POINT, endPoint: *const XPS_POINT, #[retval] linearGradientBrush: *mut IXpsOMLinearGradientBrush) -> HRESULT;
+            fn CreateRadialGradientBrush(&self, gradStop1: IXpsOMGradientStop, gradStop2: IXpsOMGradientStop, centerPoint: *const XPS_POINT, gradientOrigin: *const XPS_POINT, radiiSizes: *const XPS_SIZE, #[retval] radialGradientBrush: *mut IXpsOMRadialGradientBrush) -> HRESULT;
+            fn CreateCoreProperties(&self, partUri: IOpcPartUri, #[retval] coreProperties: *mut IXpsOMCoreProperties) -> HRESULT;
+            fn CreateDictionary(&self, #[retval] dictionary: *mut IXpsOMDictionary) -> HRESULT;
+            fn CreatePartUriCollection(&self, #[retval] partUriCollection: *mut IXpsOMPartUriCollection) -> HRESULT;
+            fn CreatePackageWriterOnFile(&self, fileName: PCWSTR, securityAttributes: *const SECURITY_ATTRIBUTES, flagsAndAttributes: u32, optimizeMarkupSize: BOOL, interleaving: XPS_INTERLEAVING, documentSequencePartName: IOpcPartUri, coreProperties: IXpsOMCoreProperties, packageThumbnail: IXpsOMImageResource, documentSequencePrintTicket: IXpsOMPrintTicketResource, discardControlPartName: IOpcPartUri, #[retval] packageWriter: *mut IXpsOMPackageWriter) -> HRESULT;
+            fn CreatePackageWriterOnStream(&self, outputStream: ISequentialStream, optimizeMarkupSize: BOOL, interleaving: XPS_INTERLEAVING, documentSequencePartName: IOpcPartUri, coreProperties: IXpsOMCoreProperties, packageThumbnail: IXpsOMImageResource, documentSequencePrintTicket: IXpsOMPrintTicketResource, discardControlPartName: IOpcPartUri, #[retval] packageWriter: *mut IXpsOMPackageWriter) -> HRESULT;
+            fn CreatePartUri(&self, uri: PCWSTR, #[retval] partUri: *mut IOpcPartUri) -> HRESULT;
+            fn CreateReadOnlyStreamOnFile(&self, filename: PCWSTR, #[retval] stream: *mut IStream) -> HRESULT;
+        }
+        #[guid(0x18c3df65_81e1_4674_91dc_fc452f5a416f)]
+        interface IXpsOMPackage: IUnknown {
+            fn GetDocumentSequence(&self, #[retval] documentSequence: *mut IXpsOMDocumentSequence) -> HRESULT;
+            fn SetDocumentSequence(&self, documentSequence: IXpsOMDocumentSequence) -> HRESULT;
+            fn GetCoreProperties(&self, #[retval] coreProperties: *mut IXpsOMCoreProperties) -> HRESULT;
+            fn SetCoreProperties(&self, coreProperties: IXpsOMCoreProperties) -> HRESULT;
+            fn GetDiscardControlPartName(&self, #[retval] discardControlPartUri: *mut IOpcPartUri) -> HRESULT;
+            fn SetDiscardControlPartName(&self, discardControlPartUri: IOpcPartUri) -> HRESULT;
+            fn GetThumbnailResource(&self, #[retval] imageResource: *mut IXpsOMImageResource) -> HRESULT;
+            fn SetThumbnailResource(&self, imageResource: IXpsOMImageResource) -> HRESULT;
+            fn WriteToFile(&self, fileName: PCWSTR, securityAttributes: *const SECURITY_ATTRIBUTES, flagsAndAttributes: u32, optimizeMarkupSize: BOOL) -> HRESULT;
+            fn WriteToStream(&self, stream: ISequentialStream, optimizeMarkupSize: BOOL) -> HRESULT;
+        }
+        #[guid(0x219a9db0_4959_47d0_8034_b1ce84f41a4d)]
+        interface IXpsOMPackageTarget: IUnknown {
+            fn CreateXpsOMPackageWriter(&self, documentSequencePartName: IOpcPartUri, documentSequencePrintTicket: IXpsOMPrintTicketResource, discardControlPartName: IOpcPartUri, packageWriter: *mut IXpsOMPackageWriter) -> HRESULT;
+        }
+        #[guid(0x4e2aa182_a443_42c6_b41b_4f8e9de73ff9)]
+        interface IXpsOMPackageWriter: IUnknown {
+            fn StartNewDocument(&self, documentPartName: IOpcPartUri, documentPrintTicket: IXpsOMPrintTicketResource, documentStructure: IXpsOMDocumentStructureResource, signatureBlockResources: IXpsOMSignatureBlockResourceCollection, restrictedFonts: IXpsOMPartUriCollection) -> HRESULT;
+            fn AddPage(&self, page: IXpsOMPage, advisoryPageDimensions: *const XPS_SIZE, discardableResourceParts: IXpsOMPartUriCollection, storyFragments: IXpsOMStoryFragmentsResource, pagePrintTicket: IXpsOMPrintTicketResource, pageThumbnail: IXpsOMImageResource) -> HRESULT;
+            fn AddResource(&self, resource: IXpsOMResource) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn IsClosed(&self, #[retval] isClosed: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xd3e18888_f120_4fee_8c68_35296eae91d4)]
+        interface IXpsOMPage: IXpsOMPart {
+            fn GetOwner(&self, #[retval] pageReference: *mut IXpsOMPageReference) -> HRESULT;
+            fn GetVisuals(&self, #[retval] visuals: *mut IXpsOMVisualCollection) -> HRESULT;
+            fn GetPageDimensions(&self, #[retval] pageDimensions: *mut XPS_SIZE) -> HRESULT;
+            fn SetPageDimensions(&self, pageDimensions: *const XPS_SIZE) -> HRESULT;
+            fn GetContentBox(&self, #[retval] contentBox: *mut XPS_RECT) -> HRESULT;
+            fn SetContentBox(&self, contentBox: *const XPS_RECT) -> HRESULT;
+            fn GetBleedBox(&self, #[retval] bleedBox: *mut XPS_RECT) -> HRESULT;
+            fn SetBleedBox(&self, bleedBox: *const XPS_RECT) -> HRESULT;
+            fn GetLanguage(&self, #[retval] language: *mut PWSTR) -> HRESULT;
+            fn SetLanguage(&self, language: PCWSTR) -> HRESULT;
+            fn GetName(&self, #[retval] name: *mut PWSTR) -> HRESULT;
+            fn SetName(&self, name: PCWSTR) -> HRESULT;
+            fn GetIsHyperlinkTarget(&self, #[retval] isHyperlinkTarget: *mut BOOL) -> HRESULT;
+            fn SetIsHyperlinkTarget(&self, isHyperlinkTarget: BOOL) -> HRESULT;
+            fn GetDictionary(&self, #[retval] resourceDictionary: *mut IXpsOMDictionary) -> HRESULT;
+            fn GetDictionaryLocal(&self, #[retval] resourceDictionary: *mut IXpsOMDictionary) -> HRESULT;
+            fn SetDictionaryLocal(&self, resourceDictionary: IXpsOMDictionary) -> HRESULT;
+            fn GetDictionaryResource(&self, #[retval] remoteDictionaryResource: *mut IXpsOMRemoteDictionaryResource) -> HRESULT;
+            fn SetDictionaryResource(&self, remoteDictionaryResource: IXpsOMRemoteDictionaryResource) -> HRESULT;
+            fn Write(&self, stream: ISequentialStream, optimizeMarkupSize: BOOL) -> HRESULT;
+            fn GenerateUnusedLookupKey(&self, r#type: XPS_OBJECT_TYPE, #[retval] key: *mut PWSTR) -> HRESULT;
+            fn Clone(&self, #[retval] page: *mut IXpsOMPage) -> HRESULT;
+        }
+        #[guid(0xed360180_6f92_4998_890d_2f208531a0a0)]
+        interface IXpsOMPageReference: IUnknown {
+            fn GetOwner(&self, #[retval] document: *mut IXpsOMDocument) -> HRESULT;
+            fn GetPage(&self, #[retval] page: *mut IXpsOMPage) -> HRESULT;
+            fn SetPage(&self, page: IXpsOMPage) -> HRESULT;
+            fn DiscardPage(&self) -> HRESULT;
+            fn IsPageLoaded(&self, #[retval] isPageLoaded: *mut BOOL) -> HRESULT;
+            fn GetAdvisoryPageDimensions(&self, #[retval] pageDimensions: *mut XPS_SIZE) -> HRESULT;
+            fn SetAdvisoryPageDimensions(&self, pageDimensions: *const XPS_SIZE) -> HRESULT;
+            fn GetStoryFragmentsResource(&self, #[retval] storyFragmentsResource: *mut IXpsOMStoryFragmentsResource) -> HRESULT;
+            fn SetStoryFragmentsResource(&self, storyFragmentsResource: IXpsOMStoryFragmentsResource) -> HRESULT;
+            fn GetPrintTicketResource(&self, #[retval] printTicketResource: *mut IXpsOMPrintTicketResource) -> HRESULT;
+            fn SetPrintTicketResource(&self, printTicketResource: IXpsOMPrintTicketResource) -> HRESULT;
+            fn GetThumbnailResource(&self, #[retval] imageResource: *mut IXpsOMImageResource) -> HRESULT;
+            fn SetThumbnailResource(&self, imageResource: IXpsOMImageResource) -> HRESULT;
+            fn CollectLinkTargets(&self, #[retval] linkTargets: *mut IXpsOMNameCollection) -> HRESULT;
+            fn CollectPartResources(&self, #[retval] partResources: *mut IXpsOMPartResources) -> HRESULT;
+            fn HasRestrictedFonts(&self, #[retval] restrictedFonts: *mut BOOL) -> HRESULT;
+            fn Clone(&self, #[retval] pageReference: *mut IXpsOMPageReference) -> HRESULT;
+        }
+        #[guid(0xca16ba4d_e7b9_45c5_958b_f98022473745)]
+        interface IXpsOMPageReferenceCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] pageReference: *mut IXpsOMPageReference) -> HRESULT;
+            fn InsertAt(&self, index: u32, pageReference: IXpsOMPageReference) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, pageReference: IXpsOMPageReference) -> HRESULT;
+            fn Append(&self, pageReference: IXpsOMPageReference) -> HRESULT;
+        }
+        #[guid(0x74eb2f0b_a91e_4486_afac_0fabeca3dfc6)]
+        interface IXpsOMPart: IUnknown {
+            fn GetPartName(&self, #[retval] partUri: *mut IOpcPartUri) -> HRESULT;
+            fn SetPartName(&self, partUri: IOpcPartUri) -> HRESULT;
+        }
+        #[guid(0xf4cf7729_4864_4275_99b3_a8717163ecaf)]
+        interface IXpsOMPartResources: IUnknown {
+            fn GetFontResources(&self, #[retval] fontResources: *mut IXpsOMFontResourceCollection) -> HRESULT;
+            fn GetImageResources(&self, #[retval] imageResources: *mut IXpsOMImageResourceCollection) -> HRESULT;
+            fn GetColorProfileResources(&self, #[retval] colorProfileResources: *mut IXpsOMColorProfileResourceCollection) -> HRESULT;
+            fn GetRemoteDictionaryResources(&self, #[retval] dictionaryResources: *mut IXpsOMRemoteDictionaryResourceCollection) -> HRESULT;
+        }
+        #[guid(0x57c650d4_067c_4893_8c33_f62a0633730f)]
+        interface IXpsOMPartUriCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] partUri: *mut IOpcPartUri) -> HRESULT;
+            fn InsertAt(&self, index: u32, partUri: IOpcPartUri) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, partUri: IOpcPartUri) -> HRESULT;
+            fn Append(&self, partUri: IOpcPartUri) -> HRESULT;
+        }
+        #[guid(0x37d38bb6_3ee9_4110_9312_14b194163337)]
+        interface IXpsOMPath: IXpsOMVisual {
+            fn GetGeometry(&self, #[retval] geometry: *mut IXpsOMGeometry) -> HRESULT;
+            fn GetGeometryLocal(&self, #[retval] geometry: *mut IXpsOMGeometry) -> HRESULT;
+            fn SetGeometryLocal(&self, geometry: IXpsOMGeometry) -> HRESULT;
+            fn GetGeometryLookup(&self, #[retval] lookup: *mut PWSTR) -> HRESULT;
+            fn SetGeometryLookup(&self, lookup: PCWSTR) -> HRESULT;
+            fn GetAccessibilityShortDescription(&self, #[retval] shortDescription: *mut PWSTR) -> HRESULT;
+            fn SetAccessibilityShortDescription(&self, shortDescription: PCWSTR) -> HRESULT;
+            fn GetAccessibilityLongDescription(&self, #[retval] longDescription: *mut PWSTR) -> HRESULT;
+            fn SetAccessibilityLongDescription(&self, longDescription: PCWSTR) -> HRESULT;
+            fn GetSnapsToPixels(&self, #[retval] snapsToPixels: *mut BOOL) -> HRESULT;
+            fn SetSnapsToPixels(&self, snapsToPixels: BOOL) -> HRESULT;
+            fn GetStrokeBrush(&self, #[retval] brush: *mut IXpsOMBrush) -> HRESULT;
+            fn GetStrokeBrushLocal(&self, #[retval] brush: *mut IXpsOMBrush) -> HRESULT;
+            fn SetStrokeBrushLocal(&self, brush: IXpsOMBrush) -> HRESULT;
+            fn GetStrokeBrushLookup(&self, #[retval] lookup: *mut PWSTR) -> HRESULT;
+            fn SetStrokeBrushLookup(&self, lookup: PCWSTR) -> HRESULT;
+            fn GetStrokeDashes(&self, #[retval] strokeDashes: *mut IXpsOMDashCollection) -> HRESULT;
+            fn GetStrokeDashCap(&self, #[retval] strokeDashCap: *mut XPS_DASH_CAP) -> HRESULT;
+            fn SetStrokeDashCap(&self, strokeDashCap: XPS_DASH_CAP) -> HRESULT;
+            fn GetStrokeDashOffset(&self, #[retval] strokeDashOffset: *mut f32) -> HRESULT;
+            fn SetStrokeDashOffset(&self, strokeDashOffset: f32) -> HRESULT;
+            fn GetStrokeStartLineCap(&self, #[retval] strokeStartLineCap: *mut XPS_LINE_CAP) -> HRESULT;
+            fn SetStrokeStartLineCap(&self, strokeStartLineCap: XPS_LINE_CAP) -> HRESULT;
+            fn GetStrokeEndLineCap(&self, #[retval] strokeEndLineCap: *mut XPS_LINE_CAP) -> HRESULT;
+            fn SetStrokeEndLineCap(&self, strokeEndLineCap: XPS_LINE_CAP) -> HRESULT;
+            fn GetStrokeLineJoin(&self, #[retval] strokeLineJoin: *mut XPS_LINE_JOIN) -> HRESULT;
+            fn SetStrokeLineJoin(&self, strokeLineJoin: XPS_LINE_JOIN) -> HRESULT;
+            fn GetStrokeMiterLimit(&self, #[retval] strokeMiterLimit: *mut f32) -> HRESULT;
+            fn SetStrokeMiterLimit(&self, strokeMiterLimit: f32) -> HRESULT;
+            fn GetStrokeThickness(&self, #[retval] strokeThickness: *mut f32) -> HRESULT;
+            fn SetStrokeThickness(&self, strokeThickness: f32) -> HRESULT;
+            fn GetFillBrush(&self, #[retval] brush: *mut IXpsOMBrush) -> HRESULT;
+            fn GetFillBrushLocal(&self, #[retval] brush: *mut IXpsOMBrush) -> HRESULT;
+            fn SetFillBrushLocal(&self, brush: IXpsOMBrush) -> HRESULT;
+            fn GetFillBrushLookup(&self, #[retval] lookup: *mut PWSTR) -> HRESULT;
+            fn SetFillBrushLookup(&self, lookup: PCWSTR) -> HRESULT;
+            fn Clone(&self, #[retval] path: *mut IXpsOMPath) -> HRESULT;
+        }
+        #[guid(0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7)]
+        interface IXpsOMPrintTicketResource: IXpsOMResource {
+            fn GetStream(&self, #[retval] stream: *mut IStream) -> HRESULT;
+            fn SetContent(&self, sourceStream: IStream, partName: IOpcPartUri) -> HRESULT;
+        }
+        #[guid(0x75f207e5_08bf_413c_96b1_b82b4064176b)]
+        interface IXpsOMRadialGradientBrush: IXpsOMGradientBrush {
+            fn GetCenter(&self, #[retval] center: *mut XPS_POINT) -> HRESULT;
+            fn SetCenter(&self, center: *const XPS_POINT) -> HRESULT;
+            fn GetRadiiSizes(&self, #[retval] radiiSizes: *mut XPS_SIZE) -> HRESULT;
+            fn SetRadiiSizes(&self, radiiSizes: *const XPS_SIZE) -> HRESULT;
+            fn GetGradientOrigin(&self, #[retval] origin: *mut XPS_POINT) -> HRESULT;
+            fn SetGradientOrigin(&self, origin: *const XPS_POINT) -> HRESULT;
+            fn Clone(&self, #[retval] radialGradientBrush: *mut IXpsOMRadialGradientBrush) -> HRESULT;
+        }
+        #[guid(0xc9bd7cd4_e16a_4bf8_8c84_c950af7a3061)]
+        interface IXpsOMRemoteDictionaryResource: IXpsOMResource {
+            fn GetDictionary(&self, #[retval] dictionary: *mut IXpsOMDictionary) -> HRESULT;
+            fn SetDictionary(&self, dictionary: IXpsOMDictionary) -> HRESULT;
+        }
+        #[guid(0x5c38db61_7fec_464a_87bd_41e3bef018be)]
+        interface IXpsOMRemoteDictionaryResourceCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] object: *mut IXpsOMRemoteDictionaryResource) -> HRESULT;
+            fn InsertAt(&self, index: u32, object: IXpsOMRemoteDictionaryResource) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, object: IXpsOMRemoteDictionaryResource) -> HRESULT;
+            fn Append(&self, object: IXpsOMRemoteDictionaryResource) -> HRESULT;
+            fn GetByPartName(&self, partName: IOpcPartUri, #[retval] remoteDictionaryResource: *mut IXpsOMRemoteDictionaryResource) -> HRESULT;
+        }
+        #[guid(0xda2ac0a2_73a2_4975_ad14_74097c3ff3a5)]
+        interface IXpsOMResource: IXpsOMPart {}
+        #[guid(0x7137398f_2fc1_454d_8c6a_2c3115a16ece)]
+        interface IXpsOMShareable: IUnknown {
+            fn GetOwner(&self, #[retval] owner: *mut IUnknown) -> HRESULT;
+            fn GetType(&self, #[retval] r#type: *mut XPS_OBJECT_TYPE) -> HRESULT;
+        }
+        #[guid(0x4776ad35_2e04_4357_8743_ebf6c171a905)]
+        interface IXpsOMSignatureBlockResource: IXpsOMResource {
+            fn GetOwner(&self, #[retval] owner: *mut IXpsOMDocument) -> HRESULT;
+            fn GetStream(&self, #[retval] stream: *mut IStream) -> HRESULT;
+            fn SetContent(&self, sourceStream: IStream, partName: IOpcPartUri) -> HRESULT;
+        }
+        #[guid(0xab8f5d8e_351b_4d33_aaed_fa56f0022931)]
+        interface IXpsOMSignatureBlockResourceCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] signatureBlockResource: *mut IXpsOMSignatureBlockResource) -> HRESULT;
+            fn InsertAt(&self, index: u32, signatureBlockResource: IXpsOMSignatureBlockResource) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, signatureBlockResource: IXpsOMSignatureBlockResource) -> HRESULT;
+            fn Append(&self, signatureBlockResource: IXpsOMSignatureBlockResource) -> HRESULT;
+            fn GetByPartName(&self, partName: IOpcPartUri, #[retval] signatureBlockResource: *mut IXpsOMSignatureBlockResource) -> HRESULT;
+        }
+        #[guid(0xa06f9f05_3be9_4763_98a8_094fc672e488)]
+        interface IXpsOMSolidColorBrush: IXpsOMBrush {
+            fn GetColor(&self, color: *mut XPS_COLOR, #[retval] colorProfile: *mut IXpsOMColorProfileResource) -> HRESULT;
+            fn SetColor(&self, color: *const XPS_COLOR, colorProfile: IXpsOMColorProfileResource) -> HRESULT;
+            fn Clone(&self, #[retval] solidColorBrush: *mut IXpsOMSolidColorBrush) -> HRESULT;
+        }
+        #[guid(0xc2b3ca09_0473_4282_87ae_1780863223f0)]
+        interface IXpsOMStoryFragmentsResource: IXpsOMResource {
+            fn GetOwner(&self, #[retval] owner: *mut IXpsOMPageReference) -> HRESULT;
+            fn GetStream(&self, #[retval] stream: *mut IStream) -> HRESULT;
+            fn SetContent(&self, sourceStream: IStream, partName: IOpcPartUri) -> HRESULT;
+        }
+        #[guid(0x15b873d5_1971_41e8_83a3_6578403064c7)]
+        interface IXpsOMThumbnailGenerator: IUnknown {
+            fn GenerateThumbnail(&self, page: IXpsOMPage, thumbnailType: XPS_IMAGE_TYPE, thumbnailSize: XPS_THUMBNAIL_SIZE, imageResourcePartName: IOpcPartUri, #[retval] imageResource: *mut IXpsOMImageResource) -> HRESULT;
+        }
+        #[guid(0x0fc2328d_d722_4a54_b2ec_be90218a789e)]
+        interface IXpsOMTileBrush: IXpsOMBrush {
+            fn GetTransform(&self, #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
+            fn GetTransformLocal(&self, #[retval] transform: *mut IXpsOMMatrixTransform) -> HRESULT;
+            fn SetTransformLocal(&self, transform: IXpsOMMatrixTransform) -> HRESULT;
+            fn GetTransformLookup(&self, #[retval] key: *mut PWSTR) -> HRESULT;
+            fn SetTransformLookup(&self, key: PCWSTR) -> HRESULT;
+            fn GetViewbox(&self, #[retval] viewbox: *mut XPS_RECT) -> HRESULT;
+            fn SetViewbox(&self, viewbox: *const XPS_RECT) -> HRESULT;
+            fn GetViewport(&self, #[retval] viewport: *mut XPS_RECT) -> HRESULT;
+            fn SetViewport(&self, viewport: *const XPS_RECT) -> HRESULT;
+            fn GetTileMode(&self, #[retval] tileMode: *mut XPS_TILE_MODE) -> HRESULT;
+            fn SetTileMode(&self, tileMode: XPS_TILE_MODE) -> HRESULT;
+        }
+        #[guid(0xbc3e7333_fb0b_4af3_a819_0b4eaad0d2fd)]
+        interface IXpsOMVisual: IXpsOMShareable {
+            fn GetTransform(&self, #[retval] matrixTransform: *mut IXpsOMMatrixTransform) -> HRESULT;
+            fn GetTransformLocal(&self, #[retval] matrixTransform: *mut IXpsOMMatrixTransform) -> HRESULT;
+            fn SetTransformLocal(&self, matrixTransform: IXpsOMMatrixTransform) -> HRESULT;
+            fn GetTransformLookup(&self, #[retval] key: *mut PWSTR) -> HRESULT;
+            fn SetTransformLookup(&self, key: PCWSTR) -> HRESULT;
+            fn GetClipGeometry(&self, #[retval] clipGeometry: *mut IXpsOMGeometry) -> HRESULT;
+            fn GetClipGeometryLocal(&self, #[retval] clipGeometry: *mut IXpsOMGeometry) -> HRESULT;
+            fn SetClipGeometryLocal(&self, clipGeometry: IXpsOMGeometry) -> HRESULT;
+            fn GetClipGeometryLookup(&self, #[retval] key: *mut PWSTR) -> HRESULT;
+            fn SetClipGeometryLookup(&self, key: PCWSTR) -> HRESULT;
+            fn GetOpacity(&self, #[retval] opacity: *mut f32) -> HRESULT;
+            fn SetOpacity(&self, opacity: f32) -> HRESULT;
+            fn GetOpacityMaskBrush(&self, #[retval] opacityMaskBrush: *mut IXpsOMBrush) -> HRESULT;
+            fn GetOpacityMaskBrushLocal(&self, #[retval] opacityMaskBrush: *mut IXpsOMBrush) -> HRESULT;
+            fn SetOpacityMaskBrushLocal(&self, opacityMaskBrush: IXpsOMBrush) -> HRESULT;
+            fn GetOpacityMaskBrushLookup(&self, #[retval] key: *mut PWSTR) -> HRESULT;
+            fn SetOpacityMaskBrushLookup(&self, key: PCWSTR) -> HRESULT;
+            fn GetName(&self, #[retval] name: *mut PWSTR) -> HRESULT;
+            fn SetName(&self, name: PCWSTR) -> HRESULT;
+            fn GetIsHyperlinkTarget(&self, #[retval] isHyperlink: *mut BOOL) -> HRESULT;
+            fn SetIsHyperlinkTarget(&self, isHyperlink: BOOL) -> HRESULT;
+            fn GetHyperlinkNavigateUri(&self, #[retval] hyperlinkUri: *mut IUri) -> HRESULT;
+            fn SetHyperlinkNavigateUri(&self, hyperlinkUri: IUri) -> HRESULT;
+            fn GetLanguage(&self, #[retval] language: *mut PWSTR) -> HRESULT;
+            fn SetLanguage(&self, language: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x97e294af_5b37_46b4_8057_874d2f64119b)]
+        interface IXpsOMVisualBrush: IXpsOMTileBrush {
+            fn GetVisual(&self, #[retval] visual: *mut IXpsOMVisual) -> HRESULT;
+            fn GetVisualLocal(&self, #[retval] visual: *mut IXpsOMVisual) -> HRESULT;
+            fn SetVisualLocal(&self, visual: IXpsOMVisual) -> HRESULT;
+            fn GetVisualLookup(&self, #[retval] lookup: *mut PWSTR) -> HRESULT;
+            fn SetVisualLookup(&self, lookup: PCWSTR) -> HRESULT;
+            fn Clone(&self, #[retval] visualBrush: *mut IXpsOMVisualBrush) -> HRESULT;
+        }
+        #[guid(0x94d8abde_ab91_46a8_82b7_f5b05ef01a96)]
+        interface IXpsOMVisualCollection: IUnknown {
+            fn GetCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[retval] object: *mut IXpsOMVisual) -> HRESULT;
+            fn InsertAt(&self, index: u32, object: IXpsOMVisual) -> HRESULT;
+            fn RemoveAt(&self, index: u32) -> HRESULT;
+            fn SetAt(&self, index: u32, object: IXpsOMVisual) -> HRESULT;
+            fn Append(&self, object: IXpsOMVisual) -> HRESULT;
+        }
+        struct XPS_COLOR {
+            colorType: XPS_COLOR_TYPE,
+            value: XPS_COLOR_0,
+        }
+        union XPS_COLOR_0 {
+            sRGB: struct {
+                alpha: u8,
+                red: u8,
+                green: u8,
+                blue: u8,
+            },
+            scRGB: struct {
+                alpha: f32,
+                red: f32,
+                green: f32,
+                blue: f32,
+            },
+            context: struct {
+                channelCount: u8,
+                channels: [f32; 9],
+            },
+        }
+        #[repr(i32)]
+        enum XPS_COLOR_INTERPOLATION {
+            XPS_COLOR_INTERPOLATION_SCRGBLINEAR = 1,
+            XPS_COLOR_INTERPOLATION_SRGBLINEAR = 2,
+        }
+        #[repr(i32)]
+        enum XPS_COLOR_TYPE {
+            XPS_COLOR_TYPE_SRGB = 1,
+            XPS_COLOR_TYPE_SCRGB = 2,
+            XPS_COLOR_TYPE_CONTEXT = 3,
+        }
+        struct XPS_DASH {
+            length: f32,
+            gap: f32,
+        }
+        #[repr(i32)]
+        enum XPS_DASH_CAP {
+            XPS_DASH_CAP_FLAT = 1,
+            XPS_DASH_CAP_ROUND = 2,
+            XPS_DASH_CAP_SQUARE = 3,
+            XPS_DASH_CAP_TRIANGLE = 4,
+        }
+        const XPS_E_ALREADY_OWNED: i32 = -2142108413;
+        const XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: i32 = -2142108407;
+        const XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: i32 = -2142108409;
+        const XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: i32 = -2142108408;
+        const XPS_E_CARET_OUTSIDE_STRING: i32 = -2142108923;
+        const XPS_E_CARET_OUT_OF_ORDER: i32 = -2142108922;
+        const XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: i32 = -2142108410;
+        const XPS_E_DICTIONARY_ITEM_NAMED: i32 = -2142108671;
+        const XPS_E_DUPLICATE_NAMES: i32 = -2142109175;
+        const XPS_E_DUPLICATE_RESOURCE_KEYS: i32 = -2142109184;
+        const XPS_E_INDEX_OUT_OF_RANGE: i32 = -2142108416;
+        const XPS_E_INVALID_BLEED_BOX: i32 = -2142109692;
+        const XPS_E_INVALID_CONTENT_BOX: i32 = -2142109685;
+        const XPS_E_INVALID_CONTENT_TYPE: i32 = -2142109682;
+        const XPS_E_INVALID_FLOAT: i32 = -2142109689;
+        const XPS_E_INVALID_FONT_URI: i32 = -2142109686;
+        const XPS_E_INVALID_LANGUAGE: i32 = -2142109696;
+        const XPS_E_INVALID_LOOKUP_TYPE: i32 = -2142109690;
+        const XPS_E_INVALID_MARKUP: i32 = -2142109684;
+        const XPS_E_INVALID_NAME: i32 = -2142109695;
+        const XPS_E_INVALID_OBFUSCATED_FONT_URI: i32 = -2142109681;
+        const XPS_E_INVALID_PAGE_SIZE: i32 = -2142109693;
+        const XPS_E_INVALID_RESOURCE_KEY: i32 = -2142109694;
+        const XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: i32 = -2142109691;
+        const XPS_E_INVALID_XML_ENCODING: i32 = -2142109683;
+        const XPS_E_MAPPING_OUTSIDE_INDICES: i32 = -2142108924;
+        const XPS_E_MAPPING_OUTSIDE_STRING: i32 = -2142108925;
+        const XPS_E_MAPPING_OUT_OF_ORDER: i32 = -2142108926;
+        const XPS_E_MISSING_COLORPROFILE: i32 = -2142109436;
+        const XPS_E_MISSING_DISCARDCONTROL: i32 = -2142109422;
+        const XPS_E_MISSING_DOCUMENT: i32 = -2142109431;
+        const XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: i32 = -2142109432;
+        const XPS_E_MISSING_FONTURI: i32 = -2142109433;
+        const XPS_E_MISSING_GLYPHS: i32 = -2142109438;
+        const XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: i32 = -2142109426;
+        const XPS_E_MISSING_LOOKUP: i32 = -2142109439;
+        const XPS_E_MISSING_NAME: i32 = -2142109440;
+        const XPS_E_MISSING_PAGE_IN_DOCUMENT: i32 = -2142109428;
+        const XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: i32 = -2142109427;
+        const XPS_E_MISSING_PART_REFERENCE: i32 = -2142109424;
+        const XPS_E_MISSING_PART_STREAM: i32 = -2142109421;
+        const XPS_E_MISSING_REFERRED_DOCUMENT: i32 = -2142109430;
+        const XPS_E_MISSING_REFERRED_PAGE: i32 = -2142109429;
+        const XPS_E_MISSING_RELATIONSHIP_TARGET: i32 = -2142109435;
+        const XPS_E_MISSING_RESOURCE_KEY: i32 = -2142109425;
+        const XPS_E_MISSING_RESOURCE_RELATIONSHIP: i32 = -2142109434;
+        const XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: i32 = -2142109423;
+        const XPS_E_MISSING_SEGMENT_DATA: i32 = -2142109437;
+        const XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: i32 = -2142109182;
+        const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: i32 = -2142109178;
+        const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: i32 = -2142109177;
+        const XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: i32 = -2142109179;
+        const XPS_E_MULTIPLE_REFERENCES_TO_PART: i32 = -2142109176;
+        const XPS_E_MULTIPLE_RESOURCES: i32 = -2142109183;
+        const XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: i32 = -2142109180;
+        const XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: i32 = -2142109181;
+        const XPS_E_NEGATIVE_FLOAT: i32 = -2142108918;
+        const XPS_E_NESTED_REMOTE_DICTIONARY: i32 = -2142108670;
+        const XPS_E_NOT_ENOUGH_GRADIENT_STOPS: i32 = -2142108405;
+        const XPS_E_NO_CUSTOM_OBJECTS: i32 = -2142108414;
+        const XPS_E_ODD_BIDILEVEL: i32 = -2142108921;
+        const XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: i32 = -2142108920;
+        const XPS_E_PACKAGE_WRITER_NOT_CLOSED: i32 = -2142108404;
+        const XPS_E_RELATIONSHIP_EXTERNAL: i32 = -2142108406;
+        const XPS_E_RESOURCE_NOT_OWNED: i32 = -2142108412;
+        const XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: i32 = -2142108919;
+        const XPS_E_STRING_TOO_LONG: i32 = -2142108928;
+        const XPS_E_TOO_MANY_INDICES: i32 = -2142108927;
+        const XPS_E_UNAVAILABLE_PACKAGE: i32 = -2142109420;
+        const XPS_E_UNEXPECTED_COLORPROFILE: i32 = -2142108411;
+        const XPS_E_UNEXPECTED_CONTENT_TYPE: i32 = -2142109688;
+        const XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: i32 = -2142109680;
+        const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: i32 = -2142109679;
+        const XPS_E_VISUAL_CIRCULAR_REF: i32 = -2142108415;
+        const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: i32 = -2142108672;
+        #[repr(i32)]
+        enum XPS_FILL_RULE {
+            XPS_FILL_RULE_EVENODD = 1,
+            XPS_FILL_RULE_NONZERO = 2,
+        }
+        #[repr(i32)]
+        enum XPS_FONT_EMBEDDING {
+            XPS_FONT_EMBEDDING_NORMAL = 1,
+            XPS_FONT_EMBEDDING_OBFUSCATED = 2,
+            XPS_FONT_EMBEDDING_RESTRICTED = 3,
+            XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED = 4,
+        }
+        struct XPS_GLYPH_INDEX {
+            index: i32,
+            advanceWidth: f32,
+            horizontalOffset: f32,
+            verticalOffset: f32,
+        }
+        struct XPS_GLYPH_MAPPING {
+            unicodeStringStart: u32,
+            unicodeStringLength: u16,
+            glyphIndicesStart: u32,
+            glyphIndicesLength: u16,
+        }
+        #[repr(i32)]
+        enum XPS_IMAGE_TYPE {
+            XPS_IMAGE_TYPE_JPEG = 1,
+            XPS_IMAGE_TYPE_PNG = 2,
+            XPS_IMAGE_TYPE_TIFF = 3,
+            XPS_IMAGE_TYPE_WDP = 4,
+            XPS_IMAGE_TYPE_JXR = 5,
+        }
+        #[repr(i32)]
+        enum XPS_INTERLEAVING {
+            XPS_INTERLEAVING_OFF = 1,
+            XPS_INTERLEAVING_ON = 2,
+        }
+        #[repr(i32)]
+        enum XPS_LINE_CAP {
+            XPS_LINE_CAP_FLAT = 1,
+            XPS_LINE_CAP_ROUND = 2,
+            XPS_LINE_CAP_SQUARE = 3,
+            XPS_LINE_CAP_TRIANGLE = 4,
+        }
+        #[repr(i32)]
+        enum XPS_LINE_JOIN {
+            XPS_LINE_JOIN_MITER = 1,
+            XPS_LINE_JOIN_BEVEL = 2,
+            XPS_LINE_JOIN_ROUND = 3,
+        }
+        struct XPS_MATRIX {
+            m11: f32,
+            m12: f32,
+            m21: f32,
+            m22: f32,
+            m31: f32,
+            m32: f32,
+        }
+        #[repr(i32)]
+        enum XPS_OBJECT_TYPE {
+            XPS_OBJECT_TYPE_CANVAS = 1,
+            XPS_OBJECT_TYPE_GLYPHS = 2,
+            XPS_OBJECT_TYPE_PATH = 3,
+            XPS_OBJECT_TYPE_MATRIX_TRANSFORM = 4,
+            XPS_OBJECT_TYPE_GEOMETRY = 5,
+            XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH = 6,
+            XPS_OBJECT_TYPE_IMAGE_BRUSH = 7,
+            XPS_OBJECT_TYPE_LINEAR_GRADIENT_BRUSH = 8,
+            XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH = 9,
+            XPS_OBJECT_TYPE_VISUAL_BRUSH = 10,
+        }
+        struct XPS_POINT {
+            x: f32,
+            y: f32,
+        }
+        struct XPS_RECT {
+            x: f32,
+            y: f32,
+            width: f32,
+            height: f32,
+        }
+        #[repr(i32)]
+        enum XPS_SEGMENT_STROKE_PATTERN {
+            XPS_SEGMENT_STROKE_PATTERN_ALL = 1,
+            XPS_SEGMENT_STROKE_PATTERN_NONE = 2,
+            XPS_SEGMENT_STROKE_PATTERN_MIXED = 3,
+        }
+        #[repr(i32)]
+        enum XPS_SEGMENT_TYPE {
+            XPS_SEGMENT_TYPE_ARC_LARGE_CLOCKWISE = 1,
+            XPS_SEGMENT_TYPE_ARC_LARGE_COUNTERCLOCKWISE = 2,
+            XPS_SEGMENT_TYPE_ARC_SMALL_CLOCKWISE = 3,
+            XPS_SEGMENT_TYPE_ARC_SMALL_COUNTERCLOCKWISE = 4,
+            XPS_SEGMENT_TYPE_BEZIER = 5,
+            XPS_SEGMENT_TYPE_LINE = 6,
+            XPS_SEGMENT_TYPE_QUADRATIC_BEZIER = 7,
+        }
+        struct XPS_SIZE {
+            width: f32,
+            height: f32,
+        }
+        #[repr(i32)]
+        enum XPS_SPREAD_METHOD {
+            XPS_SPREAD_METHOD_PAD = 1,
+            XPS_SPREAD_METHOD_REFLECT = 2,
+            XPS_SPREAD_METHOD_REPEAT = 3,
+        }
+        #[repr(i32)]
+        enum XPS_STYLE_SIMULATION {
+            XPS_STYLE_SIMULATION_NONE = 1,
+            XPS_STYLE_SIMULATION_ITALIC = 2,
+            XPS_STYLE_SIMULATION_BOLD = 3,
+            XPS_STYLE_SIMULATION_BOLDITALIC = 4,
+        }
+        #[repr(i32)]
+        enum XPS_THUMBNAIL_SIZE {
+            XPS_THUMBNAIL_SIZE_VERYSMALL = 1,
+            XPS_THUMBNAIL_SIZE_SMALL = 2,
+            XPS_THUMBNAIL_SIZE_MEDIUM = 3,
+            XPS_THUMBNAIL_SIZE_LARGE = 4,
+        }
+        #[repr(i32)]
+        enum XPS_TILE_MODE {
+            XPS_TILE_MODE_NONE = 1,
+            XPS_TILE_MODE_TILE = 2,
+            XPS_TILE_MODE_FLIPX = 3,
+            XPS_TILE_MODE_FLIPY = 4,
+            XPS_TILE_MODE_FLIPXY = 5,
+        }
+        const XpsOMObjectFactory: GUID = 0xe974d26d_3d9b_4d47_88cc_3872f2dc3585;
+        const XpsOMThumbnailGenerator: GUID = 0x7e4a23e2_b969_4761_be35_1a8ced58e323;
+    }
+}

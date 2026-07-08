@@ -1,0 +1,322 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BROADCAST_NODETYPE: u32 = 1;
+        const DEFAULT_MINIMUM_ENTITIES: u32 = 32;
+        type FIXED_INFO = FIXED_INFO_W2KSP1;
+        struct FIXED_INFO_W2KSP1 {
+            HostName: [i8; 132],
+            DomainName: [i8; 132],
+            CurrentDnsServer: PIP_ADDR_STRING,
+            DnsServerList: IP_ADDR_STRING,
+            NodeType: u32,
+            ScopeId: [i8; 260],
+            EnableRouting: u32,
+            EnableProxy: u32,
+            EnableDns: u32,
+        }
+        const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: u32 = 512;
+        const GAA_FLAG_INCLUDE_ALL_INTERFACES: u32 = 256;
+        const GAA_FLAG_INCLUDE_GATEWAYS: u32 = 128;
+        const GAA_FLAG_INCLUDE_PREFIX: u32 = 16;
+        const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: u32 = 1024;
+        const GAA_FLAG_INCLUDE_WINS_INFO: u32 = 64;
+        const GAA_FLAG_SKIP_ANYCAST: u32 = 2;
+        const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048;
+        const GAA_FLAG_SKIP_DNS_SERVER: u32 = 8;
+        const GAA_FLAG_SKIP_FRIENDLY_NAME: u32 = 32;
+        const GAA_FLAG_SKIP_MULTICAST: u32 = 4;
+        const GAA_FLAG_SKIP_UNICAST: u32 = 1;
+        const HYBRID_NODETYPE: u32 = 8;
+        type IP_ADAPTER_ADDRESSES = IP_ADAPTER_ADDRESSES_LH;
+        struct IP_ADAPTER_ADDRESSES_LH {
+            Anonymous: union {
+                Alignment: u64,
+                Anonymous: struct {
+                    Length: u32,
+                    IfIndex: IF_INDEX,
+                },
+            },
+            Next: *mut IP_ADAPTER_ADDRESSES_LH,
+            AdapterName: PCHAR,
+            FirstUnicastAddress: PIP_ADAPTER_UNICAST_ADDRESS_LH,
+            FirstAnycastAddress: PIP_ADAPTER_ANYCAST_ADDRESS_XP,
+            FirstMulticastAddress: PIP_ADAPTER_MULTICAST_ADDRESS_XP,
+            FirstDnsServerAddress: PIP_ADAPTER_DNS_SERVER_ADDRESS_XP,
+            DnsSuffix: PWCHAR,
+            Description: PWCHAR,
+            FriendlyName: PWCHAR,
+            PhysicalAddress: [u8; 8],
+            PhysicalAddressLength: u32,
+            Anonymous2: union {
+                Flags: u32,
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+            },
+            Mtu: u32,
+            IfType: IFTYPE,
+            OperStatus: IF_OPER_STATUS,
+            Ipv6IfIndex: IF_INDEX,
+            ZoneIndices: [u32; 16],
+            FirstPrefix: PIP_ADAPTER_PREFIX_XP,
+            TransmitLinkSpeed: u64,
+            ReceiveLinkSpeed: u64,
+            FirstWinsServerAddress: PIP_ADAPTER_WINS_SERVER_ADDRESS_LH,
+            FirstGatewayAddress: PIP_ADAPTER_GATEWAY_ADDRESS_LH,
+            Ipv4Metric: u32,
+            Ipv6Metric: u32,
+            Luid: IF_LUID,
+            Dhcpv4Server: SOCKET_ADDRESS,
+            CompartmentId: NET_IF_COMPARTMENT_ID,
+            NetworkGuid: NET_IF_NETWORK_GUID,
+            ConnectionType: NET_IF_CONNECTION_TYPE,
+            TunnelType: TUNNEL_TYPE,
+            Dhcpv6Server: SOCKET_ADDRESS,
+            Dhcpv6ClientDuid: [u8; 130],
+            Dhcpv6ClientDuidLength: u32,
+            Dhcpv6Iaid: u32,
+            FirstDnsSuffix: PIP_ADAPTER_DNS_SUFFIX,
+        }
+        struct IP_ADAPTER_ADDRESSES_XP {
+            Anonymous: union {
+                Alignment: u64,
+                Anonymous: struct {
+                    Length: u32,
+                    IfIndex: u32,
+                },
+            },
+            Next: *mut IP_ADAPTER_ADDRESSES_XP,
+            AdapterName: PCHAR,
+            FirstUnicastAddress: PIP_ADAPTER_UNICAST_ADDRESS_XP,
+            FirstAnycastAddress: PIP_ADAPTER_ANYCAST_ADDRESS_XP,
+            FirstMulticastAddress: PIP_ADAPTER_MULTICAST_ADDRESS_XP,
+            FirstDnsServerAddress: PIP_ADAPTER_DNS_SERVER_ADDRESS_XP,
+            DnsSuffix: PWCHAR,
+            Description: PWCHAR,
+            FriendlyName: PWCHAR,
+            PhysicalAddress: [u8; 8],
+            PhysicalAddressLength: u32,
+            Flags: u32,
+            Mtu: u32,
+            IfType: u32,
+            OperStatus: IF_OPER_STATUS,
+            Ipv6IfIndex: u32,
+            ZoneIndices: [u32; 16],
+            FirstPrefix: PIP_ADAPTER_PREFIX_XP,
+        }
+        const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: u32 = 1;
+        const IP_ADAPTER_ADDRESS_TRANSIENT: u32 = 2;
+        type IP_ADAPTER_ANYCAST_ADDRESS = IP_ADAPTER_ANYCAST_ADDRESS_XP;
+        struct IP_ADAPTER_ANYCAST_ADDRESS_XP {
+            Anonymous: union {
+                Alignment: u64,
+                Anonymous: struct {
+                    Length: u32,
+                    Flags: u32,
+                },
+            },
+            Next: *mut IP_ADAPTER_ANYCAST_ADDRESS_XP,
+            Address: SOCKET_ADDRESS,
+        }
+        const IP_ADAPTER_DDNS_ENABLED: u32 = 1;
+        const IP_ADAPTER_DHCP_ENABLED: u32 = 4;
+        type IP_ADAPTER_DNS_SERVER_ADDRESS = IP_ADAPTER_DNS_SERVER_ADDRESS_XP;
+        struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
+            Anonymous: union {
+                Alignment: u64,
+                Anonymous: struct {
+                    Length: u32,
+                    Reserved: u32,
+                },
+            },
+            Next: *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP,
+            Address: SOCKET_ADDRESS,
+        }
+        struct IP_ADAPTER_DNS_SUFFIX {
+            Next: *mut IP_ADAPTER_DNS_SUFFIX,
+            String: [u16; 256],
+        }
+        type IP_ADAPTER_GATEWAY_ADDRESS = IP_ADAPTER_GATEWAY_ADDRESS_LH;
+        struct IP_ADAPTER_GATEWAY_ADDRESS_LH {
+            Anonymous: union {
+                Alignment: u64,
+                Anonymous: struct {
+                    Length: u32,
+                    Reserved: u32,
+                },
+            },
+            Next: *mut IP_ADAPTER_GATEWAY_ADDRESS_LH,
+            Address: SOCKET_ADDRESS,
+        }
+        struct IP_ADAPTER_INFO {
+            Next: *mut IP_ADAPTER_INFO,
+            ComboIndex: u32,
+            AdapterName: [i8; 260],
+            Description: [i8; 132],
+            AddressLength: u32,
+            Address: [u8; 8],
+            Index: u32,
+            Type: u32,
+            DhcpEnabled: u32,
+            CurrentIpAddress: PIP_ADDR_STRING,
+            IpAddressList: IP_ADDR_STRING,
+            GatewayList: IP_ADDR_STRING,
+            DhcpServer: IP_ADDR_STRING,
+            HaveWins: BOOL,
+            PrimaryWinsServer: IP_ADDR_STRING,
+            SecondaryWinsServer: IP_ADDR_STRING,
+            LeaseObtained: time_t,
+            LeaseExpires: time_t,
+        }
+        const IP_ADAPTER_IPV4_ENABLED: u32 = 128;
+        const IP_ADAPTER_IPV6_ENABLED: u32 = 256;
+        const IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG: u32 = 512;
+        const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: u32 = 32;
+        type IP_ADAPTER_MULTICAST_ADDRESS = IP_ADAPTER_MULTICAST_ADDRESS_XP;
+        struct IP_ADAPTER_MULTICAST_ADDRESS_XP {
+            Anonymous: union {
+                Alignment: u64,
+                Anonymous: struct {
+                    Length: u32,
+                    Flags: u32,
+                },
+            },
+            Next: *mut IP_ADAPTER_MULTICAST_ADDRESS_XP,
+            Address: SOCKET_ADDRESS,
+        }
+        const IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED: u32 = 64;
+        const IP_ADAPTER_NO_MULTICAST: u32 = 16;
+        type IP_ADAPTER_PREFIX = IP_ADAPTER_PREFIX_XP;
+        struct IP_ADAPTER_PREFIX_XP {
+            Anonymous: union {
+                Alignment: u64,
+                Anonymous: struct {
+                    Length: u32,
+                    Flags: u32,
+                },
+            },
+            Next: *mut IP_ADAPTER_PREFIX_XP,
+            Address: SOCKET_ADDRESS,
+            PrefixLength: u32,
+        }
+        const IP_ADAPTER_RECEIVE_ONLY: u32 = 8;
+        const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: u32 = 2;
+        type IP_ADAPTER_UNICAST_ADDRESS = IP_ADAPTER_UNICAST_ADDRESS_LH;
+        struct IP_ADAPTER_UNICAST_ADDRESS_LH {
+            Anonymous: union {
+                Alignment: u64,
+                Anonymous: struct {
+                    Length: u32,
+                    Flags: u32,
+                },
+            },
+            Next: *mut IP_ADAPTER_UNICAST_ADDRESS_LH,
+            Address: SOCKET_ADDRESS,
+            PrefixOrigin: IP_PREFIX_ORIGIN,
+            SuffixOrigin: IP_SUFFIX_ORIGIN,
+            DadState: IP_DAD_STATE,
+            ValidLifetime: u32,
+            PreferredLifetime: u32,
+            LeaseLifetime: u32,
+            OnLinkPrefixLength: u8,
+        }
+        struct IP_ADAPTER_UNICAST_ADDRESS_XP {
+            Anonymous: union {
+                Alignment: u64,
+                Anonymous: struct {
+                    Length: u32,
+                    Flags: u32,
+                },
+            },
+            Next: *mut IP_ADAPTER_UNICAST_ADDRESS_XP,
+            Address: SOCKET_ADDRESS,
+            PrefixOrigin: IP_PREFIX_ORIGIN,
+            SuffixOrigin: IP_SUFFIX_ORIGIN,
+            DadState: IP_DAD_STATE,
+            ValidLifetime: u32,
+            PreferredLifetime: u32,
+            LeaseLifetime: u32,
+        }
+        type IP_ADAPTER_WINS_SERVER_ADDRESS = IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
+        struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
+            Anonymous: union {
+                Alignment: u64,
+                Anonymous: struct {
+                    Length: u32,
+                    Reserved: u32,
+                },
+            },
+            Next: *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH,
+            Address: SOCKET_ADDRESS,
+        }
+        type IP_ADDRESS_STRING = IP_MASK_STRING;
+        struct IP_ADDR_STRING {
+            Next: *mut IP_ADDR_STRING,
+            IpAddress: IP_ADDRESS_STRING,
+            IpMask: IP_MASK_STRING,
+            Context: u32,
+        }
+        type IP_DAD_STATE = NL_DAD_STATE;
+        type IP_INTERFACE_NAME_INFO = IP_INTERFACE_NAME_INFO_W2KSP1;
+        struct IP_INTERFACE_NAME_INFO_W2KSP1 {
+            Index: u32,
+            MediaType: u32,
+            ConnectionType: u8,
+            AccessType: u8,
+            DeviceGuid: GUID,
+            InterfaceGuid: GUID,
+        }
+        struct IP_MASK_STRING {
+            String: [i8; 16],
+        }
+        type IP_PER_ADAPTER_INFO = IP_PER_ADAPTER_INFO_W2KSP1;
+        struct IP_PER_ADAPTER_INFO_W2KSP1 {
+            AutoconfigEnabled: u32,
+            AutoconfigActive: u32,
+            CurrentDnsServer: PIP_ADDR_STRING,
+            DnsServerList: IP_ADDR_STRING,
+        }
+        type IP_PREFIX_ORIGIN = NL_PREFIX_ORIGIN;
+        type IP_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN;
+        const MAX_ADAPTER_ADDRESS_LENGTH: u32 = 8;
+        const MAX_ADAPTER_DESCRIPTION_LENGTH: u32 = 128;
+        const MAX_ADAPTER_NAME_LENGTH: u32 = 256;
+        const MAX_DHCPV6_DUID_LENGTH: u32 = 130;
+        const MAX_DNS_SUFFIX_STRING_LENGTH: u32 = 256;
+        const MAX_DOMAIN_NAME_LEN: u32 = 128;
+        const MAX_HOSTNAME_LEN: u32 = 128;
+        const MAX_SCOPE_ID_LEN: u32 = 256;
+        const MIXED_NODETYPE: u32 = 4;
+        const PEER_TO_PEER_NODETYPE: u32 = 2;
+        type PFIXED_INFO = *mut FIXED_INFO_W2KSP1;
+        type PFIXED_INFO_W2KSP1 = *mut FIXED_INFO_W2KSP1;
+        type PIP_ADAPTER_ADDRESSES = *mut IP_ADAPTER_ADDRESSES_LH;
+        type PIP_ADAPTER_ADDRESSES_LH = *mut IP_ADAPTER_ADDRESSES_LH;
+        type PIP_ADAPTER_ADDRESSES_XP = *mut IP_ADAPTER_ADDRESSES_XP;
+        type PIP_ADAPTER_ANYCAST_ADDRESS = *mut IP_ADAPTER_ANYCAST_ADDRESS_XP;
+        type PIP_ADAPTER_ANYCAST_ADDRESS_XP = *mut IP_ADAPTER_ANYCAST_ADDRESS_XP;
+        type PIP_ADAPTER_DNS_SERVER_ADDRESS = *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP;
+        type PIP_ADAPTER_DNS_SERVER_ADDRESS_XP = *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP;
+        type PIP_ADAPTER_DNS_SUFFIX = *mut IP_ADAPTER_DNS_SUFFIX;
+        type PIP_ADAPTER_GATEWAY_ADDRESS = *mut IP_ADAPTER_GATEWAY_ADDRESS_LH;
+        type PIP_ADAPTER_GATEWAY_ADDRESS_LH = *mut IP_ADAPTER_GATEWAY_ADDRESS_LH;
+        type PIP_ADAPTER_INFO = *mut IP_ADAPTER_INFO;
+        type PIP_ADAPTER_MULTICAST_ADDRESS = *mut IP_ADAPTER_MULTICAST_ADDRESS_XP;
+        type PIP_ADAPTER_MULTICAST_ADDRESS_XP = *mut IP_ADAPTER_MULTICAST_ADDRESS_XP;
+        type PIP_ADAPTER_PREFIX = *mut IP_ADAPTER_PREFIX_XP;
+        type PIP_ADAPTER_PREFIX_XP = *mut IP_ADAPTER_PREFIX_XP;
+        type PIP_ADAPTER_UNICAST_ADDRESS = *mut IP_ADAPTER_UNICAST_ADDRESS_LH;
+        type PIP_ADAPTER_UNICAST_ADDRESS_LH = *mut IP_ADAPTER_UNICAST_ADDRESS_LH;
+        type PIP_ADAPTER_UNICAST_ADDRESS_XP = *mut IP_ADAPTER_UNICAST_ADDRESS_XP;
+        type PIP_ADAPTER_WINS_SERVER_ADDRESS = *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
+        type PIP_ADAPTER_WINS_SERVER_ADDRESS_LH = *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
+        type PIP_ADDRESS_STRING = *mut IP_MASK_STRING;
+        type PIP_ADDR_STRING = *mut IP_ADDR_STRING;
+        type PIP_INTERFACE_NAME_INFO = *mut IP_INTERFACE_NAME_INFO_W2KSP1;
+        type PIP_INTERFACE_NAME_INFO_W2KSP1 = *mut IP_INTERFACE_NAME_INFO_W2KSP1;
+        type PIP_MASK_STRING = *mut IP_MASK_STRING;
+        type PIP_PER_ADAPTER_INFO = *mut IP_PER_ADAPTER_INFO_W2KSP1;
+        type PIP_PER_ADAPTER_INFO_W2KSP1 = *mut IP_PER_ADAPTER_INFO_W2KSP1;
+    }
+}

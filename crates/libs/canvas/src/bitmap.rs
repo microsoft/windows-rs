@@ -20,7 +20,7 @@ impl Bitmap {
 
             let decoder = wic_factory.CreateDecoderFromFilename(
                 PCWSTR(wide_path.as_ptr()),
-                None,
+                std::ptr::null(),
                 GENERIC_READ,
                 WICDecodeMetadataCacheOnDemand,
             )?;

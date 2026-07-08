@@ -1,0 +1,1078 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BOLD_FONTTYPE: u32 = 256;
+        const CC_ANYCOLOR: u32 = 256;
+        const CC_ENABLEHOOK: u32 = 16;
+        const CC_ENABLETEMPLATE: u32 = 32;
+        const CC_ENABLETEMPLATEHANDLE: u32 = 64;
+        const CC_FULLOPEN: u32 = 2;
+        const CC_PREVENTFULLOPEN: u32 = 4;
+        const CC_RGBINIT: u32 = 1;
+        const CC_SHOWHELP: u32 = 8;
+        const CC_SOLIDCOLOR: u32 = 128;
+        const CDM_FIRST: u32 = 1124;
+        const CDM_GETFILEPATH: u32 = 1125;
+        const CDM_GETFOLDERIDLIST: u32 = 1127;
+        const CDM_GETFOLDERPATH: u32 = 1126;
+        const CDM_GETSPEC: u32 = 1124;
+        const CDM_HIDECONTROL: u32 = 1129;
+        const CDM_LAST: u32 = 1224;
+        const CDM_SETCONTROLTEXT: u32 = 1128;
+        const CDM_SETDEFEXT: u32 = 1130;
+        const CDN_FILEOK: i32 = -606;
+        const CDN_FIRST: i32 = -601;
+        const CDN_FOLDERCHANGE: i32 = -603;
+        const CDN_HELP: i32 = -605;
+        const CDN_INCLUDEITEM: i32 = -608;
+        const CDN_INITDONE: i32 = -601;
+        const CDN_LAST: i32 = -699;
+        const CDN_SELCHANGE: i32 = -602;
+        const CDN_SHAREVIOLATION: i32 = -604;
+        const CDN_TYPECHANGE: i32 = -607;
+        const CD_LBSELADD: u32 = 2;
+        const CD_LBSELCHANGE: u32 = 0;
+        const CD_LBSELNOITEMS: i32 = -1;
+        const CD_LBSELSUB: u32 = 1;
+        const CF_ANSIONLY: u32 = 1024;
+        const CF_APPLY: u32 = 512;
+        const CF_BOTH: u32 = 3;
+        const CF_EFFECTS: u32 = 256;
+        const CF_ENABLEHOOK: u32 = 8;
+        const CF_ENABLETEMPLATE: u32 = 16;
+        const CF_ENABLETEMPLATEHANDLE: u32 = 32;
+        const CF_FIXEDPITCHONLY: u32 = 16384;
+        const CF_FORCEFONTEXIST: u32 = 65536;
+        const CF_INACTIVEFONTS: u32 = 33554432;
+        const CF_INITTOLOGFONTSTRUCT: u32 = 64;
+        const CF_LIMITSIZE: u32 = 8192;
+        const CF_NOFACESEL: u32 = 524288;
+        const CF_NOOEMFONTS: u32 = 2048;
+        const CF_NOSCRIPTSEL: u32 = 8388608;
+        const CF_NOSIMULATIONS: u32 = 4096;
+        const CF_NOSIZESEL: u32 = 2097152;
+        const CF_NOSTYLESEL: u32 = 1048576;
+        const CF_NOVECTORFONTS: u32 = 2048;
+        const CF_NOVERTFONTS: u32 = 16777216;
+        const CF_PRINTERFONTS: u32 = 2;
+        const CF_SCALABLEONLY: u32 = 131072;
+        const CF_SCREENFONTS: u32 = 1;
+        const CF_SCRIPTSONLY: u32 = 1024;
+        const CF_SELECTSCRIPT: u32 = 4194304;
+        const CF_SHOWHELP: u32 = 4;
+        const CF_TTONLY: u32 = 262144;
+        const CF_USESTYLE: u32 = 128;
+        const CF_WYSIWYG: u32 = 32768;
+        type CHOOSECOLOR = CHOOSECOLORA;
+        #[arch(X64 | Arm64)]
+        struct CHOOSECOLORA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HWND,
+            rgbResult: COLORREF,
+            lpCustColors: *mut COLORREF,
+            Flags: u32,
+            lCustData: LPARAM,
+            lpfnHook: LPCCHOOKPROC,
+            lpTemplateName: PCSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct CHOOSECOLORA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HWND,
+            rgbResult: COLORREF,
+            lpCustColors: *mut COLORREF,
+            Flags: u32,
+            lCustData: LPARAM,
+            lpfnHook: LPCCHOOKPROC,
+            lpTemplateName: PCSTR,
+        }
+        #[arch(X64 | Arm64)]
+        struct CHOOSECOLORW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HWND,
+            rgbResult: COLORREF,
+            lpCustColors: *mut COLORREF,
+            Flags: u32,
+            lCustData: LPARAM,
+            lpfnHook: LPCCHOOKPROC,
+            lpTemplateName: PCWSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct CHOOSECOLORW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HWND,
+            rgbResult: COLORREF,
+            lpCustColors: *mut COLORREF,
+            Flags: u32,
+            lCustData: LPARAM,
+            lpfnHook: LPCCHOOKPROC,
+            lpTemplateName: PCWSTR,
+        }
+        type CHOOSEFONT = CHOOSEFONTA;
+        #[arch(X64 | Arm64)]
+        struct CHOOSEFONTA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDC: HDC,
+            lpLogFont: LPLOGFONTA,
+            iPointSize: i32,
+            Flags: u32,
+            rgbColors: COLORREF,
+            lCustData: LPARAM,
+            lpfnHook: LPCFHOOKPROC,
+            lpTemplateName: PCSTR,
+            hInstance: HINSTANCE,
+            lpszStyle: PSTR,
+            nFontType: u16,
+            ___MISSING_ALIGNMENT__: u16,
+            nSizeMin: i32,
+            nSizeMax: i32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct CHOOSEFONTA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDC: HDC,
+            lpLogFont: LPLOGFONTA,
+            iPointSize: i32,
+            Flags: u32,
+            rgbColors: COLORREF,
+            lCustData: LPARAM,
+            lpfnHook: LPCFHOOKPROC,
+            lpTemplateName: PCSTR,
+            hInstance: HINSTANCE,
+            lpszStyle: PSTR,
+            nFontType: u16,
+            ___MISSING_ALIGNMENT__: u16,
+            nSizeMin: i32,
+            nSizeMax: i32,
+        }
+        #[arch(X64 | Arm64)]
+        struct CHOOSEFONTW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDC: HDC,
+            lpLogFont: LPLOGFONTW,
+            iPointSize: i32,
+            Flags: u32,
+            rgbColors: COLORREF,
+            lCustData: LPARAM,
+            lpfnHook: LPCFHOOKPROC,
+            lpTemplateName: PCWSTR,
+            hInstance: HINSTANCE,
+            lpszStyle: PWSTR,
+            nFontType: u16,
+            ___MISSING_ALIGNMENT__: u16,
+            nSizeMin: i32,
+            nSizeMax: i32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct CHOOSEFONTW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDC: HDC,
+            lpLogFont: LPLOGFONTW,
+            iPointSize: i32,
+            Flags: u32,
+            rgbColors: COLORREF,
+            lCustData: LPARAM,
+            lpfnHook: LPCFHOOKPROC,
+            lpTemplateName: PCWSTR,
+            hInstance: HINSTANCE,
+            lpszStyle: PWSTR,
+            nFontType: u16,
+            ___MISSING_ALIGNMENT__: u16,
+            nSizeMin: i32,
+            nSizeMax: i32,
+        }
+        #[encoding("ansi")]
+        const COLOROKSTRINGA: String = "commdlg_ColorOK";
+        #[encoding("utf-16")]
+        const COLOROKSTRINGW: String = "commdlg_ColorOK";
+        #[library("COMDLG32.dll")]
+        extern fn ChooseColorA(param0: *mut CHOOSECOLORA) -> BOOL;
+        #[library("COMDLG32.dll")]
+        extern fn ChooseColorW(param0: *mut CHOOSECOLORW) -> BOOL;
+        #[library("COMDLG32.dll")]
+        extern fn ChooseFontA(param0: *mut CHOOSEFONTA) -> BOOL;
+        #[library("COMDLG32.dll")]
+        extern fn ChooseFontW(param0: *mut CHOOSEFONTW) -> BOOL;
+        #[library("COMDLG32.dll")]
+        extern fn CommDlgExtendedError() -> u32;
+        #[arch(X64 | Arm64)]
+        struct DEVNAMES {
+            wDriverOffset: u16,
+            wDeviceOffset: u16,
+            wOutputOffset: u16,
+            wDefault: u16,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct DEVNAMES {
+            wDriverOffset: u16,
+            wDeviceOffset: u16,
+            wOutputOffset: u16,
+            wDefault: u16,
+        }
+        const DN_DEFAULTPRN: u32 = 1;
+        #[encoding("ansi")]
+        const FILEOKSTRINGA: String = "commdlg_FileNameOK";
+        #[encoding("utf-16")]
+        const FILEOKSTRINGW: String = "commdlg_FileNameOK";
+        #[encoding("ansi")]
+        const FINDMSGSTRINGA: String = "commdlg_FindReplace";
+        #[encoding("utf-16")]
+        const FINDMSGSTRINGW: String = "commdlg_FindReplace";
+        type FINDREPLACE = FINDREPLACEA;
+        #[arch(X64 | Arm64)]
+        struct FINDREPLACEA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            Flags: u32,
+            lpstrFindWhat: PSTR,
+            lpstrReplaceWith: PSTR,
+            wFindWhatLen: u16,
+            wReplaceWithLen: u16,
+            lCustData: LPARAM,
+            lpfnHook: LPFRHOOKPROC,
+            lpTemplateName: PCSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct FINDREPLACEA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            Flags: u32,
+            lpstrFindWhat: PSTR,
+            lpstrReplaceWith: PSTR,
+            wFindWhatLen: u16,
+            wReplaceWithLen: u16,
+            lCustData: LPARAM,
+            lpfnHook: LPFRHOOKPROC,
+            lpTemplateName: PCSTR,
+        }
+        #[arch(X64 | Arm64)]
+        struct FINDREPLACEW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            Flags: u32,
+            lpstrFindWhat: PWSTR,
+            lpstrReplaceWith: PWSTR,
+            wFindWhatLen: u16,
+            wReplaceWithLen: u16,
+            lCustData: LPARAM,
+            lpfnHook: LPFRHOOKPROC,
+            lpTemplateName: PCWSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct FINDREPLACEW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            Flags: u32,
+            lpstrFindWhat: PWSTR,
+            lpstrReplaceWith: PWSTR,
+            wFindWhatLen: u16,
+            wReplaceWithLen: u16,
+            lCustData: LPARAM,
+            lpfnHook: LPFRHOOKPROC,
+            lpTemplateName: PCWSTR,
+        }
+        const FRM_FIRST: u32 = 1124;
+        const FRM_LAST: u32 = 1224;
+        const FRM_SETOPERATIONRESULT: u32 = 1124;
+        const FRM_SETOPERATIONRESULTTEXT: u32 = 1125;
+        const FR_DIALOGTERM: u32 = 64;
+        const FR_DOWN: u32 = 1;
+        const FR_ENABLEHOOK: u32 = 256;
+        const FR_ENABLETEMPLATE: u32 = 512;
+        const FR_ENABLETEMPLATEHANDLE: u32 = 8192;
+        const FR_FINDNEXT: u32 = 8;
+        const FR_HIDEMATCHCASE: u32 = 32768;
+        const FR_HIDEUPDOWN: u32 = 16384;
+        const FR_HIDEWHOLEWORD: u32 = 65536;
+        const FR_MATCHALEFHAMZA: u32 = 2147483648;
+        const FR_MATCHCASE: u32 = 4;
+        const FR_MATCHDIAC: u32 = 536870912;
+        const FR_MATCHKASHIDA: u32 = 1073741824;
+        const FR_NOMATCHCASE: u32 = 2048;
+        const FR_NOUPDOWN: u32 = 1024;
+        const FR_NOWHOLEWORD: u32 = 4096;
+        const FR_NOWRAPAROUND: u32 = 524288;
+        const FR_RAW: u32 = 131072;
+        const FR_REPLACE: u32 = 16;
+        const FR_REPLACEALL: u32 = 32;
+        const FR_SHOWHELP: u32 = 128;
+        const FR_SHOWWRAPAROUND: u32 = 262144;
+        const FR_WHOLEWORD: u32 = 2;
+        const FR_WRAPAROUND: u32 = 1048576;
+        #[library("COMDLG32.dll")]
+        extern fn FindTextA(param0: *mut FINDREPLACEA) -> HWND;
+        #[library("COMDLG32.dll")]
+        extern fn FindTextW(param0: *mut FINDREPLACEW) -> HWND;
+        #[library("COMDLG32.dll")]
+        extern fn GetFileTitleA(param0: PCSTR, #[len_param(2)] #[out] Buf: PSTR, cchSize: u16) -> i16;
+        #[library("COMDLG32.dll")]
+        extern fn GetFileTitleW(param0: PCWSTR, #[len_param(2)] #[out] Buf: PWSTR, cchSize: u16) -> i16;
+        #[library("COMDLG32.dll")]
+        extern fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> BOOL;
+        #[library("COMDLG32.dll")]
+        extern fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> BOOL;
+        #[library("COMDLG32.dll")]
+        extern fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> BOOL;
+        #[library("COMDLG32.dll")]
+        extern fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> BOOL;
+        #[encoding("ansi")]
+        const HELPMSGSTRINGA: String = "commdlg_help";
+        #[encoding("utf-16")]
+        const HELPMSGSTRINGW: String = "commdlg_help";
+        #[guid(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9)]
+        interface IPrintDialogCallback: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn InitDone(&self) -> HRESULT;
+            fn SelectionChange(&self) -> HRESULT;
+            fn HandleMessage(&self, hDlg: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM, pResult: *mut LRESULT) -> HRESULT;
+        }
+        #[guid(0x509aaeda_5639_11d1_b6a1_0000f8757bf9)]
+        interface IPrintDialogServices: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetCurrentDevMode(&self, #[in] #[out] pDevMode: LPDEVMODE, #[in] #[out] pcbSize: *mut u32) -> HRESULT;
+            fn GetCurrentPrinterName(&self, #[len_param(1)] #[out] #[opt] pPrinterName: PWSTR, #[in] #[out] pcchSize: *mut u32) -> HRESULT;
+            fn GetCurrentPortName(&self, #[len_param(1)] #[out] #[opt] pPortName: PWSTR, #[in] #[out] pcchSize: *mut u32) -> HRESULT;
+        }
+        const ITALIC_FONTTYPE: u32 = 512;
+        #[encoding("ansi")]
+        const LBSELCHSTRINGA: String = "commdlg_LBSelChangedNotify";
+        #[encoding("utf-16")]
+        const LBSELCHSTRINGW: String = "commdlg_LBSelChangedNotify";
+        extern fn LPCCHOOKPROC(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> usize;
+        extern fn LPCFHOOKPROC(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> usize;
+        type LPCHOOSECOLOR = LPCHOOSECOLORA;
+        type LPCHOOSECOLORA = *mut CHOOSECOLORA;
+        type LPCHOOSECOLORW = *mut CHOOSECOLORW;
+        type LPCHOOSEFONT = LPCHOOSEFONTA;
+        type LPCHOOSEFONTA = *mut CHOOSEFONTA;
+        type LPCHOOSEFONTW = *mut CHOOSEFONTW;
+        type LPDEVNAMES = *mut DEVNAMES;
+        type LPFINDREPLACE = LPFINDREPLACEA;
+        type LPFINDREPLACEA = *mut FINDREPLACEA;
+        type LPFINDREPLACEW = *mut FINDREPLACEW;
+        extern fn LPFRHOOKPROC(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> usize;
+        extern fn LPOFNHOOKPROC(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> usize;
+        type LPOFNOTIFY = LPOFNOTIFYA;
+        type LPOFNOTIFYA = *mut OFNOTIFYA;
+        type LPOFNOTIFYEX = LPOFNOTIFYEXA;
+        type LPOFNOTIFYEXA = *mut OFNOTIFYEXA;
+        type LPOFNOTIFYEXW = *mut OFNOTIFYEXW;
+        type LPOFNOTIFYW = *mut OFNOTIFYW;
+        type LPOPENFILENAME = LPOPENFILENAMEA;
+        type LPOPENFILENAMEA = *mut OPENFILENAMEA;
+        type LPOPENFILENAMEW = *mut OPENFILENAMEW;
+        type LPOPENFILENAME_NT4 = LPOPENFILENAME_NT4A;
+        type LPOPENFILENAME_NT4A = *mut OPENFILENAME_NT4A;
+        type LPOPENFILENAME_NT4W = *mut OPENFILENAME_NT4W;
+        extern fn LPPAGEPAINTHOOK(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> usize;
+        type LPPAGESETUPDLG = LPPAGESETUPDLGA;
+        type LPPAGESETUPDLGA = *mut PAGESETUPDLGA;
+        type LPPAGESETUPDLGW = *mut PAGESETUPDLGW;
+        extern fn LPPAGESETUPHOOK(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> usize;
+        type LPPRINTDLG = LPPRINTDLGA;
+        type LPPRINTDLGA = *mut PRINTDLGA;
+        type LPPRINTDLGEX = LPPRINTDLGEXA;
+        type LPPRINTDLGEXA = *mut PRINTDLGEXA;
+        type LPPRINTDLGEXW = *mut PRINTDLGEXW;
+        type LPPRINTDLGW = *mut PRINTDLGW;
+        extern fn LPPRINTHOOKPROC(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> usize;
+        type LPPRINTPAGERANGE = *mut PRINTPAGERANGE;
+        extern fn LPSETUPHOOKPROC(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> usize;
+        type OFNOTIFY = OFNOTIFYA;
+        #[arch(X64 | Arm64)]
+        struct OFNOTIFYA {
+            hdr: NMHDR,
+            lpOFN: LPOPENFILENAMEA,
+            pszFile: PSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct OFNOTIFYA {
+            hdr: NMHDR,
+            lpOFN: LPOPENFILENAMEA,
+            pszFile: PSTR,
+        }
+        type OFNOTIFYEX = OFNOTIFYEXA;
+        #[arch(X64 | Arm64)]
+        struct OFNOTIFYEXA {
+            hdr: NMHDR,
+            lpOFN: LPOPENFILENAMEA,
+            psf: *mut void,
+            pidl: *mut void,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct OFNOTIFYEXA {
+            hdr: NMHDR,
+            lpOFN: LPOPENFILENAMEA,
+            psf: *mut void,
+            pidl: *mut void,
+        }
+        #[arch(X64 | Arm64)]
+        struct OFNOTIFYEXW {
+            hdr: NMHDR,
+            lpOFN: LPOPENFILENAMEW,
+            psf: *mut void,
+            pidl: *mut void,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct OFNOTIFYEXW {
+            hdr: NMHDR,
+            lpOFN: LPOPENFILENAMEW,
+            psf: *mut void,
+            pidl: *mut void,
+        }
+        #[arch(X64 | Arm64)]
+        struct OFNOTIFYW {
+            hdr: NMHDR,
+            lpOFN: LPOPENFILENAMEW,
+            pszFile: PWSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct OFNOTIFYW {
+            hdr: NMHDR,
+            lpOFN: LPOPENFILENAMEW,
+            pszFile: PWSTR,
+        }
+        const OFN_ALLOWMULTISELECT: u32 = 512;
+        const OFN_CREATEPROMPT: u32 = 8192;
+        const OFN_DONTADDTORECENT: u32 = 33554432;
+        const OFN_ENABLEHOOK: u32 = 32;
+        const OFN_ENABLEINCLUDENOTIFY: u32 = 4194304;
+        const OFN_ENABLESIZING: u32 = 8388608;
+        const OFN_ENABLETEMPLATE: u32 = 64;
+        const OFN_ENABLETEMPLATEHANDLE: u32 = 128;
+        const OFN_EXPLORER: u32 = 524288;
+        const OFN_EXTENSIONDIFFERENT: u32 = 1024;
+        const OFN_EX_NOPLACESBAR: u32 = 1;
+        const OFN_FILEMUSTEXIST: u32 = 4096;
+        const OFN_FORCESHOWHIDDEN: u32 = 268435456;
+        const OFN_HIDEREADONLY: u32 = 4;
+        const OFN_LONGNAMES: u32 = 2097152;
+        const OFN_NOCHANGEDIR: u32 = 8;
+        const OFN_NODEREFERENCELINKS: u32 = 1048576;
+        const OFN_NOLONGNAMES: u32 = 262144;
+        const OFN_NONETWORKBUTTON: u32 = 131072;
+        const OFN_NOREADONLYRETURN: u32 = 32768;
+        const OFN_NOTESTFILECREATE: u32 = 65536;
+        const OFN_NOVALIDATE: u32 = 256;
+        const OFN_OVERWRITEPROMPT: u32 = 2;
+        const OFN_PATHMUSTEXIST: u32 = 2048;
+        const OFN_READONLY: u32 = 1;
+        const OFN_SHAREAWARE: u32 = 16384;
+        const OFN_SHAREFALLTHROUGH: u32 = 2;
+        const OFN_SHARENOWARN: u32 = 1;
+        const OFN_SHAREWARN: u32 = 0;
+        const OFN_SHOWHELP: u32 = 16;
+        type OPENFILENAME = OPENFILENAMEA;
+        #[arch(X64 | Arm64)]
+        struct OPENFILENAMEA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            lpstrFilter: PCSTR,
+            lpstrCustomFilter: PSTR,
+            nMaxCustFilter: u32,
+            nFilterIndex: u32,
+            lpstrFile: PSTR,
+            nMaxFile: u32,
+            lpstrFileTitle: PSTR,
+            nMaxFileTitle: u32,
+            lpstrInitialDir: PCSTR,
+            lpstrTitle: PCSTR,
+            Flags: u32,
+            nFileOffset: u16,
+            nFileExtension: u16,
+            lpstrDefExt: PCSTR,
+            lCustData: LPARAM,
+            lpfnHook: LPOFNHOOKPROC,
+            lpTemplateName: PCSTR,
+            pvReserved: *mut void,
+            dwReserved: u32,
+            FlagsEx: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct OPENFILENAMEA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            lpstrFilter: PCSTR,
+            lpstrCustomFilter: PSTR,
+            nMaxCustFilter: u32,
+            nFilterIndex: u32,
+            lpstrFile: PSTR,
+            nMaxFile: u32,
+            lpstrFileTitle: PSTR,
+            nMaxFileTitle: u32,
+            lpstrInitialDir: PCSTR,
+            lpstrTitle: PCSTR,
+            Flags: u32,
+            nFileOffset: u16,
+            nFileExtension: u16,
+            lpstrDefExt: PCSTR,
+            lCustData: LPARAM,
+            lpfnHook: LPOFNHOOKPROC,
+            lpTemplateName: PCSTR,
+            pvReserved: *mut void,
+            dwReserved: u32,
+            FlagsEx: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct OPENFILENAMEW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            lpstrFilter: PCWSTR,
+            lpstrCustomFilter: PWSTR,
+            nMaxCustFilter: u32,
+            nFilterIndex: u32,
+            lpstrFile: PWSTR,
+            nMaxFile: u32,
+            lpstrFileTitle: PWSTR,
+            nMaxFileTitle: u32,
+            lpstrInitialDir: PCWSTR,
+            lpstrTitle: PCWSTR,
+            Flags: u32,
+            nFileOffset: u16,
+            nFileExtension: u16,
+            lpstrDefExt: PCWSTR,
+            lCustData: LPARAM,
+            lpfnHook: LPOFNHOOKPROC,
+            lpTemplateName: PCWSTR,
+            pvReserved: *mut void,
+            dwReserved: u32,
+            FlagsEx: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct OPENFILENAMEW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            lpstrFilter: PCWSTR,
+            lpstrCustomFilter: PWSTR,
+            nMaxCustFilter: u32,
+            nFilterIndex: u32,
+            lpstrFile: PWSTR,
+            nMaxFile: u32,
+            lpstrFileTitle: PWSTR,
+            nMaxFileTitle: u32,
+            lpstrInitialDir: PCWSTR,
+            lpstrTitle: PCWSTR,
+            Flags: u32,
+            nFileOffset: u16,
+            nFileExtension: u16,
+            lpstrDefExt: PCWSTR,
+            lCustData: LPARAM,
+            lpfnHook: LPOFNHOOKPROC,
+            lpTemplateName: PCWSTR,
+            pvReserved: *mut void,
+            dwReserved: u32,
+            FlagsEx: u32,
+        }
+        type OPENFILENAME_NT4 = OPENFILENAME_NT4A;
+        #[arch(X64 | Arm64)]
+        struct OPENFILENAME_NT4A {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            lpstrFilter: PCSTR,
+            lpstrCustomFilter: PSTR,
+            nMaxCustFilter: u32,
+            nFilterIndex: u32,
+            lpstrFile: PSTR,
+            nMaxFile: u32,
+            lpstrFileTitle: PSTR,
+            nMaxFileTitle: u32,
+            lpstrInitialDir: PCSTR,
+            lpstrTitle: PCSTR,
+            Flags: u32,
+            nFileOffset: u16,
+            nFileExtension: u16,
+            lpstrDefExt: PCSTR,
+            lCustData: LPARAM,
+            lpfnHook: LPOFNHOOKPROC,
+            lpTemplateName: PCSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct OPENFILENAME_NT4A {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            lpstrFilter: PCSTR,
+            lpstrCustomFilter: PSTR,
+            nMaxCustFilter: u32,
+            nFilterIndex: u32,
+            lpstrFile: PSTR,
+            nMaxFile: u32,
+            lpstrFileTitle: PSTR,
+            nMaxFileTitle: u32,
+            lpstrInitialDir: PCSTR,
+            lpstrTitle: PCSTR,
+            Flags: u32,
+            nFileOffset: u16,
+            nFileExtension: u16,
+            lpstrDefExt: PCSTR,
+            lCustData: LPARAM,
+            lpfnHook: LPOFNHOOKPROC,
+            lpTemplateName: PCSTR,
+        }
+        #[arch(X64 | Arm64)]
+        struct OPENFILENAME_NT4W {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            lpstrFilter: PCWSTR,
+            lpstrCustomFilter: PWSTR,
+            nMaxCustFilter: u32,
+            nFilterIndex: u32,
+            lpstrFile: PWSTR,
+            nMaxFile: u32,
+            lpstrFileTitle: PWSTR,
+            nMaxFileTitle: u32,
+            lpstrInitialDir: PCWSTR,
+            lpstrTitle: PCWSTR,
+            Flags: u32,
+            nFileOffset: u16,
+            nFileExtension: u16,
+            lpstrDefExt: PCWSTR,
+            lCustData: LPARAM,
+            lpfnHook: LPOFNHOOKPROC,
+            lpTemplateName: PCWSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct OPENFILENAME_NT4W {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hInstance: HINSTANCE,
+            lpstrFilter: PCWSTR,
+            lpstrCustomFilter: PWSTR,
+            nMaxCustFilter: u32,
+            nFilterIndex: u32,
+            lpstrFile: PWSTR,
+            nMaxFile: u32,
+            lpstrFileTitle: PWSTR,
+            nMaxFileTitle: u32,
+            lpstrInitialDir: PCWSTR,
+            lpstrTitle: PCWSTR,
+            Flags: u32,
+            nFileOffset: u16,
+            nFileExtension: u16,
+            lpstrDefExt: PCWSTR,
+            lCustData: LPARAM,
+            lpfnHook: LPOFNHOOKPROC,
+            lpTemplateName: PCWSTR,
+        }
+        #[arch(X64 | Arm64)]
+        const OPENFILENAME_SIZE_VERSION_400: u32 = 136;
+        #[arch(X86)]
+        const OPENFILENAME_SIZE_VERSION_400: u32 = 76;
+        #[arch(X64 | Arm64)]
+        const OPENFILENAME_SIZE_VERSION_400A: u32 = 136;
+        #[arch(X86)]
+        const OPENFILENAME_SIZE_VERSION_400A: u32 = 76;
+        #[arch(X64 | Arm64)]
+        const OPENFILENAME_SIZE_VERSION_400W: u32 = 136;
+        #[arch(X86)]
+        const OPENFILENAME_SIZE_VERSION_400W: u32 = 76;
+        type PAGESETUPDLG = PAGESETUPDLGA;
+        #[arch(X64 | Arm64)]
+        struct PAGESETUPDLGA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            Flags: u32,
+            ptPaperSize: POINT,
+            rtMinMargin: RECT,
+            rtMargin: RECT,
+            hInstance: HINSTANCE,
+            lCustData: LPARAM,
+            lpfnPageSetupHook: LPPAGESETUPHOOK,
+            lpfnPagePaintHook: LPPAGEPAINTHOOK,
+            lpPageSetupTemplateName: PCSTR,
+            hPageSetupTemplate: HGLOBAL,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct PAGESETUPDLGA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            Flags: u32,
+            ptPaperSize: POINT,
+            rtMinMargin: RECT,
+            rtMargin: RECT,
+            hInstance: HINSTANCE,
+            lCustData: LPARAM,
+            lpfnPageSetupHook: LPPAGESETUPHOOK,
+            lpfnPagePaintHook: LPPAGEPAINTHOOK,
+            lpPageSetupTemplateName: PCSTR,
+            hPageSetupTemplate: HGLOBAL,
+        }
+        #[arch(X64 | Arm64)]
+        struct PAGESETUPDLGW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            Flags: u32,
+            ptPaperSize: POINT,
+            rtMinMargin: RECT,
+            rtMargin: RECT,
+            hInstance: HINSTANCE,
+            lCustData: LPARAM,
+            lpfnPageSetupHook: LPPAGESETUPHOOK,
+            lpfnPagePaintHook: LPPAGEPAINTHOOK,
+            lpPageSetupTemplateName: PCWSTR,
+            hPageSetupTemplate: HGLOBAL,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct PAGESETUPDLGW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            Flags: u32,
+            ptPaperSize: POINT,
+            rtMinMargin: RECT,
+            rtMargin: RECT,
+            hInstance: HINSTANCE,
+            lCustData: LPARAM,
+            lpfnPageSetupHook: LPPAGESETUPHOOK,
+            lpfnPagePaintHook: LPPAGEPAINTHOOK,
+            lpPageSetupTemplateName: PCWSTR,
+            hPageSetupTemplate: HGLOBAL,
+        }
+        type PCCHOOSEFONT = PCCHOOSEFONTA;
+        type PCCHOOSEFONTA = *const CHOOSEFONTA;
+        type PCCHOOSEFONTW = *const CHOOSEFONTW;
+        type PCDEVNAMES = *const DEVNAMES;
+        type PCPRINTPAGERANGE = *const PRINTPAGERANGE;
+        const PD_ALLPAGES: u32 = 0;
+        const PD_COLLATE: u32 = 16;
+        const PD_CURRENTPAGE: u32 = 4194304;
+        const PD_DISABLEPRINTTOFILE: u32 = 524288;
+        const PD_ENABLEPRINTHOOK: u32 = 4096;
+        const PD_ENABLEPRINTTEMPLATE: u32 = 16384;
+        const PD_ENABLEPRINTTEMPLATEHANDLE: u32 = 65536;
+        const PD_ENABLESETUPHOOK: u32 = 8192;
+        const PD_ENABLESETUPTEMPLATE: u32 = 32768;
+        const PD_ENABLESETUPTEMPLATEHANDLE: u32 = 131072;
+        const PD_EXCLUSIONFLAGS: u32 = 16777216;
+        const PD_EXCL_COPIESANDCOLLATE: u32 = 33024;
+        const PD_HIDEPRINTTOFILE: u32 = 1048576;
+        const PD_NOCURRENTPAGE: u32 = 8388608;
+        const PD_NONETWORKBUTTON: u32 = 2097152;
+        const PD_NOPAGENUMS: u32 = 8;
+        const PD_NOSELECTION: u32 = 4;
+        const PD_NOWARNING: u32 = 128;
+        const PD_PAGENUMS: u32 = 2;
+        const PD_PRINTSETUP: u32 = 64;
+        const PD_PRINTTOFILE: u32 = 32;
+        const PD_RESULT_APPLY: u32 = 2;
+        const PD_RESULT_CANCEL: u32 = 0;
+        const PD_RESULT_PRINT: u32 = 1;
+        const PD_RETURNDC: u32 = 256;
+        const PD_RETURNDEFAULT: u32 = 1024;
+        const PD_RETURNIC: u32 = 512;
+        const PD_SELECTION: u32 = 1;
+        const PD_SHOWHELP: u32 = 2048;
+        const PD_USEDEVMODECOPIES: u32 = 262144;
+        const PD_USEDEVMODECOPIESANDCOLLATE: u32 = 262144;
+        const PD_USELARGETEMPLATE: u32 = 268435456;
+        type PRINTDLG = PRINTDLGA;
+        #[arch(X64 | Arm64)]
+        struct PRINTDLGA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            hDC: HDC,
+            Flags: u32,
+            nFromPage: u16,
+            nToPage: u16,
+            nMinPage: u16,
+            nMaxPage: u16,
+            nCopies: u16,
+            hInstance: HINSTANCE,
+            lCustData: LPARAM,
+            lpfnPrintHook: LPPRINTHOOKPROC,
+            lpfnSetupHook: LPSETUPHOOKPROC,
+            lpPrintTemplateName: PCSTR,
+            lpSetupTemplateName: PCSTR,
+            hPrintTemplate: HGLOBAL,
+            hSetupTemplate: HGLOBAL,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct PRINTDLGA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            hDC: HDC,
+            Flags: u32,
+            nFromPage: u16,
+            nToPage: u16,
+            nMinPage: u16,
+            nMaxPage: u16,
+            nCopies: u16,
+            hInstance: HINSTANCE,
+            lCustData: LPARAM,
+            lpfnPrintHook: LPPRINTHOOKPROC,
+            lpfnSetupHook: LPSETUPHOOKPROC,
+            lpPrintTemplateName: PCSTR,
+            lpSetupTemplateName: PCSTR,
+            hPrintTemplate: HGLOBAL,
+            hSetupTemplate: HGLOBAL,
+        }
+        type PRINTDLGEX = PRINTDLGEXA;
+        #[arch(X64 | Arm64)]
+        struct PRINTDLGEXA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            hDC: HDC,
+            Flags: u32,
+            Flags2: u32,
+            ExclusionFlags: u32,
+            nPageRanges: u32,
+            nMaxPageRanges: u32,
+            lpPageRanges: LPPRINTPAGERANGE,
+            nMinPage: u32,
+            nMaxPage: u32,
+            nCopies: u32,
+            hInstance: HINSTANCE,
+            lpPrintTemplateName: PCSTR,
+            lpCallback: IUnknown,
+            nPropertyPages: u32,
+            lphPropertyPages: *mut HPROPSHEETPAGE,
+            nStartPage: u32,
+            dwResultAction: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct PRINTDLGEXA {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            hDC: HDC,
+            Flags: u32,
+            Flags2: u32,
+            ExclusionFlags: u32,
+            nPageRanges: u32,
+            nMaxPageRanges: u32,
+            lpPageRanges: LPPRINTPAGERANGE,
+            nMinPage: u32,
+            nMaxPage: u32,
+            nCopies: u32,
+            hInstance: HINSTANCE,
+            lpPrintTemplateName: PCSTR,
+            lpCallback: IUnknown,
+            nPropertyPages: u32,
+            lphPropertyPages: *mut HPROPSHEETPAGE,
+            nStartPage: u32,
+            dwResultAction: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct PRINTDLGEXW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            hDC: HDC,
+            Flags: u32,
+            Flags2: u32,
+            ExclusionFlags: u32,
+            nPageRanges: u32,
+            nMaxPageRanges: u32,
+            lpPageRanges: LPPRINTPAGERANGE,
+            nMinPage: u32,
+            nMaxPage: u32,
+            nCopies: u32,
+            hInstance: HINSTANCE,
+            lpPrintTemplateName: PCWSTR,
+            lpCallback: IUnknown,
+            nPropertyPages: u32,
+            lphPropertyPages: *mut HPROPSHEETPAGE,
+            nStartPage: u32,
+            dwResultAction: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct PRINTDLGEXW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            hDC: HDC,
+            Flags: u32,
+            Flags2: u32,
+            ExclusionFlags: u32,
+            nPageRanges: u32,
+            nMaxPageRanges: u32,
+            lpPageRanges: LPPRINTPAGERANGE,
+            nMinPage: u32,
+            nMaxPage: u32,
+            nCopies: u32,
+            hInstance: HINSTANCE,
+            lpPrintTemplateName: PCWSTR,
+            lpCallback: IUnknown,
+            nPropertyPages: u32,
+            lphPropertyPages: *mut HPROPSHEETPAGE,
+            nStartPage: u32,
+            dwResultAction: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct PRINTDLGW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            hDC: HDC,
+            Flags: u32,
+            nFromPage: u16,
+            nToPage: u16,
+            nMinPage: u16,
+            nMaxPage: u16,
+            nCopies: u16,
+            hInstance: HINSTANCE,
+            lCustData: LPARAM,
+            lpfnPrintHook: LPPRINTHOOKPROC,
+            lpfnSetupHook: LPSETUPHOOKPROC,
+            lpPrintTemplateName: PCWSTR,
+            lpSetupTemplateName: PCWSTR,
+            hPrintTemplate: HGLOBAL,
+            hSetupTemplate: HGLOBAL,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct PRINTDLGW {
+            lStructSize: u32,
+            hwndOwner: HWND,
+            hDevMode: HGLOBAL,
+            hDevNames: HGLOBAL,
+            hDC: HDC,
+            Flags: u32,
+            nFromPage: u16,
+            nToPage: u16,
+            nMinPage: u16,
+            nMaxPage: u16,
+            nCopies: u16,
+            hInstance: HINSTANCE,
+            lCustData: LPARAM,
+            lpfnPrintHook: LPPRINTHOOKPROC,
+            lpfnSetupHook: LPSETUPHOOKPROC,
+            lpPrintTemplateName: PCWSTR,
+            lpSetupTemplateName: PCWSTR,
+            hPrintTemplate: HGLOBAL,
+            hSetupTemplate: HGLOBAL,
+        }
+        const PRINTER_FONTTYPE: u32 = 16384;
+        #[arch(X64 | Arm64)]
+        struct PRINTPAGERANGE {
+            nFromPage: u32,
+            nToPage: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct PRINTPAGERANGE {
+            nFromPage: u32,
+            nToPage: u32,
+        }
+        const PSD_DEFAULTMINMARGINS: u32 = 0;
+        const PSD_DISABLEMARGINS: u32 = 16;
+        const PSD_DISABLEORIENTATION: u32 = 256;
+        const PSD_DISABLEPAGEPAINTING: u32 = 524288;
+        const PSD_DISABLEPAPER: u32 = 512;
+        const PSD_DISABLEPRINTER: u32 = 32;
+        const PSD_ENABLEPAGEPAINTHOOK: u32 = 262144;
+        const PSD_ENABLEPAGESETUPHOOK: u32 = 8192;
+        const PSD_ENABLEPAGESETUPTEMPLATE: u32 = 32768;
+        const PSD_ENABLEPAGESETUPTEMPLATEHANDLE: u32 = 131072;
+        const PSD_INHUNDREDTHSOFMILLIMETERS: u32 = 8;
+        const PSD_INTHOUSANDTHSOFINCHES: u32 = 4;
+        const PSD_INWININIINTLMEASURE: u32 = 0;
+        const PSD_MARGINS: u32 = 2;
+        const PSD_MINMARGINS: u32 = 1;
+        const PSD_NONETWORKBUTTON: u32 = 2097152;
+        const PSD_NOWARNING: u32 = 128;
+        const PSD_RETURNDEFAULT: u32 = 1024;
+        const PSD_SHOWHELP: u32 = 2048;
+        const PS_OPENTYPE_FONTTYPE: u32 = 65536;
+        #[library("COMDLG32.dll")]
+        extern fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> BOOL;
+        #[library("COMDLG32.dll")]
+        extern fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> BOOL;
+        #[library("COMDLG32.dll")]
+        extern fn PrintDlgA(#[in] #[out] pPD: *mut PRINTDLGA) -> BOOL;
+        #[library("COMDLG32.dll")]
+        extern fn PrintDlgExA(#[in] #[out] pPD: *mut PRINTDLGEXA) -> HRESULT;
+        #[library("COMDLG32.dll")]
+        extern fn PrintDlgExW(#[in] #[out] pPD: *mut PRINTDLGEXW) -> HRESULT;
+        #[library("COMDLG32.dll")]
+        extern fn PrintDlgW(#[in] #[out] pPD: *mut PRINTDLGW) -> BOOL;
+        const REGULAR_FONTTYPE: u32 = 1024;
+        #[library("COMDLG32.dll")]
+        extern fn ReplaceTextA(param0: *mut FINDREPLACEA) -> HWND;
+        #[library("COMDLG32.dll")]
+        extern fn ReplaceTextW(param0: *mut FINDREPLACEW) -> HWND;
+        const SCREEN_FONTTYPE: u32 = 8192;
+        #[encoding("ansi")]
+        const SETRGBSTRINGA: String = "commdlg_SetRGBColor";
+        #[encoding("utf-16")]
+        const SETRGBSTRINGW: String = "commdlg_SetRGBColor";
+        #[encoding("ansi")]
+        const SHAREVISTRINGA: String = "commdlg_ShareViolation";
+        #[encoding("utf-16")]
+        const SHAREVISTRINGW: String = "commdlg_ShareViolation";
+        const SIMULATED_FONTTYPE: u32 = 32768;
+        const START_PAGE_GENERAL: u32 = 4294967295;
+        const SYMBOL_FONTTYPE: u32 = 524288;
+        const TT_OPENTYPE_FONTTYPE: u32 = 131072;
+        const TYPE1_FONTTYPE: u32 = 262144;
+        const WM_CHOOSEFONT_GETLOGFONT: u32 = 1025;
+        const WM_CHOOSEFONT_SETFLAGS: u32 = 1126;
+        const WM_CHOOSEFONT_SETLOGFONT: u32 = 1125;
+        const WM_PSD_ENVSTAMPRECT: u32 = 1029;
+        const WM_PSD_FULLPAGERECT: u32 = 1025;
+        const WM_PSD_GREEKTEXTRECT: u32 = 1028;
+        const WM_PSD_MARGINRECT: u32 = 1027;
+        const WM_PSD_MINMARGINRECT: u32 = 1026;
+        const WM_PSD_PAGESETUPDLG: u32 = 1024;
+        const WM_PSD_YAFULLPAGERECT: u32 = 1030;
+    }
+}

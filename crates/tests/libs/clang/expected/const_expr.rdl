@@ -1,8 +1,8 @@
 #[win32]
 mod Test {
-    const BASE: i32 = 16;
-    const DERIVED: i32 = 32;
-    const MASK: i32 = 65535;
-    const SHIFT: i32 = 16;
-    const SUM: i32 = 3;
+    const BASE: u32 = 16;
+    const DERIVED: u32 = 32;
+    const MASK: u32 = 65535;
+    const SHIFT: u32 = 16;
+    const SUM: u32 = 3;
 }

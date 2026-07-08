@@ -1,0 +1,31 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[arch(X64 | Arm64)]
+        type PUWSTR_C = *const u16;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn uaw_lstrcmpW(String1: *const u16, String2: *const u16) -> i32;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn uaw_lstrcmpiW(String1: *const u16, String2: *const u16) -> i32;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn uaw_lstrlenW(String: *const u16) -> i32;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn uaw_wcschr(String: *const u16, Character: u16) -> PUWSTR;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn uaw_wcscpy(Destination: *mut u16, Source: *const u16) -> PUWSTR;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn uaw_wcsicmp(String1: *const u16, String2: *const u16) -> i32;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn uaw_wcslen(String: *const u16) -> usize;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn uaw_wcsrchr(String: *const u16, Character: u16) -> PUWSTR;
+    }
+}

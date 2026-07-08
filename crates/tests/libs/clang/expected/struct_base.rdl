@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    struct MonitorBase {
+        cbSize: i32,
+        flags: i32,
+    }
+    struct MonitorEx {
+        Base: MonitorBase,
+        extra: i32,
+    }
+}

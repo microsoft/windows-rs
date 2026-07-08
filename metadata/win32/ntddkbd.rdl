@@ -1,0 +1,104 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[encoding("ansi")]
+        const DD_KEYBOARD_DEVICE_NAME: String = "\\Device\\KeyboardClass";
+        #[encoding("utf-16")]
+        const DD_KEYBOARD_DEVICE_NAME_U: String = "\\Device\\KeyboardClass";
+        const GUID_DEVINTERFACE_KEYBOARD: GUID = 0x884b96c3_56ef_11d1_bc8c_00a0c91405dd;
+        struct INDICATOR_LIST {
+            MakeCode: u16,
+            IndicatorFlags: u16,
+        }
+        const IOCTL_KEYBOARD_INSERT_DATA: u32 = 721152;
+        const IOCTL_KEYBOARD_QUERY_ATTRIBUTES: u32 = 720896;
+        const IOCTL_KEYBOARD_QUERY_EXTENDED_ATTRIBUTES: u32 = 721408;
+        const IOCTL_KEYBOARD_QUERY_IME_STATUS: u32 = 724992;
+        const IOCTL_KEYBOARD_QUERY_INDICATORS: u32 = 720960;
+        const IOCTL_KEYBOARD_QUERY_INDICATOR_TRANSLATION: u32 = 721024;
+        const IOCTL_KEYBOARD_QUERY_TYPEMATIC: u32 = 720928;
+        const IOCTL_KEYBOARD_SET_IME_STATUS: u32 = 724996;
+        const IOCTL_KEYBOARD_SET_INDICATORS: u32 = 720904;
+        const IOCTL_KEYBOARD_SET_TYPEMATIC: u32 = 720900;
+        struct KEYBOARD_ATTRIBUTES {
+            KeyboardIdentifier: KEYBOARD_ID,
+            KeyboardMode: u16,
+            NumberOfFunctionKeys: u16,
+            NumberOfIndicators: u16,
+            NumberOfKeysTotal: u16,
+            InputDataQueueLength: u32,
+            KeyRepeatMinimum: KEYBOARD_TYPEMATIC_PARAMETERS,
+            KeyRepeatMaximum: KEYBOARD_TYPEMATIC_PARAMETERS,
+        }
+        const KEYBOARD_CAPS_LOCK_ON: u32 = 4;
+        const KEYBOARD_ERROR_VALUE_BASE: u32 = 10000;
+        struct KEYBOARD_EXTENDED_ATTRIBUTES {
+            Version: u8,
+            FormFactor: u8,
+            KeyType: u8,
+            PhysicalLayout: u8,
+            VendorSpecificPhysicalLayout: u8,
+            IETFLanguageTagIndex: u8,
+            ImplementedInputAssistControls: u8,
+        }
+        const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: u32 = 1;
+        struct KEYBOARD_ID {
+            Type: u8,
+            Subtype: u8,
+        }
+        struct KEYBOARD_IME_STATUS {
+            UnitId: u16,
+            ImeOpen: u32,
+            ImeConvMode: u32,
+        }
+        struct KEYBOARD_INDICATOR_PARAMETERS {
+            UnitId: u16,
+            LedFlags: u16,
+        }
+        struct KEYBOARD_INDICATOR_TRANSLATION {
+            NumberOfIndicatorKeys: u16,
+            IndicatorList: [INDICATOR_LIST; 1],
+        }
+        struct KEYBOARD_INPUT_DATA {
+            UnitId: u16,
+            MakeCode: u16,
+            Flags: u16,
+            Reserved: u16,
+            ExtraInformation: u32,
+        }
+        const KEYBOARD_KANA_LOCK_ON: u32 = 8;
+        const KEYBOARD_LED_INJECTED: u32 = 32768;
+        const KEYBOARD_NUM_LOCK_ON: u32 = 2;
+        const KEYBOARD_SCROLL_LOCK_ON: u32 = 1;
+        const KEYBOARD_SHADOW: u32 = 16384;
+        struct KEYBOARD_TYPEMATIC_PARAMETERS {
+            UnitId: u16,
+            Rate: u16,
+            Delay: u16,
+        }
+        struct KEYBOARD_UNIT_ID_PARAMETER {
+            UnitId: u16,
+        }
+        const KEY_BREAK: u32 = 1;
+        const KEY_E0: u32 = 2;
+        const KEY_E1: u32 = 4;
+        const KEY_FROM_KEYBOARD_OVERRIDER: u32 = 128;
+        const KEY_MAKE: u32 = 0;
+        const KEY_RIM_VKEY: u32 = 64;
+        const KEY_TERMSRV_SET_LED: u32 = 8;
+        const KEY_TERMSRV_SHADOW: u32 = 16;
+        const KEY_TERMSRV_VKPACKET: u32 = 32;
+        const KEY_UNICODE_SEQUENCE_END: u32 = 512;
+        const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256;
+        type PINDICATOR_LIST = *mut INDICATOR_LIST;
+        type PKEYBOARD_ATTRIBUTES = *mut KEYBOARD_ATTRIBUTES;
+        type PKEYBOARD_EXTENDED_ATTRIBUTES = *mut KEYBOARD_EXTENDED_ATTRIBUTES;
+        type PKEYBOARD_ID = *mut KEYBOARD_ID;
+        type PKEYBOARD_IME_STATUS = *mut KEYBOARD_IME_STATUS;
+        type PKEYBOARD_INDICATOR_PARAMETERS = *mut KEYBOARD_INDICATOR_PARAMETERS;
+        type PKEYBOARD_INDICATOR_TRANSLATION = *mut KEYBOARD_INDICATOR_TRANSLATION;
+        type PKEYBOARD_INPUT_DATA = *mut KEYBOARD_INPUT_DATA;
+        type PKEYBOARD_TYPEMATIC_PARAMETERS = *mut KEYBOARD_TYPEMATIC_PARAMETERS;
+        type PKEYBOARD_UNIT_ID_PARAMETER = *mut KEYBOARD_UNIT_ID_PARAMETER;
+    }
+}

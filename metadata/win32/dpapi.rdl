@@ -1,0 +1,45 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CRYPTPROTECTMEMORY_BLOCK_SIZE: u32 = 16;
+        const CRYPTPROTECTMEMORY_CROSS_PROCESS: u32 = 1;
+        const CRYPTPROTECTMEMORY_SAME_LOGON: u32 = 2;
+        const CRYPTPROTECTMEMORY_SAME_PROCESS: u32 = 0;
+        const CRYPTPROTECT_AUDIT: u32 = 16;
+        const CRYPTPROTECT_CRED_REGENERATE: u32 = 128;
+        const CRYPTPROTECT_CRED_SYNC: u32 = 8;
+        const CRYPTPROTECT_FIRST_RESERVED_FLAGVAL: u32 = 268435455;
+        const CRYPTPROTECT_LAST_RESERVED_FLAGVAL: u32 = 4294967295;
+        const CRYPTPROTECT_LOCAL_MACHINE: u32 = 4;
+        const CRYPTPROTECT_NO_RECOVERY: u32 = 32;
+        struct CRYPTPROTECT_PROMPTSTRUCT {
+            cbSize: u32,
+            dwPromptFlags: u32,
+            hwndApp: HWND,
+            szPrompt: PCWSTR,
+        }
+        const CRYPTPROTECT_PROMPT_ON_PROTECT: u32 = 2;
+        const CRYPTPROTECT_PROMPT_ON_UNPROTECT: u32 = 1;
+        const CRYPTPROTECT_PROMPT_REQUIRE_STRONG: u32 = 16;
+        const CRYPTPROTECT_PROMPT_RESERVED: u32 = 4;
+        const CRYPTPROTECT_PROMPT_STRONG: u32 = 8;
+        const CRYPTPROTECT_UI_FORBIDDEN: u32 = 1;
+        const CRYPTPROTECT_VERIFY_PROTECTION: u32 = 64;
+        #[library("CRYPT32.dll")]
+        extern fn CryptProtectData(pDataIn: *const DATA_BLOB, #[opt] szDataDescr: PCWSTR, #[opt] pOptionalEntropy: *const DATA_BLOB, #[reserved] pvReserved: *const void, #[opt] pPromptStruct: *const CRYPTPROTECT_PROMPTSTRUCT, dwFlags: u32, pDataOut: *mut DATA_BLOB) -> BOOL;
+        #[library("CRYPT32.dll")]
+        extern fn CryptProtectMemory(#[in] #[out] pDataIn: *mut void, cbDataIn: u32, dwFlags: u32) -> BOOL;
+        #[library("CRYPT32.dll")]
+        extern fn CryptUnprotectData(pDataIn: *const DATA_BLOB, ppszDataDescr: *mut PWSTR, #[opt] pOptionalEntropy: *const DATA_BLOB, #[reserved] pvReserved: *const void, #[opt] pPromptStruct: *const CRYPTPROTECT_PROMPTSTRUCT, dwFlags: u32, pDataOut: *mut DATA_BLOB) -> BOOL;
+        #[library("CRYPT32.dll")]
+        extern fn CryptUnprotectMemory(#[in] #[out] pDataIn: *mut void, cbDataIn: u32, dwFlags: u32) -> BOOL;
+        #[library("CRYPT32.dll")]
+        extern fn CryptUpdateProtectedState(#[opt] pOldSid: PSID, #[opt] pwszOldPassword: PCWSTR, dwFlags: u32, #[opt] pdwSuccessCount: *mut u32, #[opt] pdwFailureCount: *mut u32) -> BOOL;
+        type PCRYPTPROTECT_PROMPTSTRUCT = *mut CRYPTPROTECT_PROMPTSTRUCT;
+        const dwFORCE_KEY_PROTECTION_DISABLED: u32 = 0;
+        const dwFORCE_KEY_PROTECTION_HIGH: u32 = 2;
+        const dwFORCE_KEY_PROTECTION_USER_SELECT: u32 = 1;
+        #[encoding("ansi")]
+        const szFORCE_KEY_PROTECTION: String = "ForceKeyProtection";
+    }
+}

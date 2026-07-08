@@ -1,0 +1,776 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xebbaf249_afc2_4582_91c6_b60df2e84954)]
+        interface IAudioSourceProvider: IUnknown {
+            fn ProvideInput(&self, dwSampleCount: u32, #[in] #[out] pdwChannelCount: *mut u32, #[opt] pInterleavedAudioData: *mut f32) -> HRESULT;
+        }
+        #[guid(0x24cd47f7_81d8_4785_adb2_af697a963cd2)]
+        interface IMFBufferListNotify: IUnknown {
+            fn OnAddSourceBuffer(&self);
+            fn OnRemoveSourceBuffer(&self);
+        }
+        #[guid(0x7a5645d2_43bd_47fd_87b7_dcd24cc7d692)]
+        interface IMFCdmSuspendNotify: IUnknown {
+            fn Begin(&self) -> HRESULT;
+            fn End(&self) -> HRESULT;
+        }
+        #[guid(0x332ec562_3758_468d_a784_e38f23552128)]
+        interface IMFExtendedDRMTypeSupport: IUnknown {
+            fn IsTypeSupportedEx(&self, #[opt] r#type: BSTR, keySystem: BSTR, pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
+        }
+        #[guid(0xde400f54_5bf1_40cf_8964_0bea136b1e3d)]
+        interface IMFHDCPStatus: IUnknown {
+            fn Query(&self, #[in] #[out] pStatus: *mut MF_HDCP_STATUS, #[in] #[out] pfStatus: *mut BOOL) -> HRESULT;
+            fn Set(&self, status: MF_HDCP_STATUS) -> HRESULT;
+        }
+        #[guid(0x98a1b0bb_03eb_4935_ae7c_93c1fa0e1c93)]
+        interface IMFMediaEngine: IUnknown {
+            fn GetError(&self, ppError: *mut IMFMediaError) -> HRESULT;
+            fn SetErrorCode(&self, error: MF_MEDIA_ENGINE_ERR) -> HRESULT;
+            fn SetSourceElements(&self, pSrcElements: IMFMediaEngineSrcElements) -> HRESULT;
+            fn SetSource(&self, pUrl: BSTR) -> HRESULT;
+            fn GetCurrentSource(&self, ppUrl: *mut BSTR) -> HRESULT;
+            fn GetNetworkState(&self) -> u16;
+            fn GetPreload(&self) -> MF_MEDIA_ENGINE_PRELOAD;
+            fn SetPreload(&self, Preload: MF_MEDIA_ENGINE_PRELOAD) -> HRESULT;
+            fn GetBuffered(&self, ppBuffered: *mut IMFMediaTimeRange) -> HRESULT;
+            fn Load(&self) -> HRESULT;
+            fn CanPlayType(&self, r#type: BSTR, pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
+            fn GetReadyState(&self) -> u16;
+            fn IsSeeking(&self) -> BOOL;
+            fn GetCurrentTime(&self) -> f64;
+            fn SetCurrentTime(&self, seekTime: f64) -> HRESULT;
+            fn GetStartTime(&self) -> f64;
+            fn GetDuration(&self) -> f64;
+            fn IsPaused(&self) -> BOOL;
+            fn GetDefaultPlaybackRate(&self) -> f64;
+            fn SetDefaultPlaybackRate(&self, Rate: f64) -> HRESULT;
+            fn GetPlaybackRate(&self) -> f64;
+            fn SetPlaybackRate(&self, Rate: f64) -> HRESULT;
+            fn GetPlayed(&self, ppPlayed: *mut IMFMediaTimeRange) -> HRESULT;
+            fn GetSeekable(&self, ppSeekable: *mut IMFMediaTimeRange) -> HRESULT;
+            fn IsEnded(&self) -> BOOL;
+            fn GetAutoPlay(&self) -> BOOL;
+            fn SetAutoPlay(&self, AutoPlay: BOOL) -> HRESULT;
+            fn GetLoop(&self) -> BOOL;
+            fn SetLoop(&self, Loop: BOOL) -> HRESULT;
+            fn Play(&self) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn GetMuted(&self) -> BOOL;
+            fn SetMuted(&self, Muted: BOOL) -> HRESULT;
+            fn GetVolume(&self) -> f64;
+            fn SetVolume(&self, Volume: f64) -> HRESULT;
+            fn HasVideo(&self) -> BOOL;
+            fn HasAudio(&self) -> BOOL;
+            fn GetNativeVideoSize(&self, #[opt] cx: *mut u32, #[opt] cy: *mut u32) -> HRESULT;
+            fn GetVideoAspectRatio(&self, #[opt] cx: *mut u32, #[opt] cy: *mut u32) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+            fn TransferVideoFrame(&self, pDstSurf: IUnknown, #[opt] pSrc: *const MFVideoNormalizedRect, pDst: *const RECT, #[opt] pBorderClr: *const MFARGB) -> HRESULT;
+            fn OnVideoStreamTick(&self, pPts: *mut i64) -> HRESULT;
+        }
+        #[guid(0x7a3bac98_0e76_49fb_8c20_8a86fd98eaf2)]
+        interface IMFMediaEngineAudioEndpointId: IUnknown {
+            fn SetAudioEndpointId(&self, #[opt] pszEndpointId: PCWSTR) -> HRESULT;
+            fn GetAudioEndpointId(&self, ppszEndpointId: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x4d645ace_26aa_4688_9be1_df3516990b93)]
+        interface IMFMediaEngineClassFactory: IUnknown {
+            fn CreateInstance(&self, dwFlags: u32, pAttr: IMFAttributes, ppPlayer: *mut IMFMediaEngine) -> HRESULT;
+            fn CreateTimeRange(&self, ppTimeRange: *mut IMFMediaTimeRange) -> HRESULT;
+            fn CreateError(&self, ppError: *mut IMFMediaError) -> HRESULT;
+        }
+        #[guid(0x09083cef_867f_4bf6_8776_dee3a7b42fca)]
+        interface IMFMediaEngineClassFactory2: IUnknown {
+            fn CreateMediaKeys2(&self, keySystem: BSTR, defaultCdmStorePath: BSTR, #[opt] inprivateCdmStorePath: BSTR, ppKeys: *mut IMFMediaKeys) -> HRESULT;
+        }
+        #[guid(0x3787614f_65f7_4003_b673_ead8293a0e60)]
+        interface IMFMediaEngineClassFactory3: IUnknown {
+            fn CreateMediaKeySystemAccess(&self, keySystem: BSTR, ppSupportedConfigurationsArray: *mut IPropertyStore, uSize: u32, ppKeyAccess: *mut IMFMediaKeySystemAccess) -> HRESULT;
+        }
+        #[guid(0xfbe256c1_43cf_4a9b_8cb8_ce8632a34186)]
+        interface IMFMediaEngineClassFactory4: IUnknown {
+            fn CreateContentDecryptionModuleFactory(&self, keySystem: PCWSTR, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xc56156c6_ea5b_48a5_9df8_fbe035d0929e)]
+        interface IMFMediaEngineClassFactoryEx: IMFMediaEngineClassFactory {
+            fn CreateMediaSourceExtension(&self, dwFlags: u32, pAttr: IMFAttributes, ppMSE: *mut IMFMediaSourceExtension) -> HRESULT;
+            fn CreateMediaKeys(&self, keySystem: BSTR, #[opt] cdmStorePath: BSTR, ppKeys: *mut IMFMediaKeys) -> HRESULT;
+            fn IsTypeSupported(&self, #[opt] r#type: BSTR, keySystem: BSTR, isSupported: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x50dc93e4_ba4f_4275_ae66_83e836e57469)]
+        interface IMFMediaEngineEME: IUnknown {
+            fn get_Keys(&self, keys: *mut IMFMediaKeys) -> HRESULT;
+            fn SetMediaKeys(&self, #[opt] keys: IMFMediaKeys) -> HRESULT;
+        }
+        #[guid(0x9e184d15_cdb7_4f86_b49e_566689f4a601)]
+        interface IMFMediaEngineEMENotify: IUnknown {
+            fn Encrypted(&self, #[size_param(1)] #[opt] pbInitData: *const u8, cb: u32, bstrInitDataType: BSTR);
+            fn WaitingForKey(&self);
+        }
+        #[guid(0x83015ead_b1e6_40d0_a98a_37145ffe1ad1)]
+        interface IMFMediaEngineEx: IMFMediaEngine {
+            fn SetSourceFromByteStream(&self, pByteStream: IMFByteStream, pURL: BSTR) -> HRESULT;
+            fn GetStatistics(&self, StatisticID: MF_MEDIA_ENGINE_STATISTIC, pStatistic: *mut PROPVARIANT) -> HRESULT;
+            fn UpdateVideoStream(&self, #[opt] pSrc: *const MFVideoNormalizedRect, #[opt] pDst: *const RECT, #[opt] pBorderClr: *const MFARGB) -> HRESULT;
+            fn GetBalance(&self) -> f64;
+            fn SetBalance(&self, balance: f64) -> HRESULT;
+            fn IsPlaybackRateSupported(&self, rate: f64) -> BOOL;
+            fn FrameStep(&self, Forward: BOOL) -> HRESULT;
+            fn GetResourceCharacteristics(&self, pCharacteristics: *mut u32) -> HRESULT;
+            fn GetPresentationAttribute(&self, guidMFAttribute: *const GUID, pvValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetNumberOfStreams(&self, pdwStreamCount: *mut u32) -> HRESULT;
+            fn GetStreamAttribute(&self, dwStreamIndex: u32, guidMFAttribute: *const GUID, pvValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetStreamSelection(&self, dwStreamIndex: u32, pEnabled: *mut BOOL) -> HRESULT;
+            fn SetStreamSelection(&self, dwStreamIndex: u32, Enabled: BOOL) -> HRESULT;
+            fn ApplyStreamSelections(&self) -> HRESULT;
+            fn IsProtected(&self, pProtected: *mut BOOL) -> HRESULT;
+            fn InsertVideoEffect(&self, pEffect: IUnknown, fOptional: BOOL) -> HRESULT;
+            fn InsertAudioEffect(&self, pEffect: IUnknown, fOptional: BOOL) -> HRESULT;
+            fn RemoveAllEffects(&self) -> HRESULT;
+            fn SetTimelineMarkerTimer(&self, timeToFire: f64) -> HRESULT;
+            fn GetTimelineMarkerTimer(&self, pTimeToFire: *mut f64) -> HRESULT;
+            fn CancelTimelineMarkerTimer(&self) -> HRESULT;
+            fn IsStereo3D(&self) -> BOOL;
+            fn GetStereo3DFramePackingMode(&self, packMode: *mut MF_MEDIA_ENGINE_S3D_PACKING_MODE) -> HRESULT;
+            fn SetStereo3DFramePackingMode(&self, packMode: MF_MEDIA_ENGINE_S3D_PACKING_MODE) -> HRESULT;
+            fn GetStereo3DRenderMode(&self, outputType: *mut MF3DVideoOutputType) -> HRESULT;
+            fn SetStereo3DRenderMode(&self, outputType: MF3DVideoOutputType) -> HRESULT;
+            fn EnableWindowlessSwapchainMode(&self, fEnable: BOOL) -> HRESULT;
+            fn GetVideoSwapchainHandle(&self, phSwapchain: *mut HANDLE) -> HRESULT;
+            fn EnableHorizontalMirrorMode(&self, fEnable: BOOL) -> HRESULT;
+            fn GetAudioStreamCategory(&self, pCategory: *mut u32) -> HRESULT;
+            fn SetAudioStreamCategory(&self, category: u32) -> HRESULT;
+            fn GetAudioEndpointRole(&self, pRole: *mut u32) -> HRESULT;
+            fn SetAudioEndpointRole(&self, role: u32) -> HRESULT;
+            fn GetRealTimeMode(&self, pfEnabled: *mut BOOL) -> HRESULT;
+            fn SetRealTimeMode(&self, fEnable: BOOL) -> HRESULT;
+            fn SetCurrentTimeEx(&self, seekTime: f64, seekMode: MF_MEDIA_ENGINE_SEEK_MODE) -> HRESULT;
+            fn EnableTimeUpdateTimer(&self, fEnableTimer: BOOL) -> HRESULT;
+        }
+        #[guid(0x2f69d622_20b5_41e9_afdf_89ced1dda04e)]
+        interface IMFMediaEngineExtension: IUnknown {
+            fn CanPlayType(&self, AudioOnly: BOOL, MimeType: BSTR, pAnswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> HRESULT;
+            fn BeginCreateObject(&self, bstrURL: BSTR, #[opt] pByteStream: IMFByteStream, r#type: MF_OBJECT_TYPE, ppIUnknownCancelCookie: *mut IUnknown, pCallback: IMFAsyncCallback, #[opt] punkState: IUnknown) -> HRESULT;
+            fn CancelObjectCreation(&self, pIUnknownCancelCookie: IUnknown) -> HRESULT;
+            fn EndCreateObject(&self, pResult: IMFAsyncResult, ppObject: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x46a30204_a696_4b18_8804_246b8f031bb1)]
+        interface IMFMediaEngineNeedKeyNotify: IUnknown {
+            fn NeedKey(&self, #[size_param(1)] #[opt] initData: *const u8, cb: u32);
+        }
+        #[guid(0xfee7c112_e776_42b5_9bbf_0048524e2bd5)]
+        interface IMFMediaEngineNotify: IUnknown {
+            fn EventNotify(&self, event: u32, param1: usize, param2: u32) -> HRESULT;
+        }
+        #[guid(0x765763e6_6c01_4b01_bb0f_b829f60ed28c)]
+        interface IMFMediaEngineOPMInfo: IUnknown {
+            fn GetOPMInfo(&self, pStatus: *mut MF_MEDIA_ENGINE_OPM_STATUS, pConstricted: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x9f8021e8_9c8c_487e_bb5c_79aa4779938c)]
+        interface IMFMediaEngineProtectedContent: IUnknown {
+            fn ShareResources(&self, pUnkDeviceContext: IUnknown) -> HRESULT;
+            fn GetRequiredProtections(&self, pFrameProtectionFlags: *mut u32) -> HRESULT;
+            fn SetOPMWindow(&self, hwnd: HWND) -> HRESULT;
+            fn TransferVideoFrame(&self, pDstSurf: IUnknown, #[opt] pSrc: *const MFVideoNormalizedRect, pDst: *const RECT, #[opt] pBorderClr: *const MFARGB, pFrameProtectionFlags: *mut u32) -> HRESULT;
+            fn SetContentProtectionManager(&self, #[opt] pCPM: IMFContentProtectionManager) -> HRESULT;
+            fn SetApplicationCertificate(&self, #[size_param(1)] pbBlob: *const u8, cbBlob: u32) -> HRESULT;
+        }
+        #[guid(0x7a5e5354_b114_4c72_b991_3131d75032ea)]
+        interface IMFMediaEngineSrcElements: IUnknown {
+            fn GetLength(&self) -> u32;
+            fn GetURL(&self, index: u32, pURL: *mut BSTR) -> HRESULT;
+            fn GetType(&self, index: u32, pType: *mut BSTR) -> HRESULT;
+            fn GetMedia(&self, index: u32, pMedia: *mut BSTR) -> HRESULT;
+            fn AddElement(&self, #[opt] pURL: BSTR, #[opt] pType: BSTR, #[opt] pMedia: BSTR) -> HRESULT;
+            fn RemoveAllElements(&self) -> HRESULT;
+        }
+        #[guid(0x654a6bb3_e1a3_424a_9908_53a43a0dfda0)]
+        interface IMFMediaEngineSrcElementsEx: IMFMediaEngineSrcElements {
+            fn AddElementEx(&self, #[opt] pURL: BSTR, #[opt] pType: BSTR, #[opt] pMedia: BSTR, #[opt] keySystem: BSTR) -> HRESULT;
+            fn GetKeySystem(&self, index: u32, pType: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xa724b056_1b2e_4642_a6f3_db9420c52908)]
+        interface IMFMediaEngineSupportsSourceTransfer: IUnknown {
+            fn ShouldTransferSource(&self, pfShouldTransfer: *mut BOOL) -> HRESULT;
+            fn DetachMediaSource(&self, ppByteStream: *mut IMFByteStream, ppMediaSource: *mut IMFMediaSource, ppMSE: *mut IMFMediaSourceExtension) -> HRESULT;
+            fn AttachMediaSource(&self, #[opt] pByteStream: IMFByteStream, pMediaSource: IMFMediaSource, #[opt] pMSE: IMFMediaSourceExtension) -> HRESULT;
+        }
+        #[guid(0x24230452_fe54_40cc_94f3_fcc394c340d6)]
+        interface IMFMediaEngineTransferSource: IUnknown {
+            fn TransferSourceToMediaEngine(&self, destination: IMFMediaEngine) -> HRESULT;
+        }
+        #[guid(0x6bdf1188_6ec8_44ff_8ccc_bfca0d12afa3)]
+        interface IMFMediaEngineVideoRendererEffect: IUnknown {
+            fn SetEffect(&self, pEffect: IUnknown) -> HRESULT;
+            fn ClearEffect(&self) -> HRESULT;
+        }
+        #[guid(0xba2743a1_07e0_48ef_84b6_9a2ed023ca6c)]
+        interface IMFMediaEngineWebSupport: IUnknown {
+            fn ShouldDelayTheLoadEvent(&self) -> BOOL;
+            fn ConnectWebAudio(&self, dwSampleRate: u32, ppSourceProvider: *mut IAudioSourceProvider) -> HRESULT;
+            fn DisconnectWebAudio(&self) -> HRESULT;
+        }
+        #[guid(0xfc0e10d2_ab2a_4501_a951_06bb1075184c)]
+        interface IMFMediaError: IUnknown {
+            fn GetErrorCode(&self) -> u16;
+            fn GetExtendedErrorCode(&self) -> HRESULT;
+            fn SetErrorCode(&self, error: MF_MEDIA_ENGINE_ERR) -> HRESULT;
+            fn SetExtendedErrorCode(&self, error: HRESULT) -> HRESULT;
+        }
+        #[guid(0x24fa67d5_d1d0_4dc5_995c_c0efdc191fb5)]
+        interface IMFMediaKeySession: IUnknown {
+            fn GetError(&self, code: *mut u16, systemCode: *mut u32) -> HRESULT;
+            fn get_KeySystem(&self, keySystem: *mut BSTR) -> HRESULT;
+            fn get_SessionId(&self, sessionId: *mut BSTR) -> HRESULT;
+            fn Update(&self, #[size_param(1)] key: *const u8, cb: u32) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xe9707e05_6d55_4636_b185_3de21210bd75)]
+        interface IMFMediaKeySession2: IMFMediaKeySession {
+            fn get_KeyStatuses(&self, pKeyStatusesArray: *mut *mut MFMediaKeyStatus, puSize: *mut u32) -> HRESULT;
+            fn Load(&self, bstrSessionId: BSTR, pfLoaded: *mut BOOL) -> HRESULT;
+            fn GenerateRequest(&self, initDataType: BSTR, #[size_param(2)] pbInitData: *const u8, cb: u32) -> HRESULT;
+            fn get_Expiration(&self, dblExpiration: *mut f64) -> HRESULT;
+            fn Remove(&self) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+        }
+        #[guid(0x6a0083f9_8947_4c1d_9ce0_cdee22b23135)]
+        interface IMFMediaKeySessionNotify: IUnknown {
+            fn KeyMessage(&self, #[opt] destinationURL: BSTR, #[size_param(2)] message: *const u8, cb: u32);
+            fn KeyAdded(&self);
+            fn KeyError(&self, code: u16, systemCode: u32);
+        }
+        #[guid(0xc3a9e92a_da88_46b0_a110_6cf953026cb9)]
+        interface IMFMediaKeySessionNotify2: IMFMediaKeySessionNotify {
+            fn KeyMessage2(&self, eMessageType: MF_MEDIAKEYSESSION_MESSAGETYPE, #[opt] destinationURL: BSTR, #[size_param(3)] pbMessage: *const u8, cbMessage: u32);
+            fn KeyStatusChange(&self);
+        }
+        #[guid(0xaec63fda_7a97_4944_b35c_6c6df8085cc3)]
+        interface IMFMediaKeySystemAccess: IUnknown {
+            fn CreateMediaKeys(&self, #[opt] pCdmCustomConfig: IPropertyStore, ppKeys: *mut IMFMediaKeys2) -> HRESULT;
+            fn get_SupportedConfiguration(&self, ppSupportedConfiguration: *mut IPropertyStore) -> HRESULT;
+            fn get_KeySystem(&self, pKeySystem: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x5cb31c05_61ff_418f_afda_caaf41421a38)]
+        interface IMFMediaKeys: IUnknown {
+            fn CreateSession(&self, #[opt] mimeType: BSTR, #[size_param(2)] #[opt] initData: *const u8, #[opt] cb: u32, #[size_param(4)] #[opt] customData: *const u8, cbCustomData: u32, notify: IMFMediaKeySessionNotify, ppSession: *mut IMFMediaKeySession) -> HRESULT;
+            fn get_KeySystem(&self, keySystem: *mut BSTR) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+            fn GetSuspendNotify(&self, notify: *mut IMFCdmSuspendNotify) -> HRESULT;
+        }
+        #[guid(0x45892507_ad66_4de2_83a2_acbb13cd8d43)]
+        interface IMFMediaKeys2: IMFMediaKeys {
+            fn CreateSession2(&self, eSessionType: MF_MEDIAKEYSESSION_TYPE, pMFMediaKeySessionNotify2: IMFMediaKeySessionNotify2, ppSession: *mut IMFMediaKeySession2) -> HRESULT;
+            fn SetServerCertificate(&self, #[size_param(1)] #[opt] pbServerCertificate: *const u8, cb: u32) -> HRESULT;
+            fn GetDOMException(&self, systemCode: HRESULT, code: *mut HRESULT) -> HRESULT;
+        }
+        #[guid(0xe467b94e_a713_4562_a802_816a42e9008a)]
+        interface IMFMediaSourceExtension: IUnknown {
+            fn GetSourceBuffers(&self) -> IMFSourceBufferList;
+            fn GetActiveSourceBuffers(&self) -> IMFSourceBufferList;
+            fn GetReadyState(&self) -> MF_MSE_READY;
+            fn GetDuration(&self) -> f64;
+            fn SetDuration(&self, duration: f64) -> HRESULT;
+            fn AddSourceBuffer(&self, r#type: BSTR, pNotify: IMFSourceBufferNotify, ppSourceBuffer: *mut IMFSourceBuffer) -> HRESULT;
+            fn RemoveSourceBuffer(&self, pSourceBuffer: IMFSourceBuffer) -> HRESULT;
+            fn SetEndOfStream(&self, error: MF_MSE_ERROR) -> HRESULT;
+            fn IsTypeSupported(&self, r#type: BSTR) -> BOOL;
+            fn GetSourceBuffer(&self, dwStreamIndex: u32) -> IMFSourceBuffer;
+        }
+        #[guid(0x5d1abfd6_450a_4d92_9efc_d6b6cbc1f4da)]
+        interface IMFMediaSourceExtensionLiveSeekableRange: IUnknown {
+            fn SetLiveSeekableRange(&self, start: f64, end: f64) -> HRESULT;
+            fn ClearLiveSeekableRange(&self) -> HRESULT;
+        }
+        #[guid(0xa7901327_05dd_4469_a7b7_0e01979e361d)]
+        interface IMFMediaSourceExtensionNotify: IUnknown {
+            fn OnSourceOpen(&self);
+            fn OnSourceEnded(&self);
+            fn OnSourceClose(&self);
+        }
+        #[guid(0xdb71a2fc_078a_414e_9df9_8c2531b0aa6c)]
+        interface IMFMediaTimeRange: IUnknown {
+            fn GetLength(&self) -> u32;
+            fn GetStart(&self, index: u32, pStart: *mut f64) -> HRESULT;
+            fn GetEnd(&self, index: u32, pEnd: *mut f64) -> HRESULT;
+            fn ContainsTime(&self, time: f64) -> BOOL;
+            fn AddRange(&self, startTime: f64, endTime: f64) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0xe2cd3a4b_af25_4d3d_9110_da0e6f8ee877)]
+        interface IMFSourceBuffer: IUnknown {
+            fn GetUpdating(&self) -> BOOL;
+            fn GetBuffered(&self, ppBuffered: *mut IMFMediaTimeRange) -> HRESULT;
+            fn GetTimeStampOffset(&self) -> f64;
+            fn SetTimeStampOffset(&self, offset: f64) -> HRESULT;
+            fn GetAppendWindowStart(&self) -> f64;
+            fn SetAppendWindowStart(&self, time: f64) -> HRESULT;
+            fn GetAppendWindowEnd(&self) -> f64;
+            fn SetAppendWindowEnd(&self, time: f64) -> HRESULT;
+            fn Append(&self, #[size_param(1)] pData: *const u8, len: u32) -> HRESULT;
+            fn AppendByteStream(&self, pStream: IMFByteStream, #[opt] pMaxLen: *const DWORDLONG) -> HRESULT;
+            fn Abort(&self) -> HRESULT;
+            fn Remove(&self, start: f64, end: f64) -> HRESULT;
+        }
+        #[guid(0x19666fb4_babe_4c55_bc03_0a074da37e2a)]
+        interface IMFSourceBufferAppendMode: IUnknown {
+            fn GetAppendMode(&self) -> MF_MSE_APPEND_MODE;
+            fn SetAppendMode(&self, mode: MF_MSE_APPEND_MODE) -> HRESULT;
+        }
+        #[guid(0x249981f8_8325_41f3_b80c_3b9e3aad0cbe)]
+        interface IMFSourceBufferList: IUnknown {
+            fn GetLength(&self) -> u32;
+            fn GetSourceBuffer(&self, index: u32) -> IMFSourceBuffer;
+        }
+        #[guid(0x87e47623_2ceb_45d6_9b88_d8520c4dcbbc)]
+        interface IMFSourceBufferNotify: IUnknown {
+            fn OnUpdateStart(&self);
+            fn OnAbort(&self);
+            fn OnError(&self, hr: HRESULT);
+            fn OnUpdate(&self);
+            fn OnUpdateEnd(&self);
+        }
+        #[guid(0x1f2a94c9_a3df_430d_9d0f_acd85ddc29af)]
+        interface IMFTimedText: IUnknown {
+            fn RegisterNotifications(&self, #[opt] notify: IMFTimedTextNotify) -> HRESULT;
+            fn SelectTrack(&self, trackId: u32, selected: BOOL) -> HRESULT;
+            fn AddDataSource(&self, byteStream: IMFByteStream, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isDefault: BOOL, trackId: *mut u32) -> HRESULT;
+            fn AddDataSourceFromUrl(&self, url: PCWSTR, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isDefault: BOOL, trackId: *mut u32) -> HRESULT;
+            fn AddTrack(&self, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, track: *mut IMFTimedTextTrack) -> HRESULT;
+            fn RemoveTrack(&self, track: IMFTimedTextTrack) -> HRESULT;
+            fn GetCueTimeOffset(&self, offset: *mut f64) -> HRESULT;
+            fn SetCueTimeOffset(&self, offset: f64) -> HRESULT;
+            fn GetTracks(&self, tracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn GetActiveTracks(&self, activeTracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn GetTextTracks(&self, textTracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn GetMetadataTracks(&self, metadataTracks: *mut IMFTimedTextTrackList) -> HRESULT;
+            fn SetInBandEnabled(&self, enabled: BOOL) -> HRESULT;
+            fn IsInBandEnabled(&self) -> BOOL;
+        }
+        #[guid(0x4ae3a412_0545_43c4_bf6f_6b97a5c6c432)]
+        interface IMFTimedTextBinary: IUnknown {
+            fn GetData(&self, data: *mut *mut u8, length: *mut u32) -> HRESULT;
+        }
+        #[guid(0x3c5f3e8a_90c0_464e_8136_898d2975f847)]
+        interface IMFTimedTextBouten: IUnknown {
+            fn GetBoutenType(&self, value: *mut MF_TIMED_TEXT_BOUTEN_TYPE) -> HRESULT;
+            fn GetBoutenColor(&self, value: *mut MFARGB) -> HRESULT;
+            fn GetBoutenPosition(&self, value: *mut MF_TIMED_TEXT_BOUTEN_POSITION) -> HRESULT;
+        }
+        #[guid(0x1e560447_9a2b_43e1_a94c_b0aaabfbfbc9)]
+        interface IMFTimedTextCue: IUnknown {
+            fn GetId(&self) -> u32;
+            fn GetOriginalId(&self, originalId: *mut PWSTR) -> HRESULT;
+            fn GetCueKind(&self) -> MF_TIMED_TEXT_TRACK_KIND;
+            fn GetStartTime(&self) -> f64;
+            fn GetDuration(&self) -> f64;
+            fn GetTrackId(&self) -> u32;
+            fn GetData(&self, data: *mut IMFTimedTextBinary) -> HRESULT;
+            fn GetRegion(&self, region: *mut IMFTimedTextRegion) -> HRESULT;
+            fn GetStyle(&self, style: *mut IMFTimedTextStyle) -> HRESULT;
+            fn GetLineCount(&self) -> u32;
+            fn GetLine(&self, index: u32, line: *mut IMFTimedTextFormattedText) -> HRESULT;
+        }
+        #[guid(0xad128745_211b_40a0_9981_fe65f166d0fd)]
+        interface IMFTimedTextCueList: IUnknown {
+            fn GetLength(&self) -> u32;
+            fn GetCueByIndex(&self, index: u32, cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn GetCueById(&self, id: u32, cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn GetCueByOriginalId(&self, originalId: PCWSTR, cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn AddTextCue(&self, start: f64, duration: f64, text: PCWSTR, cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn AddDataCue(&self, start: f64, duration: f64, #[size_param(3)] data: *const u8, dataSize: u32, cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn RemoveCue(&self, cue: IMFTimedTextCue) -> HRESULT;
+        }
+        #[guid(0xe13af3c1_4d47_4354_b1f5_e83ae0ecae60)]
+        interface IMFTimedTextFormattedText: IUnknown {
+            fn GetText(&self, text: *mut PWSTR) -> HRESULT;
+            fn GetSubformattingCount(&self) -> u32;
+            fn GetSubformatting(&self, index: u32, firstChar: *mut u32, charLength: *mut u32, style: *mut IMFTimedTextStyle) -> HRESULT;
+        }
+        #[guid(0xdf6b87b6_ce12_45db_aba7_432fe054e57d)]
+        interface IMFTimedTextNotify: IUnknown {
+            fn TrackAdded(&self, trackId: u32);
+            fn TrackRemoved(&self, trackId: u32);
+            fn TrackSelected(&self, trackId: u32, selected: BOOL);
+            fn TrackReadyStateChanged(&self, trackId: u32);
+            fn Error(&self, errorCode: MF_TIMED_TEXT_ERROR_CODE, extendedErrorCode: HRESULT, sourceTrackId: u32);
+            fn Cue(&self, cueEvent: MF_TIMED_TEXT_CUE_EVENT, currentTime: f64, #[opt] cue: IMFTimedTextCue);
+            fn Reset(&self);
+        }
+        #[guid(0xc8d22afc_bc47_4bdf_9b04_787e49ce3f58)]
+        interface IMFTimedTextRegion: IUnknown {
+            fn GetName(&self, name: *mut PWSTR) -> HRESULT;
+            fn GetPosition(&self, pX: *mut f64, pY: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetExtent(&self, pWidth: *mut f64, pHeight: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetBackgroundColor(&self, bgColor: *mut MFARGB) -> HRESULT;
+            fn GetWritingMode(&self, writingMode: *mut MF_TIMED_TEXT_WRITING_MODE) -> HRESULT;
+            fn GetDisplayAlignment(&self, displayAlign: *mut MF_TIMED_TEXT_DISPLAY_ALIGNMENT) -> HRESULT;
+            fn GetLineHeight(&self, pLineHeight: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetClipOverflow(&self, clipOverflow: *mut BOOL) -> HRESULT;
+            fn GetPadding(&self, before: *mut f64, start: *mut f64, after: *mut f64, end: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetWrap(&self, wrap: *mut BOOL) -> HRESULT;
+            fn GetZIndex(&self, zIndex: *mut i32) -> HRESULT;
+            fn GetScrollMode(&self, scrollMode: *mut MF_TIMED_TEXT_SCROLL_MODE) -> HRESULT;
+        }
+        #[guid(0x76c6a6f5_4955_4de5_b27b_14b734cc14b4)]
+        interface IMFTimedTextRuby: IUnknown {
+            fn GetRubyText(&self, rubyText: *mut PWSTR) -> HRESULT;
+            fn GetRubyPosition(&self, value: *mut MF_TIMED_TEXT_RUBY_POSITION) -> HRESULT;
+            fn GetRubyAlign(&self, value: *mut MF_TIMED_TEXT_RUBY_ALIGN) -> HRESULT;
+            fn GetRubyReserve(&self, value: *mut MF_TIMED_TEXT_RUBY_RESERVE) -> HRESULT;
+        }
+        #[guid(0x09b2455d_b834_4f01_a347_9052e21c450e)]
+        interface IMFTimedTextStyle: IUnknown {
+            fn GetName(&self, name: *mut PWSTR) -> HRESULT;
+            fn IsExternal(&self) -> BOOL;
+            fn GetFontFamily(&self, fontFamily: *mut PWSTR) -> HRESULT;
+            fn GetFontSize(&self, fontSize: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+            fn GetColor(&self, color: *mut MFARGB) -> HRESULT;
+            fn GetBackgroundColor(&self, bgColor: *mut MFARGB) -> HRESULT;
+            fn GetShowBackgroundAlways(&self, showBackgroundAlways: *mut BOOL) -> HRESULT;
+            fn GetFontStyle(&self, fontStyle: *mut MF_TIMED_TEXT_FONT_STYLE) -> HRESULT;
+            fn GetBold(&self, bold: *mut BOOL) -> HRESULT;
+            fn GetRightToLeft(&self, rightToLeft: *mut BOOL) -> HRESULT;
+            fn GetTextAlignment(&self, textAlign: *mut MF_TIMED_TEXT_ALIGNMENT) -> HRESULT;
+            fn GetTextDecoration(&self, textDecoration: *mut u32) -> HRESULT;
+            fn GetTextOutline(&self, color: *mut MFARGB, thickness: *mut f64, blurRadius: *mut f64, unitType: *mut MF_TIMED_TEXT_UNIT_TYPE) -> HRESULT;
+        }
+        #[guid(0xdb639199_c809_4c89_bfca_d0bbb9729d6e)]
+        interface IMFTimedTextStyle2: IUnknown {
+            fn GetRuby(&self, ruby: *mut IMFTimedTextRuby) -> HRESULT;
+            fn GetBouten(&self, bouten: *mut IMFTimedTextBouten) -> HRESULT;
+            fn IsTextCombined(&self, value: *mut BOOL) -> HRESULT;
+            fn GetFontAngleInDegrees(&self, value: *mut f64) -> HRESULT;
+        }
+        #[guid(0x8822c32d_654e_4233_bf21_d7f2e67d30d4)]
+        interface IMFTimedTextTrack: IUnknown {
+            fn GetId(&self) -> u32;
+            fn GetLabel(&self, label: *mut PWSTR) -> HRESULT;
+            fn SetLabel(&self, label: PCWSTR) -> HRESULT;
+            fn GetLanguage(&self, language: *mut PWSTR) -> HRESULT;
+            fn GetTrackKind(&self) -> MF_TIMED_TEXT_TRACK_KIND;
+            fn IsInBand(&self) -> BOOL;
+            fn GetInBandMetadataTrackDispatchType(&self, dispatchType: *mut PWSTR) -> HRESULT;
+            fn IsActive(&self) -> BOOL;
+            fn GetErrorCode(&self) -> MF_TIMED_TEXT_ERROR_CODE;
+            fn GetExtendedErrorCode(&self) -> HRESULT;
+            fn GetDataFormat(&self, format: *mut GUID) -> HRESULT;
+            fn GetReadyState(&self) -> MF_TIMED_TEXT_TRACK_READY_STATE;
+            fn GetCueList(&self, cues: *mut IMFTimedTextCueList) -> HRESULT;
+        }
+        #[guid(0x23ff334c_442c_445f_bccc_edc438aa11e2)]
+        interface IMFTimedTextTrackList: IUnknown {
+            fn GetLength(&self) -> u32;
+            fn GetTrack(&self, index: u32, track: *mut IMFTimedTextTrack) -> HRESULT;
+            fn GetTrackById(&self, trackId: u32, track: *mut IMFTimedTextTrack) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum MF_HDCP_STATUS {
+            MF_HDCP_STATUS_ON = 0,
+            MF_HDCP_STATUS_OFF = 1,
+            MF_HDCP_STATUS_ON_WITH_TYPE_ENFORCEMENT = 2,
+        }
+        const MF_INVALID_PRESENTATION_TIME: u64 = 9223372036854775808;
+        #[repr(i32)]
+        enum MF_MEDIAKEYS_REQUIREMENT {
+            MF_MEDIAKEYS_REQUIREMENT_REQUIRED = 1,
+            MF_MEDIAKEYS_REQUIREMENT_OPTIONAL = 2,
+            MF_MEDIAKEYS_REQUIREMENT_NOT_ALLOWED = 3,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_CANPLAY {
+            MF_MEDIA_ENGINE_CANPLAY_NOT_SUPPORTED = 0,
+            MF_MEDIA_ENGINE_CANPLAY_MAYBE = 1,
+            MF_MEDIA_ENGINE_CANPLAY_PROBABLY = 2,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_CREATEFLAGS {
+            MF_MEDIA_ENGINE_AUDIOONLY = 1,
+            MF_MEDIA_ENGINE_WAITFORSTABLE_STATE = 2,
+            MF_MEDIA_ENGINE_FORCEMUTE = 4,
+            MF_MEDIA_ENGINE_REAL_TIME_MODE = 8,
+            MF_MEDIA_ENGINE_DISABLE_LOCAL_PLUGINS = 16,
+            MF_MEDIA_ENGINE_CREATEFLAGS_MASK = 31,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_ERR {
+            MF_MEDIA_ENGINE_ERR_NOERROR = 0,
+            MF_MEDIA_ENGINE_ERR_ABORTED = 1,
+            MF_MEDIA_ENGINE_ERR_NETWORK = 2,
+            MF_MEDIA_ENGINE_ERR_DECODE = 3,
+            MF_MEDIA_ENGINE_ERR_SRC_NOT_SUPPORTED = 4,
+            MF_MEDIA_ENGINE_ERR_ENCRYPTED = 5,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_EVENT {
+            MF_MEDIA_ENGINE_EVENT_LOADSTART = 1,
+            MF_MEDIA_ENGINE_EVENT_PROGRESS = 2,
+            MF_MEDIA_ENGINE_EVENT_SUSPEND = 3,
+            MF_MEDIA_ENGINE_EVENT_ABORT = 4,
+            MF_MEDIA_ENGINE_EVENT_ERROR = 5,
+            MF_MEDIA_ENGINE_EVENT_EMPTIED = 6,
+            MF_MEDIA_ENGINE_EVENT_STALLED = 7,
+            MF_MEDIA_ENGINE_EVENT_PLAY = 8,
+            MF_MEDIA_ENGINE_EVENT_PAUSE = 9,
+            MF_MEDIA_ENGINE_EVENT_LOADEDMETADATA = 10,
+            MF_MEDIA_ENGINE_EVENT_LOADEDDATA = 11,
+            MF_MEDIA_ENGINE_EVENT_WAITING = 12,
+            MF_MEDIA_ENGINE_EVENT_PLAYING = 13,
+            MF_MEDIA_ENGINE_EVENT_CANPLAY = 14,
+            MF_MEDIA_ENGINE_EVENT_CANPLAYTHROUGH = 15,
+            MF_MEDIA_ENGINE_EVENT_SEEKING = 16,
+            MF_MEDIA_ENGINE_EVENT_SEEKED = 17,
+            MF_MEDIA_ENGINE_EVENT_TIMEUPDATE = 18,
+            MF_MEDIA_ENGINE_EVENT_ENDED = 19,
+            MF_MEDIA_ENGINE_EVENT_RATECHANGE = 20,
+            MF_MEDIA_ENGINE_EVENT_DURATIONCHANGE = 21,
+            MF_MEDIA_ENGINE_EVENT_VOLUMECHANGE = 22,
+            MF_MEDIA_ENGINE_EVENT_FORMATCHANGE = 1000,
+            MF_MEDIA_ENGINE_EVENT_PURGEQUEUEDEVENTS = 1001,
+            MF_MEDIA_ENGINE_EVENT_TIMELINE_MARKER = 1002,
+            MF_MEDIA_ENGINE_EVENT_BALANCECHANGE = 1003,
+            MF_MEDIA_ENGINE_EVENT_DOWNLOADCOMPLETE = 1004,
+            MF_MEDIA_ENGINE_EVENT_BUFFERINGSTARTED = 1005,
+            MF_MEDIA_ENGINE_EVENT_BUFFERINGENDED = 1006,
+            MF_MEDIA_ENGINE_EVENT_FRAMESTEPCOMPLETED = 1007,
+            MF_MEDIA_ENGINE_EVENT_NOTIFYSTABLESTATE = 1008,
+            MF_MEDIA_ENGINE_EVENT_FIRSTFRAMEREADY = 1009,
+            MF_MEDIA_ENGINE_EVENT_TRACKSCHANGE = 1010,
+            MF_MEDIA_ENGINE_EVENT_OPMINFO = 1011,
+            MF_MEDIA_ENGINE_EVENT_RESOURCELOST = 1012,
+            MF_MEDIA_ENGINE_EVENT_DELAYLOADEVENT_CHANGED = 1013,
+            MF_MEDIA_ENGINE_EVENT_STREAMRENDERINGERROR = 1014,
+            MF_MEDIA_ENGINE_EVENT_SUPPORTEDRATES_CHANGED = 1015,
+            MF_MEDIA_ENGINE_EVENT_AUDIOENDPOINTCHANGE = 1016,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_EXTENSION_TYPE {
+            MF_MEDIA_ENGINE_EXTENSION_TYPE_MEDIASOURCE = 0,
+            MF_MEDIA_ENGINE_EXTENSION_TYPE_BYTESTREAM = 1,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
+            MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_PROTECTED = 1,
+            MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_REQUIRES_SURFACE_PROTECTION = 2,
+            MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_REQUIRES_ANTI_SCREEN_SCRAPE_PROTECTION = 4,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_KEYERR {
+            MF_MEDIAENGINE_KEYERR_UNKNOWN = 1,
+            MF_MEDIAENGINE_KEYERR_CLIENT = 2,
+            MF_MEDIAENGINE_KEYERR_SERVICE = 3,
+            MF_MEDIAENGINE_KEYERR_OUTPUT = 4,
+            MF_MEDIAENGINE_KEYERR_HARDWARECHANGE = 5,
+            MF_MEDIAENGINE_KEYERR_DOMAIN = 6,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_NETWORK {
+            MF_MEDIA_ENGINE_NETWORK_EMPTY = 0,
+            MF_MEDIA_ENGINE_NETWORK_IDLE = 1,
+            MF_MEDIA_ENGINE_NETWORK_LOADING = 2,
+            MF_MEDIA_ENGINE_NETWORK_NO_SOURCE = 3,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_OPM_STATUS {
+            MF_MEDIA_ENGINE_OPM_NOT_REQUESTED = 0,
+            MF_MEDIA_ENGINE_OPM_ESTABLISHED = 1,
+            MF_MEDIA_ENGINE_OPM_FAILED_VM = 2,
+            MF_MEDIA_ENGINE_OPM_FAILED_BDA = 3,
+            MF_MEDIA_ENGINE_OPM_FAILED_UNSIGNED_DRIVER = 4,
+            MF_MEDIA_ENGINE_OPM_FAILED = 5,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_PRELOAD {
+            MF_MEDIA_ENGINE_PRELOAD_MISSING = 0,
+            MF_MEDIA_ENGINE_PRELOAD_EMPTY = 1,
+            MF_MEDIA_ENGINE_PRELOAD_NONE = 2,
+            MF_MEDIA_ENGINE_PRELOAD_METADATA = 3,
+            MF_MEDIA_ENGINE_PRELOAD_AUTOMATIC = 4,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_PROTECTION_FLAGS {
+            MF_MEDIA_ENGINE_ENABLE_PROTECTED_CONTENT = 1,
+            MF_MEDIA_ENGINE_USE_PMP_FOR_ALL_CONTENT = 2,
+            MF_MEDIA_ENGINE_USE_UNPROTECTED_PMP = 4,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_READY {
+            MF_MEDIA_ENGINE_READY_HAVE_NOTHING = 0,
+            MF_MEDIA_ENGINE_READY_HAVE_METADATA = 1,
+            MF_MEDIA_ENGINE_READY_HAVE_CURRENT_DATA = 2,
+            MF_MEDIA_ENGINE_READY_HAVE_FUTURE_DATA = 3,
+            MF_MEDIA_ENGINE_READY_HAVE_ENOUGH_DATA = 4,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_S3D_PACKING_MODE {
+            MF_MEDIA_ENGINE_S3D_PACKING_MODE_NONE = 0,
+            MF_MEDIA_ENGINE_S3D_PACKING_MODE_SIDE_BY_SIDE = 1,
+            MF_MEDIA_ENGINE_S3D_PACKING_MODE_TOP_BOTTOM = 2,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_SEEK_MODE {
+            MF_MEDIA_ENGINE_SEEK_MODE_NORMAL = 0,
+            MF_MEDIA_ENGINE_SEEK_MODE_APPROXIMATE = 1,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_STATISTIC {
+            MF_MEDIA_ENGINE_STATISTIC_FRAMES_RENDERED = 0,
+            MF_MEDIA_ENGINE_STATISTIC_FRAMES_DROPPED = 1,
+            MF_MEDIA_ENGINE_STATISTIC_BYTES_DOWNLOADED = 2,
+            MF_MEDIA_ENGINE_STATISTIC_BUFFER_PROGRESS = 3,
+            MF_MEDIA_ENGINE_STATISTIC_FRAMES_PER_SECOND = 4,
+            MF_MEDIA_ENGINE_STATISTIC_PLAYBACK_JITTER = 5,
+            MF_MEDIA_ENGINE_STATISTIC_FRAMES_CORRUPTED = 6,
+            MF_MEDIA_ENGINE_STATISTIC_TOTAL_FRAME_DELAY = 7,
+        }
+        #[repr(i32)]
+        enum MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
+            MF_MEDIA_ENGINE_STREAMTYPE_FAILED_UNKNOWN = 0,
+            MF_MEDIA_ENGINE_STREAMTYPE_FAILED_AUDIO = 1,
+            MF_MEDIA_ENGINE_STREAMTYPE_FAILED_VIDEO = 2,
+        }
+        #[repr(i32)]
+        enum MF_MSE_APPEND_MODE {
+            MF_MSE_APPEND_MODE_SEGMENTS = 0,
+            MF_MSE_APPEND_MODE_SEQUENCE = 1,
+        }
+        #[repr(i32)]
+        enum MF_MSE_ERROR {
+            MF_MSE_ERROR_NOERROR = 0,
+            MF_MSE_ERROR_NETWORK = 1,
+            MF_MSE_ERROR_DECODE = 2,
+            MF_MSE_ERROR_UNKNOWN_ERROR = 3,
+        }
+        #[repr(i32)]
+        enum MF_MSE_OPUS_SUPPORT_TYPE {
+            MF_MSE_OPUS_SUPPORT_ON = 0,
+            MF_MSE_OPUS_SUPPORT_OFF = 1,
+        }
+        #[repr(i32)]
+        enum MF_MSE_READY {
+            MF_MSE_READY_CLOSED = 1,
+            MF_MSE_READY_OPEN = 2,
+            MF_MSE_READY_ENDED = 3,
+        }
+        #[repr(i32)]
+        enum MF_MSE_VP9_SUPPORT_TYPE {
+            MF_MSE_VP9_SUPPORT_DEFAULT = 0,
+            MF_MSE_VP9_SUPPORT_ON = 1,
+            MF_MSE_VP9_SUPPORT_OFF = 2,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_ALIGNMENT {
+            MF_TIMED_TEXT_ALIGNMENT_START = 0,
+            MF_TIMED_TEXT_ALIGNMENT_END = 1,
+            MF_TIMED_TEXT_ALIGNMENT_CENTER = 2,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_BOUTEN_POSITION {
+            MF_TIMED_TEXT_BOUTEN_POSITION_BEFORE = 0,
+            MF_TIMED_TEXT_BOUTEN_POSITION_AFTER = 1,
+            MF_TIMED_TEXT_BOUTEN_POSITION_OUTSIDE = 2,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_BOUTEN_TYPE {
+            MF_TIMED_TEXT_BOUTEN_TYPE_NONE = 0,
+            MF_TIMED_TEXT_BOUTEN_TYPE_AUTO = 1,
+            MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDCIRCLE = 2,
+            MF_TIMED_TEXT_BOUTEN_TYPE_OPENCIRCLE = 3,
+            MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDDOT = 4,
+            MF_TIMED_TEXT_BOUTEN_TYPE_OPENDOT = 5,
+            MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDSESAME = 6,
+            MF_TIMED_TEXT_BOUTEN_TYPE_OPENSESAME = 7,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_CUE_EVENT {
+            MF_TIMED_TEXT_CUE_EVENT_ACTIVE = 0,
+            MF_TIMED_TEXT_CUE_EVENT_INACTIVE = 1,
+            MF_TIMED_TEXT_CUE_EVENT_CLEAR = 2,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_DECORATION {
+            MF_TIMED_TEXT_DECORATION_NONE = 0,
+            MF_TIMED_TEXT_DECORATION_UNDERLINE = 1,
+            MF_TIMED_TEXT_DECORATION_LINE_THROUGH = 2,
+            MF_TIMED_TEXT_DECORATION_OVERLINE = 4,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
+            MF_TIMED_TEXT_DISPLAY_ALIGNMENT_BEFORE = 0,
+            MF_TIMED_TEXT_DISPLAY_ALIGNMENT_AFTER = 1,
+            MF_TIMED_TEXT_DISPLAY_ALIGNMENT_CENTER = 2,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_ERROR_CODE {
+            MF_TIMED_TEXT_ERROR_CODE_NOERROR = 0,
+            MF_TIMED_TEXT_ERROR_CODE_FATAL = 1,
+            MF_TIMED_TEXT_ERROR_CODE_DATA_FORMAT = 2,
+            MF_TIMED_TEXT_ERROR_CODE_NETWORK = 3,
+            MF_TIMED_TEXT_ERROR_CODE_INTERNAL = 4,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_FONT_STYLE {
+            MF_TIMED_TEXT_FONT_STYLE_NORMAL = 0,
+            MF_TIMED_TEXT_FONT_STYLE_OBLIQUE = 1,
+            MF_TIMED_TEXT_FONT_STYLE_ITALIC = 2,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_RUBY_ALIGN {
+            MF_TIMED_TEXT_RUBY_ALIGN_CENTER = 0,
+            MF_TIMED_TEXT_RUBY_ALIGN_START = 1,
+            MF_TIMED_TEXT_RUBY_ALIGN_END = 2,
+            MF_TIMED_TEXT_RUBY_ALIGN_SPACEAROUND = 3,
+            MF_TIMED_TEXT_RUBY_ALIGN_SPACEBETWEEN = 4,
+            MF_TIMED_TEXT_RUBY_ALIGN_WITHBASE = 5,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_RUBY_POSITION {
+            MF_TIMED_TEXT_RUBY_POSITION_BEFORE = 0,
+            MF_TIMED_TEXT_RUBY_POSITION_AFTER = 1,
+            MF_TIMED_TEXT_RUBY_POSITION_OUTSIDE = 2,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_RUBY_RESERVE {
+            MF_TIMED_TEXT_RUBY_RESERVE_NONE = 0,
+            MF_TIMED_TEXT_RUBY_RESERVE_BEFORE = 1,
+            MF_TIMED_TEXT_RUBY_RESERVE_AFTER = 2,
+            MF_TIMED_TEXT_RUBY_RESERVE_BOTH = 3,
+            MF_TIMED_TEXT_RUBY_RESERVE_OUTSIDE = 4,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_SCROLL_MODE {
+            MF_TIMED_TEXT_SCROLL_MODE_POP_ON = 0,
+            MF_TIMED_TEXT_SCROLL_MODE_ROLL_UP = 1,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_TRACK_KIND {
+            MF_TIMED_TEXT_TRACK_KIND_UNKNOWN = 0,
+            MF_TIMED_TEXT_TRACK_KIND_SUBTITLES = 1,
+            MF_TIMED_TEXT_TRACK_KIND_CAPTIONS = 2,
+            MF_TIMED_TEXT_TRACK_KIND_METADATA = 3,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_TRACK_READY_STATE {
+            MF_TIMED_TEXT_TRACK_READY_STATE_NONE = 0,
+            MF_TIMED_TEXT_TRACK_READY_STATE_LOADING = 1,
+            MF_TIMED_TEXT_TRACK_READY_STATE_LOADED = 2,
+            MF_TIMED_TEXT_TRACK_READY_STATE_ERROR = 3,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_UNIT_TYPE {
+            MF_TIMED_TEXT_UNIT_TYPE_PIXELS = 0,
+            MF_TIMED_TEXT_UNIT_TYPE_PERCENTAGE = 1,
+        }
+        #[repr(i32)]
+        enum MF_TIMED_TEXT_WRITING_MODE {
+            MF_TIMED_TEXT_WRITING_MODE_LRTB = 0,
+            MF_TIMED_TEXT_WRITING_MODE_RLTB = 1,
+            MF_TIMED_TEXT_WRITING_MODE_TBRL = 2,
+            MF_TIMED_TEXT_WRITING_MODE_TBLR = 3,
+            MF_TIMED_TEXT_WRITING_MODE_LR = 4,
+            MF_TIMED_TEXT_WRITING_MODE_RL = 5,
+            MF_TIMED_TEXT_WRITING_MODE_TB = 6,
+        }
+    }
+}

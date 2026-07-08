@@ -1,0 +1,345 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const APPCLASS_MASK: u32 = 15;
+        const APPCLASS_MONITOR: u32 = 1;
+        const APPCLASS_STANDARD: u32 = 0;
+        const APPCMD_CLIENTONLY: u32 = 16;
+        const APPCMD_FILTERINITS: u32 = 32;
+        const APPCMD_MASK: u32 = 4080;
+        const CADV_LATEACK: u32 = 65535;
+        const CBF_FAIL_ADVISES: u32 = 16384;
+        const CBF_FAIL_ALLSVRXACTIONS: u32 = 258048;
+        const CBF_FAIL_CONNECTIONS: u32 = 8192;
+        const CBF_FAIL_EXECUTES: u32 = 32768;
+        const CBF_FAIL_POKES: u32 = 65536;
+        const CBF_FAIL_REQUESTS: u32 = 131072;
+        const CBF_FAIL_SELFCONNECTIONS: u32 = 4096;
+        const CBF_SKIP_ALLNOTIFICATIONS: u32 = 3932160;
+        const CBF_SKIP_CONNECT_CONFIRMS: u32 = 262144;
+        const CBF_SKIP_DISCONNECTS: u32 = 2097152;
+        const CBF_SKIP_REGISTRATIONS: u32 = 524288;
+        const CBF_SKIP_UNREGISTRATIONS: u32 = 1048576;
+        const CBR_BLOCK: HDDEDATA = -1;
+        struct CONVCONTEXT {
+            cb: u32,
+            wFlags: u32,
+            wCountryID: u32,
+            iCodePage: i32,
+            dwLangID: u32,
+            dwSecurity: u32,
+            qos: SECURITY_QUALITY_OF_SERVICE,
+        }
+        struct CONVINFO {
+            cb: u32,
+            hUser: usize,
+            hConvPartner: HCONV,
+            hszSvcPartner: HSZ,
+            hszServiceReq: HSZ,
+            hszTopic: HSZ,
+            hszItem: HSZ,
+            wFmt: u32,
+            wType: u32,
+            wStatus: u32,
+            wConvst: u32,
+            wLastError: u32,
+            hConvList: HCONVLIST,
+            ConvCtxt: CONVCONTEXT,
+            hwnd: HWND,
+            hwndPartner: HWND,
+        }
+        const CP_WINANSI: u32 = 1004;
+        const CP_WINNEUTRAL: u32 = 1004;
+        const CP_WINUNICODE: u32 = 1200;
+        struct DDEML_MSG_HOOK_DATA {
+            uiLo: usize,
+            uiHi: usize,
+            cbData: u32,
+            Data: [u32; 8],
+        }
+        const DDE_FACK: u32 = 32768;
+        const DDE_FACKREQ: u32 = 32768;
+        const DDE_FACKRESERVED: i32 = -49408;
+        const DDE_FADVRESERVED: i32 = -49153;
+        const DDE_FAPPSTATUS: u32 = 255;
+        const DDE_FBUSY: u32 = 16384;
+        const DDE_FDATRESERVED: i32 = -45057;
+        const DDE_FDEFERUPD: u32 = 16384;
+        const DDE_FNOTPROCESSED: u32 = 0;
+        const DDE_FPOKRESERVED: i32 = -8193;
+        const DDE_FRELEASE: u32 = 8192;
+        const DDE_FREQUESTED: u32 = 4096;
+        const DMLERR_ADVACKTIMEOUT: u32 = 16384;
+        const DMLERR_BUSY: u32 = 16385;
+        const DMLERR_DATAACKTIMEOUT: u32 = 16386;
+        const DMLERR_DLL_NOT_INITIALIZED: u32 = 16387;
+        const DMLERR_DLL_USAGE: u32 = 16388;
+        const DMLERR_EXECACKTIMEOUT: u32 = 16389;
+        const DMLERR_FIRST: u32 = 16384;
+        const DMLERR_INVALIDPARAMETER: u32 = 16390;
+        const DMLERR_LAST: u32 = 16401;
+        const DMLERR_LOW_MEMORY: u32 = 16391;
+        const DMLERR_MEMORY_ERROR: u32 = 16392;
+        const DMLERR_NOTPROCESSED: u32 = 16393;
+        const DMLERR_NO_CONV_ESTABLISHED: u32 = 16394;
+        const DMLERR_NO_ERROR: u32 = 0;
+        const DMLERR_POKEACKTIMEOUT: u32 = 16395;
+        const DMLERR_POSTMSG_FAILED: u32 = 16396;
+        const DMLERR_REENTRANCY: u32 = 16397;
+        const DMLERR_SERVER_DIED: u32 = 16398;
+        const DMLERR_SYS_ERROR: u32 = 16399;
+        const DMLERR_UNADVACKTIMEOUT: u32 = 16400;
+        const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401;
+        const DNS_FILTEROFF: u32 = 8;
+        const DNS_FILTERON: u32 = 4;
+        const DNS_REGISTER: u32 = 1;
+        const DNS_UNREGISTER: u32 = 2;
+        #[library("USER32.dll")]
+        extern fn DdeAbandonTransaction(idInst: u32, hConv: HCONV, idTransaction: u32) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeAccessData(hData: HDDEDATA, #[opt] pcbDataSize: *mut u32) -> LPBYTE;
+        #[library("USER32.dll")]
+        extern fn DdeAddData(hData: HDDEDATA, #[size_param(2)] pSrc: *const u8, cb: u32, cbOff: u32) -> HDDEDATA;
+        #[library("USER32.dll")]
+        extern fn DdeClientTransaction(#[opt] pData: *const u8, cbData: u32, hConv: HCONV, #[opt] hszItem: HSZ, wFmt: u32, wType: u32, dwTimeout: u32, #[opt] pdwResult: *mut u32) -> HDDEDATA;
+        #[library("USER32.dll")]
+        extern fn DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ) -> i32;
+        #[library("USER32.dll")]
+        extern fn DdeConnect(idInst: u32, hszService: HSZ, hszTopic: HSZ, #[opt] pCC: *const CONVCONTEXT) -> HCONV;
+        #[library("USER32.dll")]
+        extern fn DdeConnectList(idInst: u32, hszService: HSZ, hszTopic: HSZ, hConvList: HCONVLIST, #[opt] pCC: *const CONVCONTEXT) -> HCONVLIST;
+        #[library("USER32.dll")]
+        extern fn DdeCreateDataHandle(idInst: u32, #[size_param(2)] #[opt] pSrc: *const u8, cb: u32, cbOff: u32, #[opt] hszItem: HSZ, wFmt: u32, afCmd: u32) -> HDDEDATA;
+        #[library("USER32.dll")]
+        extern fn DdeCreateStringHandleA(idInst: u32, psz: PCSTR, iCodePage: i32) -> HSZ;
+        #[library("USER32.dll")]
+        extern fn DdeCreateStringHandleW(idInst: u32, psz: PCWSTR, iCodePage: i32) -> HSZ;
+        #[library("USER32.dll")]
+        extern fn DdeDisconnect(hConv: HCONV) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeDisconnectList(hConvList: HCONVLIST) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeEnableCallback(idInst: u32, hConv: HCONV, wCmd: u32) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeFreeDataHandle(hData: HDDEDATA) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeFreeStringHandle(idInst: u32, hsz: HSZ) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeGetData(hData: HDDEDATA, #[size_param(2)] #[opt] pDst: *mut u8, cbMax: u32, cbOff: u32) -> u32;
+        #[library("USER32.dll")]
+        extern fn DdeGetLastError(idInst: u32) -> u32;
+        #[library("USER32.dll")]
+        extern fn DdeImpersonateClient(hConv: HCONV) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeInitializeA(#[in] #[out] pidInst: *mut u32, pfnCallback: PFNCALLBACK, afCmd: u32, #[reserved] ulRes: u32) -> u32;
+        #[library("USER32.dll")]
+        extern fn DdeInitializeW(#[in] #[out] pidInst: *mut u32, pfnCallback: PFNCALLBACK, afCmd: u32, #[reserved] ulRes: u32) -> u32;
+        #[library("USER32.dll")]
+        extern fn DdeKeepStringHandle(idInst: u32, hsz: HSZ) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeNameService(idInst: u32, #[opt] hsz1: HSZ, #[opt] hsz2: HSZ, afCmd: u32) -> HDDEDATA;
+        #[library("USER32.dll")]
+        extern fn DdePostAdvise(idInst: u32, hszTopic: HSZ, hszItem: HSZ) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeQueryConvInfo(hConv: HCONV, idTransaction: u32, #[in] #[out] pConvInfo: *mut CONVINFO) -> u32;
+        #[library("USER32.dll")]
+        extern fn DdeQueryNextServer(hConvList: HCONVLIST, hConvPrev: HCONV) -> HCONV;
+        #[library("USER32.dll")]
+        extern fn DdeQueryStringA(idInst: u32, hsz: HSZ, #[len_param(3)] #[out] #[opt] psz: PSTR, cchMax: u32, iCodePage: i32) -> u32;
+        #[library("USER32.dll")]
+        extern fn DdeQueryStringW(idInst: u32, hsz: HSZ, #[len_param(3)] #[out] #[opt] psz: PWSTR, cchMax: u32, iCodePage: i32) -> u32;
+        #[library("USER32.dll")]
+        extern fn DdeReconnect(hConv: HCONV) -> HCONV;
+        #[library("USER32.dll")]
+        extern fn DdeSetUserHandle(hConv: HCONV, id: u32, hUser: usize) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeUnaccessData(hData: HDDEDATA) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn DdeUninitialize(idInst: u32) -> BOOL;
+        const EC_DISABLE: u32 = 8;
+        const EC_ENABLEALL: u32 = 0;
+        const EC_ENABLEONE: u32 = 128;
+        const EC_QUERYWAITING: u32 = 2;
+        extern fn FNCALLBACK(wType: u32, wFmt: u32, hConv: HCONV, hsz1: HSZ, hsz2: HSZ, hData: HDDEDATA, dwData1: usize, dwData2: usize) -> HDDEDATA;
+        type HCONV = *mut void;
+        type HCONVLIST = *mut void;
+        const HDATA_APPOWNED: u32 = 1;
+        type HDDEDATA = *mut void;
+        type HSZ = *mut void;
+        struct HSZPAIR {
+            hszSvc: HSZ,
+            hszTopic: HSZ,
+        }
+        const MAX_MONITORS: u32 = 4;
+        const MF_CALLBACKS: u32 = 134217728;
+        const MF_CONV: u32 = 1073741824;
+        const MF_ERRORS: u32 = 268435456;
+        const MF_HSZ_INFO: u32 = 16777216;
+        const MF_LINKS: u32 = 536870912;
+        const MF_MASK: u32 = 4278190080;
+        const MF_POSTMSGS: u32 = 67108864;
+        const MF_SENDMSGS: u32 = 33554432;
+        const MH_CLEANUP: u32 = 4;
+        const MH_CREATE: u32 = 1;
+        const MH_DELETE: u32 = 3;
+        const MH_KEEP: u32 = 2;
+        struct MONCBSTRUCT {
+            cb: u32,
+            dwTime: u32,
+            hTask: HANDLE,
+            dwRet: u32,
+            wType: u32,
+            wFmt: u32,
+            hConv: HCONV,
+            hsz1: HSZ,
+            hsz2: HSZ,
+            hData: HDDEDATA,
+            dwData1: usize,
+            dwData2: usize,
+            cc: CONVCONTEXT,
+            cbData: u32,
+            Data: [u32; 8],
+        }
+        struct MONCONVSTRUCT {
+            cb: u32,
+            fConnect: BOOL,
+            dwTime: u32,
+            hTask: HANDLE,
+            hszSvc: HSZ,
+            hszTopic: HSZ,
+            hConvClient: HCONV,
+            hConvServer: HCONV,
+        }
+        struct MONERRSTRUCT {
+            cb: u32,
+            wLastError: u32,
+            dwTime: u32,
+            hTask: HANDLE,
+        }
+        type MONHSZSTRUCT = MONHSZSTRUCTA;
+        struct MONHSZSTRUCTA {
+            cb: u32,
+            fsAction: BOOL,
+            dwTime: u32,
+            hsz: HSZ,
+            hTask: HANDLE,
+            str: [i8; 1],
+        }
+        struct MONHSZSTRUCTW {
+            cb: u32,
+            fsAction: BOOL,
+            dwTime: u32,
+            hsz: HSZ,
+            hTask: HANDLE,
+            str: [u16; 1],
+        }
+        struct MONLINKSTRUCT {
+            cb: u32,
+            dwTime: u32,
+            hTask: HANDLE,
+            fEstablished: BOOL,
+            fNoData: BOOL,
+            hszSvc: HSZ,
+            hszTopic: HSZ,
+            hszItem: HSZ,
+            wFmt: u32,
+            fServer: BOOL,
+            hConvServer: HCONV,
+            hConvClient: HCONV,
+        }
+        struct MONMSGSTRUCT {
+            cb: u32,
+            hwndTo: HWND,
+            dwTime: u32,
+            hTask: HANDLE,
+            wMsg: u32,
+            wParam: WPARAM,
+            lParam: LPARAM,
+            dmhd: DDEML_MSG_HOOK_DATA,
+        }
+        const MSGF_DDEMGR: u32 = 32769;
+        type PCONVCONTEXT = *mut CONVCONTEXT;
+        type PCONVINFO = *mut CONVINFO;
+        type PDDEML_MSG_HOOK_DATA = *mut DDEML_MSG_HOOK_DATA;
+        extern fn PFNCALLBACK(wType: u32, wFmt: u32, hConv: HCONV, hsz1: HSZ, hsz2: HSZ, hData: HDDEDATA, dwData1: usize, dwData2: usize) -> HDDEDATA;
+        type PHSZPAIR = *mut HSZPAIR;
+        type PMONCBSTRUCT = *mut MONCBSTRUCT;
+        type PMONCONVSTRUCT = *mut MONCONVSTRUCT;
+        type PMONERRSTRUCT = *mut MONERRSTRUCT;
+        type PMONHSZSTRUCT = PMONHSZSTRUCTA;
+        type PMONHSZSTRUCTA = *mut MONHSZSTRUCTA;
+        type PMONHSZSTRUCTW = *mut MONHSZSTRUCTW;
+        type PMONLINKSTRUCT = *mut MONLINKSTRUCT;
+        type PMONMSGSTRUCT = *mut MONMSGSTRUCT;
+        const QID_SYNC: u32 = 4294967295;
+        const ST_ADVISE: u32 = 2;
+        const ST_BLOCKED: u32 = 8;
+        const ST_BLOCKNEXT: u32 = 128;
+        const ST_CLIENT: u32 = 16;
+        const ST_CONNECTED: u32 = 1;
+        const ST_INLIST: u32 = 64;
+        const ST_ISLOCAL: u32 = 4;
+        const ST_ISSELF: u32 = 256;
+        const ST_TERMINATED: u32 = 32;
+        #[encoding("ansi")]
+        const SZDDESYS_ITEM_FORMATS: String = "Formats";
+        #[encoding("ansi")]
+        const SZDDESYS_ITEM_HELP: String = "Help";
+        #[encoding("ansi")]
+        const SZDDESYS_ITEM_RTNMSG: String = "ReturnMessage";
+        #[encoding("ansi")]
+        const SZDDESYS_ITEM_STATUS: String = "Status";
+        #[encoding("ansi")]
+        const SZDDESYS_ITEM_SYSITEMS: String = "SysItems";
+        #[encoding("ansi")]
+        const SZDDESYS_ITEM_TOPICS: String = "Topics";
+        #[encoding("ansi")]
+        const SZDDESYS_TOPIC: String = "System";
+        #[encoding("ansi")]
+        const SZDDE_ITEM_ITEMLIST: String = "TopicItemList";
+        const TIMEOUT_ASYNC: u32 = 4294967295;
+        const XCLASS_BOOL: u32 = 4096;
+        const XCLASS_DATA: u32 = 8192;
+        const XCLASS_FLAGS: u32 = 16384;
+        const XCLASS_MASK: u32 = 64512;
+        const XCLASS_NOTIFICATION: u32 = 32768;
+        const XST_ADVACKRCVD: u32 = 13;
+        const XST_ADVDATAACKRCVD: u32 = 16;
+        const XST_ADVDATASENT: u32 = 15;
+        const XST_ADVSENT: u32 = 11;
+        const XST_CONNECTED: u32 = 2;
+        const XST_DATARCVD: u32 = 6;
+        const XST_EXECACKRCVD: u32 = 10;
+        const XST_EXECSENT: u32 = 9;
+        const XST_INCOMPLETE: u32 = 1;
+        const XST_INIT1: u32 = 3;
+        const XST_INIT2: u32 = 4;
+        const XST_NULL: u32 = 0;
+        const XST_POKEACKRCVD: u32 = 8;
+        const XST_POKESENT: u32 = 7;
+        const XST_REQSENT: u32 = 5;
+        const XST_UNADVACKRCVD: u32 = 14;
+        const XST_UNADVSENT: u32 = 12;
+        const XTYPF_ACKREQ: u32 = 8;
+        const XTYPF_NOBLOCK: u32 = 2;
+        const XTYPF_NODATA: u32 = 4;
+        const XTYP_ADVDATA: u32 = 16400;
+        const XTYP_ADVREQ: u32 = 8226;
+        const XTYP_ADVSTART: u32 = 4144;
+        const XTYP_ADVSTOP: u32 = 32832;
+        const XTYP_CONNECT: u32 = 4194;
+        const XTYP_CONNECT_CONFIRM: u32 = 32882;
+        const XTYP_DISCONNECT: u32 = 32962;
+        const XTYP_ERROR: u32 = 32770;
+        const XTYP_EXECUTE: u32 = 16464;
+        const XTYP_MASK: u32 = 240;
+        const XTYP_MONITOR: u32 = 33010;
+        const XTYP_POKE: u32 = 16528;
+        const XTYP_REGISTER: u32 = 32930;
+        const XTYP_REQUEST: u32 = 8368;
+        const XTYP_SHIFT: u32 = 4;
+        const XTYP_UNREGISTER: u32 = 32978;
+        const XTYP_WILDCONNECT: u32 = 8418;
+        const XTYP_XACT_COMPLETE: u32 = 32896;
+    }
+}

@@ -1,0 +1,192 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type BTHNS_INQUIRYBLOB = BTH_QUERY_DEVICE;
+        type BTHNS_RESTRICTIONBLOB = BTH_QUERY_SERVICE;
+        const BTHNS_RESULT_DEVICE_AUTHENTICATED: u32 = 262144;
+        const BTHNS_RESULT_DEVICE_CONNECTED: u32 = 65536;
+        const BTHNS_RESULT_DEVICE_REMEMBERED: u32 = 131072;
+        type BTHNS_SETBLOB = BTH_SET_SERVICE;
+        const BTHPROTO_L2CAP: u32 = 256;
+        const BTHPROTO_RFCOMM: u32 = 3;
+        const BTH_ADDR_STRING_SIZE: u32 = 12;
+        #[packed(1)]
+        struct BTH_INFO_REQ {
+            btAddr: BTH_ADDR,
+            infoType: u16,
+        }
+        #[packed(1)]
+        struct BTH_INFO_RSP {
+            result: u16,
+            dataLen: u8,
+            Anonymous: #[packed(1)] union {
+                connectionlessMTU: u16,
+                data: [u8; 44],
+            },
+        }
+        #[packed(1)]
+        struct BTH_PING_REQ {
+            btAddr: BTH_ADDR,
+            dataLen: u8,
+            data: [u8; 44],
+        }
+        struct BTH_PING_RSP {
+            dataLen: u8,
+            data: [u8; 44],
+        }
+        #[packed(1)]
+        struct BTH_QUERY_DEVICE {
+            LAP: u32,
+            length: u8,
+        }
+        #[packed(1)]
+        struct BTH_QUERY_SERVICE {
+            r#type: u32,
+            serviceHandle: u32,
+            uuids: [SdpQueryUuid; 12],
+            numRange: u32,
+            pRange: [SdpAttributeRange; 1],
+        }
+        const BTH_SDP_VERSION: u32 = 1;
+        #[packed(1)]
+        struct BTH_SET_SERVICE {
+            pSdpVersion: PULONG,
+            pRecordHandle: *mut HANDLE,
+            fCodService: u32,
+            Reserved: [u32; 5],
+            ulRecordLength: u32,
+            pRecord: [u8; 1],
+        }
+        const BT_PORT_ANY: u32 = 4294967295;
+        const BT_PORT_DYN_FIRST: u32 = 4097;
+        const BT_PORT_MAX: u32 = 65535;
+        const BT_PORT_MIN: u32 = 1;
+        const MSC_BREAK_BIT: u32 = 2;
+        const MSC_DV_BIT: u32 = 128;
+        const MSC_FC_BIT: u32 = 2;
+        const MSC_IC_BIT: u32 = 64;
+        const MSC_RESERVED: u32 = 48;
+        const MSC_RTC_BIT: u32 = 4;
+        const MSC_RTR_BIT: u32 = 8;
+        type PBTHNS_INQUIRYBLOB = *mut BTH_QUERY_DEVICE;
+        type PBTHNS_RESTRICTIONBLOB = *mut BTH_QUERY_SERVICE;
+        type PBTHNS_SETBLOB = *mut BTH_SET_SERVICE;
+        type PBTH_INFO_REQ = *mut BTH_INFO_REQ;
+        type PBTH_INFO_RSP = *mut BTH_INFO_RSP;
+        type PBTH_PING_REQ = *mut BTH_PING_REQ;
+        type PBTH_PING_RSP = *mut BTH_PING_RSP;
+        type PBTH_QUERY_DEVICE = *mut BTH_QUERY_DEVICE;
+        type PBTH_QUERY_SERVICE = *mut BTH_QUERY_SERVICE;
+        type PBTH_SET_SERVICE = *mut BTH_SET_SERVICE;
+        type PRFCOMM_COMMAND = *mut RFCOMM_COMMAND;
+        type PRFCOMM_MSC_DATA = *mut RFCOMM_MSC_DATA;
+        type PRFCOMM_RLS_DATA = *mut RFCOMM_RLS_DATA;
+        type PRFCOMM_RPN_DATA = *mut RFCOMM_RPN_DATA;
+        type PSOCKADDR_BTH = *mut SOCKADDR_BTH;
+        const RFCOMM_CMD_MSC: u32 = 1;
+        const RFCOMM_CMD_NONE: u32 = 0;
+        const RFCOMM_CMD_RLS: u32 = 2;
+        const RFCOMM_CMD_RPN: u32 = 3;
+        const RFCOMM_CMD_RPN_REQUEST: u32 = 4;
+        const RFCOMM_CMD_RPN_RESPONSE: u32 = 5;
+        #[packed(1)]
+        struct RFCOMM_COMMAND {
+            CmdType: u32,
+            Data: union {
+                MSC: RFCOMM_MSC_DATA,
+                RLS: RFCOMM_RLS_DATA,
+                RPN: RFCOMM_RPN_DATA,
+            },
+        }
+        const RFCOMM_MAX_MTU: u32 = 1011;
+        const RFCOMM_MIN_MTU: u32 = 23;
+        struct RFCOMM_MSC_DATA {
+            Signals: u8,
+            Break: u8,
+        }
+        struct RFCOMM_RLS_DATA {
+            LineStatus: u8,
+        }
+        struct RFCOMM_RPN_DATA {
+            Baud: u8,
+            Data: u8,
+            FlowControl: u8,
+            XonChar: u8,
+            XoffChar: u8,
+            ParameterMask1: u8,
+            ParameterMask2: u8,
+        }
+        const RLS_ERROR: u32 = 1;
+        const RLS_FRAMING: u32 = 8;
+        const RLS_OVERRUN: u32 = 2;
+        const RLS_PARITY: u32 = 4;
+        const RPN_BAUD_115200: u32 = 7;
+        const RPN_BAUD_19200: u32 = 4;
+        const RPN_BAUD_230400: u32 = 8;
+        const RPN_BAUD_2400: u32 = 0;
+        const RPN_BAUD_38400: u32 = 5;
+        const RPN_BAUD_4800: u32 = 1;
+        const RPN_BAUD_57600: u32 = 6;
+        const RPN_BAUD_7200: u32 = 2;
+        const RPN_BAUD_9600: u32 = 3;
+        const RPN_DATA_5: u32 = 0;
+        const RPN_DATA_6: u32 = 1;
+        const RPN_DATA_7: u32 = 2;
+        const RPN_DATA_8: u32 = 3;
+        const RPN_FLOW_RTC_IN: u32 = 16;
+        const RPN_FLOW_RTC_OUT: u32 = 32;
+        const RPN_FLOW_RTR_IN: u32 = 4;
+        const RPN_FLOW_RTR_OUT: u32 = 8;
+        const RPN_FLOW_X_IN: u32 = 1;
+        const RPN_FLOW_X_OUT: u32 = 2;
+        const RPN_PARAM_BAUD: u32 = 1;
+        const RPN_PARAM_DATA: u32 = 2;
+        const RPN_PARAM_PARITY: u32 = 8;
+        const RPN_PARAM_P_TYPE: u32 = 16;
+        const RPN_PARAM_RTC_IN: u32 = 16;
+        const RPN_PARAM_RTC_OUT: u32 = 32;
+        const RPN_PARAM_RTR_IN: u32 = 4;
+        const RPN_PARAM_RTR_OUT: u32 = 8;
+        const RPN_PARAM_STOP: u32 = 4;
+        const RPN_PARAM_XOFF: u32 = 64;
+        const RPN_PARAM_XON: u32 = 32;
+        const RPN_PARAM_X_IN: u32 = 1;
+        const RPN_PARAM_X_OUT: u32 = 2;
+        const RPN_PARITY_EVEN: u32 = 24;
+        const RPN_PARITY_MARK: u32 = 40;
+        const RPN_PARITY_NONE: u32 = 0;
+        const RPN_PARITY_ODD: u32 = 8;
+        const RPN_PARITY_SPACE: u32 = 56;
+        const RPN_STOP_1: u32 = 0;
+        const RPN_STOP_1_5: u32 = 4;
+        const SDP_DEFAULT_INQUIRY_MAX_RESPONSES: u32 = 255;
+        const SDP_DEFAULT_INQUIRY_SECONDS: u32 = 6;
+        const SDP_MAX_INQUIRY_SECONDS: u32 = 60;
+        const SDP_SERVICE_ATTRIBUTE_REQUEST: u32 = 2;
+        const SDP_SERVICE_SEARCH_ATTRIBUTE_REQUEST: u32 = 3;
+        const SDP_SERVICE_SEARCH_REQUEST: u32 = 1;
+        const SIO_BTH_INFO: i32 = -671088631;
+        const SIO_BTH_PING: i32 = -671088632;
+        const SIO_RFCOMM_SEND_COMMAND: i32 = -671088539;
+        const SIO_RFCOMM_SESSION_FLOW_OFF: i32 = -671088537;
+        const SIO_RFCOMM_TEST: i32 = -671088536;
+        const SIO_RFCOMM_USECFC: i32 = -671088535;
+        const SIO_RFCOMM_WAIT_COMMAND: i32 = -671088538;
+        #[packed(1)]
+        struct SOCKADDR_BTH {
+            addressFamily: u16,
+            btAddr: BTH_ADDR,
+            serviceClassId: GUID,
+            port: u32,
+        }
+        const SOL_L2CAP: u32 = 256;
+        const SOL_RFCOMM: u32 = 3;
+        const SOL_SDP: u32 = 257;
+        const SO_BTH_AUTHENTICATE: u32 = 2147483649;
+        const SO_BTH_ENCRYPT: u32 = 2;
+        const SO_BTH_MTU: u32 = 2147483655;
+        const SO_BTH_MTU_MAX: u32 = 2147483656;
+        const SO_BTH_MTU_MIN: u32 = 2147483658;
+        const SVCID_BTH_PROVIDER: GUID = 0x06aa63e0_7d60_41ff_afb2_3ee6d2d9392d;
+    }
+}

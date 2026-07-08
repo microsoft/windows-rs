@@ -1,0 +1,20 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const WINAPI_FAMILY: u32 = 100;
+        const WINAPI_FAMILY_APP: u32 = 2;
+        const WINAPI_FAMILY_DESKTOP_APP: u32 = 100;
+        const WINAPI_FAMILY_GAMES: u32 = 6;
+        const WINAPI_FAMILY_PC_APP: u32 = 2;
+        const WINAPI_FAMILY_PHONE_APP: u32 = 3;
+        const WINAPI_FAMILY_SERVER: u32 = 5;
+        const WINAPI_FAMILY_SYSTEM: u32 = 4;
+        const WINAPI_PARTITION_APP: u32 = 1;
+        const WINAPI_PARTITION_DESKTOP: u32 = 1;
+        const WINAPI_PARTITION_GAMES: u32 = 1;
+        const WINAPI_PARTITION_PC_APP: u32 = 1;
+        const WINAPI_PARTITION_PHONE: u32 = 0;
+        const WINAPI_PARTITION_PHONE_APP: u32 = 0;
+        const WINAPI_PARTITION_SYSTEM: u32 = 0;
+    }
+}

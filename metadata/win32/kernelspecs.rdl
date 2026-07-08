@@ -1,0 +1,12 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const APC_LEVEL: u32 = 1;
+        const DISPATCH_LEVEL: u32 = 2;
+        #[arch(X64 | Arm64)]
+        const HIGH_LEVEL: u32 = 15;
+        #[arch(X86)]
+        const HIGH_LEVEL: u32 = 31;
+        const PASSIVE_LEVEL: u32 = 0;
+    }
+}

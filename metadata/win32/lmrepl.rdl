@@ -1,0 +1,134 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type LPREPL_EDIR_INFO_0 = *mut REPL_EDIR_INFO_0;
+        type LPREPL_EDIR_INFO_1 = *mut REPL_EDIR_INFO_1;
+        type LPREPL_EDIR_INFO_1000 = *mut REPL_EDIR_INFO_1000;
+        type LPREPL_EDIR_INFO_1001 = *mut REPL_EDIR_INFO_1001;
+        type LPREPL_EDIR_INFO_2 = *mut REPL_EDIR_INFO_2;
+        type LPREPL_IDIR_INFO_0 = *mut REPL_IDIR_INFO_0;
+        type LPREPL_IDIR_INFO_1 = *mut REPL_IDIR_INFO_1;
+        type LPREPL_INFO_0 = *mut REPL_INFO_0;
+        type LPREPL_INFO_1000 = *mut REPL_INFO_1000;
+        type LPREPL_INFO_1001 = *mut REPL_INFO_1001;
+        type LPREPL_INFO_1002 = *mut REPL_INFO_1002;
+        type LPREPL_INFO_1003 = *mut REPL_INFO_1003;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplExportDirAdd(servername: PCWSTR, level: u32, buf: *mut u8, parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplExportDirDel(servername: PCWSTR, dirname: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplExportDirEnum(servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplExportDirGetInfo(servername: PCWSTR, dirname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplExportDirLock(servername: PCWSTR, dirname: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplExportDirSetInfo(servername: PCWSTR, dirname: PCWSTR, level: u32, buf: *mut u8, parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplExportDirUnlock(servername: PCWSTR, dirname: PCWSTR, unlockforce: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplGetInfo(servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplImportDirAdd(servername: PCWSTR, level: u32, buf: *mut u8, parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplImportDirDel(servername: PCWSTR, dirname: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplImportDirEnum(servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplImportDirGetInfo(servername: PCWSTR, dirname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplImportDirLock(servername: PCWSTR, dirname: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplImportDirUnlock(servername: PCWSTR, dirname: PCWSTR, unlockforce: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetReplSetInfo(servername: PCWSTR, level: u32, buf: *mut u8, parm_err: *mut u32) -> u32;
+        type PREPL_EDIR_INFO_0 = *mut REPL_EDIR_INFO_0;
+        type PREPL_EDIR_INFO_1 = *mut REPL_EDIR_INFO_1;
+        type PREPL_EDIR_INFO_1000 = *mut REPL_EDIR_INFO_1000;
+        type PREPL_EDIR_INFO_1001 = *mut REPL_EDIR_INFO_1001;
+        type PREPL_EDIR_INFO_2 = *mut REPL_EDIR_INFO_2;
+        type PREPL_IDIR_INFO_0 = *mut REPL_IDIR_INFO_0;
+        type PREPL_IDIR_INFO_1 = *mut REPL_IDIR_INFO_1;
+        type PREPL_INFO_0 = *mut REPL_INFO_0;
+        type PREPL_INFO_1000 = *mut REPL_INFO_1000;
+        type PREPL_INFO_1001 = *mut REPL_INFO_1001;
+        type PREPL_INFO_1002 = *mut REPL_INFO_1002;
+        type PREPL_INFO_1003 = *mut REPL_INFO_1003;
+        struct REPL_EDIR_INFO_0 {
+            rped0_dirname: PWSTR,
+        }
+        struct REPL_EDIR_INFO_1 {
+            rped1_dirname: PWSTR,
+            rped1_integrity: u32,
+            rped1_extent: u32,
+        }
+        struct REPL_EDIR_INFO_1000 {
+            rped1000_integrity: u32,
+        }
+        struct REPL_EDIR_INFO_1001 {
+            rped1001_extent: u32,
+        }
+        struct REPL_EDIR_INFO_2 {
+            rped2_dirname: PWSTR,
+            rped2_integrity: u32,
+            rped2_extent: u32,
+            rped2_lockcount: u32,
+            rped2_locktime: u32,
+        }
+        const REPL_EXPORT_EXTENT_INFOLEVEL: u32 = 1001;
+        const REPL_EXPORT_INTEGRITY_INFOLEVEL: u32 = 1000;
+        const REPL_EXTENT_FILE: u32 = 1;
+        const REPL_EXTENT_TREE: u32 = 2;
+        const REPL_GUARDTIME_INFOLEVEL: u32 = 1002;
+        struct REPL_IDIR_INFO_0 {
+            rpid0_dirname: PWSTR,
+        }
+        struct REPL_IDIR_INFO_1 {
+            rpid1_dirname: PWSTR,
+            rpid1_state: u32,
+            rpid1_mastername: PWSTR,
+            rpid1_last_update_time: u32,
+            rpid1_lockcount: u32,
+            rpid1_locktime: u32,
+        }
+        struct REPL_INFO_0 {
+            rp0_role: u32,
+            rp0_exportpath: PWSTR,
+            rp0_exportlist: PWSTR,
+            rp0_importpath: PWSTR,
+            rp0_importlist: PWSTR,
+            rp0_logonusername: PWSTR,
+            rp0_interval: u32,
+            rp0_pulse: u32,
+            rp0_guardtime: u32,
+            rp0_random: u32,
+        }
+        struct REPL_INFO_1000 {
+            rp1000_interval: u32,
+        }
+        struct REPL_INFO_1001 {
+            rp1001_pulse: u32,
+        }
+        struct REPL_INFO_1002 {
+            rp1002_guardtime: u32,
+        }
+        struct REPL_INFO_1003 {
+            rp1003_random: u32,
+        }
+        const REPL_INTEGRITY_FILE: u32 = 1;
+        const REPL_INTEGRITY_TREE: u32 = 2;
+        const REPL_INTERVAL_INFOLEVEL: u32 = 1000;
+        const REPL_PULSE_INFOLEVEL: u32 = 1001;
+        const REPL_RANDOM_INFOLEVEL: u32 = 1003;
+        const REPL_ROLE_BOTH: u32 = 3;
+        const REPL_ROLE_EXPORT: u32 = 1;
+        const REPL_ROLE_IMPORT: u32 = 2;
+        const REPL_STATE_NEVER_REPLICATED: u32 = 3;
+        const REPL_STATE_NO_MASTER: u32 = 1;
+        const REPL_STATE_NO_SYNC: u32 = 2;
+        const REPL_STATE_OK: u32 = 0;
+        const REPL_UNLOCK_FORCE: u32 = 1;
+        const REPL_UNLOCK_NOFORCE: u32 = 0;
+    }
+}

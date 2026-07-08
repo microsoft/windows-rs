@@ -1,0 +1,695 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x7dc9d5f9_9ed9_44ec_9bbf_0600bb589fbb)]
+        interface IMF2DBuffer: IUnknown {
+            fn Lock2D(&self, ppbScanline0: *mut *mut u8, plPitch: *mut i32) -> HRESULT;
+            fn Unlock2D(&self) -> HRESULT;
+            fn GetScanline0AndPitch(&self, pbScanline0: *mut *mut u8, plPitch: *mut i32) -> HRESULT;
+            fn IsContiguousFormat(&self, pfIsContiguous: *mut BOOL) -> HRESULT;
+            fn GetContiguousLength(&self, pcbLength: *mut u32) -> HRESULT;
+            fn ContiguousCopyTo(&self, #[size_param(1)] pbDestBuffer: *mut u8, cbDestBuffer: u32) -> HRESULT;
+            fn ContiguousCopyFrom(&self, #[size_param(1)] pbSrcBuffer: *const u8, cbSrcBuffer: u32) -> HRESULT;
+        }
+        #[guid(0x33ae5ea6_4316_436f_8ddd_d73d22f829ec)]
+        interface IMF2DBuffer2: IMF2DBuffer {
+            fn Lock2DSize(&self, lockFlags: MF2DBuffer_LockFlags, ppbScanline0: *mut *mut u8, plPitch: *mut i32, ppbBufferStart: *mut *mut u8, pcbBufferLength: *mut u32) -> HRESULT;
+            fn Copy2DTo(&self, pDestBuffer: IMF2DBuffer2) -> HRESULT;
+        }
+        #[guid(0x7fee9e9a_4a89_47a6_899c_b6a53a70fb67)]
+        interface IMFActivate: IMFAttributes {
+            fn ActivateObject(&self, riid: *const GUID, #[retval] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn ShutdownObject(&self) -> HRESULT;
+            fn DetachObject(&self) -> HRESULT;
+        }
+        #[guid(0xa27003cf_2354_4f2a_8d6a_ab7cff15437e)]
+        interface IMFAsyncCallback: IUnknown {
+            fn GetParameters(&self, pdwFlags: *mut u32, pdwQueue: *mut u32) -> HRESULT;
+            fn Invoke(&self, pAsyncResult: IMFAsyncResult) -> HRESULT;
+        }
+        #[guid(0xc7a4dca1_f5f0_47b6_b92b_bf0106d25791)]
+        interface IMFAsyncCallbackLogging: IMFAsyncCallback {
+            fn GetObjectPointer(&self) -> *mut void;
+            fn GetObjectTag(&self) -> u32;
+        }
+        #[guid(0xac6b7889_0740_4d51_8619_905994a55cc6)]
+        interface IMFAsyncResult: IUnknown {
+            fn GetState(&self, ppunkState: *mut IUnknown) -> HRESULT;
+            fn GetStatus(&self) -> HRESULT;
+            fn SetStatus(&self, hrStatus: HRESULT) -> HRESULT;
+            fn GetObject(&self, ppObject: *mut IUnknown) -> HRESULT;
+            fn GetStateNoAddRef(&self) -> IUnknown;
+        }
+        #[guid(0x2cd2d921_c447_44a7_a13c_4adabfc247e3)]
+        interface IMFAttributes: IUnknown {
+            fn GetItem(&self, guidKey: *const GUID, #[in] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetItemType(&self, guidKey: *const GUID, pType: *mut MF_ATTRIBUTE_TYPE) -> HRESULT;
+            fn CompareItem(&self, guidKey: *const GUID, Value: *const PROPVARIANT, pbResult: *mut BOOL) -> HRESULT;
+            fn Compare(&self, pTheirs: IMFAttributes, MatchType: MF_ATTRIBUTES_MATCH_TYPE, pbResult: *mut BOOL) -> HRESULT;
+            fn GetUINT32(&self, guidKey: *const GUID, punValue: *mut u32) -> HRESULT;
+            fn GetUINT64(&self, guidKey: *const GUID, punValue: *mut u64) -> HRESULT;
+            fn GetDouble(&self, guidKey: *const GUID, pfValue: *mut f64) -> HRESULT;
+            fn GetGUID(&self, guidKey: *const GUID, pguidValue: *mut GUID) -> HRESULT;
+            fn GetStringLength(&self, guidKey: *const GUID, pcchLength: *mut u32) -> HRESULT;
+            fn GetString(&self, guidKey: *const GUID, #[out] pwszValue: PWSTR, cchBufSize: u32, #[in] #[out] pcchLength: *mut u32) -> HRESULT;
+            fn GetAllocatedString(&self, guidKey: *const GUID, ppwszValue: *mut PWSTR, pcchLength: *mut u32) -> HRESULT;
+            fn GetBlobSize(&self, guidKey: *const GUID, pcbBlobSize: *mut u32) -> HRESULT;
+            fn GetBlob(&self, guidKey: *const GUID, pBuf: *mut u8, cbBufSize: u32, #[in] #[out] pcbBlobSize: *mut u32) -> HRESULT;
+            fn GetAllocatedBlob(&self, guidKey: *const GUID, ppBuf: *mut *mut u8, pcbSize: *mut u32) -> HRESULT;
+            fn GetUnknown(&self, guidKey: *const GUID, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn SetItem(&self, guidKey: *const GUID, Value: *const PROPVARIANT) -> HRESULT;
+            fn DeleteItem(&self, guidKey: *const GUID) -> HRESULT;
+            fn DeleteAllItems(&self) -> HRESULT;
+            fn SetUINT32(&self, guidKey: *const GUID, unValue: u32) -> HRESULT;
+            fn SetUINT64(&self, guidKey: *const GUID, unValue: u64) -> HRESULT;
+            fn SetDouble(&self, guidKey: *const GUID, fValue: f64) -> HRESULT;
+            fn SetGUID(&self, guidKey: *const GUID, guidValue: *const GUID) -> HRESULT;
+            fn SetString(&self, guidKey: *const GUID, wszValue: PCWSTR) -> HRESULT;
+            fn SetBlob(&self, guidKey: *const GUID, pBuf: *const u8, cbBufSize: u32) -> HRESULT;
+            fn SetUnknown(&self, guidKey: *const GUID, pUnknown: IUnknown) -> HRESULT;
+            fn LockStore(&self) -> HRESULT;
+            fn UnlockStore(&self) -> HRESULT;
+            fn GetCount(&self, pcItems: *mut u32) -> HRESULT;
+            fn GetItemByIndex(&self, unIndex: u32, pguidKey: *mut GUID, #[in] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn CopyAllItems(&self, pDest: IMFAttributes) -> HRESULT;
+        }
+        #[guid(0x26a0adc3_ce26_4672_9304_69552edd3faf)]
+        interface IMFAudioMediaType: IMFMediaType {
+            fn GetAudioFormat(&self) -> *const WAVEFORMATEX;
+        }
+        #[guid(0xad4c1b00_4bf7_422f_9175_756693d9130d)]
+        interface IMFByteStream: IUnknown {
+            fn GetCapabilities(&self, pdwCapabilities: *mut u32) -> HRESULT;
+            fn GetLength(&self, pqwLength: *mut u64) -> HRESULT;
+            fn SetLength(&self, qwLength: u64) -> HRESULT;
+            fn GetCurrentPosition(&self, pqwPosition: *mut u64) -> HRESULT;
+            fn SetCurrentPosition(&self, qwPosition: u64) -> HRESULT;
+            fn IsEndOfStream(&self, pfEndOfStream: *mut BOOL) -> HRESULT;
+            fn Read(&self, pb: *mut u8, cb: u32, pcbRead: *mut u32) -> HRESULT;
+            fn BeginRead(&self, #[size_param(1)] pb: *mut u8, cb: u32, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndRead(&self, pResult: IMFAsyncResult, pcbRead: *mut u32) -> HRESULT;
+            fn Write(&self, pb: *const u8, cb: u32, pcbWritten: *mut u32) -> HRESULT;
+            fn BeginWrite(&self, #[size_param(1)] pb: *const u8, cb: u32, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndWrite(&self, pResult: IMFAsyncResult, pcbWritten: *mut u32) -> HRESULT;
+            fn Seek(&self, SeekOrigin: MFBYTESTREAM_SEEK_ORIGIN, llSeekOffset: i64, dwSeekFlags: u32, pqwCurrentPosition: *mut u64) -> HRESULT;
+            fn Flush(&self) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xa6b43f84_5c0a_42e8_a44d_b1857a76992f)]
+        interface IMFByteStreamProxyClassFactory: IUnknown {
+            fn CreateByteStreamProxy(&self, pByteStream: IMFByteStream, pAttributes: IMFAttributes, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x5bc8a76b_869a_46a3_9b03_fa218a66aebe)]
+        interface IMFCollection: IUnknown {
+            fn GetElementCount(&self, pcElements: *mut u32) -> HRESULT;
+            fn GetElement(&self, dwElementIndex: u32, ppUnkElement: *mut IUnknown) -> HRESULT;
+            fn AddElement(&self, pUnkElement: IUnknown) -> HRESULT;
+            fn RemoveElement(&self, dwElementIndex: u32, ppUnkElement: *mut IUnknown) -> HRESULT;
+            fn InsertElementAt(&self, dwIndex: u32, pUnknown: IUnknown) -> HRESULT;
+            fn RemoveAllElements(&self) -> HRESULT;
+        }
+        #[guid(0xe7174cfa_1c9e_48b1_8866_626226bfc258)]
+        interface IMFDXGIBuffer: IUnknown {
+            fn GetResource(&self, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+            fn GetSubresourceIndex(&self, puSubresource: *mut u32) -> HRESULT;
+            fn GetUnknown(&self, guid: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+            fn SetUnknown(&self, guid: *const GUID, #[opt] pUnkData: IUnknown) -> HRESULT;
+        }
+        #[guid(0xb25d03fb_d148_45ef_bfed_f778b7566c07)]
+        interface IMFDXGICrossAdapterBuffer: IUnknown {
+            fn GetResourceForDevice(&self, pUnkDevice: IUnknown, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn GetSubresourceIndexForDevice(&self, pUnkDevice: IUnknown, puSubresource: *mut u32) -> HRESULT;
+            fn GetUnknownForDevice(&self, pUnkDevice: IUnknown, guid: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn SetUnknownForDevice(&self, pUnkDevice: IUnknown, guid: *const GUID, #[opt] pUnkData: IUnknown) -> HRESULT;
+        }
+        #[guid(0xeb533d5d_2db6_40f8_97a9_494692014f07)]
+        interface IMFDXGIDeviceManager: IUnknown {
+            fn CloseDeviceHandle(&self, hDevice: HANDLE) -> HRESULT;
+            fn GetVideoService(&self, hDevice: HANDLE, riid: *const GUID, ppService: *mut *mut void) -> HRESULT;
+            fn LockDevice(&self, hDevice: HANDLE, riid: *const GUID, ppUnkDevice: *mut *mut void, fBlock: BOOL) -> HRESULT;
+            fn OpenDeviceHandle(&self, phDevice: *mut HANDLE) -> HRESULT;
+            fn ResetDevice(&self, pUnkDevice: IUnknown, resetToken: u32) -> HRESULT;
+            fn TestDevice(&self, hDevice: HANDLE) -> HRESULT;
+            fn UnlockDevice(&self, hDevice: HANDLE, fSaveState: BOOL) -> HRESULT;
+        }
+        #[guid(0x045fa593_8799_42b8_bc8d_8968c6453507)]
+        interface IMFMediaBuffer: IUnknown {
+            fn Lock(&self, ppbBuffer: *mut *mut u8, #[opt] pcbMaxLength: *mut u32, #[opt] pcbCurrentLength: *mut u32) -> HRESULT;
+            fn Unlock(&self) -> HRESULT;
+            fn GetCurrentLength(&self, pcbCurrentLength: *mut u32) -> HRESULT;
+            fn SetCurrentLength(&self, cbCurrentLength: u32) -> HRESULT;
+            fn GetMaxLength(&self, pcbMaxLength: *mut u32) -> HRESULT;
+        }
+        #[guid(0xdf598932_f10c_4e39_bba2_c308f101daa3)]
+        interface IMFMediaEvent: IMFAttributes {
+            fn GetType(&self, pmet: *mut MediaEventType) -> HRESULT;
+            fn GetExtendedType(&self, pguidExtendedType: *mut GUID) -> HRESULT;
+            fn GetStatus(&self, phrStatus: *mut HRESULT) -> HRESULT;
+            fn GetValue(&self, pvValue: *mut PROPVARIANT) -> HRESULT;
+        }
+        #[guid(0x2cd0bd52_bcd5_4b89_b62c_eadc0c031e7d)]
+        interface IMFMediaEventGenerator: IUnknown {
+            fn GetEvent(&self, dwFlags: u32, ppEvent: *mut IMFMediaEvent) -> HRESULT;
+            fn BeginGetEvent(&self, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndGetEvent(&self, pResult: IMFAsyncResult, ppEvent: *mut IMFMediaEvent) -> HRESULT;
+            fn QueueEvent(&self, met: MediaEventType, guidExtendedType: *const GUID, hrStatus: HRESULT, pvValue: *const PROPVARIANT) -> HRESULT;
+        }
+        #[guid(0x36f846fc_2256_48b6_b58e_e2b638316581)]
+        interface IMFMediaEventQueue: IUnknown {
+            fn GetEvent(&self, dwFlags: u32, ppEvent: *mut IMFMediaEvent) -> HRESULT;
+            fn BeginGetEvent(&self, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndGetEvent(&self, pResult: IMFAsyncResult, ppEvent: *mut IMFMediaEvent) -> HRESULT;
+            fn QueueEvent(&self, pEvent: IMFMediaEvent) -> HRESULT;
+            fn QueueEventParamVar(&self, met: MediaEventType, guidExtendedType: *const GUID, hrStatus: HRESULT, pvValue: *const PROPVARIANT) -> HRESULT;
+            fn QueueEventParamUnk(&self, met: MediaEventType, guidExtendedType: *const GUID, hrStatus: HRESULT, pUnk: IUnknown) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+        }
+        #[guid(0x44ae0fa8_ea31_4109_8d2e_4cae4997c555)]
+        interface IMFMediaType: IMFAttributes {
+            fn GetMajorType(&self, pguidMajorType: *mut GUID) -> HRESULT;
+            fn IsCompressedFormat(&self, pfCompressed: *mut BOOL) -> HRESULT;
+            fn IsEqual(&self, pIMediaType: IMFMediaType, pdwFlags: *mut u32) -> HRESULT;
+            fn GetRepresentation(&self, guidRepresentation: GUID, ppvRepresentation: *mut *mut void) -> HRESULT;
+            fn FreeRepresentation(&self, guidRepresentation: GUID, pvRepresentation: *const void) -> HRESULT;
+        }
+        #[guid(0xce8bd576_e440_43b3_be34_1e53f565f7e8)]
+        interface IMFMuxStreamAttributesManager: IUnknown {
+            fn GetStreamCount(&self, pdwMuxStreamCount: *mut u32) -> HRESULT;
+            fn GetAttributes(&self, dwMuxStreamIndex: u32, ppStreamAttributes: *mut IMFAttributes) -> HRESULT;
+        }
+        #[guid(0x505a2c72_42f7_4690_aeab_8f513d0ffdb8)]
+        interface IMFMuxStreamMediaTypeManager: IUnknown {
+            fn GetStreamCount(&self, pdwMuxStreamCount: *mut u32) -> HRESULT;
+            fn GetMediaType(&self, dwMuxStreamIndex: u32, ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetStreamConfigurationCount(&self, pdwCount: *mut u32) -> HRESULT;
+            fn AddStreamConfiguration(&self, ullStreamMask: u64) -> HRESULT;
+            fn RemoveStreamConfiguration(&self, ullStreamMask: u64) -> HRESULT;
+            fn GetStreamConfiguration(&self, ulIndex: u32, pullStreamMask: *mut u64) -> HRESULT;
+        }
+        #[guid(0x74abbc19_b1cc_4e41_bb8b_9d9b86a8f6ca)]
+        interface IMFMuxStreamSampleManager: IUnknown {
+            fn GetStreamCount(&self, pdwMuxStreamCount: *mut u32) -> HRESULT;
+            fn GetSample(&self, dwMuxStreamIndex: u32, ppSample: *mut IMFSample) -> HRESULT;
+            fn GetStreamConfiguration(&self) -> u64;
+        }
+        #[guid(0x5c6c44bf_1db6_435b_9249_e8cd10fdec96)]
+        interface IMFPluginControl: IUnknown {
+            fn GetPreferredClsid(&self, pluginType: u32, selector: PCWSTR, clsid: *mut GUID) -> HRESULT;
+            fn GetPreferredClsidByIndex(&self, pluginType: u32, index: u32, selector: *mut PWSTR, clsid: *mut GUID) -> HRESULT;
+            fn SetPreferredClsid(&self, pluginType: u32, selector: PCWSTR, #[opt] clsid: *const GUID) -> HRESULT;
+            fn IsDisabled(&self, pluginType: u32, clsid: *const GUID) -> HRESULT;
+            fn GetDisabledByIndex(&self, pluginType: u32, index: u32, clsid: *mut GUID) -> HRESULT;
+            fn SetDisabled(&self, pluginType: u32, clsid: *const GUID, disabled: BOOL) -> HRESULT;
+        }
+        #[guid(0xc6982083_3ddc_45cb_af5e_0f7a8ce4de77)]
+        interface IMFPluginControl2: IMFPluginControl {
+            fn SetPolicy(&self, policy: MF_PLUGIN_CONTROL_POLICY) -> HRESULT;
+        }
+        #[guid(0xa27003d0_2354_4f2a_8d6a_ab7cff15437e)]
+        interface IMFRemoteAsyncCallback: IUnknown {
+            fn Invoke(&self, hr: HRESULT, pRemoteResult: IUnknown) -> HRESULT;
+        }
+        #[guid(0xc40a00f2_b93a_4d80_ae8c_5a1c634f58e4)]
+        interface IMFSample: IMFAttributes {
+            fn GetSampleFlags(&self, pdwSampleFlags: *mut u32) -> HRESULT;
+            fn SetSampleFlags(&self, dwSampleFlags: u32) -> HRESULT;
+            fn GetSampleTime(&self, phnsSampleTime: *mut i64) -> HRESULT;
+            fn SetSampleTime(&self, hnsSampleTime: i64) -> HRESULT;
+            fn GetSampleDuration(&self, phnsSampleDuration: *mut i64) -> HRESULT;
+            fn SetSampleDuration(&self, hnsSampleDuration: i64) -> HRESULT;
+            fn GetBufferCount(&self, pdwBufferCount: *mut u32) -> HRESULT;
+            fn GetBufferByIndex(&self, dwIndex: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+            fn ConvertToContiguousBuffer(&self, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+            fn AddBuffer(&self, pBuffer: IMFMediaBuffer) -> HRESULT;
+            fn RemoveBufferByIndex(&self, dwIndex: u32) -> HRESULT;
+            fn RemoveAllBuffers(&self) -> HRESULT;
+            fn GetTotalLength(&self, pcbTotalLength: *mut u32) -> HRESULT;
+            fn CopyToBuffer(&self, pBuffer: IMFMediaBuffer) -> HRESULT;
+        }
+        #[guid(0x8feed468_6f7e_440d_869a_49bdd283ad0d)]
+        interface IMFSampleOutputStream: IUnknown {
+            fn BeginWriteSample(&self, pSample: IMFSample, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndWriteSample(&self, pResult: IMFAsyncResult) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xc1209904_e584_4752_a2d6_7f21693f8b21)]
+        interface IMFSecureBuffer: IUnknown {
+            fn GetIdentifier(&self, pGuidIdentifier: *mut GUID) -> HRESULT;
+        }
+        #[guid(0xb99f381f_a8f9_47a2_a5af_ca3a225a3890)]
+        interface IMFVideoMediaType: IMFMediaType {
+            fn GetVideoFormat(&self) -> *const MFVIDEOFORMAT;
+            fn GetVideoRepresentation(&self, guidRepresentation: GUID, ppvRepresentation: *mut *mut void, lStride: i32) -> HRESULT;
+        }
+        const MEAudioSessionDeviceRemoved: i32 = 315;
+        const MEAudioSessionDisconnected: i32 = 320;
+        const MEAudioSessionExclusiveModeOverride: i32 = 321;
+        const MEAudioSessionFormatChanged: i32 = 319;
+        const MEAudioSessionGroupingParamChanged: i32 = 317;
+        const MEAudioSessionIconChanged: i32 = 318;
+        const MEAudioSessionNameChanged: i32 = 313;
+        const MEAudioSessionServerShutdown: i32 = 316;
+        const MEAudioSessionVolumeChanged: i32 = 314;
+        const MEBufferingStarted: i32 = 122;
+        const MEBufferingStopped: i32 = 123;
+        const MEByteStreamCharacteristicsChanged: i32 = 700;
+        const MECaptureAudioSessionDeviceRemoved: i32 = 323;
+        const MECaptureAudioSessionDisconnected: i32 = 325;
+        const MECaptureAudioSessionExclusiveModeOverride: i32 = 326;
+        const MECaptureAudioSessionFormatChanged: i32 = 324;
+        const MECaptureAudioSessionServerShutdown: i32 = 327;
+        const MECaptureAudioSessionVolumeChanged: i32 = 322;
+        const MEConnectEnd: i32 = 125;
+        const MEConnectStart: i32 = 124;
+        const MEContentProtectionMessage: i32 = 402;
+        const MEContentProtectionMetadata: i32 = 900;
+        const MEDeviceThermalStateChanged: i32 = 950;
+        const MEEnablerCompleted: i32 = 119;
+        const MEEnablerProgress: i32 = 118;
+        const MEEncodingParameters: i32 = 803;
+        const MEEndOfPresentation: i32 = 211;
+        const MEEndOfPresentationSegment: i32 = 218;
+        const MEEndOfStream: i32 = 212;
+        const MEError: i32 = 1;
+        const MEExtendedType: i32 = 2;
+        const MEGenericV1Anchor: i32 = 3;
+        const MEIndividualizationCompleted: i32 = 117;
+        const MEIndividualizationStart: i32 = 116;
+        const MELicenseAcquisitionCompleted: i32 = 115;
+        const MELicenseAcquisitionStart: i32 = 114;
+        const MEMediaSample: i32 = 213;
+        const MENewPresentation: i32 = 113;
+        const MENewStream: i32 = 205;
+        const MENonFatalError: i32 = 3;
+        const MEPolicyChanged: i32 = 401;
+        const MEPolicyError: i32 = 120;
+        const MEPolicyReport: i32 = 121;
+        const MEPolicySet: i32 = 403;
+        const MEQualityNotify: i32 = 311;
+        const MEReconnectEnd: i32 = 127;
+        const MEReconnectStart: i32 = 126;
+        const MERendererEvent: i32 = 128;
+        const MEReservedMax: i32 = 10000;
+        const MESequencerSourceTopologyUpdated: i32 = 222;
+        const MESessionCapabilitiesChanged: i32 = 110;
+        const MESessionClosed: i32 = 106;
+        const MESessionEnded: i32 = 107;
+        const MESessionNotifyPresentationTime: i32 = 112;
+        const MESessionPaused: i32 = 104;
+        const MESessionRateChanged: i32 = 108;
+        const MESessionScrubSampleComplete: i32 = 109;
+        const MESessionStarted: i32 = 103;
+        const MESessionStopped: i32 = 105;
+        const MESessionStreamSinkFormatChanged: i32 = 129;
+        const MESessionTopologiesCleared: i32 = 102;
+        const MESessionTopologySet: i32 = 101;
+        const MESessionTopologyStatus: i32 = 111;
+        const MESessionUnknown: i32 = 100;
+        const MESessionV1Anchor: i32 = 129;
+        const MESinkInvalidated: i32 = 312;
+        const MESinkUnknown: i32 = 300;
+        const MESinkV1Anchor: i32 = 321;
+        const MESinkV2Anchor: i32 = 327;
+        const MESourceCharacteristicsChanged: i32 = 219;
+        const MESourceMetadataChanged: i32 = 221;
+        const MESourcePaused: i32 = 209;
+        const MESourceRateChangeRequested: i32 = 220;
+        const MESourceRateChanged: i32 = 217;
+        const MESourceSeeked: i32 = 203;
+        const MESourceStarted: i32 = 201;
+        const MESourceStopped: i32 = 207;
+        const MESourceUnknown: i32 = 200;
+        const MESourceV1Anchor: i32 = 222;
+        const MEStreamFormatChanged: i32 = 216;
+        const MEStreamPaused: i32 = 210;
+        const MEStreamSeeked: i32 = 204;
+        const MEStreamSinkDeviceChanged: i32 = 310;
+        const MEStreamSinkFormatChanged: i32 = 309;
+        const MEStreamSinkFormatInvalidated: i32 = 802;
+        const MEStreamSinkMarker: i32 = 306;
+        const MEStreamSinkPaused: i32 = 303;
+        const MEStreamSinkPrerolled: i32 = 307;
+        const MEStreamSinkRateChanged: i32 = 304;
+        const MEStreamSinkRequestSample: i32 = 305;
+        const MEStreamSinkScrubSampleComplete: i32 = 308;
+        const MEStreamSinkStarted: i32 = 301;
+        const MEStreamSinkStopped: i32 = 302;
+        const MEStreamStarted: i32 = 202;
+        const MEStreamStopped: i32 = 208;
+        const MEStreamThinMode: i32 = 215;
+        const MEStreamTick: i32 = 214;
+        const METransformDrainComplete: i32 = 603;
+        const METransformHaveOutput: i32 = 602;
+        const METransformInputStreamStateChanged: i32 = 605;
+        const METransformMarker: i32 = 604;
+        const METransformNeedInput: i32 = 601;
+        const METransformUnknown: i32 = 600;
+        const METrustUnknown: i32 = 400;
+        const METrustV1Anchor: i32 = 403;
+        const MEUnknown: i32 = 0;
+        const MEUpdatedStream: i32 = 206;
+        const MEVideoCaptureDevicePreempted: i32 = 801;
+        const MEVideoCaptureDeviceRemoved: i32 = 800;
+        const MEWMDRMIndividualizationCompleted: i32 = 508;
+        const MEWMDRMIndividualizationProgress: i32 = 513;
+        const MEWMDRMLicenseAcquisitionCompleted: i32 = 506;
+        const MEWMDRMLicenseBackupCompleted: i32 = 500;
+        const MEWMDRMLicenseBackupProgress: i32 = 501;
+        const MEWMDRMLicenseRestoreCompleted: i32 = 502;
+        const MEWMDRMLicenseRestoreProgress: i32 = 503;
+        const MEWMDRMLicenseStoreCleaned: i32 = 515;
+        const MEWMDRMProximityCompleted: i32 = 514;
+        const MEWMDRMRevocationDownloadCompleted: i32 = 516;
+        const MEWMDRMV1Anchor: i32 = 516;
+        #[repr(i32)]
+        enum MF2DBuffer_LockFlags {
+            MF2DBuffer_LockFlags_LockTypeMask = 3,
+            MF2DBuffer_LockFlags_Read = 1,
+            MF2DBuffer_LockFlags_Write = 2,
+            MF2DBuffer_LockFlags_ReadWrite = 3,
+            MF2DBuffer_LockFlags_ForceDWORD = 2147483647,
+        }
+        struct MFARGB {
+            rgbBlue: u8,
+            rgbGreen: u8,
+            rgbRed: u8,
+            rgbAlpha: u8,
+        }
+        const MFASYNC_BLOCKING_CALLBACK: u32 = 4;
+        const MFASYNC_CALLBACK_QUEUE_ALL: u32 = 4294967295;
+        const MFASYNC_CALLBACK_QUEUE_IO: u32 = 3;
+        const MFASYNC_CALLBACK_QUEUE_LONG_FUNCTION: u32 = 7;
+        const MFASYNC_CALLBACK_QUEUE_MULTITHREADED: u32 = 5;
+        const MFASYNC_CALLBACK_QUEUE_PRIVATE_MASK: u32 = 4294901760;
+        const MFASYNC_CALLBACK_QUEUE_RT: u32 = 2;
+        const MFASYNC_CALLBACK_QUEUE_STANDARD: u32 = 1;
+        const MFASYNC_CALLBACK_QUEUE_TIMER: u32 = 4;
+        const MFASYNC_CALLBACK_QUEUE_UNDEFINED: u32 = 0;
+        const MFASYNC_FAST_IO_PROCESSING_CALLBACK: u32 = 1;
+        const MFASYNC_LOCALIZE_REMOTE_CALLBACK: u32 = 16;
+        const MFASYNC_REPLY_CALLBACK: u32 = 8;
+        const MFASYNC_SIGNAL_CALLBACK: u32 = 2;
+        struct MFAYUVSample {
+            bCrValue: u8,
+            bCbValue: u8,
+            bYValue: u8,
+            bSampleAlpha8: u8,
+        }
+        const MFBYTESTREAM_DOES_NOT_USE_NETWORK: u32 = 2048;
+        const MFBYTESTREAM_HAS_SLOW_SEEK: u32 = 256;
+        const MFBYTESTREAM_IS_DIRECTORY: u32 = 128;
+        const MFBYTESTREAM_IS_PARTIALLY_DOWNLOADED: u32 = 512;
+        const MFBYTESTREAM_IS_READABLE: u32 = 1;
+        const MFBYTESTREAM_IS_REMOTE: u32 = 8;
+        const MFBYTESTREAM_IS_SEEKABLE: u32 = 4;
+        const MFBYTESTREAM_IS_WRITABLE: u32 = 2;
+        const MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO: u32 = 1;
+        #[repr(i32)]
+        enum MFBYTESTREAM_SEEK_ORIGIN {
+            msoBegin = 0,
+            msoCurrent = 1,
+        }
+        const MFBYTESTREAM_SHARE_WRITE: u32 = 1024;
+        #[library("MFPlat.DLL")]
+        extern fn MFDeserializeAttributesFromStream(pAttr: IMFAttributes, dwOptions: u32, pStm: IStream) -> HRESULT;
+        #[repr(i32)]
+        enum MFNominalRange {
+            MFNominalRange_Unknown = 0,
+            MFNominalRange_Normal = 1,
+            MFNominalRange_Wide = 2,
+            MFNominalRange_0_255 = 1,
+            MFNominalRange_16_235 = 2,
+            MFNominalRange_48_208 = 3,
+            MFNominalRange_64_127 = 4,
+            MFNominalRange_Last = 5,
+            MFNominalRange_ForceDWORD = 2147483647,
+        }
+        struct MFOffset {
+            fract: u16,
+            value: i16,
+        }
+        union MFPaletteEntry {
+            ARGB: MFARGB,
+            AYCbCr: MFAYUVSample,
+        }
+        struct MFRatio {
+            Numerator: u32,
+            Denominator: u32,
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFSerializeAttributesToStream(pAttr: IMFAttributes, dwOptions: u32, pStm: IStream) -> HRESULT;
+        #[repr(i32)]
+        enum MFStandardVideoFormat {
+            MFStdVideoFormat_reserved = 0,
+            MFStdVideoFormat_NTSC = 1,
+            MFStdVideoFormat_PAL = 2,
+            MFStdVideoFormat_DVD_NTSC = 3,
+            MFStdVideoFormat_DVD_PAL = 4,
+            MFStdVideoFormat_DV_PAL = 5,
+            MFStdVideoFormat_DV_NTSC = 6,
+            MFStdVideoFormat_ATSC_SD480i = 7,
+            MFStdVideoFormat_ATSC_HD1080i = 8,
+            MFStdVideoFormat_ATSC_HD720p = 9,
+        }
+        struct MFT_REGISTER_TYPE_INFO {
+            guidMajorType: GUID,
+            guidSubtype: GUID,
+        }
+        struct MFVIDEOFORMAT {
+            dwSize: u32,
+            videoInfo: MFVideoInfo,
+            guidFormat: GUID,
+            compressedInfo: MFVideoCompressedInfo,
+            surfaceInfo: MFVideoSurfaceInfo,
+        }
+        struct MFVideoArea {
+            OffsetX: MFOffset,
+            OffsetY: MFOffset,
+            Area: SIZE,
+        }
+        #[repr(i32)]
+        enum MFVideoChromaSubsampling {
+            MFVideoChromaSubsampling_Unknown = 0,
+            MFVideoChromaSubsampling_ProgressiveChroma = 8,
+            MFVideoChromaSubsampling_Horizontally_Cosited = 4,
+            MFVideoChromaSubsampling_Vertically_Cosited = 2,
+            MFVideoChromaSubsampling_Vertically_AlignedChromaPlanes = 1,
+            MFVideoChromaSubsampling_MPEG2 = 5,
+            MFVideoChromaSubsampling_MPEG1 = 1,
+            MFVideoChromaSubsampling_DV_PAL = 6,
+            MFVideoChromaSubsampling_Cosited = 7,
+            MFVideoChromaSubsampling_Last = 8,
+            MFVideoChromaSubsampling_ForceDWORD = 2147483647,
+        }
+        struct MFVideoCompressedInfo {
+            AvgBitrate: i64,
+            AvgBitErrorRate: i64,
+            MaxKeyFrameSpacing: u32,
+        }
+        #[repr(i32)]
+        enum MFVideoFlags {
+            MFVideoFlag_PAD_TO_Mask = 3,
+            MFVideoFlag_PAD_TO_None = 0,
+            MFVideoFlag_PAD_TO_4x3 = 1,
+            MFVideoFlag_PAD_TO_16x9 = 2,
+            MFVideoFlag_SrcContentHintMask = 28,
+            MFVideoFlag_SrcContentHintNone = 0,
+            MFVideoFlag_SrcContentHint16x9 = 4,
+            MFVideoFlag_SrcContentHint235_1 = 8,
+            MFVideoFlag_AnalogProtected = 32,
+            MFVideoFlag_DigitallyProtected = 64,
+            MFVideoFlag_ProgressiveContent = 128,
+            MFVideoFlag_FieldRepeatCountMask = 1792,
+            MFVideoFlag_FieldRepeatCountShift = 8,
+            MFVideoFlag_ProgressiveSeqReset = 2048,
+            MFVideoFlag_PanScanEnabled = 131072,
+            MFVideoFlag_LowerFieldFirst = 262144,
+            MFVideoFlag_BottomUpLinearRep = 524288,
+            MFVideoFlags_DXVASurface = 1048576,
+            MFVideoFlags_RenderTargetSurface = 4194304,
+            MFVideoFlags_ForceQWORD = 2147483647,
+        }
+        struct MFVideoInfo {
+            dwWidth: u32,
+            dwHeight: u32,
+            PixelAspectRatio: MFRatio,
+            SourceChromaSubsampling: MFVideoChromaSubsampling,
+            InterlaceMode: MFVideoInterlaceMode,
+            TransferFunction: MFVideoTransferFunction,
+            ColorPrimaries: MFVideoPrimaries,
+            TransferMatrix: MFVideoTransferMatrix,
+            SourceLighting: MFVideoLighting,
+            FramesPerSecond: MFRatio,
+            NominalRange: MFNominalRange,
+            GeometricAperture: MFVideoArea,
+            MinimumDisplayAperture: MFVideoArea,
+            PanScanAperture: MFVideoArea,
+            VideoFlags: u64,
+        }
+        #[repr(i32)]
+        enum MFVideoInterlaceMode {
+            MFVideoInterlace_Unknown = 0,
+            MFVideoInterlace_Progressive = 2,
+            MFVideoInterlace_FieldInterleavedUpperFirst = 3,
+            MFVideoInterlace_FieldInterleavedLowerFirst = 4,
+            MFVideoInterlace_FieldSingleUpper = 5,
+            MFVideoInterlace_FieldSingleLower = 6,
+            MFVideoInterlace_MixedInterlaceOrProgressive = 7,
+            MFVideoInterlace_Last = 8,
+            MFVideoInterlace_ForceDWORD = 2147483647,
+        }
+        const MFVideoInterlace_FieldSingleLowerFirst: u32 = 6;
+        const MFVideoInterlace_FieldSingleUpperFirst: u32 = 5;
+        #[repr(i32)]
+        enum MFVideoLighting {
+            MFVideoLighting_Unknown = 0,
+            MFVideoLighting_bright = 1,
+            MFVideoLighting_office = 2,
+            MFVideoLighting_dim = 3,
+            MFVideoLighting_dark = 4,
+            MFVideoLighting_Last = 5,
+            MFVideoLighting_ForceDWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum MFVideoPrimaries {
+            MFVideoPrimaries_Unknown = 0,
+            MFVideoPrimaries_reserved = 1,
+            MFVideoPrimaries_BT709 = 2,
+            MFVideoPrimaries_BT470_2_SysM = 3,
+            MFVideoPrimaries_BT470_2_SysBG = 4,
+            MFVideoPrimaries_SMPTE170M = 5,
+            MFVideoPrimaries_SMPTE240M = 6,
+            MFVideoPrimaries_EBU3213 = 7,
+            MFVideoPrimaries_SMPTE_C = 8,
+            MFVideoPrimaries_BT2020 = 9,
+            MFVideoPrimaries_XYZ = 10,
+            MFVideoPrimaries_DCI_P3 = 11,
+            MFVideoPrimaries_ACES = 12,
+            MFVideoPrimaries_Display_P3 = 13,
+            MFVideoPrimaries_Last = 14,
+            MFVideoPrimaries_ForceDWORD = 2147483647,
+        }
+        struct MFVideoSurfaceInfo {
+            Format: u32,
+            PaletteEntries: u32,
+            Palette: [MFPaletteEntry; 1],
+        }
+        #[repr(i32)]
+        enum MFVideoTransferFunction {
+            MFVideoTransFunc_Unknown = 0,
+            MFVideoTransFunc_10 = 1,
+            MFVideoTransFunc_18 = 2,
+            MFVideoTransFunc_20 = 3,
+            MFVideoTransFunc_22 = 4,
+            MFVideoTransFunc_709 = 5,
+            MFVideoTransFunc_240M = 6,
+            MFVideoTransFunc_sRGB = 7,
+            MFVideoTransFunc_28 = 8,
+            MFVideoTransFunc_Log_100 = 9,
+            MFVideoTransFunc_Log_316 = 10,
+            MFVideoTransFunc_709_sym = 11,
+            MFVideoTransFunc_2020_const = 12,
+            MFVideoTransFunc_2020 = 13,
+            MFVideoTransFunc_26 = 14,
+            MFVideoTransFunc_2084 = 15,
+            MFVideoTransFunc_HLG = 16,
+            MFVideoTransFunc_10_rel = 17,
+            MFVideoTransFunc_BT1361_ECG = 18,
+            MFVideoTransFunc_SMPTE428 = 19,
+            MFVideoTransFunc_Last = 20,
+            MFVideoTransFunc_ForceDWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum MFVideoTransferMatrix {
+            MFVideoTransferMatrix_Unknown = 0,
+            MFVideoTransferMatrix_BT709 = 1,
+            MFVideoTransferMatrix_BT601 = 2,
+            MFVideoTransferMatrix_SMPTE240M = 3,
+            MFVideoTransferMatrix_BT2020_10 = 4,
+            MFVideoTransferMatrix_BT2020_12 = 5,
+            MFVideoTransferMatrix_Identity = 6,
+            MFVideoTransferMatrix_FCC47 = 7,
+            MFVideoTransferMatrix_YCgCo = 8,
+            MFVideoTransferMatrix_SMPTE2085 = 9,
+            MFVideoTransferMatrix_Chroma = 10,
+            MFVideoTransferMatrix_Chroma_const = 11,
+            MFVideoTransferMatrix_ICtCp = 12,
+            MFVideoTransferMatrix_Last = 13,
+            MFVideoTransferMatrix_ForceDWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum MF_ATTRIBUTES_MATCH_TYPE {
+            MF_ATTRIBUTES_MATCH_OUR_ITEMS = 0,
+            MF_ATTRIBUTES_MATCH_THEIR_ITEMS = 1,
+            MF_ATTRIBUTES_MATCH_ALL_ITEMS = 2,
+            MF_ATTRIBUTES_MATCH_INTERSECTION = 3,
+            MF_ATTRIBUTES_MATCH_SMALLER = 4,
+        }
+        #[repr(i32)]
+        enum MF_ATTRIBUTE_SERIALIZE_OPTIONS {
+            MF_ATTRIBUTE_SERIALIZE_UNKNOWN_BYREF = 1,
+        }
+        #[repr(i32)]
+        enum MF_ATTRIBUTE_TYPE {
+            MF_ATTRIBUTE_UINT32 = 19,
+            MF_ATTRIBUTE_UINT64 = 21,
+            MF_ATTRIBUTE_DOUBLE = 5,
+            MF_ATTRIBUTE_GUID = 72,
+            MF_ATTRIBUTE_STRING = 31,
+            MF_ATTRIBUTE_BLOB = 4113,
+            MF_ATTRIBUTE_IUNKNOWN = 13,
+        }
+        #[repr(i32)]
+        enum MF_DXGI_DEVICE_MANAGER_MODE {
+            MF_DXGI_DEVICE_MANAGER_MODE_INVALID = 0,
+            MF_DXGI_DEVICE_MANAGER_MODE_D3D11 = 1,
+            MF_DXGI_DEVICE_MANAGER_MODE_D3D12 = 2,
+        }
+        const MF_EVENT_FLAG_NO_WAIT: u32 = 1;
+        #[repr(i32)]
+        enum MF_FILE_ACCESSMODE {
+            MF_ACCESSMODE_READ = 1,
+            MF_ACCESSMODE_WRITE = 2,
+            MF_ACCESSMODE_READWRITE = 3,
+        }
+        #[repr(i32)]
+        enum MF_FILE_FLAGS {
+            MF_FILEFLAGS_NONE = 0,
+            MF_FILEFLAGS_NOBUFFERING = 1,
+            MF_FILEFLAGS_ALLOW_WRITE_SHARING = 2,
+        }
+        #[repr(i32)]
+        enum MF_FILE_OPENMODE {
+            MF_OPENMODE_FAIL_IF_NOT_EXIST = 0,
+            MF_OPENMODE_FAIL_IF_EXIST = 1,
+            MF_OPENMODE_RESET_IF_EXIST = 2,
+            MF_OPENMODE_APPEND_IF_EXIST = 3,
+            MF_OPENMODE_DELETE_IF_EXIST = 4,
+        }
+        const MF_MEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4;
+        const MF_MEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2;
+        const MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8;
+        const MF_MEDIATYPE_EQUAL_MAJOR_TYPES: u32 = 1;
+        #[repr(i32)]
+        enum MF_PLUGIN_CONTROL_POLICY {
+            MF_PLUGIN_CONTROL_POLICY_USE_ALL_PLUGINS = 0,
+            MF_PLUGIN_CONTROL_POLICY_USE_APPROVED_PLUGINS = 1,
+            MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS = 2,
+            MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS_EDGEMODE = 3,
+        }
+        #[repr(i32)]
+        enum MF_Plugin_Type {
+            MF_Plugin_Type_MFT = 0,
+            MF_Plugin_Type_MediaSource = 1,
+            MF_Plugin_Type_MFT_MatchOutputType = 2,
+            MF_Plugin_Type_Other = -1,
+        }
+        #[repr(i32)]
+        enum MF_STREAM_STATE {
+            MF_STREAM_STATE_STOPPED = 0,
+            MF_STREAM_STATE_PAUSED = 1,
+            MF_STREAM_STATE_RUNNING = 2,
+        }
+        type MediaEventType = u32;
+    }
+}

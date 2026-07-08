@@ -118,6 +118,7 @@ macros to live in a dedicated `proc-macro` crate.
 | Crate | Description |
 | --- | --- |
 | [windows-bindgen](crates/windows-bindgen.md) | Code generator for Windows metadata. |
+| [windows-clang](crates/windows-clang.md) | Generates RDL from C/C++ headers using libclang. |
 | [windows-metadata](crates/windows-metadata.md) | Low-level ECMA-335 metadata library. |
 | [windows-rdl](crates/windows-rdl.md) | RDL parser and ECMA-335 generator. |
 | [riddle](crates/riddle.md) | Windows metadata compiler. |

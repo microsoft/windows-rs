@@ -1,0 +1,16 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct CERTTRANSBLOB {
+            cb: u32,
+            pb: *mut u8,
+        }
+        struct CERTVIEWRESTRICTION {
+            ColumnIndex: u32,
+            SeekOperator: i32,
+            SortOrder: i32,
+            pbValue: *mut u8,
+            cbValue: u32,
+        }
+    }
+}

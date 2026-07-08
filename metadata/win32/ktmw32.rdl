@@ -1,0 +1,83 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("ktmw32.dll")]
+        extern fn CommitComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn CommitEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn CommitTransaction(TransactionHandle: HANDLE) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn CommitTransactionAsync(TransactionHandle: HANDLE) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn CreateEnlistment(lpEnlistmentAttributes: *mut SECURITY_ATTRIBUTES, ResourceManagerHandle: HANDLE, TransactionHandle: HANDLE, NotificationMask: NOTIFICATION_MASK, CreateOptions: u32, EnlistmentKey: *mut void) -> HANDLE;
+        #[library("ktmw32.dll")]
+        extern fn CreateResourceManager(lpResourceManagerAttributes: *mut SECURITY_ATTRIBUTES, ResourceManagerId: *mut GUID, CreateOptions: u32, TmHandle: HANDLE, #[opt] Description: PCWSTR) -> HANDLE;
+        #[library("ktmw32.dll")]
+        extern fn CreateTransaction(lpTransactionAttributes: *mut SECURITY_ATTRIBUTES, UOW: *mut GUID, CreateOptions: u32, IsolationLevel: u32, IsolationFlags: u32, Timeout: u32, #[opt] Description: PCWSTR) -> HANDLE;
+        #[library("ktmw32.dll")]
+        extern fn CreateTransactionManager(lpTransactionAttributes: *mut SECURITY_ATTRIBUTES, LogFileName: PCWSTR, CreateOptions: u32, CommitStrength: u32) -> HANDLE;
+        #[library("ktmw32.dll")]
+        extern "C" fn GetCurrentClockTransactionManager(TransactionManagerHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn GetEnlistmentId(EnlistmentHandle: HANDLE, EnlistmentId: *mut GUID) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn GetEnlistmentRecoveryInformation(EnlistmentHandle: HANDLE, BufferSize: u32, Buffer: *mut void, BufferUsed: *mut u32) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn GetNotificationResourceManager(ResourceManagerHandle: HANDLE, TransactionNotification: *mut TRANSACTION_NOTIFICATION, NotificationLength: u32, dwMilliseconds: u32, ReturnLength: *mut u32) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn GetNotificationResourceManagerAsync(ResourceManagerHandle: HANDLE, TransactionNotification: *mut TRANSACTION_NOTIFICATION, TransactionNotificationLength: u32, ReturnLength: *mut u32, lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn GetTransactionId(TransactionHandle: HANDLE, TransactionId: *mut GUID) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn GetTransactionInformation(TransactionHandle: HANDLE, Outcome: *mut u32, IsolationLevel: *mut u32, IsolationFlags: *mut u32, Timeout: *mut u32, BufferLength: u32, #[len_param(5)] #[out] #[opt] Description: PWSTR) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern "C" fn GetTransactionManagerId(TransactionManagerHandle: HANDLE, TransactionManagerId: *mut GUID) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn OpenEnlistment(dwDesiredAccess: u32, ResourceManagerHandle: HANDLE, EnlistmentId: *mut GUID) -> HANDLE;
+        #[library("ktmw32.dll")]
+        extern fn OpenResourceManager(dwDesiredAccess: u32, TmHandle: HANDLE, ResourceManagerId: *mut GUID) -> HANDLE;
+        #[library("ktmw32.dll")]
+        extern fn OpenTransaction(dwDesiredAccess: u32, TransactionId: *mut GUID) -> HANDLE;
+        #[library("ktmw32.dll")]
+        extern fn OpenTransactionManager(LogFileName: PCWSTR, DesiredAccess: ACCESS_MASK, OpenOptions: u32) -> HANDLE;
+        #[library("ktmw32.dll")]
+        extern fn OpenTransactionManagerById(TransactionManagerId: *const GUID, DesiredAccess: ACCESS_MASK, OpenOptions: u32) -> HANDLE;
+        #[library("ktmw32.dll")]
+        extern fn PrePrepareComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn PrePrepareEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn PrepareComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn PrepareEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn ReadOnlyEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn RecoverEnlistment(EnlistmentHandle: HANDLE, EnlistmentKey: *mut void) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn RecoverResourceManager(ResourceManagerHandle: HANDLE) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn RecoverTransactionManager(TransactionManagerHandle: HANDLE) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn RenameTransactionManager(LogFileName: PCWSTR, ExistingTransactionManagerGuid: *mut GUID) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn RollbackComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn RollbackEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn RollbackTransaction(TransactionHandle: HANDLE) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn RollbackTransactionAsync(TransactionHandle: HANDLE) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn RollforwardTransactionManager(TransactionManagerHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn SetEnlistmentRecoveryInformation(EnlistmentHandle: HANDLE, BufferSize: u32, Buffer: *mut void) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn SetResourceManagerCompletionPort(ResourceManagerHandle: HANDLE, IoCompletionPortHandle: HANDLE, CompletionKey: usize) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn SetTransactionInformation(TransactionHandle: HANDLE, IsolationLevel: u32, IsolationFlags: u32, Timeout: u32, #[opt] Description: PCWSTR) -> BOOL;
+        #[library("ktmw32.dll")]
+        extern fn SinglePhaseReject(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+    }
+}

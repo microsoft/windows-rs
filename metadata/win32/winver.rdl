@@ -1,0 +1,37 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("VERSION.dll")]
+        extern fn GetFileVersionInfoA(lptstrFilename: PCSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(2)] lpData: *mut void) -> BOOL;
+        #[library("VERSION.dll")]
+        extern fn GetFileVersionInfoExA(dwFlags: u32, lpwstrFilename: PCSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(3)] lpData: *mut void) -> BOOL;
+        #[library("VERSION.dll")]
+        extern fn GetFileVersionInfoExW(dwFlags: u32, lpwstrFilename: PCWSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(3)] lpData: *mut void) -> BOOL;
+        #[library("VERSION.dll")]
+        extern fn GetFileVersionInfoSizeA(lptstrFilename: PCSTR, #[opt] lpdwHandle: *mut u32) -> u32;
+        #[library("VERSION.dll")]
+        extern fn GetFileVersionInfoSizeExA(dwFlags: u32, lpwstrFilename: PCSTR, lpdwHandle: *mut u32) -> u32;
+        #[library("VERSION.dll")]
+        extern fn GetFileVersionInfoSizeExW(dwFlags: u32, lpwstrFilename: PCWSTR, lpdwHandle: *mut u32) -> u32;
+        #[library("VERSION.dll")]
+        extern fn GetFileVersionInfoSizeW(lptstrFilename: PCWSTR, #[opt] lpdwHandle: *mut u32) -> u32;
+        #[library("VERSION.dll")]
+        extern fn GetFileVersionInfoW(lptstrFilename: PCWSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(2)] lpData: *mut void) -> BOOL;
+        #[library("VERSION.dll")]
+        extern fn VerFindFileA(uFlags: u32, szFileName: PCSTR, #[opt] szWinDir: PCSTR, szAppDir: PCSTR, #[len_param(5)] #[out] szCurDir: PSTR, #[in] #[out] puCurDirLen: *mut u32, #[len_param(7)] #[out] szDestDir: PSTR, #[in] #[out] puDestDirLen: *mut u32) -> u32;
+        #[library("VERSION.dll")]
+        extern fn VerFindFileW(uFlags: u32, szFileName: PCWSTR, #[opt] szWinDir: PCWSTR, szAppDir: PCWSTR, #[len_param(5)] #[out] szCurDir: PWSTR, #[in] #[out] puCurDirLen: *mut u32, #[len_param(7)] #[out] szDestDir: PWSTR, #[in] #[out] puDestDirLen: *mut u32) -> u32;
+        #[library("VERSION.dll")]
+        extern fn VerInstallFileA(uFlags: u32, szSrcFileName: PCSTR, szDestFileName: PCSTR, szSrcDir: PCSTR, szDestDir: PCSTR, szCurDir: PCSTR, #[len_param(7)] #[out] szTmpFile: PSTR, #[in] #[out] puTmpFileLen: *mut u32) -> u32;
+        #[library("VERSION.dll")]
+        extern fn VerInstallFileW(uFlags: u32, szSrcFileName: PCWSTR, szDestFileName: PCWSTR, szSrcDir: PCWSTR, szDestDir: PCWSTR, szCurDir: PCWSTR, #[len_param(7)] #[out] szTmpFile: PWSTR, #[in] #[out] puTmpFileLen: *mut u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn VerLanguageNameA(wLang: u32, #[len_param(2)] #[out] szLang: PSTR, cchLang: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn VerLanguageNameW(wLang: u32, #[len_param(2)] #[out] szLang: PWSTR, cchLang: u32) -> u32;
+        #[library("VERSION.dll")]
+        extern fn VerQueryValueA(pBlock: *const void, lpSubBlock: PCSTR, lplpBuffer: *mut *mut void, puLen: *mut u32) -> BOOL;
+        #[library("VERSION.dll")]
+        extern fn VerQueryValueW(pBlock: *const void, lpSubBlock: PCWSTR, lplpBuffer: *mut *mut void, puLen: *mut u32) -> BOOL;
+    }
+}

@@ -1,0 +1,1005 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct DOT11_NETWORK {
+            dot11Ssid: DOT11_SSID,
+            dot11BssType: DOT11_BSS_TYPE,
+        }
+        struct DOT11_NETWORK_LIST {
+            dwNumberOfItems: u32,
+            dwIndex: u32,
+            Network: [DOT11_NETWORK; 1],
+        }
+        const DOT11_PSD_IE_MAX_DATA_SIZE: u32 = 240;
+        const DOT11_PSD_IE_MAX_ENTRY_NUMBER: u32 = 5;
+        #[repr(i32)]
+        enum DOT11_RADIO_STATE {
+            dot11_radio_state_unknown = 0,
+            dot11_radio_state_on = 1,
+            dot11_radio_state_off = 2,
+        }
+        const GUID_AEPSERVICE_WIFIDIRECT_DEVICE: GUID = 0xcc29827c_9caf_4928_99a9_18f7c2381389;
+        const GUID_DEVINTERFACE_ASP_INFRA_DEVICE: GUID = 0xff823995_7a72_4c80_8757_c67ee13d1a49;
+        const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: GUID = 0x439b20af_8955_405b_99f0_a62af0c68d43;
+        type PDOT11_NETWORK = *mut DOT11_NETWORK;
+        type PDOT11_NETWORK_LIST = *mut DOT11_NETWORK_LIST;
+        type PDOT11_RADIO_STATE = *mut DOT11_RADIO_STATE;
+        type PWFD_GROUP_ID = *mut WFD_GROUP_ID;
+        type PWFD_ROLE_TYPE = *mut WFD_ROLE_TYPE;
+        type PWLAN_ADHOC_NETWORK_STATE = *mut WLAN_ADHOC_NETWORK_STATE;
+        type PWLAN_ASSOCIATION_ATTRIBUTES = *mut WLAN_ASSOCIATION_ATTRIBUTES;
+        type PWLAN_AUTH_CIPHER_PAIR_LIST = *mut WLAN_AUTH_CIPHER_PAIR_LIST;
+        type PWLAN_AUTOCONF_OPCODE = *mut WLAN_AUTOCONF_OPCODE;
+        type PWLAN_AVAILABLE_NETWORK = *mut WLAN_AVAILABLE_NETWORK;
+        type PWLAN_AVAILABLE_NETWORK_LIST = *mut WLAN_AVAILABLE_NETWORK_LIST;
+        type PWLAN_AVAILABLE_NETWORK_LIST_V2 = *mut WLAN_AVAILABLE_NETWORK_LIST_V2;
+        type PWLAN_AVAILABLE_NETWORK_V2 = *mut WLAN_AVAILABLE_NETWORK_V2;
+        type PWLAN_BSS_ENTRY = *mut WLAN_BSS_ENTRY;
+        type PWLAN_BSS_LIST = *mut WLAN_BSS_LIST;
+        type PWLAN_CONNECTION_ATTRIBUTES = *mut WLAN_CONNECTION_ATTRIBUTES;
+        type PWLAN_CONNECTION_MODE = *mut WLAN_CONNECTION_MODE;
+        type PWLAN_CONNECTION_NOTIFICATION_DATA = *mut WLAN_CONNECTION_NOTIFICATION_DATA;
+        type PWLAN_CONNECTION_PARAMETERS = *mut WLAN_CONNECTION_PARAMETERS;
+        type PWLAN_CONNECTION_PARAMETERS_V2 = *mut WLAN_CONNECTION_PARAMETERS_V2;
+        type PWLAN_CONNECTION_QOS_INFO = *mut WLAN_CONNECTION_QOS_INFO;
+        type PWLAN_COUNTRY_OR_REGION_STRING_LIST = *mut WLAN_COUNTRY_OR_REGION_STRING_LIST;
+        type PWLAN_DEVICE_SERVICE_GUID_LIST = *mut WLAN_DEVICE_SERVICE_GUID_LIST;
+        type PWLAN_DEVICE_SERVICE_NOTIFICATION_DATA = *mut WLAN_DEVICE_SERVICE_NOTIFICATION_DATA;
+        type PWLAN_FILTER_LIST_TYPE = *mut WLAN_FILTER_LIST_TYPE;
+        type PWLAN_HOSTED_NETWORK_CONNECTION_SETTINGS = *mut WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS;
+        type PWLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE = *mut WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE;
+        type PWLAN_HOSTED_NETWORK_NOTIFICATION_CODE = *mut WLAN_HOSTED_NETWORK_NOTIFICATION_CODE;
+        type PWLAN_HOSTED_NETWORK_OPCODE = *mut WLAN_HOSTED_NETWORK_OPCODE;
+        type PWLAN_HOSTED_NETWORK_PEER_AUTH_STATE = *mut WLAN_HOSTED_NETWORK_PEER_AUTH_STATE;
+        type PWLAN_HOSTED_NETWORK_PEER_STATE = *mut WLAN_HOSTED_NETWORK_PEER_STATE;
+        type PWLAN_HOSTED_NETWORK_RADIO_STATE = *mut WLAN_HOSTED_NETWORK_RADIO_STATE;
+        type PWLAN_HOSTED_NETWORK_REASON = *mut WLAN_HOSTED_NETWORK_REASON;
+        type PWLAN_HOSTED_NETWORK_SECURITY_SETTINGS = *mut WLAN_HOSTED_NETWORK_SECURITY_SETTINGS;
+        type PWLAN_HOSTED_NETWORK_STATE = *mut WLAN_HOSTED_NETWORK_STATE;
+        type PWLAN_HOSTED_NETWORK_STATE_CHANGE = *mut WLAN_HOSTED_NETWORK_STATE_CHANGE;
+        type PWLAN_HOSTED_NETWORK_STATUS = *mut WLAN_HOSTED_NETWORK_STATUS;
+        type PWLAN_IHV_CONTROL_TYPE = *mut WLAN_IHV_CONTROL_TYPE;
+        type PWLAN_INTERFACE_CAPABILITY = *mut WLAN_INTERFACE_CAPABILITY;
+        type PWLAN_INTERFACE_INFO = *mut WLAN_INTERFACE_INFO;
+        type PWLAN_INTERFACE_INFO_LIST = *mut WLAN_INTERFACE_INFO_LIST;
+        type PWLAN_INTERFACE_STATE = *mut WLAN_INTERFACE_STATE;
+        type PWLAN_INTERFACE_TYPE = *mut WLAN_INTERFACE_TYPE;
+        type PWLAN_INTF_OPCODE = *mut WLAN_INTF_OPCODE;
+        type PWLAN_MAC_FRAME_STATISTICS = *mut WLAN_MAC_FRAME_STATISTICS;
+        type PWLAN_MSM_NOTIFICATION_DATA = *mut WLAN_MSM_NOTIFICATION_DATA;
+        type PWLAN_NOTIFICATION_ACM = *mut WLAN_NOTIFICATION_ACM;
+        type PWLAN_NOTIFICATION_DATA = *mut L2_NOTIFICATION_DATA;
+        type PWLAN_NOTIFICATION_MSM = *mut WLAN_NOTIFICATION_MSM;
+        type PWLAN_NOTIFICATION_SECURITY = *mut WLAN_NOTIFICATION_SECURITY;
+        type PWLAN_OPCODE_VALUE_TYPE = *mut WLAN_OPCODE_VALUE_TYPE;
+        type PWLAN_OPERATIONAL_STATE = *mut WLAN_OPERATIONAL_STATE;
+        type PWLAN_PHY_FRAME_STATISTICS = *mut WLAN_PHY_FRAME_STATISTICS;
+        type PWLAN_PHY_RADIO_STATE = *mut WLAN_PHY_RADIO_STATE;
+        type PWLAN_POWER_SETTING = *mut WLAN_POWER_SETTING;
+        type PWLAN_PROFILE_INFO = *mut WLAN_PROFILE_INFO;
+        type PWLAN_PROFILE_INFO_LIST = *mut WLAN_PROFILE_INFO_LIST;
+        type PWLAN_QOS_CAPABILITIES = *mut WLAN_QOS_CAPABILITIES;
+        type PWLAN_QOS_INFO = *mut WLAN_QOS_INFO;
+        type PWLAN_RADIO_STATE = *mut WLAN_RADIO_STATE;
+        type PWLAN_RATE_SET = *mut WLAN_RATE_SET;
+        type PWLAN_RAW_DATA = *mut WLAN_RAW_DATA;
+        type PWLAN_RAW_DATA_LIST = *mut WLAN_RAW_DATA_LIST;
+        type PWLAN_REALTIME_CONNECTION_QUALITY = *mut WLAN_REALTIME_CONNECTION_QUALITY;
+        type PWLAN_REALTIME_CONNECTION_QUALITY_LINK_INFO = *mut WLAN_REALTIME_CONNECTION_QUALITY_LINK_INFO;
+        type PWLAN_REASON_CODE = *mut u32;
+        type PWLAN_SECURABLE_OBJECT = *mut WLAN_SECURABLE_OBJECT;
+        type PWLAN_SECURITY_ATTRIBUTES = *mut WLAN_SECURITY_ATTRIBUTES;
+        type PWLAN_SIGNAL_QUALITY = *mut u32;
+        type PWLAN_STATISTICS = *mut WLAN_STATISTICS;
+        type PWL_DISPLAY_PAGES = *mut WL_DISPLAY_PAGES;
+        #[library("wlanapi.dll")]
+        extern fn WFDCancelOpenSession(hSessionHandle: HANDLE) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WFDCloseHandle(hClientHandle: HANDLE) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WFDCloseSession(hSessionHandle: HANDLE) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WFDOpenHandle(dwClientVersion: u32, pdwNegotiatedVersion: *mut u32, phClientHandle: *mut HANDLE) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WFDOpenLegacySession(hClientHandle: HANDLE, pLegacyMacAddress: *const DOT11_MAC_ADDRESS, phSessionHandle: *mut HANDLE, pGuidSessionInterface: *mut GUID) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WFDStartOpenSession(hClientHandle: HANDLE, pDeviceAddress: *const DOT11_MAC_ADDRESS, #[opt] pvContext: *const void, pfnCallback: WFD_OPEN_SESSION_COMPLETE_CALLBACK, phSessionHandle: *mut HANDLE) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WFDUpdateDeviceVisibility(pDeviceAddress: *const DOT11_MAC_ADDRESS) -> u32;
+        const WFD_API_VERSION: u32 = 1;
+        const WFD_API_VERSION_1_0: u32 = 1;
+        struct WFD_GROUP_ID {
+            DeviceAddress: DOT11_MAC_ADDRESS,
+            GroupSSID: DOT11_SSID,
+        }
+        extern fn WFD_OPEN_SESSION_COMPLETE_CALLBACK(hSessionHandle: HANDLE, pvContext: *const void, guidSessionInterface: GUID, dwError: u32, dwReasonCode: u32);
+        #[repr(i32)]
+        enum WFD_ROLE_TYPE {
+            WFD_ROLE_TYPE_NONE = 0,
+            WFD_ROLE_TYPE_DEVICE = 1,
+            WFD_ROLE_TYPE_GROUP_OWNER = 2,
+            WFD_ROLE_TYPE_CLIENT = 4,
+            WFD_ROLE_TYPE_MAX = 5,
+        }
+        #[repr(i32)]
+        enum WLAN_ADHOC_NETWORK_STATE {
+            wlan_adhoc_network_state_formed = 0,
+            wlan_adhoc_network_state_connected = 1,
+        }
+        const WLAN_API_VERSION: u32 = 2;
+        const WLAN_API_VERSION_1_0: u32 = 1;
+        const WLAN_API_VERSION_2_0: u32 = 2;
+        struct WLAN_ASSOCIATION_ATTRIBUTES {
+            dot11Ssid: DOT11_SSID,
+            dot11BssType: DOT11_BSS_TYPE,
+            dot11Bssid: DOT11_MAC_ADDRESS,
+            dot11PhyType: DOT11_PHY_TYPE,
+            uDot11PhyIndex: u32,
+            wlanSignalQuality: WLAN_SIGNAL_QUALITY,
+            ulRxRate: u32,
+            ulTxRate: u32,
+        }
+        struct WLAN_AUTH_CIPHER_PAIR_LIST {
+            dwNumberOfItems: u32,
+            pAuthCipherPairList: [DOT11_AUTH_CIPHER_PAIR; 1],
+        }
+        #[repr(i32)]
+        enum WLAN_AUTOCONF_OPCODE {
+            wlan_autoconf_opcode_start = 0,
+            wlan_autoconf_opcode_show_denied_networks = 1,
+            wlan_autoconf_opcode_power_setting = 2,
+            wlan_autoconf_opcode_only_use_gp_profiles_for_allowed_networks = 3,
+            wlan_autoconf_opcode_allow_explicit_creds = 4,
+            wlan_autoconf_opcode_block_period = 5,
+            wlan_autoconf_opcode_allow_virtual_station_extensibility = 6,
+            wlan_autoconf_opcode_end = 7,
+        }
+        struct WLAN_AVAILABLE_NETWORK {
+            strProfileName: [u16; 256],
+            dot11Ssid: DOT11_SSID,
+            dot11BssType: DOT11_BSS_TYPE,
+            uNumberOfBssids: u32,
+            bNetworkConnectable: BOOL,
+            wlanNotConnectableReason: WLAN_REASON_CODE,
+            uNumberOfPhyTypes: u32,
+            dot11PhyTypes: [DOT11_PHY_TYPE; 8],
+            bMorePhyTypes: BOOL,
+            wlanSignalQuality: WLAN_SIGNAL_QUALITY,
+            bSecurityEnabled: BOOL,
+            dot11DefaultAuthAlgorithm: DOT11_AUTH_ALGORITHM,
+            dot11DefaultCipherAlgorithm: DOT11_CIPHER_ALGORITHM,
+            dwFlags: u32,
+            dwReserved: u32,
+        }
+        const WLAN_AVAILABLE_NETWORK_ANQP_SUPPORTED: u32 = 32;
+        const WLAN_AVAILABLE_NETWORK_AUTO_CONNECT_FAILED: u32 = 256;
+        const WLAN_AVAILABLE_NETWORK_CONNECTED: u32 = 1;
+        const WLAN_AVAILABLE_NETWORK_CONSOLE_USER_PROFILE: u32 = 4;
+        const WLAN_AVAILABLE_NETWORK_HAS_PROFILE: u32 = 2;
+        const WLAN_AVAILABLE_NETWORK_HOTSPOT2_DOMAIN: u32 = 64;
+        const WLAN_AVAILABLE_NETWORK_HOTSPOT2_ENABLED: u32 = 16;
+        const WLAN_AVAILABLE_NETWORK_HOTSPOT2_ROAMING: u32 = 128;
+        const WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_ADHOC_PROFILES: u32 = 1;
+        const WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_MANUAL_HIDDEN_PROFILES: u32 = 2;
+        const WLAN_AVAILABLE_NETWORK_INTERWORKING_SUPPORTED: u32 = 8;
+        struct WLAN_AVAILABLE_NETWORK_LIST {
+            dwNumberOfItems: u32,
+            dwIndex: u32,
+            Network: [WLAN_AVAILABLE_NETWORK; 1],
+        }
+        struct WLAN_AVAILABLE_NETWORK_LIST_V2 {
+            dwNumberOfItems: u32,
+            dwIndex: u32,
+            Network: [WLAN_AVAILABLE_NETWORK_V2; 1],
+        }
+        struct WLAN_AVAILABLE_NETWORK_V2 {
+            strProfileName: [u16; 256],
+            dot11Ssid: DOT11_SSID,
+            dot11BssType: DOT11_BSS_TYPE,
+            uNumberOfBssids: u32,
+            bNetworkConnectable: BOOL,
+            wlanNotConnectableReason: WLAN_REASON_CODE,
+            uNumberOfPhyTypes: u32,
+            dot11PhyTypes: [DOT11_PHY_TYPE; 8],
+            bMorePhyTypes: BOOL,
+            wlanSignalQuality: WLAN_SIGNAL_QUALITY,
+            bSecurityEnabled: BOOL,
+            dot11DefaultAuthAlgorithm: DOT11_AUTH_ALGORITHM,
+            dot11DefaultCipherAlgorithm: DOT11_CIPHER_ALGORITHM,
+            dwFlags: u32,
+            AccessNetworkOptions: DOT11_ACCESSNETWORKOPTIONS,
+            dot11HESSID: DOT11_HESSID,
+            VenueInfo: DOT11_VENUEINFO,
+            dwReserved: u32,
+        }
+        struct WLAN_BSS_ENTRY {
+            dot11Ssid: DOT11_SSID,
+            uPhyId: u32,
+            dot11Bssid: DOT11_MAC_ADDRESS,
+            dot11BssType: DOT11_BSS_TYPE,
+            dot11BssPhyType: DOT11_PHY_TYPE,
+            lRssi: i32,
+            uLinkQuality: u32,
+            bInRegDomain: BOOLEAN,
+            usBeaconPeriod: u16,
+            ullTimestamp: u64,
+            ullHostTimestamp: u64,
+            usCapabilityInformation: u16,
+            ulChCenterFrequency: u32,
+            wlanRateSet: WLAN_RATE_SET,
+            ulIeOffset: u32,
+            ulIeSize: u32,
+        }
+        struct WLAN_BSS_LIST {
+            dwTotalSize: u32,
+            dwNumberOfItems: u32,
+            wlanBssEntries: [WLAN_BSS_ENTRY; 1],
+        }
+        const WLAN_CONNECTION_ADHOC_JOIN_ONLY: u32 = 2;
+        struct WLAN_CONNECTION_ATTRIBUTES {
+            isState: WLAN_INTERFACE_STATE,
+            wlanConnectionMode: WLAN_CONNECTION_MODE,
+            strProfileName: [u16; 256],
+            wlanAssociationAttributes: WLAN_ASSOCIATION_ATTRIBUTES,
+            wlanSecurityAttributes: WLAN_SECURITY_ATTRIBUTES,
+        }
+        const WLAN_CONNECTION_EAPOL_PASSTHROUGH: u32 = 8;
+        const WLAN_CONNECTION_HIDDEN_NETWORK: u32 = 1;
+        const WLAN_CONNECTION_IGNORE_PRIVACY_BIT: u32 = 4;
+        #[repr(i32)]
+        enum WLAN_CONNECTION_MODE {
+            wlan_connection_mode_profile = 0,
+            wlan_connection_mode_temporary_profile = 1,
+            wlan_connection_mode_discovery_secure = 2,
+            wlan_connection_mode_discovery_unsecure = 3,
+            wlan_connection_mode_auto = 4,
+            wlan_connection_mode_invalid = 5,
+        }
+        const WLAN_CONNECTION_NOTIFICATION_ADHOC_NETWORK_FORMED: u32 = 1;
+        const WLAN_CONNECTION_NOTIFICATION_CONSOLE_USER_PROFILE: u32 = 4;
+        struct WLAN_CONNECTION_NOTIFICATION_DATA {
+            wlanConnectionMode: WLAN_CONNECTION_MODE,
+            strProfileName: [u16; 256],
+            dot11Ssid: DOT11_SSID,
+            dot11BssType: DOT11_BSS_TYPE,
+            bSecurityEnabled: BOOL,
+            wlanReasonCode: WLAN_REASON_CODE,
+            dwFlags: u32,
+            strProfileXml: [u16; 1],
+        }
+        struct WLAN_CONNECTION_PARAMETERS {
+            wlanConnectionMode: WLAN_CONNECTION_MODE,
+            strProfile: PCWSTR,
+            pDot11Ssid: PDOT11_SSID,
+            pDesiredBssidList: PDOT11_BSSID_LIST,
+            dot11BssType: DOT11_BSS_TYPE,
+            dwFlags: u32,
+        }
+        struct WLAN_CONNECTION_PARAMETERS_V2 {
+            wlanConnectionMode: WLAN_CONNECTION_MODE,
+            strProfile: PCWSTR,
+            pDot11Ssid: PDOT11_SSID,
+            pDot11Hessid: PDOT11_HESSID,
+            pDesiredBssidList: PDOT11_BSSID_LIST,
+            dot11BssType: DOT11_BSS_TYPE,
+            dwFlags: u32,
+            pDot11AccessNetworkOptions: PDOT11_ACCESSNETWORKOPTIONS,
+        }
+        const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE: u32 = 16;
+        const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_CONNECTION_MODE_AUTO: u32 = 32;
+        const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_OVERWRITE_EXISTING: u32 = 64;
+        struct WLAN_CONNECTION_QOS_INFO {
+            peerCapabilities: WLAN_QOS_CAPABILITIES,
+            bMSCSConfigured: BOOL,
+            bDSCPToUPMappingConfigured: BOOL,
+            ulNumConfiguredSCSStreams: u32,
+            ulNumConfiguredDSCPPolicies: u32,
+        }
+        struct WLAN_COUNTRY_OR_REGION_STRING_LIST {
+            dwNumberOfItems: u32,
+            pCountryOrRegionStringList: [DOT11_COUNTRY_OR_REGION_STRING; 1],
+        }
+        struct WLAN_DEVICE_SERVICE_GUID_LIST {
+            dwNumberOfItems: u32,
+            dwIndex: u32,
+            DeviceService: [GUID; 1],
+        }
+        struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
+            DeviceService: GUID,
+            dwOpCode: u32,
+            dwDataSize: u32,
+            DataBlob: [u8; 1],
+        }
+        const WLAN_EXECUTE_ACCESS: u32 = 131105;
+        #[repr(i32)]
+        enum WLAN_FILTER_LIST_TYPE {
+            wlan_filter_list_type_gp_permit = 0,
+            wlan_filter_list_type_gp_deny = 1,
+            wlan_filter_list_type_user_permit = 2,
+            wlan_filter_list_type_user_deny = 3,
+        }
+        struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
+            hostedNetworkSSID: DOT11_SSID,
+            dwMaxNumberOfPeers: u32,
+        }
+        struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
+            OldState: WLAN_HOSTED_NETWORK_PEER_STATE,
+            NewState: WLAN_HOSTED_NETWORK_PEER_STATE,
+            PeerStateChangeReason: WLAN_HOSTED_NETWORK_REASON,
+        }
+        #[repr(i32)]
+        enum WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
+            wlan_hosted_network_state_change = 4096,
+            wlan_hosted_network_peer_state_change = 4097,
+            wlan_hosted_network_radio_state_change = 4098,
+        }
+        #[repr(i32)]
+        enum WLAN_HOSTED_NETWORK_OPCODE {
+            wlan_hosted_network_opcode_connection_settings = 0,
+            wlan_hosted_network_opcode_security_settings = 1,
+            wlan_hosted_network_opcode_station_profile = 2,
+            wlan_hosted_network_opcode_enable = 3,
+        }
+        #[repr(i32)]
+        enum WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
+            wlan_hosted_network_peer_state_invalid = 0,
+            wlan_hosted_network_peer_state_authenticated = 1,
+        }
+        struct WLAN_HOSTED_NETWORK_PEER_STATE {
+            PeerMacAddress: DOT11_MAC_ADDRESS,
+            PeerAuthState: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE,
+        }
+        struct WLAN_HOSTED_NETWORK_RADIO_STATE {
+            dot11SoftwareRadioState: DOT11_RADIO_STATE,
+            dot11HardwareRadioState: DOT11_RADIO_STATE,
+        }
+        #[repr(i32)]
+        enum WLAN_HOSTED_NETWORK_REASON {
+            wlan_hosted_network_reason_success = 0,
+            wlan_hosted_network_reason_unspecified = 1,
+            wlan_hosted_network_reason_bad_parameters = 2,
+            wlan_hosted_network_reason_service_shutting_down = 3,
+            wlan_hosted_network_reason_insufficient_resources = 4,
+            wlan_hosted_network_reason_elevation_required = 5,
+            wlan_hosted_network_reason_read_only = 6,
+            wlan_hosted_network_reason_persistence_failed = 7,
+            wlan_hosted_network_reason_crypt_error = 8,
+            wlan_hosted_network_reason_impersonation = 9,
+            wlan_hosted_network_reason_stop_before_start = 10,
+            wlan_hosted_network_reason_interface_available = 11,
+            wlan_hosted_network_reason_interface_unavailable = 12,
+            wlan_hosted_network_reason_miniport_stopped = 13,
+            wlan_hosted_network_reason_miniport_started = 14,
+            wlan_hosted_network_reason_incompatible_connection_started = 15,
+            wlan_hosted_network_reason_incompatible_connection_stopped = 16,
+            wlan_hosted_network_reason_user_action = 17,
+            wlan_hosted_network_reason_client_abort = 18,
+            wlan_hosted_network_reason_ap_start_failed = 19,
+            wlan_hosted_network_reason_peer_arrived = 20,
+            wlan_hosted_network_reason_peer_departed = 21,
+            wlan_hosted_network_reason_peer_timeout = 22,
+            wlan_hosted_network_reason_gp_denied = 23,
+            wlan_hosted_network_reason_service_unavailable = 24,
+            wlan_hosted_network_reason_device_change = 25,
+            wlan_hosted_network_reason_properties_change = 26,
+            wlan_hosted_network_reason_virtual_station_blocking_use = 27,
+            wlan_hosted_network_reason_service_available_on_virtual_station = 28,
+        }
+        struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
+            dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
+            dot11CipherAlgo: DOT11_CIPHER_ALGORITHM,
+        }
+        #[repr(i32)]
+        enum WLAN_HOSTED_NETWORK_STATE {
+            wlan_hosted_network_unavailable = 0,
+            wlan_hosted_network_idle = 1,
+            wlan_hosted_network_active = 2,
+        }
+        struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
+            OldState: WLAN_HOSTED_NETWORK_STATE,
+            NewState: WLAN_HOSTED_NETWORK_STATE,
+            StateChangeReason: WLAN_HOSTED_NETWORK_REASON,
+        }
+        struct WLAN_HOSTED_NETWORK_STATUS {
+            HostedNetworkState: WLAN_HOSTED_NETWORK_STATE,
+            IPDeviceID: GUID,
+            wlanHostedNetworkBSSID: DOT11_MAC_ADDRESS,
+            dot11PhyType: DOT11_PHY_TYPE,
+            ulChannelFrequency: u32,
+            dwNumberOfPeers: u32,
+            PeerList: [WLAN_HOSTED_NETWORK_PEER_STATE; 1],
+        }
+        #[repr(i32)]
+        enum WLAN_IHV_CONTROL_TYPE {
+            wlan_ihv_control_type_service = 0,
+            wlan_ihv_control_type_driver = 1,
+        }
+        struct WLAN_INTERFACE_CAPABILITY {
+            interfaceType: WLAN_INTERFACE_TYPE,
+            bDot11DSupported: BOOL,
+            dwMaxDesiredSsidListSize: u32,
+            dwMaxDesiredBssidListSize: u32,
+            dwNumberOfSupportedPhys: u32,
+            dot11PhyTypes: [DOT11_PHY_TYPE; 64],
+        }
+        struct WLAN_INTERFACE_INFO {
+            InterfaceGuid: GUID,
+            strInterfaceDescription: [u16; 256],
+            isState: WLAN_INTERFACE_STATE,
+        }
+        struct WLAN_INTERFACE_INFO_LIST {
+            dwNumberOfItems: u32,
+            dwIndex: u32,
+            InterfaceInfo: [WLAN_INTERFACE_INFO; 1],
+        }
+        #[repr(i32)]
+        enum WLAN_INTERFACE_STATE {
+            wlan_interface_state_not_ready = 0,
+            wlan_interface_state_connected = 1,
+            wlan_interface_state_ad_hoc_network_formed = 2,
+            wlan_interface_state_disconnecting = 3,
+            wlan_interface_state_disconnected = 4,
+            wlan_interface_state_associating = 5,
+            wlan_interface_state_discovering = 6,
+            wlan_interface_state_authenticating = 7,
+        }
+        #[repr(i32)]
+        enum WLAN_INTERFACE_TYPE {
+            wlan_interface_type_emulated_802_11 = 0,
+            wlan_interface_type_native_802_11 = 1,
+            wlan_interface_type_invalid = 2,
+        }
+        #[repr(i32)]
+        enum WLAN_INTF_OPCODE {
+            wlan_intf_opcode_autoconf_start = 0,
+            wlan_intf_opcode_autoconf_enabled = 1,
+            wlan_intf_opcode_background_scan_enabled = 2,
+            wlan_intf_opcode_media_streaming_mode = 3,
+            wlan_intf_opcode_radio_state = 4,
+            wlan_intf_opcode_bss_type = 5,
+            wlan_intf_opcode_interface_state = 6,
+            wlan_intf_opcode_current_connection = 7,
+            wlan_intf_opcode_channel_number = 8,
+            wlan_intf_opcode_supported_infrastructure_auth_cipher_pairs = 9,
+            wlan_intf_opcode_supported_adhoc_auth_cipher_pairs = 10,
+            wlan_intf_opcode_supported_country_or_region_string_list = 11,
+            wlan_intf_opcode_current_operation_mode = 12,
+            wlan_intf_opcode_supported_safe_mode = 13,
+            wlan_intf_opcode_certified_safe_mode = 14,
+            wlan_intf_opcode_hosted_network_capable = 15,
+            wlan_intf_opcode_management_frame_protection_capable = 16,
+            wlan_intf_opcode_secondary_sta_interfaces = 17,
+            wlan_intf_opcode_secondary_sta_synchronized_connections = 18,
+            wlan_intf_opcode_realtime_connection_quality = 19,
+            wlan_intf_opcode_qos_info = 20,
+            wlan_intf_opcode_autoconf_end = 268435455,
+            wlan_intf_opcode_msm_start = 268435712,
+            wlan_intf_opcode_statistics = 268435713,
+            wlan_intf_opcode_rssi = 268435714,
+            wlan_intf_opcode_msm_end = 536870911,
+            wlan_intf_opcode_security_start = 536936448,
+            wlan_intf_opcode_security_end = 805306367,
+            wlan_intf_opcode_ihv_start = 805306368,
+            wlan_intf_opcode_ihv_end = 1073741823,
+        }
+        struct WLAN_MAC_FRAME_STATISTICS {
+            ullTransmittedFrameCount: u64,
+            ullReceivedFrameCount: u64,
+            ullWEPExcludedCount: u64,
+            ullTKIPLocalMICFailures: u64,
+            ullTKIPReplays: u64,
+            ullTKIPICVErrorCount: u64,
+            ullCCMPReplays: u64,
+            ullCCMPDecryptErrors: u64,
+            ullWEPUndecryptableCount: u64,
+            ullWEPICVErrorCount: u64,
+            ullDecryptSuccessCount: u64,
+            ullDecryptFailureCount: u64,
+        }
+        const WLAN_MAX_NAME_LENGTH: u32 = 256;
+        const WLAN_MAX_PHY_INDEX: u32 = 64;
+        const WLAN_MAX_PHY_TYPE_NUMBER: u32 = 8;
+        struct WLAN_MSM_NOTIFICATION_DATA {
+            wlanConnectionMode: WLAN_CONNECTION_MODE,
+            strProfileName: [u16; 256],
+            dot11Ssid: DOT11_SSID,
+            dot11BssType: DOT11_BSS_TYPE,
+            dot11MacAddr: DOT11_MAC_ADDRESS,
+            bSecurityEnabled: BOOL,
+            bFirstPeer: BOOL,
+            bLastPeer: BOOL,
+            wlanReasonCode: WLAN_REASON_CODE,
+        }
+        #[repr(i32)]
+        enum WLAN_NOTIFICATION_ACM {
+            wlan_notification_acm_start = 0,
+            wlan_notification_acm_autoconf_enabled = 1,
+            wlan_notification_acm_autoconf_disabled = 2,
+            wlan_notification_acm_background_scan_enabled = 3,
+            wlan_notification_acm_background_scan_disabled = 4,
+            wlan_notification_acm_bss_type_change = 5,
+            wlan_notification_acm_power_setting_change = 6,
+            wlan_notification_acm_scan_complete = 7,
+            wlan_notification_acm_scan_fail = 8,
+            wlan_notification_acm_connection_start = 9,
+            wlan_notification_acm_connection_complete = 10,
+            wlan_notification_acm_connection_attempt_fail = 11,
+            wlan_notification_acm_filter_list_change = 12,
+            wlan_notification_acm_interface_arrival = 13,
+            wlan_notification_acm_interface_removal = 14,
+            wlan_notification_acm_profile_change = 15,
+            wlan_notification_acm_profile_name_change = 16,
+            wlan_notification_acm_profiles_exhausted = 17,
+            wlan_notification_acm_network_not_available = 18,
+            wlan_notification_acm_network_available = 19,
+            wlan_notification_acm_disconnecting = 20,
+            wlan_notification_acm_disconnected = 21,
+            wlan_notification_acm_adhoc_network_state_change = 22,
+            wlan_notification_acm_profile_unblocked = 23,
+            wlan_notification_acm_screen_power_change = 24,
+            wlan_notification_acm_profile_blocked = 25,
+            wlan_notification_acm_scan_list_refresh = 26,
+            wlan_notification_acm_operational_state_change = 27,
+            wlan_notification_acm_end = 28,
+        }
+        extern fn WLAN_NOTIFICATION_CALLBACK(param0: *mut L2_NOTIFICATION_DATA, param1: *mut void);
+        type WLAN_NOTIFICATION_DATA = L2_NOTIFICATION_DATA;
+        #[repr(i32)]
+        enum WLAN_NOTIFICATION_MSM {
+            wlan_notification_msm_start = 0,
+            wlan_notification_msm_associating = 1,
+            wlan_notification_msm_associated = 2,
+            wlan_notification_msm_authenticating = 3,
+            wlan_notification_msm_connected = 4,
+            wlan_notification_msm_roaming_start = 5,
+            wlan_notification_msm_roaming_end = 6,
+            wlan_notification_msm_radio_state_change = 7,
+            wlan_notification_msm_signal_quality_change = 8,
+            wlan_notification_msm_disassociating = 9,
+            wlan_notification_msm_disconnected = 10,
+            wlan_notification_msm_peer_join = 11,
+            wlan_notification_msm_peer_leave = 12,
+            wlan_notification_msm_adapter_removal = 13,
+            wlan_notification_msm_adapter_operation_mode_change = 14,
+            wlan_notification_msm_link_degraded = 15,
+            wlan_notification_msm_link_improved = 16,
+            wlan_notification_msm_end = 17,
+        }
+        #[repr(i32)]
+        enum WLAN_NOTIFICATION_SECURITY {
+            wlan_notification_security_start = 0,
+            wlan_notification_security_end = 1,
+        }
+        const WLAN_NOTIFICATION_SOURCE_ACM: u32 = 8;
+        const WLAN_NOTIFICATION_SOURCE_ALL: u32 = 65535;
+        const WLAN_NOTIFICATION_SOURCE_DEVICE_SERVICE: u32 = 2048;
+        const WLAN_NOTIFICATION_SOURCE_HNWK: u32 = 128;
+        const WLAN_NOTIFICATION_SOURCE_IHV: u32 = 64;
+        const WLAN_NOTIFICATION_SOURCE_MSM: u32 = 16;
+        const WLAN_NOTIFICATION_SOURCE_NONE: u32 = 0;
+        const WLAN_NOTIFICATION_SOURCE_ONEX: u32 = 4;
+        const WLAN_NOTIFICATION_SOURCE_SECURITY: u32 = 32;
+        #[repr(i32)]
+        enum WLAN_OPCODE_VALUE_TYPE {
+            wlan_opcode_value_type_query_only = 0,
+            wlan_opcode_value_type_set_by_group_policy = 1,
+            wlan_opcode_value_type_set_by_user = 2,
+            wlan_opcode_value_type_invalid = 3,
+        }
+        #[repr(i32)]
+        enum WLAN_OPERATIONAL_STATE {
+            wlan_operational_state_unknown = 0,
+            wlan_operational_state_off = 1,
+            wlan_operational_state_on = 2,
+            wlan_operational_state_going_off = 3,
+            wlan_operational_state_going_on = 4,
+        }
+        struct WLAN_PHY_FRAME_STATISTICS {
+            ullTransmittedFrameCount: u64,
+            ullMulticastTransmittedFrameCount: u64,
+            ullFailedCount: u64,
+            ullRetryCount: u64,
+            ullMultipleRetryCount: u64,
+            ullMaxTXLifetimeExceededCount: u64,
+            ullTransmittedFragmentCount: u64,
+            ullRTSSuccessCount: u64,
+            ullRTSFailureCount: u64,
+            ullACKFailureCount: u64,
+            ullReceivedFrameCount: u64,
+            ullMulticastReceivedFrameCount: u64,
+            ullPromiscuousReceivedFrameCount: u64,
+            ullMaxRXLifetimeExceededCount: u64,
+            ullFrameDuplicateCount: u64,
+            ullReceivedFragmentCount: u64,
+            ullPromiscuousReceivedFragmentCount: u64,
+            ullFCSErrorCount: u64,
+        }
+        struct WLAN_PHY_RADIO_STATE {
+            dwPhyIndex: u32,
+            dot11SoftwareRadioState: DOT11_RADIO_STATE,
+            dot11HardwareRadioState: DOT11_RADIO_STATE,
+        }
+        #[repr(i32)]
+        enum WLAN_POWER_SETTING {
+            wlan_power_setting_no_saving = 0,
+            wlan_power_setting_low_saving = 1,
+            wlan_power_setting_medium_saving = 2,
+            wlan_power_setting_maximum_saving = 3,
+            wlan_power_setting_invalid = 4,
+        }
+        const WLAN_PROFILE_CONNECTION_MODE_AUTO: u32 = 131072;
+        const WLAN_PROFILE_CONNECTION_MODE_SET_BY_CLIENT: u32 = 65536;
+        const WLAN_PROFILE_GET_PLAINTEXT_KEY: u32 = 4;
+        const WLAN_PROFILE_GROUP_POLICY: u32 = 1;
+        struct WLAN_PROFILE_INFO {
+            strProfileName: [u16; 256],
+            dwFlags: u32,
+        }
+        struct WLAN_PROFILE_INFO_LIST {
+            dwNumberOfItems: u32,
+            dwIndex: u32,
+            ProfileInfo: [WLAN_PROFILE_INFO; 1],
+        }
+        const WLAN_PROFILE_USER: u32 = 2;
+        struct WLAN_QOS_CAPABILITIES {
+            bMSCSSupported: BOOL,
+            bDSCPToUPMappingSupported: BOOL,
+            bSCSSupported: BOOL,
+            bDSCPPolicySupported: BOOL,
+        }
+        struct WLAN_QOS_INFO {
+            interfaceCapabilities: WLAN_QOS_CAPABILITIES,
+            bConnected: BOOL,
+            connectionQoSInfo: WLAN_CONNECTION_QOS_INFO,
+        }
+        struct WLAN_RADIO_STATE {
+            dwNumberOfPhys: u32,
+            PhyRadioState: [WLAN_PHY_RADIO_STATE; 64],
+        }
+        struct WLAN_RATE_SET {
+            uRateSetLength: u32,
+            usRateSet: [u16; 126],
+        }
+        struct WLAN_RAW_DATA {
+            dwDataSize: u32,
+            DataBlob: [u8; 1],
+        }
+        struct WLAN_RAW_DATA_LIST {
+            dwTotalSize: u32,
+            dwNumberOfItems: u32,
+            DataList: [WLAN_RAW_DATA_LIST_0; 1],
+        }
+        struct WLAN_RAW_DATA_LIST_0 {
+            dwDataOffset: u32,
+            dwDataSize: u32,
+        }
+        const WLAN_READ_ACCESS: u32 = 131073;
+        struct WLAN_REALTIME_CONNECTION_QUALITY {
+            dot11PhyType: DOT11_PHY_TYPE,
+            ulLinkQuality: u32,
+            ulRxRate: u32,
+            ulTxRate: u32,
+            bIsMLOConnection: BOOL,
+            ulNumLinks: u32,
+            linksInfo: [WLAN_REALTIME_CONNECTION_QUALITY_LINK_INFO; 1],
+        }
+        struct WLAN_REALTIME_CONNECTION_QUALITY_LINK_INFO {
+            ucLinkID: u8,
+            ulChannelCenterFrequencyMhz: u32,
+            ulBandwidth: u32,
+            lRssi: i32,
+            wlanRateSet: WLAN_RATE_SET,
+        }
+        type WLAN_REASON_CODE = u32;
+        const WLAN_REASON_CODE_AC_BASE: u32 = 131072;
+        const WLAN_REASON_CODE_AC_CONNECT_BASE: u32 = 163840;
+        const WLAN_REASON_CODE_AC_END: u32 = 196607;
+        const WLAN_REASON_CODE_ADHOC_SECURITY_FAILURE: u32 = 229386;
+        const WLAN_REASON_CODE_AP_PROFILE_NOT_ALLOWED: u32 = 163856;
+        const WLAN_REASON_CODE_AP_PROFILE_NOT_ALLOWED_FOR_CLIENT: u32 = 163855;
+        const WLAN_REASON_CODE_AP_STARTING_FAILURE: u32 = 229395;
+        const WLAN_REASON_CODE_ASSOCIATION_FAILURE: u32 = 229378;
+        const WLAN_REASON_CODE_ASSOCIATION_TIMEOUT: u32 = 229379;
+        const WLAN_REASON_CODE_AUTO_AP_PROFILE_NOT_ALLOWED: u32 = 524313;
+        const WLAN_REASON_CODE_AUTO_CONNECTION_NOT_ALLOWED: u32 = 524314;
+        const WLAN_REASON_CODE_AUTO_SWITCH_SET_FOR_ADHOC: u32 = 524304;
+        const WLAN_REASON_CODE_AUTO_SWITCH_SET_FOR_MANUAL_CONNECTION: u32 = 524305;
+        const WLAN_REASON_CODE_BAD_MAX_NUMBER_OF_CLIENTS_FOR_AP: u32 = 524310;
+        const WLAN_REASON_CODE_BASE: u32 = 131072;
+        const WLAN_REASON_CODE_BSS_TYPE_NOT_ALLOWED: u32 = 163845;
+        const WLAN_REASON_CODE_BSS_TYPE_UNMATCH: u32 = 196611;
+        const WLAN_REASON_CODE_CONFLICT_SECURITY: u32 = 524299;
+        const WLAN_REASON_CODE_CONNECT_CALL_FAIL: u32 = 163849;
+        const WLAN_REASON_CODE_DATARATE_UNMATCH: u32 = 196613;
+        const WLAN_REASON_CODE_DISCONNECT_TIMEOUT: u32 = 229391;
+        const WLAN_REASON_CODE_DRIVER_DISCONNECTED: u32 = 229387;
+        const WLAN_REASON_CODE_DRIVER_OPERATION_FAILURE: u32 = 229388;
+        const WLAN_REASON_CODE_GP_DENIED: u32 = 163843;
+        const WLAN_REASON_CODE_HOTSPOT2_PROFILE_DENIED: u32 = 163857;
+        const WLAN_REASON_CODE_HOTSPOT2_PROFILE_NOT_ALLOWED: u32 = 524315;
+        const WLAN_REASON_CODE_IHV_CONNECTIVITY_NOT_SUPPORTED: u32 = 524309;
+        const WLAN_REASON_CODE_IHV_NOT_AVAILABLE: u32 = 229389;
+        const WLAN_REASON_CODE_IHV_NOT_RESPONDING: u32 = 229390;
+        const WLAN_REASON_CODE_IHV_OUI_MISMATCH: u32 = 524296;
+        const WLAN_REASON_CODE_IHV_OUI_MISSING: u32 = 524297;
+        const WLAN_REASON_CODE_IHV_SECURITY_NOT_SUPPORTED: u32 = 524295;
+        const WLAN_REASON_CODE_IHV_SECURITY_ONEX_MISSING: u32 = 524306;
+        const WLAN_REASON_CODE_IHV_SETTINGS_MISSING: u32 = 524298;
+        const WLAN_REASON_CODE_INTERNAL_FAILURE: u32 = 229392;
+        const WLAN_REASON_CODE_INVALID_ADHOC_CONNECTION_MODE: u32 = 524302;
+        const WLAN_REASON_CODE_INVALID_BSS_TYPE: u32 = 524301;
+        const WLAN_REASON_CODE_INVALID_CHANNEL: u32 = 524311;
+        const WLAN_REASON_CODE_INVALID_PHY_TYPE: u32 = 524293;
+        const WLAN_REASON_CODE_INVALID_PROFILE_NAME: u32 = 524291;
+        const WLAN_REASON_CODE_INVALID_PROFILE_SCHEMA: u32 = 524289;
+        const WLAN_REASON_CODE_INVALID_PROFILE_TYPE: u32 = 524292;
+        const WLAN_REASON_CODE_IN_BLOCKED_LIST: u32 = 163847;
+        const WLAN_REASON_CODE_IN_FAILED_LIST: u32 = 163846;
+        const WLAN_REASON_CODE_KEY_MISMATCH: u32 = 163853;
+        const WLAN_REASON_CODE_MSMSEC_AUTH_START_TIMEOUT: u32 = 294914;
+        const WLAN_REASON_CODE_MSMSEC_AUTH_SUCCESS_TIMEOUT: u32 = 294915;
+        const WLAN_REASON_CODE_MSMSEC_AUTH_WCN_COMPLETED: u32 = 294937;
+        const WLAN_REASON_CODE_MSMSEC_BASE: u32 = 262144;
+        const WLAN_REASON_CODE_MSMSEC_CANCELLED: u32 = 294929;
+        const WLAN_REASON_CODE_MSMSEC_CAPABILITY_DISCOVERY: u32 = 262165;
+        const WLAN_REASON_CODE_MSMSEC_CAPABILITY_MFP_NW_NIC: u32 = 262181;
+        const WLAN_REASON_CODE_MSMSEC_CAPABILITY_NETWORK: u32 = 262162;
+        const WLAN_REASON_CODE_MSMSEC_CAPABILITY_NIC: u32 = 262163;
+        const WLAN_REASON_CODE_MSMSEC_CAPABILITY_PROFILE: u32 = 262164;
+        const WLAN_REASON_CODE_MSMSEC_CAPABILITY_PROFILE_AUTH: u32 = 262174;
+        const WLAN_REASON_CODE_MSMSEC_CAPABILITY_PROFILE_CIPHER: u32 = 262175;
+        const WLAN_REASON_CODE_MSMSEC_CAPABILITY_PROFILE_SAFE_MODE_NIC: u32 = 262177;
+        const WLAN_REASON_CODE_MSMSEC_CAPABILITY_PROFILE_SAFE_MODE_NW: u32 = 262178;
+        const WLAN_REASON_CODE_MSMSEC_CONNECT_BASE: u32 = 294912;
+        const WLAN_REASON_CODE_MSMSEC_DOWNGRADE_DETECTED: u32 = 294931;
+        const WLAN_REASON_CODE_MSMSEC_END: u32 = 327679;
+        const WLAN_REASON_CODE_MSMSEC_FORCED_FAILURE: u32 = 294933;
+        const WLAN_REASON_CODE_MSMSEC_G1_MISSING_GRP_KEY: u32 = 294925;
+        const WLAN_REASON_CODE_MSMSEC_G1_MISSING_KEY_DATA: u32 = 294924;
+        const WLAN_REASON_CODE_MSMSEC_G1_MISSING_MGMT_GRP_KEY: u32 = 294939;
+        const WLAN_REASON_CODE_MSMSEC_KEY_FORMAT: u32 = 294930;
+        const WLAN_REASON_CODE_MSMSEC_KEY_START_TIMEOUT: u32 = 294916;
+        const WLAN_REASON_CODE_MSMSEC_KEY_SUCCESS_TIMEOUT: u32 = 294917;
+        const WLAN_REASON_CODE_MSMSEC_M2_MISSING_IE: u32 = 294936;
+        const WLAN_REASON_CODE_MSMSEC_M2_MISSING_KEY_DATA: u32 = 294935;
+        const WLAN_REASON_CODE_MSMSEC_M3_MISSING_GRP_KEY: u32 = 294920;
+        const WLAN_REASON_CODE_MSMSEC_M3_MISSING_IE: u32 = 294919;
+        const WLAN_REASON_CODE_MSMSEC_M3_MISSING_KEY_DATA: u32 = 294918;
+        const WLAN_REASON_CODE_MSMSEC_M3_MISSING_MGMT_GRP_KEY: u32 = 294938;
+        const WLAN_REASON_CODE_MSMSEC_M3_TOO_MANY_RSNIE: u32 = 294934;
+        const WLAN_REASON_CODE_MSMSEC_MAX: u32 = 327679;
+        const WLAN_REASON_CODE_MSMSEC_MIN: u32 = 262144;
+        const WLAN_REASON_CODE_MSMSEC_MIXED_CELL: u32 = 262169;
+        const WLAN_REASON_CODE_MSMSEC_NIC_FAILURE: u32 = 294928;
+        const WLAN_REASON_CODE_MSMSEC_NO_AUTHENTICATOR: u32 = 294927;
+        const WLAN_REASON_CODE_MSMSEC_NO_PAIRWISE_KEY: u32 = 294923;
+        const WLAN_REASON_CODE_MSMSEC_PEER_INDICATED_INSECURE: u32 = 294926;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_AUTH_TIMERS_INVALID: u32 = 262170;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_DUPLICATE_AUTH_CIPHER: u32 = 262151;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_AUTH_CIPHER: u32 = 262153;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_GKEY_INTV: u32 = 262171;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_KEY_INDEX: u32 = 262145;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_PMKCACHE_MODE: u32 = 262156;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_PMKCACHE_SIZE: u32 = 262157;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_PMKCACHE_TTL: u32 = 262158;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_PREAUTH_MODE: u32 = 262159;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_PREAUTH_THROTTLE: u32 = 262160;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_KEYMATERIAL_CHAR: u32 = 262167;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_KEY_LENGTH: u32 = 262147;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_KEY_UNMAPPED_CHAR: u32 = 262173;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_NO_AUTH_CIPHER_SPECIFIED: u32 = 262149;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_ONEX_DISABLED: u32 = 262154;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_ONEX_ENABLED: u32 = 262155;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_PASSPHRASE_CHAR: u32 = 262166;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_PREAUTH_ONLY_ENABLED: u32 = 262161;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_PSK_LENGTH: u32 = 262148;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_PSK_PRESENT: u32 = 262146;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_RAWDATA_INVALID: u32 = 262152;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_SAFE_MODE: u32 = 262176;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_TOO_MANY_AUTH_CIPHER_SPECIFIED: u32 = 262150;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_UNSUPPORTED_AUTH: u32 = 262179;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_UNSUPPORTED_CIPHER: u32 = 262180;
+        const WLAN_REASON_CODE_MSMSEC_PROFILE_WRONG_KEYTYPE: u32 = 262168;
+        const WLAN_REASON_CODE_MSMSEC_PR_IE_MATCHING: u32 = 294921;
+        const WLAN_REASON_CODE_MSMSEC_PSK_MISMATCH_SUSPECTED: u32 = 294932;
+        const WLAN_REASON_CODE_MSMSEC_SEC_IE_MATCHING: u32 = 294922;
+        const WLAN_REASON_CODE_MSMSEC_TRANSITION_NETWORK: u32 = 262172;
+        const WLAN_REASON_CODE_MSMSEC_UI_REQUEST_FAILURE: u32 = 294913;
+        const WLAN_REASON_CODE_MSM_BASE: u32 = 196608;
+        const WLAN_REASON_CODE_MSM_CONNECT_BASE: u32 = 229376;
+        const WLAN_REASON_CODE_MSM_END: u32 = 262143;
+        const WLAN_REASON_CODE_MSM_SECURITY_MISSING: u32 = 524294;
+        const WLAN_REASON_CODE_NETWORK_NOT_AVAILABLE: u32 = 163851;
+        const WLAN_REASON_CODE_NETWORK_NOT_COMPATIBLE: u32 = 131073;
+        const WLAN_REASON_CODE_NON_BROADCAST_SET_FOR_ADHOC: u32 = 524303;
+        const WLAN_REASON_CODE_NOT_VISIBLE: u32 = 163842;
+        const WLAN_REASON_CODE_NO_AUTO_CONNECTION: u32 = 163841;
+        const WLAN_REASON_CODE_NO_VISIBLE_AP: u32 = 229396;
+        const WLAN_REASON_CODE_OPERATION_MODE_NOT_SUPPORTED: u32 = 524312;
+        const WLAN_REASON_CODE_PHY_TYPE_UNMATCH: u32 = 196612;
+        const WLAN_REASON_CODE_PRE_SECURITY_FAILURE: u32 = 229380;
+        const WLAN_REASON_CODE_PROFILE_BASE: u32 = 524288;
+        const WLAN_REASON_CODE_PROFILE_CHANGED_OR_DELETED: u32 = 163852;
+        const WLAN_REASON_CODE_PROFILE_CONNECT_BASE: u32 = 557056;
+        const WLAN_REASON_CODE_PROFILE_END: u32 = 589823;
+        const WLAN_REASON_CODE_PROFILE_MISSING: u32 = 524290;
+        const WLAN_REASON_CODE_PROFILE_NOT_COMPATIBLE: u32 = 131074;
+        const WLAN_REASON_CODE_PROFILE_SSID_INVALID: u32 = 524307;
+        const WLAN_REASON_CODE_RANGE_SIZE: u32 = 65536;
+        const WLAN_REASON_CODE_RESERVED_BASE: u32 = 720896;
+        const WLAN_REASON_CODE_RESERVED_END: u32 = 786431;
+        const WLAN_REASON_CODE_ROAMING_FAILURE: u32 = 229384;
+        const WLAN_REASON_CODE_ROAMING_SECURITY_FAILURE: u32 = 229385;
+        const WLAN_REASON_CODE_SCAN_CALL_FAIL: u32 = 163850;
+        const WLAN_REASON_CODE_SECURITY_FAILURE: u32 = 229382;
+        const WLAN_REASON_CODE_SECURITY_MISSING: u32 = 524300;
+        const WLAN_REASON_CODE_SECURITY_TIMEOUT: u32 = 229383;
+        const WLAN_REASON_CODE_SSID_LIST_TOO_LONG: u32 = 163848;
+        const WLAN_REASON_CODE_START_SECURITY_FAILURE: u32 = 229381;
+        const WLAN_REASON_CODE_SUCCESS: u32 = 0;
+        const WLAN_REASON_CODE_TOO_MANY_SECURITY_ATTEMPTS: u32 = 229394;
+        const WLAN_REASON_CODE_TOO_MANY_SSID: u32 = 524308;
+        const WLAN_REASON_CODE_UI_REQUEST_TIMEOUT: u32 = 229393;
+        const WLAN_REASON_CODE_UNKNOWN: u32 = 65537;
+        const WLAN_REASON_CODE_UNSUPPORTED_SECURITY_SET: u32 = 196610;
+        const WLAN_REASON_CODE_UNSUPPORTED_SECURITY_SET_BY_OS: u32 = 196609;
+        const WLAN_REASON_CODE_USER_CANCELLED: u32 = 229377;
+        const WLAN_REASON_CODE_USER_DENIED: u32 = 163844;
+        const WLAN_REASON_CODE_USER_NOT_RESPOND: u32 = 163854;
+        #[repr(i32)]
+        enum WLAN_SECURABLE_OBJECT {
+            wlan_secure_permit_list = 0,
+            wlan_secure_deny_list = 1,
+            wlan_secure_ac_enabled = 2,
+            wlan_secure_bc_scan_enabled = 3,
+            wlan_secure_bss_type = 4,
+            wlan_secure_show_denied = 5,
+            wlan_secure_interface_properties = 6,
+            wlan_secure_ihv_control = 7,
+            wlan_secure_all_user_profiles_order = 8,
+            wlan_secure_add_new_all_user_profiles = 9,
+            wlan_secure_add_new_per_user_profiles = 10,
+            wlan_secure_media_streaming_mode_enabled = 11,
+            wlan_secure_current_operation_mode = 12,
+            wlan_secure_get_plaintext_key = 13,
+            wlan_secure_hosted_network_elevated_access = 14,
+            wlan_secure_virtual_station_extensibility = 15,
+            wlan_secure_wfd_elevated_access = 16,
+            WLAN_SECURABLE_OBJECT_COUNT = 17,
+        }
+        struct WLAN_SECURITY_ATTRIBUTES {
+            bSecurityEnabled: BOOL,
+            bOneXEnabled: BOOL,
+            dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM,
+            dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM,
+        }
+        const WLAN_SET_EAPHOST_DATA_ALL_USERS: u32 = 1;
+        type WLAN_SIGNAL_QUALITY = u32;
+        struct WLAN_STATISTICS {
+            ullFourWayHandshakeFailures: u64,
+            ullTKIPCounterMeasuresInvoked: u64,
+            ullReserved: u64,
+            MacUcastCounters: WLAN_MAC_FRAME_STATISTICS,
+            MacMcastCounters: WLAN_MAC_FRAME_STATISTICS,
+            dwNumberOfPhys: u32,
+            PhyCounters: [WLAN_PHY_FRAME_STATISTICS; 1],
+        }
+        const WLAN_UI_API_INITIAL_VERSION: u32 = 1;
+        const WLAN_UI_API_VERSION: u32 = 1;
+        const WLAN_WRITE_ACCESS: u32 = 458787;
+        #[repr(i32)]
+        enum WL_DISPLAY_PAGES {
+            WLConnectionPage = 0,
+            WLSecurityPage = 1,
+            WLAdvPage = 2,
+        }
+        #[library("wlanapi.dll")]
+        extern fn WlanAllocateMemory(dwMemorySize: u32) -> *mut void;
+        #[library("wlanapi.dll")]
+        extern fn WlanCloseHandle(hClientHandle: HANDLE, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanConnect(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, pConnectionParameters: *const WLAN_CONNECTION_PARAMETERS, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanConnect2(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, pConnectionParameters: *const WLAN_CONNECTION_PARAMETERS_V2, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanDeleteProfile(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanDeviceServiceCommand(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, pDeviceServiceGuid: *const GUID, dwOpCode: u32, dwInBufferSize: u32, #[size_param(4)] #[opt] pInBuffer: *const void, dwOutBufferSize: u32, #[size_param(6)] #[in] #[out] #[opt] pOutBuffer: *mut void, pdwBytesReturned: *mut u32) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanDisconnect(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanEnumInterfaces(hClientHandle: HANDLE, #[reserved] pReserved: *const void, ppInterfaceList: *mut PWLAN_INTERFACE_INFO_LIST) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanExtractPsdIEDataList(hClientHandle: HANDLE, dwIeDataSize: u32, #[size_param(1)] pRawIeData: *const u8, strFormat: PCWSTR, #[reserved] pReserved: *const void, ppPsdIEDataList: *mut PWLAN_RAW_DATA_LIST) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanFreeMemory(pMemory: *const void);
+        #[library("wlanapi.dll")]
+        extern fn WlanGetAvailableNetworkList(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, dwFlags: u32, #[reserved] pReserved: *const void, ppAvailableNetworkList: *mut PWLAN_AVAILABLE_NETWORK_LIST) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanGetAvailableNetworkList2(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, dwFlags: u32, #[reserved] pReserved: *const void, ppAvailableNetworkList: *mut PWLAN_AVAILABLE_NETWORK_LIST_V2) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanGetFilterList(hClientHandle: HANDLE, wlanFilterListType: WLAN_FILTER_LIST_TYPE, #[reserved] pReserved: *const void, ppNetworkList: *mut PDOT11_NETWORK_LIST) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanGetInterfaceCapability(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, #[reserved] pReserved: *const void, ppCapability: *mut PWLAN_INTERFACE_CAPABILITY) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanGetNetworkBssList(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, #[opt] pDot11Ssid: *const DOT11_SSID, dot11BssType: DOT11_BSS_TYPE, bSecurityEnabled: BOOL, #[reserved] pReserved: *const void, ppWlanBssList: *mut PWLAN_BSS_LIST) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanGetProfile(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, #[reserved] pReserved: *const void, pstrProfileXml: *mut PWSTR, #[in] #[out] #[opt] pdwFlags: *mut u32, #[opt] pdwGrantedAccess: *mut u32) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanGetProfileCustomUserData(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, #[reserved] pReserved: *const void, pdwDataSize: *mut u32, ppData: *mut PBYTE) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanGetProfileList(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, #[reserved] pReserved: *const void, ppProfileList: *mut PWLAN_PROFILE_INFO_LIST) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanGetSecuritySettings(hClientHandle: HANDLE, SecurableObject: WLAN_SECURABLE_OBJECT, #[opt] pValueType: *mut WLAN_OPCODE_VALUE_TYPE, pstrCurrentSDDL: *mut PWSTR, pdwGrantedAccess: *mut u32) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanGetSupportedDeviceServices(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, ppDevSvcGuidList: *mut PWLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkForceStart(hClientHandle: HANDLE, #[opt] pFailReason: *mut WLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkForceStop(hClientHandle: HANDLE, #[opt] pFailReason: *mut WLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkInitSettings(hClientHandle: HANDLE, #[opt] pFailReason: *mut WLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkQueryProperty(hClientHandle: HANDLE, OpCode: WLAN_HOSTED_NETWORK_OPCODE, pdwDataSize: *mut u32, ppvData: *mut *mut void, pWlanOpcodeValueType: *mut WLAN_OPCODE_VALUE_TYPE, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkQuerySecondaryKey(hClientHandle: HANDLE, pdwKeyLength: *mut u32, ppucKeyData: *mut PUCHAR, pbIsPassPhrase: *mut BOOL, pbPersistent: *mut BOOL, #[opt] pFailReason: *mut WLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkQueryStatus(hClientHandle: HANDLE, ppWlanHostedNetworkStatus: *mut PWLAN_HOSTED_NETWORK_STATUS, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkRefreshSecuritySettings(hClientHandle: HANDLE, #[opt] pFailReason: *mut WLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkSetProperty(hClientHandle: HANDLE, OpCode: WLAN_HOSTED_NETWORK_OPCODE, dwDataSize: u32, #[size_param(2)] pvData: *const void, #[opt] pFailReason: *mut WLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkSetSecondaryKey(hClientHandle: HANDLE, dwKeyLength: u32, #[size_param(1)] pucKeyData: *const u8, bIsPassPhrase: BOOL, bPersistent: BOOL, #[opt] pFailReason: *mut WLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkStartUsing(hClientHandle: HANDLE, #[opt] pFailReason: *mut WLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanHostedNetworkStopUsing(hClientHandle: HANDLE, #[opt] pFailReason: *mut WLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanIhvControl(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, Type: WLAN_IHV_CONTROL_TYPE, dwInBufferSize: u32, #[size_param(3)] pInBuffer: *const void, dwOutBufferSize: u32, #[size_param(5)] #[in] #[out] #[opt] pOutBuffer: *mut void, pdwBytesReturned: *mut u32) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanOpenHandle(dwClientVersion: u32, #[reserved] pReserved: *const void, pdwNegotiatedVersion: *mut u32, phClientHandle: *mut HANDLE) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanQueryAutoConfigParameter(hClientHandle: HANDLE, OpCode: WLAN_AUTOCONF_OPCODE, #[reserved] pReserved: *const void, pdwDataSize: *mut u32, ppData: *mut *mut void, #[opt] pWlanOpcodeValueType: *mut WLAN_OPCODE_VALUE_TYPE) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanQueryInterface(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, OpCode: WLAN_INTF_OPCODE, #[reserved] pReserved: *const void, pdwDataSize: *mut u32, ppData: *mut *mut void, #[opt] pWlanOpcodeValueType: *mut WLAN_OPCODE_VALUE_TYPE) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanReasonCodeToString(dwReasonCode: u32, dwBufferSize: u32, #[len_param(1)] pStringBuffer: *const u16, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanRegisterDeviceServiceNotification(hClientHandle: HANDLE, #[opt] pDevSvcGuidList: *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanRegisterNotification(hClientHandle: HANDLE, dwNotifSource: u32, bIgnoreDuplicate: BOOL, #[opt] funcCallback: WLAN_NOTIFICATION_CALLBACK, #[opt] pCallbackContext: *const void, #[reserved] pReserved: *const void, #[opt] pdwPrevNotifSource: *mut u32) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanRegisterVirtualStationNotification(hClientHandle: HANDLE, bRegister: BOOL, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanRenameProfile(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strOldProfileName: PCWSTR, strNewProfileName: PCWSTR, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSaveTemporaryProfile(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, #[opt] strAllUserProfileSecurity: PCWSTR, dwFlags: u32, bOverWrite: BOOL, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanScan(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, #[opt] pDot11Ssid: *const DOT11_SSID, #[opt] pIeData: *const WLAN_RAW_DATA, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetAutoConfigParameter(hClientHandle: HANDLE, OpCode: WLAN_AUTOCONF_OPCODE, dwDataSize: u32, #[size_param(2)] pData: *const void, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetFilterList(hClientHandle: HANDLE, wlanFilterListType: WLAN_FILTER_LIST_TYPE, #[opt] pNetworkList: *const DOT11_NETWORK_LIST, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetInterface(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, OpCode: WLAN_INTF_OPCODE, dwDataSize: u32, #[size_param(3)] pData: *const void, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetProfile(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, dwFlags: u32, strProfileXml: PCWSTR, #[opt] strAllUserProfileSecurity: PCWSTR, bOverwrite: BOOL, #[reserved] pReserved: *const void, pdwReasonCode: *mut u32) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetProfileCustomUserData(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, dwDataSize: u32, #[size_param(3)] pData: *const u8, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetProfileEapUserData(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, eapType: EAP_METHOD_TYPE, dwFlags: u32, dwEapUserDataSize: u32, #[size_param(5)] #[opt] pbEapUserData: *const u8, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetProfileEapXmlUserData(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, dwFlags: u32, strEapXmlUserData: PCWSTR, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetProfileList(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, dwItems: u32, #[len_param(2)] strProfileNames: *const PCWSTR, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetProfilePosition(hClientHandle: HANDLE, pInterfaceGuid: *const GUID, strProfileName: PCWSTR, dwPosition: u32, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetPsdIEDataList(hClientHandle: HANDLE, #[opt] strFormat: PCWSTR, #[opt] pPsdIEDataList: *const WLAN_RAW_DATA_LIST, #[reserved] pReserved: *const void) -> u32;
+        #[library("wlanapi.dll")]
+        extern fn WlanSetSecuritySettings(hClientHandle: HANDLE, SecurableObject: WLAN_SECURABLE_OBJECT, strModifiedSDDL: PCWSTR) -> u32;
+        #[library("wlanui.dll")]
+        extern fn WlanUIEditProfile(dwClientVersion: u32, wstrProfileName: PCWSTR, pInterfaceGuid: *const GUID, hWnd: HWND, wlStartPage: WL_DISPLAY_PAGES, #[reserved] pReserved: *const void, #[opt] pWlanReasonCode: *mut u32) -> u32;
+    }
+}

@@ -1,0 +1,39 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("ADVAPI32.dll")]
+        extern fn ConvertSecurityDescriptorToStringSecurityDescriptorA(SecurityDescriptor: PSECURITY_DESCRIPTOR, RequestedStringSDRevision: u32, SecurityInformation: SECURITY_INFORMATION, StringSecurityDescriptor: *mut PSTR, #[opt] StringSecurityDescriptorLen: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ConvertSecurityDescriptorToStringSecurityDescriptorW(SecurityDescriptor: PSECURITY_DESCRIPTOR, RequestedStringSDRevision: u32, SecurityInformation: SECURITY_INFORMATION, StringSecurityDescriptor: *mut PWSTR, #[opt] StringSecurityDescriptorLen: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ConvertSidToStringSidA(Sid: PSID, StringSid: *mut PSTR) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ConvertSidToStringSidW(Sid: PSID, StringSid: *mut PWSTR) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ConvertStringSecurityDescriptorToSecurityDescriptorA(StringSecurityDescriptor: PCSTR, StringSDRevision: u32, SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] SecurityDescriptorSize: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ConvertStringSecurityDescriptorToSecurityDescriptorW(StringSecurityDescriptor: PCWSTR, StringSDRevision: u32, SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] SecurityDescriptorSize: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ConvertStringSidToSidA(StringSid: PCSTR, Sid: *mut PSID) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ConvertStringSidToSidW(StringSid: PCWSTR, Sid: *mut PSID) -> BOOL;
+        const SDDL_ACE_BEGINC: u32 = 40;
+        const SDDL_ACE_COND_BEGINC: u32 = 40;
+        const SDDL_ACE_COND_BLOB_PREFIXC: u32 = 35;
+        const SDDL_ACE_COND_COMPOSITEVALUE_BEGINC: u32 = 123;
+        const SDDL_ACE_COND_COMPOSITEVALUE_ENDC: u32 = 125;
+        const SDDL_ACE_COND_COMPOSITEVALUE_SEPERATORC: u32 = 44;
+        const SDDL_ACE_COND_ENDC: u32 = 41;
+        const SDDL_ACE_COND_SID_BEGINC: u32 = 40;
+        const SDDL_ACE_COND_SID_ENDC: u32 = 41;
+        const SDDL_ACE_COND_STRING_BEGINC: u32 = 34;
+        const SDDL_ACE_COND_STRING_ENDC: u32 = 34;
+        const SDDL_ACE_ENDC: u32 = 41;
+        const SDDL_ALIAS_SIZE: u32 = 2;
+        const SDDL_DELIMINATORC: u32 = 58;
+        const SDDL_REVISION: u32 = 1;
+        const SDDL_REVISION_1: u32 = 1;
+        const SDDL_SEPERATORC: u32 = 59;
+        const SDDL_SPACEC: u32 = 32;
+    }
+}

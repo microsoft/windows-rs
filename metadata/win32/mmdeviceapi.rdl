@@ -1,0 +1,128 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
+            AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT = 0,
+            AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER = 1,
+            AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE = 2,
+            AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT = 3,
+        }
+        #[library("MMDevAPI.DLL")]
+        extern fn ActivateAudioInterfaceAsync(deviceInterfacePath: PCWSTR, riid: *const GUID, #[opt] activationParams: *const PROPVARIANT, completionHandler: IActivateAudioInterfaceCompletionHandler, activationOperation: *mut IActivateAudioInterfaceAsyncOperation) -> HRESULT;
+        struct AudioExtensionParams {
+            AddPageParam: LPARAM,
+            pEndpoint: IMMDevice,
+            pPnpInterface: IMMDevice,
+            pPnpDevnode: IMMDevice,
+        }
+        const DEVICE_STATEMASK_ALL: u32 = 15;
+        const DEVICE_STATE_ACTIVE: u32 = 1;
+        const DEVICE_STATE_DISABLED: u32 = 2;
+        const DEVICE_STATE_NOTPRESENT: u32 = 4;
+        const DEVICE_STATE_UNPLUGGED: u32 = 8;
+        const DEVINTERFACE_AUDIO_CAPTURE: GUID = 0x2eef81be_33fa_4800_9670_1cd474972c3f;
+        const DEVINTERFACE_AUDIO_RENDER: GUID = 0xe6327cad_dcec_4949_ae8a_991e976a79d2;
+        const DEVINTERFACE_MIDI_INPUT: GUID = 0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b;
+        const DEVINTERFACE_MIDI_OUTPUT: GUID = 0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814;
+        struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
+            cbDirectXAudioActivationParams: u32,
+            guidAudioSession: GUID,
+            dwAudioStreamFlags: u32,
+        }
+        #[repr(i32)]
+        enum EDataFlow {
+            eRender = 0,
+            eCapture = 1,
+            eAll = 2,
+            EDataFlow_enum_count = 3,
+        }
+        const ENDPOINT_SYSFX_DISABLED: u32 = 1;
+        const ENDPOINT_SYSFX_ENABLED: u32 = 0;
+        #[repr(i32)]
+        enum ERole {
+            eConsole = 0,
+            eMultimedia = 1,
+            eCommunications = 2,
+            ERole_enum_count = 3,
+        }
+        const E_NOTFOUND: i32 = -2147023728;
+        const E_UNSUPPORTED_TYPE: i32 = -2147023266;
+        #[repr(i32)]
+        enum EndpointFormFactor {
+            RemoteNetworkDevice = 0,
+            Speakers = 1,
+            LineLevel = 2,
+            Headphones = 3,
+            Microphone = 4,
+            Headset = 5,
+            Handset = 6,
+            UnknownDigitalPassthrough = 7,
+            SPDIF = 8,
+            DigitalAudioDisplayDevice = 9,
+            UnknownFormFactor = 10,
+            EndpointFormFactor_enum_count = 11,
+        }
+        const HDMI: u32 = 9;
+        #[guid(0x72a22d78_cde4_431d_b8cc_843a71199b6d)]
+        interface IActivateAudioInterfaceAsyncOperation: IUnknown {
+            fn GetActivateResult(&self, activateResult: *mut HRESULT, activatedInterface: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x41d949ab_9862_444a_80f6_c261334da5eb)]
+        interface IActivateAudioInterfaceCompletionHandler: IUnknown {
+            fn ActivateCompleted(&self, activateOperation: IActivateAudioInterfaceAsyncOperation) -> HRESULT;
+        }
+        #[guid(0x20049d40_56d5_400e_a2ef_385599feed49)]
+        interface IAudioSystemEffectsPropertyChangeNotificationClient: IUnknown {
+            fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: PROPERTYKEY) -> HRESULT;
+        }
+        #[guid(0x302ae7f9_d7e0_43e4_971b_1f8293613d2a)]
+        interface IAudioSystemEffectsPropertyStore: IUnknown {
+            fn OpenDefaultPropertyStore(&self, stgmAccess: u32, propStore: *mut IPropertyStore) -> HRESULT;
+            fn OpenUserPropertyStore(&self, stgmAccess: u32, propStore: *mut IPropertyStore) -> HRESULT;
+            fn OpenVolatilePropertyStore(&self, stgmAccess: u32, propStore: *mut IPropertyStore) -> HRESULT;
+            fn ResetUserPropertyStore(&self) -> HRESULT;
+            fn ResetVolatilePropertyStore(&self) -> HRESULT;
+            fn RegisterPropertyChangeNotification(&self, callback: IAudioSystemEffectsPropertyChangeNotificationClient) -> HRESULT;
+            fn UnregisterPropertyChangeNotification(&self, callback: IAudioSystemEffectsPropertyChangeNotificationClient) -> HRESULT;
+        }
+        #[guid(0xd666063f_1587_4e43_81f1_b948e807363f)]
+        interface IMMDevice: IUnknown {
+            fn Activate(&self, iid: *const GUID, dwClsCtx: u32, #[opt] pActivationParams: *const PROPVARIANT, ppInterface: *mut *mut void) -> HRESULT;
+            fn OpenPropertyStore(&self, stgmAccess: u32, ppProperties: *mut IPropertyStore) -> HRESULT;
+            fn GetId(&self, ppstrId: *mut PWSTR) -> HRESULT;
+            fn GetState(&self, pdwState: *mut u32) -> HRESULT;
+        }
+        #[guid(0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0)]
+        interface IMMDeviceActivator: IUnknown {
+            fn Activate(&self, iid: *const GUID, pDevice: IMMDevice, #[opt] pActivationParams: *const PROPVARIANT, ppInterface: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0bd7a1be_7a1a_44db_8397_cc5392387b5e)]
+        interface IMMDeviceCollection: IUnknown {
+            fn GetCount(&self, pcDevices: *mut u32) -> HRESULT;
+            fn Item(&self, nDevice: u32, ppDevice: *mut IMMDevice) -> HRESULT;
+        }
+        #[guid(0xa95664d2_9614_4f35_a746_de8db63617e6)]
+        interface IMMDeviceEnumerator: IUnknown {
+            fn EnumAudioEndpoints(&self, dataFlow: EDataFlow, dwStateMask: u32, ppDevices: *mut IMMDeviceCollection) -> HRESULT;
+            fn GetDefaultAudioEndpoint(&self, dataFlow: EDataFlow, role: ERole, ppEndpoint: *mut IMMDevice) -> HRESULT;
+            fn GetDevice(&self, pwstrId: PCWSTR, ppDevice: *mut IMMDevice) -> HRESULT;
+            fn RegisterEndpointNotificationCallback(&self, pClient: IMMNotificationClient) -> HRESULT;
+            fn UnregisterEndpointNotificationCallback(&self, pClient: IMMNotificationClient) -> HRESULT;
+        }
+        #[guid(0x1be09788_6894_4089_8586_9a2a6c265ac5)]
+        interface IMMEndpoint: IUnknown {
+            fn GetDataFlow(&self, pDataFlow: *mut EDataFlow) -> HRESULT;
+        }
+        #[guid(0x7991eec9_7e89_4d85_8390_6c703cec60c0)]
+        interface IMMNotificationClient: IUnknown {
+            fn OnDeviceStateChanged(&self, pwstrDeviceId: PCWSTR, dwNewState: u32) -> HRESULT;
+            fn OnDeviceAdded(&self, pwstrDeviceId: PCWSTR) -> HRESULT;
+            fn OnDeviceRemoved(&self, pwstrDeviceId: PCWSTR) -> HRESULT;
+            fn OnDefaultDeviceChanged(&self, flow: EDataFlow, role: ERole, #[opt] pwstrDefaultDeviceId: PCWSTR) -> HRESULT;
+            fn OnPropertyValueChanged(&self, pwstrDeviceId: PCWSTR, key: PROPERTYKEY) -> HRESULT;
+        }
+        const MMDeviceEnumerator: GUID = 0xbcde0395_e52f_467c_8e3d_c4579291692e;
+        type PDIRECTX_AUDIO_ACTIVATION_PARAMS = *mut DIRECTX_AUDIO_ACTIVATION_PARAMS;
+    }
+}

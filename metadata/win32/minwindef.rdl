@@ -1,0 +1,69 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type ATOM = u16;
+        type BOOL = i32;
+        const FALSE: u32 = 0;
+        #[arch(X64 | Arm64)]
+        extern fn FARPROC() -> isize;
+        #[arch(X86)]
+        extern fn FARPROC() -> i32;
+        struct FILETIME {
+            dwLowDateTime: u32,
+            dwHighDateTime: u32,
+        }
+        type GLOBALHANDLE = HANDLE;
+        type HFILE = i32;
+        type HGLOBAL = HANDLE;
+        type HINSTANCE = *mut void;
+        type HKEY = *mut void;
+        type HKL = *mut void;
+        type HLOCAL = HANDLE;
+        type HLSURF = *mut void;
+        type HMETAFILE = *mut void;
+        type HMODULE = HINSTANCE;
+        type HRGN = *mut void;
+        type HRSRC = *mut void;
+        type HSPRITE = *mut void;
+        type HSTR = *mut void;
+        type HTASK = *mut void;
+        type HWINSTA = *mut void;
+        type LOCALHANDLE = HANDLE;
+        type LPARAM = isize;
+        type LPBOOL = *mut BOOL;
+        type LPBYTE = *mut u8;
+        type LPDWORD = *mut u32;
+        type LPFILETIME = *mut FILETIME;
+        type LPHANDLE = *mut HANDLE;
+        type LPINT = *mut i32;
+        type LPLONG = *mut i32;
+        type LPWORD = *mut u16;
+        type LRESULT = isize;
+        const MAX_PATH: u32 = 260;
+        #[arch(X64 | Arm64)]
+        extern fn NEARPROC() -> isize;
+        #[arch(X86)]
+        extern fn NEARPROC() -> i32;
+        type PBOOL = *mut BOOL;
+        type PBYTE = *mut u8;
+        type PDWORD = *mut u32;
+        type PFILETIME = *mut FILETIME;
+        type PFLOAT = *mut f32;
+        type PHKEY = *mut HKEY;
+        type PINT = *mut i32;
+        #[arch(X64 | Arm64)]
+        extern fn PROC() -> isize;
+        #[arch(X86)]
+        extern fn PROC() -> i32;
+        type PSZ = *mut i8;
+        type PUCHAR = *mut u8;
+        type PUINT = *mut u32;
+        type PULONG = *mut u32;
+        type PUSHORT = *mut u16;
+        type PWORD = *mut u16;
+        type SPHANDLE = *mut HANDLE;
+        const STRICT: u32 = 1;
+        const TRUE: u32 = 1;
+        type WPARAM = usize;
+    }
+}

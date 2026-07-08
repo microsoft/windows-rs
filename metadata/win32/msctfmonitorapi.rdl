@@ -1,0 +1,16 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const DCM_FLAGS_CTFMON: u32 = 2;
+        const DCM_FLAGS_LOCALTHREADTSF: u32 = 4;
+        const DCM_FLAGS_TASKENG: u32 = 1;
+        #[library("MsCtfMonitor.DLL")]
+        extern fn DoMsCtfMonitor(dwFlags: u32, hEventForServiceStop: HANDLE) -> BOOL;
+        const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1;
+        const ILMCM_LANGUAGEBAROFF: u32 = 2;
+        #[library("MsCtfMonitor.DLL")]
+        extern fn InitLocalMsCtfMonitor(dwFlags: u32) -> HRESULT;
+        #[library("MsCtfMonitor.DLL")]
+        extern fn UninitLocalMsCtfMonitor() -> HRESULT;
+    }
+}

@@ -7,6 +7,7 @@ publish = false
 
 [dependencies]
 windows-bindgen = { workspace = true }
+windows-clang = { workspace = true }
 windows-rdl = { workspace = true }
 
 [lints]

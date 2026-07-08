@@ -1,0 +1,13 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("")]
+        extern fn ReturnsWide(in_ptr: PCWSTR, out_ptr: PWSTR) -> PWSTR;
+        struct STRINGS {
+            name: PCWSTR,
+            buffer: PWSTR,
+            ansi: PCSTR,
+            ole: PWSTR,
+        }
+    }
+}

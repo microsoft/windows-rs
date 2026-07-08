@@ -1,0 +1,165 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct D3D10_SHADER_DEBUG_FILE_INFO {
+            FileName: u32,
+            FileNameLen: u32,
+            FileData: u32,
+            FileLen: u32,
+        }
+        struct D3D10_SHADER_DEBUG_INFO {
+            Size: u32,
+            Creator: u32,
+            EntrypointName: u32,
+            ShaderTarget: u32,
+            CompileFlags: u32,
+            Files: u32,
+            FileInfo: u32,
+            Instructions: u32,
+            InstructionInfo: u32,
+            Variables: u32,
+            VariableInfo: u32,
+            InputVariables: u32,
+            InputVariableInfo: u32,
+            Tokens: u32,
+            TokenInfo: u32,
+            Scopes: u32,
+            ScopeInfo: u32,
+            ScopeVariables: u32,
+            ScopeVariableInfo: u32,
+            UintOffset: u32,
+            StringOffset: u32,
+        }
+        struct D3D10_SHADER_DEBUG_INPUT_INFO {
+            Var: u32,
+            InitialRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
+            InitialBank: u32,
+            InitialRegister: u32,
+            InitialComponent: u32,
+            InitialValue: u32,
+        }
+        struct D3D10_SHADER_DEBUG_INST_INFO {
+            Id: u32,
+            Opcode: u32,
+            uOutputs: u32,
+            pOutputs: [D3D10_SHADER_DEBUG_OUTPUTREG_INFO; 2],
+            TokenId: u32,
+            NestingLevel: u32,
+            Scopes: u32,
+            ScopeInfo: u32,
+            AccessedVars: u32,
+            AccessedVarsInfo: u32,
+        }
+        struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
+            OutputRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
+            OutputReg: u32,
+            TempArrayReg: u32,
+            OutputComponents: [u32; 4],
+            OutputVars: [D3D10_SHADER_DEBUG_OUTPUTVAR; 4],
+            IndexReg: u32,
+            IndexComp: u32,
+        }
+        struct D3D10_SHADER_DEBUG_OUTPUTVAR {
+            Var: u32,
+            uValueMin: u32,
+            uValueMax: u32,
+            iValueMin: i32,
+            iValueMax: i32,
+            fValueMin: f32,
+            fValueMax: f32,
+            bNaNPossible: BOOL,
+            bInfPossible: BOOL,
+        }
+        #[repr(i32)]
+        enum D3D10_SHADER_DEBUG_REGTYPE {
+            D3D10_SHADER_DEBUG_REG_INPUT = 0,
+            D3D10_SHADER_DEBUG_REG_OUTPUT = 1,
+            D3D10_SHADER_DEBUG_REG_CBUFFER = 2,
+            D3D10_SHADER_DEBUG_REG_TBUFFER = 3,
+            D3D10_SHADER_DEBUG_REG_TEMP = 4,
+            D3D10_SHADER_DEBUG_REG_TEMPARRAY = 5,
+            D3D10_SHADER_DEBUG_REG_TEXTURE = 6,
+            D3D10_SHADER_DEBUG_REG_SAMPLER = 7,
+            D3D10_SHADER_DEBUG_REG_IMMEDIATECBUFFER = 8,
+            D3D10_SHADER_DEBUG_REG_LITERAL = 9,
+            D3D10_SHADER_DEBUG_REG_UNUSED = 10,
+            D3D11_SHADER_DEBUG_REG_INTERFACE_POINTERS = 11,
+            D3D11_SHADER_DEBUG_REG_UAV = 12,
+            D3D10_SHADER_DEBUG_REG_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3D10_SHADER_DEBUG_SCOPETYPE {
+            D3D10_SHADER_DEBUG_SCOPE_GLOBAL = 0,
+            D3D10_SHADER_DEBUG_SCOPE_BLOCK = 1,
+            D3D10_SHADER_DEBUG_SCOPE_FORLOOP = 2,
+            D3D10_SHADER_DEBUG_SCOPE_STRUCT = 3,
+            D3D10_SHADER_DEBUG_SCOPE_FUNC_PARAMS = 4,
+            D3D10_SHADER_DEBUG_SCOPE_STATEBLOCK = 5,
+            D3D10_SHADER_DEBUG_SCOPE_NAMESPACE = 6,
+            D3D10_SHADER_DEBUG_SCOPE_ANNOTATION = 7,
+            D3D10_SHADER_DEBUG_SCOPE_FORCE_DWORD = 2147483647,
+        }
+        struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
+            TokenId: u32,
+            VarType: D3D10_SHADER_DEBUG_VARTYPE,
+            Class: D3D10_SHADER_VARIABLE_CLASS,
+            Rows: u32,
+            Columns: u32,
+            StructMemberScope: u32,
+            uArrayIndices: u32,
+            ArrayElements: u32,
+            ArrayStrides: u32,
+            uVariables: u32,
+            uFirstVariable: u32,
+        }
+        struct D3D10_SHADER_DEBUG_SCOPE_INFO {
+            ScopeType: D3D10_SHADER_DEBUG_SCOPETYPE,
+            Name: u32,
+            uNameLen: u32,
+            uVariables: u32,
+            VariableData: u32,
+        }
+        struct D3D10_SHADER_DEBUG_TOKEN_INFO {
+            File: u32,
+            Line: u32,
+            Column: u32,
+            TokenLength: u32,
+            TokenId: u32,
+        }
+        #[repr(i32)]
+        enum D3D10_SHADER_DEBUG_VARTYPE {
+            D3D10_SHADER_DEBUG_VAR_VARIABLE = 0,
+            D3D10_SHADER_DEBUG_VAR_FUNCTION = 1,
+            D3D10_SHADER_DEBUG_VAR_FORCE_DWORD = 2147483647,
+        }
+        struct D3D10_SHADER_DEBUG_VAR_INFO {
+            TokenId: u32,
+            Type: D3D10_SHADER_VARIABLE_TYPE,
+            Register: u32,
+            Component: u32,
+            ScopeVar: u32,
+            ScopeVarOffset: u32,
+        }
+        #[guid(0xc3457783_a846_47ce_9520_cea6f66e7447)]
+        interface ID3D10ShaderReflection1: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetDesc(&self, pDesc: *mut D3D10_SHADER_DESC) -> HRESULT;
+            fn GetConstantBufferByIndex(&self, Index: u32) -> ID3D10ShaderReflectionConstantBuffer;
+            fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D10ShaderReflectionConstantBuffer;
+            fn GetResourceBindingDesc(&self, ResourceIndex: u32, pDesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetInputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetOutputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetVariableByName(&self, Name: PCSTR) -> ID3D10ShaderReflectionVariable;
+            fn GetResourceBindingDescByName(&self, Name: PCSTR, pDesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetMovInstructionCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetMovcInstructionCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetConversionInstructionCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetBitwiseInstructionCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetGSInputPrimitive(&self, pPrim: *mut D3D10_PRIMITIVE) -> HRESULT;
+            fn IsLevel9Shader(&self, pbLevel9Shader: *mut BOOL) -> HRESULT;
+            fn IsSampleFrequencyShader(&self, pbSampleFrequency: *mut BOOL) -> HRESULT;
+        }
+    }
+}

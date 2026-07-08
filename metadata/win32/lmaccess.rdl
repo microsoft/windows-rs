@@ -1,0 +1,952 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ACCESS_ACCESS_LIST_INFOLEVEL: u32 = 1004;
+        const ACCESS_ACCESS_LIST_PARMNUM: u32 = 4;
+        const ACCESS_ALL: u32 = 127;
+        const ACCESS_ATRIB: u32 = 32;
+        const ACCESS_ATTR_INFOLEVEL: u32 = 1002;
+        const ACCESS_ATTR_PARMNUM: u32 = 2;
+        const ACCESS_AUDIT: u32 = 1;
+        const ACCESS_COUNT_INFOLEVEL: u32 = 1003;
+        const ACCESS_COUNT_PARMNUM: u32 = 3;
+        const ACCESS_CREATE: u32 = 4;
+        const ACCESS_DELETE: u32 = 16;
+        const ACCESS_EXEC: u32 = 8;
+        const ACCESS_FAIL_ACL: u32 = 2048;
+        const ACCESS_FAIL_DELETE: u32 = 1024;
+        const ACCESS_FAIL_MASK: u32 = 3840;
+        const ACCESS_FAIL_OPEN: u32 = 256;
+        const ACCESS_FAIL_SHIFT: u32 = 4;
+        const ACCESS_FAIL_WRITE: u32 = 512;
+        const ACCESS_GROUP: u32 = 32768;
+        struct ACCESS_INFO_0 {
+            acc0_resource_name: PWSTR,
+        }
+        struct ACCESS_INFO_1 {
+            acc1_resource_name: PWSTR,
+            acc1_attr: u32,
+            acc1_count: u32,
+        }
+        struct ACCESS_INFO_1002 {
+            acc1002_attr: u32,
+        }
+        #[encoding("ansi")]
+        const ACCESS_LETTERS: String = "RWCXDAP         ";
+        struct ACCESS_LIST {
+            acl_ugname: PWSTR,
+            acl_access: u32,
+        }
+        const ACCESS_NONE: u32 = 0;
+        const ACCESS_PERM: u32 = 64;
+        const ACCESS_READ: u32 = 1;
+        const ACCESS_RESOURCE_NAME_INFOLEVEL: u32 = 1001;
+        const ACCESS_RESOURCE_NAME_PARMNUM: u32 = 1;
+        const ACCESS_SUCCESS_ACL: u32 = 128;
+        const ACCESS_SUCCESS_DELETE: u32 = 64;
+        const ACCESS_SUCCESS_MASK: u32 = 240;
+        const ACCESS_SUCCESS_OPEN: u32 = 16;
+        const ACCESS_SUCCESS_WRITE: u32 = 32;
+        const ACCESS_WRITE: u32 = 2;
+        const AF_OP_ACCOUNTS: u32 = 8;
+        const AF_OP_COMM: u32 = 2;
+        const AF_OP_PRINT: u32 = 1;
+        const AF_OP_SERVER: u32 = 4;
+        const AF_SETTABLE_BITS: u32 = 15;
+        const DEF_FORCE_LOGOFF: i32 = -1;
+        const DEF_MAX_BADPW: u32 = 0;
+        const DEF_MAX_PWAGE: i32 = -1;
+        const DEF_MAX_PWHIST: u32 = 8;
+        const DEF_MIN_PWAGE: u32 = 0;
+        const DEF_MIN_PWLEN: u32 = 6;
+        const DEF_PWUNIQUENESS: u32 = 5;
+        const FILTER_INTERDOMAIN_TRUST_ACCOUNT: u32 = 8;
+        const FILTER_NORMAL_ACCOUNT: u32 = 2;
+        const FILTER_SERVER_TRUST_ACCOUNT: u32 = 32;
+        const FILTER_TEMP_DUPLICATE_ACCOUNT: u32 = 1;
+        const FILTER_WORKSTATION_TRUST_ACCOUNT: u32 = 16;
+        const GROUPIDMASK: u32 = 32768;
+        const GROUP_ALL_INFOLEVEL: u32 = 1000;
+        const GROUP_ALL_PARMNUM: u32 = 0;
+        const GROUP_ATTRIBUTES_INFOLEVEL: u32 = 1003;
+        const GROUP_ATTRIBUTES_PARMNUM: u32 = 3;
+        const GROUP_COMMENT_INFOLEVEL: u32 = 1002;
+        const GROUP_COMMENT_PARMNUM: u32 = 2;
+        struct GROUP_INFO_0 {
+            grpi0_name: PWSTR,
+        }
+        struct GROUP_INFO_1 {
+            grpi1_name: PWSTR,
+            grpi1_comment: PWSTR,
+        }
+        struct GROUP_INFO_1002 {
+            grpi1002_comment: PWSTR,
+        }
+        struct GROUP_INFO_1005 {
+            grpi1005_attributes: u32,
+        }
+        struct GROUP_INFO_2 {
+            grpi2_name: PWSTR,
+            grpi2_comment: PWSTR,
+            grpi2_group_id: u32,
+            grpi2_attributes: u32,
+        }
+        struct GROUP_INFO_3 {
+            grpi3_name: PWSTR,
+            grpi3_comment: PWSTR,
+            grpi3_group_sid: PSID,
+            grpi3_attributes: u32,
+        }
+        const GROUP_NAME_INFOLEVEL: u32 = 1001;
+        const GROUP_NAME_PARMNUM: u32 = 1;
+        #[encoding("utf-16")]
+        const GROUP_SPECIALGRP_ADMINS: String = "ADMINS";
+        #[encoding("utf-16")]
+        const GROUP_SPECIALGRP_GUESTS: String = "GUESTS";
+        #[encoding("utf-16")]
+        const GROUP_SPECIALGRP_LOCAL: String = "LOCAL";
+        #[encoding("utf-16")]
+        const GROUP_SPECIALGRP_USERS: String = "USERS";
+        struct GROUP_USERS_INFO_0 {
+            grui0_name: PWSTR,
+        }
+        struct GROUP_USERS_INFO_1 {
+            grui1_name: PWSTR,
+            grui1_attributes: u32,
+        }
+        #[library("NETAPI32.dll")]
+        extern fn I_NetLogonControl2(#[opt] ServerName: PCWSTR, FunctionCode: u32, QueryLevel: u32, Data: *const u8, Buffer: *mut LPBYTE) -> u32;
+        const LG_INCLUDE_INDIRECT: u32 = 1;
+        const LOCALGROUP_COMMENT_PARMNUM: u32 = 2;
+        struct LOCALGROUP_INFO_0 {
+            lgrpi0_name: PWSTR,
+        }
+        struct LOCALGROUP_INFO_1 {
+            lgrpi1_name: PWSTR,
+            lgrpi1_comment: PWSTR,
+        }
+        struct LOCALGROUP_INFO_1002 {
+            lgrpi1002_comment: PWSTR,
+        }
+        struct LOCALGROUP_MEMBERS_INFO_0 {
+            lgrmi0_sid: PSID,
+        }
+        struct LOCALGROUP_MEMBERS_INFO_1 {
+            lgrmi1_sid: PSID,
+            lgrmi1_sidusage: SID_NAME_USE,
+            lgrmi1_name: PWSTR,
+        }
+        struct LOCALGROUP_MEMBERS_INFO_2 {
+            lgrmi2_sid: PSID,
+            lgrmi2_sidusage: SID_NAME_USE,
+            lgrmi2_domainandname: PWSTR,
+        }
+        struct LOCALGROUP_MEMBERS_INFO_3 {
+            lgrmi3_domainandname: PWSTR,
+        }
+        const LOCALGROUP_NAME_PARMNUM: u32 = 1;
+        struct LOCALGROUP_USERS_INFO_0 {
+            lgrui0_name: PWSTR,
+        }
+        type LPACCESS_INFO_0 = *mut ACCESS_INFO_0;
+        type LPACCESS_INFO_1 = *mut ACCESS_INFO_1;
+        type LPACCESS_INFO_1002 = *mut ACCESS_INFO_1002;
+        type LPACCESS_LIST = *mut ACCESS_LIST;
+        type LPGROUP_INFO_0 = *mut GROUP_INFO_0;
+        type LPGROUP_INFO_1 = *mut GROUP_INFO_1;
+        type LPGROUP_INFO_1002 = *mut GROUP_INFO_1002;
+        type LPGROUP_INFO_1005 = *mut GROUP_INFO_1005;
+        type LPGROUP_USERS_INFO_0 = *mut GROUP_USERS_INFO_0;
+        type LPGROUP_USERS_INFO_1 = *mut GROUP_USERS_INFO_1;
+        type LPLOCALGROUP_INFO_0 = *mut LOCALGROUP_INFO_0;
+        type LPLOCALGROUP_INFO_1 = *mut LOCALGROUP_INFO_1;
+        type LPLOCALGROUP_INFO_1002 = *mut LOCALGROUP_INFO_1002;
+        type LPLOCALGROUP_MEMBERS_INFO_0 = *mut LOCALGROUP_MEMBERS_INFO_0;
+        type LPLOCALGROUP_MEMBERS_INFO_1 = *mut LOCALGROUP_MEMBERS_INFO_1;
+        type LPLOCALGROUP_MEMBERS_INFO_2 = *mut LOCALGROUP_MEMBERS_INFO_2;
+        type LPLOCALGROUP_MEMBERS_INFO_3 = *mut LOCALGROUP_MEMBERS_INFO_3;
+        type LPLOCALGROUP_USERS_INFO_0 = *mut LOCALGROUP_USERS_INFO_0;
+        type LPMSA_INFO_0 = *mut MSA_INFO_0;
+        type LPMSA_INFO_1 = *mut MSA_INFO_1;
+        type LPUSER_INFO_0 = *mut USER_INFO_0;
+        type LPUSER_INFO_1 = *mut USER_INFO_1;
+        type LPUSER_INFO_10 = *mut USER_INFO_10;
+        type LPUSER_INFO_1003 = *mut USER_INFO_1003;
+        type LPUSER_INFO_1005 = *mut USER_INFO_1005;
+        type LPUSER_INFO_1006 = *mut USER_INFO_1006;
+        type LPUSER_INFO_1007 = *mut USER_INFO_1007;
+        type LPUSER_INFO_1008 = *mut USER_INFO_1008;
+        type LPUSER_INFO_1009 = *mut USER_INFO_1009;
+        type LPUSER_INFO_1010 = *mut USER_INFO_1010;
+        type LPUSER_INFO_1011 = *mut USER_INFO_1011;
+        type LPUSER_INFO_1012 = *mut USER_INFO_1012;
+        type LPUSER_INFO_1013 = *mut USER_INFO_1013;
+        type LPUSER_INFO_1014 = *mut USER_INFO_1014;
+        type LPUSER_INFO_1017 = *mut USER_INFO_1017;
+        type LPUSER_INFO_1018 = *mut USER_INFO_1018;
+        type LPUSER_INFO_1020 = *mut USER_INFO_1020;
+        type LPUSER_INFO_1023 = *mut USER_INFO_1023;
+        type LPUSER_INFO_1024 = *mut USER_INFO_1024;
+        type LPUSER_INFO_1025 = *mut USER_INFO_1025;
+        type LPUSER_INFO_1051 = *mut USER_INFO_1051;
+        type LPUSER_INFO_1052 = *mut USER_INFO_1052;
+        type LPUSER_INFO_1053 = *mut USER_INFO_1053;
+        type LPUSER_INFO_11 = *mut USER_INFO_11;
+        type LPUSER_INFO_2 = *mut USER_INFO_2;
+        type LPUSER_INFO_20 = *mut USER_INFO_20;
+        type LPUSER_INFO_21 = *mut USER_INFO_21;
+        type LPUSER_INFO_22 = *mut USER_INFO_22;
+        type LPUSER_INFO_23 = *mut USER_INFO_23;
+        type LPUSER_INFO_24 = *mut USER_INFO_24;
+        type LPUSER_INFO_3 = *mut USER_INFO_3;
+        type LPUSER_INFO_4 = *mut USER_INFO_4;
+        type LPUSER_MODALS_INFO_0 = *mut USER_MODALS_INFO_0;
+        type LPUSER_MODALS_INFO_1 = *mut USER_MODALS_INFO_1;
+        type LPUSER_MODALS_INFO_1001 = *mut USER_MODALS_INFO_1001;
+        type LPUSER_MODALS_INFO_1002 = *mut USER_MODALS_INFO_1002;
+        type LPUSER_MODALS_INFO_1003 = *mut USER_MODALS_INFO_1003;
+        type LPUSER_MODALS_INFO_1004 = *mut USER_MODALS_INFO_1004;
+        type LPUSER_MODALS_INFO_1005 = *mut USER_MODALS_INFO_1005;
+        type LPUSER_MODALS_INFO_1006 = *mut USER_MODALS_INFO_1006;
+        type LPUSER_MODALS_INFO_1007 = *mut USER_MODALS_INFO_1007;
+        type LPUSER_MODALS_INFO_2 = *mut USER_MODALS_INFO_2;
+        type LPUSER_MODALS_INFO_3 = *mut USER_MODALS_INFO_3;
+        const MAXPERMENTRIES: u32 = 64;
+        const MAX_PASSWD_LEN: u32 = 256;
+        const MODALS_DOMAIN_ID_INFOLEVEL: u32 = 1009;
+        const MODALS_DOMAIN_ID_PARMNUM: u32 = 9;
+        const MODALS_DOMAIN_NAME_INFOLEVEL: u32 = 1008;
+        const MODALS_DOMAIN_NAME_PARMNUM: u32 = 8;
+        const MODALS_FORCE_LOGOFF_INFOLEVEL: u32 = 1004;
+        const MODALS_FORCE_LOGOFF_PARMNUM: u32 = 4;
+        const MODALS_LOCKOUT_DURATION_PARMNUM: u32 = 10;
+        const MODALS_LOCKOUT_OBSERVATION_WINDOW_PARMNUM: u32 = 11;
+        const MODALS_LOCKOUT_THRESHOLD_PARMNUM: u32 = 12;
+        const MODALS_MAX_PASSWD_AGE_INFOLEVEL: u32 = 1002;
+        const MODALS_MAX_PASSWD_AGE_PARMNUM: u32 = 2;
+        const MODALS_MIN_PASSWD_AGE_INFOLEVEL: u32 = 1003;
+        const MODALS_MIN_PASSWD_AGE_PARMNUM: u32 = 3;
+        const MODALS_MIN_PASSWD_LEN_INFOLEVEL: u32 = 1001;
+        const MODALS_MIN_PASSWD_LEN_PARMNUM: u32 = 1;
+        const MODALS_PASSWD_HIST_LEN_INFOLEVEL: u32 = 1005;
+        const MODALS_PASSWD_HIST_LEN_PARMNUM: u32 = 5;
+        const MODALS_PRIMARY_INFOLEVEL: u32 = 1007;
+        const MODALS_PRIMARY_PARMNUM: u32 = 7;
+        const MODALS_ROLE_INFOLEVEL: u32 = 1006;
+        const MODALS_ROLE_PARMNUM: u32 = 6;
+        struct MSA_INFO_0 {
+            State: MSA_INFO_STATE,
+        }
+        struct MSA_INFO_1 {
+            State: MSA_INFO_STATE,
+            AccountType: MSA_INFO_ACCOUNT_TYPE,
+        }
+        #[repr(i32)]
+        enum MSA_INFO_ACCOUNT_TYPE {
+            MsaAccountFalse = 0,
+            StandAloneManagedServiceAccount = 1,
+            GroupManagedServiceAccount = 2,
+            DelegatedManagedServiceAccount = 3,
+        }
+        #[repr(i32)]
+        enum MSA_INFO_LEVEL {
+            MsaInfoLevel0 = 0,
+            MsaInfoLevel1 = 1,
+            MsaInfoLevelMax = 2,
+        }
+        #[repr(i32)]
+        enum MSA_INFO_STATE {
+            MsaInfoNotExist = 1,
+            MsaInfoNotService = 2,
+            MsaInfoCannotInstall = 3,
+            MsaInfoCanInstall = 4,
+            MsaInfoInstalled = 5,
+        }
+        const NETLOGON_CONTROL_BACKUP_CHANGE_LOG: u32 = 65532;
+        const NETLOGON_CONTROL_BREAKPOINT: u32 = 65535;
+        const NETLOGON_CONTROL_CHANGE_PASSWORD: u32 = 9;
+        const NETLOGON_CONTROL_FIND_USER: u32 = 8;
+        const NETLOGON_CONTROL_FORCE_DNS_REG: u32 = 11;
+        const NETLOGON_CONTROL_PDC_REPLICATE: u32 = 4;
+        const NETLOGON_CONTROL_QUERY: u32 = 1;
+        const NETLOGON_CONTROL_QUERY_DNS_REG: u32 = 12;
+        const NETLOGON_CONTROL_QUERY_ENC_TYPES: u32 = 13;
+        const NETLOGON_CONTROL_REDISCOVER: u32 = 5;
+        const NETLOGON_CONTROL_REPLICATE: u32 = 2;
+        const NETLOGON_CONTROL_SET_DBFLAG: u32 = 65534;
+        const NETLOGON_CONTROL_SYNCHRONIZE: u32 = 3;
+        const NETLOGON_CONTROL_TC_QUERY: u32 = 6;
+        const NETLOGON_CONTROL_TC_VERIFY: u32 = 10;
+        const NETLOGON_CONTROL_TRANSPORT_NOTIFY: u32 = 7;
+        const NETLOGON_CONTROL_TRUNCATE_LOG: u32 = 65533;
+        const NETLOGON_CONTROL_UNLOAD_NETLOGON_DLL: u32 = 65531;
+        const NETLOGON_DNS_UPDATE_FAILURE: u32 = 64;
+        const NETLOGON_FULL_SYNC_REPLICATION: u32 = 4;
+        const NETLOGON_HAS_IP: u32 = 16;
+        const NETLOGON_HAS_TIMESERV: u32 = 32;
+        struct NETLOGON_INFO_1 {
+            netlog1_flags: u32,
+            netlog1_pdc_connection_status: u32,
+        }
+        struct NETLOGON_INFO_2 {
+            netlog2_flags: u32,
+            netlog2_pdc_connection_status: u32,
+            netlog2_trusted_dc_name: PWSTR,
+            netlog2_tc_connection_status: u32,
+        }
+        struct NETLOGON_INFO_3 {
+            netlog3_flags: u32,
+            netlog3_logon_attempts: u32,
+            netlog3_reserved1: u32,
+            netlog3_reserved2: u32,
+            netlog3_reserved3: u32,
+            netlog3_reserved4: u32,
+            netlog3_reserved5: u32,
+        }
+        struct NETLOGON_INFO_4 {
+            netlog4_trusted_dc_name: PWSTR,
+            netlog4_trusted_domain_name: PWSTR,
+        }
+        const NETLOGON_REDO_NEEDED: u32 = 8;
+        const NETLOGON_REPLICATION_IN_PROGRESS: u32 = 2;
+        const NETLOGON_REPLICATION_NEEDED: u32 = 1;
+        const NETLOGON_VERIFY_STATUS_RETURNED: u32 = 128;
+        struct NET_DISPLAY_GROUP {
+            grpi3_name: PWSTR,
+            grpi3_comment: PWSTR,
+            grpi3_group_id: u32,
+            grpi3_attributes: u32,
+            grpi3_next_index: u32,
+        }
+        struct NET_DISPLAY_MACHINE {
+            usri2_name: PWSTR,
+            usri2_comment: PWSTR,
+            usri2_flags: u32,
+            usri2_user_id: u32,
+            usri2_next_index: u32,
+        }
+        struct NET_DISPLAY_USER {
+            usri1_name: PWSTR,
+            usri1_comment: PWSTR,
+            usri1_flags: u32,
+            usri1_full_name: PWSTR,
+            usri1_user_id: u32,
+            usri1_next_index: u32,
+        }
+        struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
+            InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
+            PasswordMatched: BOOLEAN,
+        }
+        const NET_VALIDATE_BAD_PASSWORD_COUNT: u32 = 8;
+        const NET_VALIDATE_BAD_PASSWORD_TIME: u32 = 2;
+        const NET_VALIDATE_LOCKOUT_TIME: u32 = 4;
+        struct NET_VALIDATE_OUTPUT_ARG {
+            ChangedPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
+            ValidationStatus: u32,
+        }
+        struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
+            InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
+            ClearPassword: PWSTR,
+            UserAccountName: PWSTR,
+            HashedPassword: NET_VALIDATE_PASSWORD_HASH,
+            PasswordMatch: BOOLEAN,
+        }
+        struct NET_VALIDATE_PASSWORD_HASH {
+            Length: u32,
+            Hash: LPBYTE,
+        }
+        const NET_VALIDATE_PASSWORD_HISTORY: u32 = 32;
+        const NET_VALIDATE_PASSWORD_HISTORY_LENGTH: u32 = 16;
+        const NET_VALIDATE_PASSWORD_LAST_SET: u32 = 1;
+        struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
+            InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
+            ClearPassword: PWSTR,
+            UserAccountName: PWSTR,
+            HashedPassword: NET_VALIDATE_PASSWORD_HASH,
+            PasswordMustChangeAtNextLogon: BOOLEAN,
+            ClearLockout: BOOLEAN,
+        }
+        #[repr(i32)]
+        enum NET_VALIDATE_PASSWORD_TYPE {
+            NetValidateAuthentication = 1,
+            NetValidatePasswordChange = 2,
+            NetValidatePasswordReset = 3,
+        }
+        struct NET_VALIDATE_PERSISTED_FIELDS {
+            PresentFields: u32,
+            PasswordLastSet: FILETIME,
+            BadPasswordTime: FILETIME,
+            LockoutTime: FILETIME,
+            BadPasswordCount: u32,
+            PasswordHistoryLength: u32,
+            PasswordHistory: PNET_VALIDATE_PASSWORD_HASH,
+        }
+        const NON_VALIDATED_LOGON: u32 = 3;
+        #[encoding("ansi")]
+        const NULL_USERSETINFO_PASSWD: String = "              ";
+        #[library("NETAPI32.dll")]
+        extern fn NetAccessAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetAccessDel(servername: PCWSTR, resource: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetAccessEnum(#[opt] servername: PCWSTR, BasePath: PCWSTR, Recursive: u32, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetAccessGetInfo(#[opt] servername: PCWSTR, resource: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetAccessGetUserPerms(servername: PCWSTR, UGname: PCWSTR, resource: PCWSTR, Perms: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetAccessSetInfo(#[opt] servername: PCWSTR, resource: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern "C" fn NetAddServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, Password: PCWSTR, Flags: u32) -> NTSTATUS;
+        #[library("NETAPI32.dll")]
+        extern "C" fn NetEnumerateServiceAccounts(#[opt] ServerName: PCWSTR, Flags: u32, AccountsCount: *mut u32, Accounts: *mut PZPWSTR) -> NTSTATUS;
+        #[library("NETAPI32.dll")]
+        extern fn NetGetAnyDCName(#[opt] ServerName: PCWSTR, #[opt] DomainName: PCWSTR, Buffer: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGetDCName(#[opt] ServerName: PCWSTR, #[opt] DomainName: PCWSTR, Buffer: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGetDisplayInformationIndex(ServerName: PCWSTR, Level: u32, Prefix: PCWSTR, Index: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGroupAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGroupAddUser(#[opt] servername: PCWSTR, GroupName: PCWSTR, username: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGroupDel(#[opt] servername: PCWSTR, groupname: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGroupDelUser(#[opt] servername: PCWSTR, GroupName: PCWSTR, Username: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGroupEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut usize) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGroupGetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGroupGetUsers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] ResumeHandle: *mut usize) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGroupSetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetGroupSetUsers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern "C" fn NetIsServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, IsService: *mut BOOL) -> NTSTATUS;
+        #[library("NETAPI32.dll")]
+        extern "C" fn NetIsServiceAccount2(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, IsService: *mut BOOL, AccountType: *mut MSA_INFO_ACCOUNT_TYPE) -> NTSTATUS;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupAddMember(#[opt] servername: PCWSTR, groupname: PCWSTR, membersid: PSID) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupAddMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupDel(#[opt] servername: PCWSTR, groupname: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupDelMember(#[opt] servername: PCWSTR, groupname: PCWSTR, membersid: PSID) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupDelMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resumehandle: *mut usize) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupGetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupGetMembers(#[opt] servername: PCWSTR, localgroupname: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resumehandle: *mut usize) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupSetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetLocalGroupSetMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetQueryDisplayInformation(ServerName: PCWSTR, Level: u32, Index: u32, EntriesRequested: u32, PreferredMaximumLength: u32, ReturnedEntryCount: *mut u32, SortedBuffer: *mut *mut void) -> u32;
+        #[library("NETAPI32.dll")]
+        extern "C" fn NetQueryServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, InfoLevel: u32, Buffer: *mut PBYTE) -> NTSTATUS;
+        #[library("NETAPI32.dll")]
+        extern "C" fn NetRemoveServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, Flags: u32) -> NTSTATUS;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserAdd(#[opt] servername: PCWSTR, level: u32, buf: *mut u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserChangePassword(#[opt] domainname: PCWSTR, #[opt] username: PCWSTR, oldpassword: PCWSTR, newpassword: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserDel(#[opt] servername: PCWSTR, username: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserEnum(#[opt] servername: PCWSTR, level: u32, filter: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserGetGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserGetInfo(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserGetLocalGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, flags: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserModalsGet(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserModalsSet(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserSetGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, buf: *const u8, num_entries: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUserSetInfo(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetValidatePasswordPolicy(ServerName: PCWSTR, Qualifier: *mut void, ValidationType: NET_VALIDATE_PASSWORD_TYPE, InputArg: *mut void, OutputArg: *mut *mut void) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetValidatePasswordPolicyFree(OutputArg: *mut *mut void) -> u32;
+        const ONE_DAY: u32 = 86400;
+        type PACCESS_INFO_0 = *mut ACCESS_INFO_0;
+        type PACCESS_INFO_1 = *mut ACCESS_INFO_1;
+        type PACCESS_INFO_1002 = *mut ACCESS_INFO_1002;
+        type PACCESS_LIST = *mut ACCESS_LIST;
+        const PASSWORD_EXPIRED: u32 = 2;
+        type PGROUP_INFO_0 = *mut GROUP_INFO_0;
+        type PGROUP_INFO_1 = *mut GROUP_INFO_1;
+        type PGROUP_INFO_1002 = *mut GROUP_INFO_1002;
+        type PGROUP_INFO_1005 = *mut GROUP_INFO_1005;
+        type PGROUP_INFO_2 = *mut GROUP_INFO_2;
+        type PGROUP_INFO_3 = *mut GROUP_INFO_3;
+        type PGROUP_USERS_INFO_0 = *mut GROUP_USERS_INFO_0;
+        type PGROUP_USERS_INFO_1 = *mut GROUP_USERS_INFO_1;
+        type PLOCALGROUP_INFO_0 = *mut LOCALGROUP_INFO_0;
+        type PLOCALGROUP_INFO_1 = *mut LOCALGROUP_INFO_1;
+        type PLOCALGROUP_INFO_1002 = *mut LOCALGROUP_INFO_1002;
+        type PLOCALGROUP_MEMBERS_INFO_0 = *mut LOCALGROUP_MEMBERS_INFO_0;
+        type PLOCALGROUP_MEMBERS_INFO_1 = *mut LOCALGROUP_MEMBERS_INFO_1;
+        type PLOCALGROUP_MEMBERS_INFO_2 = *mut LOCALGROUP_MEMBERS_INFO_2;
+        type PLOCALGROUP_MEMBERS_INFO_3 = *mut LOCALGROUP_MEMBERS_INFO_3;
+        type PLOCALGROUP_USERS_INFO_0 = *mut LOCALGROUP_USERS_INFO_0;
+        type PMSA_INFO_0 = *mut MSA_INFO_0;
+        type PMSA_INFO_1 = *mut MSA_INFO_1;
+        type PMSA_INFO_ACCOUNT_TYPE = *mut MSA_INFO_ACCOUNT_TYPE;
+        type PMSA_INFO_LEVEL = *mut MSA_INFO_LEVEL;
+        type PMSA_INFO_STATE = *mut MSA_INFO_STATE;
+        type PNETLOGON_INFO_1 = *mut NETLOGON_INFO_1;
+        type PNETLOGON_INFO_2 = *mut NETLOGON_INFO_2;
+        type PNETLOGON_INFO_3 = *mut NETLOGON_INFO_3;
+        type PNETLOGON_INFO_4 = *mut NETLOGON_INFO_4;
+        type PNET_DISPLAY_GROUP = *mut NET_DISPLAY_GROUP;
+        type PNET_DISPLAY_MACHINE = *mut NET_DISPLAY_MACHINE;
+        type PNET_DISPLAY_USER = *mut NET_DISPLAY_USER;
+        type PNET_VALIDATE_AUTHENTICATION_INPUT_ARG = *mut NET_VALIDATE_AUTHENTICATION_INPUT_ARG;
+        type PNET_VALIDATE_OUTPUT_ARG = *mut NET_VALIDATE_OUTPUT_ARG;
+        type PNET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG = *mut NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG;
+        type PNET_VALIDATE_PASSWORD_HASH = *mut NET_VALIDATE_PASSWORD_HASH;
+        type PNET_VALIDATE_PASSWORD_RESET_INPUT_ARG = *mut NET_VALIDATE_PASSWORD_RESET_INPUT_ARG;
+        type PNET_VALIDATE_PASSWORD_TYPE = *mut NET_VALIDATE_PASSWORD_TYPE;
+        type PNET_VALIDATE_PERSISTED_FIELDS = *mut NET_VALIDATE_PERSISTED_FIELDS;
+        type PUSER_INFO_0 = *mut USER_INFO_0;
+        type PUSER_INFO_1 = *mut USER_INFO_1;
+        type PUSER_INFO_10 = *mut USER_INFO_10;
+        type PUSER_INFO_1003 = *mut USER_INFO_1003;
+        type PUSER_INFO_1005 = *mut USER_INFO_1005;
+        type PUSER_INFO_1006 = *mut USER_INFO_1006;
+        type PUSER_INFO_1007 = *mut USER_INFO_1007;
+        type PUSER_INFO_1008 = *mut USER_INFO_1008;
+        type PUSER_INFO_1009 = *mut USER_INFO_1009;
+        type PUSER_INFO_1010 = *mut USER_INFO_1010;
+        type PUSER_INFO_1011 = *mut USER_INFO_1011;
+        type PUSER_INFO_1012 = *mut USER_INFO_1012;
+        type PUSER_INFO_1013 = *mut USER_INFO_1013;
+        type PUSER_INFO_1014 = *mut USER_INFO_1014;
+        type PUSER_INFO_1017 = *mut USER_INFO_1017;
+        type PUSER_INFO_1018 = *mut USER_INFO_1018;
+        type PUSER_INFO_1020 = *mut USER_INFO_1020;
+        type PUSER_INFO_1023 = *mut USER_INFO_1023;
+        type PUSER_INFO_1024 = *mut USER_INFO_1024;
+        type PUSER_INFO_1025 = *mut USER_INFO_1025;
+        type PUSER_INFO_1051 = *mut USER_INFO_1051;
+        type PUSER_INFO_1052 = *mut USER_INFO_1052;
+        type PUSER_INFO_1053 = *mut USER_INFO_1053;
+        type PUSER_INFO_11 = *mut USER_INFO_11;
+        type PUSER_INFO_2 = *mut USER_INFO_2;
+        type PUSER_INFO_20 = *mut USER_INFO_20;
+        type PUSER_INFO_21 = *mut USER_INFO_21;
+        type PUSER_INFO_22 = *mut USER_INFO_22;
+        type PUSER_INFO_23 = *mut USER_INFO_23;
+        type PUSER_INFO_24 = *mut USER_INFO_24;
+        type PUSER_INFO_3 = *mut USER_INFO_3;
+        type PUSER_INFO_4 = *mut USER_INFO_4;
+        type PUSER_MODALS_INFO_0 = *mut USER_MODALS_INFO_0;
+        type PUSER_MODALS_INFO_1 = *mut USER_MODALS_INFO_1;
+        type PUSER_MODALS_INFO_1001 = *mut USER_MODALS_INFO_1001;
+        type PUSER_MODALS_INFO_1002 = *mut USER_MODALS_INFO_1002;
+        type PUSER_MODALS_INFO_1003 = *mut USER_MODALS_INFO_1003;
+        type PUSER_MODALS_INFO_1004 = *mut USER_MODALS_INFO_1004;
+        type PUSER_MODALS_INFO_1005 = *mut USER_MODALS_INFO_1005;
+        type PUSER_MODALS_INFO_1006 = *mut USER_MODALS_INFO_1006;
+        type PUSER_MODALS_INFO_1007 = *mut USER_MODALS_INFO_1007;
+        type PUSER_MODALS_INFO_2 = *mut USER_MODALS_INFO_2;
+        type PUSER_MODALS_INFO_3 = *mut USER_MODALS_INFO_3;
+        const SERVICE_ACCOUNT_FLAG_ADD_AGAINST_RODC: u32 = 2;
+        const SERVICE_ACCOUNT_FLAG_LINK_TO_HOST_ONLY: u32 = 1;
+        const SERVICE_ACCOUNT_FLAG_REMOVE_OFFLINE: u32 = 2;
+        const SERVICE_ACCOUNT_FLAG_UNLINK_FROM_HOST_ONLY: u32 = 1;
+        const ServiceAccountPasswordGUID: GUID = 0x262e99c9_6160_4871_acec_4e61736b6f21;
+        const TIMEQ_FOREVER: i32 = -1;
+        const UAS_ROLE_BACKUP: u32 = 2;
+        const UAS_ROLE_MEMBER: u32 = 1;
+        const UAS_ROLE_PRIMARY: u32 = 3;
+        const UAS_ROLE_STANDALONE: u32 = 0;
+        const UF_ACCOUNTDISABLE: u32 = 2;
+        const UF_ACCOUNT_TYPE_MASK: u32 = 15104;
+        const UF_DONT_EXPIRE_PASSWD: u32 = 65536;
+        const UF_DONT_REQUIRE_PREAUTH: u32 = 4194304;
+        const UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: u32 = 128;
+        const UF_HOMEDIR_REQUIRED: u32 = 8;
+        const UF_INTERDOMAIN_TRUST_ACCOUNT: u32 = 2048;
+        const UF_LOCKOUT: u32 = 16;
+        const UF_MACHINE_ACCOUNT_MASK: u32 = 14336;
+        const UF_MNS_LOGON_ACCOUNT: u32 = 131072;
+        const UF_NORMAL_ACCOUNT: u32 = 512;
+        const UF_NOT_DELEGATED: u32 = 1048576;
+        const UF_NO_AUTH_DATA_REQUIRED: u32 = 33554432;
+        const UF_PARTIAL_SECRETS_ACCOUNT: u32 = 67108864;
+        const UF_PASSWD_CANT_CHANGE: u32 = 64;
+        const UF_PASSWD_NOTREQD: u32 = 32;
+        const UF_PASSWORD_EXPIRED: u32 = 8388608;
+        const UF_SCRIPT: u32 = 1;
+        const UF_SERVER_TRUST_ACCOUNT: u32 = 8192;
+        const UF_SETTABLE_BITS: u32 = 268385275;
+        const UF_SMARTCARD_REQUIRED: u32 = 262144;
+        const UF_TEMP_DUPLICATE_ACCOUNT: u32 = 256;
+        const UF_TRUSTED_FOR_DELEGATION: u32 = 524288;
+        const UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: u32 = 16777216;
+        const UF_USE_AES_KEYS: u32 = 134217728;
+        const UF_USE_DES_KEY_ONLY: u32 = 2097152;
+        const UF_WORKSTATION_TRUST_ACCOUNT: u32 = 4096;
+        const UNITS_PER_DAY: u32 = 24;
+        const UNITS_PER_WEEK: u32 = 168;
+        const USER_ACCT_EXPIRES_INFOLEVEL: u32 = 1017;
+        const USER_ACCT_EXPIRES_PARMNUM: u32 = 17;
+        const USER_AUTH_FLAGS_INFOLEVEL: u32 = 1010;
+        const USER_AUTH_FLAGS_PARMNUM: u32 = 10;
+        const USER_CODE_PAGE_INFOLEVEL: u32 = 1025;
+        const USER_CODE_PAGE_PARMNUM: u32 = 25;
+        const USER_COMMENT_INFOLEVEL: u32 = 1007;
+        const USER_COMMENT_PARMNUM: u32 = 7;
+        const USER_COUNTRY_CODE_INFOLEVEL: u32 = 1024;
+        const USER_COUNTRY_CODE_PARMNUM: u32 = 24;
+        const USER_FLAGS_INFOLEVEL: u32 = 1008;
+        const USER_FLAGS_PARMNUM: u32 = 8;
+        const USER_FULL_NAME_INFOLEVEL: u32 = 1011;
+        const USER_FULL_NAME_PARMNUM: u32 = 11;
+        const USER_HOME_DIR_DRIVE_INFOLEVEL: u32 = 1053;
+        const USER_HOME_DIR_DRIVE_PARMNUM: u32 = 53;
+        const USER_HOME_DIR_INFOLEVEL: u32 = 1006;
+        const USER_HOME_DIR_PARMNUM: u32 = 6;
+        struct USER_INFO_0 {
+            usri0_name: PWSTR,
+        }
+        struct USER_INFO_1 {
+            usri1_name: PWSTR,
+            usri1_password: PWSTR,
+            usri1_password_age: u32,
+            usri1_priv: u32,
+            usri1_home_dir: PWSTR,
+            usri1_comment: PWSTR,
+            usri1_flags: u32,
+            usri1_script_path: PWSTR,
+        }
+        struct USER_INFO_10 {
+            usri10_name: PWSTR,
+            usri10_comment: PWSTR,
+            usri10_usr_comment: PWSTR,
+            usri10_full_name: PWSTR,
+        }
+        struct USER_INFO_1003 {
+            usri1003_password: PWSTR,
+        }
+        struct USER_INFO_1005 {
+            usri1005_priv: u32,
+        }
+        struct USER_INFO_1006 {
+            usri1006_home_dir: PWSTR,
+        }
+        struct USER_INFO_1007 {
+            usri1007_comment: PWSTR,
+        }
+        struct USER_INFO_1008 {
+            usri1008_flags: u32,
+        }
+        struct USER_INFO_1009 {
+            usri1009_script_path: PWSTR,
+        }
+        struct USER_INFO_1010 {
+            usri1010_auth_flags: u32,
+        }
+        struct USER_INFO_1011 {
+            usri1011_full_name: PWSTR,
+        }
+        struct USER_INFO_1012 {
+            usri1012_usr_comment: PWSTR,
+        }
+        struct USER_INFO_1013 {
+            usri1013_parms: PWSTR,
+        }
+        struct USER_INFO_1014 {
+            usri1014_workstations: PWSTR,
+        }
+        struct USER_INFO_1017 {
+            usri1017_acct_expires: u32,
+        }
+        struct USER_INFO_1018 {
+            usri1018_max_storage: u32,
+        }
+        struct USER_INFO_1020 {
+            usri1020_units_per_week: u32,
+            usri1020_logon_hours: LPBYTE,
+        }
+        struct USER_INFO_1023 {
+            usri1023_logon_server: PWSTR,
+        }
+        struct USER_INFO_1024 {
+            usri1024_country_code: u32,
+        }
+        struct USER_INFO_1025 {
+            usri1025_code_page: u32,
+        }
+        struct USER_INFO_1051 {
+            usri1051_primary_group_id: u32,
+        }
+        struct USER_INFO_1052 {
+            usri1052_profile: PWSTR,
+        }
+        struct USER_INFO_1053 {
+            usri1053_home_dir_drive: PWSTR,
+        }
+        struct USER_INFO_11 {
+            usri11_name: PWSTR,
+            usri11_comment: PWSTR,
+            usri11_usr_comment: PWSTR,
+            usri11_full_name: PWSTR,
+            usri11_priv: u32,
+            usri11_auth_flags: u32,
+            usri11_password_age: u32,
+            usri11_home_dir: PWSTR,
+            usri11_parms: PWSTR,
+            usri11_last_logon: u32,
+            usri11_last_logoff: u32,
+            usri11_bad_pw_count: u32,
+            usri11_num_logons: u32,
+            usri11_logon_server: PWSTR,
+            usri11_country_code: u32,
+            usri11_workstations: PWSTR,
+            usri11_max_storage: u32,
+            usri11_units_per_week: u32,
+            usri11_logon_hours: PBYTE,
+            usri11_code_page: u32,
+        }
+        struct USER_INFO_2 {
+            usri2_name: PWSTR,
+            usri2_password: PWSTR,
+            usri2_password_age: u32,
+            usri2_priv: u32,
+            usri2_home_dir: PWSTR,
+            usri2_comment: PWSTR,
+            usri2_flags: u32,
+            usri2_script_path: PWSTR,
+            usri2_auth_flags: u32,
+            usri2_full_name: PWSTR,
+            usri2_usr_comment: PWSTR,
+            usri2_parms: PWSTR,
+            usri2_workstations: PWSTR,
+            usri2_last_logon: u32,
+            usri2_last_logoff: u32,
+            usri2_acct_expires: u32,
+            usri2_max_storage: u32,
+            usri2_units_per_week: u32,
+            usri2_logon_hours: PBYTE,
+            usri2_bad_pw_count: u32,
+            usri2_num_logons: u32,
+            usri2_logon_server: PWSTR,
+            usri2_country_code: u32,
+            usri2_code_page: u32,
+        }
+        struct USER_INFO_20 {
+            usri20_name: PWSTR,
+            usri20_full_name: PWSTR,
+            usri20_comment: PWSTR,
+            usri20_flags: u32,
+            usri20_user_id: u32,
+        }
+        struct USER_INFO_21 {
+            usri21_password: [u8; 16],
+        }
+        struct USER_INFO_22 {
+            usri22_name: PWSTR,
+            usri22_password: [u8; 16],
+            usri22_password_age: u32,
+            usri22_priv: u32,
+            usri22_home_dir: PWSTR,
+            usri22_comment: PWSTR,
+            usri22_flags: u32,
+            usri22_script_path: PWSTR,
+            usri22_auth_flags: u32,
+            usri22_full_name: PWSTR,
+            usri22_usr_comment: PWSTR,
+            usri22_parms: PWSTR,
+            usri22_workstations: PWSTR,
+            usri22_last_logon: u32,
+            usri22_last_logoff: u32,
+            usri22_acct_expires: u32,
+            usri22_max_storage: u32,
+            usri22_units_per_week: u32,
+            usri22_logon_hours: PBYTE,
+            usri22_bad_pw_count: u32,
+            usri22_num_logons: u32,
+            usri22_logon_server: PWSTR,
+            usri22_country_code: u32,
+            usri22_code_page: u32,
+        }
+        struct USER_INFO_23 {
+            usri23_name: PWSTR,
+            usri23_full_name: PWSTR,
+            usri23_comment: PWSTR,
+            usri23_flags: u32,
+            usri23_user_sid: PSID,
+        }
+        struct USER_INFO_24 {
+            usri24_internet_identity: BOOL,
+            usri24_flags: u32,
+            usri24_internet_provider_name: PWSTR,
+            usri24_internet_principal_name: PWSTR,
+            usri24_user_sid: PSID,
+        }
+        struct USER_INFO_3 {
+            usri3_name: PWSTR,
+            usri3_password: PWSTR,
+            usri3_password_age: u32,
+            usri3_priv: u32,
+            usri3_home_dir: PWSTR,
+            usri3_comment: PWSTR,
+            usri3_flags: u32,
+            usri3_script_path: PWSTR,
+            usri3_auth_flags: u32,
+            usri3_full_name: PWSTR,
+            usri3_usr_comment: PWSTR,
+            usri3_parms: PWSTR,
+            usri3_workstations: PWSTR,
+            usri3_last_logon: u32,
+            usri3_last_logoff: u32,
+            usri3_acct_expires: u32,
+            usri3_max_storage: u32,
+            usri3_units_per_week: u32,
+            usri3_logon_hours: PBYTE,
+            usri3_bad_pw_count: u32,
+            usri3_num_logons: u32,
+            usri3_logon_server: PWSTR,
+            usri3_country_code: u32,
+            usri3_code_page: u32,
+            usri3_user_id: u32,
+            usri3_primary_group_id: u32,
+            usri3_profile: PWSTR,
+            usri3_home_dir_drive: PWSTR,
+            usri3_password_expired: u32,
+        }
+        struct USER_INFO_4 {
+            usri4_name: PWSTR,
+            usri4_password: PWSTR,
+            usri4_password_age: u32,
+            usri4_priv: u32,
+            usri4_home_dir: PWSTR,
+            usri4_comment: PWSTR,
+            usri4_flags: u32,
+            usri4_script_path: PWSTR,
+            usri4_auth_flags: u32,
+            usri4_full_name: PWSTR,
+            usri4_usr_comment: PWSTR,
+            usri4_parms: PWSTR,
+            usri4_workstations: PWSTR,
+            usri4_last_logon: u32,
+            usri4_last_logoff: u32,
+            usri4_acct_expires: u32,
+            usri4_max_storage: u32,
+            usri4_units_per_week: u32,
+            usri4_logon_hours: PBYTE,
+            usri4_bad_pw_count: u32,
+            usri4_num_logons: u32,
+            usri4_logon_server: PWSTR,
+            usri4_country_code: u32,
+            usri4_code_page: u32,
+            usri4_user_sid: PSID,
+            usri4_primary_group_id: u32,
+            usri4_profile: PWSTR,
+            usri4_home_dir_drive: PWSTR,
+            usri4_password_expired: u32,
+        }
+        const USER_LAST_LOGOFF_INFOLEVEL: u32 = 1016;
+        const USER_LAST_LOGOFF_PARMNUM: u32 = 16;
+        const USER_LAST_LOGON_INFOLEVEL: u32 = 1015;
+        const USER_LAST_LOGON_PARMNUM: u32 = 15;
+        const USER_LOGON_HOURS_INFOLEVEL: u32 = 1020;
+        const USER_LOGON_HOURS_PARMNUM: u32 = 20;
+        const USER_LOGON_SERVER_INFOLEVEL: u32 = 1023;
+        const USER_LOGON_SERVER_PARMNUM: u32 = 23;
+        const USER_MAXSTORAGE_UNLIMITED: i32 = -1;
+        const USER_MAX_STORAGE_INFOLEVEL: u32 = 1018;
+        const USER_MAX_STORAGE_PARMNUM: u32 = 18;
+        struct USER_MODALS_INFO_0 {
+            usrmod0_min_passwd_len: u32,
+            usrmod0_max_passwd_age: u32,
+            usrmod0_min_passwd_age: u32,
+            usrmod0_force_logoff: u32,
+            usrmod0_password_hist_len: u32,
+        }
+        struct USER_MODALS_INFO_1 {
+            usrmod1_role: u32,
+            usrmod1_primary: PWSTR,
+        }
+        struct USER_MODALS_INFO_1001 {
+            usrmod1001_min_passwd_len: u32,
+        }
+        struct USER_MODALS_INFO_1002 {
+            usrmod1002_max_passwd_age: u32,
+        }
+        struct USER_MODALS_INFO_1003 {
+            usrmod1003_min_passwd_age: u32,
+        }
+        struct USER_MODALS_INFO_1004 {
+            usrmod1004_force_logoff: u32,
+        }
+        struct USER_MODALS_INFO_1005 {
+            usrmod1005_password_hist_len: u32,
+        }
+        struct USER_MODALS_INFO_1006 {
+            usrmod1006_role: u32,
+        }
+        struct USER_MODALS_INFO_1007 {
+            usrmod1007_primary: PWSTR,
+        }
+        struct USER_MODALS_INFO_2 {
+            usrmod2_domain_name: PWSTR,
+            usrmod2_domain_id: PSID,
+        }
+        struct USER_MODALS_INFO_3 {
+            usrmod3_lockout_duration: u32,
+            usrmod3_lockout_observation_window: u32,
+            usrmod3_lockout_threshold: u32,
+        }
+        const USER_NAME_INFOLEVEL: u32 = 1001;
+        const USER_NAME_PARMNUM: u32 = 1;
+        const USER_NO_LOGOFF: i32 = -1;
+        const USER_NUM_LOGONS_INFOLEVEL: u32 = 1022;
+        const USER_NUM_LOGONS_PARMNUM: u32 = 22;
+        const USER_PAD_PW_COUNT_INFOLEVEL: u32 = 1021;
+        const USER_PAD_PW_COUNT_PARMNUM: u32 = 21;
+        const USER_PARMS_INFOLEVEL: u32 = 1013;
+        const USER_PARMS_PARMNUM: u32 = 13;
+        const USER_PASSWORD_AGE_INFOLEVEL: u32 = 1004;
+        const USER_PASSWORD_AGE_PARMNUM: u32 = 4;
+        const USER_PASSWORD_INFOLEVEL: u32 = 1003;
+        const USER_PASSWORD_PARMNUM: u32 = 3;
+        const USER_PRIMARY_GROUP_INFOLEVEL: u32 = 1051;
+        const USER_PRIMARY_GROUP_PARMNUM: u32 = 51;
+        const USER_PRIV_ADMIN: u32 = 2;
+        const USER_PRIV_GUEST: u32 = 0;
+        const USER_PRIV_INFOLEVEL: u32 = 1005;
+        const USER_PRIV_MASK: u32 = 3;
+        const USER_PRIV_PARMNUM: u32 = 5;
+        const USER_PRIV_USER: u32 = 1;
+        const USER_PROFILE: u32 = 52;
+        const USER_PROFILE_PARMNUM: u32 = 52;
+        const USER_SCRIPT_PATH_INFOLEVEL: u32 = 1009;
+        const USER_SCRIPT_PATH_PARMNUM: u32 = 9;
+        const USER_UNITS_PER_WEEK_INFOLEVEL: u32 = 1019;
+        const USER_UNITS_PER_WEEK_PARMNUM: u32 = 19;
+        const USER_USR_COMMENT_INFOLEVEL: u32 = 1012;
+        const USER_USR_COMMENT_PARMNUM: u32 = 12;
+        const USER_WORKSTATIONS_INFOLEVEL: u32 = 1014;
+        const USER_WORKSTATIONS_PARMNUM: u32 = 14;
+        const VALIDATED_LOGON: u32 = 0;
+        const VALID_LOGOFF: u32 = 1;
+    }
+}

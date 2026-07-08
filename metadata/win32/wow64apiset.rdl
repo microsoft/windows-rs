@@ -1,0 +1,33 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("api-ms-win-core-wow64-l1-1-1.dll")]
+        extern fn GetSystemWow64Directory2A(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, uSize: u32, ImageFileMachineType: u16) -> u32;
+        #[library("api-ms-win-core-wow64-l1-1-1.dll")]
+        extern fn GetSystemWow64Directory2W(#[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, uSize: u32, ImageFileMachineType: u16) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemWow64DirectoryA(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, uSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemWow64DirectoryW(#[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, uSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn IsWow64GuestMachineSupported(WowGuestMachine: u16, MachineIsSupported: *mut BOOL) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn IsWow64Process(hProcess: HANDLE, Wow64Process: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsWow64Process2(hProcess: HANDLE, pProcessMachine: *mut u16, #[opt] pNativeMachine: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Wow64DisableWow64FsRedirection(OldValue: *mut *mut void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Wow64EnableWow64FsRedirection(Wow64FsEnableRedirection: BOOLEAN) -> BOOLEAN;
+        #[library("KERNEL32.dll")]
+        extern fn Wow64GetThreadContext(hThread: HANDLE, #[in] #[out] lpContext: *mut WOW64_CONTEXT) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Wow64RevertWow64FsRedirection(OlValue: *const void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn Wow64SetThreadContext(hThread: HANDLE, lpContext: *const WOW64_CONTEXT) -> BOOL;
+        #[library("api-ms-win-core-wow64-l1-1-1.dll")]
+        extern fn Wow64SetThreadDefaultGuestMachine(Machine: u16) -> u16;
+        #[library("KERNEL32.dll")]
+        extern fn Wow64SuspendThread(hThread: HANDLE) -> u32;
+    }
+}

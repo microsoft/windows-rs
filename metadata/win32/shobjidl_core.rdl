@@ -1,0 +1,3241 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(u32)]
+        #[flags]
+        enum ACTIVATEOPTIONS {
+            AO_NONE = 0,
+            AO_DESIGNMODE = 1,
+            AO_NOERRORUI = 2,
+            AO_NOSPLASHSCREEN = 4,
+            AO_PRELAUNCH = 33554432,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum ADJACENT_DISPLAY_EDGES {
+            ADE_NONE = 0,
+            ADE_LEFT = 1,
+            ADE_RIGHT = 2,
+        }
+        #[repr(i32)]
+        enum AHE_TYPE {
+            AHE_DESKTOP = 0,
+            AHE_IMMERSIVE = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum AHTYPE {
+            AHTYPE_UNDEFINED = 0,
+            AHTYPE_USER_APPLICATION = 8,
+            AHTYPE_ANY_APPLICATION = 16,
+            AHTYPE_MACHINEDEFAULT = 32,
+            AHTYPE_PROGID = 64,
+            AHTYPE_APPLICATION = 128,
+            AHTYPE_CLASS_APPLICATION = 256,
+            AHTYPE_ANY_PROGID = 512,
+        }
+        const ANCESTORDEFAULT: u32 = 4294967295;
+        #[repr(i32)]
+        enum APPDOCLISTTYPE {
+            ADLT_RECENT = 0,
+            ADLT_FREQUENT = 1,
+        }
+        #[repr(i32)]
+        enum APPLICATION_VIEW_MIN_WIDTH {
+            AVMW_DEFAULT = 0,
+            AVMW_320 = 1,
+            AVMW_500 = 2,
+        }
+        #[repr(i32)]
+        enum APPLICATION_VIEW_ORIENTATION {
+            AVO_LANDSCAPE = 0,
+            AVO_PORTRAIT = 1,
+        }
+        #[repr(i32)]
+        enum APPLICATION_VIEW_SIZE_PREFERENCE {
+            AVSP_DEFAULT = 0,
+            AVSP_USE_LESS = 1,
+            AVSP_USE_HALF = 2,
+            AVSP_USE_MORE = 3,
+            AVSP_USE_MINIMUM = 4,
+            AVSP_USE_NONE = 5,
+            AVSP_CUSTOM = 6,
+        }
+        #[repr(i32)]
+        enum APPLICATION_VIEW_STATE {
+            AVS_FULLSCREEN_LANDSCAPE = 0,
+            AVS_FILLED = 1,
+            AVS_SNAPPED = 2,
+            AVS_FULLSCREEN_PORTRAIT = 3,
+        }
+        const ARCONTENT_AUDIOCD: u32 = 4;
+        const ARCONTENT_AUTOPLAYMUSIC: u32 = 256;
+        const ARCONTENT_AUTOPLAYPIX: u32 = 128;
+        const ARCONTENT_AUTOPLAYVIDEO: u32 = 512;
+        const ARCONTENT_AUTORUNINF: u32 = 2;
+        const ARCONTENT_BLANKBD: u32 = 8192;
+        const ARCONTENT_BLANKCD: u32 = 16;
+        const ARCONTENT_BLANKDVD: u32 = 32;
+        const ARCONTENT_BLURAY: u32 = 16384;
+        const ARCONTENT_CAMERASTORAGE: u32 = 32768;
+        const ARCONTENT_CUSTOMEVENT: u32 = 65536;
+        const ARCONTENT_DVDAUDIO: u32 = 4096;
+        const ARCONTENT_DVDMOVIE: u32 = 8;
+        const ARCONTENT_MASK: u32 = 131070;
+        const ARCONTENT_NONE: u32 = 0;
+        const ARCONTENT_PHASE_FINAL: u32 = 1073741824;
+        const ARCONTENT_PHASE_MASK: u32 = 1879048192;
+        const ARCONTENT_PHASE_PRESNIFF: u32 = 268435456;
+        const ARCONTENT_PHASE_SNIFFING: u32 = 536870912;
+        const ARCONTENT_PHASE_UNKNOWN: u32 = 0;
+        const ARCONTENT_SVCD: u32 = 2048;
+        const ARCONTENT_UNKNOWNCONTENT: u32 = 64;
+        const ARCONTENT_VCD: u32 = 1024;
+        #[repr(i32)]
+        enum ASSOCIATIONLEVEL {
+            AL_MACHINE = 0,
+            AL_EFFECTIVE = 1,
+            AL_USER = 2,
+        }
+        #[repr(i32)]
+        enum ASSOCIATIONTYPE {
+            AT_FILEEXTENSION = 0,
+            AT_URLPROTOCOL = 1,
+            AT_STARTMENUCLIENT = 2,
+            AT_MIMETYPE = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum ASSOC_FILTER {
+            ASSOC_FILTER_NONE = 0,
+            ASSOC_FILTER_RECOMMENDED = 1,
+        }
+        #[repr(i32)]
+        enum ATTACHMENT_ACTION {
+            ATTACHMENT_ACTION_CANCEL = 0,
+            ATTACHMENT_ACTION_SAVE = 1,
+            ATTACHMENT_ACTION_EXEC = 2,
+        }
+        #[repr(i32)]
+        enum ATTACHMENT_PROMPT {
+            ATTACHMENT_PROMPT_NONE = 0,
+            ATTACHMENT_PROMPT_SAVE = 1,
+            ATTACHMENT_PROMPT_EXEC = 2,
+            ATTACHMENT_PROMPT_EXEC_OR_SAVE = 3,
+        }
+        const AppShellVerbHandler: GUID = 0x4ed3a719_cea8_4bd9_910d_e252f997afc2;
+        const AppStartupLink: GUID = 0x273eb5e7_88b0_4843_bfef_e2c81d43aae5;
+        const AppVisibility: GUID = 0x7e5fe3d9_985f_4908_91f9_ee19f9fd1514;
+        const ApplicationActivationManager: GUID = 0x45ba127d_10a8_46ea_8ab7_56ea9078943c;
+        const ApplicationAssociationRegistration: GUID = 0x591209c7_767b_42b2_9fba_44ee4615f2c7;
+        const ApplicationDesignModeSettings: GUID = 0x958a6fb5_dcb2_4faf_aafd_7fb054ad1a3b;
+        const ApplicationDestinations: GUID = 0x86c14003_4d6b_4ef3_a7b4_0506663b2e68;
+        const ApplicationDocumentLists: GUID = 0x86bec222_30f2_47e0_9f25_60d11cd75c28;
+        struct BANDSITEINFO {
+            dwMask: u32,
+            dwState: u32,
+            dwStyle: u32,
+        }
+        struct BANNER_NOTIFICATION {
+            event: BANNER_NOTIFICATION_EVENT,
+            providerIdentity: PCWSTR,
+            contentId: PCWSTR,
+        }
+        #[repr(i32)]
+        enum BANNER_NOTIFICATION_EVENT {
+            BNE_Rendered = 0,
+            BNE_Hovered = 1,
+            BNE_Closed = 2,
+            BNE_Dismissed = 3,
+            BNE_Button1Clicked = 4,
+            BNE_Button2Clicked = 5,
+        }
+        const BIND_INTERRUPTABLE: u32 = 4294967295;
+        type BROWSERFRAMEOPTIONS = u32;
+        const BSIM_STATE: u32 = 1;
+        const BSIM_STYLE: u32 = 2;
+        const BSIS_ALWAYSGRIPPER: u32 = 2;
+        const BSIS_AUTOGRIPPER: u32 = 0;
+        const BSIS_FIXEDORDER: u32 = 1024;
+        const BSIS_LEFTALIGN: u32 = 4;
+        const BSIS_LOCKED: u32 = 256;
+        const BSIS_NOCAPTION: u32 = 64;
+        const BSIS_NOCONTEXTMENU: u32 = 16;
+        const BSIS_NODROPTARGET: u32 = 32;
+        const BSIS_NOGRIPPER: u32 = 1;
+        const BSIS_PREFERNOLINEBREAK: u32 = 128;
+        const BSIS_PRESERVEORDERDURINGLAYOUT: u32 = 512;
+        const BSIS_SINGLECLICK: u32 = 8;
+        const BSSF_NOTITLE: u32 = 2;
+        const BSSF_UNDELETEABLE: u32 = 4096;
+        const BSSF_VISIBLE: u32 = 1;
+        #[repr(u32)]
+        #[flags]
+        enum CATEGORYINFO_FLAGS {
+            CATINFO_NORMAL = 0,
+            CATINFO_COLLAPSED = 1,
+            CATINFO_HIDDEN = 2,
+            CATINFO_EXPANDED = 4,
+            CATINFO_NOHEADER = 8,
+            CATINFO_NOTCOLLAPSIBLE = 16,
+            CATINFO_NOHEADERCOUNT = 32,
+            CATINFO_SUBSETTED = 64,
+            CATINFO_SEPARATE_IMAGES = 128,
+            CATINFO_SHOWEMPTY = 256,
+        }
+        struct CATEGORY_INFO {
+            cif: CATEGORYINFO_FLAGS,
+            wszName: [u16; 260],
+        }
+        #[repr(u32)]
+        #[flags]
+        enum CATSORT_FLAGS {
+            CATSORT_DEFAULT = 0,
+            CATSORT_NAME = 1,
+        }
+        const CDB2GVF_ADDSHIELD: u32 = 64;
+        const CDB2GVF_ALLOWPREVIEWPANE: u32 = 4;
+        const CDB2GVF_ISFILESAVE: u32 = 2;
+        const CDB2GVF_ISFOLDERPICKER: u32 = 32;
+        const CDB2GVF_NOINCLUDEITEM: u32 = 16;
+        const CDB2GVF_NOSELECTVERB: u32 = 8;
+        const CDB2GVF_SHOWALLFILES: u32 = 1;
+        const CDB2N_CONTEXTMENU_DONE: u32 = 1;
+        const CDB2N_CONTEXTMENU_START: u32 = 2;
+        const CDBOSC_KILLFOCUS: u32 = 1;
+        const CDBOSC_RENAME: u32 = 3;
+        const CDBOSC_SELCHANGE: u32 = 2;
+        const CDBOSC_SETFOCUS: u32 = 0;
+        const CDBOSC_STATECHANGE: u32 = 4;
+        #[repr(u32)]
+        #[flags]
+        enum CDCONTROLSTATEF {
+            CDCS_INACTIVE = 0,
+            CDCS_ENABLED = 1,
+            CDCS_VISIBLE = 2,
+            CDCS_ENABLEDVISIBLE = 3,
+        }
+        #[encoding("ansi")]
+        const CMDSTR_NEWFOLDERA: String = "NewFolder";
+        #[encoding("utf-16")]
+        const CMDSTR_NEWFOLDERW: String = "NewFolder";
+        #[encoding("ansi")]
+        const CMDSTR_VIEWDETAILSA: String = "ViewDetails";
+        #[encoding("utf-16")]
+        const CMDSTR_VIEWDETAILSW: String = "ViewDetails";
+        #[encoding("ansi")]
+        const CMDSTR_VIEWLISTA: String = "ViewList";
+        #[encoding("utf-16")]
+        const CMDSTR_VIEWLISTW: String = "ViewList";
+        const CMF_ASYNCVERBSTATE: u32 = 1024;
+        const CMF_CANRENAME: u32 = 16;
+        const CMF_DEFAULTONLY: u32 = 1;
+        const CMF_DISABLEDVERBS: u32 = 512;
+        const CMF_DONOTPICKDEFAULT: u32 = 8192;
+        const CMF_EXPLORE: u32 = 4;
+        const CMF_EXTENDEDVERBS: u32 = 256;
+        const CMF_ITEMMENU: u32 = 128;
+        const CMF_NODEFAULT: u32 = 32;
+        const CMF_NORMAL: u32 = 0;
+        const CMF_NOVERBS: u32 = 8;
+        const CMF_OPTIMIZEFORINVOKE: u32 = 2048;
+        const CMF_RESERVED: u32 = 4294901760;
+        const CMF_SYNCCASCADEMENU: u32 = 4096;
+        const CMF_VERBSONLY: u32 = 2;
+        const CMIC_MASK_ASYNCOK: u32 = 1048576;
+        const CMIC_MASK_CONTROL_DOWN: u32 = 1073741824;
+        const CMIC_MASK_FLAG_LOG_USAGE: u32 = 67108864;
+        const CMIC_MASK_FLAG_NO_UI: u32 = 1024;
+        const CMIC_MASK_HOTKEY: u32 = 32;
+        const CMIC_MASK_NOASYNC: u32 = 256;
+        const CMIC_MASK_NOZONECHECKS: u32 = 8388608;
+        const CMIC_MASK_NO_CONSOLE: u32 = 32768;
+        const CMIC_MASK_PTINVOKE: u32 = 536870912;
+        const CMIC_MASK_SHIFT_DOWN: u32 = 268435456;
+        const CMIC_MASK_UNICODE: u32 = 16384;
+        struct CMINVOKECOMMANDINFO {
+            cbSize: u32,
+            fMask: u32,
+            hwnd: HWND,
+            lpVerb: PCSTR,
+            lpParameters: PCSTR,
+            lpDirectory: PCSTR,
+            nShow: i32,
+            dwHotKey: u32,
+            hIcon: HANDLE,
+        }
+        struct CMINVOKECOMMANDINFOEX {
+            cbSize: u32,
+            fMask: u32,
+            hwnd: HWND,
+            lpVerb: PCSTR,
+            lpParameters: PCSTR,
+            lpDirectory: PCSTR,
+            nShow: i32,
+            dwHotKey: u32,
+            hIcon: HANDLE,
+            lpTitle: PCSTR,
+            lpVerbW: PCWSTR,
+            lpParametersW: PCWSTR,
+            lpDirectoryW: PCWSTR,
+            lpTitleW: PCWSTR,
+            ptInvoke: POINT,
+        }
+        struct CMINVOKECOMMANDINFOEX_REMOTE {
+            cbSize: u32,
+            fMask: u32,
+            hwnd: HWND,
+            lpVerbString: PCSTR,
+            lpParameters: PCSTR,
+            lpDirectory: PCSTR,
+            nShow: i32,
+            dwHotKey: u32,
+            lpTitle: PCSTR,
+            lpVerbWString: PCWSTR,
+            lpParametersW: PCWSTR,
+            lpDirectoryW: PCWSTR,
+            lpTitleW: PCWSTR,
+            ptInvoke: POINT,
+            lpVerbInt: u32,
+            lpVerbWInt: u32,
+        }
+        struct CM_COLUMNINFO {
+            cbSize: u32,
+            dwMask: u32,
+            dwState: u32,
+            uWidth: u32,
+            uDefaultWidth: u32,
+            uIdealWidth: u32,
+            wszName: [u16; 80],
+        }
+        #[repr(u32)]
+        #[flags]
+        enum CM_ENUM_FLAGS {
+            CM_ENUM_ALL = 1,
+            CM_ENUM_VISIBLE = 2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum CM_MASK {
+            CM_MASK_WIDTH = 1,
+            CM_MASK_DEFAULTWIDTH = 2,
+            CM_MASK_IDEALWIDTH = 4,
+            CM_MASK_NAME = 8,
+            CM_MASK_STATE = 16,
+        }
+        #[repr(i32)]
+        enum CM_SET_WIDTH_VALUE {
+            CM_WIDTH_USEDEFAULT = -1,
+            CM_WIDTH_AUTOSIZE = -2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum CM_STATE {
+            CM_STATE_NONE = 0,
+            CM_STATE_VISIBLE = 1,
+            CM_STATE_FIXEDWIDTH = 2,
+            CM_STATE_NOSORTBYFOLDERNESS = 4,
+            CM_STATE_ALWAYSVISIBLE = 8,
+        }
+        #[encoding("utf-16")]
+        const CONFLICT_RESOLUTION_CLSID_KEY: String = "ConflictResolutionCLSID";
+        #[repr(i32)]
+        enum CPVIEW {
+            CPVIEW_CLASSIC = 0,
+            CPVIEW_ALLITEMS = 0,
+            CPVIEW_CATEGORY = 1,
+            CPVIEW_HOME = 1,
+        }
+        const CSIDL_FLAG_PFTI_TRACKTARGET: u32 = 16384;
+        #[repr(u32)]
+        #[flags]
+        enum DATAOBJ_GET_ITEM_FLAGS {
+            DOGIF_DEFAULT = 0,
+            DOGIF_TRAVERSE_LINK = 1,
+            DOGIF_NO_HDROP = 2,
+            DOGIF_NO_URL = 4,
+            DOGIF_ONLY_IF_ONE = 8,
+        }
+        const DBIF_VIEWMODE_FLOATING: u32 = 2;
+        const DBIF_VIEWMODE_NORMAL: u32 = 0;
+        const DBIF_VIEWMODE_TRANSPARENT: u32 = 4;
+        const DBIF_VIEWMODE_VERTICAL: u32 = 1;
+        const DBIMF_ADDTOFRONT: u32 = 512;
+        const DBIMF_ALWAYSGRIPPER: u32 = 4096;
+        const DBIMF_BKCOLOR: u32 = 64;
+        const DBIMF_BREAK: u32 = 256;
+        const DBIMF_DEBOSSED: u32 = 32;
+        const DBIMF_FIXED: u32 = 1;
+        const DBIMF_FIXEDBMP: u32 = 4;
+        const DBIMF_NOGRIPPER: u32 = 2048;
+        const DBIMF_NOMARGINS: u32 = 8192;
+        const DBIMF_NORMAL: u32 = 0;
+        const DBIMF_TOPALIGN: u32 = 1024;
+        const DBIMF_UNDELETEABLE: u32 = 16;
+        const DBIMF_USECHEVRON: u32 = 128;
+        const DBIMF_VARIABLEHEIGHT: u32 = 8;
+        const DBIM_ACTUAL: u32 = 8;
+        const DBIM_BKCOLOR: u32 = 64;
+        const DBIM_INTEGRAL: u32 = 4;
+        const DBIM_MAXSIZE: u32 = 2;
+        const DBIM_MINSIZE: u32 = 1;
+        const DBIM_MODEFLAGS: u32 = 32;
+        const DBIM_TITLE: u32 = 16;
+        const DBPC_SELECTFIRST: u32 = 4294967295;
+        const DBPC_SELECTLAST: u32 = 4294967294;
+        #[repr(i32)]
+        enum DEFAULTSAVEFOLDERTYPE {
+            DSFT_DETECT = 1,
+            DSFT_PRIVATE = 2,
+            DSFT_PUBLIC = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum DEFAULT_FOLDER_MENU_RESTRICTIONS {
+            DFMR_DEFAULT = 0,
+            DFMR_NO_STATIC_VERBS = 8,
+            DFMR_STATIC_VERBS_ONLY = 16,
+            DFMR_NO_RESOURCE_VERBS = 32,
+            DFMR_OPTIN_HANDLERS_ONLY = 64,
+            DFMR_RESOURCE_AND_FOLDER_VERBS_ONLY = 128,
+            DFMR_USE_SPECIFIED_HANDLERS = 256,
+            DFMR_USE_SPECIFIED_VERBS = 512,
+            DFMR_NO_ASYNC_VERBS = 1024,
+            DFMR_NO_NATIVECPU_VERBS = 2048,
+            DFMR_NO_NONWOW_VERBS = 4096,
+        }
+        #[repr(i32)]
+        enum DEF_SHARE_ID {
+            DEFSHAREID_USERS = 1,
+            DEFSHAREID_PUBLIC = 2,
+        }
+        #[packed(1)]
+        struct DELEGATEITEMID {
+            cbSize: u16,
+            wOuter: u16,
+            cbInner: u16,
+            rgb: [u8; 1],
+        }
+        type DEPRECATED_HRESULT = HRESULT;
+        struct DESKBANDINFO {
+            dwMask: u32,
+            ptMinSize: POINTL,
+            ptMaxSize: POINTL,
+            ptIntegral: POINTL,
+            ptActual: POINTL,
+            wszTitle: [u16; 256],
+            dwModeFlags: u32,
+            crBkgnd: COLORREF,
+        }
+        #[repr(i32)]
+        enum DESKTOP_SLIDESHOW_DIRECTION {
+            DSD_FORWARD = 0,
+            DSD_BACKWARD = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum DESKTOP_SLIDESHOW_OPTIONS {
+            DSO_SHUFFLEIMAGES = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum DESKTOP_SLIDESHOW_STATE {
+            DSS_ENABLED = 1,
+            DSS_SLIDESHOW = 2,
+            DSS_DISABLED_BY_REMOTE_SESSION = 4,
+        }
+        #[repr(i32)]
+        enum DESKTOP_WALLPAPER_POSITION {
+            DWPOS_CENTER = 0,
+            DWPOS_TILE = 1,
+            DWPOS_STRETCH = 2,
+            DWPOS_FIT = 3,
+            DWPOS_FILL = 4,
+            DWPOS_SPAN = 5,
+        }
+        const DefFolderMenu: GUID = 0xc63382be_7933_48d0_9ac8_85fb46be2fdd;
+        const DesktopWallpaper: GUID = 0xc2cf3110_460e_4fc1_b9d0_8a1c0c9cc4bd;
+        const DestinationList: GUID = 0x77f10cf0_3db5_4966_b520_b7c54fd35ed6;
+        const DestinationListBoth: GUID = 0x38fe0cf4_6a59_4729_8e4a_2d580059ede4;
+        const DriveSizeCategorizer: GUID = 0x94357b53_ca29_4b78_83ae_e8fe7409134f;
+        const DriveTypeCategorizer: GUID = 0xb0a8f3cf_4333_4bab_8873_1ccb1cada48b;
+        #[repr(i32)]
+        enum EC_HOST_UI_MODE {
+            ECHUIM_DESKTOP = 0,
+            ECHUIM_IMMERSIVE = 1,
+            ECHUIM_SYSTEM_LAUNCHER = 2,
+        }
+        #[repr(i32)]
+        enum EDGE_GESTURE_KIND {
+            EGK_TOUCH = 0,
+            EGK_KEYBOARD = 1,
+            EGK_MOUSE = 2,
+        }
+        type EXPCMDFLAGS = u32;
+        type EXPCMDSTATE = u32;
+        type EXPLORERPANE = GUID;
+        type EXPLORERPANESTATE = u32;
+        #[repr(u32)]
+        #[flags]
+        enum EXPLORER_BROWSER_FILL_FLAGS {
+            EBF_NONE = 0,
+            EBF_SELECTFROMDATAOBJECT = 256,
+            EBF_NODROPTARGET = 512,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum EXPLORER_BROWSER_OPTIONS {
+            EBO_NONE = 0,
+            EBO_NAVIGATEONCE = 1,
+            EBO_SHOWFRAMES = 2,
+            EBO_ALWAYSNAVIGATE = 4,
+            EBO_NOTRAVELLOG = 8,
+            EBO_NOWRAPPERWINDOW = 16,
+            EBO_HTMLSHAREPOINTVIEW = 32,
+            EBO_NOBORDER = 64,
+            EBO_NOPERSISTVIEWSTATE = 128,
+        }
+        type EXPPS = u32;
+        struct EXTRASEARCH {
+            guidSearch: GUID,
+            wszFriendlyName: [u16; 80],
+            wszUrl: [u16; 2084],
+        }
+        const E_PREVIEWHANDLER_CORRUPT: HRESULT = -2042494972;
+        const E_PREVIEWHANDLER_DRM_FAIL: HRESULT = -2042494975;
+        const E_PREVIEWHANDLER_NOAUTH: HRESULT = -2042494974;
+        const E_PREVIEWHANDLER_NOTFOUND: HRESULT = -2042494973;
+        const EnumerableObjectCollection: GUID = 0x2d3468c1_36a7_43b6_ac24_d3f02fd9607a;
+        const ExecuteUnknown: GUID = 0xe44e9428_bdbc_4987_a099_40dc8fd255e7;
+        const FCT_ADDTOEND: u32 = 4;
+        const FCT_CONFIGABLE: u32 = 2;
+        const FCT_MERGE: u32 = 1;
+        const FCW_INTERNETBAR: u32 = 6;
+        const FCW_PROGRESS: u32 = 8;
+        const FCW_STATUS: u32 = 1;
+        const FCW_TOOLBAR: u32 = 2;
+        const FCW_TREE: u32 = 3;
+        #[repr(i32)]
+        enum FDAP {
+            FDAP_BOTTOM = 0,
+            FDAP_TOP = 1,
+        }
+        #[repr(i32)]
+        enum FDE_OVERWRITE_RESPONSE {
+            FDEOR_DEFAULT = 0,
+            FDEOR_ACCEPT = 1,
+            FDEOR_REFUSE = 2,
+        }
+        #[repr(i32)]
+        enum FDE_SHAREVIOLATION_RESPONSE {
+            FDESVR_DEFAULT = 0,
+            FDESVR_ACCEPT = 1,
+            FDESVR_REFUSE = 2,
+        }
+        #[repr(i32)]
+        enum FFFP_MODE {
+            FFFP_EXACTMATCH = 0,
+            FFFP_NEARESTPARENTMATCH = 1,
+        }
+        type FILEOPENDIALOGOPTIONS = u32;
+        #[repr(u32)]
+        #[flags]
+        enum FILE_OPERATION_FLAGS2 {
+            FOF2_NONE = 0,
+            FOF2_MERGEFOLDERSONCOLLISION = 1,
+        }
+        #[repr(i32)]
+        enum FILE_USAGE_TYPE {
+            FUT_PLAYING = 0,
+            FUT_EDITING = 1,
+            FUT_GENERIC = 2,
+        }
+        #[repr(i32)]
+        enum FLYOUT_PLACEMENT {
+            FP_DEFAULT = 0,
+            FP_ABOVE = 1,
+            FP_BELOW = 2,
+            FP_LEFT = 3,
+            FP_RIGHT = 4,
+        }
+        const FOFX_ADDUNDORECORD: u32 = 536870912;
+        const FOFX_COPYASDOWNLOAD: u32 = 1073741824;
+        const FOFX_DONTDISPLAYDESTPATH: u32 = 134217728;
+        const FOFX_DONTDISPLAYLOCATIONS: u32 = 2147483648;
+        const FOFX_DONTDISPLAYSOURCEPATH: u32 = 67108864;
+        const FOFX_EARLYFAILURE: u32 = 1048576;
+        const FOFX_KEEPNEWERFILE: u32 = 4194304;
+        const FOFX_MOVEACLSACROSSVOLUMES: u32 = 33554432;
+        const FOFX_NOCOPYHOOKS: u32 = 8388608;
+        const FOFX_NOMINIMIZEBOX: u32 = 16777216;
+        const FOFX_NOSKIPJUNCTIONS: u32 = 65536;
+        const FOFX_PREFERHARDLINK: u32 = 131072;
+        const FOFX_PRESERVEFILEEXTENSIONS: u32 = 2097152;
+        const FOFX_RECYCLEONDELETE: u32 = 524288;
+        const FOFX_REQUIREELEVATION: u32 = 268435456;
+        const FOFX_SHOWELEVATIONPROMPT: u32 = 262144;
+        #[repr(u32)]
+        #[flags]
+        enum FOLDERFLAGS {
+            FWF_NONE = 0,
+            FWF_AUTOARRANGE = 1,
+            FWF_ABBREVIATEDNAMES = 2,
+            FWF_SNAPTOGRID = 4,
+            FWF_OWNERDATA = 8,
+            FWF_BESTFITWINDOW = 16,
+            FWF_DESKTOP = 32,
+            FWF_SINGLESEL = 64,
+            FWF_NOSUBFOLDERS = 128,
+            FWF_TRANSPARENT = 256,
+            FWF_NOCLIENTEDGE = 512,
+            FWF_NOSCROLL = 1024,
+            FWF_ALIGNLEFT = 2048,
+            FWF_NOICONS = 4096,
+            FWF_SHOWSELALWAYS = 8192,
+            FWF_NOVISIBLE = 16384,
+            FWF_SINGLECLICKACTIVATE = 32768,
+            FWF_NOWEBVIEW = 65536,
+            FWF_HIDEFILENAMES = 131072,
+            FWF_CHECKSELECT = 262144,
+            FWF_NOENUMREFRESH = 524288,
+            FWF_NOGROUPING = 1048576,
+            FWF_FULLROWSELECT = 2097152,
+            FWF_NOFILTERS = 4194304,
+            FWF_NOCOLUMNHEADER = 8388608,
+            FWF_NOHEADERINALLVIEWS = 16777216,
+            FWF_EXTENDEDTILES = 33554432,
+            FWF_TRICHECKSELECT = 67108864,
+            FWF_AUTOCHECKSELECT = 134217728,
+            FWF_NOBROWSERVIEWSTATE = 268435456,
+            FWF_SUBSETGROUPS = 536870912,
+            FWF_USESEARCHFOLDER = 1073741824,
+            FWF_ALLOWRTLREADING = 2147483648,
+        }
+        #[repr(i32)]
+        enum FOLDERLOGICALVIEWMODE {
+            FLVM_UNSPECIFIED = -1,
+            FLVM_FIRST = 1,
+            FLVM_DETAILS = 1,
+            FLVM_TILES = 2,
+            FLVM_ICONS = 3,
+            FLVM_LIST = 4,
+            FLVM_CONTENT = 5,
+            FLVM_LAST = 5,
+        }
+        struct FOLDERSETTINGS {
+            ViewMode: u32,
+            fFlags: u32,
+        }
+        #[repr(i32)]
+        enum FOLDERVIEWMODE {
+            FVM_AUTO = -1,
+            FVM_FIRST = 1,
+            FVM_ICON = 1,
+            FVM_SMALLICON = 2,
+            FVM_LIST = 3,
+            FVM_DETAILS = 4,
+            FVM_THUMBNAIL = 5,
+            FVM_TILE = 6,
+            FVM_THUMBSTRIP = 7,
+            FVM_CONTENT = 8,
+            FVM_LAST = 8,
+        }
+        #[repr(i32)]
+        enum FOLDER_ENUM_MODE {
+            FEM_VIEWRESULT = 0,
+            FEM_NAVIGATION = 1,
+        }
+        #[repr(i32)]
+        enum FVTEXTTYPE {
+            FVST_EMPTYTEXT = 0,
+        }
+        const FileOpenDialog: GUID = 0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7;
+        const FileOperation: GUID = 0x3ad05575_8857_4850_9277_11b85bdb8e09;
+        const FileSaveDialog: GUID = 0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b;
+        const FrameworkInputPane: GUID = 0xd5120aa3_46ba_44c5_822d_ca8092c1fc72;
+        const FreeSpaceCategorizer: GUID = 0xb5607793_24ac_44c7_82e2_831726aa6cb7;
+        const GCS_HELPTEXT: u32 = 1;
+        const GCS_HELPTEXTA: u32 = 1;
+        const GCS_HELPTEXTW: u32 = 5;
+        const GCS_UNICODE: u32 = 4;
+        const GCS_VALIDATE: u32 = 2;
+        const GCS_VALIDATEA: u32 = 2;
+        const GCS_VALIDATEW: u32 = 6;
+        const GCS_VERB: u32 = 0;
+        const GCS_VERBA: u32 = 0;
+        const GCS_VERBICONW: u32 = 20;
+        const GCS_VERBW: u32 = 4;
+        #[library("SHELL32.dll")]
+        extern fn GetCurrentProcessExplicitAppUserModelID(AppID: *mut PWSTR) -> HRESULT;
+        #[repr(u32)]
+        #[flags]
+        enum HOMEGROUPSHARINGCHOICES {
+            HGSC_NONE = 0,
+            HGSC_MUSICLIBRARY = 1,
+            HGSC_PICTURESLIBRARY = 2,
+            HGSC_VIDEOSLIBRARY = 4,
+            HGSC_DOCUMENTSLIBRARY = 8,
+            HGSC_PRINTERS = 16,
+        }
+        #[encoding("utf-16")]
+        const HOMEGROUP_SECURITY_GROUP: String = "HomeUsers";
+        #[encoding("utf-16")]
+        const HOMEGROUP_SECURITY_GROUP_MULTI: String = "HUG";
+        type HTHEME = HANDLE;
+        const HomeGroup: GUID = 0xde77ba04_3c92_4d11_a1a5_42352a53e0e3;
+        #[guid(0x49ff1173_eadc_446d_9285_156453a6431c)]
+        interface IActionProgress: IUnknown {
+            fn Begin(&self, action: SPACTION, flags: SPBEGINF) -> HRESULT;
+            fn UpdateProgress(&self, ulCompleted: u64, ulTotal: u64) -> HRESULT;
+            fn UpdateText(&self, sptext: SPTEXT, pszText: PCWSTR, fMayCompact: BOOL) -> HRESULT;
+            fn QueryCancel(&self, pfCancelled: *mut BOOL) -> HRESULT;
+            fn ResetCancel(&self) -> HRESULT;
+            fn End(&self) -> HRESULT;
+        }
+        #[guid(0x49ff1172_eadc_446d_9285_156453a6431c)]
+        interface IActionProgressDialog: IUnknown {
+            fn Initialize(&self, flags: SPINITF, pszTitle: PCWSTR, pszCancel: PCWSTR) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+        }
+        #[guid(0xabad189d_9fa3_4278_b3ca_8ca448a88dcb)]
+        interface IAppActivationUIInfo: IUnknown {
+            fn GetMonitor(&self, value: *mut HMONITOR) -> HRESULT;
+            fn GetInvokePoint(&self, value: *mut POINT) -> HRESULT;
+            fn GetShowCommand(&self, value: *mut i32) -> HRESULT;
+            fn GetShowUI(&self, value: *mut BOOL) -> HRESULT;
+            fn GetKeyState(&self, value: *mut u32) -> HRESULT;
+        }
+        #[guid(0x2246ea2d_caea_4444_a3c4_6de827e44313)]
+        interface IAppVisibility: IUnknown {
+            fn GetAppVisibilityOnMonitor(&self, hMonitor: HMONITOR, pMode: *mut MONITOR_APP_VISIBILITY) -> HRESULT;
+            fn IsLauncherVisible(&self, pfVisible: *mut BOOL) -> HRESULT;
+            fn Advise(&self, pCallback: IAppVisibilityEvents, pdwCookie: *mut u32) -> HRESULT;
+            fn Unadvise(&self, dwCookie: u32) -> HRESULT;
+        }
+        #[guid(0x6584ce6b_7d82_49c2_89c9_c6bc02ba8c38)]
+        interface IAppVisibilityEvents: IUnknown {
+            fn AppVisibilityOnMonitorChanged(&self, hMonitor: HMONITOR, previousMode: MONITOR_APP_VISIBILITY, currentMode: MONITOR_APP_VISIBILITY) -> HRESULT;
+            fn LauncherVisibilityChange(&self, currentVisibleState: BOOL) -> HRESULT;
+        }
+        #[guid(0x2e941141_7f97_4756_ba1d_9decde894a3d)]
+        interface IApplicationActivationManager: IUnknown {
+            fn ActivateApplication(&self, appUserModelId: PCWSTR, arguments: PCWSTR, options: ACTIVATEOPTIONS, processId: *mut u32) -> HRESULT;
+            fn ActivateForFile(&self, appUserModelId: PCWSTR, itemArray: IShellItemArray, verb: PCWSTR, processId: *mut u32) -> HRESULT;
+            fn ActivateForProtocol(&self, appUserModelId: PCWSTR, itemArray: IShellItemArray, processId: *mut u32) -> HRESULT;
+        }
+        #[guid(0x4e530b0a_e611_4c77_a3ac_9031d022281b)]
+        interface IApplicationAssociationRegistration: IUnknown {
+            fn QueryCurrentDefault(&self, pszQuery: PCWSTR, atQueryType: ASSOCIATIONTYPE, alQueryLevel: ASSOCIATIONLEVEL, ppszAssociation: *mut PWSTR) -> HRESULT;
+            fn QueryAppIsDefault(&self, pszQuery: PCWSTR, atQueryType: ASSOCIATIONTYPE, alQueryLevel: ASSOCIATIONLEVEL, pszAppRegistryName: PCWSTR, pfDefault: *mut BOOL) -> HRESULT;
+            fn QueryAppIsDefaultAll(&self, alQueryLevel: ASSOCIATIONLEVEL, pszAppRegistryName: PCWSTR, pfDefault: *mut BOOL) -> HRESULT;
+            fn SetAppAsDefault(&self, pszAppRegistryName: PCWSTR, pszSet: PCWSTR, atSetType: ASSOCIATIONTYPE) -> HRESULT;
+            fn SetAppAsDefaultAll(&self, pszAppRegistryName: PCWSTR) -> HRESULT;
+            fn ClearUserAssociations(&self) -> HRESULT;
+        }
+        #[guid(0x2a3dee9a_e31d_46d6_8508_bcc597db3557)]
+        interface IApplicationDesignModeSettings: IUnknown {
+            fn SetNativeDisplaySize(&self, nativeDisplaySizePixels: SIZE) -> HRESULT;
+            fn SetScaleFactor(&self, scaleFactor: DEVICE_SCALE_FACTOR) -> HRESULT;
+            fn SetApplicationViewState(&self, viewState: APPLICATION_VIEW_STATE) -> HRESULT;
+            fn ComputeApplicationSize(&self, applicationSizePixels: *mut SIZE) -> HRESULT;
+            fn IsApplicationViewStateSupported(&self, viewState: APPLICATION_VIEW_STATE, nativeDisplaySizePixels: SIZE, scaleFactor: DEVICE_SCALE_FACTOR, supported: *mut BOOL) -> HRESULT;
+            fn TriggerEdgeGesture(&self, edgeGestureKind: EDGE_GESTURE_KIND) -> HRESULT;
+        }
+        #[guid(0x490514e1_675a_4d6e_a58d_e54901b4ca2f)]
+        interface IApplicationDesignModeSettings2: IApplicationDesignModeSettings {
+            fn SetNativeDisplayOrientation(&self, nativeDisplayOrientation: NATIVE_DISPLAY_ORIENTATION) -> HRESULT;
+            fn SetApplicationViewOrientation(&self, viewOrientation: APPLICATION_VIEW_ORIENTATION) -> HRESULT;
+            fn SetAdjacentDisplayEdges(&self, adjacentDisplayEdges: ADJACENT_DISPLAY_EDGES) -> HRESULT;
+            fn SetIsOnLockScreen(&self, isOnLockScreen: BOOL) -> HRESULT;
+            fn SetApplicationViewMinWidth(&self, viewMinWidth: APPLICATION_VIEW_MIN_WIDTH) -> HRESULT;
+            fn GetApplicationSizeBounds(&self, minApplicationSizePixels: *mut SIZE, maxApplicationSizePixels: *mut SIZE) -> HRESULT;
+            fn GetApplicationViewOrientation(&self, applicationSizePixels: SIZE, viewOrientation: *mut APPLICATION_VIEW_ORIENTATION) -> HRESULT;
+        }
+        #[guid(0x12337d35_94c6_48a0_bce7_6a9c69d4d600)]
+        interface IApplicationDestinations: IUnknown {
+            fn SetAppID(&self, pszAppID: PCWSTR) -> HRESULT;
+            fn RemoveDestination(&self, punk: IUnknown) -> HRESULT;
+            fn RemoveAllDestinations(&self) -> HRESULT;
+        }
+        #[guid(0x3c594f9f_9f30_47a1_979a_c9e83d3d0a06)]
+        interface IApplicationDocumentLists: IUnknown {
+            fn SetAppID(&self, pszAppID: PCWSTR) -> HRESULT;
+            fn GetList(&self, listtype: APPDOCLISTTYPE, cItemsDesired: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xf04061ac_1659_4a3f_a954_775aa57fc083)]
+        interface IAssocHandler: IUnknown {
+            fn GetName(&self, ppsz: *mut PWSTR) -> HRESULT;
+            fn GetUIName(&self, ppsz: *mut PWSTR) -> HRESULT;
+            fn GetIconLocation(&self, ppszPath: *mut PWSTR, pIndex: *mut i32) -> HRESULT;
+            fn IsRecommended(&self) -> HRESULT;
+            fn MakeDefault(&self, pszDescription: PCWSTR) -> HRESULT;
+            fn Invoke(&self, pdo: IDataObject) -> HRESULT;
+            fn CreateInvoker(&self, pdo: IDataObject, ppInvoker: *mut IAssocHandlerInvoker) -> HRESULT;
+        }
+        #[guid(0x92218cab_ecaa_4335_8133_807fd234c2ee)]
+        interface IAssocHandlerInvoker: IUnknown {
+            fn SupportsSelection(&self) -> HRESULT;
+            fn Invoke(&self) -> HRESULT;
+        }
+        #[guid(0x73db1241_1e85_4581_8e4f_a81e1d0f8c57)]
+        interface IAttachmentExecute: IUnknown {
+            fn SetClientTitle(&self, pszTitle: PCWSTR) -> HRESULT;
+            fn SetClientGuid(&self, guid: *const GUID) -> HRESULT;
+            fn SetLocalPath(&self, pszLocalPath: PCWSTR) -> HRESULT;
+            fn SetFileName(&self, pszFileName: PCWSTR) -> HRESULT;
+            fn SetSource(&self, pszSource: PCWSTR) -> HRESULT;
+            fn SetReferrer(&self, pszReferrer: PCWSTR) -> HRESULT;
+            fn CheckPolicy(&self) -> HRESULT;
+            fn Prompt(&self, hwnd: HWND, prompt: ATTACHMENT_PROMPT, paction: *mut ATTACHMENT_ACTION) -> HRESULT;
+            fn Save(&self) -> HRESULT;
+            fn Execute(&self, hwnd: HWND, #[opt] pszVerb: PCWSTR, #[opt] phProcess: *mut HANDLE) -> HRESULT;
+            fn SaveWithUI(&self, hwnd: HWND) -> HRESULT;
+            fn ClearClientState(&self) -> HRESULT;
+        }
+        #[guid(0x4f2b781f_a608_4543_abf0_49c246ebbba9)]
+        interface IAttachmentExecute2: IAttachmentExecute {
+            fn SaveNoVirusCheck(&self) -> HRESULT;
+            fn SaveWithUINoVirusCheck(&self, hwnd: HWND) -> HRESULT;
+        }
+        #[guid(0x4cf504b0_de96_11d0_8b3f_00a0c911e8e5)]
+        interface IBandSite: IUnknown {
+            fn AddBand(&self, punk: IUnknown) -> HRESULT;
+            fn EnumBands(&self, uBand: u32, pdwBandID: *mut u32) -> HRESULT;
+            fn QueryBand(&self, dwBandID: u32, ppstb: *mut IDeskBand, #[opt] pdwState: *mut u32, #[len_param(4)] #[out] #[opt] pszName: PWSTR, cchName: i32) -> HRESULT;
+            fn SetBandState(&self, dwBandID: u32, dwMask: u32, dwState: u32) -> HRESULT;
+            fn RemoveBand(&self, dwBandID: u32) -> HRESULT;
+            fn GetBandObject(&self, dwBandID: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn SetBandSiteInfo(&self, pbsinfo: *const BANDSITEINFO) -> HRESULT;
+            fn GetBandSiteInfo(&self, #[in] #[out] pbsinfo: *mut BANDSITEINFO) -> HRESULT;
+        }
+        #[guid(0x8d7b2ba7_db05_46a8_823c_d2b6de08ee91)]
+        interface IBannerNotificationHandler: IUnknown {
+            fn OnBannerEvent(&self, notification: *const BANNER_NOTIFICATION) -> HRESULT;
+        }
+        #[guid(0x10df43c8_1dbe_11d3_8b34_006097df5bd4)]
+        interface IBrowserFrameOptions: IUnknown {
+            fn GetFrameOptions(&self, dwMask: BROWSERFRAMEOPTIONS, pdwOptions: *mut BROWSERFRAMEOPTIONS) -> HRESULT;
+        }
+        #[guid(0xa3b14589_9174_49a8_89a3_06a1ae2b9ba7)]
+        interface ICategorizer: IUnknown {
+            fn GetDescription(&self, #[out] pszDesc: PWSTR, cch: u32) -> HRESULT;
+            fn GetCategory(&self, cidl: u32, apidl: *const LPCITEMIDLIST, rgCategoryIds: *mut u32) -> HRESULT;
+            fn GetCategoryInfo(&self, dwCategoryId: u32, pci: *mut CATEGORY_INFO) -> HRESULT;
+            fn CompareCategory(&self, csfFlags: CATSORT_FLAGS, dwCategoryId1: u32, dwCategoryId2: u32) -> HRESULT;
+        }
+        #[guid(0x9af64809_5864_4c26_a720_c1f78c086ee3)]
+        interface ICategoryProvider: IUnknown {
+            fn CanCategorizeOnSCID(&self, pscid: *const SHCOLUMNID) -> HRESULT;
+            fn GetDefaultCategory(&self, pguid: *mut GUID, pscid: *mut SHCOLUMNID) -> HRESULT;
+            fn GetCategoryForSCID(&self, pscid: *const SHCOLUMNID, pguid: *mut GUID) -> HRESULT;
+            fn EnumCategories(&self, penum: *mut IEnumGUID) -> HRESULT;
+            fn GetCategoryName(&self, pguid: *const GUID, #[out] pszName: PWSTR, cch: u32) -> HRESULT;
+            fn CreateCategory(&self, pguid: *const GUID, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xd8ec27bb_3f3b_4042_b10a_4acfd924d453)]
+        interface IColumnManager: IUnknown {
+            fn SetColumnInfo(&self, propkey: *const PROPERTYKEY, pcmci: *const CM_COLUMNINFO) -> HRESULT;
+            fn GetColumnInfo(&self, propkey: *const PROPERTYKEY, #[in] #[out] pcmci: *mut CM_COLUMNINFO) -> HRESULT;
+            fn GetColumnCount(&self, dwFlags: CM_ENUM_FLAGS, puCount: *mut u32) -> HRESULT;
+            fn GetColumns(&self, dwFlags: CM_ENUM_FLAGS, rgkeyOrder: *mut PROPERTYKEY, cColumns: u32) -> HRESULT;
+            fn SetColumns(&self, rgkeyOrder: *const PROPERTYKEY, cVisible: u32) -> HRESULT;
+        }
+        #[guid(0x000214f1_0000_0000_c000_000000000046)]
+        interface ICommDlgBrowser: IUnknown {
+            fn OnDefaultCommand(&self, ppshv: IShellView) -> HRESULT;
+            fn OnStateChange(&self, ppshv: IShellView, uChange: u32) -> HRESULT;
+            fn IncludeObject(&self, ppshv: IShellView, pidl: *const ITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0x10339516_2894_11d2_9039_00c04f8eeb3e)]
+        interface ICommDlgBrowser2: ICommDlgBrowser {
+            fn Notify(&self, ppshv: IShellView, dwNotifyType: u32) -> HRESULT;
+            fn GetDefaultMenuText(&self, ppshv: IShellView, #[out] pszText: PWSTR, cchMax: i32) -> HRESULT;
+            fn GetViewFlags(&self, pdwFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0x99eacba7_e073_43b6_a896_55afe48a0833)]
+        interface IContactManagerInterop: IUnknown {
+            fn ShowContactCardForWindow(&self, appWindow: HWND, contact: IUnknown, selection: *const RECT, preferredPlacement: FLYOUT_PLACEMENT) -> HRESULT;
+        }
+        #[guid(0x000214e4_0000_0000_c000_000000000046)]
+        interface IContextMenu: IUnknown {
+            fn QueryContextMenu(&self, hmenu: HMENU, indexMenu: u32, idCmdFirst: u32, idCmdLast: u32, uFlags: u32) -> HRESULT;
+            fn InvokeCommand(&self, pici: *const CMINVOKECOMMANDINFO) -> HRESULT;
+            fn GetCommandString(&self, idCmd: usize, uType: u32, #[reserved] pReserved: *const u32, pszName: *mut i8, cchMax: u32) -> HRESULT;
+        }
+        #[guid(0x000214f4_0000_0000_c000_000000000046)]
+        interface IContextMenu2: IContextMenu {
+            fn HandleMenuMsg(&self, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+        }
+        #[guid(0xbcfce0a0_ec17_11d0_8d10_00a0c90f2719)]
+        interface IContextMenu3: IContextMenu2 {
+            fn HandleMenuMsg2(&self, uMsg: u32, wParam: WPARAM, lParam: LPARAM, #[opt] plResult: *mut LRESULT) -> HRESULT;
+        }
+        #[guid(0x3409e930_5a39_11d1_83fa_00a0c90dc849)]
+        interface IContextMenuCB: IUnknown {
+            fn CallBack(&self, #[opt] psf: IShellFolder, #[opt] hwndOwner: HWND, #[opt] pdtobj: IDataObject, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+        }
+        #[guid(0x0811aebe_0b87_4c54_9e72_548cf649016b)]
+        interface IContextMenuSite: IUnknown {
+            fn DoContextMenuPopup(&self, punkContextMenu: IUnknown, fFlags: u32, pt: POINT) -> HRESULT;
+        }
+        #[guid(0xf6ef6140_e26f_4d82_bac4_e9ba5fd239a8)]
+        interface ICreateProcessInputs: IUnknown {
+            fn GetCreateFlags(&self, pdwCreationFlags: *mut u32) -> HRESULT;
+            fn SetCreateFlags(&self, dwCreationFlags: u32) -> HRESULT;
+            fn AddCreateFlags(&self, dwCreationFlags: u32) -> HRESULT;
+            fn SetHotKey(&self, wHotKey: u16) -> HRESULT;
+            fn AddStartupFlags(&self, dwStartupInfoFlags: u32) -> HRESULT;
+            fn SetTitle(&self, pszTitle: PCWSTR) -> HRESULT;
+            fn SetEnvironmentVariable(&self, pszName: PCWSTR, pszValue: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xc2b937a9_3110_4398_8a56_f34c6342d244)]
+        interface ICreatingProcess: IUnknown {
+            fn OnCreating(&self, pcpi: ICreateProcessInputs) -> HRESULT;
+        }
+        #[guid(0x240a7174_d653_4a1d_a6d3_d4943cfbfe3d)]
+        interface ICurrentItem: IRelatedItem {}
+        #[guid(0x6332debf_87b5_4670_90c0_5e57b408a49e)]
+        interface ICustomDestinationList: IUnknown {
+            fn SetAppID(&self, pszAppID: PCWSTR) -> HRESULT;
+            fn BeginList(&self, pcMinSlots: *mut u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn AppendCategory(&self, pszCategory: PCWSTR, poa: IObjectArray) -> HRESULT;
+            fn AppendKnownCategory(&self, category: KNOWNDESTCATEGORY) -> HRESULT;
+            fn AddUserTasks(&self, poa: IObjectArray) -> HRESULT;
+            fn CommitList(&self) -> HRESULT;
+            fn GetRemovedDestinations(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn DeleteList(&self, pszAppID: PCWSTR) -> HRESULT;
+            fn AbortList(&self) -> HRESULT;
+        }
+        #[guid(0x3d25f6d6_4b2a_433c_9184_7c33ad35d001)]
+        interface IDataObjectProvider: IUnknown {
+            fn GetDataObject(&self, dataObject: *mut IDataObject) -> HRESULT;
+            fn SetDataObject(&self, dataObject: IDataObject) -> HRESULT;
+        }
+        #[guid(0x3a3dcd6c_3eab_43dc_bcde_45671ce800c8)]
+        interface IDataTransferManagerInterop: IUnknown {
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] dataTransferManager: *mut *mut void) -> HRESULT;
+            fn ShowShareUIForWindow(&self, appWindow: HWND) -> HRESULT;
+        }
+        #[guid(0x41ded17d_d6b3_4261_997d_88c60e4b1d58)]
+        interface IDefaultExtractIconInit: IUnknown {
+            fn SetFlags(&self, uFlags: u32) -> HRESULT;
+            fn SetKey(&self, hkey: HKEY) -> HRESULT;
+            fn SetNormalIcon(&self, #[opt] pszFile: PCWSTR, iIcon: i32) -> HRESULT;
+            fn SetOpenIcon(&self, #[opt] pszFile: PCWSTR, iIcon: i32) -> HRESULT;
+            fn SetShortcutIcon(&self, #[opt] pszFile: PCWSTR, iIcon: i32) -> HRESULT;
+            fn SetDefaultIcon(&self, #[opt] pszFile: PCWSTR, iIcon: i32) -> HRESULT;
+        }
+        #[guid(0x7690aa79_f8fc_4615_a327_36f7d18f5d91)]
+        interface IDefaultFolderMenuInitialize: IUnknown {
+            fn Initialize(&self, hwnd: HWND, #[opt] pcmcb: IContextMenuCB, #[opt] pidlFolder: *const ITEMIDLIST, #[opt] psf: IShellFolder, cidl: u32, apidl: *const LPCITEMIDLIST, #[opt] punkAssociation: IUnknown, cKeys: u32, #[opt] aKeys: *const HKEY) -> HRESULT;
+            fn SetMenuRestrictions(&self, dfmrValues: DEFAULT_FOLDER_MENU_RESTRICTIONS) -> HRESULT;
+            fn GetMenuRestrictions(&self, dfmrMask: DEFAULT_FOLDER_MENU_RESTRICTIONS, pdfmrValues: *mut DEFAULT_FOLDER_MENU_RESTRICTIONS) -> HRESULT;
+            fn SetHandlerClsid(&self, rclsid: *const GUID) -> HRESULT;
+        }
+        #[guid(0xadd8ba80_002b_11d0_8f0f_00c04fd7d062)]
+        interface IDelegateFolder: IUnknown {
+            fn SetItemAlloc(&self, pmalloc: IMalloc) -> HRESULT;
+        }
+        #[guid(0x3c5a1c94_c951_4cb7_bb6d_3b93f30cce93)]
+        interface IDelegateItem: IRelatedItem {}
+        #[guid(0xeb0fe172_1a3a_11d0_89b3_00a0c90a90ac)]
+        interface IDeskBand: IDockingWindow {
+            fn GetBandInfo(&self, dwBandID: u32, dwViewMode: u32, #[in] #[out] pdbi: *mut DESKBANDINFO) -> HRESULT;
+        }
+        #[guid(0x77e425fc_cbf9_4307_ba6a_bb5727745661)]
+        interface IDeskBandInfo: IUnknown {
+            fn GetDefaultBandWidth(&self, dwBandID: u32, dwViewMode: u32, pnWidth: *mut i32) -> HRESULT;
+        }
+        #[guid(0xeb0fe173_1a3a_11d0_89b3_00a0c90a90ac)]
+        interface IDeskBar: IOleWindow {
+            fn SetClient(&self, #[opt] punkClient: IUnknown) -> HRESULT;
+            fn GetClient(&self, ppunkClient: *mut IUnknown) -> HRESULT;
+            fn OnPosRectChangeDB(&self, prc: *const RECT) -> HRESULT;
+        }
+        #[guid(0xb92b56a9_8b55_4e14_9a89_0199bbb6f93b)]
+        interface IDesktopWallpaper: IUnknown {
+            fn SetWallpaper(&self, monitorID: PCWSTR, wallpaper: PCWSTR) -> HRESULT;
+            fn GetWallpaper(&self, monitorID: PCWSTR, wallpaper: *mut PWSTR) -> HRESULT;
+            fn GetMonitorDevicePathAt(&self, monitorIndex: u32, monitorID: *mut PWSTR) -> HRESULT;
+            fn GetMonitorDevicePathCount(&self, count: *mut u32) -> HRESULT;
+            fn GetMonitorRECT(&self, monitorID: PCWSTR, displayRect: *mut RECT) -> HRESULT;
+            fn SetBackgroundColor(&self, color: COLORREF) -> HRESULT;
+            fn GetBackgroundColor(&self, color: *mut COLORREF) -> HRESULT;
+            fn SetPosition(&self, position: DESKTOP_WALLPAPER_POSITION) -> HRESULT;
+            fn GetPosition(&self, position: *mut DESKTOP_WALLPAPER_POSITION) -> HRESULT;
+            fn SetSlideshow(&self, items: IShellItemArray) -> HRESULT;
+            fn GetSlideshow(&self, items: *mut IShellItemArray) -> HRESULT;
+            fn SetSlideshowOptions(&self, options: DESKTOP_SLIDESHOW_OPTIONS, slideshowTick: u32) -> HRESULT;
+            fn GetSlideshowOptions(&self, options: *mut DESKTOP_SLIDESHOW_OPTIONS, slideshowTick: *mut u32) -> HRESULT;
+            fn AdvanceSlideshow(&self, monitorID: PCWSTR, direction: DESKTOP_SLIDESHOW_DIRECTION) -> HRESULT;
+            fn GetStatus(&self, state: *mut DESKTOP_SLIDESHOW_STATE) -> HRESULT;
+            fn Enable(&self, enable: BOOL) -> HRESULT;
+        }
+        #[guid(0x8a87781b_39a7_4a1f_aab3_a39b9c34a7d9)]
+        interface IDestinationStreamFactory: IUnknown {
+            fn GetDestinationStream(&self, ppstm: *mut IStream) -> HRESULT;
+        }
+        #[guid(0xc6fd5997_9f6b_4888_8703_94e80e8cde3f)]
+        interface IDisplayItem: IRelatedItem {}
+        #[guid(0x012dd920_7b26_11d0_8ca9_00a0c92dbfe8)]
+        interface IDockingWindow: IOleWindow {
+            fn ShowDW(&self, fShow: BOOL) -> HRESULT;
+            fn CloseDW(&self, dwReserved: u32) -> HRESULT;
+            fn ResizeBorderDW(&self, prcBorder: *const RECT, punkToolbarSite: IUnknown, fReserved: BOOL) -> HRESULT;
+        }
+        #[guid(0xde5bf786_477a_11d2_839d_00c04fd918d0)]
+        interface IDragSourceHelper: IUnknown {
+            fn InitializeFromBitmap(&self, pshdi: *const SHDRAGIMAGE, pDataObject: IDataObject) -> HRESULT;
+            fn InitializeFromWindow(&self, #[opt] hwnd: HWND, #[opt] ppt: *const POINT, pDataObject: IDataObject) -> HRESULT;
+        }
+        #[guid(0x4657278b_411b_11d2_839a_00c04fd918d0)]
+        interface IDropTargetHelper: IUnknown {
+            fn DragEnter(&self, hwndTarget: HWND, pDataObject: IDataObject, ppt: *const POINT, dwEffect: u32) -> HRESULT;
+            fn DragLeave(&self) -> HRESULT;
+            fn DragOver(&self, ppt: *const POINT, dwEffect: u32) -> HRESULT;
+            fn Drop(&self, pDataObject: IDataObject, ppt: *const POINT, dwEffect: u32) -> HRESULT;
+            fn Show(&self, fShow: BOOL) -> HRESULT;
+        }
+        const IEIFLAG_ASPECT: u32 = 4;
+        const IEIFLAG_ASYNC: u32 = 1;
+        const IEIFLAG_CACHE: u32 = 2;
+        const IEIFLAG_GLEAM: u32 = 16;
+        const IEIFLAG_NOBORDER: u32 = 256;
+        const IEIFLAG_NOSTAMP: u32 = 128;
+        const IEIFLAG_OFFLINE: u32 = 8;
+        const IEIFLAG_ORIGSIZE: u32 = 64;
+        const IEIFLAG_QUALITY: u32 = 512;
+        const IEIFLAG_REFRESH: u32 = 1024;
+        const IEIFLAG_SCREEN: u32 = 32;
+        const IEIT_PRIORITY_NORMAL: u32 = 268435456;
+        const IEI_PRIORITY_MAX: u32 = 2147483647;
+        const IEI_PRIORITY_MIN: u32 = 0;
+        #[guid(0x973810ae_9599_4b88_9e4d_6ee98c9552da)]
+        interface IEnumAssocHandlers: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut IAssocHandler, #[opt] pceltFetched: *mut u32) -> HRESULT;
+        }
+        #[guid(0xa88826f8_186f_4987_aade_ea0cef8fbfe8)]
+        interface IEnumExplorerCommand: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] pUICommand: *mut IExplorerCommand, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumExplorerCommand) -> HRESULT;
+        }
+        #[guid(0x0e700be1_9db6_11d1_a1ce_00c04fd75d13)]
+        interface IEnumExtraSearch: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut EXTRASEARCH, pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumExtraSearch) -> HRESULT;
+        }
+        #[guid(0xd0191542_7954_4908_bc06_b2360bbe45ba)]
+        interface IEnumFullIDList: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut LPITEMIDLIST, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumFullIDList) -> HRESULT;
+        }
+        #[guid(0x000214f2_0000_0000_c000_000000000046)]
+        interface IEnumIDList: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut LPITEMIDLIST, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumIDList) -> HRESULT;
+        }
+        #[guid(0x2c1c7e2e_2d0e_4059_831e_1e6f82335c2e)]
+        interface IEnumObjects: IUnknown {
+            fn Next(&self, celt: u32, riid: *const GUID, #[len_param(0)] rgelt: *mut *mut void, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumObjects) -> HRESULT;
+        }
+        #[guid(0x2dd81fe3_a83c_4da9_a330_47249d345ba1)]
+        interface IEnumResources: IUnknown {
+            fn Next(&self, celt: u32, psir: *mut SHELL_ITEM_RESOURCE, pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenumr: *mut IEnumResources) -> HRESULT;
+        }
+        #[guid(0x70629033_e363_4a28_a567_0db78006e6d7)]
+        interface IEnumShellItems: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut IShellItem, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumShellItems) -> HRESULT;
+        }
+        #[guid(0x7f9185b0_cb92_43c5_80a9_92277a4f7b54)]
+        interface IExecuteCommand: IUnknown {
+            fn SetKeyState(&self, grfKeyState: u32) -> HRESULT;
+            fn SetParameters(&self, pszParameters: PCWSTR) -> HRESULT;
+            fn SetPosition(&self, pt: POINT) -> HRESULT;
+            fn SetShowWindow(&self, nShow: i32) -> HRESULT;
+            fn SetNoShowUI(&self, fNoShowUI: BOOL) -> HRESULT;
+            fn SetDirectory(&self, pszDirectory: PCWSTR) -> HRESULT;
+            fn Execute(&self) -> HRESULT;
+        }
+        #[guid(0x18b21aa9_e184_4ff0_9f5e_f882d03771b3)]
+        interface IExecuteCommandApplicationHostEnvironment: IUnknown {
+            fn GetValue(&self, pahe: *mut AHE_TYPE) -> HRESULT;
+        }
+        #[guid(0x4b6832a2_5f04_4c9d_b89d_727a15d103e7)]
+        interface IExecuteCommandHost: IUnknown {
+            fn GetUIMode(&self, pUIMode: *mut EC_HOST_UI_MODE) -> HRESULT;
+        }
+        #[guid(0xdfd3b6b5_c10c_4be9_85f6_a66969f402f6)]
+        interface IExplorerBrowser: IUnknown {
+            fn Initialize(&self, hwndParent: HWND, prc: *const RECT, #[opt] pfs: *const FOLDERSETTINGS) -> HRESULT;
+            fn Destroy(&self) -> HRESULT;
+            fn SetRect(&self, #[in] #[out] #[opt] phdwp: *mut HDWP, rcBrowser: RECT) -> HRESULT;
+            fn SetPropertyBag(&self, pszPropertyBag: PCWSTR) -> HRESULT;
+            fn SetEmptyText(&self, pszEmptyText: PCWSTR) -> HRESULT;
+            fn SetFolderSettings(&self, pfs: *const FOLDERSETTINGS) -> HRESULT;
+            fn Advise(&self, psbe: IExplorerBrowserEvents, pdwCookie: *mut u32) -> HRESULT;
+            fn Unadvise(&self, dwCookie: u32) -> HRESULT;
+            fn SetOptions(&self, dwFlag: EXPLORER_BROWSER_OPTIONS) -> HRESULT;
+            fn GetOptions(&self, pdwFlag: *mut EXPLORER_BROWSER_OPTIONS) -> HRESULT;
+            fn BrowseToIDList(&self, pidl: *const ITEMIDLIST, uFlags: u32) -> HRESULT;
+            fn BrowseToObject(&self, punk: IUnknown, uFlags: u32) -> HRESULT;
+            fn FillFromObject(&self, punk: IUnknown, dwFlags: EXPLORER_BROWSER_FILL_FLAGS) -> HRESULT;
+            fn RemoveAll(&self) -> HRESULT;
+            fn GetCurrentView(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x361bbdc7_e6ee_4e13_be58_58e2240c810f)]
+        interface IExplorerBrowserEvents: IUnknown {
+            fn OnNavigationPending(&self, pidlFolder: *const ITEMIDLIST) -> HRESULT;
+            fn OnViewCreated(&self, psv: IShellView) -> HRESULT;
+            fn OnNavigationComplete(&self, pidlFolder: *const ITEMIDLIST) -> HRESULT;
+            fn OnNavigationFailed(&self, pidlFolder: *const ITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0xa08ce4d0_fa25_44ab_b57c_c7b1c323e0b9)]
+        interface IExplorerCommand: IUnknown {
+            fn GetTitle(&self, psiItemArray: IShellItemArray, ppszName: *mut PWSTR) -> HRESULT;
+            fn GetIcon(&self, psiItemArray: IShellItemArray, ppszIcon: *mut PWSTR) -> HRESULT;
+            fn GetToolTip(&self, psiItemArray: IShellItemArray, ppszInfotip: *mut PWSTR) -> HRESULT;
+            fn GetCanonicalName(&self, pguidCommandName: *mut GUID) -> HRESULT;
+            fn GetState(&self, psiItemArray: IShellItemArray, fOkToBeSlow: BOOL, pCmdState: *mut EXPCMDSTATE) -> HRESULT;
+            fn Invoke(&self, psiItemArray: IShellItemArray, pbc: IBindCtx) -> HRESULT;
+            fn GetFlags(&self, pFlags: *mut EXPCMDFLAGS) -> HRESULT;
+            fn EnumSubCommands(&self, ppEnum: *mut IEnumExplorerCommand) -> HRESULT;
+        }
+        #[guid(0x64961751_0835_43c0_8ffe_d57686530e64)]
+        interface IExplorerCommandProvider: IUnknown {
+            fn GetCommands(&self, punkSite: IUnknown, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetCommand(&self, rguidCommandId: *const GUID, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xbddacb60_7657_47ae_8445_d23e1acf82ae)]
+        interface IExplorerCommandState: IUnknown {
+            fn GetState(&self, psiItemArray: IShellItemArray, fOkToBeSlow: BOOL, pCmdState: *mut EXPCMDSTATE) -> HRESULT;
+        }
+        #[guid(0xe07010ec_bc17_44c0_97b0_46c7c95b9edc)]
+        interface IExplorerPaneVisibility: IUnknown {
+            fn GetPaneState(&self, ep: *const EXPLORERPANE, peps: *mut EXPLORERPANESTATE) -> HRESULT;
+        }
+        #[guid(0xbb2e617c_0920_11d1_9a0b_00c04fc2d6c1)]
+        interface IExtractImage: IUnknown {
+            fn GetLocation(&self, #[out] pszPathBuffer: PWSTR, cch: u32, #[in] #[out] pdwPriority: *mut u32, prgSize: *const SIZE, dwRecClrDepth: u32, #[in] #[out] pdwFlags: *mut u32) -> HRESULT;
+            fn Extract(&self, phBmpThumbnail: *mut HBITMAP) -> HRESULT;
+        }
+        #[guid(0x953bb1ee_93b4_11d1_98a3_00c04fb687da)]
+        interface IExtractImage2: IExtractImage {
+            fn GetDateStamp(&self, pDateStamp: *mut FILETIME) -> HRESULT;
+        }
+        #[guid(0x42f85136_db7e_439c_85f1_e4075d135fc8)]
+        interface IFileDialog: IModalWindow {
+            fn SetFileTypes(&self, cFileTypes: u32, rgFilterSpec: *const COMDLG_FILTERSPEC) -> HRESULT;
+            fn SetFileTypeIndex(&self, iFileType: u32) -> HRESULT;
+            fn GetFileTypeIndex(&self, piFileType: *mut u32) -> HRESULT;
+            fn Advise(&self, pfde: IFileDialogEvents, pdwCookie: *mut u32) -> HRESULT;
+            fn Unadvise(&self, dwCookie: u32) -> HRESULT;
+            fn SetOptions(&self, fos: FILEOPENDIALOGOPTIONS) -> HRESULT;
+            fn GetOptions(&self, pfos: *mut FILEOPENDIALOGOPTIONS) -> HRESULT;
+            fn SetDefaultFolder(&self, psi: IShellItem) -> HRESULT;
+            fn SetFolder(&self, psi: IShellItem) -> HRESULT;
+            fn GetFolder(&self, ppsi: *mut IShellItem) -> HRESULT;
+            fn GetCurrentSelection(&self, ppsi: *mut IShellItem) -> HRESULT;
+            fn SetFileName(&self, pszName: PCWSTR) -> HRESULT;
+            fn GetFileName(&self, pszName: *mut PWSTR) -> HRESULT;
+            fn SetTitle(&self, pszTitle: PCWSTR) -> HRESULT;
+            fn SetOkButtonLabel(&self, pszText: PCWSTR) -> HRESULT;
+            fn SetFileNameLabel(&self, pszLabel: PCWSTR) -> HRESULT;
+            fn GetResult(&self, ppsi: *mut IShellItem) -> HRESULT;
+            fn AddPlace(&self, psi: IShellItem, fdap: FDAP) -> HRESULT;
+            fn SetDefaultExtension(&self, pszDefaultExtension: PCWSTR) -> HRESULT;
+            fn Close(&self, hr: HRESULT) -> HRESULT;
+            fn SetClientGuid(&self, guid: *const GUID) -> HRESULT;
+            fn ClearClientData(&self) -> HRESULT;
+            fn SetFilter(&self, pFilter: IShellItemFilter) -> HRESULT;
+        }
+        #[guid(0xe6fdd21a_163f_4975_9c8c_a69f1ba37034)]
+        interface IFileDialogCustomize: IUnknown {
+            fn EnableOpenDropDown(&self, dwIDCtl: u32) -> HRESULT;
+            fn AddMenu(&self, dwIDCtl: u32, pszLabel: PCWSTR) -> HRESULT;
+            fn AddPushButton(&self, dwIDCtl: u32, pszLabel: PCWSTR) -> HRESULT;
+            fn AddComboBox(&self, dwIDCtl: u32) -> HRESULT;
+            fn AddRadioButtonList(&self, dwIDCtl: u32) -> HRESULT;
+            fn AddCheckButton(&self, dwIDCtl: u32, pszLabel: PCWSTR, bChecked: BOOL) -> HRESULT;
+            fn AddEditBox(&self, dwIDCtl: u32, pszText: PCWSTR) -> HRESULT;
+            fn AddSeparator(&self, dwIDCtl: u32) -> HRESULT;
+            fn AddText(&self, dwIDCtl: u32, pszText: PCWSTR) -> HRESULT;
+            fn SetControlLabel(&self, dwIDCtl: u32, pszLabel: PCWSTR) -> HRESULT;
+            fn GetControlState(&self, dwIDCtl: u32, pdwState: *mut CDCONTROLSTATEF) -> HRESULT;
+            fn SetControlState(&self, dwIDCtl: u32, dwState: CDCONTROLSTATEF) -> HRESULT;
+            fn GetEditBoxText(&self, dwIDCtl: u32, ppszText: *mut *mut u16) -> HRESULT;
+            fn SetEditBoxText(&self, dwIDCtl: u32, pszText: PCWSTR) -> HRESULT;
+            fn GetCheckButtonState(&self, dwIDCtl: u32, pbChecked: *mut BOOL) -> HRESULT;
+            fn SetCheckButtonState(&self, dwIDCtl: u32, bChecked: BOOL) -> HRESULT;
+            fn AddControlItem(&self, dwIDCtl: u32, dwIDItem: u32, pszLabel: PCWSTR) -> HRESULT;
+            fn RemoveControlItem(&self, dwIDCtl: u32, dwIDItem: u32) -> HRESULT;
+            fn RemoveAllControlItems(&self, dwIDCtl: u32) -> HRESULT;
+            fn GetControlItemState(&self, dwIDCtl: u32, dwIDItem: u32, pdwState: *mut CDCONTROLSTATEF) -> HRESULT;
+            fn SetControlItemState(&self, dwIDCtl: u32, dwIDItem: u32, dwState: CDCONTROLSTATEF) -> HRESULT;
+            fn GetSelectedControlItem(&self, dwIDCtl: u32, pdwIDItem: *mut u32) -> HRESULT;
+            fn SetSelectedControlItem(&self, dwIDCtl: u32, dwIDItem: u32) -> HRESULT;
+            fn StartVisualGroup(&self, dwIDCtl: u32, pszLabel: PCWSTR) -> HRESULT;
+            fn EndVisualGroup(&self) -> HRESULT;
+            fn MakeProminent(&self, dwIDCtl: u32) -> HRESULT;
+            fn SetControlItemText(&self, dwIDCtl: u32, dwIDItem: u32, pszLabel: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x973510db_7d7f_452b_8975_74a85828d354)]
+        interface IFileDialogEvents: IUnknown {
+            fn OnFileOk(&self, pfd: IFileDialog) -> HRESULT;
+            fn OnFolderChanging(&self, pfd: IFileDialog, psiFolder: IShellItem) -> HRESULT;
+            fn OnFolderChange(&self, pfd: IFileDialog) -> HRESULT;
+            fn OnSelectionChange(&self, pfd: IFileDialog) -> HRESULT;
+            fn OnShareViolation(&self, pfd: IFileDialog, psi: IShellItem, pResponse: *mut FDE_SHAREVIOLATION_RESPONSE) -> HRESULT;
+            fn OnTypeChange(&self, pfd: IFileDialog) -> HRESULT;
+            fn OnOverwrite(&self, pfd: IFileDialog, psi: IShellItem, pResponse: *mut FDE_OVERWRITE_RESPONSE) -> HRESULT;
+        }
+        #[guid(0x64a1cbf0_3a1a_4461_9158_376969693950)]
+        interface IFileIsInUse: IUnknown {
+            fn GetAppName(&self, ppszName: *mut PWSTR) -> HRESULT;
+            fn GetUsage(&self, pfut: *mut FILE_USAGE_TYPE) -> HRESULT;
+            fn GetCapabilities(&self, pdwCapFlags: *mut u32) -> HRESULT;
+            fn GetSwitchToHWND(&self, phwnd: *mut HWND) -> HRESULT;
+            fn CloseFile(&self) -> HRESULT;
+        }
+        #[guid(0xd57c7288_d4ad_4768_be02_9d969532d960)]
+        interface IFileOpenDialog: IFileDialog {
+            fn GetResults(&self, ppenum: *mut IShellItemArray) -> HRESULT;
+            fn GetSelectedItems(&self, ppsai: *mut IShellItemArray) -> HRESULT;
+        }
+        #[guid(0x947aab5f_0a5c_4c13_b4d6_4bf7836fc9f8)]
+        interface IFileOperation: IUnknown {
+            fn Advise(&self, pfops: IFileOperationProgressSink, pdwCookie: *mut u32) -> HRESULT;
+            fn Unadvise(&self, dwCookie: u32) -> HRESULT;
+            fn SetOperationFlags(&self, dwOperationFlags: u32) -> HRESULT;
+            fn SetProgressMessage(&self, pszMessage: PCWSTR) -> HRESULT;
+            fn SetProgressDialog(&self, popd: IOperationsProgressDialog) -> HRESULT;
+            fn SetProperties(&self, pproparray: IPropertyChangeArray) -> HRESULT;
+            fn SetOwnerWindow(&self, hwndOwner: HWND) -> HRESULT;
+            fn ApplyPropertiesToItem(&self, psiItem: IShellItem) -> HRESULT;
+            fn ApplyPropertiesToItems(&self, punkItems: IUnknown) -> HRESULT;
+            fn RenameItem(&self, psiItem: IShellItem, pszNewName: PCWSTR, pfopsItem: IFileOperationProgressSink) -> HRESULT;
+            fn RenameItems(&self, pUnkItems: IUnknown, pszNewName: PCWSTR) -> HRESULT;
+            fn MoveItem(&self, psiItem: IShellItem, psiDestinationFolder: IShellItem, pszNewName: PCWSTR, pfopsItem: IFileOperationProgressSink) -> HRESULT;
+            fn MoveItems(&self, punkItems: IUnknown, psiDestinationFolder: IShellItem) -> HRESULT;
+            fn CopyItem(&self, psiItem: IShellItem, psiDestinationFolder: IShellItem, pszCopyName: PCWSTR, pfopsItem: IFileOperationProgressSink) -> HRESULT;
+            fn CopyItems(&self, punkItems: IUnknown, psiDestinationFolder: IShellItem) -> HRESULT;
+            fn DeleteItem(&self, psiItem: IShellItem, pfopsItem: IFileOperationProgressSink) -> HRESULT;
+            fn DeleteItems(&self, punkItems: IUnknown) -> HRESULT;
+            fn NewItem(&self, psiDestinationFolder: IShellItem, dwFileAttributes: u32, pszName: PCWSTR, pszTemplateName: PCWSTR, pfopsItem: IFileOperationProgressSink) -> HRESULT;
+            fn PerformOperations(&self) -> HRESULT;
+            fn GetAnyOperationsAborted(&self, pfAnyOperationsAborted: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xcd8f23c1_8f61_4916_909d_55bdd0918753)]
+        interface IFileOperation2: IFileOperation {
+            fn SetOperationFlags2(&self, operationFlags2: FILE_OPERATION_FLAGS2) -> HRESULT;
+        }
+        #[guid(0x04b0f1a7_9490_44bc_96e1_4296a31252e2)]
+        interface IFileOperationProgressSink: IUnknown {
+            fn StartOperations(&self) -> HRESULT;
+            fn FinishOperations(&self, hrResult: HRESULT) -> HRESULT;
+            fn PreRenameItem(&self, dwFlags: u32, psiItem: IShellItem, pszNewName: PCWSTR) -> HRESULT;
+            fn PostRenameItem(&self, dwFlags: u32, psiItem: IShellItem, pszNewName: PCWSTR, hrRename: HRESULT, psiNewlyCreated: IShellItem) -> HRESULT;
+            fn PreMoveItem(&self, dwFlags: u32, psiItem: IShellItem, psiDestinationFolder: IShellItem, pszNewName: PCWSTR) -> HRESULT;
+            fn PostMoveItem(&self, dwFlags: u32, psiItem: IShellItem, psiDestinationFolder: IShellItem, pszNewName: PCWSTR, hrMove: HRESULT, psiNewlyCreated: IShellItem) -> HRESULT;
+            fn PreCopyItem(&self, dwFlags: u32, psiItem: IShellItem, psiDestinationFolder: IShellItem, pszNewName: PCWSTR) -> HRESULT;
+            fn PostCopyItem(&self, dwFlags: u32, psiItem: IShellItem, psiDestinationFolder: IShellItem, pszNewName: PCWSTR, hrCopy: HRESULT, psiNewlyCreated: IShellItem) -> HRESULT;
+            fn PreDeleteItem(&self, dwFlags: u32, psiItem: IShellItem) -> HRESULT;
+            fn PostDeleteItem(&self, dwFlags: u32, psiItem: IShellItem, hrDelete: HRESULT, psiNewlyCreated: IShellItem) -> HRESULT;
+            fn PreNewItem(&self, dwFlags: u32, psiDestinationFolder: IShellItem, pszNewName: PCWSTR) -> HRESULT;
+            fn PostNewItem(&self, dwFlags: u32, psiDestinationFolder: IShellItem, pszNewName: PCWSTR, pszTemplateName: PCWSTR, dwFileAttributes: u32, hrNew: HRESULT, psiNewItem: IShellItem) -> HRESULT;
+            fn UpdateProgress(&self, iWorkTotal: u32, iWorkSoFar: u32) -> HRESULT;
+            fn ResetTimer(&self) -> HRESULT;
+            fn PauseTimer(&self) -> HRESULT;
+            fn ResumeTimer(&self) -> HRESULT;
+        }
+        #[guid(0x84bccd23_5fde_4cdb_aea4_af64b83d78ab)]
+        interface IFileSaveDialog: IFileDialog {
+            fn SetSaveAsItem(&self, psi: IShellItem) -> HRESULT;
+            fn SetProperties(&self, pStore: IPropertyStore) -> HRESULT;
+            fn SetCollectedProperties(&self, pList: IPropertyDescriptionList, fAppendDefault: BOOL) -> HRESULT;
+            fn GetProperties(&self, ppStore: *mut IPropertyStore) -> HRESULT;
+            fn ApplyProperties(&self, psi: IShellItem, pStore: IPropertyStore, hwnd: HWND, pSink: IFileOperationProgressSink) -> HRESULT;
+        }
+        #[guid(0xd97b5aac_c792_433c_975d_35c4eadc7a9d)]
+        interface IFileSyncMergeHandler: IUnknown {
+            fn Merge(&self, localFilePath: PCWSTR, serverFilePath: PCWSTR, #[retval] updateStatus: *mut MERGE_UPDATE_STATUS) -> HRESULT;
+            fn ShowResolveConflictUIAsync(&self, localFilePath: PCWSTR, monitorToDisplayOn: HMONITOR) -> HRESULT;
+        }
+        #[guid(0x01e18d10_4d8b_11d2_855d_006008059367)]
+        interface IFileSystemBindData: IUnknown {
+            fn SetFindData(&self, pfd: *const WIN32_FIND_DATAW) -> HRESULT;
+            fn GetFindData(&self, pfd: *mut WIN32_FIND_DATAW) -> HRESULT;
+        }
+        #[guid(0x3acf075f_71db_4afa_81f0_3fc4fdf2a5b8)]
+        interface IFileSystemBindData2: IFileSystemBindData {
+            fn SetFileID(&self, liFileID: LARGE_INTEGER) -> HRESULT;
+            fn GetFileID(&self, pliFileID: *mut LARGE_INTEGER) -> HRESULT;
+            fn SetJunctionCLSID(&self, clsid: *const GUID) -> HRESULT;
+            fn GetJunctionCLSID(&self, pclsid: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x9cc22886_dc8e_11d2_b1d0_00c04f8eeb3e)]
+        interface IFolderFilter: IUnknown {
+            fn ShouldShow(&self, psf: IShellFolder, pidlFolder: *const ITEMIDLIST, pidlItem: *const ITEMIDLIST) -> HRESULT;
+            fn GetEnumFlags(&self, psf: IShellFolder, pidlFolder: *const ITEMIDLIST, phwnd: *mut HWND, #[in] #[out] pgrfFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0xc0a651f5_b48b_11d2_b5ed_006097c686f6)]
+        interface IFolderFilterSite: IUnknown {
+            fn SetFilter(&self, punk: IUnknown) -> HRESULT;
+        }
+        #[guid(0xcde725b0_ccc9_4519_917e_325d72fab4ce)]
+        interface IFolderView: IUnknown {
+            fn GetCurrentViewMode(&self, pViewMode: *mut u32) -> HRESULT;
+            fn SetCurrentViewMode(&self, ViewMode: u32) -> HRESULT;
+            fn GetFolder(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn Item(&self, iItemIndex: i32, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+            fn ItemCount(&self, uFlags: u32, pcItems: *mut i32) -> HRESULT;
+            fn Items(&self, uFlags: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetSelectionMarkedItem(&self, piItem: *mut i32) -> HRESULT;
+            fn GetFocusedItem(&self, piItem: *mut i32) -> HRESULT;
+            fn GetItemPosition(&self, pidl: *const ITEMIDLIST, ppt: *mut POINT) -> HRESULT;
+            fn GetSpacing(&self, #[in] #[out] ppt: *mut POINT) -> HRESULT;
+            fn GetDefaultSpacing(&self, ppt: *mut POINT) -> HRESULT;
+            fn GetAutoArrange(&self) -> HRESULT;
+            fn SelectItem(&self, iItem: i32, dwFlags: u32) -> HRESULT;
+            fn SelectAndPositionItems(&self, cidl: u32, apidl: *const LPCITEMIDLIST, apt: *const POINT, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x1af3a467_214f_4298_908e_06b03e0b39f9)]
+        interface IFolderView2: IFolderView {
+            fn SetGroupBy(&self, key: *const PROPERTYKEY, fAscending: BOOL) -> HRESULT;
+            fn GetGroupBy(&self, pkey: *mut PROPERTYKEY, #[opt] pfAscending: *mut BOOL) -> HRESULT;
+            fn SetViewProperty(&self, pidl: *const ITEMIDLIST, propkey: *const PROPERTYKEY, propvar: *const PROPVARIANT) -> HRESULT;
+            fn GetViewProperty(&self, pidl: *const ITEMIDLIST, propkey: *const PROPERTYKEY, ppropvar: *mut PROPVARIANT) -> HRESULT;
+            fn SetTileViewProperties(&self, pidl: *const ITEMIDLIST, pszPropList: PCWSTR) -> HRESULT;
+            fn SetExtendedTileViewProperties(&self, pidl: *const ITEMIDLIST, pszPropList: PCWSTR) -> HRESULT;
+            fn SetText(&self, iType: FVTEXTTYPE, pwszText: PCWSTR) -> HRESULT;
+            fn SetCurrentFolderFlags(&self, dwMask: u32, dwFlags: u32) -> HRESULT;
+            fn GetCurrentFolderFlags(&self, pdwFlags: *mut u32) -> HRESULT;
+            fn GetSortColumnCount(&self, pcColumns: *mut i32) -> HRESULT;
+            fn SetSortColumns(&self, rgSortColumns: *const SORTCOLUMN, cColumns: i32) -> HRESULT;
+            fn GetSortColumns(&self, rgSortColumns: *mut SORTCOLUMN, cColumns: i32) -> HRESULT;
+            fn GetItem(&self, iItem: i32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetVisibleItem(&self, iStart: i32, fPrevious: BOOL, piItem: *mut i32) -> HRESULT;
+            fn GetSelectedItem(&self, iStart: i32, piItem: *mut i32) -> HRESULT;
+            fn GetSelection(&self, fNoneImpliesFolder: BOOL, ppsia: *mut IShellItemArray) -> HRESULT;
+            fn GetSelectionState(&self, pidl: *const ITEMIDLIST, pdwFlags: *mut u32) -> HRESULT;
+            fn InvokeVerbOnSelection(&self, pszVerb: PCSTR) -> HRESULT;
+            fn SetViewModeAndIconSize(&self, uViewMode: FOLDERVIEWMODE, iImageSize: i32) -> HRESULT;
+            fn GetViewModeAndIconSize(&self, puViewMode: *mut FOLDERVIEWMODE, piImageSize: *mut i32) -> HRESULT;
+            fn SetGroupSubsetCount(&self, cVisibleRows: u32) -> HRESULT;
+            fn GetGroupSubsetCount(&self, pcVisibleRows: *mut u32) -> HRESULT;
+            fn SetRedraw(&self, fRedrawOn: BOOL) -> HRESULT;
+            fn IsMoveInSameFolder(&self) -> HRESULT;
+            fn DoRename(&self) -> HRESULT;
+        }
+        #[guid(0xae8c987d_8797_4ed3_be72_2a47dd938db0)]
+        interface IFolderViewSettings: IUnknown {
+            fn GetColumnPropertyList(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetGroupByProperty(&self, pkey: *mut PROPERTYKEY, pfGroupAscending: *mut BOOL) -> HRESULT;
+            fn GetViewMode(&self, plvm: *mut FOLDERLOGICALVIEWMODE) -> HRESULT;
+            fn GetIconSize(&self, puIconSize: *mut u32) -> HRESULT;
+            fn GetFolderFlags(&self, pfolderMask: *mut FOLDERFLAGS, pfolderFlags: *mut FOLDERFLAGS) -> HRESULT;
+            fn GetSortColumns(&self, rgSortColumns: *mut SORTCOLUMN, cColumnsIn: u32, pcColumnsOut: *mut u32) -> HRESULT;
+            fn GetGroupSubsetCount(&self, pcVisibleRows: *mut u32) -> HRESULT;
+        }
+        #[guid(0x5752238b_24f0_495a_82f1_2fd593056796)]
+        interface IFrameworkInputPane: IUnknown {
+            fn Advise(&self, pWindow: IUnknown, pHandler: IFrameworkInputPaneHandler, pdwCookie: *mut u32) -> HRESULT;
+            fn AdviseWithHWND(&self, hwnd: HWND, pHandler: IFrameworkInputPaneHandler, pdwCookie: *mut u32) -> HRESULT;
+            fn Unadvise(&self, dwCookie: u32) -> HRESULT;
+            fn Location(&self, prcInputPaneScreenLocation: *mut RECT) -> HRESULT;
+        }
+        #[guid(0x226c537b_1e76_4d9e_a760_33db29922f18)]
+        interface IFrameworkInputPaneHandler: IUnknown {
+            fn Showing(&self, prcInputPaneScreenLocation: *const RECT, fEnsureFocusedElementInView: BOOL) -> HRESULT;
+            fn Hiding(&self, fEnsureFocusedElementInView: BOOL) -> HRESULT;
+        }
+        #[guid(0x4a073526_6103_4e21_b7bc_f519d1524e5d)]
+        interface IGetServiceIds: IUnknown {
+            fn GetServiceIds(&self, serviceIdCount: *mut u32, serviceIds: *mut *mut GUID) -> HRESULT;
+        }
+        #[guid(0x35094a87_8bb1_4237_96c6_c417eebdb078)]
+        interface IHandlerActivationHost: IUnknown {
+            fn BeforeCoCreateInstance(&self, clsidHandler: *const GUID, itemsBeingActivated: IShellItemArray, handlerInfo: IHandlerInfo) -> HRESULT;
+            fn BeforeCreateProcess(&self, applicationPath: PCWSTR, commandLine: PCWSTR, handlerInfo: IHandlerInfo) -> HRESULT;
+        }
+        #[guid(0x997706ef_f880_453b_8118_39e1a2d2655a)]
+        interface IHandlerInfo: IUnknown {
+            fn GetApplicationDisplayName(&self, value: *mut PWSTR) -> HRESULT;
+            fn GetApplicationPublisher(&self, value: *mut PWSTR) -> HRESULT;
+            fn GetApplicationIconReference(&self, value: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x31cca04c_04d3_4ea9_90de_97b15e87a532)]
+        interface IHandlerInfo2: IHandlerInfo {
+            fn GetApplicationId(&self, value: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x7a3bd1d9_35a9_4fb3_a467_f48cac35e2d0)]
+        interface IHomeGroup: IUnknown {
+            fn IsMember(&self, member: *mut BOOL) -> HRESULT;
+            fn ShowSharingWizard(&self, owner: HWND, sharingchoices: *mut HOMEGROUPSHARINGCHOICES) -> HRESULT;
+        }
+        #[guid(0xf5b0bf81_8cb5_4b1b_9449_1a159e0c733c)]
+        interface IIOCancelInformation: IUnknown {
+            fn SetCancelInformation(&self, dwThreadID: u32, uMsgCancel: u32) -> HRESULT;
+            fn GetCancelInformation(&self, #[opt] pdwThreadID: *mut u32, #[opt] puMsgCancel: *mut u32) -> HRESULT;
+        }
+        #[guid(0x7d903fca_d6f9_4810_8332_946c0177e247)]
+        interface IIdentityName: IRelatedItem {}
+        #[guid(0x85075acf_231f_40ea_9610_d26b7b58f638)]
+        interface IInitializeCommand: IUnknown {
+            fn Initialize(&self, pszCommandName: PCWSTR, ppb: IPropertyBag) -> HRESULT;
+        }
+        #[guid(0x6e0f9881_42a8_4f2a_97f8_8af4e026d92d)]
+        interface IInitializeNetworkFolder: IUnknown {
+            fn Initialize(&self, pidl: *const ITEMIDLIST, pidlTarget: *const ITEMIDLIST, uDisplayType: u32, pszResName: PCWSTR, pszProvider: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x71c0d2bc_726d_45cc_a6c0_2e31c1db2159)]
+        interface IInitializeWithBindCtx: IUnknown {
+            fn Initialize(&self, pbc: IBindCtx) -> HRESULT;
+        }
+        #[guid(0x7f73be3f_fb79_493c_a6c7_7ee14e245841)]
+        interface IInitializeWithItem: IUnknown {
+            fn Initialize(&self, psi: IShellItem, grfMode: u32) -> HRESULT;
+        }
+        #[guid(0xc3e12eb5_7d8d_44f8_b6dd_0e77b34d6de4)]
+        interface IInitializeWithPropertyStore: IUnknown {
+            fn Initialize(&self, pps: IPropertyStore) -> HRESULT;
+        }
+        #[guid(0x3e68d4bd_7135_4d10_8018_9fb6d9f33fa1)]
+        interface IInitializeWithWindow: IUnknown {
+            fn Initialize(&self, hwnd: HWND) -> HRESULT;
+        }
+        #[guid(0x68284faa_6a48_11d0_8c78_00c04fd918b4)]
+        interface IInputObject: IUnknown {
+            fn UIActivateIO(&self, fActivate: BOOL, pMsg: *const MSG) -> HRESULT;
+            fn HasFocusIO(&self) -> HRESULT;
+            fn TranslateAcceleratorIO(&self, pMsg: *const MSG) -> HRESULT;
+        }
+        #[guid(0x6915c085_510b_44cd_94af_28dfa56cf92b)]
+        interface IInputObject2: IInputObject {
+            fn TranslateAcceleratorGlobal(&self, pMsg: *const MSG) -> HRESULT;
+        }
+        #[guid(0xf1db8392_7331_11d0_8c99_00a0c92dbfe8)]
+        interface IInputObjectSite: IUnknown {
+            fn OnFocusChangeIS(&self, punkObj: IUnknown, fSetFocus: BOOL) -> HRESULT;
+        }
+        #[guid(0x1df0d7f1_b267_4d28_8b10_12e23202a5c4)]
+        interface IItemNameLimits: IUnknown {
+            fn GetValidCharacters(&self, ppwszValidChars: *mut PWSTR, ppwszInvalidChars: *mut PWSTR) -> HRESULT;
+            fn GetMaxLength(&self, pszName: PCWSTR, piMaxNameLen: *mut i32) -> HRESULT;
+        }
+        #[guid(0x3aa7af7e_9b36_420c_a8e3_f77d4674a488)]
+        interface IKnownFolder: IUnknown {
+            fn GetId(&self, pkfid: *mut KNOWNFOLDERID) -> HRESULT;
+            fn GetCategory(&self, pCategory: *mut KF_CATEGORY) -> HRESULT;
+            fn GetShellItem(&self, dwFlags: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetPath(&self, dwFlags: u32, ppszPath: *mut PWSTR) -> HRESULT;
+            fn SetPath(&self, dwFlags: u32, pszPath: PCWSTR) -> HRESULT;
+            fn GetIDList(&self, dwFlags: u32, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+            fn GetFolderType(&self, pftid: *mut FOLDERTYPEID) -> HRESULT;
+            fn GetRedirectionCapabilities(&self, pCapabilities: *mut KF_REDIRECTION_CAPABILITIES) -> HRESULT;
+            fn GetFolderDefinition(&self, pKFD: *mut KNOWNFOLDER_DEFINITION) -> HRESULT;
+        }
+        #[guid(0x8be2d872_86aa_4d47_b776_32cca40c7018)]
+        interface IKnownFolderManager: IUnknown {
+            fn FolderIdFromCsidl(&self, nCsidl: i32, pfid: *mut KNOWNFOLDERID) -> HRESULT;
+            fn FolderIdToCsidl(&self, rfid: *const KNOWNFOLDERID, pnCsidl: *mut i32) -> HRESULT;
+            fn GetFolderIds(&self, ppKFId: *mut *mut KNOWNFOLDERID, #[in] #[out] pCount: *mut u32) -> HRESULT;
+            fn GetFolder(&self, rfid: *const KNOWNFOLDERID, ppkf: *mut IKnownFolder) -> HRESULT;
+            fn GetFolderByName(&self, pszCanonicalName: PCWSTR, ppkf: *mut IKnownFolder) -> HRESULT;
+            fn RegisterFolder(&self, rfid: *const KNOWNFOLDERID, pKFD: *const KNOWNFOLDER_DEFINITION) -> HRESULT;
+            fn UnregisterFolder(&self, rfid: *const KNOWNFOLDERID) -> HRESULT;
+            fn FindFolderFromPath(&self, pszPath: PCWSTR, mode: FFFP_MODE, ppkf: *mut IKnownFolder) -> HRESULT;
+            fn FindFolderFromIDList(&self, pidl: *const ITEMIDLIST, ppkf: *mut IKnownFolder) -> HRESULT;
+            fn Redirect(&self, rfid: *const KNOWNFOLDERID, #[opt] hwnd: HWND, flags: KF_REDIRECT_FLAGS, #[opt] pszTargetPath: PCWSTR, cFolders: u32, #[len_param(4)] #[opt] pExclusion: *const KNOWNFOLDERID, ppszError: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x989191ac_28ff_4cf0_9584_e0d078bc2396)]
+        interface ILaunchSourceAppUserModelId: IUnknown {
+            fn GetAppUserModelId(&self, launchingApp: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xe5aa01f7_1fb8_4830_8720_4e6734cbd5f3)]
+        interface ILaunchSourceViewSizePreference: IUnknown {
+            fn GetSourceViewToPosition(&self, hwnd: *mut HWND) -> HRESULT;
+            fn GetSourceViewSizePreference(&self, sourceSizeAfterLaunch: *mut APPLICATION_VIEW_SIZE_PREFERENCE) -> HRESULT;
+        }
+        #[guid(0x266fbc7e_490d_46ed_a96b_2274db252003)]
+        interface ILaunchTargetMonitor: IUnknown {
+            fn GetMonitor(&self, monitor: *mut HMONITOR) -> HRESULT;
+        }
+        #[guid(0x2f0666c6_12f7_4360_b511_a394a0553725)]
+        interface ILaunchTargetViewSizePreference: IUnknown {
+            fn GetTargetViewSizePreference(&self, targetSizeOnLaunch: *mut APPLICATION_VIEW_SIZE_PREFERENCE) -> HRESULT;
+        }
+        #[guid(0x1791e8f6_21c7_4340_882a_a6a93e3fd73b)]
+        interface ILaunchUIContext: IUnknown {
+            fn SetAssociatedWindow(&self, value: HWND) -> HRESULT;
+            fn SetTabGroupingPreference(&self, value: u32) -> HRESULT;
+        }
+        #[guid(0x0d12c4c8_a3d9_4e24_94c1_0e20c5a956c4)]
+        interface ILaunchUIContextProvider: IUnknown {
+            fn UpdateContext(&self, context: ILaunchUIContext) -> HRESULT;
+        }
+        #[guid(0x568804cd_cbd7_11d0_9816_00c04fd91972)]
+        interface IMenuBand: IUnknown {
+            fn IsMenuMessage(&self, pmsg: *const MSG) -> HRESULT;
+            fn TranslateMenuMessage(&self, #[in] #[out] pmsg: *mut MSG, plRet: *mut LRESULT) -> HRESULT;
+        }
+        #[guid(0xd1e7afeb_6a2e_11d0_8c78_00c04fd918b4)]
+        interface IMenuPopup: IDeskBar {
+            fn Popup(&self, ppt: *const POINTL, #[opt] prcExclude: *const RECTL, dwFlags: MP_POPUPFLAGS) -> HRESULT;
+            fn OnSelect(&self, dwSelectType: u32) -> HRESULT;
+            fn SetSubMenu(&self, pmp: IMenuPopup, fSet: BOOL) -> HRESULT;
+        }
+        #[guid(0xb4db1657_70d7_485e_8e3e_6fcb5a5c1802)]
+        interface IModalWindow: IUnknown {
+            fn Show(&self, #[opt] hwndOwner: HWND) -> HRESULT;
+        }
+        #[guid(0x028212a3_b627_47e9_8856_c14265554e4f)]
+        interface INameSpaceTreeControl: IUnknown {
+            fn Initialize(&self, hwndParent: HWND, prc: *const RECT, nsctsFlags: NSTCSTYLE) -> HRESULT;
+            fn TreeAdvise(&self, punk: IUnknown, pdwCookie: *mut u32) -> HRESULT;
+            fn TreeUnadvise(&self, dwCookie: u32) -> HRESULT;
+            fn AppendRoot(&self, psiRoot: IShellItem, grfEnumFlags: SHCONTF, grfRootStyle: NSTCROOTSTYLE, pif: IShellItemFilter) -> HRESULT;
+            fn InsertRoot(&self, iIndex: i32, psiRoot: IShellItem, grfEnumFlags: SHCONTF, grfRootStyle: NSTCROOTSTYLE, pif: IShellItemFilter) -> HRESULT;
+            fn RemoveRoot(&self, psiRoot: IShellItem) -> HRESULT;
+            fn RemoveAllRoots(&self) -> HRESULT;
+            fn GetRootItems(&self, ppsiaRootItems: *mut IShellItemArray) -> HRESULT;
+            fn SetItemState(&self, psi: IShellItem, nstcisMask: NSTCITEMSTATE, nstcisFlags: NSTCITEMSTATE) -> HRESULT;
+            fn GetItemState(&self, psi: IShellItem, nstcisMask: NSTCITEMSTATE, pnstcisFlags: *mut NSTCITEMSTATE) -> HRESULT;
+            fn GetSelectedItems(&self, psiaItems: *mut IShellItemArray) -> HRESULT;
+            fn GetItemCustomState(&self, psi: IShellItem, piStateNumber: *mut i32) -> HRESULT;
+            fn SetItemCustomState(&self, psi: IShellItem, iStateNumber: i32) -> HRESULT;
+            fn EnsureItemVisible(&self, psi: IShellItem) -> HRESULT;
+            fn SetTheme(&self, pszTheme: PCWSTR) -> HRESULT;
+            fn GetNextItem(&self, psi: IShellItem, nstcgi: NSTCGNI, ppsiNext: *mut IShellItem) -> HRESULT;
+            fn HitTest(&self, ppt: *const POINT, ppsiOut: *mut IShellItem) -> HRESULT;
+            fn GetItemRect(&self, psi: IShellItem, prect: *mut RECT) -> HRESULT;
+            fn CollapseAll(&self) -> HRESULT;
+        }
+        #[guid(0xe9701183_e6b3_4ff2_8568_813615fec7be)]
+        interface INameSpaceTreeControlFolderCapabilities: IUnknown {
+            fn GetFolderCapabilities(&self, nfcMask: NSTCFOLDERCAPABILITIES, pnfcValue: *mut NSTCFOLDERCAPABILITIES) -> HRESULT;
+        }
+        #[guid(0x57ced8a7_3f4a_432c_9350_30f24483f74f)]
+        interface INamespaceWalk: IUnknown {
+            fn Walk(&self, punkToWalk: IUnknown, dwFlags: u32, cDepth: i32, pnswcb: INamespaceWalkCB) -> HRESULT;
+            fn GetIDArrayResult(&self, pcItems: *mut u32, prgpidl: *mut *mut LPITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0xd92995f8_cf5e_4a76_bf59_ead39ea2b97e)]
+        interface INamespaceWalkCB: IUnknown {
+            fn FoundItem(&self, psf: IShellFolder, pidl: *const ITEMIDLIST) -> HRESULT;
+            fn EnterFolder(&self, psf: IShellFolder, pidl: *const ITEMIDLIST) -> HRESULT;
+            fn LeaveFolder(&self, psf: IShellFolder, pidl: *const ITEMIDLIST) -> HRESULT;
+            fn InitializeProgressDialog(&self, ppszTitle: *mut PWSTR, ppszCancel: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x7ac7492b_c38e_438a_87db_68737844ff70)]
+        interface INamespaceWalkCB2: INamespaceWalkCB {
+            fn WalkComplete(&self, hr: HRESULT) -> HRESULT;
+        }
+        #[guid(0xceb38218_c971_47bb_a703_f0bc99ccdb81)]
+        interface INetworkFolderInternal: IUnknown {
+            fn GetResourceDisplayType(&self, displayType: *mut u32) -> HRESULT;
+            fn GetIDList(&self, idList: *mut LPITEMIDLIST) -> HRESULT;
+            fn GetProvider(&self, itemIdCount: u32, itemIds: *const LPCITEMIDLIST, providerMaxLength: u32, #[out] provider: PWSTR) -> HRESULT;
+        }
+        #[guid(0xdcb07fdc_3bb5_451c_90be_966644fed7b0)]
+        interface INewMenuClient: IUnknown {
+            fn IncludeItems(&self, pflags: *mut NMCII_FLAGS) -> HRESULT;
+            fn SelectAndEditItem(&self, pidlItem: *const ITEMIDLIST, flags: NMCSAEI_FLAGS) -> HRESULT;
+        }
+        #[guid(0xd2bc4c84_3f72_4a52_a604_7bcbf3982cbb)]
+        interface INewWindowManager: IUnknown {
+            fn EvaluateNewWindow(&self, pszUrl: PCWSTR, pszName: PCWSTR, pszUrlContext: PCWSTR, pszFeatures: PCWSTR, fReplace: BOOL, dwFlags: u32, dwUserActionTime: u32) -> HRESULT;
+        }
+        #[guid(0xa6087428_3be3_4d73_b308_7c04a540bf1a)]
+        interface IObjectProvider: IUnknown {
+            fn QueryObject(&self, guidObject: *const GUID, riid: *const GUID, #[iid_is] ppvOut: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x36db0196_9665_46d1_9ba7_d3709eecf9ed)]
+        interface IObjectWithAppUserModelID: IUnknown {
+            fn SetAppID(&self, pszAppID: PCWSTR) -> HRESULT;
+            fn GetAppID(&self, ppszAppID: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x321a6a6a_d61f_4bf3_97ae_14be2986bb36)]
+        interface IObjectWithBackReferences: IUnknown {
+            fn RemoveBackReferences(&self) -> HRESULT;
+        }
+        #[guid(0xf279b885_0ae9_4b85_ac06_ddecf9408941)]
+        interface IObjectWithCancelEvent: IUnknown {
+            fn GetCancelEvent(&self, phEvent: *mut HANDLE) -> HRESULT;
+        }
+        #[guid(0x6a9d9026_0e6e_464c_b000_42ecc07de673)]
+        interface IObjectWithFolderEnumMode: IUnknown {
+            fn SetMode(&self, feMode: FOLDER_ENUM_MODE) -> HRESULT;
+            fn GetMode(&self, pfeMode: *mut FOLDER_ENUM_MODE) -> HRESULT;
+        }
+        #[guid(0xed2aa515_602f_469c_a130_ce69fd0fa878)]
+        interface IObjectWithPackageFullName: IUnknown {
+            fn GetPackageFullName(&self, packageFullName: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x71e806fb_8dee_46fc_bf8c_7748a8a1ae13)]
+        interface IObjectWithProgID: IUnknown {
+            fn SetProgID(&self, pszProgID: PCWSTR) -> HRESULT;
+            fn GetProgID(&self, ppszProgID: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x1c9cd5bb_98e9_4491_a60f_31aacc72b83c)]
+        interface IObjectWithSelection: IUnknown {
+            fn SetSelection(&self, psia: IShellItemArray) -> HRESULT;
+            fn GetSelection(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xd11ad862_66de_4df4_bf6c_1f5621996af1)]
+        interface IOpenControlPanel: IUnknown {
+            fn Open(&self, pszName: PCWSTR, pszPage: PCWSTR, punkSite: IUnknown) -> HRESULT;
+            fn GetPath(&self, pszName: PCWSTR, #[out] pszPath: PWSTR, cchPath: u32) -> HRESULT;
+            fn GetCurrentView(&self, pView: *mut CPVIEW) -> HRESULT;
+        }
+        #[guid(0xf0ee7333_e6fc_479b_9f25_a860c234a38e)]
+        interface IOpenSearchSource: IUnknown {
+            fn GetResults(&self, hwnd: HWND, pszQuery: PCWSTR, dwStartIndex: u32, dwCount: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c9fb851_e5c9_43eb_a370_f0677b13874c)]
+        interface IOperationsProgressDialog: IUnknown {
+            fn StartProgressDialog(&self, hwndOwner: HWND, flags: OPPROGDLGF) -> HRESULT;
+            fn StopProgressDialog(&self) -> HRESULT;
+            fn SetOperation(&self, action: SPACTION) -> HRESULT;
+            fn SetMode(&self, mode: PDMODE) -> HRESULT;
+            fn UpdateProgress(&self, ullPointsCurrent: u64, ullPointsTotal: u64, ullSizeCurrent: u64, ullSizeTotal: u64, ullItemsCurrent: u64, ullItemsTotal: u64) -> HRESULT;
+            fn UpdateLocations(&self, psiSource: IShellItem, psiTarget: IShellItem, psiItem: IShellItem) -> HRESULT;
+            fn ResetTimer(&self) -> HRESULT;
+            fn PauseTimer(&self) -> HRESULT;
+            fn ResumeTimer(&self) -> HRESULT;
+            fn GetMilliseconds(&self, pullElapsed: *mut u64, pullRemaining: *mut u64) -> HRESULT;
+            fn GetOperationStatus(&self, popstatus: *mut PDOPSTATUS) -> HRESULT;
+        }
+        #[guid(0xf27c3930_8029_4ad1_94e3_3dba417810c1)]
+        interface IPackageDebugSettings: IUnknown {
+            fn EnableDebugging(&self, packageFullName: PCWSTR, #[opt] debuggerCommandLine: PCWSTR, #[opt] environment: *const u16) -> HRESULT;
+            fn DisableDebugging(&self, packageFullName: PCWSTR) -> HRESULT;
+            fn Suspend(&self, packageFullName: PCWSTR) -> HRESULT;
+            fn Resume(&self, packageFullName: PCWSTR) -> HRESULT;
+            fn TerminateAllProcesses(&self, packageFullName: PCWSTR) -> HRESULT;
+            fn SetTargetSessionId(&self, sessionId: u32) -> HRESULT;
+            fn EnumerateBackgroundTasks(&self, packageFullName: PCWSTR, taskCount: *mut u32, taskIds: *mut LPCGUID, taskNames: *mut *mut PCWSTR) -> HRESULT;
+            fn ActivateBackgroundTask(&self, taskId: *const GUID) -> HRESULT;
+            fn StartServicing(&self, packageFullName: PCWSTR) -> HRESULT;
+            fn StopServicing(&self, packageFullName: PCWSTR) -> HRESULT;
+            fn StartSessionRedirection(&self, packageFullName: PCWSTR, sessionId: u32) -> HRESULT;
+            fn StopSessionRedirection(&self, packageFullName: PCWSTR) -> HRESULT;
+            fn GetPackageExecutionState(&self, packageFullName: PCWSTR, packageExecutionState: *mut PACKAGE_EXECUTION_STATE) -> HRESULT;
+            fn RegisterForPackageStateChanges(&self, packageFullName: PCWSTR, pPackageExecutionStateChangeNotification: IPackageExecutionStateChangeNotification, pdwCookie: *mut u32) -> HRESULT;
+            fn UnregisterForPackageStateChanges(&self, dwCookie: u32) -> HRESULT;
+        }
+        #[guid(0x6e3194bb_ab82_4d22_93f5_fabda40e7b16)]
+        interface IPackageDebugSettings2: IPackageDebugSettings {
+            fn EnumerateApps(&self, packageFullName: PCWSTR, appCount: *mut u32, appUserModelIds: *mut *mut PWSTR, appDisplayNames: *mut *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x1bb12a62_2ad8_432b_8ccf_0c2c52afcd5b)]
+        interface IPackageExecutionStateChangeNotification: IUnknown {
+            fn OnStateChanged(&self, pszPackageFullName: PCWSTR, pesNewState: PACKAGE_EXECUTION_STATE) -> HRESULT;
+        }
+        #[guid(0xb3a4b685_b685_4805_99d9_5dead2873236)]
+        interface IParentAndItem: IUnknown {
+            fn SetParentAndItem(&self, pidlParent: *const ITEMIDLIST, psf: IShellFolder, pidlChild: *const ITEMIDLIST) -> HRESULT;
+            fn GetParentAndItem(&self, ppidlParent: *mut LPITEMIDLIST, ppsf: *mut IShellFolder, ppidlChild: *mut LPITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0x67efed0e_e827_4408_b493_78f3982b685c)]
+        interface IParseAndCreateItem: IUnknown {
+            fn SetItem(&self, psi: IShellItem) -> HRESULT;
+            fn GetItem(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x000214ea_0000_0000_c000_000000000046)]
+        interface IPersistFolder: IPersist {
+            fn Initialize(&self, pidl: *const ITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0x1ac3d9f0_175c_11d1_95be_00609797ea4f)]
+        interface IPersistFolder2: IPersistFolder {
+            fn GetCurFolder(&self, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0xcef04fdf_fe72_11d2_87a5_00c04f6837cf)]
+        interface IPersistFolder3: IPersistFolder2 {
+            fn InitializeEx(&self, pbc: IBindCtx, pidlRoot: *const ITEMIDLIST, ppfti: *const PERSIST_FOLDER_TARGET_INFO) -> HRESULT;
+            fn GetFolderTargetInfo(&self, ppfti: *mut PERSIST_FOLDER_TARGET_INFO) -> HRESULT;
+        }
+        #[guid(0x1079acfc_29bd_11d3_8e0d_00c04f6837d5)]
+        interface IPersistIDList: IPersist {
+            fn SetIDList(&self, pidl: *const ITEMIDLIST) -> HRESULT;
+            fn GetIDList(&self, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0x8895b1c6_b41f_4c1c_a562_0d564250836f)]
+        interface IPreviewHandler: IUnknown {
+            fn SetWindow(&self, hwnd: HWND, prc: *const RECT) -> HRESULT;
+            fn SetRect(&self, prc: *const RECT) -> HRESULT;
+            fn DoPreview(&self) -> HRESULT;
+            fn Unload(&self) -> HRESULT;
+            fn SetFocus(&self) -> HRESULT;
+            fn QueryFocus(&self, phwnd: *mut HWND) -> HRESULT;
+            fn TranslateAccelerator(&self, pmsg: *const MSG) -> HRESULT;
+        }
+        #[guid(0xfec87aaf_35f9_447a_adb7_20234491401a)]
+        interface IPreviewHandlerFrame: IUnknown {
+            fn GetWindowContext(&self, pinfo: *mut PREVIEWHANDLERFRAMEINFO) -> HRESULT;
+            fn TranslateAccelerator(&self, pmsg: *const MSG) -> HRESULT;
+        }
+        #[guid(0x196bf9a5_b346_4ef0_aa1e_5dcdb76768b1)]
+        interface IPreviewHandlerVisuals: IUnknown {
+            fn SetBackgroundColor(&self, color: COLORREF) -> HRESULT;
+            fn SetFont(&self, plf: *const LOGFONTW) -> HRESULT;
+            fn SetTextColor(&self, color: COLORREF) -> HRESULT;
+        }
+        #[guid(0x36149969_0a8f_49c8_8b00_4aecb20222fb)]
+        interface IPreviewItem: IRelatedItem {}
+        #[guid(0xcb728b20_f786_11ce_92ad_00aa00a74cd0)]
+        interface IProfferService: IUnknown {
+            fn ProfferService(&self, serviceId: *const GUID, serviceProvider: IServiceProvider, cookie: *mut u32) -> HRESULT;
+            fn RevokeService(&self, cookie: u32) -> HRESULT;
+        }
+        #[guid(0x75bd59aa_f23b_4963_aba4_0b355752a91b)]
+        interface IPropertyKeyStore: IUnknown {
+            fn GetKeyCount(&self, keyCount: *mut i32) -> HRESULT;
+            fn GetKeyAt(&self, index: i32, pkey: *mut PROPERTYKEY) -> HRESULT;
+            fn AppendKey(&self, key: *const PROPERTYKEY) -> HRESULT;
+            fn DeleteKey(&self, index: i32) -> HRESULT;
+            fn IsKeyInStore(&self, key: *const PROPERTYKEY) -> HRESULT;
+            fn RemoveKey(&self, key: *const PROPERTYKEY) -> HRESULT;
+        }
+        #[guid(0x757a7d9f_919a_4118_99d7_dbb208c8cc66)]
+        interface IPropertyUI: IUnknown {
+            fn ParsePropertyName(&self, pszName: PCWSTR, pfmtid: *mut GUID, ppid: *mut PROPID, #[in] #[out] pchEaten: *mut u32) -> HRESULT;
+            fn GetCannonicalName(&self, fmtid: *const GUID, pid: PROPID, #[out] pwszText: PWSTR, cchText: u32) -> HRESULT;
+            fn GetDisplayName(&self, fmtid: *const GUID, pid: PROPID, flags: PROPERTYUI_NAME_FLAGS, #[out] pwszText: PWSTR, cchText: u32) -> HRESULT;
+            fn GetPropertyDescription(&self, fmtid: *const GUID, pid: PROPID, #[out] pwszText: PWSTR, cchText: u32) -> HRESULT;
+            fn GetDefaultWidth(&self, fmtid: *const GUID, pid: PROPID, pcxChars: *mut u32) -> HRESULT;
+            fn GetFlags(&self, fmtid: *const GUID, pid: PROPID, pflags: *mut PROPERTYUI_FLAGS) -> HRESULT;
+            fn FormatForDisplay(&self, fmtid: *const GUID, pid: PROPID, ppropvar: *const PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, #[out] pwszText: PWSTR, cchText: u32) -> HRESULT;
+            fn GetHelpInfo(&self, fmtid: *const GUID, pid: PROPID, #[out] pwszHelpFile: PWSTR, cch: u32, puHelpID: *mut u32) -> HRESULT;
+        }
+        #[guid(0x7307055c_b24a_486b_9f25_163e597a28a9)]
+        interface IQueryContinue: IUnknown {
+            fn QueryContinue(&self) -> HRESULT;
+        }
+        const IRTIR_TASK_FINISHED: u32 = 4;
+        const IRTIR_TASK_NOT_RUNNING: u32 = 0;
+        const IRTIR_TASK_PENDING: u32 = 3;
+        const IRTIR_TASK_RUNNING: u32 = 1;
+        const IRTIR_TASK_SUSPENDED: u32 = 2;
+        #[guid(0xa9521922_0812_4d44_9ec3_7fd38c726f3d)]
+        interface IRegTreeItem: IUnknown {
+            fn GetCheckState(&self, pbCheck: *mut BOOL) -> HRESULT;
+            fn SetCheckState(&self, bCheck: BOOL) -> HRESULT;
+        }
+        #[guid(0xa73ce67a_8ab1_44f1_8d43_d2fcbf6b1cd0)]
+        interface IRelatedItem: IUnknown {
+            fn GetItemIDList(&self, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+            fn GetItem(&self, ppsi: *mut IShellItem) -> HRESULT;
+        }
+        #[guid(0x000214fe_0000_0000_c000_000000000046)]
+        interface IRemoteComputer: IUnknown {
+            fn Initialize(&self, pszMachine: PCWSTR, bEnumerating: BOOL) -> HRESULT;
+        }
+        #[guid(0x5cd52983_9449_11d2_963a_00c04f79adf0)]
+        interface IResolveShellLink: IUnknown {
+            fn ResolveShellLink(&self, punkLink: IUnknown, hwnd: HWND, fFlags: u32) -> HRESULT;
+        }
+        #[guid(0x85788d00_6807_11d0_b810_00c04fd706ec)]
+        interface IRunnableTask: IUnknown {
+            fn Run(&self) -> HRESULT;
+            fn Kill(&self, bWait: BOOL) -> HRESULT;
+            fn Suspend(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+            fn IsRunning(&self) -> u32;
+        }
+        const ISIOI_ICONFILE: u32 = 1;
+        const ISIOI_ICONINDEX: u32 = 2;
+        #[guid(0xa0ffbc28_5482_4366_be27_3e81e78e06c2)]
+        interface ISearchFolderItemFactory: IUnknown {
+            fn SetDisplayName(&self, pszDisplayName: PCWSTR) -> HRESULT;
+            fn SetFolderTypeID(&self, ftid: FOLDERTYPEID) -> HRESULT;
+            fn SetFolderLogicalViewMode(&self, flvm: FOLDERLOGICALVIEWMODE) -> HRESULT;
+            fn SetIconSize(&self, iIconSize: i32) -> HRESULT;
+            fn SetVisibleColumns(&self, cVisibleColumns: u32, rgKey: *const PROPERTYKEY) -> HRESULT;
+            fn SetSortColumns(&self, cSortColumns: u32, rgSortColumns: *const SORTCOLUMN) -> HRESULT;
+            fn SetGroupColumn(&self, keyGroup: *const PROPERTYKEY) -> HRESULT;
+            fn SetStacks(&self, cStackKeys: u32, rgStackKeys: *const PROPERTYKEY) -> HRESULT;
+            fn SetScope(&self, psiaScope: IShellItemArray) -> HRESULT;
+            fn SetCondition(&self, pCondition: ICondition) -> HRESULT;
+            fn GetShellItem(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetIDList(&self, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0xb4cd448a_9c86_4466_9201_2e62105b87ae)]
+        interface ISharingConfigurationManager: IUnknown {
+            fn CreateShare(&self, dsid: DEF_SHARE_ID, role: SHARE_ROLE) -> HRESULT;
+            fn DeleteShare(&self, dsid: DEF_SHARE_ID) -> HRESULT;
+            fn ShareExists(&self, dsid: DEF_SHARE_ID) -> HRESULT;
+            fn GetSharePermissions(&self, dsid: DEF_SHARE_ID, pRole: *mut SHARE_ROLE) -> HRESULT;
+            fn SharePrinters(&self) -> HRESULT;
+            fn StopSharingPrinters(&self) -> HRESULT;
+            fn ArePrintersShared(&self) -> HRESULT;
+        }
+        #[guid(0x000214e2_0000_0000_c000_000000000046)]
+        interface IShellBrowser: IOleWindow {
+            fn InsertMenusSB(&self, hmenuShared: HMENU, #[in] #[out] lpMenuWidths: *mut OLEMENUGROUPWIDTHS) -> HRESULT;
+            fn SetMenuSB(&self, hmenuShared: HMENU, holemenuRes: HOLEMENU, hwndActiveObject: HWND) -> HRESULT;
+            fn RemoveMenusSB(&self, hmenuShared: HMENU) -> HRESULT;
+            fn SetStatusTextSB(&self, pszStatusText: PCWSTR) -> HRESULT;
+            fn EnableModelessSB(&self, fEnable: BOOL) -> HRESULT;
+            fn TranslateAcceleratorSB(&self, pmsg: *const MSG, wID: u16) -> HRESULT;
+            fn BrowseObject(&self, pidl: *const ITEMIDLIST, wFlags: u32) -> HRESULT;
+            fn GetViewStateStream(&self, grfMode: u32, ppStrm: *mut IStream) -> HRESULT;
+            fn GetControlWindow(&self, id: u32, phwnd: *mut HWND) -> HRESULT;
+            fn SendControlMsg(&self, id: u32, uMsg: u32, wParam: WPARAM, lParam: LPARAM, #[opt] pret: *mut LRESULT) -> HRESULT;
+            fn QueryActiveShellView(&self, ppshv: *mut IShellView) -> HRESULT;
+            fn OnViewWindowActive(&self, pshv: IShellView) -> HRESULT;
+            fn SetToolbarItems(&self, #[len_param(1)] #[opt] lpButtons: LPTBBUTTONSB, nButtons: u32, uFlags: u32) -> HRESULT;
+        }
+        #[guid(0x000214e8_0000_0000_c000_000000000046)]
+        interface IShellExtInit: IUnknown {
+            fn Initialize(&self, #[opt] pidlFolder: *const ITEMIDLIST, #[opt] pdtobj: IDataObject, #[opt] hkeyProgID: HKEY) -> HRESULT;
+        }
+        #[guid(0x000214e6_0000_0000_c000_000000000046)]
+        interface IShellFolder: IUnknown {
+            fn ParseDisplayName(&self, hwnd: HWND, pbc: IBindCtx, pszDisplayName: PCWSTR, #[reserved] pchEaten: *const u32, ppidl: *mut LPITEMIDLIST, #[in] #[out] pdwAttributes: *mut u32) -> HRESULT;
+            fn EnumObjects(&self, hwnd: HWND, grfFlags: SHCONTF, ppenumIDList: *mut IEnumIDList) -> HRESULT;
+            fn BindToObject(&self, pidl: *const ITEMIDLIST, pbc: IBindCtx, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn BindToStorage(&self, pidl: *const ITEMIDLIST, pbc: IBindCtx, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CompareIDs(&self, lParam: LPARAM, pidl1: *const ITEMIDLIST, pidl2: *const ITEMIDLIST) -> HRESULT;
+            fn CreateViewObject(&self, hwndOwner: HWND, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetAttributesOf(&self, cidl: u32, apidl: *const LPCITEMIDLIST, #[in] #[out] rgfInOut: *mut SFGAOF) -> HRESULT;
+            fn GetUIObjectOf(&self, hwndOwner: HWND, cidl: u32, apidl: *const LPCITEMIDLIST, riid: *const GUID, #[reserved] rgfReserved: *const u32, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetDisplayNameOf(&self, pidl: *const ITEMIDLIST, uFlags: SHGDNF, pName: *mut STRRET) -> HRESULT;
+            fn SetNameOf(&self, #[opt] hwnd: HWND, pidl: *const ITEMIDLIST, pszName: PCWSTR, uFlags: SHGDNF, ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0x93f2f68c_1d1b_11d3_a30e_00c04f79abd1)]
+        interface IShellFolder2: IShellFolder {
+            fn GetDefaultSearchGUID(&self, pguid: *mut GUID) -> HRESULT;
+            fn EnumSearches(&self, ppenum: *mut IEnumExtraSearch) -> HRESULT;
+            fn GetDefaultColumn(&self, dwRes: u32, pSort: *mut u32, pDisplay: *mut u32) -> HRESULT;
+            fn GetDefaultColumnState(&self, iColumn: u32, pcsFlags: *mut SHCOLSTATEF) -> HRESULT;
+            fn GetDetailsEx(&self, pidl: *const ITEMIDLIST, pscid: *const SHCOLUMNID, pv: *mut VARIANT) -> HRESULT;
+            fn GetDetailsOf(&self, pidl: *const ITEMIDLIST, iColumn: u32, psd: *mut SHELLDETAILS) -> HRESULT;
+            fn MapColumnToSCID(&self, iColumn: u32, pscid: *mut SHCOLUMNID) -> HRESULT;
+        }
+        #[guid(0x000214e5_0000_0000_c000_000000000046)]
+        interface IShellIcon: IUnknown {
+            fn GetIconOf(&self, pidl: *const ITEMIDLIST, flags: u32, pIconIndex: *mut i32) -> HRESULT;
+        }
+        #[guid(0x0c6c4200_c589_11d0_999a_00c04fd655e1)]
+        interface IShellIconOverlayIdentifier: IUnknown {
+            fn IsMemberOf(&self, pwszPath: PCWSTR, dwAttrib: u32) -> HRESULT;
+            fn GetOverlayInfo(&self, #[out] pwszIconFile: PWSTR, cchMax: i32, pIndex: *mut i32, pdwFlags: *mut u32) -> HRESULT;
+            fn GetPriority(&self, pPriority: *mut i32) -> HRESULT;
+        }
+        #[guid(0x43826d1e_e718_42ee_bc55_a1e261c37bfe)]
+        interface IShellItem: IUnknown {
+            fn BindToHandler(&self, pbc: IBindCtx, bhid: *const GUID, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetParent(&self, ppsi: *mut IShellItem) -> HRESULT;
+            fn GetDisplayName(&self, sigdnName: SIGDN, ppszName: *mut PWSTR) -> HRESULT;
+            fn GetAttributes(&self, sfgaoMask: SFGAOF, psfgaoAttribs: *mut SFGAOF) -> HRESULT;
+            fn Compare(&self, psi: IShellItem, hint: SICHINTF, piOrder: *mut i32) -> HRESULT;
+        }
+        #[guid(0x7e9fb0d3_919f_4307_ab2e_9b1860310c93)]
+        interface IShellItem2: IShellItem {
+            fn GetPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetPropertyStoreWithCreateObject(&self, flags: GETPROPERTYSTOREFLAGS, punkCreateObject: IUnknown, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetPropertyStoreForKeys(&self, rgKeys: *const PROPERTYKEY, cKeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetPropertyDescriptionList(&self, keyType: *const PROPERTYKEY, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn Update(&self, pbc: IBindCtx) -> HRESULT;
+            fn GetProperty(&self, key: *const PROPERTYKEY, ppropvar: *mut PROPVARIANT) -> HRESULT;
+            fn GetCLSID(&self, key: *const PROPERTYKEY, pclsid: *mut GUID) -> HRESULT;
+            fn GetFileTime(&self, key: *const PROPERTYKEY, pft: *mut FILETIME) -> HRESULT;
+            fn GetInt32(&self, key: *const PROPERTYKEY, pi: *mut i32) -> HRESULT;
+            fn GetString(&self, key: *const PROPERTYKEY, ppsz: *mut PWSTR) -> HRESULT;
+            fn GetUInt32(&self, key: *const PROPERTYKEY, pui: *mut u32) -> HRESULT;
+            fn GetUInt64(&self, key: *const PROPERTYKEY, pull: *mut u64) -> HRESULT;
+            fn GetBool(&self, key: *const PROPERTYKEY, pf: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xb63ea76d_1f85_456f_a19c_48159efa858b)]
+        interface IShellItemArray: IUnknown {
+            fn BindToHandler(&self, pbc: IBindCtx, bhid: *const GUID, riid: *const GUID, #[iid_is] ppvOut: *mut *mut void) -> HRESULT;
+            fn GetPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetPropertyDescriptionList(&self, keyType: *const PROPERTYKEY, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetAttributes(&self, AttribFlags: SIATTRIBFLAGS, sfgaoMask: SFGAOF, psfgaoAttribs: *mut SFGAOF) -> HRESULT;
+            fn GetCount(&self, pdwNumItems: *mut u32) -> HRESULT;
+            fn GetItemAt(&self, dwIndex: u32, ppsi: *mut IShellItem) -> HRESULT;
+            fn EnumItems(&self, ppenumShellItems: *mut IEnumShellItems) -> HRESULT;
+        }
+        #[guid(0x2659b475_eeb8_48b7_8f07_b378810f48cf)]
+        interface IShellItemFilter: IUnknown {
+            fn IncludeItem(&self, psi: IShellItem) -> HRESULT;
+            fn GetEnumFlagsForItem(&self, psi: IShellItem, pgrfFlags: *mut SHCONTF) -> HRESULT;
+        }
+        #[guid(0xbcc18b79_ba16_442f_80c4_8a59c30c463b)]
+        interface IShellItemImageFactory: IUnknown {
+            fn GetImage(&self, size: SIZE, flags: SIIGBF, phbm: *mut HBITMAP) -> HRESULT;
+        }
+        #[guid(0xff5693be_2ce0_4d48_b5c5_40817d1acdb9)]
+        interface IShellItemResources: IUnknown {
+            fn GetAttributes(&self, pdwAttributes: *mut u32) -> HRESULT;
+            fn GetSize(&self, pullSize: *mut u64) -> HRESULT;
+            fn GetTimes(&self, pftCreation: *mut FILETIME, pftWrite: *mut FILETIME, pftAccess: *mut FILETIME) -> HRESULT;
+            fn SetTimes(&self, pftCreation: *const FILETIME, pftWrite: *const FILETIME, pftAccess: *const FILETIME) -> HRESULT;
+            fn GetResourceDescription(&self, pcsir: *const SHELL_ITEM_RESOURCE, ppszDescription: *mut PWSTR) -> HRESULT;
+            fn EnumResources(&self, ppenumr: *mut IEnumResources) -> HRESULT;
+            fn SupportsResource(&self, pcsir: *const SHELL_ITEM_RESOURCE) -> HRESULT;
+            fn OpenResource(&self, pcsir: *const SHELL_ITEM_RESOURCE, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateResource(&self, pcsir: *const SHELL_ITEM_RESOURCE, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn MarkForDelete(&self) -> HRESULT;
+        }
+        #[guid(0x11a66efa_382e_451a_9234_1e0e12ef3085)]
+        interface IShellLibrary: IUnknown {
+            fn LoadLibraryFromItem(&self, psiLibrary: IShellItem, grfMode: u32) -> HRESULT;
+            fn LoadLibraryFromKnownFolder(&self, kfidLibrary: *const KNOWNFOLDERID, grfMode: u32) -> HRESULT;
+            fn AddFolder(&self, psiLocation: IShellItem) -> HRESULT;
+            fn RemoveFolder(&self, psiLocation: IShellItem) -> HRESULT;
+            fn GetFolders(&self, lff: LIBRARYFOLDERFILTER, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn ResolveFolder(&self, psiFolderToResolve: IShellItem, dwTimeout: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetDefaultSaveFolder(&self, dsft: DEFAULTSAVEFOLDERTYPE, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn SetDefaultSaveFolder(&self, dsft: DEFAULTSAVEFOLDERTYPE, psi: IShellItem) -> HRESULT;
+            fn GetOptions(&self, plofOptions: *mut LIBRARYOPTIONFLAGS) -> HRESULT;
+            fn SetOptions(&self, lofMask: LIBRARYOPTIONFLAGS, lofOptions: LIBRARYOPTIONFLAGS) -> HRESULT;
+            fn GetFolderType(&self, pftid: *mut FOLDERTYPEID) -> HRESULT;
+            fn SetFolderType(&self, ftid: *const FOLDERTYPEID) -> HRESULT;
+            fn GetIcon(&self, ppszIcon: *mut PWSTR) -> HRESULT;
+            fn SetIcon(&self, pszIcon: PCWSTR) -> HRESULT;
+            fn Commit(&self) -> HRESULT;
+            fn Save(&self, psiFolderToSaveIn: IShellItem, pszLibraryName: PCWSTR, lsf: LIBRARYSAVEFLAGS, ppsiSavedTo: *mut IShellItem) -> HRESULT;
+            fn SaveInKnownFolder(&self, kfidToSaveIn: *const KNOWNFOLDERID, pszLibraryName: PCWSTR, lsf: LIBRARYSAVEFLAGS, ppsiSavedTo: *mut IShellItem) -> HRESULT;
+        }
+        #[guid(0x000214ee_0000_0000_c000_000000000046)]
+        interface IShellLinkA: IUnknown {
+            fn GetPath(&self, #[out] pszFile: PSTR, cch: i32, #[in] #[out] pfd: *mut WIN32_FIND_DATAA, fFlags: u32) -> HRESULT;
+            fn GetIDList(&self, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+            fn SetIDList(&self, pidl: *const ITEMIDLIST) -> HRESULT;
+            fn GetDescription(&self, #[out] pszName: PSTR, cch: i32) -> HRESULT;
+            fn SetDescription(&self, pszName: PCSTR) -> HRESULT;
+            fn GetWorkingDirectory(&self, #[out] pszDir: PSTR, cch: i32) -> HRESULT;
+            fn SetWorkingDirectory(&self, pszDir: PCSTR) -> HRESULT;
+            fn GetArguments(&self, #[out] pszArgs: PSTR, cch: i32) -> HRESULT;
+            fn SetArguments(&self, pszArgs: PCSTR) -> HRESULT;
+            fn GetHotkey(&self, pwHotkey: *mut u16) -> HRESULT;
+            fn SetHotkey(&self, wHotkey: u16) -> HRESULT;
+            fn GetShowCmd(&self, piShowCmd: *mut i32) -> HRESULT;
+            fn SetShowCmd(&self, iShowCmd: i32) -> HRESULT;
+            fn GetIconLocation(&self, #[out] pszIconPath: PSTR, cch: i32, piIcon: *mut i32) -> HRESULT;
+            fn SetIconLocation(&self, pszIconPath: PCSTR, iIcon: i32) -> HRESULT;
+            fn SetRelativePath(&self, pszPathRel: PCSTR, dwReserved: u32) -> HRESULT;
+            fn Resolve(&self, hwnd: HWND, fFlags: u32) -> HRESULT;
+            fn SetPath(&self, pszFile: PCSTR) -> HRESULT;
+        }
+        #[guid(0x45e2b4ae_b1c3_11d0_b92f_00a0c90312e1)]
+        interface IShellLinkDataList: IUnknown {
+            fn AddDataBlock(&self, pDataBlock: *const void) -> HRESULT;
+            fn CopyDataBlock(&self, dwSig: u32, ppDataBlock: *mut *mut void) -> HRESULT;
+            fn RemoveDataBlock(&self, dwSig: u32) -> HRESULT;
+            fn GetFlags(&self, pdwFlags: *mut u32) -> HRESULT;
+            fn SetFlags(&self, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x000214f9_0000_0000_c000_000000000046)]
+        interface IShellLinkW: IUnknown {
+            fn GetPath(&self, #[out] pszFile: PWSTR, cch: i32, #[in] #[out] pfd: *mut WIN32_FIND_DATAW, fFlags: u32) -> HRESULT;
+            fn GetIDList(&self, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+            fn SetIDList(&self, pidl: *const ITEMIDLIST) -> HRESULT;
+            fn GetDescription(&self, #[out] pszName: PWSTR, cch: i32) -> HRESULT;
+            fn SetDescription(&self, pszName: PCWSTR) -> HRESULT;
+            fn GetWorkingDirectory(&self, #[out] pszDir: PWSTR, cch: i32) -> HRESULT;
+            fn SetWorkingDirectory(&self, pszDir: PCWSTR) -> HRESULT;
+            fn GetArguments(&self, #[out] pszArgs: PWSTR, cch: i32) -> HRESULT;
+            fn SetArguments(&self, pszArgs: PCWSTR) -> HRESULT;
+            fn GetHotkey(&self, pwHotkey: *mut u16) -> HRESULT;
+            fn SetHotkey(&self, wHotkey: u16) -> HRESULT;
+            fn GetShowCmd(&self, piShowCmd: *mut i32) -> HRESULT;
+            fn SetShowCmd(&self, iShowCmd: i32) -> HRESULT;
+            fn GetIconLocation(&self, #[out] pszIconPath: PWSTR, cch: i32, piIcon: *mut i32) -> HRESULT;
+            fn SetIconLocation(&self, pszIconPath: PCWSTR, iIcon: i32) -> HRESULT;
+            fn SetRelativePath(&self, pszPathRel: PCWSTR, dwReserved: u32) -> HRESULT;
+            fn Resolve(&self, hwnd: HWND, fFlags: u32) -> HRESULT;
+            fn SetPath(&self, pszFile: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xee1f7637_e138_11d1_8379_00c04fd918d0)]
+        interface IShellMenu: IUnknown {
+            fn Initialize(&self, #[opt] psmc: IShellMenuCallback, uId: u32, uIdAncestor: u32, dwFlags: u32) -> HRESULT;
+            fn GetMenuInfo(&self, ppsmc: *mut IShellMenuCallback, #[opt] puId: *mut u32, #[opt] puIdAncestor: *mut u32, #[opt] pdwFlags: *mut u32) -> HRESULT;
+            fn SetShellFolder(&self, #[opt] psf: IShellFolder, #[opt] pidlFolder: *const ITEMIDLIST, #[opt] hKey: HKEY, dwFlags: u32) -> HRESULT;
+            fn GetShellFolder(&self, pdwFlags: *mut u32, ppidl: *mut LPITEMIDLIST, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn SetMenu(&self, #[opt] hmenu: HMENU, #[opt] hwnd: HWND, dwFlags: u32) -> HRESULT;
+            fn GetMenu(&self, #[opt] phmenu: *mut HMENU, #[opt] phwnd: *mut HWND, #[opt] pdwFlags: *mut u32) -> HRESULT;
+            fn InvalidateItem(&self, #[opt] psmd: *const SMDATA, dwFlags: u32) -> HRESULT;
+            fn GetState(&self, psmd: *mut SMDATA) -> HRESULT;
+            fn SetMenuToolbar(&self, punk: IUnknown, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x4ca300a1_9b8d_11d1_8b22_00c04fd918d0)]
+        interface IShellMenuCallback: IUnknown {
+            fn CallbackSM(&self, #[in] #[out] psmd: *mut SMDATA, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+        }
+        #[guid(0x000214e9_0000_0000_c000_000000000046)]
+        interface IShellPropSheetExt: IUnknown {
+            fn AddPages(&self, pfnAddPage: LPFNSVADDPROPSHEETPAGE, lParam: LPARAM) -> HRESULT;
+            fn ReplacePage(&self, uPageID: EXPPS, pfnReplaceWith: LPFNSVADDPROPSHEETPAGE, lParam: LPARAM) -> HRESULT;
+        }
+        #[guid(0x6ccb7be0_6807_11d0_b810_00c04fd706ec)]
+        interface IShellTaskScheduler: IUnknown {
+            fn AddTask(&self, prt: IRunnableTask, rtoid: *const TASKOWNERID, lParam: usize, dwPriority: u32) -> HRESULT;
+            fn RemoveTasks(&self, rtoid: *const TASKOWNERID, lParam: usize, bWaitIfRunning: BOOL) -> HRESULT;
+            fn CountTasks(&self, rtoid: *const TASKOWNERID) -> u32;
+            fn Status(&self, dwReleaseStatus: u32, dwThreadTimeout: u32) -> HRESULT;
+        }
+        #[guid(0x000214e3_0000_0000_c000_000000000046)]
+        interface IShellView: IOleWindow {
+            fn TranslateAccelerator(&self, pmsg: *const MSG) -> HRESULT;
+            fn EnableModeless(&self, fEnable: BOOL) -> HRESULT;
+            fn UIActivate(&self, uState: u32) -> HRESULT;
+            fn Refresh(&self) -> HRESULT;
+            fn CreateViewWindow(&self, psvPrevious: IShellView, pfs: *const FOLDERSETTINGS, psb: IShellBrowser, prcView: *const RECT, phWnd: *mut HWND) -> HRESULT;
+            fn DestroyViewWindow(&self) -> HRESULT;
+            fn GetCurrentInfo(&self, pfs: *mut FOLDERSETTINGS) -> HRESULT;
+            fn AddPropertySheetPages(&self, dwReserved: u32, pfn: LPFNSVADDPROPSHEETPAGE, lparam: LPARAM) -> HRESULT;
+            fn SaveViewState(&self) -> HRESULT;
+            fn SelectItem(&self, pidlItem: *const ITEMIDLIST, uFlags: SVSIF) -> HRESULT;
+            fn GetItemObject(&self, uItem: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x88e39e80_3578_11cf_ae69_08002b2e1262)]
+        interface IShellView2: IShellView {
+            fn GetView(&self, #[in] #[out] pvid: *mut SHELLVIEWID, uView: u32) -> HRESULT;
+            fn CreateViewWindow2(&self, lpParams: *const SV2CVW2_PARAMS) -> HRESULT;
+            fn HandleRename(&self, pidlNew: *const ITEMIDLIST) -> HRESULT;
+            fn SelectAndPositionItem(&self, pidlItem: *const ITEMIDLIST, uFlags: u32, ppt: *const POINT) -> HRESULT;
+        }
+        #[guid(0x6dfc60fb_f2e9_459b_beb5_288f1a7c7d54)]
+        interface ISortColumnArray: IUnknown {
+            fn GetCount(&self, columnCount: *mut u32) -> HRESULT;
+            fn GetAt(&self, index: u32, sortcolumn: *mut SORTCOLUMN) -> HRESULT;
+            fn GetSortType(&self, r#type: *mut SORT_ORDER_TYPE) -> HRESULT;
+        }
+        #[guid(0x4b770da6_d111_4015_96fd_8c1c56f06c55)]
+        interface IStaticVerbProvider: IUnknown {
+            fn IsVerbSupported(&self, verbName: PCWSTR, result: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x52b83a42_2543_416a_81d9_c0de7969c8b3)]
+        interface ISuspensionDependencyManager: IUnknown {
+            fn RegisterAsChild(&self, processHandle: HANDLE) -> HRESULT;
+            fn GroupChildWithParent(&self, childProcessHandle: HANDLE) -> HRESULT;
+            fn UngroupChildFromParent(&self, childProcessHandle: HANDLE) -> HRESULT;
+        }
+        const ITSAT_DEFAULT_LPARAM: usize = 18446744073709551615;
+        const ITSAT_DEFAULT_PRIORITY: u32 = 268435456;
+        const ITSAT_MAX_PRIORITY: u32 = 2147483647;
+        const ITSAT_MIN_PRIORITY: u32 = 0;
+        const ITSSFLAG_COMPLETE_ON_DESTROY: u32 = 0;
+        const ITSSFLAG_FLAGS_MASK: u32 = 3;
+        const ITSSFLAG_KILL_ON_DESTROY: u32 = 1;
+        const ITSS_THREAD_DESTROY_DEFAULT_TIMEOUT: u32 = 10000;
+        const ITSS_THREAD_TERMINATE_TIMEOUT: i32 = -1;
+        const ITSS_THREAD_TIMEOUT_NO_CHANGE: i32 = -2;
+        #[guid(0x56fdf342_fd6d_11d0_958a_006097c9a090)]
+        interface ITaskbarList: IUnknown {
+            fn HrInit(&self) -> HRESULT;
+            fn AddTab(&self, hwnd: HWND) -> HRESULT;
+            fn DeleteTab(&self, hwnd: HWND) -> HRESULT;
+            fn ActivateTab(&self, hwnd: HWND) -> HRESULT;
+            fn SetActiveAlt(&self, hwnd: HWND) -> HRESULT;
+        }
+        #[guid(0x602d4995_b13a_429b_a66e_1935e44f4317)]
+        interface ITaskbarList2: ITaskbarList {
+            fn MarkFullscreenWindow(&self, hwnd: HWND, fFullscreen: BOOL) -> HRESULT;
+        }
+        #[guid(0xea1afb91_9e28_4b86_90e9_9e9f8a5eefaf)]
+        interface ITaskbarList3: ITaskbarList2 {
+            fn SetProgressValue(&self, hwnd: HWND, ullCompleted: u64, ullTotal: u64) -> HRESULT;
+            fn SetProgressState(&self, hwnd: HWND, tbpFlags: TBPFLAG) -> HRESULT;
+            fn RegisterTab(&self, hwndTab: HWND, hwndMDI: HWND) -> HRESULT;
+            fn UnregisterTab(&self, hwndTab: HWND) -> HRESULT;
+            fn SetTabOrder(&self, hwndTab: HWND, hwndInsertBefore: HWND) -> HRESULT;
+            fn SetTabActive(&self, hwndTab: HWND, hwndMDI: HWND, dwReserved: u32) -> HRESULT;
+            fn ThumbBarAddButtons(&self, hwnd: HWND, cButtons: u32, pButton: *const THUMBBUTTON) -> HRESULT;
+            fn ThumbBarUpdateButtons(&self, hwnd: HWND, cButtons: u32, pButton: *const THUMBBUTTON) -> HRESULT;
+            fn ThumbBarSetImageList(&self, hwnd: HWND, himl: *const _IMAGELIST) -> HRESULT;
+            fn SetOverlayIcon(&self, hwnd: HWND, hIcon: HICON, pszDescription: PCWSTR) -> HRESULT;
+            fn SetThumbnailTooltip(&self, hwnd: HWND, pszTip: PCWSTR) -> HRESULT;
+            fn SetThumbnailClip(&self, hwnd: HWND, prcClip: *const RECT) -> HRESULT;
+        }
+        #[guid(0xc43dc798_95d1_4bea_9030_bb99e2983a1a)]
+        interface ITaskbarList4: ITaskbarList3 {
+            fn SetTabProperties(&self, hwndTab: HWND, stpFlags: STPFLAG) -> HRESULT;
+        }
+        #[guid(0xe35b4b2e_00da_4bc1_9f13_38bc11f5d417)]
+        interface IThumbnailHandlerFactory: IUnknown {
+            fn GetThumbnailHandler(&self, pidlChild: *const ITEMIDLIST, pbc: IBindCtx, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xd594d0d8_8da7_457b_b3b4_ce5dbaac0b88)]
+        interface ITransferAdviseSink: IUnknown {
+            fn UpdateProgress(&self, ullSizeCurrent: u64, ullSizeTotal: u64, nFilesCurrent: i32, nFilesTotal: i32, nFoldersCurrent: i32, nFoldersTotal: i32) -> HRESULT;
+            fn UpdateTransferState(&self, ts: TRANSFER_ADVISE_STATE) -> HRESULT;
+            fn ConfirmOverwrite(&self, psiSource: IShellItem, psiDestParent: IShellItem, pszName: PCWSTR) -> HRESULT;
+            fn ConfirmEncryptionLoss(&self, psiSource: IShellItem) -> HRESULT;
+            fn FileFailure(&self, psi: IShellItem, pszItem: PCWSTR, hrError: HRESULT, #[in] #[out] pszRename: PWSTR, cchRename: u32) -> HRESULT;
+            fn SubStreamFailure(&self, psi: IShellItem, pszStreamName: PCWSTR, hrError: HRESULT) -> HRESULT;
+            fn PropertyFailure(&self, psi: IShellItem, pkey: *const PROPERTYKEY, hrError: HRESULT) -> HRESULT;
+        }
+        #[guid(0x48addd32_3ca5_4124_abe3_b5a72531b207)]
+        interface ITransferDestination: IUnknown {
+            fn Advise(&self, psink: ITransferAdviseSink, pdwCookie: *mut u32) -> HRESULT;
+            fn Unadvise(&self, dwCookie: u32) -> HRESULT;
+            fn CreateItem(&self, pszName: PCWSTR, dwAttributes: u32, ullSize: u64, flags: TRANSFER_SOURCE_FLAGS, riidItem: *const GUID, #[iid_is] ppvItem: *mut *mut void, riidResources: *const GUID, #[iid_is] ppvResources: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x77f295d5_2d6f_4e19_b8ae_322f3e721ab5)]
+        interface ITransferMediumItem: IRelatedItem {}
+        #[guid(0x00adb003_bde9_45c6_8e29_d09f9353e108)]
+        interface ITransferSource: IUnknown {
+            fn Advise(&self, psink: ITransferAdviseSink, pdwCookie: *mut u32) -> HRESULT;
+            fn Unadvise(&self, dwCookie: u32) -> HRESULT;
+            fn SetProperties(&self, pproparray: IPropertyChangeArray) -> HRESULT;
+            fn OpenItem(&self, psi: IShellItem, flags: TRANSFER_SOURCE_FLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn MoveItem(&self, psi: IShellItem, psiParentDst: IShellItem, pszNameDst: PCWSTR, flags: TRANSFER_SOURCE_FLAGS, ppsiNew: *mut IShellItem) -> HRESULT;
+            fn RecycleItem(&self, psiSource: IShellItem, psiParentDest: IShellItem, flags: TRANSFER_SOURCE_FLAGS, ppsiNewDest: *mut IShellItem) -> HRESULT;
+            fn RemoveItem(&self, psiSource: IShellItem, flags: TRANSFER_SOURCE_FLAGS) -> HRESULT;
+            fn RenameItem(&self, psiSource: IShellItem, pszNewName: PCWSTR, flags: TRANSFER_SOURCE_FLAGS, ppsiNewDest: *mut IShellItem) -> HRESULT;
+            fn LinkItem(&self, psiSource: IShellItem, psiParentDest: IShellItem, #[opt] pszNewName: PCWSTR, flags: TRANSFER_SOURCE_FLAGS, ppsiNewDest: *mut IShellItem) -> HRESULT;
+            fn ApplyPropertiesToItem(&self, psiSource: IShellItem, ppsiNew: *mut IShellItem) -> HRESULT;
+            fn GetDefaultDestinationName(&self, psiSource: IShellItem, psiParentDest: IShellItem, ppszDestinationName: *mut PWSTR) -> HRESULT;
+            fn EnterFolder(&self, psiChildFolderDest: IShellItem) -> HRESULT;
+            fn LeaveFolder(&self, psiChildFolderDest: IShellItem) -> HRESULT;
+        }
+        #[guid(0x6589b6d2_5f8d_4b9e_b7e0_23cdd9717d8c)]
+        interface IUpdateIDList: IUnknown {
+            fn Update(&self, #[opt] pbc: IBindCtx, pidlIn: *const ITEMIDLIST, ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0xba9711ba_5893_4787_a7e1_41277151550b)]
+        interface IUserNotification: IUnknown {
+            fn SetBalloonInfo(&self, pszTitle: PCWSTR, pszText: PCWSTR, dwInfoFlags: u32) -> HRESULT;
+            fn SetBalloonRetry(&self, dwShowTime: u32, dwInterval: u32, cRetryCount: u32) -> HRESULT;
+            fn SetIconInfo(&self, hIcon: HICON, pszToolTip: PCWSTR) -> HRESULT;
+            fn Show(&self, pqc: IQueryContinue, dwContinuePollInterval: u32) -> HRESULT;
+            fn PlaySound(&self, pszSoundName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x9d264146_a94f_4195_9f9f_3bb12ce0c955)]
+        interface IViewStateIdentityItem: IRelatedItem {}
+        #[guid(0xa5cd92ff_29be_454c_8d04_d82879fb3f1b)]
+        interface IVirtualDesktopManager: IUnknown {
+            fn IsWindowOnCurrentVirtualDesktop(&self, topLevelWindow: HWND, onCurrentDesktop: *mut BOOL) -> HRESULT;
+            fn GetWindowDesktopId(&self, topLevelWindow: HWND, desktopId: *mut GUID) -> HRESULT;
+            fn MoveWindowToDesktop(&self, topLevelWindow: HWND, desktopId: *const GUID) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum KF_CATEGORY {
+            KF_CATEGORY_VIRTUAL = 1,
+            KF_CATEGORY_FIXED = 2,
+            KF_CATEGORY_COMMON = 3,
+            KF_CATEGORY_PERUSER = 4,
+        }
+        type KF_DEFINITION_FLAGS = u32;
+        type KF_REDIRECTION_CAPABILITIES = u32;
+        #[repr(i32)]
+        enum KNOWNDESTCATEGORY {
+            KDC_FREQUENT = 1,
+            KDC_RECENT = 2,
+        }
+        struct KNOWNFOLDER_DEFINITION {
+            category: KF_CATEGORY,
+            pszName: PWSTR,
+            pszDescription: PWSTR,
+            fidParent: KNOWNFOLDERID,
+            pszRelativePath: PWSTR,
+            pszParsingName: PWSTR,
+            pszTooltip: PWSTR,
+            pszLocalizedName: PWSTR,
+            pszIcon: PWSTR,
+            pszSecurity: PWSTR,
+            dwAttributes: u32,
+            kfdFlags: KF_DEFINITION_FLAGS,
+            ftidType: FOLDERTYPEID,
+        }
+        const KnownFolderManager: GUID = 0x4df0c730_df9d_4ae3_9153_aa6b82e9795a;
+        #[repr(i32)]
+        enum LIBRARYFOLDERFILTER {
+            LFF_FORCEFILESYSTEM = 1,
+            LFF_STORAGEITEMS = 2,
+            LFF_ALLITEMS = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum LIBRARYMANAGEDIALOGOPTIONS {
+            LMD_DEFAULT = 0,
+            LMD_ALLOWUNINDEXABLENETWORKLOCATIONS = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum LIBRARYOPTIONFLAGS {
+            LOF_DEFAULT = 0,
+            LOF_PINNEDTONAVPANE = 1,
+            LOF_MASK_ALL = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum LIBRARYSAVEFLAGS {
+            LSF_FAILIFTHERE = 0,
+            LSF_OVERRIDEEXISTING = 1,
+            LSF_MAKEUNIQUENAME = 2,
+        }
+        type LPCFOLDERSETTINGS = *const FOLDERSETTINGS;
+        type LPCMINVOKECOMMANDINFO = *mut CMINVOKECOMMANDINFO;
+        type LPCMINVOKECOMMANDINFOEX = *mut CMINVOKECOMMANDINFOEX;
+        type LPEXTRASEARCH = *mut EXTRASEARCH;
+        type LPFNSVADDPROPSHEETPAGE = LPFNADDPROPSHEETPAGE;
+        type LPFOLDERSETTINGS = *mut FOLDERSETTINGS;
+        type LPSHDRAGIMAGE = *mut SHDRAGIMAGE;
+        type LPSMDATA = *mut SMDATA;
+        type LPSTGTRANSCONFIRMATION = *mut GUID;
+        type LPSV2CVW2_PARAMS = *mut SV2CVW2_PARAMS;
+        type LPTBBUTTONSB = LPTBBUTTON;
+        type LPTHUMBBUTTON = *mut THUMBBUTTON;
+        #[repr(i32)]
+        enum MERGE_UPDATE_STATUS {
+            MUS_COMPLETE = 0,
+            MUS_USERINPUTNEEDED = 1,
+            MUS_FAILED = 2,
+        }
+        #[repr(i32)]
+        enum MONITOR_APP_VISIBILITY {
+            MAV_UNKNOWN = 0,
+            MAV_NO_APP_VISIBLE = 1,
+            MAV_APP_VISIBLE = 2,
+        }
+        type MP_POPUPFLAGS = i32;
+        const MailRecipient: GUID = 0x9e56be60_c50f_11cf_9a2c_00a0c90a90ce;
+        #[repr(u32)]
+        #[flags]
+        enum NAMESPACEWALKFLAG {
+            NSWF_DEFAULT = 0,
+            NSWF_NONE_IMPLIES_ALL = 1,
+            NSWF_ONE_IMPLIES_ALL = 2,
+            NSWF_DONT_TRAVERSE_LINKS = 4,
+            NSWF_DONT_ACCUMULATE_RESULT = 8,
+            NSWF_TRAVERSE_STREAM_JUNCTIONS = 16,
+            NSWF_FILESYSTEM_ONLY = 32,
+            NSWF_SHOW_PROGRESS = 64,
+            NSWF_FLAG_VIEWORDER = 128,
+            NSWF_IGNORE_AUTOPLAY_HIDA = 256,
+            NSWF_ASYNC = 512,
+            NSWF_DONT_RESOLVE_LINKS = 1024,
+            NSWF_ACCUMULATE_FOLDERS = 2048,
+            NSWF_DONT_SORT = 4096,
+            NSWF_USE_TRANSFER_MEDIUM = 8192,
+            NSWF_DONT_TRAVERSE_STREAM_JUNCTIONS = 16384,
+            NSWF_ANY_IMPLIES_ALL = 32768,
+        }
+        #[repr(i32)]
+        enum NATIVE_DISPLAY_ORIENTATION {
+            NDO_LANDSCAPE = 0,
+            NDO_PORTRAIT = 1,
+        }
+        type NMCII_FLAGS = i32;
+        type NMCSAEI_FLAGS = i32;
+        #[repr(u32)]
+        #[flags]
+        enum NSTCFOLDERCAPABILITIES {
+            NSTCFC_NONE = 0,
+            NSTCFC_PINNEDITEMFILTERING = 1,
+            NSTCFC_DELAY_REGISTER_NOTIFY = 2,
+        }
+        #[repr(i32)]
+        enum NSTCGNI {
+            NSTCGNI_NEXT = 0,
+            NSTCGNI_NEXTVISIBLE = 1,
+            NSTCGNI_PREV = 2,
+            NSTCGNI_PREVVISIBLE = 3,
+            NSTCGNI_PARENT = 4,
+            NSTCGNI_CHILD = 5,
+            NSTCGNI_FIRSTVISIBLE = 6,
+            NSTCGNI_LASTVISIBLE = 7,
+        }
+        type NSTCITEMSTATE = u32;
+        type NSTCROOTSTYLE = u32;
+        type NSTCSTYLE = u32;
+        #[repr(u32)]
+        #[flags]
+        enum NWMF {
+            NWMF_UNLOADING = 1,
+            NWMF_USERINITED = 2,
+            NWMF_FIRST = 4,
+            NWMF_OVERRIDEKEY = 8,
+            NWMF_SHOWHELP = 16,
+            NWMF_HTMLDIALOG = 32,
+            NWMF_FROMDIALOGCHILD = 64,
+            NWMF_USERREQUESTED = 128,
+            NWMF_USERALLOWED = 256,
+            NWMF_FORCEWINDOW = 65536,
+            NWMF_FORCETAB = 131072,
+            NWMF_SUGGESTWINDOW = 262144,
+            NWMF_SUGGESTTAB = 524288,
+            NWMF_INACTIVETAB = 1048576,
+        }
+        const NamespaceWalker: GUID = 0x72eb61e0_8672_4303_9175_f2e4c68b2e7c;
+        const NetworkConnections: GUID = 0x7007acc7_3202_11d1_aad2_00805fc1270e;
+        const NetworkExplorerFolder: GUID = 0xf02c1a0d_be21_4350_88b0_7367fc96ef3c;
+        const NetworkPlaces: GUID = 0x208d2c60_3aea_1069_a2d7_08002b30309d;
+        const OF_CAP_CANCLOSE: u32 = 2;
+        const OF_CAP_CANSWITCHTO: u32 = 1;
+        type OPPROGDLGF = u32;
+        const OpenControlPanel: GUID = 0x06622d85_6856_4460_8de1_a81921b41c4b;
+        #[repr(i32)]
+        enum PACKAGE_EXECUTION_STATE {
+            PES_UNKNOWN = 0,
+            PES_RUNNING = 1,
+            PES_SUSPENDING = 2,
+            PES_SUSPENDED = 3,
+            PES_TERMINATED = 4,
+        }
+        type PCCMINVOKECOMMANDINFO = *const CMINVOKECOMMANDINFO;
+        type PCCMINVOKECOMMANDINFOEX = *const CMINVOKECOMMANDINFOEX;
+        type PCDELEGATEITEMID = *const DELEGATEITEMID;
+        type PDELEGATEITEMID = *mut DELEGATEITEMID;
+        type PDMODE = u32;
+        #[repr(i32)]
+        enum PDOPSTATUS {
+            PDOPS_RUNNING = 1,
+            PDOPS_PAUSED = 2,
+            PDOPS_CANCELLED = 3,
+            PDOPS_STOPPED = 4,
+            PDOPS_ERRORS = 5,
+        }
+        struct PERSIST_FOLDER_TARGET_INFO {
+            pidlTargetFolder: LPITEMIDLIST,
+            szTargetParsingName: [u16; 260],
+            szNetworkProvider: [u16; 260],
+            dwAttributes: u32,
+            csidl: i32,
+        }
+        type PFOLDERSETTINGS = *mut FOLDERSETTINGS;
+        #[repr(u32)]
+        #[flags]
+        enum PLACEHOLDER_STATES {
+            PS_NONE = 0,
+            PS_MARKED_FOR_OFFLINE_AVAILABILITY = 1,
+            PS_FULL_PRIMARY_STREAM_AVAILABLE = 2,
+            PS_CREATE_FILE_ACCESSIBLE = 4,
+            PS_CLOUDFILE_PLACEHOLDER = 8,
+            PS_DEFAULT = 7,
+            PS_ALL = 15,
+        }
+        struct PREVIEWHANDLERFRAMEINFO {
+            haccel: HACCEL,
+            cAccelEntries: u32,
+        }
+        type PROPERTYUI_FLAGS = u32;
+        type PROPERTYUI_FORMAT_FLAGS = u32;
+        type PROPERTYUI_NAME_FLAGS = u32;
+        #[encoding("utf-16")]
+        const PROP_CONTRACT_DELEGATE: String = "ContractDelegate";
+        type PSMCSHCHANGENOTIFYSTRUCT = *mut SMCSHCHANGENOTIFYSTRUCT;
+        type PSMINFO = *mut SMINFO;
+        const PackageDebugSettings: GUID = 0xb1aec16f_2383_4852_b0e9_8f0b1dc66b4d;
+        const PropertiesUI: GUID = 0xd912f8cf_0396_4915_884e_fb425d32943b;
+        const SBSP_ABSOLUTE: u32 = 0;
+        const SBSP_ACTIVATE_NOFOCUS: u32 = 524288;
+        const SBSP_ALLOW_AUTONAVIGATE: u32 = 65536;
+        const SBSP_CALLERUNTRUSTED: u32 = 8388608;
+        const SBSP_CREATENOHISTORY: u32 = 1048576;
+        const SBSP_DEFBROWSER: u32 = 0;
+        const SBSP_DEFMODE: u32 = 0;
+        const SBSP_EXPLOREMODE: u32 = 32;
+        const SBSP_FEEDNAVIGATION: u32 = 536870912;
+        const SBSP_HELPMODE: u32 = 64;
+        const SBSP_INITIATEDBYHLINKFRAME: u32 = 2147483648;
+        const SBSP_KEEPSAMETEMPLATE: u32 = 131072;
+        const SBSP_KEEPWORDWHEELTEXT: u32 = 262144;
+        const SBSP_NAVIGATEBACK: u32 = 16384;
+        const SBSP_NAVIGATEFORWARD: u32 = 32768;
+        const SBSP_NEWBROWSER: u32 = 2;
+        const SBSP_NOAUTOSELECT: u32 = 67108864;
+        const SBSP_NOTRANSFERHIST: u32 = 128;
+        const SBSP_OPENMODE: u32 = 16;
+        const SBSP_PARENT: u32 = 8192;
+        const SBSP_PLAYNOSOUND: u32 = 2097152;
+        const SBSP_REDIRECT: u32 = 1073741824;
+        const SBSP_RELATIVE: u32 = 4096;
+        const SBSP_SAMEBROWSER: u32 = 1;
+        const SBSP_TRUSTEDFORACTIVEX: u32 = 268435456;
+        const SBSP_TRUSTFIRSTDOWNLOAD: u32 = 16777216;
+        const SBSP_UNTRUSTEDFORDOWNLOAD: u32 = 33554432;
+        const SBSP_WRITENOHISTORY: u32 = 134217728;
+        type SFGAOF = u32;
+        const SFGAO_BROWSABLE: u32 = 134217728;
+        const SFGAO_CANCOPY: u32 = 1;
+        const SFGAO_CANDELETE: u32 = 32;
+        const SFGAO_CANLINK: u32 = 4;
+        const SFGAO_CANMONIKER: u32 = 4194304;
+        const SFGAO_CANMOVE: u32 = 2;
+        const SFGAO_CANRENAME: u32 = 16;
+        const SFGAO_CAPABILITYMASK: u32 = 375;
+        const SFGAO_COMPRESSED: u32 = 67108864;
+        const SFGAO_CONTENTSMASK: u32 = 2147483648;
+        const SFGAO_DISPLAYATTRMASK: u32 = 1032192;
+        const SFGAO_DROPTARGET: u32 = 256;
+        const SFGAO_ENCRYPTED: u32 = 8192;
+        const SFGAO_FILESYSANCESTOR: u32 = 268435456;
+        const SFGAO_FILESYSTEM: u32 = 1073741824;
+        const SFGAO_FOLDER: u32 = 536870912;
+        const SFGAO_GHOSTED: u32 = 32768;
+        const SFGAO_HASPROPSHEET: u32 = 64;
+        const SFGAO_HASSTORAGE: u32 = 4194304;
+        const SFGAO_HASSUBFOLDER: u32 = 2147483648;
+        const SFGAO_HIDDEN: u32 = 524288;
+        const SFGAO_ISSLOW: u32 = 16384;
+        const SFGAO_LINK: u32 = 65536;
+        const SFGAO_NEWCONTENT: u32 = 2097152;
+        const SFGAO_NONENUMERATED: u32 = 1048576;
+        const SFGAO_PKEYSFGAOMASK: u32 = 2164539392;
+        const SFGAO_PLACEHOLDER: u32 = 2048;
+        const SFGAO_READONLY: u32 = 262144;
+        const SFGAO_REMOVABLE: u32 = 33554432;
+        const SFGAO_SHARE: u32 = 131072;
+        const SFGAO_STORAGE: u32 = 8;
+        const SFGAO_STORAGEANCESTOR: u32 = 8388608;
+        const SFGAO_STORAGECAPMASK: u32 = 1891958792;
+        const SFGAO_STREAM: u32 = 4194304;
+        const SFGAO_SYSTEM: u32 = 4096;
+        const SFGAO_VALIDATE: u32 = 16777216;
+        #[repr(i32)]
+        enum SHARE_ROLE {
+            SHARE_ROLE_INVALID = -1,
+            SHARE_ROLE_READER = 0,
+            SHARE_ROLE_CONTRIBUTOR = 1,
+            SHARE_ROLE_CO_OWNER = 2,
+            SHARE_ROLE_OWNER = 3,
+            SHARE_ROLE_CUSTOM = 4,
+            SHARE_ROLE_MIXED = 5,
+        }
+        #[library("SHELL32.dll")]
+        extern fn SHAssocEnumHandlers(pszExtra: PCWSTR, afFilter: ASSOC_FILTER, ppEnumHandler: *mut IEnumAssocHandlers) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHAssocEnumHandlersForProtocolByApplication(protocol: PCWSTR, riid: *const GUID, enumHandlers: *mut *mut void) -> HRESULT;
+        const SHCIDS_ALLFIELDS: u32 = 2147483648;
+        const SHCIDS_BITMASK: u32 = 4294901760;
+        const SHCIDS_CANONICALONLY: u32 = 268435456;
+        const SHCIDS_COLUMNMASK: u32 = 65535;
+        type SHCONTF = u32;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateAssociationRegistration(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateDefaultExtractIcon(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateItemFromIDList(pidl: *const ITEMIDLIST, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateItemFromParsingName(pszPath: PCWSTR, #[opt] pbc: IBindCtx, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateItemFromRelativeName(psiParent: IShellItem, pszName: PCWSTR, #[opt] pbc: IBindCtx, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateItemInKnownFolder(kfid: *const KNOWNFOLDERID, dwKFFlags: u32, #[opt] pszItem: PCWSTR, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateItemWithParent(#[opt] pidlParent: *const ITEMIDLIST, #[opt] psfParent: IShellFolder, pidl: *const ITEMIDLIST, riid: *const GUID, ppvItem: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateShellItemArray(#[opt] pidlParent: *const ITEMIDLIST, #[opt] psf: IShellFolder, cidl: u32, #[len_param(2)] #[opt] ppidl: *const LPCITEMIDLIST, ppsiItemArray: *mut IShellItemArray) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateShellItemArrayFromDataObject(pdo: IDataObject, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateShellItemArrayFromIDLists(cidl: u32, #[len_param(0)] rgpidl: *const LPCITEMIDLIST, ppsiItemArray: *mut IShellItemArray) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateShellItemArrayFromShellItem(psi: IShellItem, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        struct SHDRAGIMAGE {
+            sizeDragImage: SIZE,
+            ptOffset: POINT,
+            hbmpDragImage: HBITMAP,
+            crColorKey: COLORREF,
+        }
+        type SHELLVIEWID = GUID;
+        struct SHELL_ITEM_RESOURCE {
+            guidType: GUID,
+            szName: [u16; 260],
+        }
+        type SHGDNF = u32;
+        #[library("SHELL32.dll")]
+        extern fn SHGetIDListFromObject(punk: IUnknown, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetItemFromDataObject(pdtobj: IDataObject, dwFlags: DATAOBJ_GET_ITEM_FLAGS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetItemFromObject(punk: IUnknown, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetNameFromIDList(pidl: *const ITEMIDLIST, sigdnName: SIGDN, ppszName: *mut PWSTR) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetPropertyStoreFromIDList(pidl: *const ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetPropertyStoreFromParsingName(pszPath: PCWSTR, #[opt] pbc: IBindCtx, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetTemporaryPropertyForItem(psi: IShellItem, propkey: *const PROPERTYKEY, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHResolveLibrary(psiLibrary: IShellItem) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHSetTemporaryPropertyForItem(psi: IShellItem, propkey: *const PROPERTYKEY, propvar: *const PROPVARIANT) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHShowManageLibraryUI(psiLibrary: IShellItem, hwndOwner: HWND, #[opt] pszTitle: PCWSTR, #[opt] pszInstruction: PCWSTR, lmdOptions: LIBRARYMANAGEDIALOGOPTIONS) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHSimpleIDListFromPath(pszPath: PCWSTR) -> LPITEMIDLIST;
+        #[repr(u32)]
+        #[flags]
+        enum SIATTRIBFLAGS {
+            SIATTRIBFLAGS_AND = 1,
+            SIATTRIBFLAGS_OR = 2,
+            SIATTRIBFLAGS_APPCOMPAT = 3,
+            SIATTRIBFLAGS_MASK = 3,
+            SIATTRIBFLAGS_ALLITEMS = 16384,
+        }
+        type SICHINTF = u32;
+        const SID_LaunchSourceAppUserModelId: GUID = 0x2ce78010_74db_48bc_9c6a_10f372495723;
+        const SID_LaunchSourceViewSizePreference: GUID = 0x80605492_67d9_414f_af89_a1cdf1242bc1;
+        const SID_LaunchTargetViewSizePreference: GUID = 0x26db2472_b7b7_406b_9702_730a4e20d3bf;
+        const SID_ShellExecuteNamedPropertyStore: GUID = 0xeb84ada2_00ff_4992_8324_ed5ce061cb29;
+        const SID_URLExecutionContext: GUID = 0xfb5f8ebc_bbb6_4d10_a461_777291a09030;
+        #[repr(i32)]
+        enum SIGDN {
+            SIGDN_NORMALDISPLAY = 0,
+            SIGDN_PARENTRELATIVEPARSING = -2147385343,
+            SIGDN_DESKTOPABSOLUTEPARSING = -2147319808,
+            SIGDN_PARENTRELATIVEEDITING = -2147282943,
+            SIGDN_DESKTOPABSOLUTEEDITING = -2147172352,
+            SIGDN_FILESYSPATH = -2147123200,
+            SIGDN_URL = -2147057664,
+            SIGDN_PARENTRELATIVEFORADDRESSBAR = -2146975743,
+            SIGDN_PARENTRELATIVE = -2146959359,
+            SIGDN_PARENTRELATIVEFORUI = -2146877439,
+        }
+        type SIIGBF = i32;
+        #[repr(u32)]
+        #[flags]
+        enum SLGP_FLAGS {
+            SLGP_SHORTPATH = 1,
+            SLGP_UNCPRIORITY = 2,
+            SLGP_RAWPATH = 4,
+            SLGP_RELATIVEPRIORITY = 8,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum SLR_FLAGS {
+            SLR_NONE = 0,
+            SLR_NO_UI = 1,
+            SLR_ANY_MATCH = 2,
+            SLR_UPDATE = 4,
+            SLR_NOUPDATE = 8,
+            SLR_NOSEARCH = 16,
+            SLR_NOTRACK = 32,
+            SLR_NOLINKINFO = 64,
+            SLR_INVOKE_MSI = 128,
+            SLR_NO_UI_WITH_MSG_PUMP = 257,
+            SLR_OFFER_DELETE_WITHOUT_FILE = 512,
+            SLR_KNOWNFOLDER = 1024,
+            SLR_MACHINE_IN_LOCAL_TARGET = 2048,
+            SLR_UPDATE_MACHINE_AND_SID = 4096,
+            SLR_NO_OBJECT_ID = 8192,
+        }
+        const SMAE_CONTRACTED: u32 = 2;
+        const SMAE_EXPANDED: u32 = 1;
+        const SMAE_USER: u32 = 4;
+        const SMAE_VALID: u32 = 7;
+        struct SMCSHCHANGENOTIFYSTRUCT {
+            lEvent: i32,
+            pidl1: LPCITEMIDLIST,
+            pidl2: LPCITEMIDLIST,
+        }
+        const SMC_AUTOEXPANDCHANGE: u32 = 66;
+        const SMC_CHEVRONEXPAND: u32 = 25;
+        const SMC_CHEVRONGETTIP: u32 = 47;
+        const SMC_CREATE: u32 = 2;
+        const SMC_DEFAULTICON: u32 = 22;
+        const SMC_DEMOTE: u32 = 17;
+        const SMC_DISPLAYCHEVRONTIP: u32 = 42;
+        const SMC_EXITMENU: u32 = 3;
+        const SMC_GETAUTOEXPANDSTATE: u32 = 65;
+        const SMC_GETBKCONTEXTMENU: u32 = 68;
+        const SMC_GETCONTEXTMENUMODIFIER: u32 = 67;
+        const SMC_GETINFO: u32 = 5;
+        const SMC_GETOBJECT: u32 = 7;
+        const SMC_GETSFINFO: u32 = 6;
+        const SMC_GETSFOBJECT: u32 = 8;
+        const SMC_INITMENU: u32 = 1;
+        const SMC_NEWITEM: u32 = 23;
+        const SMC_OPEN: u32 = 69;
+        const SMC_PROMOTE: u32 = 18;
+        const SMC_REFRESH: u32 = 16;
+        const SMC_SETSFOBJECT: u32 = 45;
+        const SMC_SFDDRESTRICTED: u32 = 48;
+        const SMC_SFEXEC: u32 = 9;
+        const SMC_SFEXEC_MIDDLE: u32 = 49;
+        const SMC_SFSELECTITEM: u32 = 10;
+        const SMC_SHCHANGENOTIFY: u32 = 46;
+        struct SMDATA {
+            dwMask: u32,
+            dwFlags: u32,
+            hmenu: HMENU,
+            hwnd: HWND,
+            uId: u32,
+            uIdParent: u32,
+            uIdAncestor: u32,
+            punk: IUnknown,
+            pidlFolder: LPITEMIDLIST,
+            pidlItem: LPITEMIDLIST,
+            psf: IShellFolder,
+            pvUserData: *mut void,
+        }
+        const SMDM_HMENU: u32 = 2;
+        const SMDM_SHELLFOLDER: u32 = 1;
+        const SMDM_TOOLBAR: u32 = 4;
+        struct SMINFO {
+            dwMask: u32,
+            dwType: u32,
+            dwFlags: u32,
+            iIcon: i32,
+        }
+        const SMINIT_AUTOEXPAND: u32 = 256;
+        const SMINIT_AUTOTOOLTIP: u32 = 512;
+        const SMINIT_CACHED: u32 = 16;
+        const SMINIT_DEFAULT: u32 = 0;
+        const SMINIT_DROPONCONTAINER: u32 = 1024;
+        const SMINIT_HORIZONTAL: u32 = 536870912;
+        const SMINIT_RESTRICT_DRAGDROP: u32 = 2;
+        const SMINIT_TOPLEVEL: u32 = 4;
+        const SMINIT_VERTICAL: u32 = 268435456;
+        const SMINV_ID: u32 = 8;
+        const SMINV_REFRESH: u32 = 1;
+        const SMSET_BOTTOM: u32 = 536870912;
+        const SMSET_DONTOWN: u32 = 1;
+        const SMSET_TOP: u32 = 268435456;
+        struct SORTCOLUMN {
+            propkey: PROPERTYKEY,
+            direction: SORTDIRECTION,
+        }
+        type SORTDIRECTION = i32;
+        #[repr(i32)]
+        enum SORT_ORDER_TYPE {
+            SOT_DEFAULT = 0,
+            SOT_IGNORE_FOLDERNESS = 1,
+        }
+        #[repr(i32)]
+        enum SPACTION {
+            SPACTION_NONE = 0,
+            SPACTION_MOVING = 1,
+            SPACTION_COPYING = 2,
+            SPACTION_RECYCLING = 3,
+            SPACTION_APPLYINGATTRIBS = 4,
+            SPACTION_DOWNLOADING = 5,
+            SPACTION_SEARCHING_INTERNET = 6,
+            SPACTION_CALCULATING = 7,
+            SPACTION_UPLOADING = 8,
+            SPACTION_SEARCHING_FILES = 9,
+            SPACTION_DELETING = 10,
+            SPACTION_RENAMING = 11,
+            SPACTION_FORMATTING = 12,
+            SPACTION_COPY_MOVING = 13,
+        }
+        type SPBEGINF = u32;
+        type SPINITF = u32;
+        #[repr(i32)]
+        enum SPTEXT {
+            SPTEXT_ACTIONDESCRIPTION = 1,
+            SPTEXT_ACTIONDETAIL = 2,
+        }
+        #[repr(i32)]
+        enum STGOP {
+            STGOP_MOVE = 1,
+            STGOP_COPY = 2,
+            STGOP_SYNC = 3,
+            STGOP_REMOVE = 5,
+            STGOP_RENAME = 6,
+            STGOP_APPLYPROPERTIES = 8,
+            STGOP_NEW = 10,
+        }
+        type STGTRANSCONFIRMATION = GUID;
+        #[repr(u32)]
+        #[flags]
+        enum STORAGE_PROVIDER_FILE_FLAGS {
+            SPFF_NONE = 0,
+            SPFF_DOWNLOAD_BY_DEFAULT = 1,
+            SPFF_CREATED_ON_THIS_DEVICE = 2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum STPFLAG {
+            STPF_NONE = 0,
+            STPF_USEAPPTHUMBNAILALWAYS = 1,
+            STPF_USEAPPTHUMBNAILWHENACTIVE = 2,
+            STPF_USEAPPPEEKALWAYS = 4,
+            STPF_USEAPPPEEKWHENACTIVE = 8,
+        }
+        #[encoding("utf-16")]
+        const STR_AVOID_DRIVE_RESTRICTION_POLICY: String = "Avoid Drive Restriction Policy";
+        #[encoding("utf-16")]
+        const STR_BIND_DELEGATE_CREATE_OBJECT: String = "Delegate Object Creation";
+        #[encoding("utf-16")]
+        const STR_BIND_FOLDERS_READ_ONLY: String = "Folders As Read Only";
+        #[encoding("utf-16")]
+        const STR_BIND_FOLDER_ENUM_MODE: String = "Folder Enum Mode";
+        #[encoding("utf-16")]
+        const STR_BIND_FORCE_FOLDER_SHORTCUT_RESOLVE: String = "Force Folder Shortcut Resolve";
+        #[encoding("utf-16")]
+        const STR_DONT_PARSE_RELATIVE: String = "Don't Parse Relative";
+        #[encoding("utf-16")]
+        const STR_DONT_RESOLVE_LINK: String = "Don't Resolve Link";
+        #[encoding("utf-16")]
+        const STR_ENUM_ITEMS_FLAGS: String = "SHCONTF";
+        #[encoding("utf-16")]
+        const STR_FILE_SYS_BIND_DATA: String = "File System Bind Data";
+        #[encoding("utf-16")]
+        const STR_FILE_SYS_BIND_DATA_WIN7_FORMAT: String = "Win7FileSystemIdList";
+        #[encoding("utf-16")]
+        const STR_GET_ASYNC_HANDLER: String = "GetAsyncHandler";
+        #[encoding("utf-16")]
+        const STR_GPS_BESTEFFORT: String = "GPS_BESTEFFORT";
+        #[encoding("utf-16")]
+        const STR_GPS_DELAYCREATION: String = "GPS_DELAYCREATION";
+        #[encoding("utf-16")]
+        const STR_GPS_FASTPROPERTIESONLY: String = "GPS_FASTPROPERTIESONLY";
+        #[encoding("utf-16")]
+        const STR_GPS_HANDLERPROPERTIESONLY: String = "GPS_HANDLERPROPERTIESONLY";
+        #[encoding("utf-16")]
+        const STR_GPS_NO_OPLOCK: String = "GPS_NO_OPLOCK";
+        #[encoding("utf-16")]
+        const STR_GPS_OPENSLOWITEM: String = "GPS_OPENSLOWITEM";
+        #[encoding("utf-16")]
+        const STR_INTERNAL_NAVIGATE: String = "Internal Navigation";
+        #[encoding("utf-16")]
+        const STR_INTERNETFOLDER_PARSE_ONLY_URLMON_BINDABLE: String = "Validate URL";
+        #[encoding("utf-16")]
+        const STR_ITEM_CACHE_CONTEXT: String = "ItemCacheContext";
+        #[encoding("utf-16")]
+        const STR_NO_VALIDATE_FILENAME_CHARS: String = "NoValidateFilenameChars";
+        #[encoding("utf-16")]
+        const STR_PARSE_ALLOW_INTERNET_SHELL_FOLDERS: String = "Allow binding to Internet shell folder handlers and negate STR_PARSE_PREFER_WEB_BROWSING";
+        #[encoding("utf-16")]
+        const STR_PARSE_AND_CREATE_ITEM: String = "ParseAndCreateItem";
+        #[encoding("utf-16")]
+        const STR_PARSE_DONT_REQUIRE_VALIDATED_URLS: String = "Do not require validated URLs";
+        #[encoding("utf-16")]
+        const STR_PARSE_EXPLICIT_ASSOCIATION_SUCCESSFUL: String = "ExplicitAssociationSuccessful";
+        #[encoding("utf-16")]
+        const STR_PARSE_PREFER_FOLDER_BROWSING: String = "Parse Prefer Folder Browsing";
+        #[encoding("utf-16")]
+        const STR_PARSE_PREFER_WEB_BROWSING: String = "Do not bind to Internet shell folder handlers";
+        #[encoding("utf-16")]
+        const STR_PARSE_PROPERTYSTORE: String = "DelegateNamedProperties";
+        #[encoding("utf-16")]
+        const STR_PARSE_SHELL_PROTOCOL_TO_FILE_OBJECTS: String = "Parse Shell Protocol To File Objects";
+        #[encoding("utf-16")]
+        const STR_PARSE_SHOW_NET_DIAGNOSTICS_UI: String = "Show network diagnostics UI";
+        #[encoding("utf-16")]
+        const STR_PARSE_SKIP_NET_CACHE: String = "Skip Net Resource Cache";
+        #[encoding("utf-16")]
+        const STR_PARSE_TRANSLATE_ALIASES: String = "Parse Translate Aliases";
+        #[encoding("utf-16")]
+        const STR_PARSE_WITH_EXPLICIT_ASSOCAPP: String = "ExplicitAssociationApp";
+        #[encoding("utf-16")]
+        const STR_PARSE_WITH_EXPLICIT_PROGID: String = "ExplicitProgid";
+        #[encoding("utf-16")]
+        const STR_PROPERTYBAG_PARAM: String = "SHBindCtxPropertyBag";
+        #[encoding("utf-16")]
+        const STR_REFERRER_IDENTIFIER: String = "Referrer Identifier";
+        #[encoding("utf-16")]
+        const STR_SKIP_BINDING_CLSID: String = "Skip Binding CLSID";
+        #[encoding("utf-16")]
+        const STR_STORAGEITEM_CREATION_FLAGS: String = "SHGETSTORAGEITEM";
+        #[encoding("utf-16")]
+        const STR_TAB_REUSE_IDENTIFIER: String = "Tab Reuse Identifier";
+        #[encoding("utf-16")]
+        const STR_TRACK_CLSID: String = "Track the CLSID";
+        struct SV2CVW2_PARAMS {
+            cbSize: u32,
+            psvPrev: IShellView,
+            pfs: LPCFOLDERSETTINGS,
+            psbOwner: IShellBrowser,
+            prcView: *mut RECT,
+            pvid: *const SHELLVIEWID,
+            hwndView: HWND,
+        }
+        const SV2GV_CURRENTVIEW: u32 = 4294967295;
+        const SV2GV_DEFAULTVIEW: u32 = 4294967294;
+        type SVGIO = i32;
+        type SVSIF = u32;
+        const SVSI_NOSTATECHANGE: u32 = 2147483648;
+        #[repr(i32)]
+        enum SVUIA_STATUS {
+            SVUIA_DEACTIVATE = 0,
+            SVUIA_ACTIVATE_NOFOCUS = 1,
+            SVUIA_ACTIVATE_FOCUS = 2,
+            SVUIA_INPLACEACTIVATE = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum SYNC_TRANSFER_STATUS {
+            STS_NONE = 0,
+            STS_NEEDSUPLOAD = 1,
+            STS_NEEDSDOWNLOAD = 2,
+            STS_TRANSFERRING = 4,
+            STS_PAUSED = 8,
+            STS_HASERROR = 16,
+            STS_FETCHING_METADATA = 32,
+            STS_USER_REQUESTED_REFRESH = 64,
+            STS_HASWARNING = 128,
+            STS_EXCLUDED = 256,
+            STS_INCOMPLETE = 512,
+            STS_PLACEHOLDER_IFEMPTY = 1024,
+        }
+        const ScheduledTasks: GUID = 0xd6277990_4c6a_11cf_8d87_00aa0060f5bf;
+        const SearchFolderItemFactory: GUID = 0x14010e02_bbbd_41f0_88e3_eda371216584;
+        #[library("SHELL32.dll")]
+        extern fn SetCurrentProcessExplicitAppUserModelID(AppID: PCWSTR) -> HRESULT;
+        const SharingConfigurationManager: GUID = 0x49f371e1_8c5c_4d9c_9a3b_54a6827f513c;
+        const ShellDesktop: GUID = 0x00021400_0000_0000_c000_000000000046;
+        const ShellFSFolder: GUID = 0xf3364ba0_65b9_11ce_a9ba_00aa004ae837;
+        const ShellItem: GUID = 0x9ac9fbe1_e0a2_4ad6_b4ee_e212013ea917;
+        const ShellLibrary: GUID = 0xd9b3211d_e57f_4426_aaef_30a806add397;
+        const ShellLink: GUID = 0x00021401_0000_0000_c000_000000000046;
+        const SizeCategorizer: GUID = 0x55d7b852_f6d1_42f2_aa75_8728a1b2d264;
+        const SuspensionDependencyManager: GUID = 0x6b273fc5_61fd_4918_95a2_c3b5e9d7f581;
+        #[repr(u32)]
+        #[flags]
+        enum TBPFLAG {
+            TBPF_NOPROGRESS = 0,
+            TBPF_INDETERMINATE = 1,
+            TBPF_NORMAL = 2,
+            TBPF_ERROR = 4,
+            TBPF_PAUSED = 8,
+        }
+        const THBN_CLICKED: u32 = 6144;
+        struct THUMBBUTTON {
+            dwMask: THUMBBUTTONMASK,
+            iId: u32,
+            iBitmap: u32,
+            hIcon: HICON,
+            szTip: [u16; 260],
+            dwFlags: THUMBBUTTONFLAGS,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum THUMBBUTTONFLAGS {
+            THBF_ENABLED = 0,
+            THBF_DISABLED = 1,
+            THBF_DISMISSONCLICK = 2,
+            THBF_NOBACKGROUND = 4,
+            THBF_HIDDEN = 8,
+            THBF_NONINTERACTIVE = 16,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum THUMBBUTTONMASK {
+            THB_BITMAP = 1,
+            THB_ICON = 2,
+            THB_TOOLTIP = 4,
+            THB_FLAGS = 8,
+        }
+        type TRANSFER_ADVISE_STATE = u32;
+        type TRANSFER_SOURCE_FLAGS = u32;
+        const TaskbarList: GUID = 0x56fdf344_fd6d_11d0_958a_006097c9a090;
+        const UserNotification: GUID = 0x0010890e_8789_413c_adbc_48f5b511b3af;
+        #[repr(i32)]
+        enum _BROWSERFRAMEOPTIONS {
+            BFO_NONE = 0,
+            BFO_BROWSER_PERSIST_SETTINGS = 1,
+            BFO_RENAME_FOLDER_OPTIONS_TOINTERNET = 2,
+            BFO_BOTH_OPTIONS = 4,
+            BIF_PREFER_INTERNET_SHORTCUT = 8,
+            BFO_BROWSE_NO_IN_NEW_PROCESS = 16,
+            BFO_ENABLE_HYPERLINK_TRACKING = 32,
+            BFO_USE_IE_OFFLINE_SUPPORT = 64,
+            BFO_SUBSTITUE_INTERNET_START_PAGE = 128,
+            BFO_USE_IE_LOGOBANDING = 256,
+            BFO_ADD_IE_TOCAPTIONBAR = 512,
+            BFO_USE_DIALUP_REF = 1024,
+            BFO_USE_IE_TOOLBAR = 2048,
+            BFO_NO_PARENT_FOLDER_SUPPORT = 4096,
+            BFO_NO_REOPEN_NEXT_RESTART = 8192,
+            BFO_GO_HOME_PAGE = 16384,
+            BFO_PREFER_IEPROCESS = 32768,
+            BFO_SHOW_NAVIGATION_CANCELLED = 65536,
+            BFO_USE_IE_STATUSBAR = 131072,
+            BFO_QUERY_ALL = -1,
+        }
+        #[repr(i32)]
+        enum _EXPCMDFLAGS {
+            ECF_DEFAULT = 0,
+            ECF_HASSUBCOMMANDS = 1,
+            ECF_HASSPLITBUTTON = 2,
+            ECF_HIDELABEL = 4,
+            ECF_ISSEPARATOR = 8,
+            ECF_HASLUASHIELD = 16,
+            ECF_SEPARATORBEFORE = 32,
+            ECF_SEPARATORAFTER = 64,
+            ECF_ISDROPDOWN = 128,
+            ECF_TOGGLEABLE = 256,
+            ECF_AUTOMENUICONS = 512,
+        }
+        #[repr(i32)]
+        enum _EXPCMDSTATE {
+            ECS_ENABLED = 0,
+            ECS_DISABLED = 1,
+            ECS_HIDDEN = 2,
+            ECS_CHECKBOX = 4,
+            ECS_CHECKED = 8,
+            ECS_RADIOCHECK = 16,
+        }
+        #[repr(i32)]
+        enum _EXPLORERPANESTATE {
+            EPS_DONTCARE = 0,
+            EPS_DEFAULT_ON = 1,
+            EPS_DEFAULT_OFF = 2,
+            EPS_STATEMASK = 65535,
+            EPS_INITIALSTATE = 65536,
+            EPS_FORCE = 131072,
+        }
+        #[repr(i32)]
+        enum _EXPPS {
+            EXPPS_FILETYPES = 1,
+        }
+        #[repr(i32)]
+        enum _FILEOPENDIALOGOPTIONS {
+            FOS_OVERWRITEPROMPT = 2,
+            FOS_STRICTFILETYPES = 4,
+            FOS_NOCHANGEDIR = 8,
+            FOS_PICKFOLDERS = 32,
+            FOS_FORCEFILESYSTEM = 64,
+            FOS_ALLNONSTORAGEITEMS = 128,
+            FOS_NOVALIDATE = 256,
+            FOS_ALLOWMULTISELECT = 512,
+            FOS_PATHMUSTEXIST = 2048,
+            FOS_FILEMUSTEXIST = 4096,
+            FOS_CREATEPROMPT = 8192,
+            FOS_SHAREAWARE = 16384,
+            FOS_NOREADONLYRETURN = 32768,
+            FOS_NOTESTFILECREATE = 65536,
+            FOS_HIDEMRUPLACES = 131072,
+            FOS_HIDEPINNEDPLACES = 262144,
+            FOS_NODEREFERENCELINKS = 1048576,
+            FOS_OKBUTTONNEEDSINTERACTION = 2097152,
+            FOS_DONTADDTORECENT = 33554432,
+            FOS_FORCESHOWHIDDEN = 268435456,
+            FOS_DEFAULTNOMINIMODE = 536870912,
+            FOS_FORCEPREVIEWPANEON = 1073741824,
+            FOS_SUPPORTSTREAMABLEITEMS = -2147483648,
+        }
+        #[repr(i32)]
+        enum _KF_DEFINITION_FLAGS {
+            KFDF_LOCAL_REDIRECT_ONLY = 2,
+            KFDF_ROAMABLE = 4,
+            KFDF_PRECREATE = 8,
+            KFDF_STREAM = 16,
+            KFDF_PUBLISHEXPANDEDPATH = 32,
+            KFDF_NO_REDIRECT_UI = 64,
+        }
+        #[repr(i32)]
+        enum _KF_REDIRECTION_CAPABILITIES {
+            KF_REDIRECTION_CAPABILITIES_ALLOW_ALL = 255,
+            KF_REDIRECTION_CAPABILITIES_REDIRECTABLE = 1,
+            KF_REDIRECTION_CAPABILITIES_DENY_ALL = 1048320,
+            KF_REDIRECTION_CAPABILITIES_DENY_POLICY_REDIRECTED = 256,
+            KF_REDIRECTION_CAPABILITIES_DENY_POLICY = 512,
+            KF_REDIRECTION_CAPABILITIES_DENY_PERMISSIONS = 1024,
+        }
+        #[repr(i32)]
+        enum _KF_REDIRECT_FLAGS {
+            KF_REDIRECT_USER_EXCLUSIVE = 1,
+            KF_REDIRECT_COPY_SOURCE_DACL = 2,
+            KF_REDIRECT_OWNER_USER = 4,
+            KF_REDIRECT_SET_OWNER_EXPLICIT = 8,
+            KF_REDIRECT_CHECK_ONLY = 16,
+            KF_REDIRECT_WITH_UI = 32,
+            KF_REDIRECT_UNPIN = 64,
+            KF_REDIRECT_PIN = 128,
+            KF_REDIRECT_COPY_CONTENTS = 512,
+            KF_REDIRECT_DEL_SOURCE_CONTENTS = 1024,
+            KF_REDIRECT_EXCLUDE_ALL_KNOWN_SUBFOLDERS = 2048,
+        }
+        #[repr(i32)]
+        enum _NMCII_FLAGS {
+            NMCII_NONE = 0,
+            NMCII_ITEMS = 1,
+            NMCII_FOLDERS = 2,
+        }
+        #[repr(i32)]
+        enum _NMCSAEI_FLAGS {
+            NMCSAEI_SELECT = 0,
+            NMCSAEI_EDIT = 1,
+        }
+        #[repr(i32)]
+        enum _NSTCITEMSTATE {
+            NSTCIS_NONE = 0,
+            NSTCIS_SELECTED = 1,
+            NSTCIS_EXPANDED = 2,
+            NSTCIS_BOLD = 4,
+            NSTCIS_DISABLED = 8,
+            NSTCIS_SELECTEDNOEXPAND = 16,
+        }
+        #[repr(i32)]
+        enum _NSTCROOTSTYLE {
+            NSTCRS_VISIBLE = 0,
+            NSTCRS_HIDDEN = 1,
+            NSTCRS_EXPANDED = 2,
+        }
+        #[repr(i32)]
+        enum _NSTCSTYLE {
+            NSTCS_HASEXPANDOS = 1,
+            NSTCS_HASLINES = 2,
+            NSTCS_SINGLECLICKEXPAND = 4,
+            NSTCS_FULLROWSELECT = 8,
+            NSTCS_SPRINGEXPAND = 16,
+            NSTCS_HORIZONTALSCROLL = 32,
+            NSTCS_ROOTHASEXPANDO = 64,
+            NSTCS_SHOWSELECTIONALWAYS = 128,
+            NSTCS_NOINFOTIP = 512,
+            NSTCS_EVENHEIGHT = 1024,
+            NSTCS_NOREPLACEOPEN = 2048,
+            NSTCS_DISABLEDRAGDROP = 4096,
+            NSTCS_NOORDERSTREAM = 8192,
+            NSTCS_RICHTOOLTIP = 16384,
+            NSTCS_BORDER = 32768,
+            NSTCS_NOEDITLABELS = 65536,
+            NSTCS_TABSTOP = 131072,
+            NSTCS_FAVORITESMODE = 524288,
+            NSTCS_AUTOHSCROLL = 1048576,
+            NSTCS_FADEINOUTEXPANDOS = 2097152,
+            NSTCS_EMPTYTEXT = 4194304,
+            NSTCS_CHECKBOXES = 8388608,
+            NSTCS_PARTIALCHECKBOXES = 16777216,
+            NSTCS_EXCLUSIONCHECKBOXES = 33554432,
+            NSTCS_DIMMEDCHECKBOXES = 67108864,
+            NSTCS_NOINDENTCHECKS = 134217728,
+            NSTCS_ALLOWJUNCTIONS = 268435456,
+            NSTCS_SHOWTABSBUTTON = 536870912,
+            NSTCS_SHOWDELETEBUTTON = 1073741824,
+            NSTCS_SHOWREFRESHBUTTON = -2147483648,
+        }
+        #[repr(i32)]
+        enum _OPPROGDLGF {
+            OPPROGDLG_DEFAULT = 0,
+            OPPROGDLG_ENABLEPAUSE = 128,
+            OPPROGDLG_ALLOWUNDO = 256,
+            OPPROGDLG_DONTDISPLAYSOURCEPATH = 512,
+            OPPROGDLG_DONTDISPLAYDESTPATH = 1024,
+            OPPROGDLG_NOMULTIDAYESTIMATES = 2048,
+            OPPROGDLG_DONTDISPLAYLOCATIONS = 4096,
+        }
+        #[repr(i32)]
+        enum _PDMODE {
+            PDM_DEFAULT = 0,
+            PDM_RUN = 1,
+            PDM_PREFLIGHT = 2,
+            PDM_UNDOING = 4,
+            PDM_ERRORSBLOCKING = 8,
+            PDM_INDETERMINATE = 16,
+        }
+        #[repr(i32)]
+        enum _PROPERTYUI_FLAGS {
+            PUIF_DEFAULT = 0,
+            PUIF_RIGHTALIGN = 1,
+            PUIF_NOLABELININFOTIP = 2,
+        }
+        #[repr(i32)]
+        enum _PROPERTYUI_FORMAT_FLAGS {
+            PUIFFDF_DEFAULT = 0,
+            PUIFFDF_RIGHTTOLEFT = 1,
+            PUIFFDF_SHORTFORMAT = 2,
+            PUIFFDF_NOTIME = 4,
+            PUIFFDF_FRIENDLYDATE = 8,
+        }
+        #[repr(i32)]
+        enum _PROPERTYUI_NAME_FLAGS {
+            PUIFNF_DEFAULT = 0,
+            PUIFNF_MNEMONIC = 1,
+        }
+        #[repr(i32)]
+        enum _SHCONTF {
+            SHCONTF_CHECKING_FOR_CHILDREN = 16,
+            SHCONTF_FOLDERS = 32,
+            SHCONTF_NONFOLDERS = 64,
+            SHCONTF_INCLUDEHIDDEN = 128,
+            SHCONTF_INIT_ON_FIRST_NEXT = 256,
+            SHCONTF_NETPRINTERSRCH = 512,
+            SHCONTF_SHAREABLE = 1024,
+            SHCONTF_STORAGE = 2048,
+            SHCONTF_NAVIGATION_ENUM = 4096,
+            SHCONTF_FASTITEMS = 8192,
+            SHCONTF_FLATLIST = 16384,
+            SHCONTF_ENABLE_ASYNC = 32768,
+            SHCONTF_INCLUDESUPERHIDDEN = 65536,
+        }
+        #[repr(i32)]
+        enum _SHGDNF {
+            SHGDN_NORMAL = 0,
+            SHGDN_INFOLDER = 1,
+            SHGDN_FOREDITING = 4096,
+            SHGDN_FORADDRESSBAR = 16384,
+            SHGDN_FORPARSING = 32768,
+        }
+        #[repr(i32)]
+        enum _SICHINTF {
+            SICHINT_DISPLAY = 0,
+            SICHINT_ALLFIELDS = -2147483648,
+            SICHINT_CANONICAL = 268435456,
+            SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL = 536870912,
+        }
+        #[repr(i32)]
+        enum _SIIGBF {
+            SIIGBF_RESIZETOFIT = 0,
+            SIIGBF_BIGGERSIZEOK = 1,
+            SIIGBF_MEMORYONLY = 2,
+            SIIGBF_ICONONLY = 4,
+            SIIGBF_THUMBNAILONLY = 8,
+            SIIGBF_INCACHEONLY = 16,
+            SIIGBF_CROPTOSQUARE = 32,
+            SIIGBF_WIDETHUMBNAILS = 64,
+            SIIGBF_ICONBACKGROUND = 128,
+            SIIGBF_SCALEUP = 256,
+        }
+        #[repr(i32)]
+        enum _SPBEGINF {
+            SPBEGINF_NORMAL = 0,
+            SPBEGINF_AUTOTIME = 2,
+            SPBEGINF_NOPROGRESSBAR = 16,
+            SPBEGINF_MARQUEEPROGRESS = 32,
+            SPBEGINF_NOCANCELBUTTON = 64,
+        }
+        #[repr(i32)]
+        enum _SPINITF {
+            SPINITF_NORMAL = 0,
+            SPINITF_MODAL = 1,
+            SPINITF_NOMINIMIZE = 8,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum _SVGIO {
+            SVGIO_BACKGROUND = 0,
+            SVGIO_SELECTION = 1,
+            SVGIO_ALLVIEW = 2,
+            SVGIO_CHECKED = 3,
+            SVGIO_TYPE_MASK = 15,
+            SVGIO_FLAG_VIEWORDER = 2147483648,
+        }
+        #[repr(i32)]
+        enum _SVSIF {
+            SVSI_DESELECT = 0,
+            SVSI_SELECT = 1,
+            SVSI_EDIT = 3,
+            SVSI_DESELECTOTHERS = 4,
+            SVSI_ENSUREVISIBLE = 8,
+            SVSI_FOCUSED = 16,
+            SVSI_TRANSLATEPT = 32,
+            SVSI_SELECTIONMARK = 64,
+            SVSI_POSITIONITEM = 128,
+            SVSI_CHECK = 256,
+            SVSI_CHECK2 = 512,
+            SVSI_KEYBOARDSELECT = 1025,
+            SVSI_NOTAKEFOCUS = 1073741824,
+        }
+        #[repr(i32)]
+        enum _TRANSFER_ADVISE_STATE {
+            TS_NONE = 0,
+            TS_PERFORMING = 1,
+            TS_PREPARING = 2,
+            TS_INDETERMINATE = 4,
+        }
+        #[repr(i32)]
+        enum _TRANSFER_SOURCE_FLAGS {
+            TSF_NORMAL = 0,
+            TSF_FAIL_EXIST = 0,
+            TSF_RENAME_EXIST = 1,
+            TSF_OVERWRITE_EXIST = 2,
+            TSF_ALLOW_DECRYPTION = 4,
+            TSF_NO_SECURITY = 8,
+            TSF_COPY_CREATION_TIME = 16,
+            TSF_COPY_WRITE_TIME = 32,
+            TSF_USE_FULL_ACCESS = 64,
+            TSF_DELETE_RECYCLE_IF_POSSIBLE = 128,
+            TSF_COPY_HARD_LINK = 256,
+            TSF_COPY_LOCALIZED_NAME = 512,
+            TSF_MOVE_AS_COPY_DELETE = 1024,
+            TSF_SUSPEND_SHELLEVENTS = 2048,
+        }
+        #[repr(i32)]
+        enum tagBANDSITECID {
+            BSID_BANDADDED = 0,
+            BSID_BANDREMOVED = 1,
+        }
+        #[repr(i32)]
+        enum tagDESKBANDCID {
+            DBID_BANDINFOCHANGED = 0,
+            DBID_SHOWONLY = 1,
+            DBID_MAXIMIZEBAND = 2,
+            DBID_PUSHCHEVRON = 3,
+            DBID_DELAYINIT = 4,
+            DBID_FINISHINIT = 5,
+            DBID_SETWINDOWTHEME = 6,
+            DBID_PERMITAUTOHIDE = 7,
+        }
+        #[repr(i32)]
+        enum tagMENUBANDHANDLERCID {
+            MBHANDCID_PIDLSELECT = 0,
+        }
+        #[repr(i32)]
+        enum tagMENUPOPUPPOPUPFLAGS {
+            MPPF_SETFOCUS = 1,
+            MPPF_INITIALSELECT = 2,
+            MPPF_NOANIMATE = 4,
+            MPPF_KEYBOARD = 16,
+            MPPF_REPOSITION = 32,
+            MPPF_FORCEZORDER = 64,
+            MPPF_FINALSELECT = 128,
+            MPPF_TOP = 536870912,
+            MPPF_LEFT = 1073741824,
+            MPPF_RIGHT = 1610612736,
+            MPPF_BOTTOM = -2147483648,
+            MPPF_POS_MASK = -536870912,
+            MPPF_ALIGN_LEFT = 33554432,
+            MPPF_ALIGN_RIGHT = 67108864,
+        }
+        #[repr(i32)]
+        enum tagMENUPOPUPSELECT {
+            MPOS_EXECUTE = 0,
+            MPOS_FULLCANCEL = 1,
+            MPOS_CANCELLEVEL = 2,
+            MPOS_SELECTLEFT = 3,
+            MPOS_SELECTRIGHT = 4,
+            MPOS_CHILDTRACKING = 5,
+        }
+        #[repr(i32)]
+        enum tagSMINFOFLAGS {
+            SMIF_ICON = 1,
+            SMIF_ACCELERATOR = 2,
+            SMIF_DROPTARGET = 4,
+            SMIF_SUBMENU = 8,
+            SMIF_CHECKED = 32,
+            SMIF_DROPCASCADE = 64,
+            SMIF_HIDDEN = 128,
+            SMIF_DISABLED = 256,
+            SMIF_TRACKPOPUP = 512,
+            SMIF_DEMOTED = 1024,
+            SMIF_ALTSTATE = 2048,
+            SMIF_DRAGNDROP = 4096,
+            SMIF_NEW = 8192,
+        }
+        #[repr(i32)]
+        enum tagSMINFOMASK {
+            SMIM_TYPE = 1,
+            SMIM_FLAGS = 2,
+            SMIM_ICON = 4,
+        }
+        #[repr(i32)]
+        enum tagSMINFOTYPE {
+            SMIT_SEPARATOR = 1,
+            SMIT_STRING = 2,
+        }
+        #[repr(i32)]
+        enum tagSORTDIRECTION {
+            SORT_DESCENDING = -1,
+            SORT_ASCENDING = 1,
+        }
+    }
+}

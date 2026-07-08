@@ -1,0 +1,50 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DXGI_MEMORY_SEGMENT_GROUP {
+            DXGI_MEMORY_SEGMENT_GROUP_LOCAL = 0,
+            DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL = 1,
+        }
+        #[repr(i32)]
+        enum DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
+            DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG_PRESENT = 1,
+        }
+        struct DXGI_QUERY_VIDEO_MEMORY_INFO {
+            Budget: u64,
+            CurrentUsage: u64,
+            AvailableForReservation: u64,
+            CurrentReservation: u64,
+        }
+        #[repr(i32)]
+        enum DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
+            DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT = 1,
+            DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_OVERLAY_PRESENT = 2,
+        }
+        #[guid(0x645967a4_1392_4310_a798_8053ce3e93fd)]
+        interface IDXGIAdapter3: IDXGIAdapter2 {
+            fn RegisterHardwareContentProtectionTeardownStatusEvent(&self, hEvent: HANDLE, pdwCookie: *mut u32) -> HRESULT;
+            fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwCookie: u32);
+            fn QueryVideoMemoryInfo(&self, NodeIndex: u32, MemorySegmentGroup: DXGI_MEMORY_SEGMENT_GROUP, pVideoMemoryInfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> HRESULT;
+            fn SetVideoMemoryReservation(&self, NodeIndex: u32, MemorySegmentGroup: DXGI_MEMORY_SEGMENT_GROUP, Reservation: u64) -> HRESULT;
+            fn RegisterVideoMemoryBudgetChangeNotificationEvent(&self, hEvent: HANDLE, pdwCookie: *mut u32) -> HRESULT;
+            fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwCookie: u32);
+        }
+        #[guid(0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a)]
+        interface IDXGIFactory4: IDXGIFactory3 {
+            fn EnumAdapterByLuid(&self, AdapterLuid: LUID, riid: *const GUID, #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+            fn EnumWarpAdapter(&self, riid: *const GUID, #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xdc7dca35_2196_414d_9f53_617884032a60)]
+        interface IDXGIOutput4: IDXGIOutput3 {
+            fn CheckOverlayColorSpaceSupport(&self, Format: DXGI_FORMAT, ColorSpace: DXGI_COLOR_SPACE_TYPE, pConcernedDevice: IUnknown, pFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0x94d99bdb_f1f8_4ab0_b236_7da0170edab1)]
+        interface IDXGISwapChain3: IDXGISwapChain2 {
+            fn GetCurrentBackBufferIndex(&self) -> u32;
+            fn CheckColorSpaceSupport(&self, ColorSpace: DXGI_COLOR_SPACE_TYPE, pColorSpaceSupport: *mut u32) -> HRESULT;
+            fn SetColorSpace1(&self, ColorSpace: DXGI_COLOR_SPACE_TYPE) -> HRESULT;
+            fn ResizeBuffers1(&self, BufferCount: u32, Width: u32, Height: u32, Format: DXGI_FORMAT, SwapChainFlags: u32, #[len_param(0)] pCreationNodeMask: *const u32, #[len_param(0)] ppPresentQueue: *const IUnknown) -> HRESULT;
+        }
+    }
+}

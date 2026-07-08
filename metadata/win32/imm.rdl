@@ -1,0 +1,480 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ATTR_CONVERTED: u32 = 2;
+        const ATTR_FIXEDCONVERTED: u32 = 5;
+        const ATTR_INPUT: u32 = 0;
+        const ATTR_INPUT_ERROR: u32 = 4;
+        const ATTR_TARGET_CONVERTED: u32 = 1;
+        const ATTR_TARGET_NOTCONVERTED: u32 = 3;
+        struct CANDIDATEFORM {
+            dwIndex: u32,
+            dwStyle: u32,
+            ptCurrentPos: POINT,
+            rcArea: RECT,
+        }
+        struct CANDIDATELIST {
+            dwSize: u32,
+            dwStyle: u32,
+            dwCount: u32,
+            dwSelection: u32,
+            dwPageStart: u32,
+            dwPageSize: u32,
+            dwOffset: [u32; 1],
+        }
+        const CFS_CANDIDATEPOS: u32 = 64;
+        const CFS_DEFAULT: u32 = 0;
+        const CFS_EXCLUDE: u32 = 128;
+        const CFS_FORCE_POSITION: u32 = 32;
+        const CFS_POINT: u32 = 2;
+        const CFS_RECT: u32 = 1;
+        struct COMPOSITIONFORM {
+            dwStyle: u32,
+            ptCurrentPos: POINT,
+            rcArea: RECT,
+        }
+        const CPS_CANCEL: u32 = 4;
+        const CPS_COMPLETE: u32 = 1;
+        const CPS_CONVERT: u32 = 2;
+        const CPS_REVERT: u32 = 3;
+        const CS_INSERTCHAR: u32 = 8192;
+        const CS_NOMOVECARET: u32 = 16384;
+        const GCL_CONVERSION: u32 = 1;
+        const GCL_REVERSECONVERSION: u32 = 2;
+        const GCL_REVERSE_LENGTH: u32 = 3;
+        const GCS_COMPATTR: u32 = 16;
+        const GCS_COMPCLAUSE: u32 = 32;
+        const GCS_COMPREADATTR: u32 = 2;
+        const GCS_COMPREADCLAUSE: u32 = 4;
+        const GCS_COMPREADSTR: u32 = 1;
+        const GCS_COMPSTR: u32 = 8;
+        const GCS_CURSORPOS: u32 = 128;
+        const GCS_DELTASTART: u32 = 256;
+        const GCS_RESULTCLAUSE: u32 = 4096;
+        const GCS_RESULTREADCLAUSE: u32 = 1024;
+        const GCS_RESULTREADSTR: u32 = 512;
+        const GCS_RESULTSTR: u32 = 2048;
+        const GGL_INDEX: u32 = 2;
+        const GGL_LEVEL: u32 = 1;
+        const GGL_PRIVATE: u32 = 4;
+        const GGL_STRING: u32 = 3;
+        const GL_ID_CANNOTSAVE: u32 = 17;
+        const GL_ID_CHOOSECANDIDATE: u32 = 40;
+        const GL_ID_INPUTCODE: u32 = 38;
+        const GL_ID_INPUTRADICAL: u32 = 37;
+        const GL_ID_INPUTREADING: u32 = 36;
+        const GL_ID_INPUTSYMBOL: u32 = 39;
+        const GL_ID_NOCONVERT: u32 = 32;
+        const GL_ID_NODICTIONARY: u32 = 16;
+        const GL_ID_NOMODULE: u32 = 1;
+        const GL_ID_PRIVATE_FIRST: u32 = 32768;
+        const GL_ID_PRIVATE_LAST: u32 = 65535;
+        const GL_ID_READINGCONFLICT: u32 = 35;
+        const GL_ID_REVERSECONVERSION: u32 = 41;
+        const GL_ID_TOOMANYSTROKE: u32 = 34;
+        const GL_ID_TYPINGERROR: u32 = 33;
+        const GL_ID_UNKNOWN: u32 = 0;
+        const GL_LEVEL_ERROR: u32 = 2;
+        const GL_LEVEL_FATAL: u32 = 1;
+        const GL_LEVEL_INFORMATION: u32 = 4;
+        const GL_LEVEL_NOGUIDELINE: u32 = 0;
+        const GL_LEVEL_WARNING: u32 = 3;
+        type HIMC = *mut void;
+        type HIMCC = *mut void;
+        const IACE_CHILDREN: u32 = 1;
+        const IACE_DEFAULT: u32 = 16;
+        const IACE_IGNORENOCONTEXT: u32 = 32;
+        const IGIMIF_RIGHTMENU: u32 = 1;
+        const IGIMII_CMODE: u32 = 1;
+        const IGIMII_CONFIGURE: u32 = 4;
+        const IGIMII_HELP: u32 = 16;
+        const IGIMII_INPUTTOOLS: u32 = 64;
+        const IGIMII_OTHER: u32 = 32;
+        const IGIMII_SMODE: u32 = 2;
+        const IGIMII_TOOLS: u32 = 8;
+        const IGP_CONVERSION: u32 = 8;
+        const IGP_GETIMEVERSION: i32 = -4;
+        const IGP_PROPERTY: u32 = 4;
+        const IGP_SELECT: u32 = 24;
+        const IGP_SENTENCE: u32 = 12;
+        const IGP_SETCOMPSTR: u32 = 20;
+        const IGP_UI: u32 = 16;
+        extern fn IMCENUMPROC(param0: HIMC, param1: LPARAM) -> BOOL;
+        const IMC_CLOSESTATUSWINDOW: u32 = 33;
+        const IMC_GETCANDIDATEPOS: u32 = 7;
+        const IMC_GETCOMPOSITIONFONT: u32 = 9;
+        const IMC_GETCOMPOSITIONWINDOW: u32 = 11;
+        const IMC_GETSTATUSWINDOWPOS: u32 = 15;
+        const IMC_OPENSTATUSWINDOW: u32 = 34;
+        const IMC_SETCANDIDATEPOS: u32 = 8;
+        const IMC_SETCOMPOSITIONFONT: u32 = 10;
+        const IMC_SETCOMPOSITIONWINDOW: u32 = 12;
+        const IMC_SETSTATUSWINDOWPOS: u32 = 16;
+        struct IMECHARPOSITION {
+            dwSize: u32,
+            dwCharPos: u32,
+            pt: POINT,
+            cLineHeight: u32,
+            rcDocument: RECT,
+        }
+        type IMEMENUITEMINFO = IMEMENUITEMINFOA;
+        struct IMEMENUITEMINFOA {
+            cbSize: u32,
+            fType: u32,
+            fState: u32,
+            wID: u32,
+            hbmpChecked: HBITMAP,
+            hbmpUnchecked: HBITMAP,
+            dwItemData: u32,
+            szString: [i8; 80],
+            hbmpItem: HBITMAP,
+        }
+        struct IMEMENUITEMINFOW {
+            cbSize: u32,
+            fType: u32,
+            fState: u32,
+            wID: u32,
+            hbmpChecked: HBITMAP,
+            hbmpUnchecked: HBITMAP,
+            dwItemData: u32,
+            szString: [u16; 80],
+            hbmpItem: HBITMAP,
+        }
+        const IMEMENUITEM_STRING_SIZE: u32 = 80;
+        const IMEVER_0310: u32 = 196618;
+        const IMEVER_0400: u32 = 262144;
+        const IME_CAND_CODE: u32 = 2;
+        const IME_CAND_MEANING: u32 = 3;
+        const IME_CAND_RADICAL: u32 = 4;
+        const IME_CAND_READ: u32 = 1;
+        const IME_CAND_STROKE: u32 = 5;
+        const IME_CAND_UNKNOWN: u32 = 0;
+        const IME_CHOTKEY_IME_NONIME_TOGGLE: u32 = 16;
+        const IME_CHOTKEY_SHAPE_TOGGLE: u32 = 17;
+        const IME_CHOTKEY_SYMBOL_TOGGLE: u32 = 18;
+        const IME_CMODE_EUDC: u32 = 512;
+        const IME_CMODE_FIXED: u32 = 2048;
+        const IME_CMODE_HANGEUL: u32 = 1;
+        const IME_CMODE_NOCONVERSION: u32 = 256;
+        const IME_CMODE_RESERVED: u32 = 4026531840;
+        const IME_CMODE_SOFTKBD: u32 = 128;
+        const IME_CMODE_SYMBOL: u32 = 1024;
+        const IME_CONFIG_GENERAL: u32 = 1;
+        const IME_CONFIG_REGISTERWORD: u32 = 2;
+        const IME_CONFIG_SELECTDICTIONARY: u32 = 3;
+        const IME_ESC_AUTOMATA: u32 = 4105;
+        const IME_ESC_GETHELPFILENAME: u32 = 4107;
+        const IME_ESC_GET_EUDC_DICTIONARY: u32 = 4099;
+        const IME_ESC_HANJA_MODE: u32 = 4104;
+        const IME_ESC_IME_NAME: u32 = 4102;
+        const IME_ESC_MAX_KEY: u32 = 4101;
+        const IME_ESC_PRIVATE_FIRST: u32 = 2048;
+        const IME_ESC_PRIVATE_HOTKEY: u32 = 4106;
+        const IME_ESC_PRIVATE_LAST: u32 = 4095;
+        const IME_ESC_QUERY_SUPPORT: u32 = 3;
+        const IME_ESC_RESERVED_FIRST: u32 = 4;
+        const IME_ESC_RESERVED_LAST: u32 = 2047;
+        const IME_ESC_SEQUENCE_TO_INTERNAL: u32 = 4097;
+        const IME_ESC_SET_EUDC_DICTIONARY: u32 = 4100;
+        const IME_ESC_SYNC_HOTKEY: u32 = 4103;
+        const IME_HOTKEY_DSWITCH_FIRST: u32 = 256;
+        const IME_HOTKEY_DSWITCH_LAST: u32 = 287;
+        const IME_HOTKEY_PRIVATE_FIRST: u32 = 512;
+        const IME_HOTKEY_PRIVATE_LAST: u32 = 543;
+        const IME_ITHOTKEY_PREVIOUS_COMPOSITION: u32 = 513;
+        const IME_ITHOTKEY_RECONVERTSTRING: u32 = 515;
+        const IME_ITHOTKEY_RESEND_RESULTSTR: u32 = 512;
+        const IME_ITHOTKEY_UISTYLE_TOGGLE: u32 = 514;
+        const IME_JHOTKEY_CLOSE_OPEN: u32 = 48;
+        const IME_KHOTKEY_ENGLISH: u32 = 82;
+        const IME_KHOTKEY_HANJACONVERT: u32 = 81;
+        const IME_KHOTKEY_SHAPE_TOGGLE: u32 = 80;
+        const IME_PROP_AT_CARET: u32 = 65536;
+        const IME_PROP_CANDLIST_START_FROM_1: u32 = 262144;
+        const IME_PROP_COMPLETE_ON_UNSELECT: u32 = 1048576;
+        const IME_PROP_SPECIAL_UI: u32 = 131072;
+        const IME_PROP_UNICODE: u32 = 524288;
+        const IME_REGWORD_STYLE_EUDC: u32 = 1;
+        const IME_REGWORD_STYLE_USER_FIRST: u32 = 2147483648;
+        const IME_REGWORD_STYLE_USER_LAST: u32 = 4294967295;
+        const IME_SMODE_AUTOMATIC: u32 = 4;
+        const IME_SMODE_CONVERSATION: u32 = 16;
+        const IME_SMODE_NONE: u32 = 0;
+        const IME_SMODE_PHRASEPREDICT: u32 = 8;
+        const IME_SMODE_PLAURALCLAUSE: u32 = 1;
+        const IME_SMODE_RESERVED: u32 = 61440;
+        const IME_SMODE_SINGLECONVERT: u32 = 2;
+        const IME_THOTKEY_IME_NONIME_TOGGLE: u32 = 112;
+        const IME_THOTKEY_SHAPE_TOGGLE: u32 = 113;
+        const IME_THOTKEY_SYMBOL_TOGGLE: u32 = 114;
+        const IMFS_CHECKED: u32 = 8;
+        const IMFS_DEFAULT: u32 = 4096;
+        const IMFS_DISABLED: u32 = 3;
+        const IMFS_ENABLED: u32 = 0;
+        const IMFS_GRAYED: u32 = 3;
+        const IMFS_HILITE: u32 = 128;
+        const IMFS_UNCHECKED: u32 = 0;
+        const IMFS_UNHILITE: u32 = 0;
+        const IMFT_RADIOCHECK: u32 = 1;
+        const IMFT_SEPARATOR: u32 = 2;
+        const IMFT_SUBMENU: u32 = 4;
+        const IMM_ERROR_GENERAL: i32 = -2;
+        const IMM_ERROR_NODATA: i32 = -1;
+        const IMN_CHANGECANDIDATE: u32 = 3;
+        const IMN_CLOSECANDIDATE: u32 = 4;
+        const IMN_CLOSESTATUSWINDOW: u32 = 1;
+        const IMN_GUIDELINE: u32 = 13;
+        const IMN_OPENCANDIDATE: u32 = 5;
+        const IMN_OPENSTATUSWINDOW: u32 = 2;
+        const IMN_PRIVATE: u32 = 14;
+        const IMN_SETCANDIDATEPOS: u32 = 9;
+        const IMN_SETCOMPOSITIONFONT: u32 = 10;
+        const IMN_SETCOMPOSITIONWINDOW: u32 = 11;
+        const IMN_SETCONVERSIONMODE: u32 = 6;
+        const IMN_SETOPENSTATUS: u32 = 8;
+        const IMN_SETSENTENCEMODE: u32 = 7;
+        const IMN_SETSTATUSWINDOWPOS: u32 = 12;
+        const IMR_CANDIDATEWINDOW: u32 = 2;
+        const IMR_COMPOSITIONFONT: u32 = 3;
+        const IMR_COMPOSITIONWINDOW: u32 = 1;
+        const IMR_CONFIRMRECONVERTSTRING: u32 = 5;
+        const IMR_DOCUMENTFEED: u32 = 7;
+        const IMR_QUERYCHARPOSITION: u32 = 6;
+        const IMR_RECONVERTSTRING: u32 = 4;
+        const ISC_SHOWUIALL: u32 = 3221225487;
+        const ISC_SHOWUIALLCANDIDATEWINDOW: u32 = 15;
+        const ISC_SHOWUICANDIDATEWINDOW: u32 = 1;
+        const ISC_SHOWUICOMPOSITIONWINDOW: u32 = 2147483648;
+        const ISC_SHOWUIGUIDELINE: u32 = 1073741824;
+        #[library("IMM32.dll")]
+        extern fn ImmAssociateContext(param0: HWND, param1: HIMC) -> HIMC;
+        #[library("IMM32.dll")]
+        extern fn ImmAssociateContextEx(param0: HWND, param1: HIMC, param2: u32) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmConfigureIMEA(param0: HKL, param1: HWND, param2: u32, param3: *mut void) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmConfigureIMEW(param0: HKL, param1: HWND, param2: u32, param3: *mut void) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmCreateContext() -> HIMC;
+        #[library("IMM32.dll")]
+        extern fn ImmDestroyContext(param0: HIMC) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmDisableIME(param0: u32) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmDisableLegacyIME() -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmDisableTextFrameService(idThread: u32) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmEnumInputContext(idThread: u32, lpfn: IMCENUMPROC, lParam: LPARAM) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmEnumRegisterWordA(param0: HKL, param1: REGISTERWORDENUMPROCA, #[opt] lpszReading: PCSTR, param3: u32, #[opt] lpszRegister: PCSTR, param5: *mut void) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmEnumRegisterWordW(param0: HKL, param1: REGISTERWORDENUMPROCW, #[opt] lpszReading: PCWSTR, param3: u32, #[opt] lpszRegister: PCWSTR, param5: *mut void) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmEscapeA(param0: HKL, param1: HIMC, param2: u32, param3: *mut void) -> LRESULT;
+        #[library("IMM32.dll")]
+        extern fn ImmEscapeW(param0: HKL, param1: HIMC, param2: u32, param3: *mut void) -> LRESULT;
+        #[library("IMM32.dll")]
+        extern fn ImmGetCandidateListA(param0: HIMC, deIndex: u32, #[size_param(3)] #[opt] lpCandList: *mut CANDIDATELIST, dwBufLen: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetCandidateListCountA(param0: HIMC, lpdwListCount: *mut u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetCandidateListCountW(param0: HIMC, lpdwListCount: *mut u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetCandidateListW(param0: HIMC, deIndex: u32, #[size_param(3)] #[opt] lpCandList: *mut CANDIDATELIST, dwBufLen: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetCandidateWindow(param0: HIMC, param1: u32, lpCandidate: *mut CANDIDATEFORM) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmGetCompositionFontA(param0: HIMC, lplf: *mut LOGFONTA) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmGetCompositionFontW(param0: HIMC, lplf: *mut LOGFONTW) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmGetCompositionStringA(param0: HIMC, param1: u32, #[size_param(3)] #[opt] lpBuf: *mut void, dwBufLen: u32) -> i32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetCompositionStringW(param0: HIMC, param1: u32, #[size_param(3)] #[opt] lpBuf: *mut void, dwBufLen: u32) -> i32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetCompositionWindow(param0: HIMC, lpCompForm: *mut COMPOSITIONFORM) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmGetContext(param0: HWND) -> HIMC;
+        #[library("IMM32.dll")]
+        extern fn ImmGetConversionListA(param0: HKL, param1: HIMC, lpSrc: PCSTR, #[size_param(4)] lpDst: *mut CANDIDATELIST, dwBufLen: u32, uFlag: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetConversionListW(param0: HKL, param1: HIMC, lpSrc: PCWSTR, #[size_param(4)] lpDst: *mut CANDIDATELIST, dwBufLen: u32, uFlag: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetConversionStatus(param0: HIMC, #[opt] lpfdwConversion: *mut u32, #[opt] lpfdwSentence: *mut u32) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmGetDefaultIMEWnd(param0: HWND) -> HWND;
+        #[library("IMM32.dll")]
+        extern fn ImmGetDescriptionA(param0: HKL, #[len_param(2)] #[out] #[opt] lpszDescription: PSTR, uBufLen: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetDescriptionW(param0: HKL, #[len_param(2)] #[out] #[opt] lpszDescription: PWSTR, uBufLen: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetGuideLineA(param0: HIMC, dwIndex: u32, #[size_param(3)] #[out] #[opt] lpBuf: PSTR, dwBufLen: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetGuideLineW(param0: HIMC, dwIndex: u32, #[size_param(3)] #[out] #[opt] lpBuf: PWSTR, dwBufLen: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetIMEFileNameA(param0: HKL, #[len_param(2)] #[out] #[opt] lpszFileName: PSTR, uBufLen: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetIMEFileNameW(param0: HKL, #[len_param(2)] #[out] #[opt] lpszFileName: PWSTR, uBufLen: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetImeMenuItemsA(param0: HIMC, param1: u32, param2: u32, #[opt] lpImeParentMenu: *mut IMEMENUITEMINFOA, #[size_param(5)] #[opt] lpImeMenu: *mut IMEMENUITEMINFOA, dwSize: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetImeMenuItemsW(param0: HIMC, param1: u32, param2: u32, #[opt] lpImeParentMenu: *mut IMEMENUITEMINFOW, #[size_param(5)] #[opt] lpImeMenu: *mut IMEMENUITEMINFOW, dwSize: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetOpenStatus(param0: HIMC) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmGetProperty(param0: HKL, param1: u32) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetRegisterWordStyleA(param0: HKL, nItem: u32, #[len_param(1)] lpStyleBuf: *mut STYLEBUFA) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetRegisterWordStyleW(param0: HKL, nItem: u32, #[len_param(1)] lpStyleBuf: *mut STYLEBUFW) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmGetStatusWindowPos(param0: HIMC, lpptPos: *mut POINT) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmGetVirtualKey(param0: HWND) -> u32;
+        #[library("IMM32.dll")]
+        extern fn ImmInstallIMEA(lpszIMEFileName: PCSTR, lpszLayoutText: PCSTR) -> HKL;
+        #[library("IMM32.dll")]
+        extern fn ImmInstallIMEW(lpszIMEFileName: PCWSTR, lpszLayoutText: PCWSTR) -> HKL;
+        #[library("IMM32.dll")]
+        extern fn ImmIsIME(param0: HKL) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmIsUIMessageA(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmIsUIMessageW(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmNotifyIME(param0: HIMC, dwAction: u32, dwIndex: u32, dwValue: u32) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmRegisterWordA(param0: HKL, lpszReading: PCSTR, param2: u32, lpszRegister: PCSTR) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmRegisterWordW(param0: HKL, lpszReading: PCWSTR, param2: u32, lpszRegister: PCWSTR) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmReleaseContext(param0: HWND, param1: HIMC) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmSetCandidateWindow(param0: HIMC, lpCandidate: *const CANDIDATEFORM) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmSetCompositionFontA(param0: HIMC, lplf: *const LOGFONTA) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmSetCompositionFontW(param0: HIMC, lplf: *const LOGFONTW) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmSetCompositionStringA(param0: HIMC, dwIndex: u32, #[size_param(3)] #[opt] lpComp: *const void, dwCompLen: u32, #[size_param(5)] #[opt] lpRead: *const void, dwReadLen: u32) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmSetCompositionStringW(param0: HIMC, dwIndex: u32, #[size_param(3)] #[opt] lpComp: *const void, dwCompLen: u32, #[size_param(5)] #[opt] lpRead: *const void, dwReadLen: u32) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmSetCompositionWindow(param0: HIMC, lpCompForm: *const COMPOSITIONFORM) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmSetConversionStatus(param0: HIMC, param1: u32, param2: u32) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmSetOpenStatus(param0: HIMC, param1: BOOL) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmSetStatusWindowPos(param0: HIMC, lpptPos: *const POINT) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmSimulateHotKey(param0: HWND, param1: u32) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmUnregisterWordA(param0: HKL, lpszReading: PCSTR, param2: u32, lpszUnregister: PCSTR) -> BOOL;
+        #[library("IMM32.dll")]
+        extern fn ImmUnregisterWordW(param0: HKL, lpszReading: PCWSTR, param2: u32, lpszUnregister: PCWSTR) -> BOOL;
+        type LPCANDIDATEFORM = *mut CANDIDATEFORM;
+        type LPCANDIDATELIST = *mut CANDIDATELIST;
+        type LPCOMPOSITIONFORM = *mut COMPOSITIONFORM;
+        type LPHKL = *mut HKL;
+        type LPIMECHARPOSITION = *mut IMECHARPOSITION;
+        type LPIMEMENUITEMINFO = LPIMEMENUITEMINFOA;
+        type LPIMEMENUITEMINFOA = *mut IMEMENUITEMINFOA;
+        type LPIMEMENUITEMINFOW = *mut IMEMENUITEMINFOW;
+        type LPRECONVERTSTRING = *mut RECONVERTSTRING;
+        type LPREGISTERWORD = LPREGISTERWORDA;
+        type LPREGISTERWORDA = *mut REGISTERWORDA;
+        type LPREGISTERWORDW = *mut REGISTERWORDW;
+        type LPSTYLEBUF = LPSTYLEBUFA;
+        type LPSTYLEBUFA = *mut STYLEBUFA;
+        type LPSTYLEBUFW = *mut STYLEBUFW;
+        const MOD_IGNORE_ALL_MODIFIER: u32 = 1024;
+        const MOD_LEFT: u32 = 32768;
+        const MOD_ON_KEYUP: u32 = 2048;
+        const MOD_RIGHT: u32 = 16384;
+        const NI_CHANGECANDIDATELIST: u32 = 19;
+        const NI_CLOSECANDIDATE: u32 = 17;
+        const NI_COMPOSITIONSTR: u32 = 21;
+        const NI_FINALIZECONVERSIONRESULT: u32 = 20;
+        const NI_IMEMENUSELECTED: u32 = 24;
+        const NI_OPENCANDIDATE: u32 = 16;
+        const NI_SELECTCANDIDATESTR: u32 = 18;
+        const NI_SETCANDIDATE_PAGESIZE: u32 = 23;
+        const NI_SETCANDIDATE_PAGESTART: u32 = 22;
+        type NPCANDIDATEFORM = *mut CANDIDATEFORM;
+        type NPCANDIDATELIST = *mut CANDIDATELIST;
+        type NPCOMPOSITIONFORM = *mut COMPOSITIONFORM;
+        type NPIMECHARPOSITION = *mut IMECHARPOSITION;
+        type NPIMEMENUITEMINFO = NPIMEMENUITEMINFOA;
+        type NPIMEMENUITEMINFOA = *mut IMEMENUITEMINFOA;
+        type NPIMEMENUITEMINFOW = *mut IMEMENUITEMINFOW;
+        type NPRECONVERTSTRING = *mut RECONVERTSTRING;
+        type NPREGISTERWORD = NPREGISTERWORDA;
+        type NPREGISTERWORDA = *mut REGISTERWORDA;
+        type NPREGISTERWORDW = *mut REGISTERWORDW;
+        type NPSTYLEBUF = NPSTYLEBUFA;
+        type NPSTYLEBUFA = *mut STYLEBUFA;
+        type NPSTYLEBUFW = *mut STYLEBUFW;
+        type PCANDIDATEFORM = *mut CANDIDATEFORM;
+        type PCANDIDATELIST = *mut CANDIDATELIST;
+        type PCOMPOSITIONFORM = *mut COMPOSITIONFORM;
+        type PIMECHARPOSITION = *mut IMECHARPOSITION;
+        type PIMEMENUITEMINFO = PIMEMENUITEMINFOA;
+        type PIMEMENUITEMINFOA = *mut IMEMENUITEMINFOA;
+        type PIMEMENUITEMINFOW = *mut IMEMENUITEMINFOW;
+        type PRECONVERTSTRING = *mut RECONVERTSTRING;
+        type PREGISTERWORD = PREGISTERWORDA;
+        type PREGISTERWORDA = *mut REGISTERWORDA;
+        type PREGISTERWORDW = *mut REGISTERWORDW;
+        type PSTYLEBUF = PSTYLEBUFA;
+        type PSTYLEBUFA = *mut STYLEBUFA;
+        type PSTYLEBUFW = *mut STYLEBUFW;
+        struct RECONVERTSTRING {
+            dwSize: u32,
+            dwVersion: u32,
+            dwStrLen: u32,
+            dwStrOffset: u32,
+            dwCompStrLen: u32,
+            dwCompStrOffset: u32,
+            dwTargetStrLen: u32,
+            dwTargetStrOffset: u32,
+        }
+        type REGISTERWORD = REGISTERWORDA;
+        struct REGISTERWORDA {
+            lpReading: PSTR,
+            lpWord: PSTR,
+        }
+        extern fn REGISTERWORDENUMPROCA(lpszReading: PCSTR, param1: u32, lpszString: PCSTR, param3: *mut void) -> i32;
+        extern fn REGISTERWORDENUMPROCW(lpszReading: PCWSTR, param1: u32, lpszString: PCWSTR, param3: *mut void) -> i32;
+        struct REGISTERWORDW {
+            lpReading: PWSTR,
+            lpWord: PWSTR,
+        }
+        const SCS_CAP_COMPSTR: u32 = 1;
+        const SCS_CAP_MAKEREAD: u32 = 2;
+        const SCS_CAP_SETRECONVERTSTRING: u32 = 4;
+        const SCS_CHANGEATTR: u32 = 18;
+        const SCS_CHANGECLAUSE: u32 = 36;
+        const SCS_QUERYRECONVERTSTRING: u32 = 131072;
+        const SCS_SETRECONVERTSTRING: u32 = 65536;
+        const SCS_SETSTR: u32 = 9;
+        const SELECT_CAP_CONVERSION: u32 = 1;
+        const SELECT_CAP_SENTENCE: u32 = 2;
+        const SOFTKEYBOARD_TYPE_C1: u32 = 2;
+        const SOFTKEYBOARD_TYPE_T1: u32 = 1;
+        type STYLEBUF = STYLEBUFA;
+        struct STYLEBUFA {
+            dwStyle: u32,
+            szDescription: [i8; 32],
+        }
+        struct STYLEBUFW {
+            dwStyle: u32,
+            szDescription: [u16; 32],
+        }
+        const STYLE_DESCRIPTION_SIZE: u32 = 32;
+        const UI_CAP_2700: u32 = 1;
+        const UI_CAP_ROT90: u32 = 2;
+        const UI_CAP_ROTANY: u32 = 4;
+    }
+}

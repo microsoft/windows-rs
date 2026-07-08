@@ -1,0 +1,387 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const EVT_ALL_ACCESS: u32 = 7;
+        #[repr(i32)]
+        enum EVT_CHANNEL_CLOCK_TYPE {
+            EvtChannelClockTypeSystemTime = 0,
+            EvtChannelClockTypeQPC = 1,
+        }
+        #[repr(i32)]
+        enum EVT_CHANNEL_CONFIG_PROPERTY_ID {
+            EvtChannelConfigEnabled = 0,
+            EvtChannelConfigIsolation = 1,
+            EvtChannelConfigType = 2,
+            EvtChannelConfigOwningPublisher = 3,
+            EvtChannelConfigClassicEventlog = 4,
+            EvtChannelConfigAccess = 5,
+            EvtChannelLoggingConfigRetention = 6,
+            EvtChannelLoggingConfigAutoBackup = 7,
+            EvtChannelLoggingConfigMaxSize = 8,
+            EvtChannelLoggingConfigLogFilePath = 9,
+            EvtChannelPublishingConfigLevel = 10,
+            EvtChannelPublishingConfigKeywords = 11,
+            EvtChannelPublishingConfigControlGuid = 12,
+            EvtChannelPublishingConfigBufferSize = 13,
+            EvtChannelPublishingConfigMinBuffers = 14,
+            EvtChannelPublishingConfigMaxBuffers = 15,
+            EvtChannelPublishingConfigLatency = 16,
+            EvtChannelPublishingConfigClockType = 17,
+            EvtChannelPublishingConfigSidType = 18,
+            EvtChannelPublisherList = 19,
+            EvtChannelPublishingConfigFileMax = 20,
+            EvtChannelConfigPropertyIdEND = 21,
+        }
+        #[repr(i32)]
+        enum EVT_CHANNEL_ISOLATION_TYPE {
+            EvtChannelIsolationTypeApplication = 0,
+            EvtChannelIsolationTypeSystem = 1,
+            EvtChannelIsolationTypeCustom = 2,
+        }
+        #[repr(i32)]
+        enum EVT_CHANNEL_REFERENCE_FLAGS {
+            EvtChannelReferenceImported = 1,
+        }
+        #[repr(i32)]
+        enum EVT_CHANNEL_SID_TYPE {
+            EvtChannelSidTypeNone = 0,
+            EvtChannelSidTypePublishing = 1,
+        }
+        #[repr(i32)]
+        enum EVT_CHANNEL_TYPE {
+            EvtChannelTypeAdmin = 0,
+            EvtChannelTypeOperational = 1,
+            EvtChannelTypeAnalytic = 2,
+            EvtChannelTypeDebug = 3,
+        }
+        const EVT_CLEAR_ACCESS: u32 = 4;
+        #[repr(i32)]
+        enum EVT_EVENT_METADATA_PROPERTY_ID {
+            EventMetadataEventID = 0,
+            EventMetadataEventVersion = 1,
+            EventMetadataEventChannel = 2,
+            EventMetadataEventLevel = 3,
+            EventMetadataEventOpcode = 4,
+            EventMetadataEventTask = 5,
+            EventMetadataEventKeyword = 6,
+            EventMetadataEventMessageID = 7,
+            EventMetadataEventTemplate = 8,
+            EvtEventMetadataPropertyIdEND = 9,
+        }
+        #[repr(i32)]
+        enum EVT_EVENT_PROPERTY_ID {
+            EvtEventQueryIDs = 0,
+            EvtEventPath = 1,
+            EvtEventPropertyIdEND = 2,
+        }
+        #[repr(i32)]
+        enum EVT_EXPORTLOG_FLAGS {
+            EvtExportLogChannelPath = 1,
+            EvtExportLogFilePath = 2,
+            EvtExportLogTolerateQueryErrors = 4096,
+            EvtExportLogOverwrite = 8192,
+        }
+        #[repr(i32)]
+        enum EVT_FORMAT_MESSAGE_FLAGS {
+            EvtFormatMessageEvent = 1,
+            EvtFormatMessageLevel = 2,
+            EvtFormatMessageTask = 3,
+            EvtFormatMessageOpcode = 4,
+            EvtFormatMessageKeyword = 5,
+            EvtFormatMessageChannel = 6,
+            EvtFormatMessageProvider = 7,
+            EvtFormatMessageId = 8,
+            EvtFormatMessageXml = 9,
+        }
+        type EVT_HANDLE = HANDLE;
+        #[repr(i32)]
+        enum EVT_LOGIN_CLASS {
+            EvtRpcLogin = 1,
+        }
+        #[repr(i32)]
+        enum EVT_LOG_PROPERTY_ID {
+            EvtLogCreationTime = 0,
+            EvtLogLastAccessTime = 1,
+            EvtLogLastWriteTime = 2,
+            EvtLogFileSize = 3,
+            EvtLogAttributes = 4,
+            EvtLogNumberOfLogRecords = 5,
+            EvtLogOldestRecordNumber = 6,
+            EvtLogFull = 7,
+        }
+        type EVT_OBJECT_ARRAY_PROPERTY_HANDLE = HANDLE;
+        #[repr(i32)]
+        enum EVT_OPEN_LOG_FLAGS {
+            EvtOpenChannelPath = 1,
+            EvtOpenFilePath = 2,
+        }
+        #[repr(i32)]
+        enum EVT_PUBLISHER_METADATA_PROPERTY_ID {
+            EvtPublisherMetadataPublisherGuid = 0,
+            EvtPublisherMetadataResourceFilePath = 1,
+            EvtPublisherMetadataParameterFilePath = 2,
+            EvtPublisherMetadataMessageFilePath = 3,
+            EvtPublisherMetadataHelpLink = 4,
+            EvtPublisherMetadataPublisherMessageID = 5,
+            EvtPublisherMetadataChannelReferences = 6,
+            EvtPublisherMetadataChannelReferencePath = 7,
+            EvtPublisherMetadataChannelReferenceIndex = 8,
+            EvtPublisherMetadataChannelReferenceID = 9,
+            EvtPublisherMetadataChannelReferenceFlags = 10,
+            EvtPublisherMetadataChannelReferenceMessageID = 11,
+            EvtPublisherMetadataLevels = 12,
+            EvtPublisherMetadataLevelName = 13,
+            EvtPublisherMetadataLevelValue = 14,
+            EvtPublisherMetadataLevelMessageID = 15,
+            EvtPublisherMetadataTasks = 16,
+            EvtPublisherMetadataTaskName = 17,
+            EvtPublisherMetadataTaskEventGuid = 18,
+            EvtPublisherMetadataTaskValue = 19,
+            EvtPublisherMetadataTaskMessageID = 20,
+            EvtPublisherMetadataOpcodes = 21,
+            EvtPublisherMetadataOpcodeName = 22,
+            EvtPublisherMetadataOpcodeValue = 23,
+            EvtPublisherMetadataOpcodeMessageID = 24,
+            EvtPublisherMetadataKeywords = 25,
+            EvtPublisherMetadataKeywordName = 26,
+            EvtPublisherMetadataKeywordValue = 27,
+            EvtPublisherMetadataKeywordMessageID = 28,
+            EvtPublisherMetadataPropertyIdEND = 29,
+        }
+        #[repr(i32)]
+        enum EVT_QUERY_FLAGS {
+            EvtQueryChannelPath = 1,
+            EvtQueryFilePath = 2,
+            EvtQueryForwardDirection = 256,
+            EvtQueryReverseDirection = 512,
+            EvtQueryTolerateQueryErrors = 4096,
+        }
+        #[repr(i32)]
+        enum EVT_QUERY_PROPERTY_ID {
+            EvtQueryNames = 0,
+            EvtQueryStatuses = 1,
+            EvtQueryPropertyIdEND = 2,
+        }
+        const EVT_READ_ACCESS: u32 = 1;
+        #[repr(i32)]
+        enum EVT_RENDER_CONTEXT_FLAGS {
+            EvtRenderContextValues = 0,
+            EvtRenderContextSystem = 1,
+            EvtRenderContextUser = 2,
+        }
+        #[repr(i32)]
+        enum EVT_RENDER_FLAGS {
+            EvtRenderEventValues = 0,
+            EvtRenderEventXml = 1,
+            EvtRenderBookmark = 2,
+        }
+        struct EVT_RPC_LOGIN {
+            Server: PWSTR,
+            User: PWSTR,
+            Domain: PWSTR,
+            Password: PWSTR,
+            Flags: u32,
+        }
+        #[repr(i32)]
+        enum EVT_RPC_LOGIN_FLAGS {
+            EvtRpcLoginAuthDefault = 0,
+            EvtRpcLoginAuthNegotiate = 1,
+            EvtRpcLoginAuthKerberos = 2,
+            EvtRpcLoginAuthNTLM = 3,
+        }
+        #[repr(i32)]
+        enum EVT_SEEK_FLAGS {
+            EvtSeekRelativeToFirst = 1,
+            EvtSeekRelativeToLast = 2,
+            EvtSeekRelativeToCurrent = 3,
+            EvtSeekRelativeToBookmark = 4,
+            EvtSeekOriginMask = 7,
+            EvtSeekStrict = 65536,
+        }
+        extern fn EVT_SUBSCRIBE_CALLBACK(Action: EVT_SUBSCRIBE_NOTIFY_ACTION, UserContext: *mut void, Event: EVT_HANDLE) -> u32;
+        #[repr(i32)]
+        enum EVT_SUBSCRIBE_FLAGS {
+            EvtSubscribeToFutureEvents = 1,
+            EvtSubscribeStartAtOldestRecord = 2,
+            EvtSubscribeStartAfterBookmark = 3,
+            EvtSubscribeOriginMask = 3,
+            EvtSubscribeTolerateQueryErrors = 4096,
+            EvtSubscribeStrict = 65536,
+        }
+        #[repr(i32)]
+        enum EVT_SUBSCRIBE_NOTIFY_ACTION {
+            EvtSubscribeActionError = 0,
+            EvtSubscribeActionDeliver = 1,
+        }
+        #[repr(i32)]
+        enum EVT_SYSTEM_PROPERTY_ID {
+            EvtSystemProviderName = 0,
+            EvtSystemProviderGuid = 1,
+            EvtSystemEventID = 2,
+            EvtSystemQualifiers = 3,
+            EvtSystemLevel = 4,
+            EvtSystemTask = 5,
+            EvtSystemOpcode = 6,
+            EvtSystemKeywords = 7,
+            EvtSystemTimeCreated = 8,
+            EvtSystemEventRecordId = 9,
+            EvtSystemActivityID = 10,
+            EvtSystemRelatedActivityID = 11,
+            EvtSystemProcessID = 12,
+            EvtSystemThreadID = 13,
+            EvtSystemChannel = 14,
+            EvtSystemComputer = 15,
+            EvtSystemUserID = 16,
+            EvtSystemVersion = 17,
+            EvtSystemPropertyIdEND = 18,
+        }
+        struct EVT_VARIANT {
+            Anonymous: union {
+                BooleanVal: BOOL,
+                SByteVal: i8,
+                Int16Val: i16,
+                Int32Val: i32,
+                Int64Val: i64,
+                ByteVal: u8,
+                UInt16Val: u16,
+                UInt32Val: u32,
+                UInt64Val: u64,
+                SingleVal: f32,
+                DoubleVal: f64,
+                FileTimeVal: u64,
+                SysTimeVal: *mut SYSTEMTIME,
+                GuidVal: *mut GUID,
+                StringVal: PCWSTR,
+                AnsiStringVal: PCSTR,
+                BinaryVal: PBYTE,
+                SidVal: PSID,
+                SizeTVal: usize,
+                BooleanArr: *mut BOOL,
+                SByteArr: *mut i8,
+                Int16Arr: *mut i16,
+                Int32Arr: *mut i32,
+                Int64Arr: *mut i64,
+                ByteArr: *mut u8,
+                UInt16Arr: *mut u16,
+                UInt32Arr: *mut u32,
+                UInt64Arr: *mut u64,
+                SingleArr: *mut f32,
+                DoubleArr: *mut f64,
+                FileTimeArr: *mut FILETIME,
+                SysTimeArr: *mut SYSTEMTIME,
+                GuidArr: *mut GUID,
+                StringArr: *mut PWSTR,
+                AnsiStringArr: *mut PSTR,
+                SidArr: *mut PSID,
+                SizeTArr: *mut usize,
+                EvtHandleVal: EVT_HANDLE,
+                XmlVal: PCWSTR,
+                XmlValArr: *mut PCWSTR,
+            },
+            Count: u32,
+            Type: u32,
+        }
+        #[repr(i32)]
+        enum EVT_VARIANT_TYPE {
+            EvtVarTypeNull = 0,
+            EvtVarTypeString = 1,
+            EvtVarTypeAnsiString = 2,
+            EvtVarTypeSByte = 3,
+            EvtVarTypeByte = 4,
+            EvtVarTypeInt16 = 5,
+            EvtVarTypeUInt16 = 6,
+            EvtVarTypeInt32 = 7,
+            EvtVarTypeUInt32 = 8,
+            EvtVarTypeInt64 = 9,
+            EvtVarTypeUInt64 = 10,
+            EvtVarTypeSingle = 11,
+            EvtVarTypeDouble = 12,
+            EvtVarTypeBoolean = 13,
+            EvtVarTypeBinary = 14,
+            EvtVarTypeGuid = 15,
+            EvtVarTypeSizeT = 16,
+            EvtVarTypeFileTime = 17,
+            EvtVarTypeSysTime = 18,
+            EvtVarTypeSid = 19,
+            EvtVarTypeHexInt32 = 20,
+            EvtVarTypeHexInt64 = 21,
+            EvtVarTypeEvtHandle = 32,
+            EvtVarTypeEvtXml = 35,
+        }
+        const EVT_VARIANT_TYPE_ARRAY: u32 = 128;
+        const EVT_VARIANT_TYPE_MASK: u32 = 127;
+        const EVT_WRITE_ACCESS: u32 = 2;
+        #[library("wevtapi.dll")]
+        extern fn EvtArchiveExportedLog(#[opt] Session: EVT_HANDLE, LogFilePath: PCWSTR, Locale: LCID, Flags: u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtCancel(#[opt] Object: EVT_HANDLE) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtClearLog(#[opt] Session: EVT_HANDLE, ChannelPath: PCWSTR, #[opt] TargetFilePath: PCWSTR, Flags: u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtClose(Object: EVT_HANDLE) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtCreateBookmark(#[opt] BookmarkXml: PCWSTR) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtCreateRenderContext(ValuePathsCount: u32, #[len_param(0)] #[opt] ValuePaths: *const PCWSTR, Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtExportLog(#[opt] Session: EVT_HANDLE, #[opt] Path: PCWSTR, #[opt] Query: PCWSTR, TargetFilePath: PCWSTR, Flags: u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtFormatMessage(#[opt] PublisherMetadata: EVT_HANDLE, #[opt] Event: EVT_HANDLE, MessageId: u32, ValueCount: u32, #[len_param(3)] #[opt] Values: *const EVT_VARIANT, Flags: u32, BufferSize: u32, #[len_param(6)] #[out] #[opt] Buffer: PWSTR, BufferUsed: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtGetChannelConfigProperty(ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: u32, PropertyValueBufferSize: u32, #[size_param(3)] #[opt] PropertyValueBuffer: *mut EVT_VARIANT, PropertyValueBufferUsed: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtGetEventInfo(Event: EVT_HANDLE, PropertyId: EVT_EVENT_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[opt] PropertyValueBuffer: *mut EVT_VARIANT, PropertyValueBufferUsed: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtGetEventMetadataProperty(EventMetadata: EVT_HANDLE, PropertyId: EVT_EVENT_METADATA_PROPERTY_ID, Flags: u32, EventMetadataPropertyBufferSize: u32, #[size_param(3)] #[opt] EventMetadataPropertyBuffer: *mut EVT_VARIANT, EventMetadataPropertyBufferUsed: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtGetExtendedStatus(BufferSize: u32, #[len_param(0)] #[out] #[opt] Buffer: PWSTR, BufferUsed: *mut u32) -> u32;
+        #[library("wevtapi.dll")]
+        extern fn EvtGetLogInfo(Log: EVT_HANDLE, PropertyId: EVT_LOG_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[opt] PropertyValueBuffer: *mut EVT_VARIANT, PropertyValueBufferUsed: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtGetObjectArrayProperty(ObjectArray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, PropertyId: u32, ArrayIndex: u32, Flags: u32, PropertyValueBufferSize: u32, #[size_param(4)] #[opt] PropertyValueBuffer: *mut EVT_VARIANT, PropertyValueBufferUsed: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtGetObjectArraySize(ObjectArray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, ObjectArraySize: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtGetPublisherMetadataProperty(PublisherMetadata: EVT_HANDLE, PropertyId: EVT_PUBLISHER_METADATA_PROPERTY_ID, Flags: u32, PublisherMetadataPropertyBufferSize: u32, #[size_param(3)] #[opt] PublisherMetadataPropertyBuffer: *mut EVT_VARIANT, PublisherMetadataPropertyBufferUsed: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtGetQueryInfo(QueryOrSubscription: EVT_HANDLE, PropertyId: EVT_QUERY_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[opt] PropertyValueBuffer: *mut EVT_VARIANT, PropertyValueBufferUsed: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtNext(ResultSet: EVT_HANDLE, EventsSize: u32, #[len_param(1)] Events: *mut HANDLE, Timeout: u32, Flags: u32, Returned: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtNextChannelPath(ChannelEnum: EVT_HANDLE, ChannelPathBufferSize: u32, #[len_param(1)] #[out] #[opt] ChannelPathBuffer: PWSTR, ChannelPathBufferUsed: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtNextEventMetadata(EventMetadataEnum: EVT_HANDLE, Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtNextPublisherId(PublisherEnum: EVT_HANDLE, PublisherIdBufferSize: u32, #[len_param(1)] #[out] #[opt] PublisherIdBuffer: PWSTR, PublisherIdBufferUsed: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtOpenChannelConfig(#[opt] Session: EVT_HANDLE, ChannelPath: PCWSTR, Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtOpenChannelEnum(#[opt] Session: EVT_HANDLE, Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtOpenEventMetadataEnum(PublisherMetadata: EVT_HANDLE, Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtOpenLog(#[opt] Session: EVT_HANDLE, Path: PCWSTR, Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtOpenPublisherEnum(#[opt] Session: EVT_HANDLE, Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtOpenPublisherMetadata(#[opt] Session: EVT_HANDLE, PublisherId: PCWSTR, #[opt] LogFilePath: PCWSTR, Locale: LCID, Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtOpenSession(LoginClass: EVT_LOGIN_CLASS, Login: *mut void, #[reserved] Timeout: u32, #[reserved] Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtQuery(#[opt] Session: EVT_HANDLE, #[opt] Path: PCWSTR, #[opt] Query: PCWSTR, Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtRender(#[opt] Context: EVT_HANDLE, Fragment: EVT_HANDLE, Flags: u32, BufferSize: u32, #[size_param(3)] #[opt] Buffer: *mut void, BufferUsed: *mut u32, PropertyCount: *mut u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtSaveChannelConfig(ChannelConfig: EVT_HANDLE, Flags: u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtSeek(ResultSet: EVT_HANDLE, Position: i64, #[opt] Bookmark: EVT_HANDLE, #[reserved] Timeout: u32, Flags: u32) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtSetChannelConfigProperty(ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: u32, PropertyValue: *const EVT_VARIANT) -> BOOL;
+        #[library("wevtapi.dll")]
+        extern fn EvtSubscribe(#[opt] Session: EVT_HANDLE, #[opt] SignalEvent: HANDLE, #[opt] ChannelPath: PCWSTR, #[opt] Query: PCWSTR, #[opt] Bookmark: EVT_HANDLE, Context: *mut void, Callback: EVT_SUBSCRIBE_CALLBACK, Flags: u32) -> EVT_HANDLE;
+        #[library("wevtapi.dll")]
+        extern fn EvtUpdateBookmark(Bookmark: EVT_HANDLE, Event: EVT_HANDLE) -> BOOL;
+        type PEVT_HANDLE = *mut HANDLE;
+        type PEVT_VARIANT = *mut EVT_VARIANT;
+    }
+}

@@ -1,0 +1,100 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const FILE_VER_GET_LOCALISED: u32 = 1;
+        const FILE_VER_GET_NEUTRAL: u32 = 2;
+        const FILE_VER_GET_PREFETCHED: u32 = 4;
+        const VFFF_ISSHAREDFILE: u32 = 1;
+        const VFF_BUFFTOOSMALL: u32 = 4;
+        const VFF_CURNEDEST: u32 = 1;
+        const VFF_FILEINUSE: u32 = 2;
+        const VFT2_DRV_COMM: u32 = 10;
+        const VFT2_DRV_DISPLAY: u32 = 4;
+        const VFT2_DRV_INPUTMETHOD: u32 = 11;
+        const VFT2_DRV_INSTALLABLE: u32 = 8;
+        const VFT2_DRV_KEYBOARD: u32 = 2;
+        const VFT2_DRV_LANGUAGE: u32 = 3;
+        const VFT2_DRV_MOUSE: u32 = 5;
+        const VFT2_DRV_NETWORK: u32 = 6;
+        const VFT2_DRV_PRINTER: u32 = 1;
+        const VFT2_DRV_SOUND: u32 = 9;
+        const VFT2_DRV_SYSTEM: u32 = 7;
+        const VFT2_DRV_VERSIONED_PRINTER: u32 = 12;
+        const VFT2_FONT_RASTER: u32 = 1;
+        const VFT2_FONT_TRUETYPE: u32 = 3;
+        const VFT2_FONT_VECTOR: u32 = 2;
+        const VFT2_UNKNOWN: u32 = 0;
+        const VFT_APP: u32 = 1;
+        const VFT_DLL: u32 = 2;
+        const VFT_DRV: u32 = 3;
+        const VFT_FONT: u32 = 4;
+        const VFT_STATIC_LIB: u32 = 7;
+        const VFT_UNKNOWN: u32 = 0;
+        const VFT_VXD: u32 = 5;
+        const VIFF_DONTDELETEOLD: u32 = 2;
+        const VIFF_FORCEINSTALL: u32 = 1;
+        const VIF_ACCESSVIOLATION: u32 = 512;
+        const VIF_BUFFTOOSMALL: u32 = 262144;
+        const VIF_CANNOTCREATE: u32 = 2048;
+        const VIF_CANNOTDELETE: u32 = 4096;
+        const VIF_CANNOTDELETECUR: u32 = 16384;
+        const VIF_CANNOTLOADCABINET: u32 = 1048576;
+        const VIF_CANNOTLOADLZ32: u32 = 524288;
+        const VIF_CANNOTREADDST: u32 = 131072;
+        const VIF_CANNOTREADSRC: u32 = 65536;
+        const VIF_CANNOTRENAME: u32 = 8192;
+        const VIF_DIFFCODEPG: u32 = 16;
+        const VIF_DIFFLANG: u32 = 8;
+        const VIF_DIFFTYPE: u32 = 32;
+        const VIF_FILEINUSE: u32 = 128;
+        const VIF_MISMATCH: u32 = 2;
+        const VIF_OUTOFMEMORY: u32 = 32768;
+        const VIF_OUTOFSPACE: u32 = 256;
+        const VIF_SHARINGVIOLATION: u32 = 1024;
+        const VIF_SRCOLD: u32 = 4;
+        const VIF_TEMPFILE: u32 = 1;
+        const VIF_WRITEPROT: u32 = 64;
+        const VOS_DOS: u32 = 65536;
+        const VOS_DOS_WINDOWS16: u32 = 65537;
+        const VOS_DOS_WINDOWS32: u32 = 65540;
+        const VOS_NT: u32 = 262144;
+        const VOS_NT_WINDOWS32: u32 = 262148;
+        const VOS_OS216: u32 = 131072;
+        const VOS_OS216_PM16: u32 = 131074;
+        const VOS_OS232: u32 = 196608;
+        const VOS_OS232_PM32: u32 = 196611;
+        const VOS_UNKNOWN: u32 = 0;
+        const VOS_WINCE: u32 = 327680;
+        const VOS__BASE: u32 = 0;
+        const VOS__PM16: u32 = 2;
+        const VOS__PM32: u32 = 3;
+        const VOS__WINDOWS16: u32 = 1;
+        const VOS__WINDOWS32: u32 = 4;
+        const VS_FFI_FILEFLAGSMASK: u32 = 63;
+        const VS_FFI_SIGNATURE: u32 = 4277077181;
+        const VS_FFI_STRUCVERSION: u32 = 65536;
+        const VS_FF_DEBUG: u32 = 1;
+        const VS_FF_INFOINFERRED: u32 = 16;
+        const VS_FF_PATCHED: u32 = 4;
+        const VS_FF_PRERELEASE: u32 = 2;
+        const VS_FF_PRIVATEBUILD: u32 = 8;
+        const VS_FF_SPECIALBUILD: u32 = 32;
+        struct VS_FIXEDFILEINFO {
+            dwSignature: u32,
+            dwStrucVersion: u32,
+            dwFileVersionMS: u32,
+            dwFileVersionLS: u32,
+            dwProductVersionMS: u32,
+            dwProductVersionLS: u32,
+            dwFileFlagsMask: u32,
+            dwFileFlags: u32,
+            dwFileOS: u32,
+            dwFileType: u32,
+            dwFileSubtype: u32,
+            dwFileDateMS: u32,
+            dwFileDateLS: u32,
+        }
+        const VS_USER_DEFINED: u32 = 100;
+        const VS_VERSION_INFO: u32 = 1;
+    }
+}

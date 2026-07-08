@@ -1,0 +1,746 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_1: u32 = 1;
+        const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_2: u32 = 2;
+        const IFX_RSA_KEYGEN_VUL_NOT_AFFECTED: u32 = 0;
+        #[encoding("utf-16")]
+        const MS_KEY_STORAGE_PROVIDER: String = "Microsoft Software Key Storage Provider";
+        #[encoding("utf-16")]
+        const MS_NGC_KEY_STORAGE_PROVIDER: String = "Microsoft Passport Key Storage Provider";
+        #[encoding("utf-16")]
+        const MS_PLATFORM_KEY_STORAGE_PROVIDER: String = "Microsoft Platform Crypto Provider";
+        #[encoding("utf-16")]
+        const MS_PLUTON_CRYPTO_PROVIDER: String = "Microsoft Pluton Cryptographic Provider";
+        #[encoding("utf-16")]
+        const MS_SMART_CARD_KEY_STORAGE_PROVIDER: String = "Microsoft Smart Card Key Storage Provider";
+        const NCRYPTBUFFER_ATTESTATIONSTATEMENT_BLOB: u32 = 51;
+        const NCRYPTBUFFER_ATTESTATION_CLAIM_CHALLENGE_REQUIRED: u32 = 53;
+        const NCRYPTBUFFER_ATTESTATION_CLAIM_TYPE: u32 = 52;
+        const NCRYPTBUFFER_ATTESTATION_STATEMENT_NONCE: u32 = 49;
+        const NCRYPTBUFFER_ATTESTATION_STATEMENT_SIGNATURE_HASH: u32 = 90;
+        const NCRYPTBUFFER_ATTESTATION_STATEMENT_SIGNATURE_PADDING_ALGO: u32 = 92;
+        const NCRYPTBUFFER_ATTESTATION_STATEMENT_SIGNATURE_PADDING_SALT: u32 = 93;
+        const NCRYPTBUFFER_ATTESTATION_STATEMENT_SIGNATURE_PADDING_SALT_SIZE: u32 = 93;
+        const NCRYPTBUFFER_ATTESTATION_STATEMENT_SIGNATURE_PADDING_SCHEME: u32 = 91;
+        const NCRYPTBUFFER_CERT_BLOB: u32 = 47;
+        const NCRYPTBUFFER_CLAIM_IDBINDING_NONCE: u32 = 48;
+        const NCRYPTBUFFER_CLAIM_KEYATTESTATION_NONCE: u32 = 49;
+        const NCRYPTBUFFER_DATA: u32 = 1;
+        const NCRYPTBUFFER_ECC_CURVE_NAME: u32 = 60;
+        const NCRYPTBUFFER_ECC_PARAMETERS: u32 = 61;
+        const NCRYPTBUFFER_EMPTY: u32 = 0;
+        const NCRYPTBUFFER_KEY_PROPERTY_FLAGS: u32 = 50;
+        const NCRYPTBUFFER_PKCS_AES_KEY_BITS: u32 = 96;
+        const NCRYPTBUFFER_PKCS_ALG_ID: u32 = 43;
+        const NCRYPTBUFFER_PKCS_ALG_OID: u32 = 41;
+        const NCRYPTBUFFER_PKCS_ALG_PARAM: u32 = 42;
+        const NCRYPTBUFFER_PKCS_ATTRS: u32 = 44;
+        const NCRYPTBUFFER_PKCS_KEY_NAME: u32 = 45;
+        const NCRYPTBUFFER_PKCS_OID: u32 = 40;
+        const NCRYPTBUFFER_PKCS_PADDING_ALGO: u32 = 97;
+        const NCRYPTBUFFER_PKCS_PADDING_LABEL: u32 = 98;
+        const NCRYPTBUFFER_PKCS_SECRET: u32 = 46;
+        const NCRYPTBUFFER_PROTECTION_DESCRIPTOR_STRING: u32 = 3;
+        const NCRYPTBUFFER_PROTECTION_FLAGS: u32 = 4;
+        const NCRYPTBUFFER_SSL_CLEAR_KEY: u32 = 23;
+        const NCRYPTBUFFER_SSL_CLIENT_RANDOM: u32 = 20;
+        const NCRYPTBUFFER_SSL_HIGHEST_VERSION: u32 = 22;
+        const NCRYPTBUFFER_SSL_KEY_ARG_DATA: u32 = 24;
+        const NCRYPTBUFFER_SSL_SERVER_RANDOM: u32 = 21;
+        const NCRYPTBUFFER_SSL_SESSION_HASH: u32 = 25;
+        const NCRYPTBUFFER_TPM_PLATFORM_CLAIM_NONCE: u32 = 81;
+        const NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK: u32 = 80;
+        const NCRYPTBUFFER_TPM_PLATFORM_CLAIM_STATIC_CREATE: u32 = 82;
+        const NCRYPTBUFFER_TPM_SEAL_NO_DA_PROTECTION: u32 = 73;
+        const NCRYPTBUFFER_TPM_SEAL_PASSWORD: u32 = 70;
+        const NCRYPTBUFFER_TPM_SEAL_POLICYINFO: u32 = 71;
+        const NCRYPTBUFFER_TPM_SEAL_TICKET: u32 = 72;
+        const NCRYPTBUFFER_VBS_ATTESTATION_STATEMENT_IDENTITY_DETAILS: u32 = 95;
+        const NCRYPTBUFFER_VBS_ATTESTATION_STATEMENT_ROOT_DETAILS: u32 = 94;
+        const NCRYPTBUFFER_VERSION: u32 = 0;
+        #[encoding("utf-16")]
+        const NCRYPT_ALGORITHM_GROUP_PROPERTY: String = "Algorithm Group";
+        #[encoding("utf-16")]
+        const NCRYPT_ALGORITHM_PROPERTY: String = "Algorithm Name";
+        struct NCRYPT_ALLOC_PARA {
+            cbSize: u32,
+            pfnAlloc: PFN_NCRYPT_ALLOC,
+            pfnFree: PFN_NCRYPT_FREE,
+        }
+        const NCRYPT_ALLOW_ALL_USAGES: u32 = 16777215;
+        const NCRYPT_ALLOW_ARCHIVING_FLAG: u32 = 4;
+        const NCRYPT_ALLOW_DECRYPT_FLAG: u32 = 1;
+        const NCRYPT_ALLOW_EXPORT_FLAG: u32 = 1;
+        const NCRYPT_ALLOW_KEY_AGREEMENT_FLAG: u32 = 4;
+        const NCRYPT_ALLOW_KEY_ATTESTATION_FLAG: u32 = 16;
+        const NCRYPT_ALLOW_KEY_ENVELOPE_FLAG: u32 = 8;
+        const NCRYPT_ALLOW_KEY_IMPORT_EPHEMERAL_FLAG: u32 = 32;
+        const NCRYPT_ALLOW_KEY_IMPORT_FLAG: u32 = 8;
+        const NCRYPT_ALLOW_PKCS11_RSA_AES_EXPORT_FLAG: u32 = 16;
+        const NCRYPT_ALLOW_PLAINTEXT_ARCHIVING_FLAG: u32 = 8;
+        const NCRYPT_ALLOW_PLAINTEXT_EXPORT_FLAG: u32 = 2;
+        const NCRYPT_ALLOW_SIGNING_FLAG: u32 = 2;
+        const NCRYPT_ALLOW_SILENT_KEY_ACCESS: u32 = 1;
+        #[encoding("utf-16")]
+        const NCRYPT_ASSOCIATED_ECDH_KEY: String = "SmartCardAssociatedECDHKey";
+        const NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: u32 = 3;
+        const NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: u32 = 4;
+        const NCRYPT_ATTESTATION_FLAG: u32 = 32;
+        const NCRYPT_AUTHORITY_KEY_FLAG: u32 = 256;
+        #[encoding("utf-16")]
+        const NCRYPT_AUTH_TAG_LENGTH: String = "AuthTagLength";
+        #[encoding("utf-16")]
+        const NCRYPT_BLOCK_LENGTH_PROPERTY: String = "Block Length";
+        #[encoding("utf-16")]
+        const NCRYPT_CERTIFICATE_FROM_NVRAM_PROPERTY: String = "KeyCertificateFromTpmNvram";
+        #[encoding("utf-16")]
+        const NCRYPT_CERTIFICATE_PROPERTY: String = "SmartCardKeyCertificate";
+        #[encoding("utf-16")]
+        const NCRYPT_CHAINING_MODE_PROPERTY: String = "Chaining Mode";
+        const NCRYPT_CIPHER_BLOCK_PADDING_FLAG: u32 = 1;
+        const NCRYPT_CIPHER_INTERFACE: u32 = 1;
+        #[encoding("utf-16")]
+        const NCRYPT_CIPHER_KEY_BLOB: String = "CipherKeyBlob";
+        const NCRYPT_CIPHER_KEY_BLOB_MAGIC: u32 = 1380470851;
+        const NCRYPT_CIPHER_NO_PADDING_FLAG: u32 = 0;
+        const NCRYPT_CIPHER_OPERATION: u32 = 1;
+        const NCRYPT_CIPHER_OTHER_PADDING_FLAG: u32 = 2;
+        struct NCRYPT_CIPHER_PADDING_INFO {
+            cbSize: u32,
+            dwFlags: u32,
+            pbIV: PUCHAR,
+            cbIV: u32,
+            pbOtherInfo: PUCHAR,
+            cbOtherInfo: u32,
+        }
+        const NCRYPT_CLAIM_AUTHORITY_AND_SUBJECT: u32 = 3;
+        const NCRYPT_CLAIM_AUTHORITY_ONLY: u32 = 1;
+        const NCRYPT_CLAIM_PLATFORM: u32 = 65536;
+        const NCRYPT_CLAIM_SUBJECT_ONLY: u32 = 2;
+        const NCRYPT_CLAIM_UNKNOWN: u32 = 4096;
+        const NCRYPT_CLAIM_VBS_IDENTITY: u32 = 6;
+        const NCRYPT_CLAIM_VBS_KEY_ATTESTATION_STATEMENT: u32 = 4;
+        const NCRYPT_CLAIM_VBS_ROOT: u32 = 5;
+        const NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY: u32 = 258;
+        const NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY_V2: u32 = 259;
+        #[encoding("utf-16")]
+        const NCRYPT_DES_ALGORITHM_GROUP: String = "DES";
+        #[encoding("utf-16")]
+        const NCRYPT_DISMISS_UI_TIMEOUT_SEC_PROPERTY: String = "SmartCardDismissUITimeoutSeconds";
+        const NCRYPT_DO_NOT_FINALIZE_FLAG: u32 = 1024;
+        #[encoding("utf-16")]
+        const NCRYPT_ECDH_ALGORITHM_GROUP: String = "ECDH";
+        #[encoding("utf-16")]
+        const NCRYPT_ECDSA_ALGORITHM_GROUP: String = "ECDSA";
+        #[encoding("utf-16")]
+        const NCRYPT_EPHEMERAL_NAME_PROPERTY: String = "Ephemeral Name";
+        struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
+            Header: NCRYPT_EXPORTED_ISOLATED_KEY_HEADER,
+        }
+        struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
+            Version: u32,
+            KeyUsage: u32,
+            _bitfield: u32,
+            cbAlgName: u32,
+            cbNonce: u32,
+            cbAuthTag: u32,
+            cbWrappingKey: u32,
+            cbIsolatedKey: u32,
+        }
+        const NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_CURRENT_VERSION: u32 = 0;
+        const NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_V0: u32 = 0;
+        const NCRYPT_EXPORT_LEGACY_FLAG: u32 = 2048;
+        #[encoding("utf-16")]
+        const NCRYPT_EXPORT_POLICY_PROPERTY: String = "Export Policy";
+        const NCRYPT_EXTENDED_ERRORS_FLAG: u32 = 268435456;
+        type NCRYPT_HANDLE = usize;
+        type NCRYPT_HASH_HANDLE = usize;
+        const NCRYPT_HASH_INTERFACE: u32 = 2;
+        const NCRYPT_HASH_OPERATION: u32 = 2;
+        #[encoding("utf-16")]
+        const NCRYPT_HMAC_SHA256_ALGORITHM: String = "HMAC-SHA256";
+        const NCRYPT_IGNORE_DEVICE_STATE_FLAG: u32 = 4096;
+        const NCRYPT_IMPL_HARDWARE_FLAG: u32 = 1;
+        const NCRYPT_IMPL_HARDWARE_RNG_FLAG: u32 = 16;
+        const NCRYPT_IMPL_REMOVABLE_FLAG: u32 = 8;
+        const NCRYPT_IMPL_SOFTWARE_FLAG: u32 = 2;
+        #[encoding("utf-16")]
+        const NCRYPT_IMPL_TYPE_PROPERTY: String = "Impl Type";
+        const NCRYPT_IMPL_VIRTUAL_ISOLATION_FLAG: u32 = 32;
+        struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
+            Version: u32,
+            Flags: u32,
+            cbPublicKeyBlob: u32,
+        }
+        const NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_CURRENT_VERSION: u32 = 0;
+        const NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_V0: u32 = 0;
+        #[encoding("utf-16")]
+        const NCRYPT_ISOLATED_KEY_ENVELOPE_BLOB: String = "ISOLATED_KEY_ENVELOPE";
+        const NCRYPT_ISOLATED_KEY_FLAG_CREATED_IN_ISOLATION: u32 = 1;
+        const NCRYPT_ISOLATED_KEY_FLAG_IMPORT_ONLY: u32 = 2;
+        const NCRYPT_ISOLATED_KEY_FLAG_PER_BOOT_KEY: u32 = 4;
+        #[encoding("utf-16")]
+        const NCRYPT_KDF_KEY_BLOB: String = "KDFKeyBlob";
+        const NCRYPT_KDF_KEY_BLOB_MAGIC: u32 = 826688587;
+        #[encoding("utf-16")]
+        const NCRYPT_KDF_SECRET_VALUE: String = "KDFKeySecret";
+        struct NCRYPT_KEY_ACCESS_POLICY_BLOB {
+            dwVersion: u32,
+            dwPolicyFlags: u32,
+            cbUserSid: u32,
+            cbApplicationSid: u32,
+        }
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_ACCESS_POLICY_PROPERTY: String = "Key Access Policy";
+        const NCRYPT_KEY_ACCESS_POLICY_VERSION: u32 = 1;
+        const NCRYPT_KEY_ATTEST_MAGIC: u32 = 1146110283;
+        struct NCRYPT_KEY_ATTEST_PADDING_INFO {
+            magic: u32,
+            pbKeyBlob: PUCHAR,
+            cbKeyBlob: u32,
+            pbKeyAuth: PUCHAR,
+            cbKeyAuth: u32,
+        }
+        struct NCRYPT_KEY_BLOB_HEADER {
+            cbSize: u32,
+            dwMagic: u32,
+            cbAlgName: u32,
+            cbKeyData: u32,
+        }
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_DERIVATION_GROUP: String = "KEY_DERIVATION";
+        const NCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7;
+        const NCRYPT_KEY_DERIVATION_OPERATION: u32 = 64;
+        const NCRYPT_KEY_ENCAPSULATION_INTERFACE: u32 = 8;
+        const NCRYPT_KEY_ENCAPSULATION_OPERATION: u32 = 128;
+        type NCRYPT_KEY_HANDLE = usize;
+        const NCRYPT_KEY_PROTECTION_INTERFACE: u32 = 65540;
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_STORAGE_ALGORITHM: String = "KEY_STORAGE";
+        const NCRYPT_KEY_STORAGE_INTERFACE: u32 = 65537;
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_TYPE_PROPERTY: String = "Key Type";
+        #[encoding("utf-16")]
+        const NCRYPT_KEY_USAGE_PROPERTY: String = "Key Usage";
+        #[encoding("utf-16")]
+        const NCRYPT_LAST_MODIFIED_PROPERTY: String = "Modified";
+        #[encoding("utf-16")]
+        const NCRYPT_LENGTHS_PROPERTY: String = "Lengths";
+        #[encoding("utf-16")]
+        const NCRYPT_LENGTH_PROPERTY: String = "Length";
+        const NCRYPT_MACHINE_KEY_FLAG: u32 = 32;
+        const NCRYPT_MAX_ALG_ID_LENGTH: u32 = 512;
+        const NCRYPT_MAX_KEY_NAME_LENGTH: u32 = 512;
+        #[encoding("utf-16")]
+        const NCRYPT_MAX_NAME_LENGTH_PROPERTY: String = "Max Name Length";
+        const NCRYPT_MAX_PROPERTY_DATA: u32 = 1048576;
+        const NCRYPT_MAX_PROPERTY_NAME: u32 = 64;
+        #[encoding("utf-16")]
+        const NCRYPT_MLDSA_ALGORITHM_GROUP: String = "MLDSA";
+        #[encoding("utf-16")]
+        const NCRYPT_MLKEM_ALGORITHM_GROUP: String = "MLKEM";
+        #[encoding("utf-16")]
+        const NCRYPT_NAME_PROPERTY: String = "Name";
+        const NCRYPT_NO_CACHED_PASSWORD: u32 = 16384;
+        const NCRYPT_NO_KEY_VALIDATION: u32 = 8;
+        const NCRYPT_NO_PADDING_FLAG: u32 = 1;
+        #[encoding("utf-16")]
+        const NCRYPT_OPAQUETRANSPORT_BLOB: String = "OpaqueTransport";
+        const NCRYPT_OVERWRITE_KEY_FLAG: u32 = 128;
+        const NCRYPT_PAD_CIPHER_FLAG: u32 = 16;
+        const NCRYPT_PAD_OAEP_FLAG: u32 = 4;
+        const NCRYPT_PAD_PKCS1_FLAG: u32 = 2;
+        const NCRYPT_PAD_PQDSA_FLAG: u32 = 32;
+        const NCRYPT_PAD_PSS_FLAG: u32 = 8;
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_AIKSTORE_PROPERTY: String = "PCP_AIKSTORE";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_ALTERNATE_KEY_STORAGE_LOCATION_PROPERTY: String = "PCP_ALTERNATE_KEY_STORAGE_LOCATION";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_CHANGEPASSWORD_PROPERTY: String = "PCP_CHANGEPASSWORD";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_ECC_EKCERT_PROPERTY: String = "PCP_ECC_EKCERT";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_ECC_EKNVCERT_PROPERTY: String = "PCP_ECC_EKNVCERT";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_ECC_EKPUB_PROPERTY: String = "PCP_ECC_EKPUB";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_EKCERT_PROPERTY: String = "PCP_EKCERT";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_EKNVCERT_PROPERTY: String = "PCP_EKNVCERT";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_EKPUB_PROPERTY: String = "PCP_EKPUB";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_EKSTORE_PROPERTY: String = "PCP_EKSTORE";
+        const NCRYPT_PCP_ENCRYPTION_KEY: u32 = 2;
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_EXPORT_ALLOWED_PROPERTY: String = "PCP_EXPORT_ALLOWED";
+        const NCRYPT_PCP_GENERIC_KEY: u32 = 3;
+        const NCRYPT_PCP_HMACVERIFICATION_KEY: u32 = 16;
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_HMAC_AUTH_NONCE: String = "PCP_HMAC_AUTH_NONCE";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_HMAC_AUTH_POLICYINFO: String = "PCP_HMAC_AUTH_POLICYINFO";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_HMAC_AUTH_POLICYREF: String = "PCP_HMAC_AUTH_POLICYREF";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_HMAC_AUTH_SIGNATURE: String = "PCP_HMAC_AUTH_SIGNATURE";
+        struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
+            dwVersion: u32,
+            iExpiration: i32,
+            pabNonce: [u8; 32],
+            pabPolicyRef: [u8; 32],
+            pabHMAC: [u8; 32],
+        }
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_HMAC_AUTH_TICKET: String = "PCP_HMAC_AUTH_TICKET";
+        const NCRYPT_PCP_IDENTITY_KEY: u32 = 8;
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_INTERMEDIATE_CA_EKCERT_PROPERTY: String = "PCP_INTERMEDIATE_CA_EKCERT";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_KEYATTESTATION_PROPERTY: String = "PCP_TPM12_KEYATTESTATION";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_KEY_CREATIONHASH_PROPERTY: String = "PCP_KEY_CREATIONHASH";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_KEY_CREATIONTICKET_PROPERTY: String = "PCP_KEY_CREATIONTICKET";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_KEY_USAGE_POLICY_PROPERTY: String = "PCP_KEY_USAGE_POLICY";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_MIGRATIONPASSWORD_PROPERTY: String = "PCP_MIGRATIONPASSWORD";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_NO_DA_PROTECTION_PROPERTY: String = "PCP_NO_DA_PROTECTION";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PASSWORD_REQUIRED_PROPERTY: String = "PCP_PASSWORD_REQUIRED";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PCRTABLE_ALGORITHM_PROPERTY: String = "PCP_PCRTABLE_ALGORITHM";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PCRTABLE_PROPERTY: String = "PCP_PCRTABLE";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PLATFORMHANDLE_PROPERTY: String = "PCP_PLATFORMHANDLE";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PLATFORM_BINDING_PCRALGID_PROPERTY: String = "PCP_PLATFORM_BINDING_PCRALGID";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PLATFORM_BINDING_PCRDIGESTLIST_PROPERTY: String = "PCP_PLATFORM_BINDING_PCRDIGESTLIST";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PLATFORM_BINDING_PCRDIGEST_PROPERTY: String = "PCP_PLATFORM_BINDING_PCRDIGEST";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PLATFORM_BINDING_PCRMASK_PROPERTY: String = "PCP_PLATFORM_BINDING_PCRMASK";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PLATFORM_TYPE_PROPERTY: String = "PCP_PLATFORM_TYPE";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PROVIDERHANDLE_PROPERTY: String = "PCP_PROVIDERMHANDLE";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PROVIDER_VERSION_PROPERTY: String = "PCP_PROVIDER_VERSION";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_PSS_SALT_SIZE_PROPERTY: String = "PSS Salt Size";
+        struct NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
+            dwVersion: u32,
+            cbDigest: u32,
+        }
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_RAW_POLICYDIGEST_PROPERTY: String = "PCP_RAW_POLICYDIGEST";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_RSA_EKCERT_PROPERTY: String = "PCP_RSA_EKCERT";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_RSA_EKNVCERT_PROPERTY: String = "PCP_RSA_EKNVCERT";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_RSA_EKPUB_PROPERTY: String = "PCP_RSA_EKPUB";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_RSA_SCHEME_HASH_ALG_PROPERTY: String = "PCP_RSA_SCHEME_HASH_ALG";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_RSA_SCHEME_PROPERTY: String = "PCP_RSA_SCHEME";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_SDDIDK_CONTEXT_PROPERTY: String = "PCP_SDDIDK_CONTEXT";
+        const NCRYPT_PCP_SDDIDK_KEY: u32 = 32;
+        const NCRYPT_PCP_SDDIDK_OPERATION: u32 = 268435456;
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_SESSIONID_PROPERTY: String = "PCP_SESSIONID";
+        const NCRYPT_PCP_SIGNATURE_KEY: u32 = 1;
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_SRKPUB_PROPERTY: String = "PCP_SRKPUB";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_STORAGEPARENT_PROPERTY: String = "PCP_STORAGEPARENT";
+        const NCRYPT_PCP_STORAGE_KEY: u32 = 4;
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_SYMMETRIC_KEYBITS_PROPERTY: String = "PCP_SYMMETRIC_KEYBITS";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_TPM12_IDACTIVATION_PROPERTY: String = "PCP_TPM12_IDACTIVATION";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_TPM12_IDBINDING_DYNAMIC_PROPERTY: String = "PCP_TPM12_IDBINDING_DYNAMIC";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_TPM12_IDBINDING_PROPERTY: String = "PCP_TPM12_IDBINDING";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_TPM2BNAME_PROPERTY: String = "PCP_TPM2BNAME";
+        struct NCRYPT_PCP_TPM_FW_VERSION_INFO {
+            major1: u16,
+            major2: u16,
+            minor1: u16,
+            minor2: u16,
+        }
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_TPM_FW_VERSION_PROPERTY: String = "PCP_TPM_FW_VERSION";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_TPM_IFX_RSA_KEYGEN_PROHIBITED_PROPERTY: String = "PCP_TPM_IFX_RSA_KEYGEN_PROHIBITED";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_TPM_IFX_RSA_KEYGEN_VULNERABILITY_PROPERTY: String = "PCP_TPM_IFX_RSA_KEYGEN_VULNERABILITY";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_TPM_MANUFACTURER_ID_PROPERTY: String = "PCP_TPM_MANUFACTURER_ID";
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_TPM_VERSION_PROPERTY: String = "PCP_TPM_VERSION";
+        struct NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
+            Magic: u32,
+            Version: u32,
+            HeaderSize: u32,
+            cbCertifyInfo: u32,
+            cbSignature: u32,
+            cbTpmPublic: u32,
+        }
+        #[encoding("utf-16")]
+        const NCRYPT_PCP_USAGEAUTH_PROPERTY: String = "PCP_USAGEAUTH";
+        const NCRYPT_PERSIST_FLAG: u32 = 2147483648;
+        const NCRYPT_PERSIST_ONLY_FLAG: u32 = 1073741824;
+        #[encoding("utf-16")]
+        const NCRYPT_PIN_CACHE_APPLICATION_IMAGE_PROPERTY: String = "PinCacheApplicationImage";
+        #[encoding("utf-16")]
+        const NCRYPT_PIN_CACHE_APPLICATION_STATUS_PROPERTY: String = "PinCacheApplicationStatus";
+        const NCRYPT_PIN_CACHE_APPLICATION_TICKET_BYTE_LENGTH: u32 = 90;
+        #[encoding("utf-16")]
+        const NCRYPT_PIN_CACHE_APPLICATION_TICKET_PROPERTY: String = "PinCacheApplicationTicket";
+        const NCRYPT_PIN_CACHE_CLEAR_FOR_CALLING_PROCESS_OPTION: u32 = 1;
+        #[encoding("utf-16")]
+        const NCRYPT_PIN_CACHE_CLEAR_PROPERTY: String = "PinCacheClear";
+        const NCRYPT_PIN_CACHE_DISABLE_DPL_FLAG: u32 = 1;
+        #[encoding("utf-16")]
+        const NCRYPT_PIN_CACHE_FLAGS_PROPERTY: String = "PinCacheFlags";
+        #[encoding("utf-16")]
+        const NCRYPT_PIN_CACHE_FREE_APPLICATION_TICKET_PROPERTY: String = "PinCacheFreeApplicationTicket";
+        #[encoding("utf-16")]
+        const NCRYPT_PIN_CACHE_IS_GESTURE_REQUIRED_PROPERTY: String = "PinCacheIsGestureRequired";
+        const NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH: u32 = 90;
+        #[encoding("utf-16")]
+        const NCRYPT_PIN_CACHE_PIN_PROPERTY: String = "PinCachePin";
+        const NCRYPT_PIN_CACHE_REQUIRE_GESTURE_FLAG: u32 = 1;
+        #[encoding("utf-16")]
+        const NCRYPT_PIN_PROMPT_PROPERTY: String = "SmartCardPinPrompt";
+        #[encoding("utf-16")]
+        const NCRYPT_PIN_PROPERTY: String = "SmartCardPin";
+        #[encoding("utf-16")]
+        const NCRYPT_PKCS7_ENVELOPE_BLOB: String = "PKCS7_ENVELOPE";
+        #[encoding("utf-16")]
+        const NCRYPT_PKCS8_PRIVATE_KEY_BLOB: String = "PKCS8_PRIVATEKEY";
+        const NCRYPT_PLATFORM_ATTEST_MAGIC: u32 = 1146110288;
+        struct NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
+            magic: u32,
+            pcrMask: u32,
+        }
+        #[encoding("utf-16")]
+        const NCRYPT_PLUTON_ECC_EKCERT_PROPERTY: String = "PLUTON_ECC_EKCERT";
+        #[encoding("utf-16")]
+        const NCRYPT_PLUTON_ECC_EKPUB_PROPERTY: String = "PLUTON_ECC_EKPUB";
+        #[encoding("utf-16")]
+        const NCRYPT_PLUTON_EKCERT_PROPERTY: String = "PLUTON_EKCERT";
+        #[encoding("utf-16")]
+        const NCRYPT_PLUTON_EKPUB_PROPERTY: String = "PLUTON_EKPUB";
+        #[encoding("utf-16")]
+        const NCRYPT_PLUTON_KDF_PARAMS_BUFFER_DESC_PROPERTY: String = "PlutonKdfParamsBufferDesc";
+        #[encoding("utf-16")]
+        const NCRYPT_PLUTON_KDF_PARENT_KEY_UNIQUE_NAME_PROPERTY: String = "PlutonKdfParentKeyUniqueName";
+        #[encoding("utf-16")]
+        const NCRYPT_PLUTON_RSA_EKCERT_PROPERTY: String = "PLUTON_RSA_EKCERT";
+        #[encoding("utf-16")]
+        const NCRYPT_PLUTON_RSA_EKPUB_PROPERTY: String = "PLUTON_RSA_EKPUB";
+        #[encoding("utf-16")]
+        const NCRYPT_PLUTON_SESSION_ID_PROPERTY: String = "PLUTON_SESSION_ID";
+        struct NCRYPT_PQ_BLOB {
+            dwMagic: u32,
+            cbBCryptType: u32,
+            cbBCryptBlob: u32,
+        }
+        const NCRYPT_PQ_PRIVATE_BLOB_MAGIC: u32 = 1380995408;
+        #[encoding("utf-16")]
+        const NCRYPT_PQ_PRIVATE_KEY_BLOB: String = "PQPrivateKeyBlob";
+        const NCRYPT_PREFER_VBS_FLAG: u32 = 65536;
+        const NCRYPT_PREFER_VIRTUAL_ISOLATION_FLAG: u32 = 65536;
+        #[encoding("utf-16")]
+        const NCRYPT_PROTECTED_KEY_BLOB: String = "ProtectedKeyBlob";
+        const NCRYPT_PROTECTED_KEY_BLOB_MAGIC: u32 = 1263817296;
+        const NCRYPT_PROTECT_TO_LOCAL_SYSTEM: u32 = 32768;
+        #[encoding("utf-16")]
+        const NCRYPT_PROVIDER_HANDLE_PROPERTY: String = "Provider Handle";
+        type NCRYPT_PROV_HANDLE = usize;
+        #[encoding("utf-16")]
+        const NCRYPT_READER_ICON_PROPERTY: String = "SmartCardReaderIcon";
+        #[encoding("utf-16")]
+        const NCRYPT_READER_PROPERTY: String = "SmartCardReader";
+        const NCRYPT_REGISTER_NOTIFY_FLAG: u32 = 1;
+        const NCRYPT_REQUIRE_KDS_LRPC_BIND_FLAG: u32 = 536870912;
+        const NCRYPT_REQUIRE_VBS_FLAG: u32 = 131072;
+        const NCRYPT_RNG_OPERATION: u32 = 32;
+        #[encoding("utf-16")]
+        const NCRYPT_ROOT_CERTSTORE_PROPERTY: String = "SmartcardRootCertStore";
+        #[encoding("utf-16")]
+        const NCRYPT_SCARD_NGC_KEY_NAME: String = "SmartCardNgcKeyName";
+        #[encoding("utf-16")]
+        const NCRYPT_SCARD_PIN_ID: String = "SmartCardPinId";
+        #[encoding("utf-16")]
+        const NCRYPT_SCARD_PIN_INFO: String = "SmartCardPinInfo";
+        const NCRYPT_SCHANNEL_INTERFACE: u32 = 65538;
+        const NCRYPT_SCHANNEL_SIGNATURE_INTERFACE: u32 = 65539;
+        const NCRYPT_SEALING_FLAG: u32 = 256;
+        const NCRYPT_SECRET_AGREEMENT_INTERFACE: u32 = 4;
+        const NCRYPT_SECRET_AGREEMENT_OPERATION: u32 = 8;
+        type NCRYPT_SECRET_HANDLE = usize;
+        #[encoding("utf-16")]
+        const NCRYPT_SECURE_PIN_PROPERTY: String = "SmartCardSecurePin";
+        #[encoding("utf-16")]
+        const NCRYPT_SECURITY_DESCR_PROPERTY: String = "Security Descr";
+        #[encoding("utf-16")]
+        const NCRYPT_SECURITY_DESCR_SUPPORT_PROPERTY: String = "Security Descr Support";
+        const NCRYPT_SIGNATURE_INTERFACE: u32 = 5;
+        const NCRYPT_SIGNATURE_OPERATION: u32 = 16;
+        const NCRYPT_SILENT_FLAG: u32 = 64;
+        #[encoding("utf-16")]
+        const NCRYPT_SLHDSA_ALGORITHM_GROUP: String = "SLHDSA";
+        #[encoding("utf-16")]
+        const NCRYPT_SMARTCARD_GUID_PROPERTY: String = "SmartCardGuid";
+        struct NCRYPT_SUPPORTED_LENGTHS {
+            dwMinLength: u32,
+            dwMaxLength: u32,
+            dwIncrement: u32,
+            dwDefaultLength: u32,
+        }
+        const NCRYPT_TPM12_PROVIDER: u32 = 65536;
+        #[encoding("utf-16")]
+        const NCRYPT_TPM_LOADABLE_KEY_BLOB: String = "PcpTpmProtectedKeyBlob";
+        struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
+            magic: u32,
+            cbHeader: u32,
+            cbPublic: u32,
+            cbPrivate: u32,
+            cbName: u32,
+        }
+        const NCRYPT_TPM_LOADABLE_KEY_BLOB_MAGIC: u32 = 1297371211;
+        const NCRYPT_TPM_PAD_PSS_IGNORE_SALT: u32 = 32;
+        #[encoding("utf-16")]
+        const NCRYPT_TPM_PERSISTENT_KEY_BLOB: String = "PcpTpmPersistentKeyBlob";
+        struct NCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER {
+            magic: u32,
+            cbHeader: u32,
+            tpmHandle: u32,
+        }
+        const NCRYPT_TPM_PERSISTENT_KEY_BLOB_MAGIC: u32 = 1297371211;
+        struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
+            Magic: u32,
+            Version: u32,
+            pcrAlg: u32,
+            cbSignature: u32,
+            cbQuote: u32,
+            cbPcrs: u32,
+        }
+        const NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT_CURRENT_VERSION: u32 = 0;
+        const NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT_V0: u32 = 0;
+        const NCRYPT_TPM_PSS_SALT_SIZE_HASHSIZE: u32 = 2;
+        const NCRYPT_TPM_PSS_SALT_SIZE_MAXIMUM: u32 = 1;
+        const NCRYPT_TPM_PSS_SALT_SIZE_UNKNOWN: u32 = 0;
+        const NCRYPT_TREAT_NIST_AS_GENERIC_ECC_FLAG: u32 = 8192;
+        const NCRYPT_UI_APPCONTAINER_ACCESS_MEDIUM_FLAG: u32 = 8;
+        const NCRYPT_UI_FINGERPRINT_PROTECTION_FLAG: u32 = 4;
+        const NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG: u32 = 2;
+        struct NCRYPT_UI_POLICY {
+            dwVersion: u32,
+            dwFlags: u32,
+            pszCreationTitle: PCWSTR,
+            pszFriendlyName: PCWSTR,
+            pszDescription: PCWSTR,
+        }
+        #[encoding("utf-16")]
+        const NCRYPT_UI_POLICY_PROPERTY: String = "UI Policy";
+        const NCRYPT_UI_PROTECT_KEY_FLAG: u32 = 1;
+        #[encoding("utf-16")]
+        const NCRYPT_UNIQUE_NAME_PROPERTY: String = "Unique Name";
+        const NCRYPT_UNREGISTER_NOTIFY_FLAG: u32 = 2;
+        #[encoding("utf-16")]
+        const NCRYPT_USER_CERTSTORE_PROPERTY: String = "SmartCardUserCertStore";
+        #[encoding("utf-16")]
+        const NCRYPT_USE_CONTEXT_PROPERTY: String = "Use Context";
+        #[encoding("utf-16")]
+        const NCRYPT_USE_COUNT_ENABLED_PROPERTY: String = "Enabled Use Count";
+        #[encoding("utf-16")]
+        const NCRYPT_USE_COUNT_PROPERTY: String = "Use Count";
+        const NCRYPT_USE_PER_BOOT_KEY_FLAG: u32 = 262144;
+        #[encoding("utf-16")]
+        const NCRYPT_USE_PER_BOOT_KEY_PROPERTY: String = "Per Boot Key";
+        const NCRYPT_USE_RECOVERY_LDAP_PORT: u32 = 65536;
+        const NCRYPT_USE_VBS_PER_BOOT_KEY_FLAG: u32 = 262144;
+        const NCRYPT_USE_VIRTUAL_ISOLATION_FLAG: u32 = 131072;
+        #[encoding("utf-16")]
+        const NCRYPT_USE_VIRTUAL_ISOLATION_PROPERTY: String = "Virtual Iso";
+        struct NCRYPT_VBS_IDENTITY_ATTESTATION_HEADER {
+            Magic: u32,
+            Version: u32,
+            cbAttributes: u32,
+            cbNonce: u32,
+            cbHashAlg: u32,
+            cbPadding: u32,
+            cbSignatureAlg: u32,
+            cbSignature: u32,
+        }
+        const NCRYPT_VBS_IDENTITY_ATTESTATION_HEADER_CURRENT_VERSION: u32 = 0;
+        const NCRYPT_VBS_IDENTITY_ATTESTATION_HEADER_V0: u32 = 0;
+        struct NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING {
+            Version: u32,
+            ulPaddingScheme: u32,
+            cbHashAlg: u32,
+            ulSalt: u32,
+        }
+        const NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING_CURRENT_VERSION: u32 = 0;
+        const NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING_V0: u32 = 0;
+        struct NCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS {
+            ulKeyFlags: u32,
+            pszSignatureHashAlg: PCWSTR,
+            ulPaddingScheme: u32,
+            pszPaddingHashAlg: PCWSTR,
+            ulPaddingSalt: u32,
+        }
+        struct NCRYPT_VBS_KEY_ATTESTATION_STATEMENT {
+            Magic: u32,
+            Version: u32,
+            ClaimType: u32,
+        }
+        const NCRYPT_VBS_KEY_ATTESTATION_STATEMENT_CURRENT_VERSION: u32 = 2;
+        const NCRYPT_VBS_KEY_ATTESTATION_STATEMENT_V1: u32 = 1;
+        const NCRYPT_VBS_KEY_ATTESTATION_STATEMENT_V2: u32 = 2;
+        const NCRYPT_VBS_KEY_ATTESTED_ATTRIBUTES_CURRENT_VERSION: u32 = 0;
+        const NCRYPT_VBS_KEY_FLAG_CREATED_IN_ISOLATION: u32 = 1;
+        const NCRYPT_VBS_KEY_FLAG_IMPORT_EPHEMERAL_ONLY: u32 = 8;
+        const NCRYPT_VBS_KEY_FLAG_IMPORT_ONLY: u32 = 2;
+        const NCRYPT_VBS_KEY_FLAG_PER_BOOT_KEY: u32 = 4;
+        const NCRYPT_VBS_RETURN_CLAIM_DETAILS_FLAG: u32 = 1048576;
+        struct NCRYPT_VBS_ROOT_ATTESTATION_HEADER {
+            Magic: u32,
+            Version: u32,
+            cbAttributes: u32,
+            cbNonce: u32,
+            cbReport: u32,
+            cbSignature: u32,
+        }
+        const NCRYPT_VBS_ROOT_ATTESTATION_HEADER_CURRENT_VERSION: u32 = 0;
+        const NCRYPT_VBS_ROOT_ATTESTATION_HEADER_V0: u32 = 0;
+        struct NCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS {
+            ulKeyFlags: u32,
+            ullTrustletId: u64,
+            ulTrustletSecurityVersion: u32,
+            ulTrustletDebuggable: u32,
+        }
+        #[encoding("utf-16")]
+        const NCRYPT_VBS_ROOT_PUB_PROPERTY: String = "VBS_ROOT_PUB";
+        #[encoding("utf-16")]
+        const NCRYPT_VERSION_PROPERTY: String = "Version";
+        #[encoding("utf-16")]
+        const NCRYPT_WINDOW_HANDLE_PROPERTY: String = "HWND Handle";
+        const NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: u32 = 512;
+        struct NCryptAlgorithmName {
+            pszName: PWSTR,
+            dwClass: u32,
+            dwAlgOperations: u32,
+            dwFlags: u32,
+        }
+        type NCryptBuffer = BCryptBuffer;
+        type NCryptBufferDesc = BCryptBufferDesc;
+        #[library("ncrypt.dll")]
+        extern fn NCryptCreateClaim(#[opt] hSubjectKey: NCRYPT_KEY_HANDLE, #[opt] hAuthorityKey: NCRYPT_KEY_HANDLE, dwClaimType: u32, #[opt] pParameterList: *const NCryptBufferDesc, #[size_param(5)] #[opt] pbClaimBlob: *mut u8, cbClaimBlob: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptCreatePersistedKey(hProvider: NCRYPT_PROV_HANDLE, phKey: *mut NCRYPT_KEY_HANDLE, pszAlgId: PCWSTR, #[opt] pszKeyName: PCWSTR, dwLegacyKeySpec: u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptDecapsulate(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] pbCipherText: *const u8, cbCipherText: u32, #[size_param(4)] #[opt] pbSecretKey: *mut u8, cbSecretKey: u32, pcbSecretKey: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptDecrypt(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: *const u8, cbInput: u32, #[opt] pPaddingInfo: *const void, #[size_param(5)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptDeleteKey(hKey: NCRYPT_KEY_HANDLE, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptDeriveKey(hSharedSecret: NCRYPT_SECRET_HANDLE, pwszKDF: PCWSTR, #[opt] pParameterList: *const NCryptBufferDesc, #[size_param(4)] #[opt] pbDerivedKey: *mut u8, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptEncapsulate(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbSecretKey: *mut u8, cbSecretKey: u32, pcbSecretKey: *mut u32, #[size_param(5)] #[opt] pbCipherText: *mut u8, cbCipherText: u32, pcbCipherText: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptEncrypt(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: *const u8, cbInput: u32, #[opt] pPaddingInfo: *const void, #[size_param(5)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptEnumAlgorithms(hProvider: NCRYPT_PROV_HANDLE, dwAlgOperations: u32, pdwAlgCount: *mut u32, ppAlgList: *mut *mut NCryptAlgorithmName, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptEnumKeys(hProvider: NCRYPT_PROV_HANDLE, #[opt] pszScope: PCWSTR, ppKeyName: *mut *mut NCryptKeyName, #[in] #[out] ppEnumState: *mut *mut void, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptEnumStorageProviders(pdwProviderCount: *mut u32, ppProviderList: *mut *mut NCryptProviderName, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptExportKey(hKey: NCRYPT_KEY_HANDLE, #[opt] hExportKey: NCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, #[opt] pParameterList: *const NCryptBufferDesc, #[size_param(5)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptFinalizeKey(hKey: NCRYPT_KEY_HANDLE, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptFreeBuffer(pvInput: *mut void) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptFreeObject(hObject: NCRYPT_HANDLE) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptGetProperty(hObject: NCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptImportKey(hProvider: NCRYPT_PROV_HANDLE, #[opt] hImportKey: NCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, #[opt] pParameterList: *const NCryptBufferDesc, phKey: *mut NCRYPT_KEY_HANDLE, #[size_param(6)] pbData: *const u8, cbData: u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptIsAlgSupported(hProvider: NCRYPT_PROV_HANDLE, pszAlgId: PCWSTR, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptIsKeyHandle(hKey: NCRYPT_KEY_HANDLE) -> BOOL;
+        #[library("ncrypt.dll")]
+        extern fn NCryptKeyDerivation(hKey: NCRYPT_KEY_HANDLE, #[opt] pParameterList: *const NCryptBufferDesc, #[size_param(3)] pbDerivedKey: *mut u8, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        struct NCryptKeyName {
+            pszName: PWSTR,
+            pszAlgid: PWSTR,
+            dwLegacyKeySpec: u32,
+            dwFlags: u32,
+        }
+        #[library("ncrypt.dll")]
+        extern fn NCryptNotifyChangeKey(hProvider: NCRYPT_PROV_HANDLE, #[in] #[out] phEvent: *mut HANDLE, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptOpenKey(hProvider: NCRYPT_PROV_HANDLE, phKey: *mut NCRYPT_KEY_HANDLE, pszKeyName: PCWSTR, #[opt] dwLegacyKeySpec: u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptOpenStorageProvider(phProvider: *mut NCRYPT_PROV_HANDLE, #[opt] pszProviderName: PCWSTR, dwFlags: u32) -> SECURITY_STATUS;
+        struct NCryptProviderName {
+            pszName: PWSTR,
+            pszComment: PWSTR,
+        }
+        #[library("ncrypt.dll")]
+        extern fn NCryptSecretAgreement(hPrivKey: NCRYPT_KEY_HANDLE, hPubKey: NCRYPT_KEY_HANDLE, phAgreedSecret: *mut NCRYPT_SECRET_HANDLE, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptSetProperty(hObject: NCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] pbInput: *const u8, cbInput: u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptSignHash(hKey: NCRYPT_KEY_HANDLE, #[opt] pPaddingInfo: *const void, #[size_param(3)] pbHashValue: *const u8, cbHashValue: u32, #[size_param(5)] #[opt] pbSignature: *mut u8, cbSignature: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptTranslateHandle(#[opt] phProvider: *mut NCRYPT_PROV_HANDLE, phKey: *mut NCRYPT_KEY_HANDLE, hLegacyProv: HCRYPTPROV, #[opt] hLegacyKey: HCRYPTKEY, #[opt] dwLegacyKeySpec: u32, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptVerifyClaim(hSubjectKey: NCRYPT_KEY_HANDLE, #[opt] hAuthorityKey: NCRYPT_KEY_HANDLE, dwClaimType: u32, #[opt] pParameterList: *const NCryptBufferDesc, #[size_param(5)] pbClaimBlob: *const u8, cbClaimBlob: u32, pOutput: *mut NCryptBufferDesc, dwFlags: u32) -> SECURITY_STATUS;
+        #[library("ncrypt.dll")]
+        extern fn NCryptVerifySignature(hKey: NCRYPT_KEY_HANDLE, #[opt] pPaddingInfo: *const void, #[size_param(3)] pbHashValue: *const u8, cbHashValue: u32, #[size_param(5)] pbSignature: *const u8, cbSignature: u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn PFN_NCRYPT_ALLOC(cbSize: usize) -> *mut void;
+        extern fn PFN_NCRYPT_FREE(pv: *const void);
+        type PNCRYPT_CIPHER_PADDING_INFO = *mut NCRYPT_CIPHER_PADDING_INFO;
+        type PNCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE = *mut NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE;
+        type PNCRYPT_EXPORTED_ISOLATED_KEY_HEADER = *mut NCRYPT_EXPORTED_ISOLATED_KEY_HEADER;
+        type PNCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES = *mut NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES;
+        type PNCRYPT_KEY_BLOB_HEADER = *mut NCRYPT_KEY_BLOB_HEADER;
+        type PNCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT = *mut NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT;
+        type PNCRYPT_PQ_BLOB = *mut NCRYPT_PQ_BLOB;
+        type PNCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER = *mut NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER;
+        type PNCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER = *mut NCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER;
+        type PNCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT = *mut NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT;
+        type PNCRYPT_VBS_IDENTITY_ATTESTATION_HEADER = *mut NCRYPT_VBS_IDENTITY_ATTESTATION_HEADER;
+        type PNCRYPT_VBS_IDENTITY_ATTESTATION_PADDING = *mut NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING;
+        type PNCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS = *mut NCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS;
+        type PNCRYPT_VBS_KEY_ATTESTATION_STATEMENT = *mut NCRYPT_VBS_KEY_ATTESTATION_STATEMENT;
+        type PNCRYPT_VBS_ROOT_ATTESTATION_HEADER = *mut NCRYPT_VBS_ROOT_ATTESTATION_HEADER;
+        type PNCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS = *mut NCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS;
+        type PNCryptBuffer = *mut BCryptBuffer;
+        type PNCryptBufferDesc = *mut BCryptBufferDesc;
+        type SECURITY_STATUS = i32;
+        #[encoding("utf-16")]
+        const TPM_RSA_SRK_SEAL_KEY: String = "MICROSOFT_PCP_KSP_RSA_SEAL_KEY_3BD1C4BF-004E-4E2F-8A4D-0BF633DCB074";
+        const VBS_IDENTITY_ATTESTATION_HEADER_MAGIC: u32 = 1212369238;
+        const VBS_KEY_ATTESTATION_STATEMENT_MAGIC: u32 = 1396788054;
+        const VBS_ROOT_ATTESTATION_HEADER_MAGIC: u32 = 1212371542;
+    }
+}

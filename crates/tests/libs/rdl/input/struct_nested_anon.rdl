@@ -1,0 +1,44 @@
+#[win32]
+mod Test {
+    #[arch(X64)]
+    struct ArchNest {
+        flags: u32,
+        Anonymous: struct {
+            lo: u32,
+            hi: u32,
+        },
+    }
+    struct DeepNest {
+        a: u32,
+        Anonymous: struct {
+            b: u32,
+            Anonymous: union {
+                c: i32,
+                d: f32,
+            },
+        },
+    }
+    struct Outer {
+        header: u32,
+        Anonymous: struct {
+            x: i32,
+            y: i32,
+        },
+        tail: u16,
+    }
+    #[packed(1)]
+    struct PackedNest {
+        a: u8,
+        Anonymous: #[packed(1)] struct {
+            b: i32,
+            c: u16,
+        },
+    }
+    struct WithUnion {
+        kind: u32,
+        Anonymous: union {
+            as_int: i32,
+            as_float: f32,
+        },
+    }
+}

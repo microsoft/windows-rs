@@ -1,0 +1,99 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum FH_BACKUP_STATUS {
+            FH_STATUS_DISABLED = 0,
+            FH_STATUS_DISABLED_BY_GP = 1,
+            FH_STATUS_ENABLED = 2,
+            FH_STATUS_REHYDRATING = 3,
+            MAX_BACKUP_STATUS = 4,
+        }
+        #[repr(i32)]
+        enum FH_DEVICE_VALIDATION_RESULT {
+            FH_ACCESS_DENIED = 0,
+            FH_INVALID_DRIVE_TYPE = 1,
+            FH_READ_ONLY_PERMISSION = 2,
+            FH_CURRENT_DEFAULT = 3,
+            FH_NAMESPACE_EXISTS = 4,
+            FH_TARGET_PART_OF_LIBRARY = 5,
+            FH_VALID_TARGET = 6,
+            MAX_VALIDATION_RESULT = 7,
+        }
+        #[repr(i32)]
+        enum FH_LOCAL_POLICY_TYPE {
+            FH_FREQUENCY = 0,
+            FH_RETENTION_TYPE = 1,
+            FH_RETENTION_AGE = 2,
+            MAX_LOCAL_POLICY = 3,
+        }
+        #[repr(i32)]
+        enum FH_PROTECTED_ITEM_CATEGORY {
+            FH_FOLDER = 0,
+            FH_LIBRARY = 1,
+            MAX_PROTECTED_ITEM_CATEGORY = 2,
+        }
+        #[repr(i32)]
+        enum FH_RETENTION_TYPES {
+            FH_RETENTION_DISABLED = 0,
+            FH_RETENTION_UNLIMITED = 1,
+            FH_RETENTION_AGE_BASED = 2,
+            MAX_RETENTION_TYPE = 3,
+        }
+        #[repr(i32)]
+        enum FH_TARGET_DRIVE_TYPES {
+            FH_DRIVE_UNKNOWN = 0,
+            FH_DRIVE_REMOVABLE = 2,
+            FH_DRIVE_FIXED = 3,
+            FH_DRIVE_REMOTE = 4,
+        }
+        #[repr(i32)]
+        enum FH_TARGET_PROPERTY_TYPE {
+            FH_TARGET_NAME = 0,
+            FH_TARGET_URL = 1,
+            FH_TARGET_DRIVE_TYPE = 2,
+            MAX_TARGET_PROPERTY = 3,
+        }
+        const FhConfigMgr: GUID = 0xed43bb3c_09e9_498a_9df6_2177244c6db4;
+        const FhReassociation: GUID = 0x4d728e35_16fa_4320_9e8b_bfd7100a8846;
+        #[guid(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c)]
+        interface IFhConfigMgr: IUnknown {
+            fn LoadConfiguration(&self) -> HRESULT;
+            fn CreateDefaultConfiguration(&self, OverwriteIfExists: BOOL) -> HRESULT;
+            fn SaveConfiguration(&self) -> HRESULT;
+            fn AddRemoveExcludeRule(&self, Add: BOOL, Category: FH_PROTECTED_ITEM_CATEGORY, Item: BSTR) -> HRESULT;
+            fn GetIncludeExcludeRules(&self, Include: BOOL, Category: FH_PROTECTED_ITEM_CATEGORY, Iterator: *mut IFhScopeIterator) -> HRESULT;
+            fn GetLocalPolicy(&self, LocalPolicyType: FH_LOCAL_POLICY_TYPE, PolicyValue: *mut u64) -> HRESULT;
+            fn SetLocalPolicy(&self, LocalPolicyType: FH_LOCAL_POLICY_TYPE, PolicyValue: u64) -> HRESULT;
+            fn GetBackupStatus(&self, BackupStatus: *mut FH_BACKUP_STATUS) -> HRESULT;
+            fn SetBackupStatus(&self, BackupStatus: FH_BACKUP_STATUS) -> HRESULT;
+            fn GetDefaultTarget(&self, DefaultTarget: *mut IFhTarget) -> HRESULT;
+            fn ValidateTarget(&self, TargetUrl: BSTR, ValidationResult: *mut FH_DEVICE_VALIDATION_RESULT) -> HRESULT;
+            fn ProvisionAndSetNewTarget(&self, TargetUrl: BSTR, TargetName: BSTR) -> HRESULT;
+            fn ChangeDefaultTargetRecommendation(&self, Recommend: BOOL) -> HRESULT;
+            fn QueryProtectionStatus(&self, ProtectionState: *mut u32, ProtectedUntilTime: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee)]
+        interface IFhReassociation: IUnknown {
+            fn ValidateTarget(&self, TargetUrl: BSTR, ValidationResult: *mut FH_DEVICE_VALIDATION_RESULT) -> HRESULT;
+            fn ScanTargetForConfigurations(&self, TargetUrl: BSTR) -> HRESULT;
+            fn GetConfigurationDetails(&self, Index: u32, UserName: *mut BSTR, PcName: *mut BSTR, BackupTime: *mut FILETIME) -> HRESULT;
+            fn SelectConfiguration(&self, Index: u32) -> HRESULT;
+            fn PerformReassociation(&self, OverwriteIfExists: BOOL) -> HRESULT;
+        }
+        #[guid(0x3197abce_532a_44c6_8615_f3666566a720)]
+        interface IFhScopeIterator: IUnknown {
+            fn MoveToNextItem(&self) -> HRESULT;
+            fn GetItem(&self, Item: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xd87965fd_2bad_4657_bd3b_9567eb300ced)]
+        interface IFhTarget: IUnknown {
+            fn GetStringProperty(&self, PropertyType: FH_TARGET_PROPERTY_TYPE, PropertyValue: *mut BSTR) -> HRESULT;
+            fn GetNumericalProperty(&self, PropertyType: FH_TARGET_PROPERTY_TYPE, PropertyValue: *mut u64) -> HRESULT;
+        }
+        type PFH_DEVICE_VALIDATION_RESULT = *mut FH_DEVICE_VALIDATION_RESULT;
+        type PFH_LOCAL_POLICY_TYPE = *mut FH_LOCAL_POLICY_TYPE;
+        type PFH_PROTECTED_ITEM_CATEGORY = *mut FH_PROTECTED_ITEM_CATEGORY;
+        type PFH_TARGET_PROPERTY_TYPE = *mut FH_TARGET_PROPERTY_TYPE;
+    }
+}

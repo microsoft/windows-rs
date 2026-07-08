@@ -68,7 +68,7 @@ impl Encoder<'_> {
             types,
         };
 
-        let name = item.sig.ident.to_string();
+        let name = item.sig.ident.unraw_to_string();
 
         let method_def = self
             .output

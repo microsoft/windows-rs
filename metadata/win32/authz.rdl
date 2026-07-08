@@ -1,0 +1,255 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: u32 = 1;
+        type AUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut void;
+        struct AUTHZ_ACCESS_REPLY {
+            ResultListLength: u32,
+            GrantedAccessMask: PACCESS_MASK,
+            SaclEvaluationResults: PDWORD,
+            Error: PDWORD,
+        }
+        struct AUTHZ_ACCESS_REQUEST {
+            DesiredAccess: ACCESS_MASK,
+            PrincipalSelfSid: PSID,
+            ObjectTypeList: POBJECT_TYPE_LIST,
+            ObjectTypeListLength: u32,
+            OptionalArguments: *mut void,
+        }
+        type AUTHZ_AUDIT_EVENT_HANDLE = *mut void;
+        #[repr(i32)]
+        enum AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
+            AuthzAuditEventInfoFlags = 1,
+            AuthzAuditEventInfoOperationType = 2,
+            AuthzAuditEventInfoObjectType = 3,
+            AuthzAuditEventInfoObjectName = 4,
+            AuthzAuditEventInfoAdditionalInfo = 5,
+        }
+        type AUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut void;
+        type AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut void;
+        type AUTHZ_CLIENT_CONTEXT_HANDLE = *mut void;
+        const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8;
+        #[repr(i32)]
+        enum AUTHZ_CONTEXT_INFORMATION_CLASS {
+            AuthzContextInfoUserSid = 1,
+            AuthzContextInfoGroupsSids = 2,
+            AuthzContextInfoRestrictedSids = 3,
+            AuthzContextInfoPrivileges = 4,
+            AuthzContextInfoExpirationTime = 5,
+            AuthzContextInfoServerContext = 6,
+            AuthzContextInfoIdentifier = 7,
+            AuthzContextInfoSource = 8,
+            AuthzContextInfoAll = 9,
+            AuthzContextInfoAuthenticationId = 10,
+            AuthzContextInfoSecurityAttributes = 11,
+            AuthzContextInfoDeviceSids = 12,
+            AuthzContextInfoUserClaims = 13,
+            AuthzContextInfoDeviceClaims = 14,
+            AuthzContextInfoAppContainerSid = 15,
+            AuthzContextInfoCapabilitySids = 16,
+        }
+        const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1;
+        const AUTHZ_GENERATE_FAILURE_AUDIT: u32 = 2;
+        const AUTHZ_GENERATE_SUCCESS_AUDIT: u32 = 1;
+        struct AUTHZ_INIT_INFO {
+            version: u16,
+            szResourceManagerName: PCWSTR,
+            pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK,
+            pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS,
+            pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS,
+            pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
+            pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
+        }
+        const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1;
+        const AUTHZ_NO_ALLOC_STRINGS: u32 = 4;
+        const AUTHZ_NO_FAILURE_AUDIT: u32 = 2;
+        const AUTHZ_NO_SUCCESS_AUDIT: u32 = 1;
+        struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+            szObjectTypeName: PWSTR,
+            dwOffset: u32,
+        }
+        const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4;
+        type AUTHZ_RESOURCE_MANAGER_HANDLE = *mut void;
+        const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: u32 = 2;
+        const AUTHZ_RM_FLAG_NO_AUDIT: u32 = 1;
+        const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: u32 = 4;
+        struct AUTHZ_RPC_INIT_INFO_CLIENT {
+            version: u16,
+            ObjectUuid: PWSTR,
+            ProtSeq: PWSTR,
+            NetworkAddr: PWSTR,
+            Endpoint: PWSTR,
+            Options: PWSTR,
+            ServerSpn: PWSTR,
+        }
+        const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1;
+        struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
+            Version: u16,
+            Reserved: u16,
+            AttributeCount: u32,
+            Attribute: union {
+                pAttributeV1: PAUTHZ_SECURITY_ATTRIBUTE_V1,
+            },
+        }
+        const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1;
+        const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1;
+        struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+            Version: u64,
+            pName: PWSTR,
+        }
+        const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: u32 = 1;
+        struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+            pValue: *mut void,
+            ValueLength: u32,
+        }
+        #[repr(i32)]
+        enum AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
+            AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE = 0,
+            AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL = 1,
+            AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD = 2,
+            AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE = 3,
+            AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE = 4,
+        }
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: u32 = 4;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: u32 = 1;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: u32 = 16;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: u32 = 5;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2;
+        struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
+            pName: PWSTR,
+            ValueType: u16,
+            Reserved: u16,
+            Flags: u32,
+            ValueCount: u32,
+            Values: union {
+                pInt64: PLONG64,
+                pUint64: PULONG64,
+                ppString: *mut PWSTR,
+                pFqbn: PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
+                pOctetString: PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
+            },
+        }
+        const AUTHZ_SECURITY_ATTRIBUTE_VALID_FLAGS: u32 = 3;
+        const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: u32 = 2;
+        type AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut void;
+        #[repr(i32)]
+        enum AUTHZ_SID_OPERATION {
+            AUTHZ_SID_OPERATION_NONE = 0,
+            AUTHZ_SID_OPERATION_REPLACE_ALL = 1,
+            AUTHZ_SID_OPERATION_ADD = 2,
+            AUTHZ_SID_OPERATION_DELETE = 3,
+            AUTHZ_SID_OPERATION_REPLACE = 4,
+        }
+        const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2;
+        struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
+            dwFlags: u32,
+            szEventSourceName: PWSTR,
+            szEventMessageFile: PWSTR,
+            szEventSourceXmlSchemaFile: PWSTR,
+            szEventAccessStringsFile: PWSTR,
+            szExecutableImagePath: PWSTR,
+            Anonymous: union {
+                pReserved: *mut void,
+                pProviderGuid: *mut GUID,
+            },
+            dwObjectTypeNameCount: u32,
+            ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
+        }
+        const AUTHZ_VALID_OBJECT_ACCESS_AUDIT_FLAGS: u32 = 23;
+        const AUTHZ_VALID_RM_INIT_FLAGS: u32 = 7;
+        const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzAccessCheck(Flags: u32, hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pRequest: *const AUTHZ_ACCESS_REQUEST, #[opt] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[len_param(6)] #[opt] OptionalSecurityDescriptorArray: *const PSECURITY_DESCRIPTOR, OptionalSecurityDescriptorCount: u32, #[in] #[out] pReply: *mut AUTHZ_ACCESS_REPLY, #[opt] phAccessCheckResults: *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzAddSidsToContext(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[opt] Sids: *const SID_AND_ATTRIBUTES, SidCount: u32, #[opt] RestrictedSids: *const SID_AND_ATTRIBUTES, RestrictedSidCount: u32, phNewAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzCachedAccessCheck(Flags: u32, hAccessCheckResults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, pRequest: *const AUTHZ_ACCESS_REQUEST, #[opt] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] #[out] pReply: *mut AUTHZ_ACCESS_REPLY) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzEnumerateSecurityEventSources(dwFlags: u32, Buffer: *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwCount: *mut u32, #[in] #[out] pdwLength: *mut u32) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzEvaluateSacl(AuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pRequest: *const AUTHZ_ACCESS_REQUEST, Sacl: *const ACL, GrantedAccess: ACCESS_MASK, AccessGranted: BOOL, pbGenerateAudit: *mut BOOL) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzFreeAuditEvent(hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzFreeCentralAccessPolicyCache() -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzFreeContext(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzFreeHandle(#[in] #[out] hAccessCheckResults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzFreeResourceManager(hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzGetInformationFromContext(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, InfoClass: AUTHZ_CONTEXT_INFORMATION_CLASS, BufferSize: u32, pSizeRequired: *mut u32, Buffer: *mut void) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzInitializeCompoundContext(UserContext: AUTHZ_CLIENT_CONTEXT_HANDLE, DeviceContext: AUTHZ_CLIENT_CONTEXT_HANDLE, phCompoundContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzInitializeContextFromAuthzContext(Flags: u32, hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[opt] pExpirationTime: *const LARGE_INTEGER, Identifier: LUID, DynamicGroupArgs: *const void, phNewAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzInitializeContextFromSid(Flags: u32, UserSid: PSID, hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[opt] pExpirationTime: *const LARGE_INTEGER, Identifier: LUID, #[opt] DynamicGroupArgs: *const void, phAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzInitializeContextFromToken(Flags: u32, TokenHandle: HANDLE, hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[opt] pExpirationTime: *const LARGE_INTEGER, Identifier: LUID, #[opt] DynamicGroupArgs: *const void, phAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzInitializeObjectAccessAuditEvent(Flags: u32, hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szOperationType: PCWSTR, szObjectType: PCWSTR, szObjectName: PCWSTR, szAdditionalInfo: PCWSTR, phAuditEvent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwAdditionalParameterCount: u32, ...) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzInitializeObjectAccessAuditEvent2(Flags: u32, hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szOperationType: PCWSTR, szObjectType: PCWSTR, szObjectName: PCWSTR, szAdditionalInfo: PCWSTR, szAdditionalInfo2: PCWSTR, phAuditEvent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwAdditionalParameterCount: u32, ...) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzInitializeRemoteResourceManager(pRpcInitInfo: *const AUTHZ_RPC_INIT_INFO_CLIENT, phAuthzResourceManager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzInitializeResourceManager(Flags: u32, #[opt] pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, #[opt] pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, #[opt] pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, #[opt] szResourceManagerName: PCWSTR, phAuthzResourceManager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzInitializeResourceManagerEx(#[opt] Flags: u32, #[opt] pAuthzInitInfo: *const AUTHZ_INIT_INFO, phAuthzResourceManager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzInstallSecurityEventSource(dwFlags: u32, pRegistration: *const AUTHZ_SOURCE_SCHEMA_REGISTRATION) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzModifyClaims(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, ClaimClass: AUTHZ_CONTEXT_INFORMATION_CLASS, pClaimOperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, #[opt] pClaims: *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzModifySecurityAttributes(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pOperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, #[opt] pAttributes: *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzModifySids(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, SidClass: AUTHZ_CONTEXT_INFORMATION_CLASS, pSidOperations: *const AUTHZ_SID_OPERATION, #[opt] pSids: *const TOKEN_GROUPS) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzOpenObjectAudit(Flags: u32, hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pRequest: *const AUTHZ_ACCESS_REQUEST, hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[len_param(6)] #[opt] OptionalSecurityDescriptorArray: *const PSECURITY_DESCRIPTOR, OptionalSecurityDescriptorCount: u32, pReply: *const AUTHZ_ACCESS_REPLY) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzRegisterCapChangeNotification(phCapChangeSubscription: *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE, pfnCapChangeCallback: LPTHREAD_START_ROUTINE, #[opt] pCallbackContext: *const void) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzRegisterSecurityEventSource(dwFlags: u32, szEventSourceName: PCWSTR, phEventProvider: *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzReportSecurityEvent(dwFlags: u32, #[in] #[out] hEventProvider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwAuditId: u32, #[opt] pUserSid: PSID, dwCount: u32, ...) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzReportSecurityEventFromParams(dwFlags: u32, #[in] #[out] hEventProvider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwAuditId: u32, #[opt] pUserSid: PSID, pParams: *const AUDIT_PARAMS) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzSetAppContainerInformation(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pAppContainerSid: PSID, CapabilityCount: u32, #[len_param(2)] #[opt] pCapabilitySids: *const SID_AND_ATTRIBUTES) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzUninstallSecurityEventSource(dwFlags: u32, szEventSourceName: PCWSTR) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzUnregisterCapChangeNotification(hCapChangeSubscription: AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE) -> BOOL;
+        #[library("AUTHZ.dll")]
+        extern fn AuthzUnregisterSecurityEventSource(dwFlags: u32, #[in] #[out] phEventProvider: *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> BOOL;
+        type PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE;
+        type PAUTHZ_ACCESS_REPLY = *mut AUTHZ_ACCESS_REPLY;
+        type PAUTHZ_ACCESS_REQUEST = *mut AUTHZ_ACCESS_REQUEST;
+        type PAUTHZ_AUDIT_EVENT_HANDLE = *mut AUTHZ_AUDIT_EVENT_HANDLE;
+        type PAUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut AUTHZ_AUDIT_EVENT_TYPE_HANDLE;
+        type PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE;
+        type PAUTHZ_CLIENT_CONTEXT_HANDLE = *mut AUTHZ_CLIENT_CONTEXT_HANDLE;
+        type PAUTHZ_INIT_INFO = *mut AUTHZ_INIT_INFO;
+        type PAUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET = *mut AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET;
+        type PAUTHZ_RESOURCE_MANAGER_HANDLE = *mut AUTHZ_RESOURCE_MANAGER_HANDLE;
+        type PAUTHZ_RPC_INIT_INFO_CLIENT = *mut AUTHZ_RPC_INIT_INFO_CLIENT;
+        type PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION = *mut AUTHZ_SECURITY_ATTRIBUTES_INFORMATION;
+        type PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE = *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE;
+        type PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE = *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE;
+        type PAUTHZ_SECURITY_ATTRIBUTE_OPERATION = *mut AUTHZ_SECURITY_ATTRIBUTE_OPERATION;
+        type PAUTHZ_SECURITY_ATTRIBUTE_V1 = *mut AUTHZ_SECURITY_ATTRIBUTE_V1;
+        type PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE;
+        type PAUTHZ_SID_OPERATION = *mut AUTHZ_SID_OPERATION;
+        type PAUTHZ_SOURCE_SCHEMA_REGISTRATION = *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION;
+        extern fn PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, Args: *const void, pSidAttrArray: *mut PSID_AND_ATTRIBUTES, pSidCount: *mut u32, pRestrictedSidAttrArray: *mut PSID_AND_ATTRIBUTES, pRestrictedSidCount: *mut u32) -> BOOL;
+        extern fn PFN_AUTHZ_DYNAMIC_ACCESS_CHECK(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pAce: *const ACE_HEADER, #[opt] pArgs: *const void, #[in] #[out] pbAceApplicable: *mut BOOL) -> BOOL;
+        extern fn PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY(pCentralAccessPolicy: *const void);
+        extern fn PFN_AUTHZ_FREE_DYNAMIC_GROUPS(pSidAttrArray: *const SID_AND_ATTRIBUTES);
+        extern fn PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY(hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: PSID, #[opt] pArgs: *const void, pCentralAccessPolicyApplicable: *mut BOOL, ppCentralAccessPolicy: *mut *mut void) -> BOOL;
+    }
+}

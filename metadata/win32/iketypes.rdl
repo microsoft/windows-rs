@@ -1,0 +1,600 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
+            IKEEXT_IMPERSONATION_NONE = 0,
+            IKEEXT_IMPERSONATION_SOCKET_PRINCIPAL = 1,
+            IKEEXT_IMPERSONATION_MAX = 2,
+        }
+        struct IKEEXT_AUTHENTICATION_METHOD0 {
+            authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            Anonymous: union {
+                presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
+                certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
+                kerberosAuthentication: IKEEXT_KERBEROS_AUTHENTICATION0,
+                ntlmV2Authentication: IKEEXT_NTLM_V2_AUTHENTICATION0,
+                sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
+                cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
+            },
+        }
+        struct IKEEXT_AUTHENTICATION_METHOD1 {
+            authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            Anonymous: union {
+                presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
+                certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION1,
+                kerberosAuthentication: IKEEXT_KERBEROS_AUTHENTICATION0,
+                ntlmV2Authentication: IKEEXT_NTLM_V2_AUTHENTICATION0,
+                sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION1,
+                cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
+                eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
+            },
+        }
+        struct IKEEXT_AUTHENTICATION_METHOD2 {
+            authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            Anonymous: union {
+                presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
+                certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION2,
+                kerberosAuthentication: IKEEXT_KERBEROS_AUTHENTICATION1,
+                reservedAuthentication: IKEEXT_RESERVED_AUTHENTICATION0,
+                ntlmV2Authentication: IKEEXT_NTLM_V2_AUTHENTICATION0,
+                sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION2,
+                cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
+                eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
+            },
+        }
+        #[repr(i32)]
+        enum IKEEXT_AUTHENTICATION_METHOD_TYPE {
+            IKEEXT_PRESHARED_KEY = 0,
+            IKEEXT_CERTIFICATE = 1,
+            IKEEXT_KERBEROS = 2,
+            IKEEXT_ANONYMOUS = 3,
+            IKEEXT_SSL = 4,
+            IKEEXT_NTLM_V2 = 5,
+            IKEEXT_IPV6_CGA = 6,
+            IKEEXT_CERTIFICATE_ECDSA_P256 = 7,
+            IKEEXT_CERTIFICATE_ECDSA_P384 = 8,
+            IKEEXT_SSL_ECDSA_P256 = 9,
+            IKEEXT_SSL_ECDSA_P384 = 10,
+            IKEEXT_EAP = 11,
+            IKEEXT_RESERVED = 12,
+            IKEEXT_AUTHENTICATION_METHOD_TYPE_MAX = 13,
+        }
+        struct IKEEXT_CERTIFICATE_AUTHENTICATION0 {
+            inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
+            Anonymous: union {
+                Anonymous: struct {
+                    inboundRootArraySize: u32,
+                    inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
+                },
+                inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
+                inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
+            },
+            outboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
+            Anonymous2: union {
+                Anonymous: struct {
+                    outboundRootArraySize: u32,
+                    outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
+                },
+                outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
+                outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
+            },
+            flags: u32,
+        }
+        struct IKEEXT_CERTIFICATE_AUTHENTICATION1 {
+            inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
+            Anonymous: union {
+                Anonymous: struct {
+                    inboundRootArraySize: u32,
+                    inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
+                },
+                inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
+                inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
+            },
+            outboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
+            Anonymous2: union {
+                Anonymous: struct {
+                    outboundRootArraySize: u32,
+                    outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
+                },
+                outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
+                outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
+            },
+            flags: u32,
+            localCertLocationUrl: FWP_BYTE_BLOB,
+        }
+        struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
+            inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
+            Anonymous: union {
+                Anonymous: struct {
+                    inboundRootArraySize: u32,
+                    inboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
+                },
+                Anonymous2: struct {
+                    inboundEnterpriseStoreArraySize: u32,
+                    inboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
+                },
+                Anonymous3: struct {
+                    inboundRootStoreArraySize: u32,
+                    inboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
+                },
+            },
+            outboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
+            Anonymous2: union {
+                Anonymous: struct {
+                    outboundRootArraySize: u32,
+                    outboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
+                },
+                Anonymous2: struct {
+                    outboundEnterpriseStoreArraySize: u32,
+                    outboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
+                },
+                Anonymous3: struct {
+                    outboundRootStoreArraySize: u32,
+                    outboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
+                },
+            },
+            flags: u32,
+            localCertLocationUrl: FWP_BYTE_BLOB,
+        }
+        struct IKEEXT_CERTIFICATE_CREDENTIAL0 {
+            subjectName: FWP_BYTE_BLOB,
+            certHash: FWP_BYTE_BLOB,
+            flags: u32,
+        }
+        struct IKEEXT_CERTIFICATE_CREDENTIAL1 {
+            subjectName: FWP_BYTE_BLOB,
+            certHash: FWP_BYTE_BLOB,
+            flags: u32,
+            certificate: FWP_BYTE_BLOB,
+        }
+        struct IKEEXT_CERTIFICATE_CRITERIA0 {
+            certData: FWP_BYTE_BLOB,
+            certHash: FWP_BYTE_BLOB,
+            eku: *mut IKEEXT_CERT_EKUS0,
+            name: *mut IKEEXT_CERT_NAME0,
+            flags: u32,
+        }
+        const IKEEXT_CERT_AUTH_ALLOW_HTTP_CERT_LOOKUP: u32 = 16;
+        const IKEEXT_CERT_AUTH_DISABLE_SSL_CERT_VALIDATION: u32 = 8;
+        const IKEEXT_CERT_AUTH_ENABLE_CRL_CHECK_STRONG: u32 = 4;
+        const IKEEXT_CERT_AUTH_FLAG_DISABLE_CRL_CHECK: u32 = 2;
+        const IKEEXT_CERT_AUTH_FLAG_DISABLE_REQUEST_PAYLOAD: u32 = 64;
+        const IKEEXT_CERT_AUTH_FLAG_SSL_ONE_WAY: u32 = 1;
+        const IKEEXT_CERT_AUTH_URL_CONTAINS_BUNDLE: u32 = 32;
+        #[repr(i32)]
+        enum IKEEXT_CERT_CONFIG_TYPE {
+            IKEEXT_CERT_CONFIG_EXPLICIT_TRUST_LIST = 0,
+            IKEEXT_CERT_CONFIG_ENTERPRISE_STORE = 1,
+            IKEEXT_CERT_CONFIG_TRUSTED_ROOT_STORE = 2,
+            IKEEXT_CERT_CONFIG_UNSPECIFIED = 3,
+            IKEEXT_CERT_CONFIG_TYPE_MAX = 4,
+        }
+        const IKEEXT_CERT_CREDENTIAL_FLAG_NAP_CERT: u32 = 1;
+        #[repr(i32)]
+        enum IKEEXT_CERT_CRITERIA_NAME_TYPE {
+            IKEEXT_CERT_CRITERIA_DNS = 0,
+            IKEEXT_CERT_CRITERIA_UPN = 1,
+            IKEEXT_CERT_CRITERIA_RFC822 = 2,
+            IKEEXT_CERT_CRITERIA_CN = 3,
+            IKEEXT_CERT_CRITERIA_OU = 4,
+            IKEEXT_CERT_CRITERIA_O = 5,
+            IKEEXT_CERT_CRITERIA_DC = 6,
+            IKEEXT_CERT_CRITERIA_NAME_TYPE_MAX = 7,
+        }
+        struct IKEEXT_CERT_EKUS0 {
+            numEku: u32,
+            eku: *mut PSTR,
+        }
+        const IKEEXT_CERT_FLAG_DISABLE_REQUEST_PAYLOAD: u32 = 2;
+        const IKEEXT_CERT_FLAG_ENABLE_ACCOUNT_MAPPING: u32 = 1;
+        const IKEEXT_CERT_FLAG_FOLLOW_RENEWAL_CERTIFICATE: u32 = 256;
+        const IKEEXT_CERT_FLAG_IGNORE_INIT_CERT_MAP_FAILURE: u32 = 16;
+        const IKEEXT_CERT_FLAG_INTERMEDIATE_CA: u32 = 8;
+        const IKEEXT_CERT_FLAG_PREFER_NAP_CERTIFICATE_OUTBOUND: u32 = 32;
+        const IKEEXT_CERT_FLAG_SELECT_NAP_CERTIFICATE: u32 = 64;
+        const IKEEXT_CERT_FLAG_USE_NAP_CERTIFICATE: u32 = 4;
+        const IKEEXT_CERT_FLAG_VERIFY_NAP_CERTIFICATE: u32 = 128;
+        struct IKEEXT_CERT_NAME0 {
+            nameType: IKEEXT_CERT_CRITERIA_NAME_TYPE,
+            certName: PWSTR,
+        }
+        struct IKEEXT_CERT_ROOT_CONFIG0 {
+            certData: FWP_BYTE_BLOB,
+            flags: u32,
+        }
+        struct IKEEXT_CIPHER_ALGORITHM0 {
+            algoIdentifier: IKEEXT_CIPHER_TYPE,
+            keyLen: u32,
+            rounds: u32,
+        }
+        #[repr(i32)]
+        enum IKEEXT_CIPHER_TYPE {
+            IKEEXT_CIPHER_DES = 0,
+            IKEEXT_CIPHER_3DES = 1,
+            IKEEXT_CIPHER_AES_128 = 2,
+            IKEEXT_CIPHER_AES_192 = 3,
+            IKEEXT_CIPHER_AES_256 = 4,
+            IKEEXT_CIPHER_AES_GCM_128_16ICV = 5,
+            IKEEXT_CIPHER_AES_GCM_256_16ICV = 6,
+            IKEEXT_CIPHER_TYPE_MAX = 7,
+        }
+        struct IKEEXT_COMMON_STATISTICS0 {
+            v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
+            v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
+            totalPacketsReceived: u32,
+            totalInvalidPacketsReceived: u32,
+            currentQueuedWorkitems: u32,
+        }
+        struct IKEEXT_COMMON_STATISTICS1 {
+            v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
+            v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
+            totalPacketsReceived: u32,
+            totalInvalidPacketsReceived: u32,
+            currentQueuedWorkitems: u32,
+        }
+        type IKEEXT_COOKIE = u64;
+        struct IKEEXT_COOKIE_PAIR0 {
+            initiator: IKEEXT_COOKIE,
+            responder: IKEEXT_COOKIE,
+        }
+        struct IKEEXT_CREDENTIAL0 {
+            authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
+            Anonymous: union {
+                presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
+                certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL0,
+                name: *mut IKEEXT_NAME_CREDENTIAL0,
+            },
+        }
+        struct IKEEXT_CREDENTIAL1 {
+            authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
+            Anonymous: union {
+                presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
+                certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
+                name: *mut IKEEXT_NAME_CREDENTIAL0,
+            },
+        }
+        struct IKEEXT_CREDENTIAL2 {
+            authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
+            impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
+            Anonymous: union {
+                presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
+                certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
+                name: *mut IKEEXT_NAME_CREDENTIAL0,
+            },
+        }
+        struct IKEEXT_CREDENTIALS0 {
+            numCredentials: u32,
+            credentials: *mut IKEEXT_CREDENTIAL_PAIR0,
+        }
+        struct IKEEXT_CREDENTIALS1 {
+            numCredentials: u32,
+            credentials: *mut IKEEXT_CREDENTIAL_PAIR1,
+        }
+        struct IKEEXT_CREDENTIALS2 {
+            numCredentials: u32,
+            credentials: *mut IKEEXT_CREDENTIAL_PAIR2,
+        }
+        struct IKEEXT_CREDENTIAL_PAIR0 {
+            localCredentials: IKEEXT_CREDENTIAL0,
+            peerCredentials: IKEEXT_CREDENTIAL0,
+        }
+        struct IKEEXT_CREDENTIAL_PAIR1 {
+            localCredentials: IKEEXT_CREDENTIAL1,
+            peerCredentials: IKEEXT_CREDENTIAL1,
+        }
+        struct IKEEXT_CREDENTIAL_PAIR2 {
+            localCredentials: IKEEXT_CREDENTIAL2,
+            peerCredentials: IKEEXT_CREDENTIAL2,
+        }
+        #[repr(i32)]
+        enum IKEEXT_DH_GROUP {
+            IKEEXT_DH_GROUP_NONE = 0,
+            IKEEXT_DH_GROUP_1 = 1,
+            IKEEXT_DH_GROUP_2 = 2,
+            IKEEXT_DH_GROUP_14 = 3,
+            IKEEXT_DH_GROUP_2048 = 3,
+            IKEEXT_DH_ECP_256 = 4,
+            IKEEXT_DH_ECP_384 = 5,
+            IKEEXT_DH_GROUP_24 = 6,
+            IKEEXT_DH_GROUP_MAX = 7,
+        }
+        struct IKEEXT_EAP_AUTHENTICATION0 {
+            flags: u32,
+        }
+        const IKEEXT_EAP_FLAG_LOCAL_AUTH_ONLY: u32 = 1;
+        const IKEEXT_EAP_FLAG_REMOTE_AUTH_ONLY: u32 = 2;
+        struct IKEEXT_EM_POLICY0 {
+            numAuthenticationMethods: u32,
+            authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
+            initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
+        }
+        struct IKEEXT_EM_POLICY1 {
+            numAuthenticationMethods: u32,
+            authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
+            initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
+        }
+        struct IKEEXT_EM_POLICY2 {
+            numAuthenticationMethods: u32,
+            authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
+            initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
+        }
+        #[repr(i32)]
+        enum IKEEXT_EM_SA_STATE {
+            IKEEXT_EM_SA_STATE_NONE = 0,
+            IKEEXT_EM_SA_STATE_SENT_ATTS = 1,
+            IKEEXT_EM_SA_STATE_SSPI_SENT = 2,
+            IKEEXT_EM_SA_STATE_AUTH_COMPLETE = 3,
+            IKEEXT_EM_SA_STATE_FINAL = 4,
+            IKEEXT_EM_SA_STATE_COMPLETE = 5,
+            IKEEXT_EM_SA_STATE_MAX = 6,
+        }
+        const IKEEXT_ERROR_CODE_COUNT: u32 = 97;
+        struct IKEEXT_INTEGRITY_ALGORITHM0 {
+            algoIdentifier: IKEEXT_INTEGRITY_TYPE,
+        }
+        #[repr(i32)]
+        enum IKEEXT_INTEGRITY_TYPE {
+            IKEEXT_INTEGRITY_MD5 = 0,
+            IKEEXT_INTEGRITY_SHA1 = 1,
+            IKEEXT_INTEGRITY_SHA_256 = 2,
+            IKEEXT_INTEGRITY_SHA_384 = 3,
+            IKEEXT_INTEGRITY_TYPE_MAX = 4,
+        }
+        struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
+            keyContainerName: *mut u16,
+            cspName: *mut u16,
+            cspType: u32,
+            cgaModifier: FWP_BYTE_ARRAY16,
+            cgaCollisionCount: u8,
+        }
+        struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
+            totalSocketReceiveFailures: u32,
+            totalSocketSendFailures: u32,
+        }
+        struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
+            totalSocketReceiveFailures: u32,
+            totalSocketSendFailures: u32,
+        }
+        struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
+            currentActiveMainModes: u32,
+            totalMainModesStarted: u32,
+            totalSuccessfulMainModes: u32,
+            totalFailedMainModes: u32,
+            totalResponderMainModes: u32,
+            currentNewResponderMainModes: u32,
+            currentActiveQuickModes: u32,
+            totalQuickModesStarted: u32,
+            totalSuccessfulQuickModes: u32,
+            totalFailedQuickModes: u32,
+            totalAcquires: u32,
+            totalReinitAcquires: u32,
+            currentActiveExtendedModes: u32,
+            totalExtendedModesStarted: u32,
+            totalSuccessfulExtendedModes: u32,
+            totalFailedExtendedModes: u32,
+            totalImpersonationExtendedModes: u32,
+            totalImpersonationMainModes: u32,
+        }
+        struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
+            currentActiveMainModes: u32,
+            totalMainModesStarted: u32,
+            totalSuccessfulMainModes: u32,
+            totalFailedMainModes: u32,
+            totalResponderMainModes: u32,
+            currentNewResponderMainModes: u32,
+            currentActiveQuickModes: u32,
+            totalQuickModesStarted: u32,
+            totalSuccessfulQuickModes: u32,
+            totalFailedQuickModes: u32,
+            totalAcquires: u32,
+            totalReinitAcquires: u32,
+            currentActiveExtendedModes: u32,
+            totalExtendedModesStarted: u32,
+            totalSuccessfulExtendedModes: u32,
+            totalFailedExtendedModes: u32,
+            totalImpersonationExtendedModes: u32,
+            totalImpersonationMainModes: u32,
+        }
+        struct IKEEXT_KERBEROS_AUTHENTICATION0 {
+            flags: u32,
+        }
+        struct IKEEXT_KERBEROS_AUTHENTICATION1 {
+            flags: u32,
+            proxyServer: *mut u16,
+        }
+        const IKEEXT_KERB_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: u32 = 1;
+        const IKEEXT_KERB_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 2;
+        const IKEEXT_KERB_AUTH_FORCE_PROXY_ON_INITIATOR: u32 = 4;
+        struct IKEEXT_KEYMODULE_STATISTICS0 {
+            v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
+            v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
+            errorFrequencyTable: [u32; 97],
+            mainModeNegotiationTime: u32,
+            quickModeNegotiationTime: u32,
+            extendedModeNegotiationTime: u32,
+        }
+        struct IKEEXT_KEYMODULE_STATISTICS1 {
+            v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1,
+            v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1,
+            errorFrequencyTable: [u32; 97],
+            mainModeNegotiationTime: u32,
+            quickModeNegotiationTime: u32,
+            extendedModeNegotiationTime: u32,
+        }
+        #[repr(i32)]
+        enum IKEEXT_KEY_MODULE_TYPE {
+            IKEEXT_KEY_MODULE_IKE = 0,
+            IKEEXT_KEY_MODULE_AUTHIP = 1,
+            IKEEXT_KEY_MODULE_IKEV2 = 2,
+            IKEEXT_KEY_MODULE_MAX = 3,
+        }
+        #[repr(i32)]
+        enum IKEEXT_MM_SA_STATE {
+            IKEEXT_MM_SA_STATE_NONE = 0,
+            IKEEXT_MM_SA_STATE_SA_SENT = 1,
+            IKEEXT_MM_SA_STATE_SSPI_SENT = 2,
+            IKEEXT_MM_SA_STATE_FINAL = 3,
+            IKEEXT_MM_SA_STATE_FINAL_SENT = 4,
+            IKEEXT_MM_SA_STATE_COMPLETE = 5,
+            IKEEXT_MM_SA_STATE_MAX = 6,
+        }
+        struct IKEEXT_NAME_CREDENTIAL0 {
+            principalName: *mut u16,
+        }
+        struct IKEEXT_NTLM_V2_AUTHENTICATION0 {
+            flags: u32,
+        }
+        const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1;
+        struct IKEEXT_POLICY0 {
+            softExpirationTime: u32,
+            numAuthenticationMethods: u32,
+            authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
+            initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
+            numIkeProposals: u32,
+            ikeProposals: *mut IKEEXT_PROPOSAL0,
+            flags: u32,
+            maxDynamicFilters: u32,
+        }
+        struct IKEEXT_POLICY1 {
+            softExpirationTime: u32,
+            numAuthenticationMethods: u32,
+            authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
+            initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
+            numIkeProposals: u32,
+            ikeProposals: *mut IKEEXT_PROPOSAL0,
+            flags: u32,
+            maxDynamicFilters: u32,
+            retransmitDurationSecs: u32,
+        }
+        struct IKEEXT_POLICY2 {
+            softExpirationTime: u32,
+            numAuthenticationMethods: u32,
+            authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
+            initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
+            numIkeProposals: u32,
+            ikeProposals: *mut IKEEXT_PROPOSAL0,
+            flags: u32,
+            maxDynamicFilters: u32,
+            retransmitDurationSecs: u32,
+        }
+        const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: u32 = 128;
+        const IKEEXT_POLICY_FLAG_DISABLE_DIAGNOSTICS: u32 = 1;
+        const IKEEXT_POLICY_FLAG_ENABLE_OPTIONAL_DH: u32 = 8;
+        const IKEEXT_POLICY_FLAG_IMS_VPN: u32 = 64;
+        const IKEEXT_POLICY_FLAG_MOBIKE_NOT_SUPPORTED: u32 = 16;
+        const IKEEXT_POLICY_FLAG_NO_IMPERSONATION_LUID_VERIFY: u32 = 4;
+        const IKEEXT_POLICY_FLAG_NO_MACHINE_LUID_VERIFY: u32 = 2;
+        const IKEEXT_POLICY_FLAG_POINT_TO_SITE: u32 = 512;
+        const IKEEXT_POLICY_FLAG_SITE_TO_SITE: u32 = 32;
+        const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: u32 = 256;
+        struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
+            presharedKey: FWP_BYTE_BLOB,
+        }
+        struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
+            presharedKey: FWP_BYTE_BLOB,
+            flags: u32,
+        }
+        struct IKEEXT_PROPOSAL0 {
+            cipherAlgorithm: IKEEXT_CIPHER_ALGORITHM0,
+            integrityAlgorithm: IKEEXT_INTEGRITY_ALGORITHM0,
+            maxLifetimeSeconds: u32,
+            dhGroup: IKEEXT_DH_GROUP,
+            quickModeLimit: u32,
+        }
+        const IKEEXT_PSK_FLAG_LOCAL_AUTH_ONLY: u32 = 1;
+        const IKEEXT_PSK_FLAG_REMOTE_AUTH_ONLY: u32 = 2;
+        #[repr(i32)]
+        enum IKEEXT_QM_SA_STATE {
+            IKEEXT_QM_SA_STATE_NONE = 0,
+            IKEEXT_QM_SA_STATE_INITIAL = 1,
+            IKEEXT_QM_SA_STATE_FINAL = 2,
+            IKEEXT_QM_SA_STATE_COMPLETE = 3,
+            IKEEXT_QM_SA_STATE_MAX = 4,
+        }
+        struct IKEEXT_RESERVED_AUTHENTICATION0 {
+            flags: u32,
+        }
+        const IKEEXT_RESERVED_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: u32 = 1;
+        struct IKEEXT_SA_DETAILS0 {
+            saId: u64,
+            keyModuleType: IKEEXT_KEY_MODULE_TYPE,
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+            },
+            ikeTraffic: IKEEXT_TRAFFIC0,
+            ikeProposal: IKEEXT_PROPOSAL0,
+            cookiePair: IKEEXT_COOKIE_PAIR0,
+            ikeCredentials: IKEEXT_CREDENTIALS0,
+            ikePolicyKey: GUID,
+            virtualIfTunnelId: u64,
+        }
+        struct IKEEXT_SA_DETAILS1 {
+            saId: u64,
+            keyModuleType: IKEEXT_KEY_MODULE_TYPE,
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+            },
+            ikeTraffic: IKEEXT_TRAFFIC0,
+            ikeProposal: IKEEXT_PROPOSAL0,
+            cookiePair: IKEEXT_COOKIE_PAIR0,
+            ikeCredentials: IKEEXT_CREDENTIALS1,
+            ikePolicyKey: GUID,
+            virtualIfTunnelId: u64,
+            correlationKey: FWP_BYTE_BLOB,
+        }
+        struct IKEEXT_SA_DETAILS2 {
+            saId: u64,
+            keyModuleType: IKEEXT_KEY_MODULE_TYPE,
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+            },
+            ikeTraffic: IKEEXT_TRAFFIC0,
+            ikeProposal: IKEEXT_PROPOSAL0,
+            cookiePair: IKEEXT_COOKIE_PAIR0,
+            ikeCredentials: IKEEXT_CREDENTIALS2,
+            ikePolicyKey: GUID,
+            virtualIfTunnelId: u64,
+            correlationKey: FWP_BYTE_BLOB,
+        }
+        struct IKEEXT_SA_ENUM_TEMPLATE0 {
+            localSubNet: FWP_CONDITION_VALUE0,
+            remoteSubNet: FWP_CONDITION_VALUE0,
+            localMainModeCertHash: FWP_BYTE_BLOB,
+        }
+        #[repr(i32)]
+        enum IKEEXT_SA_ROLE {
+            IKEEXT_SA_ROLE_INITIATOR = 0,
+            IKEEXT_SA_ROLE_RESPONDER = 1,
+            IKEEXT_SA_ROLE_MAX = 2,
+        }
+        struct IKEEXT_STATISTICS0 {
+            ikeStatistics: IKEEXT_KEYMODULE_STATISTICS0,
+            authipStatistics: IKEEXT_KEYMODULE_STATISTICS0,
+            commonStatistics: IKEEXT_COMMON_STATISTICS0,
+        }
+        struct IKEEXT_STATISTICS1 {
+            ikeStatistics: IKEEXT_KEYMODULE_STATISTICS1,
+            authipStatistics: IKEEXT_KEYMODULE_STATISTICS1,
+            ikeV2Statistics: IKEEXT_KEYMODULE_STATISTICS1,
+            commonStatistics: IKEEXT_COMMON_STATISTICS1,
+        }
+        struct IKEEXT_TRAFFIC0 {
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                localV4Address: u32,
+                localV6Address: [u8; 16],
+            },
+            Anonymous2: union {
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
+            },
+            authIpFilterId: u64,
+        }
+    }
+}

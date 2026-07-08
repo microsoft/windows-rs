@@ -1,0 +1,31 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn AssignProcessToJobObject(hJob: HANDLE, hProcess: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateJobObjectW(#[opt] lpJobAttributes: *const SECURITY_ATTRIBUTES, #[opt] lpName: PCWSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn FreeMemoryJobObject(Buffer: *const void);
+        struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
+            MaxIops: i64,
+            MaxBandwidth: i64,
+            ReservationIops: i64,
+            VolumeName: PCWSTR,
+            BaseIoSize: u32,
+            ControlFlags: u32,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn OpenJobObjectW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCWSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn QueryInformationJobObject(#[opt] hJob: HANDLE, JobObjectInformationClass: JOBOBJECTINFOCLASS, #[size_param(3)] lpJobObjectInformation: *mut void, cbJobObjectInformationLength: u32, #[opt] lpReturnLength: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn QueryIoRateControlInformationJobObject(#[opt] hJob: HANDLE, #[opt] VolumeName: PCWSTR, InfoBlocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, InfoBlockCount: *mut u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn SetInformationJobObject(hJob: HANDLE, JobObjectInformationClass: JOBOBJECTINFOCLASS, #[size_param(3)] lpJobObjectInformation: *const void, cbJobObjectInformationLength: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetIoRateControlInformationJobObject(hJob: HANDLE, IoRateControlInfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn TerminateJobObject(hJob: HANDLE, uExitCode: u32) -> BOOL;
+    }
+}

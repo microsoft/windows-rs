@@ -1,0 +1,6 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CLSID_InternetShortcut: GUID = 0xfbf23b40_e3f0_101b_8488_00aa003e56f8;
+    }
+}

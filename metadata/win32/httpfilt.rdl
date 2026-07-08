@@ -1,0 +1,154 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("RpcProxy.dll")]
+        extern fn GetFilterVersion(pVer: *mut HTTP_FILTER_VERSION) -> BOOL;
+        struct HTTP_FILTER_ACCESS_DENIED {
+            pszURL: *const i8,
+            pszPhysicalPath: *const i8,
+            dwReason: u32,
+        }
+        struct HTTP_FILTER_AUTHENT {
+            pszUser: *mut i8,
+            cbUserBuff: u32,
+            pszPassword: *mut i8,
+            cbPasswordBuff: u32,
+        }
+        struct HTTP_FILTER_AUTH_COMPLETE_INFO {
+            GetHeader: *mut u8,
+            SetHeader: *mut u8,
+            AddHeader: *mut u8,
+            GetUserToken: *mut u8,
+            HttpStatus: u32,
+            fResetAuth: BOOL,
+            dwReserved: u32,
+        }
+        struct HTTP_FILTER_CONTEXT {
+            cbSize: u32,
+            Revision: u32,
+            ServerContext: *mut void,
+            ulReserved: u32,
+            fIsSecurePort: BOOL,
+            pFilterContext: *mut void,
+            GetServerVariable: *mut u8,
+            AddResponseHeaders: *mut u8,
+            WriteClient: *mut u8,
+            AllocMem: *mut u8,
+            ServerSupportFunction: *mut u8,
+        }
+        struct HTTP_FILTER_LOG {
+            pszClientHostName: *const i8,
+            pszClientUserName: *const i8,
+            pszServerName: *const i8,
+            pszOperation: *const i8,
+            pszTarget: *const i8,
+            pszParameters: *const i8,
+            dwHttpStatus: u32,
+            dwWin32Status: u32,
+            dwBytesSent: u32,
+            dwBytesRecvd: u32,
+            msTimeForProcessing: u32,
+        }
+        struct HTTP_FILTER_PREPROC_HEADERS {
+            GetHeader: *mut u8,
+            SetHeader: *mut u8,
+            AddHeader: *mut u8,
+            HttpStatus: u32,
+            dwReserved: u32,
+        }
+        struct HTTP_FILTER_RAW_DATA {
+            pvInData: *mut void,
+            cbInData: u32,
+            cbInBuffer: u32,
+            dwReserved: u32,
+        }
+        const HTTP_FILTER_REVISION: u32 = 655360;
+        type HTTP_FILTER_SEND_RESPONSE = HTTP_FILTER_PREPROC_HEADERS;
+        struct HTTP_FILTER_URL_MAP {
+            pszURL: *const i8,
+            pszPhysicalPath: *mut i8,
+            cbPathBuff: u32,
+        }
+        struct HTTP_FILTER_URL_MAP_EX {
+            pszURL: *const i8,
+            pszPhysicalPath: *mut i8,
+            cbPathBuff: u32,
+            dwFlags: u32,
+            cchMatchingPath: u32,
+            cchMatchingURL: u32,
+            pszScriptMapEntry: *const i8,
+        }
+        struct HTTP_FILTER_VERSION {
+            dwServerFilterVersion: u32,
+            dwFilterVersion: u32,
+            lpszFilterDesc: [i8; 257],
+            dwFlags: u32,
+        }
+        #[library("RpcProxy.dll")]
+        extern fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, NotificationType: u32, pvNotification: *mut void) -> u32;
+        type PHTTP_FILTER_ACCESS_DENIED = *mut HTTP_FILTER_ACCESS_DENIED;
+        type PHTTP_FILTER_AUTHENT = *mut HTTP_FILTER_AUTHENT;
+        type PHTTP_FILTER_AUTH_COMPLETE_INFO = *mut HTTP_FILTER_AUTH_COMPLETE_INFO;
+        type PHTTP_FILTER_CONTEXT = *mut HTTP_FILTER_CONTEXT;
+        type PHTTP_FILTER_LOG = *mut HTTP_FILTER_LOG;
+        type PHTTP_FILTER_PREPROC_HEADERS = *mut HTTP_FILTER_PREPROC_HEADERS;
+        type PHTTP_FILTER_RAW_DATA = *mut HTTP_FILTER_RAW_DATA;
+        type PHTTP_FILTER_SEND_RESPONSE = *mut HTTP_FILTER_PREPROC_HEADERS;
+        type PHTTP_FILTER_URL_MAP = *mut HTTP_FILTER_URL_MAP;
+        type PHTTP_FILTER_URL_MAP_EX = *mut HTTP_FILTER_URL_MAP_EX;
+        type PHTTP_FILTER_VERSION = *mut HTTP_FILTER_VERSION;
+        const SF_DENIED_APPLICATION: u32 = 8;
+        const SF_DENIED_BY_CONFIG: u32 = 65536;
+        const SF_DENIED_FILTER: u32 = 4;
+        const SF_DENIED_LOGON: u32 = 1;
+        const SF_DENIED_RESOURCE: u32 = 2;
+        const SF_MAX_AUTH_TYPE: u32 = 33;
+        const SF_MAX_FILTER_DESC_LEN: u32 = 257;
+        const SF_MAX_PASSWORD: u32 = 257;
+        const SF_MAX_USERNAME: u32 = 257;
+        const SF_NOTIFY_ACCESS_DENIED: u32 = 2048;
+        const SF_NOTIFY_AUTHENTICATION: u32 = 8192;
+        const SF_NOTIFY_AUTH_COMPLETE: u32 = 67108864;
+        const SF_NOTIFY_END_OF_NET_SESSION: u32 = 256;
+        const SF_NOTIFY_END_OF_REQUEST: u32 = 128;
+        const SF_NOTIFY_LOG: u32 = 512;
+        const SF_NOTIFY_NONSECURE_PORT: u32 = 2;
+        const SF_NOTIFY_ORDER_DEFAULT: u32 = 131072;
+        const SF_NOTIFY_ORDER_HIGH: u32 = 524288;
+        const SF_NOTIFY_ORDER_LOW: u32 = 131072;
+        const SF_NOTIFY_ORDER_MASK: u32 = 917504;
+        const SF_NOTIFY_ORDER_MEDIUM: u32 = 262144;
+        const SF_NOTIFY_PREPROC_HEADERS: u32 = 16384;
+        const SF_NOTIFY_READ_RAW_DATA: u32 = 32768;
+        const SF_NOTIFY_SECURE_PORT: u32 = 1;
+        const SF_NOTIFY_SEND_RAW_DATA: u32 = 1024;
+        const SF_NOTIFY_SEND_RESPONSE: u32 = 64;
+        const SF_NOTIFY_URL_MAP: u32 = 4096;
+        #[repr(i32)]
+        enum SF_PROPERTY_IIS {
+            SF_PROPERTY_SSL_CTXT = 0,
+            SF_PROPERTY_INSTANCE_NUM_ID = 1,
+        }
+        #[repr(i32)]
+        enum SF_REQ_TYPE {
+            SF_REQ_SEND_RESPONSE_HEADER = 0,
+            SF_REQ_ADD_HEADERS_ON_DENIAL = 1,
+            SF_REQ_SET_NEXT_READ_SIZE = 2,
+            SF_REQ_SET_PROXY_INFO = 3,
+            SF_REQ_GET_CONNID = 4,
+            SF_REQ_SET_CERTIFICATE_INFO = 5,
+            SF_REQ_GET_PROPERTY = 6,
+            SF_REQ_NORMALIZE_URL = 7,
+            SF_REQ_DISABLE_NOTIFICATIONS = 8,
+        }
+        #[repr(i32)]
+        enum SF_STATUS_TYPE {
+            SF_STATUS_REQ_FINISHED = 134217728,
+            SF_STATUS_REQ_FINISHED_KEEP_CONN = 134217729,
+            SF_STATUS_REQ_NEXT_NOTIFICATION = 134217730,
+            SF_STATUS_REQ_HANDLED_NOTIFICATION = 134217731,
+            SF_STATUS_REQ_ERROR = 134217732,
+            SF_STATUS_REQ_READ_NEXT = 134217733,
+        }
+    }
+}

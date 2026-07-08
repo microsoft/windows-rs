@@ -1,0 +1,332 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CMLangConvertCharset: GUID = 0xd66d6f99_cdaa_11d0_b822_00c04fc9b31f;
+        const CMLangString: GUID = 0xc04d65cf_b70d_11d0_b188_00aa0038c969;
+        const CMultiLanguage: GUID = 0x275c23e2_3747_11d0_9fea_00aa003f8646;
+        const CPIOD_FORCE_PROMPT: u32 = 2147483648;
+        const CPIOD_PEEK: u32 = 1073741824;
+        struct DetectEncodingInfo {
+            nLangID: u32,
+            nCodePage: u32,
+            nDocPercent: i32,
+            nConfidence: i32,
+        }
+        #[guid(0x275c23e3_3747_11d0_9fea_00aa003f8646)]
+        interface IEnumCodePage: IUnknown {
+            fn Clone(&self, #[reserved] ppEnum: *const IEnumCodePage) -> HRESULT;
+            fn Next(&self, celt: u32, rgelt: *mut MIMECPINFO, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+        }
+        #[guid(0x3dc39d1d_c030_11d0_b81b_00c04fc9b31f)]
+        interface IEnumRfc1766: IUnknown {
+            fn Clone(&self, #[reserved] ppEnum: *const IEnumRfc1766) -> HRESULT;
+            fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+        }
+        #[guid(0xae5f1430_388b_11d2_8380_00c04f8f5da1)]
+        interface IEnumScript: IUnknown {
+            fn Clone(&self, #[reserved] ppEnum: *const IEnumScript) -> HRESULT;
+            fn Next(&self, celt: u32, rgelt: *mut SCRIPTINFO, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+        }
+        #[guid(0x359f3443_bd4a_11d0_b188_00aa0038c969)]
+        interface IMLangCodePages: IUnknown {
+            fn GetCharCodePages(&self, chSrc: u16, pdwCodePages: *mut u32) -> HRESULT;
+            fn GetStrCodePages(&self, #[len_param(1)] pszSrc: *const u16, cchSrc: i32, dwPriorityCodePages: u32, #[opt] pdwCodePages: *mut u32, #[opt] pcchCodePages: *mut i32) -> HRESULT;
+            fn CodePageToCodePages(&self, uCodePage: u32, pdwCodePages: *mut u32) -> HRESULT;
+            fn CodePagesToCodePage(&self, dwCodePages: u32, uDefaultCodePage: u32, puCodePage: *mut u32) -> HRESULT;
+        }
+        #[guid(0xd66d6f98_cdaa_11d0_b822_00c04fc9b31f)]
+        interface IMLangConvertCharset: IUnknown {
+            fn Initialize(&self, uiSrcCodePage: u32, uiDstCodePage: u32, dwProperty: u32) -> HRESULT;
+            fn GetSourceCodePage(&self, puiSrcCodePage: *mut u32) -> HRESULT;
+            fn GetDestinationCodePage(&self, puiDstCodePage: *mut u32) -> HRESULT;
+            fn GetProperty(&self, pdwProperty: *mut u32) -> HRESULT;
+            fn DoConversion(&self, #[size_param(1)] pSrcStr: *const u8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(3)] pDstStr: *mut u8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn DoConversionToUnicode(&self, #[size_param(1)] pSrcStr: *const i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(3)] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn DoConversionFromUnicode(&self, #[len_param(1)] pSrcStr: *const u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(3)] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+        }
+        #[guid(0x359f3441_bd4a_11d0_b188_00aa0038c969)]
+        interface IMLangFontLink: IMLangCodePages {
+            fn GetFontCodePages(&self, hDC: HDC, hFont: HFONT, #[opt] pdwCodePages: *mut u32) -> HRESULT;
+            fn MapFont(&self, hDC: HDC, dwCodePages: u32, hSrcFont: HFONT, #[opt] phDestFont: *mut HFONT) -> HRESULT;
+            fn ReleaseFont(&self, hFont: HFONT) -> HRESULT;
+            fn ResetFontMapping(&self) -> HRESULT;
+        }
+        #[guid(0xdccfc162_2b38_11d2_b7ec_00c04f8f5d9a)]
+        interface IMLangFontLink2: IMLangCodePages {
+            fn GetFontCodePages(&self, hDC: HDC, hFont: HFONT, #[opt] pdwCodePages: *mut u32) -> HRESULT;
+            fn ReleaseFont(&self, hFont: HFONT) -> HRESULT;
+            fn ResetFontMapping(&self) -> HRESULT;
+            fn MapFont(&self, hDC: HDC, dwCodePages: u32, chSrc: u16, #[opt] pFont: *mut HFONT) -> HRESULT;
+            fn GetFontUnicodeRanges(&self, hDC: HDC, puiRanges: *const u32, #[opt] pUranges: *mut UNICODERANGE) -> HRESULT;
+            fn GetScriptFontInfo(&self, sid: SCRIPT_ID, dwFlags: u32, #[in] #[out] puiFonts: *mut u32, #[opt] pScriptFont: *mut SCRIPTFONTINFO) -> HRESULT;
+            fn CodePageToScriptID(&self, uiCodePage: u32, pSid: *mut SCRIPT_ID) -> HRESULT;
+        }
+        #[guid(0xf5be2ee1_bfd7_11d0_b188_00aa0038c969)]
+        interface IMLangLineBreakConsole: IUnknown {
+            fn BreakLineML(&self, pSrcMLStr: IMLangString, lSrcPos: i32, lSrcLen: i32, cMinColumns: i32, cMaxColumns: i32, #[opt] plLineLen: *mut i32, #[opt] plSkipLen: *mut i32) -> HRESULT;
+            fn BreakLineW(&self, locale: LCID, #[len_param(2)] pszSrc: *const u16, cchSrc: i32, cMaxColumns: i32, #[opt] pcchLine: *mut i32, #[opt] pcchSkip: *mut i32) -> HRESULT;
+            fn BreakLineA(&self, locale: LCID, uCodePage: u32, #[len_param(3)] pszSrc: *const i8, cchSrc: i32, cMaxColumns: i32, #[opt] pcchLine: *mut i32, #[opt] pcchSkip: *mut i32) -> HRESULT;
+        }
+        #[guid(0xc04d65ce_b70d_11d0_b188_00aa0038c969)]
+        interface IMLangString: IUnknown {
+            fn Sync(&self, fNoAccess: BOOL) -> HRESULT;
+            fn GetLength(&self, #[opt] plLen: *mut i32) -> HRESULT;
+            fn SetMLStr(&self, lDestPos: i32, lDestLen: i32, pSrcMLStr: IUnknown, lSrcPos: i32, lSrcLen: i32) -> HRESULT;
+            fn GetMLStr(&self, lSrcPos: i32, lSrcLen: i32, pUnkOuter: IUnknown, dwClsContext: u32, piid: *const GUID, ppDestMLStr: *mut IUnknown, #[opt] plDestPos: *mut i32, #[opt] plDestLen: *mut i32) -> HRESULT;
+        }
+        #[guid(0xc04d65d2_b70d_11d0_b188_00aa0038c969)]
+        interface IMLangStringAStr: IMLangString {
+            fn SetAStr(&self, lDestPos: i32, lDestLen: i32, uCodePage: u32, #[len_param(4)] pszSrc: PCSTR, cchSrc: i32, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
+            fn SetStrBufA(&self, lDestPos: i32, lDestLen: i32, uCodePage: u32, #[opt] pSrcBuf: IMLangStringBufA, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
+            fn GetAStr(&self, lSrcPos: i32, lSrcLen: i32, uCodePageIn: u32, #[reserved] puCodePageOut: *const u32, #[len_param(5)] #[out] #[opt] pszDest: PSTR, cchDest: i32, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
+            fn GetStrBufA(&self, lSrcPos: i32, lSrcMaxLen: i32, #[opt] puDestCodePage: *mut u32, ppDestBuf: *mut IMLangStringBufA, #[opt] plDestLen: *mut i32) -> HRESULT;
+            fn LockAStr(&self, lSrcPos: i32, lSrcLen: i32, lFlags: i32, uCodePageIn: u32, cchRequest: i32, #[opt] puCodePageOut: *mut u32, ppszDest: *mut PSTR, #[opt] pcchDest: *mut i32, #[opt] plDestLen: *mut i32) -> HRESULT;
+            fn UnlockAStr(&self, #[len_param(1)] pszSrc: PCSTR, cchSrc: i32, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
+            fn SetLocale(&self, lDestPos: i32, lDestLen: i32, locale: LCID) -> HRESULT;
+            fn GetLocale(&self, lSrcPos: i32, lSrcMaxLen: i32, #[opt] plocale: *mut LCID, #[opt] plLocalePos: *mut i32, #[opt] plLocaleLen: *mut i32) -> HRESULT;
+        }
+        #[guid(0xd24acd23_ba72_11d0_b188_00aa0038c969)]
+        interface IMLangStringBufA: IUnknown {
+            fn GetStatus(&self, #[opt] plFlags: *mut i32, #[opt] pcchBuf: *mut i32) -> HRESULT;
+            fn LockBuf(&self, cchOffset: i32, cchMaxLock: i32, ppszBuf: *mut *mut i8, #[opt] pcchBuf: *mut i32) -> HRESULT;
+            fn UnlockBuf(&self, pszBuf: *const i8, cchOffset: i32, cchWrite: i32) -> HRESULT;
+            fn Insert(&self, cchOffset: i32, cchMaxInsert: i32, #[opt] pcchActual: *mut i32) -> HRESULT;
+            fn Delete(&self, cchOffset: i32, cchDelete: i32) -> HRESULT;
+        }
+        #[guid(0xd24acd21_ba72_11d0_b188_00aa0038c969)]
+        interface IMLangStringBufW: IUnknown {
+            fn GetStatus(&self, #[opt] plFlags: *mut i32, #[opt] pcchBuf: *mut i32) -> HRESULT;
+            fn LockBuf(&self, cchOffset: i32, cchMaxLock: i32, ppszBuf: *mut *mut u16, #[opt] pcchBuf: *mut i32) -> HRESULT;
+            fn UnlockBuf(&self, pszBuf: *const u16, cchOffset: i32, cchWrite: i32) -> HRESULT;
+            fn Insert(&self, cchOffset: i32, cchMaxInsert: i32, #[opt] pcchActual: *mut i32) -> HRESULT;
+            fn Delete(&self, cchOffset: i32, cchDelete: i32) -> HRESULT;
+        }
+        #[guid(0xc04d65d0_b70d_11d0_b188_00aa0038c969)]
+        interface IMLangStringWStr: IMLangString {
+            fn SetWStr(&self, lDestPos: i32, lDestLen: i32, #[len_param(3)] pszSrc: PCWSTR, cchSrc: i32, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
+            fn SetStrBufW(&self, lDestPos: i32, lDestLen: i32, #[opt] pSrcBuf: IMLangStringBufW, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
+            fn GetWStr(&self, lSrcPos: i32, lSrcLen: i32, #[len_param(3)] #[out] #[opt] pszDest: PWSTR, cchDest: i32, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
+            fn GetStrBufW(&self, lSrcPos: i32, lSrcMaxLen: i32, ppDestBuf: *mut IMLangStringBufW, #[opt] plDestLen: *mut i32) -> HRESULT;
+            fn LockWStr(&self, lSrcPos: i32, lSrcLen: i32, lFlags: i32, cchRequest: i32, ppszDest: *mut PWSTR, #[opt] pcchDest: *mut i32, #[opt] plDestLen: *mut i32) -> HRESULT;
+            fn UnlockWStr(&self, #[len_param(1)] pszSrc: PCWSTR, cchSrc: i32, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
+            fn SetLocale(&self, lDestPos: i32, lDestLen: i32, locale: LCID) -> HRESULT;
+            fn GetLocale(&self, lSrcPos: i32, lSrcMaxLen: i32, #[opt] plocale: *mut LCID, #[opt] plLocalePos: *mut i32, #[opt] plLocaleLen: *mut i32) -> HRESULT;
+        }
+        #[guid(0x275c23e1_3747_11d0_9fea_00aa003f8646)]
+        interface IMultiLanguage: IUnknown {
+            fn GetNumberOfCodePageInfo(&self, pcCodePage: *mut u32) -> HRESULT;
+            fn GetCodePageInfo(&self, uiCodePage: u32, pCodePageInfo: *mut MIMECPINFO) -> HRESULT;
+            fn GetFamilyCodePage(&self, uiCodePage: u32, puiFamilyCodePage: *mut u32) -> HRESULT;
+            fn EnumCodePages(&self, grfFlags: u32, ppEnumCodePage: *mut IEnumCodePage) -> HRESULT;
+            fn GetCharsetInfo(&self, Charset: BSTR, pCharsetInfo: *mut MIMECSETINFO) -> HRESULT;
+            fn IsConvertible(&self, dwSrcEncoding: u32, dwDstEncoding: u32) -> HRESULT;
+            fn ConvertString(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwSrcEncoding: u32, dwDstEncoding: u32, #[size_param(4)] #[opt] pSrcStr: *const u8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(6)] #[opt] pDstStr: *mut u8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertStringToUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[size_param(3)] #[opt] pSrcStr: *const i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(5)] #[opt] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertStringFromUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[len_param(3)] #[opt] pSrcStr: *const u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(5)] #[opt] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertStringReset(&self) -> HRESULT;
+            fn GetRfc1766FromLcid(&self, Locale: LCID, pbstrRfc1766: *mut BSTR) -> HRESULT;
+            fn GetLcidFromRfc1766(&self, pLocale: *mut LCID, bstrRfc1766: BSTR) -> HRESULT;
+            fn EnumRfc1766(&self, ppEnumRfc1766: *mut IEnumRfc1766) -> HRESULT;
+            fn GetRfc1766Info(&self, Locale: LCID, pRfc1766Info: *mut RFC1766INFO) -> HRESULT;
+            fn CreateConvertCharset(&self, uiSrcCodePage: u32, uiDstCodePage: u32, dwProperty: u32, ppMLangConvertCharset: *mut IMLangConvertCharset) -> HRESULT;
+        }
+        #[guid(0xdccfc164_2b38_11d2_b7ec_00c04f8f5d9a)]
+        interface IMultiLanguage2: IUnknown {
+            fn GetNumberOfCodePageInfo(&self, pcCodePage: *mut u32) -> HRESULT;
+            fn GetCodePageInfo(&self, uiCodePage: u32, LangId: LANGID, pCodePageInfo: *mut MIMECPINFO) -> HRESULT;
+            fn GetFamilyCodePage(&self, uiCodePage: u32, puiFamilyCodePage: *mut u32) -> HRESULT;
+            fn EnumCodePages(&self, grfFlags: u32, LangId: LANGID, ppEnumCodePage: *mut IEnumCodePage) -> HRESULT;
+            fn GetCharsetInfo(&self, Charset: BSTR, pCharsetInfo: *mut MIMECSETINFO) -> HRESULT;
+            fn IsConvertible(&self, dwSrcEncoding: u32, dwDstEncoding: u32) -> HRESULT;
+            fn ConvertString(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwSrcEncoding: u32, dwDstEncoding: u32, #[size_param(4)] #[opt] pSrcStr: *const u8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(6)] #[opt] pDstStr: *mut u8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertStringToUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[size_param(3)] #[opt] pSrcStr: *const i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(5)] #[opt] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertStringFromUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[len_param(3)] #[opt] pSrcStr: *const u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(5)] #[opt] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertStringReset(&self) -> HRESULT;
+            fn GetRfc1766FromLcid(&self, Locale: LCID, pbstrRfc1766: *mut BSTR) -> HRESULT;
+            fn GetLcidFromRfc1766(&self, pLocale: *mut LCID, bstrRfc1766: BSTR) -> HRESULT;
+            fn EnumRfc1766(&self, LangId: LANGID, ppEnumRfc1766: *mut IEnumRfc1766) -> HRESULT;
+            fn GetRfc1766Info(&self, Locale: LCID, LangId: LANGID, pRfc1766Info: *mut RFC1766INFO) -> HRESULT;
+            fn CreateConvertCharset(&self, uiSrcCodePage: u32, uiDstCodePage: u32, dwProperty: u32, ppMLangConvertCharset: *mut IMLangConvertCharset) -> HRESULT;
+            fn ConvertStringInIStream(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwFlag: u32, #[opt] lpFallBack: *const u16, dwSrcEncoding: u32, dwDstEncoding: u32, pstmIn: IStream, pstmOut: IStream) -> HRESULT;
+            fn ConvertStringToUnicodeEx(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[size_param(3)] pSrcStr: *const i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(5)] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32, dwFlag: u32, #[opt] lpFallBack: *const u16) -> HRESULT;
+            fn ConvertStringFromUnicodeEx(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[len_param(3)] pSrcStr: *const u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(5)] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32, dwFlag: u32, #[opt] lpFallBack: *const u16) -> HRESULT;
+            fn DetectCodepageInIStream(&self, dwFlag: u32, dwPrefWinCodePage: u32, pstmIn: IStream, lpEncoding: *mut DetectEncodingInfo, #[in] #[out] pnScores: *mut i32) -> HRESULT;
+            fn DetectInputCodepage(&self, dwFlag: u32, dwPrefWinCodePage: u32, #[size_param(3)] pSrcStr: *const i8, #[in] #[out] pcSrcSize: *mut i32, lpEncoding: *mut DetectEncodingInfo, #[in] #[out] pnScores: *mut i32) -> HRESULT;
+            fn ValidateCodePage(&self, uiCodePage: u32, hwnd: HWND) -> HRESULT;
+            fn GetCodePageDescription(&self, uiCodePage: u32, lcid: LCID, #[len_param(3)] #[out] lpWideCharStr: PWSTR, cchWideChar: i32) -> HRESULT;
+            fn IsCodePageInstallable(&self, uiCodePage: u32) -> HRESULT;
+            fn SetMimeDBSource(&self, dwSource: MIMECONTF) -> HRESULT;
+            fn GetNumberOfScripts(&self, pnScripts: *mut u32) -> HRESULT;
+            fn EnumScripts(&self, dwFlags: u32, LangId: LANGID, ppEnumScript: *mut IEnumScript) -> HRESULT;
+            fn ValidateCodePageEx(&self, uiCodePage: u32, hwnd: HWND, dwfIODControl: u32) -> HRESULT;
+        }
+        #[guid(0x4e5868ab_b157_4623_9acc_6a1d9caebe04)]
+        interface IMultiLanguage3: IMultiLanguage2 {
+            fn DetectOutboundCodePage(&self, dwFlags: u32, #[len_param(2)] lpWideCharStr: PCWSTR, cchWideChar: u32, #[len_param(4)] #[opt] puiPreferredCodePages: *const u32, nPreferredCodePages: u32, #[len_param(6)] puiDetectedCodePages: *mut u32, #[in] #[out] pnDetectedCodePages: *mut u32, #[opt] lpSpecialChar: PCWSTR) -> HRESULT;
+            fn DetectOutboundCodePageInIStream(&self, dwFlags: u32, pStrIn: IStream, #[len_param(3)] #[opt] puiPreferredCodePages: *const u32, nPreferredCodePages: u32, #[len_param(5)] puiDetectedCodePages: *mut u32, #[in] #[out] pnDetectedCodePages: *mut u32, #[opt] lpSpecialChar: PCWSTR) -> HRESULT;
+        }
+        const MAX_LOCALE_NAME: u32 = 32;
+        const MAX_MIMECP_NAME: u32 = 64;
+        const MAX_MIMECSET_NAME: u32 = 50;
+        const MAX_MIMEFACE_NAME: u32 = 32;
+        const MAX_RFC1766_NAME: u32 = 6;
+        const MAX_SCRIPT_NAME: u32 = 48;
+        #[repr(i32)]
+        enum MIMECONTF {
+            MIMECONTF_MAILNEWS = 1,
+            MIMECONTF_BROWSER = 2,
+            MIMECONTF_MINIMAL = 4,
+            MIMECONTF_IMPORT = 8,
+            MIMECONTF_SAVABLE_MAILNEWS = 256,
+            MIMECONTF_SAVABLE_BROWSER = 512,
+            MIMECONTF_EXPORT = 1024,
+            MIMECONTF_PRIVCONVERTER = 65536,
+            MIMECONTF_VALID = 131072,
+            MIMECONTF_VALID_NLS = 262144,
+            MIMECONTF_MIME_IE4 = 268435456,
+            MIMECONTF_MIME_LATEST = 536870912,
+            MIMECONTF_MIME_REGISTRY = 1073741824,
+        }
+        struct MIMECPINFO {
+            dwFlags: u32,
+            uiCodePage: u32,
+            uiFamilyCodePage: u32,
+            wszDescription: [u16; 64],
+            wszWebCharset: [u16; 50],
+            wszHeaderCharset: [u16; 50],
+            wszBodyCharset: [u16; 50],
+            wszFixedWidthFont: [u16; 32],
+            wszProportionalFont: [u16; 32],
+            bGDICharset: u8,
+        }
+        struct MIMECSETINFO {
+            uiCodePage: u32,
+            uiInternetEncoding: u32,
+            wszCharset: [u16; 50],
+        }
+        #[repr(i32)]
+        enum MLCONVCHAR {
+            MLCONVCHARF_AUTODETECT = 1,
+            MLCONVCHARF_ENTITIZE = 2,
+            MLCONVCHARF_NCR_ENTITIZE = 2,
+            MLCONVCHARF_NAME_ENTITIZE = 4,
+            MLCONVCHARF_USEDEFCHAR = 8,
+            MLCONVCHARF_NOBESTFITCHARS = 16,
+            MLCONVCHARF_DETECTJPN = 32,
+        }
+        #[repr(i32)]
+        enum MLCP {
+            MLDETECTF_MAILNEWS = 1,
+            MLDETECTF_BROWSER = 2,
+            MLDETECTF_VALID = 4,
+            MLDETECTF_VALID_NLS = 8,
+            MLDETECTF_PRESERVE_ORDER = 16,
+            MLDETECTF_PREFERRED_ONLY = 32,
+            MLDETECTF_FILTER_SPECIALCHAR = 64,
+            MLDETECTF_EURO_UTF8 = 128,
+        }
+        #[repr(i32)]
+        enum MLDETECTCP {
+            MLDETECTCP_NONE = 0,
+            MLDETECTCP_7BIT = 1,
+            MLDETECTCP_8BIT = 2,
+            MLDETECTCP_DBCS = 4,
+            MLDETECTCP_HTML = 8,
+            MLDETECTCP_NUMBER = 16,
+        }
+        #[repr(i32)]
+        enum MLSTR_FLAGS {
+            MLSTR_READ = 1,
+            MLSTR_WRITE = 2,
+        }
+        type PMIMECPINFO = *mut MIMECPINFO;
+        type PMIMECSETINFO = *mut MIMECSETINFO;
+        type PRFC1766INFO = *mut RFC1766INFO;
+        type PSCRIPTFONTINFO = *mut SCRIPTFONTINFO;
+        type PSCRIPTINFO = *mut SCRIPTINFO;
+        struct RFC1766INFO {
+            lcid: LCID,
+            wszRfc1766: [u16; 6],
+            wszLocaleName: [u16; 32],
+        }
+        #[repr(i32)]
+        enum SCRIPTCONTF {
+            sidDefault = 0,
+            sidMerge = 1,
+            sidAsciiSym = 2,
+            sidAsciiLatin = 3,
+            sidLatin = 4,
+            sidGreek = 5,
+            sidCyrillic = 6,
+            sidArmenian = 7,
+            sidHebrew = 8,
+            sidArabic = 9,
+            sidDevanagari = 10,
+            sidBengali = 11,
+            sidGurmukhi = 12,
+            sidGujarati = 13,
+            sidOriya = 14,
+            sidTamil = 15,
+            sidTelugu = 16,
+            sidKannada = 17,
+            sidMalayalam = 18,
+            sidThai = 19,
+            sidLao = 20,
+            sidTibetan = 21,
+            sidGeorgian = 22,
+            sidHangul = 23,
+            sidKana = 24,
+            sidBopomofo = 25,
+            sidHan = 26,
+            sidEthiopic = 27,
+            sidCanSyllabic = 28,
+            sidCherokee = 29,
+            sidYi = 30,
+            sidBraille = 31,
+            sidRunic = 32,
+            sidOgham = 33,
+            sidSinhala = 34,
+            sidSyriac = 35,
+            sidBurmese = 36,
+            sidKhmer = 37,
+            sidThaana = 38,
+            sidMongolian = 39,
+            sidUserDefined = 40,
+            sidLim = 41,
+            sidFEFirst = 23,
+            sidFELast = 26,
+        }
+        #[repr(i32)]
+        enum SCRIPTFONTCONTF {
+            SCRIPTCONTF_FIXED_FONT = 1,
+            SCRIPTCONTF_PROPORTIONAL_FONT = 2,
+            SCRIPTCONTF_SCRIPT_USER = 65536,
+            SCRIPTCONTF_SCRIPT_HIDE = 131072,
+            SCRIPTCONTF_SCRIPT_SYSTEM = 262144,
+        }
+        struct SCRIPTFONTINFO {
+            scripts: SCRIPT_IDS,
+            wszFont: [u16; 32],
+        }
+        struct SCRIPTINFO {
+            ScriptId: SCRIPT_ID,
+            uiCodePage: u32,
+            wszDescription: [u16; 48],
+            wszFixedWidthFont: [u16; 32],
+            wszProportionalFont: [u16; 32],
+        }
+        type SCRIPT_ID = u8;
+        type SCRIPT_IDS = i64;
+        struct UNICODERANGE {
+            wcFrom: u16,
+            wcTo: u16,
+        }
+        type pDetectEncodingInfo = *mut DetectEncodingInfo;
+    }
+}

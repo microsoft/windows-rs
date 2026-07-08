@@ -1,0 +1,235 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xdcb00006_570f_4a9b_8d69_199fdba5723b)]
+        interface IEnumNetworkConnections: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnumVar: *mut IEnumVARIANT) -> HRESULT;
+            fn Next(&self, celt: u32, rgelt: *mut INetworkConnection, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, #[retval] ppEnumNetwork: *mut IEnumNetworkConnections) -> HRESULT;
+        }
+        #[guid(0xdcb00003_570f_4a9b_8d69_199fdba5723b)]
+        interface IEnumNetworks: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnumVar: *mut IEnumVARIANT) -> HRESULT;
+            fn Next(&self, celt: u32, rgelt: *mut INetwork, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, #[retval] ppEnumNetwork: *mut IEnumNetworks) -> HRESULT;
+        }
+        #[guid(0xdcb00002_570f_4a9b_8d69_199fdba5723b)]
+        interface INetwork: IDispatch {
+            fn GetName(&self, #[retval] pszNetworkName: *mut BSTR) -> HRESULT;
+            fn SetName(&self, szNetworkNewName: BSTR) -> HRESULT;
+            fn GetDescription(&self, #[retval] pszDescription: *mut BSTR) -> HRESULT;
+            fn SetDescription(&self, szDescription: BSTR) -> HRESULT;
+            fn GetNetworkId(&self, #[retval] pgdGuidNetworkId: *mut GUID) -> HRESULT;
+            fn GetDomainType(&self, #[retval] pNetworkType: *mut NLM_DOMAIN_TYPE) -> HRESULT;
+            fn GetNetworkConnections(&self, #[retval] ppEnumNetworkConnection: *mut IEnumNetworkConnections) -> HRESULT;
+            fn GetTimeCreatedAndConnected(&self, pdwLowDateTimeCreated: *mut u32, pdwHighDateTimeCreated: *mut u32, pdwLowDateTimeConnected: *mut u32, pdwHighDateTimeConnected: *mut u32) -> HRESULT;
+            #[special]
+            fn get_IsConnectedToInternet(&self, #[retval] pbIsConnected: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsConnected(&self, #[retval] pbIsConnected: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetConnectivity(&self, #[retval] pConnectivity: *mut NLM_CONNECTIVITY) -> HRESULT;
+            fn GetCategory(&self, #[retval] pCategory: *mut NLM_NETWORK_CATEGORY) -> HRESULT;
+            fn SetCategory(&self, NewCategory: NLM_NETWORK_CATEGORY) -> HRESULT;
+        }
+        #[guid(0xb5550abb_3391_4310_804f_25dcc325ed81)]
+        interface INetwork2: INetwork {
+            fn IsDomainAuthenticatedBy(&self, domainAuthenticationKind: NLM_DOMAIN_AUTHENTICATION_KIND, #[retval] pValue: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xdcb00005_570f_4a9b_8d69_199fdba5723b)]
+        interface INetworkConnection: IDispatch {
+            fn GetNetwork(&self, #[retval] ppNetwork: *mut INetwork) -> HRESULT;
+            #[special]
+            fn get_IsConnectedToInternet(&self, #[retval] pbIsConnected: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsConnected(&self, #[retval] pbIsConnected: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetConnectivity(&self, #[retval] pConnectivity: *mut NLM_CONNECTIVITY) -> HRESULT;
+            fn GetConnectionId(&self, #[retval] pgdConnectionId: *mut GUID) -> HRESULT;
+            fn GetAdapterId(&self, #[retval] pgdAdapterId: *mut GUID) -> HRESULT;
+            fn GetDomainType(&self, #[retval] pDomainType: *mut NLM_DOMAIN_TYPE) -> HRESULT;
+        }
+        #[guid(0x00e676ed_5a35_4738_92eb_8581738d0f0a)]
+        interface INetworkConnection2: INetworkConnection {
+            fn IsDomainAuthenticatedBy(&self, domainAuthenticationKind: NLM_DOMAIN_AUTHENTICATION_KIND, #[retval] pValue: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xdcb0000a_570f_4a9b_8d69_199fdba5723b)]
+        interface INetworkConnectionCost: IUnknown {
+            fn GetCost(&self, pCost: *mut u32) -> HRESULT;
+            fn GetDataPlanStatus(&self, pDataPlanStatus: *mut NLM_DATAPLAN_STATUS) -> HRESULT;
+        }
+        #[guid(0xdcb0000b_570f_4a9b_8d69_199fdba5723b)]
+        interface INetworkConnectionCostEvents: IUnknown {
+            fn ConnectionCostChanged(&self, connectionId: GUID, newCost: u32) -> HRESULT;
+            fn ConnectionDataPlanStatusChanged(&self, connectionId: GUID) -> HRESULT;
+        }
+        #[guid(0xdcb00007_570f_4a9b_8d69_199fdba5723b)]
+        interface INetworkConnectionEvents: IUnknown {
+            fn NetworkConnectionConnectivityChanged(&self, connectionId: GUID, newConnectivity: NLM_CONNECTIVITY) -> HRESULT;
+            fn NetworkConnectionPropertyChanged(&self, connectionId: GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> HRESULT;
+        }
+        #[guid(0xdcb00008_570f_4a9b_8d69_199fdba5723b)]
+        interface INetworkCostManager: IUnknown {
+            fn GetCost(&self, pCost: *mut u32, pDestIPAddr: *const NLM_SOCKADDR) -> HRESULT;
+            fn GetDataPlanStatus(&self, pDataPlanStatus: *mut NLM_DATAPLAN_STATUS, pDestIPAddr: *const NLM_SOCKADDR) -> HRESULT;
+            fn SetDestinationAddresses(&self, length: u32, pDestIPAddrList: *const NLM_SOCKADDR, bAppend: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xdcb00009_570f_4a9b_8d69_199fdba5723b)]
+        interface INetworkCostManagerEvents: IUnknown {
+            fn CostChanged(&self, newCost: u32, pDestAddr: *const NLM_SOCKADDR) -> HRESULT;
+            fn DataPlanStatusChanged(&self, pDestAddr: *const NLM_SOCKADDR) -> HRESULT;
+        }
+        #[guid(0xdcb00004_570f_4a9b_8d69_199fdba5723b)]
+        interface INetworkEvents: IUnknown {
+            fn NetworkAdded(&self, networkId: GUID) -> HRESULT;
+            fn NetworkDeleted(&self, networkId: GUID) -> HRESULT;
+            fn NetworkConnectivityChanged(&self, networkId: GUID, newConnectivity: NLM_CONNECTIVITY) -> HRESULT;
+            fn NetworkPropertyChanged(&self, networkId: GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> HRESULT;
+        }
+        #[guid(0xdcb00000_570f_4a9b_8d69_199fdba5723b)]
+        interface INetworkListManager: IDispatch {
+            fn GetNetworks(&self, Flags: NLM_ENUM_NETWORK, #[retval] ppEnumNetwork: *mut IEnumNetworks) -> HRESULT;
+            fn GetNetwork(&self, gdNetworkId: GUID, #[retval] ppNetwork: *mut INetwork) -> HRESULT;
+            fn GetNetworkConnections(&self, #[retval] ppEnum: *mut IEnumNetworkConnections) -> HRESULT;
+            fn GetNetworkConnection(&self, gdNetworkConnectionId: GUID, #[retval] ppNetworkConnection: *mut INetworkConnection) -> HRESULT;
+            #[special]
+            fn get_IsConnectedToInternet(&self, #[retval] pbIsConnected: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsConnected(&self, #[retval] pbIsConnected: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetConnectivity(&self, #[retval] pConnectivity: *mut NLM_CONNECTIVITY) -> HRESULT;
+            fn SetSimulatedProfileInfo(&self, pSimulatedInfo: *const NLM_SIMULATED_PROFILE_INFO) -> HRESULT;
+            fn ClearSimulatedProfileInfo(&self) -> HRESULT;
+        }
+        #[guid(0xdcb00001_570f_4a9b_8d69_199fdba5723b)]
+        interface INetworkListManagerEvents: IUnknown {
+            fn ConnectivityChanged(&self, newConnectivity: NLM_CONNECTIVITY) -> HRESULT;
+        }
+        #[encoding("utf-16")]
+        const NA_AllowMerge: String = "NA_AllowMerge";
+        #[encoding("utf-16")]
+        const NA_CategoryReadOnly: String = "NA_CategoryReadOnly";
+        #[encoding("utf-16")]
+        const NA_CategorySetByPolicy: String = "NA_CategorySetByPolicy";
+        #[encoding("utf-16")]
+        const NA_DescriptionReadOnly: String = "NA_DescriptionReadOnly";
+        #[encoding("utf-16")]
+        const NA_DescriptionSetByPolicy: String = "NA_DescriptionSetByPolicy";
+        #[encoding("utf-16")]
+        const NA_DomainAuthenticationFailed: String = "NA_DomainAuthenticationFailed";
+        #[encoding("utf-16")]
+        const NA_IconReadOnly: String = "NA_IconReadOnly";
+        #[encoding("utf-16")]
+        const NA_IconSetByPolicy: String = "NA_IconSetByPolicy";
+        #[encoding("utf-16")]
+        const NA_InternetConnectivityV4: String = "NA_InternetConnectivityV4";
+        #[encoding("utf-16")]
+        const NA_InternetConnectivityV6: String = "NA_InternetConnectivityV6";
+        #[encoding("utf-16")]
+        const NA_NameReadOnly: String = "NA_NameReadOnly";
+        #[encoding("utf-16")]
+        const NA_NameSetByPolicy: String = "NA_NameSetByPolicy";
+        #[encoding("utf-16")]
+        const NA_NetworkClass: String = "NA_NetworkClass";
+        #[repr(i32)]
+        enum NLM_CONNECTION_COST {
+            NLM_CONNECTION_COST_UNKNOWN = 0,
+            NLM_CONNECTION_COST_UNRESTRICTED = 1,
+            NLM_CONNECTION_COST_FIXED = 2,
+            NLM_CONNECTION_COST_VARIABLE = 4,
+            NLM_CONNECTION_COST_OVERDATALIMIT = 65536,
+            NLM_CONNECTION_COST_CONGESTED = 131072,
+            NLM_CONNECTION_COST_ROAMING = 262144,
+            NLM_CONNECTION_COST_APPROACHINGDATALIMIT = 524288,
+        }
+        #[repr(i32)]
+        enum NLM_CONNECTION_PROPERTY_CHANGE {
+            NLM_CONNECTION_PROPERTY_CHANGE_AUTHENTICATION = 1,
+        }
+        #[repr(i32)]
+        enum NLM_CONNECTIVITY {
+            NLM_CONNECTIVITY_DISCONNECTED = 0,
+            NLM_CONNECTIVITY_IPV4_NOTRAFFIC = 1,
+            NLM_CONNECTIVITY_IPV6_NOTRAFFIC = 2,
+            NLM_CONNECTIVITY_IPV4_SUBNET = 16,
+            NLM_CONNECTIVITY_IPV4_LOCALNETWORK = 32,
+            NLM_CONNECTIVITY_IPV4_INTERNET = 64,
+            NLM_CONNECTIVITY_IPV6_SUBNET = 256,
+            NLM_CONNECTIVITY_IPV6_LOCALNETWORK = 512,
+            NLM_CONNECTIVITY_IPV6_INTERNET = 1024,
+        }
+        struct NLM_DATAPLAN_STATUS {
+            InterfaceGuid: GUID,
+            UsageData: NLM_USAGE_DATA,
+            DataLimitInMegabytes: u32,
+            InboundBandwidthInKbps: u32,
+            OutboundBandwidthInKbps: u32,
+            NextBillingCycle: FILETIME,
+            MaxTransferSizeInMegabytes: u32,
+            Reserved: u32,
+        }
+        #[repr(i32)]
+        enum NLM_DOMAIN_AUTHENTICATION_KIND {
+            NLM_DOMAIN_AUTHENTICATION_KIND_NONE = 0,
+            NLM_DOMAIN_AUTHENTICATION_KIND_LDAP = 1,
+            NLM_DOMAIN_AUTHENTICATION_KIND_TLS = 2,
+        }
+        #[repr(i32)]
+        enum NLM_DOMAIN_TYPE {
+            NLM_DOMAIN_TYPE_NON_DOMAIN_NETWORK = 0,
+            NLM_DOMAIN_TYPE_DOMAIN_NETWORK = 1,
+            NLM_DOMAIN_TYPE_DOMAIN_AUTHENTICATED = 2,
+        }
+        #[repr(i32)]
+        enum NLM_ENUM_NETWORK {
+            NLM_ENUM_NETWORK_CONNECTED = 1,
+            NLM_ENUM_NETWORK_DISCONNECTED = 2,
+            NLM_ENUM_NETWORK_ALL = 3,
+        }
+        #[repr(i32)]
+        enum NLM_INTERNET_CONNECTIVITY {
+            NLM_INTERNET_CONNECTIVITY_WEBHIJACK = 1,
+            NLM_INTERNET_CONNECTIVITY_PROXIED = 2,
+            NLM_INTERNET_CONNECTIVITY_CORPORATE = 4,
+        }
+        const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10;
+        #[repr(i32)]
+        enum NLM_NETWORK_CATEGORY {
+            NLM_NETWORK_CATEGORY_PUBLIC = 0,
+            NLM_NETWORK_CATEGORY_PRIVATE = 1,
+            NLM_NETWORK_CATEGORY_DOMAIN_AUTHENTICATED = 2,
+        }
+        #[repr(i32)]
+        enum NLM_NETWORK_CLASS {
+            NLM_NETWORK_IDENTIFYING = 1,
+            NLM_NETWORK_IDENTIFIED = 2,
+            NLM_NETWORK_UNIDENTIFIED = 3,
+        }
+        #[repr(i32)]
+        enum NLM_NETWORK_PROPERTY_CHANGE {
+            NLM_NETWORK_PROPERTY_CHANGE_CONNECTION = 1,
+            NLM_NETWORK_PROPERTY_CHANGE_DESCRIPTION = 2,
+            NLM_NETWORK_PROPERTY_CHANGE_NAME = 4,
+            NLM_NETWORK_PROPERTY_CHANGE_ICON = 8,
+            NLM_NETWORK_PROPERTY_CHANGE_CATEGORY_VALUE = 16,
+        }
+        struct NLM_SIMULATED_PROFILE_INFO {
+            ProfileName: [u16; 256],
+            cost: NLM_CONNECTION_COST,
+            UsageInMegabytes: u32,
+            DataLimitInMegabytes: u32,
+        }
+        struct NLM_SOCKADDR {
+            data: [u8; 128],
+        }
+        const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
+        struct NLM_USAGE_DATA {
+            UsageInMegabytes: u32,
+            LastSyncTime: FILETIME,
+        }
+        const NetworkListManager: GUID = 0xdcb00c01_570f_4a9b_8d69_199fdba5723b;
+    }
+}

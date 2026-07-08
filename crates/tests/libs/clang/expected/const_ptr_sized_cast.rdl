@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    type DWORD_PTR = usize;
+    type LONG_PTR = isize;
+    const PTR_DEFAULT: usize = 18446744073709551615;
+    const PTR_NEG: isize = -1;
+    const PTR_RESET: usize = 18446744073709551615;
+    const PTR_VALUE: usize = 42;
+    type ULONG_PTR = usize;
+}

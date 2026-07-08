@@ -11,4 +11,4 @@ pub unsafe fn OpenHandle(name: u32) -> Handle {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct Handle(pub isize);
-pub const INVALID: Handle = Handle(-1 as _);
+pub const INVALID: Handle = Handle(-1);

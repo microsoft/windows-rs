@@ -411,7 +411,7 @@ mod tests {
     use std::path::Path;
 
     fn resolver() -> MetadataResolver {
-        MetadataResolver::load(Path::new("../../../winmd"))
+        MetadataResolver::load(Path::new("winmd"))
     }
 
     // ── Valid TOML parsing ─────────────────────────────────────────

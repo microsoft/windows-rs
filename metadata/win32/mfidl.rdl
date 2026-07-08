@@ -1,0 +1,1704 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[packed(1)]
+        struct ASF_FLAT_PICTURE {
+            bPictureType: u8,
+            dwDataLen: u32,
+        }
+        #[packed(1)]
+        struct ASF_FLAT_SYNCHRONISED_LYRICS {
+            bTimeStampFormat: u8,
+            bContentType: u8,
+            dwLyricsLen: u32,
+        }
+        const CLSID_MPEG2ByteStreamPlugin: GUID = 0x40871c59_ab40_471f_8dc3_1f259d862479;
+        #[library("MF.dll")]
+        extern fn CreateNamedPropertyStore(ppStore: *mut INamedPropertyStore) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn CreatePropertyStore(ppStore: *mut IPropertyStore) -> HRESULT;
+        struct DetectedFaceBound {
+            sizeInBytes: u32,
+            normalizedXPosition: f32,
+            normalizedYPosition: f32,
+            normalizedWidth: f32,
+            normalizedHeight: f32,
+            confidenceValue: i32,
+            flags: u64,
+        }
+        #[guid(0xa0638c2b_6465_4395_9ae7_a321a9fd2856)]
+        interface IMFAudioPolicy: IUnknown {
+            fn SetGroupingParam(&self, rguidClass: *const GUID) -> HRESULT;
+            fn GetGroupingParam(&self, pguidClass: *mut GUID) -> HRESULT;
+            fn SetDisplayName(&self, pszName: PCWSTR) -> HRESULT;
+            fn GetDisplayName(&self, pszName: *mut PWSTR) -> HRESULT;
+            fn SetIconPath(&self, pszPath: PCWSTR) -> HRESULT;
+            fn GetIconPath(&self, pszPath: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x76b1bbdb_4ec8_4f36_b106_70a9316df593)]
+        interface IMFAudioStreamVolume: IUnknown {
+            fn GetChannelCount(&self, pdwCount: *mut u32) -> HRESULT;
+            fn SetChannelVolume(&self, dwIndex: u32, fLevel: f32) -> HRESULT;
+            fn GetChannelVolume(&self, dwIndex: u32, pfLevel: *mut f32) -> HRESULT;
+            fn SetAllVolumes(&self, dwCount: u32, pfVolumes: *const f32) -> HRESULT;
+            fn GetAllVolumes(&self, dwCount: u32, pfVolumes: *mut f32) -> HRESULT;
+        }
+        #[guid(0x6d66d782_1d4f_4db7_8c63_cb8c77f1ef5e)]
+        interface IMFByteStreamBuffering: IUnknown {
+            fn SetBufferingParams(&self, pParams: *const MFBYTESTREAM_BUFFERING_PARAMS) -> HRESULT;
+            fn EnableBuffering(&self, fEnable: BOOL) -> HRESULT;
+            fn StopBuffering(&self) -> HRESULT;
+        }
+        #[guid(0xf5042ea4_7a96_4a75_aa7b_2be1ef7f88d5)]
+        interface IMFByteStreamCacheControl: IUnknown {
+            fn StopBackgroundTransfer(&self) -> HRESULT;
+        }
+        #[guid(0x71ce469c_f34b_49ea_a56b_2d2a10e51149)]
+        interface IMFByteStreamCacheControl2: IMFByteStreamCacheControl {
+            fn GetByteRanges(&self, pcRanges: *mut u32, ppRanges: *mut *mut MF_BYTE_STREAM_CACHE_RANGE) -> HRESULT;
+            fn SetCacheLimit(&self, qwBytes: u64) -> HRESULT;
+            fn IsBackgroundTransferActive(&self, pfActive: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xbb420aa4_765b_4a1f_91fe_d6a8a143924c)]
+        interface IMFByteStreamHandler: IUnknown {
+            fn BeginCreateObject(&self, pByteStream: IMFByteStream, pwszURL: PCWSTR, dwFlags: u32, pProps: IPropertyStore, ppIUnknownCancelCookie: *mut IUnknown, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndCreateObject(&self, pResult: IMFAsyncResult, pObjectType: *mut MF_OBJECT_TYPE, ppObject: *mut IUnknown) -> HRESULT;
+            fn CancelObjectCreation(&self, pIUnknownCancelCookie: IUnknown) -> HRESULT;
+            fn GetMaxNumberOfBytesRequiredForResolution(&self, pqwBytes: *mut u64) -> HRESULT;
+        }
+        #[guid(0x64976bfa_fb61_4041_9069_8c9a5f659beb)]
+        interface IMFByteStreamTimeSeek: IUnknown {
+            fn IsTimeSeekSupported(&self, pfTimeSeekIsSupported: *mut BOOL) -> HRESULT;
+            fn TimeSeek(&self, qwTimePosition: u64) -> HRESULT;
+            fn GetTimeSeekResult(&self, pqwStartTime: *mut u64, pqwStopTime: *mut u64, pqwDuration: *mut u64) -> HRESULT;
+        }
+        #[guid(0xa624f617_4704_4206_8a6d_ebda4a093985)]
+        interface IMFCameraConfigurationManager: IUnknown {
+            fn LoadDefaults(&self, cameraAttributes: IMFAttributes, configurations: *mut IMFCameraControlDefaultsCollection) -> HRESULT;
+            fn SaveDefaults(&self, configurations: IMFCameraControlDefaultsCollection) -> HRESULT;
+            fn Shutdown(&self);
+        }
+        #[guid(0x75510662_b034_48f4_88a7_8de61daa4af9)]
+        interface IMFCameraControlDefaults: IUnknown {
+            fn GetType(&self) -> MF_CAMERA_CONTROL_CONFIGURATION_TYPE;
+            fn GetRangeInfo(&self, rangeInfo: *mut MF_CAMERA_CONTROL_RANGE_INFO) -> HRESULT;
+            fn LockControlData(&self, control: *mut *mut void, controlSize: *mut u32, data: *mut *mut void, #[opt] dataSize: *mut u32) -> HRESULT;
+            fn UnlockControlData(&self) -> HRESULT;
+        }
+        #[guid(0x92d43d0f_54a8_4bae_96da_356d259a5c26)]
+        interface IMFCameraControlDefaultsCollection: IMFAttributes {
+            fn GetControlCount(&self) -> u32;
+            fn GetControl(&self, index: u32, configuration: *mut IMFCameraControlDefaults) -> HRESULT;
+            fn GetOrAddExtendedControl(&self, configType: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, constrolId: u32, streamId: u32, dataSize: u32, defaults: *mut IMFCameraControlDefaults) -> HRESULT;
+            fn GetOrAddControl(&self, configType: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, controlSet: *const GUID, constrolId: u32, controlSize: u32, dataSize: u32, defaults: *mut IMFCameraControlDefaults) -> HRESULT;
+            fn RemoveControl(&self, controlSet: *const GUID, constrolId: u32) -> HRESULT;
+            fn RemoveAllControls(&self) -> HRESULT;
+        }
+        #[guid(0x4d46f2c9_28ba_4970_8c7b_1f0c9d80af69)]
+        interface IMFCameraControlMonitor: IUnknown {
+            fn Start(&self) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn AddControlSubscription(&self, controlSet: GUID, id: u32) -> HRESULT;
+            fn RemoveControlSubscription(&self, controlSet: GUID, id: u32) -> HRESULT;
+            fn Shutdown(&self);
+        }
+        #[guid(0xe8f2540d_558a_4449_8b64_4863467a9fe8)]
+        interface IMFCameraControlNotify: IUnknown {
+            fn OnChange(&self, controlSet: *const GUID, id: u32);
+            fn OnError(&self, hrStatus: HRESULT);
+        }
+        #[guid(0xcc692f46_c697_47e2_a72d_7b064617749b)]
+        interface IMFCameraOcclusionStateMonitor: IUnknown {
+            fn Start(&self) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn GetSupportedStates(&self) -> u32;
+        }
+        #[guid(0x1640b2cf_74da_4462_a43b_b76d3bdc1434)]
+        interface IMFCameraOcclusionStateReport: IUnknown {
+            fn GetOcclusionState(&self, occlusionState: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6e5841c7_3889_4019_9035_783fb19b5948)]
+        interface IMFCameraOcclusionStateReportCallback: IUnknown {
+            fn OnOcclusionStateReport(&self, occlusionStateReport: IMFCameraOcclusionStateReport) -> HRESULT;
+        }
+        #[guid(0x19f68549_ca8a_4706_a4ef_481dbc95e12c)]
+        interface IMFCapturePhotoConfirmation: IUnknown {
+            fn SetPhotoConfirmationCallback(&self, pNotificationCallback: IMFAsyncCallback) -> HRESULT;
+            fn SetPixelFormat(&self, subtype: GUID) -> HRESULT;
+            fn GetPixelFormat(&self, subtype: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x2eb1e945_18b8_4139_9b1a_d5d584818530)]
+        interface IMFClock: IUnknown {
+            fn GetClockCharacteristics(&self, pdwCharacteristics: *mut u32) -> HRESULT;
+            fn GetCorrelatedTime(&self, dwReserved: u32, pllClockTime: *mut i64, phnsSystemTime: *mut MFTIME) -> HRESULT;
+            fn GetContinuityKey(&self, pdwContinuityKey: *mut u32) -> HRESULT;
+            fn GetState(&self, dwReserved: u32, peClockState: *mut MFCLOCK_STATE) -> HRESULT;
+            fn GetProperties(&self, pClockProperties: *mut MFCLOCK_PROPERTIES) -> HRESULT;
+        }
+        #[guid(0x6ef2a662_47c0_4666_b13d_cbb717f2fa2c)]
+        interface IMFClockConsumer: IUnknown {
+            fn SetPresentationClock(&self, pPresentationClock: IMFPresentationClock) -> HRESULT;
+            fn GetPresentationClock(&self, ppPresentationClock: *mut IMFPresentationClock) -> HRESULT;
+        }
+        #[guid(0xf6696e82_74f7_4f3d_a178_8a5e09c3659f)]
+        interface IMFClockStateSink: IUnknown {
+            fn OnClockStart(&self, hnsSystemTime: MFTIME, llClockStartOffset: i64) -> HRESULT;
+            fn OnClockStop(&self, hnsSystemTime: MFTIME) -> HRESULT;
+            fn OnClockPause(&self, hnsSystemTime: MFTIME) -> HRESULT;
+            fn OnClockRestart(&self, hnsSystemTime: MFTIME) -> HRESULT;
+            fn OnClockSetRate(&self, hnsSystemTime: MFTIME, flRate: f32) -> HRESULT;
+        }
+        #[guid(0x7ec4b1bd_43fb_4763_85d2_64fcb5c5f4cb)]
+        interface IMFContentDecryptorContext: IUnknown {
+            fn InitializeHardwareKey(&self, InputPrivateDataByteCount: u32, #[len_param(0)] #[opt] InputPrivateData: *const void, OutputPrivateData: *mut u64) -> HRESULT;
+        }
+        #[guid(0xd3c4ef59_49ce_4381_9071_d5bcd044c770)]
+        interface IMFContentEnabler: IUnknown {
+            fn GetEnableType(&self, pType: *mut GUID) -> HRESULT;
+            fn GetEnableURL(&self, ppwszURL: *mut PWSTR, pcchURL: *mut u32, #[in] #[out] pTrustStatus: *mut MF_URL_TRUST_STATUS) -> HRESULT;
+            fn GetEnableData(&self, ppbData: *mut *mut u8, pcbData: *mut u32) -> HRESULT;
+            fn IsAutomaticSupported(&self, pfAutomatic: *mut BOOL) -> HRESULT;
+            fn AutomaticEnable(&self) -> HRESULT;
+            fn MonitorEnable(&self) -> HRESULT;
+            fn Cancel(&self) -> HRESULT;
+        }
+        #[guid(0xe6257174_a060_4c9a_a088_3b1b471cad28)]
+        interface IMFContentProtectionDevice: IUnknown {
+            fn InvokeFunction(&self, FunctionId: u32, InputBufferByteCount: u32, #[size_param(1)] InputBuffer: *const u8, #[in] #[out] OutputBufferByteCount: *mut u32, #[size_param(3)] OutputBuffer: *mut u8) -> HRESULT;
+            fn GetPrivateDataByteCount(&self, PrivateInputByteCount: *mut u32, PrivateOutputByteCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0xacf92459_6a61_42bd_b57c_b43e51203cb0)]
+        interface IMFContentProtectionManager: IUnknown {
+            fn BeginEnableContent(&self, pEnablerActivate: IMFActivate, pTopo: IMFTopology, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndEnableContent(&self, pResult: IMFAsyncResult) -> HRESULT;
+        }
+        #[guid(0x20bc074b_7a8d_4609_8c3b_64a0a3b5d7ce)]
+        interface IMFDXGIDeviceManagerSource: IUnknown {
+            fn GetManager(&self, ppManager: *mut IMFDXGIDeviceManager) -> HRESULT;
+        }
+        #[guid(0x38e33520_fca1_4845_a27a_68b7c6ab3789)]
+        interface IMFExtendedCameraControl: IUnknown {
+            fn GetCapabilities(&self) -> u64;
+            fn SetFlags(&self, ulFlags: u64) -> HRESULT;
+            fn GetFlags(&self) -> u64;
+            fn LockPayload(&self, ppPayload: *mut *mut u8, pulPayload: *mut u32) -> HRESULT;
+            fn UnlockPayload(&self) -> HRESULT;
+            fn CommitSettings(&self) -> HRESULT;
+        }
+        #[guid(0xb91ebfee_ca03_4af4_8a82_a31752f4a0fc)]
+        interface IMFExtendedCameraController: IUnknown {
+            fn GetExtendedCameraControl(&self, dwStreamIndex: u32, ulPropertyId: u32, ppControl: *mut IMFExtendedCameraControl) -> HRESULT;
+        }
+        #[guid(0x5c595e64_4630_4231_855a_12842f733245)]
+        interface IMFExtendedCameraIntrinsicModel: IUnknown {
+            fn GetModel(&self, pIntrinsicModel: *mut MFExtendedCameraIntrinsic_IntrinsicModel) -> HRESULT;
+            fn SetModel(&self, pIntrinsicModel: *const MFExtendedCameraIntrinsic_IntrinsicModel) -> HRESULT;
+            fn GetDistortionModelType(&self, pDistortionModelType: *mut MFCameraIntrinsic_DistortionModelType) -> HRESULT;
+        }
+        #[guid(0x687f6dac_6987_4750_a16a_734d1e7a10fe)]
+        interface IMFExtendedCameraIntrinsics: IUnknown {
+            fn InitializeFromBuffer(&self, #[size_param(1)] pbBuffer: *const u8, dwBufferSize: u32) -> HRESULT;
+            fn GetBufferSize(&self, pdwBufferSize: *mut u32) -> HRESULT;
+            fn SerializeToBuffer(&self, #[size_param(1)] pbBuffer: *mut u8, #[in] #[out] pdwBufferSize: *mut u32) -> HRESULT;
+            fn GetIntrinsicModelCount(&self, pdwCount: *mut u32) -> HRESULT;
+            fn GetIntrinsicModelByIndex(&self, dwIndex: u32, ppIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
+            fn AddIntrinsicModel(&self, pIntrinsicModel: IMFExtendedCameraIntrinsicModel) -> HRESULT;
+        }
+        #[guid(0x74c2653b_5f55_4eb1_9f0f_18b8f68b7d3d)]
+        interface IMFExtendedCameraIntrinsicsDistortionModel6KT: IUnknown {
+            fn GetDistortionModel(&self, pDistortionModel: *mut MFCameraIntrinsic_DistortionModel6KT) -> HRESULT;
+            fn SetDistortionModel(&self, pDistortionModel: *const MFCameraIntrinsic_DistortionModel6KT) -> HRESULT;
+        }
+        #[guid(0x812d5f95_b572_45dc_bafc_ae24199ddda8)]
+        interface IMFExtendedCameraIntrinsicsDistortionModelArcTan: IUnknown {
+            fn GetDistortionModel(&self, pDistortionModel: *mut MFCameraIntrinsic_DistortionModelArcTan) -> HRESULT;
+            fn SetDistortionModel(&self, pDistortionModel: *const MFCameraIntrinsic_DistortionModelArcTan) -> HRESULT;
+        }
+        #[guid(0xddd59578_d0e7_46e2_be8c_1ce76ad147c0)]
+        interface IMFFaceDetectionTransform: IUnknown {
+            fn SetDetectionCallback(&self, callback: IMFFaceDetectionTransformCallback, callbackToken: *mut *mut void) -> HRESULT;
+            fn ClearDetectionCallback(&self, callbackToken: *const void) -> HRESULT;
+        }
+        #[guid(0x0bfd1ade_0421_4909_acb7_7a7125416881)]
+        interface IMFFaceDetectionTransformCallback: IUnknown {
+            fn OnFaceDetectionResult(&self, countOfBounds: u32, #[len_param(0)] detectedFaceBounds: *const DetectedFaceBound);
+        }
+        #[guid(0x508e71d3_ec66_4fc3_8775_b4b9ed6ba847)]
+        interface IMFFieldOfUseMFTUnlock: IUnknown {
+            fn Unlock(&self, pUnkMFT: IUnknown) -> HRESULT;
+        }
+        #[guid(0xeaecb74a_9a50_42ce_9541_6a7f57aa4ad7)]
+        interface IMFFinalizableMediaSink: IMFMediaSink {
+            fn BeginFinalize(&self, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndFinalize(&self, pResult: IMFAsyncResult) -> HRESULT;
+        }
+        #[guid(0xfa993888_4383_415a_a930_dd472a8cf6f7)]
+        interface IMFGetService: IUnknown {
+            fn GetService(&self, guidService: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xf779fddf_26e7_4270_8a8b_b983d1859de0)]
+        interface IMFHttpDownloadRequest: IUnknown {
+            fn AddHeader(&self, szHeader: PCWSTR) -> HRESULT;
+            fn BeginSendRequest(&self, #[len_param(1)] #[opt] pbPayload: *const u8, cbPayload: u32, pCallback: IMFAsyncCallback, #[opt] punkState: IUnknown) -> HRESULT;
+            fn EndSendRequest(&self, pResult: IMFAsyncResult) -> HRESULT;
+            fn BeginReceiveResponse(&self, pCallback: IMFAsyncCallback, #[opt] punkState: IUnknown) -> HRESULT;
+            fn EndReceiveResponse(&self, pResult: IMFAsyncResult) -> HRESULT;
+            fn BeginReadPayload(&self, #[len_param(1)] pb: *mut u8, cb: u32, pCallback: IMFAsyncCallback, #[opt] punkState: IUnknown) -> HRESULT;
+            fn EndReadPayload(&self, pResult: IMFAsyncResult, pqwOffset: *mut u64, pcbRead: *mut u32) -> HRESULT;
+            fn QueryHeader(&self, szHeaderName: PCWSTR, dwIndex: u32, ppszHeaderValue: *mut PWSTR) -> HRESULT;
+            fn GetURL(&self, ppszURL: *mut PWSTR) -> HRESULT;
+            fn HasNullSourceOrigin(&self, pfNullSourceOrigin: *mut BOOL) -> HRESULT;
+            fn GetTimeSeekResult(&self, pqwStartTime: *mut u64, pqwStopTime: *mut u64, pqwDuration: *mut u64) -> HRESULT;
+            fn GetHttpStatus(&self, pdwHttpStatus: *mut u32) -> HRESULT;
+            fn GetAtEndOfPayload(&self, pfAtEndOfPayload: *mut BOOL) -> HRESULT;
+            fn GetTotalLength(&self, pqwTotalLength: *mut u64) -> HRESULT;
+            fn GetRangeEndOffset(&self, pqwRangeEnd: *mut u64) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x71fa9a2c_53ce_4662_a132_1a7e8cbf62db)]
+        interface IMFHttpDownloadSession: IUnknown {
+            fn SetServer(&self, szServerName: PCWSTR, nPort: u32) -> HRESULT;
+            fn CreateRequest(&self, szObjectName: PCWSTR, fBypassProxyCache: BOOL, fSecure: BOOL, #[opt] szVerb: PCWSTR, #[opt] szReferrer: PCWSTR, ppRequest: *mut IMFHttpDownloadRequest) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x1b4cf4b9_3a16_4115_839d_03cc5c99df01)]
+        interface IMFHttpDownloadSessionProvider: IUnknown {
+            fn CreateHttpDownloadSession(&self, wszScheme: PCWSTR, ppDownloadSession: *mut IMFHttpDownloadSession) -> HRESULT;
+        }
+        #[guid(0xd19f8e98_b126_4446_890c_5dcb7ad71453)]
+        interface IMFInputTrustAuthority: IUnknown {
+            fn GetDecrypter(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn RequestAccess(&self, Action: MFPOLICYMANAGER_ACTION, ppContentEnablerActivate: *mut IMFActivate) -> HRESULT;
+            fn GetPolicy(&self, Action: MFPOLICYMANAGER_ACTION, ppPolicy: *mut IMFOutputPolicy) -> HRESULT;
+            fn BindAccess(&self, pParam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> HRESULT;
+            fn UpdateAccess(&self, pParam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+        }
+        #[guid(0x149c4d73_b4be_4f8d_8b87_079e926b6add)]
+        interface IMFLocalMFTRegistration: IUnknown {
+            fn RegisterMFTs(&self, pMFTs: *const MFT_REGISTRATION_INFO, cMFTs: u32) -> HRESULT;
+        }
+        #[guid(0x90377834_21d0_4dee_8214_ba2e3e6c1127)]
+        interface IMFMediaSession: IMFMediaEventGenerator {
+            fn SetTopology(&self, dwSetTopologyFlags: u32, pTopology: IMFTopology) -> HRESULT;
+            fn ClearTopologies(&self) -> HRESULT;
+            fn Start(&self, pguidTimeFormat: *const GUID, pvarStartPosition: *const PROPVARIANT) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+            fn GetClock(&self, ppClock: *mut IMFClock) -> HRESULT;
+            fn GetSessionCapabilities(&self, pdwCaps: *mut u32) -> HRESULT;
+            fn GetFullTopology(&self, dwGetFullTopologyFlags: u32, TopoId: TOPOID, ppFullTopology: *mut IMFTopology) -> HRESULT;
+        }
+        #[guid(0x6ef2a660_47c0_4666_b13d_cbb717f2fa2c)]
+        interface IMFMediaSink: IUnknown {
+            fn GetCharacteristics(&self, pdwCharacteristics: *mut u32) -> HRESULT;
+            fn AddStreamSink(&self, dwStreamSinkIdentifier: u32, pMediaType: IMFMediaType, ppStreamSink: *mut IMFStreamSink) -> HRESULT;
+            fn RemoveStreamSink(&self, dwStreamSinkIdentifier: u32) -> HRESULT;
+            fn GetStreamSinkCount(&self, pcStreamSinkCount: *mut u32) -> HRESULT;
+            fn GetStreamSinkByIndex(&self, dwIndex: u32, ppStreamSink: *mut IMFStreamSink) -> HRESULT;
+            fn GetStreamSinkById(&self, dwStreamSinkIdentifier: u32, ppStreamSink: *mut IMFStreamSink) -> HRESULT;
+            fn SetPresentationClock(&self, pPresentationClock: IMFPresentationClock) -> HRESULT;
+            fn GetPresentationClock(&self, ppPresentationClock: *mut IMFPresentationClock) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+        }
+        #[guid(0x5dfd4b2a_7674_4110_a4e6_8a68fd5f3688)]
+        interface IMFMediaSinkPreroll: IUnknown {
+            fn NotifyPreroll(&self, hnsUpcomingStartTime: MFTIME) -> HRESULT;
+        }
+        #[guid(0x279a808d_aec7_40c8_9c6b_a6b492c78a66)]
+        interface IMFMediaSource: IMFMediaEventGenerator {
+            fn GetCharacteristics(&self, pdwCharacteristics: *mut u32) -> HRESULT;
+            fn CreatePresentationDescriptor(&self, ppPresentationDescriptor: *mut IMFPresentationDescriptor) -> HRESULT;
+            fn Start(&self, pPresentationDescriptor: IMFPresentationDescriptor, pguidTimeFormat: *const GUID, pvarStartPosition: *const PROPVARIANT) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+        }
+        #[guid(0xfbb03414_d13b_4786_8319_5ac51fc0a136)]
+        interface IMFMediaSource2: IMFMediaSourceEx {
+            fn SetMediaType(&self, dwStreamID: u32, pMediaType: IMFMediaType) -> HRESULT;
+        }
+        #[guid(0x3c9b2eb9_86d5_4514_a394_f56664f9f0d8)]
+        interface IMFMediaSourceEx: IMFMediaSource {
+            fn GetSourceAttributes(&self, ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetStreamAttributes(&self, dwStreamIdentifier: u32, ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn SetD3DManager(&self, pManager: IUnknown) -> HRESULT;
+        }
+        #[guid(0x0e1d600a_c9f3_442d_8c51_a42d2d49452f)]
+        interface IMFMediaSourcePresentationProvider: IUnknown {
+            fn ForceEndOfPresentation(&self, pPresentationDescriptor: IMFPresentationDescriptor) -> HRESULT;
+        }
+        #[guid(0x0e1d6009_c9f3_442d_8c51_a42d2d49452f)]
+        interface IMFMediaSourceTopologyProvider: IUnknown {
+            fn GetMediaSourceTopology(&self, pPresentationDescriptor: IMFPresentationDescriptor, ppTopology: *mut IMFTopology) -> HRESULT;
+        }
+        #[guid(0xd182108f_4ec6_443f_aa42_a71106ec825f)]
+        interface IMFMediaStream: IMFMediaEventGenerator {
+            fn GetMediaSource(&self, ppMediaSource: *mut IMFMediaSource) -> HRESULT;
+            fn GetStreamDescriptor(&self, ppStreamDescriptor: *mut IMFStreamDescriptor) -> HRESULT;
+            fn RequestSample(&self, pToken: IUnknown) -> HRESULT;
+        }
+        #[guid(0xc5bc37d6_75c7_46a1_a132_81b5f723c20f)]
+        interface IMFMediaStream2: IMFMediaStream {
+            fn SetStreamState(&self, value: MF_STREAM_STATE) -> HRESULT;
+            fn GetStreamState(&self, value: *mut MF_STREAM_STATE) -> HRESULT;
+        }
+        #[guid(0x380b9af9_a85b_4e78_a2af_ea5ce645c6b4)]
+        interface IMFMediaStreamSourceSampleRequest: IUnknown {
+            fn SetSample(&self, value: IMFSample) -> HRESULT;
+        }
+        #[guid(0xe93dcf6c_4b07_4e1e_8123_aa16ed6eadf5)]
+        interface IMFMediaTypeHandler: IUnknown {
+            fn IsMediaTypeSupported(&self, pMediaType: IMFMediaType, ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetMediaTypeCount(&self, pdwTypeCount: *mut u32) -> HRESULT;
+            fn GetMediaTypeByIndex(&self, dwIndex: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn SetCurrentMediaType(&self, pMediaType: IMFMediaType) -> HRESULT;
+            fn GetCurrentMediaType(&self, ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetMajorType(&self, pguidMajorType: *mut GUID) -> HRESULT;
+        }
+        #[guid(0xf88cfb8c_ef16_4991_b450_cb8c69e51704)]
+        interface IMFMetadata: IUnknown {
+            fn SetLanguage(&self, pwszRFC1766: PCWSTR) -> HRESULT;
+            fn GetLanguage(&self, ppwszRFC1766: *mut PWSTR) -> HRESULT;
+            fn GetAllLanguages(&self, ppvLanguages: *mut PROPVARIANT) -> HRESULT;
+            fn SetProperty(&self, pwszName: PCWSTR, ppvValue: *const PROPVARIANT) -> HRESULT;
+            fn GetProperty(&self, pwszName: PCWSTR, ppvValue: *mut PROPVARIANT) -> HRESULT;
+            fn DeleteProperty(&self, pwszName: PCWSTR) -> HRESULT;
+            fn GetAllPropertyNames(&self, ppvNames: *mut PROPVARIANT) -> HRESULT;
+        }
+        #[guid(0x56181d2d_e221_4adb_b1c8_3cee6a53f76f)]
+        interface IMFMetadataProvider: IUnknown {
+            fn GetMFMetadata(&self, pPresentationDescriptor: IMFPresentationDescriptor, dwStreamIdentifier: u32, dwFlags: u32, ppMFMetadata: *mut IMFMetadata) -> HRESULT;
+        }
+        #[guid(0x5b87ef6a_7ed8_434f_ba0e_184fac1628d1)]
+        interface IMFNetCredential: IUnknown {
+            fn SetUser(&self, #[size_param(1)] pbData: *const u8, cbData: u32, fDataIsEncrypted: BOOL) -> HRESULT;
+            fn SetPassword(&self, #[size_param(1)] pbData: *const u8, cbData: u32, fDataIsEncrypted: BOOL) -> HRESULT;
+            fn GetUser(&self, #[len_param(1)] #[opt] pbData: *mut u8, #[in] #[out] pcbData: *mut u32, fEncryptData: BOOL) -> HRESULT;
+            fn GetPassword(&self, #[len_param(1)] #[opt] pbData: *mut u8, #[in] #[out] pcbData: *mut u32, fEncryptData: BOOL) -> HRESULT;
+            fn LoggedOnUser(&self, pfLoggedOnUser: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x5b87ef6c_7ed8_434f_ba0e_184fac1628d1)]
+        interface IMFNetCredentialCache: IUnknown {
+            fn GetCredential(&self, pszUrl: PCWSTR, pszRealm: PCWSTR, dwAuthenticationFlags: u32, ppCred: *mut IMFNetCredential, pdwRequirementsFlags: *mut u32) -> HRESULT;
+            fn SetGood(&self, pCred: IMFNetCredential, fGood: BOOL) -> HRESULT;
+            fn SetUserOptions(&self, pCred: IMFNetCredential, dwOptionsFlags: u32) -> HRESULT;
+        }
+        #[guid(0x5b87ef6b_7ed8_434f_ba0e_184fac1628d1)]
+        interface IMFNetCredentialManager: IUnknown {
+            fn BeginGetCredentials(&self, pParam: *const MFNetCredentialManagerGetParam, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
+            fn EndGetCredentials(&self, pResult: IMFAsyncResult, ppCred: *mut IMFNetCredential) -> HRESULT;
+            fn SetGood(&self, pCred: IMFNetCredential, fGood: BOOL) -> HRESULT;
+        }
+        #[guid(0xbc2b7d44_a72d_49d5_8376_1480dee58b22)]
+        interface IMFNetCrossOriginSupport: IUnknown {
+            fn GetCrossOriginPolicy(&self, pPolicy: *mut MF_CROSS_ORIGIN_POLICY) -> HRESULT;
+            fn GetSourceOrigin(&self, wszSourceOrigin: *mut PWSTR) -> HRESULT;
+            fn IsSameOrigin(&self, wszURL: PCWSTR, pfIsSameOrigin: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xe9cd0383_a268_4bb4_82de_658d53574d41)]
+        interface IMFNetProxyLocator: IUnknown {
+            fn FindFirstProxy(&self, pszHost: PCWSTR, pszUrl: PCWSTR, fReserved: BOOL) -> HRESULT;
+            fn FindNextProxy(&self) -> HRESULT;
+            fn RegisterProxyResult(&self, hrOp: HRESULT) -> HRESULT;
+            fn GetCurrentProxy(&self, #[len_param(1)] #[out] #[opt] pszStr: PWSTR, #[in] #[out] pcchStr: *mut u32) -> HRESULT;
+            fn Clone(&self, ppProxyLocator: *mut IMFNetProxyLocator) -> HRESULT;
+        }
+        #[guid(0xe9cd0384_a268_4bb4_82de_658d53574d41)]
+        interface IMFNetProxyLocatorFactory: IUnknown {
+            fn CreateProxyLocator(&self, pszProtocol: PCWSTR, ppProxyLocator: *mut IMFNetProxyLocator) -> HRESULT;
+        }
+        #[guid(0x091878a3_bf11_4a5c_bc9f_33995b06ef2d)]
+        interface IMFNetResourceFilter: IUnknown {
+            fn OnRedirect(&self, pszUrl: PCWSTR, pvbCancel: *mut VARIANT_BOOL) -> HRESULT;
+            fn OnSendingRequest(&self, pszUrl: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x7be19e73_c9bf_468a_ac5a_a5e8653bec87)]
+        interface IMFNetSchemeHandlerConfig: IUnknown {
+            fn GetNumberOfSupportedProtocols(&self, pcProtocols: *mut u32) -> HRESULT;
+            fn GetSupportedProtocolType(&self, nProtocolIndex: u32, pnProtocolType: *mut MFNETSOURCE_PROTOCOL_TYPE) -> HRESULT;
+            fn ResetProtocolRolloverSettings(&self) -> HRESULT;
+        }
+        #[guid(0x09ef5be3_c8a7_469e_8b70_73bf25bb193f)]
+        interface IMFObjectReferenceStream: IUnknown {
+            fn SaveReference(&self, riid: *const GUID, pUnk: IUnknown) -> HRESULT;
+            fn LoadReference(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x7f00f10a_daed_41af_ab26_5fdfa4dfba3c)]
+        interface IMFOutputPolicy: IMFAttributes {
+            fn GenerateRequiredSchemas(&self, dwAttributes: u32, guidOutputSubType: GUID, rgGuidProtectionSchemasSupported: *const GUID, cProtectionSchemasSupported: u32, ppRequiredProtectionSchemas: *mut IMFCollection) -> HRESULT;
+            fn GetOriginatorID(&self, pguidOriginatorID: *mut GUID) -> HRESULT;
+            fn GetMinimumGRLVersion(&self, pdwMinimumGRLVersion: *mut u32) -> HRESULT;
+        }
+        #[guid(0x7be0fc5b_abd9_44fb_a5c8_f50136e71599)]
+        interface IMFOutputSchema: IMFAttributes {
+            fn GetSchemaType(&self, pguidSchemaType: *mut GUID) -> HRESULT;
+            fn GetConfigurationData(&self, pdwVal: *mut u32) -> HRESULT;
+            fn GetOriginatorID(&self, pguidOriginatorID: *mut GUID) -> HRESULT;
+        }
+        #[guid(0xd19f8e94_b126_4446_890c_5dcb7ad71453)]
+        interface IMFOutputTrustAuthority: IUnknown {
+            fn GetAction(&self, pAction: *mut MFPOLICYMANAGER_ACTION) -> HRESULT;
+            fn SetPolicy(&self, #[len_param(1)] #[opt] ppPolicy: *const IMFOutputPolicy, nPolicy: u32, ppbTicket: *mut *mut u8, #[opt] pcbTicket: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6c4e655d_ead8_4421_b6b9_54dcdbbdf820)]
+        interface IMFPMPClient: IUnknown {
+            fn SetPMPHost(&self, pPMPHost: IMFPMPHost) -> HRESULT;
+        }
+        #[guid(0xc004f646_be2c_48f3_93a2_a0983eba1108)]
+        interface IMFPMPClientApp: IUnknown {
+            fn SetPMPHost(&self, pPMPHost: IMFPMPHostApp) -> HRESULT;
+        }
+        #[guid(0xf70ca1a9_fdc7_4782_b994_adffb1c98606)]
+        interface IMFPMPHost: IUnknown {
+            fn LockProcess(&self) -> HRESULT;
+            fn UnlockProcess(&self) -> HRESULT;
+            fn CreateObjectByCLSID(&self, clsid: *const GUID, pStream: IStream, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x84d2054a_3aa1_4728_a3b0_440a418cf49c)]
+        interface IMFPMPHostApp: IUnknown {
+            fn LockProcess(&self) -> HRESULT;
+            fn UnlockProcess(&self) -> HRESULT;
+            fn ActivateClassById(&self, id: PCWSTR, pStream: IStream, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x994e23af_1cc2_493c_b9fa_46f1cb040fa4)]
+        interface IMFPMPServer: IUnknown {
+            fn LockProcess(&self) -> HRESULT;
+            fn UnlockProcess(&self) -> HRESULT;
+            fn CreateObjectByCLSID(&self, clsid: *const GUID, riid: *const GUID, #[iid_is] ppObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x868ce85c_8ea9_4f55_ab82_b009a910a805)]
+        interface IMFPresentationClock: IMFClock {
+            fn SetTimeSource(&self, pTimeSource: IMFPresentationTimeSource) -> HRESULT;
+            fn GetTimeSource(&self, ppTimeSource: *mut IMFPresentationTimeSource) -> HRESULT;
+            fn GetTime(&self, phnsClockTime: *mut MFTIME) -> HRESULT;
+            fn AddClockStateSink(&self, pStateSink: IMFClockStateSink) -> HRESULT;
+            fn RemoveClockStateSink(&self, pStateSink: IMFClockStateSink) -> HRESULT;
+            fn Start(&self, llClockStartOffset: i64) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+        }
+        #[guid(0x03cb2711_24d7_4db6_a17f_f3a7a479a536)]
+        interface IMFPresentationDescriptor: IMFAttributes {
+            fn GetStreamDescriptorCount(&self, pdwDescriptorCount: *mut u32) -> HRESULT;
+            fn GetStreamDescriptorByIndex(&self, dwIndex: u32, pfSelected: *mut BOOL, ppDescriptor: *mut IMFStreamDescriptor) -> HRESULT;
+            fn SelectStream(&self, dwDescriptorIndex: u32) -> HRESULT;
+            fn DeselectStream(&self, dwDescriptorIndex: u32) -> HRESULT;
+            fn Clone(&self, ppPresentationDescriptor: *mut IMFPresentationDescriptor) -> HRESULT;
+        }
+        #[guid(0x7ff12cce_f76f_41c2_863b_1666c8e5e139)]
+        interface IMFPresentationTimeSource: IMFClock {
+            fn GetUnderlyingClock(&self, ppClock: *mut IMFClock) -> HRESULT;
+        }
+        #[guid(0xef5dc845_f0d9_4ec9_b00c_cb5183d38434)]
+        interface IMFProtectedEnvironmentAccess: IUnknown {
+            fn Call(&self, inputLength: u32, #[size_param(0)] input: *const u8, outputLength: u32, #[size_param(2)] output: *mut u8) -> HRESULT;
+            fn ReadGRL(&self, outputLength: *mut u32, output: *mut *mut u8) -> HRESULT;
+        }
+        #[guid(0xec15e2e9_e36b_4f7c_8758_77d452ef4ce7)]
+        interface IMFQualityAdvise: IUnknown {
+            fn SetDropMode(&self, eDropMode: MF_QUALITY_DROP_MODE) -> HRESULT;
+            fn SetQualityLevel(&self, eQualityLevel: MF_QUALITY_LEVEL) -> HRESULT;
+            fn GetDropMode(&self, peDropMode: *mut MF_QUALITY_DROP_MODE) -> HRESULT;
+            fn GetQualityLevel(&self, peQualityLevel: *mut MF_QUALITY_LEVEL) -> HRESULT;
+            fn DropTime(&self, hnsAmountToDrop: i64) -> HRESULT;
+        }
+        #[guid(0xf3706f0d_8ea2_4886_8000_7155e9ec2eae)]
+        interface IMFQualityAdvise2: IMFQualityAdvise {
+            fn NotifyQualityEvent(&self, pEvent: IMFMediaEvent, pdwFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0xdfcd8e4d_30b5_4567_acaa_8eb5b7853dc9)]
+        interface IMFQualityAdviseLimits: IUnknown {
+            fn GetMaximumDropMode(&self, peDropMode: *mut MF_QUALITY_DROP_MODE) -> HRESULT;
+            fn GetMinimumQualityLevel(&self, peQualityLevel: *mut MF_QUALITY_LEVEL) -> HRESULT;
+        }
+        #[guid(0x8d009d86_5b9f_4115_b1fc_9f80d52ab8ab)]
+        interface IMFQualityManager: IUnknown {
+            fn NotifyTopology(&self, pTopology: IMFTopology) -> HRESULT;
+            fn NotifyPresentationClock(&self, pClock: IMFPresentationClock) -> HRESULT;
+            fn NotifyProcessInput(&self, pNode: IMFTopologyNode, lInputIndex: i32, pSample: IMFSample) -> HRESULT;
+            fn NotifyProcessOutput(&self, pNode: IMFTopologyNode, lOutputIndex: i32, pSample: IMFSample) -> HRESULT;
+            fn NotifyQualityEvent(&self, pObject: IUnknown, pEvent: IMFMediaEvent) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+        }
+        #[guid(0x88ddcd21_03c3_4275_91ed_55ee3929328f)]
+        interface IMFRateControl: IUnknown {
+            fn SetRate(&self, fThin: BOOL, flRate: f32) -> HRESULT;
+            fn GetRate(&self, #[in] #[out] pfThin: *mut BOOL, #[in] #[out] pflRate: *mut f32) -> HRESULT;
+        }
+        #[guid(0x0a9ccdbc_d797_4563_9667_94ec5d79292d)]
+        interface IMFRateSupport: IUnknown {
+            fn GetSlowestRate(&self, eDirection: MFRATE_DIRECTION, fThin: BOOL, pflRate: *mut f32) -> HRESULT;
+            fn GetFastestRate(&self, eDirection: MFRATE_DIRECTION, fThin: BOOL, pflRate: *mut f32) -> HRESULT;
+            fn IsRateSupported(&self, fThin: BOOL, flRate: f32, #[in] #[out] pflNearestSupportedRate: *mut f32) -> HRESULT;
+        }
+        #[guid(0x2347d60b_3fb5_480c_8803_8df3adcd3ef0)]
+        interface IMFRealTimeClient: IUnknown {
+            fn RegisterThreads(&self, dwTaskIndex: u32, wszClass: PCWSTR) -> HRESULT;
+            fn UnregisterThreads(&self) -> HRESULT;
+            fn SetWorkQueue(&self, dwWorkQueueId: u32) -> HRESULT;
+        }
+        #[guid(0x03910848_ab16_4611_b100_17b88ae2f248)]
+        interface IMFRealTimeClientEx: IUnknown {
+            fn RegisterThreadsEx(&self, #[in] #[out] pdwTaskIndex: *mut u32, wszClassName: PCWSTR, lBasePriority: i32) -> HRESULT;
+            fn UnregisterThreads(&self) -> HRESULT;
+            fn SetWorkQueueEx(&self, dwMultithreadedWorkQueueId: u32, lWorkItemBasePriority: i32) -> HRESULT;
+        }
+        #[guid(0xf25362ea_2c0e_447f_81e2_755914cdc0c3)]
+        interface IMFRelativePanelReport: IUnknown {
+            fn GetRelativePanel(&self, panel: *mut u32) -> HRESULT;
+        }
+        #[guid(0x421af7f6_573e_4ad0_8fda_2e57cedb18c6)]
+        interface IMFRelativePanelWatcher: IMFShutdown {
+            fn BeginGetReport(&self, pCallback: IMFAsyncCallback, #[opt] pState: IUnknown) -> HRESULT;
+            fn EndGetReport(&self, pResult: IMFAsyncResult, ppRelativePanelReport: *mut IMFRelativePanelReport) -> HRESULT;
+            fn GetReport(&self, ppRelativePanelReport: *mut IMFRelativePanelReport) -> HRESULT;
+        }
+        #[guid(0x1cde6309_cae0_4940_907e_c1ec9c3d1d4a)]
+        interface IMFRemoteDesktopPlugin: IUnknown {
+            fn UpdateTopology(&self, #[in] #[out] pTopology: IMFTopology) -> HRESULT;
+        }
+        #[guid(0x994e23ad_1cc2_493c_b9fa_46f1cb040fa4)]
+        interface IMFRemoteProxy: IUnknown {
+            fn GetRemoteObject(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetRemoteHost(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xa7e025dd_5303_4a62_89d6_e747e1efac73)]
+        interface IMFSAMIStyle: IUnknown {
+            fn GetStyleCount(&self, pdwCount: *mut u32) -> HRESULT;
+            fn GetStyles(&self, pPropVarStyleArray: *mut PROPVARIANT) -> HRESULT;
+            fn SetSelectedStyle(&self, pwszStyle: PCWSTR) -> HRESULT;
+            fn GetSelectedStyle(&self, ppwszStyle: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x61f7d887_1230_4a8b_aeba_8ad434d1a64d)]
+        interface IMFSSLCertificateManager: IUnknown {
+            fn GetClientCertificate(&self, pszURL: PCWSTR, ppbData: *mut *mut u8, pcbData: *mut u32) -> HRESULT;
+            fn BeginGetClientCertificate(&self, pszURL: PCWSTR, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
+            fn EndGetClientCertificate(&self, pResult: IMFAsyncResult, ppbData: *mut *mut u8, pcbData: *mut u32) -> HRESULT;
+            fn GetCertificatePolicy(&self, pszURL: PCWSTR, pfOverrideAutomaticCheck: *mut BOOL, pfClientCertificateAvailable: *mut BOOL) -> HRESULT;
+            fn OnServerCertificate(&self, pszURL: PCWSTR, #[size_param(2)] pbData: *const u8, cbData: u32, pfIsGood: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xda62b958_3a38_4a97_bd27_149c640c0771)]
+        interface IMFSampleAllocatorControl: IUnknown {
+            fn SetDefaultAllocator(&self, dwOutputStreamID: u32, pAllocator: IUnknown) -> HRESULT;
+            fn GetAllocatorUsage(&self, dwOutputStreamID: u32, pdwInputStreamID: *mut u32, peUsage: *mut MFSampleAllocatorUsage) -> HRESULT;
+        }
+        #[guid(0x8c7b80bf_ee42_4b59_b1df_55668e1bdca8)]
+        interface IMFSampleGrabberSinkCallback: IMFClockStateSink {
+            fn OnSetPresentationClock(&self, pPresentationClock: IMFPresentationClock) -> HRESULT;
+            fn OnProcessSample(&self, guidMajorMediaType: *const GUID, dwSampleFlags: u32, llSampleTime: i64, llSampleDuration: i64, #[size_param(5)] pSampleBuffer: *const u8, dwSampleSize: u32) -> HRESULT;
+            fn OnShutdown(&self) -> HRESULT;
+        }
+        #[guid(0xca86aa50_c46e_429e_ab27_16d6ac6844cb)]
+        interface IMFSampleGrabberSinkCallback2: IMFSampleGrabberSinkCallback {
+            fn OnProcessSampleEx(&self, guidMajorMediaType: *const GUID, dwSampleFlags: u32, llSampleTime: i64, llSampleDuration: i64, #[size_param(5)] pSampleBuffer: *const u8, dwSampleSize: u32, pAttributes: IMFAttributes) -> HRESULT;
+        }
+        #[guid(0x8e36395f_c7b9_43c4_a54d_512b4af63c95)]
+        interface IMFSampleProtection: IUnknown {
+            fn GetInputProtectionVersion(&self, pdwVersion: *mut u32) -> HRESULT;
+            fn GetOutputProtectionVersion(&self, pdwVersion: *mut u32) -> HRESULT;
+            fn GetProtectionCertificate(&self, dwVersion: u32, ppCert: *mut *mut u8, pcbCert: *mut u32) -> HRESULT;
+            fn InitOutputProtection(&self, dwVersion: u32, dwOutputId: u32, pbCert: *const u8, cbCert: u32, ppbSeed: *mut *mut u8, pcbSeed: *mut u32) -> HRESULT;
+            fn InitInputProtection(&self, dwVersion: u32, dwInputId: u32, pbSeed: *const u8, cbSeed: u32) -> HRESULT;
+        }
+        #[guid(0xe9931663_80bf_4c6e_98af_5dcf58747d1f)]
+        interface IMFSaveJob: IUnknown {
+            fn BeginSave(&self, pStream: IMFByteStream, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
+            fn EndSave(&self, pResult: IMFAsyncResult) -> HRESULT;
+            fn CancelSave(&self) -> HRESULT;
+            fn GetProgress(&self, pdwPercentComplete: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6d4c7b74_52a0_4bb7_b0db_55f29f47a668)]
+        interface IMFSchemeHandler: IUnknown {
+            fn BeginCreateObject(&self, pwszURL: PCWSTR, dwFlags: u32, pProps: IPropertyStore, ppIUnknownCancelCookie: *mut IUnknown, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndCreateObject(&self, pResult: IMFAsyncResult, pObjectType: *mut MF_OBJECT_TYPE, ppObject: *mut IUnknown) -> HRESULT;
+            fn CancelObjectCreation(&self, pIUnknownCancelCookie: IUnknown) -> HRESULT;
+        }
+        #[guid(0xd0ae555d_3b12_4d97_b060_0990bc5aeb67)]
+        interface IMFSecureChannel: IUnknown {
+            fn GetCertificate(&self, ppCert: *mut *mut u8, pcbCert: *mut u32) -> HRESULT;
+            fn SetupSession(&self, #[size_param(1)] pbEncryptedSessionKey: *const u8, cbSessionKey: u32) -> HRESULT;
+        }
+        #[guid(0x26afea53_d9ed_42b5_ab80_e64f9ee34779)]
+        interface IMFSeekInfo: IUnknown {
+            fn GetNearestKeyFrames(&self, pguidTimeFormat: *const GUID, pvarStartPosition: *const PROPVARIANT, pvarPreviousKeyFrame: *mut PROPVARIANT, pvarNextKeyFrame: *mut PROPVARIANT) -> HRESULT;
+        }
+        #[guid(0x683f7a5e_4a19_43cd_b1a9_dbf4ab3f7777)]
+        interface IMFSensorActivitiesReport: IUnknown {
+            fn GetCount(&self, pcCount: *mut u32) -> HRESULT;
+            fn GetActivityReport(&self, Index: u32, sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
+            fn GetActivityReportByDeviceName(&self, SymbolicName: PCWSTR, sensorActivityReport: *mut IMFSensorActivityReport) -> HRESULT;
+        }
+        #[guid(0xde5072ee_dbe3_46dc_8a87_b6f631194751)]
+        interface IMFSensorActivitiesReportCallback: IUnknown {
+            fn OnActivitiesReport(&self, sensorActivitiesReport: IMFSensorActivitiesReport) -> HRESULT;
+        }
+        #[guid(0xd0cef145_b3f4_4340_a2e5_7a5080ca05cb)]
+        interface IMFSensorActivityMonitor: IUnknown {
+            fn Start(&self) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+        }
+        #[guid(0x3e8c4be1_a8c2_4528_90de_2851bde5fead)]
+        interface IMFSensorActivityReport: IUnknown {
+            fn GetFriendlyName(&self, #[len_param(1)] #[out] FriendlyName: PWSTR, cchFriendlyName: u32, pcchWritten: *mut u32) -> HRESULT;
+            fn GetSymbolicLink(&self, #[len_param(1)] #[out] SymbolicLink: PWSTR, cchSymbolicLink: u32, pcchWritten: *mut u32) -> HRESULT;
+            fn GetProcessCount(&self, pcCount: *mut u32) -> HRESULT;
+            fn GetProcessActivity(&self, Index: u32, ppProcessActivity: *mut IMFSensorProcessActivity) -> HRESULT;
+        }
+        #[guid(0xfb9f48f2_2a18_4e28_9730_786f30f04dc4)]
+        interface IMFSensorDevice: IUnknown {
+            fn GetDeviceId(&self, pDeviceId: *mut u64) -> HRESULT;
+            fn GetDeviceType(&self, pType: *mut MFSensorDeviceType) -> HRESULT;
+            fn GetFlags(&self, pFlags: *mut u64) -> HRESULT;
+            fn GetSymbolicLink(&self, #[len_param(1)] #[out] SymbolicLink: PWSTR, cchSymbolicLink: i32, pcchWritten: *mut i32) -> HRESULT;
+            fn GetDeviceAttributes(&self, ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetStreamAttributesCount(&self, eType: MFSensorStreamType, pdwCount: *mut u32) -> HRESULT;
+            fn GetStreamAttributes(&self, eType: MFSensorStreamType, dwIndex: u32, ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn SetSensorDeviceMode(&self, eMode: MFSensorDeviceMode) -> HRESULT;
+            fn GetSensorDeviceMode(&self, peMode: *mut MFSensorDeviceMode) -> HRESULT;
+        }
+        #[guid(0x4110243a_9757_461f_89f1_f22345bcab4e)]
+        interface IMFSensorGroup: IUnknown {
+            fn GetSymbolicLink(&self, #[len_param(1)] #[out] SymbolicLink: PWSTR, cchSymbolicLink: i32, pcchWritten: *mut i32) -> HRESULT;
+            fn GetFlags(&self, pFlags: *mut u64) -> HRESULT;
+            fn GetSensorGroupAttributes(&self, ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetSensorDeviceCount(&self, pdwCount: *mut u32) -> HRESULT;
+            fn GetSensorDevice(&self, dwIndex: u32, ppDevice: *mut IMFSensorDevice) -> HRESULT;
+            fn SetDefaultSensorDeviceIndex(&self, dwIndex: u32) -> HRESULT;
+            fn GetDefaultSensorDeviceIndex(&self, pdwIndex: *mut u32) -> HRESULT;
+            fn CreateMediaSource(&self, ppSource: *mut IMFMediaSource) -> HRESULT;
+        }
+        #[guid(0x39dc7f4a_b141_4719_813c_a7f46162a2b8)]
+        interface IMFSensorProcessActivity: IUnknown {
+            fn GetProcessId(&self, pPID: *mut u32) -> HRESULT;
+            fn GetStreamingState(&self, pfStreaming: *mut BOOL) -> HRESULT;
+            fn GetStreamingMode(&self, pMode: *mut MFSensorDeviceMode) -> HRESULT;
+            fn GetReportTime(&self, pft: *mut FILETIME) -> HRESULT;
+        }
+        #[guid(0x22f765d1_8dab_4107_846d_56baf72215e7)]
+        interface IMFSensorProfile: IUnknown {
+            fn GetProfileId(&self, pId: *mut SENSORPROFILEID) -> HRESULT;
+            fn AddProfileFilter(&self, StreamId: u32, wzFilterSetString: PCWSTR) -> HRESULT;
+            fn IsMediaTypeSupported(&self, StreamId: u32, pMediaType: IMFMediaType, pfSupported: *mut BOOL) -> HRESULT;
+            fn AddBlockedControl(&self, wzBlockedControl: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xc95ea55b_0187_48be_9353_8d2507662351)]
+        interface IMFSensorProfileCollection: IUnknown {
+            fn GetProfileCount(&self) -> u32;
+            fn GetProfile(&self, Index: u32, ppProfile: *mut IMFSensorProfile) -> HRESULT;
+            fn AddProfile(&self, pProfile: IMFSensorProfile) -> HRESULT;
+            fn FindProfile(&self, ProfileId: *const SENSORPROFILEID, ppProfile: *mut IMFSensorProfile) -> HRESULT;
+            fn RemoveProfileByIndex(&self, Index: u32);
+            fn RemoveProfile(&self, ProfileId: *const SENSORPROFILEID);
+        }
+        #[guid(0xe9a42171_c56e_498a_8b39_eda5a070b7fc)]
+        interface IMFSensorStream: IMFAttributes {
+            fn GetMediaTypeCount(&self, pdwCount: *mut u32) -> HRESULT;
+            fn GetMediaType(&self, dwIndex: u32, ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn CloneSensorStream(&self, ppStream: *mut IMFSensorStream) -> HRESULT;
+        }
+        #[guid(0xeed9c2ee_66b4_4f18_a697_ac7d3960215c)]
+        interface IMFSensorTransformFactory: IUnknown {
+            fn GetFactoryAttributes(&self, ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn InitializeFactory(&self, dwMaxTransformCount: u32, pSensorDevices: IMFCollection, #[opt] pAttributes: IMFAttributes) -> HRESULT;
+            fn GetTransformCount(&self, pdwCount: *mut u32) -> HRESULT;
+            fn GetTransformInformation(&self, TransformIndex: u32, pguidTransformId: *mut GUID, ppAttributes: *mut IMFAttributes, ppStreamInformation: *mut IMFCollection) -> HRESULT;
+            fn CreateTransform(&self, guidSensorTransformID: *const GUID, #[opt] pAttributes: IMFAttributes, ppDeviceMFT: *mut IMFDeviceTransform) -> HRESULT;
+        }
+        #[guid(0x197cd219_19cb_4de1_a64c_acf2edcbe59e)]
+        interface IMFSequencerSource: IUnknown {
+            fn AppendTopology(&self, pTopology: IMFTopology, dwFlags: u32, pdwId: *mut MFSequencerElementId) -> HRESULT;
+            fn DeleteTopology(&self, dwId: MFSequencerElementId) -> HRESULT;
+            fn GetPresentationContext(&self, pPD: IMFPresentationDescriptor, #[opt] pId: *mut MFSequencerElementId, #[opt] ppTopology: *mut IMFTopology) -> HRESULT;
+            fn UpdateTopology(&self, dwId: MFSequencerElementId, pTopology: IMFTopology) -> HRESULT;
+            fn UpdateTopologyFlags(&self, dwId: MFSequencerElementId, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x97ec2ea4_0e42_4937_97ac_9d6d328824e1)]
+        interface IMFShutdown: IUnknown {
+            fn Shutdown(&self) -> HRESULT;
+            fn GetShutdownStatus(&self, pStatus: *mut MFSHUTDOWN_STATUS) -> HRESULT;
+        }
+        #[guid(0x4a724bca_ff6a_4c07_8e0d_7a358421cf06)]
+        interface IMFSignedLibrary: IUnknown {
+            fn GetProcedureAddress(&self, name: PCSTR, address: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x089edf13_cf71_4338_8d13_9e569dbdc319)]
+        interface IMFSimpleAudioVolume: IUnknown {
+            fn SetMasterVolume(&self, fLevel: f32) -> HRESULT;
+            fn GetMasterVolume(&self, pfLevel: *mut f32) -> HRESULT;
+            fn SetMute(&self, bMute: BOOL) -> HRESULT;
+            fn GetMute(&self, pbMute: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x059054b3_027c_494c_a27d_9113291cf87f)]
+        interface IMFSourceOpenMonitor: IUnknown {
+            fn OnSourceEvent(&self, pEvent: IMFMediaEvent) -> HRESULT;
+        }
+        #[guid(0xfbe5a32d_a497_4b61_bb85_97b1a848a6e3)]
+        interface IMFSourceResolver: IUnknown {
+            fn CreateObjectFromURL(&self, pwszURL: PCWSTR, dwFlags: u32, pProps: IPropertyStore, pObjectType: *mut MF_OBJECT_TYPE, ppObject: *mut IUnknown) -> HRESULT;
+            fn CreateObjectFromByteStream(&self, pByteStream: IMFByteStream, pwszURL: PCWSTR, dwFlags: u32, pProps: IPropertyStore, pObjectType: *mut MF_OBJECT_TYPE, ppObject: *mut IUnknown) -> HRESULT;
+            fn BeginCreateObjectFromURL(&self, pwszURL: PCWSTR, dwFlags: u32, pProps: IPropertyStore, ppIUnknownCancelCookie: *mut IUnknown, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndCreateObjectFromURL(&self, pResult: IMFAsyncResult, pObjectType: *mut MF_OBJECT_TYPE, ppObject: *mut IUnknown) -> HRESULT;
+            fn BeginCreateObjectFromByteStream(&self, pByteStream: IMFByteStream, pwszURL: PCWSTR, dwFlags: u32, pProps: IPropertyStore, ppIUnknownCancelCookie: *mut IUnknown, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndCreateObjectFromByteStream(&self, pResult: IMFAsyncResult, pObjectType: *mut MF_OBJECT_TYPE, ppObject: *mut IUnknown) -> HRESULT;
+            fn CancelObjectCreation(&self, pIUnknownCancelCookie: IUnknown) -> HRESULT;
+        }
+        #[guid(0x56c03d9c_9dbb_45f5_ab4b_d80f47c05938)]
+        interface IMFStreamDescriptor: IMFAttributes {
+            fn GetStreamIdentifier(&self, pdwStreamIdentifier: *mut u32) -> HRESULT;
+            fn GetMediaTypeHandler(&self, ppMediaTypeHandler: *mut IMFMediaTypeHandler) -> HRESULT;
+        }
+        #[guid(0x0a97b3cf_8e7c_4a3d_8f8c_0c843dc247fb)]
+        interface IMFStreamSink: IMFMediaEventGenerator {
+            fn GetMediaSink(&self, ppMediaSink: *mut IMFMediaSink) -> HRESULT;
+            fn GetIdentifier(&self, pdwIdentifier: *mut u32) -> HRESULT;
+            fn GetMediaTypeHandler(&self, ppHandler: *mut IMFMediaTypeHandler) -> HRESULT;
+            fn ProcessSample(&self, pSample: IMFSample) -> HRESULT;
+            fn PlaceMarker(&self, eMarkerType: MFSTREAMSINK_MARKER_TYPE, pvarMarkerValue: *const PROPVARIANT, pvarContextValue: *const PROPVARIANT) -> HRESULT;
+            fn Flush(&self) -> HRESULT;
+        }
+        #[guid(0x9db7aa41_3cc5_40d4_8509_555804ad34cc)]
+        interface IMFStreamingSinkConfig: IUnknown {
+            fn StartStreaming(&self, fSeekOffsetIsByteOffset: BOOL, qwSeekOffset: u64) -> HRESULT;
+        }
+        #[guid(0xfff4af3a_1fc1_4ef9_a29b_d26c49e2f31a)]
+        interface IMFSystemId: IUnknown {
+            fn GetData(&self, size: *mut u32, data: *mut *mut u8) -> HRESULT;
+            fn Setup(&self, stage: u32, cbIn: u32, #[size_param(1)] pbIn: *const u8, pcbOut: *mut u32, ppbOut: *mut *mut u8) -> HRESULT;
+        }
+        #[guid(0xab9d8661_f7e8_4ef4_9861_89f334f94e74)]
+        interface IMFTimecodeTranslate: IUnknown {
+            fn BeginConvertTimecodeToHNS(&self, pPropVarTimecode: *const PROPVARIANT, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndConvertTimecodeToHNS(&self, pResult: IMFAsyncResult, phnsTime: *mut MFTIME) -> HRESULT;
+            fn BeginConvertHNSToTimecode(&self, hnsTime: MFTIME, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
+            fn EndConvertHNSToTimecode(&self, pResult: IMFAsyncResult, pPropVarTimecode: *mut PROPVARIANT) -> HRESULT;
+        }
+        #[guid(0xe56e4cbd_8f70_49d8_a0f8_edb3d6ab9bf2)]
+        interface IMFTimer: IUnknown {
+            fn SetTimer(&self, dwFlags: u32, llClockTime: i64, pCallback: IMFAsyncCallback, punkState: IUnknown, ppunkKey: *mut IUnknown) -> HRESULT;
+            fn CancelTimer(&self, punkKey: IUnknown) -> HRESULT;
+        }
+        #[guid(0xde9a6157_f660_4643_b56a_df9f7998c7cd)]
+        interface IMFTopoLoader: IUnknown {
+            fn Load(&self, pInputTopo: IMFTopology, ppOutputTopo: *mut IMFTopology, pCurrentTopo: IMFTopology) -> HRESULT;
+        }
+        #[guid(0x83cf873a_f6da_4bc8_823f_bacfd55dc433)]
+        interface IMFTopology: IMFAttributes {
+            fn GetTopologyID(&self, pID: *mut TOPOID) -> HRESULT;
+            fn AddNode(&self, pNode: IMFTopologyNode) -> HRESULT;
+            fn RemoveNode(&self, pNode: IMFTopologyNode) -> HRESULT;
+            fn GetNodeCount(&self, pwNodes: *mut u16) -> HRESULT;
+            fn GetNode(&self, wIndex: u16, ppNode: *mut IMFTopologyNode) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn CloneFrom(&self, pTopology: IMFTopology) -> HRESULT;
+            fn GetNodeByID(&self, qwTopoNodeID: TOPOID, ppNode: *mut IMFTopologyNode) -> HRESULT;
+            fn GetSourceNodeCollection(&self, ppCollection: *mut IMFCollection) -> HRESULT;
+            fn GetOutputNodeCollection(&self, ppCollection: *mut IMFCollection) -> HRESULT;
+        }
+        #[guid(0x83cf873a_f6da_4bc8_823f_bacfd55dc430)]
+        interface IMFTopologyNode: IMFAttributes {
+            fn SetObject(&self, pObject: IUnknown) -> HRESULT;
+            fn GetObject(&self, ppObject: *mut IUnknown) -> HRESULT;
+            fn GetNodeType(&self, pType: *mut MF_TOPOLOGY_TYPE) -> HRESULT;
+            fn GetTopoNodeID(&self, pID: *mut TOPOID) -> HRESULT;
+            fn SetTopoNodeID(&self, ullTopoID: TOPOID) -> HRESULT;
+            fn GetInputCount(&self, pcInputs: *mut u32) -> HRESULT;
+            fn GetOutputCount(&self, pcOutputs: *mut u32) -> HRESULT;
+            fn ConnectOutput(&self, dwOutputIndex: u32, pDownstreamNode: IMFTopologyNode, dwInputIndexOnDownstreamNode: u32) -> HRESULT;
+            fn DisconnectOutput(&self, dwOutputIndex: u32) -> HRESULT;
+            fn GetInput(&self, dwInputIndex: u32, ppUpstreamNode: *mut IMFTopologyNode, pdwOutputIndexOnUpstreamNode: *mut u32) -> HRESULT;
+            fn GetOutput(&self, dwOutputIndex: u32, ppDownstreamNode: *mut IMFTopologyNode, pdwInputIndexOnDownstreamNode: *mut u32) -> HRESULT;
+            fn SetOutputPrefType(&self, dwOutputIndex: u32, pType: IMFMediaType) -> HRESULT;
+            fn GetOutputPrefType(&self, dwOutputIndex: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn SetInputPrefType(&self, dwInputIndex: u32, pType: IMFMediaType) -> HRESULT;
+            fn GetInputPrefType(&self, dwInputIndex: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn CloneFrom(&self, pNode: IMFTopologyNode) -> HRESULT;
+        }
+        #[guid(0x676aa6dd_238a_410d_bb99_65668d01605a)]
+        interface IMFTopologyNodeAttributeEditor: IUnknown {
+            fn UpdateNodeAttributes(&self, TopoId: TOPOID, cUpdates: u32, pUpdates: *const MFTOPONODE_ATTRIBUTE_UPDATE) -> HRESULT;
+        }
+        #[guid(0x245bf8e9_0755_40f7_88a5_ae0f18d55e17)]
+        interface IMFTrackedSample: IUnknown {
+            fn SetAllocator(&self, pSampleAllocator: IMFAsyncCallback, pUnkState: IUnknown) -> HRESULT;
+        }
+        #[guid(0x4adfdba3_7ab0_4953_a62b_461e7ff3da1e)]
+        interface IMFTranscodeProfile: IUnknown {
+            fn SetAudioAttributes(&self, #[opt] pAttrs: IMFAttributes) -> HRESULT;
+            fn GetAudioAttributes(&self, ppAttrs: *mut IMFAttributes) -> HRESULT;
+            fn SetVideoAttributes(&self, #[opt] pAttrs: IMFAttributes) -> HRESULT;
+            fn GetVideoAttributes(&self, ppAttrs: *mut IMFAttributes) -> HRESULT;
+            fn SetContainerAttributes(&self, #[opt] pAttrs: IMFAttributes) -> HRESULT;
+            fn GetContainerAttributes(&self, ppAttrs: *mut IMFAttributes) -> HRESULT;
+        }
+        #[guid(0x8cffcd2e_5a03_4a3a_aff7_edcd107c620e)]
+        interface IMFTranscodeSinkInfoProvider: IUnknown {
+            fn SetOutputFile(&self, pwszFileName: PCWSTR) -> HRESULT;
+            fn SetOutputByteStream(&self, pByteStreamActivate: IMFActivate) -> HRESULT;
+            fn SetProfile(&self, pProfile: IMFTranscodeProfile) -> HRESULT;
+            fn GetSinkInfo(&self, pSinkInfo: *mut MF_TRANSCODE_SINK_INFO) -> HRESULT;
+        }
+        #[guid(0x542612c4_a1b8_4632_b521_de11ea64a0b0)]
+        interface IMFTrustedInput: IUnknown {
+            fn GetInputTrustAuthority(&self, dwStreamID: u32, riid: *const GUID, #[iid_is] ppunkObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xd19f8e95_b126_4446_890c_5dcb7ad71453)]
+        interface IMFTrustedOutput: IUnknown {
+            fn GetOutputTrustAuthorityCount(&self, pcOutputTrustAuthorities: *mut u32) -> HRESULT;
+            fn GetOutputTrustAuthorityByIndex(&self, dwIndex: u32, ppauthority: *mut IMFOutputTrustAuthority) -> HRESULT;
+            fn IsFinal(&self, pfIsFinal: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x725b77c7_ca9f_4fe5_9d72_9946bf9b3c70)]
+        interface IMFVideoCaptureSampleAllocator: IMFVideoSampleAllocator {
+            fn InitializeCaptureSampleAllocator(&self, cbSampleSize: u32, cbCaptureMetadataSize: u32, cbAlignment: u32, cMinimumSamples: u32, #[opt] pAttributes: IMFAttributes, pMediaType: IMFMediaType) -> HRESULT;
+        }
+        #[guid(0xa3f675d5_6119_4f7f_a100_1d8b280f0efb)]
+        interface IMFVideoProcessorControl: IUnknown {
+            fn SetBorderColor(&self, #[opt] pBorderColor: *const MFARGB) -> HRESULT;
+            fn SetSourceRectangle(&self, #[opt] pSrcRect: *const RECT) -> HRESULT;
+            fn SetDestinationRectangle(&self, #[opt] pDstRect: *const RECT) -> HRESULT;
+            fn SetMirror(&self, eMirror: MF_VIDEO_PROCESSOR_MIRROR) -> HRESULT;
+            fn SetRotation(&self, eRotation: MF_VIDEO_PROCESSOR_ROTATION) -> HRESULT;
+            fn SetConstrictionSize(&self, #[opt] pConstrictionSize: *const SIZE) -> HRESULT;
+        }
+        #[guid(0xbde633d3_e1dc_4a7f_a693_bbae399c4a20)]
+        interface IMFVideoProcessorControl2: IMFVideoProcessorControl {
+            fn SetRotationOverride(&self, uiRotation: u32) -> HRESULT;
+            fn EnableHardwareEffects(&self, fEnabled: BOOL) -> HRESULT;
+            fn GetSupportedHardwareEffects(&self, puiSupport: *mut u32) -> HRESULT;
+        }
+        #[guid(0x2424b3f2_eb23_40f1_91aa_74bddeea0883)]
+        interface IMFVideoProcessorControl3: IMFVideoProcessorControl2 {
+            fn GetNaturalOutputType(&self, ppType: *mut IMFMediaType) -> HRESULT;
+            fn EnableSphericalVideoProcessing(&self, fEnable: BOOL, eFormat: MFVideoSphericalFormat, eProjectionMode: MFVideoSphericalProjectionMode) -> HRESULT;
+            fn SetSphericalVideoProperties(&self, X: f32, Y: f32, Z: f32, W: f32, fieldOfView: f32) -> HRESULT;
+            fn SetOutputDevice(&self, pOutputDevice: IUnknown) -> HRESULT;
+        }
+        #[guid(0x604d33d7_cf23_41d5_8224_5bbbb1a87475)]
+        interface IMFVideoRendererEffectControl: IUnknown {
+            fn OnAppServiceConnectionEstablished(&self, pAppServiceConnection: IUnknown) -> HRESULT;
+        }
+        #[guid(0x86cbc910_e533_4751_8e3b_f19b5b806a03)]
+        interface IMFVideoSampleAllocator: IUnknown {
+            fn SetDirectXManager(&self, pManager: IUnknown) -> HRESULT;
+            fn UninitializeSampleAllocator(&self) -> HRESULT;
+            fn InitializeSampleAllocator(&self, cRequestedFrames: u32, pMediaType: IMFMediaType) -> HRESULT;
+            fn AllocateSample(&self, ppSample: *mut IMFSample) -> HRESULT;
+        }
+        #[guid(0x992388b4_3372_4f67_8b6f_c84c071f4751)]
+        interface IMFVideoSampleAllocatorCallback: IUnknown {
+            fn SetCallback(&self, pNotify: IMFVideoSampleAllocatorNotify) -> HRESULT;
+            fn GetFreeSampleCount(&self, plSamples: *mut i32) -> HRESULT;
+        }
+        #[guid(0x545b3a48_3283_4f62_866f_a62d8f598f9f)]
+        interface IMFVideoSampleAllocatorEx: IMFVideoSampleAllocator {
+            fn InitializeSampleAllocatorEx(&self, cInitialSamples: u32, cMaximumSamples: u32, #[opt] pAttributes: IMFAttributes, pMediaType: IMFMediaType) -> HRESULT;
+        }
+        #[guid(0xa792cdbe_c374_4e89_8335_278e7b9956a4)]
+        interface IMFVideoSampleAllocatorNotify: IUnknown {
+            fn NotifyRelease(&self) -> HRESULT;
+        }
+        #[guid(0x3978aa1a_6d5b_4b7f_a340_90899189ae34)]
+        interface IMFVideoSampleAllocatorNotifyEx: IMFVideoSampleAllocatorNotify {
+            fn NotifyPrune(&self, param0: IMFSample) -> HRESULT;
+        }
+        #[guid(0x35fe1bb8_a3a9_40fe_bbec_eb569c9ccca3)]
+        interface IMFWorkQueueServices: IUnknown {
+            fn BeginRegisterTopologyWorkQueuesWithMMCSS(&self, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
+            fn EndRegisterTopologyWorkQueuesWithMMCSS(&self, pResult: IMFAsyncResult) -> HRESULT;
+            fn BeginUnregisterTopologyWorkQueuesWithMMCSS(&self, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
+            fn EndUnregisterTopologyWorkQueuesWithMMCSS(&self, pResult: IMFAsyncResult) -> HRESULT;
+            fn GetTopologyWorkQueueMMCSSClass(&self, dwTopologyWorkQueueId: u32, #[out] pwszClass: PWSTR, #[in] #[out] pcchClass: *mut u32) -> HRESULT;
+            fn GetTopologyWorkQueueMMCSSTaskId(&self, dwTopologyWorkQueueId: u32, pdwTaskId: *mut u32) -> HRESULT;
+            fn BeginRegisterPlatformWorkQueueWithMMCSS(&self, dwPlatformWorkQueue: u32, wszClass: PCWSTR, dwTaskId: u32, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
+            fn EndRegisterPlatformWorkQueueWithMMCSS(&self, pResult: IMFAsyncResult, pdwTaskId: *mut u32) -> HRESULT;
+            fn BeginUnregisterPlatformWorkQueueWithMMCSS(&self, dwPlatformWorkQueue: u32, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
+            fn EndUnregisterPlatformWorkQueueWithMMCSS(&self, pResult: IMFAsyncResult) -> HRESULT;
+            fn GetPlaftormWorkQueueMMCSSClass(&self, dwPlatformWorkQueueId: u32, #[out] pwszClass: PWSTR, #[in] #[out] pcchClass: *mut u32) -> HRESULT;
+            fn GetPlatformWorkQueueMMCSSTaskId(&self, dwPlatformWorkQueueId: u32, pdwTaskId: *mut u32) -> HRESULT;
+        }
+        #[guid(0x96bf961b_40fe_42f1_ba9d_320238b49700)]
+        interface IMFWorkQueueServicesEx: IMFWorkQueueServices {
+            fn GetTopologyWorkQueueMMCSSPriority(&self, dwTopologyWorkQueueId: u32, plPriority: *mut i32) -> HRESULT;
+            fn BeginRegisterPlatformWorkQueueWithMMCSSEx(&self, dwPlatformWorkQueue: u32, wszClass: PCWSTR, dwTaskId: u32, lPriority: i32, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
+            fn GetPlatformWorkQueueMMCSSPriority(&self, dwPlatformWorkQueueId: u32, plPriority: *mut i32) -> HRESULT;
+        }
+        const MEDIASINK_CANNOT_MATCH_CLOCK: u32 = 2;
+        const MEDIASINK_CAN_PREROLL: u32 = 16;
+        const MEDIASINK_CLOCK_REQUIRED: u32 = 8;
+        const MEDIASINK_FIXED_STREAMS: u32 = 1;
+        const MEDIASINK_RATELESS: u32 = 4;
+        const MEDIASINK_REQUIRE_REFERENCE_MEDIATYPE: u32 = 32;
+        #[repr(i32)]
+        enum MFAudioConstriction {
+            MFaudioConstrictionOff = 0,
+            MFaudioConstriction48_16 = 1,
+            MFaudioConstriction44_16 = 2,
+            MFaudioConstriction14_14 = 3,
+            MFaudioConstrictionMute = 4,
+        }
+        struct MFBYTESTREAM_BUFFERING_PARAMS {
+            cbTotalFileSize: u64,
+            cbPlayableDataSize: u64,
+            prgBuckets: *mut MF_LEAKY_BUCKET_PAIR,
+            cBuckets: u32,
+            qwNetBufferingTime: u64,
+            qwExtraBufferingTimeDuringSeek: u64,
+            qwPlayDuration: u64,
+            dRate: f32,
+        }
+        #[repr(i32)]
+        enum MFCLOCK_CHARACTERISTICS_FLAGS {
+            MFCLOCK_CHARACTERISTICS_FLAG_FREQUENCY_10MHZ = 2,
+            MFCLOCK_CHARACTERISTICS_FLAG_ALWAYS_RUNNING = 4,
+            MFCLOCK_CHARACTERISTICS_FLAG_IS_SYSTEM_CLOCK = 8,
+        }
+        const MFCLOCK_FREQUENCY_HNS: u32 = 10000000;
+        const MFCLOCK_JITTER_DPC: u32 = 4000;
+        const MFCLOCK_JITTER_ISR: u32 = 1000;
+        const MFCLOCK_JITTER_PASSIVE: u32 = 10000;
+        struct MFCLOCK_PROPERTIES {
+            qwCorrelationRate: u64,
+            guidClockId: GUID,
+            dwClockFlags: u32,
+            qwClockFrequency: u64,
+            dwClockTolerance: u32,
+            dwClockJitter: u32,
+        }
+        #[repr(i32)]
+        enum MFCLOCK_RELATIONAL_FLAGS {
+            MFCLOCK_RELATIONAL_FLAG_JITTER_NEVER_AHEAD = 1,
+        }
+        #[repr(i32)]
+        enum MFCLOCK_STATE {
+            MFCLOCK_STATE_INVALID = 0,
+            MFCLOCK_STATE_RUNNING = 1,
+            MFCLOCK_STATE_STOPPED = 2,
+            MFCLOCK_STATE_PAUSED = 3,
+        }
+        const MFCLOCK_TOLERANCE_UNKNOWN: u32 = 50000;
+        const MFCONTENTPROTECTIONDEVICE_FUNCTIONID_START: u32 = 67108864;
+        struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
+            HWProtectionFunctionID: u32,
+            PrivateDataByteCount: u32,
+            HWProtectionDataByteCount: u32,
+            Reserved: u32,
+            InputData: [u8; 4],
+        }
+        struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
+            PrivateDataByteCount: u32,
+            MaxHWProtectionDataByteCount: u32,
+            HWProtectionDataByteCount: u32,
+            Status: HRESULT,
+            TransportTimeInHundredsOfNanoseconds: i64,
+            ExecutionTimeInHundredsOfNanoseconds: i64,
+            OutputData: [u8; 4],
+        }
+        struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
+            TaskIndex: u32,
+            ClassName: [u16; 260],
+            BasePriority: i32,
+        }
+        const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: u32 = 67108864;
+        struct MFCameraIntrinsic_CameraModel {
+            FocalLength_x: f32,
+            FocalLength_y: f32,
+            PrincipalPoint_x: f32,
+            PrincipalPoint_y: f32,
+        }
+        struct MFCameraIntrinsic_DistortionModel6KT {
+            Radial_k1: f32,
+            Radial_k2: f32,
+            Radial_k3: f32,
+            Radial_k4: f32,
+            Radial_k5: f32,
+            Radial_k6: f32,
+            Tangential_p1: f32,
+            Tangential_p2: f32,
+        }
+        struct MFCameraIntrinsic_DistortionModelArcTan {
+            Radial_k0: f32,
+            DistortionCenter_x: f32,
+            DistortionCenter_y: f32,
+            Tangential_x: f32,
+            Tangential_y: f32,
+        }
+        #[repr(i32)]
+        enum MFCameraIntrinsic_DistortionModelType {
+            MFCameraIntrinsic_DistortionModelType_6KT = 0,
+            MFCameraIntrinsic_DistortionModelType_ArcTan = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum MFCameraOcclusionState {
+            MFCameraOcclusionState_Open = 0,
+            MFCameraOcclusionState_OccludedByLid = 1,
+            MFCameraOcclusionState_OccludedByCameraHardware = 2,
+        }
+        #[library("MF.dll")]
+        extern fn MFCreate3GPMediaSink(pIByteStream: IMFByteStream, #[opt] pVideoMediaType: IMFMediaType, #[opt] pAudioMediaType: IMFMediaType, ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateAC3MediaSink(pTargetByteStream: IMFByteStream, pAudioMediaType: IMFMediaType, ppMediaSink: *mut IMFMediaSink) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateADTSMediaSink(pTargetByteStream: IMFByteStream, pAudioMediaType: IMFMediaType, ppMediaSink: *mut IMFMediaSink) -> HRESULT;
+        #[library("mfsrcsnk.dll")]
+        extern fn MFCreateAVIMediaSink(pIByteStream: IMFByteStream, pVideoMediaType: IMFMediaType, #[opt] pAudioMediaType: IMFMediaType, ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateAggregateSource(pSourceCollection: IMFCollection, ppAggSource: *mut IMFMediaSource) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateAudioRenderer(pAudioAttributes: IMFAttributes, ppSink: *mut IMFMediaSink) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateAudioRendererActivate(ppActivate: *mut IMFActivate) -> HRESULT;
+        #[library("MFSENSORGROUP.dll")]
+        extern fn MFCreateCameraControlMonitor(symbolicLink: PCWSTR, callback: IMFCameraControlNotify, ppCameraControlMonitor: *mut IMFCameraControlMonitor) -> HRESULT;
+        #[library("MFSENSORGROUP.dll")]
+        extern fn MFCreateCameraOcclusionStateMonitor(symbolicLink: PCWSTR, callback: IMFCameraOcclusionStateReportCallback, occlusionStateMonitor: *mut IMFCameraOcclusionStateMonitor) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateContentDecryptorContext(guidMediaProtectionSystemId: *const GUID, #[opt] pD3DManager: IMFDXGIDeviceManager, pContentProtectionDevice: IMFContentProtectionDevice, ppContentDecryptorContext: *mut IMFContentDecryptorContext) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateContentProtectionDevice(ProtectionSystemId: *const GUID, ContentProtectionDevice: *mut IMFContentProtectionDevice) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateCredentialCache(ppCache: *mut IMFNetCredentialCache) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateDeviceSource(pAttributes: IMFAttributes, ppSource: *mut IMFMediaSource) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateDeviceSourceActivate(pAttributes: IMFAttributes, ppActivate: *mut IMFActivate) -> HRESULT;
+        #[library("MFCORE.dll")]
+        extern fn MFCreateExtendedCameraIntrinsicModel(distortionModelType: MFCameraIntrinsic_DistortionModelType, ppExtendedCameraIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
+        #[library("MFCORE.dll")]
+        extern fn MFCreateExtendedCameraIntrinsics(ppExtendedCameraIntrinsics: *mut IMFExtendedCameraIntrinsics) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateFMPEG4MediaSink(pIByteStream: IMFByteStream, #[opt] pVideoMediaType: IMFMediaType, #[opt] pAudioMediaType: IMFMediaType, ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMFByteStreamOnStream(pStream: IStream, ppByteStream: *mut IMFByteStream) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMFByteStreamOnStreamEx(punkStream: IUnknown, ppByteStream: *mut IMFByteStream) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateMP3MediaSink(pTargetByteStream: IMFByteStream, ppMediaSink: *mut IMFMediaSink) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateMPEG4MediaSink(pIByteStream: IMFByteStream, #[opt] pVideoMediaType: IMFMediaType, #[opt] pAudioMediaType: IMFMediaType, ppIMediaSink: *mut IMFMediaSink) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateMediaSession(pConfiguration: IMFAttributes, ppMediaSession: *mut IMFMediaSession) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMediaTypeFromProperties(punkStream: IUnknown, ppMediaType: *mut IMFMediaType) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateMuxSink(guidOutputSubType: GUID, #[opt] pOutputAttributes: IMFAttributes, #[opt] pOutputByteStream: IMFByteStream, ppMuxSink: *mut IMFMediaSink) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateNetSchemePlugin(riid: *const GUID, ppvHandler: *mut *mut void) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreatePMPMediaSession(dwCreationFlags: u32, pConfiguration: IMFAttributes, ppMediaSession: *mut IMFMediaSession, ppEnablerActivate: *mut IMFActivate) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreatePMPServer(dwCreationFlags: u32, ppPMPServer: *mut IMFPMPServer) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreatePresentationClock(ppPresentationClock: *mut IMFPresentationClock) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreatePresentationDescriptor(cStreamDescriptors: u32, #[len_param(0)] #[opt] apStreamDescriptors: *const IMFStreamDescriptor, ppPresentationDescriptor: *mut IMFPresentationDescriptor) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreatePropertiesFromMediaType(pMediaType: IMFMediaType, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateProtectedEnvironmentAccess(ppAccess: *mut IMFProtectedEnvironmentAccess) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateProxyLocator(pszProtocol: PCWSTR, pProxyConfig: IPropertyStore, ppProxyLocator: *mut IMFNetProxyLocator) -> HRESULT;
+        #[library("MFSENSORGROUP.dll")]
+        extern fn MFCreateRelativePanelWatcher(videoDeviceId: PCWSTR, displayMonitorDeviceId: PCWSTR, ppRelativePanelWatcher: *mut IMFRelativePanelWatcher) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateRemoteDesktopPlugin(ppPlugin: *mut IMFRemoteDesktopPlugin) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateSampleCopierMFT(ppCopierMFT: *mut IMFTransform) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateSampleGrabberSinkActivate(pIMFMediaType: IMFMediaType, pIMFSampleGrabberSinkCallback: IMFSampleGrabberSinkCallback, ppIActivate: *mut IMFActivate) -> HRESULT;
+        #[library("MFSENSORGROUP.dll")]
+        extern fn MFCreateSensorActivityMonitor(pCallback: IMFSensorActivitiesReportCallback, ppActivityMonitor: *mut IMFSensorActivityMonitor) -> HRESULT;
+        #[library("MFSENSORGROUP.dll")]
+        extern fn MFCreateSensorGroup(SensorGroupSymbolicLink: PCWSTR, ppSensorGroup: *mut IMFSensorGroup) -> HRESULT;
+        #[library("MFSENSORGROUP.dll")]
+        extern fn MFCreateSensorProfile(ProfileType: *const GUID, ProfileIndex: u32, #[opt] Constraints: PCWSTR, ppProfile: *mut IMFSensorProfile) -> HRESULT;
+        #[library("MFSENSORGROUP.dll")]
+        extern fn MFCreateSensorProfileCollection(ppSensorProfile: *mut IMFSensorProfileCollection) -> HRESULT;
+        #[library("MFSENSORGROUP.dll")]
+        extern fn MFCreateSensorStream(StreamId: u32, #[opt] pAttributes: IMFAttributes, pMediaTypeCollection: IMFCollection, ppStream: *mut IMFSensorStream) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateSequencerSegmentOffset(dwId: MFSequencerElementId, hnsOffset: MFTIME, pvarSegmentOffset: *mut PROPVARIANT) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateSequencerSource(pReserved: IUnknown, ppSequencerSource: *mut IMFSequencerSource) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateSimpleTypeHandler(ppHandler: *mut IMFMediaTypeHandler) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateSourceResolver(ppISourceResolver: *mut IMFSourceResolver) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateStandardQualityManager(ppQualityManager: *mut IMFQualityManager) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateStreamDescriptor(dwStreamIdentifier: u32, cMediaTypes: u32, #[len_param(1)] apMediaTypes: *const IMFMediaType, ppDescriptor: *mut IMFStreamDescriptor) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateStreamOnMFByteStream(pByteStream: IMFByteStream, ppStream: *mut IStream) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateStreamOnMFByteStreamEx(pByteStream: IMFByteStream, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateSystemTimeSource(ppSystemTimeSource: *mut IMFPresentationTimeSource) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateTopoLoader(ppObj: *mut IMFTopoLoader) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateTopology(ppTopo: *mut IMFTopology) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateTopologyNode(NodeType: MF_TOPOLOGY_TYPE, ppNode: *mut IMFTopologyNode) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateTrackedSample(ppMFSample: *mut IMFTrackedSample) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateTranscodeProfile(ppTranscodeProfile: *mut IMFTranscodeProfile) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateTranscodeSinkActivate(ppActivate: *mut IMFActivate) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateTranscodeTopology(pSrc: IMFMediaSource, pwszOutputFilePath: PCWSTR, pProfile: IMFTranscodeProfile, ppTranscodeTopo: *mut IMFTopology) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateTranscodeTopologyFromByteStream(pSrc: IMFMediaSource, pOutputStream: IMFByteStream, pProfile: IMFTranscodeProfile, ppTranscodeTopo: *mut IMFTopology) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFCreateVideoRendererActivate(hwndVideo: HWND, ppActivate: *mut IMFActivate) -> HRESULT;
+        #[library("mfsrcsnk.dll")]
+        extern fn MFCreateWAVEMediaSink(pTargetByteStream: IMFByteStream, pAudioMediaType: IMFMediaType, ppMediaSink: *mut IMFMediaSink) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFDeserializePresentationDescriptor(cbData: u32, #[len_param(0)] pbData: *const u8, ppPD: *mut IMFPresentationDescriptor) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFEnumDeviceSources(pAttributes: IMFAttributes, pppSourceActivate: *mut *mut IMFActivate, pcSourceActivate: *mut u32) -> HRESULT;
+        struct MFExtendedCameraIntrinsic_IntrinsicModel {
+            Width: u32,
+            Height: u32,
+            SplitFrameId: u32,
+            CameraModel: MFCameraIntrinsic_CameraModel,
+        }
+        #[library("MF.dll")]
+        extern fn MFGetLocalId(#[size_param(1)] verifier: *const u8, size: u32, id: *mut PWSTR) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFGetService(punkObject: IUnknown, guidService: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetSupportedMimeTypes(pPropVarMimeTypeArray: *mut PROPVARIANT) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetSupportedSchemes(pPropVarSchemeArray: *mut PROPVARIANT) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFGetSystemId(ppId: *mut IMFSystemId) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetSystemTime() -> MFTIME;
+        #[library("MF.dll")]
+        extern fn MFGetTopoNodeCurrentType(pNode: IMFTopologyNode, dwStreamIndex: u32, fOutput: BOOL, ppType: *mut IMFMediaType) -> HRESULT;
+        struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
+            Action: MFPOLICYMANAGER_ACTION,
+            pbTicket: *mut u8,
+            cbTicket: u32,
+        }
+        struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
+            dwSize: u32,
+            dwVer: u32,
+            cbSignatureOffset: u32,
+            cbSignatureSize: u32,
+            cbExtensionOffset: u32,
+            cbExtensionSize: u32,
+            cActions: u32,
+            rgOutputActions: [MFINPUTTRUSTAUTHORITY_ACCESS_ACTION; 1],
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFIsContentProtectionDeviceSupported(ProtectionSystemId: *const GUID, isSupported: *mut BOOL) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFLoadSignedLibrary(pszName: PCWSTR, ppLib: *mut IMFSignedLibrary) -> HRESULT;
+        #[repr(i32)]
+        enum MFMEDIASOURCE_CHARACTERISTICS {
+            MFMEDIASOURCE_IS_LIVE = 1,
+            MFMEDIASOURCE_CAN_SEEK = 2,
+            MFMEDIASOURCE_CAN_PAUSE = 4,
+            MFMEDIASOURCE_HAS_SLOW_SEEK = 8,
+            MFMEDIASOURCE_HAS_MULTIPLE_PRESENTATIONS = 16,
+            MFMEDIASOURCE_CAN_SKIPFORWARD = 32,
+            MFMEDIASOURCE_CAN_SKIPBACKWARD = 64,
+            MFMEDIASOURCE_DOES_NOT_USE_NETWORK = 128,
+        }
+        struct MFMediaKeyStatus {
+            pbKeyId: *mut u8,
+            cbKeyId: u32,
+            eMediaKeyStatus: MF_MEDIAKEY_STATUS,
+        }
+        #[repr(i32)]
+        enum MFNETSOURCE_CACHE_STATE {
+            MFNETSOURCE_CACHE_UNAVAILABLE = 0,
+            MFNETSOURCE_CACHE_ACTIVE_WRITING = 1,
+            MFNETSOURCE_CACHE_ACTIVE_COMPLETE = 2,
+        }
+        #[repr(i32)]
+        enum MFNETSOURCE_PROTOCOL_TYPE {
+            MFNETSOURCE_UNDEFINED = 0,
+            MFNETSOURCE_HTTP = 1,
+            MFNETSOURCE_RTSP = 2,
+            MFNETSOURCE_FILE = 3,
+            MFNETSOURCE_MULTICAST = 4,
+        }
+        #[repr(i32)]
+        enum MFNETSOURCE_STATISTICS_IDS {
+            MFNETSOURCE_RECVPACKETS_ID = 0,
+            MFNETSOURCE_LOSTPACKETS_ID = 1,
+            MFNETSOURCE_RESENDSREQUESTED_ID = 2,
+            MFNETSOURCE_RESENDSRECEIVED_ID = 3,
+            MFNETSOURCE_RECOVEREDBYECCPACKETS_ID = 4,
+            MFNETSOURCE_RECOVEREDBYRTXPACKETS_ID = 5,
+            MFNETSOURCE_OUTPACKETS_ID = 6,
+            MFNETSOURCE_RECVRATE_ID = 7,
+            MFNETSOURCE_AVGBANDWIDTHBPS_ID = 8,
+            MFNETSOURCE_BYTESRECEIVED_ID = 9,
+            MFNETSOURCE_PROTOCOL_ID = 10,
+            MFNETSOURCE_TRANSPORT_ID = 11,
+            MFNETSOURCE_CACHE_STATE_ID = 12,
+            MFNETSOURCE_LINKBANDWIDTH_ID = 13,
+            MFNETSOURCE_CONTENTBITRATE_ID = 14,
+            MFNETSOURCE_SPEEDFACTOR_ID = 15,
+            MFNETSOURCE_BUFFERSIZE_ID = 16,
+            MFNETSOURCE_BUFFERPROGRESS_ID = 17,
+            MFNETSOURCE_LASTBWSWITCHTS_ID = 18,
+            MFNETSOURCE_SEEKRANGESTART_ID = 19,
+            MFNETSOURCE_SEEKRANGEEND_ID = 20,
+            MFNETSOURCE_BUFFERINGCOUNT_ID = 21,
+            MFNETSOURCE_INCORRECTLYSIGNEDPACKETS_ID = 22,
+            MFNETSOURCE_SIGNEDSESSION_ID = 23,
+            MFNETSOURCE_MAXBITRATE_ID = 24,
+            MFNETSOURCE_RECEPTION_QUALITY_ID = 25,
+            MFNETSOURCE_RECOVEREDPACKETS_ID = 26,
+            MFNETSOURCE_VBR_ID = 27,
+            MFNETSOURCE_DOWNLOADPROGRESS_ID = 28,
+            MFNETSOURCE_UNPREDEFINEDPROTOCOLNAME_ID = 29,
+        }
+        #[repr(i32)]
+        enum MFNETSOURCE_TRANSPORT_TYPE {
+            MFNETSOURCE_UDP = 0,
+            MFNETSOURCE_TCP = 1,
+        }
+        #[repr(i32)]
+        enum MFNET_PROXYSETTINGS {
+            MFNET_PROXYSETTING_NONE = 0,
+            MFNET_PROXYSETTING_MANUAL = 1,
+            MFNET_PROXYSETTING_AUTO = 2,
+            MFNET_PROXYSETTING_BROWSER = 3,
+        }
+        #[repr(i32)]
+        enum MFNetAuthenticationFlags {
+            MFNET_AUTHENTICATION_PROXY = 1,
+            MFNET_AUTHENTICATION_CLEAR_TEXT = 2,
+            MFNET_AUTHENTICATION_LOGGED_ON_USER = 4,
+        }
+        struct MFNetCredentialManagerGetParam {
+            hrOp: HRESULT,
+            fAllowLoggedOnUser: BOOL,
+            fClearTextPackage: BOOL,
+            pszUrl: PCWSTR,
+            pszSite: PCWSTR,
+            pszRealm: PCWSTR,
+            pszPackage: PCWSTR,
+            nRetries: i32,
+        }
+        #[repr(i32)]
+        enum MFNetCredentialOptions {
+            MFNET_CREDENTIAL_SAVE = 1,
+            MFNET_CREDENTIAL_DONT_CACHE = 2,
+            MFNET_CREDENTIAL_ALLOW_CLEAR_TEXT = 4,
+        }
+        #[repr(i32)]
+        enum MFNetCredentialRequirements {
+            REQUIRE_PROMPT = 1,
+            REQUIRE_SAVE_SELECTED = 2,
+        }
+        const MFOUTPUTATTRIBUTE_BUS: u32 = 32;
+        const MFOUTPUTATTRIBUTE_BUSIMPLEMENTATION: u32 = 65280;
+        const MFOUTPUTATTRIBUTE_COMPRESSED: u32 = 8;
+        const MFOUTPUTATTRIBUTE_DIGITAL: u32 = 1;
+        const MFOUTPUTATTRIBUTE_NONSTANDARDIMPLEMENTATION: u32 = 2;
+        const MFOUTPUTATTRIBUTE_SOFTWARE: u32 = 16;
+        const MFOUTPUTATTRIBUTE_VIDEO: u32 = 4;
+        #[repr(i32)]
+        enum MFPMPSESSION_CREATION_FLAGS {
+            MFPMPSESSION_UNPROTECTED_PROCESS = 1,
+            MFPMPSESSION_IN_PROCESS = 2,
+        }
+        #[repr(i32)]
+        enum MFPOLICYMANAGER_ACTION {
+            PEACTION_NO = 0,
+            PEACTION_PLAY = 1,
+            PEACTION_COPY = 2,
+            PEACTION_EXPORT = 3,
+            PEACTION_EXTRACT = 4,
+            PEACTION_RESERVED1 = 5,
+            PEACTION_RESERVED2 = 6,
+            PEACTION_RESERVED3 = 7,
+            PEACTION_LAST = 7,
+        }
+        #[repr(i32)]
+        enum MFRATE_DIRECTION {
+            MFRATE_FORWARD = 0,
+            MFRATE_REVERSE = 1,
+        }
+        struct MFRR_COMPONENTS {
+            dwRRInfoVersion: u32,
+            dwRRComponents: u32,
+            pRRComponents: PMFRR_COMPONENT_HASH_INFO,
+        }
+        struct MFRR_COMPONENT_HASH_INFO {
+            ulReason: u32,
+            rgHeaderHash: [u16; 43],
+            rgPublicKeyHash: [u16; 43],
+            wszName: [u16; 260],
+        }
+        const MFRR_INFO_VERSION: u32 = 0;
+        #[library("MF.dll")]
+        extern fn MFRequireProtectedEnvironment(pPresentationDescriptor: IMFPresentationDescriptor) -> HRESULT;
+        const MFSEQUENCER_INVALID_ELEMENT_ID: u32 = 4294967295;
+        #[repr(i32)]
+        enum MFSESSION_GETFULLTOPOLOGY_FLAGS {
+            MFSESSION_GETFULLTOPOLOGY_CURRENT = 1,
+        }
+        #[repr(i32)]
+        enum MFSESSION_SETTOPOLOGY_FLAGS {
+            MFSESSION_SETTOPOLOGY_IMMEDIATE = 1,
+            MFSESSION_SETTOPOLOGY_NORESOLUTION = 2,
+            MFSESSION_SETTOPOLOGY_CLEAR_CURRENT = 4,
+        }
+        #[repr(i32)]
+        enum MFSHUTDOWN_STATUS {
+            MFSHUTDOWN_INITIATED = 0,
+            MFSHUTDOWN_COMPLETED = 1,
+        }
+        #[repr(i32)]
+        enum MFSTREAMSINK_MARKER_TYPE {
+            MFSTREAMSINK_MARKER_DEFAULT = 0,
+            MFSTREAMSINK_MARKER_ENDOFSEGMENT = 1,
+            MFSTREAMSINK_MARKER_TICK = 2,
+            MFSTREAMSINK_MARKER_EVENT = 3,
+        }
+        #[repr(i32)]
+        enum MFSampleAllocatorUsage {
+            MFSampleAllocatorUsage_UsesProvidedAllocator = 0,
+            MFSampleAllocatorUsage_UsesCustomAllocator = 1,
+            MFSampleAllocatorUsage_DoesNotAllocate = 2,
+        }
+        const MFSampleExtension_ExtendedCameraIntrinsics: GUID = 0x560bc4a5_4de0_4113_9cdc_832db9740f3d;
+        #[repr(i32)]
+        enum MFSensorDeviceMode {
+            MFSensorDeviceMode_Controller = 0,
+            MFSensorDeviceMode_Shared = 1,
+        }
+        #[repr(i32)]
+        enum MFSensorDeviceType {
+            MFSensorDeviceType_Unknown = 0,
+            MFSensorDeviceType_Device = 1,
+            MFSensorDeviceType_MediaSource = 2,
+            MFSensorDeviceType_FrameProvider = 3,
+            MFSensorDeviceType_SensorTransform = 4,
+        }
+        #[repr(i32)]
+        enum MFSensorStreamType {
+            MFSensorStreamType_Unknown = 0,
+            MFSensorStreamType_Input = 1,
+            MFSensorStreamType_Output = 2,
+        }
+        type MFSequencerElementId = u32;
+        #[repr(i32)]
+        enum MFSequencerTopologyFlags {
+            SequencerTopologyFlags_Last = 1,
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFSerializePresentationDescriptor(pPD: IMFPresentationDescriptor, pcbData: *mut u32, ppbData: *mut *mut u8) -> HRESULT;
+        #[library("MF.dll")]
+        extern fn MFShutdownObject(pUnk: IUnknown) -> HRESULT;
+        const MFStreamExtension_ExtendedCameraIntrinsics: GUID = 0xaa74b3df_9a2c_48d6_8393_5bd1c1a81e6e;
+        type MFTIME = i64;
+        #[repr(i32)]
+        enum MFTIMER_FLAGS {
+            MFTIMER_RELATIVE = 1,
+        }
+        #[repr(i32)]
+        enum MFTOPOLOGY_DXVA_MODE {
+            MFTOPOLOGY_DXVA_DEFAULT = 0,
+            MFTOPOLOGY_DXVA_NONE = 1,
+            MFTOPOLOGY_DXVA_FULL = 2,
+        }
+        #[repr(i32)]
+        enum MFTOPOLOGY_HARDWARE_MODE {
+            MFTOPOLOGY_HWMODE_SOFTWARE_ONLY = 0,
+            MFTOPOLOGY_HWMODE_USE_HARDWARE = 1,
+            MFTOPOLOGY_HWMODE_USE_ONLY_HARDWARE = 2,
+        }
+        struct MFTOPONODE_ATTRIBUTE_UPDATE {
+            NodeId: TOPOID,
+            guidAttributeKey: GUID,
+            attrType: MF_ATTRIBUTE_TYPE,
+            Anonymous: union {
+                u32: u32,
+                u64: u64,
+                d: f64,
+            },
+        }
+        struct MFT_REGISTRATION_INFO {
+            clsid: GUID,
+            guidCategory: GUID,
+            uiFlags: u32,
+            pszName: PCWSTR,
+            cInTypes: u32,
+            pInTypes: *mut MFT_REGISTER_TYPE_INFO,
+            cOutTypes: u32,
+            pOutTypes: *mut MFT_REGISTER_TYPE_INFO,
+        }
+        #[library("MF.dll")]
+        extern fn MFTranscodeGetAudioOutputAvailableTypes(guidSubType: *const GUID, dwMFTFlags: u32, #[opt] pCodecConfig: IMFAttributes, ppAvailableTypes: *mut IMFCollection) -> HRESULT;
+        struct MFVideoNormalizedRect {
+            left: f32,
+            top: f32,
+            right: f32,
+            bottom: f32,
+        }
+        #[repr(i32)]
+        enum MFVideoSphericalFormat {
+            MFVideoSphericalFormat_Unsupported = 0,
+            MFVideoSphericalFormat_Equirectangular = 1,
+            MFVideoSphericalFormat_CubeMap = 2,
+            MFVideoSphericalFormat_3DMesh = 3,
+        }
+        #[repr(i32)]
+        enum MFVideoSphericalProjectionMode {
+            MFVideoSphericalProjectionMode_Spherical = 0,
+            MFVideoSphericalProjectionMode_Flat = 1,
+        }
+        const MF_ACTIVATE_CUSTOM_MIXER_ALLOWFAIL: i32 = 1;
+        const MF_ACTIVATE_CUSTOM_PRESENTER_ALLOWFAIL: i32 = 1;
+        const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_CROSSPROCESS: u32 = 1;
+        const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_DONT_ALLOW_FORMAT_CHANGES: u32 = 4;
+        const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_NOPERSIST: u32 = 2;
+        const MF_BOOT_DRIVER_VERIFICATION_FAILED: u32 = 1048576;
+        struct MF_BYTE_STREAM_CACHE_RANGE {
+            qwStartOffset: u64,
+            qwEndOffset: u64,
+        }
+        #[repr(i32)]
+        enum MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
+            MF_CAMERA_CONTROL_CONFIGURATION_TYPE_PRESTART = 0,
+            MF_CAMERA_CONTROL_CONFIGURATION_TYPE_POSTSTART = 1,
+        }
+        struct MF_CAMERA_CONTROL_RANGE_INFO {
+            minValue: i32,
+            maxValue: i32,
+            stepValue: i32,
+            defaultValue: i32,
+        }
+        const MF_COMPONENT_CERT_REVOKED: u32 = 32768;
+        const MF_COMPONENT_HS_CERT_REVOKED: u32 = 131072;
+        const MF_COMPONENT_INVALID_EKU: u32 = 16384;
+        const MF_COMPONENT_INVALID_ROOT: u32 = 65536;
+        const MF_COMPONENT_LS_CERT_REVOKED: u32 = 262144;
+        const MF_COMPONENT_REVOKED: u32 = 8192;
+        #[repr(i32)]
+        enum MF_CONNECT_METHOD {
+            MF_CONNECT_DIRECT = 0,
+            MF_CONNECT_ALLOW_CONVERTER = 1,
+            MF_CONNECT_ALLOW_DECODER = 3,
+            MF_CONNECT_RESOLVE_INDEPENDENT_OUTPUTTYPES = 4,
+            MF_CONNECT_AS_OPTIONAL = 65536,
+            MF_CONNECT_AS_OPTIONAL_BRANCH = 131072,
+        }
+        #[repr(i32)]
+        enum MF_CROSS_ORIGIN_POLICY {
+            MF_CROSS_ORIGIN_POLICY_NONE = 0,
+            MF_CROSS_ORIGIN_POLICY_ANONYMOUS = 1,
+            MF_CROSS_ORIGIN_POLICY_USE_CREDENTIALS = 2,
+        }
+        const MF_GRL_ABSENT: u32 = 4096;
+        const MF_GRL_LOAD_FAILED: u32 = 16;
+        const MF_INVALID_GRL_SIGNATURE: u32 = 32;
+        const MF_KERNEL_MODE_COMPONENT_LOAD: u32 = 2;
+        struct MF_LEAKY_BUCKET_PAIR {
+            dwBitrate: u32,
+            msBufferWindow: u32,
+        }
+        #[repr(i32)]
+        enum MF_MEDIAKEYSESSION_MESSAGETYPE {
+            MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_REQUEST = 0,
+            MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_RENEWAL = 1,
+            MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_RELEASE = 2,
+            MF_MEDIAKEYSESSION_MESSAGETYPE_INDIVIDUALIZATION_REQUEST = 3,
+        }
+        #[repr(i32)]
+        enum MF_MEDIAKEYSESSION_TYPE {
+            MF_MEDIAKEYSESSION_TYPE_TEMPORARY = 0,
+            MF_MEDIAKEYSESSION_TYPE_PERSISTENT_LICENSE = 1,
+            MF_MEDIAKEYSESSION_TYPE_PERSISTENT_RELEASE_MESSAGE = 2,
+            MF_MEDIAKEYSESSION_TYPE_PERSISTENT_USAGE_RECORD = 3,
+        }
+        #[repr(i32)]
+        enum MF_MEDIAKEY_STATUS {
+            MF_MEDIAKEY_STATUS_USABLE = 0,
+            MF_MEDIAKEY_STATUS_EXPIRED = 1,
+            MF_MEDIAKEY_STATUS_OUTPUT_DOWNSCALED = 2,
+            MF_MEDIAKEY_STATUS_OUTPUT_NOT_ALLOWED = 3,
+            MF_MEDIAKEY_STATUS_STATUS_PENDING = 4,
+            MF_MEDIAKEY_STATUS_INTERNAL_ERROR = 5,
+            MF_MEDIAKEY_STATUS_RELEASED = 6,
+            MF_MEDIAKEY_STATUS_OUTPUT_RESTRICTED = 7,
+        }
+        #[repr(i32)]
+        enum MF_MEDIASOURCE_STATUS_INFO {
+            MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED = 0,
+            MF_MEDIASOURCE_STATUS_INFO_UNKNOWN = 1,
+        }
+        const MF_MINCRYPT_FAILURE: u32 = 268435456;
+        #[repr(i32)]
+        enum MF_OBJECT_TYPE {
+            MF_OBJECT_MEDIASOURCE = 0,
+            MF_OBJECT_BYTESTREAM = 1,
+            MF_OBJECT_INVALID = 2,
+        }
+        #[repr(i32)]
+        enum MF_OPM_ACP_PROTECTION_LEVEL {
+            MF_OPM_ACP_OFF = 0,
+            MF_OPM_ACP_LEVEL_ONE = 1,
+            MF_OPM_ACP_LEVEL_TWO = 2,
+            MF_OPM_ACP_LEVEL_THREE = 3,
+            MF_OPM_ACP_FORCE_ULONG = 2147483647,
+        }
+        #[repr(i32)]
+        enum MF_OPM_CGMSA_PROTECTION_LEVEL {
+            MF_OPM_CGMSA_OFF = 0,
+            MF_OPM_CGMSA_COPY_FREELY = 1,
+            MF_OPM_CGMSA_COPY_NO_MORE = 2,
+            MF_OPM_CGMSA_COPY_ONE_GENERATION = 3,
+            MF_OPM_CGMSA_COPY_NEVER = 4,
+            MF_OPM_CGMSA_REDISTRIBUTION_CONTROL_REQUIRED = 8,
+        }
+        const MF_PD_ADAPTIVE_STREAMING: GUID = 0xea0d5d97_29f9_488b_ae6b_7d6b4136112b;
+        #[repr(i32)]
+        enum MF_QUALITY_ADVISE_FLAGS {
+            MF_QUALITY_CANNOT_KEEP_UP = 1,
+        }
+        #[repr(i32)]
+        enum MF_QUALITY_DROP_MODE {
+            MF_DROP_MODE_NONE = 0,
+            MF_DROP_MODE_1 = 1,
+            MF_DROP_MODE_2 = 2,
+            MF_DROP_MODE_3 = 3,
+            MF_DROP_MODE_4 = 4,
+            MF_DROP_MODE_5 = 5,
+            MF_NUM_DROP_MODES = 6,
+        }
+        #[repr(i32)]
+        enum MF_QUALITY_LEVEL {
+            MF_QUALITY_NORMAL = 0,
+            MF_QUALITY_NORMAL_MINUS_1 = 1,
+            MF_QUALITY_NORMAL_MINUS_2 = 2,
+            MF_QUALITY_NORMAL_MINUS_3 = 3,
+            MF_QUALITY_NORMAL_MINUS_4 = 4,
+            MF_QUALITY_NORMAL_MINUS_5 = 5,
+            MF_NUM_QUALITY_LEVELS = 6,
+        }
+        const MF_RESOLUTION_BYTESTREAM: i32 = 2;
+        const MF_RESOLUTION_CONTENT_DOES_NOT_HAVE_TO_MATCH_EXTENSION_OR_MIME_TYPE: i32 = 16;
+        const MF_RESOLUTION_DISABLE_LOCAL_PLUGINS: i32 = 64;
+        const MF_RESOLUTION_ENABLE_STORE_PLUGINS: i32 = 1024;
+        const MF_RESOLUTION_KEEP_BYTE_STREAM_ALIVE_ON_FAIL: i32 = 32;
+        const MF_RESOLUTION_MEDIASOURCE: i32 = 1;
+        const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_APPROVED_ONLY: i32 = 128;
+        const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_WEB_ONLY: i32 = 256;
+        const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_WEB_ONLY_EDGEMODE: i32 = 512;
+        const MF_RESOLUTION_READ: i32 = 65536;
+        const MF_RESOLUTION_WRITE: i32 = 131072;
+        const MF_SD_SUPPORTS_PROTECTED_CODEC_SWITCH: GUID = 0x8fb6b117_862e_4b31_8dab_5e0a434caef0;
+        const MF_TEST_SIGNED_COMPONENT_LOADING: u32 = 16777216;
+        #[repr(i32)]
+        enum MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
+            MF_TOPOLOGY_RESOLUTION_SUCCEEDED = 0,
+            MF_OPTIONAL_NODE_REJECTED_MEDIA_TYPE = 1,
+            MF_OPTIONAL_NODE_REJECTED_PROTECTED_PROCESS = 2,
+        }
+        #[repr(i32)]
+        enum MF_TOPOLOGY_TYPE {
+            MF_TOPOLOGY_OUTPUT_NODE = 0,
+            MF_TOPOLOGY_SOURCESTREAM_NODE = 1,
+            MF_TOPOLOGY_TRANSFORM_NODE = 2,
+            MF_TOPOLOGY_TEE_NODE = 3,
+            MF_TOPOLOGY_MAX = -1,
+        }
+        #[repr(i32)]
+        enum MF_TOPONODE_DRAIN_MODE {
+            MF_TOPONODE_DRAIN_DEFAULT = 0,
+            MF_TOPONODE_DRAIN_ALWAYS = 1,
+            MF_TOPONODE_DRAIN_NEVER = 2,
+        }
+        #[repr(i32)]
+        enum MF_TOPONODE_FLUSH_MODE {
+            MF_TOPONODE_FLUSH_ALWAYS = 0,
+            MF_TOPONODE_FLUSH_SEEK = 1,
+            MF_TOPONODE_FLUSH_NEVER = 2,
+        }
+        #[repr(i32)]
+        enum MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
+            MF_TRANSCODE_ADJUST_PROFILE_DEFAULT = 0,
+            MF_TRANSCODE_ADJUST_PROFILE_USE_SOURCE_ATTRIBUTES = 1,
+        }
+        struct MF_TRANSCODE_SINK_INFO {
+            dwVideoStreamID: u32,
+            pVideoMediaType: IMFMediaType,
+            dwAudioStreamID: u32,
+            pAudioMediaType: IMFMediaType,
+        }
+        #[repr(i32)]
+        enum MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
+            MF_TRANSCODE_TOPOLOGYMODE_SOFTWARE_ONLY = 0,
+            MF_TRANSCODE_TOPOLOGYMODE_HARDWARE_ALLOWED = 1,
+        }
+        #[repr(i32)]
+        enum MF_TRANSFER_VIDEO_FRAME_FLAGS {
+            MF_TRANSFER_VIDEO_FRAME_DEFAULT = 0,
+            MF_TRANSFER_VIDEO_FRAME_STRETCH = 1,
+            MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR = 2,
+        }
+        const MF_UNKNOWN_DURATION: u32 = 0;
+        #[repr(i32)]
+        enum MF_URL_TRUST_STATUS {
+            MF_LICENSE_URL_UNTRUSTED = 0,
+            MF_LICENSE_URL_TRUSTED = 1,
+            MF_LICENSE_URL_TAMPERED = 2,
+        }
+        const MF_USER_MODE_COMPONENT_LOAD: u32 = 1;
+        #[repr(i32)]
+        enum MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
+            MF_VIDEO_PROCESSOR_ALGORITHM_DEFAULT = 0,
+            MF_VIDEO_PROCESSOR_ALGORITHM_MRF_CRF_444 = 1,
+        }
+        #[repr(i32)]
+        enum MF_VIDEO_PROCESSOR_MIRROR {
+            MIRROR_NONE = 0,
+            MIRROR_HORIZONTAL = 1,
+            MIRROR_VERTICAL = 2,
+        }
+        #[repr(i32)]
+        enum MF_VIDEO_PROCESSOR_ROTATION {
+            ROTATION_NONE = 0,
+            ROTATION_NORMAL = 1,
+        }
+        struct MF_VIDEO_SPHERICAL_VIEWDIRECTION {
+            iHeading: i32,
+            iPitch: i32,
+            iRoll: i32,
+        }
+        const MF_WRAPPED_BUFFER_SERVICE: GUID = 0xab544072_c269_4ebc_a552_1c3b32bed5ca;
+        type PMFRR_COMPONENTS = *mut MFRR_COMPONENTS;
+        type PMFRR_COMPONENT_HASH_INFO = *mut MFRR_COMPONENT_HASH_INFO;
+        const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807;
+        #[repr(i32)]
+        enum SAMPLE_PROTECTION_VERSION {
+            SAMPLE_PROTECTION_VERSION_NO = 0,
+            SAMPLE_PROTECTION_VERSION_BASIC_LOKI = 1,
+            SAMPLE_PROTECTION_VERSION_SCATTER = 2,
+            SAMPLE_PROTECTION_VERSION_RC4 = 3,
+            SAMPLE_PROTECTION_VERSION_AES128CTR = 4,
+        }
+        struct SENSORPROFILEID {
+            Type: GUID,
+            Index: u32,
+            Unused: u32,
+        }
+        const SHA_HASH_LEN: u32 = 20;
+        const STR_HASH_LEN: u32 = 43;
+        type TOPOID = u64;
+    }
+}

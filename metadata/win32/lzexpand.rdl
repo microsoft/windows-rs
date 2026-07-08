@@ -1,0 +1,37 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("LZ32.dll")]
+        extern fn CopyLZFile(hfSource: i32, hfDest: i32) -> i32;
+        #[library("LZ32.dll")]
+        extern fn GetExpandedNameA(lpszSource: PCSTR, #[out] lpszBuffer: PSTR) -> i32;
+        #[library("LZ32.dll")]
+        extern fn GetExpandedNameW(lpszSource: PCWSTR, #[out] lpszBuffer: PWSTR) -> i32;
+        #[library("LZ32.dll")]
+        extern fn LZClose(hFile: i32);
+        #[library("LZ32.dll")]
+        extern fn LZCopy(hfSource: i32, hfDest: i32) -> i32;
+        #[library("LZ32.dll")]
+        extern fn LZDone();
+        const LZERROR_BADINHANDLE: i32 = -1;
+        const LZERROR_BADOUTHANDLE: i32 = -2;
+        const LZERROR_BADVALUE: i32 = -7;
+        const LZERROR_GLOBALLOC: i32 = -5;
+        const LZERROR_GLOBLOCK: i32 = -6;
+        const LZERROR_READ: i32 = -3;
+        const LZERROR_UNKNOWNALG: i32 = -8;
+        const LZERROR_WRITE: i32 = -4;
+        #[library("LZ32.dll")]
+        extern fn LZInit(hfSource: i32) -> i32;
+        #[library("LZ32.dll")]
+        extern fn LZOpenFileA(lpFileName: PCSTR, #[in] #[out] lpReOpenBuf: *mut OFSTRUCT, wStyle: u16) -> i32;
+        #[library("LZ32.dll")]
+        extern fn LZOpenFileW(lpFileName: PCWSTR, #[in] #[out] lpReOpenBuf: *mut OFSTRUCT, wStyle: u16) -> i32;
+        #[library("LZ32.dll")]
+        extern fn LZRead(hFile: i32, #[size_param(2)] lpBuffer: *mut i8, cbRead: i32) -> i32;
+        #[library("LZ32.dll")]
+        extern fn LZSeek(hFile: i32, lOffset: i32, iOrigin: i32) -> i32;
+        #[library("LZ32.dll")]
+        extern fn LZStart() -> i32;
+    }
+}

@@ -1,0 +1,40 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum EFFECTIVE_POWER_MODE {
+            EffectivePowerModeBatterySaver = 0,
+            EffectivePowerModeEnergySaverHighSavings = 0,
+            EffectivePowerModeBetterBattery = 1,
+            EffectivePowerModeEnergySaverStandard = 1,
+            EffectivePowerModeBalanced = 2,
+            EffectivePowerModeHighPerformance = 3,
+            EffectivePowerModeMaxPerformance = 4,
+            EffectivePowerModeGameMode = 5,
+            EffectivePowerModeMixedReality = 6,
+        }
+        extern fn EFFECTIVE_POWER_MODE_CALLBACK(Mode: EFFECTIVE_POWER_MODE, #[opt] Context: *const void);
+        const EFFECTIVE_POWER_MODE_V1: u32 = 1;
+        const EFFECTIVE_POWER_MODE_V2: u32 = 2;
+        #[library("POWRPROF.dll")]
+        extern fn PowerGetActiveScheme(#[opt] UserRootPowerKey: HKEY, ActivePolicyGuid: *mut *mut GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadACValue(#[opt] RootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[opt] Type: *mut u32, #[size_param(6)] #[opt] Buffer: *mut u8, #[in] #[out] #[opt] BufferSize: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadDCValue(#[opt] RootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[opt] Type: *mut u32, #[size_param(6)] #[opt] Buffer: *mut u8, #[in] #[out] BufferSize: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerRegisterForEffectivePowerModeNotifications(Version: u32, Callback: EFFECTIVE_POWER_MODE_CALLBACK, #[opt] Context: *const void, RegistrationHandle: *mut *mut void) -> HRESULT;
+        #[library("POWRPROF.dll")]
+        extern fn PowerSetActiveScheme(#[opt] UserRootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerSettingRegisterNotification(SettingGuid: *const GUID, Flags: u32, Recipient: HANDLE, RegistrationHandle: *mut HPOWERNOTIFY) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerSettingUnregisterNotification(#[in] #[out] RegistrationHandle: HPOWERNOTIFY) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerUnregisterFromEffectivePowerModeNotifications(RegistrationHandle: *const void) -> HRESULT;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteACValueIndex(#[opt] RootPowerKey: HKEY, SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, AcValueIndex: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteDCValueIndex(#[opt] RootPowerKey: HKEY, SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, DcValueIndex: u32) -> u32;
+    }
+}

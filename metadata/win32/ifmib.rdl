@@ -1,0 +1,43 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const MAXLEN_IFDESCR: u32 = 256;
+        const MAXLEN_PHYSADDR: u32 = 8;
+        struct MIB_IFNUMBER {
+            dwValue: u32,
+        }
+        struct MIB_IFROW {
+            wszName: [u16; 256],
+            dwIndex: IF_INDEX,
+            dwType: IFTYPE,
+            dwMtu: u32,
+            dwSpeed: u32,
+            dwPhysAddrLen: u32,
+            bPhysAddr: [u8; 8],
+            dwAdminStatus: u32,
+            dwOperStatus: INTERNAL_IF_OPER_STATUS,
+            dwLastChange: u32,
+            dwInOctets: u32,
+            dwInUcastPkts: u32,
+            dwInNUcastPkts: u32,
+            dwInDiscards: u32,
+            dwInErrors: u32,
+            dwInUnknownProtos: u32,
+            dwOutOctets: u32,
+            dwOutUcastPkts: u32,
+            dwOutNUcastPkts: u32,
+            dwOutDiscards: u32,
+            dwOutErrors: u32,
+            dwOutQLen: u32,
+            dwDescrLen: u32,
+            bDescr: [u8; 256],
+        }
+        struct MIB_IFTABLE {
+            dwNumEntries: u32,
+            table: [MIB_IFROW; 1],
+        }
+        type PMIB_IFNUMBER = *mut MIB_IFNUMBER;
+        type PMIB_IFROW = *mut MIB_IFROW;
+        type PMIB_IFTABLE = *mut MIB_IFTABLE;
+    }
+}

@@ -65,18 +65,32 @@ pub struct MetadataResolver {
 }
 
 impl MetadataResolver {
-    /// Load all `.winmd` files from `winmd_dir` and build the resolver.
+    /// Load all `.winmd` files from `winmd_dir` — plus the reference winmds
+    /// (`Windows.winmd`, `Windows.Win32.winmd`, `Windows.Wdk.winmd`) bundled in
+    /// `windows-bindgen`'s `default/` directory — and build the resolver.
+    ///
+    /// The reference winmds live only in `crates/libs/bindgen/default` (the single
+    /// source of truth); they are located relative to this crate's manifest so the
+    /// path resolves the same whether the tool is run from the repo root or a test's
+    /// crate directory.
     pub fn load(winmd_dir: &Path) -> Self {
-        let files: Vec<File> = std::fs::read_dir(winmd_dir)
-            .expect("cannot read winmd directory")
-            .filter_map(|e| e.ok())
-            .filter(|e| {
-                e.path()
-                    .extension()
-                    .is_some_and(|ext| ext.eq_ignore_ascii_case("winmd"))
-            })
-            .filter_map(|e| File::read(e.path()))
-            .collect();
+        let read_dir = |dir: &Path| -> Vec<File> {
+            std::fs::read_dir(dir)
+                .unwrap_or_else(|_| panic!("cannot read winmd directory {}", dir.display()))
+                .filter_map(|e| e.ok())
+                .filter(|e| {
+                    e.path()
+                        .extension()
+                        .is_some_and(|ext| ext.eq_ignore_ascii_case("winmd"))
+                })
+                .filter_map(|e| File::read(e.path()))
+                .collect()
+        };
+
+        let default_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../libs/bindgen/default");
+
+        let mut files = read_dir(winmd_dir);
+        files.extend(read_dir(&default_dir));
 
         assert!(
             !files.is_empty(),
@@ -566,14 +580,14 @@ mod tests {
 
     #[test]
     fn resolve_textblock_put_text() {
-        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        let resolver = MetadataResolver::load(Path::new("winmd"));
         let iface = resolver.resolve("TextBlock", "put_Text");
         assert_eq!(iface.map(|r| r.short_name()), Some("ITextBlock"));
     }
 
     #[test]
     fn resolve_button_put_is_enabled() {
-        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        let resolver = MetadataResolver::load(Path::new("winmd"));
         // Button extends Control, so put_IsEnabled should resolve to IControl.
         let iface = resolver.resolve("Button", "put_IsEnabled");
         assert_eq!(iface.map(|r| r.short_name()), Some("IControl"));
@@ -581,7 +595,7 @@ mod tests {
 
     #[test]
     fn resolve_slider_put_value() {
-        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        let resolver = MetadataResolver::load(Path::new("winmd"));
         let iface = resolver.resolve("Slider", "put_Value");
         // Slider.put_Value is on IRangeBase (from RangeBase base class).
         assert!(iface.is_some(), "Slider.put_Value should resolve");
@@ -593,7 +607,7 @@ mod tests {
 
     #[test]
     fn infer_single_field_wrapper_types() {
-        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        let resolver = MetadataResolver::load(Path::new("winmd"));
         // FontWeight is a struct with one field (Weight: u16) → unwraps to U16, Copy
         assert_eq!(
             resolver.infer_value_type("TextBlock", "put_FontWeight"),
@@ -628,7 +642,7 @@ mod tests {
 
     #[test]
     fn infer_event_args_type_numberbox() {
-        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        let resolver = MetadataResolver::load(Path::new("winmd"));
         let result = resolver.infer_event_args_type("NumberBox", "add_ValueChanged", "NewValue");
         assert_eq!(
             result.as_deref(),
@@ -639,7 +653,7 @@ mod tests {
 
     #[test]
     fn infer_event_args_type_slider() {
-        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        let resolver = MetadataResolver::load(Path::new("winmd"));
         let result = resolver.infer_event_args_type("Slider", "add_ValueChanged", "NewValue");
         assert_eq!(
             result.as_deref(),
@@ -650,7 +664,7 @@ mod tests {
 
     #[test]
     fn infer_event_args_type_breadcrumbbar() {
-        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        let resolver = MetadataResolver::load(Path::new("winmd"));
         let result = resolver.infer_event_args_type("BreadcrumbBar", "add_ItemClicked", "Index");
         assert_eq!(
             result.as_deref(),

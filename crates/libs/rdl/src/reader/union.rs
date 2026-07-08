@@ -31,21 +31,8 @@ impl syn::parse::Parse for Union {
 
 impl Encoder<'_> {
     pub fn encode_union(&mut self, item: &Union) -> Result<(), Error> {
-        let type_def =
-            self.encode_struct_or_union(&item.name.to_string(), false, true, &item.fields)?;
-
-        if let Some(packing_size) = self.read_packed(&item.attrs)? {
-            self.output.ClassLayout(type_def, packing_size, 0);
-        }
-
-        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
-            self.emit_arch_attribute(metadata::writer::HasAttribute::TypeDef(type_def), arch_bits);
-        }
-
-        self.encode_attrs(
-            metadata::writer::HasAttribute::TypeDef(type_def),
-            &item.attrs,
-            &["packed"],
-        )
+        let name = item.name.to_string();
+        self.encode_record(&name, false, true, &item.fields, &item.attrs, None)?;
+        Ok(())
     }
 }

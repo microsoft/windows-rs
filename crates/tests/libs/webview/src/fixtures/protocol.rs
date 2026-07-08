@@ -17,7 +17,11 @@ pub fn web_resource_served_from_memory(harness: &Harness) {
 
     let Ok(registration) =
         webview.on_web_resource_requested("https://selftest.example/*", move |request| {
-            *sink.borrow_mut() = Some((request.uri(), request.method()));
+            // Capture only the first intercepted request: the browser fires
+            // follow-up requests (e.g. a favicon) that also match the `/*`
+            // filter, and a last-wins sink would race them against the assertion.
+            sink.borrow_mut()
+                .get_or_insert_with(|| (request.uri(), request.method()));
             Some(
                 WebResourceResponse::new(
                     "<!DOCTYPE html><html><head><title>FromMemory</title></head>\

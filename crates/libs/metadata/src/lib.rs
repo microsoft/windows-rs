@@ -1,5 +1,5 @@
 #![doc = include_str!("../readme.md")]
-#![expect(non_snake_case, non_upper_case_globals, non_camel_case_types)]
+#![expect(non_snake_case, non_upper_case_globals)]
 #![allow(missing_docs)]
 
 use std::cmp::Ordering;
@@ -14,6 +14,9 @@ pub use attributes::*;
 pub use value::*;
 mod bindings;
 use bindings::*;
+
+mod clr;
+use clr::*;
 
 mod ty;
 pub use ty::*;

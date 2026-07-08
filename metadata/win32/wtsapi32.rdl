@@ -1,0 +1,718 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CLIENTADDRESS_LENGTH: u32 = 30;
+        const CLIENTNAME_LENGTH: u32 = 20;
+        const DOMAIN_LENGTH: u32 = 17;
+        const IDASYNC: u32 = 32001;
+        const MAX_DATE_TIME_LENGTH: u32 = 56;
+        const MAX_ELAPSED_TIME_LENGTH: u32 = 15;
+        const NOTIFY_FOR_ALL_SESSIONS: u32 = 1;
+        const NOTIFY_FOR_THIS_SESSION: u32 = 0;
+        const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256;
+        const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4;
+        struct PRODUCT_INFOA {
+            CompanyName: [i8; 256],
+            ProductID: [i8; 4],
+        }
+        struct PRODUCT_INFOW {
+            CompanyName: [u16; 256],
+            ProductID: [u16; 4],
+        }
+        type PWRDS_SERIALIZED_USER_CREDENTIAL = *mut WTS_SERIALIZED_USER_CREDENTIAL;
+        type PWTSCLIENTA = *mut WTSCLIENTA;
+        type PWTSCLIENTW = *mut WTSCLIENTW;
+        type PWTSCONFIGINFOA = *mut WTSCONFIGINFOA;
+        type PWTSCONFIGINFOW = *mut WTSCONFIGINFOW;
+        type PWTSINFOA = *mut WTSINFOA;
+        type PWTSINFOEXA = *mut WTSINFOEXA;
+        type PWTSINFOEXW = *mut WTSINFOEXW;
+        type PWTSINFOEX_LEVEL1_A = *mut WTSINFOEX_LEVEL1_A;
+        type PWTSINFOEX_LEVEL1_W = *mut WTSINFOEX_LEVEL1_W;
+        type PWTSINFOEX_LEVEL_A = *mut WTSINFOEX_LEVEL_A;
+        type PWTSINFOEX_LEVEL_W = *mut WTSINFOEX_LEVEL_W;
+        type PWTSINFOW = *mut WTSINFOW;
+        type PWTSLISTENERCONFIGA = *mut WTSLISTENERCONFIGA;
+        type PWTSLISTENERCONFIGW = *mut WTSLISTENERCONFIGW;
+        type PWTSLISTENERNAMEA = *mut WTSLISTENERNAMEA;
+        type PWTSLISTENERNAMEW = *mut WTSLISTENERNAMEW;
+        type PWTSUSERCONFIGA = *mut WTSUSERCONFIGA;
+        type PWTSUSERCONFIGW = *mut WTSUSERCONFIGW;
+        type PWTS_CLIENT_ADDRESS = *mut WTS_CLIENT_ADDRESS;
+        type PWTS_CLIENT_DISPLAY = *mut WTS_CLIENT_DISPLAY;
+        type PWTS_PROCESS_INFOA = *mut WTS_PROCESS_INFOA;
+        type PWTS_PROCESS_INFOW = *mut WTS_PROCESS_INFOW;
+        type PWTS_PROCESS_INFO_EXA = *mut WTS_PROCESS_INFO_EXA;
+        type PWTS_PROCESS_INFO_EXW = *mut WTS_PROCESS_INFO_EXW;
+        type PWTS_SERIALIZED_USER_CREDENTIAL = *mut WTS_SERIALIZED_USER_CREDENTIAL;
+        type PWTS_SERVER_INFOA = *mut WTS_SERVER_INFOA;
+        type PWTS_SERVER_INFOW = *mut WTS_SERVER_INFOW;
+        type PWTS_SESSION_ADDRESS = *mut WTS_SESSION_ADDRESS;
+        type PWTS_SESSION_INFOA = *mut WTS_SESSION_INFOA;
+        type PWTS_SESSION_INFOW = *mut WTS_SESSION_INFOW;
+        type PWTS_SESSION_INFO_1A = *mut WTS_SESSION_INFO_1A;
+        type PWTS_SESSION_INFO_1W = *mut WTS_SESSION_INFO_1W;
+        type PWTS_VALIDATION_INFORMATIONA = *mut WTS_VALIDATION_INFORMATIONA;
+        type PWTS_VALIDATION_INFORMATIONW = *mut WTS_VALIDATION_INFORMATIONW;
+        const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4;
+        const REMOTECONTROL_KBDCTRL_HOTKEY: u32 = 2;
+        const REMOTECONTROL_KBDSHIFT_HOTKEY: u32 = 1;
+        const USERNAME_LENGTH: u32 = 20;
+        const VALIDATIONINFORMATION_HARDWAREID_LENGTH: u32 = 20;
+        const VALIDATIONINFORMATION_LICENSE_LENGTH: u32 = 16384;
+        const WINSTATIONNAME_LENGTH: u32 = 32;
+        type WRDS_SERIALIZED_USER_CREDENTIAL = WTS_SERIALIZED_USER_CREDENTIAL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSActiveSessionExists(pbActiveSessionExists: *mut BOOL) -> BOOL;
+        struct WTSCLIENTA {
+            ClientName: [i8; 21],
+            Domain: [i8; 18],
+            UserName: [i8; 21],
+            WorkDirectory: [i8; 261],
+            InitialProgram: [i8; 261],
+            EncryptionLevel: u8,
+            ClientAddressFamily: u32,
+            ClientAddress: [u16; 31],
+            HRes: u16,
+            VRes: u16,
+            ColorDepth: u16,
+            ClientDirectory: [i8; 261],
+            ClientBuildNumber: u32,
+            ClientHardwareId: u32,
+            ClientProductId: u16,
+            OutBufCountHost: u16,
+            OutBufCountClient: u16,
+            OutBufLength: u16,
+            DeviceId: [i8; 261],
+        }
+        struct WTSCLIENTW {
+            ClientName: [u16; 21],
+            Domain: [u16; 18],
+            UserName: [u16; 21],
+            WorkDirectory: [u16; 261],
+            InitialProgram: [u16; 261],
+            EncryptionLevel: u8,
+            ClientAddressFamily: u32,
+            ClientAddress: [u16; 31],
+            HRes: u16,
+            VRes: u16,
+            ColorDepth: u16,
+            ClientDirectory: [u16; 261],
+            ClientBuildNumber: u32,
+            ClientHardwareId: u32,
+            ClientProductId: u16,
+            OutBufCountHost: u16,
+            OutBufCountClient: u16,
+            OutBufLength: u16,
+            DeviceId: [u16; 261],
+        }
+        struct WTSCONFIGINFOA {
+            version: u32,
+            fConnectClientDrivesAtLogon: u32,
+            fConnectPrinterAtLogon: u32,
+            fDisablePrinterRedirection: u32,
+            fDisableDefaultMainClientPrinter: u32,
+            ShadowSettings: u32,
+            LogonUserName: [i8; 21],
+            LogonDomain: [i8; 18],
+            WorkDirectory: [i8; 261],
+            InitialProgram: [i8; 261],
+            ApplicationName: [i8; 261],
+        }
+        struct WTSCONFIGINFOW {
+            version: u32,
+            fConnectClientDrivesAtLogon: u32,
+            fConnectPrinterAtLogon: u32,
+            fDisablePrinterRedirection: u32,
+            fDisableDefaultMainClientPrinter: u32,
+            ShadowSettings: u32,
+            LogonUserName: [u16; 21],
+            LogonDomain: [u16; 18],
+            WorkDirectory: [u16; 261],
+            InitialProgram: [u16; 261],
+            ApplicationName: [u16; 261],
+        }
+        #[library("WTSAPI32.dll")]
+        extern fn WTSCloseServer(hServer: HANDLE);
+        #[library("WTSAPI32.dll")]
+        extern fn WTSCloudAuthClose(cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE);
+        #[library("WTSAPI32.dll")]
+        extern fn WTSCloudAuthConvertAssertionToSerializedUserCredential(cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, #[size_param(2)] assertion: PCSTR, assertionLength: u32, resourceId: PCWSTR, userCredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSCloudAuthDuplicateSerializedUserCredential(userCredential: *const WTS_SERIALIZED_USER_CREDENTIAL, duplicatedUserCredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSCloudAuthGetServerNonce(cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, serverNonce: *mut PWSTR) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSCloudAuthNetworkLogonWithSerializedCredential(cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, userCredential: *const WTS_SERIALIZED_USER_CREDENTIAL, token: *mut HANDLE) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSCloudAuthOpen(activityId: *const GUID) -> WTS_CLOUD_AUTH_HANDLE;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSConnectSessionA(LogonId: u32, TargetLogonId: u32, pPassword: PCSTR, bWait: BOOL) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSConnectSessionW(LogonId: u32, TargetLogonId: u32, pPassword: PCWSTR, bWait: BOOL) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSCreateListenerA(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCSTR, pBuffer: *const WTSLISTENERCONFIGA, flag: u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSCreateListenerW(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCWSTR, pBuffer: *const WTSLISTENERCONFIGW, flag: u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSDisconnectSession(hServer: HANDLE, SessionId: u32, bWait: BOOL) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern "C" fn WTSEnableChildSessions(bEnable: BOOL) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateListenersA(hServer: HANDLE, pReserved: *const void, Reserved: u32, #[len_param(4)] #[opt] pListeners: *mut WTSLISTENERNAMEA, #[in] #[out] pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateListenersW(hServer: HANDLE, pReserved: *const void, Reserved: u32, #[len_param(4)] #[opt] pListeners: *mut WTSLISTENERNAMEW, #[in] #[out] pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateProcessesA(hServer: HANDLE, Reserved: u32, Version: u32, ppProcessInfo: *mut PWTS_PROCESS_INFOA, pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateProcessesExA(hServer: HANDLE, #[in] #[out] pLevel: *mut u32, SessionId: u32, ppProcessInfo: *mut PSTR, pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateProcessesExW(hServer: HANDLE, #[in] #[out] pLevel: *mut u32, SessionId: u32, ppProcessInfo: *mut PWSTR, pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateProcessesW(hServer: HANDLE, Reserved: u32, Version: u32, ppProcessInfo: *mut PWTS_PROCESS_INFOW, pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateServersA(pDomainName: PCSTR, Reserved: u32, Version: u32, ppServerInfo: *mut PWTS_SERVER_INFOA, pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateServersW(pDomainName: PCWSTR, Reserved: u32, Version: u32, ppServerInfo: *mut PWTS_SERVER_INFOW, pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateSessionsA(hServer: HANDLE, Reserved: u32, Version: u32, ppSessionInfo: *mut PWTS_SESSION_INFOA, pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateSessionsExA(hServer: HANDLE, #[in] #[out] pLevel: *mut u32, Filter: u32, ppSessionInfo: *mut PWTS_SESSION_INFO_1A, pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateSessionsExW(hServer: HANDLE, #[in] #[out] pLevel: *mut u32, Filter: u32, ppSessionInfo: *mut PWTS_SESSION_INFO_1W, pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSEnumerateSessionsW(hServer: HANDLE, Reserved: u32, Version: u32, ppSessionInfo: *mut PWTS_SESSION_INFOW, pCount: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSFreeMemory(pMemory: *mut void);
+        #[library("WTSAPI32.dll")]
+        extern fn WTSFreeMemoryExA(WTSTypeClass: WTS_TYPE_CLASS, pMemory: *const void, NumberOfEntries: u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSFreeMemoryExW(WTSTypeClass: WTS_TYPE_CLASS, pMemory: *const void, NumberOfEntries: u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern "C" fn WTSGetChildSessionId(pSessionId: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSGetListenerSecurityA(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCSTR, SecurityInformation: SECURITY_INFORMATION, #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, lpnLengthNeeded: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSGetListenerSecurityW(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCWSTR, SecurityInformation: SECURITY_INFORMATION, #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, lpnLengthNeeded: *mut u32) -> BOOL;
+        struct WTSINFOA {
+            State: WTS_CONNECTSTATE_CLASS,
+            SessionId: u32,
+            IncomingBytes: u32,
+            OutgoingBytes: u32,
+            IncomingFrames: u32,
+            OutgoingFrames: u32,
+            IncomingCompressedBytes: u32,
+            OutgoingCompressedBy: u32,
+            WinStationName: [i8; 32],
+            Domain: [i8; 17],
+            UserName: [i8; 21],
+            ConnectTime: LARGE_INTEGER,
+            DisconnectTime: LARGE_INTEGER,
+            LastInputTime: LARGE_INTEGER,
+            LogonTime: LARGE_INTEGER,
+            CurrentTime: LARGE_INTEGER,
+        }
+        struct WTSINFOEXA {
+            Level: u32,
+            Data: WTSINFOEX_LEVEL_A,
+        }
+        struct WTSINFOEXW {
+            Level: u32,
+            Data: WTSINFOEX_LEVEL_W,
+        }
+        struct WTSINFOEX_LEVEL1_A {
+            SessionId: u32,
+            SessionState: WTS_CONNECTSTATE_CLASS,
+            SessionFlags: i32,
+            WinStationName: [i8; 33],
+            UserName: [i8; 21],
+            DomainName: [i8; 18],
+            LogonTime: LARGE_INTEGER,
+            ConnectTime: LARGE_INTEGER,
+            DisconnectTime: LARGE_INTEGER,
+            LastInputTime: LARGE_INTEGER,
+            CurrentTime: LARGE_INTEGER,
+            IncomingBytes: u32,
+            OutgoingBytes: u32,
+            IncomingFrames: u32,
+            OutgoingFrames: u32,
+            IncomingCompressedBytes: u32,
+            OutgoingCompressedBytes: u32,
+        }
+        struct WTSINFOEX_LEVEL1_W {
+            SessionId: u32,
+            SessionState: WTS_CONNECTSTATE_CLASS,
+            SessionFlags: i32,
+            WinStationName: [u16; 33],
+            UserName: [u16; 21],
+            DomainName: [u16; 18],
+            LogonTime: LARGE_INTEGER,
+            ConnectTime: LARGE_INTEGER,
+            DisconnectTime: LARGE_INTEGER,
+            LastInputTime: LARGE_INTEGER,
+            CurrentTime: LARGE_INTEGER,
+            IncomingBytes: u32,
+            OutgoingBytes: u32,
+            IncomingFrames: u32,
+            OutgoingFrames: u32,
+            IncomingCompressedBytes: u32,
+            OutgoingCompressedBytes: u32,
+        }
+        union WTSINFOEX_LEVEL_A {
+            WTSInfoExLevel1: WTSINFOEX_LEVEL1_A,
+        }
+        union WTSINFOEX_LEVEL_W {
+            WTSInfoExLevel1: WTSINFOEX_LEVEL1_W,
+        }
+        struct WTSINFOW {
+            State: WTS_CONNECTSTATE_CLASS,
+            SessionId: u32,
+            IncomingBytes: u32,
+            OutgoingBytes: u32,
+            IncomingFrames: u32,
+            OutgoingFrames: u32,
+            IncomingCompressedBytes: u32,
+            OutgoingCompressedBytes: u32,
+            WinStationName: [u16; 32],
+            Domain: [u16; 17],
+            UserName: [u16; 21],
+            ConnectTime: LARGE_INTEGER,
+            DisconnectTime: LARGE_INTEGER,
+            LastInputTime: LARGE_INTEGER,
+            LogonTime: LARGE_INTEGER,
+            CurrentTime: LARGE_INTEGER,
+        }
+        #[library("WTSAPI32.dll")]
+        extern "C" fn WTSIsChildSessionsEnabled(pbEnabled: *mut BOOL) -> BOOL;
+        struct WTSLISTENERCONFIGA {
+            version: u32,
+            fEnableListener: u32,
+            MaxConnectionCount: u32,
+            fPromptForPassword: u32,
+            fInheritColorDepth: u32,
+            ColorDepth: u32,
+            fInheritBrokenTimeoutSettings: u32,
+            BrokenTimeoutSettings: u32,
+            fDisablePrinterRedirection: u32,
+            fDisableDriveRedirection: u32,
+            fDisableComPortRedirection: u32,
+            fDisableLPTPortRedirection: u32,
+            fDisableClipboardRedirection: u32,
+            fDisableAudioRedirection: u32,
+            fDisablePNPRedirection: u32,
+            fDisableDefaultMainClientPrinter: u32,
+            LanAdapter: u32,
+            PortNumber: u32,
+            fInheritShadowSettings: u32,
+            ShadowSettings: u32,
+            TimeoutSettingsConnection: u32,
+            TimeoutSettingsDisconnection: u32,
+            TimeoutSettingsIdle: u32,
+            SecurityLayer: u32,
+            MinEncryptionLevel: u32,
+            UserAuthentication: u32,
+            Comment: [i8; 61],
+            LogonUserName: [i8; 21],
+            LogonDomain: [i8; 18],
+            WorkDirectory: [i8; 261],
+            InitialProgram: [i8; 261],
+        }
+        struct WTSLISTENERCONFIGW {
+            version: u32,
+            fEnableListener: u32,
+            MaxConnectionCount: u32,
+            fPromptForPassword: u32,
+            fInheritColorDepth: u32,
+            ColorDepth: u32,
+            fInheritBrokenTimeoutSettings: u32,
+            BrokenTimeoutSettings: u32,
+            fDisablePrinterRedirection: u32,
+            fDisableDriveRedirection: u32,
+            fDisableComPortRedirection: u32,
+            fDisableLPTPortRedirection: u32,
+            fDisableClipboardRedirection: u32,
+            fDisableAudioRedirection: u32,
+            fDisablePNPRedirection: u32,
+            fDisableDefaultMainClientPrinter: u32,
+            LanAdapter: u32,
+            PortNumber: u32,
+            fInheritShadowSettings: u32,
+            ShadowSettings: u32,
+            TimeoutSettingsConnection: u32,
+            TimeoutSettingsDisconnection: u32,
+            TimeoutSettingsIdle: u32,
+            SecurityLayer: u32,
+            MinEncryptionLevel: u32,
+            UserAuthentication: u32,
+            Comment: [u16; 61],
+            LogonUserName: [u16; 21],
+            LogonDomain: [u16; 18],
+            WorkDirectory: [u16; 261],
+            InitialProgram: [u16; 261],
+        }
+        type WTSLISTENERNAMEA = [i8; 33];
+        type WTSLISTENERNAMEW = [u16; 33];
+        #[library("WTSAPI32.dll")]
+        extern fn WTSLogoffSession(hServer: HANDLE, SessionId: u32, bWait: BOOL) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSOpenServerA(pServerName: PCSTR) -> HANDLE;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSOpenServerExA(pServerName: PCSTR) -> HANDLE;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSOpenServerExW(pServerName: PCWSTR) -> HANDLE;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSOpenServerW(pServerName: PCWSTR) -> HANDLE;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSQueryListenerConfigA(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCSTR, pBuffer: *mut WTSLISTENERCONFIGA) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSQueryListenerConfigW(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCWSTR, pBuffer: *mut WTSLISTENERCONFIGW) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSQuerySessionInformationA(hServer: HANDLE, SessionId: u32, WTSInfoClass: WTS_INFO_CLASS, ppBuffer: *mut PSTR, pBytesReturned: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSQuerySessionInformationW(hServer: HANDLE, SessionId: u32, WTSInfoClass: WTS_INFO_CLASS, ppBuffer: *mut PWSTR, pBytesReturned: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSQueryUserConfigA(pServerName: PCSTR, pUserName: PCSTR, WTSConfigClass: WTS_CONFIG_CLASS, ppBuffer: *mut PSTR, pBytesReturned: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSQueryUserConfigW(pServerName: PCWSTR, pUserName: PCWSTR, WTSConfigClass: WTS_CONFIG_CLASS, ppBuffer: *mut PWSTR, pBytesReturned: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSQueryUserToken(SessionId: u32, phToken: *mut HANDLE) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSRegisterSessionNotification(hWnd: HWND, dwFlags: u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSRegisterSessionNotificationEx(hServer: HANDLE, hWnd: HWND, dwFlags: u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSSendMessageA(hServer: HANDLE, SessionId: u32, #[size_param(3)] pTitle: PCSTR, TitleLength: u32, #[size_param(5)] pMessage: PCSTR, MessageLength: u32, Style: u32, Timeout: u32, pResponse: *mut u32, bWait: BOOL) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSSendMessageW(hServer: HANDLE, SessionId: u32, #[size_param(3)] pTitle: PCWSTR, TitleLength: u32, #[size_param(5)] pMessage: PCWSTR, MessageLength: u32, Style: u32, Timeout: u32, pResponse: *mut u32, bWait: BOOL) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSSetListenerSecurityA(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCSTR, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSSetListenerSecurityW(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCWSTR, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSSetUserConfigA(pServerName: PCSTR, pUserName: PCSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[size_param(4)] pBuffer: PCSTR, DataLength: u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSSetUserConfigW(pServerName: PCWSTR, pUserName: PCWSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[size_param(4)] pBuffer: PCWSTR, DataLength: u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSShutdownSystem(hServer: HANDLE, ShutdownFlag: u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSStartRemoteControlSessionA(pTargetServerName: PCSTR, TargetLogonId: u32, HotkeyVk: u8, HotkeyModifiers: u16) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSStartRemoteControlSessionW(pTargetServerName: PCWSTR, TargetLogonId: u32, HotkeyVk: u8, HotkeyModifiers: u16) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSStopRemoteControlSession(LogonId: u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSTerminateProcess(hServer: HANDLE, ProcessId: u32, ExitCode: u32) -> BOOL;
+        struct WTSUSERCONFIGA {
+            Source: u32,
+            InheritInitialProgram: u32,
+            AllowLogonTerminalServer: u32,
+            TimeoutSettingsConnections: u32,
+            TimeoutSettingsDisconnections: u32,
+            TimeoutSettingsIdle: u32,
+            DeviceClientDrives: u32,
+            DeviceClientPrinters: u32,
+            ClientDefaultPrinter: u32,
+            BrokenTimeoutSettings: u32,
+            ReconnectSettings: u32,
+            ShadowingSettings: u32,
+            TerminalServerRemoteHomeDir: u32,
+            InitialProgram: [i8; 261],
+            WorkDirectory: [i8; 261],
+            TerminalServerProfilePath: [i8; 261],
+            TerminalServerHomeDir: [i8; 261],
+            TerminalServerHomeDirDrive: [i8; 4],
+        }
+        struct WTSUSERCONFIGW {
+            Source: u32,
+            InheritInitialProgram: u32,
+            AllowLogonTerminalServer: u32,
+            TimeoutSettingsConnections: u32,
+            TimeoutSettingsDisconnections: u32,
+            TimeoutSettingsIdle: u32,
+            DeviceClientDrives: u32,
+            DeviceClientPrinters: u32,
+            ClientDefaultPrinter: u32,
+            BrokenTimeoutSettings: u32,
+            ReconnectSettings: u32,
+            ShadowingSettings: u32,
+            TerminalServerRemoteHomeDir: u32,
+            InitialProgram: [u16; 261],
+            WorkDirectory: [u16; 261],
+            TerminalServerProfilePath: [u16; 261],
+            TerminalServerHomeDir: [u16; 261],
+            TerminalServerHomeDirDrive: [u16; 4],
+        }
+        #[library("WTSAPI32.dll")]
+        extern fn WTSUnRegisterSessionNotification(hWnd: HWND) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSUnRegisterSessionNotificationEx(hServer: HANDLE, hWnd: HWND) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSVirtualChannelClose(hChannelHandle: HANDLE) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSVirtualChannelOpen(hServer: HANDLE, SessionId: u32, pVirtualName: PCSTR) -> HANDLE;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSVirtualChannelOpenEx(SessionId: u32, pVirtualName: PCSTR, flags: u32) -> HANDLE;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSVirtualChannelPurgeInput(hChannelHandle: HANDLE) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSVirtualChannelPurgeOutput(hChannelHandle: HANDLE) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSVirtualChannelQuery(hChannelHandle: HANDLE, param1: WTS_VIRTUAL_CLASS, ppBuffer: *mut *mut void, pBytesReturned: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSVirtualChannelRead(hChannelHandle: HANDLE, TimeOut: u32, #[size_param(3)] Buffer: *mut i8, BufferSize: u32, pBytesRead: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSVirtualChannelWrite(hChannelHandle: HANDLE, #[size_param(2)] Buffer: *const i8, Length: u32, pBytesWritten: *mut u32) -> BOOL;
+        #[library("WTSAPI32.dll")]
+        extern fn WTSWaitSystemEvent(hServer: HANDLE, EventMask: u32, pEventFlags: *mut u32) -> BOOL;
+        const WTS_ANY_SESSION: u32 = 4294967294;
+        const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1;
+        const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: u32 = 8;
+        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH: u32 = 4;
+        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW: u32 = 0;
+        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED: u32 = 2;
+        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: u32 = 6;
+        struct WTS_CLIENT_ADDRESS {
+            AddressFamily: u32,
+            Address: [u8; 20],
+        }
+        struct WTS_CLIENT_DISPLAY {
+            HorizontalResolution: u32,
+            VerticalResolution: u32,
+            ColorDepth: u32,
+        }
+        type WTS_CLOUD_AUTH_HANDLE = *mut void;
+        const WTS_COMMENT_LENGTH: u32 = 60;
+        #[repr(i32)]
+        enum WTS_CONFIG_CLASS {
+            WTSUserConfigInitialProgram = 0,
+            WTSUserConfigWorkingDirectory = 1,
+            WTSUserConfigfInheritInitialProgram = 2,
+            WTSUserConfigfAllowLogonTerminalServer = 3,
+            WTSUserConfigTimeoutSettingsConnections = 4,
+            WTSUserConfigTimeoutSettingsDisconnections = 5,
+            WTSUserConfigTimeoutSettingsIdle = 6,
+            WTSUserConfigfDeviceClientDrives = 7,
+            WTSUserConfigfDeviceClientPrinters = 8,
+            WTSUserConfigfDeviceClientDefaultPrinter = 9,
+            WTSUserConfigBrokenTimeoutSettings = 10,
+            WTSUserConfigReconnectSettings = 11,
+            WTSUserConfigModemCallbackSettings = 12,
+            WTSUserConfigModemCallbackPhoneNumber = 13,
+            WTSUserConfigShadowingSettings = 14,
+            WTSUserConfigTerminalServerProfilePath = 15,
+            WTSUserConfigTerminalServerHomeDir = 16,
+            WTSUserConfigTerminalServerHomeDirDrive = 17,
+            WTSUserConfigfTerminalServerRemoteHomeDir = 18,
+            WTSUserConfigUser = 19,
+        }
+        #[repr(i32)]
+        enum WTS_CONFIG_SOURCE {
+            WTSUserConfigSourceSAM = 0,
+        }
+        #[repr(i32)]
+        enum WTS_CONNECTSTATE_CLASS {
+            WTSActive = 0,
+            WTSConnected = 1,
+            WTSConnectQuery = 2,
+            WTSShadow = 3,
+            WTSDisconnected = 4,
+            WTSIdle = 5,
+            WTSListen = 6,
+            WTSReset = 7,
+            WTSDown = 8,
+            WTSInit = 9,
+        }
+        const WTS_CURRENT_SERVER_NAME: u32 = 0;
+        const WTS_CURRENT_SESSION: u32 = 4294967295;
+        const WTS_DRIVE_LENGTH: u32 = 3;
+        const WTS_EVENT_ALL: u32 = 2147483647;
+        const WTS_EVENT_CONNECT: u32 = 8;
+        const WTS_EVENT_CREATE: u32 = 1;
+        const WTS_EVENT_DELETE: u32 = 2;
+        const WTS_EVENT_DISCONNECT: u32 = 16;
+        const WTS_EVENT_FLUSH: u32 = 2147483648;
+        const WTS_EVENT_LICENSE: u32 = 256;
+        const WTS_EVENT_LOGOFF: u32 = 64;
+        const WTS_EVENT_LOGON: u32 = 32;
+        const WTS_EVENT_NONE: u32 = 0;
+        const WTS_EVENT_RENAME: u32 = 4;
+        const WTS_EVENT_STATECHANGE: u32 = 128;
+        #[repr(i32)]
+        enum WTS_INFO_CLASS {
+            WTSInitialProgram = 0,
+            WTSApplicationName = 1,
+            WTSWorkingDirectory = 2,
+            WTSOEMId = 3,
+            WTSSessionId = 4,
+            WTSUserName = 5,
+            WTSWinStationName = 6,
+            WTSDomainName = 7,
+            WTSConnectState = 8,
+            WTSClientBuildNumber = 9,
+            WTSClientName = 10,
+            WTSClientDirectory = 11,
+            WTSClientProductId = 12,
+            WTSClientHardwareId = 13,
+            WTSClientAddress = 14,
+            WTSClientDisplay = 15,
+            WTSClientProtocolType = 16,
+            WTSIdleTime = 17,
+            WTSLogonTime = 18,
+            WTSIncomingBytes = 19,
+            WTSOutgoingBytes = 20,
+            WTSIncomingFrames = 21,
+            WTSOutgoingFrames = 22,
+            WTSClientInfo = 23,
+            WTSSessionInfo = 24,
+            WTSSessionInfoEx = 25,
+            WTSConfigInfo = 26,
+            WTSValidationInfo = 27,
+            WTSSessionAddressV4 = 28,
+            WTSIsRemoteSession = 29,
+            WTSSessionActivityId = 30,
+            WTSCapabilityCheck = 31,
+        }
+        const WTS_LISTENER_CREATE: u32 = 1;
+        const WTS_LISTENER_NAME_LENGTH: u32 = 32;
+        const WTS_LISTENER_UPDATE: u32 = 16;
+        struct WTS_PROCESS_INFOA {
+            SessionId: u32,
+            ProcessId: u32,
+            pProcessName: PSTR,
+            pUserSid: PSID,
+        }
+        struct WTS_PROCESS_INFOW {
+            SessionId: u32,
+            ProcessId: u32,
+            pProcessName: PWSTR,
+            pUserSid: PSID,
+        }
+        struct WTS_PROCESS_INFO_EXA {
+            SessionId: u32,
+            ProcessId: u32,
+            pProcessName: PSTR,
+            pUserSid: PSID,
+            NumberOfThreads: u32,
+            HandleCount: u32,
+            PagefileUsage: u32,
+            PeakPagefileUsage: u32,
+            WorkingSetSize: u32,
+            PeakWorkingSetSize: u32,
+            UserTime: LARGE_INTEGER,
+            KernelTime: LARGE_INTEGER,
+        }
+        struct WTS_PROCESS_INFO_EXW {
+            SessionId: u32,
+            ProcessId: u32,
+            pProcessName: PWSTR,
+            pUserSid: PSID,
+            NumberOfThreads: u32,
+            HandleCount: u32,
+            PagefileUsage: u32,
+            PeakPagefileUsage: u32,
+            WorkingSetSize: u32,
+            PeakWorkingSetSize: u32,
+            UserTime: LARGE_INTEGER,
+            KernelTime: LARGE_INTEGER,
+        }
+        const WTS_PROCESS_INFO_LEVEL_0: u32 = 0;
+        const WTS_PROCESS_INFO_LEVEL_1: u32 = 1;
+        const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0;
+        const WTS_PROTOCOL_TYPE_ICA: u32 = 1;
+        const WTS_PROTOCOL_TYPE_RDP: u32 = 2;
+        const WTS_SECURITY_ALL_ACCESS: u32 = 983999;
+        const WTS_SECURITY_CONNECT: u32 = 256;
+        const WTS_SECURITY_CURRENT_GUEST_ACCESS: u32 = 72;
+        const WTS_SECURITY_CURRENT_USER_ACCESS: u32 = 6;
+        const WTS_SECURITY_DISCONNECT: u32 = 512;
+        const WTS_SECURITY_GUEST_ACCESS: u32 = 32;
+        const WTS_SECURITY_LOGOFF: u32 = 64;
+        const WTS_SECURITY_LOGON: u32 = 32;
+        const WTS_SECURITY_MESSAGE: u32 = 128;
+        const WTS_SECURITY_QUERY_INFORMATION: u32 = 1;
+        const WTS_SECURITY_REMOTE_CONTROL: u32 = 16;
+        const WTS_SECURITY_RESET: u32 = 4;
+        const WTS_SECURITY_SET_INFORMATION: u32 = 2;
+        const WTS_SECURITY_USER_ACCESS: u32 = 329;
+        const WTS_SECURITY_VIRTUAL_CHANNELS: u32 = 8;
+        struct WTS_SERIALIZED_USER_CREDENTIAL {
+            SerializationLength: u32,
+            Serialization: *mut u8,
+        }
+        struct WTS_SERVER_INFOA {
+            pServerName: PSTR,
+        }
+        struct WTS_SERVER_INFOW {
+            pServerName: PWSTR,
+        }
+        const WTS_SESSIONSTATE_LOCK: u32 = 0;
+        const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295;
+        const WTS_SESSIONSTATE_UNLOCK: u32 = 1;
+        struct WTS_SESSION_ADDRESS {
+            AddressFamily: u32,
+            Address: [u8; 20],
+        }
+        struct WTS_SESSION_INFOA {
+            SessionId: u32,
+            pWinStationName: PSTR,
+            State: WTS_CONNECTSTATE_CLASS,
+        }
+        struct WTS_SESSION_INFOW {
+            SessionId: u32,
+            pWinStationName: PWSTR,
+            State: WTS_CONNECTSTATE_CLASS,
+        }
+        struct WTS_SESSION_INFO_1A {
+            ExecEnvId: u32,
+            State: WTS_CONNECTSTATE_CLASS,
+            SessionId: u32,
+            pSessionName: PSTR,
+            pHostName: PSTR,
+            pUserName: PSTR,
+            pDomainName: PSTR,
+            pFarmName: PSTR,
+        }
+        struct WTS_SESSION_INFO_1W {
+            ExecEnvId: u32,
+            State: WTS_CONNECTSTATE_CLASS,
+            SessionId: u32,
+            pSessionName: PWSTR,
+            pHostName: PWSTR,
+            pUserName: PWSTR,
+            pDomainName: PWSTR,
+            pFarmName: PWSTR,
+        }
+        #[repr(i32)]
+        enum WTS_TYPE_CLASS {
+            WTSTypeProcessInfoLevel0 = 0,
+            WTSTypeProcessInfoLevel1 = 1,
+            WTSTypeSessionInfoLevel1 = 2,
+            WTSTypeCloudAuthServerNonce = 3,
+            WTSTypeSerializedUserCredential = 4,
+        }
+        struct WTS_VALIDATION_INFORMATIONA {
+            ProductInfo: PRODUCT_INFOA,
+            License: [u8; 16384],
+            LicenseLength: u32,
+            HardwareID: [u8; 20],
+            HardwareIDLength: u32,
+        }
+        struct WTS_VALIDATION_INFORMATIONW {
+            ProductInfo: PRODUCT_INFOW,
+            License: [u8; 16384],
+            LicenseLength: u32,
+            HardwareID: [u8; 20],
+            HardwareIDLength: u32,
+        }
+        #[repr(i32)]
+        enum WTS_VIRTUAL_CLASS {
+            WTSVirtualClientData = 0,
+            WTSVirtualFileHandle = 1,
+        }
+        const WTS_WSD_FASTREBOOT: u32 = 16;
+        const WTS_WSD_LOGOFF: u32 = 1;
+        const WTS_WSD_POWEROFF: u32 = 8;
+        const WTS_WSD_REBOOT: u32 = 4;
+        const WTS_WSD_SHUTDOWN: u32 = 2;
+    }
+}

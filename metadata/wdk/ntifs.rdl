@@ -1,0 +1,3222 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        extern fn ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK(#[r#in] #[out] CallbackContext: HANDLE, ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, AllocationType: u32, PageProtection: u32, #[len_param(7)] #[r#in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
+        const ANSI_DOS_DOT: u32 = 34;
+        const ANSI_DOS_QM: u32 = 62;
+        const ANSI_DOS_STAR: u32 = 60;
+        struct ATOMIC_CREATE_ECP_CONTEXT {
+            Size: u16,
+            InFlags: u16,
+            OutFlags: u16,
+            ReparseBufferLength: u16,
+            ReparseBuffer: PREPARSE_DATA_BUFFER,
+            FileSize: i64,
+            ValidDataLength: i64,
+            FileTimestamps: PFILE_TIMESTAMPS,
+            FileAttributes: u32,
+            UsnSourceInfo: u32,
+            Usn: USN,
+            SuppressFileAttributeInheritanceMask: u32,
+            InOpFlags: u32,
+            OutOpFlags: u32,
+            InGenFlags: u32,
+            OutGenFlags: u32,
+            CaseSensitiveFlagsMask: u32,
+            InCaseSensitiveFlags: u32,
+            OutCaseSensitiveFlags: u32,
+        }
+        const ATOMIC_CREATE_ECP_IN_FLAG_BEST_EFFORT: u32 = 256;
+        const ATOMIC_CREATE_ECP_IN_FLAG_EOF_SPECIFIED: u32 = 4;
+        const ATOMIC_CREATE_ECP_IN_FLAG_FILE_ATTRIBUTES_SPECIFIED: u32 = 32;
+        const ATOMIC_CREATE_ECP_IN_FLAG_GEN_FLAGS_SPECIFIED: u32 = 32768;
+        const ATOMIC_CREATE_ECP_IN_FLAG_MARK_USN_SOURCE_INFO: u32 = 2048;
+        const ATOMIC_CREATE_ECP_IN_FLAG_OPERATION_MASK: u32 = 255;
+        const ATOMIC_CREATE_ECP_IN_FLAG_OP_FLAGS_SPECIFIED: u32 = 128;
+        const ATOMIC_CREATE_ECP_IN_FLAG_REPARSE_POINT_SPECIFIED: u32 = 2;
+        const ATOMIC_CREATE_ECP_IN_FLAG_SPARSE_SPECIFIED: u32 = 1;
+        const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_DIR_CHANGE_NOTIFY: u32 = 1024;
+        const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_FILE_ATTRIBUTE_INHERITANCE: u32 = 64;
+        const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_PARENT_TIMESTAMPS_UPDATE: u32 = 512;
+        const ATOMIC_CREATE_ECP_IN_FLAG_TIMESTAMPS_SPECIFIED: u32 = 16;
+        const ATOMIC_CREATE_ECP_IN_FLAG_VDL_SPECIFIED: u32 = 8;
+        const ATOMIC_CREATE_ECP_IN_FLAG_WRITE_USN_CLOSE_RECORD: u32 = 4096;
+        const ATOMIC_CREATE_ECP_IN_OP_FLAG_CASE_SENSITIVE_FLAGS_SPECIFIED: u32 = 1;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_EOF_SET: u32 = 4;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_RETURNED: u32 = 512;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_SET: u32 = 32;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTE_INHERITANCE_SUPPRESSED: u32 = 64;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_OPERATION_MASK: u32 = 255;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_OP_FLAGS_HONORED: u32 = 128;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_REPARSE_POINT_SET: u32 = 2;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_SPARSE_SET: u32 = 1;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_RETURNED: u32 = 256;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_SET: u32 = 16;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_USN_CLOSE_RECORD_WRITTEN: u32 = 2048;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_USN_RETURNED: u32 = 4096;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_USN_SOURCE_INFO_MARKED: u32 = 1024;
+        const ATOMIC_CREATE_ECP_OUT_FLAG_VDL_SET: u32 = 8;
+        const ATOMIC_CREATE_ECP_OUT_OP_FLAG_CASE_SENSITIVE_FLAGS_SET: u32 = 1;
+        struct BASE_MCB {
+            MaximumPairCount: u32,
+            PairCount: u32,
+            PoolType: u16,
+            Flags: u16,
+            Mapping: *mut void,
+        }
+        struct CACHE_MANAGER_CALLBACKS {
+            AcquireForLazyWrite: PACQUIRE_FOR_LAZY_WRITE,
+            ReleaseFromLazyWrite: PRELEASE_FROM_LAZY_WRITE,
+            AcquireForReadAhead: PACQUIRE_FOR_READ_AHEAD,
+            ReleaseFromReadAhead: PRELEASE_FROM_READ_AHEAD,
+        }
+        struct CACHE_MANAGER_CALLBACKS_EX {
+            Version: u16,
+            Size: u16,
+            Functions: CACHE_MANAGER_CALLBACK_FUNCTIONS,
+        }
+        const CACHE_MANAGER_CALLBACKS_EX_V1: u32 = 1;
+        struct CACHE_MANAGER_CALLBACK_FUNCTIONS {
+            AcquireForLazyWriteEx: PACQUIRE_FOR_LAZY_WRITE_EX,
+            ReleaseFromLazyWrite: PRELEASE_FROM_LAZY_WRITE,
+            AcquireForReadAhead: PACQUIRE_FOR_READ_AHEAD,
+            ReleaseFromReadAhead: PRELEASE_FROM_READ_AHEAD,
+        }
+        struct CACHE_UNINITIALIZE_EVENT {
+            Next: *mut CACHE_UNINITIALIZE_EVENT,
+            Event: KEVENT,
+        }
+        const CACHE_USE_DIRECT_ACCESS_MAPPING: u32 = 1;
+        const CACHE_VALID_FLAGS: u32 = 1;
+        const CC_ACQUIRE_DONT_WAIT: u32 = 1;
+        const CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE: u32 = 1;
+        const CC_AGGRESSIVE_UNMAP_BEHIND: u32 = 1;
+        struct CC_ASYNC_READ_CONTEXT {
+            CompletionRoutine: PASYNC_READ_COMPLETION_CALLBACK,
+            Context: *mut void,
+            Mdl: PMDL,
+            RequestorMode: KPROCESSOR_MODE,
+            NestingLevel: u32,
+        }
+        struct CC_DIRTY_PAGES_INFO {
+            Version: u32,
+            DirtyPageThreshold: i64,
+            DirtyPageTarget: i64,
+            CleanLockedCachedPagesThreshold: i64,
+            CleanLockedCachedPagesTarget: i64,
+            CurrentDirtyPages: i64,
+            CurrentCleanLockedCachedPages: i64,
+            CurrentPagesQueuedForWriting: i64,
+        }
+        const CC_DIRTY_PAGES_INFO_V1: u32 = 1;
+        const CC_DISABLE_DIRTY_PAGE_TRACKING: u32 = 8;
+        const CC_DISABLE_READ_AHEAD: u32 = 2;
+        const CC_DISABLE_UNMAP_BEHIND: u32 = 32;
+        const CC_DISABLE_WRITE_BEHIND: u32 = 4;
+        const CC_ENABLE_CPU_CACHE: u32 = 268435456;
+        const CC_ENABLE_DISK_IO_ACCOUNTING: u32 = 16;
+        struct CC_ERROR_CALLBACK_CONTEXT {
+            NodeByteSize: CSHORT,
+            ErrorCode: NTSTATUS,
+        }
+        struct CC_FILE_SIZES {
+            AllocationSize: LARGE_INTEGER,
+            FileSize: LARGE_INTEGER,
+            ValidDataLength: LARGE_INTEGER,
+        }
+        const CC_FLUSH_AND_PURGE_GATHER_DIRTY_BITS: u32 = 2;
+        const CC_FLUSH_AND_PURGE_NO_PURGE: u32 = 1;
+        const CC_FLUSH_AND_PURGE_WRITEABLE_VIEWS_NOTSEEN: u32 = 4;
+        struct COMPRESSED_DATA_INFO {
+            CompressionFormatAndEngine: u16,
+            CompressionUnitShift: u8,
+            ChunkShift: u8,
+            ClusterShift: u8,
+            Reserved: u8,
+            NumberOfChunks: u16,
+            CompressedChunkSizes: [u32; 1],
+        }
+        const COMPRESSION_ENGINE_MASK: u32 = 65280;
+        const COMPRESSION_ENGINE_MAX: u32 = 512;
+        const COMPRESSION_FORMAT_ENGINE_MASK: u32 = 65535;
+        const COMPRESSION_FORMAT_MASK: u32 = 255;
+        const COMPRESSION_FORMAT_MAX: u32 = 8;
+        const COPY_FILE_CHUNK_DUPLICATE_EXTENTS: u32 = 1;
+        struct COPY_INFORMATION {
+            SourceFileObject: PFILE_OBJECT,
+            SourceFileOffset: i64,
+        }
+        struct CREATE_REDIRECTION_ECP_CONTEXT {
+            Size: u16,
+            Flags: u16,
+            FileId: FILE_ID_128,
+            VolumeGuid: GUID,
+        }
+        const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_LAYER: u32 = 1;
+        const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REGISTERED_LAYER: u32 = 4;
+        const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REMOTE_LAYER: u32 = 8;
+        const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_SCRATCH: u32 = 2;
+        const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_USER_MODE: u32 = 16;
+        #[repr(i32)]
+        enum CSV_DOWN_LEVEL_FILE_TYPE {
+            CsvDownLevelFileObject = 0,
+            CsvCsvFsInternalFileObject = 1,
+        }
+        struct CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
+            Version: u32,
+            IsResume: BOOLEAN,
+            FileType: CSV_DOWN_LEVEL_FILE_TYPE,
+            SourceNodeId: u32,
+            DestinationNodeId: u32,
+        }
+        const CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT_V1: u32 = 1;
+        struct CSV_QUERY_FILE_REVISION_ECP_CONTEXT {
+            FileId: i64,
+            FileRevision: [i64; 3],
+        }
+        struct CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
+            FileId: FILE_ID_128,
+            FileRevision: [i64; 3],
+        }
+        struct CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
+            Size: usize,
+            PauseTimeoutInSeconds: u32,
+            Flags: u32,
+        }
+        const CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1;
+        #[encoding("utf-16")]
+        const DD_MUP_DEVICE_NAME: String = "\\Device\\Mup";
+        const DEVICE_RESET_KEEP_STACK: u32 = 4;
+        const DEVICE_RESET_RESERVED_0: u32 = 1;
+        const DEVICE_RESET_RESERVED_1: u32 = 2;
+        const DOS_DOT: u32 = 34;
+        const DOS_QM: u32 = 62;
+        const DOS_STAR: u32 = 60;
+        const DO_NOT_PURGE_DIRTY_PAGES: u32 = 4;
+        const DO_NOT_RETRY_PURGE: u32 = 2;
+        const DO_SUPPORTS_PERSISTENT_ACLS: u32 = 131072;
+        extern fn DRIVER_FS_NOTIFICATION(DeviceObject: *const DEVICE_OBJECT, FsActive: BOOLEAN);
+        struct DUAL_OPLOCK_KEY_ECP_CONTEXT {
+            ParentOplockKey: GUID,
+            TargetOplockKey: GUID,
+            ParentOplockKeySet: BOOLEAN,
+            TargetOplockKeySet: BOOLEAN,
+        }
+        struct DUPLICATE_CLUSTER_DATA {
+            SourceLcn: i64,
+            TargetLcn: i64,
+            TargetFileOffset: LARGE_INTEGER,
+            DuplicationLimit: u32,
+            Reserved: u32,
+        }
+        #[encoding("ansi")]
+        const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY: String = "ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY";
+        #[encoding("utf-16")]
+        const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY_U: String = "ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY";
+        #[encoding("ansi")]
+        const EA_NAME_NETWORK_OPEN_ECP_PRIVACY: String = "ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY";
+        #[encoding("utf-16")]
+        const EA_NAME_NETWORK_OPEN_ECP_PRIVACY_U: String = "ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY";
+        struct ECP_HEADER {}
+        struct ECP_OPEN_PARAMETERS {
+            Size: u16,
+            Reserved: u16,
+            Flags: u32,
+        }
+        const ECP_OPEN_PARAMETERS_FLAG_FAIL_ON_CASE_SENSITIVE_DIR: u32 = 16;
+        const ECP_OPEN_PARAMETERS_FLAG_IGNORE_DIR_CASE_SENSITIVITY: u32 = 8;
+        const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_DELETE: u32 = 4;
+        const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_READ: u32 = 1;
+        const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_WRITE: u32 = 2;
+        const ECP_TYPE_CLFS_CREATE_CONTAINER: GUID = 0x8650c9fe_0cec_8bf6_bd1e_835956541090;
+        const ECP_TYPE_IO_STOP_ON_SYMLINK_FILTER_GUID: GUID = 0x940e5d56_1646_4d3c_87b6_577ec36a1466;
+        const ECP_TYPE_OPEN_REPARSE_GUID: GUID = 0x323eb6a8_affd_4d95_8230_863bce09d37a;
+        struct EOF_WAIT_BLOCK {
+            EofWaitLinks: LIST_ENTRY,
+            Event: KEVENT,
+        }
+        struct EXTENT_READ_CACHE_INFO_BUFFER {
+            AllocatedCache: LARGE_INTEGER,
+            PopulatedCache: LARGE_INTEGER,
+            InErrorCache: LARGE_INTEGER,
+        }
+        #[repr(i32)]
+        enum FAST_IO_POSSIBLE {
+            FastIoIsNotPossible = 0,
+            FastIoIsPossible = 1,
+            FastIoIsQuestionable = 2,
+        }
+        struct FILE_ACCESS_INFORMATION {
+            AccessFlags: ACCESS_MASK,
+        }
+        const FILE_ACTION_ADDED_STREAM: u32 = 6;
+        const FILE_ACTION_ID_NOT_TUNNELLED: u32 = 10;
+        const FILE_ACTION_MODIFIED_STREAM: u32 = 8;
+        const FILE_ACTION_REMOVED_BY_DELETE: u32 = 9;
+        const FILE_ACTION_REMOVED_STREAM: u32 = 7;
+        const FILE_ACTION_TUNNELLED_ID_COLLISION: u32 = 11;
+        struct FILE_ALLOCATION_INFORMATION {
+            AllocationSize: LARGE_INTEGER,
+        }
+        struct FILE_ALL_INFORMATION {
+            BasicInformation: FILE_BASIC_INFORMATION,
+            StandardInformation: FILE_STANDARD_INFORMATION,
+            InternalInformation: FILE_INTERNAL_INFORMATION,
+            EaInformation: FILE_EA_INFORMATION,
+            AccessInformation: FILE_ACCESS_INFORMATION,
+            PositionInformation: FILE_POSITION_INFORMATION,
+            ModeInformation: FILE_MODE_INFORMATION,
+            AlignmentInformation: FILE_ALIGNMENT_INFORMATION,
+            NameInformation: FILE_NAME_INFORMATION,
+        }
+        struct FILE_BOTH_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            ShortNameLength: CCHAR,
+            ShortName: [u16; 12],
+            FileName: [u16; 1],
+        }
+        const FILE_CLEANUP_FILE_DELETED: u32 = 4;
+        const FILE_CLEANUP_FILE_REMAINS: u32 = 2;
+        const FILE_CLEANUP_LINK_DELETED: u32 = 8;
+        const FILE_CLEANUP_POSIX_STYLE_DELETE: u32 = 32;
+        const FILE_CLEANUP_STREAM_DELETED: u32 = 16;
+        const FILE_CLEANUP_UNKNOWN: u32 = 0;
+        const FILE_CLEANUP_WRONG_DEVICE: u32 = 1;
+        struct FILE_COMPLETION_INFORMATION {
+            Port: HANDLE,
+            Key: *mut void,
+        }
+        struct FILE_COMPRESSION_INFORMATION {
+            CompressedFileSize: LARGE_INTEGER,
+            CompressionFormat: u16,
+            CompressionUnitShift: u8,
+            ChunkShift: u8,
+            ClusterShift: u8,
+            Reserved: [u8; 3],
+        }
+        struct FILE_DIRECTORY_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            FileName: [u16; 1],
+        }
+        struct FILE_EA_INFORMATION {
+            EaSize: u32,
+        }
+        const FILE_EA_TYPE_ASCII: u32 = 65533;
+        const FILE_EA_TYPE_ASN1: u32 = 65501;
+        const FILE_EA_TYPE_BINARY: u32 = 65534;
+        const FILE_EA_TYPE_BITMAP: u32 = 65531;
+        const FILE_EA_TYPE_EA: u32 = 65518;
+        const FILE_EA_TYPE_FAMILY_IDS: u32 = 65281;
+        const FILE_EA_TYPE_ICON: u32 = 65529;
+        const FILE_EA_TYPE_METAFILE: u32 = 65530;
+        const FILE_EA_TYPE_MVMT: u32 = 65503;
+        const FILE_EA_TYPE_MVST: u32 = 65502;
+        struct FILE_END_OF_FILE_INFORMATION_EX {
+            EndOfFile: LARGE_INTEGER,
+            PagingFileSizeInMM: LARGE_INTEGER,
+            PagingFileMaxSize: LARGE_INTEGER,
+            Flags: u32,
+        }
+        struct FILE_FS_ATTRIBUTE_INFORMATION {
+            FileSystemAttributes: u32,
+            MaximumComponentNameLength: i32,
+            FileSystemNameLength: u32,
+            FileSystemName: [u16; 1],
+        }
+        struct FILE_FS_CONTROL_INFORMATION {
+            FreeSpaceStartFiltering: LARGE_INTEGER,
+            FreeSpaceThreshold: LARGE_INTEGER,
+            FreeSpaceStopFiltering: LARGE_INTEGER,
+            DefaultQuotaThreshold: LARGE_INTEGER,
+            DefaultQuotaLimit: LARGE_INTEGER,
+            FileSystemControlFlags: u32,
+        }
+        struct FILE_FS_DATA_COPY_INFORMATION {
+            NumberOfCopies: u32,
+        }
+        struct FILE_FS_DRIVER_PATH_INFORMATION {
+            DriverInPath: BOOLEAN,
+            DriverNameLength: u32,
+            DriverName: [u16; 1],
+        }
+        struct FILE_FS_GUID_INFORMATION {
+            FsGuid: GUID,
+        }
+        struct FILE_FS_VOLUME_FLAGS_INFORMATION {
+            Flags: u32,
+        }
+        struct FILE_FULL_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            FileName: [u16; 1],
+        }
+        struct FILE_GET_EA_INFORMATION {
+            NextEntryOffset: u32,
+            EaNameLength: u8,
+            EaName: [i8; 1],
+        }
+        struct FILE_GET_QUOTA_INFORMATION {
+            NextEntryOffset: u32,
+            SidLength: u32,
+            Sid: SID,
+        }
+        struct FILE_ID_64_EXTD_BOTH_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            ReparsePointTag: u32,
+            FileId: LARGE_INTEGER,
+            ShortNameLength: CCHAR,
+            ShortName: [u16; 12],
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_64_EXTD_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            ReparsePointTag: u32,
+            FileId: LARGE_INTEGER,
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_ALL_EXTD_BOTH_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            ReparsePointTag: u32,
+            FileId: LARGE_INTEGER,
+            FileId128: FILE_ID_128,
+            ShortNameLength: CCHAR,
+            ShortName: [u16; 12],
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_ALL_EXTD_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            ReparsePointTag: u32,
+            FileId: LARGE_INTEGER,
+            FileId128: FILE_ID_128,
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_BOTH_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            ShortNameLength: CCHAR,
+            ShortName: [u16; 12],
+            FileId: LARGE_INTEGER,
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_EXTD_BOTH_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            ReparsePointTag: u32,
+            FileId: FILE_ID_128,
+            ShortNameLength: CCHAR,
+            ShortName: [u16; 12],
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_EXTD_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            ReparsePointTag: u32,
+            FileId: FILE_ID_128,
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_FULL_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            FileId: LARGE_INTEGER,
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_GLOBAL_TX_DIR_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            FileId: LARGE_INTEGER,
+            LockingTransactionId: GUID,
+            TxInfoFlags: u32,
+            FileName: [u16; 1],
+        }
+        const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_OUTSIDE_TX: u32 = 4;
+        const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_TO_TX: u32 = 2;
+        const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_WRITELOCKED: u32 = 1;
+        struct FILE_ID_INFORMATION {
+            VolumeSerialNumber: u64,
+            FileId: FILE_ID_128,
+        }
+        struct FILE_INFORMATION_DEFINITION {
+            Class: FILE_INFORMATION_CLASS,
+            NextEntryOffset: u32,
+            FileNameOffset: u32,
+            FileNameLengthOffset: u32,
+        }
+        struct FILE_INTERNAL_INFORMATION {
+            IndexNumber: LARGE_INTEGER,
+        }
+        struct FILE_KNOWN_FOLDER_INFORMATION {
+            Type: FILE_KNOWN_FOLDER_TYPE,
+        }
+        #[repr(i32)]
+        enum FILE_KNOWN_FOLDER_TYPE {
+            KnownFolderNone = 0,
+            KnownFolderDesktop = 1,
+            KnownFolderDocuments = 2,
+            KnownFolderDownloads = 3,
+            KnownFolderMusic = 4,
+            KnownFolderPictures = 5,
+            KnownFolderVideos = 6,
+            KnownFolderOther = 7,
+            KnownFolderMax = 7,
+        }
+        struct FILE_LINKS_FULL_ID_INFORMATION {
+            BytesNeeded: u32,
+            EntriesReturned: u32,
+            Entry: FILE_LINK_ENTRY_FULL_ID_INFORMATION,
+        }
+        struct FILE_LINKS_INFORMATION {
+            BytesNeeded: u32,
+            EntriesReturned: u32,
+            Entry: FILE_LINK_ENTRY_INFORMATION,
+        }
+        struct FILE_LINK_ENTRY_FULL_ID_INFORMATION {
+            NextEntryOffset: u32,
+            ParentFileId: FILE_ID_128,
+            FileNameLength: u32,
+            FileName: [u16; 1],
+        }
+        struct FILE_LINK_ENTRY_INFORMATION {
+            NextEntryOffset: u32,
+            ParentFileId: i64,
+            FileNameLength: u32,
+            FileName: [u16; 1],
+        }
+        const FILE_LINK_FORCE_RESIZE_SOURCE_SR: u32 = 256;
+        const FILE_LINK_FORCE_RESIZE_SR: u32 = 384;
+        const FILE_LINK_FORCE_RESIZE_TARGET_SR: u32 = 128;
+        const FILE_LINK_IGNORE_READONLY_ATTRIBUTE: u32 = 64;
+        struct FILE_LINK_INFORMATION {
+            Anonymous: union {
+                ReplaceIfExists: BOOLEAN,
+                Flags: u32,
+            },
+            RootDirectory: HANDLE,
+            FileNameLength: u32,
+            FileName: [u16; 1],
+        }
+        const FILE_LINK_NO_DECREASE_AVAILABLE_SPACE: u32 = 32;
+        const FILE_LINK_NO_INCREASE_AVAILABLE_SPACE: u32 = 16;
+        const FILE_LINK_POSIX_SEMANTICS: u32 = 2;
+        const FILE_LINK_PRESERVE_AVAILABLE_SPACE: u32 = 48;
+        const FILE_LINK_REPLACE_IF_EXISTS: u32 = 1;
+        const FILE_LINK_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8;
+        struct FILE_LOCK {
+            CompleteLockIrpRoutine: PCOMPLETE_LOCK_IRP_ROUTINE,
+            UnlockRoutine: PUNLOCK_ROUTINE,
+            FastIoIsQuestionable: BOOLEAN,
+            SpareC: [BOOLEAN; 3],
+            LockInformation: *mut void,
+            LastReturnedLockInfo: FILE_LOCK_INFO,
+            LastReturnedLock: *mut void,
+            LockRequestsInProgress: i32,
+        }
+        struct FILE_LOCK_INFO {
+            StartingByte: LARGE_INTEGER,
+            Length: LARGE_INTEGER,
+            ExclusiveLock: BOOLEAN,
+            Key: u32,
+            FileObject: PFILE_OBJECT,
+            ProcessId: *mut void,
+            EndingByte: LARGE_INTEGER,
+        }
+        struct FILE_MAILSLOT_QUERY_INFORMATION {
+            MaximumMessageSize: u32,
+            MailslotQuota: u32,
+            NextMessageSize: u32,
+            MessagesAvailable: u32,
+            ReadTimeout: LARGE_INTEGER,
+        }
+        struct FILE_MAILSLOT_SET_INFORMATION {
+            ReadTimeout: PLARGE_INTEGER,
+        }
+        struct FILE_MODE_INFORMATION {
+            Mode: u32,
+        }
+        struct FILE_MOVE_CLUSTER_INFORMATION {
+            ClusterCount: u32,
+            RootDirectory: HANDLE,
+            FileNameLength: u32,
+            FileName: [u16; 1],
+        }
+        struct FILE_NAMES_INFORMATION {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            FileNameLength: u32,
+            FileName: [u16; 1],
+        }
+        const FILE_NEED_EA: u32 = 128;
+        struct FILE_NETWORK_PHYSICAL_NAME_INFORMATION {
+            FileNameLength: u32,
+            FileName: [u16; 1],
+        }
+        const FILE_NOTIFY_CHANGE_EA: u32 = 128;
+        const FILE_NOTIFY_CHANGE_NAME: u32 = 3;
+        const FILE_NOTIFY_CHANGE_STREAM_NAME: u32 = 512;
+        const FILE_NOTIFY_CHANGE_STREAM_SIZE: u32 = 1024;
+        const FILE_NOTIFY_CHANGE_STREAM_WRITE: u32 = 2048;
+        const FILE_NOTIFY_VALID_MASK: u32 = 4095;
+        struct FILE_OBJECTID_INFORMATION {
+            FileReference: i64,
+            ObjectId: [u8; 16],
+            Anonymous: union {
+                Anonymous: struct {
+                    BirthVolumeId: [u8; 16],
+                    BirthObjectId: [u8; 16],
+                    DomainId: [u8; 16],
+                },
+                ExtendedInfo: [u8; 48],
+            },
+        }
+        const FILE_OPBATCH_BREAK_UNDERWAY: u32 = 9;
+        const FILE_OPLOCK_BROKEN_TO_LEVEL_2: u32 = 7;
+        const FILE_OPLOCK_BROKEN_TO_NONE: u32 = 8;
+        const FILE_PIPE_ACCEPT_REMOTE_CLIENTS: u32 = 0;
+        struct FILE_PIPE_ASSIGN_EVENT_BUFFER {
+            EventHandle: HANDLE,
+            KeyValue: u32,
+        }
+        const FILE_PIPE_BYTE_STREAM_MODE: u32 = 0;
+        const FILE_PIPE_BYTE_STREAM_TYPE: u32 = 0;
+        const FILE_PIPE_CLIENT_END: u32 = 0;
+        struct FILE_PIPE_CLIENT_PROCESS_BUFFER {
+            ClientSession: *mut void,
+            ClientProcess: *mut void,
+        }
+        struct FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
+            ClientSession: *mut void,
+            ClientProcess: *mut void,
+            ClientComputerNameLength: u16,
+            ClientComputerBuffer: [u16; 16],
+        }
+        struct FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
+            ClientSession: u64,
+            ClientProcess: *mut void,
+        }
+        const FILE_PIPE_CLOSING_STATE: u32 = 4;
+        const FILE_PIPE_COMPLETE_OPERATION: u32 = 1;
+        const FILE_PIPE_COMPUTER_NAME_LENGTH: u32 = 15;
+        const FILE_PIPE_CONNECTED_STATE: u32 = 3;
+        struct FILE_PIPE_CREATE_SYMLINK_INPUT {
+            NameOffset: u16,
+            NameLength: u16,
+            SubstituteNameOffset: u16,
+            SubstituteNameLength: u16,
+            Flags: u32,
+        }
+        struct FILE_PIPE_DELETE_SYMLINK_INPUT {
+            NameOffset: u16,
+            NameLength: u16,
+        }
+        const FILE_PIPE_DISCONNECTED_STATE: u32 = 1;
+        struct FILE_PIPE_EVENT_BUFFER {
+            NamedPipeState: u32,
+            EntryType: u32,
+            ByteCount: u32,
+            KeyValue: u32,
+            NumberRequests: u32,
+        }
+        const FILE_PIPE_FULL_DUPLEX: u32 = 2;
+        const FILE_PIPE_INBOUND: u32 = 0;
+        struct FILE_PIPE_INFORMATION {
+            ReadMode: u32,
+            CompletionMode: u32,
+        }
+        const FILE_PIPE_LISTENING_STATE: u32 = 2;
+        struct FILE_PIPE_LOCAL_INFORMATION {
+            NamedPipeType: u32,
+            NamedPipeConfiguration: u32,
+            MaximumInstances: u32,
+            CurrentInstances: u32,
+            InboundQuota: u32,
+            ReadDataAvailable: u32,
+            OutboundQuota: u32,
+            WriteQuotaAvailable: u32,
+            NamedPipeState: u32,
+            NamedPipeEnd: u32,
+        }
+        const FILE_PIPE_MESSAGE_MODE: u32 = 1;
+        const FILE_PIPE_MESSAGE_TYPE: u32 = 1;
+        const FILE_PIPE_OUTBOUND: u32 = 1;
+        struct FILE_PIPE_PEEK_BUFFER {
+            NamedPipeState: u32,
+            ReadDataAvailable: u32,
+            NumberOfMessages: u32,
+            MessageLength: u32,
+            Data: [i8; 1],
+        }
+        const FILE_PIPE_QUEUE_OPERATION: u32 = 0;
+        const FILE_PIPE_READ_DATA: u32 = 0;
+        const FILE_PIPE_REJECT_REMOTE_CLIENTS: u32 = 2;
+        struct FILE_PIPE_REMOTE_INFORMATION {
+            CollectDataTime: LARGE_INTEGER,
+            MaximumCollectionCount: u32,
+        }
+        const FILE_PIPE_SERVER_END: u32 = 1;
+        struct FILE_PIPE_SILO_ARRIVAL_INPUT {
+            JobHandle: HANDLE,
+        }
+        const FILE_PIPE_SYMLINK_FLAG_GLOBAL: u32 = 1;
+        const FILE_PIPE_SYMLINK_FLAG_RELATIVE: u32 = 2;
+        const FILE_PIPE_SYMLINK_VALID_FLAGS: u32 = 3;
+        const FILE_PIPE_TYPE_VALID_MASK: u32 = 3;
+        struct FILE_PIPE_WAIT_FOR_BUFFER {
+            Timeout: LARGE_INTEGER,
+            NameLength: u32,
+            TimeoutSpecified: BOOLEAN,
+            Name: [u16; 1],
+        }
+        const FILE_PIPE_WRITE_SPACE: u32 = 1;
+        struct FILE_QUOTA_INFORMATION {
+            NextEntryOffset: u32,
+            SidLength: u32,
+            ChangeTime: LARGE_INTEGER,
+            QuotaUsed: LARGE_INTEGER,
+            QuotaThreshold: LARGE_INTEGER,
+            QuotaLimit: LARGE_INTEGER,
+            Sid: SID,
+        }
+        struct FILE_REMOTE_PROTOCOL_INFORMATION {
+            StructureVersion: u16,
+            StructureSize: u16,
+            Protocol: u32,
+            ProtocolMajorVersion: u16,
+            ProtocolMinorVersion: u16,
+            ProtocolRevision: u16,
+            Reserved: u16,
+            Flags: u32,
+            GenericReserved: struct {
+                Reserved: [u32; 8],
+            },
+            ProtocolSpecific: union {
+                Smb2: struct {
+                    Server: struct {
+                        Capabilities: u32,
+                    },
+                    Share: struct {
+                        Capabilities: u32,
+                        ShareFlags: u32,
+                        ShareType: u8,
+                        Reserved0: [u8; 3],
+                        Reserved1: u32,
+                    },
+                },
+                Reserved: [u32; 16],
+            },
+        }
+        const FILE_RENAME_FORCE_RESIZE_SOURCE_SR: u32 = 256;
+        const FILE_RENAME_FORCE_RESIZE_SR: u32 = 384;
+        const FILE_RENAME_FORCE_RESIZE_TARGET_SR: u32 = 128;
+        const FILE_RENAME_IGNORE_READONLY_ATTRIBUTE: u32 = 64;
+        struct FILE_RENAME_INFORMATION {
+            Anonymous: union {
+                ReplaceIfExists: BOOLEAN,
+                Flags: u32,
+            },
+            RootDirectory: HANDLE,
+            FileNameLength: u32,
+            FileName: [u16; 1],
+        }
+        const FILE_RENAME_NO_DECREASE_AVAILABLE_SPACE: u32 = 32;
+        const FILE_RENAME_NO_INCREASE_AVAILABLE_SPACE: u32 = 16;
+        const FILE_RENAME_POSIX_SEMANTICS: u32 = 2;
+        const FILE_RENAME_PRESERVE_AVAILABLE_SPACE: u32 = 48;
+        const FILE_RENAME_REPLACE_IF_EXISTS: u32 = 1;
+        const FILE_RENAME_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4;
+        const FILE_RENAME_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8;
+        struct FILE_REPARSE_POINT_INFORMATION {
+            FileReference: i64,
+            Tag: u32,
+        }
+        struct FILE_STANDARD_LINK_INFORMATION {
+            NumberOfAccessibleLinks: u32,
+            TotalNumberOfLinks: u32,
+            DeletePending: BOOLEAN,
+            Directory: BOOLEAN,
+        }
+        struct FILE_STORAGE_RESERVE_ID_INFORMATION {
+            StorageReserveId: STORAGE_RESERVE_ID,
+        }
+        struct FILE_STREAM_INFORMATION {
+            NextEntryOffset: u32,
+            StreamNameLength: u32,
+            StreamSize: LARGE_INTEGER,
+            StreamAllocationSize: LARGE_INTEGER,
+            StreamName: [u16; 1],
+        }
+        struct FILE_STREAM_RESERVATION_INFORMATION {
+            TrackedReservation: i64,
+            EnforcedReservation: i64,
+        }
+        struct FILE_TIMESTAMPS {
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+        }
+        struct FILE_TRACKING_INFORMATION {
+            DestinationFile: HANDLE,
+            ObjectInformationLength: u32,
+            ObjectInformation: [i8; 1],
+        }
+        const FILE_VC_CONTENT_INDEX_DISABLED: u32 = 8;
+        const FILE_VC_LOG_QUOTA_LIMIT: u32 = 32;
+        const FILE_VC_LOG_QUOTA_THRESHOLD: u32 = 16;
+        const FILE_VC_LOG_VOLUME_LIMIT: u32 = 128;
+        const FILE_VC_LOG_VOLUME_THRESHOLD: u32 = 64;
+        const FILE_VC_QUOTAS_INCOMPLETE: u32 = 256;
+        const FILE_VC_QUOTAS_REBUILDING: u32 = 512;
+        const FILE_VC_QUOTA_ENFORCE: u32 = 2;
+        const FILE_VC_QUOTA_MASK: u32 = 3;
+        const FILE_VC_QUOTA_NONE: u32 = 0;
+        const FILE_VC_QUOTA_TRACK: u32 = 1;
+        const FILE_VC_VALID_MASK: u32 = 1023;
+        struct FILE_VOLUME_NAME_INFORMATION {
+            DeviceNameLength: u32,
+            DeviceName: [u16; 1],
+        }
+        const FLAGS_DELAY_REASONS_BITMAP_SCANNED: u32 = 2;
+        const FLAGS_DELAY_REASONS_LOG_FILE_FULL: u32 = 1;
+        const FLAGS_END_OF_FILE_INFO_EX_EXTEND_PAGING: u32 = 1;
+        const FLAGS_END_OF_FILE_INFO_EX_NO_EXTRA_PAGING_EXTEND: u32 = 2;
+        const FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED: u32 = 4;
+        extern fn FREE_VIRTUAL_MEMORY_EX_CALLBACK(#[r#in] #[out] CallbackContext: HANDLE, ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, FreeType: u32) -> NTSTATUS;
+        struct FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
+            FileOffset: LARGE_INTEGER,
+            ByteCount: LARGE_INTEGER,
+            RecallOwnerGuid: GUID,
+            RecallMetadataBufferSize: u32,
+            RecallMetadataBuffer: [u8; 1],
+        }
+        const FSCTL_LMR_GET_LINK_TRACKING_INFORMATION: u32 = 1310952;
+        const FSCTL_LMR_SET_LINK_TRACKING_INFORMATION: u32 = 1310956;
+        const FSCTL_MAILSLOT_PEEK: u32 = 802819;
+        const FSCTL_PIPE_ASSIGN_EVENT: u32 = 1114112;
+        const FSCTL_PIPE_CREATE_SYMLINK: u32 = 1114188;
+        const FSCTL_PIPE_DELETE_SYMLINK: u32 = 1114192;
+        const FSCTL_PIPE_DISABLE_IMPERSONATE: u32 = 1114180;
+        const FSCTL_PIPE_DISCONNECT: u32 = 1114116;
+        const FSCTL_PIPE_FLUSH: u32 = 1146944;
+        const FSCTL_PIPE_GET_CONNECTION_ATTRIBUTE: u32 = 1114160;
+        const FSCTL_PIPE_GET_HANDLE_ATTRIBUTE: u32 = 1114168;
+        const FSCTL_PIPE_GET_PIPE_ATTRIBUTE: u32 = 1114152;
+        const FSCTL_PIPE_IMPERSONATE: u32 = 1114140;
+        const FSCTL_PIPE_INTERNAL_READ: u32 = 1138676;
+        const FSCTL_PIPE_INTERNAL_READ_OVFLOW: u32 = 1138688;
+        const FSCTL_PIPE_INTERNAL_TRANSCEIVE: u32 = 1171455;
+        const FSCTL_PIPE_INTERNAL_WRITE: u32 = 1155064;
+        const FSCTL_PIPE_LISTEN: u32 = 1114120;
+        const FSCTL_PIPE_PEEK: u32 = 1130508;
+        const FSCTL_PIPE_QUERY_CLIENT_PROCESS: u32 = 1114148;
+        const FSCTL_PIPE_QUERY_CLIENT_PROCESS_V2: u32 = 1114196;
+        const FSCTL_PIPE_QUERY_EVENT: u32 = 1114128;
+        const FSCTL_PIPE_SET_CLIENT_PROCESS: u32 = 1114144;
+        const FSCTL_PIPE_SET_CONNECTION_ATTRIBUTE: u32 = 1114164;
+        const FSCTL_PIPE_SET_HANDLE_ATTRIBUTE: u32 = 1114172;
+        const FSCTL_PIPE_SET_PIPE_ATTRIBUTE: u32 = 1114156;
+        const FSCTL_PIPE_SILO_ARRIVAL: u32 = 1146952;
+        const FSCTL_PIPE_TRANSCEIVE: u32 = 1163287;
+        const FSCTL_PIPE_WAIT: u32 = 1114136;
+        struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
+            FileOffset: LARGE_INTEGER,
+            ByteCount: LARGE_INTEGER,
+        }
+        struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT {
+            ExtentCount: u32,
+            TotalExtentCount: u32,
+            Extents: [u8; 1],
+        }
+        struct FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT {
+            NumaNode: u32,
+        }
+        struct FSCTL_UNMAP_SPACE_INPUT_BUFFER {
+            BytesToUnmap: LARGE_INTEGER,
+        }
+        struct FSCTL_UNMAP_SPACE_OUTPUT {
+            BytesUnmapped: LARGE_INTEGER,
+        }
+        const FSRTL_ADD_TC_CASE_SENSITIVE: u32 = 1;
+        const FSRTL_ADD_TC_KEY_BY_SHORT_NAME: u32 = 2;
+        struct FSRTL_ADVANCED_FCB_HEADER {
+            Base: FSRTL_COMMON_FCB_HEADER,
+            FastMutex: PFAST_MUTEX,
+            FilterContexts: LIST_ENTRY,
+            PushLock: usize,
+            FileContextSupportPointer: *mut *mut void,
+            Anonymous: union {
+                Oplock: OPLOCK,
+                ReservedForRemote: *mut void,
+            },
+            AePushLock: *mut void,
+            BypassIoOpenCount: u32,
+            ReservedContext: *mut FSRTL_PER_STREAM_CONTEXT,
+        }
+        type FSRTL_ALLOCATE_ECPLIST_FLAGS = u32;
+        const FSRTL_ALLOCATE_ECPLIST_FLAG_CHARGE_QUOTA: u32 = 1;
+        type FSRTL_ALLOCATE_ECP_FLAGS = u32;
+        const FSRTL_ALLOCATE_ECP_FLAG_CHARGE_QUOTA: u32 = 1;
+        const FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL: u32 = 2;
+        const FSRTL_ASYNC_CACHED_READ_TOP_LEVEL_IRP: isize = 7;
+        struct FSRTL_AUXILIARY_BUFFER {
+            Buffer: *mut void,
+            Length: u32,
+            Flags: u32,
+            Mdl: PMDL,
+        }
+        const FSRTL_AUXILIARY_FLAG_DEALLOCATE: u32 = 1;
+        const FSRTL_CACHE_TOP_LEVEL_IRP: isize = 2;
+        const FSRTL_CC_FLUSH_ERROR_FLAG_NO_HARD_ERROR: u32 = 1;
+        const FSRTL_CC_FLUSH_ERROR_FLAG_NO_LOG_ENTRY: u32 = 2;
+        #[repr(i32)]
+        enum FSRTL_CHANGE_BACKING_TYPE {
+            ChangeDataControlArea = 0,
+            ChangeImageControlArea = 1,
+            ChangeSharedCacheMap = 2,
+        }
+        struct FSRTL_COMMON_FCB_HEADER {
+            NodeTypeCode: CSHORT,
+            NodeByteSize: CSHORT,
+            Flags: u8,
+            IsFastIoPossible: u8,
+            Flags2: u8,
+            _bitfield: u8,
+            Resource: PERESOURCE,
+            PagingIoResource: PERESOURCE,
+            AllocationSize: LARGE_INTEGER,
+            FileSize: LARGE_INTEGER,
+            ValidDataLength: LARGE_INTEGER,
+        }
+        #[repr(i32)]
+        enum FSRTL_COMPARISON_RESULT {
+            LessThan = -1,
+            EqualTo = 0,
+            GreaterThan = 1,
+        }
+        const FSRTL_DRIVER_BACKING_FLAG_USE_PAGE_FILE: u32 = 1;
+        type FSRTL_ECP_LOOKASIDE_FLAGS = u32;
+        const FSRTL_ECP_LOOKASIDE_FLAG_NONPAGED_POOL: u32 = 2;
+        const FSRTL_FAST_IO_TOP_LEVEL_IRP: isize = 4;
+        const FSRTL_FAT_LEGAL: u32 = 1;
+        const FSRTL_FCB_HEADER_V0: u32 = 0;
+        const FSRTL_FCB_HEADER_V1: u32 = 1;
+        const FSRTL_FCB_HEADER_V2: u32 = 2;
+        const FSRTL_FCB_HEADER_V3: u32 = 3;
+        const FSRTL_FCB_HEADER_V4: u32 = 4;
+        const FSRTL_FCB_HEADER_V5: u32 = 5;
+        const FSRTL_FIND_TC_CASE_SENSITIVE: u32 = 1;
+        const FSRTL_FLAG2_BYPASSIO_STREAM_PAUSED: u32 = 32;
+        const FSRTL_FLAG2_DO_MODIFIED_WRITE: u32 = 1;
+        const FSRTL_FLAG2_IS_PAGING_FILE: u32 = 8;
+        const FSRTL_FLAG2_PURGE_WHEN_MAPPED: u32 = 4;
+        const FSRTL_FLAG2_SUPPORTS_FILTER_CONTEXTS: u32 = 2;
+        const FSRTL_FLAG2_WRITABLE_USER_MAPPED_FILE: u32 = 16;
+        const FSRTL_FLAG_ACQUIRE_MAIN_RSRC_EX: u32 = 8;
+        const FSRTL_FLAG_ACQUIRE_MAIN_RSRC_SH: u32 = 16;
+        const FSRTL_FLAG_ADVANCED_HEADER: u32 = 64;
+        const FSRTL_FLAG_EOF_ADVANCE_ACTIVE: u32 = 128;
+        const FSRTL_FLAG_FILE_LENGTH_CHANGED: u32 = 2;
+        const FSRTL_FLAG_FILE_MODIFIED: u32 = 1;
+        const FSRTL_FLAG_LIMIT_MODIFIED_PAGES: u32 = 4;
+        const FSRTL_FLAG_USER_MAPPED_FILE: u32 = 32;
+        const FSRTL_FSP_TOP_LEVEL_IRP: isize = 1;
+        const FSRTL_HPFS_LEGAL: u32 = 2;
+        const FSRTL_MAX_TOP_LEVEL_IRP_FLAG: isize = 65535;
+        const FSRTL_MOD_WRITE_TOP_LEVEL_IRP: isize = 3;
+        struct FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
+            ProviderId: u32,
+        }
+        struct FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
+            ProviderId: u32,
+            ProviderName: UNICODE_STRING,
+        }
+        const FSRTL_NETWORK1_TOP_LEVEL_IRP: isize = 5;
+        const FSRTL_NETWORK2_TOP_LEVEL_IRP: isize = 6;
+        const FSRTL_NTFS_LEGAL: u32 = 4;
+        const FSRTL_NTFS_STREAM_LEGAL: u32 = 20;
+        const FSRTL_OLE_LEGAL: u32 = 16;
+        struct FSRTL_PER_FILEOBJECT_CONTEXT {
+            Links: LIST_ENTRY,
+            OwnerId: *mut void,
+            InstanceId: *mut void,
+        }
+        struct FSRTL_PER_FILE_CONTEXT {
+            Links: LIST_ENTRY,
+            OwnerId: *mut void,
+            InstanceId: *mut void,
+            FreeCallback: PFREE_FUNCTION,
+        }
+        struct FSRTL_PER_STREAM_CONTEXT {
+            Links: LIST_ENTRY,
+            OwnerId: *mut void,
+            InstanceId: *mut void,
+            FreeCallback: PFREE_FUNCTION,
+        }
+        type FSRTL_UNC_HARDENING_CAPABILITIES = u32;
+        const FSRTL_UNC_HARDENING_CAPABILITIES_INTEGRITY: u32 = 2;
+        const FSRTL_UNC_HARDENING_CAPABILITIES_MUTUAL_AUTH: u32 = 1;
+        const FSRTL_UNC_HARDENING_CAPABILITIES_PRIVACY: u32 = 4;
+        type FSRTL_UNC_PROVIDER_FLAGS = u32;
+        const FSRTL_UNC_PROVIDER_FLAGS_CONTAINER_AWARE: u32 = 8;
+        const FSRTL_UNC_PROVIDER_FLAGS_CSC_ENABLED: u32 = 2;
+        const FSRTL_UNC_PROVIDER_FLAGS_DOMAIN_SVC_AWARE: u32 = 4;
+        const FSRTL_UNC_PROVIDER_FLAGS_MAILSLOTS_SUPPORTED: u32 = 1;
+        struct FSRTL_UNC_PROVIDER_REGISTRATION {
+            Size: u16,
+            Version: u16,
+            Anonymous: union {
+                ProviderFlags: FSRTL_UNC_PROVIDER_FLAGS,
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+            },
+            Anonymous2: union {
+                HardeningCapabilities: FSRTL_UNC_HARDENING_CAPABILITIES,
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+            },
+        }
+        const FSRTL_UNC_REGISTRATION_CURRENT_VERSION: u32 = 513;
+        const FSRTL_UNC_REGISTRATION_VERSION_0200: u32 = 512;
+        const FSRTL_UNC_REGISTRATION_VERSION_0201: u32 = 513;
+        const FSRTL_VIRTDISK_FULLY_ALLOCATED: u32 = 1;
+        const FSRTL_VIRTDISK_NO_DRIVE_LETTER: u32 = 2;
+        const FSRTL_VOLSNAP_TOP_LEVEL_IRP: isize = 8;
+        const FSRTL_VOLUME_BACKGROUND_FORMAT: u32 = 14;
+        const FSRTL_VOLUME_CHANGE_SIZE: u32 = 13;
+        const FSRTL_VOLUME_DISMOUNT: u32 = 1;
+        const FSRTL_VOLUME_DISMOUNT_FAILED: u32 = 2;
+        const FSRTL_VOLUME_FORCED_CLOSED: u32 = 10;
+        const FSRTL_VOLUME_INFO_MAKE_COMPAT: u32 = 11;
+        const FSRTL_VOLUME_LOCK: u32 = 3;
+        const FSRTL_VOLUME_LOCK_FAILED: u32 = 4;
+        const FSRTL_VOLUME_MOUNT: u32 = 6;
+        const FSRTL_VOLUME_NEEDS_CHKDSK: u32 = 7;
+        const FSRTL_VOLUME_PREPARING_EJECT: u32 = 12;
+        const FSRTL_VOLUME_UNLOCK: u32 = 5;
+        const FSRTL_VOLUME_WEARING_OUT: u32 = 9;
+        const FSRTL_VOLUME_WORM_NEAR_FULL: u32 = 8;
+        const FSRTL_WILD_CHARACTER: u32 = 8;
+        const FS_FILTER_ACQUIRE_FOR_CC_FLUSH: u8 = 251;
+        const FS_FILTER_ACQUIRE_FOR_MOD_WRITE: u8 = 253;
+        const FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: u8 = 255;
+        struct FS_FILTER_CALLBACKS {
+            SizeOfFsFilterCallbacks: u32,
+            Reserved: u32,
+            PreAcquireForSectionSynchronization: PFS_FILTER_CALLBACK,
+            PostAcquireForSectionSynchronization: PFS_FILTER_COMPLETION_CALLBACK,
+            PreReleaseForSectionSynchronization: PFS_FILTER_CALLBACK,
+            PostReleaseForSectionSynchronization: PFS_FILTER_COMPLETION_CALLBACK,
+            PreAcquireForCcFlush: PFS_FILTER_CALLBACK,
+            PostAcquireForCcFlush: PFS_FILTER_COMPLETION_CALLBACK,
+            PreReleaseForCcFlush: PFS_FILTER_CALLBACK,
+            PostReleaseForCcFlush: PFS_FILTER_COMPLETION_CALLBACK,
+            PreAcquireForModifiedPageWriter: PFS_FILTER_CALLBACK,
+            PostAcquireForModifiedPageWriter: PFS_FILTER_COMPLETION_CALLBACK,
+            PreReleaseForModifiedPageWriter: PFS_FILTER_CALLBACK,
+            PostReleaseForModifiedPageWriter: PFS_FILTER_COMPLETION_CALLBACK,
+            PreQueryOpen: PFS_FILTER_CALLBACK,
+            PostQueryOpen: PFS_FILTER_COMPLETION_CALLBACK,
+        }
+        struct FS_FILTER_CALLBACK_DATA {
+            SizeOfFsFilterCallbackData: u32,
+            Operation: u8,
+            Reserved: u8,
+            DeviceObject: *mut DEVICE_OBJECT,
+            FileObject: *mut FILE_OBJECT,
+            Parameters: FS_FILTER_PARAMETERS,
+        }
+        union FS_FILTER_PARAMETERS {
+            AcquireForModifiedPageWriter: struct {
+                EndingOffset: PLARGE_INTEGER,
+                ResourceToRelease: *mut PERESOURCE,
+            },
+            ReleaseForModifiedPageWriter: struct {
+                ResourceToRelease: PERESOURCE,
+            },
+            AcquireForSectionSynchronization: struct {
+                SyncType: FS_FILTER_SECTION_SYNC_TYPE,
+                PageProtection: u32,
+                OutputInformation: PFS_FILTER_SECTION_SYNC_OUTPUT,
+                Flags: u32,
+                AllocationAttributes: u32,
+            },
+            QueryOpen: struct {
+                Irp: PIRP,
+                FileInformation: *mut void,
+                Length: PULONG,
+                FileInformationClass: FILE_INFORMATION_CLASS,
+                CompletionStatus: NTSTATUS,
+            },
+            Others: struct {
+                Argument1: *mut void,
+                Argument2: *mut void,
+                Argument3: *mut void,
+                Argument4: *mut void,
+                Argument5: *mut void,
+            },
+        }
+        const FS_FILTER_QUERY_OPEN: u8 = 249;
+        const FS_FILTER_RELEASE_FOR_CC_FLUSH: u8 = 250;
+        const FS_FILTER_RELEASE_FOR_MOD_WRITE: u8 = 252;
+        const FS_FILTER_RELEASE_FOR_SECTION_SYNCHRONIZATION: u8 = 254;
+        const FS_FILTER_SECTION_SYNC_IMAGE_EXTENTS_ARE_NOT_RVA: u32 = 8;
+        const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_ACCESS: u32 = 1;
+        const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_WRITE: u32 = 2;
+        struct FS_FILTER_SECTION_SYNC_OUTPUT {
+            StructureSize: u32,
+            SizeReturned: u32,
+            Flags: u32,
+            DesiredReadAlignment: u32,
+        }
+        const FS_FILTER_SECTION_SYNC_SUPPORTS_ASYNC_PARALLEL_IO: u32 = 1;
+        const FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_DATA: u32 = 2;
+        const FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_IMAGE: u32 = 4;
+        #[repr(i32)]
+        enum FS_FILTER_SECTION_SYNC_TYPE {
+            SyncTypeOther = 0,
+            SyncTypeCreateSection = 1,
+        }
+        #[repr(i32)]
+        enum FS_FILTER_STREAM_FO_NOTIFICATION_TYPE {
+            NotifyTypeCreate = 0,
+            NotifyTypeRetired = 1,
+        }
+        const GCR_ALLOW_LM: u32 = 4096;
+        const GCR_ALLOW_NO_TARGET: u32 = 8192;
+        const GCR_ALLOW_NTLM: u32 = 256;
+        const GCR_MACHINE_CREDENTIAL: u32 = 1024;
+        const GCR_NTLM3_PARMS: u32 = 32;
+        const GCR_TARGET_INFO: u32 = 64;
+        const GCR_USE_OEM_SET: u32 = 512;
+        const GCR_USE_OWF_PASSWORD: u32 = 2048;
+        const GCR_VSM_PROTECTED_PASSWORD: u32 = 16384;
+        const GENERATE_CLIENT_CHALLENGE: u32 = 16;
+        struct GENERATE_NAME_CONTEXT {
+            Checksum: u16,
+            ChecksumInserted: BOOLEAN,
+            NameLength: u8,
+            NameBuffer: [u16; 8],
+            ExtensionLength: u32,
+            ExtensionBuffer: [u16; 4],
+            LastIndexValue: u32,
+        }
+        struct GHOSTED_FILE_EXTENT {
+            FileOffset: LARGE_INTEGER,
+            ByteCount: LARGE_INTEGER,
+            RecallOwnerGuid: GUID,
+            NextEntryOffset: u32,
+            RecallMetadataBufferSize: u32,
+            RecallMetadataBuffer: [u8; 1],
+        }
+        const GUID_ECP_ATOMIC_CREATE: GUID = 0x4720bd83_52ac_4104_a130_d1ec6a8cc8e5;
+        const GUID_ECP_CLOUDFILES_ATTRIBUTION: GUID = 0x2932ff52_8378_4fc1_8edb_6bdc8f602709;
+        const GUID_ECP_CREATE_REDIRECTION: GUID = 0x188d6bd6_a126_4fa8_bdf2_1ccdf896f3e0;
+        const GUID_ECP_CSV_DOWN_LEVEL_OPEN: GUID = 0x4248be44_647f_488f_8be5_a08aaf70f028;
+        const GUID_ECP_CSV_QUERY_FILE_REVISION: GUID = 0x44aec90b_de65_4d46_8fbf_763f9d970b1d;
+        const GUID_ECP_CSV_QUERY_FILE_REVISION_FILE_ID_128: GUID = 0x7a3a4aa1_aa74_4bc6_b070_ab56a38c1fed;
+        const GUID_ECP_CSV_SET_HANDLE_PROPERTIES: GUID = 0x7a9fdd94_7b58_42bb_9740_3cb86983a615;
+        const GUID_ECP_DUAL_OPLOCK_KEY: GUID = 0x41621a14_b08b_4df1_b676_a05ffdf01bea;
+        const GUID_ECP_IO_DEVICE_HINT: GUID = 0xf315b732_ac6b_4d4d_be0c_b3126490e1a3;
+        const GUID_ECP_NETWORK_APP_INSTANCE: GUID = 0x6aa6bc45_a7ef_4af7_9008_fa462e144d74;
+        const GUID_ECP_NETWORK_APP_INSTANCE_VERSION: GUID = 0xb7d082b9_563b_4f07_a07b_524a8116a010;
+        const GUID_ECP_NETWORK_OPEN_CONTEXT: GUID = 0xc584edbf_00df_4d28_b884_35baca8911e8;
+        const GUID_ECP_NFS_OPEN: GUID = 0xf326d30c_e5f8_4fe7_ab74_f5a3196d92db;
+        const GUID_ECP_OPEN_PARAMETERS: GUID = 0xcd0a93c3_3bb7_463d_accb_969d3435a5a5;
+        const GUID_ECP_OPLOCK_KEY: GUID = 0x48850596_3050_4be7_9863_fec350ce8d7f;
+        const GUID_ECP_PREFETCH_OPEN: GUID = 0xe1777b21_847e_4837_aa45_64161d280655;
+        const GUID_ECP_QUERY_ON_CREATE: GUID = 0x1aca62e9_abb4_4ff2_bb5c_1c79025e417f;
+        const GUID_ECP_RKF_BYPASS: GUID = 0x02378cc6_f73c_489c_8282_564d1a99131b;
+        const GUID_ECP_SRV_OPEN: GUID = 0xbebfaebc_aabf_489d_9d2c_e9e361102853;
+        const GUID_ECP_TYPE_VETO_BINDING: GUID = 0x41778682_63fc_4956_86c5_2a4b79d251af;
+        const HEAP_CLASS_0: u32 = 0;
+        const HEAP_CLASS_1: u32 = 4096;
+        const HEAP_CLASS_2: u32 = 8192;
+        const HEAP_CLASS_3: u32 = 12288;
+        const HEAP_CLASS_4: u32 = 16384;
+        const HEAP_CLASS_5: u32 = 20480;
+        const HEAP_CLASS_6: u32 = 24576;
+        const HEAP_CLASS_7: u32 = 28672;
+        const HEAP_CLASS_8: u32 = 32768;
+        const HEAP_CLASS_MASK: u32 = 61440;
+        const HEAP_CREATE_VALID_MASK: u32 = 521215;
+        const HEAP_GLOBAL_TAG: u32 = 2048;
+        #[repr(i32)]
+        enum HEAP_MEMORY_INFO_CLASS {
+            HeapMemoryBasicInformation = 0,
+        }
+        const HEAP_SETTABLE_USER_FLAG1: u32 = 512;
+        const HEAP_SETTABLE_USER_FLAG2: u32 = 1024;
+        const HEAP_SETTABLE_USER_FLAG3: u32 = 2048;
+        const HEAP_SETTABLE_USER_FLAGS: u32 = 3584;
+        const HEAP_SETTABLE_USER_VALUE: u32 = 256;
+        const HEAP_TAG_MASK: u32 = 1073479680;
+        const IOCTL_LMR_ARE_FILE_OBJECTS_ON_SAME_SERVER: u32 = 1310960;
+        const IOCTL_REDIR_QUERY_PATH: u32 = 1311119;
+        const IOCTL_REDIR_QUERY_PATH_EX: u32 = 1311123;
+        const IOCTL_VOLSNAP_FLUSH_AND_HOLD_WRITES: u32 = 5488640;
+        const IO_CREATE_STREAM_FILE_LITE: u32 = 2;
+        struct IO_CREATE_STREAM_FILE_OPTIONS {
+            Size: u16,
+            Flags: u16,
+            TargetDeviceObject: PDEVICE_OBJECT,
+        }
+        const IO_CREATE_STREAM_FILE_RAISE_ON_ERROR: u32 = 1;
+        struct IO_DEVICE_HINT_ECP_CONTEXT {
+            TargetDevice: PDEVICE_OBJECT,
+            RemainingName: UNICODE_STRING,
+        }
+        const IO_FILE_OBJECT_NON_PAGED_POOL_CHARGE: u32 = 64;
+        const IO_FILE_OBJECT_PAGED_POOL_CHARGE: u32 = 1024;
+        const IO_IGNORE_READONLY_ATTRIBUTE: u32 = 64;
+        const IO_MM_PAGING_FILE: u32 = 16;
+        const IO_OPEN_PAGING_FILE: u32 = 2;
+        const IO_OPEN_TARGET_DIRECTORY: u32 = 4;
+        struct IO_PRIORITY_INFO {
+            Size: u32,
+            ThreadPriority: u32,
+            PagePriority: u32,
+            IoPriority: IO_PRIORITY_HINT,
+        }
+        const IO_REPARSE_TAG_ACRONIS_HSM_0: u32 = 96;
+        const IO_REPARSE_TAG_ACRONIS_HSM_1: u32 = 97;
+        const IO_REPARSE_TAG_ACRONIS_HSM_2: u32 = 98;
+        const IO_REPARSE_TAG_ACRONIS_HSM_3: u32 = 99;
+        const IO_REPARSE_TAG_ACRONIS_HSM_4: u32 = 100;
+        const IO_REPARSE_TAG_ACRONIS_HSM_5: u32 = 101;
+        const IO_REPARSE_TAG_ACRONIS_HSM_6: u32 = 102;
+        const IO_REPARSE_TAG_ACRONIS_HSM_7: u32 = 103;
+        const IO_REPARSE_TAG_ACRONIS_HSM_8: u32 = 104;
+        const IO_REPARSE_TAG_ACRONIS_HSM_9: u32 = 105;
+        const IO_REPARSE_TAG_ACRONIS_HSM_A: u32 = 106;
+        const IO_REPARSE_TAG_ACRONIS_HSM_B: u32 = 107;
+        const IO_REPARSE_TAG_ACRONIS_HSM_C: u32 = 108;
+        const IO_REPARSE_TAG_ACRONIS_HSM_D: u32 = 109;
+        const IO_REPARSE_TAG_ACRONIS_HSM_E: u32 = 110;
+        const IO_REPARSE_TAG_ACRONIS_HSM_F: u32 = 111;
+        const IO_REPARSE_TAG_ACTIVISION_HSM: u32 = 71;
+        const IO_REPARSE_TAG_ADA_HSM: u32 = 38;
+        const IO_REPARSE_TAG_ADOBE_HSM: u32 = 69;
+        const IO_REPARSE_TAG_ALERTBOOT: u32 = 536870988;
+        const IO_REPARSE_TAG_ALTIRIS_HSM: u32 = 25;
+        const IO_REPARSE_TAG_AMZN_APPSTREAM: u32 = 89;
+        const IO_REPARSE_TAG_APPXSTRM: u32 = 3221225492;
+        const IO_REPARSE_TAG_ARCO_BACKUP: u32 = 59;
+        const IO_REPARSE_TAG_ARKIVIO: u32 = 12;
+        const IO_REPARSE_TAG_AURISTOR_FS: u32 = 73;
+        const IO_REPARSE_TAG_AUTN_HSM: u32 = 39;
+        const IO_REPARSE_TAG_BRIDGEHEAD_HSM: u32 = 22;
+        const IO_REPARSE_TAG_C2CSYSTEMS_HSM: u32 = 49;
+        const IO_REPARSE_TAG_CARINGO_HSM: u32 = 52;
+        const IO_REPARSE_TAG_CARROLL_HSM: u32 = 60;
+        const IO_REPARSE_TAG_CITRIX_PM: u32 = 54;
+        const IO_REPARSE_TAG_COMMVAULT: u32 = 14;
+        const IO_REPARSE_TAG_COMMVAULT_HSM: u32 = 29;
+        const IO_REPARSE_TAG_COMTRADE_HSM: u32 = 61;
+        const IO_REPARSE_TAG_CTERA_HSM: u32 = 78;
+        const IO_REPARSE_TAG_DATAFIRST_HSM: u32 = 48;
+        const IO_REPARSE_TAG_DATAGLOBAL_HSM: u32 = 46;
+        const IO_REPARSE_TAG_DATASTOR_SIS: u32 = 30;
+        const IO_REPARSE_TAG_DFM: u32 = 2147483670;
+        const IO_REPARSE_TAG_DOR_HSM: u32 = 82;
+        const IO_REPARSE_TAG_DOUBLE_TAKE_HSM: u32 = 34;
+        const IO_REPARSE_TAG_DOUBLE_TAKE_SIS: u32 = 41;
+        const IO_REPARSE_TAG_DRIVE_EXTENDER: u32 = 2147483653;
+        const IO_REPARSE_TAG_DROPBOX_HSM: u32 = 68;
+        const IO_REPARSE_TAG_EASEFILTER_HSM: u32 = 87;
+        const IO_REPARSE_TAG_EASEVAULT_HSM: u32 = 62;
+        const IO_REPARSE_TAG_EDSI_HSM: u32 = 31;
+        const IO_REPARSE_TAG_ELTAN_HSM: u32 = 43;
+        const IO_REPARSE_TAG_EMC_HSM: u32 = 57;
+        const IO_REPARSE_TAG_ENIGMA_HSM: u32 = 17;
+        const IO_REPARSE_TAG_FILTER_MANAGER: u32 = 2147483659;
+        const IO_REPARSE_TAG_GLOBAL360_HSM: u32 = 24;
+        const IO_REPARSE_TAG_GOOGLE_HSM: u32 = 65;
+        const IO_REPARSE_TAG_GRAU_DATASTORAGE_HSM: u32 = 28;
+        const IO_REPARSE_TAG_HDS_HCP_HSM: u32 = 72;
+        const IO_REPARSE_TAG_HDS_HSM: u32 = 63;
+        const IO_REPARSE_TAG_HERMES_HSM: u32 = 26;
+        const IO_REPARSE_TAG_HP_BACKUP: u32 = 67;
+        const IO_REPARSE_TAG_HP_DATA_PROTECT: u32 = 70;
+        const IO_REPARSE_TAG_HP_HSM: u32 = 32;
+        const IO_REPARSE_TAG_HSAG_HSM: u32 = 37;
+        const IO_REPARSE_TAG_HUBSTOR_HSM: u32 = 85;
+        const IO_REPARSE_TAG_IFSTEST_CONGRUENT: u32 = 9;
+        const IO_REPARSE_TAG_IIS_CACHE: u32 = 2684354576;
+        const IO_REPARSE_TAG_IMANAGE_HSM: u32 = 536870998;
+        const IO_REPARSE_TAG_INTERCOPE_HSM: u32 = 19;
+        const IO_REPARSE_TAG_ITSTATION: u32 = 74;
+        const IO_REPARSE_TAG_KOM_NETWORKS_HSM: u32 = 20;
+        const IO_REPARSE_TAG_LX_BLK: u32 = 2147483686;
+        const IO_REPARSE_TAG_LX_CHR: u32 = 2147483685;
+        const IO_REPARSE_TAG_LX_FIFO: u32 = 2147483684;
+        const IO_REPARSE_TAG_LX_SYMLINK: u32 = 2684354589;
+        const IO_REPARSE_TAG_MAGINATICS_RDR: u32 = 64;
+        const IO_REPARSE_TAG_MAXISCALE_HSM: u32 = 536870965;
+        const IO_REPARSE_TAG_MEMORY_TECH_HSM: u32 = 21;
+        const IO_REPARSE_TAG_MIMOSA_HSM: u32 = 36;
+        const IO_REPARSE_TAG_MOONWALK_HSM: u32 = 10;
+        const IO_REPARSE_TAG_MTALOS: u32 = 77;
+        const IO_REPARSE_TAG_NEUSHIELD: u32 = 81;
+        const IO_REPARSE_TAG_NEXSAN_HSM: u32 = 40;
+        const IO_REPARSE_TAG_NIPPON_HSM: u32 = 79;
+        const IO_REPARSE_TAG_NVIDIA_UNIONFS: u32 = 536870996;
+        const IO_REPARSE_TAG_OPENAFS_DFS: u32 = 55;
+        const IO_REPARSE_TAG_OSR_SAMPLE: u32 = 536870935;
+        const IO_REPARSE_TAG_OVERTONE: u32 = 15;
+        const IO_REPARSE_TAG_PEER_GFS: u32 = 88;
+        const IO_REPARSE_TAG_POINTSOFT_HSM: u32 = 27;
+        const IO_REPARSE_TAG_QI_TECH_HSM: u32 = 536870959;
+        const IO_REPARSE_TAG_QUADDRA_HSM: u32 = 66;
+        const IO_REPARSE_TAG_QUEST_HSM: u32 = 45;
+        const IO_REPARSE_TAG_REDSTOR_HSM: u32 = 80;
+        const IO_REPARSE_TAG_RIVERBED_HSM: u32 = 51;
+        const IO_REPARSE_TAG_SER_HSM: u32 = 33;
+        const IO_REPARSE_TAG_SHX_BACKUP: u32 = 83;
+        const IO_REPARSE_TAG_SOLUTIONSOFT: u32 = 536870925;
+        const IO_REPARSE_TAG_SONY_HSM: u32 = 42;
+        const IO_REPARSE_TAG_SPHARSOFT: u32 = 75;
+        const IO_REPARSE_TAG_SYMANTEC_HSM: u32 = 18;
+        const IO_REPARSE_TAG_SYMANTEC_HSM2: u32 = 16;
+        const IO_REPARSE_TAG_TSINGHUA_UNIVERSITY_RESEARCH: u32 = 11;
+        const IO_REPARSE_TAG_UTIXO_HSM: u32 = 44;
+        const IO_REPARSE_TAG_VALID_VALUES: u32 = 4026597375;
+        const IO_REPARSE_TAG_VMWARE_PM: u32 = 58;
+        const IO_REPARSE_TAG_WATERFORD: u32 = 50;
+        const IO_REPARSE_TAG_WISDATA_HSM: u32 = 35;
+        const IO_REPARSE_TAG_ZLTI_HSM: u32 = 56;
+        const IO_STOP_ON_SYMLINK: u32 = 8;
+        struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
+            Out: struct {
+                ReparseCount: u32,
+                RemainingPathLength: u32,
+            },
+        }
+        struct KAPC_STATE {
+            ApcListHead: [LIST_ENTRY; 2],
+            Process: *mut _KPROCESS,
+            Anonymous: union {
+                InProgressFlags: u8,
+                Anonymous: struct {
+                    _bitfield: BOOLEAN,
+                },
+            },
+            KernelApcPending: BOOLEAN,
+            Anonymous2: union {
+                UserApcPendingAll: BOOLEAN,
+                Anonymous: struct {
+                    _bitfield: BOOLEAN,
+                },
+            },
+        }
+        const KAPC_STATE_ANY_USER_APC_PENDING_MASK: u32 = 3;
+        const KAPC_STATE_NORMAL_USER_APC_PENDING_MASK: u32 = 1;
+        const KAPC_STATE_SPECIAL_USER_APC_PENDING_MASK: u32 = 2;
+        struct KQUEUE {
+            Header: DISPATCHER_HEADER,
+            EntryListHead: LIST_ENTRY,
+            CurrentCount: u32,
+            MaximumCount: u32,
+            ThreadListHead: LIST_ENTRY,
+        }
+        struct LARGE_MCB {
+            GuardedMutex: PKGUARDED_MUTEX,
+            BaseMcb: BASE_MCB,
+        }
+        type LBN = u32;
+        struct LCN_WEAK_REFERENCE_BUFFER {
+            Lcn: i64,
+            LengthInClusters: i64,
+            ReferenceCount: u32,
+            State: LCN_WEAK_REFERENCE_STATE,
+        }
+        struct LCN_WEAK_REFERENCE_CLEAR_INPUT_BUFFER {
+            RangeCount: u32,
+            Ranges: [LCN_WEAK_REFERENCE_RANGE; 1],
+        }
+        type LCN_WEAK_REFERENCE_CREATE_FLAGS = u32;
+        struct LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
+            Offset: i64,
+            Length: i64,
+            Flags: u32,
+            Reserved: u32,
+        }
+        struct LCN_WEAK_REFERENCE_CREATE_OUTPUT_BUFFER {
+            MappingCount: u32,
+            VcnLcnMappings: [LCN_WEAK_REFERENCE_VCN_MAPPING; 1],
+        }
+        struct LCN_WEAK_REFERENCE_RANGE {
+            StartOfRange: i64,
+            CountOfRange: i64,
+        }
+        type LCN_WEAK_REFERENCE_STATE = u32;
+        struct LCN_WEAK_REFERENCE_VCN_MAPPING {
+            Vcn: i64,
+            Lcn: i64,
+            CountOfRange: i64,
+        }
+        struct LINK_TRACKING_INFORMATION {
+            Type: LINK_TRACKING_INFORMATION_TYPE,
+            VolumeId: [u8; 16],
+        }
+        #[repr(i32)]
+        enum LINK_TRACKING_INFORMATION_TYPE {
+            NtfsLinkTrackingInformation = 0,
+            DfsLinkTrackingInformation = 1,
+        }
+        #[encoding("ansi")]
+        const LX_FILE_METADATA_DEVICE_ID_EA_NAME: String = "$LXDEV";
+        #[encoding("ansi")]
+        const LX_FILE_METADATA_GID_EA_NAME: String = "$LXGID";
+        #[encoding("ansi")]
+        const LX_FILE_METADATA_MODE_EA_NAME: String = "$LXMOD";
+        #[encoding("ansi")]
+        const LX_FILE_METADATA_UID_EA_NAME: String = "$LXUID";
+        const MAP_DISABLE_PAGEFAULT_CLUSTERING: u32 = 256;
+        const MAP_HIGH_PRIORITY: u32 = 64;
+        const MAP_NO_READ: u32 = 16;
+        const MAP_WAIT: u32 = 1;
+        const MAX_UNICODE_STACK_BUFFER_LENGTH: u32 = 256;
+        struct MCB {
+            DummyFieldThatSizesThisStructureCorrectly: LARGE_MCB,
+        }
+        const MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE: u32 = 1;
+        #[repr(i32)]
+        enum MEMORY_INFORMATION_CLASS {
+            MemoryBasicInformation = 0,
+        }
+        struct MEMORY_RANGE_ENTRY {
+            VirtualAddress: *mut void,
+            NumberOfBytes: usize,
+        }
+        #[repr(i32)]
+        enum MMFLUSH_TYPE {
+            MmFlushForDelete = 0,
+            MmFlushForWrite = 1,
+        }
+        const MM_FORCE_CLOSED_DATA: u32 = 1;
+        const MM_FORCE_CLOSED_IMAGE: u32 = 2;
+        const MM_FORCE_CLOSED_LATER_OK: u32 = 4;
+        const MM_IS_FILE_SECTION_ACTIVE_DATA: u32 = 2;
+        const MM_IS_FILE_SECTION_ACTIVE_IMAGE: u32 = 1;
+        const MM_IS_FILE_SECTION_ACTIVE_USER: u32 = 4;
+        union MM_PREFETCH_FLAGS {
+            Flags: struct {
+                _bitfield: u32,
+            },
+            AllFlags: u32,
+        }
+        const MM_PREFETCH_FLAGS_MASK: u32 = 127;
+        struct MSV1_0_ENUMUSERS_REQUEST {
+            MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
+        }
+        struct MSV1_0_ENUMUSERS_RESPONSE {
+            MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
+            NumberOfLoggedOnUsers: u32,
+            LogonIds: PLUID,
+            EnumHandles: PULONG,
+        }
+        struct MSV1_0_GETCHALLENRESP_REQUEST {
+            MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
+            ParameterControl: u32,
+            LogonId: LUID,
+            Password: UNICODE_STRING,
+            ChallengeToClient: [u8; 8],
+            UserName: UNICODE_STRING,
+            LogonDomainName: UNICODE_STRING,
+            ServerName: UNICODE_STRING,
+        }
+        struct MSV1_0_GETCHALLENRESP_REQUEST_V1 {
+            MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
+            ParameterControl: u32,
+            LogonId: LUID,
+            Password: UNICODE_STRING,
+            ChallengeToClient: [u8; 8],
+        }
+        struct MSV1_0_GETCHALLENRESP_RESPONSE {
+            MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
+            CaseSensitiveChallengeResponse: STRING,
+            CaseInsensitiveChallengeResponse: STRING,
+            UserName: UNICODE_STRING,
+            LogonDomainName: UNICODE_STRING,
+            UserSessionKey: [u8; 16],
+            LanmanSessionKey: [u8; 8],
+        }
+        struct MSV1_0_GETUSERINFO_REQUEST {
+            MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
+            LogonId: LUID,
+        }
+        struct MSV1_0_GETUSERINFO_RESPONSE {
+            MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
+            UserSid: PSID,
+            UserName: UNICODE_STRING,
+            LogonDomainName: UNICODE_STRING,
+            LogonServer: UNICODE_STRING,
+            LogonType: SECURITY_LOGON_TYPE,
+        }
+        struct MSV1_0_LM20_CHALLENGE_REQUEST {
+            MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
+        }
+        struct MSV1_0_LM20_CHALLENGE_RESPONSE {
+            MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
+            ChallengeToClient: [u8; 8],
+        }
+        struct MUP_PROVIDER_INFORMATION {
+            Level: u32,
+            Buffer: *mut void,
+            BufferSize: PULONG,
+        }
+        struct NETWORK_APP_INSTANCE_ECP_CONTEXT {
+            Size: u16,
+            Reserved: u16,
+            AppInstanceID: GUID,
+        }
+        struct NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
+            Size: u16,
+            Reserved: u16,
+            VersionHigh: u64,
+            VersionLow: u64,
+        }
+        struct NETWORK_OPEN_ECP_CONTEXT {
+            Size: u16,
+            Reserved: u16,
+            Anonymous: struct {
+                r#in: struct {
+                    Location: NETWORK_OPEN_LOCATION_QUALIFIER,
+                    Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
+                    Flags: NETWORK_OPEN_IN_FLAGS,
+                },
+                out: struct {
+                    Location: NETWORK_OPEN_LOCATION_QUALIFIER,
+                    Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
+                    Flags: NETWORK_OPEN_OUT_FLAGS,
+                },
+            },
+        }
+        struct NETWORK_OPEN_ECP_CONTEXT_V0 {
+            Size: u16,
+            Reserved: u16,
+            Anonymous: struct {
+                r#in: struct {
+                    Location: NETWORK_OPEN_LOCATION_QUALIFIER,
+                    Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
+                },
+                out: struct {
+                    Location: NETWORK_OPEN_LOCATION_QUALIFIER,
+                    Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
+                },
+            },
+        }
+        const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_COLLAPSING: u32 = 1;
+        const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_DURABILITY: u32 = 2;
+        const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_OPLOCKS: u32 = 4;
+        const NETWORK_OPEN_ECP_IN_FLAG_FORCE_BUFFERED_SYNCHRONOUS_IO_HACK: u32 = 2147483648;
+        const NETWORK_OPEN_ECP_IN_FLAG_FORCE_MAX_EOF_HACK: u32 = 1073741824;
+        const NETWORK_OPEN_ECP_IN_FLAG_REQ_MUTUAL_AUTH: u32 = 8;
+        const NETWORK_OPEN_ECP_OUT_FLAG_RET_MUTUAL_AUTH: u32 = 8;
+        #[repr(i32)]
+        enum NETWORK_OPEN_INTEGRITY_QUALIFIER {
+            NetworkOpenIntegrityAny = 0,
+            NetworkOpenIntegrityNone = 1,
+            NetworkOpenIntegritySigned = 2,
+            NetworkOpenIntegrityEncrypted = 3,
+            NetworkOpenIntegrityMaximum = 4,
+        }
+        type NETWORK_OPEN_IN_FLAGS = u32;
+        #[repr(i32)]
+        enum NETWORK_OPEN_LOCATION_QUALIFIER {
+            NetworkOpenLocationAny = 0,
+            NetworkOpenLocationRemote = 1,
+            NetworkOpenLocationLoopback = 2,
+        }
+        type NETWORK_OPEN_OUT_FLAGS = u32;
+        struct NFS_OPEN_ECP_CONTEXT {
+            ExportAlias: PUNICODE_STRING,
+            ClientSocketAddress: PSOCKADDR_STORAGE_NFS,
+        }
+        const NO_8DOT3_NAME_PRESENT: u32 = 1;
+        #[library("ntdll.dll")]
+        extern "system" fn NtAccessCheckAndAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, DesiredAccess: ACCESS_MASK, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, GrantedAccess: *mut ACCESS_MASK, AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtAccessCheckByTypeAndAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: ACCESS_MASK, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(10)] #[opt] ObjectTypeList: *const OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, GrantedAccess: *mut ACCESS_MASK, AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtAccessCheckByTypeResultListAndAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: ACCESS_MASK, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(10)] #[opt] ObjectTypeList: *const OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, #[len_param(10)] GrantedAccess: *mut ACCESS_MASK, #[len_param(10)] AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ClientToken: HANDLE, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: ACCESS_MASK, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(11)] #[opt] ObjectTypeList: *const OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, #[len_param(11)] GrantedAccess: *mut ACCESS_MASK, #[len_param(11)] AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtAdjustGroupsToken(TokenHandle: HANDLE, ResetToDefault: BOOLEAN, #[opt] NewState: *const TOKEN_GROUPS, BufferLength: u32, #[size_param(3)] #[opt] PreviousState: *mut TOKEN_GROUPS, ReturnLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtAdjustPrivilegesToken(TokenHandle: HANDLE, DisableAllPrivileges: BOOLEAN, #[opt] NewState: *const TOKEN_PRIVILEGES, BufferLength: u32, #[size_param(3)] #[opt] PreviousState: *mut TOKEN_PRIVILEGES, ReturnLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtAllocateVirtualMemory(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, ZeroBits: usize, #[r#in] #[out] RegionSize: *mut usize, AllocationType: u32, Protect: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtCloseObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, GenerateOnClose: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtCopyFileChunk(SourceHandle: HANDLE, DestHandle: HANDLE, #[opt] Event: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, Length: u32, SourceOffset: *const LARGE_INTEGER, DestOffset: *const LARGE_INTEGER, #[opt] SourceKey: *const u32, #[opt] DestKey: *const u32, Flags: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtCreateSection(SectionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] MaximumSize: *const LARGE_INTEGER, SectionPageProtection: u32, AllocationAttributes: u32, #[opt] FileHandle: HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtCreateSectionEx(SectionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] MaximumSize: *const LARGE_INTEGER, SectionPageProtection: u32, AllocationAttributes: u32, #[opt] FileHandle: HANDLE, #[len_param(8)] #[r#in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtDeleteObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, GenerateOnClose: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtDuplicateToken(ExistingTokenHandle: HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, EffectiveOnly: BOOLEAN, TokenType: TOKEN_TYPE, NewTokenHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtFilterToken(ExistingTokenHandle: HANDLE, Flags: u32, #[opt] SidsToDisable: *const TOKEN_GROUPS, #[opt] PrivilegesToDelete: *const TOKEN_PRIVILEGES, #[opt] RestrictedSids: *const TOKEN_GROUPS, NewTokenHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtFlushBuffersFileEx(FileHandle: HANDLE, Flags: u32, #[size_param(3)] Parameters: *const void, ParametersSize: u32, IoStatusBlock: *mut IO_STATUS_BLOCK) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtFreeVirtualMemory(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, FreeType: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtFsControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, FsControlCode: u32, #[size_param(7)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(9)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtImpersonateAnonymousToken(ThreadHandle: HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtLockFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32, FailImmediately: BOOLEAN, ExclusiveLock: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtOpenObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, ClientToken: HANDLE, DesiredAccess: ACCESS_MASK, GrantedAccess: ACCESS_MASK, #[opt] Privileges: *const PRIVILEGE_SET, ObjectCreation: BOOLEAN, AccessGranted: BOOLEAN, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtOpenProcessToken(ProcessHandle: HANDLE, DesiredAccess: ACCESS_MASK, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtOpenProcessTokenEx(ProcessHandle: HANDLE, DesiredAccess: ACCESS_MASK, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtOpenThreadToken(ThreadHandle: HANDLE, DesiredAccess: ACCESS_MASK, OpenAsSelf: BOOLEAN, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtOpenThreadTokenEx(ThreadHandle: HANDLE, DesiredAccess: ACCESS_MASK, OpenAsSelf: BOOLEAN, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtPrivilegeCheck(ClientToken: HANDLE, #[r#in] #[out] RequiredPrivileges: *mut PRIVILEGE_SET, Result: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtPrivilegeObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ClientToken: HANDLE, DesiredAccess: ACCESS_MASK, Privileges: *const PRIVILEGE_SET, AccessGranted: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtPrivilegedServiceAuditAlarm(SubsystemName: *const UNICODE_STRING, ServiceName: *const UNICODE_STRING, ClientToken: HANDLE, Privileges: *const PRIVILEGE_SET, AccessGranted: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtQueryDirectoryFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, ReturnSingleEntry: BOOLEAN, #[opt] FileName: *const UNICODE_STRING, RestartScan: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtQueryDirectoryFileEx(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, QueryFlags: u32, #[opt] FileName: *const UNICODE_STRING) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtQueryInformationByName(ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtQueryInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtQueryInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] #[opt] TokenInformation: *mut void, TokenInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtQueryQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *mut void, Length: u32, ReturnSingleEntry: BOOLEAN, #[size_param(6)] #[opt] SidList: *const void, SidListLength: u32, #[opt] StartSid: PSID, RestartScan: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtQuerySecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, Length: u32, LengthNeeded: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtQueryVirtualMemory(ProcessHandle: HANDLE, #[opt] BaseAddress: *const void, MemoryInformationClass: MEMORY_INFORMATION_CLASS, #[size_param(4)] MemoryInformation: *mut void, MemoryInformationLength: usize, #[opt] ReturnLength: *mut usize) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtQueryVolumeInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FsInformation: *mut void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtReadFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] Buffer: *mut void, Length: u32, #[opt] ByteOffset: *const LARGE_INTEGER, #[opt] Key: *const u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtSetInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *const void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtSetInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] TokenInformation: *const void, TokenInformationLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtSetInformationVirtualMemory(ProcessHandle: HANDLE, VmInformationClass: VIRTUAL_MEMORY_INFORMATION_CLASS, NumberOfEntries: usize, #[len_param(2)] VirtualAddresses: *const MEMORY_RANGE_ENTRY, #[size_param(5)] VmInformation: *const void, VmInformationLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtSetQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *const void, Length: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtSetSecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, SecurityDescriptor: PSECURITY_DESCRIPTOR) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtSetVolumeInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FsInformation: *const void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtUnlockFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn NtWriteFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] Buffer: *const void, Length: u32, #[opt] ByteOffset: *const LARGE_INTEGER, #[opt] Key: *const u32) -> NTSTATUS;
+        struct OPEN_REPARSE_LIST {
+            OpenReparseList: LIST_ENTRY,
+        }
+        struct OPEN_REPARSE_LIST_ENTRY {
+            OpenReparseListEntry: LIST_ENTRY,
+            ReparseTag: u32,
+            Flags: u32,
+            ReparseGuid: GUID,
+            Size: u16,
+            RemainingLength: u16,
+        }
+        const OPEN_REPARSE_POINT_OVERRIDE_CREATE_OPTION: u32 = 64;
+        const OPEN_REPARSE_POINT_REPARSE_ALWAYS: u32 = 126;
+        const OPEN_REPARSE_POINT_REPARSE_IF_CHILD_EXISTS: u32 = 2;
+        const OPEN_REPARSE_POINT_REPARSE_IF_CHILD_NOT_EXISTS: u32 = 4;
+        const OPEN_REPARSE_POINT_REPARSE_IF_DIRECTORY_FINAL_COMPONENT: u32 = 8;
+        const OPEN_REPARSE_POINT_REPARSE_IF_DIRECTORY_FINAL_COMPONENT_ALWAYS: u32 = 72;
+        const OPEN_REPARSE_POINT_REPARSE_IF_FINAL_COMPONENT: u32 = 40;
+        const OPEN_REPARSE_POINT_REPARSE_IF_FINAL_COMPONENT_ALWAYS: u32 = 104;
+        const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_FINAL_COMPONENT: u32 = 32;
+        const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_FINAL_COMPONENT_ALWAYS: u32 = 96;
+        const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_NON_FINAL_COMPONENT: u32 = 16;
+        const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_NON_FINAL_COMPONENT_ALWAYS: u32 = 80;
+        const OPEN_REPARSE_POINT_REPARSE_IF_NON_FINAL_COMPONENT: u32 = 22;
+        const OPEN_REPARSE_POINT_RETURN_REPARSE_DATA_BUFFER: u32 = 128;
+        const OPEN_REPARSE_POINT_TAG_ENCOUNTERED: u32 = 1;
+        const OPEN_REPARSE_POINT_VERSION_EX: u32 = 2147483648;
+        type OPLOCK = *mut void;
+        const OPLOCK_FLAG_BACK_OUT_ATOMIC_OPLOCK: u32 = 4;
+        const OPLOCK_FLAG_BREAKING_FOR_SHARING_VIOLATION: u32 = 128;
+        const OPLOCK_FLAG_CLOSING_DELETE_ON_CLOSE: u32 = 32;
+        const OPLOCK_FLAG_COMPLETE_IF_OPLOCKED: u32 = 1;
+        const OPLOCK_FLAG_IGNORE_OPLOCK_KEYS: u32 = 8;
+        const OPLOCK_FLAG_OPLOCK_KEY_CHECK_ONLY: u32 = 2;
+        const OPLOCK_FLAG_PARENT_OBJECT: u32 = 16;
+        const OPLOCK_FLAG_REMOVING_FILE_OR_LINK: u32 = 64;
+        const OPLOCK_FSCTRL_FLAG_ALL_KEYS_MATCH: u32 = 1;
+        const OPLOCK_FS_FILTER_FLAGS_MASK: u32 = 8;
+        struct OPLOCK_KEY_ECP_CONTEXT {
+            OplockKey: GUID,
+            Reserved: u32,
+        }
+        struct OPLOCK_NOTIFY_PARAMS {
+            NotifyReason: OPLOCK_NOTIFY_REASON,
+            NotifyContext: *mut void,
+            Irp: PIRP,
+            Status: NTSTATUS,
+        }
+        #[repr(i32)]
+        enum OPLOCK_NOTIFY_REASON {
+            OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT = 0,
+            OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED = 1,
+        }
+        const OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: u32 = 65536;
+        const OPLOCK_UPPER_FLAG_NOTIFY_REFRESH_READ: u32 = 131072;
+        extern fn PACQUIRE_FOR_LAZY_WRITE(Context: *const void, Wait: BOOLEAN) -> BOOLEAN;
+        extern fn PACQUIRE_FOR_LAZY_WRITE_EX(Context: *const void, InFlags: u32, #[r#in] #[out] OutFlags: *mut u32) -> BOOLEAN;
+        extern fn PACQUIRE_FOR_READ_AHEAD(Context: *const void, Wait: BOOLEAN) -> BOOLEAN;
+        type PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = *mut ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK;
+        extern fn PASYNC_READ_COMPLETION_CALLBACK(Context: *const void) -> BOOLEAN;
+        type PATOMIC_CREATE_ECP_CONTEXT = *mut ATOMIC_CREATE_ECP_CONTEXT;
+        type PBASE_MCB = *mut BASE_MCB;
+        type PCACHE_MANAGER_CALLBACKS = *mut CACHE_MANAGER_CALLBACKS;
+        type PCACHE_MANAGER_CALLBACKS_EX = *mut CACHE_MANAGER_CALLBACKS_EX;
+        type PCACHE_MANAGER_CALLBACK_FUNCTIONS = *mut CACHE_MANAGER_CALLBACK_FUNCTIONS;
+        type PCACHE_UNINITIALIZE_EVENT = *mut CACHE_UNINITIALIZE_EVENT;
+        type PCC_ASYNC_READ_CONTEXT = *mut CC_ASYNC_READ_CONTEXT;
+        type PCC_DIRTY_PAGES_INFO = *mut CC_DIRTY_PAGES_INFO;
+        type PCC_ERROR_CALLBACK_CONTEXT = *mut CC_ERROR_CALLBACK_CONTEXT;
+        type PCC_FILE_SIZES = *mut CC_FILE_SIZES;
+        extern fn PCC_POST_DEFERRED_WRITE(Context1: *const void, Context2: *const void);
+        extern fn PCHECK_FOR_TRAVERSE_ACCESS(NotifyContext: *const void, #[opt] TargetContext: *const void, SubjectContext: *const SECURITY_SUBJECT_CONTEXT) -> BOOLEAN;
+        extern fn PCOMPLETE_LOCK_IRP_ROUTINE(Context: *const void, Irp: *const IRP) -> NTSTATUS;
+        type PCOMPRESSED_DATA_INFO = *mut COMPRESSED_DATA_INFO;
+        type PCOPY_INFORMATION = *mut COPY_INFORMATION;
+        type PCREATE_REDIRECTION_ECP_CONTEXT = *mut CREATE_REDIRECTION_ECP_CONTEXT;
+        type PCSV_DOWN_LEVEL_OPEN_ECP_CONTEXT = *mut CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT;
+        type PCSV_QUERY_FILE_REVISION_ECP_CONTEXT = *mut CSV_QUERY_FILE_REVISION_ECP_CONTEXT;
+        type PCSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 = *mut CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128;
+        type PCSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT = *mut CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT;
+        extern fn PDIRTY_PAGE_ROUTINE(FileObject: *const FILE_OBJECT, FileOffset: *const LARGE_INTEGER, Length: u32, OldestLsn: *const LARGE_INTEGER, NewestLsn: *const LARGE_INTEGER, Context1: *const void, Context2: *const void);
+        type PDRIVER_FS_NOTIFICATION = *mut DRIVER_FS_NOTIFICATION;
+        type PDUAL_OPLOCK_KEY_ECP_CONTEXT = *mut DUAL_OPLOCK_KEY_ECP_CONTEXT;
+        type PDUPLICATE_CLUSTER_DATA = *mut DUPLICATE_CLUSTER_DATA;
+        type PECP_HEADER = *mut ECP_HEADER;
+        type PECP_LIST = *mut ECP_LIST;
+        type PECP_OPEN_PARAMETERS = *mut ECP_OPEN_PARAMETERS;
+        type PEOF_WAIT_BLOCK = *mut EOF_WAIT_BLOCK;
+        type PEXTENT_READ_CACHE_INFO_BUFFER = *mut EXTENT_READ_CACHE_INFO_BUFFER;
+        extern fn PEXTERNAL_CACHE_CALLBACK_EX(ExternalCacheContext: *const void, DirtyPagesInfo: *const CC_DIRTY_PAGES_INFO);
+        type PFILE_ACCESS_INFORMATION = *mut FILE_ACCESS_INFORMATION;
+        type PFILE_ALLOCATION_INFORMATION = *mut FILE_ALLOCATION_INFORMATION;
+        type PFILE_ALL_INFORMATION = *mut FILE_ALL_INFORMATION;
+        type PFILE_BOTH_DIR_INFORMATION = *mut FILE_BOTH_DIR_INFORMATION;
+        type PFILE_COMPLETION_INFORMATION = *mut FILE_COMPLETION_INFORMATION;
+        type PFILE_COMPRESSION_INFORMATION = *mut FILE_COMPRESSION_INFORMATION;
+        type PFILE_DIRECTORY_INFORMATION = *mut FILE_DIRECTORY_INFORMATION;
+        type PFILE_EA_INFORMATION = *mut FILE_EA_INFORMATION;
+        type PFILE_END_OF_FILE_INFORMATION_EX = *mut FILE_END_OF_FILE_INFORMATION_EX;
+        type PFILE_FS_ATTRIBUTE_INFORMATION = *mut FILE_FS_ATTRIBUTE_INFORMATION;
+        type PFILE_FS_CONTROL_INFORMATION = *mut FILE_FS_CONTROL_INFORMATION;
+        type PFILE_FS_DATA_COPY_INFORMATION = *mut FILE_FS_DATA_COPY_INFORMATION;
+        type PFILE_FS_DRIVER_PATH_INFORMATION = *mut FILE_FS_DRIVER_PATH_INFORMATION;
+        type PFILE_FS_GUID_INFORMATION = *mut FILE_FS_GUID_INFORMATION;
+        type PFILE_FS_VOLUME_FLAGS_INFORMATION = *mut FILE_FS_VOLUME_FLAGS_INFORMATION;
+        type PFILE_FULL_DIR_INFORMATION = *mut FILE_FULL_DIR_INFORMATION;
+        type PFILE_GET_EA_INFORMATION = *mut FILE_GET_EA_INFORMATION;
+        type PFILE_ID_64_EXTD_BOTH_DIR_INFORMATION = *mut FILE_ID_64_EXTD_BOTH_DIR_INFORMATION;
+        type PFILE_ID_64_EXTD_DIR_INFORMATION = *mut FILE_ID_64_EXTD_DIR_INFORMATION;
+        type PFILE_ID_ALL_EXTD_BOTH_DIR_INFORMATION = *mut FILE_ID_ALL_EXTD_BOTH_DIR_INFORMATION;
+        type PFILE_ID_ALL_EXTD_DIR_INFORMATION = *mut FILE_ID_ALL_EXTD_DIR_INFORMATION;
+        type PFILE_ID_BOTH_DIR_INFORMATION = *mut FILE_ID_BOTH_DIR_INFORMATION;
+        type PFILE_ID_EXTD_BOTH_DIR_INFORMATION = *mut FILE_ID_EXTD_BOTH_DIR_INFORMATION;
+        type PFILE_ID_EXTD_DIR_INFORMATION = *mut FILE_ID_EXTD_DIR_INFORMATION;
+        type PFILE_ID_FULL_DIR_INFORMATION = *mut FILE_ID_FULL_DIR_INFORMATION;
+        type PFILE_ID_GLOBAL_TX_DIR_INFORMATION = *mut FILE_ID_GLOBAL_TX_DIR_INFORMATION;
+        type PFILE_ID_INFORMATION = *mut FILE_ID_INFORMATION;
+        type PFILE_INFORMATION_DEFINITION = *mut FILE_INFORMATION_DEFINITION;
+        type PFILE_INTERNAL_INFORMATION = *mut FILE_INTERNAL_INFORMATION;
+        type PFILE_KNOWN_FOLDER_INFORMATION = *mut FILE_KNOWN_FOLDER_INFORMATION;
+        type PFILE_LINKS_FULL_ID_INFORMATION = *mut FILE_LINKS_FULL_ID_INFORMATION;
+        type PFILE_LINKS_INFORMATION = *mut FILE_LINKS_INFORMATION;
+        type PFILE_LINK_ENTRY_FULL_ID_INFORMATION = *mut FILE_LINK_ENTRY_FULL_ID_INFORMATION;
+        type PFILE_LINK_ENTRY_INFORMATION = *mut FILE_LINK_ENTRY_INFORMATION;
+        type PFILE_LINK_INFORMATION = *mut FILE_LINK_INFORMATION;
+        type PFILE_LOCK = *mut FILE_LOCK;
+        type PFILE_LOCK_INFO = *mut FILE_LOCK_INFO;
+        type PFILE_MAILSLOT_QUERY_INFORMATION = *mut FILE_MAILSLOT_QUERY_INFORMATION;
+        type PFILE_MAILSLOT_SET_INFORMATION = *mut FILE_MAILSLOT_SET_INFORMATION;
+        type PFILE_MODE_INFORMATION = *mut FILE_MODE_INFORMATION;
+        type PFILE_MOVE_CLUSTER_INFORMATION = *mut FILE_MOVE_CLUSTER_INFORMATION;
+        type PFILE_NAMES_INFORMATION = *mut FILE_NAMES_INFORMATION;
+        type PFILE_NETWORK_PHYSICAL_NAME_INFORMATION = *mut FILE_NETWORK_PHYSICAL_NAME_INFORMATION;
+        type PFILE_OBJECTID_INFORMATION = *mut FILE_OBJECTID_INFORMATION;
+        type PFILE_PIPE_ASSIGN_EVENT_BUFFER = *mut FILE_PIPE_ASSIGN_EVENT_BUFFER;
+        type PFILE_PIPE_CLIENT_PROCESS_BUFFER = *mut FILE_PIPE_CLIENT_PROCESS_BUFFER;
+        type PFILE_PIPE_CLIENT_PROCESS_BUFFER_EX = *mut FILE_PIPE_CLIENT_PROCESS_BUFFER_EX;
+        type PFILE_PIPE_CLIENT_PROCESS_BUFFER_V2 = *mut FILE_PIPE_CLIENT_PROCESS_BUFFER_V2;
+        type PFILE_PIPE_CREATE_SYMLINK_INPUT = *mut FILE_PIPE_CREATE_SYMLINK_INPUT;
+        type PFILE_PIPE_DELETE_SYMLINK_INPUT = *mut FILE_PIPE_DELETE_SYMLINK_INPUT;
+        type PFILE_PIPE_EVENT_BUFFER = *mut FILE_PIPE_EVENT_BUFFER;
+        type PFILE_PIPE_INFORMATION = *mut FILE_PIPE_INFORMATION;
+        type PFILE_PIPE_LOCAL_INFORMATION = *mut FILE_PIPE_LOCAL_INFORMATION;
+        type PFILE_PIPE_PEEK_BUFFER = *mut FILE_PIPE_PEEK_BUFFER;
+        type PFILE_PIPE_REMOTE_INFORMATION = *mut FILE_PIPE_REMOTE_INFORMATION;
+        type PFILE_PIPE_SILO_ARRIVAL_INPUT = *mut FILE_PIPE_SILO_ARRIVAL_INPUT;
+        type PFILE_PIPE_WAIT_FOR_BUFFER = *mut FILE_PIPE_WAIT_FOR_BUFFER;
+        type PFILE_QUOTA_INFORMATION = *mut FILE_QUOTA_INFORMATION;
+        type PFILE_REMOTE_PROTOCOL_INFORMATION = *mut FILE_REMOTE_PROTOCOL_INFORMATION;
+        type PFILE_RENAME_INFORMATION = *mut FILE_RENAME_INFORMATION;
+        type PFILE_REPARSE_POINT_INFORMATION = *mut FILE_REPARSE_POINT_INFORMATION;
+        type PFILE_STANDARD_LINK_INFORMATION = *mut FILE_STANDARD_LINK_INFORMATION;
+        type PFILE_STORAGE_RESERVE_ID_INFORMATION = *mut FILE_STORAGE_RESERVE_ID_INFORMATION;
+        type PFILE_STREAM_INFORMATION = *mut FILE_STREAM_INFORMATION;
+        type PFILE_STREAM_RESERVATION_INFORMATION = *mut FILE_STREAM_RESERVATION_INFORMATION;
+        type PFILE_TIMESTAMPS = *mut FILE_TIMESTAMPS;
+        type PFILE_TRACKING_INFORMATION = *mut FILE_TRACKING_INFORMATION;
+        type PFILE_VOLUME_NAME_INFORMATION = *mut FILE_VOLUME_NAME_INFORMATION;
+        extern fn PFILTER_REPORT_CHANGE(NotifyContext: *const void, FilterContext: *const void) -> BOOLEAN;
+        extern fn PFLUSH_TO_LSN(LogHandle: *const void, Lsn: LARGE_INTEGER);
+        extern fn PFN_FSRTLTEARDOWNPERSTREAMCONTEXTS(AdvancedHeader: *const FSRTL_ADVANCED_FCB_HEADER);
+        type PFREE_VIRTUAL_MEMORY_EX_CALLBACK = *mut FREE_VIRTUAL_MEMORY_EX_CALLBACK;
+        type PFSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER = *mut FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER;
+        type PFSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE = *mut FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE;
+        type PFSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT = *mut FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT;
+        type PFSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT = *mut FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT;
+        type PFSCTL_UNMAP_SPACE_INPUT_BUFFER = *mut FSCTL_UNMAP_SPACE_INPUT_BUFFER;
+        type PFSCTL_UNMAP_SPACE_OUTPUT = *mut FSCTL_UNMAP_SPACE_OUTPUT;
+        type PFSRTL_ADVANCED_FCB_HEADER = *mut FSRTL_ADVANCED_FCB_HEADER;
+        type PFSRTL_AUXILIARY_BUFFER = *mut FSRTL_AUXILIARY_BUFFER;
+        type PFSRTL_CHANGE_BACKING_TYPE = *mut FSRTL_CHANGE_BACKING_TYPE;
+        type PFSRTL_COMMON_FCB_HEADER = *mut FSRTL_COMMON_FCB_HEADER;
+        extern fn PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK(#[r#in] #[out] EcpContext: *mut void, EcpType: *const GUID);
+        type PFSRTL_MUP_PROVIDER_INFO_LEVEL_1 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_1;
+        type PFSRTL_MUP_PROVIDER_INFO_LEVEL_2 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_2;
+        type PFSRTL_PER_FILEOBJECT_CONTEXT = *mut FSRTL_PER_FILEOBJECT_CONTEXT;
+        type PFSRTL_PER_FILE_CONTEXT = *mut FSRTL_PER_FILE_CONTEXT;
+        type PFSRTL_PER_STREAM_CONTEXT = *mut FSRTL_PER_STREAM_CONTEXT;
+        extern fn PFSRTL_STACK_OVERFLOW_ROUTINE(Context: *const void, Event: *const KEVENT);
+        type PFSRTL_UNC_PROVIDER_REGISTRATION = *mut FSRTL_UNC_PROVIDER_REGISTRATION;
+        extern fn PFS_FILTER_CALLBACK(Data: *const FS_FILTER_CALLBACK_DATA, CompletionContext: *mut *mut void) -> NTSTATUS;
+        type PFS_FILTER_CALLBACKS = *mut FS_FILTER_CALLBACKS;
+        type PFS_FILTER_CALLBACK_DATA = *mut FS_FILTER_CALLBACK_DATA;
+        extern fn PFS_FILTER_COMPLETION_CALLBACK(Data: *const FS_FILTER_CALLBACK_DATA, OperationStatus: NTSTATUS, CompletionContext: *const void);
+        type PFS_FILTER_PARAMETERS = *mut FS_FILTER_PARAMETERS;
+        type PFS_FILTER_SECTION_SYNC_OUTPUT = *mut FS_FILTER_SECTION_SYNC_OUTPUT;
+        type PFS_FILTER_SECTION_SYNC_TYPE = *mut FS_FILTER_SECTION_SYNC_TYPE;
+        type PFS_FILTER_STREAM_FO_NOTIFICATION_TYPE = *mut FS_FILTER_STREAM_FO_NOTIFICATION_TYPE;
+        type PGENERATE_NAME_CONTEXT = *mut GENERATE_NAME_CONTEXT;
+        type PGHOSTED_FILE_EXTENT = *mut GHOSTED_FILE_EXTENT;
+        const PHCM_APPLICATION_DEFAULT: i8 = 0;
+        const PHCM_DISGUISE_FULL_PLACEHOLDERS: i8 = 3;
+        const PHCM_DISGUISE_PLACEHOLDERS: i8 = 1;
+        const PHCM_ERROR_INVALID_PARAMETER: i8 = -1;
+        const PHCM_ERROR_NO_PEB: i8 = -3;
+        const PHCM_ERROR_NO_TEB: i8 = -2;
+        const PHCM_EXPOSE_PLACEHOLDERS: i8 = 2;
+        const PHCM_MAX: i8 = 2;
+        struct PHYSICAL_EXTENTS_DESCRIPTOR {
+            NumberOfRuns: u32,
+            NumberOfValidRuns: u32,
+            Run: [PHYSICAL_MEMORY_RUN; 1],
+        }
+        struct PHYSICAL_MEMORY_DESCRIPTOR {
+            NumberOfRuns: u32,
+            NumberOfPages: PFN_NUMBER,
+            Run: [PHYSICAL_MEMORY_RUN; 1],
+        }
+        struct PHYSICAL_MEMORY_RUN {
+            BasePage: PFN_NUMBER,
+            PageCount: PFN_NUMBER,
+        }
+        const PIN_CALLER_TRACKS_DIRTY_DATA: u32 = 32;
+        const PIN_EXCLUSIVE: u32 = 2;
+        const PIN_HIGH_PRIORITY: u32 = 64;
+        const PIN_IF_BCB: u32 = 8;
+        const PIN_NO_READ: u32 = 4;
+        const PIN_VERIFY_REQUIRED: u32 = 128;
+        const PIN_WAIT: u32 = 1;
+        type PIO_CREATE_STREAM_FILE_OPTIONS = *mut IO_CREATE_STREAM_FILE_OPTIONS;
+        type PIO_DEVICE_HINT_ECP_CONTEXT = *mut IO_DEVICE_HINT_ECP_CONTEXT;
+        type PIO_PRIORITY_INFO = *mut IO_PRIORITY_INFO;
+        type PIO_STOP_ON_SYMLINK_FILTER_ECP_v0 = *mut IO_STOP_ON_SYMLINK_FILTER_ECP_v0;
+        type PKAPC_STATE = *mut KAPC_STATE;
+        type PKQUEUE = *mut KQUEUE;
+        type PLARGE_MCB = *mut LARGE_MCB;
+        type PLBN = *mut LBN;
+        type PLCN_WEAK_REFERENCE_BUFFER = *mut LCN_WEAK_REFERENCE_BUFFER;
+        type PLCN_WEAK_REFERENCE_CLEAR_INPUT_BUFFER = *mut LCN_WEAK_REFERENCE_CLEAR_INPUT_BUFFER;
+        type PLCN_WEAK_REFERENCE_CREATE_FLAGS = *mut LCN_WEAK_REFERENCE_CREATE_FLAGS;
+        type PLCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER = *mut LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER;
+        type PLCN_WEAK_REFERENCE_CREATE_OUTPUT_BUFFER = *mut LCN_WEAK_REFERENCE_CREATE_OUTPUT_BUFFER;
+        type PLCN_WEAK_REFERENCE_RANGE = *mut LCN_WEAK_REFERENCE_RANGE;
+        type PLCN_WEAK_REFERENCE_STATE = *mut LCN_WEAK_REFERENCE_STATE;
+        type PLCN_WEAK_REFERENCE_VCN_MAPPING = *mut LCN_WEAK_REFERENCE_VCN_MAPPING;
+        type PLINK_TRACKING_INFORMATION = *mut LINK_TRACKING_INFORMATION;
+        type PLINK_TRACKING_INFORMATION_TYPE = *mut LINK_TRACKING_INFORMATION_TYPE;
+        type PMCB = *mut MCB;
+        type PMEMORY_RANGE_ENTRY = *mut MEMORY_RANGE_ENTRY;
+        type PMM_PREFETCH_FLAGS = *mut MM_PREFETCH_FLAGS;
+        type PMSV1_0_ENUMUSERS_REQUEST = *mut MSV1_0_ENUMUSERS_REQUEST;
+        type PMSV1_0_ENUMUSERS_RESPONSE = *mut MSV1_0_ENUMUSERS_RESPONSE;
+        type PMSV1_0_GETCHALLENRESP_REQUEST = *mut MSV1_0_GETCHALLENRESP_REQUEST;
+        type PMSV1_0_GETCHALLENRESP_REQUEST_V1 = *mut MSV1_0_GETCHALLENRESP_REQUEST_V1;
+        type PMSV1_0_GETCHALLENRESP_RESPONSE = *mut MSV1_0_GETCHALLENRESP_RESPONSE;
+        type PMSV1_0_GETUSERINFO_REQUEST = *mut MSV1_0_GETUSERINFO_REQUEST;
+        type PMSV1_0_GETUSERINFO_RESPONSE = *mut MSV1_0_GETUSERINFO_RESPONSE;
+        type PMSV1_0_LM20_CHALLENGE_REQUEST = *mut MSV1_0_LM20_CHALLENGE_REQUEST;
+        type PMSV1_0_LM20_CHALLENGE_RESPONSE = *mut MSV1_0_LM20_CHALLENGE_RESPONSE;
+        type PMUP_PROVIDER_INFORMATION = *mut MUP_PROVIDER_INFORMATION;
+        type PNETWORK_APP_INSTANCE_ECP_CONTEXT = *mut NETWORK_APP_INSTANCE_ECP_CONTEXT;
+        type PNETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT = *mut NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT;
+        type PNETWORK_OPEN_ECP_CONTEXT = *mut NETWORK_OPEN_ECP_CONTEXT;
+        type PNETWORK_OPEN_ECP_CONTEXT_V0 = *mut NETWORK_OPEN_ECP_CONTEXT_V0;
+        type PNFS_OPEN_ECP_CONTEXT = *mut NFS_OPEN_ECP_CONTEXT;
+        type PNOTIFY_SYNC = *mut _REAL_NOTIFY_SYNC;
+        type POPEN_REPARSE_LIST = *mut OPEN_REPARSE_LIST;
+        type POPEN_REPARSE_LIST_ENTRY = *mut OPEN_REPARSE_LIST_ENTRY;
+        type POPLOCK = *mut *mut void;
+        extern fn POPLOCK_FS_PREPOST_IRP(Context: *const void, #[opt] Irp: *const IRP);
+        type POPLOCK_NOTIFY_PARAMS = *mut OPLOCK_NOTIFY_PARAMS;
+        extern fn POPLOCK_NOTIFY_ROUTINE(NotifyParams: *const OPLOCK_NOTIFY_PARAMS) -> NTSTATUS;
+        extern fn POPLOCK_WAIT_COMPLETE_ROUTINE(Context: *const void, #[opt] Irp: *const IRP);
+        type PPHYSICAL_EXTENTS_DESCRIPTOR = *mut PHYSICAL_EXTENTS_DESCRIPTOR;
+        type PPHYSICAL_MEMORY_DESCRIPTOR = *mut PHYSICAL_MEMORY_DESCRIPTOR;
+        type PPHYSICAL_MEMORY_RUN = *mut PHYSICAL_MEMORY_RUN;
+        type PPNFS_OPEN_ECP_CONTEXT = *mut *mut NFS_OPEN_ECP_CONTEXT;
+        type PPREFETCH_OPEN_ECP_CONTEXT = *mut PREFETCH_OPEN_ECP_CONTEXT;
+        type PPREFIX_TABLE = *mut PREFIX_TABLE;
+        type PPREFIX_TABLE_ENTRY = *mut PREFIX_TABLE_ENTRY;
+        type PPUBLIC_BCB = *mut PUBLIC_BCB;
+        type PQUERY_DIRECT_ACCESS_EXTENTS = *mut QUERY_DIRECT_ACCESS_EXTENTS;
+        extern fn PQUERY_LOG_USAGE(LogHandle: *const void, PercentageFull: *mut u16);
+        type PQUERY_ON_CREATE_EA_INFORMATION = *mut QUERY_ON_CREATE_EA_INFORMATION;
+        type PQUERY_ON_CREATE_ECP_CONTEXT = *mut QUERY_ON_CREATE_ECP_CONTEXT;
+        type PQUERY_ON_CREATE_FILE_LX_INFORMATION = *mut QUERY_ON_CREATE_FILE_LX_INFORMATION;
+        type PQUERY_ON_CREATE_FILE_STAT_INFORMATION = *mut QUERY_ON_CREATE_FILE_STAT_INFORMATION;
+        type PQUERY_ON_CREATE_SECURITY_INFORMATION = *mut QUERY_ON_CREATE_SECURITY_INFORMATION;
+        type PQUERY_ON_CREATE_USN_INFORMATION = *mut QUERY_ON_CREATE_USN_INFORMATION;
+        type PQUERY_PATH_REQUEST = *mut QUERY_PATH_REQUEST;
+        type PQUERY_PATH_REQUEST_EX = *mut QUERY_PATH_REQUEST_EX;
+        type PQUERY_PATH_RESPONSE = *mut QUERY_PATH_RESPONSE;
+        type PQUERY_VIRTUAL_MEMORY_CALLBACK = *mut QUERY_VIRTUAL_MEMORY_CALLBACK;
+        type PREAD_AHEAD_PARAMETERS = *mut READ_AHEAD_PARAMETERS;
+        type PREAD_LIST = *mut READ_LIST;
+        struct PREFETCH_OPEN_ECP_CONTEXT {
+            Context: *mut void,
+        }
+        struct PREFIX_TABLE {
+            NodeTypeCode: CSHORT,
+            NameLength: CSHORT,
+            NextPrefixTree: PPREFIX_TABLE_ENTRY,
+        }
+        struct PREFIX_TABLE_ENTRY {
+            NodeTypeCode: CSHORT,
+            NameLength: CSHORT,
+            NextPrefixTree: *mut PREFIX_TABLE_ENTRY,
+            Links: RTL_SPLAY_LINKS,
+            Prefix: PSTRING,
+        }
+        type PREFS_COMPRESSION_FORMATS = *mut REFS_COMPRESSION_FORMATS;
+        type PREFS_DEALLOCATE_RANGES_ALLOCATOR = *mut REFS_DEALLOCATE_RANGES_ALLOCATOR;
+        type PREFS_DEALLOCATE_RANGES_INPUT_BUFFER = *mut REFS_DEALLOCATE_RANGES_INPUT_BUFFER;
+        type PREFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX = *mut REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX;
+        type PREFS_DEALLOCATE_RANGES_RANGE = *mut REFS_DEALLOCATE_RANGES_RANGE;
+        type PREFS_QUERY_ROLLBACK_PROTECTION_INFO_OUTPUT_BUFFER = *mut REFS_QUERY_ROLLBACK_PROTECTION_INFO_OUTPUT_BUFFER;
+        type PREFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS = *mut REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS;
+        type PREFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER = *mut REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER;
+        type PREFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER = *mut REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER;
+        type PREFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER = *mut REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER;
+        type PREFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE = *mut REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE;
+        type PREFS_QUERY_VOLUME_IO_METRICS_METRICS_DATA = *mut REFS_QUERY_VOLUME_IO_METRICS_METRICS_DATA;
+        type PREFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER = *mut REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER;
+        type PREFS_REMOVE_HARDLINK_BACKPOINTER = *mut REFS_REMOVE_HARDLINK_BACKPOINTER;
+        type PREFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER = *mut REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER;
+        type PREFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = *mut REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS;
+        type PREFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER = *mut REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER;
+        type PREFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER = *mut REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER;
+        type PREFS_STREAM_EXTENT = *mut REFS_STREAM_EXTENT;
+        type PREFS_STREAM_EXTENT_PROPERTIES = *mut REFS_STREAM_EXTENT_PROPERTIES;
+        type PREFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER = *mut REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER;
+        type PREFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY = *mut REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY;
+        type PREFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER = *mut REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER;
+        type PREFS_STREAM_SNAPSHOT_OPERATION = *mut REFS_STREAM_SNAPSHOT_OPERATION;
+        type PREFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER = *mut REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER;
+        type PREFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER = *mut REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER;
+        type PREFS_VOLUME_COUNTER_INFO_INPUT_BUFFER = *mut REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER;
+        type PREFS_VOLUME_DEDUP_INFO_INPUT_BUFFER = *mut REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER;
+        type PREFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER = *mut REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER;
+        extern fn PRELEASE_FROM_LAZY_WRITE(Context: *const void);
+        extern fn PRELEASE_FROM_READ_AHEAD(Context: *const void);
+        type PREMOTE_LINK_TRACKING_INFORMATION = *mut REMOTE_LINK_TRACKING_INFORMATION;
+        type PREPARSE_DATA_BUFFER = *mut REPARSE_DATA_BUFFER;
+        type PREPARSE_DATA_BUFFER_EX = *mut REPARSE_DATA_BUFFER_EX;
+        type PREPARSE_INDEX_KEY = *mut REPARSE_INDEX_KEY;
+        type PRKAPC_STATE = *mut KAPC_STATE;
+        type PRKF_BYPASS_ECP_CONTEXT = *mut RKF_BYPASS_ECP_CONTEXT;
+        type PRKQUEUE = *mut KQUEUE;
+        extern fn PRTL_ALLOCATE_STRING_ROUTINE(NumberOfBytes: usize) -> *mut void;
+        extern fn PRTL_FREE_STRING_ROUTINE(Buffer: *const void);
+        extern fn PRTL_HEAP_COMMIT_ROUTINE(Base: *const void, #[r#in] #[out] CommitAddress: *mut *mut void, #[r#in] #[out] CommitSize: *mut usize) -> NTSTATUS;
+        type PRTL_HEAP_MEMORY_LIMIT_DATA = *mut RTL_HEAP_MEMORY_LIMIT_DATA;
+        type PRTL_HEAP_MEMORY_LIMIT_INFO = *mut RTL_HEAP_MEMORY_LIMIT_INFO;
+        type PRTL_HEAP_PARAMETERS = *mut RTL_HEAP_PARAMETERS;
+        type PRTL_MEMORY_TYPE = *mut RTL_MEMORY_TYPE;
+        extern fn PRTL_REALLOCATE_STRING_ROUTINE(NumberOfBytes: usize, Buffer: *const void) -> *mut void;
+        type PRTL_SEGMENT_HEAP_MEMORY_SOURCE = *mut RTL_SEGMENT_HEAP_MEMORY_SOURCE;
+        type PRTL_SEGMENT_HEAP_PARAMETERS = *mut RTL_SEGMENT_HEAP_PARAMETERS;
+        type PRTL_SEGMENT_HEAP_VA_CALLBACKS = *mut RTL_SEGMENT_HEAP_VA_CALLBACKS;
+        type PSECURITY_CLIENT_CONTEXT = *mut SECURITY_CLIENT_CONTEXT;
+        type PSET_CACHED_RUNS_STATE_INPUT_BUFFER = *mut SET_CACHED_RUNS_STATE_INPUT_BUFFER;
+        type PSE_AUDIT_INFO = *mut SE_AUDIT_INFO;
+        type PSE_AUDIT_OPERATION = *mut SE_AUDIT_OPERATION;
+        type PSE_EXPORTS = *mut SE_EXPORTS;
+        type PSE_LOGON_SESSION_TERMINATED_ROUTINE = *mut SE_LOGON_SESSION_TERMINATED_ROUTINE;
+        type PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX = *mut SE_LOGON_SESSION_TERMINATED_ROUTINE_EX;
+        const PSMP_MAXIMUM_SYSAPP_CLAIM_VALUES: u32 = 4;
+        const PSMP_MINIMUM_SYSAPP_CLAIM_VALUES: u32 = 2;
+        type PSOCKADDR_STORAGE_NFS = *mut sockaddr_storage;
+        type PSOV_RANGE_CHECK_DATA = *mut SOV_RANGE_CHECK_DATA;
+        type PSRV_INSTANCE_TYPE = *mut SRV_INSTANCE_TYPE;
+        type PSRV_OPEN_ECP_CONTEXT = *mut SRV_OPEN_ECP_CONTEXT;
+        type PTUNNEL = *mut TUNNEL;
+        struct PUBLIC_BCB {
+            NodeTypeCode: CSHORT,
+            NodeByteSize: CSHORT,
+            MappedLength: u32,
+            MappedFileOffset: LARGE_INTEGER,
+        }
+        type PUNICODE_PREFIX_TABLE = *mut UNICODE_PREFIX_TABLE;
+        type PUNICODE_PREFIX_TABLE_ENTRY = *mut UNICODE_PREFIX_TABLE_ENTRY;
+        extern fn PUNLOCK_ROUTINE(Context: *const void, FileLockInfo: *const FILE_LOCK_INFO);
+        const PURGE_WITH_ACTIVE_VIEWS: u32 = 8;
+        type PVBN = *mut VBN;
+        type PVCN_RANGE_INPUT_BUFFER = *mut VCN_RANGE_INPUT_BUFFER;
+        type PVETO_BINDING_ECP_CONTEXT = *mut VETO_BINDING_ECP_CONTEXT;
+        type PVOLUME_REFS_INFO_BUFFER = *mut VOLUME_REFS_INFO_BUFFER;
+        #[library("ntdll.dll")]
+        extern "system" fn PfxFindPrefix(PrefixTable: *const PREFIX_TABLE, FullName: *const STRING) -> PPREFIX_TABLE_ENTRY;
+        #[library("ntdll.dll")]
+        extern "system" fn PfxInitialize(PrefixTable: *mut PREFIX_TABLE);
+        #[library("ntdll.dll")]
+        extern "system" fn PfxInsertPrefix(PrefixTable: *const PREFIX_TABLE, Prefix: *const STRING, PrefixTableEntry: *mut PREFIX_TABLE_ENTRY) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern "system" fn PfxRemovePrefix(PrefixTable: *const PREFIX_TABLE, PrefixTableEntry: *const PREFIX_TABLE_ENTRY);
+        const QUERY_DIRECT_ACCESS_DATA_EXTENTS: u32 = 2;
+        struct QUERY_DIRECT_ACCESS_EXTENTS {
+            FileOffset: i64,
+            Length: i64,
+            Flags: u32,
+            Reserved: u32,
+        }
+        const QUERY_DIRECT_ACCESS_IMAGE_EXTENTS: u32 = 1;
+        struct QUERY_ON_CREATE_EA_INFORMATION {
+            EaBufferSize: u32,
+            EaBuffer: PFILE_FULL_EA_INFORMATION,
+        }
+        struct QUERY_ON_CREATE_ECP_CONTEXT {
+            RequestedClasses: u32,
+            ClassesProcessed: u32,
+            ClassesWithErrors: u32,
+            ClassesWithNoData: u32,
+            StatInformation: QUERY_ON_CREATE_FILE_STAT_INFORMATION,
+            LxInformation: QUERY_ON_CREATE_FILE_LX_INFORMATION,
+            EaInformation: QUERY_ON_CREATE_EA_INFORMATION,
+            Reserved: u32,
+            CommonBufferSize: u32,
+            CommonBuffer: *mut void,
+            UsnInformation: QUERY_ON_CREATE_USN_INFORMATION,
+            SecurityInformationRequested: SECURITY_INFORMATION,
+            SecurityInformation: QUERY_ON_CREATE_SECURITY_INFORMATION,
+        }
+        const QUERY_ON_CREATE_ECP_CONTEXT_COMMON_BUFFER_END: u32 = 152;
+        const QUERY_ON_CREATE_ECP_CONTEXT_EA_INFO_END: u32 = 136;
+        const QUERY_ON_CREATE_ECP_CONTEXT_LX_INFO_END: u32 = 116;
+        const QUERY_ON_CREATE_ECP_CONTEXT_SECURITY_INFO_END: u32 = 200;
+        const QUERY_ON_CREATE_ECP_CONTEXT_STAT_INFO_END: u32 = 88;
+        const QUERY_ON_CREATE_ECP_CONTEXT_USN_INFO_END: u32 = 176;
+        struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
+            EffectiveAccess: ACCESS_MASK,
+            LxFlags: u32,
+            LxUid: u32,
+            LxGid: u32,
+            LxMode: u32,
+            LxDeviceIdMajor: u32,
+            LxDeviceIdMinor: u32,
+        }
+        struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
+            FileId: LARGE_INTEGER,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            FileAttributes: u32,
+            ReparseTag: u32,
+            NumberOfLinks: u32,
+        }
+        struct QUERY_ON_CREATE_SECURITY_INFORMATION {
+            Reserved: u32,
+            SecurityDescriptorSize: u32,
+            SecurityDescriptor: PSECURITY_DESCRIPTOR,
+        }
+        struct QUERY_ON_CREATE_USN_INFORMATION {
+            Usn: USN,
+            FileReferenceNumber: FILE_ID_128,
+        }
+        struct QUERY_PATH_REQUEST {
+            PathNameLength: u32,
+            SecurityContext: PIO_SECURITY_CONTEXT,
+            FilePathName: [u16; 1],
+        }
+        struct QUERY_PATH_REQUEST_EX {
+            pSecurityContext: PIO_SECURITY_CONTEXT,
+            EaLength: u32,
+            pEaBuffer: *mut void,
+            PathName: UNICODE_STRING,
+            DomainServiceName: UNICODE_STRING,
+            EcpList: PECP_LIST,
+            Silo: PESILO,
+            Reserved: usize,
+        }
+        struct QUERY_PATH_RESPONSE {
+            LengthAccepted: u32,
+        }
+        extern fn QUERY_VIRTUAL_MEMORY_CALLBACK(#[r#in] #[out] CallbackContext: HANDLE, ProcessHandle: HANDLE, #[opt] BaseAddress: *const void, MemoryInformationClass: HEAP_MEMORY_INFO_CLASS, #[size_param(5)] MemoryInformation: *mut void, MemoryInformationLength: usize, #[opt] ReturnLength: *mut usize) -> NTSTATUS;
+        const QoCFileEaInformation: u32 = 4;
+        const QoCFileLxInformation: u32 = 2;
+        const QoCFileSecurityInformation: u32 = 16;
+        const QoCFileStatInformation: u32 = 1;
+        const QoCFileUsnInformation: u32 = 8;
+        struct READ_AHEAD_PARAMETERS {
+            NodeByteSize: CSHORT,
+            Granularity: u32,
+            PipelinedRequestSize: u32,
+            ReadAheadGrowthPercentage: u32,
+        }
+        struct READ_LIST {
+            FileObject: PFILE_OBJECT,
+            NumberOfEntries: u32,
+            IsImage: LOGICAL,
+            List: [FILE_SEGMENT_ELEMENT; 1],
+        }
+        #[repr(i32)]
+        enum REFS_COMPRESSION_FORMATS {
+            REFS_COMPRESSION_FORMAT_UNCHANGED = 0,
+            REFS_COMPRESSION_FORMAT_UNKNOWN = 1,
+            REFS_COMPRESSION_FORMAT_UNCOMPRESSED = 2,
+            REFS_COMPRESSION_FORMAT_LZ4 = 3,
+            REFS_COMPRESSION_FORMAT_ZSTD = 4,
+        }
+        #[repr(i32)]
+        enum REFS_DEALLOCATE_RANGES_ALLOCATOR {
+            REFS_DEALLOCATE_RANGES_ALLOCATOR_NONE = 0,
+            REFS_DEALLOCATE_RANGES_ALLOCATOR_SAA = 1,
+            REFS_DEALLOCATE_RANGES_ALLOCATOR_CAA = 2,
+            REFS_DEALLOCATE_RANGES_ALLOCATOR_MAA = 3,
+        }
+        struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
+            RangeCount: u32,
+            Ranges: [REFS_DEALLOCATE_RANGES_RANGE; 1],
+        }
+        struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
+            RangeCount: u32,
+            Allocator: REFS_DEALLOCATE_RANGES_ALLOCATOR,
+            StreamReserveUpdateCount: i64,
+            OffsetToRanges: u32,
+            OffsetToLeakCounts: u32,
+            Reserved: [u64; 2],
+        }
+        struct REFS_DEALLOCATE_RANGES_RANGE {
+            StartOfRange: u64,
+            CountOfRange: u64,
+        }
+        struct REFS_QUERY_ROLLBACK_PROTECTION_INFO_OUTPUT_BUFFER {
+            Version: u32,
+            VolumeGuid: GUID,
+            RollbackProtectionGuid: GUID,
+            FailMountOnMismatch: BOOLEAN,
+            FrozenVirtualClock: u64,
+            CurrentVirtualClock: u64,
+            ChecksumType: u16,
+            ChecksumLength: u32,
+            ChecksumOffset: u32,
+            CustomPayloadLength: u32,
+            CustomPayloadOffset: u32,
+        }
+        const REFS_QUERY_ROLLBACK_PROTECTION_INFO_OUTPUT_BUFFER_VERSION: u32 = 1;
+        #[repr(i32)]
+        enum REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS {
+            REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS_RUNNING = 1,
+            REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS_STOPPED = 2,
+        }
+        struct REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
+            Version: u32,
+            DefaultCompressionFormat: REFS_COMPRESSION_FORMATS,
+            DefaultCompressionLevel: i16,
+            DefaultCompressionChunkSizeBytes: u32,
+            VolumeClusterSizeBytes: u32,
+            TotalVolumeClusters: u64,
+            TotalAllocatedClusters: u64,
+            TotalCompressibleClustersAllocated: u64,
+            TotalCompressibleClustersInUse: u64,
+            TotalCompressedClusters: u64,
+            Flags: u32,
+            CompressionTuning: u32,
+            RecompressionTuning: u32,
+            DecompressionTuning: u32,
+            LastCompressionStatus: NTSTATUS,
+            Reserved: [u32; 8],
+        }
+        const REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER_VERSION: u32 = 1;
+        struct REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER {
+            Version: u32,
+            QueryType: REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE,
+            Reserved: [u32; 6],
+            Anonymous: union {
+                UnusedAlign: u64,
+                Parameters: struct {
+                    Reserved: [u32; 6],
+                },
+                MetricsData: struct {
+                    ResumeKeyBlob: [u64; 2],
+                    Reserved: [u32; 6],
+                },
+            },
+        }
+        const REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_VERSION: u32 = 1;
+        struct REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER {
+            Version: u32,
+            QueryType: REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE,
+            Reserved: [u32; 6],
+            Anonymous: union {
+                UnusedAlign: u64,
+                Parameters: struct {
+                    GlobalSecondsToTrack: u32,
+                    MetricsPeriodicitySeconds: u32,
+                    MetricsGenerationsPerContainer: u32,
+                    Reserved: [u32; 6],
+                },
+                MetricsData: struct {
+                    EntryCount: u32,
+                    ResumeKeyBlob: [u64; 2],
+                    Reserved: [u32; 6],
+                    Metrics: [REFS_QUERY_VOLUME_IO_METRICS_METRICS_DATA; 1],
+                },
+            },
+        }
+        const REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_VERSION: u32 = 1;
+        #[repr(i32)]
+        enum REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE {
+            REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE_PARAMETERS = 1,
+            REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE_METRICS_DATA = 2,
+        }
+        struct REFS_QUERY_VOLUME_IO_METRICS_METRICS_DATA {
+            PlaceHolder: u64,
+        }
+        struct REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER {
+            Version: u32,
+            TotalSharedLcns: u64,
+        }
+        const REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER_VERSION: u32 = 1;
+        struct REFS_REMOVE_HARDLINK_BACKPOINTER {
+            ParentDirectory: u64,
+            Reserved: u64,
+            FileName: [u16; 1],
+        }
+        struct REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER {
+            Version: u32,
+            FailMountOnMismatch: BOOLEAN,
+            CustomPayloadLength: u32,
+            CustomPayloadOffset: u32,
+            EnableRollbackProtection: BOOLEAN,
+        }
+        const REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER_VERSION: u32 = 2;
+        const REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER_VERSION_V1: u32 = 1;
+        #[repr(i32)]
+        enum REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS {
+            REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_START_COMPRESSION = 1,
+            REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_STOP_COMPRESSION = 2,
+            REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_GC_ONLY = 4,
+            REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_ENABLE_COMPRESSION = 8,
+            REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_DISABLE_COMPRESSION = 16,
+            REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_MAX = 16,
+        }
+        struct REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
+            Version: u32,
+            CompressionFormat: REFS_COMPRESSION_FORMATS,
+            CompressionLevel: i16,
+            CompressionChunkSizeBytes: u32,
+            Flags: u32,
+            CompressionTuning: u32,
+            RecompressionTuning: u32,
+            DecompressionTuning: u32,
+            Reserved: [u32; 6],
+        }
+        const REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER_VERSION: u32 = 1;
+        struct REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER {
+            Version: u32,
+            GlobalSecondsToTrack: u32,
+            MetricsPeriodicitySeconds: u32,
+            MetricsGenerationsPerContainer: u32,
+            Reserved: [u32; 8],
+        }
+        const REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_VERSION: u32 = 1;
+        struct REFS_STREAM_EXTENT {
+            Vcn: i64,
+            Lcn: i64,
+            Length: i64,
+            Properties: REFS_STREAM_EXTENT_PROPERTIES,
+        }
+        type REFS_STREAM_EXTENT_PROPERTIES = u16;
+        struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
+            EntryCount: u32,
+            BufferSizeRequiredForQuery: u32,
+            Reserved: [u32; 2],
+            Entries: [REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY; 1],
+        }
+        struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
+            NextEntryOffset: u32,
+            SnapshotNameLength: u16,
+            SnapshotCreationTime: u64,
+            StreamSize: u64,
+            StreamAllocationSize: u64,
+            Reserved: [u64; 2],
+            SnapshotName: [u16; 1],
+        }
+        struct REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER {
+            Operation: REFS_STREAM_SNAPSHOT_OPERATION,
+            SnapshotNameLength: u16,
+            OperationInputBufferLength: u16,
+            Reserved: [u64; 2],
+            NameAndInputBuffer: [u16; 1],
+        }
+        #[repr(i32)]
+        enum REFS_STREAM_SNAPSHOT_OPERATION {
+            REFS_STREAM_SNAPSHOT_OPERATION_INVALID = 0,
+            REFS_STREAM_SNAPSHOT_OPERATION_CREATE = 1,
+            REFS_STREAM_SNAPSHOT_OPERATION_LIST = 2,
+            REFS_STREAM_SNAPSHOT_OPERATION_QUERY_DELTAS = 3,
+            REFS_STREAM_SNAPSHOT_OPERATION_REVERT = 4,
+            REFS_STREAM_SNAPSHOT_OPERATION_SET_SHADOW_BTREE = 5,
+            REFS_STREAM_SNAPSHOT_OPERATION_CLEAR_SHADOW_BTREE = 6,
+            REFS_STREAM_SNAPSHOT_OPERATION_MAX = 6,
+        }
+        struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
+            StartingVcn: i64,
+            Flags: u32,
+            Reserved: u32,
+        }
+        struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
+            ExtentCount: u32,
+            Reserved: [u32; 2],
+            Extents: [REFS_STREAM_EXTENT; 1],
+        }
+        struct REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
+            ResetCounters: BOOLEAN,
+        }
+        struct REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER {
+            Version: u32,
+            SetDedupState: BOOLEAN,
+            Enable: BOOLEAN,
+            SetWeakRefState: BOOLEAN,
+            EnableWeakRef: BOOLEAN,
+            SetDirtyRangeTrackingState: BOOLEAN,
+            EnableDirtyRangeTracking: BOOLEAN,
+            SetWeakRefInconsistentState: BOOLEAN,
+            SetWeakRefInconsistent: BOOLEAN,
+        }
+        const REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER_VERSION: u32 = 2;
+        const REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER_VERSION_V1: u32 = 1;
+        struct REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
+            Version: u32,
+            Enabled: BOOLEAN,
+            EnabledWeakRef: BOOLEAN,
+            EnabledDirtyRangeTracking: BOOLEAN,
+            WeakRefInconsistent: BOOLEAN,
+            IsClustered: BOOLEAN,
+            VolumeIdHash: u32,
+            VolumeGuid: GUID,
+            VolumeUniqueGuid: GUID,
+        }
+        const REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER_VERSION: u32 = 2;
+        const REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER_VERSION_V1: u32 = 1;
+        struct REMOTE_LINK_TRACKING_INFORMATION {
+            TargetFileObject: *mut void,
+            TargetLinkTrackingInformationLength: u32,
+            TargetLinkTrackingInformationBuffer: [u8; 1],
+        }
+        const REMOTE_PROTOCOL_FLAG_INTEGRITY: u32 = 16;
+        const REMOTE_PROTOCOL_FLAG_LOOPBACK: u32 = 1;
+        const REMOTE_PROTOCOL_FLAG_MUTUAL_AUTH: u32 = 32;
+        const REMOTE_PROTOCOL_FLAG_OFFLINE: u32 = 2;
+        const REMOTE_PROTOCOL_FLAG_PERSISTENT_HANDLE: u32 = 4;
+        const REMOTE_PROTOCOL_FLAG_PRIVACY: u32 = 8;
+        const REMOVED_8DOT3_NAME: u32 = 2;
+        struct REPARSE_DATA_BUFFER {
+            ReparseTag: u32,
+            ReparseDataLength: u16,
+            Reserved: u16,
+            Anonymous: union {
+                SymbolicLinkReparseBuffer: struct {
+                    SubstituteNameOffset: u16,
+                    SubstituteNameLength: u16,
+                    PrintNameOffset: u16,
+                    PrintNameLength: u16,
+                    Flags: u32,
+                    PathBuffer: [u16; 1],
+                },
+                MountPointReparseBuffer: struct {
+                    SubstituteNameOffset: u16,
+                    SubstituteNameLength: u16,
+                    PrintNameOffset: u16,
+                    PrintNameLength: u16,
+                    PathBuffer: [u16; 1],
+                },
+                GenericReparseBuffer: struct {
+                    DataBuffer: [u8; 1],
+                },
+            },
+        }
+        struct REPARSE_DATA_BUFFER_EX {
+            Flags: u32,
+            ExistingReparseTag: u32,
+            ExistingReparseGuid: GUID,
+            Reserved: u64,
+            Anonymous: union {
+                ReparseDataBuffer: REPARSE_DATA_BUFFER,
+                ReparseGuidDataBuffer: REPARSE_GUID_DATA_BUFFER,
+            },
+        }
+        const REPARSE_DATA_BUFFER_EX_HEADER_SIZE: u32 = 40;
+        const REPARSE_DATA_BUFFER_HEADER_SIZE: u32 = 8;
+        const REPARSE_DATA_EX_FLAG_GIVEN_TAG_OR_NONE: u32 = 1;
+        const REPARSE_GUID_DATA_BUFFER_EX_HEADER_SIZE: u32 = 56;
+        #[packed(4)]
+        struct REPARSE_INDEX_KEY {
+            FileReparseTag: u32,
+            FileId: LARGE_INTEGER,
+        }
+        const RETURN_NON_NT_USER_SESSION_KEY: u32 = 8;
+        const RETURN_PRIMARY_LOGON_DOMAINNAME: u32 = 4;
+        const RETURN_PRIMARY_USERNAME: u32 = 2;
+        const RETURN_RESERVED_PARAMETER: u32 = 128;
+        struct RKF_BYPASS_ECP_CONTEXT {
+            Reserved: i32,
+            Version: i32,
+        }
+        const RPI_SMB2_SERVERCAP_DFS: u32 = 1;
+        const RPI_SMB2_SERVERCAP_DIRECTORY_LEASING: u32 = 32;
+        const RPI_SMB2_SERVERCAP_ENCRYPTION_AWARE: u32 = 64;
+        const RPI_SMB2_SERVERCAP_LARGEMTU: u32 = 4;
+        const RPI_SMB2_SERVERCAP_LEASING: u32 = 2;
+        const RPI_SMB2_SERVERCAP_MULTICHANNEL: u32 = 8;
+        const RPI_SMB2_SERVERCAP_NOTIFICATIONS_AWARE: u32 = 128;
+        const RPI_SMB2_SERVERCAP_PERSISTENT_HANDLES: u32 = 16;
+        const RPI_SMB2_SHARECAP_ACCESS_BASED_DIRECTORY_ENUM: u32 = 256;
+        const RPI_SMB2_SHARECAP_ASYMMETRIC_SCALEOUT: u32 = 1024;
+        const RPI_SMB2_SHARECAP_CLUSTER: u32 = 64;
+        const RPI_SMB2_SHARECAP_CONTINUOUS_AVAILABILITY: u32 = 16;
+        const RPI_SMB2_SHARECAP_DFS: u32 = 8;
+        const RPI_SMB2_SHARECAP_ENCRYPTED: u32 = 128;
+        const RPI_SMB2_SHARECAP_IDENTITY_REMOTING: u32 = 512;
+        const RPI_SMB2_SHARECAP_SCALEOUT: u32 = 32;
+        const RPI_SMB2_SHARECAP_TIMEWARP: u32 = 2;
+        const RPI_SMB2_SHARETYPE_DISK: u32 = 0;
+        const RPI_SMB2_SHARETYPE_PIPE: u32 = 1;
+        const RPI_SMB2_SHARETYPE_PRINT: u32 = 2;
+        extern fn RTL_ALLOCATE_STRING_ROUTINE(NumberOfBytes: usize) -> *mut void;
+        const RTL_DUPLICATE_UNICODE_STRING_ALLOCATE_NULL_STRING: u32 = 2;
+        const RTL_DUPLICATE_UNICODE_STRING_NULL_TERMINATE: u32 = 1;
+        extern fn RTL_FREE_STRING_ROUTINE(Buffer: *const void);
+        extern fn RTL_HEAP_COMMIT_ROUTINE(Base: *const void, #[r#in] #[out] CommitAddress: *mut *mut void, #[r#in] #[out] CommitSize: *mut usize) -> NTSTATUS;
+        const RTL_HEAP_MEMORY_LIMIT_CURRENT_VERSION: u32 = 1;
+        struct RTL_HEAP_MEMORY_LIMIT_DATA {
+            CommitLimitBytes: usize,
+            CommitLimitFailureCode: usize,
+            MaxAllocationSizeBytes: usize,
+            AllocationLimitFailureCode: usize,
+        }
+        struct RTL_HEAP_MEMORY_LIMIT_INFO {
+            Version: u32,
+            Data: RTL_HEAP_MEMORY_LIMIT_DATA,
+        }
+        struct RTL_HEAP_PARAMETERS {
+            Length: u32,
+            SegmentReserve: usize,
+            SegmentCommit: usize,
+            DeCommitFreeBlockThreshold: usize,
+            DeCommitTotalFreeThreshold: usize,
+            MaximumAllocationSize: usize,
+            VirtualMemoryThreshold: usize,
+            InitialCommit: usize,
+            InitialReserve: usize,
+            CommitRoutine: PRTL_HEAP_COMMIT_ROUTINE,
+            Reserved: [usize; 2],
+        }
+        #[repr(i32)]
+        enum RTL_MEMORY_TYPE {
+            MemoryTypePaged = 0,
+            MemoryTypeNonPaged = 1,
+            MemoryType64KPage = 2,
+            MemoryTypeLargePage = 3,
+            MemoryTypeHugePage = 4,
+            MemoryTypeCustom = 5,
+            MemoryTypeMax = 6,
+        }
+        extern fn RTL_REALLOCATE_STRING_ROUTINE(NumberOfBytes: usize, Buffer: *const void) -> *mut void;
+        const RTL_SEGHEAP_MEM_SOURCE_ANY_NODE: u32 = 4294967295;
+        struct RTL_SEGMENT_HEAP_MEMORY_SOURCE {
+            Flags: u32,
+            MemoryTypeMask: u32,
+            NumaNode: u32,
+            Anonymous: union {
+                PartitionHandle: HANDLE,
+                Callbacks: *mut RTL_SEGMENT_HEAP_VA_CALLBACKS,
+            },
+            Reserved: [usize; 2],
+        }
+        struct RTL_SEGMENT_HEAP_PARAMETERS {
+            Version: u16,
+            Size: u16,
+            Flags: u32,
+            MemorySource: RTL_SEGMENT_HEAP_MEMORY_SOURCE,
+            Reserved: [usize; 4],
+        }
+        struct RTL_SEGMENT_HEAP_VA_CALLBACKS {
+            CallbackContext: HANDLE,
+            AllocateVirtualMemory: PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK,
+            FreeVirtualMemory: PFREE_VIRTUAL_MEMORY_EX_CALLBACK,
+            QueryVirtualMemory: PQUERY_VIRTUAL_MEMORY_CALLBACK,
+        }
+        #[encoding("utf-16")]
+        const RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: String = "System Volume Information";
+        #[library("ntdll.dll")]
+        extern "system" fn RtlAbsoluteToSelfRelativeSD(AbsoluteSecurityDescriptor: PSECURITY_DESCRIPTOR, #[size_param(2)] #[out] #[opt] SelfRelativeSecurityDescriptor: PSECURITY_DESCRIPTOR, #[r#in] #[out] BufferLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlAddAccessAllowedAce(#[r#in] #[out] Acl: *mut ACL, AceRevision: u32, AccessMask: ACCESS_MASK, Sid: PSID) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlAddAccessAllowedAceEx(#[r#in] #[out] Acl: *mut ACL, AceRevision: u32, AceFlags: u32, AccessMask: ACCESS_MASK, Sid: PSID) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlAddAce(#[r#in] #[out] Acl: *mut ACL, AceRevision: u32, StartingAceIndex: u32, #[size_param(4)] AceList: *const void, AceListLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlAllocateAndInitializeSid(IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8, SubAuthority0: u32, SubAuthority1: u32, SubAuthority2: u32, SubAuthority3: u32, SubAuthority4: u32, SubAuthority5: u32, SubAuthority6: u32, SubAuthority7: u32, Sid: *mut PSID) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlAllocateAndInitializeSidEx(IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8, #[len_param(1)] SubAuthorities: *const u32, Sid: *mut PSID) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlAllocateHeap(HeapHandle: *const void, #[opt] Flags: u32, Size: usize) -> *mut void;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlAppendStringToString(#[r#in] #[out] Destination: *mut STRING, Source: *const STRING) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCompareAltitudes(Altitude1: *const UNICODE_STRING, Altitude2: *const UNICODE_STRING) -> i32;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCompareMemoryUlong(#[size_param(1)] Source: *const void, Length: usize, Pattern: u32) -> usize;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCompressBuffer(CompressionFormatAndEngine: u16, #[size_param(2)] UncompressedBuffer: *const u8, UncompressedBufferSize: u32, #[size_param(4)] CompressedBuffer: *mut u8, CompressedBufferSize: u32, UncompressedChunkSize: u32, FinalCompressedSize: *mut u32, WorkSpace: *const void) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCopyLuid(DestinationLuid: *mut LUID, SourceLuid: *const LUID);
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCopySid(DestinationSidLength: u32, #[size_param(0)] #[out] DestinationSid: PSID, SourceSid: PSID) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCreateAcl(#[size_param(1)] Acl: *mut ACL, AclLength: u32, AclRevision: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCreateHeap(Flags: u32, #[opt] HeapBase: *const void, #[opt] ReserveSize: usize, #[opt] CommitSize: usize, #[opt] Lock: *const void, Parameters: *mut RTL_HEAP_PARAMETERS) -> *mut void;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCreateServiceSid(ServiceName: *const UNICODE_STRING, #[size_param(2)] #[out] #[opt] ServiceSid: PSID, #[r#in] #[out] ServiceSidLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCreateSystemVolumeInformationFolder(VolumeRootPath: *const UNICODE_STRING) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCreateUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCWSTR) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCreateVirtualAccountSid(Name: *const UNICODE_STRING, BaseSubAuthority: u32, #[size_param(3)] #[out] Sid: PSID, #[r#in] #[out] SidLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlCustomCPToUnicodeN(CustomCP: *const CPTABLEINFO, #[size_param(2)] UnicodeString: *mut u16, MaxBytesInUnicodeString: u32, #[opt] BytesInUnicodeString: *mut u32, #[size_param(5)] CustomCPString: *const i8, BytesInCustomCPString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlDecompressBuffer(CompressionFormat: u16, #[size_param(2)] UncompressedBuffer: *mut u8, UncompressedBufferSize: u32, #[size_param(4)] CompressedBuffer: *const u8, CompressedBufferSize: u32, FinalUncompressedSize: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlDecompressBufferEx(CompressionFormat: u16, #[size_param(2)] UncompressedBuffer: *mut u8, UncompressedBufferSize: u32, #[size_param(4)] CompressedBuffer: *const u8, CompressedBufferSize: u32, FinalUncompressedSize: *mut u32, #[opt] WorkSpace: *const void) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlDecompressFragment(CompressionFormat: u16, #[size_param(2)] UncompressedFragment: *mut u8, UncompressedFragmentSize: u32, #[size_param(4)] CompressedBuffer: *const u8, CompressedBufferSize: u32, FragmentOffset: u32, FinalUncompressedSize: *mut u32, WorkSpace: *const void) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlDeleteAce(#[r#in] #[out] Acl: *mut ACL, AceIndex: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlDestroyHeap(HeapHandle: *const void) -> *mut void;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlDowncaseUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlDuplicateUnicodeString(Flags: u32, StringIn: *const UNICODE_STRING, StringOut: *mut UNICODE_STRING) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlEqualPrefixSid(Sid1: PSID, Sid2: PSID) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlEqualSid(Sid1: PSID, Sid2: PSID) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlFreeHeap(HeapHandle: *const void, #[opt] Flags: u32, BaseAddress: *mut void) -> LOGICAL;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlFreeSid(Sid: PSID) -> *mut void;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlGenerate8dot3Name(Name: *const UNICODE_STRING, AllowExtendedCharacters: BOOLEAN, #[r#in] #[out] Context: *mut GENERATE_NAME_CONTEXT, #[r#in] #[out] Name8dot3: *mut UNICODE_STRING) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlGetAce(Acl: *const ACL, AceIndex: u32, Ace: *mut *mut void) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlGetAcesBufferSize(Acl: *const ACL, AcesBufferSize: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlGetCompressionWorkSpaceSize(CompressionFormatAndEngine: u16, CompressBufferWorkSpaceSize: *mut u32, CompressFragmentWorkSpaceSize: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlGetDaclSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, DaclPresent: *mut BOOLEAN, Dacl: *mut PACL, DaclDefaulted: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlGetGroupSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, Group: *mut PSID, GroupDefaulted: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlGetOwnerSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, Owner: *mut PSID, OwnerDefaulted: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlGetSaclSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, SaclPresent: *mut BOOLEAN, Sacl: *mut PACL, SaclDefaulted: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlIdentifierAuthoritySid(Sid: PSID) -> PSID_IDENTIFIER_AUTHORITY;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlIdnToAscii(Flags: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[r#in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlIdnToNameprepUnicode(Flags: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[r#in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlIdnToUnicode(Flags: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[r#in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlInitCodePageTable(#[len_const(2)] #[opt] TableBase: *const u16, #[r#in] #[out] CodePageTable: *mut CPTABLEINFO);
+        #[library("ntdll.dll")]
+        extern "system" fn RtlInitUnicodeStringEx(DestinationString: *mut UNICODE_STRING, #[opt] SourceString: PCWSTR) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlInitializeSid(#[out] Sid: PSID, IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlInitializeSidEx(#[out] Sid: PSID, IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8, ...) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlIsCloudFilesPlaceholder(FileAttributes: u32, ReparseTag: u32) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlIsNonEmptyDirectoryReparsePointAllowed(ReparseTag: u32) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlIsNormalizedString(NormForm: u32, SourceString: PCWSTR, SourceStringLength: i32, Normalized: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlIsPartialPlaceholder(FileAttributes: u32, ReparseTag: u32) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlIsPartialPlaceholderFileHandle(FileHandle: HANDLE, IsPartialPlaceholder: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlIsPartialPlaceholderFileInfo(InfoBuffer: *const void, InfoClass: FILE_INFORMATION_CLASS, IsPartialPlaceholder: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlLengthRequiredSid(SubAuthorityCount: u32) -> u32;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlLengthSid(Sid: PSID) -> u32;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlMultiByteToUnicodeN(#[size_param(1)] UnicodeString: *mut u16, MaxBytesInUnicodeString: u32, #[opt] BytesInUnicodeString: *mut u32, #[size_param(4)] MultiByteString: *const i8, BytesInMultiByteString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlMultiByteToUnicodeSize(BytesInUnicodeString: *mut u32, #[size_param(2)] MultiByteString: *const i8, BytesInMultiByteString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlNormalizeString(NormForm: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[r#in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlNtStatusToDosErrorNoTeb(Status: NTSTATUS) -> u32;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlOemStringToUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: *const STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlOemToUnicodeN(#[size_param(1)] UnicodeString: *mut u16, MaxBytesInUnicodeString: u32, #[opt] BytesInUnicodeString: *mut u32, #[size_param(4)] OemString: *const i8, BytesInOemString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlPrefixString(String1: *const STRING, String2: *const STRING, CaseInSensitive: BOOLEAN) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlQueryPackageIdentity(TokenObject: *const void, #[size_param(2)] #[out] PackageFullName: PWSTR, #[r#in] #[out] PackageSize: *mut usize, #[size_param(4)] #[out] #[opt] AppId: PWSTR, #[r#in] #[out] #[opt] AppIdSize: *mut usize, #[opt] Packaged: *mut BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlQueryPackageIdentityEx(TokenObject: *const void, #[size_param(2)] #[out] PackageFullName: PWSTR, #[r#in] #[out] PackageSize: *mut usize, #[size_param(4)] #[out] #[opt] AppId: PWSTR, #[r#in] #[out] #[opt] AppIdSize: *mut usize, #[opt] DynamicId: *mut GUID, #[opt] Flags: *mut u64) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlQueryProcessPlaceholderCompatibilityMode() -> i8;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlQueryThreadPlaceholderCompatibilityMode() -> i8;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlRandom(#[r#in] #[out] Seed: *mut u32) -> u32;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlRandomEx(#[r#in] #[out] Seed: *mut u32) -> u32;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlReplaceSidInSd(#[r#in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, OldSid: PSID, NewSid: PSID, NumChanges: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlSecondsSince1970ToTime(ElapsedSeconds: u32, Time: *mut LARGE_INTEGER);
+        #[library("ntdll.dll")]
+        extern "system" fn RtlSecondsSince1980ToTime(ElapsedSeconds: u32, Time: *mut LARGE_INTEGER);
+        #[library("ntdll.dll")]
+        extern "system" fn RtlSelfRelativeToAbsoluteSD(SelfRelativeSecurityDescriptor: PSECURITY_DESCRIPTOR, #[size_param(2)] #[out] #[opt] AbsoluteSecurityDescriptor: PSECURITY_DESCRIPTOR, #[r#in] #[out] AbsoluteSecurityDescriptorSize: *mut u32, #[size_param(4)] #[opt] Dacl: *mut ACL, #[r#in] #[out] DaclSize: *mut u32, #[size_param(6)] #[opt] Sacl: *mut ACL, #[r#in] #[out] SaclSize: *mut u32, #[size_param(8)] #[out] #[opt] Owner: PSID, #[r#in] #[out] OwnerSize: *mut u32, #[size_param(10)] #[out] #[opt] PrimaryGroup: PSID, #[r#in] #[out] PrimaryGroupSize: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlSetGroupSecurityDescriptor(#[r#in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] Group: PSID, GroupDefaulted: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlSetOwnerSecurityDescriptor(#[r#in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] Owner: PSID, OwnerDefaulted: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlSetProcessPlaceholderCompatibilityMode(Mode: i8) -> i8;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlSetThreadPlaceholderCompatibilityMode(Mode: i8) -> i8;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlSubAuthorityCountSid(Sid: PSID) -> PUCHAR;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlSubAuthoritySid(Sid: PSID, SubAuthority: u32) -> PULONG;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlTimeToSecondsSince1980(Time: *const LARGE_INTEGER, ElapsedSeconds: *mut u32) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlUnicodeStringToCountedOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlUnicodeToCustomCPN(CustomCP: *const CPTABLEINFO, #[size_param(2)] CustomCPString: *mut i8, MaxBytesInCustomCPString: u32, #[opt] BytesInCustomCPString: *mut u32, #[size_param(5)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlUnicodeToMultiByteN(#[size_param(1)] MultiByteString: *mut i8, MaxBytesInMultiByteString: u32, #[opt] BytesInMultiByteString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlUnicodeToOemN(#[size_param(1)] OemString: *mut i8, MaxBytesInOemString: u32, #[opt] BytesInOemString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlUpcaseUnicodeStringToCountedOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlUpcaseUnicodeStringToOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlUpcaseUnicodeToCustomCPN(CustomCP: *const CPTABLEINFO, #[size_param(2)] CustomCPString: *mut i8, MaxBytesInCustomCPString: u32, #[opt] BytesInCustomCPString: *mut u32, #[size_param(5)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlUpcaseUnicodeToMultiByteN(#[size_param(1)] MultiByteString: *mut i8, MaxBytesInMultiByteString: u32, #[opt] BytesInMultiByteString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlUpcaseUnicodeToOemN(#[size_param(1)] OemString: *mut i8, MaxBytesInOemString: u32, #[opt] BytesInOemString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlValidSid(Sid: PSID) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlValidateUnicodeString(#[reserved] Flags: u32, String: *const UNICODE_STRING) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlxOemStringToUnicodeSize(OemString: *const STRING) -> u32;
+        #[library("ntdll.dll")]
+        extern "system" fn RtlxUnicodeStringToOemSize(UnicodeString: *const UNICODE_STRING) -> u32;
+        struct SECURITY_CLIENT_CONTEXT {
+            SecurityQos: SECURITY_QUALITY_OF_SERVICE,
+            ClientToken: PACCESS_TOKEN,
+            DirectlyAccessClientToken: BOOLEAN,
+            DirectAccessEffectiveOnly: BOOLEAN,
+            ServerIsRemote: BOOLEAN,
+            ClientTokenControl: TOKEN_CONTROL,
+        }
+        const SECURITY_DESCRIPTOR_DO_NOT_FREE: u32 = 67108864;
+        const SEGMENT_HEAP_FLG_NO_LFH: u32 = 2;
+        const SEGMENT_HEAP_FLG_USE_PAGE_HEAP: u32 = 1;
+        const SEGMENT_HEAP_PARAMETERS_VERSION: u32 = 3;
+        const SEGMENT_HEAP_PARAMS_VALID_FLAGS: u32 = 3;
+        struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
+            Enable: BOOLEAN,
+        }
+        struct SE_AUDIT_INFO {
+            Size: u32,
+            AuditType: AUDIT_EVENT_TYPE,
+            AuditOperation: SE_AUDIT_OPERATION,
+            AuditFlags: u32,
+            SubsystemName: UNICODE_STRING,
+            ObjectTypeName: UNICODE_STRING,
+            ObjectName: UNICODE_STRING,
+            HandleId: *mut void,
+            TransactionId: *mut GUID,
+            OperationId: *mut LUID,
+            ObjectCreation: BOOLEAN,
+            GenerateOnClose: BOOLEAN,
+        }
+        #[repr(i32)]
+        enum SE_AUDIT_OPERATION {
+            AuditPrivilegeObject = 0,
+            AuditPrivilegeService = 1,
+            AuditAccessCheck = 2,
+            AuditOpenObject = 3,
+            AuditOpenObjectWithTransaction = 4,
+            AuditCloseObject = 5,
+            AuditDeleteObject = 6,
+            AuditOpenObjectForDelete = 7,
+            AuditOpenObjectForDeleteWithTransaction = 8,
+            AuditCloseNonObject = 9,
+            AuditOpenNonObject = 10,
+            AuditObjectReference = 11,
+            AuditHandleCreation = 12,
+        }
+        const SE_BACKUP_PRIVILEGES_CHECKED: u32 = 256;
+        const SE_DACL_UNTRUSTED: u32 = 64;
+        struct SE_EXPORTS {
+            SeCreateTokenPrivilege: LUID,
+            SeAssignPrimaryTokenPrivilege: LUID,
+            SeLockMemoryPrivilege: LUID,
+            SeIncreaseQuotaPrivilege: LUID,
+            SeUnsolicitedInputPrivilege: LUID,
+            SeTcbPrivilege: LUID,
+            SeSecurityPrivilege: LUID,
+            SeTakeOwnershipPrivilege: LUID,
+            SeLoadDriverPrivilege: LUID,
+            SeCreatePagefilePrivilege: LUID,
+            SeIncreaseBasePriorityPrivilege: LUID,
+            SeSystemProfilePrivilege: LUID,
+            SeSystemtimePrivilege: LUID,
+            SeProfileSingleProcessPrivilege: LUID,
+            SeCreatePermanentPrivilege: LUID,
+            SeBackupPrivilege: LUID,
+            SeRestorePrivilege: LUID,
+            SeShutdownPrivilege: LUID,
+            SeDebugPrivilege: LUID,
+            SeAuditPrivilege: LUID,
+            SeSystemEnvironmentPrivilege: LUID,
+            SeChangeNotifyPrivilege: LUID,
+            SeRemoteShutdownPrivilege: LUID,
+            SeNullSid: PSID,
+            SeWorldSid: PSID,
+            SeLocalSid: PSID,
+            SeCreatorOwnerSid: PSID,
+            SeCreatorGroupSid: PSID,
+            SeNtAuthoritySid: PSID,
+            SeDialupSid: PSID,
+            SeNetworkSid: PSID,
+            SeBatchSid: PSID,
+            SeInteractiveSid: PSID,
+            SeLocalSystemSid: PSID,
+            SeAliasAdminsSid: PSID,
+            SeAliasUsersSid: PSID,
+            SeAliasGuestsSid: PSID,
+            SeAliasPowerUsersSid: PSID,
+            SeAliasAccountOpsSid: PSID,
+            SeAliasSystemOpsSid: PSID,
+            SeAliasPrintOpsSid: PSID,
+            SeAliasBackupOpsSid: PSID,
+            SeAuthenticatedUsersSid: PSID,
+            SeRestrictedSid: PSID,
+            SeAnonymousLogonSid: PSID,
+            SeUndockPrivilege: LUID,
+            SeSyncAgentPrivilege: LUID,
+            SeEnableDelegationPrivilege: LUID,
+            SeLocalServiceSid: PSID,
+            SeNetworkServiceSid: PSID,
+            SeManageVolumePrivilege: LUID,
+            SeImpersonatePrivilege: LUID,
+            SeCreateGlobalPrivilege: LUID,
+            SeTrustedCredManAccessPrivilege: LUID,
+            SeRelabelPrivilege: LUID,
+            SeIncreaseWorkingSetPrivilege: LUID,
+            SeTimeZonePrivilege: LUID,
+            SeCreateSymbolicLinkPrivilege: LUID,
+            SeIUserSid: PSID,
+            SeUntrustedMandatorySid: PSID,
+            SeLowMandatorySid: PSID,
+            SeMediumMandatorySid: PSID,
+            SeHighMandatorySid: PSID,
+            SeSystemMandatorySid: PSID,
+            SeOwnerRightsSid: PSID,
+            SeAllAppPackagesSid: PSID,
+            SeUserModeDriversSid: PSID,
+            SeProcTrustWinTcbSid: PSID,
+            SeTrustedInstallerSid: PSID,
+            SeDelegateSessionUserImpersonatePrivilege: LUID,
+            SeAppSiloSid: PSID,
+            SeAppSiloVolumeRootMinimalCapabilitySid: PSID,
+            SeAppSiloProfilesRootMinimalCapabilitySid: PSID,
+            SeAppSiloPromptForAccessCapabilitySid: PSID,
+            SeAppSiloAccessToPublisherDirectoryCapabilitySid: PSID,
+        }
+        extern fn SE_LOGON_SESSION_TERMINATED_ROUTINE(LogonId: *const LUID) -> NTSTATUS;
+        extern fn SE_LOGON_SESSION_TERMINATED_ROUTINE_EX(LogonId: *const LUID, pServerSilo: *const _EJOB, #[opt] Context: *const void) -> NTSTATUS;
+        const SE_SERVER_SECURITY: u32 = 128;
+        struct SOV_RANGE_CHECK_DATA {
+            RemoveZone: BOOLEAN,
+            InRange: [u64; 2],
+            ZidForRemoval: GUID,
+            Reserved1: u64,
+            Reserved2: u64,
+        }
+        const SPECIAL_ENCRYPTED_OPEN: u32 = 262144;
+        #[repr(i32)]
+        enum SRV_INSTANCE_TYPE {
+            SrvInstanceTypeUndefined = 0,
+            SrvInstanceTypePrimary = 1,
+            SrvInstanceTypeCsv = 2,
+            SrvInstanceTypeSBL = 3,
+            SrvInstanceTypeSR = 4,
+            SrvInstanceTypeVSMB = 5,
+            SrvInstanceTypeSOV = 6,
+            SrvInstanceTypeVMLM = 7,
+        }
+        struct SRV_OPEN_ECP_CONTEXT {
+            ShareName: PUNICODE_STRING,
+            SocketAddress: PSOCKADDR_STORAGE_NFS,
+            OplockBlockState: BOOLEAN,
+            OplockAppState: BOOLEAN,
+            OplockFinalState: BOOLEAN,
+            Version: u16,
+            InstanceType: SRV_INSTANCE_TYPE,
+        }
+        const SRV_OPEN_ECP_CONTEXT_VERSION_2: u32 = 2;
+        const SUPPORTED_FS_FEATURES_BYPASS_IO: u32 = 8;
+        const SUPPORTED_FS_FEATURES_OFFLOAD_READ: u32 = 1;
+        const SUPPORTED_FS_FEATURES_OFFLOAD_WRITE: u32 = 2;
+        const SUPPORTED_FS_FEATURES_QUERY_OPEN: u32 = 4;
+        const SUPPORTED_FS_FEATURES_VALID_MASK: u32 = 15;
+        const SYMLINK_DIRECTORY: u32 = 2147483648;
+        const SYMLINK_FILE: u32 = 1073741824;
+        const SYMLINK_FLAG_RELATIVE: u32 = 1;
+        const SYMLINK_RESERVED_MASK: u32 = 4026531840;
+        const SYSTEM_PAGE_PRIORITY_BITS: u32 = 3;
+        const SYSTEM_PAGE_PRIORITY_LEVELS: u32 = 8;
+        struct SspiAsyncContext {}
+        extern fn SspiAsyncNotifyCallback(Handle: *const SspiAsyncContext, #[opt] CallbackData: *const void);
+        const TOKEN_AUDIT_NO_CHILD_PROCESS: u32 = 2097152;
+        const TOKEN_AUDIT_REDIRECTION_TRUST: u32 = 8388608;
+        const TOKEN_DO_NOT_USE_GLOBAL_ATTRIBS_FOR_QUERY: u32 = 131072;
+        const TOKEN_ENFORCE_REDIRECTION_TRUST: u32 = 4194304;
+        const TOKEN_HAS_BACKUP_PRIVILEGE: u32 = 2;
+        const TOKEN_HAS_IMPERSONATE_PRIVILEGE: u32 = 128;
+        const TOKEN_HAS_OWN_CLAIM_ATTRIBUTES: u32 = 32768;
+        const TOKEN_HAS_RESTORE_PRIVILEGE: u32 = 4;
+        const TOKEN_HAS_TRAVERSE_PRIVILEGE: u32 = 1;
+        const TOKEN_INHERIT_SECURITY_FLAGS: u32 = 3670016;
+        const TOKEN_IS_FILTERED: u32 = 2048;
+        const TOKEN_IS_RESTRICTED: u32 = 16;
+        const TOKEN_LEARNING_MODE_LOGGING: u32 = 16777216;
+        const TOKEN_LOWBOX: u32 = 16384;
+        const TOKEN_NOT_LOW: u32 = 8192;
+        const TOKEN_NO_CHILD_PROCESS: u32 = 524288;
+        const TOKEN_NO_CHILD_PROCESS_UNLESS_SECURE: u32 = 1048576;
+        const TOKEN_PERMISSIVE_LEARNING_MODE: u32 = 50331648;
+        const TOKEN_PRIVATE_NAMESPACE: u32 = 65536;
+        const TOKEN_REF_SYSTEM_MANAGED_ADMIN_FULL_TOKEN: u32 = 268435456;
+        const TOKEN_SANDBOX_INERT: u32 = 64;
+        const TOKEN_SESSION_NOT_REFERENCED: u32 = 32;
+        const TOKEN_SYSTEM_MANAGED_ADMIN_FULL_TOKEN: u32 = 134217728;
+        const TOKEN_UIACCESS: u32 = 4096;
+        const TOKEN_VIRTUALIZE_ALLOWED: u32 = 512;
+        const TOKEN_VIRTUALIZE_ENABLED: u32 = 1024;
+        const TOKEN_WRITE_RESTRICTED: u32 = 8;
+        struct TUNNEL {
+            Mutex: FAST_MUTEX,
+            Cache: PRTL_SPLAY_LINKS,
+            TimerQueue: LIST_ENTRY,
+            NumEntries: u16,
+        }
+        struct UNICODE_PREFIX_TABLE {
+            NodeTypeCode: CSHORT,
+            NameLength: CSHORT,
+            NextPrefixTree: PUNICODE_PREFIX_TABLE_ENTRY,
+            LastNextEntry: PUNICODE_PREFIX_TABLE_ENTRY,
+        }
+        struct UNICODE_PREFIX_TABLE_ENTRY {
+            NodeTypeCode: CSHORT,
+            NameLength: CSHORT,
+            NextPrefixTree: *mut UNICODE_PREFIX_TABLE_ENTRY,
+            CaseMatch: *mut UNICODE_PREFIX_TABLE_ENTRY,
+            Links: RTL_SPLAY_LINKS,
+            Prefix: PUNICODE_STRING,
+        }
+        const UNINITIALIZE_CACHE_MAPS: u32 = 1;
+        const USE_PRIMARY_PASSWORD: u32 = 1;
+        const VACB_MAPPING_GRANULARITY: u32 = 262144;
+        const VACB_OFFSET_SHIFT: u32 = 18;
+        const VALID_COPY_FILE_CHUNK_FLAGS: u32 = 1;
+        type VBN = u32;
+        struct VCN_RANGE_INPUT_BUFFER {
+            StartingVcn: LARGE_INTEGER,
+            ClusterCount: LARGE_INTEGER,
+        }
+        struct VETO_BINDING_ECP_CONTEXT {
+            ShouldVetoBinding: BOOLEAN,
+        }
+        #[repr(i32)]
+        enum VIRTUAL_MEMORY_INFORMATION_CLASS {
+            VmPrefetchInformation = 0,
+        }
+        const VOLSNAPCONTROLTYPE: u32 = 83;
+        struct VOLUME_REFS_INFO_BUFFER {
+            CacheSizeInBytes: LARGE_INTEGER,
+            AllocatedCacheInBytes: LARGE_INTEGER,
+            PopulatedCacheInBytes: LARGE_INTEGER,
+            InErrorCacheInBytes: LARGE_INTEGER,
+            MemoryUsedForCacheMetadata: LARGE_INTEGER,
+            CacheLineSize: u32,
+            CacheTransactionsOutstanding: i32,
+            CacheLinesFree: i32,
+            CacheLinesInError: i32,
+            CacheHitsInBytes: LARGE_INTEGER,
+            CacheMissesInBytes: LARGE_INTEGER,
+            CachePopulationUpdatesInBytes: LARGE_INTEGER,
+            CacheWriteThroughUpdatesInBytes: LARGE_INTEGER,
+            CacheInvalidationsInBytes: LARGE_INTEGER,
+            CacheOverReadsInBytes: LARGE_INTEGER,
+            MetadataWrittenBytes: LARGE_INTEGER,
+            CacheHitCounter: i32,
+            CacheMissCounter: i32,
+            CacheLineAllocationCounter: i32,
+            CacheInvalidationsCounter: i32,
+            CachePopulationUpdatesCounter: i32,
+            CacheWriteThroughUpdatesCounter: i32,
+            MaxCacheTransactionsOutstanding: i32,
+            DataWritesReallocationCount: i64,
+            DataInPlaceWriteCount: i64,
+            MetadataAllocationsFastTierCount: i64,
+            MetadataAllocationsSlowTierCount: i64,
+            DataAllocationsFastTierCount: i64,
+            DataAllocationsSlowTierCount: i64,
+            DestagesSlowTierToFastTier: i64,
+            DestagesFastTierToSlowTier: i64,
+            SlowTierDataFillRatio: i32,
+            FastTierDataFillRatio: i32,
+            SlowTierMetadataFillRatio: i32,
+            FastTierMetadataFillRatio: i32,
+            SlowToFastDestageReadLatency: i64,
+            SlowToFastDestageReadLatencyBase: i32,
+            SlowToFastDestageWriteLatency: i64,
+            SlowToFastDestageWriteLatencyBase: i32,
+            FastToSlowDestageReadLatency: i64,
+            FastToSlowDestageReadLatencyBase: i32,
+            FastToSlowDestageWriteLatency: i64,
+            FastToSlowDestageWriteLatencyBase: i32,
+            SlowTierContainerFillRatio: i64,
+            SlowTierContainerFillRatioBase: i32,
+            FastTierContainerFillRatio: i64,
+            FastTierContainerFillRatioBase: i32,
+            Unused1: i32,
+            Unused2: i32,
+            Unused3: i32,
+            Unused4: i32,
+            TreeUpdateCount: i64,
+            CheckpointCount: i64,
+            LogWriteCount: i64,
+            LogFillRatio: i32,
+            ReadCacheInvalidationsForOverwrite: i32,
+            ReadCacheInvalidationsForReuse: i32,
+            ReadCacheInvalidationsGeneral: i32,
+            ReadCacheChecksOnMount: i32,
+            ReadCacheIssuesOnMount: i32,
+            TrimLatency: i64,
+            TrimLatencyBase: i32,
+            DataCompactionCount: i64,
+            CompactionReadLatency: i64,
+            CompactionReadLatencyBase: i32,
+            CompactionWriteLatency: i64,
+            CompactionWriteLatencyBase: i32,
+            DataInPlaceWriteClusterCount: LARGE_INTEGER,
+            CompactionFailedDueToIneligibleContainer: i32,
+            CompactionFailedDueToMaxFragmentation: i32,
+            CompactedContainerFillRatio: i64,
+            CompactedContainerFillRatioBase: i32,
+            ContainerMoveRetryCount: i32,
+            ContainerMoveFailedDueToIneligibleContainer: i32,
+            CompactionFailureCount: i32,
+            ContainerMoveFailureCount: i32,
+            NumberOfDirtyMetadataPages: LARGE_INTEGER,
+            NumberOfDirtyTableListEntries: i32,
+            NumberOfDeleteQueueEntries: i32,
+            MAAFilteredViewSize: i32,
+            MAAFilteredViewInsertions: i32,
+            MAAFilteredViewDeletions: i32,
+            MAAFilteredViewCollisions: i32,
+            MAAFilteredViewPurges: i32,
+            MAARegionsVisitedPerAllocationSum: i64,
+            MAARegionsVisitedPerAllocationBase: i32,
+            MAAMaxRegionsVisitedPerAllocation: i32,
+            TreeUpdateLatencyExclusive: i64,
+            TreeUpdateLatencyTotal: i64,
+            TreeUpdateLatencyBase: i32,
+            CheckpointLatencyTreeUpdateExclusive: i64,
+            CheckpointLatencyTreeUpdateTotal: i64,
+            CheckpointLatencyTreeUpdateBase: i32,
+            CheckpointLatencyTotal: i64,
+            CheckpointLatencyTotalBase: i32,
+        }
+        const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_LAYER: u32 = 1;
+        const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REGISTERED_LAYER: u32 = 4;
+        const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REMOTE_LAYER: u32 = 8;
+        const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH: u32 = 2;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwAllocateVirtualMemory(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, ZeroBits: usize, #[r#in] #[out] RegionSize: *mut usize, AllocationType: u32, Protect: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwAllocateVirtualMemoryEx(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, AllocationType: u32, PageProtection: u32, #[len_param(6)] #[r#in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwCreateEvent(EventHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, EventType: EVENT_TYPE, InitialState: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwDeleteFile(ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwDuplicateObject(SourceProcessHandle: HANDLE, SourceHandle: HANDLE, #[opt] TargetProcessHandle: HANDLE, #[opt] TargetHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, HandleAttributes: u32, Options: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwDuplicateToken(ExistingTokenHandle: HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, EffectiveOnly: BOOLEAN, TokenType: TOKEN_TYPE, NewTokenHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "C" fn ZwFlushBuffersFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "C" fn ZwFlushBuffersFileEx(FileHandle: HANDLE, FLags: u32, #[size_param(3)] Parameters: *const void, ParametersSize: u32, IoStatusBlock: *mut IO_STATUS_BLOCK) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwFlushVirtualMemory(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, IoStatus: *mut IO_STATUS_BLOCK) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwFreeVirtualMemory(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, FreeType: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwFsControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, FsControlCode: u32, #[size_param(7)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(9)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwLockFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32, FailImmediately: BOOLEAN, ExclusiveLock: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwNotifyChangeKey(KeyHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: BOOLEAN, #[size_param(8)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwOpenDirectoryObject(DirectoryHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwOpenProcessTokenEx(ProcessHandle: HANDLE, DesiredAccess: ACCESS_MASK, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwOpenThreadTokenEx(ThreadHandle: HANDLE, DesiredAccess: ACCESS_MASK, OpenAsSelf: BOOLEAN, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwQueryDirectoryFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, ReturnSingleEntry: BOOLEAN, #[opt] FileName: *const UNICODE_STRING, RestartScan: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwQueryDirectoryFileEx(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, QueryFlags: u32, #[opt] FileName: *const UNICODE_STRING) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "C" fn ZwQueryEaFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *mut void, Length: u32, ReturnSingleEntry: BOOLEAN, #[size_param(6)] #[opt] EaList: *const void, EaListLength: u32, #[opt] EaIndex: *const u32, RestartScan: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwQueryInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] #[opt] TokenInformation: *mut void, TokenInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwQueryObject(#[opt] Handle: HANDLE, ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[size_param(3)] #[opt] ObjectInformation: *mut void, ObjectInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwQueryQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *mut void, Length: u32, ReturnSingleEntry: BOOLEAN, #[size_param(6)] #[opt] SidList: *const void, SidListLength: u32, #[opt] StartSid: PSID, RestartScan: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwQuerySecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, Length: u32, LengthNeeded: *mut u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwQueryVirtualMemory(ProcessHandle: HANDLE, #[opt] BaseAddress: *const void, MemoryInformationClass: MEMORY_INFORMATION_CLASS, #[size_param(4)] MemoryInformation: *mut void, MemoryInformationLength: usize, #[opt] ReturnLength: *mut usize) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "C" fn ZwSetEaFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *const void, Length: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwSetEvent(EventHandle: HANDLE, #[opt] PreviousState: *mut i32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwSetInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] TokenInformation: *const void, TokenInformationLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwSetInformationVirtualMemory(ProcessHandle: HANDLE, VmInformationClass: VIRTUAL_MEMORY_INFORMATION_CLASS, NumberOfEntries: usize, #[len_param(2)] VirtualAddresses: *const MEMORY_RANGE_ENTRY, #[size_param(5)] VmInformation: *const void, VmInformationLength: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwSetQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *const void, Length: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwSetSecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, SecurityDescriptor: PSECURITY_DESCRIPTOR) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwSetVolumeInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FsInformation: *const void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwUnlockFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "system" fn ZwWaitForSingleObject(Handle: HANDLE, Alertable: BOOLEAN, #[opt] Timeout: *const LARGE_INTEGER) -> NTSTATUS;
+        #[repr(i32)]
+        enum _LCN_WEAK_REFERENCE_STATE {
+            LCN_WEAK_REFERENCE_VALID = 1,
+            LCN_WEAK_REFERENCE_BROKEN = 2,
+            LCN_CHECKSUM_VALID = 4,
+            LCN_IS_VALID = 8,
+            LCN_IS_STREAM_RESERVED = 16,
+            LCN_IS_READ_ONLY = 32,
+        }
+        struct _REAL_NOTIFY_SYNC {}
+        #[repr(i32)]
+        enum _REFS_STREAM_EXTENT_PROPERTIES {
+            REFS_STREAM_EXTENT_PROPERTY_VALID = 16,
+            REFS_STREAM_EXTENT_PROPERTY_STREAM_RESERVED = 32,
+            REFS_STREAM_EXTENT_PROPERTY_CRC32 = 128,
+            REFS_STREAM_EXTENT_PROPERTY_CRC64 = 256,
+            REFS_STREAM_EXTENT_PROPERTY_GHOSTED = 512,
+            REFS_STREAM_EXTENT_PROPERTY_READONLY = 1024,
+            REFS_STREAM_EXTENT_PROPERTY_SPARSE = 8,
+        }
+        struct sockaddr_storage {}
+    }
+}

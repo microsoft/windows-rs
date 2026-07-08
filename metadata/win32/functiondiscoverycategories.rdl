@@ -1,0 +1,49 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_BT: String = "Provider\\Microsoft.Devices.Bluetooth";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_DEVICEDISPLAYOBJECTS: String = "Provider\\Microsoft.Base.DeviceDisplayObjects";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_DEVICEFUNCTIONENUMERATORS: String = "Layered\\Microsoft.Devices.FunctionEnumerators";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_DEVICEPAIRING: String = "Layered\\Microsoft.Base.DevicePairing";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_DEVICES: String = "Layered\\Microsoft.Base.Devices";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_DEVQUERYOBJECTS: String = "Provider\\Microsoft.Base.DevQueryObjects";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_NETBIOS: String = "Provider\\Microsoft.Networking.Netbios";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_NETWORKDEVICES: String = "Layered\\Microsoft.Networking.Devices";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_PNP: String = "Provider\\Microsoft.Base.PnP";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_PNPXASSOCIATION: String = "Provider\\Microsoft.PnPX.Association";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_PUBLICATION: String = "Provider\\Microsoft.Base.Publication";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_REGISTRY: String = "Provider\\Microsoft.Base.Registry";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_SSDP: String = "Provider\\Microsoft.Networking.SSDP";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_WCN: String = "Provider\\Microsoft.Networking.WCN";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_WSDISCOVERY: String = "Provider\\Microsoft.Networking.WSD";
+        #[encoding("utf-16")]
+        const FCTN_CATEGORY_WUSB: String = "Provider\\Microsoft.Devices.WirelessUSB";
+        #[encoding("utf-16")]
+        const FCTN_SUBCAT_DEVICES_WSDPRINTERS: String = "WSDPrinters";
+        #[encoding("utf-16")]
+        const FCTN_SUBCAT_NETWORKDEVICES_SSDP: String = "SSDP";
+        #[encoding("utf-16")]
+        const FCTN_SUBCAT_NETWORKDEVICES_WSD: String = "WSD";
+        #[encoding("utf-16")]
+        const FCTN_SUBCAT_REG_DIRECTED: String = "Directed";
+        #[encoding("utf-16")]
+        const FCTN_SUBCAT_REG_PUBLICATION: String = "Publication";
+        #[encoding("utf-16")]
+        const FD_SUBKEY: String = "SOFTWARE\\Microsoft\\Function Discovery\\";
+    }
+}

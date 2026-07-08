@@ -1,0 +1,58 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct DDEACK {
+            _bitfield: u16,
+        }
+        struct DDEADVISE {
+            _bitfield: u16,
+            cfFormat: i16,
+        }
+        struct DDEDATA {
+            _bitfield: u16,
+            cfFormat: i16,
+            Value: [u8; 1],
+        }
+        struct DDELN {
+            _bitfield: u16,
+            cfFormat: i16,
+        }
+        struct DDEPOKE {
+            _bitfield: u16,
+            cfFormat: i16,
+            Value: [u8; 1],
+        }
+        struct DDEUP {
+            _bitfield: u16,
+            cfFormat: i16,
+            rgb: [u8; 1],
+        }
+        #[library("USER32.dll")]
+        extern fn DdeSetQualityOfService(hwndClient: HWND, pqosNew: *const SECURITY_QUALITY_OF_SERVICE, pqosPrev: *mut SECURITY_QUALITY_OF_SERVICE) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn FreeDDElParam(msg: u32, lParam: LPARAM) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn ImpersonateDdeClientWindow(hWndClient: HWND, hWndServer: HWND) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn PackDDElParam(msg: u32, uiLo: usize, uiHi: usize) -> LPARAM;
+        #[library("USER32.dll")]
+        extern fn ReuseDDElParam(lParam: LPARAM, msgIn: u32, msgOut: u32, uiLo: usize, uiHi: usize) -> LPARAM;
+        #[arch(X64 | Arm64)]
+        #[library("USER32.dll")]
+        extern fn UnpackDDElParam(msg: u32, lParam: LPARAM, puiLo: *mut u64, puiHi: *mut u64) -> BOOL;
+        #[arch(X86)]
+        #[library("USER32.dll")]
+        extern fn UnpackDDElParam(msg: u32, lParam: LPARAM, puiLo: *mut u32, puiHi: *mut u32) -> BOOL;
+        const WM_DDE_ACK: u32 = 996;
+        const WM_DDE_ADVISE: u32 = 994;
+        const WM_DDE_DATA: u32 = 997;
+        const WM_DDE_EXECUTE: u32 = 1000;
+        const WM_DDE_FIRST: u32 = 992;
+        const WM_DDE_INITIATE: u32 = 992;
+        const WM_DDE_LAST: u32 = 1000;
+        const WM_DDE_POKE: u32 = 999;
+        const WM_DDE_REQUEST: u32 = 998;
+        const WM_DDE_TERMINATE: u32 = 993;
+        const WM_DDE_UNADVISE: u32 = 995;
+    }
+}

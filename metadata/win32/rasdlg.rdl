@@ -1,0 +1,192 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const RASDDFLAG_AoacRedial: u32 = 4;
+        const RASDDFLAG_LinkFailure: u32 = 2147483648;
+        const RASDDFLAG_NoPrompt: u32 = 2;
+        const RASDDFLAG_PositionDlg: u32 = 1;
+        const RASEDFLAG_IncomingConnection: u32 = 1024;
+        const RASEDFLAG_InternetEntry: u32 = 256;
+        const RASEDFLAG_NAT: u32 = 512;
+        const RASEDFLAG_NewBroadbandEntry: u32 = 128;
+        const RASEDFLAG_NewEntry: u32 = 2;
+        const RASEDFLAG_NewPhoneEntry: u32 = 16;
+        const RASEDFLAG_NewTunnelEntry: u32 = 32;
+        const RASEDFLAG_NoRename: u32 = 8;
+        const RASEDFLAG_PositionDlg: u32 = 1;
+        const RASEDFLAG_ShellOwned: u32 = 1073741824;
+        const RASNOUSER_SmartCard: u32 = 1;
+        const RASPBDEVENT_AddEntry: u32 = 1;
+        const RASPBDEVENT_DialEntry: u32 = 4;
+        const RASPBDEVENT_EditEntry: u32 = 2;
+        const RASPBDEVENT_EditGlobals: u32 = 5;
+        const RASPBDEVENT_NoUser: u32 = 6;
+        const RASPBDEVENT_NoUserEdit: u32 = 7;
+        const RASPBDEVENT_RemoveEntry: u32 = 3;
+        const RASPBDFLAG_ForceCloseOnDial: u32 = 2;
+        const RASPBDFLAG_NoUser: u32 = 16;
+        const RASPBDFLAG_PositionDlg: u32 = 1;
+        const RASPBDFLAG_UpdateDefaults: u32 = 2147483648;
+        extern fn RASPBDLGFUNCA(param0: usize, param1: u32, param2: PSTR, param3: *mut void);
+        extern fn RASPBDLGFUNCW(param0: usize, param1: u32, param2: PWSTR, param3: *mut void);
+        extern fn RasCustomDialDlgFn(hInstDll: HINSTANCE, dwFlags: u32, lpszPhonebook: PWSTR, lpszEntry: PWSTR, lpszPhoneNumber: PWSTR, lpInfo: *mut tagRASDIALDLG, pvInfo: *mut void) -> BOOL;
+        extern fn RasCustomEntryDlgFn(hInstDll: HINSTANCE, lpszPhonebook: PWSTR, lpszEntry: PWSTR, lpInfo: *mut tagRASENTRYDLGA, dwFlags: u32) -> BOOL;
+        #[library("RASDLG.dll")]
+        extern fn RasDialDlgA(#[opt] lpszPhonebook: PCSTR, #[opt] lpszEntry: PCSTR, #[opt] lpszPhoneNumber: PCSTR, #[in] #[out] lpInfo: *mut tagRASDIALDLG) -> BOOL;
+        #[library("RASDLG.dll")]
+        extern fn RasDialDlgW(#[opt] lpszPhonebook: PCWSTR, #[opt] lpszEntry: PCWSTR, #[opt] lpszPhoneNumber: PCWSTR, #[in] #[out] lpInfo: *mut tagRASDIALDLG) -> BOOL;
+        #[library("RASDLG.dll")]
+        extern fn RasEntryDlgA(#[opt] lpszPhonebook: PCSTR, #[opt] lpszEntry: PCSTR, lpInfo: *mut tagRASENTRYDLGA) -> BOOL;
+        #[library("RASDLG.dll")]
+        extern fn RasEntryDlgW(#[opt] lpszPhonebook: PCWSTR, #[opt] lpszEntry: PCWSTR, lpInfo: *mut tagRASENTRYDLGW) -> BOOL;
+        #[library("RASDLG.dll")]
+        extern fn RasPhonebookDlgA(#[opt] lpszPhonebook: PCSTR, #[opt] lpszEntry: PCSTR, lpInfo: *mut tagRASPBDLGA) -> BOOL;
+        #[library("RASDLG.dll")]
+        extern fn RasPhonebookDlgW(#[opt] lpszPhonebook: PCWSTR, #[opt] lpszEntry: PCWSTR, lpInfo: *mut tagRASPBDLGW) -> BOOL;
+        #[arch(X86)]
+        struct tagRASDIALDLG {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+            dwSubEntry: u32,
+            dwError: u32,
+            reserved: usize,
+            reserved2: usize,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASDIALDLG {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+            dwSubEntry: u32,
+            dwError: u32,
+            reserved: usize,
+            reserved2: usize,
+        }
+        #[arch(X86)]
+        struct tagRASENTRYDLGA {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+            szEntry: [i8; 257],
+            dwError: u32,
+            reserved: usize,
+            reserved2: usize,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASENTRYDLGA {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+            szEntry: [i8; 257],
+            dwError: u32,
+            reserved: usize,
+            reserved2: usize,
+        }
+        #[arch(X86)]
+        struct tagRASENTRYDLGW {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+            szEntry: [u16; 257],
+            dwError: u32,
+            reserved: usize,
+            reserved2: usize,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASENTRYDLGW {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+            szEntry: [u16; 257],
+            dwError: u32,
+            reserved: usize,
+            reserved2: usize,
+        }
+        struct tagRASNOUSERA {
+            dwSize: u32,
+            dwFlags: u32,
+            dwTimeoutMs: u32,
+            szUserName: [i8; 257],
+            szPassword: [i8; 257],
+            szDomain: [i8; 16],
+        }
+        struct tagRASNOUSERW {
+            dwSize: u32,
+            dwFlags: u32,
+            dwTimeoutMs: u32,
+            szUserName: [u16; 257],
+            szPassword: [u16; 257],
+            szDomain: [u16; 16],
+        }
+        #[arch(X86)]
+        struct tagRASPBDLGA {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+            dwCallbackId: usize,
+            pCallback: RASPBDLGFUNCA,
+            dwError: u32,
+            reserved: usize,
+            reserved2: usize,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASPBDLGA {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+            dwCallbackId: usize,
+            pCallback: RASPBDLGFUNCA,
+            dwError: u32,
+            reserved: usize,
+            reserved2: usize,
+        }
+        #[arch(X86)]
+        struct tagRASPBDLGW {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+            dwCallbackId: usize,
+            pCallback: RASPBDLGFUNCW,
+            dwError: u32,
+            reserved: usize,
+            reserved2: usize,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASPBDLGW {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+            dwCallbackId: usize,
+            pCallback: RASPBDLGFUNCW,
+            dwError: u32,
+            reserved: usize,
+            reserved2: usize,
+        }
+    }
+}

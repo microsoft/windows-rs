@@ -82,8 +82,10 @@ impl ExecuteScriptCompleted {
 }
 
 impl ICoreWebView2ExecuteScriptCompletedHandler_Impl for ExecuteScriptCompleted_Impl {
-    fn Invoke(&self, errorcode: HRESULT, result: LPCWSTR) -> Result<()> {
-        let outcome = errorcode.ok().map(|()| unsafe { string::decode(result) });
+    fn Invoke(&self, errorcode: HRESULT, result: &PCWSTR) -> Result<()> {
+        let outcome = errorcode
+            .ok()
+            .map(|()| unsafe { result.to_string().unwrap_or_default() });
 
         if let Some(handler) = self.0.take() {
             handler(outcome);
@@ -114,8 +116,10 @@ impl AddScriptCompleted {
 impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl
     for AddScriptCompleted_Impl
 {
-    fn Invoke(&self, errorcode: HRESULT, id: LPCWSTR) -> Result<()> {
-        let outcome = errorcode.ok().map(|()| unsafe { string::decode(id) });
+    fn Invoke(&self, errorcode: HRESULT, id: &PCWSTR) -> Result<()> {
+        let outcome = errorcode
+            .ok()
+            .map(|()| unsafe { id.to_string().unwrap_or_default() });
 
         if let Some(handler) = self.0.take() {
             handler(outcome);

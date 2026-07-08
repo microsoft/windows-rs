@@ -107,14 +107,14 @@ impl WebView {
 
     /// Navigates the browser to the given URI.
     pub fn navigate(&self, uri: &str) -> Result<()> {
-        let uri = string::encode(uri);
-        unsafe { self.0.Navigate(uri.as_ptr()) }
+        let uri = HSTRING::from(uri);
+        unsafe { self.0.Navigate(&uri) }
     }
 
     /// Navigates the browser to the given HTML content as the document.
     pub fn navigate_to_string(&self, html: &str) -> Result<()> {
-        let html = string::encode(html);
-        unsafe { self.0.NavigateToString(html.as_ptr()) }
+        let html = HSTRING::from(html);
+        unsafe { self.0.NavigateToString(&html) }
     }
 
     /// Navigates the browser using a [`NavigationRequest`], allowing a custom
@@ -125,8 +125,8 @@ impl WebView {
         let source: ICoreWebView2_2 = self.0.cast()?;
         let environment: ICoreWebView2Environment2 = unsafe { source.Environment()? }.cast()?;
 
-        let uri = string::encode(&request.uri);
-        let method = string::encode(&request.method);
+        let uri = HSTRING::from(&request.uri);
+        let method = HSTRING::from(&request.method);
         let mut headers = String::new();
         for (name, value) in &request.headers {
             headers.push_str(name);
@@ -134,7 +134,7 @@ impl WebView {
             headers.push_str(value);
             headers.push_str("\r\n");
         }
-        let headers = string::encode(&headers);
+        let headers = HSTRING::from(&headers);
         let stream = if request.body.is_empty() {
             None
         } else {
@@ -142,12 +142,8 @@ impl WebView {
         };
 
         unsafe {
-            let request = environment.CreateWebResourceRequest(
-                uri.as_ptr(),
-                method.as_ptr(),
-                stream.as_ref(),
-                headers.as_ptr(),
-            )?;
+            let request =
+                environment.CreateWebResourceRequest(&uri, &method, stream.as_ref(), &headers)?;
             source.NavigateWithWebResourceRequest(&request)
         }
     }
@@ -198,14 +194,10 @@ impl WebView {
         access_kind: HostResourceAccessKind,
     ) -> Result<()> {
         let source: ICoreWebView2_3 = self.0.cast()?;
-        let host_name = string::encode(host_name);
-        let folder_path = string::encode(folder_path);
+        let host_name = HSTRING::from(host_name);
+        let folder_path = HSTRING::from(folder_path);
         unsafe {
-            source.SetVirtualHostNameToFolderMapping(
-                host_name.as_ptr(),
-                folder_path.as_ptr(),
-                access_kind.to_raw(),
-            )
+            source.SetVirtualHostNameToFolderMapping(&host_name, &folder_path, access_kind.to_raw())
         }
     }
 
@@ -213,8 +205,8 @@ impl WebView {
     /// [`set_virtual_host_name_to_folder_mapping`](Self::set_virtual_host_name_to_folder_mapping).
     pub fn clear_virtual_host_name_to_folder_mapping(&self, host_name: &str) -> Result<()> {
         let source: ICoreWebView2_3 = self.0.cast()?;
-        let host_name = string::encode(host_name);
-        unsafe { source.ClearVirtualHostNameToFolderMapping(host_name.as_ptr()) }
+        let host_name = HSTRING::from(host_name);
+        unsafe { source.ClearVirtualHostNameToFolderMapping(&host_name) }
     }
 
     /// Returns the [`CookieManager`] for reading, writing, and deleting the
@@ -266,9 +258,9 @@ impl WebView {
         javascript: &str,
         handler: F,
     ) -> Result<()> {
-        let javascript = string::encode(javascript);
+        let javascript = HSTRING::from(javascript);
         let handler = handler::ExecuteScriptCompleted::create(handler);
-        unsafe { self.0.ExecuteScript(javascript.as_ptr(), &handler) }
+        unsafe { self.0.ExecuteScript(&javascript, &handler) }
     }
 
     /// Registers JavaScript to run before any other script each time a document
@@ -278,12 +270,12 @@ impl WebView {
     /// Pumps the calling thread's message loop until registration completes, so
     /// call it during setup before handing control to your own message loop.
     pub fn add_script_to_execute_on_document_created(&self, javascript: &str) -> Result<ScriptId> {
-        let javascript = string::encode(javascript);
+        let javascript = HSTRING::from(javascript);
         let slot = pump::slot();
         let handler = handler::AddScriptCompleted::create(pump::slot_handler(&slot));
         unsafe {
             self.0
-                .AddScriptToExecuteOnDocumentCreated(javascript.as_ptr(), &handler)?;
+                .AddScriptToExecuteOnDocumentCreated(&javascript, &handler)?;
         }
         Ok(ScriptId(pump::wait(&slot)?))
     }
@@ -291,8 +283,8 @@ impl WebView {
     /// Removes a script previously registered with
     /// [`add_script_to_execute_on_document_created`](Self::add_script_to_execute_on_document_created).
     pub fn remove_script_to_execute_on_document_created(&self, id: &ScriptId) -> Result<()> {
-        let id = string::encode(&id.0);
-        unsafe { self.0.RemoveScriptToExecuteOnDocumentCreated(id.as_ptr()) }
+        let id = HSTRING::from(&id.0);
+        unsafe { self.0.RemoveScriptToExecuteOnDocumentCreated(&id) }
     }
 
     subscription! {
@@ -340,16 +332,16 @@ impl WebView {
     /// via the `window.chrome.webview.addEventListener("message", …)` event,
     /// with `event.data` set to the parsed JSON.
     pub fn post_web_message_as_json(&self, json: &str) -> Result<()> {
-        let json = string::encode(json);
-        unsafe { self.0.PostWebMessageAsJson(json.as_ptr()) }
+        let json = HSTRING::from(json);
+        unsafe { self.0.PostWebMessageAsJson(&json) }
     }
 
     /// Posts a message to the hosted page as a string. The page receives it via
     /// the `window.chrome.webview.addEventListener("message", …)` event, with
     /// `event.data` set to the string.
     pub fn post_web_message_as_string(&self, message: &str) -> Result<()> {
-        let message = string::encode(message);
-        unsafe { self.0.PostWebMessageAsString(message.as_ptr()) }
+        let message = HSTRING::from(message);
+        unsafe { self.0.PostWebMessageAsString(&message) }
     }
 
     subscription! {
@@ -437,20 +429,24 @@ impl WebView {
         F: FnMut(WebResourceRequest) -> Option<WebResourceResponse> + 'static,
     {
         let environment = unsafe { self.0.cast::<ICoreWebView2_2>()?.Environment()? };
-        let filter = string::encode(uri_filter);
-        unsafe { protocol::add_requested_filter(&self.0, filter.as_ptr())? };
+        let filter = HSTRING::from(uri_filter);
+        unsafe { protocol::add_requested_filter(&self.0, &filter)? };
         let handler = protocol::WebResourceRequested::create(environment, handler);
         let token = match unsafe { self.0.add_WebResourceRequested(&handler) } {
             Ok(token) => token,
             Err(err) => {
-                unsafe { protocol::remove_requested_filter(&self.0, filter.as_ptr()) };
+                unsafe {
+                    protocol::remove_requested_filter(&self.0, &filter);
+                };
                 return Err(err);
             }
         };
         let source = self.0.clone();
         Ok(EventRegistration::new(move || {
             let _ = unsafe { source.remove_WebResourceRequested(token) };
-            unsafe { protocol::remove_requested_filter(&source, filter.as_ptr()) };
+            unsafe {
+                protocol::remove_requested_filter(&source, &filter);
+            };
         }))
     }
 }

@@ -1,0 +1,209 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type ASYNCCOMPLETIONHANDLE = usize;
+        #[library("USERENV.dll")]
+        extern fn CreateAppContainerProfile(pszAppContainerName: PCWSTR, pszDisplayName: PCWSTR, pszDescription: PCWSTR, #[len_param(4)] #[opt] pCapabilities: *const SID_AND_ATTRIBUTES, dwCapabilityCount: u32, ppSidAppContainerSid: *mut PSID) -> HRESULT;
+        #[library("USERENV.dll")]
+        extern fn CreateEnvironmentBlock(lpEnvironment: *mut *mut void, #[opt] hToken: HANDLE, bInherit: BOOL) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn CreateProfile(pszUserSid: PCWSTR, pszUserName: PCWSTR, #[len_param(3)] #[out] pszProfilePath: PWSTR, cchProfilePath: u32) -> HRESULT;
+        #[library("USERENV.dll")]
+        extern fn DeleteAppContainerProfile(pszAppContainerName: PCWSTR) -> HRESULT;
+        #[library("USERENV.dll")]
+        extern fn DeleteProfileA(lpSidString: PCSTR, #[opt] lpProfilePath: PCSTR, #[opt] lpComputerName: PCSTR) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn DeleteProfileW(lpSidString: PCWSTR, #[opt] lpProfilePath: PCWSTR, #[opt] lpComputerName: PCWSTR) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn DeriveAppContainerSidFromAppContainerName(pszAppContainerName: PCWSTR, ppsidAppContainerSid: *mut PSID) -> HRESULT;
+        #[library("USERENV.dll")]
+        extern fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidAppContainerSid: PSID, pszRestrictedAppContainerName: PCWSTR, ppsidRestrictedAppContainerSid: *mut PSID) -> HRESULT;
+        #[library("USERENV.dll")]
+        extern fn DestroyEnvironmentBlock(lpEnvironment: *const void) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn EnterCriticalPolicySection(bMachine: BOOL) -> HANDLE;
+        #[library("USERENV.dll")]
+        extern fn ExpandEnvironmentStringsForUserA(#[opt] hToken: HANDLE, lpSrc: PCSTR, #[len_param(3)] #[out] lpDest: PSTR, dwSize: u32) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn ExpandEnvironmentStringsForUserW(#[opt] hToken: HANDLE, lpSrc: PCWSTR, #[len_param(3)] #[out] lpDest: PWSTR, dwSize: u32) -> BOOL;
+        const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432;
+        const FLAG_ASSUME_SLOW_LINK: u32 = 536870912;
+        const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864;
+        const FLAG_FORCE_CREATENAMESPACE: u32 = 4;
+        const FLAG_LOOPBACK_MERGE: u32 = 268435456;
+        const FLAG_LOOPBACK_REPLACE: u32 = 134217728;
+        const FLAG_NO_COMPUTER: u32 = 2;
+        const FLAG_NO_CSE_INVOKE: u32 = 1073741824;
+        const FLAG_NO_GPO_FILTER: u32 = 2147483648;
+        const FLAG_NO_USER: u32 = 1;
+        const FLAG_PLANNING_MODE: u32 = 16777216;
+        #[library("USERENV.dll")]
+        extern fn FreeGPOListA(pGPOList: *const GROUP_POLICY_OBJECTA) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn FreeGPOListW(pGPOList: *const GROUP_POLICY_OBJECTW) -> BOOL;
+        const GPC_BLOCK_POLICY: u32 = 1;
+        const GPO_FLAG_DISABLE: u32 = 1;
+        const GPO_FLAG_FORCE: u32 = 2;
+        const GPO_INFO_FLAG_ASYNC_FOREGROUND: u32 = 4096;
+        const GPO_INFO_FLAG_BACKGROUND: u32 = 16;
+        const GPO_INFO_FLAG_FORCED_REFRESH: u32 = 1024;
+        const GPO_INFO_FLAG_LINKTRANSITION: u32 = 256;
+        const GPO_INFO_FLAG_LOGRSOP_TRANSITION: u32 = 512;
+        const GPO_INFO_FLAG_MACHINE: u32 = 1;
+        const GPO_INFO_FLAG_NOCHANGES: u32 = 128;
+        const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048;
+        const GPO_INFO_FLAG_SLOWLINK: u32 = 32;
+        const GPO_INFO_FLAG_VERBOSE: u32 = 64;
+        #[repr(i32)]
+        enum GPO_LINK {
+            GPLinkUnknown = 0,
+            GPLinkMachine = 1,
+            GPLinkSite = 2,
+            GPLinkDomain = 3,
+            GPLinkOrganizationalUnit = 4,
+        }
+        const GPO_LIST_FLAG_MACHINE: u32 = 1;
+        const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8;
+        const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4;
+        const GPO_LIST_FLAG_SITEONLY: u32 = 2;
+        type GROUP_POLICY_OBJECT = GROUP_POLICY_OBJECTA;
+        struct GROUP_POLICY_OBJECTA {
+            dwOptions: u32,
+            dwVersion: u32,
+            lpDSPath: PSTR,
+            lpFileSysPath: PSTR,
+            lpDisplayName: PSTR,
+            szGPOName: [i8; 50],
+            GPOLink: GPO_LINK,
+            lParam: LPARAM,
+            pNext: *mut GROUP_POLICY_OBJECTA,
+            pPrev: *mut GROUP_POLICY_OBJECTA,
+            lpExtensions: PSTR,
+            lParam2: LPARAM,
+            lpLink: PSTR,
+        }
+        struct GROUP_POLICY_OBJECTW {
+            dwOptions: u32,
+            dwVersion: u32,
+            lpDSPath: PWSTR,
+            lpFileSysPath: PWSTR,
+            lpDisplayName: PWSTR,
+            szGPOName: [u16; 50],
+            GPOLink: GPO_LINK,
+            lParam: LPARAM,
+            pNext: *mut GROUP_POLICY_OBJECTW,
+            pPrev: *mut GROUP_POLICY_OBJECTW,
+            lpExtensions: PWSTR,
+            lParam2: LPARAM,
+            lpLink: PWSTR,
+        }
+        #[library("USERENV.dll")]
+        extern fn GenerateGPNotification(bMachine: BOOL, lpwszMgmtProduct: PCWSTR, dwMgmtProductOptions: u32) -> u32;
+        #[library("USERENV.dll")]
+        extern fn GetAllUsersProfileDirectoryA(#[len_param(1)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: *mut u32) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn GetAllUsersProfileDirectoryW(#[len_param(1)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: *mut u32) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn GetAppContainerFolderPath(pszAppContainerSid: PCWSTR, ppszPath: *mut PWSTR) -> HRESULT;
+        #[library("USERENV.dll")]
+        extern fn GetAppContainerRegistryLocation(desiredAccess: REGSAM, phAppContainerKey: *mut HKEY) -> HRESULT;
+        #[library("USERENV.dll")]
+        extern fn GetAppliedGPOListA(dwFlags: u32, #[opt] pMachineName: PCSTR, #[opt] pSidUser: PSID, pGuidExtension: *const GUID, ppGPOList: *mut PGROUP_POLICY_OBJECTA) -> u32;
+        #[library("USERENV.dll")]
+        extern fn GetAppliedGPOListW(dwFlags: u32, #[opt] pMachineName: PCWSTR, #[opt] pSidUser: PSID, pGuidExtension: *const GUID, ppGPOList: *mut PGROUP_POLICY_OBJECTW) -> u32;
+        #[library("USERENV.dll")]
+        extern fn GetDefaultUserProfileDirectoryA(#[len_param(1)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: *mut u32) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn GetDefaultUserProfileDirectoryW(#[len_param(1)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: *mut u32) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn GetGPOListA(#[opt] hToken: HANDLE, #[opt] lpName: PCSTR, #[opt] lpHostName: PCSTR, #[opt] lpComputerName: PCSTR, dwFlags: u32, pGPOList: *mut PGROUP_POLICY_OBJECTA) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn GetGPOListW(#[opt] hToken: HANDLE, #[opt] lpName: PCWSTR, #[opt] lpHostName: PCWSTR, #[opt] lpComputerName: PCWSTR, dwFlags: u32, pGPOList: *mut PGROUP_POLICY_OBJECTW) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn GetProfileType(dwFlags: *mut u32) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn GetProfilesDirectoryA(#[len_param(1)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: *mut u32) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn GetProfilesDirectoryW(#[len_param(1)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: *mut u32) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn GetUserProfileDirectoryA(hToken: HANDLE, #[len_param(2)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: *mut u32) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn GetUserProfileDirectoryW(hToken: HANDLE, #[len_param(2)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: *mut u32) -> BOOL;
+        type LPPOLICYSETTINGSTATUSINFO = *mut POLICYSETTINGSTATUSINFO;
+        #[library("USERENV.dll")]
+        extern fn LeaveCriticalPolicySection(hSection: HANDLE) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn LoadUserProfileA(hToken: HANDLE, #[in] #[out] lpProfileInfo: *mut PROFILEINFOA) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn LoadUserProfileW(hToken: HANDLE, #[in] #[out] lpProfileInfo: *mut PROFILEINFOW) -> BOOL;
+        extern fn PFNGENERATEGROUPPOLICY(dwFlags: u32, #[in] #[out] pbAbort: *mut BOOL, #[opt] pwszSite: *const u16, #[opt] pComputerTarget: *const RSOP_TARGET, #[opt] pUserTarget: *const RSOP_TARGET) -> u32;
+        extern fn PFNPROCESSGROUPPOLICY(dwFlags: u32, hToken: HANDLE, hKeyRoot: HKEY, pDeletedGPOList: PGROUP_POLICY_OBJECT, pChangedGPOList: PGROUP_POLICY_OBJECT, pHandle: ASYNCCOMPLETIONHANDLE, #[in] #[out] pbAbort: *mut BOOL, #[opt] pStatusCallback: PFNSTATUSMESSAGECALLBACK) -> u32;
+        extern fn PFNPROCESSGROUPPOLICYEX(dwFlags: u32, hToken: HANDLE, hKeyRoot: HKEY, pDeletedGPOList: PGROUP_POLICY_OBJECT, pChangedGPOList: PGROUP_POLICY_OBJECT, pHandle: ASYNCCOMPLETIONHANDLE, #[in] #[out] pbAbort: *mut BOOL, #[opt] pStatusCallback: PFNSTATUSMESSAGECALLBACK, #[opt] pWbemServices: IWbemServices, pRsopStatus: *mut HRESULT) -> u32;
+        extern fn PFNSTATUSMESSAGECALLBACK(bVerbose: BOOL, lpMessage: PCWSTR) -> u32;
+        type PGPO_LINK = *mut GPO_LINK;
+        type PGROUP_POLICY_OBJECT = PGROUP_POLICY_OBJECTA;
+        type PGROUP_POLICY_OBJECTA = *mut GROUP_POLICY_OBJECTA;
+        type PGROUP_POLICY_OBJECTW = *mut GROUP_POLICY_OBJECTW;
+        const PI_APPLYPOLICY: u32 = 2;
+        const PI_NOUI: u32 = 1;
+        struct POLICYSETTINGSTATUSINFO {
+            szKey: PWSTR,
+            szEventSource: PWSTR,
+            szEventLogName: PWSTR,
+            dwEventID: u32,
+            dwErrorCode: u32,
+            status: SETTINGSTATUS,
+            timeLogged: SYSTEMTIME,
+        }
+        type PRSOPTOKEN = *mut void;
+        type PRSOP_TARGET = *mut RSOP_TARGET;
+        const PT_MANDATORY: u32 = 4;
+        const PT_ROAMING: u32 = 2;
+        const PT_ROAMING_PREEXISTING: u32 = 8;
+        const PT_TEMPORARY: u32 = 1;
+        #[library("USERENV.dll")]
+        extern fn ProcessGroupPolicyCompleted(extensionId: *const GUID, pAsyncHandle: ASYNCCOMPLETIONHANDLE, dwStatus: u32) -> u32;
+        #[library("USERENV.dll")]
+        extern fn ProcessGroupPolicyCompletedEx(extensionId: *const GUID, pAsyncHandle: ASYNCCOMPLETIONHANDLE, dwStatus: u32, RsopStatus: HRESULT) -> u32;
+        type REFGPEXTENSIONID = *mut GUID;
+        const RP_FORCE: u32 = 1;
+        const RP_SYNC: u32 = 2;
+        const RSOP_COMPUTER_ACCESS_DENIED: u32 = 2;
+        struct RSOP_TARGET {
+            pwszAccountName: *mut u16,
+            pwszNewSOM: *mut u16,
+            psaSecurityGroups: *mut SAFEARRAY,
+            pRsopToken: PRSOPTOKEN,
+            pGPOList: PGROUP_POLICY_OBJECT,
+            pWbemServices: IWbemServices,
+        }
+        const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4;
+        const RSOP_USER_ACCESS_DENIED: u32 = 1;
+        #[library("USERENV.dll")]
+        extern fn RefreshPolicy(bMachine: BOOL) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn RefreshPolicyEx(bMachine: BOOL, dwOptions: u32) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn RegisterGPNotification(hEvent: HANDLE, bMachine: BOOL) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn RsopAccessCheckByType(pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] pPrincipalSelfSid: PSID, pRsopToken: PRSOPTOKEN, dwDesiredAccessMask: u32, #[len_param(5)] #[opt] pObjectTypeList: *const OBJECT_TYPE_LIST, ObjectTypeListLength: u32, pGenericMapping: *const GENERIC_MAPPING, #[size_param(8)] #[opt] pPrivilegeSet: *const PRIVILEGE_SET, #[opt] pdwPrivilegeSetLength: *const u32, pdwGrantedAccessMask: *mut u32, pbAccessStatus: *mut BOOL) -> HRESULT;
+        #[library("USERENV.dll")]
+        extern fn RsopFileAccessCheck(pszFileName: PCWSTR, pRsopToken: PRSOPTOKEN, dwDesiredAccessMask: u32, pdwGrantedAccessMask: *mut u32, pbAccessStatus: *mut BOOL) -> HRESULT;
+        #[library("USERENV.dll")]
+        extern fn RsopResetPolicySettingStatus(dwFlags: u32, pServices: IWbemServices, pSettingInstance: IWbemClassObject) -> HRESULT;
+        #[library("USERENV.dll")]
+        extern fn RsopSetPolicySettingStatus(dwFlags: u32, pServices: IWbemServices, pSettingInstance: IWbemClassObject, nInfo: u32, #[len_param(3)] pStatus: *const POLICYSETTINGSTATUSINFO) -> HRESULT;
+        #[repr(i32)]
+        enum SETTINGSTATUS {
+            RSOPUnspecified = 0,
+            RSOPApplied = 1,
+            RSOPIgnored = 2,
+            RSOPFailed = 3,
+            RSOPSubsettingFailed = 4,
+        }
+        #[library("USERENV.dll")]
+        extern fn UnloadUserProfile(hToken: HANDLE, hProfile: HANDLE) -> BOOL;
+        #[library("USERENV.dll")]
+        extern fn UnregisterGPNotification(hEvent: HANDLE) -> BOOL;
+    }
+}

@@ -1,0 +1,44 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDE: u32 = 536870912;
+        const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED: u32 = 1073741824;
+        const AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED: u32 = 268435456;
+        #[repr(i32)]
+        enum AUDCLNT_SHAREMODE {
+            AUDCLNT_SHAREMODE_SHARED = 0,
+            AUDCLNT_SHAREMODE_EXCLUSIVE = 1,
+        }
+        const AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM: u32 = 2147483648;
+        const AUDCLNT_STREAMFLAGS_CROSSPROCESS: u32 = 65536;
+        const AUDCLNT_STREAMFLAGS_EVENTCALLBACK: u32 = 262144;
+        const AUDCLNT_STREAMFLAGS_LOOPBACK: u32 = 131072;
+        const AUDCLNT_STREAMFLAGS_NOPERSIST: u32 = 524288;
+        const AUDCLNT_STREAMFLAGS_RATEADJUST: u32 = 1048576;
+        const AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY: u32 = 134217728;
+        #[repr(i32)]
+        enum AUDIO_STREAM_CATEGORY {
+            AudioCategory_Other = 0,
+            AudioCategory_ForegroundOnlyMedia = 1,
+            AudioCategory_Communications = 3,
+            AudioCategory_Alerts = 4,
+            AudioCategory_SoundEffects = 5,
+            AudioCategory_GameEffects = 6,
+            AudioCategory_GameMedia = 7,
+            AudioCategory_GameChat = 8,
+            AudioCategory_Speech = 9,
+            AudioCategory_Movie = 10,
+            AudioCategory_Media = 11,
+            AudioCategory_FarFieldSpeech = 12,
+            AudioCategory_UniformSpeech = 13,
+            AudioCategory_VoiceTyping = 14,
+        }
+        #[repr(i32)]
+        enum AudioSessionState {
+            AudioSessionStateInactive = 0,
+            AudioSessionStateActive = 1,
+            AudioSessionStateExpired = 2,
+        }
+        const MIDL_ANYSIZE_ARRAY: u32 = 1;
+    }
+}

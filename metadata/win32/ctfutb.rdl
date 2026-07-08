@@ -1,0 +1,181 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x583f34d0_de25_11d2_afdd_00105a2799b5)]
+        interface IEnumTfLangBarItems: IUnknown {
+            fn Clone(&self, ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
+            fn Next(&self, ulCount: u32, ppItem: *mut ITfLangBarItem, #[in] #[out] pcFetched: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Skip(&self, ulCount: u32) -> HRESULT;
+        }
+        #[guid(0x18a4e900_e0ae_11d2_afdd_00105a2799b5)]
+        interface ITfLangBarEventSink: IUnknown {
+            fn OnSetFocus(&self, dwThreadId: u32) -> HRESULT;
+            fn OnThreadTerminate(&self, dwThreadId: u32) -> HRESULT;
+            fn OnThreadItemChange(&self, dwThreadId: u32) -> HRESULT;
+            fn OnModalInput(&self, dwThreadId: u32, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+            fn ShowFloating(&self, dwFlags: u32) -> HRESULT;
+            fn GetItemFloatingRect(&self, dwThreadId: u32, rguid: *const GUID, prc: *mut RECT) -> HRESULT;
+        }
+        #[guid(0x73540d69_edeb_4ee9_96c9_23aa30b25916)]
+        interface ITfLangBarItem: IUnknown {
+            fn GetInfo(&self, pInfo: *mut TF_LANGBARITEMINFO) -> HRESULT;
+            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
+            fn Show(&self, fShow: BOOL) -> HRESULT;
+            fn GetTooltipString(&self, pbstrToolTip: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x01c2d285_d3c7_4b7b_b5b5_d97411d0c283)]
+        interface ITfLangBarItemBalloon: ITfLangBarItem {
+            fn OnClick(&self, click: TfLBIClick, pt: POINT, prcArea: *const RECT) -> HRESULT;
+            fn GetPreferredSize(&self, pszDefault: *const SIZE, psz: *mut SIZE) -> HRESULT;
+            fn GetBalloonInfo(&self, pInfo: *mut TF_LBBALLOONINFO) -> HRESULT;
+        }
+        #[guid(0x73830352_d722_4179_ada5_f045c98df355)]
+        interface ITfLangBarItemBitmap: ITfLangBarItem {
+            fn OnClick(&self, click: TfLBIClick, pt: POINT, prcArea: *const RECT) -> HRESULT;
+            fn GetPreferredSize(&self, pszDefault: *const SIZE, psz: *mut SIZE) -> HRESULT;
+            fn DrawBitmap(&self, bmWidth: i32, bmHeight: i32, dwFlags: u32, phbmp: *mut HBITMAP, phbmpMask: *mut HBITMAP) -> HRESULT;
+        }
+        #[guid(0xa26a0525_3fae_4fa0_89ee_88a964f9f1b5)]
+        interface ITfLangBarItemBitmapButton: ITfLangBarItem {
+            fn OnClick(&self, click: TfLBIClick, pt: POINT, prcArea: *const RECT) -> HRESULT;
+            fn InitMenu(&self, pMenu: ITfMenu) -> HRESULT;
+            fn OnMenuSelect(&self, wID: u32) -> HRESULT;
+            fn GetPreferredSize(&self, pszDefault: *const SIZE, psz: *mut SIZE) -> HRESULT;
+            fn DrawBitmap(&self, bmWidth: i32, bmHeight: i32, dwFlags: u32, phbmp: *mut HBITMAP, phbmpMask: *mut HBITMAP) -> HRESULT;
+            fn GetText(&self, pbstrText: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x28c7f1d0_de25_11d2_afdd_00105a2799b5)]
+        interface ITfLangBarItemButton: ITfLangBarItem {
+            fn OnClick(&self, click: TfLBIClick, pt: POINT, prcArea: *const RECT) -> HRESULT;
+            fn InitMenu(&self, pMenu: ITfMenu) -> HRESULT;
+            fn OnMenuSelect(&self, wID: u32) -> HRESULT;
+            fn GetIcon(&self, phIcon: *mut HICON) -> HRESULT;
+            fn GetText(&self, pbstrText: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xba468c55_9956_4fb1_a59d_52a7dd7cc6aa)]
+        interface ITfLangBarItemMgr: IUnknown {
+            fn EnumItems(&self, ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
+            fn GetItem(&self, rguid: *const GUID, ppItem: *mut ITfLangBarItem) -> HRESULT;
+            fn AddItem(&self, punk: ITfLangBarItem) -> HRESULT;
+            fn RemoveItem(&self, punk: ITfLangBarItem) -> HRESULT;
+            fn AdviseItemSink(&self, punk: ITfLangBarItemSink, pdwCookie: *mut u32, rguidItem: *const GUID) -> HRESULT;
+            fn UnadviseItemSink(&self, dwCookie: u32) -> HRESULT;
+            fn GetItemFloatingRect(&self, dwThreadId: u32, rguid: *const GUID, prc: *mut RECT) -> HRESULT;
+            fn GetItemsStatus(&self, ulCount: u32, prgguid: *const GUID, pdwStatus: *mut u32) -> HRESULT;
+            fn GetItemNum(&self, pulCount: *mut u32) -> HRESULT;
+            fn GetItems(&self, ulCount: u32, ppItem: *mut ITfLangBarItem, pInfo: *mut TF_LANGBARITEMINFO, pdwStatus: *mut u32, #[in] #[out] pcFetched: *mut u32) -> HRESULT;
+            fn AdviseItemsSink(&self, ulCount: u32, ppunk: *const ITfLangBarItemSink, pguidItem: *const GUID, pdwCookie: *mut u32) -> HRESULT;
+            fn UnadviseItemsSink(&self, ulCount: u32, pdwCookie: *const u32) -> HRESULT;
+        }
+        #[guid(0x57dbe1a0_de25_11d2_afdd_00105a2799b5)]
+        interface ITfLangBarItemSink: IUnknown {
+            fn OnUpdate(&self, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x87955690_e627_11d2_8ddb_00105a2799b5)]
+        interface ITfLangBarMgr: IUnknown {
+            fn AdviseEventSink(&self, pSink: ITfLangBarEventSink, hwnd: HWND, dwFlags: u32, pdwCookie: *const u32) -> HRESULT;
+            fn UnadviseEventSink(&self, dwCookie: u32) -> HRESULT;
+            fn GetThreadMarshalInterface(&self, dwThreadId: u32, dwType: u32, riid: *const GUID, #[iid_is] ppunk: *mut *mut void) -> HRESULT;
+            fn GetThreadLangBarItemMgr(&self, dwThreadId: u32, pplbi: *mut ITfLangBarItemMgr, pdwThreadid: *mut u32) -> HRESULT;
+            fn GetInputProcessorProfiles(&self, dwThreadId: u32, ppaip: *mut ITfInputProcessorProfiles, pdwThreadid: *mut u32) -> HRESULT;
+            fn RestoreLastFocus(&self, pdwThreadId: *mut u32, fPrev: BOOL) -> HRESULT;
+            fn SetModalInput(&self, pSink: ITfLangBarEventSink, dwThreadId: u32, dwFlags: u32) -> HRESULT;
+            fn ShowFloating(&self, dwFlags: u32) -> HRESULT;
+            fn GetShowFloatingStatus(&self, pdwFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6f8a98e4_aaa0_4f15_8c5b_07e0df0a3dd8)]
+        interface ITfMenu: IUnknown {
+            fn AddMenuItem(&self, uId: u32, dwFlags: u32, hbmp: HBITMAP, hbmpMask: HBITMAP, pch: *const u16, cch: u32, #[in] #[out] ppMenu: *mut ITfMenu) -> HRESULT;
+        }
+        #[guid(0x45672eb9_9059_46a2_838d_4530355f6a77)]
+        interface ITfSystemDeviceTypeLangBarItem: IUnknown {
+            fn SetIconMode(&self, dwFlags: u32) -> HRESULT;
+            fn GetIconMode(&self, pdwFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0x1e13e9ec_6b33_4d4a_b5eb_8a92f029f356)]
+        interface ITfSystemLangBarItem: IUnknown {
+            fn SetIcon(&self, hIcon: HICON) -> HRESULT;
+            fn SetTooltipString(&self, pchToolTip: *const u16, cch: u32) -> HRESULT;
+        }
+        #[guid(0x1449d9ab_13cf_4687_aa3e_8d8b18574396)]
+        interface ITfSystemLangBarItemSink: IUnknown {
+            fn InitMenu(&self, pMenu: ITfMenu) -> HRESULT;
+            fn OnMenuSelect(&self, wID: u32) -> HRESULT;
+        }
+        #[guid(0x5c4ce0e5_ba49_4b52_ac6b_3b397b4f701f)]
+        interface ITfSystemLangBarItemText: IUnknown {
+            fn SetItemText(&self, pch: *const u16, cch: u32) -> HRESULT;
+            fn GetItemText(&self, pbstrText: *mut BSTR) -> HRESULT;
+        }
+        const TF_DTLBI_USEPROFILEICON: u32 = 1;
+        #[encoding("ansi")]
+        const TF_FLOATINGLANGBAR_WNDTITLEA: String = "TF_FloatingLangBar_WndTitle";
+        #[encoding("utf-16")]
+        const TF_FLOATINGLANGBAR_WNDTITLEW: String = "TF_FloatingLangBar_WndTitle";
+        const TF_INVALIDMENUITEM: i32 = -1;
+        struct TF_LANGBARITEMINFO {
+            clsidService: GUID,
+            guidItem: GUID,
+            dwStyle: u32,
+            ulSort: u32,
+            szDescription: [u16; 32],
+        }
+        struct TF_LBBALLOONINFO {
+            style: TfLBBalloonStyle,
+            bstrText: BSTR,
+        }
+        const TF_LBI_BALLOON: u32 = 16;
+        const TF_LBI_BITMAP: u32 = 8;
+        const TF_LBI_BMPALL: u32 = 12;
+        const TF_LBI_BMPBTNALL: u32 = 14;
+        const TF_LBI_BMPF_VERTICAL: u32 = 1;
+        const TF_LBI_BTNALL: u32 = 7;
+        const TF_LBI_CUSTOMUI: u32 = 32;
+        const TF_LBI_DESC_MAXLEN: u32 = 32;
+        const TF_LBI_ICON: u32 = 1;
+        const TF_LBI_STATUS: u32 = 65536;
+        const TF_LBI_STATUS_BTN_TOGGLED: u32 = 65536;
+        const TF_LBI_STATUS_DISABLED: u32 = 2;
+        const TF_LBI_STATUS_HIDDEN: u32 = 1;
+        const TF_LBI_STYLE_BTN_BUTTON: u32 = 65536;
+        const TF_LBI_STYLE_BTN_MENU: u32 = 131072;
+        const TF_LBI_STYLE_BTN_TOGGLE: u32 = 262144;
+        const TF_LBI_STYLE_HIDDENBYDEFAULT: u32 = 16;
+        const TF_LBI_STYLE_HIDDENSTATUSCONTROL: u32 = 1;
+        const TF_LBI_STYLE_HIDEONNOOTHERITEMS: u32 = 4;
+        const TF_LBI_STYLE_SHOWNINTRAY: u32 = 2;
+        const TF_LBI_STYLE_SHOWNINTRAYONLY: u32 = 8;
+        const TF_LBI_STYLE_TEXTCOLORICON: u32 = 32;
+        const TF_LBI_TEXT: u32 = 2;
+        const TF_LBI_TOOLTIP: u32 = 4;
+        const TF_LBMENUF_CHECKED: u32 = 1;
+        const TF_LBMENUF_GRAYED: u32 = 16;
+        const TF_LBMENUF_RADIOCHECKED: u32 = 8;
+        const TF_LBMENUF_SEPARATOR: u32 = 4;
+        const TF_LBMENUF_SUBMENU: u32 = 2;
+        const TF_SFT_DESKBAND: u32 = 2048;
+        const TF_SFT_DOCK: u32 = 2;
+        const TF_SFT_EXTRAICONSONMINIMIZED: u32 = 512;
+        const TF_SFT_HIDDEN: u32 = 8;
+        const TF_SFT_HIGHTRANSPARENCY: u32 = 64;
+        const TF_SFT_LABELS: u32 = 128;
+        const TF_SFT_LOWTRANSPARENCY: u32 = 32;
+        const TF_SFT_MINIMIZED: u32 = 4;
+        const TF_SFT_NOEXTRAICONSONMINIMIZED: u32 = 1024;
+        const TF_SFT_NOLABELS: u32 = 256;
+        const TF_SFT_NOTRANSPARENCY: u32 = 16;
+        const TF_SFT_SHOWNORMAL: u32 = 1;
+        #[repr(i32)]
+        enum TfLBBalloonStyle {
+            TF_LB_BALLOON_RECO = 0,
+            TF_LB_BALLOON_SHOW = 1,
+            TF_LB_BALLOON_MISS = 2,
+        }
+        #[repr(i32)]
+        enum TfLBIClick {
+            TF_LBI_CLK_RIGHT = 1,
+            TF_LBI_CLK_LEFT = 2,
+        }
+    }
+}

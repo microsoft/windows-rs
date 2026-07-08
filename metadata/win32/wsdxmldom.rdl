@@ -1,0 +1,54 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ElementType: i32 = 0;
+        const TextType: i32 = 1;
+        struct WSDXML_ATTRIBUTE {
+            Element: *mut WSDXML_ELEMENT,
+            Next: *mut WSDXML_ATTRIBUTE,
+            Name: *mut WSDXML_NAME,
+            Value: *mut u16,
+        }
+        struct WSDXML_ELEMENT {
+            Node: WSDXML_NODE,
+            Name: *mut WSDXML_NAME,
+            FirstAttribute: *mut WSDXML_ATTRIBUTE,
+            FirstChild: *mut WSDXML_NODE,
+            PrefixMappings: *mut WSDXML_PREFIX_MAPPING,
+        }
+        struct WSDXML_ELEMENT_LIST {
+            Next: *mut WSDXML_ELEMENT_LIST,
+            Element: *mut WSDXML_ELEMENT,
+        }
+        struct WSDXML_NAME {
+            Space: *mut WSDXML_NAMESPACE,
+            LocalName: *mut u16,
+        }
+        struct WSDXML_NAMESPACE {
+            Uri: *const u16,
+            PreferredPrefix: *const u16,
+            Names: *mut WSDXML_NAME,
+            NamesCount: u16,
+            Encoding: u16,
+        }
+        struct WSDXML_NODE {
+            Type: i32,
+            Parent: *mut WSDXML_ELEMENT,
+            Next: *mut WSDXML_NODE,
+        }
+        struct WSDXML_PREFIX_MAPPING {
+            Refs: u32,
+            Next: *mut WSDXML_PREFIX_MAPPING,
+            Space: *mut WSDXML_NAMESPACE,
+            Prefix: *mut u16,
+        }
+        struct WSDXML_TEXT {
+            Node: WSDXML_NODE,
+            Text: *mut u16,
+        }
+        struct WSDXML_TYPE {
+            Uri: *const u16,
+            Table: *const u8,
+        }
+    }
+}

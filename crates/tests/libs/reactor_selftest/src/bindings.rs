@@ -1,17 +1,17 @@
 windows_core::link!("user32.dll" "system" fn BringWindowToTop(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn ClientToScreen(hwnd : HWND, lppoint : *mut POINT) -> windows_core::BOOL);
-windows_core::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclscontext : CLSCTX, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclscontext : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
 windows_core::link!("user32.dll" "system" fn GetClientRect(hwnd : HWND, lprect : *mut RECT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32);
 windows_core::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> windows_core::BOOL);
-windows_core::link!("user32.dll" "system" fn GetSystemMetrics(nindex : SYSTEM_METRICS_INDEX) -> i32);
+windows_core::link!("user32.dll" "system" fn GetSystemMetrics(nindex : i32) -> i32);
 windows_core::link!("microsoft.windowsappruntime.bootstrap.dll" "system" fn MddBootstrapInitialize2(majorminorversion : u32, versiontag : *const u16, minversion : PACKAGE_VERSION, options : MddBootstrapInitializeOptions) -> windows_core::HRESULT);
-windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
+windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : u32) -> HMONITOR);
 windows_core::link!("user32.dll" "system" fn PostMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
-windows_core::link!("user32.dll" "system" fn SetWindowPos(hwnd : HWND, hwndinsertafter : HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : SET_WINDOW_POS_FLAGS) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn SetWindowPos(hwnd : HWND, hwndinsertafter : HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_core::BOOL);
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBar(windows_core::IUnknown);
@@ -21958,7 +21958,7 @@ pub struct MONITORINFO {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONITORINFOEXW {
-    pub monitorInfo: MONITORINFO,
+    pub Base: MONITORINFO,
     pub szDevice: [u16; 32],
 }
 impl Default for MONITORINFOEXW {
@@ -21966,8 +21966,7 @@ impl Default for MONITORINFOEXW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = 2;
-pub type MONITOR_FROM_FLAGS = u32;
+pub const MONITOR_DEFAULTTONEAREST: u32 = 2;
 pub type MddBootstrapInitializeOptions = i32;
 pub const MddBootstrapInitializeOptions_OnNoMatch_ShowUI: MddBootstrapInitializeOptions = 8;
 pub const MddBootstrapInitializeOptions_OnPackageIdentity_NOOP: MddBootstrapInitializeOptions = 16;
@@ -24484,15 +24483,13 @@ impl windows_core::RuntimeName for Run {
 }
 unsafe impl Send for Run {}
 unsafe impl Sync for Run {}
-pub type SET_WINDOW_POS_FLAGS = u32;
-pub const SM_CXVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 78;
-pub const SM_CYVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 79;
-pub const SM_XVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 76;
-pub const SM_YVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 77;
-pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = 16;
-pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = 1;
-pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = 4;
-pub type SYSTEM_METRICS_INDEX = i32;
+pub const SM_CXVIRTUALSCREEN: u32 = 78;
+pub const SM_CYVIRTUALSCREEN: u32 = 79;
+pub const SM_XVIRTUALSCREEN: u32 = 76;
+pub const SM_YVIRTUALSCREEN: u32 = 77;
+pub const SWP_NOACTIVATE: u32 = 16;
+pub const SWP_NOSIZE: u32 = 1;
+pub const SWP_NOZORDER: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ScalarKeyFrameAnimation(windows_core::IUnknown);
@@ -25874,7 +25871,7 @@ impl windows_core::RuntimeName for SystemBackdrop {
 }
 unsafe impl Send for SystemBackdrop {}
 unsafe impl Sync for SystemBackdrop {}
-pub type TBPFLAG = i32;
+pub type TBPFLAG = u32;
 pub const TBPF_ERROR: TBPFLAG = 4;
 pub const TBPF_NOPROGRESS: TBPFLAG = 0;
 pub const TBPF_NORMAL: TBPFLAG = 2;

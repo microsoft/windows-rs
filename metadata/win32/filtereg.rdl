@@ -1,0 +1,21 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct FILTERED_DATA_SOURCES {
+            pwcsExtension: *const u16,
+            pwcsMime: *const u16,
+            pClsid: *const GUID,
+            pwcsOverride: *const u16,
+        }
+        #[guid(0xc7310722_ac80_11d1_8df3_00c04fb6ef4f)]
+        interface ILoadFilter: IUnknown {
+            fn LoadIFilter(&self, pwcsPath: PCWSTR, pFilteredSources: *const FILTERED_DATA_SOURCES, pUnkOuter: IUnknown, fUseDefault: BOOL, #[in] #[out] pFilterClsid: *mut GUID, #[in] #[out] SearchDecSize: *mut i32, #[in] #[out] pwcsSearchDesc: *mut *mut u16, #[in] #[out] ppIFilt: *mut IFilter) -> HRESULT;
+            fn LoadIFilterFromStorage(&self, pStg: IStorage, pUnkOuter: IUnknown, pwcsOverride: PCWSTR, fUseDefault: BOOL, #[in] #[out] pFilterClsid: *mut GUID, #[in] #[out] SearchDecSize: *mut i32, #[in] #[out] pwcsSearchDesc: *mut *mut u16, #[in] #[out] ppIFilt: *mut IFilter) -> HRESULT;
+            fn LoadIFilterFromStream(&self, pStm: IStream, pFilteredSources: *const FILTERED_DATA_SOURCES, pUnkOuter: IUnknown, fUseDefault: BOOL, #[in] #[out] pFilterClsid: *mut GUID, #[in] #[out] SearchDecSize: *mut i32, #[in] #[out] pwcsSearchDesc: *mut *mut u16, #[in] #[out] ppIFilt: *mut IFilter) -> HRESULT;
+        }
+        #[guid(0x40bdbd34_780b_48d3_9bb6_12ebd4ad2e75)]
+        interface ILoadFilterWithPrivateComActivation: ILoadFilter {
+            fn LoadIFilterWithPrivateComActivation(&self, filteredSources: *const FILTERED_DATA_SOURCES, useDefault: BOOL, filterClsid: *mut GUID, isFilterPrivateComActivated: *mut BOOL, #[in] #[out] filterObj: *mut IFilter) -> HRESULT;
+        }
+    }
+}

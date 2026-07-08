@@ -1,0 +1,24 @@
+// Minimal Windows.Win32.Foundation bootstrap seed.
+//
+// These are the irreducible *semantic* scalar typedefs that have no structural
+// signal distinguishing them from the universal C fundamentals (a `BOOL` is just
+// `typedef int`, exactly like `DWORD` is `typedef unsigned long`). Scalar-collapse
+// would turn them into bare primitives, so the self-sustaining build keeps a small
+// hand-authored Foundation reference that is always present and never the excluded
+// target namespace. Synthetic win32metadata groupings (WIN32_ERROR, *_FLAGS, …) are
+// deliberately *not* here — those are higher-level reinterpretation, not source truth.
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Foundation {
+            type BOOL = i32;
+            type BOOLEAN = u8;
+            type HANDLE = *mut void;
+            type HRESULT = i32;
+            type LPARAM = isize;
+            type LRESULT = isize;
+            type NTSTATUS = i32;
+            type WPARAM = usize;
+        }
+    }
+}

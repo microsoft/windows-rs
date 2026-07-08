@@ -1,0 +1,1237 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("AVIFIL32.dll")]
+        extern fn AVIBuildFilterA(#[len_param(1)] #[out] lpszFilter: PSTR, cbFilter: i32, fSaving: BOOL) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIBuildFilterW(#[len_param(1)] #[out] lpszFilter: PWSTR, cbFilter: i32, fSaving: BOOL) -> HRESULT;
+        const AVICOMPRESSF_DATARATE: u32 = 2;
+        const AVICOMPRESSF_INTERLEAVE: u32 = 1;
+        const AVICOMPRESSF_KEYFRAMES: u32 = 4;
+        const AVICOMPRESSF_VALID: u32 = 8;
+        struct AVICOMPRESSOPTIONS {
+            fccType: u32,
+            fccHandler: u32,
+            dwKeyFrameEvery: u32,
+            dwQuality: u32,
+            dwBytesPerSecond: u32,
+            dwFlags: u32,
+            lpFormat: *mut void,
+            cbFormat: u32,
+            lpParms: *mut void,
+            cbParms: u32,
+            dwInterleaveEvery: u32,
+        }
+        #[library("AVIFIL32.dll")]
+        extern fn AVIClearClipboard() -> HRESULT;
+        const AVIERR_BADFLAGS: i32 = -2147205015;
+        const AVIERR_BADFORMAT: i32 = -2147205018;
+        const AVIERR_BADHANDLE: i32 = -2147205012;
+        const AVIERR_BADPARAM: i32 = -2147205014;
+        const AVIERR_BADSIZE: i32 = -2147205013;
+        const AVIERR_BUFFERTOOSMALL: i32 = -2147205004;
+        const AVIERR_CANTCOMPRESS: i32 = -2147205003;
+        const AVIERR_COMPRESSOR: i32 = -2147205008;
+        const AVIERR_ERROR: i32 = -2147204921;
+        const AVIERR_FILEOPEN: i32 = -2147205009;
+        const AVIERR_FILEREAD: i32 = -2147205011;
+        const AVIERR_FILEWRITE: i32 = -2147205010;
+        const AVIERR_INTERNAL: i32 = -2147205016;
+        const AVIERR_MEMORY: i32 = -2147205017;
+        const AVIERR_NOCOMPRESSOR: i32 = -2147205007;
+        const AVIERR_NODATA: i32 = -2147205005;
+        const AVIERR_OK: u32 = 0;
+        const AVIERR_READONLY: i32 = -2147205006;
+        const AVIERR_UNSUPPORTED: i32 = -2147205019;
+        const AVIERR_USERABORT: i32 = -2147204922;
+        const AVIFILECAPS_ALLKEYFRAMES: u32 = 16;
+        const AVIFILECAPS_CANREAD: u32 = 1;
+        const AVIFILECAPS_CANWRITE: u32 = 2;
+        const AVIFILECAPS_NOCOMPRESSION: u32 = 32;
+        const AVIFILEHANDLER_CANACCEPTNONRGB: u32 = 4;
+        const AVIFILEHANDLER_CANREAD: u32 = 1;
+        const AVIFILEHANDLER_CANWRITE: u32 = 2;
+        struct AVIFILEINFOA {
+            dwMaxBytesPerSec: u32,
+            dwFlags: u32,
+            dwCaps: u32,
+            dwStreams: u32,
+            dwSuggestedBufferSize: u32,
+            dwWidth: u32,
+            dwHeight: u32,
+            dwScale: u32,
+            dwRate: u32,
+            dwLength: u32,
+            dwEditCount: u32,
+            szFileType: [i8; 64],
+        }
+        struct AVIFILEINFOW {
+            dwMaxBytesPerSec: u32,
+            dwFlags: u32,
+            dwCaps: u32,
+            dwStreams: u32,
+            dwSuggestedBufferSize: u32,
+            dwWidth: u32,
+            dwHeight: u32,
+            dwScale: u32,
+            dwRate: u32,
+            dwLength: u32,
+            dwEditCount: u32,
+            szFileType: [u16; 64],
+        }
+        const AVIFILEINFO_COPYRIGHTED: u32 = 131072;
+        const AVIFILEINFO_HASINDEX: u32 = 16;
+        const AVIFILEINFO_ISINTERLEAVED: u32 = 256;
+        const AVIFILEINFO_MUSTUSEINDEX: u32 = 32;
+        const AVIFILEINFO_WASCAPTUREFILE: u32 = 65536;
+        const AVIF_COPYRIGHTED: u32 = 131072;
+        const AVIF_HASINDEX: u32 = 16;
+        const AVIF_ISINTERLEAVED: u32 = 256;
+        const AVIF_MUSTUSEINDEX: u32 = 32;
+        const AVIF_WASCAPTUREFILE: u32 = 65536;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileAddRef(pfile: IAVIFile) -> u32;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileCreateStreamA(pfile: IAVIFile, ppavi: *mut IAVIStream, psi: *const AVISTREAMINFOA) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileCreateStreamW(pfile: IAVIFile, ppavi: *mut IAVIStream, psi: *const AVISTREAMINFOW) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileEndRecord(pfile: IAVIFile) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileExit();
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileGetStream(pfile: IAVIFile, ppavi: *mut IAVIStream, fccType: u32, lParam: i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileInfoA(pfile: IAVIFile, #[size_param(2)] pfi: *mut AVIFILEINFOA, lSize: i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileInfoW(pfile: IAVIFile, #[size_param(2)] pfi: *mut AVIFILEINFOW, lSize: i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileInit();
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileOpenA(ppfile: *mut IAVIFile, szFile: PCSTR, uMode: u32, #[opt] lpHandler: *const GUID) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileOpenW(ppfile: *mut IAVIFile, szFile: PCWSTR, uMode: u32, #[opt] lpHandler: *const GUID) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileReadData(pfile: IAVIFile, ckid: u32, #[size_param(3)] lpData: *mut void, #[in] #[out] lpcbData: *mut i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileRelease(pfile: IAVIFile) -> u32;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIFileWriteData(pfile: IAVIFile, ckid: u32, #[size_param(3)] lpData: *const void, cbData: i32) -> HRESULT;
+        const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIGetFromClipboard(lppf: *mut IAVIFile) -> HRESULT;
+        const AVIIF_COMPUSE: u32 = 268369920;
+        const AVIIF_FIRSTPART: u32 = 32;
+        const AVIIF_KEYFRAME: u32 = 16;
+        const AVIIF_LASTPART: u32 = 64;
+        const AVIIF_LIST: u32 = 1;
+        const AVIIF_MIDPART: u32 = 96;
+        const AVIIF_NOTIME: u32 = 256;
+        const AVIIF_TWOCC: u32 = 2;
+        struct AVIINDEXENTRY {
+            ckid: u32,
+            dwFlags: u32,
+            dwChunkOffset: u32,
+            dwChunkLength: u32,
+        }
+        #[library("AVIFIL32.dll")]
+        extern fn AVIMakeCompressedStream(ppsCompressed: *mut IAVIStream, ppsSource: IAVIStream, lpOptions: *const AVICOMPRESSOPTIONS, #[opt] pclsidHandler: *const GUID) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIMakeFileFromStreams(ppfile: *mut IAVIFile, nStreams: i32, #[len_param(1)] papStreams: *const IAVIStream) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIMakeStreamFromClipboard(cfFormat: u32, hGlobal: HANDLE, ppstream: *mut IAVIStream) -> HRESULT;
+        struct AVIPALCHANGE {
+            bFirstEntry: u8,
+            bNumEntries: u8,
+            wFlags: u16,
+            peNew: [PALETTEENTRY; 0],
+        }
+        #[library("AVIFIL32.dll")]
+        extern fn AVIPutFileOnClipboard(pf: IAVIFile) -> HRESULT;
+        extern fn AVISAVECALLBACK(param0: i32) -> BOOL;
+        const AVISF_DISABLED: u32 = 1;
+        const AVISF_VIDEO_PALCHANGES: u32 = 65536;
+        struct AVISTREAMINFOA {
+            fccType: u32,
+            fccHandler: u32,
+            dwFlags: u32,
+            dwCaps: u32,
+            wPriority: u16,
+            wLanguage: u16,
+            dwScale: u32,
+            dwRate: u32,
+            dwStart: u32,
+            dwLength: u32,
+            dwInitialFrames: u32,
+            dwSuggestedBufferSize: u32,
+            dwQuality: u32,
+            dwSampleSize: u32,
+            rcFrame: RECT,
+            dwEditCount: u32,
+            dwFormatChangeCount: u32,
+            szName: [i8; 64],
+        }
+        struct AVISTREAMINFOW {
+            fccType: u32,
+            fccHandler: u32,
+            dwFlags: u32,
+            dwCaps: u32,
+            wPriority: u16,
+            wLanguage: u16,
+            dwScale: u32,
+            dwRate: u32,
+            dwStart: u32,
+            dwLength: u32,
+            dwInitialFrames: u32,
+            dwSuggestedBufferSize: u32,
+            dwQuality: u32,
+            dwSampleSize: u32,
+            rcFrame: RECT,
+            dwEditCount: u32,
+            dwFormatChangeCount: u32,
+            szName: [u16; 64],
+        }
+        const AVISTREAMINFO_DISABLED: u32 = 1;
+        const AVISTREAMINFO_FORMATCHANGES: u32 = 65536;
+        const AVISTREAMREAD_CONVENIENT: i32 = -1;
+        #[library("AVIFIL32.dll")]
+        extern "C" fn AVISaveA(szFile: PCSTR, #[opt] pclsidHandler: *const GUID, lpfnCallback: AVISAVECALLBACK, nStreams: i32, pfile: IAVIStream, lpOptions: *const AVICOMPRESSOPTIONS, ...) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVISaveOptions(hwnd: HWND, uiFlags: u32, nStreams: i32, #[len_param(2)] ppavi: *const IAVIStream, #[len_param(2)] #[in] #[out] plpOptions: *mut LPAVICOMPRESSOPTIONS) -> isize;
+        #[library("AVIFIL32.dll")]
+        extern fn AVISaveOptionsFree(nStreams: i32, #[len_param(0)] plpOptions: *const LPAVICOMPRESSOPTIONS) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVISaveVA(szFile: PCSTR, #[opt] pclsidHandler: *const GUID, lpfnCallback: AVISAVECALLBACK, nStreams: i32, #[len_param(3)] ppavi: *const IAVIStream, #[len_param(3)] plpOptions: *const LPAVICOMPRESSOPTIONS) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVISaveVW(szFile: PCWSTR, #[opt] pclsidHandler: *const GUID, lpfnCallback: AVISAVECALLBACK, nStreams: i32, #[len_param(3)] ppavi: *const IAVIStream, #[len_param(3)] plpOptions: *const LPAVICOMPRESSOPTIONS) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern "C" fn AVISaveW(szFile: PCWSTR, #[opt] pclsidHandler: *const GUID, lpfnCallback: AVISAVECALLBACK, nStreams: i32, pfile: IAVIStream, lpOptions: *const AVICOMPRESSOPTIONS, ...) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamAddRef(pavi: IAVIStream) -> u32;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamBeginStreaming(pavi: IAVIStream, lStart: i32, lEnd: i32, lRate: i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamCreate(ppavi: *mut IAVIStream, lParam1: i32, lParam2: i32, #[opt] pclsidHandler: *const GUID) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamEndStreaming(pavi: IAVIStream) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamFindSample(pavi: IAVIStream, lPos: i32, lFlags: i32) -> i32;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamGetFrame(pg: IGetFrame, lPos: i32) -> *mut void;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamGetFrameClose(pg: IGetFrame) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamGetFrameOpen(pavi: IAVIStream, #[opt] lpbiWanted: *const BITMAPINFOHEADER) -> IGetFrame;
+        struct AVIStreamHeader {
+            fccType: FOURCC,
+            fccHandler: FOURCC,
+            dwFlags: u32,
+            wPriority: u16,
+            wLanguage: u16,
+            dwInitialFrames: u32,
+            dwScale: u32,
+            dwRate: u32,
+            dwStart: u32,
+            dwLength: u32,
+            dwSuggestedBufferSize: u32,
+            dwQuality: u32,
+            dwSampleSize: u32,
+            rcFrame: RECT,
+        }
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamInfoA(pavi: IAVIStream, #[size_param(2)] psi: *mut AVISTREAMINFOA, lSize: i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamInfoW(pavi: IAVIStream, #[size_param(2)] psi: *mut AVISTREAMINFOW, lSize: i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamLength(pavi: IAVIStream) -> i32;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamOpenFromFileA(ppavi: *mut IAVIStream, szFile: PCSTR, fccType: u32, lParam: i32, mode: u32, #[opt] pclsidHandler: *const GUID) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamOpenFromFileW(ppavi: *mut IAVIStream, szFile: PCWSTR, fccType: u32, lParam: i32, mode: u32, #[opt] pclsidHandler: *const GUID) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamRead(pavi: IAVIStream, lStart: i32, lSamples: i32, #[size_param(4)] #[opt] lpBuffer: *mut void, cbBuffer: i32, #[opt] plBytes: *mut i32, #[opt] plSamples: *mut i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamReadData(pavi: IAVIStream, fcc: u32, #[size_param(3)] #[opt] lp: *mut void, #[in] #[out] lpcb: *mut i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamReadFormat(pavi: IAVIStream, lPos: i32, #[size_param(3)] #[opt] lpFormat: *mut void, #[in] #[out] lpcbFormat: *mut i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamRelease(pavi: IAVIStream) -> u32;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamSampleToTime(pavi: IAVIStream, lSample: i32) -> i32;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamSetFormat(pavi: IAVIStream, lPos: i32, #[size_param(3)] lpFormat: *const void, cbFormat: i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamStart(pavi: IAVIStream) -> i32;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamTimeToSample(pavi: IAVIStream, lTime: i32) -> i32;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamWrite(pavi: IAVIStream, lStart: i32, lSamples: i32, #[size_param(4)] lpBuffer: *const void, cbBuffer: i32, dwFlags: u32, #[opt] plSampWritten: *mut i32, #[opt] plBytesWritten: *mut i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn AVIStreamWriteData(pavi: IAVIStream, fcc: u32, #[size_param(3)] lp: *const void, cb: i32) -> HRESULT;
+        const AVI_HEADERSIZE: u32 = 2048;
+        const AVSTREAMMASTER_AUDIO: u32 = 0;
+        const AVSTREAMMASTER_NONE: u32 = 1;
+        const BI_1632: u32 = 842217009;
+        extern fn CAPCONTROLCALLBACK(hWnd: HWND, nState: i32) -> LRESULT;
+        struct CAPDRIVERCAPS {
+            wDeviceIndex: u32,
+            fHasOverlay: BOOL,
+            fHasDlgVideoSource: BOOL,
+            fHasDlgVideoFormat: BOOL,
+            fHasDlgVideoDisplay: BOOL,
+            fCaptureInitialized: BOOL,
+            fDriverSuppliesPalettes: BOOL,
+            hVideoIn: HANDLE,
+            hVideoOut: HANDLE,
+            hVideoExtIn: HANDLE,
+            hVideoExtOut: HANDLE,
+        }
+        extern fn CAPERRORCALLBACKA(hWnd: HWND, nID: i32, lpsz: PCSTR) -> LRESULT;
+        extern fn CAPERRORCALLBACKW(hWnd: HWND, nID: i32, lpsz: PCWSTR) -> LRESULT;
+        struct CAPINFOCHUNK {
+            fccInfoID: FOURCC,
+            lpData: *mut void,
+            cbData: i32,
+        }
+        struct CAPSTATUS {
+            uiImageWidth: u32,
+            uiImageHeight: u32,
+            fLiveWindow: BOOL,
+            fOverlayWindow: BOOL,
+            fScale: BOOL,
+            ptScroll: POINT,
+            fUsingDefaultPalette: BOOL,
+            fAudioHardware: BOOL,
+            fCapFileExists: BOOL,
+            dwCurrentVideoFrame: u32,
+            dwCurrentVideoFramesDropped: u32,
+            dwCurrentWaveSamples: u32,
+            dwCurrentTimeElapsedMS: u32,
+            hPalCurrent: HPALETTE,
+            fCapturingNow: BOOL,
+            dwReturn: u32,
+            wNumVideoAllocated: u32,
+            wNumAudioAllocated: u32,
+        }
+        extern fn CAPSTATUSCALLBACKA(hWnd: HWND, nID: i32, lpsz: PCSTR) -> LRESULT;
+        extern fn CAPSTATUSCALLBACKW(hWnd: HWND, nID: i32, lpsz: PCWSTR) -> LRESULT;
+        struct CAPTUREPARMS {
+            dwRequestMicroSecPerFrame: u32,
+            fMakeUserHitOKToCapture: BOOL,
+            wPercentDropForError: u32,
+            fYield: BOOL,
+            dwIndexSize: u32,
+            wChunkGranularity: u32,
+            fUsingDOSMemory: BOOL,
+            wNumVideoRequested: u32,
+            fCaptureAudio: BOOL,
+            wNumAudioRequested: u32,
+            vKeyAbort: u32,
+            fAbortLeftMouse: BOOL,
+            fAbortRightMouse: BOOL,
+            fLimitEnabled: BOOL,
+            wTimeLimit: u32,
+            fMCIControl: BOOL,
+            fStepMCIDevice: BOOL,
+            dwMCIStartTime: u32,
+            dwMCIStopTime: u32,
+            fStepCaptureAt2x: BOOL,
+            wStepCaptureAverageFrames: u32,
+            dwAudioBufferSize: u32,
+            fDisableWriteCache: BOOL,
+            AVStreamMaster: u32,
+        }
+        extern fn CAPVIDEOCALLBACK(hWnd: HWND, lpVHdr: *const VIDEOHDR) -> LRESULT;
+        extern fn CAPWAVECALLBACK(hWnd: HWND, lpWHdr: *const WAVEHDR) -> LRESULT;
+        extern fn CAPYIELDCALLBACK(hWnd: HWND) -> LRESULT;
+        struct CHANNEL_CAPS {
+            dwFlags: u32,
+            dwSrcRectXMod: u32,
+            dwSrcRectYMod: u32,
+            dwSrcRectWidthMod: u32,
+            dwSrcRectHeightMod: u32,
+            dwDstRectXMod: u32,
+            dwDstRectYMod: u32,
+            dwDstRectWidthMod: u32,
+            dwDstRectHeightMod: u32,
+        }
+        struct COMPVARS {
+            cbSize: i32,
+            dwFlags: u32,
+            hic: HIC,
+            fccType: u32,
+            fccHandler: u32,
+            lpbiIn: LPBITMAPINFO,
+            lpbiOut: LPBITMAPINFO,
+            lpBitsOut: *mut void,
+            lpBitsPrev: *mut void,
+            lFrame: i32,
+            lKey: i32,
+            lDataRate: i32,
+            lQ: i32,
+            lKeyCount: i32,
+            lpState: *mut void,
+            cbState: i32,
+        }
+        const CONTROLCALLBACK_CAPTURING: u32 = 2;
+        const CONTROLCALLBACK_PREROLL: u32 = 1;
+        #[library("AVIFIL32.dll")]
+        extern fn CreateEditableStream(ppsEditable: *mut IAVIStream, psSource: IAVIStream) -> HRESULT;
+        const DDF_0001: u32 = 1;
+        const DDF_2000: u32 = 8192;
+        const DDF_ANIMATE: u32 = 32;
+        const DDF_BACKGROUNDPAL: u32 = 512;
+        const DDF_BUFFER: u32 = 64;
+        const DDF_DONTDRAW: u32 = 16;
+        const DDF_FULLSCREEN: u32 = 256;
+        const DDF_HALFTONE: u32 = 4096;
+        const DDF_HURRYUP: u32 = 2048;
+        const DDF_JUSTDRAWIT: u32 = 128;
+        const DDF_NOTKEYFRAME: u32 = 1024;
+        const DDF_PREROLL: u32 = 16;
+        const DDF_SAME_DIB: u32 = 8;
+        const DDF_SAME_DRAW: u32 = 8;
+        const DDF_SAME_HDC: u32 = 4;
+        const DDF_SAME_SIZE: u32 = 8;
+        const DDF_UPDATE: u32 = 2;
+        struct DRAWDIBTIME {
+            timeCount: i32,
+            timeDraw: i32,
+            timeDecompress: i32,
+            timeDither: i32,
+            timeStretch: i32,
+            timeBlt: i32,
+            timeSetDIBits: i32,
+        }
+        const DVM_CONFIGURE_END: u32 = 8191;
+        const DVM_CONFIGURE_START: u32 = 4096;
+        const DVM_DST_RECT: u32 = 4101;
+        const DVM_FORMAT: u32 = 4098;
+        const DVM_PALETTE: u32 = 4097;
+        const DVM_PALETTERGB555: u32 = 4099;
+        const DVM_SRC_RECT: u32 = 4100;
+        const DVM_USER: u32 = 16384;
+        const DV_ERR_13: u32 = 16;
+        const DV_ERR_ALLOCATED: u32 = 19;
+        const DV_ERR_BADDEVICEID: u32 = 20;
+        const DV_ERR_BADERRNUM: u32 = 22;
+        const DV_ERR_BADFORMAT: u32 = 2;
+        const DV_ERR_BADINSTALL: u32 = 8;
+        const DV_ERR_BASE: u32 = 1;
+        const DV_ERR_CONFIG1: u32 = 13;
+        const DV_ERR_CONFIG2: u32 = 14;
+        const DV_ERR_CREATEPALETTE: u32 = 9;
+        const DV_ERR_DMA_CONFLICT: u32 = 26;
+        const DV_ERR_FLAGS: u32 = 15;
+        const DV_ERR_INT_CONFLICT: u32 = 27;
+        const DV_ERR_INVALHANDLE: u32 = 21;
+        const DV_ERR_IO_CONFLICT: u32 = 25;
+        const DV_ERR_LASTERROR: u32 = 28;
+        const DV_ERR_MEM_CONFLICT: u32 = 24;
+        const DV_ERR_NOMEM: u32 = 18;
+        const DV_ERR_NONSPECIFIC: u32 = 1;
+        const DV_ERR_NOTDETECTED: u32 = 7;
+        const DV_ERR_NOTSUPPORTED: u32 = 17;
+        const DV_ERR_NO_BUFFERS: u32 = 23;
+        const DV_ERR_OK: u32 = 0;
+        const DV_ERR_PARAM1: u32 = 11;
+        const DV_ERR_PARAM2: u32 = 12;
+        const DV_ERR_PROTECT_ONLY: u32 = 28;
+        const DV_ERR_SIZEFIELD: u32 = 10;
+        const DV_ERR_STILLPLAYING: u32 = 3;
+        const DV_ERR_SYNC: u32 = 5;
+        const DV_ERR_TOOMANYCHANNELS: u32 = 6;
+        const DV_ERR_UNPREPARED: u32 = 4;
+        const DV_ERR_USER_MSG: u32 = 1001;
+        const DV_VM_CLOSE: u32 = 977;
+        const DV_VM_DATA: u32 = 978;
+        const DV_VM_ERROR: u32 = 979;
+        const DV_VM_OPEN: u32 = 976;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibBegin(hdd: HDRAWDIB, #[opt] hdc: HDC, dxDst: i32, dyDst: i32, lpbi: *const BITMAPINFOHEADER, dxSrc: i32, dySrc: i32, wFlags: u32) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibChangePalette(hdd: HDRAWDIB, iStart: i32, iLen: i32, #[len_param(2)] lppe: *const PALETTEENTRY) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibClose(hdd: HDRAWDIB) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibDraw(hdd: HDRAWDIB, hdc: HDC, xDst: i32, yDst: i32, dxDst: i32, dyDst: i32, #[opt] lpbi: *const BITMAPINFOHEADER, #[opt] lpBits: *const void, xSrc: i32, ySrc: i32, dxSrc: i32, dySrc: i32, wFlags: u32) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibEnd(hdd: HDRAWDIB) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibGetBuffer(hdd: HDRAWDIB, lpbi: *mut BITMAPINFOHEADER, dwSize: u32, dwFlags: u32) -> *mut void;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibGetPalette(hdd: HDRAWDIB) -> HPALETTE;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibOpen() -> HDRAWDIB;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibProfileDisplay(lpbi: *const BITMAPINFOHEADER) -> LRESULT;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibRealize(hdd: HDRAWDIB, hdc: HDC, fBackground: BOOL) -> u32;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibSetPalette(hdd: HDRAWDIB, #[opt] hpal: HPALETTE) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibStart(hdd: HDRAWDIB, rate: u32) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibStop(hdd: HDRAWDIB) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn DrawDibTime(hdd: HDRAWDIB, lpddtime: *mut DRAWDIBTIME) -> BOOL;
+        #[library("AVIFIL32.dll")]
+        extern fn EditStreamClone(pavi: IAVIStream, ppResult: *mut IAVIStream) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn EditStreamCopy(pavi: IAVIStream, #[in] #[out] plStart: *mut i32, #[in] #[out] plLength: *mut i32, ppResult: *mut IAVIStream) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn EditStreamCut(pavi: IAVIStream, #[in] #[out] plStart: *mut i32, #[in] #[out] plLength: *mut i32, ppResult: *mut IAVIStream) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn EditStreamPaste(pavi: IAVIStream, #[in] #[out] plPos: *mut i32, #[in] #[out] plLength: *mut i32, pstream: IAVIStream, lStart: i32, lEnd: i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn EditStreamSetInfoA(pavi: IAVIStream, #[size_param(2)] lpInfo: *const AVISTREAMINFOA, cbInfo: i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn EditStreamSetInfoW(pavi: IAVIStream, #[size_param(2)] lpInfo: *const AVISTREAMINFOW, cbInfo: i32) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn EditStreamSetNameA(pavi: IAVIStream, lpszName: PCSTR) -> HRESULT;
+        #[library("AVIFIL32.dll")]
+        extern fn EditStreamSetNameW(pavi: IAVIStream, lpszName: PCWSTR) -> HRESULT;
+        const FIND_ANY: u32 = 32;
+        const FIND_DIR: u32 = 15;
+        const FIND_FORMAT: u32 = 64;
+        const FIND_FROM_START: u32 = 8;
+        const FIND_INDEX: u32 = 16384;
+        const FIND_KEY: u32 = 16;
+        const FIND_LENGTH: u32 = 4096;
+        const FIND_NEXT: u32 = 1;
+        const FIND_OFFSET: u32 = 8192;
+        const FIND_POS: u32 = 0;
+        const FIND_PREV: u32 = 4;
+        const FIND_RET: u32 = 61440;
+        const FIND_SIZE: u32 = 12288;
+        const FIND_TYPE: u32 = 240;
+        #[library("MSVFW32.dll")]
+        extern fn GetOpenFileNamePreviewA(#[in] #[out] lpofn: *mut OPENFILENAMEA) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn GetOpenFileNamePreviewW(#[in] #[out] lpofn: *mut OPENFILENAMEW) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn GetSaveFileNamePreviewA(#[in] #[out] lpofn: *mut OPENFILENAMEA) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn GetSaveFileNamePreviewW(#[in] #[out] lpofn: *mut OPENFILENAMEW) -> BOOL;
+        type HDRAWDIB = HANDLE;
+        type HIC = *mut void;
+        type HVIDEO = *mut void;
+        #[guid(0x00020024_0000_0000_c000_000000000046)]
+        interface IAVIEditStream: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Cut(&self, #[in] #[out] plStart: *mut i32, #[in] #[out] plLength: *mut i32, ppResult: *mut IAVIStream) -> HRESULT;
+            fn Copy(&self, #[in] #[out] plStart: *mut i32, #[in] #[out] plLength: *mut i32, ppResult: *mut IAVIStream) -> HRESULT;
+            fn Paste(&self, #[in] #[out] plPos: *mut i32, #[in] #[out] plLength: *mut i32, #[in] #[out] pstream: IAVIStream, lStart: i32, lEnd: i32) -> HRESULT;
+            fn Clone(&self, ppResult: *mut IAVIStream) -> HRESULT;
+            fn SetInfo(&self, #[size_param(1)] lpInfo: *const AVISTREAMINFOW, cbInfo: i32) -> HRESULT;
+        }
+        #[guid(0x00020020_0000_0000_c000_000000000046)]
+        interface IAVIFile: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Info(&self, #[size_param(1)] pfi: *mut AVIFILEINFOW, lSize: i32) -> HRESULT;
+            fn GetStream(&self, ppStream: *mut IAVIStream, fccType: u32, lParam: i32) -> HRESULT;
+            fn CreateStream(&self, ppStream: *mut IAVIStream, psi: *const AVISTREAMINFOW) -> HRESULT;
+            fn WriteData(&self, ckid: u32, #[size_param(2)] lpData: *const void, cbData: i32) -> HRESULT;
+            fn ReadData(&self, ckid: u32, #[size_param(2)] lpData: *mut void, #[in] #[out] lpcbData: *mut i32) -> HRESULT;
+            fn EndRecord(&self) -> HRESULT;
+            fn DeleteStream(&self, fccType: u32, lParam: i32) -> HRESULT;
+        }
+        #[guid(0x00020025_0000_0000_c000_000000000046)]
+        interface IAVIPersistFile: IPersistFile {
+            fn Reserved1(&self) -> HRESULT;
+        }
+        #[guid(0x00020021_0000_0000_c000_000000000046)]
+        interface IAVIStream: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Create(&self, lParam1: LPARAM, lParam2: LPARAM) -> HRESULT;
+            fn Info(&self, #[size_param(1)] psi: *mut AVISTREAMINFOW, lSize: i32) -> HRESULT;
+            fn FindSample(&self, lPos: i32, lFlags: i32) -> i32;
+            fn ReadFormat(&self, lPos: i32, #[size_param(2)] #[opt] lpFormat: *mut void, #[in] #[out] lpcbFormat: *mut i32) -> HRESULT;
+            fn SetFormat(&self, lPos: i32, #[size_param(2)] lpFormat: *const void, cbFormat: i32) -> HRESULT;
+            fn Read(&self, lStart: i32, lSamples: i32, #[size_param(3)] #[opt] lpBuffer: *mut void, cbBuffer: i32, #[opt] plBytes: *mut i32, #[opt] plSamples: *mut i32) -> HRESULT;
+            fn Write(&self, lStart: i32, lSamples: i32, #[size_param(3)] lpBuffer: *const void, cbBuffer: i32, dwFlags: u32, #[opt] plSampWritten: *mut i32, #[opt] plBytesWritten: *mut i32) -> HRESULT;
+            fn Delete(&self, lStart: i32, lSamples: i32) -> HRESULT;
+            fn ReadData(&self, fcc: u32, #[size_param(2)] #[opt] lp: *mut void, #[in] #[out] lpcb: *mut i32) -> HRESULT;
+            fn WriteData(&self, fcc: u32, #[size_param(2)] lp: *const void, cb: i32) -> HRESULT;
+            fn SetInfo(&self, #[size_param(1)] lpInfo: *const AVISTREAMINFOW, cbInfo: i32) -> HRESULT;
+        }
+        #[guid(0x00020022_0000_0000_c000_000000000046)]
+        interface IAVIStreaming: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Begin(&self, lStart: i32, lEnd: i32, lRate: i32) -> HRESULT;
+            fn End(&self) -> HRESULT;
+        }
+        struct ICCOMPRESS {
+            dwFlags: u32,
+            lpbiOutput: LPBITMAPINFOHEADER,
+            lpOutput: *mut void,
+            lpbiInput: LPBITMAPINFOHEADER,
+            lpInput: *mut void,
+            lpckid: LPDWORD,
+            lpdwFlags: LPDWORD,
+            lFrameNum: i32,
+            dwFrameSize: u32,
+            dwQuality: u32,
+            lpbiPrev: LPBITMAPINFOHEADER,
+            lpPrev: *mut void,
+        }
+        struct ICCOMPRESSFRAMES {
+            dwFlags: u32,
+            lpbiOutput: LPBITMAPINFOHEADER,
+            lOutput: LPARAM,
+            lpbiInput: LPBITMAPINFOHEADER,
+            lInput: LPARAM,
+            lStartFrame: i32,
+            lFrameCount: i32,
+            lQuality: i32,
+            lDataRate: i32,
+            lKeyRate: i32,
+            dwRate: u32,
+            dwScale: u32,
+            dwOverheadPerFrame: u32,
+            dwReserved2: u32,
+            GetData: *mut u8,
+            PutData: *mut u8,
+        }
+        const ICCOMPRESSFRAMES_PADDING: u32 = 1;
+        const ICCOMPRESS_KEYFRAME: u32 = 1;
+        #[library("MSVFW32.dll")]
+        extern fn ICClose(hic: HIC) -> LRESULT;
+        #[library("MSVFW32.dll")]
+        extern "C" fn ICCompress(hic: HIC, dwFlags: u32, lpbiOutput: *const BITMAPINFOHEADER, lpData: *mut void, lpbiInput: *const BITMAPINFOHEADER, lpBits: *const void, #[opt] lpckid: *mut u32, #[opt] lpdwFlags: *mut u32, lFrameNum: i32, dwFrameSize: u32, dwQuality: u32, #[opt] lpbiPrev: *const BITMAPINFOHEADER, #[opt] lpPrev: *const void) -> u32;
+        #[library("MSVFW32.dll")]
+        extern fn ICCompressorChoose(#[opt] hwnd: HWND, uiFlags: u32, #[opt] pvIn: *const void, #[opt] lpData: *const void, #[in] #[out] pc: *mut COMPVARS, #[opt] lpszTitle: PCSTR) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn ICCompressorFree(pc: *const COMPVARS);
+        struct ICDECOMPRESS {
+            dwFlags: u32,
+            lpbiInput: LPBITMAPINFOHEADER,
+            lpInput: *mut void,
+            lpbiOutput: LPBITMAPINFOHEADER,
+            lpOutput: *mut void,
+            ckid: u32,
+        }
+        struct ICDECOMPRESSEX {
+            dwFlags: u32,
+            lpbiSrc: LPBITMAPINFOHEADER,
+            lpSrc: *mut void,
+            lpbiDst: LPBITMAPINFOHEADER,
+            lpDst: *mut void,
+            xDst: i32,
+            yDst: i32,
+            dxDst: i32,
+            dyDst: i32,
+            xSrc: i32,
+            ySrc: i32,
+            dxSrc: i32,
+            dySrc: i32,
+        }
+        const ICDECOMPRESS_HURRYUP: u32 = 2147483648;
+        const ICDECOMPRESS_NOTKEYFRAME: u32 = 134217728;
+        const ICDECOMPRESS_NULLFRAME: u32 = 268435456;
+        const ICDECOMPRESS_PREROLL: u32 = 536870912;
+        const ICDECOMPRESS_UPDATE: u32 = 1073741824;
+        struct ICDRAW {
+            dwFlags: u32,
+            lpFormat: *mut void,
+            lpData: *mut void,
+            cbData: u32,
+            lTime: i32,
+        }
+        struct ICDRAWBEGIN {
+            dwFlags: u32,
+            hpal: HPALETTE,
+            hwnd: HWND,
+            hdc: HDC,
+            xDst: i32,
+            yDst: i32,
+            dxDst: i32,
+            dyDst: i32,
+            lpbi: LPBITMAPINFOHEADER,
+            xSrc: i32,
+            ySrc: i32,
+            dxSrc: i32,
+            dySrc: i32,
+            dwRate: u32,
+            dwScale: u32,
+        }
+        struct ICDRAWSUGGEST {
+            lpbiIn: LPBITMAPINFOHEADER,
+            lpbiSuggest: LPBITMAPINFOHEADER,
+            dxSrc: i32,
+            dySrc: i32,
+            dxDst: i32,
+            dyDst: i32,
+            hicDecompressor: HIC,
+        }
+        const ICDRAW_ANIMATE: u32 = 8;
+        const ICDRAW_BUFFER: u32 = 256;
+        const ICDRAW_CONTINUE: u32 = 16;
+        const ICDRAW_FULLSCREEN: u32 = 2;
+        const ICDRAW_HDC: u32 = 4;
+        const ICDRAW_HURRYUP: u32 = 2147483648;
+        const ICDRAW_MEMORYDC: u32 = 32;
+        const ICDRAW_NOTKEYFRAME: u32 = 134217728;
+        const ICDRAW_NULLFRAME: u32 = 268435456;
+        const ICDRAW_PREROLL: u32 = 536870912;
+        const ICDRAW_QUERY: u32 = 1;
+        const ICDRAW_RENDER: u32 = 128;
+        const ICDRAW_UPDATE: u32 = 1073741824;
+        const ICDRAW_UPDATING: u32 = 64;
+        #[library("MSVFW32.dll")]
+        extern "C" fn ICDecompress(hic: HIC, dwFlags: u32, lpbiFormat: *const BITMAPINFOHEADER, lpData: *const void, lpbi: *const BITMAPINFOHEADER, lpBits: *mut void) -> u32;
+        #[library("MSVFW32.dll")]
+        extern "C" fn ICDraw(hic: HIC, dwFlags: u32, lpFormat: *const void, #[size_param(4)] #[opt] lpData: *const void, cbData: u32, lTime: i32) -> u32;
+        #[library("MSVFW32.dll")]
+        extern "C" fn ICDrawBegin(hic: HIC, dwFlags: u32, #[opt] hpal: HPALETTE, #[opt] hwnd: HWND, #[opt] hdc: HDC, xDst: i32, yDst: i32, dxDst: i32, dyDst: i32, lpbi: *const BITMAPINFOHEADER, xSrc: i32, ySrc: i32, dxSrc: i32, dySrc: i32, dwRate: u32, dwScale: u32) -> u32;
+        const ICERR_ABORT: i32 = -10;
+        const ICERR_BADBITDEPTH: i32 = -200;
+        const ICERR_BADFLAGS: i32 = -5;
+        const ICERR_BADFORMAT: i32 = -2;
+        const ICERR_BADHANDLE: i32 = -8;
+        const ICERR_BADIMAGESIZE: i32 = -201;
+        const ICERR_BADPARAM: i32 = -6;
+        const ICERR_BADSIZE: i32 = -7;
+        const ICERR_CANTUPDATE: i32 = -9;
+        const ICERR_CUSTOM: i32 = -400;
+        const ICERR_DONTDRAW: u32 = 1;
+        const ICERR_ERROR: i32 = -100;
+        const ICERR_GOTOKEYFRAME: u32 = 3;
+        const ICERR_INTERNAL: i32 = -4;
+        const ICERR_MEMORY: i32 = -3;
+        const ICERR_NEWPALETTE: u32 = 2;
+        const ICERR_OK: u32 = 0;
+        const ICERR_STOPDRAWING: u32 = 4;
+        const ICERR_UNSUPPORTED: i32 = -1;
+        #[library("MSVFW32.dll")]
+        extern fn ICGetDisplayFormat(#[opt] hic: HIC, lpbiIn: *const BITMAPINFOHEADER, lpbiOut: *mut BITMAPINFOHEADER, BitDepth: i32, dx: i32, dy: i32) -> HIC;
+        #[library("MSVFW32.dll")]
+        extern fn ICGetInfo(hic: HIC, #[size_param(2)] picinfo: *mut ICINFO, cb: u32) -> LRESULT;
+        struct ICINFO {
+            dwSize: u32,
+            fccType: u32,
+            fccHandler: u32,
+            dwFlags: u32,
+            dwVersion: u32,
+            dwVersionICM: u32,
+            szName: [u16; 16],
+            szDescription: [u16; 128],
+            szDriver: [u16; 128],
+        }
+        const ICINSTALL_DRIVER: u32 = 2;
+        const ICINSTALL_DRIVERW: u32 = 32770;
+        const ICINSTALL_FUNCTION: u32 = 1;
+        const ICINSTALL_HDRV: u32 = 4;
+        const ICINSTALL_UNICODE: u32 = 32768;
+        #[library("MSVFW32.dll")]
+        extern fn ICImageCompress(hic: HIC, uiFlags: u32, lpbiIn: *const BITMAPINFO, lpBits: *const void, #[opt] lpbiOut: *const BITMAPINFO, lQuality: i32, #[in] #[out] #[opt] plSize: *mut i32) -> HANDLE;
+        #[library("MSVFW32.dll")]
+        extern fn ICImageDecompress(#[opt] hic: HIC, uiFlags: u32, lpbiIn: *const BITMAPINFO, lpBits: *const void, #[opt] lpbiOut: *const BITMAPINFO) -> HANDLE;
+        #[library("MSVFW32.dll")]
+        extern fn ICInfo(fccType: u32, fccHandler: u32, lpicinfo: *mut ICINFO) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn ICInstall(fccType: u32, fccHandler: u32, lParam: LPARAM, szDesc: PCSTR, wFlags: u32) -> BOOL;
+        #[library("MSVFW32.dll")]
+        extern fn ICLocate(fccType: u32, fccHandler: u32, lpbiIn: *const BITMAPINFOHEADER, #[opt] lpbiOut: *const BITMAPINFOHEADER, wFlags: u16) -> HIC;
+        const ICMF_ABOUT_QUERY: u32 = 1;
+        const ICMF_CHOOSE_ALLCOMPRESSORS: u32 = 8;
+        const ICMF_CHOOSE_DATARATE: u32 = 2;
+        const ICMF_CHOOSE_KEYFRAME: u32 = 1;
+        const ICMF_CHOOSE_PREVIEW: u32 = 4;
+        const ICMF_COMPVARS_VALID: u32 = 1;
+        const ICMF_CONFIGURE_QUERY: u32 = 1;
+        const ICMODE_COMPRESS: u32 = 1;
+        const ICMODE_DECOMPRESS: u32 = 2;
+        const ICMODE_DRAW: u32 = 8;
+        const ICMODE_FASTCOMPRESS: u32 = 5;
+        const ICMODE_FASTDECOMPRESS: u32 = 3;
+        const ICMODE_QUERY: u32 = 4;
+        const ICM_ABOUT: u32 = 20491;
+        const ICM_COMPRESS: u32 = 16392;
+        const ICM_COMPRESS_BEGIN: u32 = 16391;
+        const ICM_COMPRESS_END: u32 = 16393;
+        const ICM_COMPRESS_FRAMES: u32 = 16455;
+        const ICM_COMPRESS_FRAMES_INFO: u32 = 16454;
+        const ICM_COMPRESS_GET_FORMAT: u32 = 16388;
+        const ICM_COMPRESS_GET_SIZE: u32 = 16389;
+        const ICM_COMPRESS_QUERY: u32 = 16390;
+        const ICM_CONFIGURE: u32 = 20490;
+        const ICM_DECOMPRESS: u32 = 16397;
+        const ICM_DECOMPRESSEX: u32 = 16446;
+        const ICM_DECOMPRESSEX_BEGIN: u32 = 16444;
+        const ICM_DECOMPRESSEX_END: u32 = 16447;
+        const ICM_DECOMPRESSEX_QUERY: u32 = 16445;
+        const ICM_DECOMPRESS_BEGIN: u32 = 16396;
+        const ICM_DECOMPRESS_END: u32 = 16398;
+        const ICM_DECOMPRESS_GET_FORMAT: u32 = 16394;
+        const ICM_DECOMPRESS_GET_PALETTE: u32 = 16414;
+        const ICM_DECOMPRESS_QUERY: u32 = 16395;
+        const ICM_DECOMPRESS_SET_PALETTE: u32 = 16413;
+        const ICM_DRAW: u32 = 16417;
+        const ICM_DRAW_BEGIN: u32 = 16399;
+        const ICM_DRAW_BITS: u32 = 16404;
+        const ICM_DRAW_CHANGEPALETTE: u32 = 16435;
+        const ICM_DRAW_END: u32 = 16405;
+        const ICM_DRAW_FLUSH: u32 = 16421;
+        const ICM_DRAW_GETTIME: u32 = 16416;
+        const ICM_DRAW_GET_PALETTE: u32 = 16400;
+        const ICM_DRAW_IDLE: u32 = 16436;
+        const ICM_DRAW_QUERY: u32 = 16415;
+        const ICM_DRAW_REALIZE: u32 = 16420;
+        const ICM_DRAW_RENDERBUFFER: u32 = 16422;
+        const ICM_DRAW_SETTIME: u32 = 16419;
+        const ICM_DRAW_START: u32 = 16402;
+        const ICM_DRAW_START_PLAY: u32 = 16423;
+        const ICM_DRAW_STOP: u32 = 16403;
+        const ICM_DRAW_STOP_PLAY: u32 = 16424;
+        const ICM_DRAW_SUGGESTFORMAT: u32 = 16434;
+        const ICM_DRAW_UPDATE: u32 = 16401;
+        const ICM_DRAW_WINDOW: u32 = 16418;
+        const ICM_ENUMFORMATS: u32 = 20501;
+        const ICM_FRAMERATE: u32 = 1382904390;
+        const ICM_GET: u32 = 20521;
+        const ICM_GETBUFFERSWANTED: u32 = 16425;
+        const ICM_GETDEFAULTKEYFRAMERATE: u32 = 16426;
+        const ICM_GETDEFAULTQUALITY: u32 = 20510;
+        const ICM_GETERRORTEXT: u32 = 20492;
+        const ICM_GETFORMATNAME: u32 = 20500;
+        const ICM_GETINFO: u32 = 20482;
+        const ICM_GETQUALITY: u32 = 20511;
+        const ICM_GETSTATE: u32 = 20480;
+        const ICM_KEYFRAMERATE: u32 = 1383687499;
+        const ICM_RESERVED: u32 = 20480;
+        const ICM_RESERVED_HIGH: u32 = 24576;
+        const ICM_RESERVED_LOW: u32 = 20480;
+        const ICM_SET: u32 = 20520;
+        const ICM_SETQUALITY: u32 = 20512;
+        const ICM_SETSTATE: u32 = 20481;
+        const ICM_SET_STATUS_PROC: u32 = 16456;
+        const ICM_USER: u32 = 16384;
+        struct ICOPEN {
+            dwSize: u32,
+            fccType: u32,
+            fccHandler: u32,
+            dwVersion: u32,
+            dwFlags: u32,
+            dwError: LRESULT,
+            pV1Reserved: *mut void,
+            pV2Reserved: *mut void,
+            dnDevNode: u32,
+        }
+        #[library("MSVFW32.dll")]
+        extern fn ICOpen(fccType: u32, fccHandler: u32, wMode: u32) -> HIC;
+        #[library("MSVFW32.dll")]
+        extern fn ICOpenFunction(fccType: u32, fccHandler: u32, wMode: u32, lpfnHandler: FARPROC) -> HIC;
+        struct ICPALETTE {
+            dwFlags: u32,
+            iStart: i32,
+            iLen: i32,
+            lppe: LPPALETTEENTRY,
+        }
+        const ICQUALITY_DEFAULT: i32 = -1;
+        const ICQUALITY_HIGH: u32 = 10000;
+        const ICQUALITY_LOW: u32 = 0;
+        #[library("MSVFW32.dll")]
+        extern fn ICRemove(fccType: u32, fccHandler: u32, wFlags: u32) -> BOOL;
+        struct ICSETSTATUSPROC {
+            dwFlags: u32,
+            lParam: LPARAM,
+            Status: *mut u8,
+        }
+        const ICSTATUS_END: u32 = 2;
+        const ICSTATUS_ERROR: u32 = 3;
+        const ICSTATUS_START: u32 = 0;
+        const ICSTATUS_STATUS: u32 = 1;
+        const ICSTATUS_YIELD: u32 = 4;
+        #[library("MSVFW32.dll")]
+        extern fn ICSendMessage(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> LRESULT;
+        #[library("MSVFW32.dll")]
+        extern fn ICSeqCompressFrame(pc: *const COMPVARS, #[reserved] uiFlags: u32, lpBits: *const void, pfKey: *mut BOOL, #[in] #[out] #[opt] plSize: *mut i32) -> *mut void;
+        #[library("MSVFW32.dll")]
+        extern fn ICSeqCompressFrameEnd(pc: *const COMPVARS);
+        #[library("MSVFW32.dll")]
+        extern fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiIn: *const BITMAPINFO) -> BOOL;
+        const ICVERSION: u32 = 260;
+        const IDS_CAP_AUDIO_DROP_COMPERROR: u32 = 442;
+        const IDS_CAP_AUDIO_DROP_ERROR: u32 = 441;
+        const IDS_CAP_AVI_DRAWDIB_ERROR: u32 = 439;
+        const IDS_CAP_AVI_INIT_ERROR: u32 = 433;
+        const IDS_CAP_BEGIN: u32 = 300;
+        const IDS_CAP_CANTOPEN: u32 = 409;
+        const IDS_CAP_COMPRESSOR_ERROR: u32 = 440;
+        const IDS_CAP_DEFAVIEXT: u32 = 407;
+        const IDS_CAP_DEFPALEXT: u32 = 408;
+        const IDS_CAP_DRIVER_ERROR: u32 = 418;
+        const IDS_CAP_END: u32 = 301;
+        const IDS_CAP_ERRORDIBSAVE: u32 = 406;
+        const IDS_CAP_ERRORPALOPEN: u32 = 404;
+        const IDS_CAP_ERRORPALSAVE: u32 = 405;
+        const IDS_CAP_FILEEXISTS: u32 = 403;
+        const IDS_CAP_FILE_OPEN_ERROR: u32 = 429;
+        const IDS_CAP_FILE_WRITE_ERROR: u32 = 430;
+        const IDS_CAP_INFO: u32 = 401;
+        const IDS_CAP_MCI_CANT_STEP_ERROR: u32 = 437;
+        const IDS_CAP_MCI_CONTROL_ERROR: u32 = 436;
+        const IDS_CAP_NODISKSPACE: u32 = 415;
+        const IDS_CAP_NO_AUDIO_CAP_ERROR: u32 = 438;
+        const IDS_CAP_NO_FRAME_CAP_ERROR: u32 = 434;
+        const IDS_CAP_NO_PALETTE_WARN: u32 = 435;
+        const IDS_CAP_OUTOFMEM: u32 = 402;
+        const IDS_CAP_READONLYFILE: u32 = 413;
+        const IDS_CAP_RECORDING_ERROR: u32 = 431;
+        const IDS_CAP_RECORDING_ERROR2: u32 = 432;
+        const IDS_CAP_SAVEASPERCENT: u32 = 417;
+        const IDS_CAP_SEQ_MSGSTART: u32 = 410;
+        const IDS_CAP_SEQ_MSGSTOP: u32 = 411;
+        const IDS_CAP_SETFILESIZE: u32 = 416;
+        const IDS_CAP_STAT_CAP_AUDIO: u32 = 509;
+        const IDS_CAP_STAT_CAP_FINI: u32 = 503;
+        const IDS_CAP_STAT_CAP_INIT: u32 = 502;
+        const IDS_CAP_STAT_CAP_L_FRAMES: u32 = 508;
+        const IDS_CAP_STAT_FRAMESDROPPED: u32 = 513;
+        const IDS_CAP_STAT_I_FRAMES: u32 = 506;
+        const IDS_CAP_STAT_LIVE_MODE: u32 = 500;
+        const IDS_CAP_STAT_L_FRAMES: u32 = 507;
+        const IDS_CAP_STAT_OPTPAL_BUILD: u32 = 505;
+        const IDS_CAP_STAT_OVERLAY_MODE: u32 = 501;
+        const IDS_CAP_STAT_PALETTE_BUILD: u32 = 504;
+        const IDS_CAP_STAT_VIDEOAUDIO: u32 = 511;
+        const IDS_CAP_STAT_VIDEOCURRENT: u32 = 510;
+        const IDS_CAP_STAT_VIDEOONLY: u32 = 512;
+        const IDS_CAP_VIDEDITERR: u32 = 412;
+        const IDS_CAP_VIDEO_ADD_ERROR: u32 = 427;
+        const IDS_CAP_VIDEO_ALLOC_ERROR: u32 = 425;
+        const IDS_CAP_VIDEO_OPEN_ERROR: u32 = 424;
+        const IDS_CAP_VIDEO_PREPARE_ERROR: u32 = 426;
+        const IDS_CAP_VIDEO_SIZE_ERROR: u32 = 428;
+        const IDS_CAP_WAVE_ADD_ERROR: u32 = 422;
+        const IDS_CAP_WAVE_ALLOC_ERROR: u32 = 420;
+        const IDS_CAP_WAVE_OPEN_ERROR: u32 = 419;
+        const IDS_CAP_WAVE_PREPARE_ERROR: u32 = 421;
+        const IDS_CAP_WAVE_SIZE_ERROR: u32 = 423;
+        const IDS_CAP_WRITEERROR: u32 = 414;
+        #[guid(0x00020023_0000_0000_c000_000000000046)]
+        interface IGetFrame: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetFrame(&self, lPos: i32) -> *mut void;
+            fn Begin(&self, lStart: i32, lEnd: i32, lRate: i32) -> HRESULT;
+            fn End(&self) -> HRESULT;
+            fn SetFormat(&self, lpbi: *const BITMAPINFOHEADER, #[opt] lpBits: *const void, x: i32, y: i32, dx: i32, dy: i32) -> HRESULT;
+        }
+        type LPAVICOMPRESSOPTIONS = *mut AVICOMPRESSOPTIONS;
+        type LPAVIFILEINFOA = *mut AVIFILEINFOA;
+        type LPAVIFILEINFOW = *mut AVIFILEINFOW;
+        type LPAVISTREAMINFOA = *mut AVISTREAMINFOA;
+        type LPAVISTREAMINFOW = *mut AVISTREAMINFOW;
+        type LPCAPDRIVERCAPS = *mut CAPDRIVERCAPS;
+        type LPCAPINFOCHUNK = *mut CAPINFOCHUNK;
+        type LPCAPSTATUS = *mut CAPSTATUS;
+        type LPCAPTUREPARMS = *mut CAPTUREPARMS;
+        type LPCHANNEL_CAPS = *mut CHANNEL_CAPS;
+        type LPDRAWDIBTIME = *mut DRAWDIBTIME;
+        type LPHVIDEO = *mut HVIDEO;
+        type LPVIDEOHDR = *mut VIDEOHDR;
+        const MCIWNDF_NOAUTOSIZEMOVIE: u32 = 4;
+        const MCIWNDF_NOAUTOSIZEWINDOW: u32 = 1;
+        const MCIWNDF_NOERRORDLG: u32 = 16384;
+        const MCIWNDF_NOMENU: u32 = 8;
+        const MCIWNDF_NOOPEN: u32 = 32768;
+        const MCIWNDF_NOPLAYBAR: u32 = 2;
+        const MCIWNDF_NOTIFYALL: u32 = 7936;
+        const MCIWNDF_NOTIFYANSI: u32 = 128;
+        const MCIWNDF_NOTIFYERROR: u32 = 4096;
+        const MCIWNDF_NOTIFYMEDIA: u32 = 2176;
+        const MCIWNDF_NOTIFYMEDIAA: u32 = 2176;
+        const MCIWNDF_NOTIFYMEDIAW: u32 = 2048;
+        const MCIWNDF_NOTIFYMODE: u32 = 256;
+        const MCIWNDF_NOTIFYPOS: u32 = 512;
+        const MCIWNDF_NOTIFYSIZE: u32 = 1024;
+        const MCIWNDF_RECORD: u32 = 8192;
+        const MCIWNDF_SHOWALL: u32 = 112;
+        const MCIWNDF_SHOWMODE: u32 = 64;
+        const MCIWNDF_SHOWNAME: u32 = 16;
+        const MCIWNDF_SHOWPOS: u32 = 32;
+        const MCIWNDM_CAN_CONFIG: u32 = 1173;
+        const MCIWNDM_CAN_EJECT: u32 = 1172;
+        const MCIWNDM_CAN_PLAY: u32 = 1168;
+        const MCIWNDM_CAN_RECORD: u32 = 1170;
+        const MCIWNDM_CAN_SAVE: u32 = 1171;
+        const MCIWNDM_CAN_WINDOW: u32 = 1169;
+        const MCIWNDM_CHANGESTYLES: u32 = 1159;
+        const MCIWNDM_EJECT: u32 = 1131;
+        const MCIWNDM_GETACTIVETIMER: u32 = 1156;
+        const MCIWNDM_GETALIAS: u32 = 1161;
+        const MCIWNDM_GETDEVICE: u32 = 1149;
+        const MCIWNDM_GETDEVICEA: u32 = 1149;
+        const MCIWNDM_GETDEVICEID: u32 = 1124;
+        const MCIWNDM_GETDEVICEW: u32 = 1249;
+        const MCIWNDM_GETEND: u32 = 1129;
+        const MCIWNDM_GETERROR: u32 = 1152;
+        const MCIWNDM_GETERRORA: u32 = 1152;
+        const MCIWNDM_GETERRORW: u32 = 1252;
+        const MCIWNDM_GETFILENAME: u32 = 1148;
+        const MCIWNDM_GETFILENAMEA: u32 = 1148;
+        const MCIWNDM_GETFILENAMEW: u32 = 1248;
+        const MCIWNDM_GETINACTIVETIMER: u32 = 1157;
+        const MCIWNDM_GETLENGTH: u32 = 1128;
+        const MCIWNDM_GETMODE: u32 = 1130;
+        const MCIWNDM_GETMODEA: u32 = 1130;
+        const MCIWNDM_GETMODEW: u32 = 1230;
+        const MCIWNDM_GETPALETTE: u32 = 1150;
+        const MCIWNDM_GETPOSITION: u32 = 1126;
+        const MCIWNDM_GETPOSITIONA: u32 = 1126;
+        const MCIWNDM_GETPOSITIONW: u32 = 1226;
+        const MCIWNDM_GETREPEAT: u32 = 1139;
+        const MCIWNDM_GETSPEED: u32 = 1137;
+        const MCIWNDM_GETSTART: u32 = 1127;
+        const MCIWNDM_GETSTYLES: u32 = 1160;
+        const MCIWNDM_GETTIMEFORMAT: u32 = 1144;
+        const MCIWNDM_GETTIMEFORMATA: u32 = 1144;
+        const MCIWNDM_GETTIMEFORMATW: u32 = 1244;
+        const MCIWNDM_GETVOLUME: u32 = 1135;
+        const MCIWNDM_GETZOOM: u32 = 1133;
+        const MCIWNDM_GET_DEST: u32 = 1166;
+        const MCIWNDM_GET_SOURCE: u32 = 1164;
+        const MCIWNDM_NEW: u32 = 1158;
+        const MCIWNDM_NEWA: u32 = 1158;
+        const MCIWNDM_NEWW: u32 = 1258;
+        const MCIWNDM_NOTIFYERROR: u32 = 1229;
+        const MCIWNDM_NOTIFYMEDIA: u32 = 1227;
+        const MCIWNDM_NOTIFYMODE: u32 = 1224;
+        const MCIWNDM_NOTIFYPOS: u32 = 1225;
+        const MCIWNDM_NOTIFYSIZE: u32 = 1226;
+        const MCIWNDM_OPEN: u32 = 1177;
+        const MCIWNDM_OPENA: u32 = 1177;
+        const MCIWNDM_OPENINTERFACE: u32 = 1175;
+        const MCIWNDM_OPENW: u32 = 1276;
+        const MCIWNDM_PALETTEKICK: u32 = 1174;
+        const MCIWNDM_PLAYFROM: u32 = 1146;
+        const MCIWNDM_PLAYREVERSE: u32 = 1163;
+        const MCIWNDM_PLAYTO: u32 = 1147;
+        const MCIWNDM_PUT_DEST: u32 = 1167;
+        const MCIWNDM_PUT_SOURCE: u32 = 1165;
+        const MCIWNDM_REALIZE: u32 = 1142;
+        const MCIWNDM_RETURNSTRING: u32 = 1162;
+        const MCIWNDM_RETURNSTRINGA: u32 = 1162;
+        const MCIWNDM_RETURNSTRINGW: u32 = 1262;
+        const MCIWNDM_SENDSTRING: u32 = 1125;
+        const MCIWNDM_SENDSTRINGA: u32 = 1125;
+        const MCIWNDM_SENDSTRINGW: u32 = 1225;
+        const MCIWNDM_SETACTIVETIMER: u32 = 1154;
+        const MCIWNDM_SETINACTIVETIMER: u32 = 1155;
+        const MCIWNDM_SETOWNER: u32 = 1176;
+        const MCIWNDM_SETPALETTE: u32 = 1151;
+        const MCIWNDM_SETREPEAT: u32 = 1138;
+        const MCIWNDM_SETSPEED: u32 = 1136;
+        const MCIWNDM_SETTIMEFORMAT: u32 = 1143;
+        const MCIWNDM_SETTIMEFORMATA: u32 = 1143;
+        const MCIWNDM_SETTIMEFORMATW: u32 = 1243;
+        const MCIWNDM_SETTIMERS: u32 = 1153;
+        const MCIWNDM_SETVOLUME: u32 = 1134;
+        const MCIWNDM_SETZOOM: u32 = 1132;
+        const MCIWNDM_VALIDATEMEDIA: u32 = 1145;
+        const MCIWNDOPENF_NEW: u32 = 1;
+        const MCIWND_END: i32 = -2;
+        const MCIWND_START: i32 = -1;
+        #[library("MSVFW32.dll")]
+        extern "C" fn MCIWndCreateA(#[opt] hwndParent: HWND, #[opt] hInstance: HINSTANCE, dwStyle: u32, #[opt] szFile: PCSTR) -> HWND;
+        #[library("MSVFW32.dll")]
+        extern "C" fn MCIWndCreateW(#[opt] hwndParent: HWND, #[opt] hInstance: HINSTANCE, dwStyle: u32, #[opt] szFile: PCWSTR) -> HWND;
+        #[library("MSVFW32.dll")]
+        extern "C" fn MCIWndRegisterClass() -> BOOL;
+        struct MainAVIHeader {
+            dwMicroSecPerFrame: u32,
+            dwMaxBytesPerSec: u32,
+            dwPaddingGranularity: u32,
+            dwFlags: u32,
+            dwTotalFrames: u32,
+            dwInitialFrames: u32,
+            dwStreams: u32,
+            dwSuggestedBufferSize: u32,
+            dwWidth: u32,
+            dwHeight: u32,
+            dwReserved: [u32; 4],
+        }
+        type PCAPDRIVERCAPS = *mut CAPDRIVERCAPS;
+        type PCAPINFOCHUNK = *mut CAPINFOCHUNK;
+        type PCAPSTATUS = *mut CAPSTATUS;
+        type PCAPTUREPARMS = *mut CAPTUREPARMS;
+        type PCHANNEL_CAPS = *mut CHANNEL_CAPS;
+        type PCOMPVARS = *mut COMPVARS;
+        const PD_CAN_DRAW_DIB: u32 = 1;
+        const PD_CAN_STRETCHDIB: u32 = 2;
+        const PD_STRETCHDIB_1_1_OK: u32 = 4;
+        const PD_STRETCHDIB_1_2_OK: u32 = 8;
+        const PD_STRETCHDIB_1_N_OK: u32 = 16;
+        type PVIDEOHDR = *mut VIDEOHDR;
+        const SEARCH_ANY: u32 = 32;
+        const SEARCH_BACKWARD: u32 = 4;
+        const SEARCH_FORWARD: u32 = 1;
+        const SEARCH_KEY: u32 = 16;
+        const SEARCH_NEAREST: u32 = 4;
+        type TWOCC = u16;
+        const VCAPS_CAN_SCALE: u32 = 8;
+        const VCAPS_DST_CAN_CLIP: u32 = 4;
+        const VCAPS_OVERLAY: u32 = 1;
+        const VCAPS_SRC_CAN_CLIP: u32 = 2;
+        const VHDR_DONE: u32 = 1;
+        const VHDR_INQUEUE: u32 = 4;
+        const VHDR_KEYFRAME: u32 = 8;
+        const VHDR_PREPARED: u32 = 2;
+        const VHDR_VALID: u32 = 15;
+        const VIDCF_COMPRESSFRAMES: u32 = 8;
+        const VIDCF_CRUNCH: u32 = 2;
+        const VIDCF_DRAW: u32 = 16;
+        const VIDCF_FASTTEMPORALC: u32 = 32;
+        const VIDCF_FASTTEMPORALD: u32 = 128;
+        const VIDCF_QUALITY: u32 = 1;
+        const VIDCF_TEMPORAL: u32 = 4;
+        struct VIDEOHDR {
+            lpData: LPBYTE,
+            dwBufferLength: u32,
+            dwBytesUsed: u32,
+            dwTimeCaptured: u32,
+            dwUser: usize,
+            dwFlags: u32,
+            dwReserved: [usize; 4],
+        }
+        const VIDEO_CONFIGURE_CURRENT: u32 = 16;
+        const VIDEO_CONFIGURE_GET: u32 = 8192;
+        const VIDEO_CONFIGURE_MAX: u32 = 128;
+        const VIDEO_CONFIGURE_MIN: u32 = 64;
+        const VIDEO_CONFIGURE_NOMINAL: u32 = 32;
+        const VIDEO_CONFIGURE_QUERY: u32 = 32768;
+        const VIDEO_CONFIGURE_QUERYSIZE: u32 = 1;
+        const VIDEO_CONFIGURE_SET: u32 = 4096;
+        const VIDEO_DLG_QUERY: u32 = 16;
+        const VIDEO_EXTERNALIN: u32 = 1;
+        const VIDEO_EXTERNALOUT: u32 = 2;
+        const VIDEO_IN: u32 = 4;
+        const VIDEO_OUT: u32 = 8;
+        #[library("MSVFW32.dll")]
+        extern fn VideoForWindowsVersion() -> u32;
+        const WM_CAP_ABORT: u32 = 1093;
+        const WM_CAP_DLG_VIDEOCOMPRESSION: u32 = 1070;
+        const WM_CAP_DLG_VIDEODISPLAY: u32 = 1067;
+        const WM_CAP_DLG_VIDEOFORMAT: u32 = 1065;
+        const WM_CAP_DLG_VIDEOSOURCE: u32 = 1066;
+        const WM_CAP_DRIVER_CONNECT: u32 = 1034;
+        const WM_CAP_DRIVER_DISCONNECT: u32 = 1035;
+        const WM_CAP_DRIVER_GET_CAPS: u32 = 1038;
+        const WM_CAP_DRIVER_GET_NAME: u32 = 1036;
+        const WM_CAP_DRIVER_GET_NAMEA: u32 = 1036;
+        const WM_CAP_DRIVER_GET_NAMEW: u32 = 1136;
+        const WM_CAP_DRIVER_GET_VERSION: u32 = 1037;
+        const WM_CAP_DRIVER_GET_VERSIONA: u32 = 1037;
+        const WM_CAP_DRIVER_GET_VERSIONW: u32 = 1137;
+        const WM_CAP_EDIT_COPY: u32 = 1054;
+        const WM_CAP_END: u32 = 1205;
+        const WM_CAP_FILE_ALLOCATE: u32 = 1046;
+        const WM_CAP_FILE_GET_CAPTURE_FILE: u32 = 1045;
+        const WM_CAP_FILE_GET_CAPTURE_FILEA: u32 = 1045;
+        const WM_CAP_FILE_GET_CAPTURE_FILEW: u32 = 1145;
+        const WM_CAP_FILE_SAVEAS: u32 = 1047;
+        const WM_CAP_FILE_SAVEASA: u32 = 1047;
+        const WM_CAP_FILE_SAVEASW: u32 = 1147;
+        const WM_CAP_FILE_SAVEDIB: u32 = 1049;
+        const WM_CAP_FILE_SAVEDIBA: u32 = 1049;
+        const WM_CAP_FILE_SAVEDIBW: u32 = 1149;
+        const WM_CAP_FILE_SET_CAPTURE_FILE: u32 = 1044;
+        const WM_CAP_FILE_SET_CAPTURE_FILEA: u32 = 1044;
+        const WM_CAP_FILE_SET_CAPTURE_FILEW: u32 = 1144;
+        const WM_CAP_FILE_SET_INFOCHUNK: u32 = 1048;
+        const WM_CAP_GET_AUDIOFORMAT: u32 = 1060;
+        const WM_CAP_GET_CAPSTREAMPTR: u32 = 1025;
+        const WM_CAP_GET_MCI_DEVICE: u32 = 1091;
+        const WM_CAP_GET_MCI_DEVICEA: u32 = 1091;
+        const WM_CAP_GET_MCI_DEVICEW: u32 = 1191;
+        const WM_CAP_GET_SEQUENCE_SETUP: u32 = 1089;
+        const WM_CAP_GET_STATUS: u32 = 1078;
+        const WM_CAP_GET_USER_DATA: u32 = 1032;
+        const WM_CAP_GET_VIDEOFORMAT: u32 = 1068;
+        const WM_CAP_GRAB_FRAME: u32 = 1084;
+        const WM_CAP_GRAB_FRAME_NOSTOP: u32 = 1085;
+        const WM_CAP_PAL_AUTOCREATE: u32 = 1107;
+        const WM_CAP_PAL_MANUALCREATE: u32 = 1108;
+        const WM_CAP_PAL_OPEN: u32 = 1104;
+        const WM_CAP_PAL_OPENA: u32 = 1104;
+        const WM_CAP_PAL_OPENW: u32 = 1204;
+        const WM_CAP_PAL_PASTE: u32 = 1106;
+        const WM_CAP_PAL_SAVE: u32 = 1105;
+        const WM_CAP_PAL_SAVEA: u32 = 1105;
+        const WM_CAP_PAL_SAVEW: u32 = 1205;
+        const WM_CAP_SEQUENCE: u32 = 1086;
+        const WM_CAP_SEQUENCE_NOFILE: u32 = 1087;
+        const WM_CAP_SET_AUDIOFORMAT: u32 = 1059;
+        const WM_CAP_SET_CALLBACK_CAPCONTROL: u32 = 1109;
+        const WM_CAP_SET_CALLBACK_ERROR: u32 = 1026;
+        const WM_CAP_SET_CALLBACK_ERRORA: u32 = 1026;
+        const WM_CAP_SET_CALLBACK_ERRORW: u32 = 1126;
+        const WM_CAP_SET_CALLBACK_FRAME: u32 = 1029;
+        const WM_CAP_SET_CALLBACK_STATUS: u32 = 1027;
+        const WM_CAP_SET_CALLBACK_STATUSA: u32 = 1027;
+        const WM_CAP_SET_CALLBACK_STATUSW: u32 = 1127;
+        const WM_CAP_SET_CALLBACK_VIDEOSTREAM: u32 = 1030;
+        const WM_CAP_SET_CALLBACK_WAVESTREAM: u32 = 1031;
+        const WM_CAP_SET_CALLBACK_YIELD: u32 = 1028;
+        const WM_CAP_SET_MCI_DEVICE: u32 = 1090;
+        const WM_CAP_SET_MCI_DEVICEA: u32 = 1090;
+        const WM_CAP_SET_MCI_DEVICEW: u32 = 1190;
+        const WM_CAP_SET_OVERLAY: u32 = 1075;
+        const WM_CAP_SET_PREVIEW: u32 = 1074;
+        const WM_CAP_SET_PREVIEWRATE: u32 = 1076;
+        const WM_CAP_SET_SCALE: u32 = 1077;
+        const WM_CAP_SET_SCROLL: u32 = 1079;
+        const WM_CAP_SET_SEQUENCE_SETUP: u32 = 1088;
+        const WM_CAP_SET_USER_DATA: u32 = 1033;
+        const WM_CAP_SET_VIDEOFORMAT: u32 = 1069;
+        const WM_CAP_SINGLE_FRAME: u32 = 1096;
+        const WM_CAP_SINGLE_FRAME_CLOSE: u32 = 1095;
+        const WM_CAP_SINGLE_FRAME_OPEN: u32 = 1094;
+        const WM_CAP_START: u32 = 1024;
+        const WM_CAP_STOP: u32 = 1092;
+        const WM_CAP_UNICODE_END: u32 = 1205;
+        const WM_CAP_UNICODE_START: u32 = 1124;
+        #[library("AVICAP32.dll")]
+        extern fn capCreateCaptureWindowA(lpszWindowName: PCSTR, dwStyle: u32, x: i32, y: i32, nWidth: i32, nHeight: i32, #[opt] hwndParent: HWND, nID: i32) -> HWND;
+        #[library("AVICAP32.dll")]
+        extern fn capCreateCaptureWindowW(lpszWindowName: PCWSTR, dwStyle: u32, x: i32, y: i32, nWidth: i32, nHeight: i32, #[opt] hwndParent: HWND, nID: i32) -> HWND;
+        #[library("AVICAP32.dll")]
+        extern fn capGetDriverDescriptionA(wDriverIndex: u32, #[len_param(2)] #[out] lpszName: PSTR, cbName: i32, #[len_param(4)] #[out] lpszVer: PSTR, cbVer: i32) -> BOOL;
+        #[library("AVICAP32.dll")]
+        extern fn capGetDriverDescriptionW(wDriverIndex: u32, #[len_param(2)] #[out] lpszName: PWSTR, cbName: i32, #[len_param(4)] #[out] lpszVer: PWSTR, cbVer: i32) -> BOOL;
+        const ckidAVIMAINHDR: u32 = 1751742049;
+        const ckidAVINEWINDEX: u32 = 829973609;
+        const ckidAVIPADDING: u32 = 1263424842;
+        const ckidSTREAMFORMAT: u32 = 1718776947;
+        const ckidSTREAMHANDLERDATA: u32 = 1685222515;
+        const ckidSTREAMHEADER: u32 = 1752331379;
+        const ckidSTREAMNAME: u32 = 1852994675;
+        const cktypeDIBbits: u32 = 25188;
+        const cktypeDIBcompressed: u32 = 25444;
+        const cktypePALchange: u32 = 25456;
+        const cktypeWAVEbytes: u32 = 25207;
+        const comptypeDIB: u32 = 541215044;
+        const formtypeAVI: u32 = 541677121;
+        const infotypeDIGITIZATION_TIME: u32 = 1414087753;
+        const infotypeSMPTE_TIME: u32 = 1347244873;
+        const listtypeAVIHEADER: u32 = 1819436136;
+        const listtypeAVIMOVIE: u32 = 1769369453;
+        const listtypeAVIRECORD: u32 = 543384946;
+        const listtypeSTREAMHEADER: u32 = 1819440243;
+        const streamtypeAUDIO: u32 = 1935963489;
+        const streamtypeMIDI: u32 = 1935960429;
+        const streamtypeTEXT: u32 = 1937012852;
+        const streamtypeVIDEO: u32 = 1935960438;
+    }
+}

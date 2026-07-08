@@ -75,10 +75,10 @@ impl Encoder<'_> {
                 .map(|len| parts[..len].join("."))
                 .collect();
             for use_item in &self.file.uses {
-                if let Some(ns) = glob_use_namespace(use_item) {
-                    if !nss.contains(&ns) {
-                        nss.push(ns);
-                    }
+                if let Some(ns) = glob_use_namespace(use_item)
+                    && !nss.contains(&ns)
+                {
+                    nss.push(ns);
                 }
             }
             nss
@@ -178,11 +178,12 @@ impl Encoder<'_> {
 
         for arg in args {
             if let syn::Expr::Assign(syn::ExprAssign { left, right, .. }) = arg {
-                if let syn::Expr::Path(syn::ExprPath { path, .. }) = left.as_ref() {
-                    if path.leading_colon.is_none() && path.segments.len() == 1 {
-                        named.push((path.segments[0].ident.to_string(), right.as_ref()));
-                        continue;
-                    }
+                if let syn::Expr::Path(syn::ExprPath { path, .. }) = left.as_ref()
+                    && path.leading_colon.is_none()
+                    && path.segments.len() == 1
+                {
+                    named.push((path.segments[0].ident.to_string(), right.as_ref()));
+                    continue;
                 }
                 return self.err(arg, "expected `name = value` for named attribute argument");
             }
@@ -280,12 +281,13 @@ impl Encoder<'_> {
                 _ => self.err(value, "expected type path"),
             },
             metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
-                if let syn::Expr::Path(syn::ExprPath { path, .. }) = value {
-                    if path.leading_colon.is_none() && path.segments.len() == 1 {
-                        let variant_name = path.segments[0].ident.to_string();
-                        let inner = self.find_enum_variant_value(tn, &variant_name, value)?;
-                        return Ok(metadata::Value::EnumValue(tn.clone(), Box::new(inner)));
-                    }
+                if let syn::Expr::Path(syn::ExprPath { path, .. }) = value
+                    && path.leading_colon.is_none()
+                    && path.segments.len() == 1
+                {
+                    let variant_name = path.segments[0].ident.to_string();
+                    let inner = self.find_enum_variant_value(tn, &variant_name, value)?;
+                    return Ok(metadata::Value::EnumValue(tn.clone(), Box::new(inner)));
                 }
                 if self.enum_is_flags(tn) {
                     if let Some(names) = collect_bitor_variants(value) {
@@ -307,13 +309,12 @@ impl Encoder<'_> {
                         lit: syn::Lit::Int(int),
                         ..
                     }) = value
+                        && let Ok(v) = int.base10_parse::<i32>()
                     {
-                        if let Ok(v) = int.base10_parse::<i32>() {
-                            return Ok(metadata::Value::EnumValue(
-                                tn.clone(),
-                                Box::new(metadata::Value::I32(v)),
-                            ));
-                        }
+                        return Ok(metadata::Value::EnumValue(
+                            tn.clone(),
+                            Box::new(metadata::Value::I32(v)),
+                        ));
                     }
                 }
                 self.err(value, &format!("expected `{}` variant name", tn.name))
@@ -335,14 +336,12 @@ impl Encoder<'_> {
                 }
             }
         }
-        if let Some(ns) = self.index.namespaces.get(&tn.namespace) {
-            if let Some(variants) = ns.types.get(&tn.name) {
-                if let Some((_, Item::Enum(enum_item))) = variants.first() {
-                    if enum_item.attrs.iter().any(|a| a.path().is_ident("flags")) {
-                        return true;
-                    }
-                }
-            }
+        if let Some(ns) = self.index.namespaces.get(&tn.namespace)
+            && let Some(variants) = ns.types.get(&tn.name)
+            && let Some((_, Item::Enum(enum_item))) = variants.first()
+            && enum_item.attrs.iter().any(|a| a.path().is_ident("flags"))
+        {
+            return true;
         }
         false
     }
@@ -359,46 +358,42 @@ impl Encoder<'_> {
                     for field in typedef.fields() {
                         if field.flags().contains(metadata::FieldAttributes::Literal)
                             && field.name() == variant_name
+                            && let Some(constant) = field.constant()
                         {
-                            if let Some(constant) = field.constant() {
-                                return Ok(match constant.value() {
-                                    metadata::Value::I32(v) => metadata::Value::I32(v),
-                                    metadata::Value::U32(v) => metadata::Value::I32(v as i32),
-                                    other => {
-                                        return self.err(
-                                            spanned,
-                                            &format!("unsupported enum constant type: {other:?}"),
-                                        );
-                                    }
-                                });
-                            }
+                            return Ok(match constant.value() {
+                                metadata::Value::I32(v) => metadata::Value::I32(v),
+                                metadata::Value::U32(v) => metadata::Value::I32(v as i32),
+                                other => {
+                                    return self.err(
+                                        spanned,
+                                        &format!("unsupported enum constant type: {other:?}"),
+                                    );
+                                }
+                            });
                         }
                     }
                 }
             }
         }
 
-        if let Some(ns) = self.index.namespaces.get(&tn.namespace) {
-            if let Some(variants) = ns.types.get(&tn.name) {
-                if let Some((_, Item::Enum(enum_item))) = variants.first() {
-                    for variant in &enum_item.variants {
-                        if variant.ident == variant_name {
-                            if let Some((_, discriminant)) = &variant.discriminant {
-                                let result =
-                                    self.encode_value(&metadata::Type::I32, discriminant)
-                                        .or_else(|_| {
-                                            self.encode_value(&metadata::Type::U32, discriminant)
-                                                .map(|v| match v {
-                                                    metadata::Value::U32(n) => {
-                                                        metadata::Value::I32(n as i32)
-                                                    }
-                                                    other => other,
-                                                })
-                                        });
-                                return result;
-                            }
-                        }
-                    }
+        if let Some(ns) = self.index.namespaces.get(&tn.namespace)
+            && let Some(variants) = ns.types.get(&tn.name)
+            && let Some((_, Item::Enum(enum_item))) = variants.first()
+        {
+            for variant in &enum_item.variants {
+                if variant.ident == variant_name
+                    && let Some((_, discriminant)) = &variant.discriminant
+                {
+                    let result = self
+                        .encode_value(&metadata::Type::I32, discriminant)
+                        .or_else(|_| {
+                            self.encode_value(&metadata::Type::U32, discriminant)
+                                .map(|v| match v {
+                                    metadata::Value::U32(n) => metadata::Value::I32(n as i32),
+                                    other => other,
+                                })
+                        });
+                    return result;
                 }
             }
         }
@@ -473,43 +468,112 @@ impl Encoder<'_> {
         );
     }
 
-    /// Emits the `Windows.Win32.Foundation.Metadata.NativeTypedefAttribute` on `target`.
+    /// Emits the `Windows.Win32.Metadata.NativeTypedefAttribute` on `target`.
     pub fn encode_native_typedef_attribute(&mut self, target: metadata::writer::HasAttribute) {
         let attr_ref = AttributeRef {
-            type_name: metadata::TypeName::named(
-                "Windows.Win32.Foundation.Metadata",
-                "NativeTypedefAttribute",
-            ),
+            type_name: metadata::TypeName::named(METADATA_NAMESPACE, "NativeTypedefAttribute"),
             args: vec![],
         };
         self.encode_named_attribute(target, &attr_ref);
     }
 
-    /// Emits the `Windows.Win32.Foundation.Metadata.RetValAttribute` on `target`.
+    /// Emits the metadata attribute for a naturalized pseudo-attribute (e.g. `#[retval]` →
+    /// `RetValAttribute`, `#[len_param(2)]` → `NativeArrayInfoAttribute(CountParamIndex = 2)`) on
+    /// `target`.
     ///
-    /// This is the metadata representation of the `#[retval]` pseudo-attribute, which
-    /// originates from MIDL `[retval]` parameter annotations.  Downstream consumers such
-    /// as bindgen look for `RetValAttribute` via `has_attribute("RetValAttribute")`.
-    pub fn emit_retval_attribute(&mut self, target: metadata::writer::HasAttribute) {
-        let attr_ref = AttributeRef {
-            type_name: metadata::TypeName::named(
-                "Windows.Win32.Foundation.Metadata",
-                "RetValAttribute",
-            ),
-            args: vec![],
+    /// Marker pseudo-attributes (no arguments) emit a parameterless attribute; argument-carrying
+    /// ones (`len_param`/`len_const`/`size_param`/`encoding`) resolve their arguments against the
+    /// real attribute type so the emitted metadata is identical to the fully-qualified spelling.
+    /// The winmd is therefore unaffected by which spelling the RDL uses.
+    pub fn emit_pseudo_attribute(
+        &mut self,
+        target: metadata::writer::HasAttribute,
+        pseudo: &PseudoAttr,
+        attr: &syn::Attribute,
+    ) -> Result<(), Error> {
+        let attr_ref = if matches!(attr.meta, syn::Meta::Path(_)) {
+            AttributeRef {
+                type_name: metadata::TypeName::named(METADATA_NAMESPACE, pseudo.metadata),
+                args: vec![],
+            }
+        } else {
+            self.resolve_pseudo_attr_ref(attr, pseudo)?
         };
         self.encode_named_attribute(target, &attr_ref);
+        Ok(())
     }
 
-    /// Emits a `Windows.Win32.Foundation.Metadata.SupportedArchitectureAttribute` on `target`
+    /// Resolves the arguments of an argument-carrying pseudo-attribute against the real metadata
+    /// attribute type, mirroring [`Self::resolve_attribute_ref`] but with the type looked up by
+    /// its metadata name rather than the attribute's (short) path. When the pseudo binds its
+    /// single positional argument to a named metadata property (`pseudo.prop`), that value is
+    /// re-routed to the property so the emitted metadata matches the fully-qualified spelling.
+    fn resolve_pseudo_attr_ref(
+        &self,
+        attr: &syn::Attribute,
+        pseudo: &PseudoAttr,
+    ) -> Result<AttributeRef, Error> {
+        let info = self
+            .find_in_reference(METADATA_NAMESPACE, pseudo.metadata)
+            .or_else(|| self.find_in_index(METADATA_NAMESPACE, pseudo.metadata))
+            .ok_or_else(|| self.error(attr, "pseudo-attribute type not found"))?;
+
+        let raw_args: Vec<syn::Expr> = match &attr.meta {
+            syn::Meta::Path(_) => vec![],
+            syn::Meta::List(_) => attr
+                .parse_args_with(
+                    syn::punctuated::Punctuated::<syn::Expr, syn::Token![,]>::parse_terminated,
+                )
+                .map_err(|e| {
+                    let start = e.span().start();
+                    Error::new(&e.to_string(), &self.file.source, start.line, start.column)
+                })?
+                .into_iter()
+                .collect(),
+            syn::Meta::NameValue(_) => {
+                return self.err(attr, "attribute cannot use top-level `name = value` syntax");
+            }
+        };
+
+        let split = self.split_args(&raw_args)?;
+        let args = if let Some(prop) = pseudo.prop {
+            if split.positional.len() != 1 || !split.named.is_empty() {
+                return self.err(attr, &format!("`{}` takes a single value", pseudo.short));
+            }
+            let named = [(prop.to_string(), split.positional[0])];
+            self.resolve_attribute_args(attr, &info, &[], &named)?
+        } else {
+            self.resolve_attribute_args(attr, &info, &split.positional, &split.named)?
+        };
+
+        Ok(AttributeRef {
+            type_name: info.type_name,
+            args,
+        })
+    }
+
+    /// Emits a `Windows.Win32.Metadata.SupportedArchitectureAttribute` on `target`
     /// with the given architecture bitmask value (1=X86, 2=X64, 4=Arm64, combinable with `|`).
     pub fn emit_arch_attribute(&mut self, target: metadata::writer::HasAttribute, arch_bits: i32) {
         let attr_ref = AttributeRef {
             type_name: metadata::TypeName::named(
-                "Windows.Win32.Foundation.Metadata",
+                METADATA_NAMESPACE,
                 "SupportedArchitectureAttribute",
             ),
             args: vec![(String::new(), metadata::Value::I32(arch_bits))],
+        };
+        self.encode_named_attribute(target, &attr_ref);
+    }
+
+    /// Emit `[AlignmentAttribute(N)]`, the winmd encoding of forced over-alignment
+    /// (`__declspec(align(N))` / `alignas(N)`). The winmd `ClassLayout` can only
+    /// lower alignment via its packing size, so raised alignment is carried by this
+    /// custom attribute — a 1:1 mirror of the C declaration — and consumed by
+    /// bindgen to emit `#[repr(C, align(N))]`.
+    pub fn emit_align_attribute(&mut self, target: metadata::writer::HasAttribute, alignment: u16) {
+        let attr_ref = AttributeRef {
+            type_name: metadata::TypeName::named(METADATA_NAMESPACE, "AlignmentAttribute"),
+            args: vec![(String::new(), metadata::Value::I32(alignment as i32))],
         };
         self.encode_named_attribute(target, &attr_ref);
     }
@@ -571,6 +635,17 @@ impl Encoder<'_> {
             }
 
             if skip.iter().any(|s| path.is_ident(s)) {
+                continue;
+            }
+
+            // A naturalized pseudo-attribute (short SAL/IDL spelling) maps to its metadata
+            // attribute via the shared table; the fully-qualified spelling still resolves
+            // generically below.
+            if let Some(pseudo) = path
+                .get_ident()
+                .and_then(|i| pseudo_by_short(&i.to_string()))
+            {
+                self.emit_pseudo_attribute(has_attribute, pseudo, attr)?;
                 continue;
             }
 

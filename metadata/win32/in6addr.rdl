@@ -1,0 +1,13 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct IN6_ADDR {
+            u: union {
+                Byte: [u8; 16],
+                Word: [u16; 8],
+            },
+        }
+        type LPIN6_ADDR = *mut IN6_ADDR;
+        type PIN6_ADDR = *mut IN6_ADDR;
+    }
+}

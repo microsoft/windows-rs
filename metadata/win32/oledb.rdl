@@ -1,0 +1,2390 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ACCESS_MASKENUM {
+            PERM_EXCLUSIVE = 512,
+            PERM_READDESIGN = 1024,
+            PERM_WRITEDESIGN = 2048,
+            PERM_WITHGRANT = 4096,
+            PERM_REFERENCE = 8192,
+            PERM_CREATE = 16384,
+            PERM_INSERT = 32768,
+            PERM_DELETE = 65536,
+            PERM_READCONTROL = 131072,
+            PERM_WRITEPERMISSIONS = 262144,
+            PERM_WRITEOWNER = 524288,
+            PERM_MAXIMUM_ALLOWED = 33554432,
+            PERM_ALL = 268435456,
+            PERM_EXECUTE = 536870912,
+            PERM_READ = -2147483648,
+            PERM_UPDATE = 1073741824,
+            PERM_DROP = 256,
+        }
+        const BMK_DURABILITY_INTRANSACTION: u32 = 1;
+        const BMK_DURABILITY_REORGANIZATION: u32 = 3;
+        const BMK_DURABILITY_ROWSET: u32 = 0;
+        const BMK_DURABILITY_XTRANSACTION: u32 = 2;
+        const CRESTRICTIONS_DBSCHEMA_ASSERTIONS: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_CATALOGS: u32 = 1;
+        const CRESTRICTIONS_DBSCHEMA_CHARACTER_SETS: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_CHECK_CONSTRAINTS: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_CHECK_CONSTRAINTS_BY_TABLE: u32 = 6;
+        const CRESTRICTIONS_DBSCHEMA_COLLATIONS: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_COLUMNS: u32 = 4;
+        const CRESTRICTIONS_DBSCHEMA_COLUMN_DOMAIN_USAGE: u32 = 4;
+        const CRESTRICTIONS_DBSCHEMA_COLUMN_PRIVILEGES: u32 = 6;
+        const CRESTRICTIONS_DBSCHEMA_CONSTRAINT_COLUMN_USAGE: u32 = 4;
+        const CRESTRICTIONS_DBSCHEMA_CONSTRAINT_TABLE_USAGE: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_FOREIGN_KEYS: u32 = 6;
+        const CRESTRICTIONS_DBSCHEMA_INDEXES: u32 = 5;
+        const CRESTRICTIONS_DBSCHEMA_KEY_COLUMN_USAGE: u32 = 7;
+        const CRESTRICTIONS_DBSCHEMA_OBJECTS: u32 = 1;
+        const CRESTRICTIONS_DBSCHEMA_OBJECT_ACTIONS: u32 = 1;
+        const CRESTRICTIONS_DBSCHEMA_PRIMARY_KEYS: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_PROCEDURES: u32 = 4;
+        const CRESTRICTIONS_DBSCHEMA_PROCEDURE_COLUMNS: u32 = 4;
+        const CRESTRICTIONS_DBSCHEMA_PROCEDURE_PARAMETERS: u32 = 4;
+        const CRESTRICTIONS_DBSCHEMA_PROVIDER_TYPES: u32 = 2;
+        const CRESTRICTIONS_DBSCHEMA_REFERENTIAL_CONSTRAINTS: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_SCHEMATA: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_SQL_LANGUAGES: u32 = 0;
+        const CRESTRICTIONS_DBSCHEMA_STATISTICS: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_TABLES: u32 = 4;
+        const CRESTRICTIONS_DBSCHEMA_TABLES_INFO: u32 = 4;
+        const CRESTRICTIONS_DBSCHEMA_TABLE_CONSTRAINTS: u32 = 7;
+        const CRESTRICTIONS_DBSCHEMA_TABLE_PRIVILEGES: u32 = 5;
+        const CRESTRICTIONS_DBSCHEMA_TABLE_STATISTICS: u32 = 7;
+        const CRESTRICTIONS_DBSCHEMA_TRANSLATIONS: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_TRUSTEE: u32 = 4;
+        const CRESTRICTIONS_DBSCHEMA_USAGE_PRIVILEGES: u32 = 6;
+        const CRESTRICTIONS_DBSCHEMA_VIEWS: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_VIEW_COLUMN_USAGE: u32 = 3;
+        const CRESTRICTIONS_DBSCHEMA_VIEW_TABLE_USAGE: u32 = 3;
+        const CRESTRICTIONS_MDSCHEMA_ACTIONS: u32 = 8;
+        const CRESTRICTIONS_MDSCHEMA_COMMANDS: u32 = 5;
+        const CRESTRICTIONS_MDSCHEMA_CUBES: u32 = 3;
+        const CRESTRICTIONS_MDSCHEMA_DIMENSIONS: u32 = 5;
+        const CRESTRICTIONS_MDSCHEMA_FUNCTIONS: u32 = 4;
+        const CRESTRICTIONS_MDSCHEMA_HIERARCHIES: u32 = 6;
+        const CRESTRICTIONS_MDSCHEMA_LEVELS: u32 = 7;
+        const CRESTRICTIONS_MDSCHEMA_MEASURES: u32 = 5;
+        const CRESTRICTIONS_MDSCHEMA_MEMBERS: u32 = 12;
+        const CRESTRICTIONS_MDSCHEMA_PROPERTIES: u32 = 9;
+        const CRESTRICTIONS_MDSCHEMA_SETS: u32 = 5;
+        type DBACCESSORFLAGS = u32;
+        #[repr(i32)]
+        enum DBACCESSORFLAGSENUM {
+            DBACCESSOR_INVALID = 0,
+            DBACCESSOR_PASSBYREF = 1,
+            DBACCESSOR_ROWDATA = 2,
+            DBACCESSOR_PARAMETERDATA = 4,
+            DBACCESSOR_OPTIMIZED = 8,
+            DBACCESSOR_INHERITED = 16,
+        }
+        type DBASYNCHOP = u32;
+        #[repr(i32)]
+        enum DBASYNCHOPENUM {
+            DBASYNCHOP_OPEN = 0,
+        }
+        type DBASYNCHPHASE = u32;
+        #[repr(i32)]
+        enum DBASYNCHPHASEENUM {
+            DBASYNCHPHASE_INITIALIZATION = 0,
+            DBASYNCHPHASE_POPULATION = 1,
+            DBASYNCHPHASE_COMPLETE = 2,
+            DBASYNCHPHASE_CANCELED = 3,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBBINDEXT {
+            pExtension: *mut u8,
+            ulExtension: DBCOUNTITEM,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBBINDEXT {
+            pExtension: *mut u8,
+            ulExtension: DBCOUNTITEM,
+        }
+        type DBBINDFLAG = u32;
+        #[repr(i32)]
+        enum DBBINDFLAGENUM {
+            DBBINDFLAG_HTML = 1,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBBINDING {
+            iOrdinal: DBORDINAL,
+            obValue: DBBYTEOFFSET,
+            obLength: DBBYTEOFFSET,
+            obStatus: DBBYTEOFFSET,
+            pTypeInfo: ITypeInfo,
+            pObject: *mut DBOBJECT,
+            pBindExt: *mut DBBINDEXT,
+            dwPart: DBPART,
+            dwMemOwner: DBMEMOWNER,
+            eParamIO: DBPARAMIO,
+            cbMaxLen: DBLENGTH,
+            dwFlags: u32,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBBINDING {
+            iOrdinal: DBORDINAL,
+            obValue: DBBYTEOFFSET,
+            obLength: DBBYTEOFFSET,
+            obStatus: DBBYTEOFFSET,
+            pTypeInfo: ITypeInfo,
+            pObject: *mut DBOBJECT,
+            pBindExt: *mut DBBINDEXT,
+            dwPart: DBPART,
+            dwMemOwner: DBMEMOWNER,
+            eParamIO: DBPARAMIO,
+            cbMaxLen: DBLENGTH,
+            dwFlags: u32,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
+        type DBBINDSTATUS = u32;
+        #[repr(i32)]
+        enum DBBINDSTATUSENUM {
+            DBBINDSTATUS_OK = 0,
+            DBBINDSTATUS_BADORDINAL = 1,
+            DBBINDSTATUS_UNSUPPORTEDCONVERSION = 2,
+            DBBINDSTATUS_BADBINDINFO = 3,
+            DBBINDSTATUS_BADSTORAGEFLAGS = 4,
+            DBBINDSTATUS_NOINTERFACE = 5,
+            DBBINDSTATUS_MULTIPLESTORAGE = 6,
+        }
+        type DBBINDURLFLAG = u32;
+        #[repr(i32)]
+        enum DBBINDURLFLAGENUM {
+            DBBINDURLFLAG_READ = 1,
+            DBBINDURLFLAG_WRITE = 2,
+            DBBINDURLFLAG_READWRITE = 3,
+            DBBINDURLFLAG_SHARE_DENY_READ = 4,
+            DBBINDURLFLAG_SHARE_DENY_WRITE = 8,
+            DBBINDURLFLAG_SHARE_EXCLUSIVE = 12,
+            DBBINDURLFLAG_SHARE_DENY_NONE = 16,
+            DBBINDURLFLAG_ASYNCHRONOUS = 4096,
+            DBBINDURLFLAG_COLLECTION = 8192,
+            DBBINDURLFLAG_DELAYFETCHSTREAM = 16384,
+            DBBINDURLFLAG_DELAYFETCHCOLUMNS = 32768,
+            DBBINDURLFLAG_RECURSIVE = 4194304,
+            DBBINDURLFLAG_OUTPUT = 8388608,
+            DBBINDURLFLAG_WAITFORINIT = 16777216,
+            DBBINDURLFLAG_OPENIFEXISTS = 33554432,
+            DBBINDURLFLAG_OVERWRITE = 67108864,
+            DBBINDURLFLAG_ISSTRUCTUREDDOCUMENT = 134217728,
+        }
+        type DBBINDURLSTATUS = u32;
+        #[repr(i32)]
+        enum DBBINDURLSTATUSENUM {
+            DBBINDURLSTATUS_S_OK = 0,
+            DBBINDURLSTATUS_S_DENYNOTSUPPORTED = 1,
+            DBBINDURLSTATUS_S_DENYTYPENOTSUPPORTED = 4,
+            DBBINDURLSTATUS_S_REDIRECTED = 8,
+        }
+        #[arch(X64 | Arm64)]
+        type DBBKMARK = u64;
+        #[arch(X86)]
+        type DBBKMARK = u32;
+        #[repr(i32)]
+        enum DBBOOKMARK {
+            DBBMK_INVALID = 0,
+            DBBMK_FIRST = 1,
+            DBBMK_LAST = 2,
+        }
+        #[arch(X64 | Arm64)]
+        type DBBYTEOFFSET = u64;
+        #[arch(X86)]
+        type DBBYTEOFFSET = u32;
+        #[arch(X64 | Arm64)]
+        struct DBCOLUMNACCESS {
+            pData: *mut void,
+            columnid: DBID,
+            cbDataLen: DBLENGTH,
+            dwStatus: DBSTATUS,
+            cbMaxLen: DBLENGTH,
+            dwReserved: DB_DWRESERVE,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBCOLUMNACCESS {
+            pData: *mut void,
+            columnid: DBID,
+            cbDataLen: DBLENGTH,
+            dwStatus: DBSTATUS,
+            cbMaxLen: DBLENGTH,
+            dwReserved: DB_DWRESERVE,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBCOLUMNDESC {
+            pwszTypeName: PWSTR,
+            pTypeInfo: ITypeInfo,
+            rgPropertySets: *mut DBPROPSET,
+            pclsid: *mut GUID,
+            cPropertySets: u32,
+            ulColumnSize: DBLENGTH,
+            dbcid: DBID,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBCOLUMNDESC {
+            pwszTypeName: PWSTR,
+            pTypeInfo: ITypeInfo,
+            rgPropertySets: *mut DBPROPSET,
+            pclsid: *mut GUID,
+            cPropertySets: u32,
+            ulColumnSize: DBLENGTH,
+            dbcid: DBID,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
+        type DBCOLUMNDESCFLAGS = u32;
+        #[repr(i32)]
+        enum DBCOLUMNDESCFLAGSENUM {
+            DBCOLUMNDESCFLAGS_TYPENAME = 1,
+            DBCOLUMNDESCFLAGS_ITYPEINFO = 2,
+            DBCOLUMNDESCFLAGS_PROPERTIES = 4,
+            DBCOLUMNDESCFLAGS_CLSID = 8,
+            DBCOLUMNDESCFLAGS_COLSIZE = 16,
+            DBCOLUMNDESCFLAGS_DBCID = 32,
+            DBCOLUMNDESCFLAGS_WTYPE = 64,
+            DBCOLUMNDESCFLAGS_PRECISION = 128,
+            DBCOLUMNDESCFLAGS_SCALE = 256,
+        }
+        type DBCOLUMNFLAGS = u32;
+        #[repr(i32)]
+        enum DBCOLUMNFLAGS15ENUM {
+            DBCOLUMNFLAGS_ISCHAPTER = 8192,
+        }
+        #[repr(i32)]
+        enum DBCOLUMNFLAGSENUM {
+            DBCOLUMNFLAGS_ISBOOKMARK = 1,
+            DBCOLUMNFLAGS_MAYDEFER = 2,
+            DBCOLUMNFLAGS_WRITE = 4,
+            DBCOLUMNFLAGS_WRITEUNKNOWN = 8,
+            DBCOLUMNFLAGS_ISFIXEDLENGTH = 16,
+            DBCOLUMNFLAGS_ISNULLABLE = 32,
+            DBCOLUMNFLAGS_MAYBENULL = 64,
+            DBCOLUMNFLAGS_ISLONG = 128,
+            DBCOLUMNFLAGS_ISROWID = 256,
+            DBCOLUMNFLAGS_ISROWVER = 512,
+            DBCOLUMNFLAGS_CACHEDEFERRED = 4096,
+        }
+        #[repr(i32)]
+        enum DBCOLUMNFLAGSENUM20 {
+            DBCOLUMNFLAGS_SCALEISNEGATIVE = 16384,
+            DBCOLUMNFLAGS_RESERVED = 32768,
+        }
+        #[repr(i32)]
+        enum DBCOLUMNFLAGSENUM21 {
+            DBCOLUMNFLAGS_ISROWURL = 65536,
+            DBCOLUMNFLAGS_ISDEFAULTSTREAM = 131072,
+            DBCOLUMNFLAGS_ISCOLLECTION = 262144,
+        }
+        #[repr(i32)]
+        enum DBCOLUMNFLAGSENUM26 {
+            DBCOLUMNFLAGS_ISSTREAM = 524288,
+            DBCOLUMNFLAGS_ISROWSET = 1048576,
+            DBCOLUMNFLAGS_ISROW = 2097152,
+            DBCOLUMNFLAGS_ROWSPECIFICCOLUMN = 4194304,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBCOLUMNINFO {
+            pwszName: PWSTR,
+            pTypeInfo: ITypeInfo,
+            iOrdinal: DBORDINAL,
+            dwFlags: DBCOLUMNFLAGS,
+            ulColumnSize: DBLENGTH,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+            columnid: DBID,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBCOLUMNINFO {
+            pwszName: PWSTR,
+            pTypeInfo: ITypeInfo,
+            iOrdinal: DBORDINAL,
+            dwFlags: DBCOLUMNFLAGS,
+            ulColumnSize: DBLENGTH,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+            columnid: DBID,
+        }
+        type DBCOMMANDPERSISTFLAG = u32;
+        #[repr(i32)]
+        enum DBCOMMANDPERSISTFLAGENUM {
+            DBCOMMANDPERSISTFLAG_NOSAVE = 1,
+        }
+        #[repr(i32)]
+        enum DBCOMMANDPERSISTFLAGENUM21 {
+            DBCOMMANDPERSISTFLAG_DEFAULT = 0,
+            DBCOMMANDPERSISTFLAG_PERSISTVIEW = 2,
+            DBCOMMANDPERSISTFLAG_PERSISTPROCEDURE = 4,
+        }
+        type DBCOMPARE = u32;
+        #[repr(i32)]
+        enum DBCOMPAREENUM {
+            DBCOMPARE_LT = 0,
+            DBCOMPARE_EQ = 1,
+            DBCOMPARE_GT = 2,
+            DBCOMPARE_NE = 3,
+            DBCOMPARE_NOTCOMPARABLE = 4,
+        }
+        type DBCOMPAREOP = u32;
+        #[repr(i32)]
+        enum DBCOMPAREOPSENUM {
+            DBCOMPAREOPS_LT = 0,
+            DBCOMPAREOPS_LE = 1,
+            DBCOMPAREOPS_EQ = 2,
+            DBCOMPAREOPS_GE = 3,
+            DBCOMPAREOPS_GT = 4,
+            DBCOMPAREOPS_BEGINSWITH = 5,
+            DBCOMPAREOPS_CONTAINS = 6,
+            DBCOMPAREOPS_NE = 7,
+            DBCOMPAREOPS_IGNORE = 8,
+            DBCOMPAREOPS_CASESENSITIVE = 4096,
+            DBCOMPAREOPS_CASEINSENSITIVE = 8192,
+        }
+        #[repr(i32)]
+        enum DBCOMPAREOPSENUM20 {
+            DBCOMPAREOPS_NOTBEGINSWITH = 9,
+            DBCOMPAREOPS_NOTCONTAINS = 10,
+        }
+        const DBCOMPUTEMODE_COMPUTED: u32 = 1;
+        const DBCOMPUTEMODE_DYNAMIC: u32 = 2;
+        const DBCOMPUTEMODE_NOTCOMPUTED: u32 = 3;
+        #[arch(X64 | Arm64)]
+        struct DBCONSTRAINTDESC {
+            pConstraintID: *mut DBID,
+            ConstraintType: DBCONSTRAINTTYPE,
+            cColumns: DBORDINAL,
+            rgColumnList: *mut DBID,
+            pReferencedTableID: *mut DBID,
+            cForeignKeyColumns: DBORDINAL,
+            rgForeignKeyColumnList: *mut DBID,
+            pwszConstraintText: *mut OLECHAR,
+            UpdateRule: DBUPDELRULE,
+            DeleteRule: DBUPDELRULE,
+            MatchType: DBMATCHTYPE,
+            Deferrability: DBDEFERRABILITY,
+            cReserved: DB_URESERVE,
+            rgReserved: *mut DBPROPSET,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBCONSTRAINTDESC {
+            pConstraintID: *mut DBID,
+            ConstraintType: DBCONSTRAINTTYPE,
+            cColumns: DBORDINAL,
+            rgColumnList: *mut DBID,
+            pReferencedTableID: *mut DBID,
+            cForeignKeyColumns: DBORDINAL,
+            rgForeignKeyColumnList: *mut DBID,
+            pwszConstraintText: *mut OLECHAR,
+            UpdateRule: DBUPDELRULE,
+            DeleteRule: DBUPDELRULE,
+            MatchType: DBMATCHTYPE,
+            Deferrability: DBDEFERRABILITY,
+            cReserved: DB_URESERVE,
+            rgReserved: *mut DBPROPSET,
+        }
+        type DBCONSTRAINTTYPE = u32;
+        #[repr(i32)]
+        enum DBCONSTRAINTTYPEENUM {
+            DBCONSTRAINTTYPE_UNIQUE = 0,
+            DBCONSTRAINTTYPE_FOREIGNKEY = 1,
+            DBCONSTRAINTTYPE_PRIMARYKEY = 2,
+            DBCONSTRAINTTYPE_CHECK = 3,
+        }
+        type DBCONVERTFLAGS = u32;
+        #[repr(i32)]
+        enum DBCONVERTFLAGSENUM {
+            DBCONVERTFLAGS_COLUMN = 0,
+            DBCONVERTFLAGS_PARAMETER = 1,
+        }
+        #[repr(i32)]
+        enum DBCONVERTFLAGSENUM20 {
+            DBCONVERTFLAGS_ISLONG = 2,
+            DBCONVERTFLAGS_ISFIXEDLENGTH = 4,
+            DBCONVERTFLAGS_FROMVARIANT = 8,
+        }
+        type DBCOPYFLAGS = u32;
+        #[repr(i32)]
+        enum DBCOPYFLAGSENUM {
+            DBCOPY_ASYNC = 256,
+            DBCOPY_REPLACE_EXISTING = 512,
+            DBCOPY_ALLOW_EMULATION = 1024,
+            DBCOPY_NON_RECURSIVE = 2048,
+            DBCOPY_ATOMIC = 4096,
+        }
+        #[arch(X64 | Arm64)]
+        type DBCOUNTITEM = u64;
+        #[arch(X86)]
+        type DBCOUNTITEM = u32;
+        struct DBDATE {
+            year: i16,
+            month: u16,
+            day: u16,
+        }
+        type DBDEFERRABILITY = u32;
+        #[repr(i32)]
+        enum DBDEFERRABILITYENUM {
+            DBDEFERRABILITY_DEFERRED = 1,
+            DBDEFERRABILITY_DEFERRABLE = 2,
+        }
+        type DBDELETEFLAGS = u32;
+        #[repr(i32)]
+        enum DBDELETEFLAGSENUM {
+            DBDELETE_ASYNC = 256,
+            DBDELETE_ATOMIC = 4096,
+        }
+        type DBEVENTPHASE = u32;
+        #[repr(i32)]
+        enum DBEVENTPHASEENUM {
+            DBEVENTPHASE_OKTODO = 0,
+            DBEVENTPHASE_ABOUTTODO = 1,
+            DBEVENTPHASE_SYNCHAFTER = 2,
+            DBEVENTPHASE_FAILEDTODO = 3,
+            DBEVENTPHASE_DIDEVENT = 4,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBFAILUREINFO {
+            hRow: HROW,
+            iColumn: DBORDINAL,
+            failure: HRESULT,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBFAILUREINFO {
+            hRow: HROW,
+            iColumn: DBORDINAL,
+            failure: HRESULT,
+        }
+        #[arch(X64 | Arm64)]
+        type DBHASHVALUE = DWORDLONG;
+        #[arch(X86)]
+        type DBHASHVALUE = u32;
+        #[arch(X64 | Arm64)]
+        struct DBID {
+            uGuid: union {
+                guid: GUID,
+                pguid: *mut GUID,
+            },
+            eKind: DBKIND,
+            uName: union {
+                pwszName: PWSTR,
+                ulPropid: u32,
+            },
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBID {
+            uGuid: #[packed(2)] union {
+                guid: GUID,
+                pguid: *mut GUID,
+            },
+            eKind: DBKIND,
+            uName: #[packed(2)] union {
+                pwszName: PWSTR,
+                ulPropid: u32,
+            },
+        }
+        #[arch(X64 | Arm64)]
+        struct DBIMPLICITSESSION {
+            pUnkOuter: IUnknown,
+            piid: *mut GUID,
+            pSession: IUnknown,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBIMPLICITSESSION {
+            pUnkOuter: IUnknown,
+            piid: *mut GUID,
+            pSession: IUnknown,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBINDEXCOLUMNDESC {
+            pColumnID: *mut DBID,
+            eIndexColOrder: DBINDEX_COL_ORDER,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBINDEXCOLUMNDESC {
+            pColumnID: *mut DBID,
+            eIndexColOrder: DBINDEX_COL_ORDER,
+        }
+        type DBINDEX_COL_ORDER = u32;
+        #[repr(i32)]
+        enum DBINDEX_COL_ORDERENUM {
+            DBINDEX_COL_ORDER_ASC = 0,
+            DBINDEX_COL_ORDER_DESC = 1,
+        }
+        type DBKIND = u32;
+        #[repr(i32)]
+        enum DBKINDENUM {
+            DBKIND_GUID_NAME = 0,
+            DBKIND_GUID_PROPID = 1,
+            DBKIND_NAME = 2,
+            DBKIND_PGUID_NAME = 3,
+            DBKIND_PGUID_PROPID = 4,
+            DBKIND_PROPID = 5,
+            DBKIND_GUID = 6,
+        }
+        #[arch(X64 | Arm64)]
+        type DBLENGTH = u64;
+        #[arch(X86)]
+        type DBLENGTH = u32;
+        type DBLITERAL = u32;
+        #[repr(i32)]
+        enum DBLITERALENUM {
+            DBLITERAL_INVALID = 0,
+            DBLITERAL_BINARY_LITERAL = 1,
+            DBLITERAL_CATALOG_NAME = 2,
+            DBLITERAL_CATALOG_SEPARATOR = 3,
+            DBLITERAL_CHAR_LITERAL = 4,
+            DBLITERAL_COLUMN_ALIAS = 5,
+            DBLITERAL_COLUMN_NAME = 6,
+            DBLITERAL_CORRELATION_NAME = 7,
+            DBLITERAL_CURSOR_NAME = 8,
+            DBLITERAL_ESCAPE_PERCENT = 9,
+            DBLITERAL_ESCAPE_UNDERSCORE = 10,
+            DBLITERAL_INDEX_NAME = 11,
+            DBLITERAL_LIKE_PERCENT = 12,
+            DBLITERAL_LIKE_UNDERSCORE = 13,
+            DBLITERAL_PROCEDURE_NAME = 14,
+            DBLITERAL_QUOTE = 15,
+            DBLITERAL_SCHEMA_NAME = 16,
+            DBLITERAL_TABLE_NAME = 17,
+            DBLITERAL_TEXT_COMMAND = 18,
+            DBLITERAL_USER_NAME = 19,
+            DBLITERAL_VIEW_NAME = 20,
+        }
+        #[repr(i32)]
+        enum DBLITERALENUM20 {
+            DBLITERAL_CUBE_NAME = 21,
+            DBLITERAL_DIMENSION_NAME = 22,
+            DBLITERAL_HIERARCHY_NAME = 23,
+            DBLITERAL_LEVEL_NAME = 24,
+            DBLITERAL_MEMBER_NAME = 25,
+            DBLITERAL_PROPERTY_NAME = 26,
+            DBLITERAL_SCHEMA_SEPARATOR = 27,
+            DBLITERAL_QUOTE_SUFFIX = 28,
+        }
+        #[repr(i32)]
+        enum DBLITERALENUM21 {
+            DBLITERAL_ESCAPE_PERCENT_SUFFIX = 29,
+            DBLITERAL_ESCAPE_UNDERSCORE_SUFFIX = 30,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBLITERALINFO {
+            pwszLiteralValue: PWSTR,
+            pwszInvalidChars: PWSTR,
+            pwszInvalidStartingChars: PWSTR,
+            lt: DBLITERAL,
+            fSupported: BOOL,
+            cchMaxLen: u32,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBLITERALINFO {
+            pwszLiteralValue: PWSTR,
+            pwszInvalidChars: PWSTR,
+            pwszInvalidStartingChars: PWSTR,
+            lt: DBLITERAL,
+            fSupported: BOOL,
+            cchMaxLen: u32,
+        }
+        const DBLITERAL_ESCAPE_PERCENT_PREFIX: u32 = 9;
+        const DBLITERAL_ESCAPE_UNDERSCORE_PREFIX: u32 = 10;
+        const DBLITERAL_QUOTE_PREFIX: u32 = 15;
+        type DBMATCHTYPE = u32;
+        #[repr(i32)]
+        enum DBMATCHTYPEENUM {
+            DBMATCHTYPE_FULL = 0,
+            DBMATCHTYPE_NONE = 1,
+            DBMATCHTYPE_PARTIAL = 2,
+        }
+        type DBMEMOWNER = u32;
+        #[repr(i32)]
+        enum DBMEMOWNERENUM {
+            DBMEMOWNER_CLIENTOWNED = 0,
+            DBMEMOWNER_PROVIDEROWNED = 1,
+        }
+        type DBMOVEFLAGS = u32;
+        #[repr(i32)]
+        enum DBMOVEFLAGSENUM {
+            DBMOVE_REPLACE_EXISTING = 1,
+            DBMOVE_ASYNC = 256,
+            DBMOVE_DONT_UPDATE_LINKS = 512,
+            DBMOVE_ALLOW_EMULATION = 1024,
+            DBMOVE_ATOMIC = 4096,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBOBJECT {
+            dwFlags: u32,
+            iid: GUID,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBOBJECT {
+            dwFlags: u32,
+            iid: GUID,
+        }
+        #[arch(X64 | Arm64)]
+        type DBORDINAL = u64;
+        #[arch(X86)]
+        type DBORDINAL = u32;
+        #[arch(X64 | Arm64)]
+        struct DBPARAMBINDINFO {
+            pwszDataSourceType: PWSTR,
+            pwszName: PWSTR,
+            ulParamSize: DBLENGTH,
+            dwFlags: DBPARAMFLAGS,
+            bPrecision: u8,
+            bScale: u8,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBPARAMBINDINFO {
+            pwszDataSourceType: PWSTR,
+            pwszName: PWSTR,
+            ulParamSize: DBLENGTH,
+            dwFlags: DBPARAMFLAGS,
+            bPrecision: u8,
+            bScale: u8,
+        }
+        type DBPARAMFLAGS = u32;
+        #[repr(i32)]
+        enum DBPARAMFLAGSENUM {
+            DBPARAMFLAGS_ISINPUT = 1,
+            DBPARAMFLAGS_ISOUTPUT = 2,
+            DBPARAMFLAGS_ISSIGNED = 16,
+            DBPARAMFLAGS_ISNULLABLE = 64,
+            DBPARAMFLAGS_ISLONG = 128,
+        }
+        #[repr(i32)]
+        enum DBPARAMFLAGSENUM20 {
+            DBPARAMFLAGS_SCALEISNEGATIVE = 256,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBPARAMINFO {
+            dwFlags: DBPARAMFLAGS,
+            iOrdinal: DBORDINAL,
+            pwszName: PWSTR,
+            pTypeInfo: ITypeInfo,
+            ulParamSize: DBLENGTH,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBPARAMINFO {
+            dwFlags: DBPARAMFLAGS,
+            iOrdinal: DBORDINAL,
+            pwszName: PWSTR,
+            pTypeInfo: ITypeInfo,
+            ulParamSize: DBLENGTH,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
+        type DBPARAMIO = u32;
+        #[repr(i32)]
+        enum DBPARAMIOENUM {
+            DBPARAMIO_NOTPARAM = 0,
+            DBPARAMIO_INPUT = 1,
+            DBPARAMIO_OUTPUT = 2,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBPARAMS {
+            pData: *mut void,
+            cParamSets: DB_UPARAMS,
+            hAccessor: HACCESSOR,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBPARAMS {
+            pData: *mut void,
+            cParamSets: DB_UPARAMS,
+            hAccessor: HACCESSOR,
+        }
+        const DBPARAMTYPE_INPUT: u32 = 1;
+        const DBPARAMTYPE_INPUTOUTPUT: u32 = 2;
+        const DBPARAMTYPE_OUTPUT: u32 = 3;
+        const DBPARAMTYPE_RETURNVALUE: u32 = 4;
+        type DBPART = u32;
+        #[repr(i32)]
+        enum DBPARTENUM {
+            DBPART_INVALID = 0,
+            DBPART_VALUE = 1,
+            DBPART_LENGTH = 2,
+            DBPART_STATUS = 4,
+        }
+        type DBPENDINGSTATUS = u32;
+        #[repr(i32)]
+        enum DBPENDINGSTATUSENUM {
+            DBPENDINGSTATUS_NEW = 1,
+            DBPENDINGSTATUS_CHANGED = 2,
+            DBPENDINGSTATUS_DELETED = 4,
+            DBPENDINGSTATUS_UNCHANGED = 8,
+            DBPENDINGSTATUS_INVALIDROW = 16,
+        }
+        type DBPOSITIONFLAGS = u32;
+        #[repr(i32)]
+        enum DBPOSITIONFLAGSENUM {
+            DBPOSITION_OK = 0,
+            DBPOSITION_NOROW = 1,
+            DBPOSITION_BOF = 2,
+            DBPOSITION_EOF = 3,
+        }
+        const DBPROMPT_COMPLETE: u32 = 2;
+        const DBPROMPT_COMPLETEREQUIRED: u32 = 3;
+        const DBPROMPT_NOPROMPT: u32 = 4;
+        const DBPROMPT_PROMPT: u32 = 1;
+        #[arch(X64 | Arm64)]
+        struct DBPROP {
+            dwPropertyID: DBPROPID,
+            dwOptions: DBPROPOPTIONS,
+            dwStatus: DBPROPSTATUS,
+            colid: DBID,
+            vValue: VARIANT,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBPROP {
+            dwPropertyID: DBPROPID,
+            dwOptions: DBPROPOPTIONS,
+            dwStatus: DBPROPSTATUS,
+            colid: DBID,
+            vValue: VARIANT,
+        }
+        #[repr(i32)]
+        enum DBPROPENUM {
+            DBPROP_ABORTPRESERVE = 2,
+            DBPROP_ACTIVESESSIONS = 3,
+            DBPROP_APPENDONLY = 187,
+            DBPROP_ASYNCTXNABORT = 168,
+            DBPROP_ASYNCTXNCOMMIT = 4,
+            DBPROP_AUTH_CACHE_AUTHINFO = 5,
+            DBPROP_AUTH_ENCRYPT_PASSWORD = 6,
+            DBPROP_AUTH_INTEGRATED = 7,
+            DBPROP_AUTH_MASK_PASSWORD = 8,
+            DBPROP_AUTH_PASSWORD = 9,
+            DBPROP_AUTH_PERSIST_ENCRYPTED = 10,
+            DBPROP_AUTH_PERSIST_SENSITIVE_AUTHINFO = 11,
+            DBPROP_AUTH_USERID = 12,
+            DBPROP_BLOCKINGSTORAGEOBJECTS = 13,
+            DBPROP_BOOKMARKS = 14,
+            DBPROP_BOOKMARKSKIPPED = 15,
+            DBPROP_BOOKMARKTYPE = 16,
+            DBPROP_BYREFACCESSORS = 120,
+            DBPROP_CACHEDEFERRED = 17,
+            DBPROP_CANFETCHBACKWARDS = 18,
+            DBPROP_CANHOLDROWS = 19,
+            DBPROP_CANSCROLLBACKWARDS = 21,
+            DBPROP_CATALOGLOCATION = 22,
+            DBPROP_CATALOGTERM = 23,
+            DBPROP_CATALOGUSAGE = 24,
+            DBPROP_CHANGEINSERTEDROWS = 188,
+            DBPROP_COL_AUTOINCREMENT = 26,
+            DBPROP_COL_DEFAULT = 27,
+            DBPROP_COL_DESCRIPTION = 28,
+            DBPROP_COL_FIXEDLENGTH = 167,
+            DBPROP_COL_NULLABLE = 29,
+            DBPROP_COL_PRIMARYKEY = 30,
+            DBPROP_COL_UNIQUE = 31,
+            DBPROP_COLUMNDEFINITION = 32,
+            DBPROP_COLUMNRESTRICT = 33,
+            DBPROP_COMMANDTIMEOUT = 34,
+            DBPROP_COMMITPRESERVE = 35,
+            DBPROP_CONCATNULLBEHAVIOR = 36,
+            DBPROP_CURRENTCATALOG = 37,
+            DBPROP_DATASOURCENAME = 38,
+            DBPROP_DATASOURCEREADONLY = 39,
+            DBPROP_DBMSNAME = 40,
+            DBPROP_DBMSVER = 41,
+            DBPROP_DEFERRED = 42,
+            DBPROP_DELAYSTORAGEOBJECTS = 43,
+            DBPROP_DSOTHREADMODEL = 169,
+            DBPROP_GROUPBY = 44,
+            DBPROP_HETEROGENEOUSTABLES = 45,
+            DBPROP_IAccessor = 121,
+            DBPROP_IColumnsInfo = 122,
+            DBPROP_IColumnsRowset = 123,
+            DBPROP_IConnectionPointContainer = 124,
+            DBPROP_IConvertType = 194,
+            DBPROP_IRowset = 126,
+            DBPROP_IRowsetChange = 127,
+            DBPROP_IRowsetIdentity = 128,
+            DBPROP_IRowsetIndex = 159,
+            DBPROP_IRowsetInfo = 129,
+            DBPROP_IRowsetLocate = 130,
+            DBPROP_IRowsetResynch = 132,
+            DBPROP_IRowsetScroll = 133,
+            DBPROP_IRowsetUpdate = 134,
+            DBPROP_ISupportErrorInfo = 135,
+            DBPROP_ILockBytes = 136,
+            DBPROP_ISequentialStream = 137,
+            DBPROP_IStorage = 138,
+            DBPROP_IStream = 139,
+            DBPROP_IDENTIFIERCASE = 46,
+            DBPROP_IMMOBILEROWS = 47,
+            DBPROP_INDEX_AUTOUPDATE = 48,
+            DBPROP_INDEX_CLUSTERED = 49,
+            DBPROP_INDEX_FILLFACTOR = 50,
+            DBPROP_INDEX_INITIALSIZE = 51,
+            DBPROP_INDEX_NULLCOLLATION = 52,
+            DBPROP_INDEX_NULLS = 53,
+            DBPROP_INDEX_PRIMARYKEY = 54,
+            DBPROP_INDEX_SORTBOOKMARKS = 55,
+            DBPROP_INDEX_TEMPINDEX = 163,
+            DBPROP_INDEX_TYPE = 56,
+            DBPROP_INDEX_UNIQUE = 57,
+            DBPROP_INIT_DATASOURCE = 59,
+            DBPROP_INIT_HWND = 60,
+            DBPROP_INIT_IMPERSONATION_LEVEL = 61,
+            DBPROP_INIT_LCID = 186,
+            DBPROP_INIT_LOCATION = 62,
+            DBPROP_INIT_MODE = 63,
+            DBPROP_INIT_PROMPT = 64,
+            DBPROP_INIT_PROTECTION_LEVEL = 65,
+            DBPROP_INIT_PROVIDERSTRING = 160,
+            DBPROP_INIT_TIMEOUT = 66,
+            DBPROP_LITERALBOOKMARKS = 67,
+            DBPROP_LITERALIDENTITY = 68,
+            DBPROP_MAXINDEXSIZE = 70,
+            DBPROP_MAXOPENROWS = 71,
+            DBPROP_MAXPENDINGROWS = 72,
+            DBPROP_MAXROWS = 73,
+            DBPROP_MAXROWSIZE = 74,
+            DBPROP_MAXROWSIZEINCLUDESBLOB = 75,
+            DBPROP_MAXTABLESINSELECT = 76,
+            DBPROP_MAYWRITECOLUMN = 77,
+            DBPROP_MEMORYUSAGE = 78,
+            DBPROP_MULTIPLEPARAMSETS = 191,
+            DBPROP_MULTIPLERESULTS = 196,
+            DBPROP_MULTIPLESTORAGEOBJECTS = 80,
+            DBPROP_MULTITABLEUPDATE = 81,
+            DBPROP_NOTIFICATIONGRANULARITY = 198,
+            DBPROP_NOTIFICATIONPHASES = 82,
+            DBPROP_NOTIFYCOLUMNSET = 171,
+            DBPROP_NOTIFYROWDELETE = 173,
+            DBPROP_NOTIFYROWFIRSTCHANGE = 174,
+            DBPROP_NOTIFYROWINSERT = 175,
+            DBPROP_NOTIFYROWRESYNCH = 177,
+            DBPROP_NOTIFYROWSETCHANGED = 211,
+            DBPROP_NOTIFYROWSETRELEASE = 178,
+            DBPROP_NOTIFYROWSETFETCHPOSITIONCHANGE = 179,
+            DBPROP_NOTIFYROWUNDOCHANGE = 180,
+            DBPROP_NOTIFYROWUNDODELETE = 181,
+            DBPROP_NOTIFYROWUNDOINSERT = 182,
+            DBPROP_NOTIFYROWUPDATE = 183,
+            DBPROP_NULLCOLLATION = 83,
+            DBPROP_OLEOBJECTS = 84,
+            DBPROP_ORDERBYCOLUMNSINSELECT = 85,
+            DBPROP_ORDEREDBOOKMARKS = 86,
+            DBPROP_OTHERINSERT = 87,
+            DBPROP_OTHERUPDATEDELETE = 88,
+            DBPROP_OUTPUTPARAMETERAVAILABILITY = 184,
+            DBPROP_OWNINSERT = 89,
+            DBPROP_OWNUPDATEDELETE = 90,
+            DBPROP_PERSISTENTIDTYPE = 185,
+            DBPROP_PREPAREABORTBEHAVIOR = 91,
+            DBPROP_PREPARECOMMITBEHAVIOR = 92,
+            DBPROP_PROCEDURETERM = 93,
+            DBPROP_PROVIDERNAME = 96,
+            DBPROP_PROVIDEROLEDBVER = 97,
+            DBPROP_PROVIDERVER = 98,
+            DBPROP_QUICKRESTART = 99,
+            DBPROP_QUOTEDIDENTIFIERCASE = 100,
+            DBPROP_REENTRANTEVENTS = 101,
+            DBPROP_REMOVEDELETED = 102,
+            DBPROP_REPORTMULTIPLECHANGES = 103,
+            DBPROP_RETURNPENDINGINSERTS = 189,
+            DBPROP_ROWRESTRICT = 104,
+            DBPROP_ROWSETCONVERSIONSONCOMMAND = 192,
+            DBPROP_ROWTHREADMODEL = 105,
+            DBPROP_SCHEMATERM = 106,
+            DBPROP_SCHEMAUSAGE = 107,
+            DBPROP_SERVERCURSOR = 108,
+            DBPROP_SESS_AUTOCOMMITISOLEVELS = 190,
+            DBPROP_SQLSUPPORT = 109,
+            DBPROP_STRONGIDENTITY = 119,
+            DBPROP_STRUCTUREDSTORAGE = 111,
+            DBPROP_SUBQUERIES = 112,
+            DBPROP_SUPPORTEDTXNDDL = 161,
+            DBPROP_SUPPORTEDTXNISOLEVELS = 113,
+            DBPROP_SUPPORTEDTXNISORETAIN = 114,
+            DBPROP_TABLETERM = 115,
+            DBPROP_TBL_TEMPTABLE = 140,
+            DBPROP_TRANSACTEDOBJECT = 116,
+            DBPROP_UPDATABILITY = 117,
+            DBPROP_USERNAME = 118,
+        }
+        #[repr(i32)]
+        enum DBPROPENUM15 {
+            DBPROP_FILTERCOMPAREOPS = 209,
+            DBPROP_FINDCOMPAREOPS = 210,
+            DBPROP_IChapteredRowset = 202,
+            DBPROP_IDBAsynchStatus = 203,
+            DBPROP_IRowsetFind = 204,
+            DBPROP_IRowsetView = 212,
+            DBPROP_IViewChapter = 213,
+            DBPROP_IViewFilter = 214,
+            DBPROP_IViewRowset = 215,
+            DBPROP_IViewSort = 216,
+            DBPROP_INIT_ASYNCH = 200,
+            DBPROP_MAXOPENCHAPTERS = 199,
+            DBPROP_MAXORSINFILTER = 205,
+            DBPROP_MAXSORTCOLUMNS = 206,
+            DBPROP_ROWSET_ASYNCH = 201,
+            DBPROP_SORTONINDEX = 207,
+        }
+        #[repr(i32)]
+        enum DBPROPENUM20 {
+            DBPROP_IMultipleResults = 217,
+            DBPROP_DATASOURCE_TYPE = 251,
+            MDPROP_AXES = 252,
+            MDPROP_FLATTENING_SUPPORT = 253,
+            MDPROP_MDX_JOINCUBES = 254,
+            MDPROP_NAMED_LEVELS = 255,
+            MDPROP_RANGEROWSET = 256,
+            MDPROP_MDX_SLICER = 218,
+            MDPROP_MDX_CUBEQUALIFICATION = 219,
+            MDPROP_MDX_OUTERREFERENCE = 220,
+            MDPROP_MDX_QUERYBYPROPERTY = 221,
+            MDPROP_MDX_CASESUPPORT = 222,
+            MDPROP_MDX_STRING_COMPOP = 224,
+            MDPROP_MDX_DESCFLAGS = 225,
+            MDPROP_MDX_SET_FUNCTIONS = 226,
+            MDPROP_MDX_MEMBER_FUNCTIONS = 227,
+            MDPROP_MDX_NUMERIC_FUNCTIONS = 228,
+            MDPROP_MDX_FORMULAS = 229,
+            MDPROP_AGGREGATECELL_UPDATE = 230,
+            MDPROP_MDX_AGGREGATECELL_UPDATE = 230,
+            MDPROP_MDX_OBJQUALIFICATION = 261,
+            MDPROP_MDX_NONMEASURE_EXPRESSIONS = 262,
+            DBPROP_ACCESSORDER = 231,
+            DBPROP_BOOKMARKINFO = 232,
+            DBPROP_INIT_CATALOG = 233,
+            DBPROP_ROW_BULKOPS = 234,
+            DBPROP_PROVIDERFRIENDLYNAME = 235,
+            DBPROP_LOCKMODE = 236,
+            DBPROP_MULTIPLECONNECTIONS = 237,
+            DBPROP_UNIQUEROWS = 238,
+            DBPROP_SERVERDATAONINSERT = 239,
+            DBPROP_STORAGEFLAGS = 240,
+            DBPROP_CONNECTIONSTATUS = 244,
+            DBPROP_ALTERCOLUMN = 245,
+            DBPROP_COLUMNLCID = 246,
+            DBPROP_RESETDATASOURCE = 247,
+            DBPROP_INIT_OLEDBSERVICES = 248,
+            DBPROP_IRowsetRefresh = 249,
+            DBPROP_SERVERNAME = 250,
+            DBPROP_IParentRowset = 257,
+            DBPROP_HIDDENCOLUMNS = 258,
+            DBPROP_PROVIDERMEMORY = 259,
+            DBPROP_CLIENTCURSOR = 260,
+        }
+        #[repr(i32)]
+        enum DBPROPENUM21 {
+            DBPROP_TRUSTEE_USERNAME = 241,
+            DBPROP_TRUSTEE_AUTHENTICATION = 242,
+            DBPROP_TRUSTEE_NEWAUTHENTICATION = 243,
+            DBPROP_IRow = 263,
+            DBPROP_IRowChange = 264,
+            DBPROP_IRowSchemaChange = 265,
+            DBPROP_IGetRow = 266,
+            DBPROP_IScopedOperations = 267,
+            DBPROP_IBindResource = 268,
+            DBPROP_ICreateRow = 269,
+            DBPROP_INIT_BINDFLAGS = 270,
+            DBPROP_INIT_LOCKOWNER = 271,
+            DBPROP_GENERATEURL = 273,
+            DBPROP_IDBBinderProperties = 274,
+            DBPROP_IColumnsInfo2 = 275,
+            DBPROP_IRegisterProvider = 276,
+            DBPROP_IGetSession = 277,
+            DBPROP_IGetSourceRow = 278,
+            DBPROP_IRowsetCurrentIndex = 279,
+            DBPROP_OPENROWSETSUPPORT = 280,
+            DBPROP_COL_ISLONG = 281,
+        }
+        #[repr(i32)]
+        enum DBPROPENUM25 {
+            DBPROP_COL_SEED = 282,
+            DBPROP_COL_INCREMENT = 283,
+            DBPROP_INIT_GENERALTIMEOUT = 284,
+            DBPROP_COMSERVICES = 285,
+        }
+        #[repr(i32)]
+        enum DBPROPENUM26 {
+            DBPROP_OUTPUTSTREAM = 286,
+            DBPROP_OUTPUTENCODING = 287,
+            DBPROP_TABLESTATISTICS = 288,
+            DBPROP_SKIPROWCOUNTRESULTS = 291,
+            DBPROP_IRowsetBookmark = 292,
+            MDPROP_VISUALMODE = 293,
+        }
+        type DBPROPFLAGS = u32;
+        #[repr(i32)]
+        enum DBPROPFLAGSENUM {
+            DBPROPFLAGS_NOTSUPPORTED = 0,
+            DBPROPFLAGS_COLUMN = 1,
+            DBPROPFLAGS_DATASOURCE = 2,
+            DBPROPFLAGS_DATASOURCECREATE = 4,
+            DBPROPFLAGS_DATASOURCEINFO = 8,
+            DBPROPFLAGS_DBINIT = 16,
+            DBPROPFLAGS_INDEX = 32,
+            DBPROPFLAGS_ROWSET = 64,
+            DBPROPFLAGS_TABLE = 128,
+            DBPROPFLAGS_COLUMNOK = 256,
+            DBPROPFLAGS_READ = 512,
+            DBPROPFLAGS_WRITE = 1024,
+            DBPROPFLAGS_REQUIRED = 2048,
+            DBPROPFLAGS_SESSION = 4096,
+        }
+        #[repr(i32)]
+        enum DBPROPFLAGSENUM21 {
+            DBPROPFLAGS_TRUSTEE = 8192,
+        }
+        #[repr(i32)]
+        enum DBPROPFLAGSENUM25 {
+            DBPROPFLAGS_VIEW = 16384,
+        }
+        #[repr(i32)]
+        enum DBPROPFLAGSENUM26 {
+            DBPROPFLAGS_STREAM = 32768,
+        }
+        type DBPROPID = u32;
+        #[arch(X64 | Arm64)]
+        struct DBPROPIDSET {
+            rgPropertyIDs: *mut DBPROPID,
+            cPropertyIDs: u32,
+            guidPropertySet: GUID,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBPROPIDSET {
+            rgPropertyIDs: *mut DBPROPID,
+            cPropertyIDs: u32,
+            guidPropertySet: GUID,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBPROPINFO {
+            pwszDescription: PWSTR,
+            dwPropertyID: DBPROPID,
+            dwFlags: DBPROPFLAGS,
+            vtType: VARTYPE,
+            vValues: VARIANT,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBPROPINFO {
+            pwszDescription: PWSTR,
+            dwPropertyID: DBPROPID,
+            dwFlags: DBPROPFLAGS,
+            vtType: VARTYPE,
+            vValues: VARIANT,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBPROPINFOSET {
+            rgPropertyInfos: PDBPROPINFO,
+            cPropertyInfos: u32,
+            guidPropertySet: GUID,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBPROPINFOSET {
+            rgPropertyInfos: PDBPROPINFO,
+            cPropertyInfos: u32,
+            guidPropertySet: GUID,
+        }
+        type DBPROPOPTIONS = u32;
+        #[repr(i32)]
+        enum DBPROPOPTIONSENUM {
+            DBPROPOPTIONS_REQUIRED = 0,
+            DBPROPOPTIONS_SETIFCHEAP = 1,
+            DBPROPOPTIONS_OPTIONAL = 1,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBPROPSET {
+            rgProperties: *mut DBPROP,
+            cProperties: u32,
+            guidPropertySet: GUID,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBPROPSET {
+            rgProperties: *mut DBPROP,
+            cProperties: u32,
+            guidPropertySet: GUID,
+        }
+        type DBPROPSTATUS = u32;
+        #[repr(i32)]
+        enum DBPROPSTATUSENUM {
+            DBPROPSTATUS_OK = 0,
+            DBPROPSTATUS_NOTSUPPORTED = 1,
+            DBPROPSTATUS_BADVALUE = 2,
+            DBPROPSTATUS_BADOPTION = 3,
+            DBPROPSTATUS_BADCOLUMN = 4,
+            DBPROPSTATUS_NOTALLSETTABLE = 5,
+            DBPROPSTATUS_NOTSETTABLE = 6,
+            DBPROPSTATUS_NOTSET = 7,
+            DBPROPSTATUS_CONFLICTING = 8,
+        }
+        #[repr(i32)]
+        enum DBPROPSTATUSENUM21 {
+            DBPROPSTATUS_NOTAVAILABLE = 9,
+        }
+        const DBPROPVAL_AO_RANDOM: u32 = 2;
+        const DBPROPVAL_AO_SEQUENTIAL: u32 = 0;
+        const DBPROPVAL_AO_SEQUENTIALSTORAGEOBJECTS: u32 = 1;
+        const DBPROPVAL_ASYNCH_BACKGROUNDPOPULATION: u32 = 8;
+        const DBPROPVAL_ASYNCH_INITIALIZE: u32 = 1;
+        const DBPROPVAL_ASYNCH_POPULATEONDEMAND: u32 = 32;
+        const DBPROPVAL_ASYNCH_PREPOPULATE: u32 = 16;
+        const DBPROPVAL_ASYNCH_RANDOMPOPULATION: u32 = 4;
+        const DBPROPVAL_ASYNCH_SEQUENTIALPOPULATION: u32 = 2;
+        const DBPROPVAL_BD_INTRANSACTION: u32 = 1;
+        const DBPROPVAL_BD_REORGANIZATION: u32 = 3;
+        const DBPROPVAL_BD_ROWSET: u32 = 0;
+        const DBPROPVAL_BD_XTRANSACTION: u32 = 2;
+        const DBPROPVAL_BI_CROSSROWSET: u32 = 1;
+        const DBPROPVAL_BMK_KEY: u32 = 2;
+        const DBPROPVAL_BMK_NUMERIC: u32 = 1;
+        const DBPROPVAL_BO_NOINDEXUPDATE: u32 = 1;
+        const DBPROPVAL_BO_NOLOG: u32 = 0;
+        const DBPROPVAL_BO_REFINTEGRITY: u32 = 2;
+        const DBPROPVAL_CB_DELETE: u32 = 1;
+        const DBPROPVAL_CB_NON_NULL: u32 = 2;
+        const DBPROPVAL_CB_NULL: u32 = 1;
+        const DBPROPVAL_CB_PRESERVE: u32 = 2;
+        const DBPROPVAL_CD_NOTNULL: u32 = 1;
+        const DBPROPVAL_CL_END: u32 = 2;
+        const DBPROPVAL_CL_START: u32 = 1;
+        const DBPROPVAL_CM_TRANSACTIONS: u32 = 1;
+        const DBPROPVAL_CO_BEGINSWITH: u32 = 32;
+        const DBPROPVAL_CO_CASEINSENSITIVE: u32 = 8;
+        const DBPROPVAL_CO_CASESENSITIVE: u32 = 4;
+        const DBPROPVAL_CO_CONTAINS: u32 = 16;
+        const DBPROPVAL_CO_EQUALITY: u32 = 1;
+        const DBPROPVAL_CO_STRING: u32 = 2;
+        const DBPROPVAL_CS_COMMUNICATIONFAILURE: u32 = 2;
+        const DBPROPVAL_CS_INITIALIZED: u32 = 1;
+        const DBPROPVAL_CS_UNINITIALIZED: u32 = 0;
+        const DBPROPVAL_CU_DML_STATEMENTS: u32 = 1;
+        const DBPROPVAL_CU_INDEX_DEFINITION: u32 = 4;
+        const DBPROPVAL_CU_PRIVILEGE_DEFINITION: u32 = 8;
+        const DBPROPVAL_CU_TABLE_DEFINITION: u32 = 2;
+        const DBPROPVAL_DF_INITIALLY_DEFERRED: u32 = 1;
+        const DBPROPVAL_DF_INITIALLY_IMMEDIATE: u32 = 2;
+        const DBPROPVAL_DF_NOT_DEFERRABLE: u32 = 3;
+        const DBPROPVAL_DST_DOCSOURCE: u32 = 4;
+        const DBPROPVAL_DST_MDP: u32 = 2;
+        const DBPROPVAL_DST_TDP: u32 = 1;
+        const DBPROPVAL_DST_TDPANDMDP: u32 = 3;
+        const DBPROPVAL_FU_CATALOG: u32 = 8;
+        const DBPROPVAL_FU_COLUMN: u32 = 2;
+        const DBPROPVAL_FU_NOT_SUPPORTED: u32 = 1;
+        const DBPROPVAL_FU_TABLE: u32 = 4;
+        const DBPROPVAL_GB_COLLATE: u32 = 16;
+        const DBPROPVAL_GB_CONTAINS_SELECT: u32 = 4;
+        const DBPROPVAL_GB_EQUALS_SELECT: u32 = 2;
+        const DBPROPVAL_GB_NOT_SUPPORTED: u32 = 1;
+        const DBPROPVAL_GB_NO_RELATION: u32 = 8;
+        const DBPROPVAL_GU_NOTSUPPORTED: u32 = 1;
+        const DBPROPVAL_GU_SUFFIX: u32 = 2;
+        const DBPROPVAL_HT_DIFFERENT_CATALOGS: u32 = 1;
+        const DBPROPVAL_HT_DIFFERENT_PROVIDERS: u32 = 2;
+        const DBPROPVAL_IC_LOWER: u32 = 2;
+        const DBPROPVAL_IC_MIXED: u32 = 8;
+        const DBPROPVAL_IC_SENSITIVE: u32 = 4;
+        const DBPROPVAL_IC_UPPER: u32 = 1;
+        const DBPROPVAL_IN_ALLOWNULL: u32 = 0;
+        const DBPROPVAL_IN_DISALLOWNULL: u32 = 1;
+        const DBPROPVAL_IN_IGNOREANYNULL: u32 = 4;
+        const DBPROPVAL_IN_IGNORENULL: u32 = 2;
+        const DBPROPVAL_IT_BTREE: u32 = 1;
+        const DBPROPVAL_IT_CONTENT: u32 = 3;
+        const DBPROPVAL_IT_HASH: u32 = 2;
+        const DBPROPVAL_IT_OTHER: u32 = 4;
+        const DBPROPVAL_LM_NONE: u32 = 1;
+        const DBPROPVAL_LM_SINGLEROW: u32 = 2;
+        const DBPROPVAL_MR_CONCURRENT: u32 = 2;
+        const DBPROPVAL_MR_NOTSUPPORTED: u32 = 0;
+        const DBPROPVAL_MR_SUPPORTED: u32 = 1;
+        const DBPROPVAL_NC_END: u32 = 1;
+        const DBPROPVAL_NC_HIGH: u32 = 2;
+        const DBPROPVAL_NC_LOW: u32 = 4;
+        const DBPROPVAL_NC_START: u32 = 8;
+        const DBPROPVAL_NP_ABOUTTODO: u32 = 2;
+        const DBPROPVAL_NP_DIDEVENT: u32 = 16;
+        const DBPROPVAL_NP_FAILEDTODO: u32 = 8;
+        const DBPROPVAL_NP_OKTODO: u32 = 1;
+        const DBPROPVAL_NP_SYNCHAFTER: u32 = 4;
+        const DBPROPVAL_NT_MULTIPLEROWS: u32 = 2;
+        const DBPROPVAL_NT_SINGLEROW: u32 = 1;
+        const DBPROPVAL_OA_ATEXECUTE: u32 = 2;
+        const DBPROPVAL_OA_ATROWRELEASE: u32 = 4;
+        const DBPROPVAL_OA_NOTSUPPORTED: u32 = 1;
+        const DBPROPVAL_OO_BLOB: u32 = 1;
+        const DBPROPVAL_OO_DIRECTBIND: u32 = 16;
+        const DBPROPVAL_OO_IPERSIST: u32 = 2;
+        const DBPROPVAL_OO_ROWOBJECT: u32 = 4;
+        const DBPROPVAL_OO_SCOPED: u32 = 8;
+        const DBPROPVAL_OO_SINGLETON: u32 = 32;
+        const DBPROPVAL_OP_EQUAL: u32 = 1;
+        const DBPROPVAL_OP_RELATIVE: u32 = 2;
+        const DBPROPVAL_OP_STRING: u32 = 4;
+        const DBPROPVAL_ORS_HISTOGRAM: u32 = 8;
+        const DBPROPVAL_ORS_INDEX: u32 = 1;
+        const DBPROPVAL_ORS_INTEGRATEDINDEX: u32 = 2;
+        const DBPROPVAL_ORS_STOREDPROC: u32 = 4;
+        const DBPROPVAL_ORS_TABLE: u32 = 0;
+        const DBPROPVAL_OS_AGR_AFTERSESSION: u32 = 8;
+        const DBPROPVAL_OS_CLIENTCURSOR: u32 = 4;
+        const DBPROPVAL_OS_DISABLEALL: u32 = 0;
+        const DBPROPVAL_OS_ENABLEALL: u32 = 4294967295;
+        const DBPROPVAL_OS_RESOURCEPOOLING: u32 = 1;
+        const DBPROPVAL_OS_TXNENLISTMENT: u32 = 2;
+        const DBPROPVAL_PT_GUID: u32 = 8;
+        const DBPROPVAL_PT_GUID_NAME: u32 = 1;
+        const DBPROPVAL_PT_GUID_PROPID: u32 = 2;
+        const DBPROPVAL_PT_NAME: u32 = 4;
+        const DBPROPVAL_PT_PGUID_NAME: u32 = 32;
+        const DBPROPVAL_PT_PGUID_PROPID: u32 = 64;
+        const DBPROPVAL_PT_PROPID: u32 = 16;
+        const DBPROPVAL_RD_RESETALL: u32 = 4294967295;
+        const DBPROPVAL_RT_APTMTTHREAD: u32 = 2;
+        const DBPROPVAL_RT_FREETHREAD: u32 = 1;
+        const DBPROPVAL_RT_SINGLETHREAD: u32 = 4;
+        const DBPROPVAL_SQL_ANSI89_IEF: u32 = 8;
+        const DBPROPVAL_SQL_ANSI92_ENTRY: u32 = 16;
+        const DBPROPVAL_SQL_ANSI92_FULL: u32 = 128;
+        const DBPROPVAL_SQL_ANSI92_INTERMEDIATE: u32 = 64;
+        const DBPROPVAL_SQL_ESCAPECLAUSES: u32 = 256;
+        const DBPROPVAL_SQL_FIPS_TRANSITIONAL: u32 = 32;
+        const DBPROPVAL_SQL_NONE: u32 = 0;
+        const DBPROPVAL_SQL_ODBC_CORE: u32 = 2;
+        const DBPROPVAL_SQL_ODBC_EXTENDED: u32 = 4;
+        const DBPROPVAL_SQL_ODBC_MINIMUM: u32 = 1;
+        const DBPROPVAL_SQL_SUBMINIMUM: u32 = 512;
+        const DBPROPVAL_SQ_COMPARISON: u32 = 2;
+        const DBPROPVAL_SQ_CORRELATEDSUBQUERIES: u32 = 1;
+        const DBPROPVAL_SQ_EXISTS: u32 = 4;
+        const DBPROPVAL_SQ_IN: u32 = 8;
+        const DBPROPVAL_SQ_QUANTIFIED: u32 = 16;
+        const DBPROPVAL_SQ_TABLE: u32 = 32;
+        const DBPROPVAL_SS_ILOCKBYTES: u32 = 8;
+        const DBPROPVAL_SS_ISEQUENTIALSTREAM: u32 = 1;
+        const DBPROPVAL_SS_ISTORAGE: u32 = 4;
+        const DBPROPVAL_SS_ISTREAM: u32 = 2;
+        const DBPROPVAL_STGM_CONVERT: u32 = 262144;
+        const DBPROPVAL_STGM_CREATE: u32 = 4096;
+        const DBPROPVAL_STGM_DELETEONRELEASE: u32 = 2097152;
+        const DBPROPVAL_STGM_DIRECT: u32 = 65536;
+        const DBPROPVAL_STGM_FAILIFTHERE: u32 = 524288;
+        const DBPROPVAL_STGM_PRIORITY: u32 = 1048576;
+        const DBPROPVAL_STGM_READ: u32 = 0;
+        const DBPROPVAL_STGM_READWRITE: u32 = 2;
+        const DBPROPVAL_STGM_SHARE_DENY_NONE: u32 = 64;
+        const DBPROPVAL_STGM_SHARE_DENY_READ: u32 = 48;
+        const DBPROPVAL_STGM_SHARE_DENY_WRITE: u32 = 32;
+        const DBPROPVAL_STGM_SHARE_EXCLUSIVE: u32 = 16;
+        const DBPROPVAL_STGM_TRANSACTED: u32 = 131072;
+        const DBPROPVAL_STGM_WRITE: u32 = 1;
+        const DBPROPVAL_SU_DML_STATEMENTS: u32 = 1;
+        const DBPROPVAL_SU_INDEX_DEFINITION: u32 = 4;
+        const DBPROPVAL_SU_PRIVILEGE_DEFINITION: u32 = 8;
+        const DBPROPVAL_SU_TABLE_DEFINITION: u32 = 2;
+        const DBPROPVAL_TC_ALL: u32 = 8;
+        const DBPROPVAL_TC_DDL_COMMIT: u32 = 2;
+        const DBPROPVAL_TC_DDL_IGNORE: u32 = 4;
+        const DBPROPVAL_TC_DDL_LOCK: u32 = 16;
+        const DBPROPVAL_TC_DML: u32 = 1;
+        const DBPROPVAL_TC_NONE: u32 = 0;
+        const DBPROPVAL_TI_BROWSE: u32 = 256;
+        const DBPROPVAL_TI_CHAOS: u32 = 16;
+        const DBPROPVAL_TI_CURSORSTABILITY: u32 = 4096;
+        const DBPROPVAL_TI_ISOLATED: u32 = 1048576;
+        const DBPROPVAL_TI_READCOMMITTED: u32 = 4096;
+        const DBPROPVAL_TI_READUNCOMMITTED: u32 = 256;
+        const DBPROPVAL_TI_REPEATABLEREAD: u32 = 65536;
+        const DBPROPVAL_TI_SERIALIZABLE: u32 = 1048576;
+        const DBPROPVAL_TR_ABORT: u32 = 16;
+        const DBPROPVAL_TR_ABORT_DC: u32 = 8;
+        const DBPROPVAL_TR_ABORT_NO: u32 = 32;
+        const DBPROPVAL_TR_BOTH: u32 = 128;
+        const DBPROPVAL_TR_COMMIT: u32 = 2;
+        const DBPROPVAL_TR_COMMIT_DC: u32 = 1;
+        const DBPROPVAL_TR_COMMIT_NO: u32 = 4;
+        const DBPROPVAL_TR_DONTCARE: u32 = 64;
+        const DBPROPVAL_TR_NONE: u32 = 256;
+        const DBPROPVAL_TR_OPTIMISTIC: u32 = 512;
+        const DBPROPVAL_TS_CARDINALITY: u32 = 1;
+        const DBPROPVAL_TS_HISTOGRAM: u32 = 2;
+        const DBPROPVAL_UP_CHANGE: u32 = 1;
+        const DBPROPVAL_UP_DELETE: u32 = 2;
+        const DBPROPVAL_UP_INSERT: u32 = 4;
+        const DBPROP_PROVIDERFILENAME: u32 = 96;
+        const DBPROP_SERVER_NAME: u32 = 250;
+        type DBRANGE = u32;
+        #[repr(i32)]
+        enum DBRANGEENUM {
+            DBRANGE_INCLUSIVESTART = 0,
+            DBRANGE_INCLUSIVEEND = 0,
+            DBRANGE_EXCLUSIVESTART = 1,
+            DBRANGE_EXCLUSIVEEND = 2,
+            DBRANGE_EXCLUDENULLS = 4,
+            DBRANGE_PREFIX = 8,
+            DBRANGE_MATCH = 16,
+        }
+        #[repr(i32)]
+        enum DBRANGEENUM20 {
+            DBRANGE_MATCH_N_SHIFT = 24,
+            DBRANGE_MATCH_N_MASK = 255,
+        }
+        type DBREASON = u32;
+        #[repr(i32)]
+        enum DBREASONENUM {
+            DBREASON_ROWSET_FETCHPOSITIONCHANGE = 0,
+            DBREASON_ROWSET_RELEASE = 1,
+            DBREASON_COLUMN_SET = 2,
+            DBREASON_COLUMN_RECALCULATED = 3,
+            DBREASON_ROW_ACTIVATE = 4,
+            DBREASON_ROW_RELEASE = 5,
+            DBREASON_ROW_DELETE = 6,
+            DBREASON_ROW_FIRSTCHANGE = 7,
+            DBREASON_ROW_INSERT = 8,
+            DBREASON_ROW_RESYNCH = 9,
+            DBREASON_ROW_UNDOCHANGE = 10,
+            DBREASON_ROW_UNDOINSERT = 11,
+            DBREASON_ROW_UNDODELETE = 12,
+            DBREASON_ROW_UPDATE = 13,
+            DBREASON_ROWSET_CHANGED = 14,
+        }
+        #[repr(i32)]
+        enum DBREASONENUM15 {
+            DBREASON_ROWPOSITION_CHANGED = 15,
+            DBREASON_ROWPOSITION_CHAPTERCHANGED = 16,
+            DBREASON_ROWPOSITION_CLEARED = 17,
+            DBREASON_ROW_ASYNCHINSERT = 18,
+        }
+        type DBREFCOUNT = u32;
+        type DBRESULTFLAG = DB_LRESERVE;
+        #[repr(i32)]
+        enum DBRESULTFLAGENUM {
+            DBRESULTFLAG_DEFAULT = 0,
+            DBRESULTFLAG_ROWSET = 1,
+            DBRESULTFLAG_ROW = 2,
+        }
+        #[arch(X64 | Arm64)]
+        type DBROWCOUNT = i64;
+        #[arch(X86)]
+        type DBROWCOUNT = i32;
+        #[arch(X64 | Arm64)]
+        type DBROWOFFSET = i64;
+        #[arch(X86)]
+        type DBROWOFFSET = i32;
+        type DBROWOPTIONS = u32;
+        type DBROWSTATUS = u32;
+        #[repr(i32)]
+        enum DBROWSTATUSENUM {
+            DBROWSTATUS_S_OK = 0,
+            DBROWSTATUS_S_MULTIPLECHANGES = 2,
+            DBROWSTATUS_S_PENDINGCHANGES = 3,
+            DBROWSTATUS_E_CANCELED = 4,
+            DBROWSTATUS_E_CANTRELEASE = 6,
+            DBROWSTATUS_E_CONCURRENCYVIOLATION = 7,
+            DBROWSTATUS_E_DELETED = 8,
+            DBROWSTATUS_E_PENDINGINSERT = 9,
+            DBROWSTATUS_E_NEWLYINSERTED = 10,
+            DBROWSTATUS_E_INTEGRITYVIOLATION = 11,
+            DBROWSTATUS_E_INVALID = 12,
+            DBROWSTATUS_E_MAXPENDCHANGESEXCEEDED = 13,
+            DBROWSTATUS_E_OBJECTOPEN = 14,
+            DBROWSTATUS_E_OUTOFMEMORY = 15,
+            DBROWSTATUS_E_PERMISSIONDENIED = 16,
+            DBROWSTATUS_E_LIMITREACHED = 17,
+            DBROWSTATUS_E_SCHEMAVIOLATION = 18,
+            DBROWSTATUS_E_FAIL = 19,
+        }
+        #[repr(i32)]
+        enum DBROWSTATUSENUM20 {
+            DBROWSTATUS_S_NOCHANGE = 20,
+        }
+        type DBSEEK = u32;
+        #[repr(i32)]
+        enum DBSEEKENUM {
+            DBSEEK_INVALID = 0,
+            DBSEEK_FIRSTEQ = 1,
+            DBSEEK_LASTEQ = 2,
+            DBSEEK_AFTEREQ = 4,
+            DBSEEK_AFTER = 8,
+            DBSEEK_BEFOREEQ = 16,
+            DBSEEK_BEFORE = 32,
+        }
+        const DBSEEK_GE: u32 = 4;
+        const DBSEEK_GT: u32 = 8;
+        const DBSEEK_LE: u32 = 16;
+        const DBSEEK_LT: u32 = 32;
+        type DBSORT = u32;
+        #[repr(i32)]
+        enum DBSORTENUM {
+            DBSORT_ASCENDING = 0,
+            DBSORT_DESCENDING = 1,
+        }
+        type DBSOURCETYPE = u32;
+        #[repr(i32)]
+        enum DBSOURCETYPEENUM {
+            DBSOURCETYPE_DATASOURCE = 1,
+            DBSOURCETYPE_ENUMERATOR = 2,
+        }
+        #[repr(i32)]
+        enum DBSOURCETYPEENUM20 {
+            DBSOURCETYPE_DATASOURCE_TDP = 1,
+            DBSOURCETYPE_DATASOURCE_MDP = 3,
+        }
+        #[repr(i32)]
+        enum DBSOURCETYPEENUM25 {
+            DBSOURCETYPE_BINDER = 4,
+        }
+        type DBSTATUS = u32;
+        #[repr(i32)]
+        enum DBSTATUSENUM {
+            DBSTATUS_S_OK = 0,
+            DBSTATUS_E_BADACCESSOR = 1,
+            DBSTATUS_E_CANTCONVERTVALUE = 2,
+            DBSTATUS_S_ISNULL = 3,
+            DBSTATUS_S_TRUNCATED = 4,
+            DBSTATUS_E_SIGNMISMATCH = 5,
+            DBSTATUS_E_DATAOVERFLOW = 6,
+            DBSTATUS_E_CANTCREATE = 7,
+            DBSTATUS_E_UNAVAILABLE = 8,
+            DBSTATUS_E_PERMISSIONDENIED = 9,
+            DBSTATUS_E_INTEGRITYVIOLATION = 10,
+            DBSTATUS_E_SCHEMAVIOLATION = 11,
+            DBSTATUS_E_BADSTATUS = 12,
+            DBSTATUS_S_DEFAULT = 13,
+        }
+        #[repr(i32)]
+        enum DBSTATUSENUM20 {
+            MDSTATUS_S_CELLEMPTY = 14,
+            DBSTATUS_S_IGNORE = 15,
+        }
+        #[repr(i32)]
+        enum DBSTATUSENUM21 {
+            DBSTATUS_E_DOESNOTEXIST = 16,
+            DBSTATUS_E_INVALIDURL = 17,
+            DBSTATUS_E_RESOURCELOCKED = 18,
+            DBSTATUS_E_RESOURCEEXISTS = 19,
+            DBSTATUS_E_CANNOTCOMPLETE = 20,
+            DBSTATUS_E_VOLUMENOTFOUND = 21,
+            DBSTATUS_E_OUTOFSPACE = 22,
+            DBSTATUS_S_CANNOTDELETESOURCE = 23,
+            DBSTATUS_E_READONLY = 24,
+            DBSTATUS_E_RESOURCEOUTOFSCOPE = 25,
+            DBSTATUS_S_ALREADYEXISTS = 26,
+        }
+        #[repr(i32)]
+        enum DBSTATUSENUM25 {
+            DBSTATUS_E_CANCELED = 27,
+            DBSTATUS_E_NOTCOLLECTION = 28,
+        }
+        #[repr(i32)]
+        enum DBSTATUSENUM26 {
+            DBSTATUS_S_ROWSETCOLUMN = 29,
+        }
+        #[repr(i32)]
+        enum DBTABLESTATISTICSTYPE26 {
+            DBSTAT_HISTOGRAM = 1,
+            DBSTAT_COLUMN_CARDINALITY = 2,
+            DBSTAT_TUPLE_CARDINALITY = 4,
+        }
+        struct DBTIME {
+            hour: u16,
+            minute: u16,
+            second: u16,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBTIMESTAMP {
+            year: i16,
+            month: u16,
+            day: u16,
+            hour: u16,
+            minute: u16,
+            second: u16,
+            fraction: u32,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBTIMESTAMP {
+            year: i16,
+            month: u16,
+            day: u16,
+            hour: u16,
+            minute: u16,
+            second: u16,
+            fraction: u32,
+        }
+        type DBTYPE = u16;
+        #[repr(i32)]
+        enum DBTYPEENUM {
+            DBTYPE_EMPTY = 0,
+            DBTYPE_NULL = 1,
+            DBTYPE_I2 = 2,
+            DBTYPE_I4 = 3,
+            DBTYPE_R4 = 4,
+            DBTYPE_R8 = 5,
+            DBTYPE_CY = 6,
+            DBTYPE_DATE = 7,
+            DBTYPE_BSTR = 8,
+            DBTYPE_IDISPATCH = 9,
+            DBTYPE_ERROR = 10,
+            DBTYPE_BOOL = 11,
+            DBTYPE_VARIANT = 12,
+            DBTYPE_IUNKNOWN = 13,
+            DBTYPE_DECIMAL = 14,
+            DBTYPE_UI1 = 17,
+            DBTYPE_ARRAY = 8192,
+            DBTYPE_BYREF = 16384,
+            DBTYPE_I1 = 16,
+            DBTYPE_UI2 = 18,
+            DBTYPE_UI4 = 19,
+            DBTYPE_I8 = 20,
+            DBTYPE_UI8 = 21,
+            DBTYPE_GUID = 72,
+            DBTYPE_VECTOR = 4096,
+            DBTYPE_RESERVED = 32768,
+            DBTYPE_BYTES = 128,
+            DBTYPE_STR = 129,
+            DBTYPE_WSTR = 130,
+            DBTYPE_NUMERIC = 131,
+            DBTYPE_UDT = 132,
+            DBTYPE_DBDATE = 133,
+            DBTYPE_DBTIME = 134,
+            DBTYPE_DBTIMESTAMP = 135,
+        }
+        #[repr(i32)]
+        enum DBTYPEENUM15 {
+            DBTYPE_HCHAPTER = 136,
+        }
+        #[repr(i32)]
+        enum DBTYPEENUM20 {
+            DBTYPE_FILETIME = 64,
+            DBTYPE_PROPVARIANT = 138,
+            DBTYPE_VARNUMERIC = 139,
+        }
+        #[arch(X64 | Arm64)]
+        const DBTYPEFOR_DBLENGTH: u32 = 21;
+        #[arch(X86)]
+        const DBTYPEFOR_DBLENGTH: u32 = 19;
+        #[arch(X64 | Arm64)]
+        const DBTYPEFOR_DBORDINAL: u32 = 21;
+        #[arch(X86)]
+        const DBTYPEFOR_DBORDINAL: u32 = 19;
+        #[arch(X64 | Arm64)]
+        const DBTYPEFOR_DBROWCOUNT: u32 = 20;
+        #[arch(X86)]
+        const DBTYPEFOR_DBROWCOUNT: u32 = 3;
+        type DBUPDELRULE = u32;
+        #[repr(i32)]
+        enum DBUPDELRULEENUM {
+            DBUPDELRULE_NOACTION = 0,
+            DBUPDELRULE_CASCADE = 1,
+            DBUPDELRULE_SETNULL = 2,
+            DBUPDELRULE_SETDEFAULT = 3,
+        }
+        #[arch(X64 | Arm64)]
+        struct DBVECTOR {
+            size: DBLENGTH,
+            ptr: *mut void,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBVECTOR {
+            size: DBLENGTH,
+            ptr: *mut void,
+        }
+        const DBWATCHREGION_NULL: u32 = 0;
+        const DB_ALL_EXCEPT_LIKE: u32 = 3;
+        const DB_BINDFLAGS_COLLECTION: u32 = 16;
+        const DB_BINDFLAGS_DELAYFETCHCOLUMNS: u32 = 1;
+        const DB_BINDFLAGS_DELAYFETCHSTREAM: u32 = 2;
+        const DB_BINDFLAGS_ISSTRUCTUREDDOCUMENT: u32 = 128;
+        const DB_BINDFLAGS_OPENIFEXISTS: u32 = 32;
+        const DB_BINDFLAGS_OUTPUT: u32 = 8;
+        const DB_BINDFLAGS_OVERWRITE: u32 = 64;
+        const DB_BINDFLAGS_RECURSIVE: u32 = 4;
+        const DB_COLLATION_ASC: u32 = 1;
+        const DB_COLLATION_DESC: u32 = 2;
+        const DB_COUNTUNAVAILABLE: i32 = -1;
+        #[arch(X64 | Arm64)]
+        type DB_DWRESERVE = DWORDLONG;
+        #[arch(X86)]
+        type DB_DWRESERVE = u32;
+        const DB_IMP_LEVEL_ANONYMOUS: u32 = 0;
+        const DB_IMP_LEVEL_DELEGATE: u32 = 3;
+        const DB_IMP_LEVEL_IDENTIFY: u32 = 1;
+        const DB_IMP_LEVEL_IMPERSONATE: u32 = 2;
+        const DB_INVALIDCOLUMN: i32 = -1;
+        const DB_INVALID_HACCESSOR: u32 = 0;
+        const DB_INVALID_HCHAPTER: u32 = 0;
+        const DB_LIKE_ONLY: u32 = 2;
+        const DB_LOCAL_EXCLUSIVE: u32 = 3;
+        const DB_LOCAL_SHARED: u32 = 2;
+        #[arch(X64 | Arm64)]
+        type DB_LORDINAL = i64;
+        #[arch(X86)]
+        type DB_LORDINAL = i32;
+        #[arch(X64 | Arm64)]
+        type DB_LPARAMS = i64;
+        #[arch(X86)]
+        type DB_LPARAMS = i32;
+        #[arch(X64 | Arm64)]
+        type DB_LRESERVE = i64;
+        #[arch(X86)]
+        type DB_LRESERVE = i32;
+        const DB_MODE_READ: u32 = 1;
+        const DB_MODE_READWRITE: u32 = 3;
+        const DB_MODE_SHARE_DENY_NONE: u32 = 16;
+        const DB_MODE_SHARE_DENY_READ: u32 = 4;
+        const DB_MODE_SHARE_DENY_WRITE: u32 = 8;
+        const DB_MODE_SHARE_EXCLUSIVE: u32 = 12;
+        const DB_MODE_WRITE: u32 = 2;
+        const DB_NULL_HACCESSOR: u32 = 0;
+        const DB_NULL_HCHAPTER: u32 = 0;
+        const DB_NULL_HROW: u32 = 0;
+        struct DB_NUMERIC {
+            precision: u8,
+            scale: u8,
+            sign: u8,
+            val: [u8; 16],
+        }
+        const DB_PROT_LEVEL_CALL: u32 = 2;
+        const DB_PROT_LEVEL_CONNECT: u32 = 1;
+        const DB_PROT_LEVEL_NONE: u32 = 0;
+        const DB_PROT_LEVEL_PKT: u32 = 3;
+        const DB_PROT_LEVEL_PKT_INTEGRITY: u32 = 4;
+        const DB_PROT_LEVEL_PKT_PRIVACY: u32 = 5;
+        const DB_PT_FUNCTION: u32 = 3;
+        const DB_PT_PROCEDURE: u32 = 2;
+        const DB_PT_UNKNOWN: u32 = 1;
+        const DB_REMOTE: u32 = 1;
+        const DB_SEARCHABLE: u32 = 4;
+        const DB_UNSEARCHABLE: u32 = 1;
+        #[arch(X64 | Arm64)]
+        type DB_UPARAMS = u64;
+        #[arch(X86)]
+        type DB_UPARAMS = u32;
+        #[arch(X64 | Arm64)]
+        type DB_URESERVE = u64;
+        #[arch(X86)]
+        type DB_URESERVE = u32;
+        struct DB_VARNUMERIC {
+            precision: u8,
+            scale: SBYTE,
+            sign: u8,
+            val: [u8; 1],
+        }
+        #[arch(X64 | Arm64)]
+        struct ERRORINFO {
+            hrError: HRESULT,
+            dwMinor: u32,
+            clsid: GUID,
+            iid: GUID,
+            dispid: DISPID,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct ERRORINFO {
+            hrError: HRESULT,
+            dwMinor: u32,
+            clsid: GUID,
+            iid: GUID,
+            dispid: DISPID,
+        }
+        type HACCESSOR = usize;
+        type HCHAPTER = usize;
+        type HROW = usize;
+        type HWATCHREGION = usize;
+        #[guid(0x0c733a8c_2a1c_11ce_ade5_00aa0044773d)]
+        interface IAccessor: IUnknown {
+            fn AddRefAccessor(&self, hAccessor: HACCESSOR, #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
+            fn CreateAccessor(&self, dwAccessorFlags: DBACCESSORFLAGS, cBindings: DBCOUNTITEM, #[len_param(1)] rgBindings: *const DBBINDING, cbRowSize: DBLENGTH, phAccessor: *mut HACCESSOR, #[len_param(1)] #[opt] rgStatus: *mut DBBINDSTATUS) -> HRESULT;
+            fn GetBindings(&self, hAccessor: HACCESSOR, pdwAccessorFlags: *mut DBACCESSORFLAGS, #[opt] pcBindings: *mut DBCOUNTITEM, prgBindings: *mut *mut DBBINDING) -> HRESULT;
+            fn ReleaseAccessor(&self, hAccessor: HACCESSOR, #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
+        }
+        #[guid(0x0c733aa6_2a1c_11ce_ade5_00aa0044773d)]
+        interface IAlterIndex: IUnknown {
+            fn AlterIndex(&self, pTableId: *const DBID, pIndexId: *const DBID, pNewIndexId: *const DBID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+        }
+        #[guid(0x0c733aa5_2a1c_11ce_ade5_00aa0044773d)]
+        interface IAlterTable: IUnknown {
+            fn AlterColumn(&self, pTableId: *const DBID, pColumnId: *const DBID, dwColumnDescFlags: DBCOLUMNDESCFLAGS, pColumnDesc: *const DBCOLUMNDESC) -> HRESULT;
+            fn AlterTable(&self, pTableId: *const DBID, pNewTableId: *const DBID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+        }
+        #[guid(0x0c733ab1_2a1c_11ce_ade5_00aa0044773d)]
+        interface IBindResource: IUnknown {
+            fn Bind(&self, #[opt] pUnkOuter: IUnknown, pwszURL: PCWSTR, dwBindURLFlags: DBBINDURLFLAG, rguid: *const GUID, riid: *const GUID, #[opt] pAuthenticate: IAuthenticate, #[in] #[out] #[opt] pImplSession: *mut DBIMPLICITSESSION, #[opt] pdwBindStatus: *mut DBBINDURLSTATUS, #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a93_2a1c_11ce_ade5_00aa0044773d)]
+        interface IChapteredRowset: IUnknown {
+            fn AddRefChapter(&self, hChapter: HCHAPTER, #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
+            fn ReleaseChapter(&self, hChapter: HCHAPTER, #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
+        }
+        #[guid(0x0c733a11_2a1c_11ce_ade5_00aa0044773d)]
+        interface IColumnsInfo: IUnknown {
+            fn GetColumnInfo(&self, pcColumns: *mut DBORDINAL, prgInfo: *mut *mut DBCOLUMNINFO, ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn MapColumnIDs(&self, cColumnIDs: DBORDINAL, #[len_param(0)] #[opt] rgColumnIDs: *const DBID, #[len_param(0)] #[opt] rgColumns: *mut DBORDINAL) -> HRESULT;
+        }
+        #[guid(0x0c733ab8_2a1c_11ce_ade5_00aa0044773d)]
+        interface IColumnsInfo2: IColumnsInfo {
+            fn GetRestrictedColumnInfo(&self, cColumnIDMasks: DBORDINAL, #[len_param(0)] rgColumnIDMasks: *const DBID, dwFlags: u32, pcColumns: *mut DBORDINAL, prgColumnIDs: *mut *mut DBID, prgColumnInfo: *mut *mut DBCOLUMNINFO, ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+        }
+        #[guid(0x0c733a10_2a1c_11ce_ade5_00aa0044773d)]
+        interface IColumnsRowset: IUnknown {
+            fn GetAvailableColumns(&self, pcOptColumns: *mut DBORDINAL, prgOptColumns: *mut *mut DBID) -> HRESULT;
+            fn GetColumnsRowset(&self, #[opt] pUnkOuter: IUnknown, cOptColumns: DBORDINAL, #[len_param(1)] rgOptColumns: *const DBID, riid: *const GUID, cPropertySets: u32, #[len_param(4)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET, #[iid_is] ppColRowset: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a63_2a1c_11ce_ade5_00aa0044773d)]
+        interface ICommand: IUnknown {
+            fn Cancel(&self) -> HRESULT;
+            fn Execute(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[in] #[out] #[opt] pParams: *mut DBPARAMS, #[opt] pcRowsAffected: *mut DBROWCOUNT, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn GetDBSession(&self, riid: *const GUID, #[iid_is] ppSession: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733aa7_2a1c_11ce_ade5_00aa0044773d)]
+        interface ICommandPersist: IUnknown {
+            fn DeleteCommand(&self, pCommandID: *const DBID) -> HRESULT;
+            fn GetCurrentCommand(&self, ppCommandID: *mut *mut DBID) -> HRESULT;
+            fn LoadCommand(&self, pCommandID: *const DBID, dwFlags: u32) -> HRESULT;
+            fn SaveCommand(&self, pCommandID: *const DBID, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x0c733a26_2a1c_11ce_ade5_00aa0044773d)]
+        interface ICommandPrepare: IUnknown {
+            fn Prepare(&self, cExpectedRuns: u32) -> HRESULT;
+            fn Unprepare(&self) -> HRESULT;
+        }
+        #[guid(0x0c733a79_2a1c_11ce_ade5_00aa0044773d)]
+        interface ICommandProperties: IUnknown {
+            fn GetProperties(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, pcPropertySets: *mut u32, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn SetProperties(&self, cPropertySets: u32, #[len_param(0)] rgPropertySets: *const DBPROPSET) -> HRESULT;
+        }
+        #[guid(0x0c733abf_2a1c_11ce_ade5_00aa0044773d)]
+        interface ICommandStream: IUnknown {
+            fn GetCommandStream(&self, #[opt] piid: *mut GUID, #[in] #[out] #[opt] pguidDialect: *mut GUID, #[iid_is] ppCommandStream: *mut *mut void) -> HRESULT;
+            fn SetCommandStream(&self, riid: *const GUID, rguidDialect: *const GUID, #[opt] pCommandStream: IUnknown) -> HRESULT;
+        }
+        #[guid(0x0c733a27_2a1c_11ce_ade5_00aa0044773d)]
+        interface ICommandText: ICommand {
+            fn GetCommandText(&self, #[in] #[out] #[opt] pguidDialect: *mut GUID, ppwszCommand: *mut PWSTR) -> HRESULT;
+            fn SetCommandText(&self, rguidDialect: *const GUID, #[opt] pwszCommand: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x0c733a64_2a1c_11ce_ade5_00aa0044773d)]
+        interface ICommandWithParameters: IUnknown {
+            fn GetParameterInfo(&self, pcParams: *mut DB_UPARAMS, prgParamInfo: *mut *mut DBPARAMINFO, ppNamesBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn MapParameterNames(&self, cParamNames: DB_UPARAMS, #[len_param(0)] rgParamNames: *const PCWSTR, #[len_param(0)] rgParamOrdinals: *mut DB_LPARAMS) -> HRESULT;
+            fn SetParameterInfo(&self, cParams: DB_UPARAMS, #[len_param(0)] #[opt] rgParamOrdinals: *const DB_UPARAMS, #[len_param(0)] #[opt] rgParamBindInfo: *const DBPARAMBINDINFO) -> HRESULT;
+        }
+        #[guid(0x0c733a88_2a1c_11ce_ade5_00aa0044773d)]
+        interface IConvertType: IUnknown {
+            fn CanConvert(&self, wFromType: DBTYPE, wToType: DBTYPE, dwConvertFlags: DBCONVERTFLAGS) -> HRESULT;
+        }
+        #[guid(0x0c733ab2_2a1c_11ce_ade5_00aa0044773d)]
+        interface ICreateRow: IUnknown {
+            fn CreateRow(&self, #[opt] pUnkOuter: IUnknown, pwszURL: PCWSTR, dwBindURLFlags: DBBINDURLFLAG, rguid: *const GUID, riid: *const GUID, #[opt] pAuthenticate: IAuthenticate, #[in] #[out] #[opt] pImplSession: *mut DBIMPLICITSESSION, pdwBindStatus: *mut DBBINDURLSTATUS, ppwszNewURL: *mut PWSTR, #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a96_2a1c_11ce_ade5_00aa0044773d)]
+        interface IDBAsynchNotify: IUnknown {
+            fn OnLowResource(&self, dwReserved: DB_DWRESERVE) -> HRESULT;
+            fn OnProgress(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP, ulProgress: DBCOUNTITEM, ulProgressMax: DBCOUNTITEM, eAsynchPhase: DBASYNCHPHASE, #[opt] pwszStatusText: PCWSTR) -> HRESULT;
+            fn OnStop(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP, hrStatus: HRESULT, #[opt] pwszStatusText: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x0c733a95_2a1c_11ce_ade5_00aa0044773d)]
+        interface IDBAsynchStatus: IUnknown {
+            fn Abort(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP) -> HRESULT;
+            fn GetStatus(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP, #[opt] pulProgress: *mut DBCOUNTITEM, #[opt] pulProgressMax: *mut DBCOUNTITEM, peAsynchPhase: *mut DBASYNCHPHASE, #[in] #[out] #[opt] ppwszStatusText: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x0c733ab3_2a1c_11ce_ade5_00aa0044773d)]
+        interface IDBBinderProperties: IDBProperties {
+            fn Reset(&self) -> HRESULT;
+        }
+        #[guid(0x0c733a1d_2a1c_11ce_ade5_00aa0044773d)]
+        interface IDBCreateCommand: IUnknown {
+            fn CreateCommand(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppCommand: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a5d_2a1c_11ce_ade5_00aa0044773d)]
+        interface IDBCreateSession: IUnknown {
+            fn CreateSession(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppDBSession: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a7a_2a1c_11ce_ade5_00aa0044773d)]
+        interface IDBDataSourceAdmin: IUnknown {
+            fn CreateDataSource(&self, cPropertySets: u32, #[len_param(0)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppDBSession: *mut *mut void) -> HRESULT;
+            fn DestroyDataSource(&self) -> HRESULT;
+            fn GetCreationProperties(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, pcPropertyInfoSets: *mut u32, prgPropertyInfoSets: *mut *mut DBPROPINFOSET, ppDescBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn ModifyDataSource(&self, cPropertySets: u32, #[len_param(0)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+        }
+        #[guid(0x0c733a89_2a1c_11ce_ade5_00aa0044773d)]
+        interface IDBInfo: IUnknown {
+            fn GetKeywords(&self, ppwszKeywords: *mut PWSTR) -> HRESULT;
+            fn GetLiteralInfo(&self, cLiterals: u32, #[len_param(0)] #[opt] rgLiterals: *const DBLITERAL, pcLiteralInfo: *mut u32, prgLiteralInfo: *mut *mut DBLITERALINFO, ppCharBuffer: *mut *mut OLECHAR) -> HRESULT;
+        }
+        #[guid(0x0c733a8b_2a1c_11ce_ade5_00aa0044773d)]
+        interface IDBInitialize: IUnknown {
+            fn Initialize(&self) -> HRESULT;
+            fn Uninitialize(&self) -> HRESULT;
+        }
+        #[guid(0x0c733a8a_2a1c_11ce_ade5_00aa0044773d)]
+        interface IDBProperties: IUnknown {
+            fn GetProperties(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, pcPropertySets: *mut u32, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn GetPropertyInfo(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, pcPropertyInfoSets: *mut u32, prgPropertyInfoSets: *mut *mut DBPROPINFOSET, ppDescBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn SetProperties(&self, cPropertySets: u32, #[len_param(0)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+        }
+        #[guid(0x0c733a7b_2a1c_11ce_ade5_00aa0044773d)]
+        interface IDBSchemaRowset: IUnknown {
+            fn GetRowset(&self, #[opt] pUnkOuter: IUnknown, rguidSchema: *const GUID, cRestrictions: u32, #[len_param(2)] #[opt] rgRestrictions: *const VARIANT, riid: *const GUID, cPropertySets: u32, #[len_param(5)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn GetSchemas(&self, pcSchemas: *mut u32, prgSchemas: *mut *mut GUID, prgRestrictionSupport: *mut *mut u32) -> HRESULT;
+        }
+        const IDENTIFIER_SDK_ERROR: u32 = 268435456;
+        const IDENTIFIER_SDK_MASK: u32 = 4026531840;
+        #[guid(0x0c733a66_2a1c_11ce_ade5_00aa0044773d)]
+        interface IErrorLookup: IUnknown {
+            fn GetErrorDescription(&self, hrError: HRESULT, dwLookupID: u32, pdispparams: *const DISPPARAMS, lcid: LCID, pbstrSource: *mut BSTR, pbstrDescription: *mut BSTR) -> HRESULT;
+            fn GetHelpInfo(&self, hrError: HRESULT, dwLookupID: u32, lcid: LCID, pbstrHelpFile: *mut BSTR, pdwHelpContext: *mut u32) -> HRESULT;
+            fn ReleaseErrors(&self, dwDynamicErrorID: u32) -> HRESULT;
+        }
+        #[guid(0x0c733a67_2a1c_11ce_ade5_00aa0044773d)]
+        interface IErrorRecords: IUnknown {
+            fn AddErrorRecord(&self, pErrorInfo: *const ERRORINFO, dwLookupID: u32, #[opt] pdispparams: *const DISPPARAMS, #[opt] punkCustomError: IUnknown, dwDynamicErrorID: u32) -> HRESULT;
+            fn GetBasicErrorInfo(&self, ulRecordNum: u32, pErrorInfo: *mut ERRORINFO) -> HRESULT;
+            fn GetCustomErrorObject(&self, ulRecordNum: u32, riid: *const GUID, #[iid_is] ppObject: *mut *mut void) -> HRESULT;
+            fn GetErrorInfo(&self, ulRecordNum: u32, lcid: LCID, ppErrorInfo: *mut IErrorInfo) -> HRESULT;
+            fn GetErrorParameters(&self, ulRecordNum: u32, pdispparams: *mut DISPPARAMS) -> HRESULT;
+            fn GetRecordCount(&self, pcRecords: *mut u32) -> HRESULT;
+        }
+        #[guid(0x0c733a75_2a1c_11ce_ade5_00aa0044773d)]
+        interface IGetDataSource: IUnknown {
+            fn GetDataSource(&self, riid: *const GUID, #[iid_is] ppDataSource: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733aaf_2a1c_11ce_ade5_00aa0044773d)]
+        interface IGetRow: IUnknown {
+            fn GetRowFromHROW(&self, pUnkOuter: IUnknown, hRow: HROW, riid: *const GUID, #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
+            fn GetURLFromHROW(&self, hRow: HROW, ppwszURL: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x0c733aba_2a1c_11ce_ade5_00aa0044773d)]
+        interface IGetSession: IUnknown {
+            fn GetSession(&self, riid: *const GUID, #[iid_is] ppSession: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733abb_2a1c_11ce_ade5_00aa0044773d)]
+        interface IGetSourceRow: IUnknown {
+            fn GetSourceRow(&self, riid: *const GUID, #[iid_is] ppRow: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a68_2a1c_11ce_ade5_00aa0044773d)]
+        interface IIndexDefinition: IUnknown {
+            fn CreateIndex(&self, pTableID: *const DBID, #[opt] pIndexID: *const DBID, cIndexColumnDescs: DBORDINAL, #[len_param(2)] rgIndexColumnDescs: *const DBINDEXCOLUMNDESC, cPropertySets: u32, #[len_param(4)] #[in] #[out] rgPropertySets: *mut DBPROPSET, ppIndexID: *mut *mut DBID) -> HRESULT;
+            fn DropIndex(&self, pTableID: *const DBID, #[opt] pIndexID: *const DBID) -> HRESULT;
+        }
+        #[guid(0xa07cccd1_8148_11d0_87bb_00c04fc33942)]
+        interface IMDDataset: IUnknown {
+            fn FreeAxisInfo(&self, cAxes: DBCOUNTITEM, rgAxisInfo: *const MDAXISINFO) -> HRESULT;
+            fn GetAxisInfo(&self, #[in] #[out] pcAxes: *mut DBCOUNTITEM, prgAxisInfo: *mut *mut MDAXISINFO) -> HRESULT;
+            fn GetAxisRowset(&self, pUnkOuter: IUnknown, iAxis: DBCOUNTITEM, riid: *const GUID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn GetCellData(&self, hAccessor: HACCESSOR, ulStartCell: DBORDINAL, ulEndCell: DBORDINAL, pData: *mut void) -> HRESULT;
+            fn GetSpecification(&self, riid: *const GUID, #[iid_is] ppSpecification: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xa07cccd2_8148_11d0_87bb_00c04fc33942)]
+        interface IMDFind: IUnknown {
+            fn FindCell(&self, ulStartingOrdinal: DBORDINAL, cMembers: DBCOUNTITEM, rgpwszMember: *const PCWSTR, pulCellOrdinal: *mut DBORDINAL) -> HRESULT;
+            fn FindTuple(&self, ulAxisIdentifier: u32, ulStartingOrdinal: DBORDINAL, cMembers: DBCOUNTITEM, rgpwszMember: *const PCWSTR, pulTupleOrdinal: *mut u32) -> HRESULT;
+        }
+        #[guid(0x0c733aa0_2a1c_11ce_ade5_00aa0044773d)]
+        interface IMDRangeRowset: IUnknown {
+            fn GetRangeRowset(&self, pUnkOuter: IUnknown, ulStartCell: DBORDINAL, ulEndCell: DBORDINAL, riid: *const GUID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a90_2a1c_11ce_ade5_00aa0044773d)]
+        interface IMultipleResults: IUnknown {
+            fn GetResult(&self, #[opt] pUnkOuter: IUnknown, lResultFlag: DBRESULTFLAG, riid: *const GUID, #[opt] pcRowsAffected: *mut DBROWCOUNT, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733aa3_2a1c_11ce_ade5_00aa0044773d)]
+        interface IObjectAccessControl: IUnknown {
+            fn GetObjectAccessRights(&self, pObject: *const SEC_OBJECT, #[in] #[out] pcAccessEntries: *mut u32, #[in] #[out] prgAccessEntries: *mut *mut EXPLICIT_ACCESS_W) -> HRESULT;
+            fn GetObjectOwner(&self, pObject: *const SEC_OBJECT, ppOwner: *mut *mut TRUSTEE_W) -> HRESULT;
+            fn IsObjectAccessAllowed(&self, pObject: *const SEC_OBJECT, pAccessEntry: *const EXPLICIT_ACCESS_W, pfResult: *mut BOOL) -> HRESULT;
+            fn SetObjectAccessRights(&self, pObject: *const SEC_OBJECT, cAccessEntries: u32, #[in] #[out] prgAccessEntries: *mut EXPLICIT_ACCESS_W) -> HRESULT;
+            fn SetObjectOwner(&self, pObject: *const SEC_OBJECT, pOwner: *const TRUSTEE_W) -> HRESULT;
+        }
+        #[guid(0x0c733a69_2a1c_11ce_ade5_00aa0044773d)]
+        interface IOpenRowset: IUnknown {
+            fn OpenRowset(&self, #[opt] pUnkOuter: IUnknown, #[opt] pTableID: *const DBID, #[opt] pIndexID: *const DBID, riid: *const GUID, cPropertySets: u32, #[len_param(4)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733aaa_2a1c_11ce_ade5_00aa0044773d)]
+        interface IParentRowset: IUnknown {
+            fn GetChildRowset(&self, pUnkOuter: IUnknown, iOrdinal: DBORDINAL, riid: *const GUID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733ab9_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRegisterProvider: IUnknown {
+            fn GetURLMapping(&self, pwszURL: PCWSTR, dwReserved: DB_DWRESERVE, pclsidProvider: *mut GUID) -> HRESULT;
+            fn SetURLMapping(&self, pwszURL: PCWSTR, dwReserved: DB_DWRESERVE, rclsidProvider: *const GUID) -> HRESULT;
+            fn UnregisterProvider(&self, pwszURL: PCWSTR, dwReserved: DB_DWRESERVE, rclsidProvider: *const GUID) -> HRESULT;
+        }
+        #[guid(0x0c733ab4_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRow: IUnknown {
+            fn GetColumns(&self, cColumns: DBORDINAL, #[len_param(0)] #[in] #[out] rgColumns: *mut DBCOLUMNACCESS) -> HRESULT;
+            fn GetSourceRowset(&self, riid: *const GUID, #[iid_is] ppRowset: *mut *mut void, #[opt] phRow: *mut HROW) -> HRESULT;
+            fn Open(&self, #[opt] pUnkOuter: IUnknown, pColumnID: *const DBID, rguidColumnType: *const GUID, dwBindFlags: u32, riid: *const GUID, #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733ab5_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowChange: IUnknown {
+            fn SetColumns(&self, cColumns: DBORDINAL, #[len_param(0)] rgColumns: *const DBCOLUMNACCESS) -> HRESULT;
+        }
+        #[guid(0x0c733a94_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowPosition: IUnknown {
+            fn ClearRowPosition(&self) -> HRESULT;
+            fn GetRowPosition(&self, #[opt] phChapter: *mut HCHAPTER, phRow: *mut HROW, #[opt] pdwPositionFlags: *mut DBPOSITIONFLAGS) -> HRESULT;
+            fn GetRowset(&self, riid: *const GUID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn Initialize(&self, pRowset: IUnknown) -> HRESULT;
+            fn SetRowPosition(&self, hChapter: HCHAPTER, hRow: HROW, dwPositionFlags: DBPOSITIONFLAGS) -> HRESULT;
+        }
+        #[guid(0x0997a571_126e_11d0_9f8a_00a0c9a0631e)]
+        interface IRowPositionChange: IUnknown {
+            fn OnRowPositionChange(&self, eReason: DBREASON, ePhase: DBEVENTPHASE, fCantDeny: BOOL) -> HRESULT;
+        }
+        #[guid(0x0c733aae_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowSchemaChange: IRowChange {
+            fn DeleteColumns(&self, cColumns: DBORDINAL, rgColumnIDs: *const DBID, #[in] #[out] rgdwStatus: *mut DBSTATUS) -> HRESULT;
+            fn AddColumns(&self, cColumns: DBORDINAL, rgNewColumnInfo: *const DBCOLUMNINFO, #[in] #[out] rgColumns: *mut DBCOLUMNACCESS) -> HRESULT;
+        }
+        #[guid(0x0c733a7c_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowset: IUnknown {
+            fn AddRefRows(&self, cRows: DBCOUNTITEM, rghRows: *const HROW, rgRefCounts: *mut DBREFCOUNT, rgRowStatus: *mut DBROWSTATUS) -> HRESULT;
+            fn GetData(&self, hRow: HROW, hAccessor: HACCESSOR, pData: *mut void) -> HRESULT;
+            fn GetNextRows(&self, hReserved: HCHAPTER, lRowsOffset: DBROWOFFSET, cRows: DBROWCOUNT, pcRowsObtained: *mut DBCOUNTITEM, prghRows: *mut *mut HROW) -> HRESULT;
+            fn ReleaseRows(&self, cRows: DBCOUNTITEM, rghRows: *const HROW, rgRowOptions: *const DBROWOPTIONS, rgRefCounts: *mut DBREFCOUNT, rgRowStatus: *mut DBROWSTATUS) -> HRESULT;
+            fn RestartPosition(&self, hReserved: HCHAPTER) -> HRESULT;
+        }
+        #[guid(0x0c733ac2_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetBookmark: IUnknown {
+            fn PositionOnBookmark(&self, hChapter: HCHAPTER, cbBookmark: DBBKMARK, #[size_param(1)] pBookmark: *const u8) -> HRESULT;
+        }
+        #[guid(0x0c733a05_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetChange: IUnknown {
+            fn DeleteRows(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, rgRowStatus: *mut DBROWSTATUS) -> HRESULT;
+            fn SetData(&self, hRow: HROW, hAccessor: HACCESSOR, pData: *const void) -> HRESULT;
+            fn InsertRow(&self, hReserved: HCHAPTER, hAccessor: HACCESSOR, pData: *const void, phRow: *mut HROW) -> HRESULT;
+        }
+        #[guid(0x0c733aa8_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetChapterMember: IUnknown {
+            fn IsRowInChapter(&self, hChapter: HCHAPTER, hRow: HROW) -> HRESULT;
+        }
+        #[guid(0x0c733abd_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetCurrentIndex: IRowsetIndex {
+            fn GetIndex(&self, ppIndexID: *mut *mut DBID) -> HRESULT;
+            fn SetIndex(&self, pIndexID: *const DBID) -> HRESULT;
+        }
+        struct IRowsetExactScroll {}
+        #[guid(0x0c733a9d_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetFind: IUnknown {
+            fn FindNextRow(&self, hChapter: HCHAPTER, hAccessor: HACCESSOR, pFindValue: *const void, CompareOp: DBCOMPAREOP, cbBookmark: DBBKMARK, pBookmark: *const u8, lRowsOffset: DBROWOFFSET, cRows: DBROWCOUNT, #[in] #[out] pcRowsObtained: *mut DBCOUNTITEM, prghRows: *mut *mut HROW) -> HRESULT;
+        }
+        #[guid(0x0c733a09_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetIdentity: IUnknown {
+            fn IsSameRow(&self, hThisRow: HROW, hThatRow: HROW) -> HRESULT;
+        }
+        #[guid(0x0c733a82_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetIndex: IUnknown {
+            fn GetIndexInfo(&self, #[in] #[out] pcKeyColumns: *mut DBORDINAL, prgIndexColumnDesc: *mut *mut DBINDEXCOLUMNDESC, #[in] #[out] pcIndexPropertySets: *mut u32, prgIndexPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn Seek(&self, hAccessor: HACCESSOR, cKeyValues: DBORDINAL, pData: *const void, dwSeekOptions: DBSEEK) -> HRESULT;
+            fn SetRange(&self, hAccessor: HACCESSOR, cStartKeyColumns: DBORDINAL, pStartData: *const void, cEndKeyColumns: DBORDINAL, pEndData: *const void, dwRangeOptions: DBRANGE) -> HRESULT;
+        }
+        #[guid(0x0c733a55_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetInfo: IUnknown {
+            fn GetProperties(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, pcPropertySets: *mut u32, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn GetReferencedRowset(&self, iOrdinal: DBORDINAL, riid: *const GUID, #[iid_is] ppReferencedRowset: *mut *mut void) -> HRESULT;
+            fn GetSpecification(&self, riid: *const GUID, #[iid_is] ppSpecification: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a7d_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetLocate: IRowset {
+            fn Compare(&self, hReserved: HCHAPTER, cbBookmark1: DBBKMARK, pBookmark1: *const u8, cbBookmark2: DBBKMARK, pBookmark2: *const u8, pComparison: *mut DBCOMPARE) -> HRESULT;
+            fn GetRowsAt(&self, hReserved1: HWATCHREGION, hReserved2: HCHAPTER, cbBookmark: DBBKMARK, pBookmark: *const u8, lRowsOffset: DBROWOFFSET, cRows: DBROWCOUNT, pcRowsObtained: *mut DBCOUNTITEM, prghRows: *mut *mut HROW) -> HRESULT;
+            fn GetRowsByBookmark(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rgcbBookmarks: *const DBBKMARK, rgpBookmarks: *const *const u8, rghRows: *mut HROW, rgRowStatus: *mut DBROWSTATUS) -> HRESULT;
+            fn Hash(&self, hReserved: HCHAPTER, cBookmarks: DBBKMARK, rgcbBookmarks: *const DBBKMARK, rgpBookmarks: *const *const u8, rgHashedValues: *mut DBHASHVALUE, rgBookmarkStatus: *mut DBROWSTATUS) -> HRESULT;
+        }
+        #[guid(0x0c733a83_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetNotify: IUnknown {
+            fn OnFieldChange(&self, pRowset: IRowset, hRow: HROW, cColumns: DBORDINAL, #[len_param(2)] rgColumns: *const DBORDINAL, eReason: DBREASON, ePhase: DBEVENTPHASE, fCantDeny: BOOL) -> HRESULT;
+            fn OnRowChange(&self, pRowset: IRowset, cRows: DBCOUNTITEM, #[len_param(1)] rghRows: *const HROW, eReason: DBREASON, ePhase: DBEVENTPHASE, fCantDeny: BOOL) -> HRESULT;
+            fn OnRowsetChange(&self, pRowset: IRowset, eReason: DBREASON, ePhase: DBEVENTPHASE, fCantDeny: BOOL) -> HRESULT;
+        }
+        #[guid(0x0c733aa9_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetRefresh: IUnknown {
+            fn RefreshVisibleData(&self, hChapter: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, fOverWrite: BOOL, pcRowsRefreshed: *mut DBCOUNTITEM, prghRowsRefreshed: *mut *mut HROW, prgRowStatus: *mut *mut DBROWSTATUS) -> HRESULT;
+            fn GetLastVisibleData(&self, hRow: HROW, hAccessor: HACCESSOR, pData: *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a84_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetResynch: IUnknown {
+            fn GetVisibleData(&self, hRow: HROW, hAccessor: HACCESSOR, pData: *mut void) -> HRESULT;
+            fn ResynchRows(&self, cRows: DBCOUNTITEM, rghRows: *const HROW, pcRowsResynched: *mut DBCOUNTITEM, prghRowsResynched: *mut *mut HROW, prgRowStatus: *mut *mut DBROWSTATUS) -> HRESULT;
+        }
+        #[guid(0x0c733a7e_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetScroll: IRowsetLocate {
+            fn GetApproximatePosition(&self, hReserved: HCHAPTER, cbBookmark: DBBKMARK, pBookmark: *const u8, pulPosition: *mut DBCOUNTITEM, pcRows: *mut DBCOUNTITEM) -> HRESULT;
+            fn GetRowsAtRatio(&self, hReserved1: HWATCHREGION, hReserved2: HCHAPTER, ulNumerator: DBCOUNTITEM, ulDenominator: DBCOUNTITEM, cRows: DBROWCOUNT, pcRowsObtained: *mut DBCOUNTITEM, prghRows: *mut *mut HROW) -> HRESULT;
+        }
+        #[guid(0x0c733a6d_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetUpdate: IRowsetChange {
+            fn GetOriginalData(&self, hRow: HROW, hAccessor: HACCESSOR, pData: *mut void) -> HRESULT;
+            fn GetPendingRows(&self, hReserved: HCHAPTER, dwRowStatus: DBPENDINGSTATUS, #[in] #[out] pcPendingRows: *mut DBCOUNTITEM, prgPendingRows: *mut *mut HROW, prgPendingStatus: *mut *mut DBPENDINGSTATUS) -> HRESULT;
+            fn GetRowStatus(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, rgPendingStatus: *mut DBPENDINGSTATUS) -> HRESULT;
+            fn Undo(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, #[in] #[out] pcRowsUndone: *mut DBCOUNTITEM, prgRowsUndone: *mut *mut HROW, prgRowStatus: *mut *mut DBROWSTATUS) -> HRESULT;
+            fn Update(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, #[in] #[out] pcRows: *mut DBCOUNTITEM, prgRows: *mut *mut HROW, prgRowStatus: *mut *mut DBROWSTATUS) -> HRESULT;
+        }
+        #[guid(0x0c733a99_2a1c_11ce_ade5_00aa0044773d)]
+        interface IRowsetView: IUnknown {
+            fn CreateView(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppView: *mut *mut void) -> HRESULT;
+            fn GetView(&self, hChapter: HCHAPTER, riid: *const GUID, phChapterSource: *mut HCHAPTER, #[iid_is] ppView: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a74_2a1c_11ce_ade5_00aa0044773d)]
+        interface ISQLErrorInfo: IUnknown {
+            fn GetSQLInfo(&self, pbstrSQLState: *mut BSTR, plNativeError: *mut i32) -> HRESULT;
+        }
+        #[guid(0x0c733ab0_2a1c_11ce_ade5_00aa0044773d)]
+        interface IScopedOperations: IBindResource {
+            fn Copy(&self, cRows: DBCOUNTITEM, #[len_param(0)] #[opt] rgpwszSourceURLs: *const PCWSTR, #[len_param(0)] rgpwszDestURLs: *const PCWSTR, dwCopyFlags: u32, #[opt] pAuthenticate: IAuthenticate, #[len_param(0)] rgdwStatus: *mut DBSTATUS, #[len_param(0)] #[opt] rgpwszNewURLs: *mut PWSTR, ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn Move(&self, cRows: DBCOUNTITEM, #[len_param(0)] #[opt] rgpwszSourceURLs: *const PCWSTR, #[len_param(0)] rgpwszDestURLs: *const PCWSTR, dwMoveFlags: u32, #[opt] pAuthenticate: IAuthenticate, #[len_param(0)] rgdwStatus: *mut DBSTATUS, #[len_param(0)] #[opt] rgpwszNewURLs: *mut PWSTR, ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn Delete(&self, cRows: DBCOUNTITEM, #[len_param(0)] rgpwszURLs: *const PCWSTR, dwDeleteFlags: u32, #[len_param(0)] rgdwStatus: *mut DBSTATUS) -> HRESULT;
+            fn OpenRowset(&self, #[opt] pUnkOuter: IUnknown, #[opt] pTableID: *const DBID, #[opt] pIndexID: *const DBID, riid: *const GUID, cPropertySets: u32, #[len_param(4)] #[in] #[out] rgPropertySets: *mut DBPROPSET, #[opt] ppRowset: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x0c733aa4_2a1c_11ce_ade5_00aa0044773d)]
+        interface ISecurityInfo: IUnknown {
+            fn GetCurrentTrustee(&self, ppTrustee: *mut *mut TRUSTEE_W) -> HRESULT;
+            fn GetObjectTypes(&self, cObjectTypes: *mut u32, rgObjectTypes: *mut *mut GUID) -> HRESULT;
+            fn GetPermissions(&self, ObjectType: GUID, pPermissions: *mut ACCESS_MASK) -> HRESULT;
+        }
+        #[guid(0x0c733a85_2a1c_11ce_ade5_00aa0044773d)]
+        interface ISessionProperties: IUnknown {
+            fn GetProperties(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, pcPropertySets: *mut u32, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn SetProperties(&self, cPropertySets: u32, #[len_param(0)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+        }
+        #[guid(0x0c733a1e_2a1c_11ce_ade5_00aa0044773d)]
+        interface ISourcesRowset: IUnknown {
+            fn GetSourcesRowset(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, cPropertySets: u32, #[len_param(2)] #[in] #[out] #[opt] rgProperties: *mut DBPROPSET, #[iid_is] ppSourcesRowset: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733abc_2a1c_11ce_ade5_00aa0044773d)]
+        interface ITableCreation: ITableDefinition {
+            fn GetTableDefinition(&self, pTableID: *const DBID, #[opt] pcColumnDescs: *mut DBORDINAL, #[len_param(1)] #[opt] prgColumnDescs: *mut *mut DBCOLUMNDESC, #[opt] pcPropertySets: *mut u32, #[len_param(3)] #[opt] prgPropertySets: *mut *mut DBPROPSET, #[opt] pcConstraintDescs: *mut u32, #[len_param(5)] #[opt] prgConstraintDescs: *mut *mut DBCONSTRAINTDESC, ppwszStringBuffer: *mut *mut OLECHAR) -> HRESULT;
+        }
+        #[guid(0x0c733a86_2a1c_11ce_ade5_00aa0044773d)]
+        interface ITableDefinition: IUnknown {
+            fn CreateTable(&self, #[opt] pUnkOuter: IUnknown, #[opt] pTableID: *const DBID, cColumnDescs: DBORDINAL, #[len_param(2)] #[opt] rgColumnDescs: *const DBCOLUMNDESC, riid: *const GUID, cPropertySets: u32, #[len_param(5)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET, ppTableID: *mut *mut DBID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn DropTable(&self, pTableID: *const DBID) -> HRESULT;
+            fn AddColumn(&self, pTableID: *const DBID, pColumnDesc: *const DBCOLUMNDESC, ppColumnID: *mut *mut DBID) -> HRESULT;
+            fn DropColumn(&self, pTableID: *const DBID, pColumnID: *const DBID) -> HRESULT;
+        }
+        #[guid(0x0c733aab_2a1c_11ce_ade5_00aa0044773d)]
+        interface ITableDefinitionWithConstraints: ITableCreation {
+            fn AddConstraint(&self, pTableID: *const DBID, pConstraintDesc: *const DBCONSTRAINTDESC) -> HRESULT;
+            fn CreateTableWithConstraints(&self, pUnkOuter: IUnknown, pTableID: *const DBID, cColumnDescs: DBORDINAL, #[in] #[out] rgColumnDescs: *mut DBCOLUMNDESC, cConstraintDescs: u32, rgConstraintDescs: *const DBCONSTRAINTDESC, riid: *const GUID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET, ppTableID: *mut *mut DBID, ppRowset: *mut IUnknown) -> HRESULT;
+            fn DropConstraint(&self, pTableID: *const DBID, pConstraintID: *const DBID) -> HRESULT;
+        }
+        #[guid(0x0c733a5e_2a1c_11ce_ade5_00aa0044773d)]
+        interface ITransactionJoin: IUnknown {
+            fn GetOptionsObject(&self, ppOptions: *mut ITransactionOptions) -> HRESULT;
+            fn JoinTransaction(&self, #[opt] punkTransactionCoord: IUnknown, isoLevel: ISOLEVEL, isoFlags: u32, #[opt] pOtherOptions: ITransactionOptions) -> HRESULT;
+        }
+        #[guid(0x0c733a5f_2a1c_11ce_ade5_00aa0044773d)]
+        interface ITransactionLocal: ITransaction {
+            fn GetOptionsObject(&self, ppOptions: *mut ITransactionOptions) -> HRESULT;
+            fn StartTransaction(&self, isoLevel: ISOLEVEL, isoFlags: u32, #[opt] pOtherOptions: ITransactionOptions, #[opt] pulTransactionLevel: *mut u32) -> HRESULT;
+        }
+        #[guid(0x0c733a60_2a1c_11ce_ade5_00aa0044773d)]
+        interface ITransactionObject: IUnknown {
+            fn GetTransactionObject(&self, ulTransactionLevel: u32, ppTransactionObject: *mut ITransaction) -> HRESULT;
+        }
+        #[guid(0x0c733aa1_2a1c_11ce_ade5_00aa0044773d)]
+        interface ITrusteeAdmin: IUnknown {
+            fn CompareTrustees(&self, pTrustee1: *const TRUSTEE_W, pTrustee2: *const TRUSTEE_W) -> HRESULT;
+            fn CreateTrustee(&self, pTrustee: *const TRUSTEE_W, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+            fn DeleteTrustee(&self, pTrustee: *const TRUSTEE_W) -> HRESULT;
+            fn SetTrusteeProperties(&self, pTrustee: *const TRUSTEE_W, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+            fn GetTrusteeProperties(&self, pTrustee: *const TRUSTEE_W, cPropertyIDSets: u32, rgPropertyIDSets: *const DBPROPIDSET, #[in] #[out] pcPropertySets: *mut u32, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+        }
+        #[guid(0x0c733aa2_2a1c_11ce_ade5_00aa0044773d)]
+        interface ITrusteeGroupAdmin: IUnknown {
+            fn AddMember(&self, pMembershipTrustee: *const TRUSTEE_W, pMemberTrustee: *const TRUSTEE_W) -> HRESULT;
+            fn DeleteMember(&self, pMembershipTrustee: *const TRUSTEE_W, pMemberTrustee: *const TRUSTEE_W) -> HRESULT;
+            fn IsMember(&self, pMembershipTrustee: *const TRUSTEE_W, pMemberTrustee: *const TRUSTEE_W, pfStatus: *mut BOOL) -> HRESULT;
+            fn GetMembers(&self, pMembershipTrustee: *const TRUSTEE_W, pcMembers: *mut u32, prgMembers: *mut *mut TRUSTEE_W) -> HRESULT;
+            fn GetMemberships(&self, pTrustee: *const TRUSTEE_W, pcMemberships: *mut u32, prgMemberships: *mut *mut TRUSTEE_W) -> HRESULT;
+        }
+        #[guid(0x0c733a98_2a1c_11ce_ade5_00aa0044773d)]
+        interface IViewChapter: IUnknown {
+            fn GetSpecification(&self, riid: *const GUID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn OpenViewChapter(&self, hSource: HCHAPTER, #[opt] phViewChapter: *mut HCHAPTER) -> HRESULT;
+        }
+        #[guid(0x0c733a9b_2a1c_11ce_ade5_00aa0044773d)]
+        interface IViewFilter: IUnknown {
+            fn GetFilter(&self, hAccessor: HACCESSOR, pcRows: *mut DBCOUNTITEM, #[len_param(1)] pCompareOps: *mut *mut DBCOMPAREOP, pCriteriaData: *mut void) -> HRESULT;
+            fn GetFilterBindings(&self, pcBindings: *mut DBCOUNTITEM, prgBindings: *mut *mut DBBINDING) -> HRESULT;
+            fn SetFilter(&self, hAccessor: HACCESSOR, cRows: DBCOUNTITEM, #[len_param(1)] CompareOps: *const DBCOMPAREOP, pCriteriaData: *const void) -> HRESULT;
+        }
+        #[guid(0x0c733a97_2a1c_11ce_ade5_00aa0044773d)]
+        interface IViewRowset: IUnknown {
+            fn GetSpecification(&self, riid: *const GUID, #[iid_is] ppObject: *mut *mut void) -> HRESULT;
+            fn OpenViewRowset(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0c733a9a_2a1c_11ce_ade5_00aa0044773d)]
+        interface IViewSort: IUnknown {
+            fn GetSortOrder(&self, pcValues: *mut DBORDINAL, prgColumns: *mut *mut DBORDINAL, prgOrders: *mut *mut DBSORT) -> HRESULT;
+            fn SetSortOrder(&self, cValues: DBORDINAL, #[len_param(0)] rgColumns: *const DBORDINAL, #[len_param(0)] rgOrders: *const DBSORT) -> HRESULT;
+        }
+        #[arch(X64 | Arm64)]
+        struct MDAXISINFO {
+            cbSize: DBLENGTH,
+            iAxis: DBCOUNTITEM,
+            cDimensions: DBCOUNTITEM,
+            cCoordinates: DBCOUNTITEM,
+            rgcColumns: *mut DBORDINAL,
+            rgpwszDimensionNames: *mut PWSTR,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct MDAXISINFO {
+            cbSize: DBLENGTH,
+            iAxis: DBCOUNTITEM,
+            cDimensions: DBCOUNTITEM,
+            cCoordinates: DBCOUNTITEM,
+            rgcColumns: *mut DBORDINAL,
+            rgpwszDimensionNames: *mut PWSTR,
+        }
+        const MDAXIS_CHAPTERS: u32 = 4;
+        const MDAXIS_COLUMNS: u32 = 0;
+        const MDAXIS_PAGES: u32 = 2;
+        const MDAXIS_ROWS: u32 = 1;
+        const MDAXIS_SECTIONS: u32 = 3;
+        const MDAXIS_SLICERS: u32 = 4294967295;
+        const MDDISPINFO_DRILLED_DOWN: u32 = 65536;
+        const MDDISPINFO_PARENT_SAME_AS_PREV: u32 = 131072;
+        const MDFF_BOLD: u32 = 1;
+        const MDFF_ITALIC: u32 = 2;
+        const MDFF_STRIKEOUT: u32 = 8;
+        const MDFF_UNDERLINE: u32 = 4;
+        const MDLEVEL_TYPE_ALL: u32 = 1;
+        const MDLEVEL_TYPE_CALCULATED: u32 = 2;
+        const MDLEVEL_TYPE_REGULAR: u32 = 0;
+        const MDLEVEL_TYPE_RESERVED1: u32 = 8;
+        const MDLEVEL_TYPE_TIME: u32 = 4;
+        const MDLEVEL_TYPE_TIME_DAYS: u32 = 516;
+        const MDLEVEL_TYPE_TIME_HALF_YEAR: u32 = 36;
+        const MDLEVEL_TYPE_TIME_HOURS: u32 = 772;
+        const MDLEVEL_TYPE_TIME_MINUTES: u32 = 1028;
+        const MDLEVEL_TYPE_TIME_MONTHS: u32 = 132;
+        const MDLEVEL_TYPE_TIME_QUARTERS: u32 = 68;
+        const MDLEVEL_TYPE_TIME_SECONDS: u32 = 2052;
+        const MDLEVEL_TYPE_TIME_UNDEFINED: u32 = 4100;
+        const MDLEVEL_TYPE_TIME_WEEKS: u32 = 260;
+        const MDLEVEL_TYPE_TIME_YEARS: u32 = 20;
+        const MDLEVEL_TYPE_UNKNOWN: u32 = 0;
+        const MDMEASURE_AGGR_AVG: u32 = 5;
+        const MDMEASURE_AGGR_CALCULATED: u32 = 127;
+        const MDMEASURE_AGGR_COUNT: u32 = 2;
+        const MDMEASURE_AGGR_MAX: u32 = 4;
+        const MDMEASURE_AGGR_MIN: u32 = 3;
+        const MDMEASURE_AGGR_STD: u32 = 7;
+        const MDMEASURE_AGGR_SUM: u32 = 1;
+        const MDMEASURE_AGGR_UNKNOWN: u32 = 0;
+        const MDMEASURE_AGGR_VAR: u32 = 6;
+        const MDMEMBER_TYPE_ALL: u32 = 2;
+        const MDMEMBER_TYPE_FORMULA: u32 = 4;
+        const MDMEMBER_TYPE_MEASURE: u32 = 3;
+        const MDMEMBER_TYPE_REGULAR: u32 = 1;
+        const MDMEMBER_TYPE_RESERVE1: u32 = 5;
+        const MDMEMBER_TYPE_RESERVE2: u32 = 6;
+        const MDMEMBER_TYPE_RESERVE3: u32 = 7;
+        const MDMEMBER_TYPE_RESERVE4: u32 = 8;
+        const MDMEMBER_TYPE_UNKNOWN: u32 = 0;
+        const MDPROPVAL_AU_UNCHANGED: u32 = 1;
+        const MDPROPVAL_AU_UNKNOWN: u32 = 2;
+        const MDPROPVAL_AU_UNSUPPORTED: u32 = 0;
+        const MDPROPVAL_FS_FULL_SUPPORT: u32 = 1;
+        const MDPROPVAL_FS_GENERATED_COLUMN: u32 = 2;
+        const MDPROPVAL_FS_GENERATED_DIMENSION: u32 = 3;
+        const MDPROPVAL_FS_NO_SUPPORT: u32 = 4;
+        const MDPROPVAL_MC_SEARCHEDCASE: u32 = 2;
+        const MDPROPVAL_MC_SINGLECASE: u32 = 1;
+        const MDPROPVAL_MD_AFTER: u32 = 4;
+        const MDPROPVAL_MD_BEFORE: u32 = 2;
+        const MDPROPVAL_MD_SELF: u32 = 1;
+        const MDPROPVAL_MF_CREATE_CALCMEMBERS: u32 = 4;
+        const MDPROPVAL_MF_CREATE_NAMEDSETS: u32 = 8;
+        const MDPROPVAL_MF_SCOPE_GLOBAL: u32 = 32;
+        const MDPROPVAL_MF_SCOPE_SESSION: u32 = 16;
+        const MDPROPVAL_MF_WITH_CALCMEMBERS: u32 = 1;
+        const MDPROPVAL_MF_WITH_NAMEDSETS: u32 = 2;
+        const MDPROPVAL_MJC_IMPLICITCUBE: u32 = 4;
+        const MDPROPVAL_MJC_MULTICUBES: u32 = 2;
+        const MDPROPVAL_MJC_SINGLECUBE: u32 = 1;
+        const MDPROPVAL_MMF_CLOSINGPERIOD: u32 = 8;
+        const MDPROPVAL_MMF_COUSIN: u32 = 1;
+        const MDPROPVAL_MMF_OPENINGPERIOD: u32 = 4;
+        const MDPROPVAL_MMF_PARALLELPERIOD: u32 = 2;
+        const MDPROPVAL_MNF_AGGREGATE: u32 = 16;
+        const MDPROPVAL_MNF_CORRELATION: u32 = 64;
+        const MDPROPVAL_MNF_COVARIANCE: u32 = 32;
+        const MDPROPVAL_MNF_DRILLDOWNLEVEL: u32 = 2048;
+        const MDPROPVAL_MNF_DRILLDOWNLEVELBOTTOM: u32 = 32768;
+        const MDPROPVAL_MNF_DRILLDOWNLEVELTOP: u32 = 16384;
+        const MDPROPVAL_MNF_DRILLDOWNMEMBERBOTTOM: u32 = 8192;
+        const MDPROPVAL_MNF_DRILLDOWNMEMBERTOP: u32 = 4096;
+        const MDPROPVAL_MNF_DRILLUPLEVEL: u32 = 131072;
+        const MDPROPVAL_MNF_DRILLUPMEMBER: u32 = 65536;
+        const MDPROPVAL_MNF_LINREG2: u32 = 512;
+        const MDPROPVAL_MNF_LINREGPOINT: u32 = 1024;
+        const MDPROPVAL_MNF_LINREGSLOPE: u32 = 128;
+        const MDPROPVAL_MNF_LINREGVARIANCE: u32 = 256;
+        const MDPROPVAL_MNF_MEDIAN: u32 = 1;
+        const MDPROPVAL_MNF_RANK: u32 = 8;
+        const MDPROPVAL_MNF_STDDEV: u32 = 4;
+        const MDPROPVAL_MNF_VAR: u32 = 2;
+        const MDPROPVAL_MOQ_CATALOG_CUBE: u32 = 2;
+        const MDPROPVAL_MOQ_CUBE_DIM: u32 = 8;
+        const MDPROPVAL_MOQ_DATASOURCE_CUBE: u32 = 1;
+        const MDPROPVAL_MOQ_DIMHIER_LEVEL: u32 = 32;
+        const MDPROPVAL_MOQ_DIMHIER_MEMBER: u32 = 256;
+        const MDPROPVAL_MOQ_DIM_HIER: u32 = 16;
+        const MDPROPVAL_MOQ_LEVEL_MEMBER: u32 = 64;
+        const MDPROPVAL_MOQ_MEMBER_MEMBER: u32 = 128;
+        const MDPROPVAL_MOQ_OUTERREFERENCE: u32 = 1;
+        const MDPROPVAL_MOQ_SCHEMA_CUBE: u32 = 4;
+        const MDPROPVAL_MSC_GREATERTHAN: u32 = 2;
+        const MDPROPVAL_MSC_GREATERTHANEQUAL: u32 = 8;
+        const MDPROPVAL_MSC_LESSTHAN: u32 = 1;
+        const MDPROPVAL_MSC_LESSTHANEQUAL: u32 = 4;
+        const MDPROPVAL_MSF_BOTTOMPERCENT: u32 = 2;
+        const MDPROPVAL_MSF_BOTTOMSUM: u32 = 8;
+        const MDPROPVAL_MSF_DRILLDOWNLEVEL: u32 = 2048;
+        const MDPROPVAL_MSF_DRILLDOWNLEVELBOTTOM: u32 = 32768;
+        const MDPROPVAL_MSF_DRILLDOWNLEVELTOP: u32 = 16384;
+        const MDPROPVAL_MSF_DRILLDOWNMEMBBER: u32 = 1024;
+        const MDPROPVAL_MSF_DRILLDOWNMEMBERBOTTOM: u32 = 8192;
+        const MDPROPVAL_MSF_DRILLDOWNMEMBERTOP: u32 = 4096;
+        const MDPROPVAL_MSF_DRILLUPLEVEL: u32 = 131072;
+        const MDPROPVAL_MSF_DRILLUPMEMBER: u32 = 65536;
+        const MDPROPVAL_MSF_LASTPERIODS: u32 = 32;
+        const MDPROPVAL_MSF_MTD: u32 = 256;
+        const MDPROPVAL_MSF_PERIODSTODATE: u32 = 16;
+        const MDPROPVAL_MSF_QTD: u32 = 128;
+        const MDPROPVAL_MSF_TOGGLEDRILLSTATE: u32 = 262144;
+        const MDPROPVAL_MSF_TOPPERCENT: u32 = 1;
+        const MDPROPVAL_MSF_TOPSUM: u32 = 4;
+        const MDPROPVAL_MSF_WTD: u32 = 512;
+        const MDPROPVAL_MSF_YTD: u32 = 64;
+        const MDPROPVAL_MS_MULTIPLETUPLES: u32 = 1;
+        const MDPROPVAL_MS_SINGLETUPLE: u32 = 2;
+        const MDPROPVAL_NL_NAMEDLEVELS: u32 = 1;
+        const MDPROPVAL_NL_NUMBEREDLEVELS: u32 = 2;
+        const MDPROPVAL_NL_SCHEMAONLY: u32 = 4;
+        const MDPROPVAL_NME_ALLDIMENSIONS: u32 = 0;
+        const MDPROPVAL_NME_MEASURESONLY: u32 = 1;
+        const MDPROPVAL_RR_NORANGEROWSET: u32 = 1;
+        const MDPROPVAL_RR_READONLY: u32 = 2;
+        const MDPROPVAL_RR_UPDATE: u32 = 4;
+        const MDPROPVAL_VISUAL_MODE_DEFAULT: u32 = 0;
+        const MDPROPVAL_VISUAL_MODE_VISUAL: u32 = 1;
+        const MDPROPVAL_VISUAL_MODE_VISUAL_OFF: u32 = 2;
+        const MDPROP_CELL: u32 = 2;
+        const MDPROP_MEMBER: u32 = 1;
+        const MDTREEOP_ANCESTORS: u32 = 32;
+        const MDTREEOP_CHILDREN: u32 = 1;
+        const MDTREEOP_DESCENDANTS: u32 = 16;
+        const MDTREEOP_PARENT: u32 = 4;
+        const MDTREEOP_SELF: u32 = 8;
+        const MDTREEOP_SIBLINGS: u32 = 2;
+        const MD_DIMTYPE_MEASURE: u32 = 2;
+        const MD_DIMTYPE_OTHER: u32 = 3;
+        const MD_DIMTYPE_TIME: u32 = 1;
+        const MD_DIMTYPE_UNKNOWN: u32 = 0;
+        const OLEDBVER: u32 = 624;
+        type PDBPROPINFO = *mut DBPROPINFO;
+        const PERM_DESIGN: u32 = 2048;
+        #[arch(X64 | Arm64)]
+        struct RMTPACK {
+            pISeqStream: ISequentialStream,
+            cbData: u32,
+            cBSTR: u32,
+            rgBSTR: *mut BSTR,
+            cVARIANT: u32,
+            rgVARIANT: *mut VARIANT,
+            cIDISPATCH: u32,
+            rgIDISPATCH: *mut IDispatch,
+            cIUNKNOWN: u32,
+            rgIUNKNOWN: *mut IUnknown,
+            cPROPVARIANT: u32,
+            rgPROPVARIANT: *mut PROPVARIANT,
+            cArray: u32,
+            rgArray: *mut VARIANT,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct RMTPACK {
+            pISeqStream: ISequentialStream,
+            cbData: u32,
+            cBSTR: u32,
+            rgBSTR: *mut BSTR,
+            cVARIANT: u32,
+            rgVARIANT: *mut VARIANT,
+            cIDISPATCH: u32,
+            rgIDISPATCH: *mut IDispatch,
+            cIUNKNOWN: u32,
+            rgIUNKNOWN: *mut IUnknown,
+            cPROPVARIANT: u32,
+            rgPROPVARIANT: *mut PROPVARIANT,
+            cArray: u32,
+            rgArray: *mut VARIANT,
+        }
+        type SBYTE = i8;
+        #[arch(X64 | Arm64)]
+        struct SEC_OBJECT {
+            cObjects: u32,
+            prgObjects: *mut SEC_OBJECT_ELEMENT,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct SEC_OBJECT {
+            cObjects: u32,
+            prgObjects: *mut SEC_OBJECT_ELEMENT,
+        }
+        #[arch(X64 | Arm64)]
+        struct SEC_OBJECT_ELEMENT {
+            guidObjectType: GUID,
+            ObjectID: DBID,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct SEC_OBJECT_ELEMENT {
+            guidObjectType: GUID,
+            ObjectID: DBID,
+        }
+        const STD_BOOKMARKLENGTH: u32 = 1;
+    }
+}

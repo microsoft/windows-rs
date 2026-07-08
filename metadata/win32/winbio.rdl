@@ -1,0 +1,242 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        extern fn PWINBIO_ASYNC_COMPLETION_CALLBACK(AsyncResult: *const WINBIO_ASYNC_RESULT);
+        type PWINBIO_ASYNC_NOTIFICATION_METHOD = *mut WINBIO_ASYNC_NOTIFICATION_METHOD;
+        type PWINBIO_ASYNC_RESULT = *mut WINBIO_ASYNC_RESULT;
+        extern fn PWINBIO_CAPTURE_CALLBACK(#[opt] CaptureCallbackContext: *const void, OperationStatus: HRESULT, UnitId: WINBIO_UNIT_ID, #[size_param(4)] Sample: *const WINBIO_BIR, SampleSize: usize, RejectDetail: WINBIO_REJECT_DETAIL);
+        extern fn PWINBIO_ENROLL_CAPTURE_CALLBACK(#[opt] EnrollCallbackContext: *const void, OperationStatus: HRESULT, RejectDetail: WINBIO_REJECT_DETAIL);
+        extern fn PWINBIO_EVENT_CALLBACK(#[opt] EventCallbackContext: *const void, OperationStatus: HRESULT, Event: *const WINBIO_EVENT);
+        extern fn PWINBIO_IDENTIFY_CALLBACK(#[opt] IdentifyCallbackContext: *const void, OperationStatus: HRESULT, UnitId: WINBIO_UNIT_ID, Identity: *const WINBIO_IDENTITY, SubFactor: WINBIO_BIOMETRIC_SUBTYPE, RejectDetail: WINBIO_REJECT_DETAIL);
+        extern fn PWINBIO_LOCATE_SENSOR_CALLBACK(#[opt] LocateCallbackContext: *const void, OperationStatus: HRESULT, UnitId: WINBIO_UNIT_ID);
+        extern fn PWINBIO_VERIFY_CALLBACK(#[opt] VerifyCallbackContext: *const void, OperationStatus: HRESULT, UnitId: WINBIO_UNIT_ID, Match: BOOLEAN, RejectDetail: WINBIO_REJECT_DETAIL);
+        #[repr(i32)]
+        enum WINBIO_ASYNC_NOTIFICATION_METHOD {
+            WINBIO_ASYNC_NOTIFY_NONE = 0,
+            WINBIO_ASYNC_NOTIFY_CALLBACK = 1,
+            WINBIO_ASYNC_NOTIFY_MESSAGE = 2,
+            WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE = 3,
+        }
+        struct WINBIO_ASYNC_RESULT {
+            SessionHandle: WINBIO_SESSION_HANDLE,
+            Operation: WINBIO_OPERATION_TYPE,
+            SequenceNumber: u64,
+            TimeStamp: i64,
+            ApiStatus: HRESULT,
+            UnitId: WINBIO_UNIT_ID,
+            UserData: *mut void,
+            Parameters: union {
+                Verify: struct {
+                    Match: BOOLEAN,
+                    RejectDetail: WINBIO_REJECT_DETAIL,
+                },
+                Identify: struct {
+                    Identity: WINBIO_IDENTITY,
+                    SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
+                    RejectDetail: WINBIO_REJECT_DETAIL,
+                },
+                EnrollBegin: struct {
+                    SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
+                },
+                EnrollCapture: struct {
+                    RejectDetail: WINBIO_REJECT_DETAIL,
+                },
+                EnrollCommit: struct {
+                    Identity: WINBIO_IDENTITY,
+                    IsNewTemplate: BOOLEAN,
+                },
+                EnumEnrollments: struct {
+                    Identity: WINBIO_IDENTITY,
+                    SubFactorCount: usize,
+                    SubFactorArray: *mut WINBIO_BIOMETRIC_SUBTYPE,
+                },
+                CaptureSample: struct {
+                    Sample: PWINBIO_BIR,
+                    SampleSize: usize,
+                    RejectDetail: WINBIO_REJECT_DETAIL,
+                },
+                DeleteTemplate: struct {
+                    Identity: WINBIO_IDENTITY,
+                    SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
+                },
+                GetProperty: struct {
+                    PropertyType: WINBIO_PROPERTY_TYPE,
+                    PropertyId: WINBIO_PROPERTY_ID,
+                    Identity: WINBIO_IDENTITY,
+                    SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
+                    PropertyBufferSize: usize,
+                    PropertyBuffer: *mut void,
+                },
+                SetProperty: struct {
+                    PropertyType: WINBIO_PROPERTY_TYPE,
+                    PropertyId: WINBIO_PROPERTY_ID,
+                    Identity: WINBIO_IDENTITY,
+                    SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
+                    PropertyBufferSize: usize,
+                    PropertyBuffer: *mut void,
+                },
+                GetEvent: struct {
+                    Event: WINBIO_EVENT,
+                },
+                ControlUnit: struct {
+                    Component: WINBIO_COMPONENT,
+                    ControlCode: u32,
+                    OperationStatus: u32,
+                    SendBuffer: PUCHAR,
+                    SendBufferSize: usize,
+                    ReceiveBuffer: PUCHAR,
+                    ReceiveBufferSize: usize,
+                    ReceiveDataSize: usize,
+                },
+                EnumServiceProviders: struct {
+                    BspCount: usize,
+                    BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
+                },
+                EnumBiometricUnits: struct {
+                    UnitCount: usize,
+                    UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
+                },
+                EnumDatabases: struct {
+                    StorageCount: usize,
+                    StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
+                },
+                VerifyAndReleaseTicket: struct {
+                    Match: BOOLEAN,
+                    RejectDetail: WINBIO_REJECT_DETAIL,
+                    Ticket: WINBIO_PROTECTION_TICKET,
+                },
+                IdentifyAndReleaseTicket: struct {
+                    Identity: WINBIO_IDENTITY,
+                    SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
+                    RejectDetail: WINBIO_REJECT_DETAIL,
+                    Ticket: WINBIO_PROTECTION_TICKET,
+                },
+                EnrollSelect: struct {
+                    SelectorValue: u64,
+                },
+                MonitorPresence: struct {
+                    ChangeType: WINBIO_PRESENCE_CHANGE,
+                    PresenceCount: usize,
+                    PresenceArray: *mut WINBIO_PRESENCE,
+                },
+                GetProtectionPolicy: struct {
+                    Identity: WINBIO_IDENTITY,
+                    Policy: WINBIO_PROTECTION_POLICY,
+                },
+                NotifyUnitStatusChange: struct {
+                    ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
+                },
+            },
+        }
+        #[library("winbio.dll")]
+        extern fn WinBioAcquireFocus() -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioAsyncEnumBiometricUnits(FrameworkHandle: WINBIO_FRAMEWORK_HANDLE, Factor: WINBIO_BIOMETRIC_TYPE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioAsyncEnumDatabases(FrameworkHandle: WINBIO_FRAMEWORK_HANDLE, Factor: WINBIO_BIOMETRIC_TYPE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioAsyncEnumServiceProviders(FrameworkHandle: WINBIO_FRAMEWORK_HANDLE, Factor: WINBIO_BIOMETRIC_TYPE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioAsyncMonitorFrameworkChanges(FrameworkHandle: WINBIO_FRAMEWORK_HANDLE, ChangeTypes: WINBIO_FRAMEWORK_CHANGE_TYPE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioAsyncOpenFramework(NotificationMethod: WINBIO_ASYNC_NOTIFICATION_METHOD, #[opt] TargetWindow: HWND, #[opt] MessageCode: u32, #[opt] CallbackRoutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, #[opt] UserData: *const void, AsynchronousOpen: BOOL, #[opt] FrameworkHandle: *mut WINBIO_FRAMEWORK_HANDLE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioAsyncOpenSession(Factor: WINBIO_BIOMETRIC_TYPE, PoolType: WINBIO_POOL_TYPE, Flags: WINBIO_SESSION_FLAGS, #[len_param(4)] #[opt] UnitArray: *const WINBIO_UNIT_ID, #[opt] UnitCount: usize, #[opt] DatabaseId: *const GUID, NotificationMethod: WINBIO_ASYNC_NOTIFICATION_METHOD, #[opt] TargetWindow: HWND, #[opt] MessageCode: u32, #[opt] CallbackRoutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, #[opt] UserData: *const void, AsynchronousOpen: BOOL, #[opt] SessionHandle: *mut WINBIO_SESSION_HANDLE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioCancel(SessionHandle: WINBIO_SESSION_HANDLE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioCaptureSample(SessionHandle: WINBIO_SESSION_HANDLE, Purpose: WINBIO_BIR_PURPOSE, Flags: WINBIO_BIR_DATA_FLAGS, #[opt] UnitId: *mut WINBIO_UNIT_ID, Sample: *mut PWINBIO_BIR, #[opt] SampleSize: *mut usize, #[opt] RejectDetail: *mut WINBIO_REJECT_DETAIL) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioCaptureSampleWithCallback(SessionHandle: WINBIO_SESSION_HANDLE, Purpose: WINBIO_BIR_PURPOSE, Flags: WINBIO_BIR_DATA_FLAGS, CaptureCallback: PWINBIO_CAPTURE_CALLBACK, #[opt] CaptureCallbackContext: *const void) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioCloseFramework(FrameworkHandle: WINBIO_FRAMEWORK_HANDLE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioCloseSession(SessionHandle: WINBIO_SESSION_HANDLE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioControlUnit(SessionHandle: WINBIO_SESSION_HANDLE, UnitId: WINBIO_UNIT_ID, Component: WINBIO_COMPONENT, ControlCode: u32, #[size_param(5)] SendBuffer: *const u8, SendBufferSize: usize, #[size_param(7)] ReceiveBuffer: *mut u8, ReceiveBufferSize: usize, ReceiveDataSize: *mut usize, #[opt] OperationStatus: *mut u32) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioControlUnitPrivileged(SessionHandle: WINBIO_SESSION_HANDLE, UnitId: WINBIO_UNIT_ID, Component: WINBIO_COMPONENT, ControlCode: u32, #[size_param(5)] SendBuffer: *const u8, SendBufferSize: usize, #[size_param(7)] ReceiveBuffer: *mut u8, ReceiveBufferSize: usize, ReceiveDataSize: *mut usize, #[opt] OperationStatus: *mut u32) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioDeleteTemplate(SessionHandle: WINBIO_SESSION_HANDLE, UnitId: WINBIO_UNIT_ID, Identity: *const WINBIO_IDENTITY, SubFactor: WINBIO_BIOMETRIC_SUBTYPE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioEnrollBegin(SessionHandle: WINBIO_SESSION_HANDLE, SubFactor: WINBIO_BIOMETRIC_SUBTYPE, UnitId: WINBIO_UNIT_ID) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioEnrollCapture(SessionHandle: WINBIO_SESSION_HANDLE, #[opt] RejectDetail: *mut WINBIO_REJECT_DETAIL) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioEnrollCaptureWithCallback(SessionHandle: WINBIO_SESSION_HANDLE, EnrollCallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, #[opt] EnrollCallbackContext: *const void) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioEnrollCommit(SessionHandle: WINBIO_SESSION_HANDLE, #[opt] Identity: *mut WINBIO_IDENTITY, #[opt] IsNewTemplate: *mut BOOLEAN) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioEnrollDiscard(SessionHandle: WINBIO_SESSION_HANDLE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioEnrollSelect(SessionHandle: WINBIO_SESSION_HANDLE, SelectorValue: u64) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioEnumBiometricUnits(Factor: WINBIO_BIOMETRIC_TYPE, UnitSchemaArray: *mut *mut WINBIO_UNIT_SCHEMA, UnitCount: *mut usize) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioEnumDatabases(Factor: WINBIO_BIOMETRIC_TYPE, StorageSchemaArray: *mut *mut WINBIO_STORAGE_SCHEMA, StorageCount: *mut usize) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioEnumEnrollments(SessionHandle: WINBIO_SESSION_HANDLE, UnitId: WINBIO_UNIT_ID, Identity: *const WINBIO_IDENTITY, SubFactorArray: *mut *mut WINBIO_BIOMETRIC_SUBTYPE, #[opt] SubFactorCount: *mut usize) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioEnumServiceProviders(Factor: WINBIO_BIOMETRIC_TYPE, BspSchemaArray: *mut *mut WINBIO_BSP_SCHEMA, BspCount: *mut usize) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioFree(Address: *const void) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioGetCredentialState(Identity: WINBIO_IDENTITY, Type: WINBIO_CREDENTIAL_TYPE, CredentialState: *mut WINBIO_CREDENTIAL_STATE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioGetDomainLogonSetting(Value: *mut BOOLEAN, Source: *mut u32);
+        #[library("winbio.dll")]
+        extern fn WinBioGetEnabledSetting(Value: *mut BOOLEAN, Source: *mut u32);
+        #[library("winbio.dll")]
+        extern fn WinBioGetEnrolledFactors(AccountOwner: *const WINBIO_IDENTITY, EnrolledFactors: *mut WINBIO_BIOMETRIC_TYPE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioGetLogonSetting(Value: *mut BOOLEAN, Source: *mut u32);
+        #[library("winbio.dll")]
+        extern fn WinBioGetProperty(SessionHandle: WINBIO_SESSION_HANDLE, PropertyType: WINBIO_PROPERTY_TYPE, PropertyId: WINBIO_PROPERTY_ID, #[opt] UnitId: WINBIO_UNIT_ID, #[opt] Identity: *const WINBIO_IDENTITY, #[opt] SubFactor: WINBIO_BIOMETRIC_SUBTYPE, PropertyBuffer: *mut *mut void, #[opt] PropertyBufferSize: *mut usize) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioIdentify(SessionHandle: WINBIO_SESSION_HANDLE, #[opt] UnitId: *mut WINBIO_UNIT_ID, #[opt] Identity: *mut WINBIO_IDENTITY, #[opt] SubFactor: *mut WINBIO_BIOMETRIC_SUBTYPE, #[opt] RejectDetail: *mut WINBIO_REJECT_DETAIL) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioIdentifyWithCallback(SessionHandle: WINBIO_SESSION_HANDLE, IdentifyCallback: PWINBIO_IDENTIFY_CALLBACK, #[opt] IdentifyCallbackContext: *const void) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioImproveBegin(SessionHandle: WINBIO_SESSION_HANDLE, UnitId: WINBIO_UNIT_ID) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioImproveEnd(SessionHandle: WINBIO_SESSION_HANDLE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioIsESSCapable(Value: *mut BOOLEAN) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioLocateSensor(SessionHandle: WINBIO_SESSION_HANDLE, #[opt] UnitId: *mut WINBIO_UNIT_ID) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioLocateSensorWithCallback(SessionHandle: WINBIO_SESSION_HANDLE, LocateCallback: PWINBIO_LOCATE_SENSOR_CALLBACK, #[opt] LocateCallbackContext: *const void) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioLockUnit(SessionHandle: WINBIO_SESSION_HANDLE, UnitId: WINBIO_UNIT_ID) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioLogonIdentifiedUser(SessionHandle: WINBIO_SESSION_HANDLE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioMonitorPresence(SessionHandle: WINBIO_SESSION_HANDLE, UnitId: WINBIO_UNIT_ID) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioOpenSession(Factor: WINBIO_BIOMETRIC_TYPE, PoolType: WINBIO_POOL_TYPE, Flags: WINBIO_SESSION_FLAGS, #[len_param(4)] #[opt] UnitArray: *const WINBIO_UNIT_ID, #[opt] UnitCount: usize, #[opt] DatabaseId: *const GUID, SessionHandle: *mut WINBIO_SESSION_HANDLE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioRegisterEventMonitor(SessionHandle: WINBIO_SESSION_HANDLE, EventMask: WINBIO_EVENT_TYPE, EventCallback: PWINBIO_EVENT_CALLBACK, #[opt] EventCallbackContext: *const void) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioReleaseFocus() -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioRemoveAllCredentials() -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioRemoveAllDomainCredentials() -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioRemoveCredential(Identity: WINBIO_IDENTITY, Type: WINBIO_CREDENTIAL_TYPE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioSetCredential(Type: WINBIO_CREDENTIAL_TYPE, #[size_param(2)] Credential: *const u8, CredentialSize: usize, Format: WINBIO_CREDENTIAL_FORMAT) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioSetProperty(SessionHandle: WINBIO_SESSION_HANDLE, PropertyType: WINBIO_PROPERTY_TYPE, PropertyId: WINBIO_PROPERTY_ID, #[opt] UnitId: WINBIO_UNIT_ID, #[opt] Identity: *const WINBIO_IDENTITY, #[opt] SubFactor: WINBIO_BIOMETRIC_SUBTYPE, #[size_param(7)] PropertyBuffer: *const void, PropertyBufferSize: usize) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioUnlockUnit(SessionHandle: WINBIO_SESSION_HANDLE, UnitId: WINBIO_UNIT_ID) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioUnregisterEventMonitor(SessionHandle: WINBIO_SESSION_HANDLE) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioVerify(SessionHandle: WINBIO_SESSION_HANDLE, Identity: *const WINBIO_IDENTITY, SubFactor: WINBIO_BIOMETRIC_SUBTYPE, #[opt] UnitId: *mut WINBIO_UNIT_ID, #[opt] Match: *mut BOOLEAN, #[opt] RejectDetail: *mut WINBIO_REJECT_DETAIL) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioVerifyWithCallback(SessionHandle: WINBIO_SESSION_HANDLE, Identity: *const WINBIO_IDENTITY, SubFactor: WINBIO_BIOMETRIC_SUBTYPE, VerifyCallback: PWINBIO_VERIFY_CALLBACK, #[opt] VerifyCallbackContext: *const void) -> HRESULT;
+        #[library("winbio.dll")]
+        extern fn WinBioWait(SessionHandle: WINBIO_SESSION_HANDLE) -> HRESULT;
+    }
+}

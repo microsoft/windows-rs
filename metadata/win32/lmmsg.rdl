@@ -1,0 +1,30 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type LPMSG_INFO_0 = *mut MSG_INFO_0;
+        type LPMSG_INFO_1 = *mut MSG_INFO_1;
+        const MSGNAME_FORWARDED_FROM: u32 = 16;
+        const MSGNAME_FORWARDED_TO: u32 = 4;
+        const MSGNAME_NOT_FORWARDED: u32 = 0;
+        struct MSG_INFO_0 {
+            msgi0_name: PWSTR,
+        }
+        struct MSG_INFO_1 {
+            msgi1_name: PWSTR,
+            msgi1_forward_flag: u32,
+            msgi1_forward: PWSTR,
+        }
+        #[library("NETAPI32.dll")]
+        extern fn NetMessageBufferSend(#[opt] servername: PCWSTR, msgname: PCWSTR, fromname: PCWSTR, buf: *const u8, buflen: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetMessageNameAdd(#[opt] servername: PCWSTR, msgname: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetMessageNameDel(#[opt] servername: PCWSTR, msgname: PCWSTR) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetMessageNameEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *const LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetMessageNameGetInfo(#[opt] servername: PCWSTR, msgname: PCWSTR, level: u32, bufptr: *const LPBYTE) -> u32;
+        type PMSG_INFO_0 = *mut MSG_INFO_0;
+        type PMSG_INFO_1 = *mut MSG_INFO_1;
+    }
+}

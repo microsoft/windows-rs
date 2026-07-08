@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[library("fallback.dll")]
+    extern "C" fn AddValues(a: i32, b: i32) -> i32;
+    #[library("KERNELBASE.dll")]
+    extern "C" fn CloseHandle(handle: *mut void);
+    #[library("kernel32.dll")]
+    extern "C" fn CreateHandle(name: *const i8) -> *mut void;
+}

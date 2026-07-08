@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    mod Wdk {
+        #[library("ntdll.dll")]
+        extern fn GetTheVersion(info: *mut super::Win32::INFO) -> super::Win32::STATUS;
+    }
+}

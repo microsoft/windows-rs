@@ -1,0 +1,29 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[no_guid]
+        interface IRoMetaDataLocator {
+            fn Locate(&self, nameElement: PCWSTR, metaDataDestination: IRoSimpleMetaDataBuilder) -> HRESULT;
+        }
+        #[no_guid]
+        interface IRoSimpleMetaDataBuilder {
+            fn SetWinRtInterface(&self, iid: GUID) -> HRESULT;
+            fn SetDelegate(&self, iid: GUID) -> HRESULT;
+            fn SetInterfaceGroupSimpleDefault(&self, name: PCWSTR, defaultInterfaceName: PCWSTR, #[opt] defaultInterfaceIID: *const GUID) -> HRESULT;
+            fn SetInterfaceGroupParameterizedDefault(&self, name: PCWSTR, elementCount: u32, #[len_param(1)] defaultInterfaceNameElements: *const PCWSTR) -> HRESULT;
+            fn SetRuntimeClassSimpleDefault(&self, name: PCWSTR, defaultInterfaceName: PCWSTR, #[opt] defaultInterfaceIID: *const GUID) -> HRESULT;
+            fn SetRuntimeClassParameterizedDefault(&self, name: PCWSTR, elementCount: u32, #[len_param(1)] defaultInterfaceNameElements: *const PCWSTR) -> HRESULT;
+            fn SetStruct(&self, name: PCWSTR, numFields: u32, #[len_param(1)] fieldTypeNames: *const PCWSTR) -> HRESULT;
+            fn SetEnum(&self, name: PCWSTR, baseType: PCWSTR) -> HRESULT;
+            fn SetParameterizedInterface(&self, piid: GUID, numArgs: u32) -> HRESULT;
+            fn SetParameterizedDelegate(&self, piid: GUID, numArgs: u32) -> HRESULT;
+        }
+        type ROPARAMIIDHANDLE = *mut void;
+        #[library("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll")]
+        extern fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE);
+        #[library("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll")]
+        extern fn RoGetParameterizedTypeInstanceIID(nameElementCount: u32, #[len_param(0)] nameElements: *const PCWSTR, metaDataLocator: IRoMetaDataLocator, iid: *mut GUID, pExtra: *mut ROPARAMIIDHANDLE) -> HRESULT;
+        #[library("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll")]
+        extern fn RoParameterizedTypeExtraGetTypeSignature(extra: ROPARAMIIDHANDLE) -> PCSTR;
+    }
+}

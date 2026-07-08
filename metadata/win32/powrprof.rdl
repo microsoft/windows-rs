@@ -1,0 +1,309 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("POWRPROF.dll")]
+        extern fn CanUserWritePwrScheme() -> BOOLEAN;
+        const DEVICEPOWER_AND_OPERATION: u32 = 1073741824;
+        const DEVICEPOWER_CLEAR_WAKEENABLED: u32 = 2;
+        const DEVICEPOWER_FILTER_DEVICES_PRESENT: u32 = 536870912;
+        const DEVICEPOWER_FILTER_HARDWARE: u32 = 268435456;
+        const DEVICEPOWER_FILTER_ON_NAME: u32 = 33554432;
+        const DEVICEPOWER_FILTER_WAKEENABLED: u32 = 134217728;
+        const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864;
+        const DEVICEPOWER_HARDWAREID: u32 = 2147483648;
+        const DEVICEPOWER_SET_WAKEENABLED: u32 = 1;
+        const DEVICE_NOTIFY_CALLBACK: u32 = 2;
+        extern fn DEVICE_NOTIFY_CALLBACK_ROUTINE(#[opt] Context: *const void, Type: u32, Setting: *const void) -> u32;
+        struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+            Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
+            Context: *mut void,
+        }
+        #[library("POWRPROF.dll")]
+        extern fn DeletePwrScheme(uiID: u32) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn DevicePowerClose() -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn DevicePowerEnumDevices(QueryIndex: u32, QueryInterpretationFlags: u32, QueryFlags: u32, #[size_param(4)] #[opt] pReturnBuffer: *mut u8, #[in] #[out] pBufferSize: *mut u32) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn DevicePowerOpen(#[opt] DebugMask: u32) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn DevicePowerSetDeviceState(DeviceDescription: PCWSTR, SetFlags: u32, #[opt] SetData: *const void) -> u32;
+        const EnableMultiBatteryDisplay: u32 = 2;
+        const EnablePasswordLogon: u32 = 4;
+        const EnableSysTrayBatteryMeter: u32 = 1;
+        const EnableVideoDimDisplay: u32 = 16;
+        const EnableWakeOnRing: u32 = 8;
+        #[library("POWRPROF.dll")]
+        extern fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lParam: LPARAM) -> BOOLEAN;
+        struct GLOBAL_MACHINE_POWER_POLICY {
+            Revision: u32,
+            LidOpenWakeAc: SYSTEM_POWER_STATE,
+            LidOpenWakeDc: SYSTEM_POWER_STATE,
+            BroadcastCapacityResolution: u32,
+        }
+        struct GLOBAL_POWER_POLICY {
+            user: GLOBAL_USER_POWER_POLICY,
+            mach: GLOBAL_MACHINE_POWER_POLICY,
+        }
+        struct GLOBAL_USER_POWER_POLICY {
+            Revision: u32,
+            PowerButtonAc: POWER_ACTION_POLICY,
+            PowerButtonDc: POWER_ACTION_POLICY,
+            SleepButtonAc: POWER_ACTION_POLICY,
+            SleepButtonDc: POWER_ACTION_POLICY,
+            LidCloseAc: POWER_ACTION_POLICY,
+            LidCloseDc: POWER_ACTION_POLICY,
+            DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
+            GlobalFlags: u32,
+        }
+        #[library("POWRPROF.dll")]
+        extern fn GetActivePwrScheme(puiID: *mut u32) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn GetCurrentPowerPolicies(pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY, pPowerPolicy: *mut POWER_POLICY) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn GetPwrDiskSpindownRange(puiMax: *mut u32, puiMin: *mut u32) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn IsPwrHibernateAllowed() -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn IsPwrShutdownAllowed() -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn IsPwrSuspendAllowed() -> BOOLEAN;
+        struct MACHINE_POWER_POLICY {
+            Revision: u32,
+            MinSleepAc: SYSTEM_POWER_STATE,
+            MinSleepDc: SYSTEM_POWER_STATE,
+            ReducedLatencySleepAc: SYSTEM_POWER_STATE,
+            ReducedLatencySleepDc: SYSTEM_POWER_STATE,
+            DozeTimeoutAc: u32,
+            DozeTimeoutDc: u32,
+            DozeS4TimeoutAc: u32,
+            DozeS4TimeoutDc: u32,
+            MinThrottleAc: u8,
+            MinThrottleDc: u8,
+            pad1: [u8; 2],
+            OverThrottledAc: POWER_ACTION_POLICY,
+            OverThrottledDc: POWER_ACTION_POLICY,
+        }
+        struct MACHINE_PROCESSOR_POWER_POLICY {
+            Revision: u32,
+            ProcessorPolicyAc: PROCESSOR_POWER_POLICY,
+            ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
+        }
+        const NEWSCHEME: u32 = 4294967295;
+        const PDCAP_S0_SUPPORTED: u32 = 65536;
+        const PDCAP_S1_SUPPORTED: u32 = 131072;
+        const PDCAP_S2_SUPPORTED: u32 = 262144;
+        const PDCAP_S3_SUPPORTED: u32 = 524288;
+        const PDCAP_S4_SUPPORTED: u32 = 16777216;
+        const PDCAP_S5_SUPPORTED: u32 = 33554432;
+        const PDCAP_WAKE_FROM_S0_SUPPORTED: u32 = 1048576;
+        const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152;
+        const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304;
+        const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608;
+        extern fn PDEVICE_NOTIFY_CALLBACK_ROUTINE(#[opt] Context: *const void, Type: u32, Setting: *const void) -> u32;
+        type PDEVICE_NOTIFY_SUBSCRIBE_PARAMETERS = *mut DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS;
+        type PGLOBAL_MACHINE_POWER_POLICY = *mut GLOBAL_MACHINE_POWER_POLICY;
+        type PGLOBAL_POWER_POLICY = *mut GLOBAL_POWER_POLICY;
+        type PGLOBAL_USER_POWER_POLICY = *mut GLOBAL_USER_POWER_POLICY;
+        type PMACHINE_POWER_POLICY = *mut MACHINE_POWER_POLICY;
+        type PMACHINE_PROCESSOR_POWER_POLICY = *mut MACHINE_PROCESSOR_POWER_POLICY;
+        const POWER_ATTRIBUTE_HIDE: u32 = 1;
+        const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2;
+        #[repr(i32)]
+        enum POWER_DATA_ACCESSOR {
+            ACCESS_AC_POWER_SETTING_INDEX = 0,
+            ACCESS_DC_POWER_SETTING_INDEX = 1,
+            ACCESS_FRIENDLY_NAME = 2,
+            ACCESS_DESCRIPTION = 3,
+            ACCESS_POSSIBLE_POWER_SETTING = 4,
+            ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME = 5,
+            ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION = 6,
+            ACCESS_DEFAULT_AC_POWER_SETTING = 7,
+            ACCESS_DEFAULT_DC_POWER_SETTING = 8,
+            ACCESS_POSSIBLE_VALUE_MIN = 9,
+            ACCESS_POSSIBLE_VALUE_MAX = 10,
+            ACCESS_POSSIBLE_VALUE_INCREMENT = 11,
+            ACCESS_POSSIBLE_VALUE_UNITS = 12,
+            ACCESS_ICON_RESOURCE = 13,
+            ACCESS_DEFAULT_SECURITY_DESCRIPTOR = 14,
+            ACCESS_ATTRIBUTES = 15,
+            ACCESS_SCHEME = 16,
+            ACCESS_SUBGROUP = 17,
+            ACCESS_INDIVIDUAL_SETTING = 18,
+            ACCESS_ACTIVE_SCHEME = 19,
+            ACCESS_CREATE_SCHEME = 20,
+            ACCESS_AC_POWER_SETTING_MAX = 21,
+            ACCESS_DC_POWER_SETTING_MAX = 22,
+            ACCESS_AC_POWER_SETTING_MIN = 23,
+            ACCESS_DC_POWER_SETTING_MIN = 24,
+            ACCESS_PROFILE = 25,
+            ACCESS_OVERLAY_SCHEME = 26,
+            ACCESS_POWER_MODE = 26,
+            ACCESS_ACTIVE_OVERLAY_SCHEME = 27,
+        }
+        struct POWER_POLICY {
+            user: USER_POWER_POLICY,
+            mach: MACHINE_POWER_POLICY,
+        }
+        type PPOWER_DATA_ACCESSOR = *mut POWER_DATA_ACCESSOR;
+        type PPOWER_POLICY = *mut POWER_POLICY;
+        type PTHERMAL_EVENT = *mut THERMAL_EVENT;
+        type PUSER_POWER_POLICY = *mut USER_POWER_POLICY;
+        extern fn PWRSCHEMESENUMPROC(Index: u32, NameSize: u32, #[size_param(1)] Name: PCWSTR, DescriptionSize: u32, #[size_param(3)] Description: PCWSTR, Policy: *const POWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> BOOLEAN;
+        extern fn PWRSCHEMESENUMPROC_V1(Index: u32, NameSize: u32, #[size_param(1)] Name: LPTSTR, DescriptionSize: u32, #[size_param(3)] Description: LPTSTR, Policy: *const POWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> BOOLEAN;
+        extern fn PWRSCHEMESENUMPROC_V2(Index: u32, NameSize: u32, #[size_param(1)] Name: PCWSTR, DescriptionSize: u32, #[size_param(3)] Description: PCWSTR, Policy: *const POWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn PowerCanRestoreIndividualDefaultPowerScheme(SchemeGuid: *const GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerCreatePossibleSetting(#[opt] RootSystemPowerKey: HKEY, SubGroupOfPowerSettingsGuid: *const GUID, PowerSettingGuid: *const GUID, PossibleSettingIndex: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerCreateSetting(#[opt] RootSystemPowerKey: HKEY, SubGroupOfPowerSettingsGuid: *const GUID, PowerSettingGuid: *const GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerDeleteScheme(#[opt] RootPowerKey: HKEY, SchemeGuid: *const GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE;
+        #[library("POWRPROF.dll")]
+        extern fn PowerDuplicateScheme(#[opt] RootPowerKey: HKEY, SourceSchemeGuid: *const GUID, #[in] #[out] DestinationSchemeGuid: *mut *mut GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerEnumerate(#[opt] RootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, AccessFlags: POWER_DATA_ACCESSOR, Index: u32, #[size_param(6)] #[opt] Buffer: *mut u8, #[in] #[out] BufferSize: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerGetUserConfiguredACPowerMode(PowerModeGuid: *mut GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerGetUserConfiguredDCPowerMode(PowerModeGuid: *mut GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerImportPowerScheme(#[opt] RootPowerKey: HKEY, ImportFileNamePath: PCWSTR, #[in] #[out] DestinationSchemeGuid: *mut *mut GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerIsSettingRangeDefined(#[opt] SubKeyGuid: *const GUID, #[opt] SettingGuid: *const GUID) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn PowerOpenSystemPowerKey(phSystemPowerKey: *mut HKEY, Access: REGSAM, OpenExisting: BOOL) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerOpenUserPowerKey(phUserPowerKey: *mut HKEY, Access: REGSAM, OpenExisting: BOOL) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadACDefaultIndex(#[opt] RootPowerKey: HKEY, SchemePersonalityGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, PowerSettingGuid: *const GUID, AcDefaultIndex: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadACValueIndex(#[opt] RootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, AcValueIndex: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadDCDefaultIndex(#[opt] RootPowerKey: HKEY, SchemePersonalityGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, PowerSettingGuid: *const GUID, DcDefaultIndex: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadDCValueIndex(#[opt] RootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, DcValueIndex: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadDescription(#[opt] RootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[size_param(5)] #[opt] Buffer: *mut u8, #[in] #[out] BufferSize: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadFriendlyName(#[opt] RootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[size_param(5)] #[opt] Buffer: *mut u8, #[in] #[out] BufferSize: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadIconResourceSpecifier(#[opt] RootPowerKey: HKEY, #[opt] SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[size_param(5)] #[opt] Buffer: *mut u8, #[in] #[out] BufferSize: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadPossibleDescription(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, PossibleSettingIndex: u32, #[size_param(5)] #[opt] Buffer: *mut u8, #[in] #[out] BufferSize: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadPossibleFriendlyName(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, PossibleSettingIndex: u32, #[size_param(5)] #[opt] Buffer: *mut u8, #[in] #[out] BufferSize: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadPossibleValue(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[opt] Type: *mut u32, PossibleSettingIndex: u32, #[size_param(6)] #[opt] Buffer: *mut u8, #[in] #[out] BufferSize: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadSettingAttributes(#[opt] SubGroupGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadValueIncrement(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, ValueIncrement: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadValueMax(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, ValueMaximum: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadValueMin(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, ValueMinimum: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReadValueUnitsSpecifier(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[size_param(4)] #[opt] Buffer: *mut u8, #[in] #[out] BufferSize: *mut u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerRemovePowerSetting(PowerSettingSubKeyGuid: *const GUID, PowerSettingGuid: *const GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReplaceDefaultPowerSchemes() -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerReportThermalEvent(Event: *const THERMAL_EVENT) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerRestoreDefaultPowerSchemes() -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerRestoreIndividualDefaultPowerScheme(SchemeGuid: *const GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerSetUserConfiguredACPowerMode(PowerModeGuid: *const GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerSetUserConfiguredDCPowerMode(PowerModeGuid: *const GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerSettingAccessCheck(AccessFlags: POWER_DATA_ACCESSOR, #[opt] PowerGuid: *const GUID) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerSettingAccessCheckEx(AccessFlags: POWER_DATA_ACCESSOR, #[opt] PowerGuid: *const GUID, AccessType: REGSAM) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteACDefaultIndex(#[opt] RootSystemPowerKey: HKEY, SchemePersonalityGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, PowerSettingGuid: *const GUID, DefaultAcIndex: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteDCDefaultIndex(#[opt] RootSystemPowerKey: HKEY, SchemePersonalityGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, PowerSettingGuid: *const GUID, DefaultDcIndex: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteDescription(#[opt] RootPowerKey: HKEY, SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[size_param(5)] Buffer: *const u8, BufferSize: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteFriendlyName(#[opt] RootPowerKey: HKEY, SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[size_param(5)] Buffer: *const u8, BufferSize: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteIconResourceSpecifier(#[opt] RootPowerKey: HKEY, SchemeGuid: *const GUID, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[size_param(5)] Buffer: *const u8, BufferSize: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWritePossibleDescription(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, PossibleSettingIndex: u32, #[size_param(5)] Buffer: *const u8, BufferSize: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWritePossibleFriendlyName(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, PossibleSettingIndex: u32, #[size_param(5)] Buffer: *const u8, BufferSize: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWritePossibleValue(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, Type: u32, PossibleSettingIndex: u32, #[size_param(6)] Buffer: *const u8, BufferSize: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteSettingAttributes(#[opt] SubGroupGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, Attributes: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteValueIncrement(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, ValueIncrement: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteValueMax(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, ValueMaximum: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteValueMin(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, ValueMinimum: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn PowerWriteValueUnitsSpecifier(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[size_param(4)] Buffer: *const u8, BufferSize: u32) -> u32;
+        #[library("POWRPROF.dll")]
+        extern fn ReadGlobalPwrPolicy(pGlobalPowerPolicy: *const GLOBAL_POWER_POLICY) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn ReadProcessorPwrScheme(uiID: u32, pMachineProcessorPowerPolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn ReadPwrScheme(uiID: u32, pPowerPolicy: *mut POWER_POLICY) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn SetActivePwrScheme(uiID: u32, #[opt] pGlobalPowerPolicy: *const GLOBAL_POWER_POLICY, #[opt] pPowerPolicy: *const POWER_POLICY) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn SetSuspendState(bHibernate: BOOLEAN, bForce: BOOLEAN, bWakeupEventsDisabled: BOOLEAN) -> BOOLEAN;
+        struct THERMAL_EVENT {
+            Version: u32,
+            Size: u32,
+            Type: u32,
+            Temperature: u32,
+            TripPointTemperature: u32,
+            Initiator: PWSTR,
+        }
+        const THERMAL_EVENT_VERSION: u32 = 1;
+        struct USER_POWER_POLICY {
+            Revision: u32,
+            IdleAc: POWER_ACTION_POLICY,
+            IdleDc: POWER_ACTION_POLICY,
+            IdleTimeoutAc: u32,
+            IdleTimeoutDc: u32,
+            IdleSensitivityAc: u8,
+            IdleSensitivityDc: u8,
+            ThrottlePolicyAc: u8,
+            ThrottlePolicyDc: u8,
+            MaxSleepAc: SYSTEM_POWER_STATE,
+            MaxSleepDc: SYSTEM_POWER_STATE,
+            Reserved: [u32; 2],
+            VideoTimeoutAc: u32,
+            VideoTimeoutDc: u32,
+            SpindownTimeoutAc: u32,
+            SpindownTimeoutDc: u32,
+            OptimizeForPowerAc: BOOLEAN,
+            OptimizeForPowerDc: BOOLEAN,
+            FanThrottleToleranceAc: u8,
+            FanThrottleToleranceDc: u8,
+            ForcedThrottleAc: u8,
+            ForcedThrottleDc: u8,
+        }
+        #[library("POWRPROF.dll")]
+        extern fn ValidatePowerPolicies(#[in] #[out] #[opt] pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY, #[in] #[out] #[opt] pPowerPolicy: *mut POWER_POLICY) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn WriteGlobalPwrPolicy(pGlobalPowerPolicy: *const GLOBAL_POWER_POLICY) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn WriteProcessorPwrScheme(uiID: u32, pMachineProcessorPowerPolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> BOOLEAN;
+        #[library("POWRPROF.dll")]
+        extern fn WritePwrScheme(puiID: *const u32, lpszSchemeName: PCWSTR, #[opt] lpszDescription: PCWSTR, lpScheme: *const POWER_POLICY) -> BOOLEAN;
+    }
+}

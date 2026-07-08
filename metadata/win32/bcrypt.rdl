@@ -1,0 +1,1058 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BCRYPTBUFFER_VERSION: u32 = 0;
+        #[encoding("utf-16")]
+        const BCRYPT_3DES_112_ALGORITHM: String = "3DES_112";
+        const BCRYPT_3DES_112_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 369;
+        const BCRYPT_3DES_112_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 401;
+        const BCRYPT_3DES_112_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 385;
+        #[encoding("utf-16")]
+        const BCRYPT_3DES_ALGORITHM: String = "3DES";
+        const BCRYPT_3DES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 321;
+        const BCRYPT_3DES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 353;
+        const BCRYPT_3DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 337;
+        #[encoding("utf-16")]
+        const BCRYPT_AES_ALGORITHM: String = "AES";
+        const BCRYPT_AES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 417;
+        const BCRYPT_AES_CCM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 465;
+        const BCRYPT_AES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 449;
+        #[encoding("utf-16")]
+        const BCRYPT_AES_CMAC_ALGORITHM: String = "AES-CMAC";
+        const BCRYPT_AES_CMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 257;
+        const BCRYPT_AES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 433;
+        const BCRYPT_AES_GCM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 481;
+        #[encoding("utf-16")]
+        const BCRYPT_AES_GMAC_ALGORITHM: String = "AES-GMAC";
+        const BCRYPT_AES_GMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 273;
+        #[encoding("utf-16")]
+        const BCRYPT_AES_WRAP_KEY_BLOB: String = "Rfc3565KeyWrapBlob";
+        struct BCRYPT_ALGORITHM_IDENTIFIER {
+            pszName: PWSTR,
+            dwClass: u32,
+            dwFlags: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_ALGORITHM_NAME: String = "AlgorithmName";
+        type BCRYPT_ALG_HANDLE = *mut void;
+        const BCRYPT_ALG_HANDLE_HMAC_FLAG: u32 = 8;
+        const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: u32 = 3;
+        const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: u32 = 4;
+        struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
+            cbSize: u32,
+            dwInfoVersion: u32,
+            pbNonce: PUCHAR,
+            cbNonce: u32,
+            pbAuthData: PUCHAR,
+            cbAuthData: u32,
+            pbTag: PUCHAR,
+            cbTag: u32,
+            pbMacContext: PUCHAR,
+            cbMacContext: u32,
+            cbAAD: u32,
+            cbData: u64,
+            dwFlags: u32,
+        }
+        const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: u32 = 1;
+        const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: u32 = 1;
+        const BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG: u32 = 2;
+        #[encoding("utf-16")]
+        const BCRYPT_AUTH_TAG_LENGTH: String = "AuthTagLength";
+        type BCRYPT_AUTH_TAG_LENGTHS_STRUCT = BCRYPT_KEY_LENGTHS_STRUCT;
+        #[encoding("utf-16")]
+        const BCRYPT_BLOCK_LENGTH: String = "BlockLength";
+        const BCRYPT_BLOCK_PADDING: u32 = 1;
+        #[encoding("utf-16")]
+        const BCRYPT_BLOCK_SIZE_LIST: String = "BlockSizeList";
+        const BCRYPT_BUFFERS_LOCKED_FLAG: u32 = 64;
+        const BCRYPT_CAPI_AES_FLAG: u32 = 16;
+        #[encoding("utf-16")]
+        const BCRYPT_CAPI_KDF_ALGORITHM: String = "CAPI_KDF";
+        const BCRYPT_CAPI_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 801;
+        #[encoding("utf-16")]
+        const BCRYPT_CHACHA20_POLY1305_ALGORITHM: String = "CHACHA20_POLY1305";
+        const BCRYPT_CHACHA20_POLY1305_ALG_HANDLE: BCRYPT_ALG_HANDLE = 929;
+        #[encoding("utf-16")]
+        const BCRYPT_CHAINING_MODE: String = "ChainingMode";
+        #[encoding("utf-16")]
+        const BCRYPT_CHAIN_MODE_CBC: String = "ChainingModeCBC";
+        #[encoding("utf-16")]
+        const BCRYPT_CHAIN_MODE_CCM: String = "ChainingModeCCM";
+        #[encoding("utf-16")]
+        const BCRYPT_CHAIN_MODE_CFB: String = "ChainingModeCFB";
+        #[encoding("utf-16")]
+        const BCRYPT_CHAIN_MODE_ECB: String = "ChainingModeECB";
+        #[encoding("utf-16")]
+        const BCRYPT_CHAIN_MODE_GCM: String = "ChainingModeGCM";
+        #[encoding("utf-16")]
+        const BCRYPT_CHAIN_MODE_NA: String = "ChainingModeN/A";
+        const BCRYPT_CIPHER_INTERFACE: u32 = 1;
+        const BCRYPT_CIPHER_OPERATION: u32 = 1;
+        #[encoding("utf-16")]
+        const BCRYPT_CSHAKE128_ALGORITHM: String = "CSHAKE128";
+        const BCRYPT_CSHAKE128_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1041;
+        #[encoding("utf-16")]
+        const BCRYPT_CSHAKE256_ALGORITHM: String = "CSHAKE256";
+        const BCRYPT_CSHAKE256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1057;
+        #[encoding("utf-16")]
+        const BCRYPT_CUSTOMIZATION_STRING: String = "CustomizationString";
+        #[encoding("utf-16")]
+        const BCRYPT_DESX_ALGORITHM: String = "DESX";
+        const BCRYPT_DESX_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 545;
+        const BCRYPT_DESX_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 577;
+        const BCRYPT_DESX_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 561;
+        #[encoding("utf-16")]
+        const BCRYPT_DES_ALGORITHM: String = "DES";
+        const BCRYPT_DES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 497;
+        const BCRYPT_DES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 529;
+        const BCRYPT_DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 513;
+        #[encoding("utf-16")]
+        const BCRYPT_DH_ALGORITHM: String = "DH";
+        const BCRYPT_DH_ALG_HANDLE: BCRYPT_ALG_HANDLE = 641;
+        struct BCRYPT_DH_KEY_BLOB {
+            dwMagic: u32,
+            cbKey: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_DH_PARAMETERS: String = "DHParameters";
+        const BCRYPT_DH_PARAMETERS_MAGIC: u32 = 1297107012;
+        struct BCRYPT_DH_PARAMETER_HEADER {
+            cbLength: u32,
+            dwMagic: u32,
+            cbKeyLength: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_DH_PRIVATE_BLOB: String = "DHPRIVATEBLOB";
+        const BCRYPT_DH_PRIVATE_MAGIC: u32 = 1448101956;
+        #[encoding("utf-16")]
+        const BCRYPT_DH_PUBLIC_BLOB: String = "DHPUBLICBLOB";
+        const BCRYPT_DH_PUBLIC_MAGIC: u32 = 1112557636;
+        #[encoding("utf-16")]
+        const BCRYPT_DSA_ALGORITHM: String = "DSA";
+        const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 721;
+        struct BCRYPT_DSA_KEY_BLOB {
+            dwMagic: u32,
+            cbKey: u32,
+            Count: [u8; 4],
+            Seed: [u8; 20],
+            q: [u8; 20],
+        }
+        struct BCRYPT_DSA_KEY_BLOB_V2 {
+            dwMagic: u32,
+            cbKey: u32,
+            hashAlgorithm: HASHALGORITHM_ENUM,
+            standardVersion: DSAFIPSVERSION_ENUM,
+            cbSeedLength: u32,
+            cbGroupSize: u32,
+            Count: [u8; 4],
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_DSA_PARAMETERS: String = "DSAParameters";
+        const BCRYPT_DSA_PARAMETERS_MAGIC: u32 = 1297109828;
+        const BCRYPT_DSA_PARAMETERS_MAGIC_V2: u32 = 843927620;
+        struct BCRYPT_DSA_PARAMETER_HEADER {
+            cbLength: u32,
+            dwMagic: u32,
+            cbKeyLength: u32,
+            Count: [u8; 4],
+            Seed: [u8; 20],
+            q: [u8; 20],
+        }
+        struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
+            cbLength: u32,
+            dwMagic: u32,
+            cbKeyLength: u32,
+            hashAlgorithm: HASHALGORITHM_ENUM,
+            standardVersion: DSAFIPSVERSION_ENUM,
+            cbSeedLength: u32,
+            cbGroupSize: u32,
+            Count: [u8; 4],
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_DSA_PRIVATE_BLOB: String = "DSAPRIVATEBLOB";
+        const BCRYPT_DSA_PRIVATE_MAGIC: u32 = 1448104772;
+        const BCRYPT_DSA_PRIVATE_MAGIC_V2: u32 = 844517444;
+        #[encoding("utf-16")]
+        const BCRYPT_DSA_PUBLIC_BLOB: String = "DSAPUBLICBLOB";
+        const BCRYPT_DSA_PUBLIC_MAGIC: u32 = 1112560452;
+        const BCRYPT_DSA_PUBLIC_MAGIC_V2: u32 = 843206724;
+        struct BCRYPT_ECCFULLKEY_BLOB {
+            dwMagic: u32,
+            dwVersion: u32,
+            dwCurveType: ECC_CURVE_TYPE_ENUM,
+            dwCurveGenerationAlgId: ECC_CURVE_ALG_ID_ENUM,
+            cbFieldLength: u32,
+            cbSubgroupOrder: u32,
+            cbCofactor: u32,
+            cbSeed: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_ECCFULLPRIVATE_BLOB: String = "ECCFULLPRIVATEBLOB";
+        #[encoding("utf-16")]
+        const BCRYPT_ECCFULLPUBLIC_BLOB: String = "ECCFULLPUBLICBLOB";
+        struct BCRYPT_ECCKEY_BLOB {
+            dwMagic: u32,
+            cbKey: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_ECCPRIVATE_BLOB: String = "ECCPRIVATEBLOB";
+        #[encoding("utf-16")]
+        const BCRYPT_ECCPUBLIC_BLOB: String = "ECCPUBLICBLOB";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_25519: String = "curve25519";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP160R1: String = "brainpoolP160r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP160T1: String = "brainpoolP160t1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP192R1: String = "brainpoolP192r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP192T1: String = "brainpoolP192t1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP224R1: String = "brainpoolP224r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP224T1: String = "brainpoolP224t1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP256R1: String = "brainpoolP256r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP256T1: String = "brainpoolP256t1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP320R1: String = "brainpoolP320r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP320T1: String = "brainpoolP320t1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP384R1: String = "brainpoolP384r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP384T1: String = "brainpoolP384t1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP512R1: String = "brainpoolP512r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_BRAINPOOLP512T1: String = "brainpoolP512t1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_EC192WAPI: String = "ec192wapi";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_NAME: String = "ECCCurveName";
+        struct BCRYPT_ECC_CURVE_NAMES {
+            dwEccCurveNames: u32,
+            pEccCurveNames: *mut PWSTR,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_NAME_LIST: String = "ECCCurveNameList";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_NISTP192: String = "nistP192";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_NISTP224: String = "nistP224";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_NISTP256: String = "nistP256";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_NISTP384: String = "nistP384";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_NISTP521: String = "nistP521";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_NUMSP256T1: String = "numsP256t1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_NUMSP384T1: String = "numsP384t1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_NUMSP512T1: String = "numsP512t1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP160K1: String = "secP160k1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP160R1: String = "secP160r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP160R2: String = "secP160r2";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP192K1: String = "secP192k1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP192R1: String = "secP192r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP224K1: String = "secP224k1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP224R1: String = "secP224r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP256K1: String = "secP256k1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP256R1: String = "secP256r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP384R1: String = "secP384r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_SECP521R1: String = "secP521r1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_WTLS12: String = "wtls12";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_WTLS7: String = "wtls7";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_WTLS9: String = "wtls9";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_X962P192V1: String = "x962P192v1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_X962P192V2: String = "x962P192v2";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_X962P192V3: String = "x962P192v3";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_X962P239V1: String = "x962P239v1";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_X962P239V2: String = "x962P239v2";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_X962P239V3: String = "x962P239v3";
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_CURVE_X962P256V1: String = "x962P256v1";
+        const BCRYPT_ECC_FULLKEY_BLOB_V1: u32 = 1;
+        #[encoding("utf-16")]
+        const BCRYPT_ECC_PARAMETERS: String = "ECCParameters";
+        const BCRYPT_ECC_PARAMETERS_MAGIC: u32 = 1346585413;
+        #[encoding("utf-16")]
+        const BCRYPT_ECDH_ALGORITHM: String = "ECDH";
+        const BCRYPT_ECDH_ALG_HANDLE: BCRYPT_ALG_HANDLE = 657;
+        #[encoding("utf-16")]
+        const BCRYPT_ECDH_P256_ALGORITHM: String = "ECDH_P256";
+        const BCRYPT_ECDH_P256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 673;
+        #[encoding("utf-16")]
+        const BCRYPT_ECDH_P384_ALGORITHM: String = "ECDH_P384";
+        const BCRYPT_ECDH_P384_ALG_HANDLE: BCRYPT_ALG_HANDLE = 689;
+        #[encoding("utf-16")]
+        const BCRYPT_ECDH_P521_ALGORITHM: String = "ECDH_P521";
+        const BCRYPT_ECDH_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = 705;
+        const BCRYPT_ECDH_PRIVATE_GENERIC_MAGIC: u32 = 1447772997;
+        const BCRYPT_ECDH_PRIVATE_P256_MAGIC: u32 = 843793221;
+        const BCRYPT_ECDH_PRIVATE_P384_MAGIC: u32 = 877347653;
+        const BCRYPT_ECDH_PRIVATE_P521_MAGIC: u32 = 910902085;
+        const BCRYPT_ECDH_PUBLIC_GENERIC_MAGIC: u32 = 1347109701;
+        const BCRYPT_ECDH_PUBLIC_P256_MAGIC: u32 = 827016005;
+        const BCRYPT_ECDH_PUBLIC_P384_MAGIC: u32 = 860570437;
+        const BCRYPT_ECDH_PUBLIC_P521_MAGIC: u32 = 894124869;
+        #[encoding("utf-16")]
+        const BCRYPT_ECDSA_ALGORITHM: String = "ECDSA";
+        const BCRYPT_ECDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 241;
+        #[encoding("utf-16")]
+        const BCRYPT_ECDSA_P256_ALGORITHM: String = "ECDSA_P256";
+        const BCRYPT_ECDSA_P256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 737;
+        #[encoding("utf-16")]
+        const BCRYPT_ECDSA_P384_ALGORITHM: String = "ECDSA_P384";
+        const BCRYPT_ECDSA_P384_ALG_HANDLE: BCRYPT_ALG_HANDLE = 753;
+        #[encoding("utf-16")]
+        const BCRYPT_ECDSA_P521_ALGORITHM: String = "ECDSA_P521";
+        const BCRYPT_ECDSA_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = 769;
+        const BCRYPT_ECDSA_PRIVATE_GENERIC_MAGIC: u32 = 1447314245;
+        const BCRYPT_ECDSA_PRIVATE_P256_MAGIC: u32 = 844317509;
+        const BCRYPT_ECDSA_PRIVATE_P384_MAGIC: u32 = 877871941;
+        const BCRYPT_ECDSA_PRIVATE_P521_MAGIC: u32 = 911426373;
+        const BCRYPT_ECDSA_PUBLIC_GENERIC_MAGIC: u32 = 1346650949;
+        const BCRYPT_ECDSA_PUBLIC_P256_MAGIC: u32 = 827540293;
+        const BCRYPT_ECDSA_PUBLIC_P384_MAGIC: u32 = 861094725;
+        const BCRYPT_ECDSA_PUBLIC_P521_MAGIC: u32 = 894649157;
+        #[encoding("utf-16")]
+        const BCRYPT_EFFECTIVE_KEY_LENGTH: String = "EffectiveKeyLength";
+        const BCRYPT_ENABLE_INCOMPATIBLE_FIPS_CHECKS: u32 = 256;
+        const BCRYPT_EXTENDED_KEYSIZE: u32 = 128;
+        #[encoding("utf-16")]
+        const BCRYPT_FUNCTION_NAME_STRING: String = "FunctionNameString";
+        const BCRYPT_GENERATE_IV: u32 = 32;
+        #[encoding("utf-16")]
+        const BCRYPT_GLOBAL_PARAMETERS: String = "SecretAgreementParam";
+        type BCRYPT_HANDLE = *mut void;
+        #[encoding("utf-16")]
+        const BCRYPT_HASH_BLOCK_LENGTH: String = "HashBlockLength";
+        const BCRYPT_HASH_DONT_RESET_FLAG: u32 = 1;
+        type BCRYPT_HASH_HANDLE = *mut void;
+        const BCRYPT_HASH_INTERFACE: u32 = 2;
+        const BCRYPT_HASH_INTERFACE_MAJORVERSION_2: u32 = 2;
+        #[encoding("utf-16")]
+        const BCRYPT_HASH_LENGTH: String = "HashDigestLength";
+        #[encoding("utf-16")]
+        const BCRYPT_HASH_OID_LIST: String = "HashOIDList";
+        const BCRYPT_HASH_OPERATION: u32 = 2;
+        #[repr(i32)]
+        enum BCRYPT_HASH_OPERATION_TYPE {
+            BCRYPT_HASH_OPERATION_HASH_DATA = 1,
+            BCRYPT_HASH_OPERATION_FINISH_HASH = 2,
+        }
+        const BCRYPT_HASH_REUSABLE_FLAG: u32 = 32;
+        #[encoding("utf-16")]
+        const BCRYPT_HKDF_ALGORITHM: String = "HKDF";
+        const BCRYPT_HKDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 913;
+        #[encoding("utf-16")]
+        const BCRYPT_HKDF_HASH_ALGORITHM: String = "HkdfHashAlgorithm";
+        #[encoding("utf-16")]
+        const BCRYPT_HKDF_PRK_AND_FINALIZE: String = "HkdfPrkAndFinalize";
+        #[encoding("utf-16")]
+        const BCRYPT_HKDF_SALT_AND_FINALIZE: String = "HkdfSaltAndFinalize";
+        const BCRYPT_HMAC_MD2_ALG_HANDLE: BCRYPT_ALG_HANDLE = 289;
+        const BCRYPT_HMAC_MD4_ALG_HANDLE: BCRYPT_ALG_HANDLE = 305;
+        const BCRYPT_HMAC_MD5_ALG_HANDLE: BCRYPT_ALG_HANDLE = 145;
+        const BCRYPT_HMAC_SHA1_ALG_HANDLE: BCRYPT_ALG_HANDLE = 161;
+        const BCRYPT_HMAC_SHA256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 177;
+        const BCRYPT_HMAC_SHA384_ALG_HANDLE: BCRYPT_ALG_HANDLE = 193;
+        const BCRYPT_HMAC_SHA3_256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 993;
+        const BCRYPT_HMAC_SHA3_384_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1009;
+        const BCRYPT_HMAC_SHA3_512_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1025;
+        const BCRYPT_HMAC_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = 209;
+        #[encoding("utf-16")]
+        const BCRYPT_INITIALIZATION_VECTOR: String = "IV";
+        struct BCRYPT_INTERFACE_VERSION {
+            MajorVersion: u16,
+            MinorVersion: u16,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_IS_IFX_TPM_WEAK_KEY: String = "IsIfxTpmWeakKey";
+        #[encoding("utf-16")]
+        const BCRYPT_IS_KEYED_HASH: String = "IsKeyedHash";
+        #[encoding("utf-16")]
+        const BCRYPT_IS_REUSABLE_HASH: String = "IsReusableHash";
+        #[encoding("utf-16")]
+        const BCRYPT_KDF_HASH: String = "HASH";
+        #[encoding("utf-16")]
+        const BCRYPT_KDF_HKDF: String = "HKDF";
+        #[encoding("utf-16")]
+        const BCRYPT_KDF_HMAC: String = "HMAC";
+        #[encoding("utf-16")]
+        const BCRYPT_KDF_RAW_SECRET: String = "TRUNCATE";
+        #[encoding("utf-16")]
+        const BCRYPT_KDF_SP80056A_CONCAT: String = "SP800_56A_CONCAT";
+        #[encoding("utf-16")]
+        const BCRYPT_KDF_TLS_PRF: String = "TLS_PRF";
+        #[encoding("utf-16")]
+        const BCRYPT_KEM_CIPHERTEXT_LENGTH: String = "KEMCiphertextLength";
+        #[encoding("utf-16")]
+        const BCRYPT_KEM_SHARED_SECRET_LENGTH: String = "KEMSharedSecretLength";
+        struct BCRYPT_KEY_BLOB {
+            Magic: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_KEY_DATA_BLOB: String = "KeyDataBlob";
+        struct BCRYPT_KEY_DATA_BLOB_HEADER {
+            dwMagic: u32,
+            dwVersion: u32,
+            cbKeyData: u32,
+        }
+        const BCRYPT_KEY_DATA_BLOB_MAGIC: u32 = 1296188491;
+        const BCRYPT_KEY_DATA_BLOB_VERSION1: u32 = 1;
+        const BCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7;
+        const BCRYPT_KEY_DERIVATION_OPERATION: u32 = 64;
+        const BCRYPT_KEY_ENCAPSULATION_INTERFACE: u32 = 8;
+        const BCRYPT_KEY_ENCAPSULATION_OPERATION: u32 = 128;
+        type BCRYPT_KEY_HANDLE = *mut void;
+        #[encoding("utf-16")]
+        const BCRYPT_KEY_LENGTH: String = "KeyLength";
+        #[encoding("utf-16")]
+        const BCRYPT_KEY_LENGTHS: String = "KeyLengths";
+        struct BCRYPT_KEY_LENGTHS_STRUCT {
+            dwMinLength: u32,
+            dwMaxLength: u32,
+            dwIncrement: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_KEY_OBJECT_LENGTH: String = "KeyObjectLength";
+        #[encoding("utf-16")]
+        const BCRYPT_KEY_STRENGTH: String = "KeyStrength";
+        const BCRYPT_KEY_VALIDATION_RANGE: u32 = 16;
+        const BCRYPT_KEY_VALIDATION_RANGE_AND_ORDER: u32 = 24;
+        const BCRYPT_KEY_VALIDATION_REGENERATE: u32 = 32;
+        #[encoding("utf-16")]
+        const BCRYPT_KMAC128_ALGORITHM: String = "KMAC128";
+        const BCRYPT_KMAC128_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1073;
+        #[encoding("utf-16")]
+        const BCRYPT_KMAC256_ALGORITHM: String = "KMAC256";
+        const BCRYPT_KMAC256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1089;
+        #[encoding("utf-16")]
+        const BCRYPT_LMS_ALGORITHM: String = "LMS";
+        const BCRYPT_LMS_PUBLIC_MAGIC: u32 = 1263553868;
+        #[encoding("utf-16")]
+        const BCRYPT_MD2_ALGORITHM: String = "MD2";
+        const BCRYPT_MD2_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1;
+        #[encoding("utf-16")]
+        const BCRYPT_MD4_ALGORITHM: String = "MD4";
+        const BCRYPT_MD4_ALG_HANDLE: BCRYPT_ALG_HANDLE = 17;
+        #[encoding("utf-16")]
+        const BCRYPT_MD5_ALGORITHM: String = "MD5";
+        const BCRYPT_MD5_ALG_HANDLE: BCRYPT_ALG_HANDLE = 33;
+        #[encoding("utf-16")]
+        const BCRYPT_MESSAGE_BLOCK_LENGTH: String = "MessageBlockLength";
+        #[encoding("utf-16")]
+        const BCRYPT_MLDSA_ALGORITHM: String = "ML-DSA";
+        const BCRYPT_MLDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1137;
+        const BCRYPT_MLDSA_EXTERNAL_MU: u32 = 64;
+        #[encoding("utf-16")]
+        const BCRYPT_MLDSA_PARAMETER_SET_44: String = "44";
+        #[encoding("utf-16")]
+        const BCRYPT_MLDSA_PARAMETER_SET_65: String = "65";
+        #[encoding("utf-16")]
+        const BCRYPT_MLDSA_PARAMETER_SET_87: String = "87";
+        const BCRYPT_MLDSA_PRIVATE_MAGIC: u32 = 1263752004;
+        const BCRYPT_MLDSA_PRIVATE_SEED_MAGIC: u32 = 1397969732;
+        const BCRYPT_MLDSA_PUBLIC_MAGIC: u32 = 1263555396;
+        #[encoding("utf-16")]
+        const BCRYPT_MLKEM_ALGORITHM: String = "ML-KEM";
+        const BCRYPT_MLKEM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1153;
+        struct BCRYPT_MLKEM_KEY_BLOB {
+            dwMagic: u32,
+            cbParameterSet: u32,
+            cbKey: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_MLKEM_PARAMETER_SET_1024: String = "1024";
+        #[encoding("utf-16")]
+        const BCRYPT_MLKEM_PARAMETER_SET_512: String = "512";
+        #[encoding("utf-16")]
+        const BCRYPT_MLKEM_PARAMETER_SET_768: String = "768";
+        #[encoding("utf-16")]
+        const BCRYPT_MLKEM_PRIVATE_BLOB: String = "MLKEMPRIVATEBLOB";
+        const BCRYPT_MLKEM_PRIVATE_MAGIC: u32 = 1380666445;
+        #[encoding("utf-16")]
+        const BCRYPT_MLKEM_PRIVATE_SEED_BLOB: String = "MLKEMPRIVATESEEDBLOB";
+        const BCRYPT_MLKEM_PRIVATE_SEED_MAGIC: u32 = 1397443661;
+        #[encoding("utf-16")]
+        const BCRYPT_MLKEM_PUBLIC_BLOB: String = "MLKEMPUBLICBLOB";
+        const BCRYPT_MLKEM_PUBLIC_MAGIC: u32 = 1347112013;
+        const BCRYPT_MULTI_FLAG: u32 = 64;
+        struct BCRYPT_MULTI_HASH_OPERATION {
+            iHash: u32,
+            hashOperation: BCRYPT_HASH_OPERATION_TYPE,
+            pbBuffer: PUCHAR,
+            cbBuffer: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_MULTI_OBJECT_LENGTH: String = "MultiObjectLength";
+        struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
+            cbPerObject: u32,
+            cbPerElement: u32,
+        }
+        #[repr(i32)]
+        enum BCRYPT_MULTI_OPERATION_TYPE {
+            BCRYPT_OPERATION_TYPE_HASH = 1,
+        }
+        const BCRYPT_NO_KEY_VALIDATION: u32 = 8;
+        struct BCRYPT_OAEP_PADDING_INFO {
+            pszAlgId: PCWSTR,
+            pbLabel: PUCHAR,
+            cbLabel: u32,
+        }
+        const BCRYPT_OBJECT_ALIGNMENT: u32 = 16;
+        #[encoding("utf-16")]
+        const BCRYPT_OBJECT_LENGTH: String = "ObjectLength";
+        struct BCRYPT_OID {
+            cbOID: u32,
+            pbOID: PUCHAR,
+        }
+        struct BCRYPT_OID_LIST {
+            dwOIDCount: u32,
+            pOIDs: *mut BCRYPT_OID,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_OPAQUE_KEY_BLOB: String = "OpaqueKeyBlob";
+        #[encoding("utf-16")]
+        const BCRYPT_PADDING_SCHEMES: String = "PaddingSchemes";
+        const BCRYPT_PAD_NONE: u32 = 1;
+        const BCRYPT_PAD_OAEP: u32 = 4;
+        const BCRYPT_PAD_PKCS1: u32 = 2;
+        const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: u32 = 16;
+        const BCRYPT_PAD_PQDSA: u32 = 32;
+        const BCRYPT_PAD_PSS: u32 = 8;
+        #[encoding("utf-16")]
+        const BCRYPT_PARAMETER_SET_NAME: String = "ParameterSetName";
+        #[encoding("utf-16")]
+        const BCRYPT_PBKDF2_ALGORITHM: String = "PBKDF2";
+        const BCRYPT_PBKDF2_ALG_HANDLE: BCRYPT_ALG_HANDLE = 817;
+        #[encoding("utf-16")]
+        const BCRYPT_PCP_PLATFORM_TYPE_PROPERTY: String = "PCP_PLATFORM_TYPE";
+        #[encoding("utf-16")]
+        const BCRYPT_PCP_PROVIDER_VERSION_PROPERTY: String = "PCP_PROVIDER_VERSION";
+        struct BCRYPT_PKCS11_RSA_AES_WRAP_BLOB {
+            dwMagic: u32,
+            cbKey: u32,
+            cbPaddingAlgId: u32,
+            cbPaddingLabel: u32,
+        }
+        const BCRYPT_PKCS11_RSA_AES_WRAP_BLOB_MAGIC: u32 = 1464877394;
+        #[encoding("utf-16")]
+        const BCRYPT_PKCS11_RSA_AES_WRAP_KEY_BLOB: String = "PKCS11RsaAesWrapBlob";
+        struct BCRYPT_PKCS1_PADDING_INFO {
+            pszAlgId: PCWSTR,
+        }
+        struct BCRYPT_PQDSA_KEY_BLOB {
+            dwMagic: u32,
+            cbParameterSet: u32,
+            cbKey: u32,
+        }
+        struct BCRYPT_PQDSA_PADDING_INFO {
+            pbCtx: PUCHAR,
+            cbCtx: u32,
+            pszPrehashAlgId: PCWSTR,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_PQDSA_PRIVATE_BLOB: String = "PQDSAPRIVATEBLOB";
+        #[encoding("utf-16")]
+        const BCRYPT_PQDSA_PRIVATE_SEED_BLOB: String = "PQDSAPRIVATESEEDBLOB";
+        #[encoding("utf-16")]
+        const BCRYPT_PQDSA_PUBLIC_BLOB: String = "PQDSAPUBLICBLOB";
+        #[encoding("utf-16")]
+        const BCRYPT_PRIMITIVE_TYPE: String = "PrimitiveType";
+        #[encoding("utf-16")]
+        const BCRYPT_PRIVATE_KEY: String = "PrivKeyVal";
+        #[encoding("utf-16")]
+        const BCRYPT_PRIVATE_KEY_BLOB: String = "PRIVATEBLOB";
+        const BCRYPT_PRIVATE_KEY_FLAG: u32 = 2;
+        #[encoding("utf-16")]
+        const BCRYPT_PROVIDER_HANDLE: String = "ProviderHandle";
+        struct BCRYPT_PROVIDER_NAME {
+            pszProviderName: PWSTR,
+        }
+        const BCRYPT_PROV_DISPATCH: u32 = 1;
+        struct BCRYPT_PSS_PADDING_INFO {
+            pszAlgId: PCWSTR,
+            cbSalt: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_PUBLIC_KEY_BLOB: String = "PUBLICBLOB";
+        const BCRYPT_PUBLIC_KEY_FLAG: u32 = 1;
+        #[encoding("utf-16")]
+        const BCRYPT_PUBLIC_KEY_LENGTH: String = "PublicKeyLength";
+        #[encoding("utf-16")]
+        const BCRYPT_RC2_ALGORITHM: String = "RC2";
+        const BCRYPT_RC2_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 593;
+        const BCRYPT_RC2_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 625;
+        const BCRYPT_RC2_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 609;
+        #[encoding("utf-16")]
+        const BCRYPT_RC4_ALGORITHM: String = "RC4";
+        const BCRYPT_RC4_ALG_HANDLE: BCRYPT_ALG_HANDLE = 113;
+        #[encoding("utf-16")]
+        const BCRYPT_RNG_ALGORITHM: String = "RNG";
+        const BCRYPT_RNG_ALG_HANDLE: BCRYPT_ALG_HANDLE = 129;
+        #[encoding("utf-16")]
+        const BCRYPT_RNG_DUAL_EC_ALGORITHM: String = "DUALECRNG";
+        #[encoding("utf-16")]
+        const BCRYPT_RNG_FIPS186_DSA_ALGORITHM: String = "FIPS186DSARNG";
+        const BCRYPT_RNG_INTERFACE: u32 = 6;
+        const BCRYPT_RNG_OPERATION: u32 = 32;
+        const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: u32 = 1;
+        #[encoding("utf-16")]
+        const BCRYPT_RSAFULLPRIVATE_BLOB: String = "RSAFULLPRIVATEBLOB";
+        const BCRYPT_RSAFULLPRIVATE_MAGIC: u32 = 859919186;
+        struct BCRYPT_RSAKEY_BLOB {
+            Magic: u32,
+            BitLength: u32,
+            cbPublicExp: u32,
+            cbModulus: u32,
+            cbPrime1: u32,
+            cbPrime2: u32,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_RSAPRIVATE_BLOB: String = "RSAPRIVATEBLOB";
+        const BCRYPT_RSAPRIVATE_MAGIC: u32 = 843141970;
+        #[encoding("utf-16")]
+        const BCRYPT_RSAPUBLIC_BLOB: String = "RSAPUBLICBLOB";
+        const BCRYPT_RSAPUBLIC_MAGIC: u32 = 826364754;
+        #[encoding("utf-16")]
+        const BCRYPT_RSA_ALGORITHM: String = "RSA";
+        const BCRYPT_RSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 225;
+        #[encoding("utf-16")]
+        const BCRYPT_RSA_SIGN_ALGORITHM: String = "RSA_SIGN";
+        const BCRYPT_RSA_SIGN_ALG_HANDLE: BCRYPT_ALG_HANDLE = 785;
+        const BCRYPT_SECRET_AGREEMENT_INTERFACE: u32 = 4;
+        const BCRYPT_SECRET_AGREEMENT_OPERATION: u32 = 8;
+        type BCRYPT_SECRET_HANDLE = *mut void;
+        #[encoding("utf-16")]
+        const BCRYPT_SHA1_ALGORITHM: String = "SHA1";
+        const BCRYPT_SHA1_ALG_HANDLE: BCRYPT_ALG_HANDLE = 49;
+        #[encoding("utf-16")]
+        const BCRYPT_SHA256_ALGORITHM: String = "SHA256";
+        const BCRYPT_SHA256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 65;
+        #[encoding("utf-16")]
+        const BCRYPT_SHA384_ALGORITHM: String = "SHA384";
+        const BCRYPT_SHA384_ALG_HANDLE: BCRYPT_ALG_HANDLE = 81;
+        #[encoding("utf-16")]
+        const BCRYPT_SHA3_256_ALGORITHM: String = "SHA3-256";
+        const BCRYPT_SHA3_256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 945;
+        #[encoding("utf-16")]
+        const BCRYPT_SHA3_384_ALGORITHM: String = "SHA3-384";
+        const BCRYPT_SHA3_384_ALG_HANDLE: BCRYPT_ALG_HANDLE = 961;
+        #[encoding("utf-16")]
+        const BCRYPT_SHA3_512_ALGORITHM: String = "SHA3-512";
+        const BCRYPT_SHA3_512_ALG_HANDLE: BCRYPT_ALG_HANDLE = 977;
+        #[encoding("utf-16")]
+        const BCRYPT_SHA512_ALGORITHM: String = "SHA512";
+        const BCRYPT_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = 97;
+        #[encoding("utf-16")]
+        const BCRYPT_SHAKE128_ALGORITHM: String = "SHAKE128";
+        const BCRYPT_SHAKE128_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1105;
+        #[encoding("utf-16")]
+        const BCRYPT_SHAKE256_ALGORITHM: String = "SHAKE256";
+        const BCRYPT_SHAKE256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1121;
+        const BCRYPT_SIGNATURE_INTERFACE: u32 = 5;
+        #[encoding("utf-16")]
+        const BCRYPT_SIGNATURE_LENGTH: String = "SignatureLength";
+        const BCRYPT_SIGNATURE_OPERATION: u32 = 16;
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_ALGORITHM: String = "SLH-DSA";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHA2_128F: String = "SHA2-128f";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHA2_128S: String = "SHA2-128s";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHA2_192F: String = "SHA2-192f";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHA2_192S: String = "SHA2-192s";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHA2_256F: String = "SHA2-256f";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHA2_256S: String = "SHA2-256s";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_128F: String = "SHAKE-128f";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_128S: String = "SHAKE-128s";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_192F: String = "SHAKE-192f";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_192S: String = "SHAKE-192s";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_256F: String = "SHAKE-256f";
+        #[encoding("utf-16")]
+        const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_256S: String = "SHAKE-256s";
+        const BCRYPT_SLHDSA_PRIVATE_MAGIC: u32 = 1263749203;
+        const BCRYPT_SLHDSA_PUBLIC_MAGIC: u32 = 1263552595;
+        #[encoding("utf-16")]
+        const BCRYPT_SP800108_CTR_HMAC_ALGORITHM: String = "SP800_108_CTR_HMAC";
+        const BCRYPT_SP800108_CTR_HMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 833;
+        #[encoding("utf-16")]
+        const BCRYPT_SP80056A_CONCAT_ALGORITHM: String = "SP800_56A_CONCAT";
+        const BCRYPT_SP80056A_CONCAT_ALG_HANDLE: BCRYPT_ALG_HANDLE = 849;
+        const BCRYPT_SUPPORTED_PAD_OAEP: u32 = 8;
+        const BCRYPT_SUPPORTED_PAD_PKCS1_ENC: u32 = 2;
+        const BCRYPT_SUPPORTED_PAD_PKCS1_SIG: u32 = 4;
+        const BCRYPT_SUPPORTED_PAD_PSS: u32 = 16;
+        const BCRYPT_SUPPORTED_PAD_ROUTER: u32 = 1;
+        #[encoding("utf-16")]
+        const BCRYPT_TLS1_1_KDF_ALGORITHM: String = "TLS1_1_KDF";
+        const BCRYPT_TLS1_1_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 865;
+        #[encoding("utf-16")]
+        const BCRYPT_TLS1_2_KDF_ALGORITHM: String = "TLS1_2_KDF";
+        const BCRYPT_TLS1_2_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 881;
+        const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: u32 = 4;
+        const BCRYPT_USE_SYSTEM_PREFERRED_RNG: u32 = 2;
+        #[encoding("utf-16")]
+        const BCRYPT_XMSS_ALGORITHM: String = "XMSS";
+        const BCRYPT_XMSS_PUBLIC_MAGIC: u32 = 1263553880;
+        #[encoding("utf-16")]
+        const BCRYPT_XTS_AES_ALGORITHM: String = "XTS-AES";
+        const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = 897;
+        #[library("bcrypt.dll")]
+        extern fn BCryptAddContextFunction(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, dwPosition: u32) -> NTSTATUS;
+        struct BCryptBuffer {
+            cbBuffer: u32,
+            BufferType: u32,
+            pvBuffer: *mut void,
+        }
+        struct BCryptBufferDesc {
+            ulVersion: u32,
+            cBuffers: u32,
+            pBuffers: PBCryptBuffer,
+        }
+        #[library("bcrypt.dll")]
+        extern fn BCryptCloseAlgorithmProvider(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptConfigureContext(dwTable: u32, pszContext: PCWSTR, pConfig: *const CRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptConfigureContextFunction(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, pConfig: *const CRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptCreateContext(dwTable: u32, pszContext: PCWSTR, #[opt] pConfig: *const CRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptCreateHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phHash: *mut BCRYPT_HASH_HANDLE, #[size_param(3)] #[opt] pbHashObject: *mut u8, cbHashObject: u32, #[size_param(5)] #[opt] pbSecret: *const u8, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptCreateMultiHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phHash: *mut BCRYPT_HASH_HANDLE, nHashes: u32, #[size_param(4)] #[opt] pbHashObject: *mut u8, cbHashObject: u32, #[size_param(6)] #[opt] pbSecret: *const u8, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDecapsulate(hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] pbCipherText: *const u8, cbCipherText: u32, #[size_param(4)] #[opt] pbSecretKey: *mut u8, cbSecretKey: u32, pcbSecretKey: *mut u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDecrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: *const u8, cbInput: u32, #[opt] pPaddingInfo: *const void, #[size_param(5)] #[in] #[out] #[opt] pbIV: *mut u8, cbIV: u32, #[size_param(7)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDeleteContext(dwTable: u32, pszContext: PCWSTR) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDeriveKey(hSharedSecret: BCRYPT_SECRET_HANDLE, pwszKDF: PCWSTR, #[opt] pParameterList: *const BCryptBufferDesc, #[size_param(4)] #[opt] pbDerivedKey: *mut u8, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDeriveKeyCapi(hHash: BCRYPT_HASH_HANDLE, #[opt] hTargetAlg: BCRYPT_ALG_HANDLE, #[size_param(3)] pbDerivedKey: *mut u8, cbDerivedKey: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDeriveKeyPBKDF2(hPrf: BCRYPT_ALG_HANDLE, #[size_param(2)] #[opt] pbPassword: *const u8, cbPassword: u32, #[size_param(4)] #[opt] pbSalt: *const u8, cbSalt: u32, cIterations: u64, #[size_param(7)] pbDerivedKey: *mut u8, cbDerivedKey: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDestroyHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDestroyKey(#[in] #[out] hKey: BCRYPT_KEY_HANDLE) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDestroySecret(#[in] #[out] hSecret: BCRYPT_SECRET_HANDLE) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDuplicateHash(hHash: BCRYPT_HASH_HANDLE, phNewHash: *mut BCRYPT_HASH_HANDLE, #[size_param(3)] #[opt] pbHashObject: *mut u8, cbHashObject: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptDuplicateKey(hKey: BCRYPT_KEY_HANDLE, phNewKey: *mut BCRYPT_KEY_HANDLE, #[size_param(3)] #[opt] pbKeyObject: *mut u8, cbKeyObject: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptEncapsulate(hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbSecretKey: *mut u8, cbSecretKey: u32, pcbSecretKey: *mut u32, #[size_param(5)] #[opt] pbCipherText: *mut u8, cbCipherText: u32, pcbCipherText: *mut u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptEncrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: *const u8, cbInput: u32, #[opt] pPaddingInfo: *const void, #[size_param(5)] #[in] #[out] #[opt] pbIV: *mut u8, cbIV: u32, #[size_param(7)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptEnumAlgorithms(dwAlgOperations: u32, pAlgCount: *mut u32, ppAlgList: *mut *mut BCRYPT_ALGORITHM_IDENTIFIER, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptEnumContextFunctionProviders(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_PROVIDERS) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptEnumContextFunctions(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXT_FUNCTIONS) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptEnumContexts(dwTable: u32, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXTS) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptEnumProviders(pszAlgId: PCWSTR, pImplCount: *mut u32, ppImplList: *mut *mut BCRYPT_PROVIDER_NAME, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptEnumRegisteredProviders(#[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_PROVIDERS) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptExportKey(hKey: BCRYPT_KEY_HANDLE, #[opt] hExportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, #[size_param(4)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptFinalizeKeyPair(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptFinishHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[size_param(2)] pbOutput: *mut u8, cbOutput: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptFreeBuffer(pvBuffer: *const void);
+        #[library("bcrypt.dll")]
+        extern fn BCryptGenRandom(#[opt] hAlgorithm: BCRYPT_ALG_HANDLE, #[size_param(2)] pbBuffer: *mut u8, cbBuffer: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptGenerateKeyPair(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phKey: *mut BCRYPT_KEY_HANDLE, dwLength: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptGenerateSymmetricKey(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(3)] #[opt] pbKeyObject: *mut u8, cbKeyObject: u32, #[size_param(5)] pbSecret: *const u8, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptGetFipsAlgorithmMode(pfEnabled: *mut BOOLEAN) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptGetProperty(hObject: BCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[size_param(2)] #[opt] pbSecret: *const u8, cbSecret: u32, #[size_param(4)] pbInput: *const u8, cbInput: u32, #[size_param(6)] pbOutput: *mut u8, cbOutput: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptHashData(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[size_param(2)] pbInput: *const u8, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptImportKey(hAlgorithm: BCRYPT_ALG_HANDLE, #[opt] hImportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(5)] #[opt] pbKeyObject: *mut u8, cbKeyObject: u32, #[size_param(7)] pbInput: *const u8, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptImportKeyPair(hAlgorithm: BCRYPT_ALG_HANDLE, #[opt] hImportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(5)] pbInput: *const u8, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptKeyDerivation(hKey: BCRYPT_KEY_HANDLE, #[opt] pParameterList: *const BCryptBufferDesc, #[size_param(3)] pbDerivedKey: *mut u8, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptOpenAlgorithmProvider(phAlgorithm: *mut BCRYPT_ALG_HANDLE, pszAlgId: PCWSTR, #[opt] pszImplementation: PCWSTR, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptProcessMultiOperations(#[in] #[out] hObject: BCRYPT_HANDLE, operationType: BCRYPT_MULTI_OPERATION_TYPE, #[size_param(3)] pOperations: *const void, cbOperations: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptQueryContextConfiguration(dwTable: u32, pszContext: PCWSTR, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptQueryContextFunctionConfiguration(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptQueryContextFunctionProperty(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, pszProperty: PCWSTR, #[in] #[out] pcbValue: *mut u32, ppbValue: *mut PUCHAR) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptQueryProviderRegistration(pszProvider: PCWSTR, dwMode: u32, dwInterface: u32, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_PROVIDER_REG) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptRegisterConfigChangeNotify(phEvent: *mut HANDLE) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptRemoveContextFunction(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptResolveProviders(#[opt] pszContext: PCWSTR, #[opt] dwInterface: u32, #[opt] pszFunction: PCWSTR, #[opt] pszProvider: PCWSTR, dwMode: u32, dwFlags: u32, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_PROVIDER_REFS) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptSecretAgreement(hPrivKey: BCRYPT_KEY_HANDLE, hPubKey: BCRYPT_KEY_HANDLE, phAgreedSecret: *mut BCRYPT_SECRET_HANDLE, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptSetContextFunctionProperty(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, pszProperty: PCWSTR, cbValue: u32, #[size_param(5)] #[opt] pbValue: *const u8) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptSetProperty(#[in] #[out] hObject: BCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] pbInput: *const u8, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptSignHash(hKey: BCRYPT_KEY_HANDLE, #[opt] pPaddingInfo: *const void, #[size_param(3)] pbInput: *const u8, cbInput: u32, #[size_param(5)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptUnregisterConfigChangeNotify(hEvent: HANDLE) -> NTSTATUS;
+        #[library("bcrypt.dll")]
+        extern fn BCryptVerifySignature(hKey: BCRYPT_KEY_HANDLE, #[opt] pPaddingInfo: *const void, #[size_param(3)] pbHash: *const u8, cbHash: u32, #[size_param(5)] pbSignature: *const u8, cbSignature: u32, dwFlags: u32) -> NTSTATUS;
+        const CRYPT_ALL_FUNCTIONS: u32 = 1;
+        const CRYPT_ALL_PROVIDERS: u32 = 2;
+        const CRYPT_ANY: u32 = 4;
+        struct CRYPT_CONTEXTS {
+            cContexts: u32,
+            rgpszContexts: *mut PWSTR,
+        }
+        struct CRYPT_CONTEXT_CONFIG {
+            dwFlags: u32,
+            dwReserved: u32,
+        }
+        struct CRYPT_CONTEXT_FUNCTIONS {
+            cFunctions: u32,
+            rgpszFunctions: *mut PWSTR,
+        }
+        struct CRYPT_CONTEXT_FUNCTION_CONFIG {
+            dwFlags: u32,
+            dwReserved: u32,
+        }
+        struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
+            cProviders: u32,
+            rgpszProviders: *mut PWSTR,
+        }
+        #[encoding("utf-16")]
+        const CRYPT_DEFAULT_CONTEXT: String = "Default";
+        const CRYPT_DOMAIN: u32 = 2;
+        const CRYPT_EXCLUSIVE: u32 = 1;
+        struct CRYPT_IMAGE_REF {
+            pszImage: PWSTR,
+            dwFlags: u32,
+        }
+        struct CRYPT_IMAGE_REG {
+            pszImage: PWSTR,
+            cInterfaces: u32,
+            rgpInterfaces: *mut PCRYPT_INTERFACE_REG,
+        }
+        struct CRYPT_INTERFACE_REG {
+            dwInterface: u32,
+            dwFlags: u32,
+            cFunctions: u32,
+            rgpszFunctions: *mut PWSTR,
+        }
+        const CRYPT_KM: u32 = 2;
+        const CRYPT_LOCAL: u32 = 1;
+        const CRYPT_MIN_DEPENDENCIES: u32 = 1;
+        const CRYPT_MM: u32 = 3;
+        const CRYPT_OVERRIDE: u32 = 65536;
+        const CRYPT_OVERWRITE: u32 = 1;
+        const CRYPT_PRIORITY_BOTTOM: u32 = 4294967295;
+        const CRYPT_PRIORITY_TOP: u32 = 0;
+        const CRYPT_PROCESS_ISOLATE: u32 = 65536;
+        struct CRYPT_PROPERTY_REF {
+            pszProperty: PWSTR,
+            cbValue: u32,
+            pbValue: PUCHAR,
+        }
+        struct CRYPT_PROVIDERS {
+            cProviders: u32,
+            rgpszProviders: *mut PWSTR,
+        }
+        struct CRYPT_PROVIDER_REF {
+            dwInterface: u32,
+            pszFunction: PWSTR,
+            pszProvider: PWSTR,
+            cProperties: u32,
+            rgpProperties: *mut PCRYPT_PROPERTY_REF,
+            pUM: PCRYPT_IMAGE_REF,
+            pKM: PCRYPT_IMAGE_REF,
+        }
+        struct CRYPT_PROVIDER_REFS {
+            cProviders: u32,
+            rgpProviders: *mut PCRYPT_PROVIDER_REF,
+        }
+        struct CRYPT_PROVIDER_REG {
+            cAliases: u32,
+            rgpszAliases: *mut PWSTR,
+            pUM: PCRYPT_IMAGE_REG,
+            pKM: PCRYPT_IMAGE_REG,
+        }
+        const CRYPT_UM: u32 = 1;
+        #[repr(i32)]
+        enum DSAFIPSVERSION_ENUM {
+            DSA_FIPS186_2 = 0,
+            DSA_FIPS186_3 = 1,
+        }
+        #[repr(i32)]
+        enum ECC_CURVE_ALG_ID_ENUM {
+            BCRYPT_NO_CURVE_GENERATION_ALG_ID = 0,
+        }
+        #[repr(i32)]
+        enum ECC_CURVE_TYPE_ENUM {
+            BCRYPT_ECC_PRIME_SHORT_WEIERSTRASS_CURVE = 1,
+            BCRYPT_ECC_PRIME_TWISTED_EDWARDS_CURVE = 2,
+            BCRYPT_ECC_PRIME_MONTGOMERY_CURVE = 3,
+        }
+        #[repr(i32)]
+        enum HASHALGORITHM_ENUM {
+            DSA_HASH_ALGORITHM_SHA1 = 0,
+            DSA_HASH_ALGORITHM_SHA256 = 1,
+            DSA_HASH_ALGORITHM_SHA512 = 2,
+        }
+        const KDF_ALGORITHMID: u32 = 8;
+        const KDF_CONTEXT: u32 = 14;
+        const KDF_GENERIC_PARAMETER: u32 = 17;
+        const KDF_HASH_ALGORITHM: u32 = 0;
+        const KDF_HKDF_INFO: u32 = 20;
+        const KDF_HKDF_SALT: u32 = 19;
+        const KDF_HMAC_KEY: u32 = 3;
+        const KDF_ITERATION_COUNT: u32 = 16;
+        const KDF_KEYBITLENGTH: u32 = 18;
+        const KDF_LABEL: u32 = 13;
+        const KDF_PARTYUINFO: u32 = 9;
+        const KDF_PARTYVINFO: u32 = 10;
+        const KDF_SALT: u32 = 15;
+        const KDF_SECRET_APPEND: u32 = 2;
+        const KDF_SECRET_HANDLE: u32 = 6;
+        const KDF_SECRET_PREPEND: u32 = 1;
+        const KDF_SUPPPRIVINFO: u32 = 12;
+        const KDF_SUPPPUBINFO: u32 = 11;
+        const KDF_TLS_PRF_LABEL: u32 = 4;
+        const KDF_TLS_PRF_PROTOCOL: u32 = 7;
+        const KDF_TLS_PRF_SEED: u32 = 5;
+        const KDF_USE_SECRET_AS_HMAC_KEY_FLAG: u32 = 1;
+        #[encoding("utf-16")]
+        const LEGACY_DH_PRIVATE_BLOB: String = "CAPIDHPRIVATEBLOB";
+        #[encoding("utf-16")]
+        const LEGACY_DH_PUBLIC_BLOB: String = "CAPIDHPUBLICBLOB";
+        #[encoding("utf-16")]
+        const LEGACY_DSA_PRIVATE_BLOB: String = "CAPIDSAPRIVATEBLOB";
+        #[encoding("utf-16")]
+        const LEGACY_DSA_PUBLIC_BLOB: String = "CAPIDSAPUBLICBLOB";
+        #[encoding("utf-16")]
+        const LEGACY_DSA_V2_PRIVATE_BLOB: String = "V2CAPIDSAPRIVATEBLOB";
+        #[encoding("utf-16")]
+        const LEGACY_DSA_V2_PUBLIC_BLOB: String = "V2CAPIDSAPUBLICBLOB";
+        #[encoding("utf-16")]
+        const LEGACY_RSAPRIVATE_BLOB: String = "CAPIPRIVATEBLOB";
+        #[encoding("utf-16")]
+        const LEGACY_RSAPUBLIC_BLOB: String = "CAPIPUBLICBLOB";
+        const MAX_HYBRID_KEY_EXCHANGE_BLOBS: u32 = 4;
+        #[encoding("utf-16")]
+        const MS_PLATFORM_CRYPTO_PROVIDER: String = "Microsoft Platform Crypto Provider";
+        #[encoding("utf-16")]
+        const MS_PRIMITIVE_PROVIDER: String = "Microsoft Primitive Provider";
+        type NTSTATUS = i32;
+        type PBCRYPT_AUTHENTICATED_CIPHER_MODE_INFO = *mut BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO;
+        type PBCRYPT_DH_KEY_BLOB = *mut BCRYPT_DH_KEY_BLOB;
+        type PBCRYPT_DSA_KEY_BLOB = *mut BCRYPT_DSA_KEY_BLOB;
+        type PBCRYPT_DSA_KEY_BLOB_V2 = *mut BCRYPT_DSA_KEY_BLOB_V2;
+        type PBCRYPT_ECCFULLKEY_BLOB = *mut BCRYPT_ECCFULLKEY_BLOB;
+        type PBCRYPT_ECCKEY_BLOB = *mut BCRYPT_ECCKEY_BLOB;
+        type PBCRYPT_INTERFACE_VERSION = *mut BCRYPT_INTERFACE_VERSION;
+        type PBCRYPT_KEY_DATA_BLOB_HEADER = *mut BCRYPT_KEY_DATA_BLOB_HEADER;
+        type PBCRYPT_MLKEM_KEY_BLOB = *mut BCRYPT_MLKEM_KEY_BLOB;
+        type PBCRYPT_PKCS11_RSA_AES_WRAP_BLOB = *mut BCRYPT_PKCS11_RSA_AES_WRAP_BLOB;
+        type PBCRYPT_PQDSA_KEY_BLOB = *mut BCRYPT_PQDSA_KEY_BLOB;
+        type PBCryptBuffer = *mut BCryptBuffer;
+        type PBCryptBufferDesc = *mut BCryptBufferDesc;
+        type PCRYPT_CONTEXTS = *mut CRYPT_CONTEXTS;
+        type PCRYPT_CONTEXT_CONFIG = *mut CRYPT_CONTEXT_CONFIG;
+        type PCRYPT_CONTEXT_FUNCTIONS = *mut CRYPT_CONTEXT_FUNCTIONS;
+        type PCRYPT_CONTEXT_FUNCTION_CONFIG = *mut CRYPT_CONTEXT_FUNCTION_CONFIG;
+        type PCRYPT_CONTEXT_FUNCTION_PROVIDERS = *mut CRYPT_CONTEXT_FUNCTION_PROVIDERS;
+        type PCRYPT_IMAGE_REF = *mut CRYPT_IMAGE_REF;
+        type PCRYPT_IMAGE_REG = *mut CRYPT_IMAGE_REG;
+        type PCRYPT_INTERFACE_REG = *mut CRYPT_INTERFACE_REG;
+        type PCRYPT_PROPERTY_REF = *mut CRYPT_PROPERTY_REF;
+        type PCRYPT_PROVIDERS = *mut CRYPT_PROVIDERS;
+        type PCRYPT_PROVIDER_REF = *mut CRYPT_PROVIDER_REF;
+        type PCRYPT_PROVIDER_REFS = *mut CRYPT_PROVIDER_REFS;
+        type PCRYPT_PROVIDER_REG = *mut CRYPT_PROVIDER_REG;
+        type PNTSTATUS = *mut NTSTATUS;
+        type PSSL_ECCKEY_BLOB = *mut SSL_ECCKEY_BLOB;
+        type PTLS_HYBRID_KEYEXCHANGE_BLOB = *mut TLS_HYBRID_KEYEXCHANGE_BLOB;
+        type PTLS_KEM_CIPHERTEXT_BLOB = *mut TLS_KEM_CIPHERTEXT_BLOB;
+        struct SSL_ECCKEY_BLOB {
+            dwCurveType: u32,
+            cbKey: u32,
+        }
+        #[encoding("utf-16")]
+        const SSL_ECCPUBLIC_BLOB: String = "SSLECCPUBLICBLOB";
+        #[encoding("utf-16")]
+        const TLS_13_PRE_SHARED_KEY: String = "TLS13PRESHAREDKEY";
+        #[encoding("utf-16")]
+        const TLS_HYBRID_KEYEXCHANGE: String = "TLS_HYBRID_KEYEXCHANGE";
+        struct TLS_HYBRID_KEYEXCHANGE_BLOB {
+            dwMagic: u32,
+            dwKeyType: u32,
+            NumBlobs: u8,
+            rgwszBlobTypes: [PCWSTR; 4],
+            rgbBlobs: [PUCHAR; 4],
+        }
+        const TLS_HYBRID_KEYEXCHANGE_MAGIC: u32 = 1213418580;
+        #[encoding("utf-16")]
+        const TLS_KEM_CIPHERTEXT: String = "TLS_KEM_CIPHER_TEXT";
+        struct TLS_KEM_CIPHERTEXT_BLOB {
+            dwMagic: u32,
+            cbLength: u32,
+        }
+        const TLS_KEM_CIPHERTEXT_MAGIC: u32 = 1129008205;
+    }
+}

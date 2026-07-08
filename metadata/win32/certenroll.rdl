@@ -1,0 +1,2668 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum AlgorithmFlags {
+            AlgorithmFlagsNone = 0,
+            AlgorithmFlagsWrap = 1,
+        }
+        #[repr(i32)]
+        enum AlgorithmOperationFlags {
+            XCN_NCRYPT_NO_OPERATION = 0,
+            XCN_NCRYPT_CIPHER_OPERATION = 1,
+            XCN_NCRYPT_HASH_OPERATION = 2,
+            XCN_NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION = 4,
+            XCN_NCRYPT_SECRET_AGREEMENT_OPERATION = 8,
+            XCN_NCRYPT_SIGNATURE_OPERATION = 16,
+            XCN_NCRYPT_RNG_OPERATION = 32,
+            XCN_NCRYPT_KEY_DERIVATION_OPERATION = 64,
+            XCN_NCRYPT_KEY_ENCAPSULATION_OPERATION = 128,
+            XCN_NCRYPT_ANY_ASYMMETRIC_OPERATION = 156,
+            XCN_NCRYPT_PREFER_SIGNATURE_ONLY_OPERATION = 2097152,
+            XCN_NCRYPT_PREFER_NON_SIGNATURE_OPERATION = 4194304,
+            XCN_NCRYPT_EXACT_MATCH_OPERATION = 8388608,
+            XCN_NCRYPT_PREFERENCE_MASK_OPERATION = 14680064,
+        }
+        #[repr(i32)]
+        enum AlgorithmType {
+            XCN_BCRYPT_UNKNOWN_INTERFACE = 0,
+            XCN_BCRYPT_CIPHER_INTERFACE = 1,
+            XCN_BCRYPT_HASH_INTERFACE = 2,
+            XCN_BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE = 3,
+            XCN_BCRYPT_SIGNATURE_INTERFACE = 5,
+            XCN_BCRYPT_SECRET_AGREEMENT_INTERFACE = 4,
+            XCN_BCRYPT_RNG_INTERFACE = 6,
+            XCN_BCRYPT_KEY_DERIVATION_INTERFACE = 7,
+        }
+        #[repr(i32)]
+        enum AlternativeNameType {
+            XCN_CERT_ALT_NAME_UNKNOWN = 0,
+            XCN_CERT_ALT_NAME_OTHER_NAME = 1,
+            XCN_CERT_ALT_NAME_RFC822_NAME = 2,
+            XCN_CERT_ALT_NAME_DNS_NAME = 3,
+            XCN_CERT_ALT_NAME_X400_ADDRESS = 4,
+            XCN_CERT_ALT_NAME_DIRECTORY_NAME = 5,
+            XCN_CERT_ALT_NAME_EDI_PARTY_NAME = 6,
+            XCN_CERT_ALT_NAME_URL = 7,
+            XCN_CERT_ALT_NAME_IP_ADDRESS = 8,
+            XCN_CERT_ALT_NAME_REGISTERED_ID = 9,
+            XCN_CERT_ALT_NAME_GUID = 10,
+            XCN_CERT_ALT_NAME_USER_PRINCIPLE_NAME = 11,
+        }
+        const CAlternativeName: GUID = 0x884e2013_217d_11da_b2a4_000e7bbb2b09;
+        const CAlternativeNames: GUID = 0x884e2014_217d_11da_b2a4_000e7bbb2b09;
+        const CBinaryConverter: GUID = 0x884e2002_217d_11da_b2a4_000e7bbb2b09;
+        const CCertProperties: GUID = 0x884e202f_217d_11da_b2a4_000e7bbb2b09;
+        const CCertProperty: GUID = 0x884e202e_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyArchived: GUID = 0x884e2037_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyArchivedKeyHash: GUID = 0x884e203b_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyAutoEnroll: GUID = 0x884e2032_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyBackedUp: GUID = 0x884e2038_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyDescription: GUID = 0x884e2031_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyEnrollment: GUID = 0x884e2039_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyEnrollmentPolicyServer: GUID = 0x884e204c_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyFriendlyName: GUID = 0x884e2030_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyKeyProvInfo: GUID = 0x884e2036_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyRenewal: GUID = 0x884e203a_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertyRequestOriginator: GUID = 0x884e2033_217d_11da_b2a4_000e7bbb2b09;
+        const CCertPropertySHA1Hash: GUID = 0x884e2034_217d_11da_b2a4_000e7bbb2b09;
+        const CCertificateAttestationChallenge: GUID = 0x1362ada1_eb60_456a_b6e1_118050db741b;
+        const CCertificatePolicies: GUID = 0x884e201f_217d_11da_b2a4_000e7bbb2b09;
+        const CCertificatePolicy: GUID = 0x884e201e_217d_11da_b2a4_000e7bbb2b09;
+        const CCryptAttribute: GUID = 0x884e202c_217d_11da_b2a4_000e7bbb2b09;
+        const CCryptAttributes: GUID = 0x884e202d_217d_11da_b2a4_000e7bbb2b09;
+        const CCspInformation: GUID = 0x884e2007_217d_11da_b2a4_000e7bbb2b09;
+        const CCspInformations: GUID = 0x884e2008_217d_11da_b2a4_000e7bbb2b09;
+        const CCspStatus: GUID = 0x884e2009_217d_11da_b2a4_000e7bbb2b09;
+        const CERTENROLL_INDEX_BASE: u32 = 0;
+        #[repr(i32)]
+        enum CERTENROLL_OBJECTID {
+            XCN_OID_NONE = 0,
+            XCN_OID_RSA = 1,
+            XCN_OID_PKCS = 2,
+            XCN_OID_RSA_HASH = 3,
+            XCN_OID_RSA_ENCRYPT = 4,
+            XCN_OID_PKCS_1 = 5,
+            XCN_OID_PKCS_2 = 6,
+            XCN_OID_PKCS_3 = 7,
+            XCN_OID_PKCS_4 = 8,
+            XCN_OID_PKCS_5 = 9,
+            XCN_OID_PKCS_6 = 10,
+            XCN_OID_PKCS_7 = 11,
+            XCN_OID_PKCS_8 = 12,
+            XCN_OID_PKCS_9 = 13,
+            XCN_OID_PKCS_10 = 14,
+            XCN_OID_PKCS_12 = 15,
+            XCN_OID_RSA_RSA = 16,
+            XCN_OID_RSA_MD2RSA = 17,
+            XCN_OID_RSA_MD4RSA = 18,
+            XCN_OID_RSA_MD5RSA = 19,
+            XCN_OID_RSA_SHA1RSA = 20,
+            XCN_OID_RSA_SETOAEP_RSA = 21,
+            XCN_OID_RSA_DH = 22,
+            XCN_OID_RSA_data = 23,
+            XCN_OID_RSA_signedData = 24,
+            XCN_OID_RSA_envelopedData = 25,
+            XCN_OID_RSA_signEnvData = 26,
+            XCN_OID_RSA_digestedData = 27,
+            XCN_OID_RSA_hashedData = 28,
+            XCN_OID_RSA_encryptedData = 29,
+            XCN_OID_RSA_emailAddr = 30,
+            XCN_OID_RSA_unstructName = 31,
+            XCN_OID_RSA_contentType = 32,
+            XCN_OID_RSA_messageDigest = 33,
+            XCN_OID_RSA_signingTime = 34,
+            XCN_OID_RSA_counterSign = 35,
+            XCN_OID_RSA_challengePwd = 36,
+            XCN_OID_RSA_unstructAddr = 37,
+            XCN_OID_RSA_extCertAttrs = 38,
+            XCN_OID_RSA_certExtensions = 39,
+            XCN_OID_RSA_SMIMECapabilities = 40,
+            XCN_OID_RSA_preferSignedData = 41,
+            XCN_OID_RSA_SMIMEalg = 42,
+            XCN_OID_RSA_SMIMEalgESDH = 43,
+            XCN_OID_RSA_SMIMEalgCMS3DESwrap = 44,
+            XCN_OID_RSA_SMIMEalgCMSRC2wrap = 45,
+            XCN_OID_RSA_MD2 = 46,
+            XCN_OID_RSA_MD4 = 47,
+            XCN_OID_RSA_MD5 = 48,
+            XCN_OID_RSA_RC2CBC = 49,
+            XCN_OID_RSA_RC4 = 50,
+            XCN_OID_RSA_DES_EDE3_CBC = 51,
+            XCN_OID_RSA_RC5_CBCPad = 52,
+            XCN_OID_ANSI_X942 = 53,
+            XCN_OID_ANSI_X942_DH = 54,
+            XCN_OID_X957 = 55,
+            XCN_OID_X957_DSA = 56,
+            XCN_OID_X957_SHA1DSA = 57,
+            XCN_OID_DS = 58,
+            XCN_OID_DSALG = 59,
+            XCN_OID_DSALG_CRPT = 60,
+            XCN_OID_DSALG_HASH = 61,
+            XCN_OID_DSALG_SIGN = 62,
+            XCN_OID_DSALG_RSA = 63,
+            XCN_OID_OIW = 64,
+            XCN_OID_OIWSEC = 65,
+            XCN_OID_OIWSEC_md4RSA = 66,
+            XCN_OID_OIWSEC_md5RSA = 67,
+            XCN_OID_OIWSEC_md4RSA2 = 68,
+            XCN_OID_OIWSEC_desECB = 69,
+            XCN_OID_OIWSEC_desCBC = 70,
+            XCN_OID_OIWSEC_desOFB = 71,
+            XCN_OID_OIWSEC_desCFB = 72,
+            XCN_OID_OIWSEC_desMAC = 73,
+            XCN_OID_OIWSEC_rsaSign = 74,
+            XCN_OID_OIWSEC_dsa = 75,
+            XCN_OID_OIWSEC_shaDSA = 76,
+            XCN_OID_OIWSEC_mdc2RSA = 77,
+            XCN_OID_OIWSEC_shaRSA = 78,
+            XCN_OID_OIWSEC_dhCommMod = 79,
+            XCN_OID_OIWSEC_desEDE = 80,
+            XCN_OID_OIWSEC_sha = 81,
+            XCN_OID_OIWSEC_mdc2 = 82,
+            XCN_OID_OIWSEC_dsaComm = 83,
+            XCN_OID_OIWSEC_dsaCommSHA = 84,
+            XCN_OID_OIWSEC_rsaXchg = 85,
+            XCN_OID_OIWSEC_keyHashSeal = 86,
+            XCN_OID_OIWSEC_md2RSASign = 87,
+            XCN_OID_OIWSEC_md5RSASign = 88,
+            XCN_OID_OIWSEC_sha1 = 89,
+            XCN_OID_OIWSEC_dsaSHA1 = 90,
+            XCN_OID_OIWSEC_dsaCommSHA1 = 91,
+            XCN_OID_OIWSEC_sha1RSASign = 92,
+            XCN_OID_OIWDIR = 93,
+            XCN_OID_OIWDIR_CRPT = 94,
+            XCN_OID_OIWDIR_HASH = 95,
+            XCN_OID_OIWDIR_SIGN = 96,
+            XCN_OID_OIWDIR_md2 = 97,
+            XCN_OID_OIWDIR_md2RSA = 98,
+            XCN_OID_INFOSEC = 99,
+            XCN_OID_INFOSEC_sdnsSignature = 100,
+            XCN_OID_INFOSEC_mosaicSignature = 101,
+            XCN_OID_INFOSEC_sdnsConfidentiality = 102,
+            XCN_OID_INFOSEC_mosaicConfidentiality = 103,
+            XCN_OID_INFOSEC_sdnsIntegrity = 104,
+            XCN_OID_INFOSEC_mosaicIntegrity = 105,
+            XCN_OID_INFOSEC_sdnsTokenProtection = 106,
+            XCN_OID_INFOSEC_mosaicTokenProtection = 107,
+            XCN_OID_INFOSEC_sdnsKeyManagement = 108,
+            XCN_OID_INFOSEC_mosaicKeyManagement = 109,
+            XCN_OID_INFOSEC_sdnsKMandSig = 110,
+            XCN_OID_INFOSEC_mosaicKMandSig = 111,
+            XCN_OID_INFOSEC_SuiteASignature = 112,
+            XCN_OID_INFOSEC_SuiteAConfidentiality = 113,
+            XCN_OID_INFOSEC_SuiteAIntegrity = 114,
+            XCN_OID_INFOSEC_SuiteATokenProtection = 115,
+            XCN_OID_INFOSEC_SuiteAKeyManagement = 116,
+            XCN_OID_INFOSEC_SuiteAKMandSig = 117,
+            XCN_OID_INFOSEC_mosaicUpdatedSig = 118,
+            XCN_OID_INFOSEC_mosaicKMandUpdSig = 119,
+            XCN_OID_INFOSEC_mosaicUpdatedInteg = 120,
+            XCN_OID_COMMON_NAME = 121,
+            XCN_OID_SUR_NAME = 122,
+            XCN_OID_DEVICE_SERIAL_NUMBER = 123,
+            XCN_OID_COUNTRY_NAME = 124,
+            XCN_OID_LOCALITY_NAME = 125,
+            XCN_OID_STATE_OR_PROVINCE_NAME = 126,
+            XCN_OID_STREET_ADDRESS = 127,
+            XCN_OID_ORGANIZATION_NAME = 128,
+            XCN_OID_ORGANIZATIONAL_UNIT_NAME = 129,
+            XCN_OID_TITLE = 130,
+            XCN_OID_DESCRIPTION = 131,
+            XCN_OID_SEARCH_GUIDE = 132,
+            XCN_OID_BUSINESS_CATEGORY = 133,
+            XCN_OID_POSTAL_ADDRESS = 134,
+            XCN_OID_POSTAL_CODE = 135,
+            XCN_OID_POST_OFFICE_BOX = 136,
+            XCN_OID_PHYSICAL_DELIVERY_OFFICE_NAME = 137,
+            XCN_OID_TELEPHONE_NUMBER = 138,
+            XCN_OID_TELEX_NUMBER = 139,
+            XCN_OID_TELETEXT_TERMINAL_IDENTIFIER = 140,
+            XCN_OID_FACSIMILE_TELEPHONE_NUMBER = 141,
+            XCN_OID_X21_ADDRESS = 142,
+            XCN_OID_INTERNATIONAL_ISDN_NUMBER = 143,
+            XCN_OID_REGISTERED_ADDRESS = 144,
+            XCN_OID_DESTINATION_INDICATOR = 145,
+            XCN_OID_PREFERRED_DELIVERY_METHOD = 146,
+            XCN_OID_PRESENTATION_ADDRESS = 147,
+            XCN_OID_SUPPORTED_APPLICATION_CONTEXT = 148,
+            XCN_OID_MEMBER = 149,
+            XCN_OID_OWNER = 150,
+            XCN_OID_ROLE_OCCUPANT = 151,
+            XCN_OID_SEE_ALSO = 152,
+            XCN_OID_USER_PASSWORD = 153,
+            XCN_OID_USER_CERTIFICATE = 154,
+            XCN_OID_CA_CERTIFICATE = 155,
+            XCN_OID_AUTHORITY_REVOCATION_LIST = 156,
+            XCN_OID_CERTIFICATE_REVOCATION_LIST = 157,
+            XCN_OID_CROSS_CERTIFICATE_PAIR = 158,
+            XCN_OID_GIVEN_NAME = 159,
+            XCN_OID_INITIALS = 160,
+            XCN_OID_DN_QUALIFIER = 161,
+            XCN_OID_DOMAIN_COMPONENT = 162,
+            XCN_OID_PKCS_12_FRIENDLY_NAME_ATTR = 163,
+            XCN_OID_PKCS_12_LOCAL_KEY_ID = 164,
+            XCN_OID_PKCS_12_KEY_PROVIDER_NAME_ATTR = 165,
+            XCN_OID_LOCAL_MACHINE_KEYSET = 166,
+            XCN_OID_PKCS_12_EXTENDED_ATTRIBUTES = 167,
+            XCN_OID_KEYID_RDN = 168,
+            XCN_OID_AUTHORITY_KEY_IDENTIFIER = 169,
+            XCN_OID_KEY_ATTRIBUTES = 170,
+            XCN_OID_CERT_POLICIES_95 = 171,
+            XCN_OID_KEY_USAGE_RESTRICTION = 172,
+            XCN_OID_SUBJECT_ALT_NAME = 173,
+            XCN_OID_ISSUER_ALT_NAME = 174,
+            XCN_OID_BASIC_CONSTRAINTS = 175,
+            XCN_OID_KEY_USAGE = 176,
+            XCN_OID_PRIVATEKEY_USAGE_PERIOD = 177,
+            XCN_OID_BASIC_CONSTRAINTS2 = 178,
+            XCN_OID_CERT_POLICIES = 179,
+            XCN_OID_ANY_CERT_POLICY = 180,
+            XCN_OID_AUTHORITY_KEY_IDENTIFIER2 = 181,
+            XCN_OID_SUBJECT_KEY_IDENTIFIER = 182,
+            XCN_OID_SUBJECT_ALT_NAME2 = 183,
+            XCN_OID_ISSUER_ALT_NAME2 = 184,
+            XCN_OID_CRL_REASON_CODE = 185,
+            XCN_OID_REASON_CODE_HOLD = 186,
+            XCN_OID_CRL_DIST_POINTS = 187,
+            XCN_OID_ENHANCED_KEY_USAGE = 188,
+            XCN_OID_CRL_NUMBER = 189,
+            XCN_OID_DELTA_CRL_INDICATOR = 190,
+            XCN_OID_ISSUING_DIST_POINT = 191,
+            XCN_OID_FRESHEST_CRL = 192,
+            XCN_OID_NAME_CONSTRAINTS = 193,
+            XCN_OID_POLICY_MAPPINGS = 194,
+            XCN_OID_LEGACY_POLICY_MAPPINGS = 195,
+            XCN_OID_POLICY_CONSTRAINTS = 196,
+            XCN_OID_RENEWAL_CERTIFICATE = 197,
+            XCN_OID_ENROLLMENT_NAME_VALUE_PAIR = 198,
+            XCN_OID_ENROLLMENT_CSP_PROVIDER = 199,
+            XCN_OID_OS_VERSION = 200,
+            XCN_OID_ENROLLMENT_AGENT = 201,
+            XCN_OID_PKIX = 202,
+            XCN_OID_PKIX_PE = 203,
+            XCN_OID_AUTHORITY_INFO_ACCESS = 204,
+            XCN_OID_BIOMETRIC_EXT = 205,
+            XCN_OID_LOGOTYPE_EXT = 206,
+            XCN_OID_CERT_EXTENSIONS = 207,
+            XCN_OID_NEXT_UPDATE_LOCATION = 208,
+            XCN_OID_REMOVE_CERTIFICATE = 209,
+            XCN_OID_CROSS_CERT_DIST_POINTS = 210,
+            XCN_OID_CTL = 211,
+            XCN_OID_SORTED_CTL = 212,
+            XCN_OID_SERIALIZED = 213,
+            XCN_OID_NT_PRINCIPAL_NAME = 214,
+            XCN_OID_PRODUCT_UPDATE = 215,
+            XCN_OID_ANY_APPLICATION_POLICY = 216,
+            XCN_OID_AUTO_ENROLL_CTL_USAGE = 217,
+            XCN_OID_ENROLL_CERTTYPE_EXTENSION = 218,
+            XCN_OID_CERT_MANIFOLD = 219,
+            XCN_OID_CERTSRV_CA_VERSION = 220,
+            XCN_OID_CERTSRV_PREVIOUS_CERT_HASH = 221,
+            XCN_OID_CRL_VIRTUAL_BASE = 222,
+            XCN_OID_CRL_NEXT_PUBLISH = 223,
+            XCN_OID_KP_CA_EXCHANGE = 224,
+            XCN_OID_KP_KEY_RECOVERY_AGENT = 225,
+            XCN_OID_CERTIFICATE_TEMPLATE = 226,
+            XCN_OID_ENTERPRISE_OID_ROOT = 227,
+            XCN_OID_RDN_DUMMY_SIGNER = 228,
+            XCN_OID_APPLICATION_CERT_POLICIES = 229,
+            XCN_OID_APPLICATION_POLICY_MAPPINGS = 230,
+            XCN_OID_APPLICATION_POLICY_CONSTRAINTS = 231,
+            XCN_OID_ARCHIVED_KEY_ATTR = 232,
+            XCN_OID_CRL_SELF_CDP = 233,
+            XCN_OID_REQUIRE_CERT_CHAIN_POLICY = 234,
+            XCN_OID_ARCHIVED_KEY_CERT_HASH = 235,
+            XCN_OID_ISSUED_CERT_HASH = 236,
+            XCN_OID_DS_EMAIL_REPLICATION = 237,
+            XCN_OID_REQUEST_CLIENT_INFO = 238,
+            XCN_OID_ENCRYPTED_KEY_HASH = 239,
+            XCN_OID_CERTSRV_CROSSCA_VERSION = 240,
+            XCN_OID_NTDS_REPLICATION = 241,
+            XCN_OID_SUBJECT_DIR_ATTRS = 242,
+            XCN_OID_PKIX_KP = 243,
+            XCN_OID_PKIX_KP_SERVER_AUTH = 244,
+            XCN_OID_PKIX_KP_CLIENT_AUTH = 245,
+            XCN_OID_PKIX_KP_CODE_SIGNING = 246,
+            XCN_OID_PKIX_KP_EMAIL_PROTECTION = 247,
+            XCN_OID_PKIX_KP_IPSEC_END_SYSTEM = 248,
+            XCN_OID_PKIX_KP_IPSEC_TUNNEL = 249,
+            XCN_OID_PKIX_KP_IPSEC_USER = 250,
+            XCN_OID_PKIX_KP_TIMESTAMP_SIGNING = 251,
+            XCN_OID_PKIX_KP_OCSP_SIGNING = 252,
+            XCN_OID_PKIX_OCSP_NOCHECK = 253,
+            XCN_OID_IPSEC_KP_IKE_INTERMEDIATE = 254,
+            XCN_OID_KP_CTL_USAGE_SIGNING = 255,
+            XCN_OID_KP_TIME_STAMP_SIGNING = 256,
+            XCN_OID_SERVER_GATED_CRYPTO = 257,
+            XCN_OID_SGC_NETSCAPE = 258,
+            XCN_OID_KP_EFS = 259,
+            XCN_OID_EFS_RECOVERY = 260,
+            XCN_OID_WHQL_CRYPTO = 261,
+            XCN_OID_NT5_CRYPTO = 262,
+            XCN_OID_OEM_WHQL_CRYPTO = 263,
+            XCN_OID_EMBEDDED_NT_CRYPTO = 264,
+            XCN_OID_ROOT_LIST_SIGNER = 265,
+            XCN_OID_KP_QUALIFIED_SUBORDINATION = 266,
+            XCN_OID_KP_KEY_RECOVERY = 267,
+            XCN_OID_KP_DOCUMENT_SIGNING = 268,
+            XCN_OID_KP_LIFETIME_SIGNING = 269,
+            XCN_OID_KP_MOBILE_DEVICE_SOFTWARE = 270,
+            XCN_OID_KP_SMART_DISPLAY = 271,
+            XCN_OID_KP_CSP_SIGNATURE = 272,
+            XCN_OID_DRM = 273,
+            XCN_OID_DRM_INDIVIDUALIZATION = 274,
+            XCN_OID_LICENSES = 275,
+            XCN_OID_LICENSE_SERVER = 276,
+            XCN_OID_KP_SMARTCARD_LOGON = 277,
+            XCN_OID_YESNO_TRUST_ATTR = 278,
+            XCN_OID_PKIX_POLICY_QUALIFIER_CPS = 279,
+            XCN_OID_PKIX_POLICY_QUALIFIER_USERNOTICE = 280,
+            XCN_OID_CERT_POLICIES_95_QUALIFIER1 = 281,
+            XCN_OID_PKIX_ACC_DESCR = 282,
+            XCN_OID_PKIX_OCSP = 283,
+            XCN_OID_PKIX_CA_ISSUERS = 284,
+            XCN_OID_VERISIGN_PRIVATE_6_9 = 285,
+            XCN_OID_VERISIGN_ONSITE_JURISDICTION_HASH = 286,
+            XCN_OID_VERISIGN_BITSTRING_6_13 = 287,
+            XCN_OID_VERISIGN_ISS_STRONG_CRYPTO = 288,
+            XCN_OID_NETSCAPE = 289,
+            XCN_OID_NETSCAPE_CERT_EXTENSION = 290,
+            XCN_OID_NETSCAPE_CERT_TYPE = 291,
+            XCN_OID_NETSCAPE_BASE_URL = 292,
+            XCN_OID_NETSCAPE_REVOCATION_URL = 293,
+            XCN_OID_NETSCAPE_CA_REVOCATION_URL = 294,
+            XCN_OID_NETSCAPE_CERT_RENEWAL_URL = 295,
+            XCN_OID_NETSCAPE_CA_POLICY_URL = 296,
+            XCN_OID_NETSCAPE_SSL_SERVER_NAME = 297,
+            XCN_OID_NETSCAPE_COMMENT = 298,
+            XCN_OID_NETSCAPE_DATA_TYPE = 299,
+            XCN_OID_NETSCAPE_CERT_SEQUENCE = 300,
+            XCN_OID_CT_PKI_DATA = 301,
+            XCN_OID_CT_PKI_RESPONSE = 302,
+            XCN_OID_PKIX_NO_SIGNATURE = 303,
+            XCN_OID_CMC = 304,
+            XCN_OID_CMC_STATUS_INFO = 305,
+            XCN_OID_CMC_IDENTIFICATION = 306,
+            XCN_OID_CMC_IDENTITY_PROOF = 307,
+            XCN_OID_CMC_DATA_RETURN = 308,
+            XCN_OID_CMC_TRANSACTION_ID = 309,
+            XCN_OID_CMC_SENDER_NONCE = 310,
+            XCN_OID_CMC_RECIPIENT_NONCE = 311,
+            XCN_OID_CMC_ADD_EXTENSIONS = 312,
+            XCN_OID_CMC_ENCRYPTED_POP = 313,
+            XCN_OID_CMC_DECRYPTED_POP = 314,
+            XCN_OID_CMC_LRA_POP_WITNESS = 315,
+            XCN_OID_CMC_GET_CERT = 316,
+            XCN_OID_CMC_GET_CRL = 317,
+            XCN_OID_CMC_REVOKE_REQUEST = 318,
+            XCN_OID_CMC_REG_INFO = 319,
+            XCN_OID_CMC_RESPONSE_INFO = 320,
+            XCN_OID_CMC_QUERY_PENDING = 321,
+            XCN_OID_CMC_ID_POP_LINK_RANDOM = 322,
+            XCN_OID_CMC_ID_POP_LINK_WITNESS = 323,
+            XCN_OID_CMC_ID_CONFIRM_CERT_ACCEPTANCE = 324,
+            XCN_OID_CMC_ADD_ATTRIBUTES = 325,
+            XCN_OID_LOYALTY_OTHER_LOGOTYPE = 326,
+            XCN_OID_BACKGROUND_OTHER_LOGOTYPE = 327,
+            XCN_OID_PKIX_OCSP_BASIC_SIGNED_RESPONSE = 328,
+            XCN_OID_PKCS_7_DATA = 329,
+            XCN_OID_PKCS_7_SIGNED = 330,
+            XCN_OID_PKCS_7_ENVELOPED = 331,
+            XCN_OID_PKCS_7_SIGNEDANDENVELOPED = 332,
+            XCN_OID_PKCS_7_DIGESTED = 333,
+            XCN_OID_PKCS_7_ENCRYPTED = 334,
+            XCN_OID_PKCS_9_CONTENT_TYPE = 335,
+            XCN_OID_PKCS_9_MESSAGE_DIGEST = 336,
+            XCN_OID_CERT_PROP_ID_PREFIX = 337,
+            XCN_OID_CERT_KEY_IDENTIFIER_PROP_ID = 338,
+            XCN_OID_CERT_ISSUER_SERIAL_NUMBER_MD5_HASH_PROP_ID = 339,
+            XCN_OID_CERT_SUBJECT_NAME_MD5_HASH_PROP_ID = 340,
+            XCN_OID_CERT_MD5_HASH_PROP_ID = 341,
+            XCN_OID_RSA_SHA256RSA = 342,
+            XCN_OID_RSA_SHA384RSA = 343,
+            XCN_OID_RSA_SHA512RSA = 344,
+            XCN_OID_NIST_sha256 = 345,
+            XCN_OID_NIST_sha384 = 346,
+            XCN_OID_NIST_sha512 = 347,
+            XCN_OID_RSA_MGF1 = 348,
+            XCN_OID_ECC_PUBLIC_KEY = 349,
+            XCN_OID_ECDSA_SHA1 = 350,
+            XCN_OID_ECDSA_SPECIFIED = 351,
+            XCN_OID_ANY_ENHANCED_KEY_USAGE = 352,
+            XCN_OID_RSA_SSA_PSS = 353,
+            XCN_OID_ATTR_SUPPORTED_ALGORITHMS = 355,
+            XCN_OID_ATTR_TPM_SECURITY_ASSERTIONS = 356,
+            XCN_OID_ATTR_TPM_SPECIFICATION = 357,
+            XCN_OID_CERT_DISALLOWED_FILETIME_PROP_ID = 358,
+            XCN_OID_CERT_SIGNATURE_HASH_PROP_ID = 359,
+            XCN_OID_CERT_STRONG_KEY_OS_1 = 360,
+            XCN_OID_CERT_STRONG_KEY_OS_CURRENT = 361,
+            XCN_OID_CERT_STRONG_KEY_OS_PREFIX = 362,
+            XCN_OID_CERT_STRONG_SIGN_OS_1 = 363,
+            XCN_OID_CERT_STRONG_SIGN_OS_CURRENT = 364,
+            XCN_OID_CERT_STRONG_SIGN_OS_PREFIX = 365,
+            XCN_OID_DH_SINGLE_PASS_STDDH_SHA1_KDF = 366,
+            XCN_OID_DH_SINGLE_PASS_STDDH_SHA256_KDF = 367,
+            XCN_OID_DH_SINGLE_PASS_STDDH_SHA384_KDF = 368,
+            XCN_OID_DISALLOWED_HASH = 369,
+            XCN_OID_DISALLOWED_LIST = 370,
+            XCN_OID_ECC_CURVE_P256 = 371,
+            XCN_OID_ECC_CURVE_P384 = 372,
+            XCN_OID_ECC_CURVE_P521 = 373,
+            XCN_OID_ECDSA_SHA256 = 374,
+            XCN_OID_ECDSA_SHA384 = 375,
+            XCN_OID_ECDSA_SHA512 = 376,
+            XCN_OID_ENROLL_CAXCHGCERT_HASH = 377,
+            XCN_OID_ENROLL_EK_INFO = 378,
+            XCN_OID_ENROLL_EKPUB_CHALLENGE = 379,
+            XCN_OID_ENROLL_EKVERIFYCERT = 380,
+            XCN_OID_ENROLL_EKVERIFYCREDS = 381,
+            XCN_OID_ENROLL_EKVERIFYKEY = 382,
+            XCN_OID_EV_RDN_COUNTRY = 383,
+            XCN_OID_EV_RDN_LOCALE = 384,
+            XCN_OID_EV_RDN_STATE_OR_PROVINCE = 385,
+            XCN_OID_INHIBIT_ANY_POLICY = 386,
+            XCN_OID_INTERNATIONALIZED_EMAIL_ADDRESS = 387,
+            XCN_OID_KP_KERNEL_MODE_CODE_SIGNING = 388,
+            XCN_OID_KP_KERNEL_MODE_HAL_EXTENSION_SIGNING = 389,
+            XCN_OID_KP_KERNEL_MODE_TRUSTED_BOOT_SIGNING = 390,
+            XCN_OID_KP_TPM_AIK_CERTIFICATE = 391,
+            XCN_OID_KP_TPM_EK_CERTIFICATE = 392,
+            XCN_OID_KP_TPM_PLATFORM_CERTIFICATE = 393,
+            XCN_OID_NIST_AES128_CBC = 394,
+            XCN_OID_NIST_AES128_WRAP = 395,
+            XCN_OID_NIST_AES192_CBC = 396,
+            XCN_OID_NIST_AES192_WRAP = 397,
+            XCN_OID_NIST_AES256_CBC = 398,
+            XCN_OID_NIST_AES256_WRAP = 399,
+            XCN_OID_PKCS_12_PbeIds = 400,
+            XCN_OID_PKCS_12_pbeWithSHA1And128BitRC2 = 401,
+            XCN_OID_PKCS_12_pbeWithSHA1And128BitRC4 = 402,
+            XCN_OID_PKCS_12_pbeWithSHA1And2KeyTripleDES = 403,
+            XCN_OID_PKCS_12_pbeWithSHA1And3KeyTripleDES = 404,
+            XCN_OID_PKCS_12_pbeWithSHA1And40BitRC2 = 405,
+            XCN_OID_PKCS_12_pbeWithSHA1And40BitRC4 = 406,
+            XCN_OID_PKCS_12_PROTECTED_PASSWORD_SECRET_BAG_TYPE_ID = 407,
+            XCN_OID_PKINIT_KP_KDC = 408,
+            XCN_OID_PKIX_CA_REPOSITORY = 409,
+            XCN_OID_PKIX_OCSP_NONCE = 410,
+            XCN_OID_PKIX_TIME_STAMPING = 411,
+            XCN_OID_QC_EU_COMPLIANCE = 412,
+            XCN_OID_QC_SSCD = 413,
+            XCN_OID_QC_STATEMENTS_EXT = 414,
+            XCN_OID_RDN_TPM_MANUFACTURER = 415,
+            XCN_OID_RDN_TPM_MODEL = 416,
+            XCN_OID_RDN_TPM_VERSION = 417,
+            XCN_OID_REVOKED_LIST_SIGNER = 418,
+            XCN_OID_RFC3161_counterSign = 419,
+            XCN_OID_ROOT_PROGRAM_AUTO_UPDATE_CA_REVOCATION = 420,
+            XCN_OID_ROOT_PROGRAM_AUTO_UPDATE_END_REVOCATION = 421,
+            XCN_OID_ROOT_PROGRAM_FLAGS = 422,
+            XCN_OID_ROOT_PROGRAM_NO_OCSP_FAILOVER_TO_CRL = 423,
+            XCN_OID_RSA_PSPECIFIED = 424,
+            XCN_OID_RSAES_OAEP = 425,
+            XCN_OID_SUBJECT_INFO_ACCESS = 426,
+            XCN_OID_TIMESTAMP_TOKEN = 427,
+            XCN_OID_ENROLL_SCEP_ERROR = 428,
+            XCN_OIDVerisign_MessageType = 429,
+            XCN_OIDVerisign_PkiStatus = 430,
+            XCN_OIDVerisign_FailInfo = 431,
+            XCN_OIDVerisign_SenderNonce = 432,
+            XCN_OIDVerisign_RecipientNonce = 433,
+            XCN_OIDVerisign_TransactionID = 434,
+            XCN_OID_ENROLL_ATTESTATION_CHALLENGE = 435,
+            XCN_OID_ENROLL_ATTESTATION_STATEMENT = 436,
+            XCN_OID_ENROLL_ENCRYPTION_ALGORITHM = 437,
+            XCN_OID_ENROLL_KSP_NAME = 438,
+        }
+        #[repr(i32)]
+        enum CERTENROLL_PROPERTYID {
+            XCN_PROPERTYID_NONE = 0,
+            XCN_CERT_KEY_PROV_HANDLE_PROP_ID = 1,
+            XCN_CERT_KEY_PROV_INFO_PROP_ID = 2,
+            XCN_CERT_SHA1_HASH_PROP_ID = 3,
+            XCN_CERT_MD5_HASH_PROP_ID = 4,
+            XCN_CERT_HASH_PROP_ID = 3,
+            XCN_CERT_KEY_CONTEXT_PROP_ID = 5,
+            XCN_CERT_KEY_SPEC_PROP_ID = 6,
+            XCN_CERT_IE30_RESERVED_PROP_ID = 7,
+            XCN_CERT_PUBKEY_HASH_RESERVED_PROP_ID = 8,
+            XCN_CERT_ENHKEY_USAGE_PROP_ID = 9,
+            XCN_CERT_CTL_USAGE_PROP_ID = 9,
+            XCN_CERT_NEXT_UPDATE_LOCATION_PROP_ID = 10,
+            XCN_CERT_FRIENDLY_NAME_PROP_ID = 11,
+            XCN_CERT_PVK_FILE_PROP_ID = 12,
+            XCN_CERT_DESCRIPTION_PROP_ID = 13,
+            XCN_CERT_ACCESS_STATE_PROP_ID = 14,
+            XCN_CERT_SIGNATURE_HASH_PROP_ID = 15,
+            XCN_CERT_SMART_CARD_DATA_PROP_ID = 16,
+            XCN_CERT_EFS_PROP_ID = 17,
+            XCN_CERT_FORTEZZA_DATA_PROP_ID = 18,
+            XCN_CERT_ARCHIVED_PROP_ID = 19,
+            XCN_CERT_KEY_IDENTIFIER_PROP_ID = 20,
+            XCN_CERT_AUTO_ENROLL_PROP_ID = 21,
+            XCN_CERT_PUBKEY_ALG_PARA_PROP_ID = 22,
+            XCN_CERT_CROSS_CERT_DIST_POINTS_PROP_ID = 23,
+            XCN_CERT_ISSUER_PUBLIC_KEY_MD5_HASH_PROP_ID = 24,
+            XCN_CERT_SUBJECT_PUBLIC_KEY_MD5_HASH_PROP_ID = 25,
+            XCN_CERT_ENROLLMENT_PROP_ID = 26,
+            XCN_CERT_DATE_STAMP_PROP_ID = 27,
+            XCN_CERT_ISSUER_SERIAL_NUMBER_MD5_HASH_PROP_ID = 28,
+            XCN_CERT_SUBJECT_NAME_MD5_HASH_PROP_ID = 29,
+            XCN_CERT_EXTENDED_ERROR_INFO_PROP_ID = 30,
+            XCN_CERT_RENEWAL_PROP_ID = 64,
+            XCN_CERT_ARCHIVED_KEY_HASH_PROP_ID = 65,
+            XCN_CERT_AUTO_ENROLL_RETRY_PROP_ID = 66,
+            XCN_CERT_AIA_URL_RETRIEVED_PROP_ID = 67,
+            XCN_CERT_AUTHORITY_INFO_ACCESS_PROP_ID = 68,
+            XCN_CERT_BACKED_UP_PROP_ID = 69,
+            XCN_CERT_OCSP_RESPONSE_PROP_ID = 70,
+            XCN_CERT_REQUEST_ORIGINATOR_PROP_ID = 71,
+            XCN_CERT_SOURCE_LOCATION_PROP_ID = 72,
+            XCN_CERT_SOURCE_URL_PROP_ID = 73,
+            XCN_CERT_NEW_KEY_PROP_ID = 74,
+            XCN_CERT_OCSP_CACHE_PREFIX_PROP_ID = 75,
+            XCN_CERT_SMART_CARD_ROOT_INFO_PROP_ID = 76,
+            XCN_CERT_NO_AUTO_EXPIRE_CHECK_PROP_ID = 77,
+            XCN_CERT_NCRYPT_KEY_HANDLE_PROP_ID = 78,
+            XCN_CERT_HCRYPTPROV_OR_NCRYPT_KEY_HANDLE_PROP_ID = 79,
+            XCN_CERT_SUBJECT_INFO_ACCESS_PROP_ID = 80,
+            XCN_CERT_CA_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID = 81,
+            XCN_CERT_CA_DISABLE_CRL_PROP_ID = 82,
+            XCN_CERT_ROOT_PROGRAM_CERT_POLICIES_PROP_ID = 83,
+            XCN_CERT_ROOT_PROGRAM_NAME_CONSTRAINTS_PROP_ID = 84,
+            XCN_CERT_SUBJECT_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID = 85,
+            XCN_CERT_SUBJECT_DISABLE_CRL_PROP_ID = 86,
+            XCN_CERT_CEP_PROP_ID = 87,
+            XCN_CERT_SIGN_HASH_CNG_ALG_PROP_ID = 89,
+            XCN_CERT_SCARD_PIN_ID_PROP_ID = 90,
+            XCN_CERT_SCARD_PIN_INFO_PROP_ID = 91,
+            XCN_CERT_SUBJECT_PUB_KEY_BIT_LENGTH_PROP_ID = 92,
+            XCN_CERT_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID = 93,
+            XCN_CERT_ISSUER_PUB_KEY_BIT_LENGTH_PROP_ID = 94,
+            XCN_CERT_ISSUER_CHAIN_SIGN_HASH_CNG_ALG_PROP_ID = 95,
+            XCN_CERT_ISSUER_CHAIN_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID = 96,
+            XCN_CERT_NO_EXPIRE_NOTIFICATION_PROP_ID = 97,
+            XCN_CERT_AUTH_ROOT_SHA256_HASH_PROP_ID = 98,
+            XCN_CERT_NCRYPT_KEY_HANDLE_TRANSFER_PROP_ID = 99,
+            XCN_CERT_HCRYPTPROV_TRANSFER_PROP_ID = 100,
+            XCN_CERT_SMART_CARD_READER_PROP_ID = 101,
+            XCN_CERT_SEND_AS_TRUSTED_ISSUER_PROP_ID = 102,
+            XCN_CERT_KEY_REPAIR_ATTEMPTED_PROP_ID = 103,
+            XCN_CERT_DISALLOWED_FILETIME_PROP_ID = 104,
+            XCN_CERT_ROOT_PROGRAM_CHAIN_POLICIES_PROP_ID = 105,
+            XCN_CERT_SMART_CARD_READER_NON_REMOVABLE_PROP_ID = 106,
+            XCN_CERT_SHA256_HASH_PROP_ID = 107,
+            XCN_CERT_SCEP_SERVER_CERTS_PROP_ID = 108,
+            XCN_CERT_SCEP_RA_SIGNATURE_CERT_PROP_ID = 109,
+            XCN_CERT_SCEP_RA_ENCRYPTION_CERT_PROP_ID = 110,
+            XCN_CERT_SCEP_CA_CERT_PROP_ID = 111,
+            XCN_CERT_SCEP_SIGNER_CERT_PROP_ID = 112,
+            XCN_CERT_SCEP_NONCE_PROP_ID = 113,
+            XCN_CERT_SCEP_ENCRYPT_HASH_CNG_ALG_PROP_ID = 114,
+            XCN_CERT_SCEP_FLAGS_PROP_ID = 115,
+            XCN_CERT_SCEP_GUID_PROP_ID = 116,
+            XCN_CERT_SERIALIZABLE_KEY_CONTEXT_PROP_ID = 117,
+            XCN_CERT_ISOLATED_KEY_PROP_ID = 118,
+            XCN_CERT_SERIAL_CHAIN_PROP_ID = 119,
+            XCN_CERT_KEY_CLASSIFICATION_PROP_ID = 120,
+            XCN_CERT_DISALLOWED_ENHKEY_USAGE_PROP_ID = 122,
+            XCN_CERT_NONCOMPLIANT_ROOT_URL_PROP_ID = 123,
+            XCN_CERT_PIN_SHA256_HASH_PROP_ID = 124,
+            XCN_CERT_CLR_DELETE_KEY_PROP_ID = 125,
+            XCN_CERT_NOT_BEFORE_FILETIME_PROP_ID = 126,
+            XCN_CERT_CERT_NOT_BEFORE_ENHKEY_USAGE_PROP_ID = 127,
+            XCN_CERT_FIRST_RESERVED_PROP_ID = 130,
+            XCN_CERT_LAST_RESERVED_PROP_ID = 32767,
+            XCN_CERT_FIRST_USER_PROP_ID = 32768,
+            XCN_CERT_LAST_USER_PROP_ID = 65535,
+            XCN_CERT_STORE_LOCALIZED_NAME_PROP_ID = 4096,
+        }
+        const CObjectId: GUID = 0x884e2000_217d_11da_b2a4_000e7bbb2b09;
+        const CObjectIds: GUID = 0x884e2001_217d_11da_b2a4_000e7bbb2b09;
+        const CPolicyQualifier: GUID = 0x884e201c_217d_11da_b2a4_000e7bbb2b09;
+        const CPolicyQualifiers: GUID = 0x884e201d_217d_11da_b2a4_000e7bbb2b09;
+        #[repr(i32)]
+        enum CRLRevocationReason {
+            XCN_CRL_REASON_UNSPECIFIED = 0,
+            XCN_CRL_REASON_KEY_COMPROMISE = 1,
+            XCN_CRL_REASON_CA_COMPROMISE = 2,
+            XCN_CRL_REASON_AFFILIATION_CHANGED = 3,
+            XCN_CRL_REASON_SUPERSEDED = 4,
+            XCN_CRL_REASON_CESSATION_OF_OPERATION = 5,
+            XCN_CRL_REASON_CERTIFICATE_HOLD = 6,
+            XCN_CRL_REASON_REMOVE_FROM_CRL = 8,
+            XCN_CRL_REASON_PRIVILEGE_WITHDRAWN = 9,
+            XCN_CRL_REASON_AA_COMPROMISE = 10,
+        }
+        const CSignerCertificate: GUID = 0x884e203d_217d_11da_b2a4_000e7bbb2b09;
+        const CSmimeCapabilities: GUID = 0x884e201a_217d_11da_b2a4_000e7bbb2b09;
+        const CSmimeCapability: GUID = 0x884e2019_217d_11da_b2a4_000e7bbb2b09;
+        const CX500DistinguishedName: GUID = 0x884e2003_217d_11da_b2a4_000e7bbb2b09;
+        const CX509Attribute: GUID = 0x884e2022_217d_11da_b2a4_000e7bbb2b09;
+        const CX509AttributeArchiveKey: GUID = 0x884e2027_217d_11da_b2a4_000e7bbb2b09;
+        const CX509AttributeArchiveKeyHash: GUID = 0x884e2028_217d_11da_b2a4_000e7bbb2b09;
+        const CX509AttributeClientId: GUID = 0x884e2025_217d_11da_b2a4_000e7bbb2b09;
+        const CX509AttributeCspProvider: GUID = 0x884e202b_217d_11da_b2a4_000e7bbb2b09;
+        const CX509AttributeExtensions: GUID = 0x884e2024_217d_11da_b2a4_000e7bbb2b09;
+        const CX509AttributeOSVersion: GUID = 0x884e202a_217d_11da_b2a4_000e7bbb2b09;
+        const CX509AttributeRenewalCertificate: GUID = 0x884e2026_217d_11da_b2a4_000e7bbb2b09;
+        const CX509Attributes: GUID = 0x884e2023_217d_11da_b2a4_000e7bbb2b09;
+        const CX509CertificateRequestCertificate: GUID = 0x884e2043_217d_11da_b2a4_000e7bbb2b09;
+        const CX509CertificateRequestCmc: GUID = 0x884e2045_217d_11da_b2a4_000e7bbb2b09;
+        const CX509CertificateRequestPkcs10: GUID = 0x884e2042_217d_11da_b2a4_000e7bbb2b09;
+        const CX509CertificateRequestPkcs7: GUID = 0x884e2044_217d_11da_b2a4_000e7bbb2b09;
+        const CX509CertificateRevocationList: GUID = 0x884e2060_217d_11da_b2a4_000e7bbb2b09;
+        const CX509CertificateRevocationListEntries: GUID = 0x884e205f_217d_11da_b2a4_000e7bbb2b09;
+        const CX509CertificateRevocationListEntry: GUID = 0x884e205e_217d_11da_b2a4_000e7bbb2b09;
+        const CX509CertificateTemplateADWritable: GUID = 0x8336e323_2e6a_4a04_937c_548f681839b3;
+        const CX509EndorsementKey: GUID = 0x11a25a1d_b9a3_4edd_af83_3b59adbed361;
+        const CX509Enrollment: GUID = 0x884e2046_217d_11da_b2a4_000e7bbb2b09;
+        const CX509EnrollmentHelper: GUID = 0x884e2050_217d_11da_b2a4_000e7bbb2b09;
+        const CX509EnrollmentPolicyActiveDirectory: GUID = 0x91f39027_217f_11da_b2a4_000e7bbb2b09;
+        const CX509EnrollmentPolicyWebService: GUID = 0x91f39028_217f_11da_b2a4_000e7bbb2b09;
+        const CX509EnrollmentWebClassFactory: GUID = 0x884e2049_217d_11da_b2a4_000e7bbb2b09;
+        const CX509Extension: GUID = 0x884e200d_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionAlternativeNames: GUID = 0x884e2015_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionAuthorityKeyIdentifier: GUID = 0x884e2018_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionBasicConstraints: GUID = 0x884e2016_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionCertificatePolicies: GUID = 0x884e2020_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionEnhancedKeyUsage: GUID = 0x884e2010_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionKeyUsage: GUID = 0x884e200f_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionMSApplicationPolicies: GUID = 0x884e2021_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionSmimeCapabilities: GUID = 0x884e201b_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionSubjectKeyIdentifier: GUID = 0x884e2017_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionTemplate: GUID = 0x884e2012_217d_11da_b2a4_000e7bbb2b09;
+        const CX509ExtensionTemplateName: GUID = 0x884e2011_217d_11da_b2a4_000e7bbb2b09;
+        const CX509Extensions: GUID = 0x884e200e_217d_11da_b2a4_000e7bbb2b09;
+        const CX509MachineEnrollmentFactory: GUID = 0x884e2051_217d_11da_b2a4_000e7bbb2b09;
+        const CX509NameValuePair: GUID = 0x884e203f_217d_11da_b2a4_000e7bbb2b09;
+        const CX509PolicyServerListManager: GUID = 0x91f39029_217f_11da_b2a4_000e7bbb2b09;
+        const CX509PolicyServerUrl: GUID = 0x91f3902a_217f_11da_b2a4_000e7bbb2b09;
+        const CX509PrivateKey: GUID = 0x884e200c_217d_11da_b2a4_000e7bbb2b09;
+        const CX509PublicKey: GUID = 0x884e200b_217d_11da_b2a4_000e7bbb2b09;
+        const CX509SCEPEnrollment: GUID = 0x884e2061_217d_11da_b2a4_000e7bbb2b09;
+        const CX509SCEPEnrollmentHelper: GUID = 0x884e2062_217d_11da_b2a4_000e7bbb2b09;
+        #[repr(i32)]
+        enum CommitTemplateFlags {
+            CommitFlagSaveTemplateGenerateOID = 1,
+            CommitFlagSaveTemplateUseCurrentOID = 2,
+            CommitFlagSaveTemplateOverwrite = 3,
+            CommitFlagDeleteTemplate = 4,
+        }
+        #[repr(i32)]
+        enum DelayRetryAction {
+            DelayRetryUnknown = 0,
+            DelayRetryNone = 1,
+            DelayRetryShort = 2,
+            DelayRetryLong = 3,
+            DelayRetrySuccess = 4,
+            DelayRetryPastSuccess = 5,
+        }
+        #[repr(i32)]
+        enum EncodingType {
+            XCN_CRYPT_STRING_BASE64HEADER = 0,
+            XCN_CRYPT_STRING_BASE64 = 1,
+            XCN_CRYPT_STRING_BINARY = 2,
+            XCN_CRYPT_STRING_BASE64REQUESTHEADER = 3,
+            XCN_CRYPT_STRING_HEX = 4,
+            XCN_CRYPT_STRING_HEXASCII = 5,
+            XCN_CRYPT_STRING_BASE64_ANY = 6,
+            XCN_CRYPT_STRING_ANY = 7,
+            XCN_CRYPT_STRING_HEX_ANY = 8,
+            XCN_CRYPT_STRING_BASE64X509CRLHEADER = 9,
+            XCN_CRYPT_STRING_HEXADDR = 10,
+            XCN_CRYPT_STRING_HEXASCIIADDR = 11,
+            XCN_CRYPT_STRING_HEXRAW = 12,
+            XCN_CRYPT_STRING_BASE64URI = 13,
+            XCN_CRYPT_STRING_ENCODEMASK = 255,
+            XCN_CRYPT_STRING_CHAIN = 256,
+            XCN_CRYPT_STRING_TEXT = 512,
+            XCN_CRYPT_STRING_PERCENTESCAPE = 134217728,
+            XCN_CRYPT_STRING_HASHDATA = 268435456,
+            XCN_CRYPT_STRING_STRICT = 536870912,
+            XCN_CRYPT_STRING_NOCRLF = 1073741824,
+            XCN_CRYPT_STRING_NOCR = -2147483648,
+        }
+        #[repr(i32)]
+        enum EnrollmentCAProperty {
+            CAPropCommonName = 1,
+            CAPropDistinguishedName = 2,
+            CAPropSanitizedName = 3,
+            CAPropSanitizedShortName = 4,
+            CAPropDNSName = 5,
+            CAPropCertificateTypes = 6,
+            CAPropCertificate = 7,
+            CAPropDescription = 8,
+            CAPropWebServers = 9,
+            CAPropSiteName = 10,
+            CAPropSecurity = 11,
+            CAPropRenewalOnly = 12,
+        }
+        #[repr(i32)]
+        enum EnrollmentDisplayStatus {
+            DisplayNo = 0,
+            DisplayYes = 1,
+        }
+        #[repr(i32)]
+        enum EnrollmentEnrollStatus {
+            Enrolled = 1,
+            EnrollPended = 2,
+            EnrollUIDeferredEnrollmentRequired = 4,
+            EnrollError = 16,
+            EnrollUnknown = 32,
+            EnrollSkipped = 64,
+            EnrollDenied = 256,
+        }
+        #[repr(i32)]
+        enum EnrollmentPolicyFlags {
+            DisableGroupPolicyList = 2,
+            DisableUserServerList = 4,
+        }
+        #[repr(i32)]
+        enum EnrollmentPolicyServerPropertyFlags {
+            DefaultNone = 0,
+            DefaultPolicyServer = 1,
+        }
+        #[repr(i32)]
+        enum EnrollmentSelectionStatus {
+            SelectedNo = 0,
+            SelectedYes = 1,
+        }
+        #[repr(i32)]
+        enum EnrollmentTemplateProperty {
+            TemplatePropCommonName = 1,
+            TemplatePropFriendlyName = 2,
+            TemplatePropEKUs = 3,
+            TemplatePropCryptoProviders = 4,
+            TemplatePropMajorRevision = 5,
+            TemplatePropDescription = 6,
+            TemplatePropKeySpec = 7,
+            TemplatePropSchemaVersion = 8,
+            TemplatePropMinorRevision = 9,
+            TemplatePropRASignatureCount = 10,
+            TemplatePropMinimumKeySize = 11,
+            TemplatePropOID = 12,
+            TemplatePropSupersede = 13,
+            TemplatePropRACertificatePolicies = 14,
+            TemplatePropRAEKUs = 15,
+            TemplatePropCertificatePolicies = 16,
+            TemplatePropV1ApplicationPolicy = 17,
+            TemplatePropAsymmetricAlgorithm = 18,
+            TemplatePropKeySecurityDescriptor = 19,
+            TemplatePropSymmetricAlgorithm = 20,
+            TemplatePropSymmetricKeyLength = 21,
+            TemplatePropHashAlgorithm = 22,
+            TemplatePropKeyUsage = 23,
+            TemplatePropEnrollmentFlags = 24,
+            TemplatePropSubjectNameFlags = 25,
+            TemplatePropPrivateKeyFlags = 26,
+            TemplatePropGeneralFlags = 27,
+            TemplatePropSecurityDescriptor = 28,
+            TemplatePropExtensions = 29,
+            TemplatePropValidityPeriod = 30,
+            TemplatePropRenewalPeriod = 31,
+        }
+        extern fn FNIMPORTPFXTOPROVIDER(hWndParent: HWND, #[size_param(2)] pbPFX: *const u8, cbPFX: u32, ImportFlags: ImportPFXFlags, #[opt] pwszPassword: PCWSTR, #[opt] pwszProviderName: PCWSTR, #[opt] pwszReaderName: PCWSTR, #[opt] pwszContainerNamePrefix: PCWSTR, #[opt] pwszPin: PCWSTR, #[opt] pwszFriendlyName: PCWSTR, #[opt] pcCertOut: *mut u32, prgpCertOut: *mut *mut PCCERT_CONTEXT) -> HRESULT;
+        extern fn FNIMPORTPFXTOPROVIDERFREEDATA(cCert: u32, #[len_param(0)] #[opt] rgpCert: *const PCCERT_CONTEXT);
+        #[guid(0x728ab313_217d_11da_b2a4_000e7bbb2b09)]
+        interface IAlternativeName: IDispatch {
+            fn InitializeFromString(&self, Type: AlternativeNameType, strValue: BSTR) -> HRESULT;
+            fn InitializeFromRawData(&self, Type: AlternativeNameType, Encoding: EncodingType, strRawData: BSTR) -> HRESULT;
+            fn InitializeFromOtherName(&self, pObjectId: IObjectId, Encoding: EncodingType, strRawData: BSTR, ToBeWrapped: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] pValue: *mut AlternativeNameType) -> HRESULT;
+            #[special]
+            fn get_StrValue(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ObjectId(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_RawData(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab314_217d_11da_b2a4_000e7bbb2b09)]
+        interface IAlternativeNames: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut IAlternativeName) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: IAlternativeName) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x728ab302_217d_11da_b2a4_000e7bbb2b09)]
+        interface IBinaryConverter: IDispatch {
+            fn StringToString(&self, strEncodedIn: BSTR, EncodingIn: EncodingType, Encoding: EncodingType, #[retval] pstrEncoded: *mut BSTR) -> HRESULT;
+            fn VariantByteArrayToString(&self, pvarByteArray: *const VARIANT, Encoding: EncodingType, #[retval] pstrEncoded: *mut BSTR) -> HRESULT;
+            fn StringToVariantByteArray(&self, strEncoded: BSTR, Encoding: EncodingType, #[retval] pvarByteArray: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x8d7928b4_4e17_428d_9a17_728df00d1b2b)]
+        interface IBinaryConverter2: IBinaryConverter {
+            fn StringArrayToVariantArray(&self, pvarStringArray: *const VARIANT, #[retval] pvarVariantArray: *mut VARIANT) -> HRESULT;
+            fn VariantArrayToStringArray(&self, pvarVariantArray: *const VARIANT, #[retval] pvarStringArray: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x728ab32f_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertProperties: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut ICertProperty) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: ICertProperty) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn InitializeFromCertificate(&self, MachineContext: VARIANT_BOOL, Encoding: EncodingType, strCertificate: BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab32e_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertProperty: IDispatch {
+            fn InitializeFromCertificate(&self, MachineContext: VARIANT_BOOL, Encoding: EncodingType, strCertificate: BSTR) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_PropertyId(&self, #[retval] pValue: *mut CERTENROLL_PROPERTYID) -> HRESULT;
+            #[special]
+            fn put_PropertyId(&self, Value: CERTENROLL_PROPERTYID) -> HRESULT;
+            #[special]
+            fn get_RawData(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn RemoveFromCertificate(&self, MachineContext: VARIANT_BOOL, Encoding: EncodingType, strCertificate: BSTR) -> HRESULT;
+            fn SetValueOnCertificate(&self, MachineContext: VARIANT_BOOL, Encoding: EncodingType, strCertificate: BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab337_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyArchived: ICertProperty {
+            fn Initialize(&self, ArchivedValue: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Archived(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x728ab33b_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyArchivedKeyHash: ICertProperty {
+            fn Initialize(&self, Encoding: EncodingType, strArchivedKeyHashValue: BSTR) -> HRESULT;
+            #[special]
+            fn get_ArchivedKeyHash(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab332_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyAutoEnroll: ICertProperty {
+            fn Initialize(&self, strTemplateName: BSTR) -> HRESULT;
+            #[special]
+            fn get_TemplateName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab338_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyBackedUp: ICertProperty {
+            fn InitializeFromCurrentTime(&self, BackedUpValue: VARIANT_BOOL) -> HRESULT;
+            fn Initialize(&self, BackedUpValue: VARIANT_BOOL, Date: f64) -> HRESULT;
+            #[special]
+            fn get_BackedUpValue(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_BackedUpTime(&self, #[retval] pDate: *mut f64) -> HRESULT;
+        }
+        #[guid(0x728ab331_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyDescription: ICertProperty {
+            fn Initialize(&self, strDescription: BSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab339_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyEnrollment: ICertProperty {
+            fn Initialize(&self, RequestId: i32, strCADnsName: BSTR, strCAName: BSTR, strFriendlyName: BSTR) -> HRESULT;
+            #[special]
+            fn get_RequestId(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CADnsName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_CAName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_FriendlyName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab34a_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyEnrollmentPolicyServer: ICertProperty {
+            fn Initialize(&self, PropertyFlags: EnrollmentPolicyServerPropertyFlags, AuthFlags: X509EnrollmentAuthFlags, EnrollmentServerAuthFlags: X509EnrollmentAuthFlags, UrlFlags: PolicyServerUrlFlags, strRequestId: BSTR, strUrl: BSTR, strId: BSTR, strEnrollmentServerUrl: BSTR) -> HRESULT;
+            fn GetPolicyServerUrl(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetPolicyServerId(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetEnrollmentServerUrl(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetRequestIdString(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetPropertyFlags(&self, #[retval] pValue: *mut EnrollmentPolicyServerPropertyFlags) -> HRESULT;
+            fn GetUrlFlags(&self, #[retval] pValue: *mut PolicyServerUrlFlags) -> HRESULT;
+            fn GetAuthentication(&self, #[retval] pValue: *mut X509EnrollmentAuthFlags) -> HRESULT;
+            fn GetEnrollmentServerAuthentication(&self, #[retval] pValue: *mut X509EnrollmentAuthFlags) -> HRESULT;
+        }
+        #[guid(0x728ab330_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyFriendlyName: ICertProperty {
+            fn Initialize(&self, strFriendlyName: BSTR) -> HRESULT;
+            #[special]
+            fn get_FriendlyName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab336_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyKeyProvInfo: ICertProperty {
+            fn Initialize(&self, pValue: IX509PrivateKey) -> HRESULT;
+            #[special]
+            fn get_PrivateKey(&self, #[retval] ppValue: *mut IX509PrivateKey) -> HRESULT;
+        }
+        #[guid(0x728ab33a_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyRenewal: ICertProperty {
+            fn Initialize(&self, Encoding: EncodingType, strRenewalValue: BSTR) -> HRESULT;
+            fn InitializeFromCertificateHash(&self, MachineContext: VARIANT_BOOL, Encoding: EncodingType, strCertificate: BSTR) -> HRESULT;
+            #[special]
+            fn get_Renewal(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab333_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertyRequestOriginator: ICertProperty {
+            fn Initialize(&self, strRequestOriginator: BSTR) -> HRESULT;
+            fn InitializeFromLocalRequestOriginator(&self) -> HRESULT;
+            #[special]
+            fn get_RequestOriginator(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab334_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertPropertySHA1Hash: ICertProperty {
+            fn Initialize(&self, Encoding: EncodingType, strRenewalValue: BSTR) -> HRESULT;
+            #[special]
+            fn get_SHA1Hash(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x6f175a7c_4a3a_40ae_9dba_592fd6bbf9b8)]
+        interface ICertificateAttestationChallenge: IDispatch {
+            fn Initialize(&self, Encoding: EncodingType, strPendingFullCmcResponseWithChallenge: BSTR) -> HRESULT;
+            fn DecryptChallenge(&self, Encoding: EncodingType, #[retval] pstrEnvelopedPkcs7ReencryptedToCA: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RequestID(&self, #[retval] pstrRequestID: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x4631334d_e266_47d6_bd79_be53cb2e2753)]
+        interface ICertificateAttestationChallenge2: ICertificateAttestationChallenge {
+            #[special]
+            fn put_KeyContainerName(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn put_KeyBlob(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab31f_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertificatePolicies: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut ICertificatePolicy) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: ICertificatePolicy) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x728ab31e_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICertificatePolicy: IDispatch {
+            fn Initialize(&self, pValue: IObjectId) -> HRESULT;
+            #[special]
+            fn get_ObjectId(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_PolicyQualifiers(&self, #[retval] ppValue: *mut IPolicyQualifiers) -> HRESULT;
+        }
+        #[guid(0x13b79005_2181_11da_b2a4_000e7bbb2b09)]
+        interface ICertificationAuthorities: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut ICertificationAuthority) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: ICertificationAuthority) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn ComputeSiteCosts(&self) -> HRESULT;
+            #[special]
+            fn get_ItemByName(&self, strName: BSTR, #[retval] ppValue: *mut ICertificationAuthority) -> HRESULT;
+        }
+        #[guid(0x835d1f61_1e95_4bc8_b4d3_976c42b968f7)]
+        interface ICertificationAuthority: IDispatch {
+            #[special]
+            fn get_Property(&self, property: EnrollmentCAProperty, #[retval] pValue: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x728ab32c_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICryptAttribute: IDispatch {
+            fn InitializeFromObjectId(&self, pObjectId: IObjectId) -> HRESULT;
+            fn InitializeFromValues(&self, pAttributes: IX509Attributes) -> HRESULT;
+            #[special]
+            fn get_ObjectId(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_Values(&self, #[retval] ppValue: *mut IX509Attributes) -> HRESULT;
+        }
+        #[guid(0x728ab32d_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICryptAttributes: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut ICryptAttribute) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: ICryptAttribute) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            #[special]
+            fn get_IndexByObjectId(&self, pObjectId: IObjectId, #[retval] pIndex: *mut i32) -> HRESULT;
+            fn AddRange(&self, pValue: ICryptAttributes) -> HRESULT;
+        }
+        #[guid(0x728ab305_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICspAlgorithm: IDispatch {
+            fn GetAlgorithmOid(&self, Length: i32, AlgFlags: AlgorithmFlags, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_DefaultLength(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_IncrementLength(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LongName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Valid(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MaxLength(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_MinLength(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] pValue: *mut AlgorithmType) -> HRESULT;
+            #[special]
+            fn get_Operations(&self, #[retval] pValue: *mut AlgorithmOperationFlags) -> HRESULT;
+        }
+        #[guid(0x728ab306_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICspAlgorithms: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut ICspAlgorithm) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: ICspAlgorithm) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            #[special]
+            fn get_ItemByName(&self, strName: BSTR, #[retval] ppValue: *mut ICspAlgorithm) -> HRESULT;
+            #[special]
+            fn get_IndexByObjectId(&self, pObjectId: IObjectId, #[retval] pIndex: *mut i32) -> HRESULT;
+        }
+        #[guid(0x728ab307_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICspInformation: IDispatch {
+            fn InitializeFromName(&self, strName: BSTR) -> HRESULT;
+            fn InitializeFromType(&self, Type: X509ProviderType, pAlgorithm: IObjectId, MachineContext: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CspAlgorithms(&self, #[retval] ppValue: *mut ICspAlgorithms) -> HRESULT;
+            #[special]
+            fn get_HasHardwareRandomNumberGenerator(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsHardwareDevice(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsRemovable(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsSoftwareDevice(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Valid(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MaxKeyContainerNameLength(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] pValue: *mut X509ProviderType) -> HRESULT;
+            #[special]
+            fn get_Version(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_KeySpec(&self, #[retval] pValue: *mut X509KeySpec) -> HRESULT;
+            #[special]
+            fn get_IsSmartCard(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetDefaultSecurityDescriptor(&self, MachineContext: VARIANT_BOOL, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_LegacyCsp(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetCspStatusFromOperations(&self, pAlgorithm: IObjectId, Operations: AlgorithmOperationFlags, #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+        }
+        #[guid(0x728ab308_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICspInformations: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut ICspInformation) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: ICspInformation) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn AddAvailableCsps(&self) -> HRESULT;
+            #[special]
+            fn get_ItemByName(&self, strName: BSTR, #[retval] ppCspInformation: *mut ICspInformation) -> HRESULT;
+            fn GetCspStatusFromProviderName(&self, strProviderName: BSTR, LegacyKeySpec: X509KeySpec, #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            fn GetCspStatusesFromOperations(&self, Operations: AlgorithmOperationFlags, pCspInformation: ICspInformation, #[retval] ppValue: *mut ICspStatuses) -> HRESULT;
+            fn GetEncryptionCspAlgorithms(&self, pCspInformation: ICspInformation, #[retval] ppValue: *mut ICspAlgorithms) -> HRESULT;
+            fn GetHashAlgorithms(&self, pCspInformation: ICspInformation, #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+        }
+        #[guid(0x728ab309_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICspStatus: IDispatch {
+            fn Initialize(&self, pCsp: ICspInformation, pAlgorithm: ICspAlgorithm) -> HRESULT;
+            #[special]
+            fn get_Ordinal(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Ordinal(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn get_CspAlgorithm(&self, #[retval] ppValue: *mut ICspAlgorithm) -> HRESULT;
+            #[special]
+            fn get_CspInformation(&self, #[retval] ppValue: *mut ICspInformation) -> HRESULT;
+            #[special]
+            fn get_EnrollmentStatus(&self, #[retval] ppValue: *mut IX509EnrollmentStatus) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab30a_217d_11da_b2a4_000e7bbb2b09)]
+        interface ICspStatuses: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut ICspStatus) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: ICspStatus) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            #[special]
+            fn get_ItemByName(&self, strCspName: BSTR, strAlgorithmName: BSTR, #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            #[special]
+            fn get_ItemByOrdinal(&self, Ordinal: i32, #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            #[special]
+            fn get_ItemByOperations(&self, strCspName: BSTR, strAlgorithmName: BSTR, Operations: AlgorithmOperationFlags, #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            #[special]
+            fn get_ItemByProvider(&self, pCspStatus: ICspStatus, #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+        }
+        #[guid(0x728ab300_217d_11da_b2a4_000e7bbb2b09)]
+        interface IObjectId: IDispatch {
+            fn InitializeFromName(&self, Name: CERTENROLL_OBJECTID) -> HRESULT;
+            fn InitializeFromValue(&self, strValue: BSTR) -> HRESULT;
+            fn InitializeFromAlgorithmName(&self, GroupId: ObjectIdGroupId, KeyFlags: ObjectIdPublicKeyFlags, AlgFlags: AlgorithmFlags, strAlgorithmName: BSTR) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] pValue: *mut CERTENROLL_OBJECTID) -> HRESULT;
+            #[special]
+            fn get_FriendlyName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FriendlyName(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetAlgorithmName(&self, GroupId: ObjectIdGroupId, KeyFlags: ObjectIdPublicKeyFlags, #[retval] pstrAlgorithmName: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab301_217d_11da_b2a4_000e7bbb2b09)]
+        interface IObjectIds: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: IObjectId) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn AddRange(&self, pValue: IObjectIds) -> HRESULT;
+        }
+        #[guid(0x728ab31c_217d_11da_b2a4_000e7bbb2b09)]
+        interface IPolicyQualifier: IDispatch {
+            fn InitializeEncode(&self, strQualifier: BSTR, Type: PolicyQualifierType) -> HRESULT;
+            #[special]
+            fn get_ObjectId(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_Qualifier(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] pValue: *mut PolicyQualifierType) -> HRESULT;
+            #[special]
+            fn get_RawData(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab31d_217d_11da_b2a4_000e7bbb2b09)]
+        interface IPolicyQualifiers: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut IPolicyQualifier) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: IPolicyQualifier) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x728ab33d_217d_11da_b2a4_000e7bbb2b09)]
+        interface ISignerCertificate: IDispatch {
+            fn Initialize(&self, MachineContext: VARIANT_BOOL, VerifyType: X509PrivateKeyVerify, Encoding: EncodingType, strCertificate: BSTR) -> HRESULT;
+            #[special]
+            fn get_Certificate(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_PrivateKey(&self, #[retval] ppValue: *mut IX509PrivateKey) -> HRESULT;
+            #[special]
+            fn get_Silent(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Silent(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ParentWindow(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ParentWindow(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn get_UIContextMessage(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_UIContextMessage(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn put_Pin(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_SignatureInformation(&self, #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
+        }
+        #[guid(0x728ab33e_217d_11da_b2a4_000e7bbb2b09)]
+        interface ISignerCertificates: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut ISignerCertificate) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: ISignerCertificate) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn Find(&self, pSignerCert: ISignerCertificate, #[retval] piSignerCert: *mut i32) -> HRESULT;
+        }
+        #[guid(0x728ab31a_217d_11da_b2a4_000e7bbb2b09)]
+        interface ISmimeCapabilities: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut ISmimeCapability) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: ISmimeCapability) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn AddFromCsp(&self, pValue: ICspInformation) -> HRESULT;
+            fn AddAvailableSmimeCapabilities(&self, MachineContext: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x728ab319_217d_11da_b2a4_000e7bbb2b09)]
+        interface ISmimeCapability: IDispatch {
+            fn Initialize(&self, pObjectId: IObjectId, BitCount: i32) -> HRESULT;
+            #[special]
+            fn get_ObjectId(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_BitCount(&self, #[retval] pValue: *mut i32) -> HRESULT;
+        }
+        #[guid(0x728ab303_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX500DistinguishedName: IDispatch {
+            fn Decode(&self, strEncodedName: BSTR, Encoding: EncodingType, NameFlags: X500NameFlags) -> HRESULT;
+            fn Encode(&self, strName: BSTR, NameFlags: X500NameFlags) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_EncodedName(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab322_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509Attribute: IDispatch {
+            fn Initialize(&self, pObjectId: IObjectId, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_ObjectId(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_RawData(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab327_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509AttributeArchiveKey: IX509Attribute {
+            fn InitializeEncode(&self, pKey: IX509PrivateKey, Encoding: EncodingType, strCAXCert: BSTR, pAlgorithm: IObjectId, EncryptionStrength: i32) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_EncryptedKeyBlob(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_EncryptionAlgorithm(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_EncryptionStrength(&self, #[retval] pValue: *mut i32) -> HRESULT;
+        }
+        #[guid(0x728ab328_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509AttributeArchiveKeyHash: IX509Attribute {
+            fn InitializeEncodeFromEncryptedKeyBlob(&self, Encoding: EncodingType, strEncryptedKeyBlob: BSTR) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_EncryptedKeyHashBlob(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab325_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509AttributeClientId: IX509Attribute {
+            fn InitializeEncode(&self, ClientId: RequestClientInfoClientId, strMachineDnsName: BSTR, strUserSamName: BSTR, strProcessName: BSTR) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClientId(&self, #[retval] pValue: *mut RequestClientInfoClientId) -> HRESULT;
+            #[special]
+            fn get_MachineDnsName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_UserSamName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ProcessName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab32b_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509AttributeCspProvider: IX509Attribute {
+            fn InitializeEncode(&self, KeySpec: X509KeySpec, strProviderName: BSTR, Encoding: EncodingType, strSignature: BSTR) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_KeySpec(&self, #[retval] pValue: *mut X509KeySpec) -> HRESULT;
+            #[special]
+            fn get_ProviderName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Signature(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab324_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509AttributeExtensions: IX509Attribute {
+            fn InitializeEncode(&self, pExtensions: IX509Extensions) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_X509Extensions(&self, #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
+        }
+        #[guid(0x728ab32a_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509AttributeOSVersion: IX509Attribute {
+            fn InitializeEncode(&self, strOSVersion: BSTR) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_OSVersion(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab326_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509AttributeRenewalCertificate: IX509Attribute {
+            fn InitializeEncode(&self, Encoding: EncodingType, strCert: BSTR) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_RenewalCertificate(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab323_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509Attributes: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut IX509Attribute) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: IX509Attribute) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x728ab341_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRequest: IDispatch {
+            fn Initialize(&self, Context: X509CertificateEnrollmentContext) -> HRESULT;
+            fn Encode(&self) -> HRESULT;
+            fn ResetForEncode(&self) -> HRESULT;
+            fn GetInnerRequest(&self, Level: InnerRequestLevel, #[retval] ppValue: *mut IX509CertificateRequest) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] pValue: *mut X509RequestType) -> HRESULT;
+            #[special]
+            fn get_EnrollmentContext(&self, #[retval] pValue: *mut X509CertificateEnrollmentContext) -> HRESULT;
+            #[special]
+            fn get_Silent(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Silent(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ParentWindow(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ParentWindow(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn get_UIContextMessage(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_UIContextMessage(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_SuppressDefaults(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_SuppressDefaults(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RenewalCertificate(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RenewalCertificate(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClientId(&self, #[retval] pValue: *mut RequestClientInfoClientId) -> HRESULT;
+            #[special]
+            fn put_ClientId(&self, Value: RequestClientInfoClientId) -> HRESULT;
+            #[special]
+            fn get_CspInformations(&self, #[retval] ppValue: *mut ICspInformations) -> HRESULT;
+            #[special]
+            fn put_CspInformations(&self, pValue: ICspInformations) -> HRESULT;
+            #[special]
+            fn get_HashAlgorithm(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn put_HashAlgorithm(&self, pValue: IObjectId) -> HRESULT;
+            #[special]
+            fn get_AlternateSignatureAlgorithm(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AlternateSignatureAlgorithm(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RawData(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab343_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRequestCertificate: IX509CertificateRequestPkcs10 {
+            fn CheckPublicKeySignature(&self, pPublicKey: IX509PublicKey) -> HRESULT;
+            #[special]
+            fn get_Issuer(&self, #[retval] ppValue: *mut IX500DistinguishedName) -> HRESULT;
+            #[special]
+            fn put_Issuer(&self, pValue: IX500DistinguishedName) -> HRESULT;
+            #[special]
+            fn get_NotBefore(&self, #[retval] pValue: *mut f64) -> HRESULT;
+            #[special]
+            fn put_NotBefore(&self, Value: f64) -> HRESULT;
+            #[special]
+            fn get_NotAfter(&self, #[retval] pValue: *mut f64) -> HRESULT;
+            #[special]
+            fn put_NotAfter(&self, Value: f64) -> HRESULT;
+            #[special]
+            fn get_SerialNumber(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SerialNumber(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_SignerCertificate(&self, #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
+            #[special]
+            fn put_SignerCertificate(&self, pValue: ISignerCertificate) -> HRESULT;
+        }
+        #[guid(0x728ab35a_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRequestCertificate2: IX509CertificateRequestCertificate {
+            fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, pPolicyServer: IX509EnrollmentPolicyServer, pTemplate: IX509CertificateTemplate) -> HRESULT;
+            fn InitializeFromPrivateKeyTemplate(&self, Context: X509CertificateEnrollmentContext, pPrivateKey: IX509PrivateKey, pPolicyServer: IX509EnrollmentPolicyServer, pTemplate: IX509CertificateTemplate) -> HRESULT;
+            #[special]
+            fn get_PolicyServer(&self, #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
+            #[special]
+            fn get_Template(&self, #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
+        }
+        #[guid(0x728ab345_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRequestCmc: IX509CertificateRequestPkcs7 {
+            fn InitializeFromInnerRequestTemplateName(&self, pInnerRequest: IX509CertificateRequest, strTemplateName: BSTR) -> HRESULT;
+            #[special]
+            fn get_TemplateObjectId(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_NullSigned(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CryptAttributes(&self, #[retval] ppValue: *mut ICryptAttributes) -> HRESULT;
+            #[special]
+            fn get_NameValuePairs(&self, #[retval] ppValue: *mut IX509NameValuePairs) -> HRESULT;
+            #[special]
+            fn get_X509Extensions(&self, #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
+            #[special]
+            fn get_CriticalExtensions(&self, #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            #[special]
+            fn get_SuppressOids(&self, #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            #[special]
+            fn get_TransactionId(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn put_TransactionId(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn get_SenderNonce(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SenderNonce(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_SignatureInformation(&self, #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
+            #[special]
+            fn get_ArchivePrivateKey(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_ArchivePrivateKey(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_KeyArchivalCertificate(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_KeyArchivalCertificate(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_EncryptionAlgorithm(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn put_EncryptionAlgorithm(&self, pValue: IObjectId) -> HRESULT;
+            #[special]
+            fn get_EncryptionStrength(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn put_EncryptionStrength(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn get_EncryptedKeyHash(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_SignerCertificates(&self, #[retval] ppValue: *mut ISignerCertificates) -> HRESULT;
+        }
+        #[guid(0x728ab35d_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRequestCmc2: IX509CertificateRequestCmc {
+            fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, pPolicyServer: IX509EnrollmentPolicyServer, pTemplate: IX509CertificateTemplate) -> HRESULT;
+            fn InitializeFromInnerRequestTemplate(&self, pInnerRequest: IX509CertificateRequest, pPolicyServer: IX509EnrollmentPolicyServer, pTemplate: IX509CertificateTemplate) -> HRESULT;
+            #[special]
+            fn get_PolicyServer(&self, #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
+            #[special]
+            fn get_Template(&self, #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
+            fn CheckSignature(&self, AllowedSignatureTypes: Pkcs10AllowedSignatureTypes) -> HRESULT;
+            fn CheckCertificateSignature(&self, pSignerCertificate: ISignerCertificate, ValidateCertificateChain: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x728ab342_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRequestPkcs10: IX509CertificateRequest {
+            fn InitializeFromTemplateName(&self, Context: X509CertificateEnrollmentContext, strTemplateName: BSTR) -> HRESULT;
+            fn InitializeFromPrivateKey(&self, Context: X509CertificateEnrollmentContext, pPrivateKey: IX509PrivateKey, strTemplateName: BSTR) -> HRESULT;
+            fn InitializeFromPublicKey(&self, Context: X509CertificateEnrollmentContext, pPublicKey: IX509PublicKey, strTemplateName: BSTR) -> HRESULT;
+            fn InitializeFromCertificate(&self, Context: X509CertificateEnrollmentContext, strCertificate: BSTR, Encoding: EncodingType, InheritOptions: X509RequestInheritOptions) -> HRESULT;
+            fn InitializeDecode(&self, strEncodedData: BSTR, Encoding: EncodingType) -> HRESULT;
+            fn CheckSignature(&self, AllowedSignatureTypes: Pkcs10AllowedSignatureTypes) -> HRESULT;
+            fn IsSmartCard(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_TemplateObjectId(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_PublicKey(&self, #[retval] ppValue: *mut IX509PublicKey) -> HRESULT;
+            #[special]
+            fn get_PrivateKey(&self, #[retval] ppValue: *mut IX509PrivateKey) -> HRESULT;
+            #[special]
+            fn get_NullSigned(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ReuseKey(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_OldCertificate(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Subject(&self, #[retval] ppValue: *mut IX500DistinguishedName) -> HRESULT;
+            #[special]
+            fn put_Subject(&self, pValue: IX500DistinguishedName) -> HRESULT;
+            #[special]
+            fn get_CspStatuses(&self, #[retval] ppValue: *mut ICspStatuses) -> HRESULT;
+            #[special]
+            fn get_SmimeCapabilities(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_SmimeCapabilities(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SignatureInformation(&self, #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
+            #[special]
+            fn get_KeyContainerNamePrefix(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_KeyContainerNamePrefix(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_CryptAttributes(&self, #[retval] ppValue: *mut ICryptAttributes) -> HRESULT;
+            #[special]
+            fn get_X509Extensions(&self, #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
+            #[special]
+            fn get_CriticalExtensions(&self, #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            #[special]
+            fn get_SuppressOids(&self, #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            #[special]
+            fn get_RawDataToBeSigned(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Signature(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetCspStatuses(&self, KeySpec: X509KeySpec, #[retval] ppCspStatuses: *mut ICspStatuses) -> HRESULT;
+        }
+        #[guid(0x728ab35b_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRequestPkcs10V2: IX509CertificateRequestPkcs10 {
+            fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, pPolicyServer: IX509EnrollmentPolicyServer, pTemplate: IX509CertificateTemplate) -> HRESULT;
+            fn InitializeFromPrivateKeyTemplate(&self, Context: X509CertificateEnrollmentContext, pPrivateKey: IX509PrivateKey, pPolicyServer: IX509EnrollmentPolicyServer, pTemplate: IX509CertificateTemplate) -> HRESULT;
+            fn InitializeFromPublicKeyTemplate(&self, Context: X509CertificateEnrollmentContext, pPublicKey: IX509PublicKey, pPolicyServer: IX509EnrollmentPolicyServer, pTemplate: IX509CertificateTemplate) -> HRESULT;
+            #[special]
+            fn get_PolicyServer(&self, #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
+            #[special]
+            fn get_Template(&self, #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
+        }
+        #[guid(0x54ea9942_3d66_4530_b76e_7c9170d3ec52)]
+        interface IX509CertificateRequestPkcs10V3: IX509CertificateRequestPkcs10V2 {
+            #[special]
+            fn get_AttestPrivateKey(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AttestPrivateKey(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AttestationEncryptionCertificate(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_AttestationEncryptionCertificate(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_EncryptionAlgorithm(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn put_EncryptionAlgorithm(&self, pValue: IObjectId) -> HRESULT;
+            #[special]
+            fn get_EncryptionStrength(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn put_EncryptionStrength(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn get_ChallengePassword(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ChallengePassword(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_NameValuePairs(&self, #[retval] ppValue: *mut IX509NameValuePairs) -> HRESULT;
+        }
+        #[guid(0x728ab363_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRequestPkcs10V4: IX509CertificateRequestPkcs10V3 {
+            #[special]
+            fn get_ClaimType(&self, #[retval] pValue: *mut KeyAttestationClaimType) -> HRESULT;
+            #[special]
+            fn put_ClaimType(&self, Value: KeyAttestationClaimType) -> HRESULT;
+            #[special]
+            fn get_AttestPrivateKeyPreferred(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AttestPrivateKeyPreferred(&self, Value: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x728ab344_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRequestPkcs7: IX509CertificateRequest {
+            fn InitializeFromTemplateName(&self, Context: X509CertificateEnrollmentContext, strTemplateName: BSTR) -> HRESULT;
+            fn InitializeFromCertificate(&self, Context: X509CertificateEnrollmentContext, RenewalRequest: VARIANT_BOOL, strCertificate: BSTR, Encoding: EncodingType, InheritOptions: X509RequestInheritOptions) -> HRESULT;
+            fn InitializeFromInnerRequest(&self, pInnerRequest: IX509CertificateRequest) -> HRESULT;
+            fn InitializeDecode(&self, strEncodedData: BSTR, Encoding: EncodingType) -> HRESULT;
+            #[special]
+            fn get_RequesterName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RequesterName(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_SignerCertificate(&self, #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
+            #[special]
+            fn put_SignerCertificate(&self, pValue: ISignerCertificate) -> HRESULT;
+        }
+        #[guid(0x728ab35c_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRequestPkcs7V2: IX509CertificateRequestPkcs7 {
+            fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, pPolicyServer: IX509EnrollmentPolicyServer, pTemplate: IX509CertificateTemplate) -> HRESULT;
+            #[special]
+            fn get_PolicyServer(&self, #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
+            #[special]
+            fn get_Template(&self, #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
+            fn CheckCertificateSignature(&self, ValidateCertificateChain: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x728ab360_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRevocationList: IDispatch {
+            fn Initialize(&self) -> HRESULT;
+            fn InitializeDecode(&self, strEncodedData: BSTR, Encoding: EncodingType) -> HRESULT;
+            fn Encode(&self) -> HRESULT;
+            fn ResetForEncode(&self) -> HRESULT;
+            fn CheckPublicKeySignature(&self, pPublicKey: IX509PublicKey) -> HRESULT;
+            fn CheckSignature(&self) -> HRESULT;
+            #[special]
+            fn get_Issuer(&self, #[retval] ppValue: *mut IX500DistinguishedName) -> HRESULT;
+            #[special]
+            fn put_Issuer(&self, pValue: IX500DistinguishedName) -> HRESULT;
+            #[special]
+            fn get_ThisUpdate(&self, #[retval] pValue: *mut f64) -> HRESULT;
+            #[special]
+            fn put_ThisUpdate(&self, Value: f64) -> HRESULT;
+            #[special]
+            fn get_NextUpdate(&self, #[retval] pValue: *mut f64) -> HRESULT;
+            #[special]
+            fn put_NextUpdate(&self, Value: f64) -> HRESULT;
+            #[special]
+            fn get_X509CRLEntries(&self, #[retval] ppValue: *mut IX509CertificateRevocationListEntries) -> HRESULT;
+            #[special]
+            fn get_X509Extensions(&self, #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
+            #[special]
+            fn get_CriticalExtensions(&self, #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            #[special]
+            fn get_SignerCertificate(&self, #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
+            #[special]
+            fn put_SignerCertificate(&self, pValue: ISignerCertificate) -> HRESULT;
+            #[special]
+            fn get_CRLNumber(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_CRLNumber(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_CAVersion(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn put_CAVersion(&self, pValue: i32) -> HRESULT;
+            #[special]
+            fn get_BaseCRL(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_NullSigned(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_HashAlgorithm(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn put_HashAlgorithm(&self, pValue: IObjectId) -> HRESULT;
+            #[special]
+            fn get_AlternateSignatureAlgorithm(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AlternateSignatureAlgorithm(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SignatureInformation(&self, #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
+            #[special]
+            fn get_RawData(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RawDataToBeSigned(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Signature(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab35f_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRevocationListEntries: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut IX509CertificateRevocationListEntry) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: IX509CertificateRevocationListEntry) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            #[special]
+            fn get_IndexBySerialNumber(&self, Encoding: EncodingType, SerialNumber: BSTR, #[retval] pIndex: *mut i32) -> HRESULT;
+            fn AddRange(&self, pValue: IX509CertificateRevocationListEntries) -> HRESULT;
+        }
+        #[guid(0x728ab35e_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateRevocationListEntry: IDispatch {
+            fn Initialize(&self, Encoding: EncodingType, SerialNumber: BSTR, RevocationDate: f64) -> HRESULT;
+            #[special]
+            fn get_SerialNumber(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RevocationDate(&self, #[retval] pValue: *mut f64) -> HRESULT;
+            #[special]
+            fn get_RevocationReason(&self, #[retval] pValue: *mut CRLRevocationReason) -> HRESULT;
+            #[special]
+            fn put_RevocationReason(&self, Value: CRLRevocationReason) -> HRESULT;
+            #[special]
+            fn get_X509Extensions(&self, #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
+            #[special]
+            fn get_CriticalExtensions(&self, #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+        }
+        #[guid(0x54244a13_555a_4e22_896d_1b0e52f76406)]
+        interface IX509CertificateTemplate: IDispatch {
+            #[special]
+            fn get_Property(&self, property: EnrollmentTemplateProperty, #[retval] pValue: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xf49466a7_395a_4e9e_b6e7_32b331600dc0)]
+        interface IX509CertificateTemplateWritable: IDispatch {
+            fn Initialize(&self, pValue: IX509CertificateTemplate) -> HRESULT;
+            fn Commit(&self, commitFlags: CommitTemplateFlags, strServerContext: BSTR) -> HRESULT;
+            #[special]
+            fn get_Property(&self, property: EnrollmentTemplateProperty, #[retval] pValue: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Property(&self, property: EnrollmentTemplateProperty, value: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Template(&self, #[retval] ppValue: *mut IX509CertificateTemplate) -> HRESULT;
+        }
+        #[guid(0x13b79003_2181_11da_b2a4_000e7bbb2b09)]
+        interface IX509CertificateTemplates: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut IX509CertificateTemplate) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: IX509CertificateTemplate) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            #[special]
+            fn get_ItemByName(&self, bstrName: BSTR, #[retval] ppValue: *mut IX509CertificateTemplate) -> HRESULT;
+            #[special]
+            fn get_ItemByOid(&self, pOid: IObjectId, #[retval] ppValue: *mut IX509CertificateTemplate) -> HRESULT;
+        }
+        #[guid(0xb11cd855_f4c4_4fc6_b710_4422237f09e9)]
+        interface IX509EndorsementKey: IDispatch {
+            #[special]
+            fn get_ProviderName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ProviderName(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_Length(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Opened(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn AddCertificate(&self, Encoding: EncodingType, strCertificate: BSTR) -> HRESULT;
+            fn RemoveCertificate(&self, Encoding: EncodingType, strCertificate: BSTR) -> HRESULT;
+            fn GetCertificateByIndex(&self, ManufacturerOnly: VARIANT_BOOL, dwIndex: i32, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetCertificateCount(&self, ManufacturerOnly: VARIANT_BOOL, #[retval] pCount: *mut i32) -> HRESULT;
+            fn ExportPublicKey(&self, #[retval] ppPublicKey: *mut IX509PublicKey) -> HRESULT;
+            fn Open(&self) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x728ab346_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509Enrollment: IDispatch {
+            fn Initialize(&self, Context: X509CertificateEnrollmentContext) -> HRESULT;
+            fn InitializeFromTemplateName(&self, Context: X509CertificateEnrollmentContext, strTemplateName: BSTR) -> HRESULT;
+            fn InitializeFromRequest(&self, pRequest: IX509CertificateRequest) -> HRESULT;
+            fn CreateRequest(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn Enroll(&self) -> HRESULT;
+            fn InstallResponse(&self, Restrictions: InstallResponseRestrictionFlags, strResponse: BSTR, Encoding: EncodingType, strPassword: BSTR) -> HRESULT;
+            fn CreatePFX(&self, strPassword: BSTR, ExportOptions: PFXExportOptions, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Request(&self, #[retval] pValue: *mut IX509CertificateRequest) -> HRESULT;
+            #[special]
+            fn get_Silent(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Silent(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ParentWindow(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ParentWindow(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn get_NameValuePairs(&self, #[retval] ppValue: *mut IX509NameValuePairs) -> HRESULT;
+            #[special]
+            fn get_EnrollmentContext(&self, #[retval] pValue: *mut X509CertificateEnrollmentContext) -> HRESULT;
+            #[special]
+            fn get_Status(&self, #[retval] ppValue: *mut IX509EnrollmentStatus) -> HRESULT;
+            #[special]
+            fn get_Certificate(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Response(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_CertificateFriendlyName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_CertificateFriendlyName(&self, strValue: BSTR) -> HRESULT;
+            #[special]
+            fn get_CertificateDescription(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_CertificateDescription(&self, strValue: BSTR) -> HRESULT;
+            #[special]
+            fn get_RequestId(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CAConfigString(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab350_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509Enrollment2: IX509Enrollment {
+            fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, pPolicyServer: IX509EnrollmentPolicyServer, pTemplate: IX509CertificateTemplate) -> HRESULT;
+            fn InstallResponse2(&self, Restrictions: InstallResponseRestrictionFlags, strResponse: BSTR, Encoding: EncodingType, strPassword: BSTR, strEnrollmentPolicyServerUrl: BSTR, strEnrollmentPolicyServerID: BSTR, EnrollmentPolicyServerFlags: PolicyServerUrlFlags, authFlags: X509EnrollmentAuthFlags) -> HRESULT;
+            #[special]
+            fn get_PolicyServer(&self, #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
+            #[special]
+            fn get_Template(&self, #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
+            #[special]
+            fn get_RequestIdString(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab351_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509EnrollmentHelper: IDispatch {
+            fn AddPolicyServer(&self, strEnrollmentPolicyServerURI: BSTR, strEnrollmentPolicyID: BSTR, EnrollmentPolicyServerFlags: PolicyServerUrlFlags, authFlags: X509EnrollmentAuthFlags, strCredential: BSTR, strPassword: BSTR) -> HRESULT;
+            fn AddEnrollmentServer(&self, strEnrollmentServerURI: BSTR, authFlags: X509EnrollmentAuthFlags, strCredential: BSTR, strPassword: BSTR) -> HRESULT;
+            fn Enroll(&self, strEnrollmentPolicyServerURI: BSTR, strTemplateName: BSTR, Encoding: EncodingType, enrollFlags: WebEnrollmentFlags, #[retval] pstrCertificate: *mut BSTR) -> HRESULT;
+            fn Initialize(&self, Context: X509CertificateEnrollmentContext) -> HRESULT;
+        }
+        #[guid(0x13b79026_2181_11da_b2a4_000e7bbb2b09)]
+        interface IX509EnrollmentPolicyServer: IDispatch {
+            fn Initialize(&self, bstrPolicyServerUrl: BSTR, bstrPolicyServerId: BSTR, authFlags: X509EnrollmentAuthFlags, fIsUnTrusted: VARIANT_BOOL, context: X509CertificateEnrollmentContext) -> HRESULT;
+            fn LoadPolicy(&self, option: X509EnrollmentPolicyLoadOption) -> HRESULT;
+            fn GetTemplates(&self, #[retval] pTemplates: *mut IX509CertificateTemplates) -> HRESULT;
+            fn GetCAsForTemplate(&self, pTemplate: IX509CertificateTemplate, #[retval] ppCAs: *mut ICertificationAuthorities) -> HRESULT;
+            fn GetCAs(&self, #[retval] ppCAs: *mut ICertificationAuthorities) -> HRESULT;
+            fn Validate(&self) -> HRESULT;
+            fn GetCustomOids(&self, #[retval] ppObjectIds: *mut IObjectIds) -> HRESULT;
+            fn GetNextUpdateTime(&self, #[retval] pDate: *mut f64) -> HRESULT;
+            fn GetLastUpdateTime(&self, #[retval] pDate: *mut f64) -> HRESULT;
+            fn GetPolicyServerUrl(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetPolicyServerId(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetFriendlyName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetIsDefaultCEP(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetUseClientId(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetAllowUnTrustedCA(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetCachePath(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetCacheDir(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetAuthFlags(&self, #[retval] pValue: *mut X509EnrollmentAuthFlags) -> HRESULT;
+            fn SetCredential(&self, hWndParent: i32, flag: X509EnrollmentAuthFlags, strCredential: BSTR, strPassword: BSTR) -> HRESULT;
+            fn QueryChanges(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn InitializeImport(&self, val: VARIANT) -> HRESULT;
+            fn Export(&self, exportFlags: X509EnrollmentPolicyExportFlags, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Cost(&self, #[retval] pValue: *mut u32) -> HRESULT;
+            #[special]
+            fn put_Cost(&self, value: u32) -> HRESULT;
+        }
+        #[guid(0x728ab304_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509EnrollmentStatus: IDispatch {
+            fn AppendText(&self, strText: BSTR) -> HRESULT;
+            #[special]
+            fn get_Text(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Text(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_Selected(&self, #[retval] pValue: *mut EnrollmentSelectionStatus) -> HRESULT;
+            #[special]
+            fn put_Selected(&self, Value: EnrollmentSelectionStatus) -> HRESULT;
+            #[special]
+            fn get_Display(&self, #[retval] pValue: *mut EnrollmentDisplayStatus) -> HRESULT;
+            #[special]
+            fn put_Display(&self, Value: EnrollmentDisplayStatus) -> HRESULT;
+            #[special]
+            fn get_Status(&self, #[retval] pValue: *mut EnrollmentEnrollStatus) -> HRESULT;
+            #[special]
+            fn put_Status(&self, Value: EnrollmentEnrollStatus) -> HRESULT;
+            #[special]
+            fn get_Error(&self, #[retval] pValue: *mut HRESULT) -> HRESULT;
+            #[special]
+            fn put_Error(&self, Value: HRESULT) -> HRESULT;
+            #[special]
+            fn get_ErrorText(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab349_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509EnrollmentWebClassFactory: IDispatch {
+            fn CreateObject(&self, strProgID: BSTR, #[retval] ppIUnknown: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x728ab30d_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509Extension: IDispatch {
+            fn Initialize(&self, pObjectId: IObjectId, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_ObjectId(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_RawData(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Critical(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Critical(&self, Value: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x728ab315_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionAlternativeNames: IX509Extension {
+            fn InitializeEncode(&self, pValue: IAlternativeNames) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_AlternativeNames(&self, #[retval] ppValue: *mut IAlternativeNames) -> HRESULT;
+        }
+        #[guid(0x728ab318_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionAuthorityKeyIdentifier: IX509Extension {
+            fn InitializeEncode(&self, Encoding: EncodingType, strKeyIdentifier: BSTR) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_AuthorityKeyIdentifier(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab316_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionBasicConstraints: IX509Extension {
+            fn InitializeEncode(&self, IsCA: VARIANT_BOOL, PathLenConstraint: i32) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_IsCA(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_PathLenConstraint(&self, #[retval] pValue: *mut i32) -> HRESULT;
+        }
+        #[guid(0x728ab320_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionCertificatePolicies: IX509Extension {
+            fn InitializeEncode(&self, pValue: ICertificatePolicies) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_Policies(&self, #[retval] ppValue: *mut ICertificatePolicies) -> HRESULT;
+        }
+        #[guid(0x728ab310_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionEnhancedKeyUsage: IX509Extension {
+            fn InitializeEncode(&self, pValue: IObjectIds) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_EnhancedKeyUsage(&self, #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+        }
+        #[guid(0x728ab30f_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionKeyUsage: IX509Extension {
+            fn InitializeEncode(&self, UsageFlags: X509KeyUsageFlags) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_KeyUsage(&self, #[retval] pValue: *mut X509KeyUsageFlags) -> HRESULT;
+        }
+        #[guid(0x728ab321_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionMSApplicationPolicies: IX509Extension {
+            fn InitializeEncode(&self, pValue: ICertificatePolicies) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_Policies(&self, #[retval] ppValue: *mut ICertificatePolicies) -> HRESULT;
+        }
+        #[guid(0x728ab31b_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionSmimeCapabilities: IX509Extension {
+            fn InitializeEncode(&self, pValue: ISmimeCapabilities) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_SmimeCapabilities(&self, #[retval] ppValue: *mut ISmimeCapabilities) -> HRESULT;
+        }
+        #[guid(0x728ab317_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionSubjectKeyIdentifier: IX509Extension {
+            fn InitializeEncode(&self, Encoding: EncodingType, strKeyIdentifier: BSTR) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_SubjectKeyIdentifier(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab312_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionTemplate: IX509Extension {
+            fn InitializeEncode(&self, pTemplateOid: IObjectId, MajorVersion: i32, MinorVersion: i32) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_TemplateOid(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_MajorVersion(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_MinorVersion(&self, #[retval] pValue: *mut i32) -> HRESULT;
+        }
+        #[guid(0x728ab311_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509ExtensionTemplateName: IX509Extension {
+            fn InitializeEncode(&self, strTemplateName: BSTR) -> HRESULT;
+            fn InitializeDecode(&self, Encoding: EncodingType, strEncodedData: BSTR) -> HRESULT;
+            #[special]
+            fn get_TemplateName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab30e_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509Extensions: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut IX509Extension) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: IX509Extension) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            #[special]
+            fn get_IndexByObjectId(&self, pObjectId: IObjectId, #[retval] pIndex: *mut i32) -> HRESULT;
+            fn AddRange(&self, pValue: IX509Extensions) -> HRESULT;
+        }
+        #[guid(0x728ab352_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509MachineEnrollmentFactory: IDispatch {
+            fn CreateObject(&self, strProgID: BSTR, #[retval] ppIHelper: *mut IX509EnrollmentHelper) -> HRESULT;
+        }
+        #[guid(0x728ab33f_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509NameValuePair: IDispatch {
+            fn Initialize(&self, strName: BSTR, strValue: BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab340_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509NameValuePairs: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut IX509NameValuePair) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: IX509NameValuePair) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x884e204b_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509PolicyServerListManager: IDispatch {
+            #[special]
+            fn get_ItemByIndex(&self, Index: i32, #[retval] pVal: *mut IX509PolicyServerUrl) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pVal: IX509PolicyServerUrl) -> HRESULT;
+            fn Remove(&self, Index: i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn Initialize(&self, context: X509CertificateEnrollmentContext, Flags: PolicyServerUrlFlags) -> HRESULT;
+        }
+        #[guid(0x884e204a_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509PolicyServerUrl: IDispatch {
+            fn Initialize(&self, context: X509CertificateEnrollmentContext) -> HRESULT;
+            #[special]
+            fn get_Url(&self, #[retval] ppValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Url(&self, pValue: BSTR) -> HRESULT;
+            #[special]
+            fn get_Default(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Default(&self, value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Flags(&self, #[retval] pValue: *mut PolicyServerUrlFlags) -> HRESULT;
+            #[special]
+            fn put_Flags(&self, Flags: PolicyServerUrlFlags) -> HRESULT;
+            #[special]
+            fn get_AuthFlags(&self, #[retval] pValue: *mut X509EnrollmentAuthFlags) -> HRESULT;
+            #[special]
+            fn put_AuthFlags(&self, Flags: X509EnrollmentAuthFlags) -> HRESULT;
+            #[special]
+            fn get_Cost(&self, #[retval] pValue: *mut u32) -> HRESULT;
+            #[special]
+            fn put_Cost(&self, value: u32) -> HRESULT;
+            fn GetStringProperty(&self, propertyId: PolicyServerUrlPropertyID, #[retval] ppValue: *mut BSTR) -> HRESULT;
+            fn SetStringProperty(&self, propertyId: PolicyServerUrlPropertyID, pValue: BSTR) -> HRESULT;
+            fn UpdateRegistry(&self, context: X509CertificateEnrollmentContext) -> HRESULT;
+            fn RemoveFromRegistry(&self, context: X509CertificateEnrollmentContext) -> HRESULT;
+        }
+        #[guid(0x728ab30c_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509PrivateKey: IDispatch {
+            fn Open(&self) -> HRESULT;
+            fn Create(&self) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn Delete(&self) -> HRESULT;
+            fn Verify(&self, VerifyType: X509PrivateKeyVerify) -> HRESULT;
+            fn Import(&self, strExportType: BSTR, strEncodedKey: BSTR, Encoding: EncodingType) -> HRESULT;
+            fn Export(&self, strExportType: BSTR, Encoding: EncodingType, #[retval] pstrEncodedKey: *mut BSTR) -> HRESULT;
+            fn ExportPublicKey(&self, #[retval] ppPublicKey: *mut IX509PublicKey) -> HRESULT;
+            #[special]
+            fn get_ContainerName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ContainerName(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ContainerNamePrefix(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ContainerNamePrefix(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ReaderName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ReaderName(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_CspInformations(&self, #[retval] ppValue: *mut ICspInformations) -> HRESULT;
+            #[special]
+            fn put_CspInformations(&self, pValue: ICspInformations) -> HRESULT;
+            #[special]
+            fn get_CspStatus(&self, #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            #[special]
+            fn put_CspStatus(&self, pValue: ICspStatus) -> HRESULT;
+            #[special]
+            fn get_ProviderName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ProviderName(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ProviderType(&self, #[retval] pValue: *mut X509ProviderType) -> HRESULT;
+            #[special]
+            fn put_ProviderType(&self, Value: X509ProviderType) -> HRESULT;
+            #[special]
+            fn get_LegacyCsp(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_LegacyCsp(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Algorithm(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn put_Algorithm(&self, pValue: IObjectId) -> HRESULT;
+            #[special]
+            fn get_KeySpec(&self, #[retval] pValue: *mut X509KeySpec) -> HRESULT;
+            #[special]
+            fn put_KeySpec(&self, Value: X509KeySpec) -> HRESULT;
+            #[special]
+            fn get_Length(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Length(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn get_ExportPolicy(&self, #[retval] pValue: *mut X509PrivateKeyExportFlags) -> HRESULT;
+            #[special]
+            fn put_ExportPolicy(&self, Value: X509PrivateKeyExportFlags) -> HRESULT;
+            #[special]
+            fn get_KeyUsage(&self, #[retval] pValue: *mut X509PrivateKeyUsageFlags) -> HRESULT;
+            #[special]
+            fn put_KeyUsage(&self, Value: X509PrivateKeyUsageFlags) -> HRESULT;
+            #[special]
+            fn get_KeyProtection(&self, #[retval] pValue: *mut X509PrivateKeyProtection) -> HRESULT;
+            #[special]
+            fn put_KeyProtection(&self, Value: X509PrivateKeyProtection) -> HRESULT;
+            #[special]
+            fn get_MachineContext(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_MachineContext(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SecurityDescriptor(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SecurityDescriptor(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_Certificate(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Certificate(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_UniqueContainerName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Opened(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_DefaultContainer(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Existing(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Existing(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Silent(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Silent(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ParentWindow(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ParentWindow(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn get_UIContextMessage(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_UIContextMessage(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn put_Pin(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_FriendlyName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FriendlyName(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, Value: BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab362_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509PrivateKey2: IX509PrivateKey {
+            #[special]
+            fn get_HardwareKeyUsage(&self, #[retval] pValue: *mut X509HardwareKeyUsageFlags) -> HRESULT;
+            #[special]
+            fn put_HardwareKeyUsage(&self, Value: X509HardwareKeyUsageFlags) -> HRESULT;
+            #[special]
+            fn get_AlternateStorageLocation(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_AlternateStorageLocation(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_AlgorithmName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_AlgorithmName(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_AlgorithmParameters(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_AlgorithmParameters(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ParametersExportType(&self, #[retval] pValue: *mut X509KeyParametersExportType) -> HRESULT;
+            #[special]
+            fn put_ParametersExportType(&self, Value: X509KeyParametersExportType) -> HRESULT;
+        }
+        #[guid(0x728ab30b_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509PublicKey: IDispatch {
+            fn Initialize(&self, pObjectId: IObjectId, strEncodedKey: BSTR, strEncodedParameters: BSTR, Encoding: EncodingType) -> HRESULT;
+            fn InitializeFromEncodedPublicKeyInfo(&self, strEncodedPublicKeyInfo: BSTR, Encoding: EncodingType) -> HRESULT;
+            #[special]
+            fn get_Algorithm(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn get_Length(&self, #[retval] pValue: *mut i32) -> HRESULT;
+            #[special]
+            fn get_EncodedKey(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_EncodedParameters(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn ComputeKeyIdentifier(&self, Algorithm: KeyIdentifierHashAlgorithm, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab361_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509SCEPEnrollment: IDispatch {
+            fn Initialize(&self, pRequest: IX509CertificateRequestPkcs10, strThumbprint: BSTR, ThumprintEncoding: EncodingType, strServerCertificates: BSTR, Encoding: EncodingType) -> HRESULT;
+            fn InitializeForPending(&self, Context: X509CertificateEnrollmentContext) -> HRESULT;
+            fn CreateRequestMessage(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn CreateRetrievePendingMessage(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn CreateRetrieveCertificateMessage(&self, Context: X509CertificateEnrollmentContext, strIssuer: BSTR, IssuerEncoding: EncodingType, strSerialNumber: BSTR, SerialNumberEncoding: EncodingType, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn ProcessResponseMessage(&self, strResponse: BSTR, Encoding: EncodingType, #[retval] pDisposition: *mut X509SCEPDisposition) -> HRESULT;
+            #[special]
+            fn put_ServerCapabilities(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_FailInfo(&self, #[retval] pValue: *mut X509SCEPFailInfo) -> HRESULT;
+            #[special]
+            fn get_SignerCertificate(&self, #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
+            #[special]
+            fn put_SignerCertificate(&self, pValue: ISignerCertificate) -> HRESULT;
+            #[special]
+            fn get_OldCertificate(&self, #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
+            #[special]
+            fn put_OldCertificate(&self, pValue: ISignerCertificate) -> HRESULT;
+            #[special]
+            fn get_TransactionId(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_TransactionId(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_Request(&self, #[retval] ppValue: *mut IX509CertificateRequestPkcs10) -> HRESULT;
+            #[special]
+            fn get_CertificateFriendlyName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_CertificateFriendlyName(&self, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_Status(&self, #[retval] ppValue: *mut IX509EnrollmentStatus) -> HRESULT;
+            #[special]
+            fn get_Certificate(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Silent(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Silent(&self, Value: VARIANT_BOOL) -> HRESULT;
+            fn DeleteRequest(&self) -> HRESULT;
+        }
+        #[guid(0x728ab364_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509SCEPEnrollment2: IX509SCEPEnrollment {
+            fn CreateChallengeAnswerMessage(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn ProcessResponseMessage2(&self, Flags: X509SCEPProcessMessageFlags, strResponse: BSTR, Encoding: EncodingType, #[retval] pDisposition: *mut X509SCEPDisposition) -> HRESULT;
+            #[special]
+            fn get_ResultMessageText(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DelayRetry(&self, #[retval] pValue: *mut DelayRetryAction) -> HRESULT;
+            #[special]
+            fn get_ActivityId(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ActivityId(&self, Value: BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab365_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509SCEPEnrollmentHelper: IDispatch {
+            fn Initialize(&self, strServerUrl: BSTR, strRequestHeaders: BSTR, pRequest: IX509CertificateRequestPkcs10, strCACertificateThumbprint: BSTR) -> HRESULT;
+            fn InitializeForPending(&self, strServerUrl: BSTR, strRequestHeaders: BSTR, Context: X509CertificateEnrollmentContext, strTransactionId: BSTR) -> HRESULT;
+            fn Enroll(&self, ProcessFlags: X509SCEPProcessMessageFlags, #[retval] pDisposition: *mut X509SCEPDisposition) -> HRESULT;
+            fn FetchPending(&self, ProcessFlags: X509SCEPProcessMessageFlags, #[retval] pDisposition: *mut X509SCEPDisposition) -> HRESULT;
+            #[special]
+            fn get_X509SCEPEnrollment(&self, #[retval] ppValue: *mut IX509SCEPEnrollment) -> HRESULT;
+            #[special]
+            fn get_ResultMessageText(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x728ab33c_217d_11da_b2a4_000e7bbb2b09)]
+        interface IX509SignatureInformation: IDispatch {
+            #[special]
+            fn get_HashAlgorithm(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn put_HashAlgorithm(&self, pValue: IObjectId) -> HRESULT;
+            #[special]
+            fn get_PublicKeyAlgorithm(&self, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            #[special]
+            fn put_PublicKeyAlgorithm(&self, pValue: IObjectId) -> HRESULT;
+            #[special]
+            fn get_Parameters(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Parameters(&self, Encoding: EncodingType, Value: BSTR) -> HRESULT;
+            #[special]
+            fn get_AlternateSignatureAlgorithm(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AlternateSignatureAlgorithm(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AlternateSignatureAlgorithmSet(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_NullSigned(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_NullSigned(&self, Value: VARIANT_BOOL) -> HRESULT;
+            fn GetSignatureAlgorithm(&self, Pkcs7Signature: VARIANT_BOOL, SignatureKey: VARIANT_BOOL, #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn SetDefaultValues(&self) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum ImportPFXFlags {
+            ImportNone = 0,
+            ImportMachineContext = 1,
+            ImportForceOverwrite = 2,
+            ImportSilent = 4,
+            ImportSaveProperties = 8,
+            ImportExportable = 16,
+            ImportExportableEncrypted = 32,
+            ImportNoUserProtected = 64,
+            ImportUserProtected = 128,
+            ImportUserProtectedHigh = 256,
+            ImportInstallCertificate = 512,
+            ImportInstallChain = 1024,
+            ImportInstallChainAndRoot = 2048,
+        }
+        #[repr(i32)]
+        enum InnerRequestLevel {
+            LevelInnermost = 0,
+            LevelNext = 1,
+        }
+        #[repr(i32)]
+        enum InstallResponseRestrictionFlags {
+            AllowNone = 0,
+            AllowNoOutstandingRequest = 1,
+            AllowUntrustedCertificate = 2,
+            AllowUntrustedRoot = 4,
+        }
+        #[repr(i32)]
+        enum KeyAttestationClaimType {
+            XCN_NCRYPT_CLAIM_NONE = 0,
+            XCN_NCRYPT_CLAIM_AUTHORITY_AND_SUBJECT = 3,
+            XCN_NCRYPT_CLAIM_AUTHORITY_ONLY = 1,
+            XCN_NCRYPT_CLAIM_SUBJECT_ONLY = 2,
+            XCN_NCRYPT_CLAIM_UNKNOWN = 4096,
+        }
+        #[repr(i32)]
+        enum KeyIdentifierHashAlgorithm {
+            SKIHashDefault = 0,
+            SKIHashSha1 = 1,
+            SKIHashCapiSha1 = 2,
+            SKIHashSha256 = 3,
+            SKIHashHPKP = 5,
+        }
+        #[repr(i32)]
+        enum ObjectIdGroupId {
+            XCN_CRYPT_ANY_GROUP_ID = 0,
+            XCN_CRYPT_HASH_ALG_OID_GROUP_ID = 1,
+            XCN_CRYPT_ENCRYPT_ALG_OID_GROUP_ID = 2,
+            XCN_CRYPT_PUBKEY_ALG_OID_GROUP_ID = 3,
+            XCN_CRYPT_SIGN_ALG_OID_GROUP_ID = 4,
+            XCN_CRYPT_RDN_ATTR_OID_GROUP_ID = 5,
+            XCN_CRYPT_EXT_OR_ATTR_OID_GROUP_ID = 6,
+            XCN_CRYPT_ENHKEY_USAGE_OID_GROUP_ID = 7,
+            XCN_CRYPT_POLICY_OID_GROUP_ID = 8,
+            XCN_CRYPT_TEMPLATE_OID_GROUP_ID = 9,
+            XCN_CRYPT_KDF_OID_GROUP_ID = 10,
+            XCN_CRYPT_LAST_OID_GROUP_ID = 10,
+            XCN_CRYPT_FIRST_ALG_OID_GROUP_ID = 1,
+            XCN_CRYPT_LAST_ALG_OID_GROUP_ID = 4,
+            XCN_CRYPT_GROUP_ID_MASK = 65535,
+            XCN_CRYPT_OID_PREFER_CNG_ALGID_FLAG = 1073741824,
+            XCN_CRYPT_OID_DISABLE_SEARCH_DS_FLAG = -2147483648,
+            XCN_CRYPT_OID_INFO_OID_GROUP_BIT_LEN_MASK = 268369920,
+            XCN_CRYPT_OID_INFO_OID_GROUP_BIT_LEN_SHIFT = 16,
+            XCN_CRYPT_KEY_LENGTH_MASK = 268369920,
+        }
+        #[repr(i32)]
+        enum ObjectIdPublicKeyFlags {
+            XCN_CRYPT_OID_INFO_PUBKEY_ANY = 0,
+            XCN_CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG = -2147483648,
+            XCN_CRYPT_OID_INFO_PUBKEY_ENCRYPT_KEY_FLAG = 1073741824,
+        }
+        #[repr(i32)]
+        enum PFXExportOptions {
+            PFXExportEEOnly = 0,
+            PFXExportChainNoRoot = 1,
+            PFXExportChainWithRoot = 2,
+        }
+        #[repr(i32)]
+        enum Pkcs10AllowedSignatureTypes {
+            AllowedKeySignature = 1,
+            AllowedNullSignature = 2,
+        }
+        #[repr(i32)]
+        enum PolicyQualifierType {
+            PolicyQualifierTypeUnknown = 0,
+            PolicyQualifierTypeUrl = 1,
+            PolicyQualifierTypeUserNotice = 2,
+            PolicyQualifierTypeFlags = 3,
+        }
+        #[repr(i32)]
+        enum PolicyServerUrlFlags {
+            PsfNone = 0,
+            PsfLocationGroupPolicy = 1,
+            PsfLocationRegistry = 2,
+            PsfUseClientId = 4,
+            PsfAutoEnrollmentEnabled = 16,
+            PsfAllowUnTrustedCA = 32,
+        }
+        #[repr(i32)]
+        enum PolicyServerUrlPropertyID {
+            PsPolicyID = 0,
+            PsFriendlyName = 1,
+        }
+        #[repr(i32)]
+        enum RequestClientInfoClientId {
+            ClientIdNone = 0,
+            ClientIdXEnroll2003 = 1,
+            ClientIdAutoEnroll2003 = 2,
+            ClientIdWizard2003 = 3,
+            ClientIdCertReq2003 = 4,
+            ClientIdDefaultRequest = 5,
+            ClientIdAutoEnroll = 6,
+            ClientIdRequestWizard = 7,
+            ClientIdEOBO = 8,
+            ClientIdCertReq = 9,
+            ClientIdTest = 10,
+            ClientIdWinRT = 11,
+            ClientIdUserStart = 1000,
+        }
+        #[repr(i32)]
+        enum WebEnrollmentFlags {
+            EnrollPrompt = 1,
+        }
+        #[repr(i32)]
+        enum WebSecurityLevel {
+            LevelUnsafe = 0,
+            LevelSafe = 1,
+        }
+        #[repr(i32)]
+        enum X500NameFlags {
+            XCN_CERT_NAME_STR_NONE = 0,
+            XCN_CERT_SIMPLE_NAME_STR = 1,
+            XCN_CERT_OID_NAME_STR = 2,
+            XCN_CERT_X500_NAME_STR = 3,
+            XCN_CERT_XML_NAME_STR = 4,
+            XCN_CERT_NAME_STR_SEMICOLON_FLAG = 1073741824,
+            XCN_CERT_NAME_STR_NO_PLUS_FLAG = 536870912,
+            XCN_CERT_NAME_STR_NO_QUOTING_FLAG = 268435456,
+            XCN_CERT_NAME_STR_CRLF_FLAG = 134217728,
+            XCN_CERT_NAME_STR_COMMA_FLAG = 67108864,
+            XCN_CERT_NAME_STR_REVERSE_FLAG = 33554432,
+            XCN_CERT_NAME_STR_FORWARD_FLAG = 16777216,
+            XCN_CERT_NAME_STR_AMBIGUOUS_SEPARATOR_FLAGS = 1275068416,
+            XCN_CERT_NAME_STR_DISABLE_IE4_UTF8_FLAG = 65536,
+            XCN_CERT_NAME_STR_ENABLE_T61_UNICODE_FLAG = 131072,
+            XCN_CERT_NAME_STR_ENABLE_UTF8_UNICODE_FLAG = 262144,
+            XCN_CERT_NAME_STR_FORCE_UTF8_DIR_STR_FLAG = 524288,
+            XCN_CERT_NAME_STR_DISABLE_UTF8_DIR_STR_FLAG = 1048576,
+            XCN_CERT_NAME_STR_ENABLE_PUNYCODE_FLAG = 2097152,
+            XCN_CERT_NAME_STR_DS_ESCAPED = 8388608,
+        }
+        #[repr(i32)]
+        enum X509CertificateEnrollmentContext {
+            ContextNone = 0,
+            ContextUser = 1,
+            ContextMachine = 2,
+            ContextAdministratorForceMachine = 3,
+        }
+        #[repr(i32)]
+        enum X509CertificateTemplateEnrollmentFlag {
+            EnrollmentIncludeSymmetricAlgorithms = 1,
+            EnrollmentPendAllRequests = 2,
+            EnrollmentPublishToKRAContainer = 4,
+            EnrollmentPublishToDS = 8,
+            EnrollmentAutoEnrollmentCheckUserDSCertificate = 16,
+            EnrollmentAutoEnrollment = 32,
+            EnrollmentDomainAuthenticationNotRequired = 128,
+            EnrollmentPreviousApprovalValidateReenrollment = 64,
+            EnrollmentUserInteractionRequired = 256,
+            EnrollmentAddTemplateName = 512,
+            EnrollmentRemoveInvalidCertificateFromPersonalStore = 1024,
+            EnrollmentAllowEnrollOnBehalfOf = 2048,
+            EnrollmentAddOCSPNoCheck = 4096,
+            EnrollmentReuseKeyOnFullSmartCard = 8192,
+            EnrollmentNoRevocationInfoInCerts = 16384,
+            EnrollmentIncludeBasicConstraintsForEECerts = 32768,
+            EnrollmentPreviousApprovalKeyBasedValidateReenrollment = 65536,
+            EnrollmentCertificateIssuancePoliciesFromRequest = 131072,
+            EnrollmentSkipAutoRenewal = 262144,
+        }
+        #[repr(i32)]
+        enum X509CertificateTemplateGeneralFlag {
+            GeneralMachineType = 64,
+            GeneralCA = 128,
+            GeneralCrossCA = 2048,
+            GeneralDefault = 65536,
+            GeneralModified = 131072,
+            GeneralDonotPersist = 4096,
+        }
+        #[repr(i32)]
+        enum X509CertificateTemplatePrivateKeyFlag {
+            PrivateKeyRequireArchival = 1,
+            PrivateKeyExportable = 16,
+            PrivateKeyRequireStrongKeyProtection = 32,
+            PrivateKeyRequireAlternateSignatureAlgorithm = 64,
+            PrivateKeyRequireSameKeyRenewal = 128,
+            PrivateKeyUseLegacyProvider = 256,
+            PrivateKeyEKTrustOnUse = 512,
+            PrivateKeyEKValidateCert = 1024,
+            PrivateKeyEKValidateKey = 2048,
+            PrivateKeyAttestNone = 0,
+            PrivateKeyAttestPreferred = 4096,
+            PrivateKeyAttestRequired = 8192,
+            PrivateKeyAttestMask = 12288,
+            PrivateKeyAttestWithoutPolicy = 16384,
+            PrivateKeyServerVersionMask = 983040,
+            PrivateKeyServerVersionShift = 16,
+            PrivateKeyHelloKspKey = 1048576,
+            PrivateKeyHelloLogonKey = 2097152,
+            PrivateKeyClientVersionMask = 251658240,
+            PrivateKeyClientVersionShift = 24,
+        }
+        #[repr(i32)]
+        enum X509CertificateTemplateSubjectNameFlag {
+            SubjectNameEnrolleeSupplies = 1,
+            SubjectNameRequireDirectoryPath = -2147483648,
+            SubjectNameRequireCommonName = 1073741824,
+            SubjectNameRequireEmail = 536870912,
+            SubjectNameRequireDNS = 268435456,
+            SubjectNameAndAlternativeNameOldCertSupplies = 8,
+            SubjectAlternativeNameEnrolleeSupplies = 65536,
+            SubjectAlternativeNameRequireDirectoryGUID = 16777216,
+            SubjectAlternativeNameRequireUPN = 33554432,
+            SubjectAlternativeNameRequireEmail = 67108864,
+            SubjectAlternativeNameRequireSPN = 8388608,
+            SubjectAlternativeNameRequireDNS = 134217728,
+            SubjectAlternativeNameRequireDomainDNS = 4194304,
+        }
+        #[repr(i32)]
+        enum X509EnrollmentPolicyExportFlags {
+            ExportTemplates = 1,
+            ExportOIDs = 2,
+            ExportCAs = 4,
+        }
+        #[repr(i32)]
+        enum X509EnrollmentPolicyLoadOption {
+            LoadOptionDefault = 0,
+            LoadOptionCacheOnly = 1,
+            LoadOptionReload = 2,
+            LoadOptionRegisterForADChanges = 4,
+        }
+        #[repr(i32)]
+        enum X509HardwareKeyUsageFlags {
+            XCN_NCRYPT_PCP_NONE = 0,
+            XCN_NCRYPT_TPM12_PROVIDER = 65536,
+            XCN_NCRYPT_PCP_SIGNATURE_KEY = 1,
+            XCN_NCRYPT_PCP_ENCRYPTION_KEY = 2,
+            XCN_NCRYPT_PCP_GENERIC_KEY = 3,
+            XCN_NCRYPT_PCP_STORAGE_KEY = 4,
+            XCN_NCRYPT_PCP_IDENTITY_KEY = 8,
+        }
+        #[repr(i32)]
+        enum X509KeyParametersExportType {
+            XCN_CRYPT_OID_USE_CURVE_NONE = 0,
+            XCN_CRYPT_OID_USE_CURVE_NAME_FOR_ENCODE_FLAG = 536870912,
+            XCN_CRYPT_OID_USE_CURVE_PARAMETERS_FOR_ENCODE_FLAG = 268435456,
+        }
+        #[repr(i32)]
+        enum X509KeySpec {
+            XCN_AT_NONE = 0,
+            XCN_AT_KEYEXCHANGE = 1,
+            XCN_AT_SIGNATURE = 2,
+        }
+        #[repr(i32)]
+        enum X509KeyUsageFlags {
+            XCN_CERT_NO_KEY_USAGE = 0,
+            XCN_CERT_DIGITAL_SIGNATURE_KEY_USAGE = 128,
+            XCN_CERT_NON_REPUDIATION_KEY_USAGE = 64,
+            XCN_CERT_KEY_ENCIPHERMENT_KEY_USAGE = 32,
+            XCN_CERT_DATA_ENCIPHERMENT_KEY_USAGE = 16,
+            XCN_CERT_KEY_AGREEMENT_KEY_USAGE = 8,
+            XCN_CERT_KEY_CERT_SIGN_KEY_USAGE = 4,
+            XCN_CERT_OFFLINE_CRL_SIGN_KEY_USAGE = 2,
+            XCN_CERT_CRL_SIGN_KEY_USAGE = 2,
+            XCN_CERT_ENCIPHER_ONLY_KEY_USAGE = 1,
+            XCN_CERT_DECIPHER_ONLY_KEY_USAGE = 32768,
+        }
+        #[repr(i32)]
+        enum X509PrivateKeyExportFlags {
+            XCN_NCRYPT_ALLOW_EXPORT_NONE = 0,
+            XCN_NCRYPT_ALLOW_EXPORT_FLAG = 1,
+            XCN_NCRYPT_ALLOW_PLAINTEXT_EXPORT_FLAG = 2,
+            XCN_NCRYPT_ALLOW_ARCHIVING_FLAG = 4,
+            XCN_NCRYPT_ALLOW_PLAINTEXT_ARCHIVING_FLAG = 8,
+        }
+        #[repr(i32)]
+        enum X509PrivateKeyProtection {
+            XCN_NCRYPT_UI_NO_PROTECTION_FLAG = 0,
+            XCN_NCRYPT_UI_PROTECT_KEY_FLAG = 1,
+            XCN_NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG = 2,
+            XCN_NCRYPT_UI_FINGERPRINT_PROTECTION_FLAG = 4,
+            XCN_NCRYPT_UI_APPCONTAINER_ACCESS_MEDIUM_FLAG = 8,
+        }
+        #[repr(i32)]
+        enum X509PrivateKeyUsageFlags {
+            XCN_NCRYPT_ALLOW_USAGES_NONE = 0,
+            XCN_NCRYPT_ALLOW_DECRYPT_FLAG = 1,
+            XCN_NCRYPT_ALLOW_SIGNING_FLAG = 2,
+            XCN_NCRYPT_ALLOW_KEY_AGREEMENT_FLAG = 4,
+            XCN_NCRYPT_ALLOW_KEY_IMPORT_FLAG = 8,
+            XCN_NCRYPT_ALLOW_ALL_USAGES = 16777215,
+        }
+        #[repr(i32)]
+        enum X509PrivateKeyVerify {
+            VerifyNone = 0,
+            VerifySilent = 1,
+            VerifySmartCardNone = 2,
+            VerifySmartCardSilent = 3,
+            VerifyAllowUI = 4,
+        }
+        #[repr(i32)]
+        enum X509ProviderType {
+            XCN_PROV_NONE = 0,
+            XCN_PROV_RSA_FULL = 1,
+            XCN_PROV_RSA_SIG = 2,
+            XCN_PROV_DSS = 3,
+            XCN_PROV_FORTEZZA = 4,
+            XCN_PROV_MS_EXCHANGE = 5,
+            XCN_PROV_SSL = 6,
+            XCN_PROV_RSA_SCHANNEL = 12,
+            XCN_PROV_DSS_DH = 13,
+            XCN_PROV_EC_ECDSA_SIG = 14,
+            XCN_PROV_EC_ECNRA_SIG = 15,
+            XCN_PROV_EC_ECDSA_FULL = 16,
+            XCN_PROV_EC_ECNRA_FULL = 17,
+            XCN_PROV_DH_SCHANNEL = 18,
+            XCN_PROV_SPYRUS_LYNKS = 20,
+            XCN_PROV_RNG = 21,
+            XCN_PROV_INTEL_SEC = 22,
+            XCN_PROV_REPLACE_OWF = 23,
+            XCN_PROV_RSA_AES = 24,
+        }
+        #[repr(i32)]
+        enum X509RequestInheritOptions {
+            InheritDefault = 0,
+            InheritNewDefaultKey = 1,
+            InheritNewSimilarKey = 2,
+            InheritPrivateKey = 3,
+            InheritPublicKey = 4,
+            InheritKeyMask = 15,
+            InheritNone = 16,
+            InheritRenewalCertificateFlag = 32,
+            InheritTemplateFlag = 64,
+            InheritSubjectFlag = 128,
+            InheritExtensionsFlag = 256,
+            InheritSubjectAltNameFlag = 512,
+            InheritValidityPeriodFlag = 1024,
+            InheritReserved80000000 = -2147483648,
+        }
+        #[repr(i32)]
+        enum X509RequestType {
+            TypeAny = 0,
+            TypePkcs10 = 1,
+            TypePkcs7 = 2,
+            TypeCmc = 3,
+            TypeCertificate = 4,
+        }
+        #[repr(i32)]
+        enum X509SCEPProcessMessageFlags {
+            SCEPProcessDefault = 0,
+            SCEPProcessSkipCertInstall = 1,
+        }
+    }
+}

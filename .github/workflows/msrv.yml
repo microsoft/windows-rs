@@ -34,7 +34,7 @@ jobs:
       - name: Check cppwinrt
         run:  cargo check -p cppwinrt --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.85 && rustup default 1.85
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check riddle
         run:  cargo check -p riddle --all-features
       - name: Rust version
@@ -49,6 +49,10 @@ jobs:
         run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-canvas
         run:  cargo check -p windows-canvas --all-features
+      - name: Rust version
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
+      - name: Check windows-clang
+        run:  cargo check -p windows-clang --all-features
       - name: Rust version
         run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-collections
@@ -82,7 +86,7 @@ jobs:
       - name: Check windows-numerics
         run:  cargo check -p windows-numerics --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.85 && rustup default 1.85
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-rdl
         run:  cargo check -p windows-rdl --all-features
       - name: Rust version

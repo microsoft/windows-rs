@@ -1,0 +1,240 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct MIB_TCP6ROW {
+            State: MIB_TCP_STATE,
+            LocalAddr: IN6_ADDR,
+            dwLocalScopeId: u32,
+            dwLocalPort: u32,
+            RemoteAddr: IN6_ADDR,
+            dwRemoteScopeId: u32,
+            dwRemotePort: u32,
+        }
+        struct MIB_TCP6ROW2 {
+            LocalAddr: IN6_ADDR,
+            dwLocalScopeId: u32,
+            dwLocalPort: u32,
+            RemoteAddr: IN6_ADDR,
+            dwRemoteScopeId: u32,
+            dwRemotePort: u32,
+            State: MIB_TCP_STATE,
+            dwOwningPid: u32,
+            dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE,
+        }
+        struct MIB_TCP6ROW_OWNER_MODULE {
+            ucLocalAddr: [u8; 16],
+            dwLocalScopeId: u32,
+            dwLocalPort: u32,
+            ucRemoteAddr: [u8; 16],
+            dwRemoteScopeId: u32,
+            dwRemotePort: u32,
+            dwState: u32,
+            dwOwningPid: u32,
+            liCreateTimestamp: LARGE_INTEGER,
+            OwningModuleInfo: [u64; 16],
+        }
+        struct MIB_TCP6ROW_OWNER_PID {
+            ucLocalAddr: [u8; 16],
+            dwLocalScopeId: u32,
+            dwLocalPort: u32,
+            ucRemoteAddr: [u8; 16],
+            dwRemoteScopeId: u32,
+            dwRemotePort: u32,
+            dwState: u32,
+            dwOwningPid: u32,
+        }
+        struct MIB_TCP6TABLE {
+            dwNumEntries: u32,
+            table: [MIB_TCP6ROW; 1],
+        }
+        struct MIB_TCP6TABLE2 {
+            dwNumEntries: u32,
+            table: [MIB_TCP6ROW2; 1],
+        }
+        struct MIB_TCP6TABLE_OWNER_MODULE {
+            dwNumEntries: u32,
+            table: [MIB_TCP6ROW_OWNER_MODULE; 1],
+        }
+        struct MIB_TCP6TABLE_OWNER_PID {
+            dwNumEntries: u32,
+            table: [MIB_TCP6ROW_OWNER_PID; 1],
+        }
+        type MIB_TCPROW = MIB_TCPROW_LH;
+        struct MIB_TCPROW2 {
+            dwState: u32,
+            dwLocalAddr: u32,
+            dwLocalPort: u32,
+            dwRemoteAddr: u32,
+            dwRemotePort: u32,
+            dwOwningPid: u32,
+            dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE,
+        }
+        struct MIB_TCPROW_LH {
+            Anonymous: union {
+                dwState: u32,
+                State: MIB_TCP_STATE,
+            },
+            dwLocalAddr: u32,
+            dwLocalPort: u32,
+            dwRemoteAddr: u32,
+            dwRemotePort: u32,
+        }
+        struct MIB_TCPROW_OWNER_MODULE {
+            dwState: u32,
+            dwLocalAddr: u32,
+            dwLocalPort: u32,
+            dwRemoteAddr: u32,
+            dwRemotePort: u32,
+            dwOwningPid: u32,
+            liCreateTimestamp: LARGE_INTEGER,
+            OwningModuleInfo: [u64; 16],
+        }
+        struct MIB_TCPROW_OWNER_PID {
+            dwState: u32,
+            dwLocalAddr: u32,
+            dwLocalPort: u32,
+            dwRemoteAddr: u32,
+            dwRemotePort: u32,
+            dwOwningPid: u32,
+        }
+        struct MIB_TCPROW_W2K {
+            dwState: u32,
+            dwLocalAddr: u32,
+            dwLocalPort: u32,
+            dwRemoteAddr: u32,
+            dwRemotePort: u32,
+        }
+        type MIB_TCPSTATS = MIB_TCPSTATS_LH;
+        struct MIB_TCPSTATS2 {
+            RtoAlgorithm: TCP_RTO_ALGORITHM,
+            dwRtoMin: u32,
+            dwRtoMax: u32,
+            dwMaxConn: u32,
+            dwActiveOpens: u32,
+            dwPassiveOpens: u32,
+            dwAttemptFails: u32,
+            dwEstabResets: u32,
+            dwCurrEstab: u32,
+            dw64InSegs: u64,
+            dw64OutSegs: u64,
+            dwRetransSegs: u32,
+            dwInErrs: u32,
+            dwOutRsts: u32,
+            dwNumConns: u32,
+        }
+        struct MIB_TCPSTATS_LH {
+            Anonymous: union {
+                dwRtoAlgorithm: u32,
+                RtoAlgorithm: TCP_RTO_ALGORITHM,
+            },
+            dwRtoMin: u32,
+            dwRtoMax: u32,
+            dwMaxConn: u32,
+            dwActiveOpens: u32,
+            dwPassiveOpens: u32,
+            dwAttemptFails: u32,
+            dwEstabResets: u32,
+            dwCurrEstab: u32,
+            dwInSegs: u32,
+            dwOutSegs: u32,
+            dwRetransSegs: u32,
+            dwInErrs: u32,
+            dwOutRsts: u32,
+            dwNumConns: u32,
+        }
+        struct MIB_TCPSTATS_W2K {
+            dwRtoAlgorithm: u32,
+            dwRtoMin: u32,
+            dwRtoMax: u32,
+            dwMaxConn: u32,
+            dwActiveOpens: u32,
+            dwPassiveOpens: u32,
+            dwAttemptFails: u32,
+            dwEstabResets: u32,
+            dwCurrEstab: u32,
+            dwInSegs: u32,
+            dwOutSegs: u32,
+            dwRetransSegs: u32,
+            dwInErrs: u32,
+            dwOutRsts: u32,
+            dwNumConns: u32,
+        }
+        struct MIB_TCPTABLE {
+            dwNumEntries: u32,
+            table: [MIB_TCPROW; 1],
+        }
+        struct MIB_TCPTABLE2 {
+            dwNumEntries: u32,
+            table: [MIB_TCPROW2; 1],
+        }
+        struct MIB_TCPTABLE_OWNER_MODULE {
+            dwNumEntries: u32,
+            table: [MIB_TCPROW_OWNER_MODULE; 1],
+        }
+        struct MIB_TCPTABLE_OWNER_PID {
+            dwNumEntries: u32,
+            table: [MIB_TCPROW_OWNER_PID; 1],
+        }
+        const MIB_TCP_MAXCONN_DYNAMIC: u32 = 4294967295;
+        #[repr(i32)]
+        enum MIB_TCP_STATE {
+            MIB_TCP_STATE_CLOSED = 1,
+            MIB_TCP_STATE_LISTEN = 2,
+            MIB_TCP_STATE_SYN_SENT = 3,
+            MIB_TCP_STATE_SYN_RCVD = 4,
+            MIB_TCP_STATE_ESTAB = 5,
+            MIB_TCP_STATE_FIN_WAIT1 = 6,
+            MIB_TCP_STATE_FIN_WAIT2 = 7,
+            MIB_TCP_STATE_CLOSE_WAIT = 8,
+            MIB_TCP_STATE_CLOSING = 9,
+            MIB_TCP_STATE_LAST_ACK = 10,
+            MIB_TCP_STATE_TIME_WAIT = 11,
+            MIB_TCP_STATE_DELETE_TCB = 12,
+            MIB_TCP_STATE_RESERVED = 100,
+        }
+        type PMIB_TCP6ROW = *mut MIB_TCP6ROW;
+        type PMIB_TCP6ROW2 = *mut MIB_TCP6ROW2;
+        type PMIB_TCP6ROW_OWNER_MODULE = *mut MIB_TCP6ROW_OWNER_MODULE;
+        type PMIB_TCP6ROW_OWNER_PID = *mut MIB_TCP6ROW_OWNER_PID;
+        type PMIB_TCP6TABLE = *mut MIB_TCP6TABLE;
+        type PMIB_TCP6TABLE2 = *mut MIB_TCP6TABLE2;
+        type PMIB_TCP6TABLE_OWNER_MODULE = *mut MIB_TCP6TABLE_OWNER_MODULE;
+        type PMIB_TCP6TABLE_OWNER_PID = *mut MIB_TCP6TABLE_OWNER_PID;
+        type PMIB_TCPROW = *mut MIB_TCPROW_LH;
+        type PMIB_TCPROW2 = *mut MIB_TCPROW2;
+        type PMIB_TCPROW_LH = *mut MIB_TCPROW_LH;
+        type PMIB_TCPROW_OWNER_MODULE = *mut MIB_TCPROW_OWNER_MODULE;
+        type PMIB_TCPROW_OWNER_PID = *mut MIB_TCPROW_OWNER_PID;
+        type PMIB_TCPROW_W2K = *mut MIB_TCPROW_W2K;
+        type PMIB_TCPSTATS = *mut MIB_TCPSTATS_LH;
+        type PMIB_TCPSTATS2 = *mut MIB_TCPSTATS2;
+        type PMIB_TCPSTATS_LH = *mut MIB_TCPSTATS_LH;
+        type PMIB_TCPSTATS_W2K = *mut MIB_TCPSTATS_W2K;
+        type PMIB_TCPTABLE = *mut MIB_TCPTABLE;
+        type PMIB_TCPTABLE2 = *mut MIB_TCPTABLE2;
+        type PMIB_TCPTABLE_OWNER_MODULE = *mut MIB_TCPTABLE_OWNER_MODULE;
+        type PMIB_TCPTABLE_OWNER_PID = *mut MIB_TCPTABLE_OWNER_PID;
+        type PTCP_CONNECTION_OFFLOAD_STATE = *mut TCP_CONNECTION_OFFLOAD_STATE;
+        type PTCP_RTO_ALGORITHM = *mut TCP_RTO_ALGORITHM;
+        const TCPIP_OWNING_MODULE_SIZE: u32 = 16;
+        #[repr(i32)]
+        enum TCP_CONNECTION_OFFLOAD_STATE {
+            TcpConnectionOffloadStateInHost = 0,
+            TcpConnectionOffloadStateOffloading = 1,
+            TcpConnectionOffloadStateOffloaded = 2,
+            TcpConnectionOffloadStateUploading = 3,
+            TcpConnectionOffloadStateMax = 4,
+        }
+        #[repr(i32)]
+        enum TCP_RTO_ALGORITHM {
+            TcpRtoAlgorithmOther = 1,
+            TcpRtoAlgorithmConstant = 2,
+            TcpRtoAlgorithmRsre = 3,
+            TcpRtoAlgorithmVanj = 4,
+            MIB_TCP_RTO_OTHER = 1,
+            MIB_TCP_RTO_CONSTANT = 2,
+            MIB_TCP_RTO_RSRE = 3,
+            MIB_TCP_RTO_VANJ = 4,
+        }
+    }
+}

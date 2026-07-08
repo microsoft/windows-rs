@@ -1,0 +1,299 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type D3D11_CBUFFER_TYPE = D3D_CBUFFER_TYPE;
+        struct D3D11_FUNCTION_DESC {
+            Version: u32,
+            Creator: PCSTR,
+            Flags: u32,
+            ConstantBuffers: u32,
+            BoundResources: u32,
+            InstructionCount: u32,
+            TempRegisterCount: u32,
+            TempArrayCount: u32,
+            DefCount: u32,
+            DclCount: u32,
+            TextureNormalInstructions: u32,
+            TextureLoadInstructions: u32,
+            TextureCompInstructions: u32,
+            TextureBiasInstructions: u32,
+            TextureGradientInstructions: u32,
+            FloatInstructionCount: u32,
+            IntInstructionCount: u32,
+            UintInstructionCount: u32,
+            StaticFlowControlCount: u32,
+            DynamicFlowControlCount: u32,
+            MacroInstructionCount: u32,
+            ArrayInstructionCount: u32,
+            MovInstructionCount: u32,
+            MovcInstructionCount: u32,
+            ConversionInstructionCount: u32,
+            BitwiseInstructionCount: u32,
+            MinFeatureLevel: D3D_FEATURE_LEVEL,
+            RequiredFeatureFlags: u64,
+            Name: PCSTR,
+            FunctionParameterCount: i32,
+            HasReturn: BOOL,
+            Has10Level9VertexShader: BOOL,
+            Has10Level9PixelShader: BOOL,
+        }
+        struct D3D11_LIBRARY_DESC {
+            Creator: PCSTR,
+            Flags: u32,
+            FunctionCount: u32,
+        }
+        struct D3D11_PARAMETER_DESC {
+            Name: PCSTR,
+            SemanticName: PCSTR,
+            Type: D3D_SHADER_VARIABLE_TYPE,
+            Class: D3D_SHADER_VARIABLE_CLASS,
+            Rows: u32,
+            Columns: u32,
+            InterpolationMode: D3D_INTERPOLATION_MODE,
+            Flags: D3D_PARAMETER_FLAGS,
+            FirstInRegister: u32,
+            FirstInComponent: u32,
+            FirstOutRegister: u32,
+            FirstOutComponent: u32,
+        }
+        type D3D11_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE;
+        struct D3D11_SHADER_BUFFER_DESC {
+            Name: PCSTR,
+            Type: D3D_CBUFFER_TYPE,
+            Variables: u32,
+            Size: u32,
+            uFlags: u32,
+        }
+        struct D3D11_SHADER_DESC {
+            Version: u32,
+            Creator: PCSTR,
+            Flags: u32,
+            ConstantBuffers: u32,
+            BoundResources: u32,
+            InputParameters: u32,
+            OutputParameters: u32,
+            InstructionCount: u32,
+            TempRegisterCount: u32,
+            TempArrayCount: u32,
+            DefCount: u32,
+            DclCount: u32,
+            TextureNormalInstructions: u32,
+            TextureLoadInstructions: u32,
+            TextureCompInstructions: u32,
+            TextureBiasInstructions: u32,
+            TextureGradientInstructions: u32,
+            FloatInstructionCount: u32,
+            IntInstructionCount: u32,
+            UintInstructionCount: u32,
+            StaticFlowControlCount: u32,
+            DynamicFlowControlCount: u32,
+            MacroInstructionCount: u32,
+            ArrayInstructionCount: u32,
+            CutInstructionCount: u32,
+            EmitInstructionCount: u32,
+            GSOutputTopology: D3D_PRIMITIVE_TOPOLOGY,
+            GSMaxOutputVertexCount: u32,
+            InputPrimitive: D3D_PRIMITIVE,
+            PatchConstantParameters: u32,
+            cGSInstanceCount: u32,
+            cControlPoints: u32,
+            HSOutputPrimitive: D3D_TESSELLATOR_OUTPUT_PRIMITIVE,
+            HSPartitioning: D3D_TESSELLATOR_PARTITIONING,
+            TessellatorDomain: D3D_TESSELLATOR_DOMAIN,
+            cBarrierInstructions: u32,
+            cInterlockedInstructions: u32,
+            cTextureStoreInstructions: u32,
+        }
+        struct D3D11_SHADER_INPUT_BIND_DESC {
+            Name: PCSTR,
+            Type: D3D_SHADER_INPUT_TYPE,
+            BindPoint: u32,
+            BindCount: u32,
+            uFlags: u32,
+            ReturnType: D3D_RESOURCE_RETURN_TYPE,
+            Dimension: D3D_SRV_DIMENSION,
+            NumSamples: u32,
+        }
+        struct D3D11_SHADER_TYPE_DESC {
+            Class: D3D_SHADER_VARIABLE_CLASS,
+            Type: D3D_SHADER_VARIABLE_TYPE,
+            Rows: u32,
+            Columns: u32,
+            Elements: u32,
+            Members: u32,
+            Offset: u32,
+            Name: PCSTR,
+        }
+        struct D3D11_SHADER_VARIABLE_DESC {
+            Name: PCSTR,
+            StartOffset: u32,
+            Size: u32,
+            uFlags: u32,
+            DefaultValue: *mut void,
+            StartTexture: u32,
+            TextureSize: u32,
+            StartSampler: u32,
+            SamplerSize: u32,
+        }
+        #[repr(i32)]
+        enum D3D11_SHADER_VERSION_TYPE {
+            D3D11_SHVER_PIXEL_SHADER = 0,
+            D3D11_SHVER_VERTEX_SHADER = 1,
+            D3D11_SHVER_GEOMETRY_SHADER = 2,
+            D3D11_SHVER_HULL_SHADER = 3,
+            D3D11_SHVER_DOMAIN_SHADER = 4,
+            D3D11_SHVER_COMPUTE_SHADER = 5,
+            D3D11_SHVER_RESERVED0 = 65520,
+        }
+        struct D3D11_SIGNATURE_PARAMETER_DESC {
+            SemanticName: PCSTR,
+            SemanticIndex: u32,
+            Register: u32,
+            SystemValueType: D3D_NAME,
+            ComponentType: D3D_REGISTER_COMPONENT_TYPE,
+            Mask: u8,
+            ReadWriteMask: u8,
+            Stream: u32,
+            MinPrecision: D3D_MIN_PRECISION,
+        }
+        type D3D11_TESSELLATOR_DOMAIN = D3D_TESSELLATOR_DOMAIN;
+        type D3D11_TESSELLATOR_OUTPUT_PRIMITIVE = D3D_TESSELLATOR_OUTPUT_PRIMITIVE;
+        type D3D11_TESSELLATOR_PARTITIONING = D3D_TESSELLATOR_PARTITIONING;
+        const D3D_RETURN_PARAMETER_INDEX: i32 = -1;
+        const D3D_SHADER_REQUIRES_11_1_DOUBLE_EXTENSIONS: u32 = 32;
+        const D3D_SHADER_REQUIRES_11_1_SHADER_EXTENSIONS: u32 = 64;
+        const D3D_SHADER_REQUIRES_64_UAVS: u32 = 8;
+        const D3D_SHADER_REQUIRES_DOUBLES: u32 = 1;
+        const D3D_SHADER_REQUIRES_EARLY_DEPTH_STENCIL: u32 = 2;
+        const D3D_SHADER_REQUIRES_LEVEL_9_COMPARISON_FILTERING: u32 = 128;
+        const D3D_SHADER_REQUIRES_MINIMUM_PRECISION: u32 = 16;
+        const D3D_SHADER_REQUIRES_TILED_RESOURCES: u32 = 256;
+        const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: u32 = 4;
+        #[guid(0x54133220_1ce8_43d3_8236_9855c5ceecff)]
+        interface ID3D11FunctionLinkingGraph: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn CreateModuleInstance(&self, ppModuleInstance: *mut ID3D11ModuleInstance, ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            fn SetInputSignature(&self, pInputParameters: *const D3D11_PARAMETER_DESC, cInputParameters: u32, ppInputNode: *mut ID3D11LinkingNode) -> HRESULT;
+            fn SetOutputSignature(&self, pOutputParameters: *const D3D11_PARAMETER_DESC, cOutputParameters: u32, ppOutputNode: *mut ID3D11LinkingNode) -> HRESULT;
+            fn CallFunction(&self, #[opt] pModuleInstanceNamespace: PCSTR, pModuleWithFunctionPrototype: ID3D11Module, pFunctionName: PCSTR, ppCallNode: *mut ID3D11LinkingNode) -> HRESULT;
+            fn PassValue(&self, pSrcNode: ID3D11LinkingNode, SrcParameterIndex: i32, pDstNode: ID3D11LinkingNode, DstParameterIndex: i32) -> HRESULT;
+            fn PassValueWithSwizzle(&self, pSrcNode: ID3D11LinkingNode, SrcParameterIndex: i32, pSrcSwizzle: PCSTR, pDstNode: ID3D11LinkingNode, DstParameterIndex: i32, pDstSwizzle: PCSTR) -> HRESULT;
+            fn GetLastError(&self, ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            fn GenerateHlsl(&self, uFlags: u32, ppBuffer: *mut ID3D10Blob) -> HRESULT;
+        }
+        #[guid(0x42757488_334f_47fe_982e_1a65d08cc462)]
+        interface ID3D11FunctionParameterReflection {
+            fn GetDesc(&self, pDesc: *mut D3D11_PARAMETER_DESC) -> HRESULT;
+        }
+        #[guid(0x207bcecb_d683_4a06_a8a3_9b149b9f73a4)]
+        interface ID3D11FunctionReflection {
+            fn GetDesc(&self, pDesc: *mut D3D11_FUNCTION_DESC) -> HRESULT;
+            fn GetConstantBufferByIndex(&self, BufferIndex: u32) -> ID3D11ShaderReflectionConstantBuffer;
+            fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionConstantBuffer;
+            fn GetResourceBindingDesc(&self, ResourceIndex: u32, pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetVariableByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionVariable;
+            fn GetResourceBindingDescByName(&self, Name: PCSTR, pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetFunctionParameter(&self, ParameterIndex: i32) -> ID3D11FunctionParameterReflection;
+        }
+        #[guid(0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6)]
+        interface ID3D11LibraryReflection: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetDesc(&self, pDesc: *mut D3D11_LIBRARY_DESC) -> HRESULT;
+            fn GetFunctionByIndex(&self, FunctionIndex: i32) -> ID3D11FunctionReflection;
+        }
+        #[guid(0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e)]
+        interface ID3D11Linker: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn Link(&self, pEntry: ID3D11ModuleInstance, pEntryName: PCSTR, pTargetName: PCSTR, uFlags: u32, ppShaderBlob: *mut ID3D10Blob, ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            fn UseLibrary(&self, pLibraryMI: ID3D11ModuleInstance) -> HRESULT;
+            fn AddClipPlaneFromCBuffer(&self, uCBufferSlot: u32, uCBufferEntry: u32) -> HRESULT;
+        }
+        #[guid(0xd80dd70c_8d2f_4751_94a1_03c79b3556db)]
+        interface ID3D11LinkingNode: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+        }
+        #[guid(0xcac701ee_80fc_4122_8242_10b39c8cec34)]
+        interface ID3D11Module: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn CreateInstance(&self, #[opt] pNamespace: PCSTR, ppModuleInstance: *mut ID3D11ModuleInstance) -> HRESULT;
+        }
+        #[guid(0x469e07f7_045a_48d5_aa12_68a478cdf75d)]
+        interface ID3D11ModuleInstance: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn BindConstantBuffer(&self, uSrcSlot: u32, uDstSlot: u32, cbDstOffset: u32) -> HRESULT;
+            fn BindConstantBufferByName(&self, pName: PCSTR, uDstSlot: u32, cbDstOffset: u32) -> HRESULT;
+            fn BindResource(&self, uSrcSlot: u32, uDstSlot: u32, uCount: u32) -> HRESULT;
+            fn BindResourceByName(&self, pName: PCSTR, uDstSlot: u32, uCount: u32) -> HRESULT;
+            fn BindSampler(&self, uSrcSlot: u32, uDstSlot: u32, uCount: u32) -> HRESULT;
+            fn BindSamplerByName(&self, pName: PCSTR, uDstSlot: u32, uCount: u32) -> HRESULT;
+            fn BindUnorderedAccessView(&self, uSrcSlot: u32, uDstSlot: u32, uCount: u32) -> HRESULT;
+            fn BindUnorderedAccessViewByName(&self, pName: PCSTR, uDstSlot: u32, uCount: u32) -> HRESULT;
+            fn BindResourceAsUnorderedAccessView(&self, uSrcSrvSlot: u32, uDstUavSlot: u32, uCount: u32) -> HRESULT;
+            fn BindResourceAsUnorderedAccessViewByName(&self, pSrvName: PCSTR, uDstUavSlot: u32, uCount: u32) -> HRESULT;
+        }
+        #[guid(0x8d536ca1_0cca_4956_a837_786963755584)]
+        interface ID3D11ShaderReflection: IUnknown {
+            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn GetDesc(&self, pDesc: *mut D3D11_SHADER_DESC) -> HRESULT;
+            fn GetConstantBufferByIndex(&self, Index: u32) -> ID3D11ShaderReflectionConstantBuffer;
+            fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionConstantBuffer;
+            fn GetResourceBindingDesc(&self, ResourceIndex: u32, pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetInputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetOutputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetPatchConstantParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetVariableByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionVariable;
+            fn GetResourceBindingDescByName(&self, Name: PCSTR, pDesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetMovInstructionCount(&self) -> u32;
+            fn GetMovcInstructionCount(&self) -> u32;
+            fn GetConversionInstructionCount(&self) -> u32;
+            fn GetBitwiseInstructionCount(&self) -> u32;
+            fn GetGSInputPrimitive(&self) -> D3D_PRIMITIVE;
+            fn IsSampleFrequencyShader(&self) -> BOOL;
+            fn GetNumInterfaceSlots(&self) -> u32;
+            fn GetMinFeatureLevel(&self, pLevel: *mut D3D_FEATURE_LEVEL) -> HRESULT;
+            fn GetThreadGroupSize(&self, #[opt] pSizeX: *mut u32, #[opt] pSizeY: *mut u32, #[opt] pSizeZ: *mut u32) -> u32;
+            fn GetRequiresFlags(&self) -> u64;
+        }
+        #[guid(0xeb62d63d_93dd_4318_8ae8_c6f83ad371b8)]
+        interface ID3D11ShaderReflectionConstantBuffer {
+            fn GetDesc(&self, pDesc: *mut D3D11_SHADER_BUFFER_DESC) -> HRESULT;
+            fn GetVariableByIndex(&self, Index: u32) -> ID3D11ShaderReflectionVariable;
+            fn GetVariableByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionVariable;
+        }
+        #[guid(0x6e6ffa6a_9bae_4613_a51e_91652d508c21)]
+        interface ID3D11ShaderReflectionType {
+            fn GetDesc(&self, pDesc: *mut D3D11_SHADER_TYPE_DESC) -> HRESULT;
+            fn GetMemberTypeByIndex(&self, Index: u32) -> ID3D11ShaderReflectionType;
+            fn GetMemberTypeByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionType;
+            fn GetMemberTypeName(&self, Index: u32) -> PCSTR;
+            fn IsEqual(&self, pType: ID3D11ShaderReflectionType) -> HRESULT;
+            fn GetSubType(&self) -> ID3D11ShaderReflectionType;
+            fn GetBaseClass(&self) -> ID3D11ShaderReflectionType;
+            fn GetNumInterfaces(&self) -> u32;
+            fn GetInterfaceByIndex(&self, uIndex: u32) -> ID3D11ShaderReflectionType;
+            fn IsOfType(&self, pType: ID3D11ShaderReflectionType) -> HRESULT;
+            fn ImplementsInterface(&self, pBase: ID3D11ShaderReflectionType) -> HRESULT;
+        }
+        #[guid(0x51f23923_f3e5_4bd1_91cb_606177d8db4c)]
+        interface ID3D11ShaderReflectionVariable {
+            fn GetDesc(&self, pDesc: *mut D3D11_SHADER_VARIABLE_DESC) -> HRESULT;
+            fn GetType(&self) -> ID3D11ShaderReflectionType;
+            fn GetBuffer(&self) -> ID3D11ShaderReflectionConstantBuffer;
+            fn GetInterfaceSlot(&self, uArrayIndex: u32) -> u32;
+        }
+    }
+}

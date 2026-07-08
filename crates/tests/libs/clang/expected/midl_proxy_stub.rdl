@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    struct IFoo {}
+    #[library("")]
+    extern fn Register_Stub(id: i32) -> i32;
+}

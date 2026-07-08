@@ -8,7 +8,7 @@ pub struct CppConst {
 
 impl Ord for CppConst {
     fn cmp(&self, other: &Self) -> Ordering {
-        (self.field.name(), self).cmp(&(other.field.name(), other))
+        (self.field.name(), self.field).cmp(&(other.field.name(), other.field))
     }
 }
 
@@ -71,17 +71,19 @@ impl CppConst {
                             let bytes: Vec<u8> =
                                 value_str.bytes().chain(std::iter::once(0)).collect();
                             let lit_bytes = bytes.iter().map(|b| Literal::u8_unsuffixed(*b));
+                            let ty = Type::PCSTR.write_name(config);
                             quote! {
                                 #cfg
-                                pub const #name: PCSTR = [#(#lit_bytes),*].as_ptr();
+                                pub const #name: #ty = [#(#lit_bytes),*].as_ptr();
                             }
                         } else {
                             let units: Vec<u16> =
                                 value_str.encode_utf16().chain(std::iter::once(0)).collect();
                             let lit_units = units.iter().map(|u| Literal::u16_unsuffixed(*u));
+                            let ty = Type::PCWSTR.write_name(config);
                             quote! {
                                 #cfg
-                                pub const #name: PCWSTR = [#(#lit_units),*].as_ptr();
+                                pub const #name: #ty = [#(#lit_units),*].as_ptr();
                             }
                         }
                     } else {
@@ -127,9 +129,8 @@ impl CppConst {
                         _ => panic!(),
                     };
                 } else {
-                    value = quote! { #value as _ };
+                    value = wide_int_cast(&constant.value());
                 }
-
                 // In `--sys` mode, every wrapper struct/enum is emitted as a
                 // bare type alias, so constants must drop the `Self(value)`
                 // newtype constructor. In `--minimal` mode handle structs and
@@ -146,9 +147,32 @@ impl CppConst {
                         pub const #name: #ty = #value;
                     }
                 } else {
+                    // A non-handle native typedef (e.g. `LPCTSTR = PCSTR`) is
+                    // emitted as a transparent `pub type` alias, which cannot be
+                    // used as a tuple-struct constructor (E0423). Construct the
+                    // value through the underlying newtype instead.
+                    let ctor = match &field_ty {
+                        Type::CppStruct(s)
+                            if !s.is_handle(config.reader)
+                                && s.is_native_typedef(config.reader) =>
+                        {
+                            underlying_ty.write_name(config)
+                        }
+                        _ => ty.clone(),
+                    };
+                    // In full mode a handle may wrap another newtype handle (e.g.
+                    // `HCERTCHAINENGINE(HANDLE)` or `JET_GRBIT(JET_UINT32)`). A bare
+                    // `value as _` cannot cast to that wrapper, so build the argument
+                    // through each intervening newtype layer.
+                    let arg = match &field_ty {
+                        Type::CppStruct(s) if s.is_handle(config.reader) => {
+                            write_newtype_wrap(&underlying_ty, &value, config)
+                        }
+                        _ => value,
+                    };
                     quote! {
                         #cfg
-                        pub const #name: #ty = #ty(#value);
+                        pub const #name: #ty = #ctor(#arg);
                     }
                 }
             }
@@ -179,6 +203,43 @@ impl CppConst {
             }
         } else {
             panic!()
+        }
+    }
+}
+
+/// Emits `<literal> as _` for a constant value that is cast to a native-typedef /
+/// handle / pointer target. A bare unsuffixed literal defaults to `i32`, so a value
+/// outside `i32`'s range (e.g. `0xFFFF_FFFF` for an unsigned `JET_DBID`, or a wide
+/// handle sentinel) would overflow that default *before* the cast is applied. Such
+/// values are given an explicit unsigned/wide suffix so the literal type holds them;
+/// every value that already fits `i32` keeps the bare form, so published bindings are
+/// unaffected.
+fn wide_int_cast(value: &Value) -> TokenStream {
+    let fits_i32 = |v: i128| (i32::MIN as i128..=i32::MAX as i128).contains(&v);
+    match value {
+        Value::U32(v) if !fits_i32(*v as i128) => {
+            let lit = Literal::u32_suffixed(*v);
+            quote! { #lit as _ }
+        }
+        Value::U64(v) if !fits_i32(*v as i128) => {
+            let lit = Literal::u64_suffixed(*v);
+            quote! { #lit as _ }
+        }
+        Value::I64(v) if !fits_i32(*v as i128) => {
+            let lit = Literal::i64_suffixed(*v);
+            quote! { #lit as _ }
+        }
+        Value::USize(v) if !fits_i32(*v as i128) => {
+            let lit = Literal::u64_suffixed(*v);
+            quote! { #lit as _ }
+        }
+        Value::ISize(v) if !fits_i32(*v as i128) => {
+            let lit = Literal::i64_suffixed(*v);
+            quote! { #lit as _ }
+        }
+        _ => {
+            let value = value.write();
+            quote! { #value as _ }
         }
     }
 }

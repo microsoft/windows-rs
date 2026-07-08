@@ -1,6 +1,7 @@
 --out crates/libs/registry/src/bindings.rs
 --flat --sys
 
+
 --filter
     CloseHandle
     CommitTransaction

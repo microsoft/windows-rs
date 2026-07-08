@@ -1,0 +1,231 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct CD3D11_QUERY_DESC1 {
+            Base: D3D11_QUERY_DESC1,
+        }
+        struct CD3D11_RASTERIZER_DESC2 {
+            Base: D3D11_RASTERIZER_DESC2,
+        }
+        struct CD3D11_RENDER_TARGET_VIEW_DESC1 {
+            Base: D3D11_RENDER_TARGET_VIEW_DESC1,
+        }
+        struct CD3D11_SHADER_RESOURCE_VIEW_DESC1 {
+            Base: D3D11_SHADER_RESOURCE_VIEW_DESC1,
+        }
+        struct CD3D11_TEXTURE2D_DESC1 {
+            Base: D3D11_TEXTURE2D_DESC1,
+        }
+        struct CD3D11_TEXTURE3D_DESC1 {
+            Base: D3D11_TEXTURE3D_DESC1,
+        }
+        struct CD3D11_UNORDERED_ACCESS_VIEW_DESC1 {
+            Base: D3D11_UNORDERED_ACCESS_VIEW_DESC1,
+        }
+        #[repr(i32)]
+        enum D3D11_CONSERVATIVE_RASTERIZATION_MODE {
+            D3D11_CONSERVATIVE_RASTERIZATION_MODE_OFF = 0,
+            D3D11_CONSERVATIVE_RASTERIZATION_MODE_ON = 1,
+        }
+        #[repr(i32)]
+        enum D3D11_CONTEXT_TYPE {
+            D3D11_CONTEXT_TYPE_ALL = 0,
+            D3D11_CONTEXT_TYPE_3D = 1,
+            D3D11_CONTEXT_TYPE_COMPUTE = 2,
+            D3D11_CONTEXT_TYPE_COPY = 3,
+            D3D11_CONTEXT_TYPE_VIDEO = 4,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D11_FENCE_FLAG {
+            D3D11_FENCE_FLAG_NONE = 0,
+            D3D11_FENCE_FLAG_SHARED = 2,
+            D3D11_FENCE_FLAG_SHARED_CROSS_ADAPTER = 4,
+            D3D11_FENCE_FLAG_NON_MONITORED = 8,
+        }
+        struct D3D11_QUERY_DESC1 {
+            Query: D3D11_QUERY,
+            MiscFlags: u32,
+            ContextType: D3D11_CONTEXT_TYPE,
+        }
+        struct D3D11_RASTERIZER_DESC2 {
+            FillMode: D3D11_FILL_MODE,
+            CullMode: D3D11_CULL_MODE,
+            FrontCounterClockwise: BOOL,
+            DepthBias: i32,
+            DepthBiasClamp: f32,
+            SlopeScaledDepthBias: f32,
+            DepthClipEnable: BOOL,
+            ScissorEnable: BOOL,
+            MultisampleEnable: BOOL,
+            AntialiasedLineEnable: BOOL,
+            ForcedSampleCount: u32,
+            ConservativeRaster: D3D11_CONSERVATIVE_RASTERIZATION_MODE,
+        }
+        struct D3D11_RENDER_TARGET_VIEW_DESC1 {
+            Format: DXGI_FORMAT,
+            ViewDimension: D3D11_RTV_DIMENSION,
+            Anonymous: union {
+                Buffer: D3D11_BUFFER_RTV,
+                Texture1D: D3D11_TEX1D_RTV,
+                Texture1DArray: D3D11_TEX1D_ARRAY_RTV,
+                Texture2D: D3D11_TEX2D_RTV1,
+                Texture2DArray: D3D11_TEX2D_ARRAY_RTV1,
+                Texture2DMS: D3D11_TEX2DMS_RTV,
+                Texture2DMSArray: D3D11_TEX2DMS_ARRAY_RTV,
+                Texture3D: D3D11_TEX3D_RTV,
+            },
+        }
+        struct D3D11_SHADER_RESOURCE_VIEW_DESC1 {
+            Format: DXGI_FORMAT,
+            ViewDimension: D3D11_SRV_DIMENSION,
+            Anonymous: union {
+                Buffer: D3D11_BUFFER_SRV,
+                Texture1D: D3D11_TEX1D_SRV,
+                Texture1DArray: D3D11_TEX1D_ARRAY_SRV,
+                Texture2D: D3D11_TEX2D_SRV1,
+                Texture2DArray: D3D11_TEX2D_ARRAY_SRV1,
+                Texture2DMS: D3D11_TEX2DMS_SRV,
+                Texture2DMSArray: D3D11_TEX2DMS_ARRAY_SRV,
+                Texture3D: D3D11_TEX3D_SRV,
+                TextureCube: D3D11_TEXCUBE_SRV,
+                TextureCubeArray: D3D11_TEXCUBE_ARRAY_SRV,
+                BufferEx: D3D11_BUFFEREX_SRV,
+            },
+        }
+        struct D3D11_TEX2D_ARRAY_RTV1 {
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
+            PlaneSlice: u32,
+        }
+        struct D3D11_TEX2D_ARRAY_SRV1 {
+            MostDetailedMip: u32,
+            MipLevels: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
+            PlaneSlice: u32,
+        }
+        struct D3D11_TEX2D_ARRAY_UAV1 {
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
+            PlaneSlice: u32,
+        }
+        struct D3D11_TEX2D_RTV1 {
+            MipSlice: u32,
+            PlaneSlice: u32,
+        }
+        struct D3D11_TEX2D_SRV1 {
+            MostDetailedMip: u32,
+            MipLevels: u32,
+            PlaneSlice: u32,
+        }
+        struct D3D11_TEX2D_UAV1 {
+            MipSlice: u32,
+            PlaneSlice: u32,
+        }
+        struct D3D11_TEXTURE2D_DESC1 {
+            Width: u32,
+            Height: u32,
+            MipLevels: u32,
+            ArraySize: u32,
+            Format: DXGI_FORMAT,
+            SampleDesc: DXGI_SAMPLE_DESC,
+            Usage: D3D11_USAGE,
+            BindFlags: u32,
+            CPUAccessFlags: u32,
+            MiscFlags: u32,
+            TextureLayout: D3D11_TEXTURE_LAYOUT,
+        }
+        struct D3D11_TEXTURE3D_DESC1 {
+            Width: u32,
+            Height: u32,
+            Depth: u32,
+            MipLevels: u32,
+            Format: DXGI_FORMAT,
+            Usage: D3D11_USAGE,
+            BindFlags: u32,
+            CPUAccessFlags: u32,
+            MiscFlags: u32,
+            TextureLayout: D3D11_TEXTURE_LAYOUT,
+        }
+        #[repr(i32)]
+        enum D3D11_TEXTURE_LAYOUT {
+            D3D11_TEXTURE_LAYOUT_UNDEFINED = 0,
+            D3D11_TEXTURE_LAYOUT_ROW_MAJOR = 1,
+            D3D11_TEXTURE_LAYOUT_64K_STANDARD_SWIZZLE = 2,
+        }
+        struct D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
+            Format: DXGI_FORMAT,
+            ViewDimension: D3D11_UAV_DIMENSION,
+            Anonymous: union {
+                Buffer: D3D11_BUFFER_UAV,
+                Texture1D: D3D11_TEX1D_UAV,
+                Texture1DArray: D3D11_TEX1D_ARRAY_UAV,
+                Texture2D: D3D11_TEX2D_UAV1,
+                Texture2DArray: D3D11_TEX2D_ARRAY_UAV1,
+                Texture3D: D3D11_TEX3D_UAV,
+            },
+        }
+        #[guid(0xa05c8c37_d2c6_4732_b3a0_9ce0b0dc9ae6)]
+        interface ID3D11Device3: ID3D11Device2 {
+            fn CreateTexture2D1(&self, pDesc1: *const D3D11_TEXTURE2D_DESC1, #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, ppTexture2D: *mut ID3D11Texture2D1) -> HRESULT;
+            fn CreateTexture3D1(&self, pDesc1: *const D3D11_TEXTURE3D_DESC1, #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, ppTexture3D: *mut ID3D11Texture3D1) -> HRESULT;
+            fn CreateRasterizerState2(&self, pRasterizerDesc: *const D3D11_RASTERIZER_DESC2, ppRasterizerState: *mut ID3D11RasterizerState2) -> HRESULT;
+            fn CreateShaderResourceView1(&self, pResource: ID3D11Resource, #[opt] pDesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1, ppSRView1: *mut ID3D11ShaderResourceView1) -> HRESULT;
+            fn CreateUnorderedAccessView1(&self, pResource: ID3D11Resource, #[opt] pDesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1, ppUAView1: *mut ID3D11UnorderedAccessView1) -> HRESULT;
+            fn CreateRenderTargetView1(&self, pResource: ID3D11Resource, #[opt] pDesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1, ppRTView1: *mut ID3D11RenderTargetView1) -> HRESULT;
+            fn CreateQuery1(&self, pQueryDesc1: *const D3D11_QUERY_DESC1, ppQuery1: *mut ID3D11Query1) -> HRESULT;
+            fn GetImmediateContext3(&self, ppImmediateContext: *mut ID3D11DeviceContext3);
+            fn CreateDeferredContext3(&self, ContextFlags: u32, ppDeferredContext: *mut ID3D11DeviceContext3) -> HRESULT;
+            fn WriteToSubresource(&self, pDstResource: ID3D11Resource, DstSubresource: u32, #[opt] pDstBox: *const D3D11_BOX, pSrcData: *const void, SrcRowPitch: u32, SrcDepthPitch: u32);
+            fn ReadFromSubresource(&self, pDstData: *mut void, DstRowPitch: u32, DstDepthPitch: u32, pSrcResource: ID3D11Resource, SrcSubresource: u32, #[opt] pSrcBox: *const D3D11_BOX);
+        }
+        #[guid(0xb4e3c01d_e79e_4637_91b2_510e9f4c9b8f)]
+        interface ID3D11DeviceContext3: ID3D11DeviceContext2 {
+            fn Flush1(&self, ContextType: D3D11_CONTEXT_TYPE, #[opt] hEvent: HANDLE);
+            fn SetHardwareProtectionState(&self, HwProtectionEnable: BOOL);
+            fn GetHardwareProtectionState(&self, pHwProtectionEnable: *mut BOOL);
+        }
+        #[guid(0x917600da_f58c_4c33_98d8_3e15b390fa24)]
+        interface ID3D11DeviceContext4: ID3D11DeviceContext3 {
+            fn Signal(&self, pFence: ID3D11Fence, Value: u64) -> HRESULT;
+            fn Wait(&self, pFence: ID3D11Fence, Value: u64) -> HRESULT;
+        }
+        #[guid(0xaffde9d1_1df7_4bb7_8a34_0f46251dab80)]
+        interface ID3D11Fence: ID3D11DeviceChild {
+            fn CreateSharedHandle(&self, #[opt] pAttributes: *const SECURITY_ATTRIBUTES, dwAccess: u32, #[opt] lpName: PCWSTR, pHandle: *mut HANDLE) -> HRESULT;
+            fn GetCompletedValue(&self) -> u64;
+            fn SetEventOnCompletion(&self, Value: u64, hEvent: HANDLE) -> HRESULT;
+        }
+        #[guid(0x631b4766_36dc_461d_8db6_c47e13e60916)]
+        interface ID3D11Query1: ID3D11Query {
+            fn GetDesc1(&self, pDesc1: *mut D3D11_QUERY_DESC1);
+        }
+        #[guid(0x6fbd02fb_209f_46c4_b059_2ed15586a6ac)]
+        interface ID3D11RasterizerState2: ID3D11RasterizerState1 {
+            fn GetDesc2(&self, pDesc: *mut D3D11_RASTERIZER_DESC2);
+        }
+        #[guid(0xffbe2e23_f011_418a_ac56_5ceed7c5b94b)]
+        interface ID3D11RenderTargetView1: ID3D11RenderTargetView {
+            fn GetDesc1(&self, pDesc1: *mut D3D11_RENDER_TARGET_VIEW_DESC1);
+        }
+        #[guid(0x91308b87_9040_411d_8c67_c39253ce3802)]
+        interface ID3D11ShaderResourceView1: ID3D11ShaderResourceView {
+            fn GetDesc1(&self, pDesc1: *mut D3D11_SHADER_RESOURCE_VIEW_DESC1);
+        }
+        #[guid(0x51218251_1e33_4617_9ccb_4d3a4367e7bb)]
+        interface ID3D11Texture2D1: ID3D11Texture2D {
+            fn GetDesc1(&self, pDesc: *mut D3D11_TEXTURE2D_DESC1);
+        }
+        #[guid(0x0c711683_2853_4846_9bb0_f3e60639e46a)]
+        interface ID3D11Texture3D1: ID3D11Texture3D {
+            fn GetDesc1(&self, pDesc: *mut D3D11_TEXTURE3D_DESC1);
+        }
+        #[guid(0x7b3b6153_a886_4544_ab37_6537c8500403)]
+        interface ID3D11UnorderedAccessView1: ID3D11UnorderedAccessView {
+            fn GetDesc1(&self, pDesc1: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC1);
+        }
+    }
+}

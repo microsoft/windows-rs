@@ -86,6 +86,10 @@ impl Encoder<'_> {
             &["guid", "no_guid"],
         )?;
 
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(metadata::writer::HasAttribute::TypeDef(delegate), arch_bits);
+        }
+
         let already_has_guid = self.encode_guid_pseudo_attrs(
             metadata::writer::HasAttribute::TypeDef(delegate),
             &item.attrs,

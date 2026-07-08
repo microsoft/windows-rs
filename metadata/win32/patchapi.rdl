@@ -1,0 +1,171 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2;
+        const APPLY_OPTION_FAIL_IF_EXACT: u32 = 1;
+        const APPLY_OPTION_TEST_ONLY: u32 = 4;
+        const APPLY_OPTION_VALID_FLAGS: u32 = 7;
+        #[library("mspatcha.dll")]
+        extern fn ApplyPatchToFileA(PatchFileName: PCSTR, #[opt] OldFileName: PCSTR, NewFileName: PCSTR, ApplyOptionFlags: u32) -> BOOL;
+        #[library("mspatcha.dll")]
+        extern fn ApplyPatchToFileByBuffers(#[size_param(1)] PatchFileMapped: *const u8, PatchFileSize: u32, #[size_param(3)] #[opt] OldFileMapped: *const u8, OldFileSize: u32, #[in] #[out] NewFileBuffer: *mut PBYTE, NewFileBufferSize: u32, #[opt] NewFileActualSize: *mut u32, #[opt] NewFileTime: *mut FILETIME, ApplyOptionFlags: u32, #[opt] ProgressCallback: PPATCH_PROGRESS_CALLBACK, #[opt] CallbackContext: *const void) -> BOOL;
+        #[library("mspatcha.dll")]
+        extern fn ApplyPatchToFileByHandles(PatchFileHandle: HANDLE, #[opt] OldFileHandle: HANDLE, NewFileHandle: HANDLE, ApplyOptionFlags: u32) -> BOOL;
+        #[library("mspatcha.dll")]
+        extern fn ApplyPatchToFileByHandlesEx(PatchFileHandle: HANDLE, #[opt] OldFileHandle: HANDLE, NewFileHandle: HANDLE, ApplyOptionFlags: u32, #[opt] ProgressCallback: PPATCH_PROGRESS_CALLBACK, #[opt] CallbackContext: *const void) -> BOOL;
+        #[library("mspatcha.dll")]
+        extern fn ApplyPatchToFileExA(PatchFileName: PCSTR, #[opt] OldFileName: PCSTR, NewFileName: PCSTR, ApplyOptionFlags: u32, #[opt] ProgressCallback: PPATCH_PROGRESS_CALLBACK, #[opt] CallbackContext: *const void) -> BOOL;
+        #[library("mspatcha.dll")]
+        extern fn ApplyPatchToFileExW(PatchFileName: PCWSTR, #[opt] OldFileName: PCWSTR, NewFileName: PCWSTR, ApplyOptionFlags: u32, #[opt] ProgressCallback: PPATCH_PROGRESS_CALLBACK, #[opt] CallbackContext: *const void) -> BOOL;
+        #[library("mspatcha.dll")]
+        extern fn ApplyPatchToFileW(PatchFileName: PCWSTR, #[opt] OldFileName: PCWSTR, NewFileName: PCWSTR, ApplyOptionFlags: u32) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn CreatePatchFileA(#[opt] OldFileName: PCSTR, NewFileName: PCSTR, PatchFileName: PCSTR, OptionFlags: u32, #[opt] OptionData: *const PATCH_OPTION_DATA) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn CreatePatchFileByHandles(#[opt] OldFileHandle: HANDLE, NewFileHandle: HANDLE, PatchFileHandle: HANDLE, OptionFlags: u32, #[opt] OptionData: *const PATCH_OPTION_DATA) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn CreatePatchFileByHandlesEx(OldFileCount: u32, #[len_param(0)] OldFileInfoArray: *const PATCH_OLD_FILE_INFO_H, NewFileHandle: HANDLE, PatchFileHandle: HANDLE, OptionFlags: u32, #[opt] OptionData: *const PATCH_OPTION_DATA, #[opt] ProgressCallback: PPATCH_PROGRESS_CALLBACK, #[opt] CallbackContext: *const void) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn CreatePatchFileExA(OldFileCount: u32, #[len_param(0)] OldFileInfoArray: *const PATCH_OLD_FILE_INFO_A, NewFileName: PCSTR, PatchFileName: PCSTR, OptionFlags: u32, #[opt] OptionData: *const PATCH_OPTION_DATA, #[opt] ProgressCallback: PPATCH_PROGRESS_CALLBACK, #[opt] CallbackContext: *const void) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn CreatePatchFileExW(OldFileCount: u32, #[len_param(0)] OldFileInfoArray: *const PATCH_OLD_FILE_INFO_W, NewFileName: PCWSTR, PatchFileName: PCWSTR, OptionFlags: u32, #[opt] OptionData: *const PATCH_OPTION_DATA, #[opt] ProgressCallback: PPATCH_PROGRESS_CALLBACK, #[opt] CallbackContext: *const void) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn CreatePatchFileW(#[opt] OldFileName: PCWSTR, NewFileName: PCWSTR, PatchFileName: PCWSTR, OptionFlags: u32, #[opt] OptionData: *const PATCH_OPTION_DATA) -> BOOL;
+        const ERROR_PATCH_BIGGER_THAN_COMPRESSED: u32 = 3222155525;
+        const ERROR_PATCH_CORRUPT: u32 = 3222159618;
+        const ERROR_PATCH_DECODE_FAILURE: u32 = 3222159617;
+        const ERROR_PATCH_ENCODE_FAILURE: u32 = 3222155521;
+        const ERROR_PATCH_IMAGEHLP_FAILURE: u32 = 3222155526;
+        const ERROR_PATCH_INVALID_OPTIONS: u32 = 3222155522;
+        const ERROR_PATCH_NEWER_FORMAT: u32 = 3222159619;
+        const ERROR_PATCH_NOT_AVAILABLE: u32 = 3222159622;
+        const ERROR_PATCH_NOT_NECESSARY: u32 = 3222159621;
+        const ERROR_PATCH_RETAIN_RANGES_DIFFER: u32 = 3222155524;
+        const ERROR_PATCH_SAME_FILE: u32 = 3222155523;
+        const ERROR_PATCH_WRONG_FILE: u32 = 3222159620;
+        #[library("mspatchc.dll")]
+        extern fn ExtractPatchHeaderToFileA(PatchFileName: PCSTR, PatchHeaderFileName: PCSTR) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn ExtractPatchHeaderToFileByHandles(PatchFileHandle: HANDLE, PatchHeaderFileHandle: HANDLE) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn ExtractPatchHeaderToFileW(PatchFileName: PCWSTR, PatchHeaderFileName: PCWSTR) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn GetFilePatchSignatureA(FileName: PCSTR, OptionFlags: u32, #[opt] OptionData: *const void, IgnoreRangeCount: u32, #[len_param(3)] #[opt] IgnoreRangeArray: *const PATCH_IGNORE_RANGE, RetainRangeCount: u32, #[len_param(5)] #[opt] RetainRangeArray: *const PATCH_RETAIN_RANGE, SignatureBufferSize: u32, #[size_param(7)] #[out] SignatureBuffer: PSTR) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn GetFilePatchSignatureByBuffer(#[size_param(1)] #[in] #[out] FileBufferWritable: *mut u8, FileSize: u32, OptionFlags: u32, #[opt] OptionData: *const void, IgnoreRangeCount: u32, #[len_param(4)] #[opt] IgnoreRangeArray: *const PATCH_IGNORE_RANGE, RetainRangeCount: u32, #[len_param(6)] #[opt] RetainRangeArray: *const PATCH_RETAIN_RANGE, SignatureBufferSize: u32, #[size_param(8)] #[out] SignatureBuffer: PSTR) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn GetFilePatchSignatureByHandle(FileHandle: HANDLE, OptionFlags: u32, #[opt] OptionData: *const void, IgnoreRangeCount: u32, #[len_param(3)] #[opt] IgnoreRangeArray: *const PATCH_IGNORE_RANGE, RetainRangeCount: u32, #[len_param(5)] #[opt] RetainRangeArray: *const PATCH_RETAIN_RANGE, SignatureBufferSize: u32, #[size_param(7)] #[out] SignatureBuffer: PSTR) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn GetFilePatchSignatureW(FileName: PCWSTR, OptionFlags: u32, #[opt] OptionData: *const void, IgnoreRangeCount: u32, #[len_param(3)] #[opt] IgnoreRangeArray: *const PATCH_IGNORE_RANGE, RetainRangeCount: u32, #[len_param(5)] #[opt] RetainRangeArray: *const PATCH_RETAIN_RANGE, SignatureBufferSize: u32, #[size_param(7)] #[out] SignatureBuffer: PWSTR) -> BOOL;
+        #[library("mspatchc.dll")]
+        extern fn NormalizeFileForPatchSignature(#[size_param(1)] #[in] #[out] FileBuffer: *mut void, FileSize: u32, OptionFlags: u32, #[opt] OptionData: *const PATCH_OPTION_DATA, NewFileCoffBase: u32, NewFileCoffTime: u32, IgnoreRangeCount: u32, #[len_param(6)] #[opt] IgnoreRangeArray: *const PATCH_IGNORE_RANGE, RetainRangeCount: u32, #[len_param(8)] #[opt] RetainRangeArray: *const PATCH_RETAIN_RANGE) -> i32;
+        struct PATCH_IGNORE_RANGE {
+            OffsetInOldFile: u32,
+            LengthInBytes: u32,
+        }
+        struct PATCH_INTERLEAVE_MAP {
+            CountRanges: u32,
+            Range: [PATCH_INTERLEAVE_MAP_0; 1],
+        }
+        struct PATCH_INTERLEAVE_MAP_0 {
+            OldOffset: u32,
+            OldLength: u32,
+            NewLength: u32,
+        }
+        struct PATCH_OLD_FILE_INFO {
+            SizeOfThisStruct: u32,
+            Anonymous: union {
+                OldFileNameA: PCSTR,
+                OldFileNameW: PCWSTR,
+                OldFileHandle: HANDLE,
+            },
+            IgnoreRangeCount: u32,
+            IgnoreRangeArray: PPATCH_IGNORE_RANGE,
+            RetainRangeCount: u32,
+            RetainRangeArray: PPATCH_RETAIN_RANGE,
+        }
+        struct PATCH_OLD_FILE_INFO_A {
+            SizeOfThisStruct: u32,
+            OldFileName: PCSTR,
+            IgnoreRangeCount: u32,
+            IgnoreRangeArray: PPATCH_IGNORE_RANGE,
+            RetainRangeCount: u32,
+            RetainRangeArray: PPATCH_RETAIN_RANGE,
+        }
+        struct PATCH_OLD_FILE_INFO_H {
+            SizeOfThisStruct: u32,
+            OldFileHandle: HANDLE,
+            IgnoreRangeCount: u32,
+            IgnoreRangeArray: PPATCH_IGNORE_RANGE,
+            RetainRangeCount: u32,
+            RetainRangeArray: PPATCH_RETAIN_RANGE,
+        }
+        struct PATCH_OLD_FILE_INFO_W {
+            SizeOfThisStruct: u32,
+            OldFileName: PCWSTR,
+            IgnoreRangeCount: u32,
+            IgnoreRangeArray: PPATCH_IGNORE_RANGE,
+            RetainRangeCount: u32,
+            RetainRangeArray: PPATCH_RETAIN_RANGE,
+        }
+        struct PATCH_OPTION_DATA {
+            SizeOfThisStruct: u32,
+            SymbolOptionFlags: u32,
+            NewFileSymbolPath: PCSTR,
+            OldFileSymbolPathArray: *mut PCSTR,
+            ExtendedOptionFlags: u32,
+            SymLoadCallback: PPATCH_SYMLOAD_CALLBACK,
+            SymLoadContext: *mut void,
+            InterleaveMapArray: *mut PPATCH_INTERLEAVE_MAP,
+            MaxLzxWindowSize: u32,
+        }
+        const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576;
+        const PATCH_OPTION_FAIL_IF_SAME_FILE: u32 = 524288;
+        const PATCH_OPTION_INTERLEAVE_FILES: u32 = 1073741824;
+        const PATCH_OPTION_NO_BINDFIX: u32 = 65536;
+        const PATCH_OPTION_NO_CHECKSUM: u32 = 2097152;
+        const PATCH_OPTION_NO_LOCKFIX: u32 = 131072;
+        const PATCH_OPTION_NO_REBASE: u32 = 262144;
+        const PATCH_OPTION_NO_RESTIMEFIX: u32 = 4194304;
+        const PATCH_OPTION_NO_TIMESTAMP: u32 = 8388608;
+        const PATCH_OPTION_RESERVED1: u32 = 2147483648;
+        const PATCH_OPTION_SIGNATURE_MD5: u32 = 16777216;
+        const PATCH_OPTION_USE_BEST: u32 = 0;
+        const PATCH_OPTION_USE_LZX_A: u32 = 1;
+        const PATCH_OPTION_USE_LZX_B: u32 = 2;
+        const PATCH_OPTION_USE_LZX_BEST: u32 = 3;
+        const PATCH_OPTION_USE_LZX_LARGE: u32 = 4;
+        const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159;
+        extern fn PATCH_PROGRESS_CALLBACK(CallbackContext: *mut void, CurrentPosition: u32, MaximumPosition: u32) -> BOOL;
+        struct PATCH_RETAIN_RANGE {
+            OffsetInOldFile: u32,
+            LengthInBytes: u32,
+            OffsetInNewFile: u32,
+        }
+        const PATCH_SYMBOL_NO_FAILURES: u32 = 2;
+        const PATCH_SYMBOL_NO_IMAGEHLP: u32 = 1;
+        const PATCH_SYMBOL_RESERVED1: u32 = 2147483648;
+        const PATCH_SYMBOL_UNDECORATED_TOO: u32 = 4;
+        extern fn PATCH_SYMLOAD_CALLBACK(WhichFile: u32, SymbolFileName: PCSTR, SymType: u32, SymbolFileCheckSum: u32, SymbolFileTimeDate: u32, ImageFileCheckSum: u32, ImageFileTimeDate: u32, CallbackContext: *mut void) -> BOOL;
+        const PATCH_TRANSFORM_PE_IRELOC_2: u32 = 512;
+        const PATCH_TRANSFORM_PE_RESOURCE_2: u32 = 256;
+        type PPATCH_IGNORE_RANGE = *mut PATCH_IGNORE_RANGE;
+        type PPATCH_INTERLEAVE_MAP = *mut PATCH_INTERLEAVE_MAP;
+        type PPATCH_OLD_FILE_INFO = *mut PATCH_OLD_FILE_INFO;
+        type PPATCH_OLD_FILE_INFO_A = *mut PATCH_OLD_FILE_INFO_A;
+        type PPATCH_OLD_FILE_INFO_H = *mut PATCH_OLD_FILE_INFO_H;
+        type PPATCH_OLD_FILE_INFO_W = *mut PATCH_OLD_FILE_INFO_W;
+        type PPATCH_OPTION_DATA = *mut PATCH_OPTION_DATA;
+        extern fn PPATCH_PROGRESS_CALLBACK(CallbackContext: *mut void, CurrentPosition: u32, MaximumPosition: u32) -> BOOL;
+        type PPATCH_RETAIN_RANGE = *mut PATCH_RETAIN_RANGE;
+        extern fn PPATCH_SYMLOAD_CALLBACK(WhichFile: u32, SymbolFileName: PCSTR, SymType: u32, SymbolFileCheckSum: u32, SymbolFileTimeDate: u32, ImageFileCheckSum: u32, ImageFileTimeDate: u32, CallbackContext: *mut void) -> BOOL;
+        #[library("mspatcha.dll")]
+        extern fn TestApplyPatchToFileA(PatchFileName: PCSTR, OldFileName: PCSTR, ApplyOptionFlags: u32) -> BOOL;
+        #[library("mspatcha.dll")]
+        extern fn TestApplyPatchToFileByBuffers(#[size_param(1)] PatchFileBuffer: *const u8, PatchFileSize: u32, #[size_param(3)] #[opt] OldFileBuffer: *const u8, OldFileSize: u32, #[opt] NewFileSize: *mut u32, ApplyOptionFlags: u32) -> BOOL;
+        #[library("mspatcha.dll")]
+        extern fn TestApplyPatchToFileByHandles(PatchFileHandle: HANDLE, OldFileHandle: HANDLE, ApplyOptionFlags: u32) -> BOOL;
+        #[library("mspatcha.dll")]
+        extern fn TestApplyPatchToFileW(PatchFileName: PCWSTR, OldFileName: PCWSTR, ApplyOptionFlags: u32) -> BOOL;
+    }
+}

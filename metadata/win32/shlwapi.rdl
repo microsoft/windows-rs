@@ -1,0 +1,1173 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ASSOCDATA {
+            ASSOCDATA_MSIDESCRIPTOR = 1,
+            ASSOCDATA_NOACTIVATEHANDLER = 2,
+            ASSOCDATA_UNUSED1 = 3,
+            ASSOCDATA_HASPERUSERASSOC = 4,
+            ASSOCDATA_EDITFLAGS = 5,
+            ASSOCDATA_VALUE = 6,
+            ASSOCDATA_MAX = 7,
+        }
+        #[repr(i32)]
+        enum ASSOCENUM {
+            ASSOCENUM_NONE = 0,
+        }
+        type ASSOCF = u32;
+        const ASSOCF_APP_TO_APP: i32 = 65536;
+        const ASSOCF_IGNOREBASECLASS: i32 = 512;
+        const ASSOCF_INIT_BYEXENAME: i32 = 2;
+        const ASSOCF_INIT_DEFAULTTOFOLDER: i32 = 8;
+        const ASSOCF_INIT_DEFAULTTOSTAR: i32 = 4;
+        const ASSOCF_INIT_FIXED_PROGID: i32 = 2048;
+        const ASSOCF_INIT_FOR_FILE: i32 = 8192;
+        const ASSOCF_INIT_IGNOREUNKNOWN: i32 = 1024;
+        const ASSOCF_INIT_NOREMAPCLSID: i32 = 1;
+        const ASSOCF_IS_FULL_URI: i32 = 16384;
+        const ASSOCF_IS_PROTOCOL: i32 = 4096;
+        const ASSOCF_NOFIXUPS: i32 = 256;
+        const ASSOCF_NONE: i32 = 0;
+        const ASSOCF_NOTRUNCATE: i32 = 32;
+        const ASSOCF_NOUSERSETTINGS: i32 = 16;
+        const ASSOCF_OPEN_BYEXENAME: i32 = 2;
+        const ASSOCF_PER_MACHINE_ONLY: i32 = 32768;
+        const ASSOCF_REMAPRUNDLL: i32 = 128;
+        const ASSOCF_VERIFY: i32 = 64;
+        #[repr(i32)]
+        enum ASSOCKEY {
+            ASSOCKEY_SHELLEXECCLASS = 1,
+            ASSOCKEY_APP = 2,
+            ASSOCKEY_CLASS = 3,
+            ASSOCKEY_BASECLASS = 4,
+            ASSOCKEY_MAX = 5,
+        }
+        #[repr(i32)]
+        enum ASSOCSTR {
+            ASSOCSTR_COMMAND = 1,
+            ASSOCSTR_EXECUTABLE = 2,
+            ASSOCSTR_FRIENDLYDOCNAME = 3,
+            ASSOCSTR_FRIENDLYAPPNAME = 4,
+            ASSOCSTR_NOOPEN = 5,
+            ASSOCSTR_SHELLNEWVALUE = 6,
+            ASSOCSTR_DDECOMMAND = 7,
+            ASSOCSTR_DDEIFEXEC = 8,
+            ASSOCSTR_DDEAPPLICATION = 9,
+            ASSOCSTR_DDETOPIC = 10,
+            ASSOCSTR_INFOTIP = 11,
+            ASSOCSTR_QUICKTIP = 12,
+            ASSOCSTR_TILEINFO = 13,
+            ASSOCSTR_CONTENTTYPE = 14,
+            ASSOCSTR_DEFAULTICON = 15,
+            ASSOCSTR_SHELLEXTENSION = 16,
+            ASSOCSTR_DROPTARGET = 17,
+            ASSOCSTR_DELEGATEEXECUTE = 18,
+            ASSOCSTR_SUPPORTED_URI_PROTOCOLS = 19,
+            ASSOCSTR_PROGID = 20,
+            ASSOCSTR_APPID = 21,
+            ASSOCSTR_APPPUBLISHER = 22,
+            ASSOCSTR_APPICONREFERENCE = 23,
+            ASSOCSTR_MAX = 24,
+        }
+        #[library("SHLWAPI.dll")]
+        extern fn AssocCreate(clsid: GUID, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn AssocGetPerceivedType(pszExt: PCWSTR, ptype: *mut PERCEIVED, pflag: *mut PERCEIVEDFLAG, ppszType: *mut PWSTR) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn AssocIsDangerous(pszAssoc: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn AssocQueryKeyA(flags: ASSOCF, key: ASSOCKEY, pszAssoc: PCSTR, #[opt] pszExtra: PCSTR, phkeyOut: *mut HKEY) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn AssocQueryKeyW(flags: ASSOCF, key: ASSOCKEY, pszAssoc: PCWSTR, #[opt] pszExtra: PCWSTR, phkeyOut: *mut HKEY) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn AssocQueryStringA(flags: ASSOCF, str: ASSOCSTR, pszAssoc: PCSTR, #[opt] pszExtra: PCSTR, #[len_param(5)] #[out] #[opt] pszOut: PSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn AssocQueryStringByKeyA(flags: ASSOCF, str: ASSOCSTR, hkAssoc: HKEY, #[opt] pszExtra: PCSTR, #[len_param(5)] #[out] #[opt] pszOut: PSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn AssocQueryStringByKeyW(flags: ASSOCF, str: ASSOCSTR, hkAssoc: HKEY, #[opt] pszExtra: PCWSTR, #[len_param(5)] #[out] #[opt] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn AssocQueryStringW(flags: ASSOCF, str: ASSOCSTR, pszAssoc: PCWSTR, #[opt] pszExtra: PCWSTR, #[len_param(5)] #[out] #[opt] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
+        const CTF_COINIT: i32 = 8;
+        const CTF_COINIT_MTA: i32 = 4096;
+        const CTF_COINIT_STA: i32 = 8;
+        const CTF_FREELIBANDEXIT: i32 = 16;
+        const CTF_INHERITWOW64: i32 = 256;
+        const CTF_INSIST: i32 = 1;
+        const CTF_KEYBOARD_LOCALE: i32 = 1024;
+        const CTF_NOADDREFLIB: i32 = 8192;
+        const CTF_OLEINITIALIZE: i32 = 2048;
+        const CTF_PROCESS_REF: i32 = 4;
+        const CTF_REF_COUNTED: i32 = 32;
+        const CTF_THREAD_REF: i32 = 2;
+        const CTF_UNUSED: i32 = 128;
+        const CTF_WAIT_ALLOWCOM: i32 = 64;
+        const CTF_WAIT_NO_REENTRANCY: i32 = 512;
+        #[library("SHLWAPI.dll")]
+        extern fn ChrCmpIA(w1: u16, w2: u16) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn ChrCmpIW(w1: u16, w2: u16) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn ColorAdjustLuma(clrRGB: COLORREF, n: i32, fScale: BOOL) -> COLORREF;
+        #[library("SHLWAPI.dll")]
+        extern fn ColorHLSToRGB(wHue: u16, wLuminance: u16, wSaturation: u16) -> COLORREF;
+        #[library("SHLWAPI.dll")]
+        extern fn ColorRGBToHLS(clrRGB: COLORREF, pwHue: *mut u16, pwLuminance: *mut u16, pwSaturation: *mut u16);
+        #[library("SHLWAPI.dll")]
+        extern fn ConnectToConnectionPoint(#[opt] punk: IUnknown, riidEvent: *const GUID, fConnect: BOOL, punkTarget: IUnknown, pdwCookie: *mut u32, ppcpOut: *mut IConnectionPoint) -> HRESULT;
+        extern fn DLLGETVERSIONPROC(param0: *mut DLLVERSIONINFO) -> HRESULT;
+        struct DLLVERSIONINFO {
+            cbSize: u32,
+            dwMajorVersion: u32,
+            dwMinorVersion: u32,
+            dwBuildNumber: u32,
+            dwPlatformID: u32,
+        }
+        struct DLLVERSIONINFO2 {
+            info1: DLLVERSIONINFO,
+            dwFlags: u32,
+            ullVersion: u64,
+        }
+        const DLLVER_BUILD_MASK: u32 = 4294901760;
+        const DLLVER_MAJOR_MASK: u64 = 18446462598732840960;
+        const DLLVER_MINOR_MASK: u64 = 281470681743360;
+        const DLLVER_PLATFORM_NT: u32 = 2;
+        const DLLVER_PLATFORM_WINDOWS: u32 = 1;
+        const DLLVER_QFE_MASK: u32 = 65535;
+        const FDTF_DEFAULT: u32 = 3;
+        const FDTF_LONGDATE: u32 = 4;
+        const FDTF_LONGTIME: u32 = 8;
+        const FDTF_LTRDATE: u32 = 256;
+        const FDTF_NOAUTOREADINGORDER: u32 = 1024;
+        const FDTF_RELATIVE: u32 = 16;
+        const FDTF_RTLDATE: u32 = 512;
+        const FDTF_SHORTDATE: u32 = 2;
+        const FDTF_SHORTTIME: u32 = 1;
+        #[repr(u32)]
+        #[flags]
+        enum FILETYPEATTRIBUTEFLAGS {
+            FTA_None = 0,
+            FTA_Exclude = 1,
+            FTA_Show = 2,
+            FTA_HasExtension = 4,
+            FTA_NoEdit = 8,
+            FTA_NoRemove = 16,
+            FTA_NoNewVerb = 32,
+            FTA_NoEditVerb = 64,
+            FTA_NoRemoveVerb = 128,
+            FTA_NoEditDesc = 256,
+            FTA_NoEditIcon = 512,
+            FTA_NoEditDflt = 1024,
+            FTA_NoEditVerbCmd = 2048,
+            FTA_NoEditVerbExe = 4096,
+            FTA_NoDDE = 8192,
+            FTA_NoEditMIME = 32768,
+            FTA_OpenIsSafe = 65536,
+            FTA_AlwaysUnsafe = 131072,
+            FTA_NoRecentDocs = 1048576,
+            FTA_SafeForElevation = 2097152,
+            FTA_AlwaysUseDirectInvoke = 4194304,
+        }
+        const GCT_INVALID: u32 = 0;
+        const GCT_LFNCHAR: u32 = 1;
+        const GCT_SEPARATOR: u32 = 8;
+        const GCT_SHORTCHAR: u32 = 2;
+        const GCT_WILD: u32 = 4;
+        #[library("SHLWAPI.dll")]
+        extern fn GetAcceptLanguagesA(#[len_param(1)] #[out] pszLanguages: PSTR, #[in] #[out] pcchLanguages: *mut u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn GetAcceptLanguagesW(#[len_param(1)] #[out] pszLanguages: PWSTR, #[in] #[out] pcchLanguages: *mut u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn GetMenuPosFromID(hmenu: HMENU, id: u32) -> i32;
+        type HUSKEY = HANDLE;
+        #[library("SHLWAPI.dll")]
+        extern fn HashData(#[size_param(1)] pbData: *const u8, cbData: u32, #[size_param(3)] pbHash: *mut u8, cbHash: u32) -> HRESULT;
+        const ILMM_IE4: u32 = 0;
+        #[guid(0xc46ca590_3c3f_11d2_bee6_0000f805ca57)]
+        interface IQueryAssociations: IUnknown {
+            fn Init(&self, flags: ASSOCF, #[opt] pszAssoc: PCWSTR, #[opt] hkProgid: HKEY, #[opt] hwnd: HWND) -> HRESULT;
+            fn GetString(&self, flags: ASSOCF, str: ASSOCSTR, #[opt] pszExtra: PCWSTR, #[len_param(4)] #[out] #[opt] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
+            fn GetKey(&self, flags: ASSOCF, key: ASSOCKEY, #[opt] pszExtra: PCWSTR, phkeyOut: *mut HKEY) -> HRESULT;
+            fn GetData(&self, flags: ASSOCF, data: ASSOCDATA, #[opt] pszExtra: PCWSTR, #[size_param(4)] #[opt] pvOut: *mut void, #[in] #[out] #[opt] pcbOut: *mut u32) -> HRESULT;
+            fn GetEnum(&self, flags: ASSOCF, assocenum: ASSOCENUM, #[opt] pszExtra: PCWSTR, riid: *const GUID, ppvOut: *mut *mut void) -> HRESULT;
+        }
+        #[library("SHLWAPI.dll")]
+        extern fn IStream_Copy(pstmFrom: IStream, pstmTo: IStream, cb: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IStream_Read(pstm: IStream, #[size_param(2)] pv: *mut void, cb: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IStream_ReadPidl(pstm: IStream, ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IStream_ReadStr(pstm: IStream, ppsz: *mut PWSTR) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IStream_Reset(pstm: IStream) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IStream_Size(pstm: IStream, pui: *mut ULARGE_INTEGER) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IStream_Write(pstm: IStream, #[size_param(2)] pv: *const void, cb: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IStream_WritePidl(pstm: IStream, pidlWrite: *const ITEMIDLIST) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IStream_WriteStr(pstm: IStream, psz: PCWSTR) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IUnknown_AtomicRelease(#[in] #[out] #[opt] ppunk: *mut *mut void);
+        #[library("SHLWAPI.dll")]
+        extern fn IUnknown_GetSite(punk: IUnknown, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IUnknown_GetWindow(punk: IUnknown, phwnd: *mut HWND) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IUnknown_QueryService(#[opt] punk: IUnknown, guidService: *const GUID, riid: *const GUID, #[iid_is] ppvOut: *mut *mut void) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IUnknown_Set(#[in] #[out] ppunk: *mut IUnknown, #[opt] punk: IUnknown);
+        #[library("SHLWAPI.dll")]
+        extern fn IUnknown_SetSite(punk: IUnknown, #[opt] punkSite: IUnknown) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn IntlStrEqWorkerA(fCaseSens: BOOL, #[len_param(3)] lpString1: PCSTR, #[len_param(3)] lpString2: PCSTR, nChar: i32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn IntlStrEqWorkerW(fCaseSens: BOOL, #[len_param(3)] lpString1: PCWSTR, #[len_param(3)] lpString2: PCWSTR, nChar: i32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn IsCharSpaceA(wch: i8) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn IsCharSpaceW(wch: u16) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn IsInternetESCEnabled() -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn IsOS(dwOS: u32) -> BOOL;
+        type LPCQITAB = *const QITAB;
+        type LPQITAB = *mut QITAB;
+        const OS_ADVSERVER: u32 = 22;
+        const OS_ANYSERVER: u32 = 29;
+        const OS_APPLIANCE: u32 = 36;
+        const OS_DATACENTER: u32 = 21;
+        const OS_DOMAINMEMBER: u32 = 28;
+        const OS_EMBEDDED: u32 = 13;
+        const OS_FASTUSERSWITCHING: u32 = 26;
+        const OS_HOME: u32 = 19;
+        const OS_MEDIACENTER: u32 = 35;
+        const OS_MEORGREATER: u32 = 17;
+        const OS_NT: u32 = 1;
+        const OS_NT4ORGREATER: u32 = 3;
+        const OS_PERSONALTERMINALSERVER: u32 = 25;
+        const OS_PROFESSIONAL: u32 = 20;
+        const OS_SERVER: u32 = 23;
+        const OS_SERVERADMINUI: u32 = 34;
+        const OS_SMALLBUSINESSSERVER: u32 = 32;
+        const OS_TABLETPC: u32 = 33;
+        const OS_TERMINALCLIENT: u32 = 14;
+        const OS_TERMINALREMOTEADMIN: u32 = 15;
+        const OS_TERMINALSERVER: u32 = 24;
+        const OS_WEBSERVER: u32 = 31;
+        const OS_WELCOMELOGONUI: u32 = 27;
+        const OS_WIN2000ADVSERVER: u32 = 10;
+        const OS_WIN2000DATACENTER: u32 = 11;
+        const OS_WIN2000ORGREATER: u32 = 7;
+        const OS_WIN2000PRO: u32 = 8;
+        const OS_WIN2000SERVER: u32 = 9;
+        const OS_WIN2000TERMINAL: u32 = 12;
+        const OS_WIN95ORGREATER: u32 = 2;
+        const OS_WIN95_GOLD: u32 = 16;
+        const OS_WIN98ORGREATER: u32 = 5;
+        const OS_WIN98_GOLD: u32 = 6;
+        const OS_WINDOWS: u32 = 0;
+        const OS_WOW6432: u32 = 30;
+        const OS_XPORGREATER: u32 = 18;
+        type PARSEDURL = PARSEDURLA;
+        struct PARSEDURLA {
+            cbSize: u32,
+            pszProtocol: PCSTR,
+            cchProtocol: u32,
+            pszSuffix: PCSTR,
+            cchSuffix: u32,
+            nScheme: u32,
+        }
+        struct PARSEDURLW {
+            cbSize: u32,
+            pszProtocol: PCWSTR,
+            cchProtocol: u32,
+            pszSuffix: PCWSTR,
+            cchSuffix: u32,
+            nScheme: u32,
+        }
+        type PHUSKEY = *mut HUSKEY;
+        const PLATFORM_BROWSERONLY: u32 = 1;
+        const PLATFORM_IE3: u32 = 1;
+        const PLATFORM_INTEGRATED: u32 = 2;
+        const PLATFORM_UNKNOWN: u32 = 0;
+        const PMSF_DONT_STRIP_SPACES: u32 = 65536;
+        const PMSF_MULTIPLE: u32 = 1;
+        const PMSF_NORMAL: u32 = 0;
+        type PPARSEDURL = PPARSEDURLA;
+        type PPARSEDURLA = *mut PARSEDURLA;
+        type PPARSEDURLW = *mut PARSEDURLW;
+        #[library("SHLWAPI.dll")]
+        extern fn ParseURLA(pcszURL: PCSTR, #[in] #[out] ppu: *mut PARSEDURLA) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn ParseURLW(pcszURL: PCWSTR, #[in] #[out] ppu: *mut PARSEDURLW) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn PathAddBackslashA(#[in] #[out] pszPath: PSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathAddBackslashW(#[in] #[out] pszPath: PWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathAddExtensionA(#[in] #[out] pszPath: PSTR, #[opt] pszExt: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathAddExtensionW(#[in] #[out] pszPath: PWSTR, #[opt] pszExt: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathAppendA(#[in] #[out] pszPath: PSTR, pszMore: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathAppendW(#[in] #[out] pszPath: PWSTR, pszMore: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathBuildRootA(#[len_const(4)] #[out] pszRoot: PSTR, iDrive: i32) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathBuildRootW(#[len_const(4)] #[out] pszRoot: PWSTR, iDrive: i32) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCanonicalizeA(#[out] pszBuf: PSTR, pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCanonicalizeW(#[out] pszBuf: PWSTR, pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCombineA(#[out] pszDest: PSTR, #[opt] pszDir: PCSTR, #[opt] pszFile: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCombineW(#[out] pszDest: PWSTR, #[opt] pszDir: PCWSTR, #[opt] pszFile: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCommonPrefixA(pszFile1: PCSTR, pszFile2: PCSTR, #[out] #[opt] achPath: PSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCommonPrefixW(pszFile1: PCWSTR, pszFile2: PCWSTR, #[out] #[opt] achPath: PWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCompactPathA(#[opt] hDC: HDC, #[in] #[out] pszPath: PSTR, dx: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCompactPathExA(#[len_param(2)] #[out] pszOut: PSTR, pszSrc: PCSTR, cchMax: u32, dwFlags: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCompactPathExW(#[len_param(2)] #[out] pszOut: PWSTR, pszSrc: PCWSTR, cchMax: u32, dwFlags: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCompactPathW(#[opt] hDC: HDC, #[in] #[out] pszPath: PWSTR, dx: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCreateFromUrlA(pszUrl: PCSTR, #[len_param(2)] #[out] pszPath: PSTR, #[in] #[out] pcchPath: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCreateFromUrlAlloc(pszIn: PCWSTR, ppszOut: *mut PWSTR, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn PathCreateFromUrlW(pszUrl: PCWSTR, #[len_param(2)] #[out] pszPath: PWSTR, #[in] #[out] pcchPath: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFileExistsA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFileExistsW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFindExtensionA(pszPath: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFindExtensionW(pszPath: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFindFileNameA(pszPath: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFindFileNameW(pszPath: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFindNextComponentA(pszPath: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFindNextComponentW(pszPath: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFindOnPathA(#[in] #[out] pszPath: PSTR, #[opt] ppszOtherDirs: *const PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFindOnPathW(#[in] #[out] pszPath: PWSTR, #[opt] ppszOtherDirs: *const PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFindSuffixArrayA(pszPath: PCSTR, #[len_param(2)] apszSuffix: *const PCSTR, iArraySize: i32) -> PCSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathFindSuffixArrayW(pszPath: PCWSTR, #[len_param(2)] apszSuffix: *const PCWSTR, iArraySize: i32) -> PCWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathGetArgsA(pszPath: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathGetArgsW(pszPath: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathGetCharTypeA(ch: u8) -> u32;
+        #[library("SHLWAPI.dll")]
+        extern fn PathGetCharTypeW(ch: u16) -> u32;
+        #[library("SHLWAPI.dll")]
+        extern fn PathGetDriveNumberA(pszPath: PCSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn PathGetDriveNumberW(pszPath: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsContentTypeA(pszPath: PCSTR, pszContentType: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsContentTypeW(pszPath: PCWSTR, pszContentType: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsDirectoryA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsDirectoryEmptyA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsDirectoryEmptyW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsDirectoryW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsFileSpecA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsFileSpecW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsLFNFileSpecA(pszName: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsLFNFileSpecW(pszName: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsNetworkPathA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsNetworkPathW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsPrefixA(pszPrefix: PCSTR, pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsPrefixW(pszPrefix: PCWSTR, pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsRelativeA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsRelativeW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsRootA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsRootW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsSameRootA(pszPath1: PCSTR, pszPath2: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsSameRootW(pszPath1: PCWSTR, pszPath2: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsSystemFolderA(#[opt] pszPath: PCSTR, dwAttrb: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsSystemFolderW(#[opt] pszPath: PCWSTR, dwAttrb: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsUNCA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsUNCServerA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsUNCServerShareA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsUNCServerShareW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsUNCServerW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsUNCW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsURLA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathIsURLW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathMakePrettyA(#[in] #[out] pszPath: PSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathMakePrettyW(#[in] #[out] pszPath: PWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathMakeSystemFolderA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathMakeSystemFolderW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathMatchSpecA(pszFile: PCSTR, pszSpec: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathMatchSpecExA(pszFile: PCSTR, pszSpec: PCSTR, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn PathMatchSpecExW(pszFile: PCWSTR, pszSpec: PCWSTR, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn PathMatchSpecW(pszFile: PCWSTR, pszSpec: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathParseIconLocationA(#[in] #[out] pszIconFile: PSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn PathParseIconLocationW(#[in] #[out] pszIconFile: PWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn PathQuoteSpacesA(#[in] #[out] lpsz: PSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathQuoteSpacesW(#[in] #[out] lpsz: PWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathRelativePathToA(#[out] pszPath: PSTR, pszFrom: PCSTR, dwAttrFrom: u32, pszTo: PCSTR, dwAttrTo: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathRelativePathToW(#[out] pszPath: PWSTR, pszFrom: PCWSTR, dwAttrFrom: u32, pszTo: PCWSTR, dwAttrTo: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathRemoveArgsA(#[in] #[out] pszPath: PSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathRemoveArgsW(#[in] #[out] pszPath: PWSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathRemoveBackslashA(#[in] #[out] pszPath: PSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathRemoveBackslashW(#[in] #[out] pszPath: PWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathRemoveBlanksA(#[in] #[out] pszPath: PSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathRemoveBlanksW(#[in] #[out] pszPath: PWSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathRemoveExtensionA(#[in] #[out] pszPath: PSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathRemoveExtensionW(#[in] #[out] pszPath: PWSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathRemoveFileSpecA(#[in] #[out] pszPath: PSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathRemoveFileSpecW(#[in] #[out] pszPath: PWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathRenameExtensionA(#[in] #[out] pszPath: PSTR, pszExt: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathRenameExtensionW(#[in] #[out] pszPath: PWSTR, pszExt: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathSearchAndQualifyA(pszPath: PCSTR, #[len_param(2)] #[out] pszBuf: PSTR, cchBuf: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathSearchAndQualifyW(pszPath: PCWSTR, #[len_param(2)] #[out] pszBuf: PWSTR, cchBuf: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathSetDlgItemPathA(hDlg: HWND, id: i32, pszPath: PCSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathSetDlgItemPathW(hDlg: HWND, id: i32, pszPath: PCWSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathSkipRootA(pszPath: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathSkipRootW(pszPath: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn PathStripPathA(#[in] #[out] pszPath: PSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathStripPathW(#[in] #[out] pszPath: PWSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathStripToRootA(#[in] #[out] pszPath: PSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathStripToRootW(#[in] #[out] pszPath: PWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathUnExpandEnvStringsA(pszPath: PCSTR, #[len_param(2)] #[out] pszBuf: PSTR, cchBuf: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathUnExpandEnvStringsW(pszPath: PCWSTR, #[len_param(2)] #[out] pszBuf: PWSTR, cchBuf: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathUndecorateA(#[in] #[out] pszPath: PSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathUndecorateW(#[in] #[out] pszPath: PWSTR);
+        #[library("SHLWAPI.dll")]
+        extern fn PathUnmakeSystemFolderA(pszPath: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathUnmakeSystemFolderW(pszPath: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathUnquoteSpacesA(#[in] #[out] lpsz: PSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn PathUnquoteSpacesW(#[in] #[out] lpsz: PWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn QISearch(#[in] #[out] that: *mut void, pqit: *const QITAB, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        struct QITAB {
+            piid: *const GUID,
+            dwOffset: u32,
+        }
+        type SFBS_FLAGS = i32;
+        const SHACF_AUTOAPPEND_FORCE_OFF: u32 = 2147483648;
+        const SHACF_AUTOAPPEND_FORCE_ON: u32 = 1073741824;
+        const SHACF_AUTOSUGGEST_FORCE_OFF: u32 = 536870912;
+        const SHACF_AUTOSUGGEST_FORCE_ON: u32 = 268435456;
+        const SHACF_DEFAULT: u32 = 0;
+        const SHACF_FILESYSTEM: u32 = 1;
+        const SHACF_FILESYS_DIRS: u32 = 32;
+        const SHACF_FILESYS_ONLY: u32 = 16;
+        const SHACF_URLALL: u32 = 6;
+        const SHACF_URLHISTORY: u32 = 2;
+        const SHACF_URLMRU: u32 = 4;
+        const SHACF_USETAB: u32 = 8;
+        const SHACF_VIRTUAL_NAMESPACE: u32 = 64;
+        #[library("SHLWAPI.dll")]
+        extern fn SHAllocShared(#[size_param(1)] #[opt] pvData: *const void, dwSize: u32, dwProcessId: u32) -> HANDLE;
+        #[library("SHLWAPI.dll")]
+        extern fn SHAnsiToAnsi(pszSrc: PCSTR, #[len_param(2)] #[out] pszDst: PSTR, cchBuf: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHAnsiToUnicode(pszSrc: PCSTR, #[len_param(2)] #[out] pwszDst: PWSTR, cwchBuf: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHAutoComplete(hwndEdit: HWND, dwFlags: u32) -> HRESULT;
+        type SHCT_FLAGS = u32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHCopyKeyA(hkeySrc: HKEY, #[opt] pszSrcSubKey: PCSTR, hkeyDest: HKEY, #[reserved] fReserved: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHCopyKeyW(hkeySrc: HKEY, #[opt] pszSrcSubKey: PCWSTR, hkeyDest: HKEY, #[reserved] fReserved: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHCreateMemStream(#[size_param(1)] #[opt] pInit: *const u8, cbInit: u32) -> IStream;
+        #[library("SHLWAPI.dll")]
+        extern fn SHCreateShellPalette(#[opt] hdc: HDC) -> HPALETTE;
+        #[library("SHLWAPI.dll")]
+        extern fn SHCreateStreamOnFileA(pszFile: PCSTR, grfMode: u32, ppstm: *mut IStream) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHCreateStreamOnFileEx(pszFile: PCWSTR, grfMode: u32, dwAttributes: u32, fCreate: BOOL, #[opt] pstmTemplate: IStream, ppstm: *mut IStream) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHCreateStreamOnFileW(pszFile: PCWSTR, grfMode: u32, ppstm: *mut IStream) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHCreateThread(pfnThreadProc: LPTHREAD_START_ROUTINE, #[opt] pData: *const void, flags: SHCT_FLAGS, #[opt] pfnCallback: LPTHREAD_START_ROUTINE) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn SHCreateThreadRef(#[in] #[out] pcRef: *mut i32, ppunk: *mut IUnknown) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHCreateThreadWithHandle(pfnThreadProc: LPTHREAD_START_ROUTINE, #[opt] pData: *const void, flags: SHCT_FLAGS, #[opt] pfnCallback: LPTHREAD_START_ROUTINE, #[opt] pHandle: *mut HANDLE) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn SHDeleteEmptyKeyA(hkey: HKEY, #[opt] pszSubKey: PCSTR) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHDeleteEmptyKeyW(hkey: HKEY, #[opt] pszSubKey: PCWSTR) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHDeleteKeyA(hkey: HKEY, #[opt] pszSubKey: PCSTR) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHDeleteKeyW(hkey: HKEY, #[opt] pszSubKey: PCWSTR) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHDeleteValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, pszValue: PCSTR) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHDeleteValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, pszValue: PCWSTR) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHEnumKeyExA(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PSTR, #[in] #[out] pcchName: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHEnumKeyExW(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PWSTR, #[in] #[out] pcchName: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHEnumValueA(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] pszValueName: PSTR, #[in] #[out] #[opt] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHEnumValueW(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] pszValueName: PWSTR, #[in] #[out] #[opt] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHFormatDateTimeA(pft: *const FILETIME, #[in] #[out] #[opt] pdwFlags: *mut u32, #[len_param(3)] #[out] pszBuf: PSTR, cchBuf: u32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHFormatDateTimeW(pft: *const FILETIME, #[in] #[out] #[opt] pdwFlags: *mut u32, #[len_param(3)] #[out] pszBuf: PWSTR, cchBuf: u32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHFreeShared(hData: HANDLE, dwProcessId: u32) -> BOOL;
+        #[repr(i32)]
+        enum SHGLOBALCOUNTER {
+            GLOBALCOUNTER_SEARCHMANAGER = 0,
+            GLOBALCOUNTER_SEARCHOPTIONS = 1,
+            GLOBALCOUNTER_FOLDERSETTINGSCHANGE = 2,
+            GLOBALCOUNTER_RATINGS = 3,
+            GLOBALCOUNTER_APPROVEDSITES = 4,
+            GLOBALCOUNTER_RESTRICTIONS = 5,
+            GLOBALCOUNTER_SHELLSETTINGSCHANGED = 6,
+            GLOBALCOUNTER_SYSTEMPIDLCHANGE = 7,
+            GLOBALCOUNTER_OVERLAYMANAGER = 8,
+            GLOBALCOUNTER_QUERYASSOCIATIONS = 9,
+            GLOBALCOUNTER_IESESSIONS = 10,
+            GLOBALCOUNTER_IEONLY_SESSIONS = 11,
+            GLOBALCOUNTER_APPLICATION_DESTINATIONS = 12,
+            __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_CSCSYNCINPROGRESS = 13,
+            GLOBALCOUNTER_BITBUCKETNUMDELETERS = 14,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_SHARES = 15,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_A = 16,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_B = 17,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_C = 18,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_D = 19,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_E = 20,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_F = 21,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_G = 22,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_H = 23,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_I = 24,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_J = 25,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_K = 26,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_L = 27,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_M = 28,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_N = 29,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_O = 30,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_P = 31,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_Q = 32,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_R = 33,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_S = 34,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_T = 35,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_U = 36,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_V = 37,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_W = 38,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_X = 39,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_Y = 40,
+            GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_Z = 41,
+            __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEDIRTYCOUNT_SERVERDRIVE = 42,
+            __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEGLOBALDIRTYCOUNT = 43,
+            GLOBALCOUNTER_RECYCLEBINENUM = 44,
+            GLOBALCOUNTER_RECYCLEBINCORRUPTED = 45,
+            GLOBALCOUNTER_RATINGS_STATECOUNTER = 46,
+            GLOBALCOUNTER_PRIVATE_PROFILE_CACHE = 47,
+            GLOBALCOUNTER_INTERNETTOOLBAR_LAYOUT = 48,
+            GLOBALCOUNTER_FOLDERDEFINITION_CACHE = 49,
+            GLOBALCOUNTER_COMMONPLACES_LIST_CACHE = 50,
+            GLOBALCOUNTER_PRIVATE_PROFILE_CACHE_MACHINEWIDE = 51,
+            GLOBALCOUNTER_ASSOCCHANGED = 52,
+            GLOBALCOUNTER_APP_ITEMS_STATE_STORE_CACHE = 53,
+            GLOBALCOUNTER_SETTINGSYNC_ENABLED = 54,
+            GLOBALCOUNTER_APPSFOLDER_FILETYPEASSOCIATION_COUNTER = 55,
+            GLOBALCOUNTER_USERINFOCHANGED = 56,
+            GLOBALCOUNTER_SYNC_ENGINE_INFORMATION_CACHE_MACHINEWIDE = 57,
+            GLOBALCOUNTER_BANNERS_DATAMODEL_CACHE_MACHINEWIDE = 58,
+            GLOBALCOUNTER_MAXIMUMVALUE = 59,
+        }
+        const SHGVSPB_ALLFOLDERS: u32 = 8;
+        const SHGVSPB_ALLUSERS: u32 = 2;
+        const SHGVSPB_FOLDER: u32 = 5;
+        const SHGVSPB_FOLDERNODEFAULTS: i32 = -2147483643;
+        const SHGVSPB_GLOBALDEFAULTS: u32 = 10;
+        const SHGVSPB_INHERIT: u32 = 16;
+        const SHGVSPB_NOAUTODEFAULTS: u32 = 2147483648;
+        const SHGVSPB_PERFOLDER: u32 = 4;
+        const SHGVSPB_PERUSER: u32 = 1;
+        const SHGVSPB_ROAM: u32 = 32;
+        const SHGVSPB_USERDEFAULTS: u32 = 9;
+        #[library("SHLWAPI.dll")]
+        extern fn SHGetInverseCMAP(#[size_param(1)] pbMap: *mut u8, cbMap: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHGetThreadRef(ppunk: *mut IUnknown) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHGetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHGetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHGetViewStatePropertyBag(#[opt] pidl: *const ITEMIDLIST, #[opt] pszBagName: PCWSTR, dwFlags: u32, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHGlobalCounterDecrement(id: SHGLOBALCOUNTER) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHGlobalCounterGetValue(id: SHGLOBALCOUNTER) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHGlobalCounterIncrement(id: SHGLOBALCOUNTER) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHIsLowMemoryMachine(dwType: u32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn SHLoadIndirectString(pszSource: PCWSTR, #[len_param(2)] #[out] pszOutBuf: PWSTR, cchOutBuf: u32, #[reserved] ppvReserved: *const *const void) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHLockShared(hData: HANDLE, dwProcessId: u32) -> *mut void;
+        #[library("SHLWAPI.dll")]
+        extern fn SHMessageBoxCheckA(#[opt] hwnd: HWND, pszText: PCSTR, pszCaption: PCSTR, uType: u32, iDefault: i32, pszRegVal: PCSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHMessageBoxCheckW(#[opt] hwnd: HWND, pszText: PCWSTR, pszCaption: PCWSTR, uType: u32, iDefault: i32, pszRegVal: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHOpenRegStream2A(hkey: HKEY, #[opt] pszSubkey: PCSTR, #[opt] pszValue: PCSTR, grfMode: u32) -> IStream;
+        #[library("SHLWAPI.dll")]
+        extern fn SHOpenRegStream2W(hkey: HKEY, #[opt] pszSubkey: PCWSTR, #[opt] pszValue: PCWSTR, grfMode: u32) -> IStream;
+        #[library("SHLWAPI.dll")]
+        extern fn SHOpenRegStreamA(hkey: HKEY, #[opt] pszSubkey: PCSTR, #[opt] pszValue: PCSTR, grfMode: u32) -> IStream;
+        #[library("SHLWAPI.dll")]
+        extern fn SHOpenRegStreamW(hkey: HKEY, #[opt] pszSubkey: PCWSTR, #[opt] pszValue: PCWSTR, grfMode: u32) -> IStream;
+        #[library("SHLWAPI.dll")]
+        extern fn SHQueryInfoKeyA(hkey: HKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHQueryInfoKeyW(hkey: HKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHQueryValueExA(hkey: HKEY, #[opt] pszValue: PCSTR, #[reserved] pdwReserved: *const u32, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHQueryValueExW(hkey: HKEY, #[opt] pszValue: PCWSTR, #[reserved] pdwReserved: *const u32, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        #[repr(i32)]
+        enum SHREGDEL_FLAGS {
+            SHREGDEL_DEFAULT = 0,
+            SHREGDEL_HKCU = 1,
+            SHREGDEL_HKLM = 16,
+            SHREGDEL_BOTH = 17,
+        }
+        #[repr(i32)]
+        enum SHREGENUM_FLAGS {
+            SHREGENUM_DEFAULT = 0,
+            SHREGENUM_HKCU = 1,
+            SHREGENUM_HKLM = 16,
+            SHREGENUM_BOTH = 17,
+        }
+        const SHREGSET_DEFAULT: u32 = 6;
+        const SHREGSET_FORCE_HKCU: u32 = 2;
+        const SHREGSET_FORCE_HKLM: u32 = 8;
+        const SHREGSET_HKCU: u32 = 1;
+        const SHREGSET_HKLM: u32 = 4;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegCloseUSKey(hUSKey: HUSKEY) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegCreateUSKeyA(pszPath: PCSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, dwFlags: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegCreateUSKeyW(pwzPath: PCWSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, dwFlags: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegDeleteEmptyUSKeyA(hUSKey: HUSKEY, pszSubKey: PCSTR, delRegFlags: SHREGDEL_FLAGS) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegDeleteEmptyUSKeyW(hUSKey: HUSKEY, pwzSubKey: PCWSTR, delRegFlags: SHREGDEL_FLAGS) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegDeleteUSValueA(hUSKey: HUSKEY, pszValue: PCSTR, delRegFlags: SHREGDEL_FLAGS) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegDeleteUSValueW(hUSKey: HUSKEY, pwzValue: PCWSTR, delRegFlags: SHREGDEL_FLAGS) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegDuplicateHKey(hkey: HKEY) -> HKEY;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegEnumUSKeyA(hUSKey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PSTR, #[in] #[out] pcchName: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegEnumUSKeyW(hUSKey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pwzName: PWSTR, #[in] #[out] pcchName: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegEnumUSValueA(hUSkey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszValueName: PSTR, #[in] #[out] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegEnumUSValueW(hUSkey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszValueName: PWSTR, #[in] #[out] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegGetBoolUSValueA(pszSubKey: PCSTR, #[opt] pszValue: PCSTR, fIgnoreHKCU: BOOL, fDefault: BOOL) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegGetBoolUSValueW(pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, fIgnoreHKCU: BOOL, fDefault: BOOL) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegGetIntW(hk: HKEY, #[opt] pwzKey: PCWSTR, iDefault: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegGetPathA(hKey: HKEY, #[opt] pcszSubKey: PCSTR, #[opt] pcszValue: PCSTR, #[out] pszPath: PSTR, dwFlags: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegGetPathW(hKey: HKEY, #[opt] pcszSubKey: PCWSTR, #[opt] pcszValue: PCWSTR, #[out] pszPath: PWSTR, dwFlags: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegGetUSValueA(pszSubKey: PCSTR, #[opt] pszValue: PCSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, dwDefaultDataSize: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegGetUSValueW(pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, dwDefaultDataSize: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegGetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegGetValueFromHKCUHKLM(pwszKey: PCWSTR, #[opt] pwszValue: PCWSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegGetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegOpenUSKeyA(pszPath: PCSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, fIgnoreHKCU: BOOL) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegOpenUSKeyW(pwzPath: PCWSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, fIgnoreHKCU: BOOL) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegQueryInfoUSKeyA(hUSKey: HUSKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegQueryInfoUSKeyW(hUSKey: HUSKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegQueryUSValueA(hUSKey: HUSKEY, #[opt] pszValue: PCSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, #[opt] dwDefaultDataSize: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegQueryUSValueW(hUSKey: HUSKEY, #[opt] pszValue: PCWSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, #[opt] dwDefaultDataSize: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegSetPathA(hKey: HKEY, #[opt] pcszSubKey: PCSTR, #[opt] pcszValue: PCSTR, pcszPath: PCSTR, dwFlags: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegSetPathW(hKey: HKEY, #[opt] pcszSubKey: PCWSTR, #[opt] pcszValue: PCWSTR, pcszPath: PCWSTR, dwFlags: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegSetUSValueA(pszSubKey: PCSTR, pszValue: PCSTR, dwType: u32, #[size_param(4)] #[opt] pvData: *const void, #[opt] cbData: u32, #[opt] dwFlags: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegSetUSValueW(pwzSubKey: PCWSTR, pwzValue: PCWSTR, dwType: u32, #[size_param(4)] #[opt] pvData: *const void, #[opt] cbData: u32, #[opt] dwFlags: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegWriteUSValueA(hUSKey: HUSKEY, pszValue: PCSTR, dwType: u32, #[size_param(4)] pvData: *const void, cbData: u32, dwFlags: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHRegWriteUSValueW(hUSKey: HUSKEY, pwzValue: PCWSTR, dwType: u32, #[size_param(4)] pvData: *const void, cbData: u32, dwFlags: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHReleaseThreadRef() -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHSendMessageBroadcastA(uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHSendMessageBroadcastW(uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHSetThreadRef(#[opt] punk: IUnknown) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHSetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, dwType: u32, #[size_param(5)] #[opt] pvData: *const void, cbData: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHSetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, dwType: u32, #[size_param(5)] #[opt] pvData: *const void, cbData: u32) -> WIN32_ERROR;
+        #[library("SHLWAPI.dll")]
+        extern fn SHSkipJunction(#[opt] pbc: IBindCtx, pclsid: *const GUID) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn SHStrDupA(psz: PCSTR, ppwsz: *mut PWSTR) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHStrDupW(psz: PCWSTR, ppwsz: *mut PWSTR) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn SHStripMneumonicA(#[in] #[out] pszMenu: PSTR) -> i8;
+        #[library("SHLWAPI.dll")]
+        extern fn SHStripMneumonicW(#[in] #[out] pszMenu: PWSTR) -> u16;
+        #[library("SHLWAPI.dll")]
+        extern fn SHUnicodeToAnsi(pwszSrc: PCWSTR, #[len_param(2)] #[out] pszDst: PSTR, cchBuf: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHUnicodeToUnicode(pwzSrc: PCWSTR, #[len_param(2)] #[out] pwzDst: PWSTR, cwchBuf: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn SHUnlockShared(pvData: *const void) -> BOOL;
+        type SRRF = i32;
+        const SRRF_NOEXPAND: u32 = 268435456;
+        const SRRF_NOVIRT: u32 = 1073741824;
+        const SRRF_RM_ANY: u32 = 0;
+        const SRRF_RM_NORMAL: u32 = 65536;
+        const SRRF_RM_SAFE: u32 = 131072;
+        const SRRF_RM_SAFENETWORK: u32 = 262144;
+        const SRRF_RT_ANY: u32 = 65535;
+        const SRRF_RT_DWORD: u32 = 24;
+        const SRRF_RT_QWORD: u32 = 72;
+        const SRRF_RT_REG_BINARY: u32 = 8;
+        const SRRF_RT_REG_DWORD: u32 = 16;
+        const SRRF_RT_REG_EXPAND_SZ: u32 = 4;
+        const SRRF_RT_REG_MULTI_SZ: u32 = 32;
+        const SRRF_RT_REG_NONE: u32 = 1;
+        const SRRF_RT_REG_QWORD: u32 = 64;
+        const SRRF_RT_REG_SZ: u32 = 2;
+        const SRRF_ZEROONFAILURE: u32 = 536870912;
+        const STIF_DEFAULT: u32 = 0;
+        type STIF_FLAGS = i32;
+        const STIF_SUPPORT_HEX: u32 = 1;
+        #[encoding("ansi")]
+        const SZ_CONTENTTYPE_CDFA: String = "application/x-cdf";
+        #[encoding("utf-16")]
+        const SZ_CONTENTTYPE_CDFW: String = "application/x-cdf";
+        #[encoding("ansi")]
+        const SZ_CONTENTTYPE_HTMLA: String = "text/html";
+        #[encoding("utf-16")]
+        const SZ_CONTENTTYPE_HTMLW: String = "text/html";
+        #[library("SHLWAPI.dll")]
+        extern fn StrCSpnA(pszStr: PCSTR, pszSet: PCSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCSpnIA(pszStr: PCSTR, pszSet: PCSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCSpnIW(pszStr: PCWSTR, pszSet: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCSpnW(pszStr: PCWSTR, pszSet: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCatBuffA(#[len_param(2)] #[in] #[out] pszDest: PSTR, pszSrc: PCSTR, cchDestBuffSize: i32) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCatBuffW(#[len_param(2)] #[in] #[out] pszDest: PWSTR, pszSrc: PCWSTR, cchDestBuffSize: i32) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCatChainW(#[len_param(1)] #[out] pszDst: PWSTR, cchDst: u32, ichAt: u32, pszSrc: PCWSTR) -> u32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCatW(#[in] #[out] psz1: PWSTR, psz2: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrChrA(pszStart: PCSTR, wMatch: u16) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrChrIA(pszStart: PCSTR, wMatch: u16) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrChrIW(pszStart: PCWSTR, wMatch: u16) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrChrNIW(pszStart: PCWSTR, wMatch: u16, cchMax: u32) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrChrNW(pszStart: PCWSTR, wMatch: u16, cchMax: u32) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrChrW(pszStart: PCWSTR, wMatch: u16) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpCA(pszStr1: PCSTR, pszStr2: PCSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpCW(pszStr1: PCWSTR, pszStr2: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpICA(pszStr1: PCSTR, pszStr2: PCSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpICW(pszStr1: PCWSTR, pszStr2: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpIW(psz1: PCWSTR, psz2: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpLogicalW(psz1: PCWSTR, psz2: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpNA(psz1: PCSTR, psz2: PCSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpNCA(pszStr1: PCSTR, pszStr2: PCSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpNCW(pszStr1: PCWSTR, pszStr2: PCWSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpNIA(psz1: PCSTR, psz2: PCSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpNICA(pszStr1: PCSTR, pszStr2: PCSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpNICW(pszStr1: PCWSTR, pszStr2: PCWSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpNIW(psz1: PCWSTR, psz2: PCWSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpNW(psz1: PCWSTR, psz2: PCWSTR, nChar: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCmpW(psz1: PCWSTR, psz2: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCpyNW(#[len_param(2)] #[out] pszDst: PWSTR, pszSrc: PCWSTR, cchMax: i32) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrCpyW(#[out] psz1: PWSTR, psz2: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrDupA(pszSrch: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrDupW(pszSrch: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrFormatByteSize64A(qdw: i64, #[len_param(2)] #[out] pszBuf: PSTR, cchBuf: u32) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrFormatByteSizeA(dw: u32, #[len_param(2)] #[out] pszBuf: PSTR, cchBuf: u32) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrFormatByteSizeEx(ull: u64, flags: SFBS_FLAGS, #[len_param(3)] #[out] pszBuf: PWSTR, cchBuf: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn StrFormatByteSizeW(qdw: i64, #[len_param(2)] #[out] pszBuf: PWSTR, cchBuf: u32) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrFormatKBSizeA(qdw: i64, #[len_param(2)] #[out] pszBuf: PSTR, cchBuf: u32) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrFormatKBSizeW(qdw: i64, #[len_param(2)] #[out] pszBuf: PWSTR, cchBuf: u32) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrFromTimeIntervalA(#[len_param(1)] #[out] pszOut: PSTR, cchMax: u32, dwTimeMS: u32, digits: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrFromTimeIntervalW(#[len_param(1)] #[out] pszOut: PWSTR, cchMax: u32, dwTimeMS: u32, digits: i32) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrIsIntlEqualA(fCaseSens: BOOL, pszString1: PCSTR, pszString2: PCSTR, nChar: i32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn StrIsIntlEqualW(fCaseSens: BOOL, pszString1: PCWSTR, pszString2: PCWSTR, nChar: i32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn StrNCatA(#[len_param(2)] #[in] #[out] psz1: PSTR, psz2: PCSTR, cchMax: i32) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrNCatW(#[len_param(2)] #[in] #[out] psz1: PWSTR, psz2: PCWSTR, cchMax: i32) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrPBrkA(psz: PCSTR, pszSet: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrPBrkW(psz: PCWSTR, pszSet: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRChrA(pszStart: PCSTR, #[opt] pszEnd: PCSTR, wMatch: u16) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRChrIA(pszStart: PCSTR, #[opt] pszEnd: PCSTR, wMatch: u16) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRChrIW(pszStart: PCWSTR, #[opt] pszEnd: PCWSTR, wMatch: u16) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRChrW(pszStart: PCWSTR, #[opt] pszEnd: PCWSTR, wMatch: u16) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRStrIA(pszSource: PCSTR, #[opt] pszLast: PCSTR, pszSrch: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRStrIW(pszSource: PCWSTR, #[opt] pszLast: PCWSTR, pszSrch: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRetToBSTR(#[in] #[out] pstr: *mut STRRET, #[opt] pidl: *const ITEMIDLIST, pbstr: *mut BSTR) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRetToBufA(#[in] #[out] pstr: *mut STRRET, #[opt] pidl: *const ITEMIDLIST, #[len_param(3)] #[out] pszBuf: PSTR, cchBuf: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRetToBufW(#[in] #[out] pstr: *mut STRRET, #[opt] pidl: *const ITEMIDLIST, #[len_param(3)] #[out] pszBuf: PWSTR, cchBuf: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRetToStrA(#[in] #[out] pstr: *mut STRRET, #[opt] pidl: *const ITEMIDLIST, ppsz: *mut PSTR) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn StrRetToStrW(#[in] #[out] pstr: *mut STRRET, #[opt] pidl: *const ITEMIDLIST, ppsz: *mut PWSTR) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn StrSpnA(psz: PCSTR, pszSet: PCSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrSpnW(psz: PCWSTR, pszSet: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrStrA(pszFirst: PCSTR, pszSrch: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrStrIA(pszFirst: PCSTR, pszSrch: PCSTR) -> PSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrStrIW(pszFirst: PCWSTR, pszSrch: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrStrNIW(pszFirst: PCWSTR, pszSrch: PCWSTR, cchMax: u32) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrStrNW(pszFirst: PCWSTR, pszSrch: PCWSTR, cchMax: u32) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrStrW(pszFirst: PCWSTR, pszSrch: PCWSTR) -> PWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn StrToInt64ExA(pszString: PCSTR, dwFlags: STIF_FLAGS, pllRet: *mut i64) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn StrToInt64ExW(pszString: PCWSTR, dwFlags: STIF_FLAGS, pllRet: *mut i64) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn StrToIntA(pszSrc: PCSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrToIntExA(pszString: PCSTR, dwFlags: STIF_FLAGS, piRet: *mut i32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn StrToIntExW(pszString: PCWSTR, dwFlags: STIF_FLAGS, piRet: *mut i32) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn StrToIntW(pszSrc: PCWSTR) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn StrTrimA(#[in] #[out] psz: PSTR, pszTrimChars: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn StrTrimW(#[in] #[out] psz: PWSTR, pszTrimChars: PCWSTR) -> BOOL;
+        #[repr(i32)]
+        enum URLIS {
+            URLIS_URL = 0,
+            URLIS_OPAQUE = 1,
+            URLIS_NOHISTORY = 2,
+            URLIS_FILEURL = 3,
+            URLIS_APPLIABLE = 4,
+            URLIS_DIRECTORY = 5,
+            URLIS_HASQUERY = 6,
+        }
+        const URL_APPLY_DEFAULT: u32 = 1;
+        const URL_APPLY_FORCEAPPLY: u32 = 8;
+        const URL_APPLY_GUESSFILE: u32 = 4;
+        const URL_APPLY_GUESSSCHEME: u32 = 2;
+        const URL_BROWSER_MODE: u32 = 33554432;
+        const URL_CONVERT_IF_DOSPATH: u32 = 2097152;
+        const URL_DONT_ESCAPE_EXTRA_INFO: u32 = 33554432;
+        const URL_DONT_SIMPLIFY: u32 = 134217728;
+        const URL_DONT_UNESCAPE: u32 = 131072;
+        const URL_DONT_UNESCAPE_EXTRA_INFO: u32 = 33554432;
+        const URL_ESCAPE_ASCII_URI_COMPONENT: u32 = 524288;
+        const URL_ESCAPE_AS_UTF8: u32 = 262144;
+        const URL_ESCAPE_PERCENT: u32 = 4096;
+        const URL_ESCAPE_SEGMENT_ONLY: u32 = 8192;
+        const URL_ESCAPE_SPACES_ONLY: u32 = 67108864;
+        const URL_ESCAPE_UNSAFE: u32 = 536870912;
+        const URL_ESCAPE_URI_COMPONENT: u32 = 786432;
+        const URL_FILE_USE_PATHURL: u32 = 65536;
+        const URL_INTERNAL_PATH: u32 = 8388608;
+        const URL_NO_META: u32 = 134217728;
+        #[repr(i32)]
+        enum URL_PART {
+            URL_PART_NONE = 0,
+            URL_PART_SCHEME = 1,
+            URL_PART_HOSTNAME = 2,
+            URL_PART_USERNAME = 3,
+            URL_PART_PASSWORD = 4,
+            URL_PART_PORT = 5,
+            URL_PART_QUERY = 6,
+        }
+        const URL_PARTFLAG_KEEPSCHEME: u32 = 1;
+        const URL_PLUGGABLE_PROTOCOL: u32 = 1073741824;
+        #[repr(i32)]
+        enum URL_SCHEME {
+            URL_SCHEME_INVALID = -1,
+            URL_SCHEME_UNKNOWN = 0,
+            URL_SCHEME_FTP = 1,
+            URL_SCHEME_HTTP = 2,
+            URL_SCHEME_GOPHER = 3,
+            URL_SCHEME_MAILTO = 4,
+            URL_SCHEME_NEWS = 5,
+            URL_SCHEME_NNTP = 6,
+            URL_SCHEME_TELNET = 7,
+            URL_SCHEME_WAIS = 8,
+            URL_SCHEME_FILE = 9,
+            URL_SCHEME_MK = 10,
+            URL_SCHEME_HTTPS = 11,
+            URL_SCHEME_SHELL = 12,
+            URL_SCHEME_SNEWS = 13,
+            URL_SCHEME_LOCAL = 14,
+            URL_SCHEME_JAVASCRIPT = 15,
+            URL_SCHEME_VBSCRIPT = 16,
+            URL_SCHEME_ABOUT = 17,
+            URL_SCHEME_RES = 18,
+            URL_SCHEME_MSSHELLROOTED = 19,
+            URL_SCHEME_MSSHELLIDLIST = 20,
+            URL_SCHEME_MSHELP = 21,
+            URL_SCHEME_MSSHELLDEVICE = 22,
+            URL_SCHEME_WILDCARD = 23,
+            URL_SCHEME_SEARCH_MS = 24,
+            URL_SCHEME_SEARCH = 25,
+            URL_SCHEME_KNOWNFOLDER = 26,
+            URL_SCHEME_MAXVALUE = 27,
+        }
+        const URL_UNESCAPE: u32 = 268435456;
+        const URL_UNESCAPE_AS_UTF8: u32 = 262144;
+        const URL_UNESCAPE_HIGH_ANSI_ONLY: u32 = 4194304;
+        const URL_UNESCAPE_INPLACE: u32 = 1048576;
+        const URL_UNESCAPE_URI_COMPONENT: u32 = 262144;
+        const URL_WININET_COMPATIBILITY: u32 = 2147483648;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlApplySchemeA(pszIn: PCSTR, #[len_param(2)] #[out] pszOut: PSTR, #[in] #[out] pcchOut: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlApplySchemeW(pszIn: PCWSTR, #[len_param(2)] #[out] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlCanonicalizeA(pszUrl: PCSTR, #[len_param(2)] #[out] pszCanonicalized: PSTR, #[in] #[out] pcchCanonicalized: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlCanonicalizeW(pszUrl: PCWSTR, #[len_param(2)] #[out] pszCanonicalized: PWSTR, #[in] #[out] pcchCanonicalized: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlCombineA(pszBase: PCSTR, pszRelative: PCSTR, #[len_param(3)] #[out] #[opt] pszCombined: PSTR, #[in] #[out] pcchCombined: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlCombineW(pszBase: PCWSTR, pszRelative: PCWSTR, #[len_param(3)] #[out] #[opt] pszCombined: PWSTR, #[in] #[out] pcchCombined: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlCompareA(psz1: PCSTR, psz2: PCSTR, fIgnoreSlash: BOOL) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlCompareW(psz1: PCWSTR, psz2: PCWSTR, fIgnoreSlash: BOOL) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlCreateFromPathA(pszPath: PCSTR, #[len_param(2)] #[out] pszUrl: PSTR, #[in] #[out] pcchUrl: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlCreateFromPathW(pszPath: PCWSTR, #[len_param(2)] #[out] pszUrl: PWSTR, #[in] #[out] pcchUrl: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlEscapeA(pszUrl: PCSTR, #[len_param(2)] #[out] pszEscaped: PSTR, #[in] #[out] pcchEscaped: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlEscapeW(pszUrl: PCWSTR, #[len_param(2)] #[out] pszEscaped: PWSTR, #[in] #[out] pcchEscaped: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlFixupW(pcszUrl: PCWSTR, #[len_param(2)] #[out] pszTranslatedUrl: PWSTR, cchMax: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlGetLocationA(pszURL: PCSTR) -> PCSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlGetLocationW(pszURL: PCWSTR) -> PCWSTR;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlGetPartA(pszIn: PCSTR, #[len_param(2)] #[out] pszOut: PSTR, #[in] #[out] pcchOut: *mut u32, dwPart: u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlGetPartW(pszIn: PCWSTR, #[len_param(2)] #[out] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32, dwPart: u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlHashA(pszUrl: PCSTR, #[size_param(2)] pbHash: *mut u8, cbHash: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlHashW(pszUrl: PCWSTR, #[size_param(2)] pbHash: *mut u8, cbHash: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlIsA(pszUrl: PCSTR, UrlIs: URLIS) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlIsNoHistoryA(pszURL: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlIsNoHistoryW(pszURL: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlIsOpaqueA(pszURL: PCSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlIsOpaqueW(pszURL: PCWSTR) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlIsW(pszUrl: PCWSTR, UrlIs: URLIS) -> BOOL;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlUnescapeA(#[in] #[out] pszUrl: PSTR, #[len_param(2)] #[out] #[opt] pszUnescaped: PSTR, #[in] #[out] #[opt] pcchUnescaped: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn UrlUnescapeW(#[in] #[out] pszUrl: PWSTR, #[len_param(2)] #[out] #[opt] pszUnescaped: PWSTR, #[in] #[out] #[opt] pcchUnescaped: *mut u32, dwFlags: u32) -> HRESULT;
+        #[library("SHLWAPI.dll")]
+        extern fn WhichPlatform() -> u32;
+        #[repr(i32)]
+        enum tagSFBS_FLAGS {
+            SFBS_FLAGS_ROUND_TO_NEAREST_DISPLAYED_DIGIT = 1,
+            SFBS_FLAGS_TRUNCATE_UNDISPLAYED_DECIMAL_DIGITS = 2,
+        }
+        #[library("SHLWAPI.dll")]
+        extern "C" fn wnsprintfA(#[len_param(1)] #[out] pszDest: PSTR, cchDest: i32, pszFmt: PCSTR, ...) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern "C" fn wnsprintfW(#[len_param(1)] #[out] pszDest: PWSTR, cchDest: i32, pszFmt: PCWSTR, ...) -> i32;
+        #[arch(X64)]
+        #[library("SHLWAPI.dll")]
+        extern fn wvnsprintfA(#[len_param(1)] #[out] pszDest: PSTR, cchDest: i32, pszFmt: PCSTR, arglist: *const i8) -> i32;
+        #[arch(X86 | Arm64)]
+        #[library("SHLWAPI.dll")]
+        extern fn wvnsprintfA(#[len_param(1)] #[out] pszDest: PSTR, cchDest: i32, pszFmt: PCSTR, arglist: va_list) -> i32;
+        #[arch(X64)]
+        #[library("SHLWAPI.dll")]
+        extern fn wvnsprintfW(#[len_param(1)] #[out] pszDest: PWSTR, cchDest: i32, pszFmt: PCWSTR, arglist: *const i8) -> i32;
+        #[arch(X86 | Arm64)]
+        #[library("SHLWAPI.dll")]
+        extern fn wvnsprintfW(#[len_param(1)] #[out] pszDest: PWSTR, cchDest: i32, pszFmt: PCWSTR, arglist: va_list) -> i32;
+    }
+}

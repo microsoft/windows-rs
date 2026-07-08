@@ -1,0 +1,1694 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ADDURL_SILENT: u32 = 1;
+        const AD_APPLY_ALL: u32 = 7;
+        const AD_APPLY_BUFFERED_REFRESH: u32 = 16;
+        const AD_APPLY_DYNAMICREFRESH: u32 = 32;
+        const AD_APPLY_FORCE: u32 = 8;
+        const AD_APPLY_HTMLGEN: u32 = 2;
+        const AD_APPLY_REFRESH: u32 = 4;
+        const AD_APPLY_SAVE: u32 = 1;
+        const AD_GETWP_BMP: u32 = 0;
+        const AD_GETWP_IMAGE: u32 = 1;
+        const AD_GETWP_LAST_APPLIED: u32 = 2;
+        #[repr(i32)]
+        enum AUTOCOMPLETELISTOPTIONS {
+            ACLO_NONE = 0,
+            ACLO_CURRENTDIR = 1,
+            ACLO_MYCOMPUTER = 2,
+            ACLO_DESKTOP = 4,
+            ACLO_FAVORITES = 8,
+            ACLO_FILESYSONLY = 16,
+            ACLO_FILESYSDIRS = 32,
+            ACLO_VIRTUALNAMESPACE = 64,
+        }
+        #[packed(1)]
+        struct AUTO_SCROLL_DATA {
+            iNextSample: i32,
+            dwLastScroll: u32,
+            bFull: BOOL,
+            pts: [POINT; 3],
+            dwTimes: [u32; 3],
+        }
+        #[library("SHELL32.dll")]
+        extern fn AssocGetDetailsOfPropKey(psf: IShellFolder, pidl: *const ITEMIDLIST, pkey: *const PROPERTYKEY, pv: *mut VARIANT, #[opt] pfFoundPropKey: *mut BOOL) -> HRESULT;
+        extern fn BFFCALLBACK(hwnd: HWND, uMsg: u32, lParam: LPARAM, lpData: LPARAM) -> i32;
+        const BFFM_ENABLEOK: u32 = 1125;
+        const BFFM_INITIALIZED: u32 = 1;
+        const BFFM_IUNKNOWN: u32 = 5;
+        const BFFM_SELCHANGED: u32 = 2;
+        const BFFM_SETEXPANDED: u32 = 1130;
+        const BFFM_SETOKTEXT: u32 = 1129;
+        const BFFM_SETSELECTION: u32 = 1126;
+        const BFFM_SETSELECTIONA: u32 = 1126;
+        const BFFM_SETSELECTIONW: u32 = 1127;
+        const BFFM_SETSTATUSTEXT: u32 = 1124;
+        const BFFM_SETSTATUSTEXTA: u32 = 1124;
+        const BFFM_SETSTATUSTEXTW: u32 = 1128;
+        const BFFM_VALIDATEFAILED: u32 = 3;
+        const BFFM_VALIDATEFAILEDA: u32 = 3;
+        const BFFM_VALIDATEFAILEDW: u32 = 4;
+        const BIF_BROWSEFILEJUNCTIONS: u32 = 65536;
+        const BIF_BROWSEFORCOMPUTER: u32 = 4096;
+        const BIF_BROWSEFORPRINTER: u32 = 8192;
+        const BIF_BROWSEINCLUDEFILES: u32 = 16384;
+        const BIF_BROWSEINCLUDEURLS: u32 = 128;
+        const BIF_DONTGOBELOWDOMAIN: u32 = 2;
+        const BIF_EDITBOX: u32 = 16;
+        const BIF_NEWDIALOGSTYLE: u32 = 64;
+        const BIF_NONEWFOLDERBUTTON: u32 = 512;
+        const BIF_NOTRANSLATETARGETS: u32 = 1024;
+        const BIF_RETURNFSANCESTORS: u32 = 8;
+        const BIF_RETURNONLYFSDIRS: u32 = 1;
+        const BIF_SHAREABLE: u32 = 32768;
+        const BIF_STATUSTEXT: u32 = 4;
+        const BIF_UAHINT: u32 = 256;
+        const BIF_USENEWUI: u32 = 80;
+        const BIF_VALIDATE: u32 = 32;
+        struct BROWSEINFOA {
+            hwndOwner: HWND,
+            pidlRoot: LPCITEMIDLIST,
+            pszDisplayName: PSTR,
+            lpszTitle: PCSTR,
+            ulFlags: u32,
+            lpfn: BFFCALLBACK,
+            lParam: LPARAM,
+            iImage: i32,
+        }
+        struct BROWSEINFOW {
+            hwndOwner: HWND,
+            pidlRoot: LPCITEMIDLIST,
+            pszDisplayName: PWSTR,
+            lpszTitle: PCWSTR,
+            ulFlags: u32,
+            lpfn: BFFCALLBACK,
+            lParam: LPARAM,
+            iImage: i32,
+        }
+        #[packed(1)]
+        struct CABINETSTATE {
+            cLength: u16,
+            nVersion: u16,
+            _bitfield: BOOL,
+            fMenuEnumFilter: u32,
+        }
+        const CABINETSTATE_VERSION: u32 = 2;
+        #[library("SHELL32.dll")]
+        extern fn CDefFolderMenu_Create2(#[opt] pidlFolder: *const ITEMIDLIST, #[opt] hwnd: HWND, cidl: u32, #[len_param(2)] #[opt] apidl: *const LPCITEMIDLIST, #[opt] psf: IShellFolder, #[opt] pfn: LPFNDFMCALLBACK, nKeys: u32, #[len_param(6)] #[opt] ahkeys: *const HKEY, ppcm: *mut IContextMenu) -> HRESULT;
+        #[packed(1)]
+        struct CIDA {
+            cidl: u32,
+            aoffset: [u32; 1],
+        }
+        #[library("SHELL32.dll")]
+        extern fn CIDLData_CreateFromIDArray(pidlFolder: *const ITEMIDLIST, cidl: u32, #[len_param(1)] #[opt] apidl: *const LPCITEMIDLIST, ppdtobj: *mut IDataObject) -> HRESULT;
+        const CMDID_INTSHORTCUTCREATE: u32 = 1;
+        #[packed(1)]
+        struct COMPONENT {
+            dwSize: u32,
+            dwID: u32,
+            iComponentType: i32,
+            fChecked: BOOL,
+            fDirty: BOOL,
+            fNoScroll: BOOL,
+            cpPos: COMPPOS,
+            wszFriendlyName: [u16; 260],
+            wszSource: [u16; 2084],
+            wszSubscribedURL: [u16; 2084],
+            dwCurItemState: u32,
+            csiOriginal: COMPSTATEINFO,
+            csiRestored: COMPSTATEINFO,
+        }
+        #[packed(1)]
+        struct COMPONENTSOPT {
+            dwSize: u32,
+            fEnableComponents: BOOL,
+            fActiveDesktop: BOOL,
+        }
+        const COMPONENT_DEFAULT_LEFT: u32 = 65535;
+        const COMPONENT_DEFAULT_TOP: u32 = 65535;
+        const COMPONENT_TOP: u32 = 1073741823;
+        #[packed(1)]
+        struct COMPPOS {
+            dwSize: u32,
+            iLeft: i32,
+            iTop: i32,
+            dwWidth: u32,
+            dwHeight: u32,
+            izIndex: i32,
+            fCanResize: BOOL,
+            fCanResizeX: BOOL,
+            fCanResizeY: BOOL,
+            iPreferredLeftPercent: i32,
+            iPreferredTopPercent: i32,
+        }
+        #[packed(1)]
+        struct COMPSTATEINFO {
+            dwSize: u32,
+            iLeft: i32,
+            iTop: i32,
+            dwWidth: u32,
+            dwHeight: u32,
+            dwItemState: u32,
+        }
+        const COMP_ELEM_ALL: u32 = 32767;
+        const COMP_ELEM_CHECKED: u32 = 2;
+        const COMP_ELEM_CURITEMSTATE: u32 = 16384;
+        const COMP_ELEM_DIRTY: u32 = 4;
+        const COMP_ELEM_FRIENDLYNAME: u32 = 1024;
+        const COMP_ELEM_NOSCROLL: u32 = 8;
+        const COMP_ELEM_ORIGINAL_CSI: u32 = 4096;
+        const COMP_ELEM_POS_LEFT: u32 = 16;
+        const COMP_ELEM_POS_TOP: u32 = 32;
+        const COMP_ELEM_POS_ZINDEX: u32 = 256;
+        const COMP_ELEM_RESTORED_CSI: u32 = 8192;
+        const COMP_ELEM_SIZE_HEIGHT: u32 = 128;
+        const COMP_ELEM_SIZE_WIDTH: u32 = 64;
+        const COMP_ELEM_SOURCE: u32 = 512;
+        const COMP_ELEM_SUBSCRIBEDURL: u32 = 2048;
+        const COMP_ELEM_TYPE: u32 = 1;
+        const COMP_TYPE_CFHTML: u32 = 4;
+        const COMP_TYPE_CONTROL: u32 = 3;
+        const COMP_TYPE_HTMLDOC: u32 = 0;
+        const COMP_TYPE_MAX: u32 = 4;
+        const COMP_TYPE_PICTURE: u32 = 1;
+        const COMP_TYPE_WEBSITE: u32 = 2;
+        struct CSFV {
+            cbSize: u32,
+            pshf: IShellFolder,
+            psvOuter: IShellView,
+            pidl: LPCITEMIDLIST,
+            lEvents: i32,
+            pfnCallback: LPFNVIEWCALLBACK,
+            fvm: FOLDERVIEWMODE,
+        }
+        const CSIDL_ADMINTOOLS: u32 = 48;
+        const CSIDL_ALTSTARTUP: u32 = 29;
+        const CSIDL_APPDATA: u32 = 26;
+        const CSIDL_BITBUCKET: u32 = 10;
+        const CSIDL_CDBURN_AREA: u32 = 59;
+        const CSIDL_COMMON_ADMINTOOLS: u32 = 47;
+        const CSIDL_COMMON_ALTSTARTUP: u32 = 30;
+        const CSIDL_COMMON_APPDATA: u32 = 35;
+        const CSIDL_COMMON_DESKTOPDIRECTORY: u32 = 25;
+        const CSIDL_COMMON_DOCUMENTS: u32 = 46;
+        const CSIDL_COMMON_FAVORITES: u32 = 31;
+        const CSIDL_COMMON_MUSIC: u32 = 53;
+        const CSIDL_COMMON_OEM_LINKS: u32 = 58;
+        const CSIDL_COMMON_PICTURES: u32 = 54;
+        const CSIDL_COMMON_PROGRAMS: u32 = 23;
+        const CSIDL_COMMON_STARTMENU: u32 = 22;
+        const CSIDL_COMMON_STARTUP: u32 = 24;
+        const CSIDL_COMMON_TEMPLATES: u32 = 45;
+        const CSIDL_COMMON_VIDEO: u32 = 55;
+        const CSIDL_COMPUTERSNEARME: u32 = 61;
+        const CSIDL_CONNECTIONS: u32 = 49;
+        const CSIDL_CONTROLS: u32 = 3;
+        const CSIDL_COOKIES: u32 = 33;
+        const CSIDL_DESKTOP: u32 = 0;
+        const CSIDL_DESKTOPDIRECTORY: u32 = 16;
+        const CSIDL_DRIVES: u32 = 17;
+        const CSIDL_FAVORITES: u32 = 6;
+        const CSIDL_FLAG_CREATE: u32 = 32768;
+        const CSIDL_FLAG_DONT_UNEXPAND: u32 = 8192;
+        const CSIDL_FLAG_DONT_VERIFY: u32 = 16384;
+        const CSIDL_FLAG_MASK: u32 = 65280;
+        const CSIDL_FLAG_NO_ALIAS: u32 = 4096;
+        const CSIDL_FLAG_PER_USER_INIT: u32 = 2048;
+        const CSIDL_FONTS: u32 = 20;
+        const CSIDL_HISTORY: u32 = 34;
+        const CSIDL_INTERNET: u32 = 1;
+        const CSIDL_INTERNET_CACHE: u32 = 32;
+        const CSIDL_LOCAL_APPDATA: u32 = 28;
+        const CSIDL_MYDOCUMENTS: u32 = 5;
+        const CSIDL_MYMUSIC: u32 = 13;
+        const CSIDL_MYPICTURES: u32 = 39;
+        const CSIDL_MYVIDEO: u32 = 14;
+        const CSIDL_NETHOOD: u32 = 19;
+        const CSIDL_NETWORK: u32 = 18;
+        const CSIDL_PERSONAL: u32 = 5;
+        const CSIDL_PRINTERS: u32 = 4;
+        const CSIDL_PRINTHOOD: u32 = 27;
+        const CSIDL_PROFILE: u32 = 40;
+        const CSIDL_PROGRAMS: u32 = 2;
+        const CSIDL_PROGRAM_FILES: u32 = 38;
+        const CSIDL_PROGRAM_FILESX86: u32 = 42;
+        const CSIDL_PROGRAM_FILES_COMMON: u32 = 43;
+        const CSIDL_PROGRAM_FILES_COMMONX86: u32 = 44;
+        const CSIDL_RECENT: u32 = 8;
+        const CSIDL_RESOURCES: u32 = 56;
+        const CSIDL_RESOURCES_LOCALIZED: u32 = 57;
+        const CSIDL_SENDTO: u32 = 9;
+        const CSIDL_STARTMENU: u32 = 11;
+        const CSIDL_STARTUP: u32 = 7;
+        const CSIDL_SYSTEM: u32 = 37;
+        const CSIDL_SYSTEMX86: u32 = 41;
+        const CSIDL_TEMPLATES: u32 = 21;
+        const CSIDL_WINDOWS: u32 = 36;
+        #[library("SHELL32.dll")]
+        extern fn DAD_AutoScroll(hwnd: HWND, pad: *mut AUTO_SCROLL_DATA, pptNow: *const POINT) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn DAD_DragEnterEx(hwndTarget: HWND, ptStart: POINT) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn DAD_DragEnterEx2(hwndTarget: HWND, ptStart: POINT, #[opt] pdtObject: IDataObject) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn DAD_DragLeave() -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn DAD_DragMove(pt: POINT) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn DAD_SetDragImage(him: *mut _IMAGELIST, pptOffset: *mut POINT) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn DAD_ShowDragImage(fShow: BOOL) -> BOOL;
+        #[packed(1)]
+        struct DATABLOCK_HEADER {
+            cbSize: u32,
+            dwSignature: u32,
+        }
+        struct DEFCONTEXTMENU {
+            hwnd: HWND,
+            pcmcb: IContextMenuCB,
+            pidlFolder: LPCITEMIDLIST,
+            psf: IShellFolder,
+            cidl: u32,
+            apidl: *mut LPCITEMIDLIST,
+            punkAssociationInfo: IUnknown,
+            cKeys: u32,
+            aKeys: *const HKEY,
+        }
+        struct DETAILSINFO {
+            pidl: LPCITEMIDLIST,
+            fmt: i32,
+            cxChar: i32,
+            str: STRRET,
+            iImage: i32,
+        }
+        struct DFMICS {
+            cbSize: u32,
+            fMask: u32,
+            lParam: LPARAM,
+            idCmdFirst: u32,
+            idDefMax: u32,
+            pici: LPCMINVOKECOMMANDINFO,
+            punkSite: IUnknown,
+        }
+        const DFM_CMD_COPY: u32 = 4294967293;
+        const DFM_CMD_DELETE: u32 = 4294967295;
+        const DFM_CMD_LINK: u32 = 4294967292;
+        const DFM_CMD_MODALPROP: u32 = 4294967284;
+        const DFM_CMD_MOVE: u32 = 4294967294;
+        const DFM_CMD_NEWFOLDER: u32 = 4294967290;
+        const DFM_CMD_PASTE: u32 = 4294967289;
+        const DFM_CMD_PASTELINK: u32 = 4294967286;
+        const DFM_CMD_PASTESPECIAL: u32 = 4294967285;
+        const DFM_CMD_PROPERTIES: u32 = 4294967291;
+        const DFM_CMD_RENAME: u32 = 4294967283;
+        const DFM_CMD_VIEWDETAILS: u32 = 4294967287;
+        const DFM_CMD_VIEWLIST: u32 = 4294967288;
+        const DFM_GETDEFSTATICID: u32 = 14;
+        const DFM_GETHELPTEXT: u32 = 5;
+        const DFM_GETHELPTEXTW: u32 = 11;
+        const DFM_GETVERBA: u32 = 16;
+        const DFM_GETVERBW: u32 = 15;
+        const DFM_INVOKECOMMAND: u32 = 2;
+        const DFM_INVOKECOMMANDEX: u32 = 12;
+        const DFM_MAPCOMMANDNAME: u32 = 13;
+        const DFM_MERGECONTEXTMENU: u32 = 1;
+        const DFM_MERGECONTEXTMENU_BOTTOM: u32 = 17;
+        const DFM_MERGECONTEXTMENU_TOP: u32 = 10;
+        const DFM_MODIFYQCMFLAGS: u32 = 18;
+        const DFM_VALIDATECMD: u32 = 9;
+        const DFM_WM_DRAWITEM: u32 = 7;
+        const DFM_WM_INITMENUPOPUP: u32 = 8;
+        const DFM_WM_MEASUREITEM: u32 = 6;
+        #[packed(1)]
+        struct DROPDESCRIPTION {
+            r#type: DROPIMAGETYPE,
+            szMessage: [u16; 260],
+            szInsert: [u16; 260],
+        }
+        #[packed(1)]
+        struct DROPFILES {
+            pFiles: u32,
+            pt: POINT,
+            fNC: BOOL,
+            fWide: BOOL,
+        }
+        #[repr(i32)]
+        enum DROPIMAGETYPE {
+            DROPIMAGE_INVALID = -1,
+            DROPIMAGE_NONE = 0,
+            DROPIMAGE_COPY = 1,
+            DROPIMAGE_MOVE = 2,
+            DROPIMAGE_LINK = 4,
+            DROPIMAGE_LABEL = 6,
+            DROPIMAGE_WARNING = 7,
+            DROPIMAGE_NOIMAGE = 8,
+        }
+        const DVASPECT_COPY: u32 = 3;
+        const DVASPECT_LINK: u32 = 4;
+        const DVASPECT_SHORTNAME: u32 = 2;
+        #[library("SHELL32.dll")]
+        extern fn DriveType(iDrive: i32) -> i32;
+        const EXP_DARWIN_ID_SIG: u32 = 2684354566;
+        #[packed(1)]
+        struct EXP_DARWIN_LINK {
+            dbh: DATABLOCK_HEADER,
+            szDarwinID: [i8; 260],
+            szwDarwinID: [u16; 260],
+        }
+        #[packed(1)]
+        struct EXP_PROPERTYSTORAGE {
+            cbSize: u32,
+            dwSignature: u32,
+            abPropertyStorage: [u8; 1],
+        }
+        const EXP_PROPERTYSTORAGE_SIG: u32 = 2684354569;
+        #[packed(1)]
+        struct EXP_SPECIAL_FOLDER {
+            cbSize: u32,
+            dwSignature: u32,
+            idSpecialFolder: u32,
+            cbOffset: u32,
+        }
+        const EXP_SPECIAL_FOLDER_SIG: u32 = 2684354565;
+        const EXP_SZ_ICON_SIG: u32 = 2684354567;
+        #[packed(1)]
+        struct EXP_SZ_LINK {
+            cbSize: u32,
+            dwSignature: u32,
+            szTarget: [i8; 260],
+            swzTarget: [u16; 260],
+        }
+        const EXP_SZ_LINK_SIG: u32 = 2684354561;
+        const FCIDM_BROWSERFIRST: u32 = 40960;
+        const FCIDM_BROWSERLAST: u32 = 48896;
+        const FCIDM_GLOBALFIRST: u32 = 32768;
+        const FCIDM_GLOBALLAST: u32 = 40959;
+        const FCIDM_MENU_EDIT: u32 = 32832;
+        const FCIDM_MENU_EXPLORE: u32 = 33104;
+        const FCIDM_MENU_FAVORITES: u32 = 33136;
+        const FCIDM_MENU_FILE: u32 = 32768;
+        const FCIDM_MENU_FIND: u32 = 33088;
+        const FCIDM_MENU_HELP: u32 = 33024;
+        const FCIDM_MENU_TOOLS: u32 = 32960;
+        const FCIDM_MENU_TOOLS_SEP_GOTO: u32 = 32961;
+        const FCIDM_MENU_VIEW: u32 = 32896;
+        const FCIDM_MENU_VIEW_SEP_OPTIONS: u32 = 32897;
+        const FCIDM_SHVIEWFIRST: u32 = 0;
+        const FCIDM_SHVIEWLAST: u32 = 32767;
+        const FCSM_CLSID: u32 = 8;
+        const FCSM_FLAGS: u32 = 64;
+        const FCSM_ICONFILE: u32 = 16;
+        const FCSM_INFOTIP: u32 = 4;
+        const FCSM_LOGO: u32 = 32;
+        const FCSM_VIEWID: u32 = 1;
+        const FCSM_WEBVIEWTEMPLATE: u32 = 2;
+        const FCS_FLAG_DRAGDROP: u32 = 2;
+        const FCS_FORCEWRITE: u32 = 2;
+        const FCS_READ: u32 = 1;
+        const FCS_WRITE: u32 = 3;
+        #[repr(i32)]
+        enum FD_FLAGS {
+            FD_CLSID = 1,
+            FD_SIZEPOINT = 2,
+            FD_ATTRIBUTES = 4,
+            FD_CREATETIME = 8,
+            FD_ACCESSTIME = 16,
+            FD_WRITESTIME = 32,
+            FD_FILESIZE = 64,
+            FD_PROGRESSUI = 16384,
+            FD_LINKUI = 32768,
+            FD_UNICODE = -2147483648,
+        }
+        #[packed(1)]
+        struct FILEDESCRIPTORA {
+            dwFlags: u32,
+            clsid: GUID,
+            sizel: SIZEL,
+            pointl: POINTL,
+            dwFileAttributes: u32,
+            ftCreationTime: FILETIME,
+            ftLastAccessTime: FILETIME,
+            ftLastWriteTime: FILETIME,
+            nFileSizeHigh: u32,
+            nFileSizeLow: u32,
+            cFileName: [i8; 260],
+        }
+        #[packed(1)]
+        struct FILEDESCRIPTORW {
+            dwFlags: u32,
+            clsid: GUID,
+            sizel: SIZEL,
+            pointl: POINTL,
+            dwFileAttributes: u32,
+            ftCreationTime: FILETIME,
+            ftLastAccessTime: FILETIME,
+            ftLastWriteTime: FILETIME,
+            nFileSizeHigh: u32,
+            nFileSizeLow: u32,
+            cFileName: [u16; 260],
+        }
+        #[packed(1)]
+        struct FILEGROUPDESCRIPTORA {
+            cItems: u32,
+            fgd: [FILEDESCRIPTORA; 1],
+        }
+        #[packed(1)]
+        struct FILEGROUPDESCRIPTORW {
+            cItems: u32,
+            fgd: [FILEDESCRIPTORW; 1],
+        }
+        #[packed(1)]
+        struct FILE_ATTRIBUTES_ARRAY {
+            cItems: u32,
+            dwSumFileAttributes: u32,
+            dwProductFileAttributes: u32,
+            rgdwFileAttributes: [u32; 1],
+        }
+        const GIL_ASYNC: u32 = 32;
+        const GIL_CHECKSHIELD: u32 = 512;
+        const GIL_DEFAULTICON: u32 = 64;
+        const GIL_DONTCACHE: u32 = 16;
+        const GIL_FORCENOSHIELD: u32 = 1024;
+        const GIL_FORSHELL: u32 = 2;
+        const GIL_FORSHORTCUT: u32 = 128;
+        const GIL_NOTFILENAME: u32 = 8;
+        const GIL_OPENICON: u32 = 1;
+        const GIL_PERCLASS: u32 = 4;
+        const GIL_PERINSTANCE: u32 = 2;
+        const GIL_SHIELD: u32 = 512;
+        const GIL_SIMULATEDOC: u32 = 1;
+        const GPFIDL_ALTNAME: i32 = 1;
+        const GPFIDL_DEFAULT: i32 = 0;
+        type GPFIDL_FLAGS = i32;
+        const GPFIDL_UNCPRINTER: i32 = 2;
+        #[library("SHELL32.dll")]
+        extern fn GetFileNameFromBrowse(#[opt] hwnd: HWND, #[len_param(2)] #[in] #[out] pszFilePath: PWSTR, cchFilePath: u32, #[opt] pszWorkingDir: PCWSTR, pszDefExt: PCWSTR, #[opt] pszFilters: PCWSTR, #[opt] pszTitle: PCWSTR) -> BOOL;
+        type HPSXA = *mut void;
+        #[guid(0x77a130b0_94fd_11d0_a544_00c04fd7d062)]
+        interface IACList: IUnknown {
+            fn Expand(&self, pszExpand: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x470141a0_5186_11d2_bbb6_0060977b464c)]
+        interface IACList2: IACList {
+            fn SetOptions(&self, dwFlag: u32) -> HRESULT;
+            fn GetOptions(&self, pdwFlag: *mut u32) -> HRESULT;
+        }
+        #[guid(0xf490eb00_1240_11d1_9888_006097deacf9)]
+        interface IActiveDesktop: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn ApplyChanges(&self, dwFlags: u32) -> HRESULT;
+            fn GetWallpaper(&self, #[len_param(1)] #[out] pwszWallpaper: PWSTR, cchWallpaper: u32, dwFlags: u32) -> HRESULT;
+            fn SetWallpaper(&self, pwszWallpaper: PCWSTR, dwReserved: u32) -> HRESULT;
+            fn GetWallpaperOptions(&self, #[in] #[out] pwpo: *mut WALLPAPEROPT, dwReserved: u32) -> HRESULT;
+            fn SetWallpaperOptions(&self, pwpo: *const WALLPAPEROPT, dwReserved: u32) -> HRESULT;
+            fn GetPattern(&self, #[len_param(1)] #[out] pwszPattern: PWSTR, cchPattern: u32, dwReserved: u32) -> HRESULT;
+            fn SetPattern(&self, pwszPattern: PCWSTR, dwReserved: u32) -> HRESULT;
+            fn GetDesktopItemOptions(&self, #[in] #[out] pco: *mut COMPONENTSOPT, dwReserved: u32) -> HRESULT;
+            fn SetDesktopItemOptions(&self, pco: *const COMPONENTSOPT, dwReserved: u32) -> HRESULT;
+            fn AddDesktopItem(&self, pcomp: *const COMPONENT, dwReserved: u32) -> HRESULT;
+            fn AddDesktopItemWithUI(&self, #[opt] hwnd: HWND, pcomp: *const COMPONENT, dwReserved: u32) -> HRESULT;
+            fn ModifyDesktopItem(&self, #[in] #[out] pcomp: *mut COMPONENT, dwFlags: u32) -> HRESULT;
+            fn RemoveDesktopItem(&self, pcomp: *const COMPONENT, dwReserved: u32) -> HRESULT;
+            fn GetDesktopItemCount(&self, pcItems: *mut i32, dwReserved: u32) -> HRESULT;
+            fn GetDesktopItem(&self, nComponent: i32, #[in] #[out] pcomp: *mut COMPONENT, dwReserved: u32) -> HRESULT;
+            fn GetDesktopItemByID(&self, dwID: usize, #[in] #[out] pcomp: *mut COMPONENT, dwReserved: u32) -> HRESULT;
+            fn GenerateDesktopItemHtml(&self, pwszFileName: PCWSTR, pcomp: *const COMPONENT, dwReserved: u32) -> HRESULT;
+            fn AddUrl(&self, #[opt] hwnd: HWND, pszSource: PCWSTR, pcomp: *const COMPONENT, dwFlags: u32) -> HRESULT;
+            fn GetDesktopItemBySource(&self, pwszSource: PCWSTR, #[in] #[out] pcomp: *mut COMPONENT, dwReserved: u32) -> HRESULT;
+        }
+        const IDO_SHGIOI_DEFAULT: u32 = 4294967292;
+        const IDO_SHGIOI_LINK: u32 = 268435454;
+        const IDO_SHGIOI_SHARE: u32 = 268435455;
+        const IDO_SHGIOI_SLOWFILE: u32 = 4294967293;
+        #[guid(0x2a342fc2_7b26_11d0_8ca9_00a0c92dbfe8)]
+        interface IDockingWindowSite: IOleWindow {
+            fn GetBorderDW(&self, punkObj: IUnknown, prcBorder: *mut RECT) -> HRESULT;
+            fn RequestBorderSpaceDW(&self, punkObj: IUnknown, pbw: LPCBORDERWIDTHS) -> HRESULT;
+            fn SetBorderSpaceDW(&self, punkObj: IUnknown, pbw: LPCBORDERWIDTHS) -> HRESULT;
+        }
+        #[packed(1)]
+        struct IE4COMPONENT {
+            dwSize: u32,
+            dwID: u32,
+            iComponentType: i32,
+            fChecked: BOOL,
+            fDirty: BOOL,
+            fNoScroll: BOOL,
+            cpPos: COMPPOS,
+            wszFriendlyName: [u16; 260],
+            wszSource: [u16; 2084],
+            wszSubscribedURL: [u16; 2084],
+        }
+        #[repr(i32)]
+        enum IESHORTCUTFLAGS {
+            IESHORTCUT_NEWBROWSER = 1,
+            IESHORTCUT_OPENNEWTAB = 2,
+            IESHORTCUT_FORCENAVIGATE = 4,
+            IESHORTCUT_BACKGROUNDTAB = 8,
+        }
+        #[guid(0x000214eb_0000_0000_c000_000000000046)]
+        interface IExtractIconA: IUnknown {
+            fn GetIconLocation(&self, uFlags: u32, #[len_param(2)] #[out] pszIconFile: PSTR, cchMax: u32, piIndex: *mut i32, pwFlags: *mut u32) -> HRESULT;
+            fn Extract(&self, pszFile: PCSTR, nIconIndex: u32, #[opt] phiconLarge: *mut HICON, #[opt] phiconSmall: *mut HICON, nIconSize: u32) -> HRESULT;
+        }
+        #[guid(0x000214fa_0000_0000_c000_000000000046)]
+        interface IExtractIconW: IUnknown {
+            fn GetIconLocation(&self, uFlags: u32, #[len_param(2)] #[out] pszIconFile: PWSTR, cchMax: u32, piIndex: *mut i32, pwFlags: *mut u32) -> HRESULT;
+            fn Extract(&self, pszFile: PCWSTR, nIconIndex: u32, #[opt] phiconLarge: *mut HICON, #[opt] phiconSmall: *mut HICON, nIconSize: u32) -> HRESULT;
+        }
+        #[library("SHELL32.dll")]
+        extern fn ILAppendID(#[opt] pidl: *const ITEMIDLIST, pmkid: *const SHITEMID, fAppend: BOOL) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn ILClone(pidl: *const ITEMIDLIST) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn ILCloneFirst(pidl: *const ITEMIDLIST) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn ILCombine(#[opt] pidl1: *const ITEMIDLIST, #[opt] pidl2: *const ITEMIDLIST) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn ILCreateFromPathA(pszPath: PCSTR) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn ILCreateFromPathW(pszPath: PCWSTR) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn ILFindChild(pidlParent: *const ITEMIDLIST, pidlChild: *const ITEMIDLIST) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn ILFindLastID(pidl: *const ITEMIDLIST) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn ILFree(#[opt] pidl: *const ITEMIDLIST);
+        #[library("SHELL32.dll")]
+        extern fn ILGetNext(#[opt] pidl: *const ITEMIDLIST) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn ILGetSize(#[opt] pidl: *const ITEMIDLIST) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn ILIsEqual(pidl1: *const ITEMIDLIST, pidl2: *const ITEMIDLIST) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn ILIsParent(pidl1: *const ITEMIDLIST, pidl2: *const ITEMIDLIST, fImmediate: BOOL) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn ILLoadFromStreamEx(pstm: IStream, pidl: *mut LPITEMIDLIST) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn ILRemoveLastID(#[in] #[out] #[opt] pidl: *mut ITEMIDLIST) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn ILSaveToStream(pstm: IStream, pidl: *const ITEMIDLIST) -> HRESULT;
+        #[guid(0xfb700430_952c_11d1_946f_000000000000)]
+        interface INamedPropertyBag: IUnknown {
+            fn ReadPropertyNPB(&self, pszBagname: PCWSTR, pszPropName: PCWSTR, #[in] #[out] pVar: *mut PROPVARIANT) -> HRESULT;
+            fn WritePropertyNPB(&self, pszBagname: PCWSTR, pszPropName: PCWSTR, pVar: *const PROPVARIANT) -> HRESULT;
+            fn RemovePropertyNPB(&self, pszBagname: PCWSTR, pszPropName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x00bb2761_6a77_11d0_a535_00c04fd7d062)]
+        interface IObjMgr: IUnknown {
+            fn Append(&self, punk: IUnknown) -> HRESULT;
+            fn Remove(&self, punk: IUnknown) -> HRESULT;
+        }
+        #[guid(0xebbc7c04_315e_11d2_b62f_006097df5bd4)]
+        interface IProgressDialog: IUnknown {
+            fn StartProgressDialog(&self, #[opt] hwndParent: HWND, #[opt] punkEnableModless: IUnknown, dwFlags: u32, #[reserved] pvResevered: *const void) -> HRESULT;
+            fn StopProgressDialog(&self) -> HRESULT;
+            fn SetTitle(&self, pwzTitle: PCWSTR) -> HRESULT;
+            fn SetAnimation(&self, #[opt] hInstAnimation: HINSTANCE, idAnimation: u32) -> HRESULT;
+            fn HasUserCancelled(&self) -> BOOL;
+            fn SetProgress(&self, dwCompleted: u32, dwTotal: u32) -> HRESULT;
+            fn SetProgress64(&self, ullCompleted: u64, ullTotal: u64) -> HRESULT;
+            fn SetLine(&self, dwLineNum: u32, pwzString: PCWSTR, fCompactPath: BOOL, #[reserved] pvResevered: *const void) -> HRESULT;
+            fn SetCancelMsg(&self, pwzCancelMsg: PCWSTR, #[reserved] pvResevered: *const void) -> HRESULT;
+            fn Timer(&self, dwTimerAction: u32, #[reserved] pvResevered: *const void) -> HRESULT;
+        }
+        #[guid(0x00021500_0000_0000_c000_000000000046)]
+        interface IQueryInfo: IUnknown {
+            fn GetInfoTip(&self, dwFlags: u32, ppwszTip: *mut PWSTR) -> HRESULT;
+            fn GetInfoFlags(&self, pdwFlags: *mut u32) -> HRESULT;
+        }
+        const ISHCUTCMDID_COMMITHISTORY: i32 = 2;
+        const ISHCUTCMDID_DOWNLOADICON: i32 = 0;
+        const ISHCUTCMDID_INTSHORTCUTCREATE: i32 = 1;
+        const ISHCUTCMDID_SETUSERAWURL: i32 = 3;
+        const IS_FULLSCREEN: u32 = 2;
+        const IS_NORMAL: u32 = 1;
+        const IS_SPLIT: u32 = 4;
+        const IS_VALIDSIZESTATEBITS: u32 = 7;
+        const IS_VALIDSTATEBITS: i32 = -1073741817;
+        #[guid(0x09f656a2_41af_480c_88f7_16cc0d164615)]
+        interface ISearchContext: IUnknown {
+            fn GetSearchUrl(&self, pbstrSearchUrl: *mut BSTR) -> HRESULT;
+            fn GetSearchText(&self, pbstrSearchText: *mut BSTR) -> HRESULT;
+            fn GetSearchStyle(&self, pdwSearchStyle: *mut u32) -> HRESULT;
+        }
+        #[guid(0xd82be2b1_5764_11d0_a96e_00c04fd705a2)]
+        interface IShellChangeNotify: IUnknown {
+            fn OnChange(&self, lEvent: i32, #[opt] pidl1: *const ITEMIDLIST, #[opt] pidl2: *const ITEMIDLIST) -> HRESULT;
+        }
+        #[guid(0x000214ec_0000_0000_c000_000000000046)]
+        interface IShellDetails: IUnknown {
+            fn GetDetailsOf(&self, #[opt] pidl: *const ITEMIDLIST, iColumn: u32, pDetails: *mut SHELLDETAILS) -> HRESULT;
+            fn ColumnClick(&self, iColumn: u32) -> HRESULT;
+        }
+        #[guid(0x000214f5_0000_0000_c000_000000000046)]
+        interface IShellExecuteHookA: IUnknown {
+            fn Execute(&self, #[in] #[out] pei: *mut SHELLEXECUTEINFOA) -> HRESULT;
+        }
+        #[guid(0x000214fb_0000_0000_c000_000000000046)]
+        interface IShellExecuteHookW: IUnknown {
+            fn Execute(&self, #[in] #[out] pei: *mut SHELLEXECUTEINFOW) -> HRESULT;
+        }
+        #[guid(0x37a378c0_f82d_11ce_ae65_08002b2e1262)]
+        interface IShellFolderView: IUnknown {
+            fn Rearrange(&self, lParamSort: LPARAM) -> HRESULT;
+            fn GetArrangeParam(&self, plParamSort: *mut LPARAM) -> HRESULT;
+            fn ArrangeGrid(&self) -> HRESULT;
+            fn AutoArrange(&self) -> HRESULT;
+            fn GetAutoArrange(&self) -> HRESULT;
+            fn AddObject(&self, pidl: *const ITEMIDLIST, puItem: *mut u32) -> HRESULT;
+            fn GetObject(&self, ppidl: *mut LPITEMIDLIST, uItem: u32) -> HRESULT;
+            fn RemoveObject(&self, #[opt] pidl: *const ITEMIDLIST, puItem: *mut u32) -> HRESULT;
+            fn GetObjectCount(&self, puCount: *mut u32) -> HRESULT;
+            fn SetObjectCount(&self, uCount: u32, dwFlags: u32) -> HRESULT;
+            fn UpdateObject(&self, pidlOld: *const ITEMIDLIST, pidlNew: *const ITEMIDLIST, puItem: *mut u32) -> HRESULT;
+            fn RefreshObject(&self, pidl: *const ITEMIDLIST, puItem: *mut u32) -> HRESULT;
+            fn SetRedraw(&self, bRedraw: BOOL) -> HRESULT;
+            fn GetSelectedCount(&self, puSelected: *mut u32) -> HRESULT;
+            fn GetSelectedObjects(&self, pppidl: *mut *mut LPCITEMIDLIST, puItems: *mut u32) -> HRESULT;
+            fn IsDropOnSource(&self, #[opt] pDropTarget: IDropTarget) -> HRESULT;
+            fn GetDragPoint(&self, ppt: *mut POINT) -> HRESULT;
+            fn GetDropPoint(&self, ppt: *mut POINT) -> HRESULT;
+            fn MoveIcons(&self, pDataObject: IDataObject) -> HRESULT;
+            fn SetItemPos(&self, pidl: *const ITEMIDLIST, ppt: *const POINT) -> HRESULT;
+            fn IsBkDropTarget(&self, #[opt] pDropTarget: IDropTarget) -> HRESULT;
+            fn SetClipboard(&self, bMove: BOOL) -> HRESULT;
+            fn SetPoints(&self, pDataObject: IDataObject) -> HRESULT;
+            fn GetItemSpacing(&self, pSpacing: *mut ITEMSPACING) -> HRESULT;
+            fn SetCallback(&self, #[opt] pNewCB: IShellFolderViewCB, ppOldCB: *mut IShellFolderViewCB) -> HRESULT;
+            fn Select(&self, dwFlags: u32) -> HRESULT;
+            fn QuerySupport(&self, #[in] #[out] pdwSupport: *mut u32) -> HRESULT;
+            fn SetAutomationObject(&self, #[opt] pdisp: IDispatch) -> HRESULT;
+        }
+        #[guid(0x2047e320_f2a9_11ce_ae65_08002b2e1262)]
+        interface IShellFolderViewCB: IUnknown {
+            fn MessageSFVCB(&self, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+        }
+        #[guid(0x7d688a70_c613_11d0_999b_00c04fd655e1)]
+        interface IShellIconOverlay: IUnknown {
+            fn GetOverlayIndex(&self, pidl: *const ITEMIDLIST, #[in] #[out] pIndex: *mut i32) -> HRESULT;
+            fn GetOverlayIconIndex(&self, pidl: *const ITEMIDLIST, #[in] #[out] pIconIndex: *mut i32) -> HRESULT;
+        }
+        #[guid(0xf10b5e34_dd3b_42a7_aa7d_2f4ec54bb09b)]
+        interface IShellIconOverlayManager: IUnknown {
+            fn GetFileOverlayInfo(&self, pwszPath: PCWSTR, dwAttrib: u32, pIndex: *mut i32, dwflags: u32) -> HRESULT;
+            fn GetReservedOverlayInfo(&self, #[opt] pwszPath: PCWSTR, dwAttrib: u32, pIndex: *mut i32, dwflags: u32, iReservedID: i32) -> HRESULT;
+            fn RefreshOverlayImages(&self, dwFlags: u32) -> HRESULT;
+            fn LoadNonloadedOverlayIdentifiers(&self) -> HRESULT;
+            fn OverlayIndexFromImageIndex(&self, iImage: i32, piIndex: *mut i32, fAdd: BOOL) -> HRESULT;
+        }
+        struct ITEMSPACING {
+            cxSmall: i32,
+            cySmall: i32,
+            cxLarge: i32,
+            cyLarge: i32,
+        }
+        #[guid(0xac60f6a0_0fd9_11d0_99cb_00c04fd64497)]
+        interface IURLSearchHook: IUnknown {
+            fn Translate(&self, #[len_param(1)] #[out] pwszSearchURL: PWSTR, cchBufferSize: u32) -> HRESULT;
+        }
+        #[guid(0x5ee44da4_6d32_46e3_86bc_07540dedd0e0)]
+        interface IURLSearchHook2: IURLSearchHook {
+            fn TranslateWithSearchContext(&self, #[len_param(1)] #[out] pwszSearchURL: PWSTR, cchBufferSize: u32, #[opt] pSearchContext: ISearchContext) -> HRESULT;
+        }
+        #[library("SHELL32.dll")]
+        extern fn IsNetDrive(iDrive: i32) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn IsUserAnAdmin() -> BOOL;
+        #[repr(u32)]
+        #[flags]
+        enum KNOWN_FOLDER_FLAG {
+            KF_FLAG_DEFAULT = 0,
+            KF_FLAG_FORCE_APP_DATA_REDIRECTION = 524288,
+            KF_FLAG_RETURN_FILTER_REDIRECTION_TARGET = 262144,
+            KF_FLAG_FORCE_PACKAGE_REDIRECTION = 131072,
+            KF_FLAG_NO_PACKAGE_REDIRECTION = 65536,
+            KF_FLAG_FORCE_APPCONTAINER_REDIRECTION = 131072,
+            KF_FLAG_NO_APPCONTAINER_REDIRECTION = 65536,
+            KF_FLAG_CREATE = 32768,
+            KF_FLAG_DONT_VERIFY = 16384,
+            KF_FLAG_DONT_UNEXPAND = 8192,
+            KF_FLAG_NO_ALIAS = 4096,
+            KF_FLAG_INIT = 2048,
+            KF_FLAG_DEFAULT_PATH = 1024,
+            KF_FLAG_NOT_PARENT_RELATIVE = 512,
+            KF_FLAG_SIMPLE_IDLIST = 256,
+            KF_FLAG_ALIAS_ONLY = 2147483648,
+        }
+        type LPBROWSEINFOA = *mut BROWSEINFOA;
+        type LPBROWSEINFOW = *mut BROWSEINFOW;
+        type LPCABINETSTATE = *mut CABINETSTATE;
+        type LPCCOMPONENT = *const COMPONENT;
+        type LPCCOMPONENTSOPT = *const COMPONENTSOPT;
+        type LPCCOMPPOS = *const COMPPOS;
+        type LPCCOMPSTATEINFO = *const COMPSTATEINFO;
+        type LPCIE4COMPONENT = *const IE4COMPONENT;
+        type LPCOMPONENT = *mut COMPONENT;
+        type LPCOMPONENTSOPT = *mut COMPONENTSOPT;
+        type LPCOMPPOS = *mut COMPPOS;
+        type LPCOMPSTATEINFO = *mut COMPSTATEINFO;
+        type LPCPROPPRG = *const PROPPRG;
+        type LPCSFV = *mut CSFV;
+        type LPCWALLPAPEROPT = *const WALLPAPEROPT;
+        type LPDATABLOCK_HEADER = *mut DATABLOCK_HEADER;
+        type LPDBLIST = *mut DATABLOCK_HEADER;
+        type LPDROPFILES = *mut DROPFILES;
+        type LPEXP_DARWIN_LINK = *mut EXP_DARWIN_LINK;
+        type LPEXP_SPECIAL_FOLDER = *mut EXP_SPECIAL_FOLDER;
+        type LPEXP_SZ_LINK = *mut EXP_SZ_LINK;
+        type LPFILEDESCRIPTORA = *mut FILEDESCRIPTORA;
+        type LPFILEDESCRIPTORW = *mut FILEDESCRIPTORW;
+        type LPFILEGROUPDESCRIPTORA = *mut FILEGROUPDESCRIPTORA;
+        type LPFILEGROUPDESCRIPTORW = *mut FILEGROUPDESCRIPTORW;
+        extern fn LPFNDFMCALLBACK(#[opt] psf: IShellFolder, #[opt] hwnd: HWND, #[opt] pdtobj: IDataObject, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+        extern fn LPFNVIEWCALLBACK(psvOuter: IShellView, psf: IShellFolder, hwndMain: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+        type LPIDA = *mut CIDA;
+        type LPIE4COMPONENT = *mut IE4COMPONENT;
+        type LPNRESARRAY = *mut NRESARRAY;
+        type LPNT_CONSOLE_PROPS = *mut NT_CONSOLE_PROPS;
+        type LPNT_FE_CONSOLE_PROPS = *mut NT_FE_CONSOLE_PROPS;
+        type LPPROPPRG = *mut PROPPRG;
+        type LPQCMINFO = *mut QCMINFO;
+        type LPSHChangeDWORDAsIDList = *mut SHChangeDWORDAsIDList;
+        type LPSHChangeUpdateImageIDList = *mut SHChangeUpdateImageIDList;
+        type LPSHDESCRIPTIONID = *mut SHDESCRIPTIONID;
+        type LPSHELLFLAGSTATE = *mut SHELLFLAGSTATE;
+        type LPSHELLSTATEA = *mut SHELLSTATEA;
+        type LPSHELLSTATEW = *mut SHELLSTATEW;
+        type LPSHFOLDERCUSTOMSETTINGS = *mut SHFOLDERCUSTOMSETTINGS;
+        type LPWALLPAPEROPT = *mut WALLPAPEROPT;
+        const MAX_COLUMN_DESC_LEN: u32 = 128;
+        const MAX_COLUMN_NAME_LEN: u32 = 80;
+        const MM_ADDSEPARATOR: u32 = 1;
+        const MM_DONTREMOVESEPS: u32 = 4;
+        const MM_SUBMENUSHAVEIDS: u32 = 2;
+        struct NRESARRAY {
+            cItems: u32,
+            nr: [NETRESOURCE; 1],
+        }
+        #[packed(1)]
+        struct NT_CONSOLE_PROPS {
+            dbh: DATABLOCK_HEADER,
+            wFillAttribute: u16,
+            wPopupFillAttribute: u16,
+            dwScreenBufferSize: COORD,
+            dwWindowSize: COORD,
+            dwWindowOrigin: COORD,
+            nFont: u32,
+            nInputBufferSize: u32,
+            dwFontSize: COORD,
+            uFontFamily: u32,
+            uFontWeight: u32,
+            FaceName: [u16; 32],
+            uCursorSize: u32,
+            bFullScreen: BOOL,
+            bQuickEdit: BOOL,
+            bInsertMode: BOOL,
+            bAutoPosition: BOOL,
+            uHistoryBufferSize: u32,
+            uNumberOfHistoryBuffers: u32,
+            bHistoryNoDup: BOOL,
+            ColorTable: [COLORREF; 16],
+        }
+        const NT_CONSOLE_PROPS_SIG: u32 = 2684354562;
+        #[packed(1)]
+        struct NT_FE_CONSOLE_PROPS {
+            dbh: DATABLOCK_HEADER,
+            uCodePage: u32,
+        }
+        const NT_FE_CONSOLE_PROPS_SIG: u32 = 2684354564;
+        const NUM_POINTS: u32 = 3;
+        const OFASI_EDIT: u32 = 1;
+        const OFASI_OPENDESKTOP: u32 = 2;
+        const OI_ASYNC: u32 = 4294962926;
+        const OI_DEFAULT: u32 = 0;
+        struct OPENASINFO {
+            pcszFile: PCWSTR,
+            pcszClass: PCWSTR,
+            oaifInFlags: OPEN_AS_INFO_FLAGS,
+        }
+        type OPEN_AS_INFO_FLAGS = i32;
+        #[library("SHELL32.dll")]
+        extern fn OpenRegStream(hkey: HKEY, #[opt] pszSubkey: PCWSTR, #[opt] pszValue: PCWSTR, grfMode: u32) -> IStream;
+        type PBROWSEINFOA = *mut BROWSEINFOA;
+        type PBROWSEINFOW = *mut BROWSEINFOW;
+        const PCS_FATAL: u32 = 2147483648;
+        const PCS_PATHTOOLONG: u32 = 8;
+        const PCS_REMOVEDCHAR: u32 = 2;
+        const PCS_REPLACEDCHAR: u32 = 1;
+        const PCS_TRUNCATED: u32 = 4;
+        type PDETAILSINFO = *mut DETAILSINFO;
+        type PDFMICS = *mut DFMICS;
+        const PDTIMER_PAUSE: u32 = 2;
+        const PDTIMER_RESET: u32 = 1;
+        const PDTIMER_RESUME: u32 = 3;
+        const PIDISF_CACHEDSTICKY: u32 = 2;
+        const PIDISF_CACHEIMAGES: u32 = 16;
+        const PIDISF_FOLLOWALLLINKS: u32 = 32;
+        const PIDISF_RECENTLYCHANGED: u32 = 1;
+        const PIDISM_DONTWATCH: u32 = 2;
+        const PIDISM_GLOBAL: u32 = 0;
+        const PIDISM_WATCH: u32 = 1;
+        const PIDISR_NEEDS_ADD: u32 = 1;
+        const PIDISR_NEEDS_DELETE: u32 = 3;
+        const PIDISR_NEEDS_UPDATE: u32 = 2;
+        const PIDISR_UP_TO_DATE: u32 = 0;
+        const PID_INTSITE_AUTHOR: u32 = 3;
+        const PID_INTSITE_CODEPAGE: u32 = 18;
+        const PID_INTSITE_COMMENT: u32 = 8;
+        const PID_INTSITE_CONTENTCODE: u32 = 11;
+        const PID_INTSITE_CONTENTLEN: u32 = 10;
+        const PID_INTSITE_DESCRIPTION: u32 = 7;
+        const PID_INTSITE_FLAGS: u32 = 9;
+        const PID_INTSITE_ICONFILE: u32 = 21;
+        const PID_INTSITE_ICONINDEX: u32 = 20;
+        const PID_INTSITE_LASTMOD: u32 = 5;
+        const PID_INTSITE_LASTVISIT: u32 = 4;
+        const PID_INTSITE_RECURSE: u32 = 12;
+        const PID_INTSITE_ROAMED: u32 = 34;
+        const PID_INTSITE_SUBSCRIPTION: u32 = 14;
+        const PID_INTSITE_TITLE: u32 = 16;
+        const PID_INTSITE_TRACKING: u32 = 19;
+        const PID_INTSITE_URL: u32 = 15;
+        const PID_INTSITE_VISITCOUNT: u32 = 6;
+        const PID_INTSITE_WATCH: u32 = 13;
+        const PID_INTSITE_WHATSNEW: u32 = 2;
+        const PID_IS_AUTHOR: u32 = 11;
+        const PID_IS_COMMENT: u32 = 13;
+        const PID_IS_DESCRIPTION: u32 = 12;
+        const PID_IS_HOTKEY: u32 = 6;
+        const PID_IS_ICONFILE: u32 = 9;
+        const PID_IS_ICONINDEX: u32 = 8;
+        const PID_IS_NAME: u32 = 4;
+        const PID_IS_ROAMED: u32 = 15;
+        const PID_IS_SHOWCMD: u32 = 7;
+        const PID_IS_URL: u32 = 2;
+        const PID_IS_WHATSNEW: u32 = 10;
+        const PID_IS_WORKINGDIR: u32 = 5;
+        const PIFDEFFILESIZE: u32 = 80;
+        const PIFDEFPATHSIZE: u32 = 64;
+        const PIFMAXFILEPATH: u32 = 260;
+        const PIFNAMESIZE: u32 = 30;
+        const PIFPARAMSSIZE: u32 = 64;
+        const PIFSHDATASIZE: u32 = 64;
+        const PIFSHPROGSIZE: u32 = 64;
+        const PIFSTARTLOCSIZE: u32 = 63;
+        type POPENASINFO = *mut OPENASINFO;
+        type PPROPPRG = *mut PROPPRG;
+        const PRF_DONTFINDLNK: u32 = 8;
+        const PRF_FIRSTDIRDEF: u32 = 4;
+        const PRF_REQUIREABSOLUTE: u32 = 16;
+        const PRF_TRYPROGRAMEXTENSIONS: u32 = 3;
+        const PRF_VERIFYEXISTS: u32 = 1;
+        const PROGDLG_AUTOTIME: u32 = 2;
+        const PROGDLG_MARQUEEPROGRESS: u32 = 32;
+        const PROGDLG_MODAL: u32 = 1;
+        const PROGDLG_NOCANCEL: u32 = 64;
+        const PROGDLG_NOMINIMIZE: u32 = 8;
+        const PROGDLG_NOPROGRESSBAR: u32 = 16;
+        const PROGDLG_NORMAL: u32 = 0;
+        const PROGDLG_NOTIME: u32 = 4;
+        #[packed(1)]
+        struct PROPPRG {
+            flPrg: u16,
+            flPrgInit: u16,
+            achTitle: [i8; 30],
+            achCmdLine: [i8; 128],
+            achWorkDir: [i8; 64],
+            wHotKey: u16,
+            achIconFile: [i8; 80],
+            wIconIndex: u16,
+            dwEnhModeFlags: u32,
+            dwRealModeFlags: u32,
+            achOtherFile: [i8; 80],
+            achPIFFile: [i8; 260],
+        }
+        #[library("SHELL32.dll")]
+        extern fn PathCleanupSpec(#[opt] pszDir: PCWSTR, #[in] #[out] pszSpec: PWSTR) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn PathGetShortPath(#[in] #[out] pszLongPath: PWSTR);
+        #[library("SHELL32.dll")]
+        extern fn PathIsExe(pszPath: PCWSTR) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn PathMakeUniqueName(#[len_param(1)] #[out] pszUniqueName: PWSTR, cchMax: u32, pszTemplate: PCWSTR, #[opt] pszLongPlate: PCWSTR, #[opt] pszDir: PCWSTR) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn PathResolve(#[in] #[out] pszPath: PWSTR, #[opt] dirs: *const PCWSTR, fFlags: u32) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn PathYetAnotherMakeUniqueName(#[out] pszUniqueName: PWSTR, pszPath: PCWSTR, #[opt] pszShort: PCWSTR, #[opt] pszFileSpec: PCWSTR) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn PickIconDlg(#[opt] hwnd: HWND, #[len_param(2)] #[in] #[out] pszIconPath: PWSTR, cchIconPath: u32, #[in] #[out] #[opt] piIconIndex: *mut i32) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn PifMgr_CloseProperties(#[opt] hProps: HANDLE, flOpt: u32) -> HANDLE;
+        #[library("SHELL32.dll")]
+        extern fn PifMgr_GetProperties(#[opt] hProps: HANDLE, #[opt] pszGroup: PCSTR, #[size_param(3)] #[opt] lpProps: *mut void, cbProps: i32, flOpt: u32) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn PifMgr_OpenProperties(pszApp: PCWSTR, #[opt] pszPIF: PCWSTR, hInf: u32, flOpt: u32) -> HANDLE;
+        #[library("SHELL32.dll")]
+        extern fn PifMgr_SetProperties(#[opt] hProps: HANDLE, #[opt] pszGroup: PCSTR, #[size_param(3)] lpProps: *const void, cbProps: i32, flOpt: u32) -> i32;
+        struct QCMINFO {
+            hmenu: HMENU,
+            indexMenu: u32,
+            idCmdFirst: u32,
+            idCmdLast: u32,
+            pIdMap: *const QCMINFO_IDMAP,
+        }
+        struct QCMINFO_IDMAP {
+            nMaxIds: u32,
+            pIdList: [QCMINFO_IDMAP_PLACEMENT; 1],
+        }
+        struct QCMINFO_IDMAP_PLACEMENT {
+            id: u32,
+            fFlags: u32,
+        }
+        const QCMINFO_PLACE_AFTER: u32 = 1;
+        const QCMINFO_PLACE_BEFORE: u32 = 0;
+        const QIF_CACHED: u32 = 1;
+        const QIF_DONTEXPANDFOLDER: u32 = 2;
+        const QITIPF_DEFAULT: u32 = 0;
+        const QITIPF_LINKNOTARGET: u32 = 2;
+        const QITIPF_LINKUSETARGET: u32 = 4;
+        const QITIPF_SINGLELINE: u32 = 16;
+        const QITIPF_USENAME: u32 = 1;
+        const QITIPF_USESLOWTIP: u32 = 8;
+        #[repr(i32)]
+        enum RESTRICTIONS {
+            REST_NONE = 0,
+            REST_NORUN = 1,
+            REST_NOCLOSE = 2,
+            REST_NOSAVESET = 4,
+            REST_NOFILEMENU = 8,
+            REST_NOSETFOLDERS = 16,
+            REST_NOSETTASKBAR = 32,
+            REST_NODESKTOP = 64,
+            REST_NOFIND = 128,
+            REST_NODRIVES = 256,
+            REST_NODRIVEAUTORUN = 512,
+            REST_NODRIVETYPEAUTORUN = 1024,
+            REST_NONETHOOD = 2048,
+            REST_STARTBANNER = 4096,
+            REST_RESTRICTRUN = 8192,
+            REST_NOPRINTERTABS = 16384,
+            REST_NOPRINTERDELETE = 32768,
+            REST_NOPRINTERADD = 65536,
+            REST_NOSTARTMENUSUBFOLDERS = 131072,
+            REST_MYDOCSONNET = 262144,
+            REST_NOEXITTODOS = 524288,
+            REST_ENFORCESHELLEXTSECURITY = 1048576,
+            REST_LINKRESOLVEIGNORELINKINFO = 2097152,
+            REST_NOCOMMONGROUPS = 4194304,
+            REST_SEPARATEDESKTOPPROCESS = 8388608,
+            REST_NOWEB = 16777216,
+            REST_NOTRAYCONTEXTMENU = 33554432,
+            REST_NOVIEWCONTEXTMENU = 67108864,
+            REST_NONETCONNECTDISCONNECT = 134217728,
+            REST_STARTMENULOGOFF = 268435456,
+            REST_NOSETTINGSASSIST = 536870912,
+            REST_NOINTERNETICON = 1073741825,
+            REST_NORECENTDOCSHISTORY = 1073741826,
+            REST_NORECENTDOCSMENU = 1073741827,
+            REST_NOACTIVEDESKTOP = 1073741828,
+            REST_NOACTIVEDESKTOPCHANGES = 1073741829,
+            REST_NOFAVORITESMENU = 1073741830,
+            REST_CLEARRECENTDOCSONEXIT = 1073741831,
+            REST_CLASSICSHELL = 1073741832,
+            REST_NOCUSTOMIZEWEBVIEW = 1073741833,
+            REST_NOHTMLWALLPAPER = 1073741840,
+            REST_NOCHANGINGWALLPAPER = 1073741841,
+            REST_NODESKCOMP = 1073741842,
+            REST_NOADDDESKCOMP = 1073741843,
+            REST_NODELDESKCOMP = 1073741844,
+            REST_NOCLOSEDESKCOMP = 1073741845,
+            REST_NOCLOSE_DRAGDROPBAND = 1073741846,
+            REST_NOMOVINGBAND = 1073741847,
+            REST_NOEDITDESKCOMP = 1073741848,
+            REST_NORESOLVESEARCH = 1073741849,
+            REST_NORESOLVETRACK = 1073741850,
+            REST_FORCECOPYACLWITHFILE = 1073741851,
+            REST_NOFORGETSOFTWAREUPDATE = 1073741853,
+            REST_NOSETACTIVEDESKTOP = 1073741854,
+            REST_NOUPDATEWINDOWS = 1073741855,
+            REST_NOCHANGESTARMENU = 1073741856,
+            REST_NOFOLDEROPTIONS = 1073741857,
+            REST_HASFINDCOMPUTERS = 1073741858,
+            REST_INTELLIMENUS = 1073741859,
+            REST_RUNDLGMEMCHECKBOX = 1073741860,
+            REST_ARP_ShowPostSetup = 1073741861,
+            REST_NOCSC = 1073741862,
+            REST_NOCONTROLPANEL = 1073741863,
+            REST_ENUMWORKGROUP = 1073741864,
+            REST_ARP_NOARP = 1073741865,
+            REST_ARP_NOREMOVEPAGE = 1073741866,
+            REST_ARP_NOADDPAGE = 1073741867,
+            REST_ARP_NOWINSETUPPAGE = 1073741868,
+            REST_GREYMSIADS = 1073741869,
+            REST_NOCHANGEMAPPEDDRIVELABEL = 1073741870,
+            REST_NOCHANGEMAPPEDDRIVECOMMENT = 1073741871,
+            REST_MaxRecentDocs = 1073741872,
+            REST_NONETWORKCONNECTIONS = 1073741873,
+            REST_FORCESTARTMENULOGOFF = 1073741874,
+            REST_NOWEBVIEW = 1073741875,
+            REST_NOCUSTOMIZETHISFOLDER = 1073741876,
+            REST_NOENCRYPTION = 1073741877,
+            REST_DONTSHOWSUPERHIDDEN = 1073741879,
+            REST_NOSHELLSEARCHBUTTON = 1073741880,
+            REST_NOHARDWARETAB = 1073741881,
+            REST_NORUNASINSTALLPROMPT = 1073741882,
+            REST_PROMPTRUNASINSTALLNETPATH = 1073741883,
+            REST_NOMANAGEMYCOMPUTERVERB = 1073741884,
+            REST_DISALLOWRUN = 1073741886,
+            REST_NOWELCOMESCREEN = 1073741887,
+            REST_RESTRICTCPL = 1073741888,
+            REST_DISALLOWCPL = 1073741889,
+            REST_NOSMBALLOONTIP = 1073741890,
+            REST_NOSMHELP = 1073741891,
+            REST_NOWINKEYS = 1073741892,
+            REST_NOENCRYPTONMOVE = 1073741893,
+            REST_NOLOCALMACHINERUN = 1073741894,
+            REST_NOCURRENTUSERRUN = 1073741895,
+            REST_NOLOCALMACHINERUNONCE = 1073741896,
+            REST_NOCURRENTUSERRUNONCE = 1073741897,
+            REST_FORCEACTIVEDESKTOPON = 1073741898,
+            REST_NOVIEWONDRIVE = 1073741900,
+            REST_NONETCRAWL = 1073741901,
+            REST_NOSHAREDDOCUMENTS = 1073741902,
+            REST_NOSMMYDOCS = 1073741903,
+            REST_NOSMMYPICS = 1073741904,
+            REST_ALLOWBITBUCKDRIVES = 1073741905,
+            REST_NONLEGACYSHELLMODE = 1073741906,
+            REST_NOCONTROLPANELBARRICADE = 1073741907,
+            REST_NOSTARTPAGE = 1073741908,
+            REST_NOAUTOTRAYNOTIFY = 1073741909,
+            REST_NOTASKGROUPING = 1073741910,
+            REST_NOCDBURNING = 1073741911,
+            REST_MYCOMPNOPROP = 1073741912,
+            REST_MYDOCSNOPROP = 1073741913,
+            REST_NOSTARTPANEL = 1073741914,
+            REST_NODISPLAYAPPEARANCEPAGE = 1073741915,
+            REST_NOTHEMESTAB = 1073741916,
+            REST_NOVISUALSTYLECHOICE = 1073741917,
+            REST_NOSIZECHOICE = 1073741918,
+            REST_NOCOLORCHOICE = 1073741919,
+            REST_SETVISUALSTYLE = 1073741920,
+            REST_STARTRUNNOHOMEPATH = 1073741921,
+            REST_NOUSERNAMEINSTARTPANEL = 1073741922,
+            REST_NOMYCOMPUTERICON = 1073741923,
+            REST_NOSMNETWORKPLACES = 1073741924,
+            REST_NOSMPINNEDLIST = 1073741925,
+            REST_NOSMMYMUSIC = 1073741926,
+            REST_NOSMEJECTPC = 1073741927,
+            REST_NOSMMOREPROGRAMS = 1073741928,
+            REST_NOSMMFUPROGRAMS = 1073741929,
+            REST_NOTRAYITEMSDISPLAY = 1073741930,
+            REST_NOTOOLBARSONTASKBAR = 1073741931,
+            REST_NOSMCONFIGUREPROGRAMS = 1073741935,
+            REST_HIDECLOCK = 1073741936,
+            REST_NOLOWDISKSPACECHECKS = 1073741937,
+            REST_NOENTIRENETWORK = 1073741938,
+            REST_NODESKTOPCLEANUP = 1073741939,
+            REST_BITBUCKNUKEONDELETE = 1073741940,
+            REST_BITBUCKCONFIRMDELETE = 1073741941,
+            REST_BITBUCKNOPROP = 1073741942,
+            REST_NODISPBACKGROUND = 1073741943,
+            REST_NODISPSCREENSAVEPG = 1073741944,
+            REST_NODISPSETTINGSPG = 1073741945,
+            REST_NODISPSCREENSAVEPREVIEW = 1073741946,
+            REST_NODISPLAYCPL = 1073741947,
+            REST_HIDERUNASVERB = 1073741948,
+            REST_NOTHUMBNAILCACHE = 1073741949,
+            REST_NOSTRCMPLOGICAL = 1073741950,
+            REST_NOPUBLISHWIZARD = 1073741951,
+            REST_NOONLINEPRINTSWIZARD = 1073741952,
+            REST_NOWEBSERVICES = 1073741953,
+            REST_ALLOWUNHASHEDWEBVIEW = 1073741954,
+            REST_ALLOWLEGACYWEBVIEW = 1073741955,
+            REST_REVERTWEBVIEWSECURITY = 1073741956,
+            REST_INHERITCONSOLEHANDLES = 1073741958,
+            REST_NOREMOTERECURSIVEEVENTS = 1073741961,
+            REST_NOREMOTECHANGENOTIFY = 1073741969,
+            REST_NOENUMENTIRENETWORK = 1073741971,
+            REST_NOINTERNETOPENWITH = 1073741973,
+            REST_DONTRETRYBADNETNAME = 1073741979,
+            REST_ALLOWFILECLSIDJUNCTIONS = 1073741980,
+            REST_NOUPNPINSTALL = 1073741981,
+            REST_ARP_DONTGROUPPATCHES = 1073741996,
+            REST_ARP_NOCHOOSEPROGRAMSPAGE = 1073741997,
+            REST_NODISCONNECT = 1090519041,
+            REST_NOSECURITY = 1090519042,
+            REST_NOFILEASSOCIATE = 1090519043,
+            REST_ALLOWCOMMENTTOGGLE = 1090519044,
+        }
+        #[library("SHELL32.dll")]
+        extern fn ReadCabinetState(#[size_param(1)] pcs: *mut CABINETSTATE, cLength: i32) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn RealDriveType(iDrive: i32, fOKToHitNet: BOOL) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn RestartDialog(#[opt] hwnd: HWND, #[opt] pszPrompt: PCWSTR, dwReturn: u32) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn RestartDialogEx(#[opt] hwnd: HWND, #[opt] pszPrompt: PCWSTR, dwReturn: u32, dwReasonCode: u32) -> i32;
+        #[repr(i32)]
+        enum SCNRT_STATUS {
+            SCNRT_ENABLE = 0,
+            SCNRT_DISABLE = 1,
+        }
+        const SFVM_ADDPROPERTYPAGES: u32 = 47;
+        const SFVM_BACKGROUNDENUM: u32 = 32;
+        const SFVM_BACKGROUNDENUMDONE: u32 = 48;
+        const SFVM_COLUMNCLICK: u32 = 24;
+        const SFVM_DEFITEMCOUNT: u32 = 26;
+        const SFVM_DEFVIEWMODE: u32 = 27;
+        const SFVM_DIDDRAGDROP: u32 = 36;
+        const SFVM_FSNOTIFY: u32 = 14;
+        const SFVM_GETANIMATION: u32 = 68;
+        const SFVM_GETBUTTONINFO: u32 = 5;
+        const SFVM_GETBUTTONS: u32 = 6;
+        const SFVM_GETDETAILSOF: u32 = 23;
+        const SFVM_GETHELPTEXT: u32 = 3;
+        const SFVM_GETHELPTOPIC: u32 = 63;
+        const SFVM_GETNOTIFY: u32 = 49;
+        const SFVM_GETPANE: u32 = 59;
+        const SFVM_GETSORTDEFAULTS: u32 = 53;
+        const SFVM_GETTOOLTIPTEXT: u32 = 4;
+        const SFVM_GETZONE: u32 = 58;
+        struct SFVM_HELPTOPIC_DATA {
+            wszHelpFile: [u16; 260],
+            wszHelpTopic: [u16; 260],
+        }
+        const SFVM_INITMENUPOPUP: u32 = 7;
+        const SFVM_INVOKECOMMAND: u32 = 2;
+        const SFVM_MERGEMENU: u32 = 1;
+        struct SFVM_PROPPAGE_DATA {
+            dwReserved: u32,
+            pfn: LPFNADDPROPSHEETPAGE,
+            lParam: LPARAM,
+        }
+        const SFVM_QUERYFSNOTIFY: u32 = 25;
+        const SFVM_SETISFV: u32 = 39;
+        const SFVM_SIZE: u32 = 57;
+        const SFVM_THISIDLIST: u32 = 41;
+        const SFVM_UNMERGEMENU: u32 = 28;
+        const SFVM_UPDATESTATUSBAR: u32 = 31;
+        const SFVM_WINDOWCREATED: u32 = 15;
+        const SFVSOC_INVALIDATE_ALL: u32 = 1;
+        const SFVSOC_NOSCROLL: u32 = 2;
+        const SFVS_SELECT_ALLITEMS: u32 = 1;
+        const SFVS_SELECT_INVERT: u32 = 2;
+        const SFVS_SELECT_NONE: u32 = 0;
+        struct SFV_CREATE {
+            cbSize: u32,
+            pshf: IShellFolder,
+            psvOuter: IShellView,
+            psfvcb: IShellFolderViewCB,
+        }
+        #[repr(i32)]
+        enum SHARD {
+            SHARD_PIDL = 1,
+            SHARD_PATHA = 2,
+            SHARD_PATHW = 3,
+            SHARD_APPIDINFO = 4,
+            SHARD_APPIDINFOIDLIST = 5,
+            SHARD_LINK = 6,
+            SHARD_APPIDINFOLINK = 7,
+            SHARD_SHELLITEM = 8,
+        }
+        #[packed(1)]
+        struct SHARDAPPIDINFO {
+            psi: IShellItem,
+            pszAppID: PCWSTR,
+        }
+        #[packed(1)]
+        struct SHARDAPPIDINFOIDLIST {
+            pidl: LPCITEMIDLIST,
+            pszAppID: PCWSTR,
+        }
+        #[packed(1)]
+        struct SHARDAPPIDINFOLINK {
+            psl: IShellLinkA,
+            pszAppID: PCWSTR,
+        }
+        const SHARD_PATH: u32 = 2;
+        #[library("SHELL32.dll")]
+        extern fn SHAddFromPropSheetExtArray(hpsxa: HPSXA, lpfnAddPage: LPFNADDPROPSHEETPAGE, lParam: LPARAM) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn SHAddToRecentDocs(uFlags: u32, #[opt] pv: *const void);
+        #[library("SHELL32.dll")]
+        extern fn SHAlloc(cb: usize) -> *mut void;
+        #[library("SHELL32.dll")]
+        extern fn SHBindToFolderIDListParent(#[opt] psfRoot: IShellFolder, pidl: *const ITEMIDLIST, riid: *const GUID, ppv: *mut *mut void, ppidlLast: *mut LPCITEMIDLIST) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHBindToFolderIDListParentEx(#[opt] psfRoot: IShellFolder, pidl: *const ITEMIDLIST, #[opt] ppbc: IBindCtx, riid: *const GUID, ppv: *mut *mut void, ppidlLast: *mut LPCITEMIDLIST) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHBindToObject(#[opt] psf: IShellFolder, pidl: *const ITEMIDLIST, #[opt] pbc: IBindCtx, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHBindToParent(pidl: *const ITEMIDLIST, riid: *const GUID, ppv: *mut *mut void, ppidlLast: *mut LPCITEMIDLIST) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHBrowseForFolderA(lpbi: *const BROWSEINFOA) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn SHBrowseForFolderW(lpbi: *const BROWSEINFOW) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn SHCLSIDFromString(psz: PCWSTR, pclsid: *mut GUID) -> HRESULT;
+        const SHCNEE_MSI_CHANGE: u32 = 4;
+        const SHCNEE_MSI_UNINSTALL: u32 = 5;
+        const SHCNEE_ORDERCHANGED: u32 = 2;
+        const SHCNE_ALLEVENTS: u32 = 2147483647;
+        const SHCNE_ASSOCCHANGED: u32 = 134217728;
+        const SHCNE_ATTRIBUTES: u32 = 2048;
+        const SHCNE_CREATE: u32 = 2;
+        const SHCNE_DELETE: u32 = 4;
+        const SHCNE_DISKEVENTS: u32 = 145439;
+        const SHCNE_DRIVEADD: u32 = 256;
+        const SHCNE_DRIVEADDGUI: u32 = 65536;
+        const SHCNE_DRIVEREMOVED: u32 = 128;
+        const SHCNE_EXTENDED_EVENT: u32 = 67108864;
+        const SHCNE_FREESPACE: u32 = 262144;
+        const SHCNE_GLOBALEVENTS: u32 = 201687520;
+        const SHCNE_INTERRUPT: u32 = 2147483648;
+        const SHCNE_MEDIAINSERTED: u32 = 32;
+        const SHCNE_MEDIAREMOVED: u32 = 64;
+        const SHCNE_MKDIR: u32 = 8;
+        const SHCNE_NETSHARE: u32 = 512;
+        const SHCNE_NETUNSHARE: u32 = 1024;
+        const SHCNE_RENAMEFOLDER: u32 = 131072;
+        const SHCNE_RENAMEITEM: u32 = 1;
+        const SHCNE_RMDIR: u32 = 16;
+        const SHCNE_SERVERDISCONNECT: u32 = 16384;
+        const SHCNE_UPDATEDIR: u32 = 4096;
+        const SHCNE_UPDATEIMAGE: u32 = 32768;
+        const SHCNE_UPDATEITEM: u32 = 8192;
+        const SHCNF_DWORD: u32 = 3;
+        const SHCNF_FLUSH: u32 = 4096;
+        const SHCNF_FLUSHNOWAIT: u32 = 12288;
+        const SHCNF_IDLIST: u32 = 0;
+        const SHCNF_NOTIFYRECURSIVE: u32 = 65536;
+        const SHCNF_PATH: u32 = 1;
+        const SHCNF_PATHA: u32 = 1;
+        const SHCNF_PATHW: u32 = 5;
+        const SHCNF_PRINTER: u32 = 2;
+        const SHCNF_PRINTERA: u32 = 2;
+        const SHCNF_PRINTERW: u32 = 6;
+        const SHCNF_TYPE: u32 = 255;
+        const SHCNRF_InterruptLevel: u32 = 1;
+        const SHCNRF_NewDelivery: u32 = 32768;
+        const SHCNRF_RecursiveInterrupt: u32 = 4096;
+        const SHCNRF_ShellLevel: u32 = 2;
+        #[packed(1)]
+        struct SHChangeDWORDAsIDList {
+            cb: u16,
+            dwItem1: u32,
+            dwItem2: u32,
+            cbZero: u16,
+        }
+        #[library("SHELL32.dll")]
+        extern fn SHChangeNotification_Lock(hChange: HANDLE, dwProcId: u32, pppidl: *mut *mut LPITEMIDLIST, #[opt] plEvent: *mut i32) -> HANDLE;
+        #[library("SHELL32.dll")]
+        extern fn SHChangeNotification_Unlock(hLock: HANDLE) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHChangeNotify(wEventId: i32, uFlags: u32, #[opt] dwItem1: *const void, #[opt] dwItem2: *const void);
+        #[library("SHELL32.dll")]
+        extern fn SHChangeNotifyDeregister(ulID: u32) -> BOOL;
+        #[packed(1)]
+        struct SHChangeNotifyEntry {
+            pidl: LPCITEMIDLIST,
+            fRecursive: BOOL,
+        }
+        #[library("SHELL32.dll")]
+        extern fn SHChangeNotifyRegister(hwnd: HWND, fSources: i32, fEvents: i32, wMsg: u32, cEntries: i32, pshcne: *const SHChangeNotifyEntry) -> u32;
+        #[packed(1)]
+        struct SHChangeUpdateImageIDList {
+            cb: u16,
+            iIconIndex: i32,
+            iCurIndex: i32,
+            uFlags: u32,
+            dwProcessID: u32,
+            szName: [u16; 260],
+            cbZero: u16,
+        }
+        #[library("SHELL32.dll")]
+        extern fn SHCloneSpecialIDList(#[reserved] hwnd: HWND, csidl: i32, fCreate: BOOL) -> LPITEMIDLIST;
+        #[library("SHELL32.dll")]
+        extern fn SHCoCreateInstance(#[opt] pszCLSID: PCWSTR, #[opt] pclsid: *const GUID, #[opt] pUnkOuter: IUnknown, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateDataObject(#[opt] pidlFolder: *const ITEMIDLIST, cidl: u32, #[len_param(1)] #[opt] apidl: *const LPCITEMIDLIST, #[opt] pdtInner: IDataObject, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateDefaultContextMenu(pdcm: *const DEFCONTEXTMENU, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateDirectory(#[opt] hwnd: HWND, pszPath: PCWSTR) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateDirectoryExA(#[opt] hwnd: HWND, pszPath: PCSTR, #[opt] psa: *const SECURITY_ATTRIBUTES) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateDirectoryExW(#[opt] hwnd: HWND, pszPath: PCWSTR, #[opt] psa: *const SECURITY_ATTRIBUTES) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateFileExtractIconW(pszFile: PCWSTR, dwFileAttributes: u32, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE, ppsv: *mut IShellView) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateShellFolderViewEx(pcsfv: *const CSFV, ppsv: *mut IShellView) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateShellItem(#[opt] pidlParent: *const ITEMIDLIST, #[opt] psfParent: IShellFolder, pidl: *const ITEMIDLIST, ppsi: *mut IShellItem) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateStdEnumFmtEtc(cfmt: u32, #[len_param(0)] afmt: *const FORMATETC, ppenumFormatEtc: *mut IEnumFORMATETC) -> HRESULT;
+        struct SHDESCRIPTIONID {
+            dwDescriptionId: u32,
+            clsid: GUID,
+        }
+        const SHDID_COMPUTER_AUDIO: u32 = 19;
+        const SHDID_COMPUTER_CDROM: u32 = 10;
+        const SHDID_COMPUTER_DRIVE35: u32 = 5;
+        const SHDID_COMPUTER_DRIVE525: u32 = 6;
+        const SHDID_COMPUTER_FIXED: u32 = 8;
+        const SHDID_COMPUTER_IMAGING: u32 = 18;
+        const SHDID_COMPUTER_NETDRIVE: u32 = 9;
+        const SHDID_COMPUTER_OTHER: u32 = 12;
+        const SHDID_COMPUTER_RAMDISK: u32 = 11;
+        const SHDID_COMPUTER_REMOVABLE: u32 = 7;
+        const SHDID_COMPUTER_SHAREDDOCS: u32 = 20;
+        const SHDID_FS_DIRECTORY: u32 = 3;
+        const SHDID_FS_FILE: u32 = 2;
+        const SHDID_FS_OTHER: u32 = 4;
+        const SHDID_MOBILE_DEVICE: u32 = 21;
+        const SHDID_NET_DOMAIN: u32 = 13;
+        const SHDID_NET_OTHER: u32 = 17;
+        const SHDID_NET_RESTOFNET: u32 = 16;
+        const SHDID_NET_SERVER: u32 = 14;
+        const SHDID_NET_SHARE: u32 = 15;
+        const SHDID_REMOTE_DESKTOP_DRIVE: u32 = 22;
+        const SHDID_ROOT_REGITEM: u32 = 1;
+        #[library("SHELL32.dll")]
+        extern fn SHDefExtractIconA(pszIconFile: PCSTR, iIndex: i32, uFlags: u32, #[opt] phiconLarge: *mut HICON, #[opt] phiconSmall: *mut HICON, nIconSize: u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHDefExtractIconW(pszIconFile: PCWSTR, iIndex: i32, uFlags: u32, #[opt] phiconLarge: *mut HICON, #[opt] phiconSmall: *mut HICON, nIconSize: u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHDestroyPropSheetExtArray(hpsxa: HPSXA);
+        #[library("SHELL32.dll")]
+        extern fn SHDoDragDrop(#[opt] hwnd: HWND, pdata: IDataObject, #[opt] pdsrc: IDropSource, dwEffect: u32, pdwEffect: *mut u32) -> HRESULT;
+        #[packed(1)]
+        struct SHELLFLAGSTATE {
+            _bitfield: BOOL,
+        }
+        #[packed(1)]
+        struct SHELLSTATEA {
+            _bitfield1: BOOL,
+            dwWin95Unused: u32,
+            uWin95Unused: u32,
+            lParamSort: i32,
+            iSortDirection: i32,
+            version: u32,
+            uNotUsed: u32,
+            _bitfield2: BOOL,
+        }
+        const SHELLSTATEVERSION_IE4: u32 = 9;
+        const SHELLSTATEVERSION_WIN2K: u32 = 10;
+        #[packed(1)]
+        struct SHELLSTATEW {
+            _bitfield1: BOOL,
+            dwWin95Unused: u32,
+            uWin95Unused: u32,
+            lParamSort: i32,
+            iSortDirection: i32,
+            version: u32,
+            uNotUsed: u32,
+            _bitfield2: BOOL,
+        }
+        const SHELLSTATE_SIZE_IE4: u32 = 24;
+        const SHELLSTATE_SIZE_NT4: u32 = 20;
+        const SHELLSTATE_SIZE_WIN95: u32 = 12;
+        #[repr(u32)]
+        #[flags]
+        enum SHELL_LINK_DATA_FLAGS {
+            SLDF_DEFAULT = 0,
+            SLDF_HAS_ID_LIST = 1,
+            SLDF_HAS_LINK_INFO = 2,
+            SLDF_HAS_NAME = 4,
+            SLDF_HAS_RELPATH = 8,
+            SLDF_HAS_WORKINGDIR = 16,
+            SLDF_HAS_ARGS = 32,
+            SLDF_HAS_ICONLOCATION = 64,
+            SLDF_UNICODE = 128,
+            SLDF_FORCE_NO_LINKINFO = 256,
+            SLDF_HAS_EXP_SZ = 512,
+            SLDF_RUN_IN_SEPARATE = 1024,
+            SLDF_HAS_DARWINID = 4096,
+            SLDF_RUNAS_USER = 8192,
+            SLDF_HAS_EXP_ICON_SZ = 16384,
+            SLDF_NO_PIDL_ALIAS = 32768,
+            SLDF_FORCE_UNCNAME = 65536,
+            SLDF_RUN_WITH_SHIMLAYER = 131072,
+            SLDF_FORCE_NO_LINKTRACK = 262144,
+            SLDF_ENABLE_TARGET_METADATA = 524288,
+            SLDF_DISABLE_LINK_PATH_TRACKING = 1048576,
+            SLDF_DISABLE_KNOWNFOLDER_RELATIVE_TRACKING = 2097152,
+            SLDF_NO_KF_ALIAS = 4194304,
+            SLDF_ALLOW_LINK_TO_LINK = 8388608,
+            SLDF_UNALIAS_ON_SAVE = 16777216,
+            SLDF_PREFER_ENVIRONMENT_PATH = 33554432,
+            SLDF_KEEP_LOCAL_IDLIST_FOR_UNC_TARGET = 67108864,
+            SLDF_PERSIST_VOLUME_ID_RELATIVE = 134217728,
+            SLDF_VALID = 268433407,
+            SLDF_RESERVED = 2147483648,
+        }
+        const SHFMT_CANCEL: u32 = 4294967294;
+        const SHFMT_ERROR: u32 = 4294967295;
+        const SHFMT_ID_DEFAULT: u32 = 65535;
+        const SHFMT_NOFORMAT: u32 = 4294967293;
+        const SHFMT_OPT_FULL: u32 = 1;
+        const SHFMT_OPT_SYSONLY: u32 = 2;
+        struct SHFOLDERCUSTOMSETTINGS {
+            dwSize: u32,
+            dwMask: u32,
+            pvid: *mut SHELLVIEWID,
+            pszWebViewTemplate: PWSTR,
+            cchWebViewTemplate: u32,
+            pszWebViewTemplateVersion: PWSTR,
+            pszInfoTip: PWSTR,
+            cchInfoTip: u32,
+            pclsid: *mut GUID,
+            dwFlags: u32,
+            pszIconFile: PWSTR,
+            cchIconFile: u32,
+            iIconIndex: i32,
+            pszLogo: PWSTR,
+            cchLogo: u32,
+        }
+        #[library("SHELL32.dll")]
+        extern fn SHFindFiles(#[opt] pidlFolder: *const ITEMIDLIST, #[opt] pidlSaveFile: *const ITEMIDLIST) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHFind_InitMenuPopup(hmenu: HMENU, #[opt] hwndOwner: HWND, idCmdFirst: u32, idCmdLast: u32) -> IContextMenu;
+        #[library("SHELL32.dll")]
+        extern fn SHFlushSFCache();
+        #[library("SHELL32.dll")]
+        extern fn SHFormatDrive(hwnd: HWND, drive: u32, fmtID: u32, options: u32) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn SHFree(#[opt] pv: *const void);
+        const SHGDFIL_DESCRIPTIONID: u32 = 3;
+        const SHGDFIL_FINDDATA: u32 = 1;
+        const SHGDFIL_NETRESOURCE: u32 = 2;
+        #[repr(i32)]
+        enum SHGFP_TYPE {
+            SHGFP_TYPE_CURRENT = 0,
+            SHGFP_TYPE_DEFAULT = 1,
+        }
+        #[library("SHELL32.dll")]
+        extern fn SHGetAttributesFromDataObject(#[opt] pdo: IDataObject, dwAttributeMask: u32, #[opt] pdwAttributes: *mut u32, #[opt] pcItems: *mut u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetDataFromIDListA(psf: IShellFolder, pidl: *const ITEMIDLIST, nFormat: i32, #[size_param(4)] pv: *mut void, cb: i32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetDataFromIDListW(psf: IShellFolder, pidl: *const ITEMIDLIST, nFormat: i32, #[size_param(4)] pv: *mut void, cb: i32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetDesktopFolder(ppshf: *mut IShellFolder) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetFolderLocation(#[reserved] hwnd: HWND, csidl: i32, #[opt] hToken: HANDLE, dwFlags: u32, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetFolderPathA(#[reserved] hwnd: HWND, csidl: i32, #[opt] hToken: HANDLE, dwFlags: u32, #[out] pszPath: PSTR) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetFolderPathAndSubDirA(#[reserved] hwnd: HWND, csidl: i32, #[opt] hToken: HANDLE, dwFlags: u32, #[opt] pszSubDir: PCSTR, #[out] pszPath: PSTR) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetFolderPathAndSubDirW(#[reserved] hwnd: HWND, csidl: i32, #[opt] hToken: HANDLE, dwFlags: u32, #[opt] pszSubDir: PCWSTR, #[out] pszPath: PWSTR) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetFolderPathW(#[reserved] hwnd: HWND, csidl: i32, #[opt] hToken: HANDLE, dwFlags: u32, #[out] pszPath: PWSTR) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetIconOverlayIndexA(#[opt] pszIconPath: PCSTR, iIconIndex: i32) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn SHGetIconOverlayIndexW(#[opt] pszIconPath: PCWSTR, iIconIndex: i32) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn SHGetInstanceExplorer(ppunk: *mut IUnknown) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetKnownFolderIDList(rfid: *const KNOWNFOLDERID, dwFlags: u32, #[opt] hToken: HANDLE, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetKnownFolderItem(rfid: *const KNOWNFOLDERID, flags: KNOWN_FOLDER_FLAG, #[opt] hToken: HANDLE, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetKnownFolderPath(rfid: *const KNOWNFOLDERID, dwFlags: u32, #[opt] hToken: HANDLE, ppszPath: *mut PWSTR) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetMalloc(ppMalloc: *mut IMalloc) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetPathFromIDListA(pidl: *const ITEMIDLIST, #[out] pszPath: PSTR) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHGetPathFromIDListEx(pidl: *const ITEMIDLIST, #[len_param(2)] #[out] pszPath: PWSTR, cchPath: u32, uOpts: GPFIDL_FLAGS) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHGetPathFromIDListW(pidl: *const ITEMIDLIST, #[out] pszPath: PWSTR) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHGetRealIDL(psf: IShellFolder, pidlSimple: *const ITEMIDLIST, ppidlReal: *mut LPITEMIDLIST) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetSetFolderCustomSettings(#[in] #[out] pfcs: *mut SHFOLDERCUSTOMSETTINGS, pszPath: PCWSTR, dwReadWrite: u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetSetSettings(#[in] #[out] #[opt] lpss: *mut SHELLSTATEA, dwMask: u32, bSet: BOOL);
+        #[library("SHELL32.dll")]
+        extern fn SHGetSettings(psfs: *mut SHELLFLAGSTATE, dwMask: u32);
+        #[library("SHELL32.dll")]
+        extern fn SHGetSpecialFolderLocation(#[reserved] hwnd: HWND, csidl: i32, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetSpecialFolderPathA(#[reserved] hwnd: HWND, #[out] pszPath: PSTR, csidl: i32, fCreate: BOOL) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHGetSpecialFolderPathW(#[reserved] hwnd: HWND, #[out] pszPath: PWSTR, csidl: i32, fCreate: BOOL) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHHandleUpdateImage(pidlExtra: *const ITEMIDLIST) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn SHILCreateFromPath(pszPath: PCWSTR, ppidl: *mut LPITEMIDLIST, #[in] #[out] #[opt] rgfInOut: *mut u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHLimitInputEdit(hwndEdit: HWND, psf: IShellFolder) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHLoadInProc(rclsid: *const GUID) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHMapPIDLToSystemImageListIndex(pshf: IShellFolder, pidl: *const ITEMIDLIST, #[opt] piIndexSel: *mut i32) -> i32;
+        const SHOP_FILEPATH: u32 = 2;
+        const SHOP_PRINTERNAME: u32 = 1;
+        const SHOP_VOLUMEGUID: u32 = 4;
+        #[library("SHELL32.dll")]
+        extern fn SHObjectProperties(#[opt] hwnd: HWND, shopObjectType: u32, pszObjectName: PCWSTR, #[opt] pszPropertyPage: PCWSTR) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHOpenFolderAndSelectItems(pidlFolder: *const ITEMIDLIST, cidl: u32, #[len_param(1)] #[opt] apidl: *const LPCITEMIDLIST, dwFlags: u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHOpenWithDialog(#[opt] hwndParent: HWND, poainfo: *const OPENASINFO) -> HRESULT;
+        const SHPPFW_ASKDIRCREATE: u32 = 2;
+        const SHPPFW_DEFAULT: u32 = 1;
+        const SHPPFW_DIRCREATE: u32 = 1;
+        const SHPPFW_IGNOREFILENAME: u32 = 4;
+        const SHPPFW_MEDIACHECKONLY: u32 = 16;
+        const SHPPFW_NONE: u32 = 0;
+        const SHPPFW_NOWRITECHECK: u32 = 8;
+        #[library("SHELL32.dll")]
+        extern fn SHParseDisplayName(pszName: PCWSTR, #[opt] pbc: IBindCtx, ppidl: *mut LPITEMIDLIST, sfgaoIn: SFGAOF, #[opt] psfgaoOut: *mut SFGAOF) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHPathPrepareForWriteA(#[opt] hwnd: HWND, #[opt] punkEnableModless: IUnknown, pszPath: PCSTR, dwFlags: u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHPathPrepareForWriteW(#[opt] hwnd: HWND, #[opt] punkEnableModless: IUnknown, pszPath: PCWSTR, dwFlags: u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHPropStgCreate(psstg: IPropertySetStorage, fmtid: *const GUID, #[opt] pclsid: *const GUID, grfFlags: u32, grfMode: u32, dwDisposition: u32, ppstg: *mut IPropertyStorage, #[opt] puCodePage: *mut u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHPropStgReadMultiple(pps: IPropertyStorage, uCodePage: u32, cpspec: u32, #[len_param(2)] rgpspec: *const PROPSPEC, #[len_param(2)] rgvar: *mut PROPVARIANT) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHPropStgWriteMultiple(pps: IPropertyStorage, #[in] #[out] #[opt] puCodePage: *mut u32, cpspec: u32, #[len_param(2)] rgpspec: *const PROPSPEC, #[len_param(2)] #[in] #[out] rgvar: *mut PROPVARIANT, propidNameFirst: PROPID) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, uPageID: u32, lpfnReplaceWith: LPFNADDPROPSHEETPAGE, lParam: LPARAM) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn SHRestricted(rest: RESTRICTIONS) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn SHSetFolderPathA(csidl: i32, #[opt] hToken: HANDLE, dwFlags: u32, pszPath: PCSTR) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHSetFolderPathW(csidl: i32, #[opt] hToken: HANDLE, dwFlags: u32, pszPath: PCWSTR) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHSetInstanceExplorer(#[opt] punk: IUnknown);
+        #[library("SHELL32.dll")]
+        extern fn SHSetKnownFolderPath(rfid: *const KNOWNFOLDERID, dwFlags: u32, #[opt] hToken: HANDLE, pszPath: PCWSTR) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHShellFolderView_Message(hwndMain: HWND, uMsg: u32, lParam: LPARAM) -> LRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHStartNetConnectionDialogW(#[opt] hwnd: HWND, #[opt] pszRemoteName: PCWSTR, dwType: u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHUpdateImageA(pszHashItem: PCSTR, iIndex: i32, uFlags: u32, iImageIndex: i32);
+        #[library("SHELL32.dll")]
+        extern fn SHUpdateImageW(pszHashItem: PCWSTR, iIndex: i32, uFlags: u32, iImageIndex: i32);
+        #[library("SHELL32.dll")]
+        extern fn SHValidateUNC(#[opt] hwndOwner: HWND, #[in] #[out] pszFile: PWSTR, fConnect: u32) -> BOOL;
+        const SIOM_ICONINDEX: u32 = 2;
+        const SIOM_OVERLAYINDEX: u32 = 1;
+        const SIOM_RESERVED_DEFAULT: u32 = 3;
+        const SIOM_RESERVED_LINK: u32 = 1;
+        const SIOM_RESERVED_SHARED: u32 = 0;
+        const SIOM_RESERVED_SLOWFILE: u32 = 2;
+        const SSF_AUTOCHECKSELECT: u32 = 8388608;
+        const SSF_DESKTOPHTML: u32 = 512;
+        const SSF_DONTPRETTYPATH: u32 = 2048;
+        const SSF_DOUBLECLICKINWEBVIEW: u32 = 128;
+        const SSF_FILTER: u32 = 65536;
+        const SSF_HIDDENFILEEXTS: u32 = 4;
+        const SSF_HIDEICONS: u32 = 16384;
+        const SSF_ICONSONLY: u32 = 16777216;
+        const SSF_MAPNETDRVBUTTON: u32 = 4096;
+        const SSF_NOCONFIRMRECYCLE: u32 = 32768;
+        const SSF_NONETCRAWLING: u32 = 1048576;
+        const SSF_SEPPROCESS: u32 = 524288;
+        const SSF_SERVERADMINUI: u32 = 4;
+        const SSF_SHOWALLOBJECTS: u32 = 1;
+        const SSF_SHOWATTRIBCOL: u32 = 256;
+        const SSF_SHOWCOMPCOLOR: u32 = 8;
+        const SSF_SHOWEXTENSIONS: u32 = 2;
+        const SSF_SHOWINFOTIP: u32 = 8192;
+        const SSF_SHOWSTARTPAGE: u32 = 4194304;
+        const SSF_SHOWSTATUSBAR: u32 = 67108864;
+        const SSF_SHOWSUPERHIDDEN: u32 = 262144;
+        const SSF_SHOWSYSFILES: u32 = 32;
+        const SSF_SHOWTYPEOVERLAY: u32 = 33554432;
+        const SSF_SORTCOLUMNS: u32 = 16;
+        const SSF_STARTPANELON: u32 = 2097152;
+        const SSF_WEBVIEW: u32 = 131072;
+        const SSF_WIN95CLASSIC: u32 = 1024;
+        #[encoding("utf-16")]
+        const STR_PARSE_PARTIAL_IDLIST: String = "ParseOriginalItem";
+        #[encoding("utf-16")]
+        const STR_PARSE_WITH_PROPERTIES: String = "ParseWithProperties";
+        #[library("SHELL32.dll")]
+        extern fn Shell_GetCachedImageIndex(pwszIconPath: PCWSTR, iIconIndex: i32, uIconFlags: u32) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn Shell_GetCachedImageIndexA(pszIconPath: PCSTR, iIconIndex: i32, uIconFlags: u32) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn Shell_GetCachedImageIndexW(pszIconPath: PCWSTR, iIconIndex: i32, uIconFlags: u32) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn Shell_GetImageLists(#[opt] phiml: *mut HIMAGELIST, #[opt] phimlSmall: *mut HIMAGELIST) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn Shell_MergeMenus(hmDst: HMENU, hmSrc: HMENU, uInsert: u32, uIDAdjust: u32, uIDAdjustMax: u32, uFlags: u32) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn SignalFileOpen(pidl: *const ITEMIDLIST) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn StgMakeUniqueName(pstgParent: IStorage, pszFileSpec: PCWSTR, grfMode: u32, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        const VALIDATEUNC_CONNECT: u32 = 1;
+        const VALIDATEUNC_NOUI: u32 = 2;
+        const VALIDATEUNC_PERSIST: u32 = 8;
+        const VALIDATEUNC_PRINT: u32 = 4;
+        const VALIDATEUNC_VALID: u32 = 15;
+        #[packed(1)]
+        struct WALLPAPEROPT {
+            dwSize: u32,
+            dwStyle: u32,
+        }
+        const WPSTYLE_CENTER: u32 = 0;
+        const WPSTYLE_CROPTOFIT: u32 = 4;
+        const WPSTYLE_KEEPASPECT: u32 = 3;
+        const WPSTYLE_MAX: u32 = 6;
+        const WPSTYLE_SPAN: u32 = 5;
+        const WPSTYLE_STRETCH: u32 = 2;
+        const WPSTYLE_TILE: u32 = 1;
+        #[library("SHELL32.dll")]
+        extern fn Win32DeleteFile(pszPath: PCWSTR) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn WriteCabinetState(pcs: *const CABINETSTATE) -> BOOL;
+        #[repr(i32)]
+        enum tagDTI_ADTIWUI {
+            DTI_ADDUI_DEFAULT = 0,
+            DTI_ADDUI_DISPSUBWIZARD = 1,
+            DTI_ADDUI_POSITIONITEM = 2,
+        }
+        #[repr(i32)]
+        enum tagOPEN_AS_INFO_FLAGS {
+            OAIF_ALLOW_REGISTRATION = 1,
+            OAIF_REGISTER_EXT = 2,
+            OAIF_EXEC = 4,
+            OAIF_FORCE_REGISTRATION = 8,
+            OAIF_HIDE_REGISTRATION = 32,
+            OAIF_URL_PROTOCOL = 64,
+            OAIF_FILE_IS_URI = 128,
+        }
+    }
+}

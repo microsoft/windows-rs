@@ -1,0 +1,16 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BackgroundCopyManager10_1: GUID = 0x4bd3e4e1_7bd4_4a2b_9964_496400de5193;
+        #[guid(0x98c97bd2_e32b_4ad8_a528_95fd8b16bd42)]
+        interface IBackgroundCopyCallback3: IBackgroundCopyCallback2 {
+            fn FileRangesTransferred(&self, job: IBackgroundCopyJob, file: IBackgroundCopyFile, rangeCount: u32, ranges: *const BG_FILE_RANGE) -> HRESULT;
+        }
+        #[guid(0xcf6784f7_d677_49fd_9368_cb47aee9d1ad)]
+        interface IBackgroundCopyFile6: IBackgroundCopyFile5 {
+            fn UpdateDownloadPosition(&self, offset: u64) -> HRESULT;
+            fn RequestFileRanges(&self, rangeCount: u32, ranges: *const BG_FILE_RANGE) -> HRESULT;
+            fn GetFilledFileRanges(&self, rangeCount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> HRESULT;
+        }
+    }
+}

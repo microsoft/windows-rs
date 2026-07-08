@@ -1,0 +1,9 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type BigArray = [u16; 64];
+    struct Struct {
+        field: BigArray,
+        other: i32,
+    }
+}

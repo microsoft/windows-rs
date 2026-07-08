@@ -1,0 +1,70 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xfcafe424_fef5_481a_bd9f_33ce0574256f)]
+        interface IWSDScopeMatchingRule: IUnknown {
+            fn GetScopeRule(&self, ppszScopeMatchingRule: *mut PCWSTR) -> HRESULT;
+            fn MatchScopes(&self, pszScope1: PCWSTR, pszScope2: PCWSTR, pfMatch: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x4bad8a3b_b374_4420_9632_aac945b374aa)]
+        interface IWSDiscoveredService: IUnknown {
+            fn GetEndpointReference(&self, ppEndpointReference: *mut *mut WSD_ENDPOINT_REFERENCE) -> HRESULT;
+            fn GetTypes(&self, ppTypesList: *mut *mut WSD_NAME_LIST) -> HRESULT;
+            fn GetScopes(&self, ppScopesList: *mut *mut WSD_URI_LIST) -> HRESULT;
+            fn GetXAddrs(&self, ppXAddrsList: *mut *mut WSD_URI_LIST) -> HRESULT;
+            fn GetMetadataVersion(&self, pullMetadataVersion: *mut u64) -> HRESULT;
+            fn GetExtendedDiscoXML(&self, ppHeaderAny: *mut *mut WSDXML_ELEMENT, ppBodyAny: *mut *mut WSDXML_ELEMENT) -> HRESULT;
+            fn GetProbeResolveTag(&self, ppszTag: *mut PCWSTR) -> HRESULT;
+            fn GetRemoteTransportAddress(&self, ppszRemoteTransportAddress: *mut PCWSTR) -> HRESULT;
+            fn GetLocalTransportAddress(&self, ppszLocalTransportAddress: *mut PCWSTR) -> HRESULT;
+            fn GetLocalInterfaceGUID(&self, pGuid: *mut GUID) -> HRESULT;
+            fn GetInstanceId(&self, pullInstanceId: *mut u64) -> HRESULT;
+        }
+        #[guid(0x8ffc8e55_f0eb_480f_88b7_b435dd281d45)]
+        interface IWSDiscoveryProvider: IUnknown {
+            fn SetAddressFamily(&self, dwAddressFamily: u32) -> HRESULT;
+            fn Attach(&self, pSink: IWSDiscoveryProviderNotify) -> HRESULT;
+            fn Detach(&self) -> HRESULT;
+            fn SearchById(&self, pszId: PCWSTR, #[opt] pszTag: PCWSTR) -> HRESULT;
+            fn SearchByAddress(&self, pszAddress: PCWSTR, #[opt] pszTag: PCWSTR) -> HRESULT;
+            fn SearchByType(&self, #[opt] pTypesList: *const WSD_NAME_LIST, #[opt] pScopesList: *const WSD_URI_LIST, #[opt] pszMatchBy: PCWSTR, #[opt] pszTag: PCWSTR) -> HRESULT;
+            fn GetXMLContext(&self, ppContext: *mut IWSDXMLContext) -> HRESULT;
+        }
+        #[guid(0x73ee3ced_b6e6_4329_a546_3e8ad46563d2)]
+        interface IWSDiscoveryProviderNotify: IUnknown {
+            fn Add(&self, pService: IWSDiscoveredService) -> HRESULT;
+            fn Remove(&self, pService: IWSDiscoveredService) -> HRESULT;
+            fn SearchFailed(&self, hr: HRESULT, #[opt] pszTag: PCWSTR) -> HRESULT;
+            fn SearchComplete(&self, #[opt] pszTag: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xae01e1a8_3ff9_4148_8116_057cc616fe13)]
+        interface IWSDiscoveryPublisher: IUnknown {
+            fn SetAddressFamily(&self, dwAddressFamily: u32) -> HRESULT;
+            fn RegisterNotificationSink(&self, pSink: IWSDiscoveryPublisherNotify) -> HRESULT;
+            fn UnRegisterNotificationSink(&self, pSink: IWSDiscoveryPublisherNotify) -> HRESULT;
+            fn Publish(&self, pszId: PCWSTR, ullMetadataVersion: u64, ullInstanceId: u64, ullMessageNumber: u64, #[opt] pszSessionId: PCWSTR, #[opt] pTypesList: *const WSD_NAME_LIST, #[opt] pScopesList: *const WSD_URI_LIST, #[opt] pXAddrsList: *const WSD_URI_LIST) -> HRESULT;
+            fn UnPublish(&self, pszId: PCWSTR, ullInstanceId: u64, ullMessageNumber: u64, #[opt] pszSessionId: PCWSTR, #[opt] pAny: *const WSDXML_ELEMENT) -> HRESULT;
+            fn MatchProbe(&self, pProbeMessage: *const WSD_SOAP_MESSAGE, pMessageParameters: IWSDMessageParameters, pszId: PCWSTR, ullMetadataVersion: u64, ullInstanceId: u64, ullMessageNumber: u64, #[opt] pszSessionId: PCWSTR, #[opt] pTypesList: *const WSD_NAME_LIST, #[opt] pScopesList: *const WSD_URI_LIST, #[opt] pXAddrsList: *const WSD_URI_LIST) -> HRESULT;
+            fn MatchResolve(&self, pResolveMessage: *const WSD_SOAP_MESSAGE, pMessageParameters: IWSDMessageParameters, pszId: PCWSTR, ullMetadataVersion: u64, ullInstanceId: u64, ullMessageNumber: u64, #[opt] pszSessionId: PCWSTR, #[opt] pTypesList: *const WSD_NAME_LIST, #[opt] pScopesList: *const WSD_URI_LIST, #[opt] pXAddrsList: *const WSD_URI_LIST) -> HRESULT;
+            fn PublishEx(&self, pszId: PCWSTR, ullMetadataVersion: u64, ullInstanceId: u64, ullMessageNumber: u64, #[opt] pszSessionId: PCWSTR, #[opt] pTypesList: *const WSD_NAME_LIST, #[opt] pScopesList: *const WSD_URI_LIST, #[opt] pXAddrsList: *const WSD_URI_LIST, #[opt] pHeaderAny: *const WSDXML_ELEMENT, #[opt] pReferenceParameterAny: *const WSDXML_ELEMENT, #[opt] pPolicyAny: *const WSDXML_ELEMENT, #[opt] pEndpointReferenceAny: *const WSDXML_ELEMENT, #[opt] pAny: *const WSDXML_ELEMENT) -> HRESULT;
+            fn MatchProbeEx(&self, pProbeMessage: *const WSD_SOAP_MESSAGE, pMessageParameters: IWSDMessageParameters, pszId: PCWSTR, ullMetadataVersion: u64, ullInstanceId: u64, ullMessageNumber: u64, #[opt] pszSessionId: PCWSTR, #[opt] pTypesList: *const WSD_NAME_LIST, #[opt] pScopesList: *const WSD_URI_LIST, #[opt] pXAddrsList: *const WSD_URI_LIST, #[opt] pHeaderAny: *const WSDXML_ELEMENT, #[opt] pReferenceParameterAny: *const WSDXML_ELEMENT, #[opt] pPolicyAny: *const WSDXML_ELEMENT, #[opt] pEndpointReferenceAny: *const WSDXML_ELEMENT, #[opt] pAny: *const WSDXML_ELEMENT) -> HRESULT;
+            fn MatchResolveEx(&self, pResolveMessage: *const WSD_SOAP_MESSAGE, pMessageParameters: IWSDMessageParameters, pszId: PCWSTR, ullMetadataVersion: u64, ullInstanceId: u64, ullMessageNumber: u64, #[opt] pszSessionId: PCWSTR, #[opt] pTypesList: *const WSD_NAME_LIST, #[opt] pScopesList: *const WSD_URI_LIST, #[opt] pXAddrsList: *const WSD_URI_LIST, #[opt] pHeaderAny: *const WSDXML_ELEMENT, #[opt] pReferenceParameterAny: *const WSDXML_ELEMENT, #[opt] pPolicyAny: *const WSDXML_ELEMENT, #[opt] pEndpointReferenceAny: *const WSDXML_ELEMENT, #[opt] pAny: *const WSDXML_ELEMENT) -> HRESULT;
+            fn RegisterScopeMatchingRule(&self, pScopeMatchingRule: IWSDScopeMatchingRule) -> HRESULT;
+            fn UnRegisterScopeMatchingRule(&self, pScopeMatchingRule: IWSDScopeMatchingRule) -> HRESULT;
+            fn GetXMLContext(&self, ppContext: *mut IWSDXMLContext) -> HRESULT;
+        }
+        #[guid(0xe67651b0_337a_4b3c_9758_733388568251)]
+        interface IWSDiscoveryPublisherNotify: IUnknown {
+            fn ProbeHandler(&self, pSoap: *const WSD_SOAP_MESSAGE, pMessageParameters: IWSDMessageParameters) -> HRESULT;
+            fn ResolveHandler(&self, pSoap: *const WSD_SOAP_MESSAGE, pMessageParameters: IWSDMessageParameters) -> HRESULT;
+        }
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateDiscoveryProvider(pContext: IWSDXMLContext, ppProvider: *mut IWSDiscoveryProvider) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateDiscoveryProvider2(pContext: IWSDXMLContext, #[len_param(2)] #[opt] pConfigParams: *const WSD_CONFIG_PARAM, dwConfigParamCount: u32, ppProvider: *mut IWSDiscoveryProvider) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateDiscoveryPublisher(pContext: IWSDXMLContext, ppPublisher: *mut IWSDiscoveryPublisher) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateDiscoveryPublisher2(pContext: IWSDXMLContext, #[len_param(2)] #[opt] pConfigParams: *const WSD_CONFIG_PARAM, dwConfigParamCount: u32, ppPublisher: *mut IWSDiscoveryPublisher) -> HRESULT;
+    }
+}

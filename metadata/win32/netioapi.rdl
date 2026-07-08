@@ -1,0 +1,652 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ANY_SIZE: u32 = 1;
+        #[library("IPHLPAPI.DLL")]
+        extern fn CancelMibChangeNotify2(NotificationHandle: HANDLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertCompartmentGuidToId(CompartmentGuid: *const GUID, CompartmentId: *mut u32) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertCompartmentIdToGuid(CompartmentId: NET_IF_COMPARTMENT_ID, CompartmentGuid: *mut GUID) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertInterfaceAliasToLuid(InterfaceAlias: PCWSTR, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertInterfaceGuidToLuid(InterfaceGuid: *const GUID, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertInterfaceIndexToLuid(InterfaceIndex: NET_IFINDEX, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertInterfaceLuidToAlias(InterfaceLuid: *const NET_LUID, #[len_param(2)] #[out] InterfaceAlias: PWSTR, Length: usize) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertInterfaceLuidToGuid(InterfaceLuid: *const NET_LUID, InterfaceGuid: *mut GUID) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertInterfaceLuidToIndex(InterfaceLuid: *const NET_LUID, InterfaceIndex: *mut u32) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertInterfaceLuidToNameA(InterfaceLuid: *const NET_LUID, #[len_param(2)] #[out] InterfaceName: PSTR, Length: usize) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertInterfaceLuidToNameW(InterfaceLuid: *const NET_LUID, #[len_param(2)] #[out] InterfaceName: PWSTR, Length: usize) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertInterfaceNameToLuidA(InterfaceName: PCSTR, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertInterfaceNameToLuidW(InterfaceName: PCWSTR, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertIpv4MaskToLength(Mask: u32, MaskLength: *mut u8) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn ConvertLengthToIpv4Mask(MaskLength: u32, Mask: *mut u32) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn CreateAnycastIpAddressEntry(Row: *const MIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn CreateFlVirtualInterface(Row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn CreateIpForwardEntry2(Row: *const MIB_IPFORWARD_ROW2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn CreateIpNetEntry2(Row: *const MIB_IPNET_ROW2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn CreateSortedAddressPairs(#[opt] SourceAddressList: *const SOCKADDR_IN6_LH, SourceAddressCount: u32, DestinationAddressList: *const SOCKADDR_IN6_LH, DestinationAddressCount: u32, AddressSortOptions: u32, SortedAddressPairList: *mut PSOCKADDR_IN6_PAIR, SortedAddressPairCount: *mut u32) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn CreateUnicastIpAddressEntry(Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
+        const DNS_DDR_ADAPTER_ENABLE: u32 = 1;
+        const DNS_DDR_ADAPTER_ENABLE_DOH: u32 = 1;
+        const DNS_DDR_ADAPTER_ENABLE_UDP_FALLBACK: u32 = 2;
+        const DNS_DDR_ADAPTER_MAKE_DDR_NON_BLOCKING: u32 = 4;
+        const DNS_DOH_AUTO_UPGRADE_SERVER: u32 = 8;
+        const DNS_DOH_POLICY_AUTO: u32 = 16;
+        const DNS_DOH_POLICY_BLOCK: u32 = 512;
+        const DNS_DOH_POLICY_DISABLE: u32 = 8;
+        const DNS_DOH_POLICY_NOT_CONFIGURED: u32 = 4;
+        const DNS_DOH_POLICY_REQUIRED: u32 = 32;
+        struct DNS_DOH_SERVER_SETTINGS {
+            Template: PWSTR,
+            Flags: u64,
+        }
+        const DNS_DOH_SERVER_SETTINGS_ENABLE: u32 = 2;
+        const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: u32 = 1;
+        const DNS_DOH_SERVER_SETTINGS_ENABLE_DDR: u32 = 16;
+        const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 4;
+        const DNS_DOH_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: u32 = 32;
+        const DNS_DOT_AUTO_UPGRADE_SERVER: u32 = 4;
+        const DNS_DOT_POLICY_BLOCK: u32 = 256;
+        struct DNS_DOT_SERVER_SETTINGS {
+            Hostname: PWSTR,
+            Flags: u64,
+            Port: u16,
+        }
+        const DNS_DOT_SERVER_SETTINGS_ENABLE: u32 = 1;
+        const DNS_DOT_SERVER_SETTINGS_ENABLE_AUTO: u32 = 8;
+        const DNS_DOT_SERVER_SETTINGS_ENABLE_DDR: u32 = 16;
+        const DNS_DOT_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 2;
+        const DNS_DOT_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: u32 = 32;
+        const DNS_ENABLE_DDR: u32 = 64;
+        const DNS_ENABLE_DNR: u32 = 1024;
+        const DNS_ENABLE_DOH: u32 = 1;
+        const DNS_ENABLE_DOT: u32 = 128;
+        const DNS_ENCRYPTION_POLICY_AUTO: u32 = 16;
+        const DNS_ENCRYPTION_POLICY_DISABLE: u32 = 8;
+        const DNS_ENCRYPTION_POLICY_NOT_CONFIGURED: u32 = 4;
+        const DNS_ENCRYPTION_POLICY_REQUIRED: u32 = 32;
+        struct DNS_INTERFACE_SETTINGS {
+            Version: u32,
+            Flags: u64,
+            Domain: PWSTR,
+            NameServer: PWSTR,
+            SearchList: PWSTR,
+            RegistrationEnabled: u32,
+            RegisterAdapterName: u32,
+            EnableLLMNR: u32,
+            QueryAdapterName: u32,
+            ProfileNameServer: PWSTR,
+        }
+        struct DNS_INTERFACE_SETTINGS3 {
+            Version: u32,
+            Flags: u64,
+            Domain: PWSTR,
+            NameServer: PWSTR,
+            SearchList: PWSTR,
+            RegistrationEnabled: u32,
+            RegisterAdapterName: u32,
+            EnableLLMNR: u32,
+            QueryAdapterName: u32,
+            ProfileNameServer: PWSTR,
+            DisableUnconstrainedQueries: u32,
+            SupplementalSearchList: PWSTR,
+            cServerProperties: u32,
+            ServerProperties: *mut DNS_SERVER_PROPERTY,
+            cProfileServerProperties: u32,
+            ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
+        }
+        struct DNS_INTERFACE_SETTINGS4 {
+            Version: u32,
+            Flags: u64,
+            Domain: PWSTR,
+            NameServer: PWSTR,
+            SearchList: PWSTR,
+            RegistrationEnabled: u32,
+            RegisterAdapterName: u32,
+            EnableLLMNR: u32,
+            QueryAdapterName: u32,
+            ProfileNameServer: PWSTR,
+            DisableUnconstrainedQueries: u32,
+            SupplementalSearchList: PWSTR,
+            cServerProperties: u32,
+            ServerProperties: *mut DNS_SERVER_PROPERTY,
+            cProfileServerProperties: u32,
+            ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
+            EncryptedDnsAdapterFlags: u32,
+        }
+        struct DNS_INTERFACE_SETTINGS_EX {
+            SettingsV1: DNS_INTERFACE_SETTINGS,
+            DisableUnconstrainedQueries: u32,
+            SupplementalSearchList: PWSTR,
+        }
+        const DNS_INTERFACE_SETTINGS_VERSION1: u32 = 1;
+        const DNS_INTERFACE_SETTINGS_VERSION2: u32 = 2;
+        const DNS_INTERFACE_SETTINGS_VERSION3: u32 = 3;
+        const DNS_INTERFACE_SETTINGS_VERSION4: u32 = 4;
+        struct DNS_SERVER_PROPERTY {
+            Version: u32,
+            ServerIndex: u32,
+            Type: DNS_SERVER_PROPERTY_TYPE,
+            Property: DNS_SERVER_PROPERTY_TYPES,
+        }
+        #[repr(i32)]
+        enum DNS_SERVER_PROPERTY_TYPE {
+            DnsServerInvalidProperty = 0,
+            DnsServerDohProperty = 1,
+            DnsServerDotProperty = 2,
+        }
+        union DNS_SERVER_PROPERTY_TYPES {
+            DohSettings: *mut DNS_DOH_SERVER_SETTINGS,
+            DotSettings: *mut DNS_DOT_SERVER_SETTINGS,
+        }
+        const DNS_SERVER_PROPERTY_VERSION1: u32 = 1;
+        struct DNS_SETTINGS {
+            Version: u32,
+            Flags: u64,
+            Hostname: PWSTR,
+            Domain: PWSTR,
+            SearchList: PWSTR,
+        }
+        struct DNS_SETTINGS2 {
+            Version: u32,
+            Flags: u64,
+            Hostname: PWSTR,
+            Domain: PWSTR,
+            SearchList: PWSTR,
+            SettingFlags: u64,
+        }
+        const DNS_SETTINGS_ENABLE_LLMNR: u32 = 128;
+        const DNS_SETTINGS_QUERY_ADAPTER_NAME: u32 = 256;
+        const DNS_SETTINGS_VERSION1: u32 = 1;
+        const DNS_SETTINGS_VERSION2: u32 = 2;
+        const DNS_SETTING_DDR: u32 = 32768;
+        const DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES: u32 = 1024;
+        const DNS_SETTING_DOH: u32 = 4096;
+        const DNS_SETTING_DOH_PROFILE: u32 = 8192;
+        const DNS_SETTING_DOMAIN: u32 = 32;
+        const DNS_SETTING_DOT: u32 = 65536;
+        const DNS_SETTING_DOT_PROFILE: u32 = 131072;
+        const DNS_SETTING_ENCRYPTED_DNS_ADAPTER_FLAGS: u32 = 16384;
+        const DNS_SETTING_HOSTNAME: u32 = 64;
+        const DNS_SETTING_IPV6: u32 = 1;
+        const DNS_SETTING_NAMESERVER: u32 = 2;
+        const DNS_SETTING_PROFILE_NAMESERVER: u32 = 512;
+        const DNS_SETTING_REGISTER_ADAPTER_NAME: u32 = 16;
+        const DNS_SETTING_REGISTRATION_ENABLED: u32 = 8;
+        const DNS_SETTING_SEARCHLIST: u32 = 4;
+        const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: u32 = 2048;
+        #[library("IPHLPAPI.DLL")]
+        extern fn DeleteAnycastIpAddressEntry(Row: *const MIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn DeleteFlVirtualInterface(Row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn DeleteIpForwardEntry2(Row: *const MIB_IPFORWARD_ROW2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn DeleteIpNetEntry2(Row: *const MIB_IPNET_ROW2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn DeleteUnicastIpAddressEntry(Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn FlushIpNetTable2(Family: ADDRESS_FAMILY, InterfaceIndex: NET_IFINDEX) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn FlushIpPathTable(Family: ADDRESS_FAMILY) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn FreeDnsSettings(#[in] #[out] Settings: *mut DNS_SETTINGS);
+        #[library("IPHLPAPI.DLL")]
+        extern fn FreeInterfaceDnsSettings(#[in] #[out] Settings: *mut DNS_INTERFACE_SETTINGS);
+        #[library("IPHLPAPI.DLL")]
+        extern fn FreeMibTable(Memory: *const void);
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetAnycastIpAddressEntry(#[in] #[out] Row: *mut MIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetAnycastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_ANYCASTIPADDRESS_TABLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetBestInterfaceEx(DestinationAddress: *const SOCKADDR, BestIfIndex: *mut u32) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetBestRoute2(#[opt] InterfaceLuid: *const NET_LUID, InterfaceIndex: NET_IFINDEX, #[opt] SourceAddress: *const SOCKADDR_INET, DestinationAddress: *const SOCKADDR_INET, AddressSortOptions: u32, BestRoute: *mut MIB_IPFORWARD_ROW2, BestSourceAddress: *mut SOCKADDR_INET) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetCurrentThreadCompartmentId() -> NET_IF_COMPARTMENT_ID;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetCurrentThreadCompartmentScope(CompartmentScope: *mut u32, CompartmentId: *mut u32);
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetDefaultCompartmentId() -> NET_IF_COMPARTMENT_ID;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetDnsSettings(#[in] #[out] Settings: *mut DNS_SETTINGS) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetFlVirtualInterface(#[in] #[out] Row: *mut MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetFlVirtualInterfaceTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIfEntry2(#[in] #[out] Row: *mut MIB_IF_ROW2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIfEntry2Ex(Level: MIB_IF_ENTRY_LEVEL, #[in] #[out] Row: *mut MIB_IF_ROW2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIfStackTable(Table: *mut PMIB_IFSTACK_TABLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIfTable2(Table: *mut PMIB_IF_TABLE2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIfTable2Ex(Level: MIB_IF_TABLE_LEVEL, Table: *mut PMIB_IF_TABLE2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetInterfaceDnsSettings(Interface: GUID, #[in] #[out] Settings: *mut DNS_INTERFACE_SETTINGS) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetInvertedIfStackTable(Table: *mut PMIB_INVERTEDIFSTACK_TABLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIpForwardEntry2(#[in] #[out] Row: *mut MIB_IPFORWARD_ROW2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIpForwardTable2(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPFORWARD_TABLE2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIpInterfaceEntry(#[in] #[out] Row: *mut MIB_IPINTERFACE_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIpInterfaceTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPINTERFACE_TABLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIpNetEntry2(#[in] #[out] Row: *mut MIB_IPNET_ROW2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIpNetTable2(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPNET_TABLE2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIpNetworkConnectionBandwidthEstimates(InterfaceIndex: NET_IFINDEX, AddressFamily: ADDRESS_FAMILY, BandwidthEstimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIpPathEntry(#[in] #[out] Row: *mut MIB_IPPATH_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetIpPathTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPPATH_TABLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetJobCompartmentId(JobHandle: HANDLE) -> NET_IF_COMPARTMENT_ID;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetMulticastIpAddressEntry(#[in] #[out] Row: *mut MIB_MULTICASTIPADDRESS_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetMulticastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_MULTICASTIPADDRESS_TABLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetNetworkConnectivityHint(ConnectivityHint: *mut NL_NETWORK_CONNECTIVITY_HINT) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetNetworkConnectivityHintForInterface(InterfaceIndex: NET_IFINDEX, ConnectivityHint: *mut NL_NETWORK_CONNECTIVITY_HINT) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetNetworkInformation(NetworkGuid: *const NET_IF_NETWORK_GUID, CompartmentId: *mut u32, SiteId: *mut u32, #[len_param(4)] NetworkName: *mut u16, Length: u32) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetSessionCompartmentId(SessionId: u32) -> NET_IF_COMPARTMENT_ID;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetTeredoPort(Port: *mut u16) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetUnicastIpAddressEntry(#[in] #[out] Row: *mut MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetUnicastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_UNICASTIPADDRESS_TABLE) -> NTSTATUS;
+        const IF_NAMESIZE: u32 = 256;
+        struct IP_ADDRESS_PREFIX {
+            Prefix: SOCKADDR_INET,
+            PrefixLength: u8,
+        }
+        #[library("IPHLPAPI.DLL")]
+        extern "C" fn InitializeFlVirtualInterfaceEntry(Row: *mut MIB_FL_VIRTUAL_INTERFACE_ROW);
+        #[library("IPHLPAPI.DLL")]
+        extern fn InitializeIpForwardEntry(Row: *mut MIB_IPFORWARD_ROW2);
+        #[library("IPHLPAPI.DLL")]
+        extern fn InitializeIpInterfaceEntry(#[in] #[out] Row: *mut MIB_IPINTERFACE_ROW);
+        #[library("IPHLPAPI.DLL")]
+        extern fn InitializeUnicastIpAddressEntry(Row: *mut MIB_UNICASTIPADDRESS_ROW);
+        struct MIB_ANYCASTIPADDRESS_ROW {
+            Address: SOCKADDR_INET,
+            InterfaceLuid: NET_LUID,
+            InterfaceIndex: NET_IFINDEX,
+            ScopeId: SCOPE_ID,
+        }
+        struct MIB_ANYCASTIPADDRESS_TABLE {
+            NumEntries: u32,
+            Table: [MIB_ANYCASTIPADDRESS_ROW; 1],
+        }
+        struct MIB_FL_VIRTUAL_INTERFACE_ROW {
+            Family: ADDRESS_FAMILY,
+            IfLuid: IF_LUID,
+            VirtualIfId: u32,
+            CompartmentGuid: GUID,
+            IsolationMode: NET_FL_ISOLATION_MODE,
+            Origin: NET_FL_VIRTUAL_INTERFACE_ORIGIN,
+            VirtualIfLuid: IF_LUID,
+            VirtualIfIndex: IF_INDEX,
+            AllowLocalNd: BOOLEAN,
+            AttachedFlsnpiClients: u32,
+            FlsnpiClientConfigErrors: u32,
+            FlsnpiClientInjectErrors: u64,
+            FlsnpiClientCloneErrors: u64,
+            InFlsnpiIndicatedPackets: u64,
+            InFlsnpiClientReturnedPackets: u64,
+            InFlsnpiClientSilentlyDroppedPackets: u64,
+            InFlsnpiClientDroppedPackets: u64,
+            InFlsnpiClientInjectedPackets: u64,
+            InFlsnpiClientClonedPackets: u64,
+            OutFlsnpiIndicatedPackets: u64,
+            OutFlsnpiClientReturnedPackets: u64,
+            OutFlsnpiClientDroppedPackets: u64,
+            OutFlsnpiClientSilentlyDroppedPackets: u64,
+            OutFlsnpiClientInjectedPackets: u64,
+            OutFlsnpiClientClonedPackets: u64,
+            OutFlsnpiClientClonedPacketsForNbSplit: u64,
+        }
+        struct MIB_FL_VIRTUAL_INTERFACE_TABLE {
+            NumEntries: u32,
+            Table: [MIB_FL_VIRTUAL_INTERFACE_ROW; 1],
+        }
+        struct MIB_IFSTACK_ROW {
+            HigherLayerInterfaceIndex: NET_IFINDEX,
+            LowerLayerInterfaceIndex: NET_IFINDEX,
+        }
+        struct MIB_IFSTACK_TABLE {
+            NumEntries: u32,
+            Table: [MIB_IFSTACK_ROW; 1],
+        }
+        #[repr(i32)]
+        enum MIB_IF_ENTRY_LEVEL {
+            MibIfEntryNormal = 0,
+            MibIfEntryNormalWithoutStatistics = 2,
+        }
+        struct MIB_IF_ROW2 {
+            InterfaceLuid: NET_LUID,
+            InterfaceIndex: NET_IFINDEX,
+            InterfaceGuid: GUID,
+            Alias: [u16; 257],
+            Description: [u16; 257],
+            PhysicalAddressLength: u32,
+            PhysicalAddress: [u8; 32],
+            PermanentPhysicalAddress: [u8; 32],
+            Mtu: u32,
+            Type: IFTYPE,
+            TunnelType: TUNNEL_TYPE,
+            MediaType: NDIS_MEDIUM,
+            PhysicalMediumType: NDIS_PHYSICAL_MEDIUM,
+            AccessType: NET_IF_ACCESS_TYPE,
+            DirectionType: NET_IF_DIRECTION_TYPE,
+            InterfaceAndOperStatusFlags: struct {
+                _bitfield: BOOLEAN,
+            },
+            OperStatus: IF_OPER_STATUS,
+            AdminStatus: NET_IF_ADMIN_STATUS,
+            MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+            NetworkGuid: NET_IF_NETWORK_GUID,
+            ConnectionType: NET_IF_CONNECTION_TYPE,
+            TransmitLinkSpeed: u64,
+            ReceiveLinkSpeed: u64,
+            InOctets: u64,
+            InUcastPkts: u64,
+            InNUcastPkts: u64,
+            InDiscards: u64,
+            InErrors: u64,
+            InUnknownProtos: u64,
+            InUcastOctets: u64,
+            InMulticastOctets: u64,
+            InBroadcastOctets: u64,
+            OutOctets: u64,
+            OutUcastPkts: u64,
+            OutNUcastPkts: u64,
+            OutDiscards: u64,
+            OutErrors: u64,
+            OutUcastOctets: u64,
+            OutMulticastOctets: u64,
+            OutBroadcastOctets: u64,
+            OutQLen: u64,
+        }
+        struct MIB_IF_TABLE2 {
+            NumEntries: u32,
+            Table: [MIB_IF_ROW2; 1],
+        }
+        #[repr(i32)]
+        enum MIB_IF_TABLE_LEVEL {
+            MibIfTableNormal = 0,
+            MibIfTableRaw = 1,
+            MibIfTableNormalWithoutStatistics = 2,
+        }
+        const MIB_INVALID_TEREDO_PORT_NUMBER: u32 = 0;
+        struct MIB_INVERTEDIFSTACK_ROW {
+            LowerLayerInterfaceIndex: NET_IFINDEX,
+            HigherLayerInterfaceIndex: NET_IFINDEX,
+        }
+        struct MIB_INVERTEDIFSTACK_TABLE {
+            NumEntries: u32,
+            Table: [MIB_INVERTEDIFSTACK_ROW; 1],
+        }
+        struct MIB_IPFORWARD_ROW2 {
+            InterfaceLuid: NET_LUID,
+            InterfaceIndex: NET_IFINDEX,
+            DestinationPrefix: IP_ADDRESS_PREFIX,
+            NextHop: SOCKADDR_INET,
+            SitePrefixLength: u8,
+            ValidLifetime: u32,
+            PreferredLifetime: u32,
+            Metric: u32,
+            Protocol: NL_ROUTE_PROTOCOL,
+            Loopback: BOOLEAN,
+            AutoconfigureAddress: BOOLEAN,
+            Publish: BOOLEAN,
+            Immortal: BOOLEAN,
+            Age: u32,
+            Origin: NL_ROUTE_ORIGIN,
+        }
+        struct MIB_IPFORWARD_TABLE2 {
+            NumEntries: u32,
+            Table: [MIB_IPFORWARD_ROW2; 1],
+        }
+        struct MIB_IPINTERFACE_ROW {
+            Family: ADDRESS_FAMILY,
+            InterfaceLuid: NET_LUID,
+            InterfaceIndex: NET_IFINDEX,
+            MaxReassemblySize: u32,
+            InterfaceIdentifier: u64,
+            MinRouterAdvertisementInterval: u32,
+            MaxRouterAdvertisementInterval: u32,
+            AdvertisingEnabled: BOOLEAN,
+            ForwardingEnabled: BOOLEAN,
+            WeakHostSend: BOOLEAN,
+            WeakHostReceive: BOOLEAN,
+            UseAutomaticMetric: BOOLEAN,
+            UseNeighborUnreachabilityDetection: BOOLEAN,
+            ManagedAddressConfigurationSupported: BOOLEAN,
+            OtherStatefulConfigurationSupported: BOOLEAN,
+            AdvertiseDefaultRoute: BOOLEAN,
+            RouterDiscoveryBehavior: NL_ROUTER_DISCOVERY_BEHAVIOR,
+            DadTransmits: u32,
+            BaseReachableTime: u32,
+            RetransmitTime: u32,
+            PathMtuDiscoveryTimeout: u32,
+            LinkLocalAddressBehavior: NL_LINK_LOCAL_ADDRESS_BEHAVIOR,
+            LinkLocalAddressTimeout: u32,
+            ZoneIndices: [u32; 16],
+            SitePrefixLength: u32,
+            Metric: u32,
+            NlMtu: u32,
+            Connected: BOOLEAN,
+            SupportsWakeUpPatterns: BOOLEAN,
+            SupportsNeighborDiscovery: BOOLEAN,
+            SupportsRouterDiscovery: BOOLEAN,
+            ReachableTime: u32,
+            TransmitOffload: NL_INTERFACE_OFFLOAD_ROD,
+            ReceiveOffload: NL_INTERFACE_OFFLOAD_ROD,
+            DisableDefaultRoutes: BOOLEAN,
+        }
+        struct MIB_IPINTERFACE_TABLE {
+            NumEntries: u32,
+            Table: [MIB_IPINTERFACE_ROW; 1],
+        }
+        struct MIB_IPNET_ROW2 {
+            Address: SOCKADDR_INET,
+            InterfaceIndex: NET_IFINDEX,
+            InterfaceLuid: NET_LUID,
+            PhysicalAddress: [u8; 32],
+            PhysicalAddressLength: u32,
+            State: NL_NEIGHBOR_STATE,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: BOOLEAN,
+                },
+                Flags: u8,
+            },
+            ReachabilityTime: union {
+                LastReachable: u32,
+                LastUnreachable: u32,
+            },
+        }
+        struct MIB_IPNET_TABLE2 {
+            NumEntries: u32,
+            Table: [MIB_IPNET_ROW2; 1],
+        }
+        struct MIB_IPPATH_ROW {
+            Source: SOCKADDR_INET,
+            Destination: SOCKADDR_INET,
+            InterfaceLuid: NET_LUID,
+            InterfaceIndex: NET_IFINDEX,
+            CurrentNextHop: SOCKADDR_INET,
+            PathMtu: u32,
+            RttMean: u32,
+            RttDeviation: u32,
+            Anonymous: union {
+                LastReachable: u32,
+                LastUnreachable: u32,
+            },
+            IsReachable: BOOLEAN,
+            LinkTransmitSpeed: u64,
+            LinkReceiveSpeed: u64,
+        }
+        struct MIB_IPPATH_TABLE {
+            NumEntries: u32,
+            Table: [MIB_IPPATH_ROW; 1],
+        }
+        struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
+            InboundBandwidthInformation: NL_BANDWIDTH_INFORMATION,
+            OutboundBandwidthInformation: NL_BANDWIDTH_INFORMATION,
+        }
+        struct MIB_MULTICASTIPADDRESS_ROW {
+            Address: SOCKADDR_INET,
+            InterfaceIndex: NET_IFINDEX,
+            InterfaceLuid: NET_LUID,
+            ScopeId: SCOPE_ID,
+        }
+        struct MIB_MULTICASTIPADDRESS_TABLE {
+            NumEntries: u32,
+            Table: [MIB_MULTICASTIPADDRESS_ROW; 1],
+        }
+        #[repr(i32)]
+        enum MIB_NOTIFICATION_TYPE {
+            MibParameterNotification = 0,
+            MibAddInstance = 1,
+            MibDeleteInstance = 2,
+            MibInitialNotification = 3,
+        }
+        struct MIB_UNICASTIPADDRESS_ROW {
+            Address: SOCKADDR_INET,
+            InterfaceLuid: NET_LUID,
+            InterfaceIndex: NET_IFINDEX,
+            PrefixOrigin: NL_PREFIX_ORIGIN,
+            SuffixOrigin: NL_SUFFIX_ORIGIN,
+            ValidLifetime: u32,
+            PreferredLifetime: u32,
+            OnLinkPrefixLength: u8,
+            SkipAsSource: BOOLEAN,
+            DadState: NL_DAD_STATE,
+            ScopeId: SCOPE_ID,
+            CreationTimeStamp: LARGE_INTEGER,
+        }
+        struct MIB_UNICASTIPADDRESS_TABLE {
+            NumEntries: u32,
+            Table: [MIB_UNICASTIPADDRESS_ROW; 1],
+        }
+        #[repr(i32)]
+        enum NET_FL_ISOLATION_MODE {
+            NetFlIsolationModeNone = 0,
+            NetFlIsolationModeVlan = 1,
+            NetFlIsolationModeVsid = 2,
+        }
+        #[repr(i32)]
+        enum NET_FL_VIRTUAL_INTERFACE_ORIGIN {
+            NetFlVirtualInterfaceOriginOid = 0,
+            NetFlVirtualInterfaceOriginApi = 1,
+            NetFlVirtualInterfaceOriginDefault = 2,
+        }
+        #[library("IPHLPAPI.DLL")]
+        extern fn NotifyIpInterfaceChange(Family: ADDRESS_FAMILY, Callback: PIPINTERFACE_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn NotifyNetworkConnectivityHintChange(Callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: BOOLEAN, NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn NotifyRouteChange2(AddressFamily: ADDRESS_FAMILY, Callback: PIPFORWARD_CHANGE_CALLBACK, CallerContext: *const void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn NotifyStableUnicastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_UNICASTIPADDRESS_TABLE, CallerCallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, CallerContext: *const void, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn NotifyTeredoPortChange(Callback: PTEREDO_PORT_CHANGE_CALLBACK, CallerContext: *const void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn NotifyUnicastIpAddressChange(Family: ADDRESS_FAMILY, Callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn PIPFORWARD_CHANGE_CALLBACK(CallerContext: *const void, #[opt] Row: *const MIB_IPFORWARD_ROW2, NotificationType: MIB_NOTIFICATION_TYPE);
+        extern fn PIPINTERFACE_CHANGE_CALLBACK(CallerContext: *const void, Row: *const MIB_IPINTERFACE_ROW, NotificationType: MIB_NOTIFICATION_TYPE);
+        type PIP_ADDRESS_PREFIX = *mut IP_ADDRESS_PREFIX;
+        type PMIB_ANYCASTIPADDRESS_ROW = *mut MIB_ANYCASTIPADDRESS_ROW;
+        type PMIB_ANYCASTIPADDRESS_TABLE = *mut MIB_ANYCASTIPADDRESS_TABLE;
+        type PMIB_FL_VIRTUAL_INTERFACE_ROW = *mut MIB_FL_VIRTUAL_INTERFACE_ROW;
+        type PMIB_FL_VIRTUAL_INTERFACE_TABLE = *mut MIB_FL_VIRTUAL_INTERFACE_TABLE;
+        type PMIB_IFSTACK_ROW = *mut MIB_IFSTACK_ROW;
+        type PMIB_IFSTACK_TABLE = *mut MIB_IFSTACK_TABLE;
+        type PMIB_IF_ENTRY_LEVEL = *mut MIB_IF_ENTRY_LEVEL;
+        type PMIB_IF_ROW2 = *mut MIB_IF_ROW2;
+        type PMIB_IF_TABLE2 = *mut MIB_IF_TABLE2;
+        type PMIB_IF_TABLE_LEVEL = *mut MIB_IF_TABLE_LEVEL;
+        type PMIB_INVERTEDIFSTACK_ROW = *mut MIB_INVERTEDIFSTACK_ROW;
+        type PMIB_INVERTEDIFSTACK_TABLE = *mut MIB_INVERTEDIFSTACK_TABLE;
+        type PMIB_IPFORWARD_ROW2 = *mut MIB_IPFORWARD_ROW2;
+        type PMIB_IPFORWARD_TABLE2 = *mut MIB_IPFORWARD_TABLE2;
+        type PMIB_IPINTERFACE_ROW = *mut MIB_IPINTERFACE_ROW;
+        type PMIB_IPINTERFACE_TABLE = *mut MIB_IPINTERFACE_TABLE;
+        type PMIB_IPNET_ROW2 = *mut MIB_IPNET_ROW2;
+        type PMIB_IPNET_TABLE2 = *mut MIB_IPNET_TABLE2;
+        type PMIB_IPPATH_ROW = *mut MIB_IPPATH_ROW;
+        type PMIB_IPPATH_TABLE = *mut MIB_IPPATH_TABLE;
+        type PMIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES = *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES;
+        type PMIB_MULTICASTIPADDRESS_ROW = *mut MIB_MULTICASTIPADDRESS_ROW;
+        type PMIB_MULTICASTIPADDRESS_TABLE = *mut MIB_MULTICASTIPADDRESS_TABLE;
+        type PMIB_NOTIFICATION_TYPE = *mut MIB_NOTIFICATION_TYPE;
+        type PMIB_UNICASTIPADDRESS_ROW = *mut MIB_UNICASTIPADDRESS_ROW;
+        type PMIB_UNICASTIPADDRESS_TABLE = *mut MIB_UNICASTIPADDRESS_TABLE;
+        extern fn PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK(CallerContext: *const void, ConnectivityHint: NL_NETWORK_CONNECTIVITY_HINT);
+        extern fn PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK(CallerContext: *const void, AddressTable: *const MIB_UNICASTIPADDRESS_TABLE);
+        extern fn PTEREDO_PORT_CHANGE_CALLBACK(CallerContext: *const void, Port: u16, #[in] #[out] NotificationType: MIB_NOTIFICATION_TYPE);
+        extern fn PUNICAST_IPADDRESS_CHANGE_CALLBACK(CallerContext: *const void, #[opt] Row: *const MIB_UNICASTIPADDRESS_ROW, NotificationType: MIB_NOTIFICATION_TYPE);
+        #[library("IPHLPAPI.DLL")]
+        extern fn ResolveIpNetEntry2(#[in] #[out] Row: *mut MIB_IPNET_ROW2, #[opt] SourceAddress: *const SOCKADDR_INET) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetCurrentThreadCompartmentId(CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetCurrentThreadCompartmentScope(CompartmentScope: NET_IF_COMPARTMENT_SCOPE) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetDnsSettings(Settings: *const DNS_SETTINGS) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetFlVirtualInterface(Row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetInterfaceDnsSettings(Interface: GUID, Settings: *const DNS_INTERFACE_SETTINGS) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetIpForwardEntry2(Route: *const MIB_IPFORWARD_ROW2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetIpInterfaceEntry(#[in] #[out] Row: *mut MIB_IPINTERFACE_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetIpNetEntry2(Row: *const MIB_IPNET_ROW2) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetJobCompartmentId(JobHandle: HANDLE, CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetNetworkInformation(NetworkGuid: *const NET_IF_NETWORK_GUID, CompartmentId: NET_IF_COMPARTMENT_ID, NetworkName: PCWSTR) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetSessionCompartmentId(SessionId: u32, CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn SetUnicastIpAddressEntry(Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
+        #[library("IPHLPAPI.DLL")]
+        extern fn if_indextoname(InterfaceIndex: NET_IFINDEX, InterfaceName: *mut i8) -> PCHAR;
+        #[library("IPHLPAPI.DLL")]
+        extern fn if_nametoindex(InterfaceName: PCSTR) -> NET_IFINDEX;
+    }
+}

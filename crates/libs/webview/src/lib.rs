@@ -1,7 +1,12 @@
 #![doc = include_str!("../readme.md")]
 
 #[allow(dead_code)]
-#[expect(non_snake_case, non_camel_case_types, clippy::upper_case_acronyms)]
+#[expect(
+    non_snake_case,
+    non_camel_case_types,
+    clippy::upper_case_acronyms,
+    clippy::missing_transmute_annotations
+)]
 mod bindings;
 mod controller;
 mod cookie;

@@ -1,0 +1,515 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct BD_CLASS_SUPPORT_BITMAP {
+            _bitfield1: u8,
+            _bitfield2: u8,
+        }
+        struct FEATURE_BD_READ {
+            Header: FEATURE_HEADER,
+            Reserved: [u8; 4],
+            Class0BitmapBDREReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class1BitmapBDREReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class2BitmapBDREReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class3BitmapBDREReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class0BitmapBDRReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class1BitmapBDRReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class2BitmapBDRReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class3BitmapBDRReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class0BitmapBDROMReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class1BitmapBDROMReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class2BitmapBDROMReadSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class3BitmapBDROMReadSupport: BD_CLASS_SUPPORT_BITMAP,
+        }
+        struct FEATURE_BD_R_PSEUDO_OVERWRITE {
+            Header: FEATURE_HEADER,
+            Reserved: [u8; 4],
+        }
+        struct FEATURE_BD_WRITE {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+            Class0BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class1BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class2BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class3BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class0BitmapBDRWriteSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class1BitmapBDRWriteSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class2BitmapBDRWriteSupport: BD_CLASS_SUPPORT_BITMAP,
+            Class3BitmapBDRWriteSupport: BD_CLASS_SUPPORT_BITMAP,
+        }
+        struct FEATURE_CD_RW_MEDIA_WRITE_SUPPORT {
+            Header: FEATURE_HEADER,
+            Reserved1: u8,
+            CDRWMediaSubtypeSupport: struct {
+                _bitfield: u8,
+            },
+            Reserved2: [u8; 2],
+        }
+        struct FEATURE_DATA_AACS {
+            Header: FEATURE_HEADER,
+            _bitfield1: u8,
+            BindingNonceBlockCount: u8,
+            _bitfield2: u8,
+            AACSVersion: u8,
+        }
+        struct FEATURE_DATA_CDRW_CAV_WRITE {
+            Header: FEATURE_HEADER,
+            Reserved1: [u8; 4],
+        }
+        struct FEATURE_DATA_CD_AUDIO_ANALOG_PLAY {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: u8,
+            NumerOfVolumeLevels: [u8; 2],
+        }
+        struct FEATURE_DATA_CD_MASTERING {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            MaximumCueSheetLength: [u8; 3],
+        }
+        struct FEATURE_DATA_CD_READ {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_DATA_CD_TRACK_AT_ONCE {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: u8,
+            DataTypeSupported: [u8; 2],
+        }
+        struct FEATURE_DATA_CORE {
+            Header: FEATURE_HEADER,
+            PhysicalInterface: [u8; 4],
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_DATA_DDCD_READ {
+            Header: FEATURE_HEADER,
+        }
+        struct FEATURE_DATA_DDCD_RW_WRITE {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_DATA_DDCD_R_WRITE {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved3: [u8; 3],
+        }
+        struct FEATURE_DATA_DEFECT_MANAGEMENT {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_DATA_DISC_CONTROL_BLOCKS {
+            Header: FEATURE_HEADER,
+            Data: [FEATURE_DATA_DISC_CONTROL_BLOCKS_EX; 0],
+        }
+        struct FEATURE_DATA_DISC_CONTROL_BLOCKS_EX {
+            ContentDescriptor: [u8; 4],
+        }
+        struct FEATURE_DATA_DVD_CPRM {
+            Header: FEATURE_HEADER,
+            Reserved0: [u8; 3],
+            CPRMVersion: u8,
+        }
+        struct FEATURE_DATA_DVD_CSS {
+            Header: FEATURE_HEADER,
+            Reserved1: [u8; 3],
+            CssVersion: u8,
+        }
+        struct FEATURE_DATA_DVD_PLUS_R {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_DATA_DVD_PLUS_RW {
+            Header: FEATURE_HEADER,
+            _bitfield1: u8,
+            _bitfield2: u8,
+            Reserved03: [u8; 2],
+        }
+        struct FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER {
+            Header: FEATURE_HEADER,
+            _bitfield1: u8,
+            _bitfield2: u8,
+            Reserved3: [u8; 2],
+        }
+        struct FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_DATA_DVD_READ {
+            Header: FEATURE_HEADER,
+            _bitfield1: u8,
+            Reserved2: u8,
+            _bitfield2: u8,
+            Reserved4: u8,
+        }
+        struct FEATURE_DATA_DVD_RECORDABLE_WRITE {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved4: [u8; 3],
+        }
+        struct FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved1: [u8; 3],
+        }
+        struct FEATURE_DATA_EMBEDDED_CHANGER {
+            Header: FEATURE_HEADER,
+            _bitfield1: u8,
+            Reserved4: [u8; 2],
+            _bitfield2: u8,
+        }
+        struct FEATURE_DATA_FIRMWARE_DATE {
+            Header: FEATURE_HEADER,
+            Year: [u8; 4],
+            Month: [u8; 2],
+            Day: [u8; 2],
+            Hour: [u8; 2],
+            Minute: [u8; 2],
+            Seconds: [u8; 2],
+            Reserved: [u8; 2],
+        }
+        struct FEATURE_DATA_FORMATTABLE {
+            Header: FEATURE_HEADER,
+            _bitfield1: u8,
+            Reserved2: [u8; 3],
+            _bitfield2: u8,
+            Reserved4: [u8; 3],
+        }
+        struct FEATURE_DATA_HDDVD_READ {
+            Header: FEATURE_HEADER,
+            _bitfield1: u8,
+            Reserved1: u8,
+            _bitfield2: u8,
+            Reserved3: u8,
+        }
+        struct FEATURE_DATA_HDDVD_WRITE {
+            Header: FEATURE_HEADER,
+            _bitfield1: u8,
+            Reserved1: u8,
+            _bitfield2: u8,
+            Reserved3: u8,
+        }
+        struct FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
+            Header: FEATURE_HEADER,
+            DataTypeSupported: [u8; 2],
+            _bitfield: u8,
+            NumberOfLinkSizes: u8,
+            LinkSize: [u8; 0],
+        }
+        struct FEATURE_DATA_LAYER_JUMP_RECORDING {
+            Header: FEATURE_HEADER,
+            Reserved0: [u8; 3],
+            NumberOfLinkSizes: u8,
+            LinkSizes: [u8; 0],
+        }
+        struct FEATURE_DATA_LOGICAL_UNIT_SERIAL_NUMBER {
+            Header: FEATURE_HEADER,
+            SerialNumber: [u8; 0],
+        }
+        struct FEATURE_DATA_MICROCODE_UPDATE {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_DATA_MORPHING {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_DATA_MRW {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_DATA_MULTI_READ {
+            Header: FEATURE_HEADER,
+        }
+        struct FEATURE_DATA_POWER_MANAGEMENT {
+            Header: FEATURE_HEADER,
+        }
+        struct FEATURE_DATA_PROFILE_LIST {
+            Header: FEATURE_HEADER,
+            Profiles: [FEATURE_DATA_PROFILE_LIST_EX; 0],
+        }
+        struct FEATURE_DATA_PROFILE_LIST_EX {
+            ProfileNumber: [u8; 2],
+            _bitfield: u8,
+            Reserved2: u8,
+        }
+        struct FEATURE_DATA_RANDOM_READABLE {
+            Header: FEATURE_HEADER,
+            LogicalBlockSize: [u8; 4],
+            Blocking: [u8; 2],
+            _bitfield: u8,
+            Reserved2: u8,
+        }
+        struct FEATURE_DATA_RANDOM_WRITABLE {
+            Header: FEATURE_HEADER,
+            LastLBA: [u8; 4],
+            LogicalBlockSize: [u8; 4],
+            Blocking: [u8; 2],
+            _bitfield: u8,
+            Reserved2: u8,
+        }
+        struct FEATURE_DATA_REAL_TIME_STREAMING {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_DATA_REMOVABLE_MEDIUM {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved3: [u8; 3],
+        }
+        struct FEATURE_DATA_RESERVED {
+            Header: FEATURE_HEADER,
+            Data: [u8; 0],
+        }
+        struct FEATURE_DATA_RESTRICTED_OVERWRITE {
+            Header: FEATURE_HEADER,
+        }
+        struct FEATURE_DATA_SECTOR_ERASABLE {
+            Header: FEATURE_HEADER,
+        }
+        struct FEATURE_DATA_SMART {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved02: [u8; 3],
+        }
+        struct FEATURE_DATA_TIMEOUT {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: u8,
+            UnitLength: [u8; 2],
+        }
+        struct FEATURE_DATA_VENDOR_SPECIFIC {
+            Header: FEATURE_HEADER,
+            VendorSpecificData: [u8; 0],
+        }
+        struct FEATURE_DATA_WRITE_ONCE {
+            Header: FEATURE_HEADER,
+            LogicalBlockSize: [u8; 4],
+            Blocking: [u8; 2],
+            _bitfield: u8,
+            Reserved2: u8,
+        }
+        struct FEATURE_DATA_WRITE_PROTECT {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_ENHANCED_DEFECT_REPORTING {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            NumberOfDBICacheZones: u8,
+            NumberOfEntries: [u8; 2],
+        }
+        struct FEATURE_HEADER {
+            FeatureCode: [u8; 2],
+            _bitfield: u8,
+            AdditionalLength: u8,
+        }
+        struct FEATURE_HYBRID_DISC {
+            Header: FEATURE_HEADER,
+            _bitfield: u8,
+            Reserved2: [u8; 3],
+        }
+        struct FEATURE_MEDIA_SERIAL_NUMBER {
+            Header: FEATURE_HEADER,
+        }
+        #[repr(i32)]
+        enum FEATURE_NUMBER {
+            FeatureProfileList = 0,
+            FeatureCore = 1,
+            FeatureMorphing = 2,
+            FeatureRemovableMedium = 3,
+            FeatureWriteProtect = 4,
+            FeatureRandomReadable = 16,
+            FeatureMultiRead = 29,
+            FeatureCdRead = 30,
+            FeatureDvdRead = 31,
+            FeatureRandomWritable = 32,
+            FeatureIncrementalStreamingWritable = 33,
+            FeatureSectorErasable = 34,
+            FeatureFormattable = 35,
+            FeatureDefectManagement = 36,
+            FeatureWriteOnce = 37,
+            FeatureRestrictedOverwrite = 38,
+            FeatureCdrwCAVWrite = 39,
+            FeatureMrw = 40,
+            FeatureEnhancedDefectReporting = 41,
+            FeatureDvdPlusRW = 42,
+            FeatureDvdPlusR = 43,
+            FeatureRigidRestrictedOverwrite = 44,
+            FeatureCdTrackAtOnce = 45,
+            FeatureCdMastering = 46,
+            FeatureDvdRecordableWrite = 47,
+            FeatureDDCDRead = 48,
+            FeatureDDCDRWrite = 49,
+            FeatureDDCDRWWrite = 50,
+            FeatureLayerJumpRecording = 51,
+            FeatureCDRWMediaWriteSupport = 55,
+            FeatureBDRPseudoOverwrite = 56,
+            FeatureDvdPlusRWDualLayer = 58,
+            FeatureDvdPlusRDualLayer = 59,
+            FeatureBDRead = 64,
+            FeatureBDWrite = 65,
+            FeatureTSR = 66,
+            FeatureHDDVDRead = 80,
+            FeatureHDDVDWrite = 81,
+            FeatureHybridDisc = 128,
+            FeaturePowerManagement = 256,
+            FeatureSMART = 257,
+            FeatureEmbeddedChanger = 258,
+            FeatureCDAudioAnalogPlay = 259,
+            FeatureMicrocodeUpgrade = 260,
+            FeatureTimeout = 261,
+            FeatureDvdCSS = 262,
+            FeatureRealTimeStreaming = 263,
+            FeatureLogicalUnitSerialNumber = 264,
+            FeatureMediaSerialNumber = 265,
+            FeatureDiscControlBlocks = 266,
+            FeatureDvdCPRM = 267,
+            FeatureFirmwareDate = 268,
+            FeatureAACS = 269,
+            FeatureVCPS = 272,
+        }
+        #[repr(i32)]
+        enum FEATURE_PROFILE_TYPE {
+            ProfileInvalid = 0,
+            ProfileNonRemovableDisk = 1,
+            ProfileRemovableDisk = 2,
+            ProfileMOErasable = 3,
+            ProfileMOWriteOnce = 4,
+            ProfileAS_MO = 5,
+            ProfileCdrom = 8,
+            ProfileCdRecordable = 9,
+            ProfileCdRewritable = 10,
+            ProfileDvdRom = 16,
+            ProfileDvdRecordable = 17,
+            ProfileDvdRam = 18,
+            ProfileDvdRewritable = 19,
+            ProfileDvdRWSequential = 20,
+            ProfileDvdDashRDualLayer = 21,
+            ProfileDvdDashRLayerJump = 22,
+            ProfileDvdPlusRW = 26,
+            ProfileDvdPlusR = 27,
+            ProfileDDCdrom = 32,
+            ProfileDDCdRecordable = 33,
+            ProfileDDCdRewritable = 34,
+            ProfileDvdPlusRWDualLayer = 42,
+            ProfileDvdPlusRDualLayer = 43,
+            ProfileBDRom = 64,
+            ProfileBDRSequentialWritable = 65,
+            ProfileBDRRandomWritable = 66,
+            ProfileBDRewritable = 67,
+            ProfileHDDVDRom = 80,
+            ProfileHDDVDRecordable = 81,
+            ProfileHDDVDRam = 82,
+            ProfileHDDVDRewritable = 83,
+            ProfileHDDVDRDualLayer = 88,
+            ProfileHDDVDRWDualLayer = 90,
+            ProfileNonStandard = 65535,
+        }
+        struct FEATURE_TSR {
+            Header: FEATURE_HEADER,
+        }
+        struct FEATURE_VCPS {
+            Header: FEATURE_HEADER,
+            Reserved: [u8; 4],
+        }
+        struct GET_CONFIGURATION_HEADER {
+            DataLength: [u8; 4],
+            Reserved: [u8; 2],
+            CurrentProfile: [u8; 2],
+            Data: [u8; 0],
+        }
+        struct GET_CONFIGURATION_IOCTL_INPUT {
+            Feature: FEATURE_NUMBER,
+            RequestType: u32,
+            Reserved: [*mut void; 2],
+        }
+        #[arch(X64 | Arm64)]
+        struct GET_CONFIGURATION_IOCTL_INPUT32 {
+            Feature: FEATURE_NUMBER,
+            RequestType: u32,
+            Reserved: [*mut void; 2],
+        }
+        type PBD_CLASS_SUPPORT_BITMAP = *mut BD_CLASS_SUPPORT_BITMAP;
+        type PFEATURE_BD_READ = *mut FEATURE_BD_READ;
+        type PFEATURE_BD_R_PSEUDO_OVERWRITE = *mut FEATURE_BD_R_PSEUDO_OVERWRITE;
+        type PFEATURE_BD_WRITE = *mut FEATURE_BD_WRITE;
+        type PFEATURE_CD_RW_MEDIA_WRITE_SUPPORT = *mut FEATURE_CD_RW_MEDIA_WRITE_SUPPORT;
+        type PFEATURE_DATA_AACS = *mut FEATURE_DATA_AACS;
+        type PFEATURE_DATA_CDRW_CAV_WRITE = *mut FEATURE_DATA_CDRW_CAV_WRITE;
+        type PFEATURE_DATA_CD_AUDIO_ANALOG_PLAY = *mut FEATURE_DATA_CD_AUDIO_ANALOG_PLAY;
+        type PFEATURE_DATA_CD_MASTERING = *mut FEATURE_DATA_CD_MASTERING;
+        type PFEATURE_DATA_CD_READ = *mut FEATURE_DATA_CD_READ;
+        type PFEATURE_DATA_CD_TRACK_AT_ONCE = *mut FEATURE_DATA_CD_TRACK_AT_ONCE;
+        type PFEATURE_DATA_CORE = *mut FEATURE_DATA_CORE;
+        type PFEATURE_DATA_DDCD_READ = *mut FEATURE_DATA_DDCD_READ;
+        type PFEATURE_DATA_DDCD_RW_WRITE = *mut FEATURE_DATA_DDCD_RW_WRITE;
+        type PFEATURE_DATA_DDCD_R_WRITE = *mut FEATURE_DATA_DDCD_R_WRITE;
+        type PFEATURE_DATA_DEFECT_MANAGEMENT = *mut FEATURE_DATA_DEFECT_MANAGEMENT;
+        type PFEATURE_DATA_DISC_CONTROL_BLOCKS = *mut FEATURE_DATA_DISC_CONTROL_BLOCKS;
+        type PFEATURE_DATA_DISC_CONTROL_BLOCKS_EX = *mut FEATURE_DATA_DISC_CONTROL_BLOCKS_EX;
+        type PFEATURE_DATA_DVD_CPRM = *mut FEATURE_DATA_DVD_CPRM;
+        type PFEATURE_DATA_DVD_CSS = *mut FEATURE_DATA_DVD_CSS;
+        type PFEATURE_DATA_DVD_PLUS_R = *mut FEATURE_DATA_DVD_PLUS_R;
+        type PFEATURE_DATA_DVD_PLUS_RW = *mut FEATURE_DATA_DVD_PLUS_RW;
+        type PFEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER = *mut FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER;
+        type PFEATURE_DATA_DVD_PLUS_R_DUAL_LAYER = *mut FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER;
+        type PFEATURE_DATA_DVD_READ = *mut FEATURE_DATA_DVD_READ;
+        type PFEATURE_DATA_DVD_RECORDABLE_WRITE = *mut FEATURE_DATA_DVD_RECORDABLE_WRITE;
+        type PFEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE = *mut FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE;
+        type PFEATURE_DATA_EMBEDDED_CHANGER = *mut FEATURE_DATA_EMBEDDED_CHANGER;
+        type PFEATURE_DATA_FIRMWARE_DATE = *mut FEATURE_DATA_FIRMWARE_DATE;
+        type PFEATURE_DATA_FORMATTABLE = *mut FEATURE_DATA_FORMATTABLE;
+        type PFEATURE_DATA_HDDVD_READ = *mut FEATURE_DATA_HDDVD_READ;
+        type PFEATURE_DATA_HDDVD_WRITE = *mut FEATURE_DATA_HDDVD_WRITE;
+        type PFEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE = *mut FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE;
+        type PFEATURE_DATA_LAYER_JUMP_RECORDING = *mut FEATURE_DATA_LAYER_JUMP_RECORDING;
+        type PFEATURE_DATA_LOGICAL_UNIT_SERIAL_NUMBER = *mut FEATURE_DATA_LOGICAL_UNIT_SERIAL_NUMBER;
+        type PFEATURE_DATA_MICROCODE_UPDATE = *mut FEATURE_DATA_MICROCODE_UPDATE;
+        type PFEATURE_DATA_MORPHING = *mut FEATURE_DATA_MORPHING;
+        type PFEATURE_DATA_MRW = *mut FEATURE_DATA_MRW;
+        type PFEATURE_DATA_MULTI_READ = *mut FEATURE_DATA_MULTI_READ;
+        type PFEATURE_DATA_POWER_MANAGEMENT = *mut FEATURE_DATA_POWER_MANAGEMENT;
+        type PFEATURE_DATA_PROFILE_LIST = *mut FEATURE_DATA_PROFILE_LIST;
+        type PFEATURE_DATA_PROFILE_LIST_EX = *mut FEATURE_DATA_PROFILE_LIST_EX;
+        type PFEATURE_DATA_RANDOM_READABLE = *mut FEATURE_DATA_RANDOM_READABLE;
+        type PFEATURE_DATA_RANDOM_WRITABLE = *mut FEATURE_DATA_RANDOM_WRITABLE;
+        type PFEATURE_DATA_REAL_TIME_STREAMING = *mut FEATURE_DATA_REAL_TIME_STREAMING;
+        type PFEATURE_DATA_REMOVABLE_MEDIUM = *mut FEATURE_DATA_REMOVABLE_MEDIUM;
+        type PFEATURE_DATA_RESERVED = *mut FEATURE_DATA_RESERVED;
+        type PFEATURE_DATA_RESTRICTED_OVERWRITE = *mut FEATURE_DATA_RESTRICTED_OVERWRITE;
+        type PFEATURE_DATA_SECTOR_ERASABLE = *mut FEATURE_DATA_SECTOR_ERASABLE;
+        type PFEATURE_DATA_SMART = *mut FEATURE_DATA_SMART;
+        type PFEATURE_DATA_TIMEOUT = *mut FEATURE_DATA_TIMEOUT;
+        type PFEATURE_DATA_VENDOR_SPECIFIC = *mut FEATURE_DATA_VENDOR_SPECIFIC;
+        type PFEATURE_DATA_WRITE_ONCE = *mut FEATURE_DATA_WRITE_ONCE;
+        type PFEATURE_DATA_WRITE_PROTECT = *mut FEATURE_DATA_WRITE_PROTECT;
+        type PFEATURE_ENHANCED_DEFECT_REPORTING = *mut FEATURE_ENHANCED_DEFECT_REPORTING;
+        type PFEATURE_HEADER = *mut FEATURE_HEADER;
+        type PFEATURE_HYBRID_DISC = *mut FEATURE_HYBRID_DISC;
+        type PFEATURE_MEDIA_SERIAL_NUMBER = *mut FEATURE_MEDIA_SERIAL_NUMBER;
+        type PFEATURE_NUMBER = *mut FEATURE_NUMBER;
+        type PFEATURE_PROFILE_TYPE = *mut FEATURE_PROFILE_TYPE;
+        type PFEATURE_TSR = *mut FEATURE_TSR;
+        type PFEATURE_VCPS = *mut FEATURE_VCPS;
+        type PGET_CONFIGURATION_HEADER = *mut GET_CONFIGURATION_HEADER;
+        type PGET_CONFIGURATION_IOCTL_INPUT = *mut GET_CONFIGURATION_IOCTL_INPUT;
+        #[arch(X64 | Arm64)]
+        type PGET_CONFIGURATION_IOCTL_INPUT32 = *mut GET_CONFIGURATION_IOCTL_INPUT32;
+        const SCSI_GET_CONFIGURATION_REQUEST_TYPE_ALL: u32 = 0;
+        const SCSI_GET_CONFIGURATION_REQUEST_TYPE_CURRENT: u32 = 1;
+        const SCSI_GET_CONFIGURATION_REQUEST_TYPE_ONE: u32 = 2;
+    }
+}

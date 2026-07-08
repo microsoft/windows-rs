@@ -1,0 +1,18 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type NDIS_HASH_FLAGS = u32;
+        const NDIS_HASH_FUNCTION_MASK: u32 = 255;
+        const NDIS_HASH_IPV4: u32 = 256;
+        const NDIS_HASH_IPV6: u32 = 1024;
+        const NDIS_HASH_IPV6_EX: u32 = 2048;
+        const NDIS_HASH_TCP_IPV4: u32 = 512;
+        const NDIS_HASH_TCP_IPV6: u32 = 4096;
+        const NDIS_HASH_TCP_IPV6_EX: u32 = 8192;
+        const NDIS_HASH_TYPE_MASK: u32 = 16776960;
+        const NdisHashFunctionReserved1: u32 = 2;
+        const NdisHashFunctionReserved2: u32 = 4;
+        const NdisHashFunctionReserved3: u32 = 8;
+        const NdisHashFunctionToeplitz: u32 = 1;
+    }
+}

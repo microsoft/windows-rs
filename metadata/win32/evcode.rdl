@@ -1,0 +1,88 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const AM_CONTENTPROPERTY_AUTHOR: u32 = 2;
+        const AM_CONTENTPROPERTY_COPYRIGHT: u32 = 4;
+        const AM_CONTENTPROPERTY_DESCRIPTION: u32 = 8;
+        const AM_CONTENTPROPERTY_TITLE: u32 = 1;
+        const AM_LOADSTATUS_CLOSED: u32 = 0;
+        const AM_LOADSTATUS_CONNECTING: u32 = 4;
+        const AM_LOADSTATUS_LOADINGDESCR: u32 = 1;
+        const AM_LOADSTATUS_LOADINGMCAST: u32 = 2;
+        const AM_LOADSTATUS_LOCATING: u32 = 3;
+        const AM_LOADSTATUS_OPEN: u32 = 6;
+        const AM_LOADSTATUS_OPENING: u32 = 5;
+        struct AM_WMT_EVENT_DATA {
+            hrStatus: HRESULT,
+            pData: *mut void,
+        }
+        const EC_ACTIVATE: u32 = 19;
+        const EC_BANDWIDTHCHANGE: u32 = 72;
+        const EC_BUFFERING_DATA: u32 = 17;
+        const EC_BUILT: u32 = 768;
+        const EC_CLOCK_CHANGED: u32 = 13;
+        const EC_CLOCK_UNSET: u32 = 81;
+        const EC_CODECAPI_EVENT: u32 = 87;
+        const EC_COMPLETE: u32 = 1;
+        const EC_CONTENTPROPERTY_CHANGED: u32 = 71;
+        const EC_DEVICE_LOST: u32 = 31;
+        const EC_DISPLAY_CHANGED: u32 = 22;
+        const EC_END_OF_SEGMENT: u32 = 28;
+        const EC_EOS_SOON: u32 = 70;
+        const EC_ERRORABORT: u32 = 3;
+        const EC_ERRORABORTEX: u32 = 69;
+        const EC_ERROR_STILLPLAYING: u32 = 8;
+        const EC_EXTDEVICE_MODE_CHANGE: u32 = 49;
+        const EC_FILE_CLOSED: u32 = 68;
+        const EC_FULLSCREEN_LOST: u32 = 18;
+        const EC_GRAPH_CHANGED: u32 = 80;
+        const EC_LENGTH_CHANGED: u32 = 30;
+        const EC_LOADSTATUS: u32 = 67;
+        const EC_MARKER_HIT: u32 = 66;
+        const EC_NEED_RESTART: u32 = 20;
+        const EC_NEW_PIN: u32 = 32;
+        const EC_NOTIFY_WINDOW: u32 = 25;
+        const EC_OLE_EVENT: u32 = 24;
+        const EC_OPENING_FILE: u32 = 16;
+        const EC_PALETTE_CHANGED: u32 = 9;
+        const EC_PAUSED: u32 = 14;
+        const EC_PLEASE_REOPEN: u32 = 64;
+        const EC_PREPROCESS_COMPLETE: u32 = 86;
+        const EC_PROCESSING_LATENCY: u32 = 33;
+        const EC_QUALITY_CHANGE: u32 = 11;
+        const EC_RENDER_FINISHED: u32 = 33;
+        const EC_REPAINT: u32 = 5;
+        const EC_SAMPLE_LATENCY: u32 = 34;
+        const EC_SAMPLE_NEEDED: u32 = 32;
+        const EC_SCRUB_TIME: u32 = 35;
+        const EC_SEGMENT_STARTED: u32 = 29;
+        const EC_SHUTTING_DOWN: u32 = 12;
+        const EC_SKIP_FRAMES: u32 = 37;
+        const EC_STARVATION: u32 = 23;
+        const EC_STATE_CHANGE: u32 = 50;
+        const EC_STATUS: u32 = 65;
+        const EC_STEP_COMPLETE: u32 = 36;
+        const EC_STREAM_CONTROL_STARTED: u32 = 27;
+        const EC_STREAM_CONTROL_STOPPED: u32 = 26;
+        const EC_STREAM_ERROR_STILLPLAYING: u32 = 7;
+        const EC_STREAM_ERROR_STOPPED: u32 = 6;
+        const EC_SYSTEMBASE: u32 = 0;
+        const EC_TIME: u32 = 4;
+        const EC_TIMECODE_AVAILABLE: u32 = 48;
+        const EC_UNBUILT: u32 = 769;
+        const EC_USER: u32 = 32768;
+        const EC_USERABORT: u32 = 2;
+        const EC_VIDEOFRAMEREADY: u32 = 73;
+        const EC_VIDEO_SIZE_CHANGED: u32 = 10;
+        const EC_VMR_RECONNECTION_FAILED: u32 = 85;
+        const EC_VMR_RENDERDEVICE_SET: u32 = 83;
+        const EC_VMR_SURFACE_FLIPPED: u32 = 84;
+        const EC_WINDOW_DESTROYED: u32 = 21;
+        const EC_WMT_EVENT: u32 = 594;
+        const EC_WMT_EVENT_BASE: u32 = 593;
+        const EC_WMT_INDEX_EVENT: u32 = 593;
+        const VMR_RENDER_DEVICE_OVERLAY: u32 = 1;
+        const VMR_RENDER_DEVICE_SYSMEM: u32 = 4;
+        const VMR_RENDER_DEVICE_VIDMEM: u32 = 2;
+    }
+}

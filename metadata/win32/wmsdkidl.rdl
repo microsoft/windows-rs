@@ -1,0 +1,1318 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct DRM_COPY_OPL {
+            wMinimumCopyLevel: u16,
+            oplIdIncludes: DRM_OPL_OUTPUT_IDS,
+            oplIdExcludes: DRM_OPL_OUTPUT_IDS,
+        }
+        struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
+            wCompressedDigitalVideo: u16,
+            wUncompressedDigitalVideo: u16,
+            wAnalogVideo: u16,
+            wCompressedDigitalAudio: u16,
+            wUncompressedDigitalAudio: u16,
+        }
+        struct DRM_OPL_OUTPUT_IDS {
+            cIds: u16,
+            rgIds: *mut GUID,
+        }
+        const DRM_OPL_TYPES: u32 = 1;
+        struct DRM_OUTPUT_PROTECTION {
+            guidId: GUID,
+            bConfigData: u8,
+        }
+        struct DRM_PLAY_OPL {
+            minOPL: DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS,
+            oplIdReserved: DRM_OPL_OUTPUT_IDS,
+            vopi: DRM_VIDEO_OUTPUT_PROTECTION_IDS,
+        }
+        struct DRM_VAL16 {
+            val: [u8; 16],
+        }
+        type DRM_VIDEO_OUTPUT_PROTECTION = DRM_OUTPUT_PROTECTION;
+        struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
+            cEntries: u16,
+            rgVop: *mut DRM_VIDEO_OUTPUT_PROTECTION,
+        }
+        #[guid(0xbb3c6389_1633_4e92_af14_9f3173ba39d0)]
+        interface IWMAddressAccess: IUnknown {
+            fn GetAccessEntryCount(&self, aeType: WM_AETYPE, pcEntries: *mut u32) -> HRESULT;
+            fn GetAccessEntry(&self, aeType: WM_AETYPE, dwEntryNum: u32, pAddrAccessEntry: *mut WM_ADDRESS_ACCESSENTRY) -> HRESULT;
+            fn AddAccessEntry(&self, aeType: WM_AETYPE, pAddrAccessEntry: *const WM_ADDRESS_ACCESSENTRY) -> HRESULT;
+            fn RemoveAccessEntry(&self, aeType: WM_AETYPE, dwEntryNum: u32) -> HRESULT;
+        }
+        #[guid(0x65a83fc2_3e98_4d4d_81b5_2a742886b33d)]
+        interface IWMAddressAccess2: IWMAddressAccess {
+            fn GetAccessEntryEx(&self, aeType: WM_AETYPE, dwEntryNum: u32, pbstrAddress: *mut BSTR, pbstrMask: *mut BSTR) -> HRESULT;
+            fn AddAccessEntryEx(&self, aeType: WM_AETYPE, bstrAddress: BSTR, bstrMask: BSTR) -> HRESULT;
+        }
+        #[guid(0x3c8e0da6_996f_4ff3_a1af_4838f9377e2e)]
+        interface IWMBackupRestoreProps: IUnknown {
+            fn GetPropCount(&self, pcProps: *mut u16) -> HRESULT;
+            fn GetPropByIndex(&self, wIndex: u16, pwszName: *mut u16, #[in] #[out] pcchNameLen: *mut u16, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pcbLength: *mut u16) -> HRESULT;
+            fn GetPropByName(&self, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pcbLength: *mut u16) -> HRESULT;
+            fn SetProp(&self, pszName: PCWSTR, Type: WMT_ATTR_DATATYPE, pValue: *const u8, cbLength: u16) -> HRESULT;
+            fn RemoveProp(&self, pcwszName: PCWSTR) -> HRESULT;
+            fn RemoveAllProps(&self) -> HRESULT;
+        }
+        #[guid(0xad694af1_f8d9_42f8_bc47_70311b0c4f9e)]
+        interface IWMBandwidthSharing: IWMStreamList {
+            fn GetType(&self, pguidType: *mut GUID) -> HRESULT;
+            fn SetType(&self, guidType: *const GUID) -> HRESULT;
+            fn GetBandwidth(&self, pdwBitrate: *mut u32, pmsBufferWindow: *mut u32) -> HRESULT;
+            fn SetBandwidth(&self, dwBitrate: u32, msBufferWindow: u32) -> HRESULT;
+        }
+        #[guid(0x73c66010_a299_41df_b1f0_ccf03b09c1c6)]
+        interface IWMClientConnections: IUnknown {
+            fn GetClientCount(&self, pcClients: *mut u32) -> HRESULT;
+            fn GetClientProperties(&self, dwClientNum: u32, pClientProperties: *mut WM_CLIENT_PROPERTIES) -> HRESULT;
+        }
+        #[guid(0x4091571e_4701_4593_bb3d_d5f5f0c74246)]
+        interface IWMClientConnections2: IWMClientConnections {
+            fn GetClientInfo(&self, dwClientNum: u32, pwszNetworkAddress: *mut u16, #[in] #[out] pcchNetworkAddress: *mut u32, pwszPort: *mut u16, #[in] #[out] pcchPort: *mut u32, pwszDNSName: *mut u16, #[in] #[out] pcchDNSName: *mut u32) -> HRESULT;
+        }
+        #[guid(0xa970f41e_34de_4a98_b3ba_e4b3ca7528f0)]
+        interface IWMCodecInfo: IUnknown {
+            fn GetCodecInfoCount(&self, guidType: *const GUID, pcCodecs: *mut u32) -> HRESULT;
+            fn GetCodecFormatCount(&self, guidType: *const GUID, dwCodecIndex: u32, pcFormat: *mut u32) -> HRESULT;
+            fn GetCodecFormat(&self, guidType: *const GUID, dwCodecIndex: u32, dwFormatIndex: u32, ppIStreamConfig: *mut IWMStreamConfig) -> HRESULT;
+        }
+        #[guid(0xaa65e273_b686_4056_91ec_dd768d4df710)]
+        interface IWMCodecInfo2: IWMCodecInfo {
+            fn GetCodecName(&self, guidType: *const GUID, dwCodecIndex: u32, wszName: *mut u16, #[in] #[out] pcchName: *mut u32) -> HRESULT;
+            fn GetCodecFormatDesc(&self, guidType: *const GUID, dwCodecIndex: u32, dwFormatIndex: u32, ppIStreamConfig: *mut IWMStreamConfig, wszDesc: *mut u16, #[in] #[out] pcchDesc: *mut u32) -> HRESULT;
+        }
+        #[guid(0x7e51f487_4d93_4f98_8ab4_27d0565adc51)]
+        interface IWMCodecInfo3: IWMCodecInfo2 {
+            fn GetCodecFormatProp(&self, guidType: *const GUID, dwCodecIndex: u32, dwFormatIndex: u32, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
+            fn GetCodecProp(&self, guidType: *const GUID, dwCodecIndex: u32, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
+            fn SetCodecEnumerationSetting(&self, guidType: *const GUID, dwCodecIndex: u32, pszName: PCWSTR, Type: WMT_ATTR_DATATYPE, pValue: *const u8, dwSize: u32) -> HRESULT;
+            fn GetCodecEnumerationSetting(&self, guidType: *const GUID, dwCodecIndex: u32, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
+        }
+        #[guid(0x342e0eb7_e651_450c_975b_2ace2c90c48e)]
+        interface IWMCredentialCallback: IUnknown {
+            fn AcquireCredentials(&self, pwszRealm: *const u16, pwszSite: *const u16, pwszUser: *mut u16, cchUser: u32, pwszPassword: *mut u16, cchPassword: u32, hrStatus: HRESULT, pdwFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0xff130ebc_a6c3_42a6_b401_c3382c3e08b3)]
+        interface IWMDRMEditor: IUnknown {
+            fn GetDRMProperty(&self, pwstrName: PCWSTR, pdwType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pcbLength: *mut u16) -> HRESULT;
+        }
+        #[guid(0xa73a0072_25a0_4c99_b4a5_ede8101a6c39)]
+        interface IWMDRMMessageParser: IUnknown {
+            fn ParseRegistrationReqMsg(&self, pbRegistrationReqMsg: *const u8, cbRegistrationReqMsg: u32, ppDeviceCert: *mut INSSBuffer, pDeviceSerialNumber: *mut DRM_VAL16) -> HRESULT;
+            fn ParseLicenseRequestMsg(&self, pbLicenseRequestMsg: *const u8, cbLicenseRequestMsg: u32, ppDeviceCert: *mut INSSBuffer, pDeviceSerialNumber: *mut DRM_VAL16, pbstrAction: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xd2827540_3ee7_432c_b14c_dc17f085d3b3)]
+        interface IWMDRMReader: IUnknown {
+            fn AcquireLicense(&self, dwFlags: u32) -> HRESULT;
+            fn CancelLicenseAcquisition(&self) -> HRESULT;
+            fn Individualize(&self, dwFlags: u32) -> HRESULT;
+            fn CancelIndividualization(&self) -> HRESULT;
+            fn MonitorLicenseAcquisition(&self) -> HRESULT;
+            fn CancelMonitorLicenseAcquisition(&self) -> HRESULT;
+            fn SetDRMProperty(&self, pwstrName: PCWSTR, dwType: WMT_ATTR_DATATYPE, pValue: *const u8, cbLength: u16) -> HRESULT;
+            fn GetDRMProperty(&self, pwstrName: PCWSTR, pdwType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pcbLength: *mut u16) -> HRESULT;
+        }
+        #[guid(0xbefe7a75_9f1d_4075_b9d9_a3c37bda49a0)]
+        interface IWMDRMReader2: IWMDRMReader {
+            fn SetEvaluateOutputLevelLicenses(&self, fEvaluate: BOOL) -> HRESULT;
+            fn GetPlayOutputLevels(&self, pPlayOPL: *mut DRM_PLAY_OPL, #[in] #[out] pcbLength: *mut u32, pdwMinAppComplianceLevel: *mut u32) -> HRESULT;
+            fn GetCopyOutputLevels(&self, pCopyOPL: *mut DRM_COPY_OPL, #[in] #[out] pcbLength: *mut u32, pdwMinAppComplianceLevel: *mut u32) -> HRESULT;
+            fn TryNextLicense(&self) -> HRESULT;
+        }
+        #[guid(0xe08672de_f1e7_4ff4_a0a3_fc4b08e4caf8)]
+        interface IWMDRMReader3: IWMDRMReader2 {
+            fn GetInclusionList(&self, ppGuids: *mut *mut GUID, pcGuids: *mut u32) -> HRESULT;
+        }
+        #[guid(0xb1a887b2_a4f0_407a_b02e_efbd23bbecdf)]
+        interface IWMDRMTranscryptionManager: IUnknown {
+            fn CreateTranscryptor(&self, ppTranscryptor: *mut IWMDRMTranscryptor) -> HRESULT;
+        }
+        #[guid(0x69059850_6e6f_4bb2_806f_71863ddfc471)]
+        interface IWMDRMTranscryptor: IUnknown {
+            fn Initialize(&self, bstrFileName: BSTR, pbLicenseRequestMsg: *const u8, cbLicenseRequestMsg: u32, ppLicenseResponseMsg: *mut INSSBuffer, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+            fn Seek(&self, hnsTime: u64) -> HRESULT;
+            fn Read(&self, pbData: *const u8, pcbData: *const u32) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xe0da439f_d331_496a_bece_18e5bac5dd23)]
+        interface IWMDRMTranscryptor2: IWMDRMTranscryptor {
+            fn SeekEx(&self, cnsStartTime: u64, cnsDuration: u64, flRate: f32, fIncludeFileHeader: BOOL) -> HRESULT;
+            fn ZeroAdjustTimestamps(&self, fEnable: BOOL) -> HRESULT;
+            fn GetSeekStartTime(&self, pcnsTime: *mut u64) -> HRESULT;
+            fn GetDuration(&self, pcnsDuration: *mut u64) -> HRESULT;
+        }
+        #[guid(0xd6ea5dd0_12a0_43f4_90ab_a3fd451e6a07)]
+        interface IWMDRMWriter: IUnknown {
+            fn GenerateKeySeed(&self, pwszKeySeed: *mut u16, #[in] #[out] pcwchLength: *mut u32) -> HRESULT;
+            fn GenerateKeyID(&self, pwszKeyID: *mut u16, #[in] #[out] pcwchLength: *mut u32) -> HRESULT;
+            fn GenerateSigningKeyPair(&self, pwszPrivKey: *mut u16, #[in] #[out] pcwchPrivKeyLength: *mut u32, pwszPubKey: *mut u16, #[in] #[out] pcwchPubKeyLength: *mut u32) -> HRESULT;
+            fn SetDRMAttribute(&self, wStreamNum: u16, pszName: PCWSTR, Type: WMT_ATTR_DATATYPE, pValue: *const u8, cbLength: u16) -> HRESULT;
+        }
+        #[guid(0x38ee7a94_40e2_4e10_aa3f_33fd3210ed5b)]
+        interface IWMDRMWriter2: IWMDRMWriter {
+            fn SetWMDRMNetEncryption(&self, fSamplesEncrypted: BOOL, pbKeyID: *const u8, cbKeyID: u32) -> HRESULT;
+        }
+        #[guid(0xa7184082_a4aa_4dde_ac9c_e75dbd1117ce)]
+        interface IWMDRMWriter3: IWMDRMWriter2 {
+            fn SetProtectStreamSamples(&self, pImportInitStruct: *const WMDRM_IMPORT_INIT_STRUCT) -> HRESULT;
+        }
+        #[guid(0xf6211f03_8d21_4e94_93e6_8510805f2d99)]
+        interface IWMDeviceRegistration: IUnknown {
+            fn RegisterDevice(&self, dwRegisterType: u32, pbCertificate: *const u8, cbCertificate: u32, SerialNumber: DRM_VAL16, ppDevice: *mut IWMRegisteredDevice) -> HRESULT;
+            fn UnregisterDevice(&self, dwRegisterType: u32, pbCertificate: *const u8, cbCertificate: u32, SerialNumber: DRM_VAL16) -> HRESULT;
+            fn GetRegistrationStats(&self, dwRegisterType: u32, pcRegisteredDevices: *mut u32) -> HRESULT;
+            fn GetFirstRegisteredDevice(&self, dwRegisterType: u32, ppDevice: *mut IWMRegisteredDevice) -> HRESULT;
+            fn GetNextRegisteredDevice(&self, ppDevice: *mut IWMRegisteredDevice) -> HRESULT;
+            fn GetRegisteredDeviceByID(&self, dwRegisterType: u32, pbCertificate: *const u8, cbCertificate: u32, SerialNumber: DRM_VAL16, ppDevice: *mut IWMRegisteredDevice) -> HRESULT;
+        }
+        #[guid(0x96406bda_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMHeaderInfo: IUnknown {
+            fn GetAttributeCount(&self, wStreamNum: u16, pcAttributes: *mut u16) -> HRESULT;
+            fn GetAttributeByIndex(&self, wIndex: u16, #[in] #[out] pwStreamNum: *mut u16, pwszName: *mut u16, #[in] #[out] pcchNameLen: *mut u16, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pcbLength: *mut u16) -> HRESULT;
+            fn GetAttributeByName(&self, #[in] #[out] pwStreamNum: *mut u16, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pcbLength: *mut u16) -> HRESULT;
+            fn SetAttribute(&self, wStreamNum: u16, pszName: PCWSTR, Type: WMT_ATTR_DATATYPE, pValue: *const u8, cbLength: u16) -> HRESULT;
+            fn GetMarkerCount(&self, pcMarkers: *mut u16) -> HRESULT;
+            fn GetMarker(&self, wIndex: u16, pwszMarkerName: *mut u16, #[in] #[out] pcchMarkerNameLen: *mut u16, pcnsMarkerTime: *mut u64) -> HRESULT;
+            fn AddMarker(&self, pwszMarkerName: PCWSTR, cnsMarkerTime: u64) -> HRESULT;
+            fn RemoveMarker(&self, wIndex: u16) -> HRESULT;
+            fn GetScriptCount(&self, pcScripts: *mut u16) -> HRESULT;
+            fn GetScript(&self, wIndex: u16, pwszType: *mut u16, #[in] #[out] pcchTypeLen: *mut u16, pwszCommand: *mut u16, #[in] #[out] pcchCommandLen: *mut u16, pcnsScriptTime: *mut u64) -> HRESULT;
+            fn AddScript(&self, pwszType: PCWSTR, pwszCommand: PCWSTR, cnsScriptTime: u64) -> HRESULT;
+            fn RemoveScript(&self, wIndex: u16) -> HRESULT;
+        }
+        #[guid(0x15cf9781_454e_482e_b393_85fae487a810)]
+        interface IWMHeaderInfo2: IWMHeaderInfo {
+            fn GetCodecInfoCount(&self, pcCodecInfos: *mut u32) -> HRESULT;
+            fn GetCodecInfo(&self, wIndex: u32, #[in] #[out] pcchName: *mut u16, pwszName: *mut u16, #[in] #[out] pcchDescription: *mut u16, pwszDescription: *mut u16, pCodecType: *mut WMT_CODEC_INFO_TYPE, #[in] #[out] pcbCodecInfo: *mut u16, pbCodecInfo: *mut u8) -> HRESULT;
+        }
+        #[guid(0x15cc68e3_27cc_4ecd_b222_3f5d02d80bd5)]
+        interface IWMHeaderInfo3: IWMHeaderInfo2 {
+            fn GetAttributeCountEx(&self, wStreamNum: u16, pcAttributes: *mut u16) -> HRESULT;
+            fn GetAttributeIndices(&self, wStreamNum: u16, pwszName: PCWSTR, pwLangIndex: *const u16, pwIndices: *mut u16, #[in] #[out] pwCount: *mut u16) -> HRESULT;
+            fn GetAttributeByIndexEx(&self, wStreamNum: u16, wIndex: u16, #[out] pwszName: PWSTR, #[in] #[out] pwNameLen: *mut u16, pType: *mut WMT_ATTR_DATATYPE, pwLangIndex: *mut u16, pValue: *mut u8, #[in] #[out] pdwDataLength: *mut u32) -> HRESULT;
+            fn ModifyAttribute(&self, wStreamNum: u16, wIndex: u16, Type: WMT_ATTR_DATATYPE, wLangIndex: u16, pValue: *const u8, dwLength: u32) -> HRESULT;
+            fn AddAttribute(&self, wStreamNum: u16, pszName: PCWSTR, pwIndex: *mut u16, Type: WMT_ATTR_DATATYPE, wLangIndex: u16, pValue: *const u8, dwLength: u32) -> HRESULT;
+            fn DeleteAttribute(&self, wStreamNum: u16, wIndex: u16) -> HRESULT;
+            fn AddCodecInfo(&self, pwszName: PCWSTR, pwszDescription: PCWSTR, codecType: WMT_CODEC_INFO_TYPE, cbCodecInfo: u16, pbCodecInfo: *const u8) -> HRESULT;
+        }
+        #[guid(0x6816dad3_2b4b_4c8e_8149_874c3483a753)]
+        interface IWMIStreamProps: IUnknown {
+            fn GetProperty(&self, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
+        }
+        #[guid(0x9f0aa3b6_7267_4d89_88f2_ba915aa5c4c6)]
+        interface IWMImageInfo: IUnknown {
+            fn GetImageCount(&self, pcImages: *mut u32) -> HRESULT;
+            fn GetImage(&self, wIndex: u32, #[in] #[out] pcchMIMEType: *mut u16, pwszMIMEType: *mut u16, #[in] #[out] pcchDescription: *mut u16, pwszDescription: *mut u16, pImageType: *mut u16, #[in] #[out] pcbImageData: *mut u32, pbImageData: *mut u8) -> HRESULT;
+        }
+        #[guid(0x6d7cdc71_9888_11d3_8edc_00c04f6109cf)]
+        interface IWMIndexer: IUnknown {
+            fn StartIndexing(&self, pwszURL: *const u16, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+            fn Cancel(&self) -> HRESULT;
+        }
+        #[guid(0xb70f1e42_6255_4df0_a6b9_02b212d9e2bb)]
+        interface IWMIndexer2: IWMIndexer {
+            fn Configure(&self, wStreamNum: u16, nIndexerType: WMT_INDEXER_TYPE, pvInterval: *const void, pvIndexType: *const void) -> HRESULT;
+        }
+        #[guid(0x96406bd5_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMInputMediaProps: IWMMediaProps {
+            fn GetConnectionName(&self, pwszName: *mut u16, #[in] #[out] pcchName: *mut u16) -> HRESULT;
+            fn GetGroupName(&self, pwszName: *mut u16, #[in] #[out] pcchName: *mut u16) -> HRESULT;
+        }
+        #[guid(0xdf683f00_2d49_4d8e_92b7_fb19f6a0dc57)]
+        interface IWMLanguageList: IUnknown {
+            fn GetLanguageCount(&self, pwCount: *mut u16) -> HRESULT;
+            fn GetLanguageDetails(&self, wIndex: u16, pwszLanguageString: *mut u16, #[in] #[out] pcchLanguageStringLength: *mut u16) -> HRESULT;
+            fn AddLanguageByRFC1766String(&self, pwszLanguageString: PCWSTR, pwIndex: *mut u16) -> HRESULT;
+        }
+        #[guid(0x05e5ac9f_3fb6_4508_bb43_a4067ba1ebe8)]
+        interface IWMLicenseBackup: IUnknown {
+            fn BackupLicenses(&self, dwFlags: u32, pCallback: IWMStatusCallback) -> HRESULT;
+            fn CancelLicenseBackup(&self) -> HRESULT;
+        }
+        #[guid(0xc70b6334_a22e_4efb_a245_15e65a004a13)]
+        interface IWMLicenseRestore: IUnknown {
+            fn RestoreLicenses(&self, dwFlags: u32, pCallback: IWMStatusCallback) -> HRESULT;
+            fn CancelLicenseRestore(&self) -> HRESULT;
+        }
+        #[guid(0x6967f2c9_4e26_4b57_8894_799880f7ac7b)]
+        interface IWMLicenseRevocationAgent: IUnknown {
+            fn GetLRBChallenge(&self, pMachineID: *const u8, dwMachineIDLength: u32, pChallenge: *const u8, dwChallengeLength: u32, pChallengeOutput: *mut u8, pdwChallengeOutputLength: *mut u32) -> HRESULT;
+            fn ProcessLRB(&self, pSignedLRB: *const u8, dwSignedLRBLength: u32, pSignedACK: *mut u8, pdwSignedACKLength: *mut u32) -> HRESULT;
+        }
+        #[guid(0x96406bce_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMMediaProps: IUnknown {
+            fn GetType(&self, pguidType: *mut GUID) -> HRESULT;
+            fn GetMediaType(&self, pType: *mut WM_MEDIA_TYPE, #[in] #[out] pcbType: *mut u32) -> HRESULT;
+            fn SetMediaType(&self, pType: *const WM_MEDIA_TYPE) -> HRESULT;
+        }
+        #[guid(0x96406bd9_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMMetadataEditor: IUnknown {
+            fn Open(&self, pwszFilename: *const u16) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn Flush(&self) -> HRESULT;
+        }
+        #[guid(0x203cffe3_2e18_4fdf_b59d_6e71530534cf)]
+        interface IWMMetadataEditor2: IWMMetadataEditor {
+            fn OpenEx(&self, pwszFilename: *const u16, dwDesiredAccess: u32, dwShareMode: u32) -> HRESULT;
+        }
+        #[guid(0x96406bde_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMMutualExclusion: IWMStreamList {
+            fn GetType(&self, pguidType: *mut GUID) -> HRESULT;
+            fn SetType(&self, guidType: *const GUID) -> HRESULT;
+        }
+        #[guid(0x0302b57d_89d1_4ba2_85c9_166f2c53eb91)]
+        interface IWMMutualExclusion2: IWMMutualExclusion {
+            fn GetName(&self, pwszName: *mut u16, #[in] #[out] pcchName: *mut u16) -> HRESULT;
+            fn SetName(&self, pwszName: PCWSTR) -> HRESULT;
+            fn GetRecordCount(&self, pwRecordCount: *mut u16) -> HRESULT;
+            fn AddRecord(&self) -> HRESULT;
+            fn RemoveRecord(&self, wRecordNumber: u16) -> HRESULT;
+            fn GetRecordName(&self, wRecordNumber: u16, pwszRecordName: *mut u16, #[in] #[out] pcchRecordName: *mut u16) -> HRESULT;
+            fn SetRecordName(&self, wRecordNumber: u16, pwszRecordName: PCWSTR) -> HRESULT;
+            fn GetStreamsForRecord(&self, wRecordNumber: u16, pwStreamNumArray: *mut u16, #[in] #[out] pcStreams: *mut u16) -> HRESULT;
+            fn AddStreamForRecord(&self, wRecordNumber: u16, wStreamNumber: u16) -> HRESULT;
+            fn RemoveStreamForRecord(&self, wRecordNumber: u16, wStreamNumber: u16) -> HRESULT;
+        }
+        #[guid(0x96406bd7_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMOutputMediaProps: IWMMediaProps {
+            fn GetStreamGroupName(&self, pwszName: *mut u16, #[in] #[out] pcchName: *mut u16) -> HRESULT;
+            fn GetConnectionName(&self, pwszName: *mut u16, #[in] #[out] pcchName: *mut u16) -> HRESULT;
+        }
+        #[guid(0xcdfb97ab_188f_40b3_b643_5b7903975c59)]
+        interface IWMPacketSize: IUnknown {
+            fn GetMaxPacketSize(&self, pdwMaxPacketSize: *mut u32) -> HRESULT;
+            fn SetMaxPacketSize(&self, dwMaxPacketSize: u32) -> HRESULT;
+        }
+        #[guid(0x8bfc2b9e_b646_4233_a877_1c6a079669dc)]
+        interface IWMPacketSize2: IWMPacketSize {
+            fn GetMinPacketSize(&self, pdwMinPacketSize: *mut u32) -> HRESULT;
+            fn SetMinPacketSize(&self, dwMinPacketSize: u32) -> HRESULT;
+        }
+        #[guid(0xe5b7ca9a_0f1c_4f66_9002_74ec50d8b304)]
+        interface IWMPlayerHook: IUnknown {
+            fn PreDecode(&self) -> HRESULT;
+        }
+        #[guid(0x96406bdb_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMProfile: IUnknown {
+            fn GetVersion(&self, pdwVersion: *mut WMT_VERSION) -> HRESULT;
+            fn GetName(&self, pwszName: *mut u16, #[in] #[out] pcchName: *mut u32) -> HRESULT;
+            fn SetName(&self, pwszName: *const u16) -> HRESULT;
+            fn GetDescription(&self, pwszDescription: *mut u16, #[in] #[out] pcchDescription: *mut u32) -> HRESULT;
+            fn SetDescription(&self, pwszDescription: *const u16) -> HRESULT;
+            fn GetStreamCount(&self, pcStreams: *mut u32) -> HRESULT;
+            fn GetStream(&self, dwStreamIndex: u32, ppConfig: *mut IWMStreamConfig) -> HRESULT;
+            fn GetStreamByNumber(&self, wStreamNum: u16, ppConfig: *mut IWMStreamConfig) -> HRESULT;
+            fn RemoveStream(&self, pConfig: IWMStreamConfig) -> HRESULT;
+            fn RemoveStreamByNumber(&self, wStreamNum: u16) -> HRESULT;
+            fn AddStream(&self, pConfig: IWMStreamConfig) -> HRESULT;
+            fn ReconfigStream(&self, pConfig: IWMStreamConfig) -> HRESULT;
+            fn CreateNewStream(&self, guidStreamType: *const GUID, ppConfig: *mut IWMStreamConfig) -> HRESULT;
+            fn GetMutualExclusionCount(&self, pcME: *mut u32) -> HRESULT;
+            fn GetMutualExclusion(&self, dwMEIndex: u32, ppME: *mut IWMMutualExclusion) -> HRESULT;
+            fn RemoveMutualExclusion(&self, pME: IWMMutualExclusion) -> HRESULT;
+            fn AddMutualExclusion(&self, pME: IWMMutualExclusion) -> HRESULT;
+            fn CreateNewMutualExclusion(&self, ppME: *mut IWMMutualExclusion) -> HRESULT;
+        }
+        #[guid(0x07e72d33_d94e_4be7_8843_60ae5ff7e5f5)]
+        interface IWMProfile2: IWMProfile {
+            fn GetProfileID(&self, pguidID: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x00ef96cc_a461_4546_8bcd_c9a28f0e06f5)]
+        interface IWMProfile3: IWMProfile2 {
+            fn GetStorageFormat(&self, pnStorageFormat: *mut WMT_STORAGE_FORMAT) -> HRESULT;
+            fn SetStorageFormat(&self, nStorageFormat: WMT_STORAGE_FORMAT) -> HRESULT;
+            fn GetBandwidthSharingCount(&self, pcBS: *mut u32) -> HRESULT;
+            fn GetBandwidthSharing(&self, dwBSIndex: u32, ppBS: *mut IWMBandwidthSharing) -> HRESULT;
+            fn RemoveBandwidthSharing(&self, pBS: IWMBandwidthSharing) -> HRESULT;
+            fn AddBandwidthSharing(&self, pBS: IWMBandwidthSharing) -> HRESULT;
+            fn CreateNewBandwidthSharing(&self, ppBS: *mut IWMBandwidthSharing) -> HRESULT;
+            fn GetStreamPrioritization(&self, ppSP: *mut IWMStreamPrioritization) -> HRESULT;
+            fn SetStreamPrioritization(&self, pSP: IWMStreamPrioritization) -> HRESULT;
+            fn RemoveStreamPrioritization(&self) -> HRESULT;
+            fn CreateNewStreamPrioritization(&self, ppSP: *mut IWMStreamPrioritization) -> HRESULT;
+            fn GetExpectedPacketCount(&self, msDuration: u64, pcPackets: *mut u64) -> HRESULT;
+        }
+        #[guid(0xd16679f2_6ca0_472d_8d31_2f5d55aee155)]
+        interface IWMProfileManager: IUnknown {
+            fn CreateEmptyProfile(&self, dwVersion: WMT_VERSION, ppProfile: *mut IWMProfile) -> HRESULT;
+            fn LoadProfileByID(&self, guidProfile: *const GUID, ppProfile: *mut IWMProfile) -> HRESULT;
+            fn LoadProfileByData(&self, pwszProfile: *const u16, ppProfile: *mut IWMProfile) -> HRESULT;
+            fn SaveProfile(&self, pIWMProfile: IWMProfile, pwszProfile: *const u16, #[in] #[out] pdwLength: *mut u32) -> HRESULT;
+            fn GetSystemProfileCount(&self, pcProfiles: *mut u32) -> HRESULT;
+            fn LoadSystemProfile(&self, dwProfileIndex: u32, ppProfile: *mut IWMProfile) -> HRESULT;
+        }
+        #[guid(0x7a924e51_73c1_494d_8019_23d37ed9b89a)]
+        interface IWMProfileManager2: IWMProfileManager {
+            fn GetSystemProfileVersion(&self, pdwVersion: *mut WMT_VERSION) -> HRESULT;
+            fn SetSystemProfileVersion(&self, dwVersion: WMT_VERSION) -> HRESULT;
+        }
+        #[guid(0xba4dcc78_7ee0_4ab8_b27a_dbce8bc51454)]
+        interface IWMProfileManagerLanguage: IUnknown {
+            fn GetUserLanguageID(&self, wLangID: *mut u16) -> HRESULT;
+            fn SetUserLanguageID(&self, wLangID: u16) -> HRESULT;
+        }
+        #[guid(0x72995a79_5090_42a4_9c8c_d9d0b6d34be5)]
+        interface IWMPropertyVault: IUnknown {
+            fn GetPropertyCount(&self, pdwCount: *const u32) -> HRESULT;
+            fn GetPropertyByName(&self, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
+            fn SetProperty(&self, pszName: PCWSTR, pType: WMT_ATTR_DATATYPE, pValue: *const u8, dwSize: u32) -> HRESULT;
+            fn GetPropertyByIndex(&self, dwIndex: u32, #[out] pszName: PWSTR, #[in] #[out] pdwNameLen: *mut u32, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
+            fn CopyPropertiesFrom(&self, pIWMPropertyVault: IWMPropertyVault) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x6a9fd8ee_b651_4bf0_b849_7d4ece79a2b1)]
+        interface IWMProximityDetection: IUnknown {
+            fn StartDetection(&self, pbRegistrationMsg: *const u8, cbRegistrationMsg: u32, pbLocalAddress: *const u8, cbLocalAddress: u32, dwExtraPortsAllowed: u32, ppRegistrationResponseMsg: *mut INSSBuffer, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+        }
+        #[guid(0x96406bd6_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMReader: IUnknown {
+            fn Open(&self, pwszURL: *const u16, pCallback: IWMReaderCallback, pvContext: *const void) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn GetOutputCount(&self, pcOutputs: *mut u32) -> HRESULT;
+            fn GetOutputProps(&self, dwOutputNum: u32, ppOutput: *mut IWMOutputMediaProps) -> HRESULT;
+            fn SetOutputProps(&self, dwOutputNum: u32, pOutput: IWMOutputMediaProps) -> HRESULT;
+            fn GetOutputFormatCount(&self, dwOutputNumber: u32, pcFormats: *mut u32) -> HRESULT;
+            fn GetOutputFormat(&self, dwOutputNumber: u32, dwFormatNumber: u32, ppProps: *mut IWMOutputMediaProps) -> HRESULT;
+            fn Start(&self, cnsStart: u64, cnsDuration: u64, fRate: f32, pvContext: *const void) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+        }
+        #[guid(0xbddc4d08_944d_4d52_a612_46c3fda07dd4)]
+        interface IWMReaderAccelerator: IUnknown {
+            fn GetCodecInterface(&self, dwOutputNum: u32, riid: *const GUID, ppvCodecInterface: *mut *mut void) -> HRESULT;
+            fn Notify(&self, dwOutputNum: u32, pSubtype: *const WM_MEDIA_TYPE) -> HRESULT;
+        }
+        #[guid(0x96406bea_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMReaderAdvanced: IUnknown {
+            fn SetUserProvidedClock(&self, fUserClock: BOOL) -> HRESULT;
+            fn GetUserProvidedClock(&self, pfUserClock: *mut BOOL) -> HRESULT;
+            fn DeliverTime(&self, cnsTime: u64) -> HRESULT;
+            fn SetManualStreamSelection(&self, fSelection: BOOL) -> HRESULT;
+            fn GetManualStreamSelection(&self, pfSelection: *mut BOOL) -> HRESULT;
+            fn SetStreamsSelected(&self, cStreamCount: u16, pwStreamNumbers: *const u16, pSelections: *const WMT_STREAM_SELECTION) -> HRESULT;
+            fn GetStreamSelected(&self, wStreamNum: u16, pSelection: *mut WMT_STREAM_SELECTION) -> HRESULT;
+            fn SetReceiveSelectionCallbacks(&self, fGetCallbacks: BOOL) -> HRESULT;
+            fn GetReceiveSelectionCallbacks(&self, pfGetCallbacks: *mut BOOL) -> HRESULT;
+            fn SetReceiveStreamSamples(&self, wStreamNum: u16, fReceiveStreamSamples: BOOL) -> HRESULT;
+            fn GetReceiveStreamSamples(&self, wStreamNum: u16, pfReceiveStreamSamples: *mut BOOL) -> HRESULT;
+            fn SetAllocateForOutput(&self, dwOutputNum: u32, fAllocate: BOOL) -> HRESULT;
+            fn GetAllocateForOutput(&self, dwOutputNum: u32, pfAllocate: *mut BOOL) -> HRESULT;
+            fn SetAllocateForStream(&self, wStreamNum: u16, fAllocate: BOOL) -> HRESULT;
+            fn GetAllocateForStream(&self, dwSreamNum: u16, pfAllocate: *mut BOOL) -> HRESULT;
+            fn GetStatistics(&self, #[in] #[out] pStatistics: *mut WM_READER_STATISTICS) -> HRESULT;
+            fn SetClientInfo(&self, pClientInfo: *const WM_READER_CLIENTINFO) -> HRESULT;
+            fn GetMaxOutputSampleSize(&self, dwOutput: u32, pcbMax: *mut u32) -> HRESULT;
+            fn GetMaxStreamSampleSize(&self, wStream: u16, pcbMax: *mut u32) -> HRESULT;
+            fn NotifyLateDelivery(&self, cnsLateness: u64) -> HRESULT;
+        }
+        #[guid(0xae14a945_b90c_4d0d_9127_80d665f7d73e)]
+        interface IWMReaderAdvanced2: IWMReaderAdvanced {
+            fn SetPlayMode(&self, Mode: WMT_PLAY_MODE) -> HRESULT;
+            fn GetPlayMode(&self, pMode: *mut WMT_PLAY_MODE) -> HRESULT;
+            fn GetBufferProgress(&self, pdwPercent: *mut u32, pcnsBuffering: *mut u64) -> HRESULT;
+            fn GetDownloadProgress(&self, pdwPercent: *mut u32, pqwBytesDownloaded: *mut u64, pcnsDownload: *mut u64) -> HRESULT;
+            fn GetSaveAsProgress(&self, pdwPercent: *mut u32) -> HRESULT;
+            fn SaveFileAs(&self, pwszFilename: *const u16) -> HRESULT;
+            fn GetProtocolName(&self, pwszProtocol: *mut u16, #[in] #[out] pcchProtocol: *mut u32) -> HRESULT;
+            fn StartAtMarker(&self, wMarkerIndex: u16, cnsDuration: u64, fRate: f32, pvContext: *const void) -> HRESULT;
+            fn GetOutputSetting(&self, dwOutputNum: u32, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pcbLength: *mut u16) -> HRESULT;
+            fn SetOutputSetting(&self, dwOutputNum: u32, pszName: PCWSTR, Type: WMT_ATTR_DATATYPE, pValue: *const u8, cbLength: u16) -> HRESULT;
+            fn Preroll(&self, cnsStart: u64, cnsDuration: u64, fRate: f32) -> HRESULT;
+            fn SetLogClientID(&self, fLogClientID: BOOL) -> HRESULT;
+            fn GetLogClientID(&self, pfLogClientID: *mut BOOL) -> HRESULT;
+            fn StopBuffering(&self) -> HRESULT;
+            fn OpenStream(&self, pStream: IStream, pCallback: IWMReaderCallback, pvContext: *const void) -> HRESULT;
+        }
+        #[guid(0x5dc0674b_f04b_4a4e_9f2a_b1afde2c8100)]
+        interface IWMReaderAdvanced3: IWMReaderAdvanced2 {
+            fn StopNetStreaming(&self) -> HRESULT;
+            fn StartAtPosition(&self, wStreamNum: u16, pvOffsetStart: *const void, pvDuration: *const void, dwOffsetFormat: WMT_OFFSET_FORMAT, fRate: f32, pvContext: *const void) -> HRESULT;
+        }
+        #[guid(0x945a76a2_12ae_4d48_bd3c_cd1d90399b85)]
+        interface IWMReaderAdvanced4: IWMReaderAdvanced3 {
+            fn GetLanguageCount(&self, dwOutputNum: u32, pwLanguageCount: *mut u16) -> HRESULT;
+            fn GetLanguage(&self, dwOutputNum: u32, wLanguage: u16, pwszLanguageString: *mut u16, #[in] #[out] pcchLanguageStringLength: *mut u16) -> HRESULT;
+            fn GetMaxSpeedFactor(&self, pdblFactor: *mut f64) -> HRESULT;
+            fn IsUsingFastCache(&self, pfUsingFastCache: *mut BOOL) -> HRESULT;
+            fn AddLogParam(&self, wszNameSpace: PCWSTR, wszName: PCWSTR, wszValue: PCWSTR) -> HRESULT;
+            fn SendLogParams(&self) -> HRESULT;
+            fn CanSaveFileAs(&self, pfCanSave: *mut BOOL) -> HRESULT;
+            fn CancelSaveFileAs(&self) -> HRESULT;
+            fn GetURL(&self, pwszURL: *mut u16, #[in] #[out] pcchURL: *mut u32) -> HRESULT;
+        }
+        #[guid(0x24c44db0_55d1_49ae_a5cc_f13815e36363)]
+        interface IWMReaderAdvanced5: IWMReaderAdvanced4 {
+            fn SetPlayerHook(&self, dwOutputNum: u32, pHook: IWMPlayerHook) -> HRESULT;
+        }
+        #[guid(0x18a2e7f8_428f_4acd_8a00_e64639bc93de)]
+        interface IWMReaderAdvanced6: IWMReaderAdvanced5 {
+            fn SetProtectStreamSamples(&self, pbCertificate: *const u8, cbCertificate: u32, dwCertificateType: u32, dwFlags: u32, pbInitializationVector: *mut u8, #[in] #[out] pcbInitializationVector: *mut u32) -> HRESULT;
+        }
+        #[guid(0x9f762fa7_a22e_428d_93c9_ac82f3aafe5a)]
+        interface IWMReaderAllocatorEx: IUnknown {
+            fn AllocateForStreamEx(&self, wStreamNum: u16, cbBuffer: u32, ppBuffer: *mut INSSBuffer, dwFlags: u32, cnsSampleTime: u64, cnsSampleDuration: u64, pvContext: *const void) -> HRESULT;
+            fn AllocateForOutputEx(&self, dwOutputNum: u32, cbBuffer: u32, ppBuffer: *mut INSSBuffer, dwFlags: u32, cnsSampleTime: u64, cnsSampleDuration: u64, pvContext: *const void) -> HRESULT;
+        }
+        #[guid(0x96406bd8_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMReaderCallback: IWMStatusCallback {
+            fn OnSample(&self, dwOutputNum: u32, cnsSampleTime: u64, cnsSampleDuration: u64, dwFlags: u32, pSample: INSSBuffer, pvContext: *const void) -> HRESULT;
+        }
+        #[guid(0x96406beb_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMReaderCallbackAdvanced: IUnknown {
+            fn OnStreamSample(&self, wStreamNum: u16, cnsSampleTime: u64, cnsSampleDuration: u64, dwFlags: u32, pSample: INSSBuffer, pvContext: *const void) -> HRESULT;
+            fn OnTime(&self, cnsCurrentTime: u64, pvContext: *const void) -> HRESULT;
+            fn OnStreamSelection(&self, wStreamCount: u16, pStreamNumbers: *const u16, pSelections: *const WMT_STREAM_SELECTION, pvContext: *const void) -> HRESULT;
+            fn OnOutputPropsChanged(&self, dwOutputNum: u32, pMediaType: *const WM_MEDIA_TYPE, pvContext: *const void) -> HRESULT;
+            fn AllocateForStream(&self, wStreamNum: u16, cbBuffer: u32, ppBuffer: *mut INSSBuffer, pvContext: *const void) -> HRESULT;
+            fn AllocateForOutput(&self, dwOutputNum: u32, cbBuffer: u32, ppBuffer: *mut INSSBuffer, pvContext: *const void) -> HRESULT;
+        }
+        #[guid(0x96406bec_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMReaderNetworkConfig: IUnknown {
+            fn GetBufferingTime(&self, pcnsBufferingTime: *mut u64) -> HRESULT;
+            fn SetBufferingTime(&self, cnsBufferingTime: u64) -> HRESULT;
+            fn GetUDPPortRanges(&self, pRangeArray: *mut WM_PORT_NUMBER_RANGE, #[in] #[out] pcRanges: *mut u32) -> HRESULT;
+            fn SetUDPPortRanges(&self, pRangeArray: *const WM_PORT_NUMBER_RANGE, cRanges: u32) -> HRESULT;
+            fn GetProxySettings(&self, pwszProtocol: PCWSTR, pProxySetting: *mut WMT_PROXY_SETTINGS) -> HRESULT;
+            fn SetProxySettings(&self, pwszProtocol: PCWSTR, ProxySetting: WMT_PROXY_SETTINGS) -> HRESULT;
+            fn GetProxyHostName(&self, pwszProtocol: PCWSTR, pwszHostName: *mut u16, #[in] #[out] pcchHostName: *mut u32) -> HRESULT;
+            fn SetProxyHostName(&self, pwszProtocol: PCWSTR, pwszHostName: PCWSTR) -> HRESULT;
+            fn GetProxyPort(&self, pwszProtocol: PCWSTR, pdwPort: *mut u32) -> HRESULT;
+            fn SetProxyPort(&self, pwszProtocol: PCWSTR, dwPort: u32) -> HRESULT;
+            fn GetProxyExceptionList(&self, pwszProtocol: PCWSTR, pwszExceptionList: *mut u16, #[in] #[out] pcchExceptionList: *mut u32) -> HRESULT;
+            fn SetProxyExceptionList(&self, pwszProtocol: PCWSTR, pwszExceptionList: PCWSTR) -> HRESULT;
+            fn GetProxyBypassForLocal(&self, pwszProtocol: PCWSTR, pfBypassForLocal: *mut BOOL) -> HRESULT;
+            fn SetProxyBypassForLocal(&self, pwszProtocol: PCWSTR, fBypassForLocal: BOOL) -> HRESULT;
+            fn GetForceRerunAutoProxyDetection(&self, pfForceRerunDetection: *mut BOOL) -> HRESULT;
+            fn SetForceRerunAutoProxyDetection(&self, fForceRerunDetection: BOOL) -> HRESULT;
+            fn GetEnableMulticast(&self, pfEnableMulticast: *mut BOOL) -> HRESULT;
+            fn SetEnableMulticast(&self, fEnableMulticast: BOOL) -> HRESULT;
+            fn GetEnableHTTP(&self, pfEnableHTTP: *mut BOOL) -> HRESULT;
+            fn SetEnableHTTP(&self, fEnableHTTP: BOOL) -> HRESULT;
+            fn GetEnableUDP(&self, pfEnableUDP: *mut BOOL) -> HRESULT;
+            fn SetEnableUDP(&self, fEnableUDP: BOOL) -> HRESULT;
+            fn GetEnableTCP(&self, pfEnableTCP: *mut BOOL) -> HRESULT;
+            fn SetEnableTCP(&self, fEnableTCP: BOOL) -> HRESULT;
+            fn ResetProtocolRollover(&self) -> HRESULT;
+            fn GetConnectionBandwidth(&self, pdwConnectionBandwidth: *mut u32) -> HRESULT;
+            fn SetConnectionBandwidth(&self, dwConnectionBandwidth: u32) -> HRESULT;
+            fn GetNumProtocolsSupported(&self, pcProtocols: *mut u32) -> HRESULT;
+            fn GetSupportedProtocolName(&self, dwProtocolNum: u32, pwszProtocolName: *mut u16, #[in] #[out] pcchProtocolName: *mut u32) -> HRESULT;
+            fn AddLoggingUrl(&self, pwszUrl: PCWSTR) -> HRESULT;
+            fn GetLoggingUrl(&self, dwIndex: u32, #[out] pwszUrl: PWSTR, #[in] #[out] pcchUrl: *mut u32) -> HRESULT;
+            fn GetLoggingUrlCount(&self, pdwUrlCount: *mut u32) -> HRESULT;
+            fn ResetLoggingUrlList(&self) -> HRESULT;
+        }
+        #[guid(0xd979a853_042b_4050_8387_c939db22013f)]
+        interface IWMReaderNetworkConfig2: IWMReaderNetworkConfig {
+            fn GetEnableContentCaching(&self, pfEnableContentCaching: *mut BOOL) -> HRESULT;
+            fn SetEnableContentCaching(&self, fEnableContentCaching: BOOL) -> HRESULT;
+            fn GetEnableFastCache(&self, pfEnableFastCache: *mut BOOL) -> HRESULT;
+            fn SetEnableFastCache(&self, fEnableFastCache: BOOL) -> HRESULT;
+            fn GetAcceleratedStreamingDuration(&self, pcnsAccelDuration: *mut u64) -> HRESULT;
+            fn SetAcceleratedStreamingDuration(&self, cnsAccelDuration: u64) -> HRESULT;
+            fn GetAutoReconnectLimit(&self, pdwAutoReconnectLimit: *mut u32) -> HRESULT;
+            fn SetAutoReconnectLimit(&self, dwAutoReconnectLimit: u32) -> HRESULT;
+            fn GetEnableResends(&self, pfEnableResends: *mut BOOL) -> HRESULT;
+            fn SetEnableResends(&self, fEnableResends: BOOL) -> HRESULT;
+            fn GetEnableThinning(&self, pfEnableThinning: *mut BOOL) -> HRESULT;
+            fn SetEnableThinning(&self, fEnableThinning: BOOL) -> HRESULT;
+            fn GetMaxNetPacketSize(&self, pdwMaxNetPacketSize: *mut u32) -> HRESULT;
+        }
+        #[guid(0xf28c0300_9baa_4477_a846_1744d9cbf533)]
+        interface IWMReaderPlaylistBurn: IUnknown {
+            fn InitPlaylistBurn(&self, cFiles: u32, ppwszFilenames: *const PWSTR, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+            fn GetInitResults(&self, cFiles: u32, phrStati: *mut HRESULT) -> HRESULT;
+            fn Cancel(&self) -> HRESULT;
+            fn EndPlaylistBurn(&self, hrBurnResult: HRESULT) -> HRESULT;
+        }
+        #[guid(0x96406bed_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMReaderStreamClock: IUnknown {
+            fn GetTime(&self, pcnsNow: *const u64) -> HRESULT;
+            fn SetTimer(&self, cnsWhen: u64, pvParam: *const void, pdwTimerId: *mut u32) -> HRESULT;
+            fn KillTimer(&self, dwTimerId: u32) -> HRESULT;
+        }
+        #[guid(0xf369e2f0_e081_4fe6_8450_b810b2f410d1)]
+        interface IWMReaderTimecode: IUnknown {
+            fn GetTimecodeRangeCount(&self, wStreamNum: u16, pwRangeCount: *mut u16) -> HRESULT;
+            fn GetTimecodeRangeBounds(&self, wStreamNum: u16, wRangeNum: u16, pStartTimecode: *mut u32, pEndTimecode: *mut u32) -> HRESULT;
+        }
+        #[guid(0xfdbe5592_81a1_41ea_93bd_735cad1adc05)]
+        interface IWMReaderTypeNegotiation: IUnknown {
+            fn TryOutputProps(&self, dwOutputNum: u32, pOutput: IWMOutputMediaProps) -> HRESULT;
+        }
+        #[guid(0xcf4b1f99_4de2_4e49_a363_252740d99bc1)]
+        interface IWMRegisterCallback: IUnknown {
+            fn Advise(&self, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+            fn Unadvise(&self, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+        }
+        #[guid(0xa4503bec_5508_4148_97ac_bfa75760a70d)]
+        interface IWMRegisteredDevice: IUnknown {
+            fn GetDeviceSerialNumber(&self, pSerialNumber: *mut DRM_VAL16) -> HRESULT;
+            fn GetDeviceCertificate(&self, ppCertificate: *mut INSSBuffer) -> HRESULT;
+            fn GetDeviceType(&self, pdwType: *mut u32) -> HRESULT;
+            fn GetAttributeCount(&self, pcAttributes: *mut u32) -> HRESULT;
+            fn GetAttributeByIndex(&self, dwIndex: u32, pbstrName: *mut BSTR, pbstrValue: *mut BSTR) -> HRESULT;
+            fn GetAttributeByName(&self, bstrName: BSTR, pbstrValue: *mut BSTR) -> HRESULT;
+            fn SetAttributeByName(&self, bstrName: BSTR, bstrValue: BSTR) -> HRESULT;
+            fn Approve(&self, fApprove: BOOL) -> HRESULT;
+            fn IsValid(&self, pfValid: *mut BOOL) -> HRESULT;
+            fn IsApproved(&self, pfApproved: *mut BOOL) -> HRESULT;
+            fn IsWmdrmCompliant(&self, pfCompliant: *mut BOOL) -> HRESULT;
+            fn IsOpened(&self, pfOpened: *mut BOOL) -> HRESULT;
+            fn Open(&self) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x6d7cdc70_9888_11d3_8edc_00c04f6109cf)]
+        interface IWMStatusCallback: IUnknown {
+            fn OnStatus(&self, Status: WMT_STATUS, hr: HRESULT, dwType: WMT_ATTR_DATATYPE, pValue: *const u8, pvContext: *const void) -> HRESULT;
+        }
+        #[guid(0x96406bdc_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMStreamConfig: IUnknown {
+            fn GetStreamType(&self, pguidStreamType: *mut GUID) -> HRESULT;
+            fn GetStreamNumber(&self, pwStreamNum: *mut u16) -> HRESULT;
+            fn SetStreamNumber(&self, wStreamNum: u16) -> HRESULT;
+            fn GetStreamName(&self, pwszStreamName: *mut u16, #[in] #[out] pcchStreamName: *mut u16) -> HRESULT;
+            fn SetStreamName(&self, pwszStreamName: PCWSTR) -> HRESULT;
+            fn GetConnectionName(&self, pwszInputName: *mut u16, #[in] #[out] pcchInputName: *mut u16) -> HRESULT;
+            fn SetConnectionName(&self, pwszInputName: PCWSTR) -> HRESULT;
+            fn GetBitrate(&self, pdwBitrate: *mut u32) -> HRESULT;
+            fn SetBitrate(&self, pdwBitrate: u32) -> HRESULT;
+            fn GetBufferWindow(&self, pmsBufferWindow: *mut u32) -> HRESULT;
+            fn SetBufferWindow(&self, msBufferWindow: u32) -> HRESULT;
+        }
+        #[guid(0x7688d8cb_fc0d_43bd_9459_5a8dec200cfa)]
+        interface IWMStreamConfig2: IWMStreamConfig {
+            fn GetTransportType(&self, pnTransportType: *mut WMT_TRANSPORT_TYPE) -> HRESULT;
+            fn SetTransportType(&self, nTransportType: WMT_TRANSPORT_TYPE) -> HRESULT;
+            fn AddDataUnitExtension(&self, guidExtensionSystemID: GUID, cbExtensionDataSize: u16, pbExtensionSystemInfo: *const u8, cbExtensionSystemInfo: u32) -> HRESULT;
+            fn GetDataUnitExtensionCount(&self, pcDataUnitExtensions: *mut u16) -> HRESULT;
+            fn GetDataUnitExtension(&self, wDataUnitExtensionNumber: u16, pguidExtensionSystemID: *mut GUID, pcbExtensionDataSize: *mut u16, pbExtensionSystemInfo: *mut u8, #[in] #[out] pcbExtensionSystemInfo: *mut u32) -> HRESULT;
+            fn RemoveAllDataUnitExtensions(&self) -> HRESULT;
+        }
+        #[guid(0xcb164104_3aa9_45a7_9ac9_4daee131d6e1)]
+        interface IWMStreamConfig3: IWMStreamConfig2 {
+            fn GetLanguage(&self, pwszLanguageString: *mut u16, #[in] #[out] pcchLanguageStringLength: *mut u16) -> HRESULT;
+            fn SetLanguage(&self, pwszLanguageString: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x96406bdd_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMStreamList: IUnknown {
+            fn GetStreams(&self, pwStreamNumArray: *mut u16, #[in] #[out] pcStreams: *mut u16) -> HRESULT;
+            fn AddStream(&self, wStreamNum: u16) -> HRESULT;
+            fn RemoveStream(&self, wStreamNum: u16) -> HRESULT;
+        }
+        #[guid(0x8c1c6090_f9a8_4748_8ec3_dd1108ba1e77)]
+        interface IWMStreamPrioritization: IUnknown {
+            fn GetPriorityRecords(&self, pRecordArray: *mut WM_STREAM_PRIORITY_RECORD, #[in] #[out] pcRecords: *mut u16) -> HRESULT;
+            fn SetPriorityRecords(&self, pRecordArray: *const WM_STREAM_PRIORITY_RECORD, cRecords: u16) -> HRESULT;
+        }
+        #[guid(0x9397f121_7705_4dc9_b049_98b698188414)]
+        interface IWMSyncReader: IUnknown {
+            fn Open(&self, pwszFilename: *const u16) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn SetRange(&self, cnsStartTime: u64, cnsDuration: i64) -> HRESULT;
+            fn SetRangeByFrame(&self, wStreamNum: u16, qwFrameNumber: u64, cFramesToRead: i64) -> HRESULT;
+            fn GetNextSample(&self, wStreamNum: u16, ppSample: *mut INSSBuffer, pcnsSampleTime: *mut u64, pcnsDuration: *mut u64, pdwFlags: *mut u32, pdwOutputNum: *mut u32, pwStreamNum: *mut u16) -> HRESULT;
+            fn SetStreamsSelected(&self, cStreamCount: u16, pwStreamNumbers: *const u16, pSelections: *const WMT_STREAM_SELECTION) -> HRESULT;
+            fn GetStreamSelected(&self, wStreamNum: u16, pSelection: *mut WMT_STREAM_SELECTION) -> HRESULT;
+            fn SetReadStreamSamples(&self, wStreamNum: u16, fCompressed: BOOL) -> HRESULT;
+            fn GetReadStreamSamples(&self, wStreamNum: u16, pfCompressed: *mut BOOL) -> HRESULT;
+            fn GetOutputSetting(&self, dwOutputNum: u32, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pcbLength: *mut u16) -> HRESULT;
+            fn SetOutputSetting(&self, dwOutputNum: u32, pszName: PCWSTR, Type: WMT_ATTR_DATATYPE, pValue: *const u8, cbLength: u16) -> HRESULT;
+            fn GetOutputCount(&self, pcOutputs: *mut u32) -> HRESULT;
+            fn GetOutputProps(&self, dwOutputNum: u32, ppOutput: *mut IWMOutputMediaProps) -> HRESULT;
+            fn SetOutputProps(&self, dwOutputNum: u32, pOutput: IWMOutputMediaProps) -> HRESULT;
+            fn GetOutputFormatCount(&self, dwOutputNum: u32, pcFormats: *mut u32) -> HRESULT;
+            fn GetOutputFormat(&self, dwOutputNum: u32, dwFormatNum: u32, ppProps: *mut IWMOutputMediaProps) -> HRESULT;
+            fn GetOutputNumberForStream(&self, wStreamNum: u16, pdwOutputNum: *mut u32) -> HRESULT;
+            fn GetStreamNumberForOutput(&self, dwOutputNum: u32, pwStreamNum: *mut u16) -> HRESULT;
+            fn GetMaxOutputSampleSize(&self, dwOutput: u32, pcbMax: *mut u32) -> HRESULT;
+            fn GetMaxStreamSampleSize(&self, wStream: u16, pcbMax: *mut u32) -> HRESULT;
+            fn OpenStream(&self, pStream: IStream) -> HRESULT;
+        }
+        #[guid(0xfaed3d21_1b6b_4af7_8cb6_3e189bbc187b)]
+        interface IWMSyncReader2: IWMSyncReader {
+            fn SetRangeByTimecode(&self, wStreamNum: u16, pStart: *const WMT_TIMECODE_EXTENSION_DATA, pEnd: *const WMT_TIMECODE_EXTENSION_DATA) -> HRESULT;
+            fn SetRangeByFrameEx(&self, wStreamNum: u16, qwFrameNumber: u64, cFramesToRead: i64, pcnsStartTime: *mut u64) -> HRESULT;
+            fn SetAllocateForOutput(&self, dwOutputNum: u32, pAllocator: IWMReaderAllocatorEx) -> HRESULT;
+            fn GetAllocateForOutput(&self, dwOutputNum: u32, ppAllocator: *mut IWMReaderAllocatorEx) -> HRESULT;
+            fn SetAllocateForStream(&self, wStreamNum: u16, pAllocator: IWMReaderAllocatorEx) -> HRESULT;
+            fn GetAllocateForStream(&self, dwSreamNum: u16, ppAllocator: *mut IWMReaderAllocatorEx) -> HRESULT;
+        }
+        #[guid(0x96406bcf_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMVideoMediaProps: IWMMediaProps {
+            fn GetMaxKeyFrameSpacing(&self, pllTime: *mut i64) -> HRESULT;
+            fn SetMaxKeyFrameSpacing(&self, llTime: i64) -> HRESULT;
+            fn GetQuality(&self, pdwQuality: *mut u32) -> HRESULT;
+            fn SetQuality(&self, dwQuality: u32) -> HRESULT;
+        }
+        #[guid(0x6f497062_f2e2_4624_8ea7_9dd40d81fc8d)]
+        interface IWMWatermarkInfo: IUnknown {
+            fn GetWatermarkEntryCount(&self, wmetType: WMT_WATERMARK_ENTRY_TYPE, pdwCount: *mut u32) -> HRESULT;
+            fn GetWatermarkEntry(&self, wmetType: WMT_WATERMARK_ENTRY_TYPE, dwEntryNum: u32, pEntry: *mut WMT_WATERMARK_ENTRY) -> HRESULT;
+        }
+        #[guid(0x96406bd4_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMWriter: IUnknown {
+            fn SetProfileByID(&self, guidProfile: *const GUID) -> HRESULT;
+            fn SetProfile(&self, pProfile: IWMProfile) -> HRESULT;
+            fn SetOutputFilename(&self, pwszFilename: *const u16) -> HRESULT;
+            fn GetInputCount(&self, pcInputs: *mut u32) -> HRESULT;
+            fn GetInputProps(&self, dwInputNum: u32, ppInput: *mut IWMInputMediaProps) -> HRESULT;
+            fn SetInputProps(&self, dwInputNum: u32, pInput: IWMInputMediaProps) -> HRESULT;
+            fn GetInputFormatCount(&self, dwInputNumber: u32, pcFormats: *mut u32) -> HRESULT;
+            fn GetInputFormat(&self, dwInputNumber: u32, dwFormatNumber: u32, pProps: *mut IWMInputMediaProps) -> HRESULT;
+            fn BeginWriting(&self) -> HRESULT;
+            fn EndWriting(&self) -> HRESULT;
+            fn AllocateSample(&self, dwSampleSize: u32, ppSample: *mut INSSBuffer) -> HRESULT;
+            fn WriteSample(&self, dwInputNum: u32, cnsSampleTime: u64, dwFlags: u32, pSample: INSSBuffer) -> HRESULT;
+            fn Flush(&self) -> HRESULT;
+        }
+        #[guid(0x96406be3_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMWriterAdvanced: IUnknown {
+            fn GetSinkCount(&self, pcSinks: *mut u32) -> HRESULT;
+            fn GetSink(&self, dwSinkNum: u32, ppSink: *mut IWMWriterSink) -> HRESULT;
+            fn AddSink(&self, pSink: IWMWriterSink) -> HRESULT;
+            fn RemoveSink(&self, pSink: IWMWriterSink) -> HRESULT;
+            fn WriteStreamSample(&self, wStreamNum: u16, cnsSampleTime: u64, msSampleSendTime: u32, cnsSampleDuration: u64, dwFlags: u32, pSample: INSSBuffer) -> HRESULT;
+            fn SetLiveSource(&self, fIsLiveSource: BOOL) -> HRESULT;
+            fn IsRealTime(&self, pfRealTime: *mut BOOL) -> HRESULT;
+            fn GetWriterTime(&self, pcnsCurrentTime: *mut u64) -> HRESULT;
+            fn GetStatistics(&self, wStreamNum: u16, pStats: *mut WM_WRITER_STATISTICS) -> HRESULT;
+            fn SetSyncTolerance(&self, msWindow: u32) -> HRESULT;
+            fn GetSyncTolerance(&self, pmsWindow: *mut u32) -> HRESULT;
+        }
+        #[guid(0x962dc1ec_c046_4db8_9cc7_26ceae500817)]
+        interface IWMWriterAdvanced2: IWMWriterAdvanced {
+            fn GetInputSetting(&self, dwInputNum: u32, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pcbLength: *mut u16) -> HRESULT;
+            fn SetInputSetting(&self, dwInputNum: u32, pszName: PCWSTR, Type: WMT_ATTR_DATATYPE, pValue: *const u8, cbLength: u16) -> HRESULT;
+        }
+        #[guid(0x2cd6492d_7c37_4e76_9d3b_59261183a22e)]
+        interface IWMWriterAdvanced3: IWMWriterAdvanced2 {
+            fn GetStatisticsEx(&self, wStreamNum: u16, pStats: *mut WM_WRITER_STATISTICS_EX) -> HRESULT;
+            fn SetNonBlocking(&self) -> HRESULT;
+        }
+        #[guid(0x96406be5_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMWriterFileSink: IWMWriterSink {
+            fn Open(&self, pwszFilename: *const u16) -> HRESULT;
+        }
+        #[guid(0x14282ba7_4aef_4205_8ce5_c229035a05bc)]
+        interface IWMWriterFileSink2: IWMWriterFileSink {
+            fn Start(&self, cnsStartTime: u64) -> HRESULT;
+            fn Stop(&self, cnsStopTime: u64) -> HRESULT;
+            fn IsStopped(&self, pfStopped: *mut BOOL) -> HRESULT;
+            fn GetFileDuration(&self, pcnsDuration: *mut u64) -> HRESULT;
+            fn GetFileSize(&self, pcbFile: *mut u64) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn IsClosed(&self, pfClosed: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x3fea4feb_2945_47a7_a1dd_c53a8fc4c45c)]
+        interface IWMWriterFileSink3: IWMWriterFileSink2 {
+            fn SetAutoIndexing(&self, fDoAutoIndexing: BOOL) -> HRESULT;
+            fn GetAutoIndexing(&self, pfAutoIndexing: *mut BOOL) -> HRESULT;
+            fn SetControlStream(&self, wStreamNumber: u16, fShouldControlStartAndStop: BOOL) -> HRESULT;
+            fn GetMode(&self, pdwFileSinkMode: *mut u32) -> HRESULT;
+            fn OnDataUnitEx(&self, pFileSinkDataUnit: *const WMT_FILESINK_DATA_UNIT) -> HRESULT;
+            fn SetUnbufferedIO(&self, fUnbufferedIO: BOOL, fRestrictMemUsage: BOOL) -> HRESULT;
+            fn GetUnbufferedIO(&self, pfUnbufferedIO: *mut BOOL) -> HRESULT;
+            fn CompleteOperations(&self) -> HRESULT;
+        }
+        #[guid(0x96406be7_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMWriterNetworkSink: IWMWriterSink {
+            fn SetMaximumClients(&self, dwMaxClients: u32) -> HRESULT;
+            fn GetMaximumClients(&self, pdwMaxClients: *mut u32) -> HRESULT;
+            fn SetNetworkProtocol(&self, protocol: WMT_NET_PROTOCOL) -> HRESULT;
+            fn GetNetworkProtocol(&self, pProtocol: *mut WMT_NET_PROTOCOL) -> HRESULT;
+            fn GetHostURL(&self, pwszURL: *mut u16, #[in] #[out] pcchURL: *mut u32) -> HRESULT;
+            fn Open(&self, #[in] #[out] pdwPortNum: *mut u32) -> HRESULT;
+            fn Disconnect(&self) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x81e20ce4_75ef_491a_8004_fc53c45bdc3e)]
+        interface IWMWriterPostView: IUnknown {
+            fn SetPostViewCallback(&self, pCallback: IWMWriterPostViewCallback, pvContext: *mut void) -> HRESULT;
+            fn SetReceivePostViewSamples(&self, wStreamNum: u16, fReceivePostViewSamples: BOOL) -> HRESULT;
+            fn GetReceivePostViewSamples(&self, wStreamNum: u16, pfReceivePostViewSamples: *mut BOOL) -> HRESULT;
+            fn GetPostViewProps(&self, wStreamNumber: u16, ppOutput: *mut IWMMediaProps) -> HRESULT;
+            fn SetPostViewProps(&self, wStreamNumber: u16, pOutput: IWMMediaProps) -> HRESULT;
+            fn GetPostViewFormatCount(&self, wStreamNumber: u16, pcFormats: *mut u32) -> HRESULT;
+            fn GetPostViewFormat(&self, wStreamNumber: u16, dwFormatNumber: u32, ppProps: *mut IWMMediaProps) -> HRESULT;
+            fn SetAllocateForPostView(&self, wStreamNumber: u16, fAllocate: BOOL) -> HRESULT;
+            fn GetAllocateForPostView(&self, wStreamNumber: u16, pfAllocate: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xd9d6549d_a193_4f24_b308_03123d9b7f8d)]
+        interface IWMWriterPostViewCallback: IWMStatusCallback {
+            fn OnPostViewSample(&self, wStreamNumber: u16, cnsSampleTime: u64, cnsSampleDuration: u64, dwFlags: u32, pSample: INSSBuffer, pvContext: *const void) -> HRESULT;
+            fn AllocateForPostView(&self, wStreamNum: u16, cbBuffer: u32, ppBuffer: *mut INSSBuffer, pvContext: *const void) -> HRESULT;
+        }
+        #[guid(0xfc54a285_38c4_45b5_aa23_85b9f7cb424b)]
+        interface IWMWriterPreprocess: IUnknown {
+            fn GetMaxPreprocessingPasses(&self, dwInputNum: u32, dwFlags: u32, pdwMaxNumPasses: *mut u32) -> HRESULT;
+            fn SetNumPreprocessingPasses(&self, dwInputNum: u32, dwFlags: u32, dwNumPasses: u32) -> HRESULT;
+            fn BeginPreprocessingPass(&self, dwInputNum: u32, dwFlags: u32) -> HRESULT;
+            fn PreprocessSample(&self, dwInputNum: u32, cnsSampleTime: u64, dwFlags: u32, pSample: INSSBuffer) -> HRESULT;
+            fn EndPreprocessingPass(&self, dwInputNum: u32, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0xdc10e6a5_072c_467d_bf57_6330a9dde12a)]
+        interface IWMWriterPushSink: IWMWriterSink {
+            fn Connect(&self, pwszURL: PCWSTR, pwszTemplateURL: PCWSTR, fAutoDestroy: BOOL) -> HRESULT;
+            fn Disconnect(&self) -> HRESULT;
+            fn EndSession(&self) -> HRESULT;
+        }
+        #[guid(0x96406be4_2b2b_11d3_b36b_00c04f6108ff)]
+        interface IWMWriterSink: IUnknown {
+            fn OnHeader(&self, pHeader: INSSBuffer) -> HRESULT;
+            fn IsRealTime(&self, pfRealTime: *mut BOOL) -> HRESULT;
+            fn AllocateDataUnit(&self, cbDataUnit: u32, ppDataUnit: *mut INSSBuffer) -> HRESULT;
+            fn OnDataUnit(&self, pDataUnit: INSSBuffer) -> HRESULT;
+            fn OnEndWriting(&self) -> HRESULT;
+        }
+        type LPCWSTR_WMSDK_TYPE_SAFE = PCWSTR;
+        const WEBSTREAM_SAMPLE_TYPE_FILE: i32 = 1;
+        const WEBSTREAM_SAMPLE_TYPE_RENDER: i32 = 2;
+        #[library("WMVCore.DLL")]
+        extern fn WMCreateBackupRestorer(pCallback: IUnknown, ppBackup: *mut IWMLicenseBackup) -> HRESULT;
+        #[library("WMVCore.DLL")]
+        extern fn WMCreateEditor(ppEditor: *mut IWMMetadataEditor) -> HRESULT;
+        #[library("WMVCore.DLL")]
+        extern fn WMCreateIndexer(ppIndexer: *mut IWMIndexer) -> HRESULT;
+        #[library("WMVCore.DLL")]
+        extern fn WMCreateProfileManager(ppProfileManager: *mut IWMProfileManager) -> HRESULT;
+        #[library("WMVCore.DLL")]
+        extern fn WMCreateReader(pUnkCert: IUnknown, dwRights: u32, ppReader: *mut IWMReader) -> HRESULT;
+        #[library("WMVCore.DLL")]
+        extern fn WMCreateSyncReader(pUnkCert: IUnknown, dwRights: u32, ppSyncReader: *mut IWMSyncReader) -> HRESULT;
+        #[library("WMVCore.DLL")]
+        extern fn WMCreateWriter(pUnkCert: IUnknown, ppWriter: *mut IWMWriter) -> HRESULT;
+        #[library("WMVCore.DLL")]
+        extern fn WMCreateWriterFileSink(ppSink: *mut IWMWriterFileSink) -> HRESULT;
+        #[library("WMVCore.DLL")]
+        extern fn WMCreateWriterNetworkSink(ppSink: *mut IWMWriterNetworkSink) -> HRESULT;
+        #[library("WMVCore.DLL")]
+        extern fn WMCreateWriterPushSink(ppSink: *mut IWMWriterPushSink) -> HRESULT;
+        struct WMDRM_IMPORT_INIT_STRUCT {
+            dwVersion: u32,
+            cbEncryptedSessionKeyMessage: u32,
+            pbEncryptedSessionKeyMessage: *mut u8,
+            cbEncryptedKeyMessage: u32,
+            pbEncryptedKeyMessage: *mut u8,
+        }
+        const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1;
+        #[library("WMVCore.DLL")]
+        extern fn WMIsContentProtected(pwszFileName: *const u16, pfIsProtected: *mut BOOL) -> HRESULT;
+        struct WMMPEG2VIDEOINFO {
+            hdr: WMVIDEOINFOHEADER2,
+            dwStartTimeCode: u32,
+            cbSequenceHeader: u32,
+            dwProfile: u32,
+            dwLevel: u32,
+            dwFlags: u32,
+            dwSequenceHeader: [u32; 1],
+        }
+        struct WMSCRIPTFORMAT {
+            scriptType: GUID,
+        }
+        #[repr(i32)]
+        enum WMT_ATTR_DATATYPE {
+            WMT_TYPE_DWORD = 0,
+            WMT_TYPE_STRING = 1,
+            WMT_TYPE_BINARY = 2,
+            WMT_TYPE_BOOL = 3,
+            WMT_TYPE_QWORD = 4,
+            WMT_TYPE_WORD = 5,
+            WMT_TYPE_GUID = 6,
+        }
+        #[repr(i32)]
+        enum WMT_ATTR_IMAGETYPE {
+            WMT_IMAGETYPE_BITMAP = 1,
+            WMT_IMAGETYPE_JPEG = 2,
+            WMT_IMAGETYPE_GIF = 3,
+        }
+        struct WMT_BUFFER_SEGMENT {
+            pBuffer: INSSBuffer,
+            cbOffset: u32,
+            cbLength: u32,
+        }
+        #[repr(i32)]
+        enum WMT_CODEC_INFO_TYPE {
+            WMT_CODECINFO_AUDIO = 0,
+            WMT_CODECINFO_VIDEO = 1,
+            WMT_CODECINFO_UNKNOWN = -1,
+        }
+        struct WMT_COLORSPACEINFO_EXTENSION_DATA {
+            ucColorPrimaries: u8,
+            ucColorTransferChar: u8,
+            ucColorMatrixCoef: u8,
+        }
+        #[repr(i32)]
+        enum WMT_CREDENTIAL_FLAGS {
+            WMT_CREDENTIAL_SAVE = 1,
+            WMT_CREDENTIAL_DONT_CACHE = 2,
+            WMT_CREDENTIAL_CLEAR_TEXT = 4,
+            WMT_CREDENTIAL_PROXY = 8,
+            WMT_CREDENTIAL_ENCRYPT = 16,
+        }
+        #[repr(i32)]
+        enum WMT_DRMLA_TRUST {
+            WMT_DRMLA_UNTRUSTED = 0,
+            WMT_DRMLA_TRUSTED = 1,
+            WMT_DRMLA_TAMPERED = 2,
+        }
+        struct WMT_FILESINK_DATA_UNIT {
+            packetHeaderBuffer: WMT_BUFFER_SEGMENT,
+            cPayloads: u32,
+            pPayloadHeaderBuffers: *mut WMT_BUFFER_SEGMENT,
+            cPayloadDataFragments: u32,
+            pPayloadDataFragments: *mut WMT_PAYLOAD_FRAGMENT,
+        }
+        #[repr(i32)]
+        enum WMT_FILESINK_MODE {
+            WMT_FM_SINGLE_BUFFERS = 1,
+            WMT_FM_FILESINK_DATA_UNITS = 2,
+            WMT_FM_FILESINK_UNBUFFERED = 4,
+        }
+        #[repr(i32)]
+        enum WMT_IMAGE_TYPE {
+            WMT_IT_NONE = 0,
+            WMT_IT_BITMAP = 1,
+            WMT_IT_JPEG = 2,
+            WMT_IT_GIF = 3,
+        }
+        #[repr(i32)]
+        enum WMT_INDEXER_TYPE {
+            WMT_IT_PRESENTATION_TIME = 0,
+            WMT_IT_FRAME_NUMBERS = 1,
+            WMT_IT_TIMECODE = 2,
+        }
+        #[repr(i32)]
+        enum WMT_INDEX_TYPE {
+            WMT_IT_NEAREST_DATA_UNIT = 1,
+            WMT_IT_NEAREST_OBJECT = 2,
+            WMT_IT_NEAREST_CLEAN_POINT = 3,
+        }
+        #[repr(i32)]
+        enum WMT_MUSICSPEECH_CLASS_MODE {
+            WMT_MS_CLASS_MUSIC = 0,
+            WMT_MS_CLASS_SPEECH = 1,
+            WMT_MS_CLASS_MIXED = 2,
+        }
+        #[repr(i32)]
+        enum WMT_NET_PROTOCOL {
+            WMT_PROTOCOL_HTTP = 0,
+        }
+        #[repr(i32)]
+        enum WMT_OFFSET_FORMAT {
+            WMT_OFFSET_FORMAT_100NS = 0,
+            WMT_OFFSET_FORMAT_FRAME_NUMBERS = 1,
+            WMT_OFFSET_FORMAT_PLAYLIST_OFFSET = 2,
+            WMT_OFFSET_FORMAT_TIMECODE = 3,
+            WMT_OFFSET_FORMAT_100NS_APPROXIMATE = 4,
+        }
+        struct WMT_PAYLOAD_FRAGMENT {
+            dwPayloadIndex: u32,
+            segmentData: WMT_BUFFER_SEGMENT,
+        }
+        #[repr(i32)]
+        enum WMT_PLAY_MODE {
+            WMT_PLAY_MODE_AUTOSELECT = 0,
+            WMT_PLAY_MODE_LOCAL = 1,
+            WMT_PLAY_MODE_DOWNLOAD = 2,
+            WMT_PLAY_MODE_STREAMING = 3,
+        }
+        #[repr(i32)]
+        enum WMT_PROXY_SETTINGS {
+            WMT_PROXY_SETTING_NONE = 0,
+            WMT_PROXY_SETTING_MANUAL = 1,
+            WMT_PROXY_SETTING_AUTO = 2,
+            WMT_PROXY_SETTING_BROWSER = 3,
+            WMT_PROXY_SETTING_MAX = 4,
+        }
+        #[repr(i32)]
+        enum WMT_RIGHTS {
+            WMT_RIGHT_PLAYBACK = 1,
+            WMT_RIGHT_COPY_TO_NON_SDMI_DEVICE = 2,
+            WMT_RIGHT_COPY_TO_CD = 8,
+            WMT_RIGHT_COPY_TO_SDMI_DEVICE = 16,
+            WMT_RIGHT_ONE_TIME = 32,
+            WMT_RIGHT_SAVE_STREAM_PROTECTED = 64,
+            WMT_RIGHT_COPY = 128,
+            WMT_RIGHT_COLLABORATIVE_PLAY = 256,
+            WMT_RIGHT_SDMI_TRIGGER = 65536,
+            WMT_RIGHT_SDMI_NOMORECOPIES = 131072,
+        }
+        #[repr(i32)]
+        enum WMT_STATUS {
+            WMT_ERROR = 0,
+            WMT_OPENED = 1,
+            WMT_BUFFERING_START = 2,
+            WMT_BUFFERING_STOP = 3,
+            WMT_EOF = 4,
+            WMT_END_OF_FILE = 4,
+            WMT_END_OF_SEGMENT = 5,
+            WMT_END_OF_STREAMING = 6,
+            WMT_LOCATING = 7,
+            WMT_CONNECTING = 8,
+            WMT_NO_RIGHTS = 9,
+            WMT_MISSING_CODEC = 10,
+            WMT_STARTED = 11,
+            WMT_STOPPED = 12,
+            WMT_CLOSED = 13,
+            WMT_STRIDING = 14,
+            WMT_TIMER = 15,
+            WMT_INDEX_PROGRESS = 16,
+            WMT_SAVEAS_START = 17,
+            WMT_SAVEAS_STOP = 18,
+            WMT_NEW_SOURCEFLAGS = 19,
+            WMT_NEW_METADATA = 20,
+            WMT_BACKUPRESTORE_BEGIN = 21,
+            WMT_SOURCE_SWITCH = 22,
+            WMT_ACQUIRE_LICENSE = 23,
+            WMT_INDIVIDUALIZE = 24,
+            WMT_NEEDS_INDIVIDUALIZATION = 25,
+            WMT_NO_RIGHTS_EX = 26,
+            WMT_BACKUPRESTORE_END = 27,
+            WMT_BACKUPRESTORE_CONNECTING = 28,
+            WMT_BACKUPRESTORE_DISCONNECTING = 29,
+            WMT_ERROR_WITHURL = 30,
+            WMT_RESTRICTED_LICENSE = 31,
+            WMT_CLIENT_CONNECT = 32,
+            WMT_CLIENT_DISCONNECT = 33,
+            WMT_NATIVE_OUTPUT_PROPS_CHANGED = 34,
+            WMT_RECONNECT_START = 35,
+            WMT_RECONNECT_END = 36,
+            WMT_CLIENT_CONNECT_EX = 37,
+            WMT_CLIENT_DISCONNECT_EX = 38,
+            WMT_SET_FEC_SPAN = 39,
+            WMT_PREROLL_READY = 40,
+            WMT_PREROLL_COMPLETE = 41,
+            WMT_CLIENT_PROPERTIES = 42,
+            WMT_LICENSEURL_SIGNATURE_STATE = 43,
+            WMT_INIT_PLAYLIST_BURN = 44,
+            WMT_TRANSCRYPTOR_INIT = 45,
+            WMT_TRANSCRYPTOR_SEEKED = 46,
+            WMT_TRANSCRYPTOR_READ = 47,
+            WMT_TRANSCRYPTOR_CLOSED = 48,
+            WMT_PROXIMITY_RESULT = 49,
+            WMT_PROXIMITY_COMPLETED = 50,
+            WMT_CONTENT_ENABLER = 51,
+        }
+        #[repr(i32)]
+        enum WMT_STORAGE_FORMAT {
+            WMT_Storage_Format_MP3 = 0,
+            WMT_Storage_Format_V1 = 1,
+        }
+        #[repr(i32)]
+        enum WMT_STREAM_SELECTION {
+            WMT_OFF = 0,
+            WMT_CLEANPOINT_ONLY = 1,
+            WMT_ON = 2,
+        }
+        #[packed(2)]
+        struct WMT_TIMECODE_EXTENSION_DATA {
+            wRange: u16,
+            dwTimecode: u32,
+            dwUserbits: u32,
+            dwAmFlags: u32,
+        }
+        const WMT_TIMECODE_FRAMERATE_24: i32 = 3;
+        const WMT_TIMECODE_FRAMERATE_25: i32 = 2;
+        const WMT_TIMECODE_FRAMERATE_30: i32 = 0;
+        const WMT_TIMECODE_FRAMERATE_30DROP: i32 = 1;
+        #[repr(i32)]
+        enum WMT_TRANSPORT_TYPE {
+            WMT_Transport_Type_Unreliable = 0,
+            WMT_Transport_Type_Reliable = 1,
+        }
+        #[repr(i32)]
+        enum WMT_VERSION {
+            WMT_VER_4_0 = 262144,
+            WMT_VER_7_0 = 458752,
+            WMT_VER_8_0 = 524288,
+            WMT_VER_9_0 = 589824,
+        }
+        const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: u32 = 65536;
+        const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834;
+        const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835;
+        struct WMT_VIDEOIMAGE_SAMPLE {
+            dwMagic: u32,
+            cbStruct: u32,
+            dwControlFlags: u32,
+            dwInputFlagsCur: u32,
+            lCurMotionXtoX: i32,
+            lCurMotionYtoX: i32,
+            lCurMotionXoffset: i32,
+            lCurMotionXtoY: i32,
+            lCurMotionYtoY: i32,
+            lCurMotionYoffset: i32,
+            lCurBlendCoef1: i32,
+            lCurBlendCoef2: i32,
+            dwInputFlagsPrev: u32,
+            lPrevMotionXtoX: i32,
+            lPrevMotionYtoX: i32,
+            lPrevMotionXoffset: i32,
+            lPrevMotionXtoY: i32,
+            lPrevMotionYtoY: i32,
+            lPrevMotionYoffset: i32,
+            lPrevBlendCoef1: i32,
+            lPrevBlendCoef2: i32,
+        }
+        struct WMT_VIDEOIMAGE_SAMPLE2 {
+            dwMagic: u32,
+            dwStructSize: u32,
+            dwControlFlags: u32,
+            dwViewportWidth: u32,
+            dwViewportHeight: u32,
+            dwCurrImageWidth: u32,
+            dwCurrImageHeight: u32,
+            fCurrRegionX0: f32,
+            fCurrRegionY0: f32,
+            fCurrRegionWidth: f32,
+            fCurrRegionHeight: f32,
+            fCurrBlendCoef: f32,
+            dwPrevImageWidth: u32,
+            dwPrevImageHeight: u32,
+            fPrevRegionX0: f32,
+            fPrevRegionY0: f32,
+            fPrevRegionWidth: f32,
+            fPrevRegionHeight: f32,
+            fPrevBlendCoef: f32,
+            dwEffectType: u32,
+            dwNumEffectParas: u32,
+            fEffectPara0: f32,
+            fEffectPara1: f32,
+            fEffectPara2: f32,
+            fEffectPara3: f32,
+            fEffectPara4: f32,
+            bKeepPrevImage: BOOL,
+        }
+        const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8;
+        const WMT_VIDEOIMAGE_SAMPLE_BLENDING: u32 = 4;
+        const WMT_VIDEOIMAGE_SAMPLE_INPUT_FRAME: u32 = 1;
+        const WMT_VIDEOIMAGE_SAMPLE_MOTION: u32 = 1;
+        const WMT_VIDEOIMAGE_SAMPLE_OUTPUT_FRAME: u32 = 2;
+        const WMT_VIDEOIMAGE_SAMPLE_ROTATION: u32 = 2;
+        const WMT_VIDEOIMAGE_SAMPLE_USES_CURRENT_INPUT_FRAME: u32 = 4;
+        const WMT_VIDEOIMAGE_SAMPLE_USES_PREVIOUS_INPUT_FRAME: u32 = 8;
+        const WMT_VIDEOIMAGE_TRANSITION_BOW_TIE: u32 = 11;
+        const WMT_VIDEOIMAGE_TRANSITION_CIRCLE: u32 = 12;
+        const WMT_VIDEOIMAGE_TRANSITION_CROSS_FADE: u32 = 13;
+        const WMT_VIDEOIMAGE_TRANSITION_DIAGONAL: u32 = 14;
+        const WMT_VIDEOIMAGE_TRANSITION_DIAMOND: u32 = 15;
+        const WMT_VIDEOIMAGE_TRANSITION_FADE_TO_COLOR: u32 = 16;
+        const WMT_VIDEOIMAGE_TRANSITION_FILLED_V: u32 = 17;
+        const WMT_VIDEOIMAGE_TRANSITION_FLIP: u32 = 18;
+        const WMT_VIDEOIMAGE_TRANSITION_INSET: u32 = 19;
+        const WMT_VIDEOIMAGE_TRANSITION_IRIS: u32 = 20;
+        const WMT_VIDEOIMAGE_TRANSITION_PAGE_ROLL: u32 = 21;
+        const WMT_VIDEOIMAGE_TRANSITION_RECTANGLE: u32 = 23;
+        const WMT_VIDEOIMAGE_TRANSITION_REVEAL: u32 = 24;
+        const WMT_VIDEOIMAGE_TRANSITION_SLIDE: u32 = 27;
+        const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29;
+        const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30;
+        const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31;
+        struct WMT_WATERMARK_ENTRY {
+            wmetType: WMT_WATERMARK_ENTRY_TYPE,
+            clsid: GUID,
+            cbDisplayName: u32,
+            pwszDisplayName: PWSTR,
+        }
+        #[repr(i32)]
+        enum WMT_WATERMARK_ENTRY_TYPE {
+            WMT_WMETYPE_AUDIO = 1,
+            WMT_WMETYPE_VIDEO = 2,
+        }
+        struct WMT_WEBSTREAM_FORMAT {
+            cbSize: u16,
+            cbSampleHeaderFixedData: u16,
+            wVersion: u16,
+            wReserved: u16,
+        }
+        struct WMT_WEBSTREAM_SAMPLE_HEADER {
+            cbLength: u16,
+            wPart: u16,
+            cTotalParts: u16,
+            wSampleType: u16,
+            wszURL: [u16; 1],
+        }
+        struct WMVIDEOINFOHEADER {
+            rcSource: RECT,
+            rcTarget: RECT,
+            dwBitRate: u32,
+            dwBitErrorRate: u32,
+            AvgTimePerFrame: i64,
+            bmiHeader: BITMAPINFOHEADER,
+        }
+        struct WMVIDEOINFOHEADER2 {
+            rcSource: RECT,
+            rcTarget: RECT,
+            dwBitRate: u32,
+            dwBitErrorRate: u32,
+            AvgTimePerFrame: i64,
+            dwInterlaceFlags: u32,
+            dwCopyProtectFlags: u32,
+            dwPictAspectRatioX: u32,
+            dwPictAspectRatioY: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            bmiHeader: BITMAPINFOHEADER,
+        }
+        struct WM_ADDRESS_ACCESSENTRY {
+            dwIPAddress: u32,
+            dwMask: u32,
+        }
+        #[repr(i32)]
+        enum WM_AETYPE {
+            WM_AETYPE_INCLUDE = 105,
+            WM_AETYPE_EXCLUDE = 101,
+        }
+        const WM_BACKUP_OVERWRITE: u32 = 1;
+        struct WM_CLIENT_PROPERTIES {
+            dwIPAddress: u32,
+            dwPort: u32,
+        }
+        struct WM_CLIENT_PROPERTIES_EX {
+            cbSize: u32,
+            pwszIPAddress: PCWSTR,
+            pwszPort: PCWSTR,
+            pwszDNSName: PCWSTR,
+        }
+        const WM_CL_INTERLACED420: u32 = 0;
+        const WM_CL_PROGRESSIVE420: u32 = 1;
+        const WM_CT_BOTTOM_FIELD_FIRST: u32 = 32;
+        const WM_CT_INTERLACED: u32 = 128;
+        const WM_CT_REPEAT_FIRST_FIELD: u32 = 16;
+        const WM_CT_TOP_FIELD_FIRST: u32 = 64;
+        const WM_DM_DEINTERLACE_HALFSIZE: i32 = 2;
+        const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: i32 = 3;
+        const WM_DM_DEINTERLACE_INVERSETELECINE: i32 = 4;
+        const WM_DM_DEINTERLACE_NORMAL: i32 = 1;
+        const WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE: i32 = 5;
+        const WM_DM_IT_DISABLE_COHERENT_MODE: i32 = 0;
+        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM: i32 = 6;
+        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP: i32 = 1;
+        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM: i32 = 7;
+        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP: i32 = 2;
+        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM: i32 = 8;
+        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP: i32 = 3;
+        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM: i32 = 9;
+        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: i32 = 4;
+        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: i32 = 10;
+        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: i32 = 5;
+        const WM_DM_NOTINTERLACED: i32 = 0;
+        #[packed(1)]
+        struct WM_LEAKY_BUCKET_PAIR {
+            dwBitrate: u32,
+            msBufferWindow: u32,
+        }
+        const WM_MAX_STREAMS: u32 = 63;
+        const WM_MAX_VIDEO_STREAMS: u32 = 63;
+        struct WM_MEDIA_TYPE {
+            majortype: GUID,
+            subtype: GUID,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            lSampleSize: u32,
+            formattype: GUID,
+            pUnk: IUnknown,
+            cbFormat: u32,
+            pbFormat: *mut u8,
+        }
+        #[packed(1)]
+        struct WM_PICTURE {
+            pwszMIMEType: PWSTR,
+            bPictureType: u8,
+            pwszDescription: PWSTR,
+            dwDataLen: u32,
+            pbData: *mut u8,
+        }
+        const WM_PLAYBACK_DRC_HIGH: i32 = 0;
+        const WM_PLAYBACK_DRC_LOW: i32 = 2;
+        const WM_PLAYBACK_DRC_MEDIUM: i32 = 1;
+        struct WM_PORT_NUMBER_RANGE {
+            wPortBegin: u16,
+            wPortEnd: u16,
+        }
+        struct WM_READER_CLIENTINFO {
+            cbSize: u32,
+            wszLang: *mut u16,
+            wszBrowserUserAgent: *mut u16,
+            wszBrowserWebPage: *mut u16,
+            qwReserved: u64,
+            pReserved: *mut LPARAM,
+            wszHostExe: *mut u16,
+            qwHostVersion: u64,
+            wszPlayerUserAgent: *mut u16,
+        }
+        struct WM_READER_STATISTICS {
+            cbSize: u32,
+            dwBandwidth: u32,
+            cPacketsReceived: u32,
+            cPacketsRecovered: u32,
+            cPacketsLost: u32,
+            wQuality: u16,
+        }
+        const WM_RESTORE_INDIVIDUALIZE: u32 = 2;
+        const WM_SFEX_DATALOSS: i32 = 4;
+        const WM_SFEX_NOTASYNCPOINT: i32 = 2;
+        const WM_SF_CLEANPOINT: i32 = 1;
+        const WM_SF_DATALOSS: i32 = 4;
+        const WM_SF_DISCONTINUITY: i32 = 2;
+        const WM_START_CURRENTPOSITION: u64 = 18446744073709551615;
+        #[packed(2)]
+        struct WM_STREAM_PRIORITY_RECORD {
+            wStreamNumber: u16,
+            fMandatory: BOOL,
+        }
+        #[packed(1)]
+        struct WM_STREAM_TYPE_INFO {
+            guidMajorType: GUID,
+            cbFormat: u32,
+        }
+        #[packed(1)]
+        struct WM_SYNCHRONISED_LYRICS {
+            bTimeStampFormat: u8,
+            bContentType: u8,
+            pwszContentDescriptor: PWSTR,
+            dwLyricsLen: u32,
+            pbLyrics: *mut u8,
+        }
+        const WM_SampleExtension_ChromaLocation_Size: u32 = 1;
+        const WM_SampleExtension_ColorSpaceInfo_Size: u32 = 3;
+        const WM_SampleExtension_ContentType_Size: u32 = 1;
+        const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2;
+        const WM_SampleExtension_SampleDuration_Size: u32 = 2;
+        const WM_SampleExtension_Timecode_Size: u32 = 14;
+        #[packed(1)]
+        struct WM_USER_TEXT {
+            pwszDescription: PWSTR,
+            pwszText: PWSTR,
+        }
+        #[packed(1)]
+        struct WM_USER_WEB_URL {
+            pwszDescription: PWSTR,
+            pwszURL: PWSTR,
+        }
+        struct WM_WRITER_STATISTICS {
+            qwSampleCount: u64,
+            qwByteCount: u64,
+            qwDroppedSampleCount: u64,
+            qwDroppedByteCount: u64,
+            dwCurrentBitrate: u32,
+            dwAverageBitrate: u32,
+            dwExpectedBitrate: u32,
+            dwCurrentSampleRate: u32,
+            dwAverageSampleRate: u32,
+            dwExpectedSampleRate: u32,
+        }
+        struct WM_WRITER_STATISTICS_EX {
+            dwBitratePlusOverhead: u32,
+            dwCurrentSampleDropRateInQueue: u32,
+            dwCurrentSampleDropRateInCodec: u32,
+            dwCurrentSampleDropRateInMultiplexer: u32,
+            dwTotalSampleDropsInQueue: u32,
+            dwTotalSampleDropsInCodec: u32,
+            dwTotalSampleDropsInMultiplexer: u32,
+        }
+    }
+}

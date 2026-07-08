@@ -1,0 +1,1837 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ADDRESS_TYPE_IANA: u32 = 0;
+        const ADDRESS_TYPE_IATA: u32 = 1;
+        const CHANGESTATE: u32 = 4;
+        const CLIENT_TYPE_BOOTP: u32 = 2;
+        const CLIENT_TYPE_BOTH: u32 = 3;
+        const CLIENT_TYPE_DHCP: u32 = 1;
+        const CLIENT_TYPE_NONE: u32 = 100;
+        const CLIENT_TYPE_RESERVATION_FLAG: u32 = 4;
+        const CLIENT_TYPE_UNSPECIFIED: u32 = 0;
+        struct DATE_TIME {
+            dwLowDateTime: u32,
+            dwHighDateTime: u32,
+        }
+        struct DHCPDS_SERVER {
+            Version: u32,
+            ServerName: PWSTR,
+            ServerAddress: u32,
+            Flags: u32,
+            State: u32,
+            DsLocation: PWSTR,
+            DsLocType: u32,
+        }
+        struct DHCPDS_SERVERS {
+            Flags: u32,
+            NumElements: u32,
+            Servers: LPDHCPDS_SERVER,
+        }
+        struct DHCPV4_FAILOVER_CLIENT_INFO {
+            ClientIpAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            ClientHardwareAddress: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+            ClientComment: PWSTR,
+            ClientLeaseExpires: DATE_TIME,
+            OwnerHost: DHCP_HOST_INFO,
+            bClientType: u8,
+            AddressState: u8,
+            Status: QuarantineStatus,
+            ProbationEnds: DATE_TIME,
+            QuarantineCapable: BOOL,
+            SentPotExpTime: u32,
+            AckPotExpTime: u32,
+            RecvPotExpTime: u32,
+            StartTime: u32,
+            CltLastTransTime: u32,
+            LastBndUpdTime: u32,
+            BndMsgStatus: u32,
+            PolicyName: PWSTR,
+            Flags: u8,
+        }
+        struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
+            NumElements: u32,
+            Clients: *mut LPDHCPV4_FAILOVER_CLIENT_INFO,
+        }
+        struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
+            ClientIpAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            ClientHardwareAddress: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+            ClientComment: PWSTR,
+            ClientLeaseExpires: DATE_TIME,
+            OwnerHost: DHCP_HOST_INFO,
+            bClientType: u8,
+            AddressState: u8,
+            Status: QuarantineStatus,
+            ProbationEnds: DATE_TIME,
+            QuarantineCapable: BOOL,
+            SentPotExpTime: u32,
+            AckPotExpTime: u32,
+            RecvPotExpTime: u32,
+            StartTime: u32,
+            CltLastTransTime: u32,
+            LastBndUpdTime: u32,
+            BndMsgStatus: u32,
+            PolicyName: PWSTR,
+            Flags: u8,
+            AddressStateEx: u32,
+        }
+        struct DHCPV6_BIND_ELEMENT {
+            Flags: u32,
+            fBoundToDHCPServer: BOOL,
+            AdapterPrimaryAddress: DHCP_IPV6_ADDRESS,
+            AdapterSubnetAddress: DHCP_IPV6_ADDRESS,
+            IfDescription: PWSTR,
+            IpV6IfIndex: u32,
+            IfIdSize: u32,
+            IfId: LPBYTE,
+        }
+        struct DHCPV6_BIND_ELEMENT_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCPV6_BIND_ELEMENT,
+        }
+        struct DHCPV6_IP_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCP_IPV6_ADDRESS,
+        }
+        struct DHCPV6_STATELESS_PARAMS {
+            Status: BOOL,
+            PurgeInterval: u32,
+        }
+        #[repr(i32)]
+        enum DHCPV6_STATELESS_PARAM_TYPE {
+            DhcpStatelessPurgeInterval = 1,
+            DhcpStatelessStatus = 2,
+        }
+        struct DHCPV6_STATELESS_SCOPE_STATS {
+            SubnetAddress: DHCP_IPV6_ADDRESS,
+            NumStatelessClientsAdded: u64,
+            NumStatelessClientsRemoved: u64,
+        }
+        struct DHCPV6_STATELESS_STATS {
+            NumScopes: u32,
+            ScopeStats: LPDHCPV6_STATELESS_SCOPE_STATS,
+        }
+        struct DHCP_ADDR_PATTERN {
+            MatchHWType: BOOL,
+            HWType: u8,
+            IsWildcard: BOOL,
+            Length: u8,
+            Pattern: [u8; 255],
+        }
+        struct DHCP_ALL_OPTIONS {
+            Flags: u32,
+            NonVendorOptions: LPDHCP_OPTION_ARRAY,
+            NumVendorOptions: u32,
+            VendorOptions: *mut DHCP_ALL_OPTIONS_0,
+        }
+        struct DHCP_ALL_OPTIONS_0 {
+            Option: DHCP_OPTION,
+            VendorName: PWSTR,
+            ClassName: PWSTR,
+        }
+        struct DHCP_ALL_OPTION_VALUES {
+            Flags: u32,
+            NumElements: u32,
+            Options: *mut DHCP_ALL_OPTION_VALUES_0,
+        }
+        struct DHCP_ALL_OPTION_VALUES_0 {
+            ClassName: PWSTR,
+            VendorName: PWSTR,
+            IsVendor: BOOL,
+            OptionsArray: LPDHCP_OPTION_VALUE_ARRAY,
+        }
+        struct DHCP_ALL_OPTION_VALUES_PB {
+            Flags: u32,
+            NumElements: u32,
+            Options: *mut DHCP_ALL_OPTION_VALUES_PB_0,
+        }
+        struct DHCP_ALL_OPTION_VALUES_PB_0 {
+            PolicyName: PWSTR,
+            VendorName: PWSTR,
+            IsVendor: BOOL,
+            OptionsArray: LPDHCP_OPTION_VALUE_ARRAY,
+        }
+        struct DHCP_ATTRIB {
+            DhcpAttribId: DHCP_ATTRIB_ID,
+            DhcpAttribType: u32,
+            Anonymous: union {
+                DhcpAttribBool: BOOL,
+                DhcpAttribUlong: u32,
+            },
+        }
+        struct DHCP_ATTRIB_ARRAY {
+            NumElements: u32,
+            DhcpAttribs: LPDHCP_ATTRIB,
+        }
+        const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5;
+        const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: u32 = 4;
+        const DHCP_ATTRIB_BOOL_IS_DYNBOOTP: u32 = 2;
+        const DHCP_ATTRIB_BOOL_IS_PART_OF_DSDC: u32 = 3;
+        const DHCP_ATTRIB_BOOL_IS_ROGUE: u32 = 1;
+        type DHCP_ATTRIB_ID = u32;
+        const DHCP_ATTRIB_TYPE_BOOL: u32 = 1;
+        const DHCP_ATTRIB_TYPE_ULONG: u32 = 2;
+        const DHCP_ATTRIB_ULONG_RESTORE_STATUS: u32 = 6;
+        struct DHCP_BINARY_DATA {
+            DataLength: u32,
+            Data: *mut u8,
+        }
+        struct DHCP_BIND_ELEMENT {
+            Flags: u32,
+            fBoundToDHCPServer: BOOL,
+            AdapterPrimaryAddress: DHCP_IP_ADDRESS,
+            AdapterSubnetAddress: DHCP_IP_ADDRESS,
+            IfDescription: PWSTR,
+            IfIdSize: u32,
+            IfId: LPBYTE,
+        }
+        struct DHCP_BIND_ELEMENT_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCP_BIND_ELEMENT,
+        }
+        struct DHCP_BOOTP_IP_RANGE {
+            StartAddress: DHCP_IP_ADDRESS,
+            EndAddress: DHCP_IP_ADDRESS,
+            BootpAllocated: u32,
+            MaxBootpAllowed: u32,
+        }
+        struct DHCP_CLASS_INFO {
+            ClassName: PWSTR,
+            ClassComment: PWSTR,
+            ClassDataLength: u32,
+            IsVendor: BOOL,
+            Flags: u32,
+            ClassData: LPBYTE,
+        }
+        struct DHCP_CLASS_INFO_ARRAY {
+            NumElements: u32,
+            Classes: LPDHCP_CLASS_INFO,
+        }
+        struct DHCP_CLASS_INFO_ARRAY_V6 {
+            NumElements: u32,
+            Classes: LPDHCP_CLASS_INFO_V6,
+        }
+        struct DHCP_CLASS_INFO_V6 {
+            ClassName: PWSTR,
+            ClassComment: PWSTR,
+            ClassDataLength: u32,
+            IsVendor: BOOL,
+            EnterpriseNumber: u32,
+            Flags: u32,
+            ClassData: LPBYTE,
+        }
+        struct DHCP_CLIENT_FILTER_STATUS_INFO {
+            ClientIpAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            ClientHardwareAddress: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+            ClientComment: PWSTR,
+            ClientLeaseExpires: DATE_TIME,
+            OwnerHost: DHCP_HOST_INFO,
+            bClientType: u8,
+            AddressState: u8,
+            Status: QuarantineStatus,
+            ProbationEnds: DATE_TIME,
+            QuarantineCapable: BOOL,
+            FilterStatus: u32,
+        }
+        struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
+            NumElements: u32,
+            Clients: *mut LPDHCP_CLIENT_FILTER_STATUS_INFO,
+        }
+        struct DHCP_CLIENT_INFO {
+            ClientIpAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            ClientHardwareAddress: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+            ClientComment: PWSTR,
+            ClientLeaseExpires: DATE_TIME,
+            OwnerHost: DHCP_HOST_INFO,
+        }
+        struct DHCP_CLIENT_INFO_ARRAY {
+            NumElements: u32,
+            Clients: *mut LPDHCP_CLIENT_INFO,
+        }
+        struct DHCP_CLIENT_INFO_ARRAY_V4 {
+            NumElements: u32,
+            Clients: *mut LPDHCP_CLIENT_INFO_V4,
+        }
+        struct DHCP_CLIENT_INFO_ARRAY_V5 {
+            NumElements: u32,
+            Clients: *mut LPDHCP_CLIENT_INFO_V5,
+        }
+        struct DHCP_CLIENT_INFO_ARRAY_V6 {
+            NumElements: u32,
+            Clients: *mut LPDHCP_CLIENT_INFO_V6,
+        }
+        struct DHCP_CLIENT_INFO_ARRAY_VQ {
+            NumElements: u32,
+            Clients: *mut LPDHCP_CLIENT_INFO_VQ,
+        }
+        struct DHCP_CLIENT_INFO_EX {
+            ClientIpAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            ClientHardwareAddress: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+            ClientComment: PWSTR,
+            ClientLeaseExpires: DATE_TIME,
+            OwnerHost: DHCP_HOST_INFO,
+            bClientType: u8,
+            AddressState: u8,
+            Status: QuarantineStatus,
+            ProbationEnds: DATE_TIME,
+            QuarantineCapable: BOOL,
+            FilterStatus: u32,
+            PolicyName: PWSTR,
+            Properties: LPDHCP_PROPERTY_ARRAY,
+        }
+        struct DHCP_CLIENT_INFO_EX_ARRAY {
+            NumElements: u32,
+            Clients: *mut LPDHCP_CLIENT_INFO_EX,
+        }
+        struct DHCP_CLIENT_INFO_PB {
+            ClientIpAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            ClientHardwareAddress: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+            ClientComment: PWSTR,
+            ClientLeaseExpires: DATE_TIME,
+            OwnerHost: DHCP_HOST_INFO,
+            bClientType: u8,
+            AddressState: u8,
+            Status: QuarantineStatus,
+            ProbationEnds: DATE_TIME,
+            QuarantineCapable: BOOL,
+            FilterStatus: u32,
+            PolicyName: PWSTR,
+        }
+        struct DHCP_CLIENT_INFO_PB_ARRAY {
+            NumElements: u32,
+            Clients: *mut LPDHCP_CLIENT_INFO_PB,
+        }
+        struct DHCP_CLIENT_INFO_V4 {
+            ClientIpAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            ClientHardwareAddress: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+            ClientComment: PWSTR,
+            ClientLeaseExpires: DATE_TIME,
+            OwnerHost: DHCP_HOST_INFO,
+            bClientType: u8,
+        }
+        struct DHCP_CLIENT_INFO_V5 {
+            ClientIpAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            ClientHardwareAddress: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+            ClientComment: PWSTR,
+            ClientLeaseExpires: DATE_TIME,
+            OwnerHost: DHCP_HOST_INFO,
+            bClientType: u8,
+            AddressState: u8,
+        }
+        struct DHCP_CLIENT_INFO_V6 {
+            ClientIpAddress: DHCP_IPV6_ADDRESS,
+            ClientDUID: DHCP_CLIENT_UID,
+            AddressType: u32,
+            IAID: u32,
+            ClientName: PWSTR,
+            ClientComment: PWSTR,
+            ClientValidLeaseExpires: DATE_TIME,
+            ClientPrefLeaseExpires: DATE_TIME,
+            OwnerHost: DHCP_HOST_INFO_V6,
+        }
+        struct DHCP_CLIENT_INFO_VQ {
+            ClientIpAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            ClientHardwareAddress: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+            ClientComment: PWSTR,
+            ClientLeaseExpires: DATE_TIME,
+            OwnerHost: DHCP_HOST_INFO,
+            bClientType: u8,
+            AddressState: u8,
+            Status: QuarantineStatus,
+            ProbationEnds: DATE_TIME,
+            QuarantineCapable: BOOL,
+        }
+        type DHCP_CLIENT_SEARCH_UNION = DHCP_SEARCH_INFO_0;
+        type DHCP_CLIENT_UID = DHCP_BINARY_DATA;
+        const DHCP_ENDPOINT_FLAG_CANT_MODIFY: u32 = 1;
+        const DHCP_FAILOVER_DELETE_SCOPES: u32 = 1;
+        const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400;
+        const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31;
+        #[repr(i32)]
+        enum DHCP_FAILOVER_MODE {
+            LoadBalance = 0,
+            HotStandby = 1,
+        }
+        struct DHCP_FAILOVER_RELATIONSHIP {
+            PrimaryServer: DHCP_IP_ADDRESS,
+            SecondaryServer: DHCP_IP_ADDRESS,
+            Mode: DHCP_FAILOVER_MODE,
+            ServerType: DHCP_FAILOVER_SERVER,
+            State: FSM_STATE,
+            PrevState: FSM_STATE,
+            Mclt: u32,
+            SafePeriod: u32,
+            RelationshipName: PWSTR,
+            PrimaryServerName: PWSTR,
+            SecondaryServerName: PWSTR,
+            pScopes: LPDHCP_IP_ARRAY,
+            Percentage: u8,
+            SharedSecret: PWSTR,
+        }
+        struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
+            NumElements: u32,
+            pRelationships: LPDHCP_FAILOVER_RELATIONSHIP,
+        }
+        #[repr(i32)]
+        enum DHCP_FAILOVER_SERVER {
+            PrimaryServer = 0,
+            SecondaryServer = 1,
+        }
+        struct DHCP_FAILOVER_STATISTICS {
+            NumAddr: u32,
+            AddrFree: u32,
+            AddrInUse: u32,
+            PartnerAddrFree: u32,
+            ThisAddrFree: u32,
+            PartnerAddrInUse: u32,
+            ThisAddrInUse: u32,
+        }
+        struct DHCP_FILTER_ADD_INFO {
+            AddrPatt: DHCP_ADDR_PATTERN,
+            Comment: PWSTR,
+            ListType: DHCP_FILTER_LIST_TYPE,
+        }
+        struct DHCP_FILTER_ENUM_INFO {
+            NumElements: u32,
+            pEnumRecords: LPDHCP_FILTER_RECORD,
+        }
+        struct DHCP_FILTER_GLOBAL_INFO {
+            EnforceAllowList: BOOL,
+            EnforceDenyList: BOOL,
+        }
+        #[repr(i32)]
+        enum DHCP_FILTER_LIST_TYPE {
+            Deny = 0,
+            Allow = 1,
+        }
+        struct DHCP_FILTER_RECORD {
+            AddrPatt: DHCP_ADDR_PATTERN,
+            Comment: PWSTR,
+        }
+        const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1;
+        const DHCP_FLAGS_DONT_DO_RPC: u32 = 2;
+        const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3;
+        #[repr(i32)]
+        enum DHCP_FORCE_FLAG {
+            DhcpFullForce = 0,
+            DhcpNoForce = 1,
+            DhcpFailoverForce = 2,
+        }
+        struct DHCP_HOST_INFO {
+            IpAddress: DHCP_IP_ADDRESS,
+            NetBiosName: PWSTR,
+            HostName: PWSTR,
+        }
+        struct DHCP_HOST_INFO_V6 {
+            IpAddress: DHCP_IPV6_ADDRESS,
+            NetBiosName: PWSTR,
+            HostName: PWSTR,
+        }
+        struct DHCP_IPV6_ADDRESS {
+            HighOrderBits: u64,
+            LowOrderBits: u64,
+        }
+        type DHCP_IP_ADDRESS = u32;
+        struct DHCP_IP_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCP_IP_ADDRESS,
+        }
+        struct DHCP_IP_CLUSTER {
+            ClusterAddress: DHCP_IP_ADDRESS,
+            ClusterMask: u32,
+        }
+        type DHCP_IP_MASK = u32;
+        struct DHCP_IP_RANGE {
+            StartAddress: DHCP_IP_ADDRESS,
+            EndAddress: DHCP_IP_ADDRESS,
+        }
+        struct DHCP_IP_RANGE_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCP_IP_RANGE,
+        }
+        struct DHCP_IP_RANGE_V6 {
+            StartAddress: DHCP_IPV6_ADDRESS,
+            EndAddress: DHCP_IPV6_ADDRESS,
+        }
+        struct DHCP_IP_RESERVATION {
+            ReservedIpAddress: DHCP_IP_ADDRESS,
+            ReservedForClient: *mut DHCP_CLIENT_UID,
+        }
+        struct DHCP_IP_RESERVATION_INFO {
+            ReservedIpAddress: DHCP_IP_ADDRESS,
+            ReservedForClient: DHCP_CLIENT_UID,
+            ReservedClientName: PWSTR,
+            ReservedClientDesc: PWSTR,
+            bAllowedClientTypes: u8,
+            fOptionsPresent: u8,
+        }
+        struct DHCP_IP_RESERVATION_V4 {
+            ReservedIpAddress: DHCP_IP_ADDRESS,
+            ReservedForClient: *mut DHCP_CLIENT_UID,
+            bAllowedClientTypes: u8,
+        }
+        struct DHCP_IP_RESERVATION_V6 {
+            ReservedIpAddress: DHCP_IPV6_ADDRESS,
+            ReservedForClient: *mut DHCP_CLIENT_UID,
+            InterfaceId: u32,
+        }
+        const DHCP_MAX_DELAY: u32 = 1000;
+        struct DHCP_MIB_INFO {
+            Discovers: u32,
+            Offers: u32,
+            Requests: u32,
+            Acks: u32,
+            Naks: u32,
+            Declines: u32,
+            Releases: u32,
+            ServerStartTime: DATE_TIME,
+            Scopes: u32,
+            ScopeInfo: LPSCOPE_MIB_INFO,
+        }
+        struct DHCP_MIB_INFO_V5 {
+            Discovers: u32,
+            Offers: u32,
+            Requests: u32,
+            Acks: u32,
+            Naks: u32,
+            Declines: u32,
+            Releases: u32,
+            ServerStartTime: DATE_TIME,
+            QtnNumLeases: u32,
+            QtnPctQtnLeases: u32,
+            QtnProbationLeases: u32,
+            QtnNonQtnLeases: u32,
+            QtnExemptLeases: u32,
+            QtnCapableClients: u32,
+            QtnIASErrors: u32,
+            DelayedOffers: u32,
+            ScopesWithDelayedOffers: u32,
+            Scopes: u32,
+            ScopeInfo: LPSCOPE_MIB_INFO_V5,
+        }
+        struct DHCP_MIB_INFO_V6 {
+            Solicits: u32,
+            Advertises: u32,
+            Requests: u32,
+            Renews: u32,
+            Rebinds: u32,
+            Replies: u32,
+            Confirms: u32,
+            Declines: u32,
+            Releases: u32,
+            Informs: u32,
+            ServerStartTime: DATE_TIME,
+            Scopes: u32,
+            ScopeInfo: LPSCOPE_MIB_INFO_V6,
+        }
+        struct DHCP_MIB_INFO_VQ {
+            Discovers: u32,
+            Offers: u32,
+            Requests: u32,
+            Acks: u32,
+            Naks: u32,
+            Declines: u32,
+            Releases: u32,
+            ServerStartTime: DATE_TIME,
+            QtnNumLeases: u32,
+            QtnPctQtnLeases: u32,
+            QtnProbationLeases: u32,
+            QtnNonQtnLeases: u32,
+            QtnExemptLeases: u32,
+            QtnCapableClients: u32,
+            QtnIASErrors: u32,
+            Scopes: u32,
+            ScopeInfo: LPSCOPE_MIB_INFO_VQ,
+        }
+        const DHCP_MIN_DELAY: u32 = 0;
+        struct DHCP_OPTION {
+            OptionID: DHCP_OPTION_ID,
+            OptionName: PWSTR,
+            OptionComment: PWSTR,
+            DefaultValue: DHCP_OPTION_DATA,
+            OptionType: DHCP_OPTION_TYPE,
+        }
+        struct DHCP_OPTION_ARRAY {
+            NumElements: u32,
+            Options: LPDHCP_OPTION,
+        }
+        struct DHCP_OPTION_DATA {
+            NumElements: u32,
+            Elements: LPDHCP_OPTION_DATA_ELEMENT,
+        }
+        struct DHCP_OPTION_DATA_ELEMENT {
+            OptionType: DHCP_OPTION_DATA_TYPE,
+            Element: DHCP_OPTION_DATA_ELEMENT_0,
+        }
+        union DHCP_OPTION_DATA_ELEMENT_0 {
+            ByteOption: u8,
+            WordOption: u16,
+            DWordOption: u32,
+            DWordDWordOption: DWORD_DWORD,
+            IpAddressOption: DHCP_IP_ADDRESS,
+            StringDataOption: PWSTR,
+            BinaryDataOption: DHCP_BINARY_DATA,
+            EncapsulatedDataOption: DHCP_BINARY_DATA,
+            Ipv6AddressDataOption: PWSTR,
+        }
+        #[repr(i32)]
+        enum DHCP_OPTION_DATA_TYPE {
+            DhcpByteOption = 0,
+            DhcpWordOption = 1,
+            DhcpDWordOption = 2,
+            DhcpDWordDWordOption = 3,
+            DhcpIpAddressOption = 4,
+            DhcpStringDataOption = 5,
+            DhcpBinaryDataOption = 6,
+            DhcpEncapsulatedDataOption = 7,
+            DhcpIpv6AddressOption = 8,
+        }
+        type DHCP_OPTION_ELEMENT_UNION = DHCP_OPTION_DATA_ELEMENT_0;
+        type DHCP_OPTION_ID = u32;
+        struct DHCP_OPTION_LIST {
+            NumOptions: u32,
+            Options: *mut DHCP_OPTION_VALUE,
+        }
+        struct DHCP_OPTION_SCOPE_INFO {
+            ScopeType: DHCP_OPTION_SCOPE_TYPE,
+            ScopeInfo: DHCP_OPTION_SCOPE_INFO_0,
+        }
+        struct DHCP_OPTION_SCOPE_INFO6 {
+            ScopeType: DHCP_OPTION_SCOPE_TYPE6,
+            ScopeInfo: DHCP_OPTION_SCOPE_INFO6_0,
+        }
+        union DHCP_OPTION_SCOPE_INFO6_0 {
+            DefaultScopeInfo: *mut void,
+            SubnetScopeInfo: DHCP_IPV6_ADDRESS,
+            ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
+        }
+        union DHCP_OPTION_SCOPE_INFO_0 {
+            DefaultScopeInfo: *mut void,
+            GlobalScopeInfo: *mut void,
+            SubnetScopeInfo: DHCP_IP_ADDRESS,
+            ReservedScopeInfo: DHCP_RESERVED_SCOPE,
+            MScopeInfo: PWSTR,
+        }
+        #[repr(i32)]
+        enum DHCP_OPTION_SCOPE_TYPE {
+            DhcpDefaultOptions = 0,
+            DhcpGlobalOptions = 1,
+            DhcpSubnetOptions = 2,
+            DhcpReservedOptions = 3,
+            DhcpMScopeOptions = 4,
+        }
+        #[repr(i32)]
+        enum DHCP_OPTION_SCOPE_TYPE6 {
+            DhcpDefaultOptions6 = 0,
+            DhcpScopeOptions6 = 1,
+            DhcpReservedOptions6 = 2,
+            DhcpGlobalOptions6 = 3,
+        }
+        type DHCP_OPTION_SCOPE_UNION6 = DHCP_OPTION_SCOPE_INFO6_0;
+        #[repr(i32)]
+        enum DHCP_OPTION_TYPE {
+            DhcpUnaryElementTypeOption = 0,
+            DhcpArrayTypeOption = 1,
+        }
+        struct DHCP_OPTION_VALUE {
+            OptionID: DHCP_OPTION_ID,
+            Value: DHCP_OPTION_DATA,
+        }
+        struct DHCP_OPTION_VALUE_ARRAY {
+            NumElements: u32,
+            Values: LPDHCP_OPTION_VALUE,
+        }
+        const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1;
+        const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2;
+        struct DHCP_PERF_STATS {
+            dwNumPacketsReceived: u32,
+            dwNumPacketsDuplicate: u32,
+            dwNumPacketsExpired: u32,
+            dwNumMilliSecondsProcessed: u32,
+            dwNumPacketsInActiveQueue: u32,
+            dwNumPacketsInPingQueue: u32,
+            dwNumDiscoversReceived: u32,
+            dwNumOffersSent: u32,
+            dwNumRequestsReceived: u32,
+            dwNumInformsReceived: u32,
+            dwNumAcksSent: u32,
+            dwNumNacksSent: u32,
+            dwNumDeclinesReceived: u32,
+            dwNumReleasesReceived: u32,
+            dwNumDelayedOfferInQueue: u32,
+            dwNumPacketsProcessed: u32,
+            dwNumPacketsInQuarWaitingQueue: u32,
+            dwNumPacketsInQuarReadyQueue: u32,
+            dwNumPacketsInQuarDecisionQueue: u32,
+        }
+        struct DHCP_POLICY {
+            PolicyName: PWSTR,
+            IsGlobalPolicy: BOOL,
+            Subnet: DHCP_IP_ADDRESS,
+            ProcessingOrder: u32,
+            Conditions: LPDHCP_POL_COND_ARRAY,
+            Expressions: LPDHCP_POL_EXPR_ARRAY,
+            Ranges: LPDHCP_IP_RANGE_ARRAY,
+            Description: PWSTR,
+            Enabled: BOOL,
+        }
+        struct DHCP_POLICY_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCP_POLICY,
+        }
+        struct DHCP_POLICY_EX {
+            PolicyName: PWSTR,
+            IsGlobalPolicy: BOOL,
+            Subnet: DHCP_IP_ADDRESS,
+            ProcessingOrder: u32,
+            Conditions: LPDHCP_POL_COND_ARRAY,
+            Expressions: LPDHCP_POL_EXPR_ARRAY,
+            Ranges: LPDHCP_IP_RANGE_ARRAY,
+            Description: PWSTR,
+            Enabled: BOOL,
+            Properties: LPDHCP_PROPERTY_ARRAY,
+        }
+        struct DHCP_POLICY_EX_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCP_POLICY_EX,
+        }
+        #[repr(i32)]
+        enum DHCP_POLICY_FIELDS_TO_UPDATE {
+            DhcpUpdatePolicyName = 1,
+            DhcpUpdatePolicyOrder = 2,
+            DhcpUpdatePolicyExpr = 4,
+            DhcpUpdatePolicyRanges = 8,
+            DhcpUpdatePolicyDescr = 16,
+            DhcpUpdatePolicyStatus = 32,
+            DhcpUpdatePolicyDnsSuffix = 64,
+        }
+        #[repr(i32)]
+        enum DHCP_POL_ATTR_TYPE {
+            DhcpAttrHWAddr = 0,
+            DhcpAttrOption = 1,
+            DhcpAttrSubOption = 2,
+            DhcpAttrFqdn = 3,
+            DhcpAttrFqdnSingleLabel = 4,
+        }
+        #[repr(i32)]
+        enum DHCP_POL_COMPARATOR {
+            DhcpCompEqual = 0,
+            DhcpCompNotEqual = 1,
+            DhcpCompBeginsWith = 2,
+            DhcpCompNotBeginWith = 3,
+            DhcpCompEndsWith = 4,
+            DhcpCompNotEndWith = 5,
+        }
+        struct DHCP_POL_COND {
+            ParentExpr: u32,
+            Type: DHCP_POL_ATTR_TYPE,
+            OptionID: u32,
+            SubOptionID: u32,
+            VendorName: PWSTR,
+            Operator: DHCP_POL_COMPARATOR,
+            Value: LPBYTE,
+            ValueLength: u32,
+        }
+        struct DHCP_POL_COND_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCP_POL_COND,
+        }
+        struct DHCP_POL_EXPR {
+            ParentExpr: u32,
+            Operator: DHCP_POL_LOGIC_OPER,
+        }
+        struct DHCP_POL_EXPR_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCP_POL_EXPR,
+        }
+        #[repr(i32)]
+        enum DHCP_POL_LOGIC_OPER {
+            DhcpLogicalOr = 0,
+            DhcpLogicalAnd = 1,
+        }
+        struct DHCP_PROPERTY {
+            ID: DHCP_PROPERTY_ID,
+            Type: DHCP_PROPERTY_TYPE,
+            Value: DHCP_PROPERTY_0,
+        }
+        union DHCP_PROPERTY_0 {
+            ByteValue: u8,
+            WordValue: u16,
+            DWordValue: u32,
+            StringValue: PWSTR,
+            BinaryValue: DHCP_BINARY_DATA,
+        }
+        struct DHCP_PROPERTY_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCP_PROPERTY,
+        }
+        #[repr(i32)]
+        enum DHCP_PROPERTY_ID {
+            DhcpPropIdPolicyDnsSuffix = 0,
+            DhcpPropIdClientAddressStateEx = 1,
+        }
+        #[repr(i32)]
+        enum DHCP_PROPERTY_TYPE {
+            DhcpPropTypeByte = 0,
+            DhcpPropTypeWord = 1,
+            DhcpPropTypeDword = 2,
+            DhcpPropTypeString = 3,
+            DhcpPropTypeBinary = 4,
+        }
+        struct DHCP_RESERVATION_INFO_ARRAY {
+            NumElements: u32,
+            Elements: *mut LPDHCP_IP_RESERVATION_INFO,
+        }
+        struct DHCP_RESERVED_SCOPE {
+            ReservedIpAddress: DHCP_IP_ADDRESS,
+            ReservedIpSubnetAddress: DHCP_IP_ADDRESS,
+        }
+        struct DHCP_RESERVED_SCOPE6 {
+            ReservedIpAddress: DHCP_IPV6_ADDRESS,
+            ReservedIpSubnetAddress: DHCP_IPV6_ADDRESS,
+        }
+        type DHCP_RESUME_HANDLE = u32;
+        type DHCP_RESUME_IPV6_HANDLE = DHCP_IPV6_ADDRESS;
+        #[repr(i32)]
+        enum DHCP_SCAN_FLAG {
+            DhcpRegistryFix = 0,
+            DhcpDatabaseFix = 1,
+        }
+        struct DHCP_SCAN_ITEM {
+            IpAddress: DHCP_IP_ADDRESS,
+            ScanFlag: DHCP_SCAN_FLAG,
+        }
+        struct DHCP_SCAN_LIST {
+            NumScanItems: u32,
+            ScanItems: *mut DHCP_SCAN_ITEM,
+        }
+        struct DHCP_SEARCH_INFO {
+            SearchType: DHCP_SEARCH_INFO_TYPE,
+            SearchInfo: DHCP_SEARCH_INFO_0,
+        }
+        union DHCP_SEARCH_INFO_0 {
+            ClientIpAddress: DHCP_IP_ADDRESS,
+            ClientHardwareAddress: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+        }
+        #[repr(i32)]
+        enum DHCP_SEARCH_INFO_TYPE {
+            DhcpClientIpAddress = 0,
+            DhcpClientHardwareAddress = 1,
+            DhcpClientName = 2,
+        }
+        #[repr(i32)]
+        enum DHCP_SEARCH_INFO_TYPE_V6 {
+            Dhcpv6ClientIpAddress = 0,
+            Dhcpv6ClientDUID = 1,
+            Dhcpv6ClientName = 2,
+        }
+        struct DHCP_SEARCH_INFO_V6 {
+            SearchType: DHCP_SEARCH_INFO_TYPE_V6,
+            SearchInfo: DHCP_SEARCH_INFO_V6_0,
+        }
+        union DHCP_SEARCH_INFO_V6_0 {
+            ClientIpAddress: DHCP_IPV6_ADDRESS,
+            ClientDUID: DHCP_CLIENT_UID,
+            ClientName: PWSTR,
+        }
+        struct DHCP_SERVER_CONFIG_INFO {
+            APIProtocolSupport: u32,
+            DatabaseName: PWSTR,
+            DatabasePath: PWSTR,
+            BackupPath: PWSTR,
+            BackupInterval: u32,
+            DatabaseLoggingFlag: u32,
+            RestoreFlag: u32,
+            DatabaseCleanupInterval: u32,
+            DebugFlag: u32,
+        }
+        struct DHCP_SERVER_CONFIG_INFO_V4 {
+            APIProtocolSupport: u32,
+            DatabaseName: PWSTR,
+            DatabasePath: PWSTR,
+            BackupPath: PWSTR,
+            BackupInterval: u32,
+            DatabaseLoggingFlag: u32,
+            RestoreFlag: u32,
+            DatabaseCleanupInterval: u32,
+            DebugFlag: u32,
+            dwPingRetries: u32,
+            cbBootTableString: u32,
+            wszBootTableString: *mut u16,
+            fAuditLog: BOOL,
+        }
+        struct DHCP_SERVER_CONFIG_INFO_V6 {
+            UnicastFlag: BOOL,
+            RapidCommitFlag: BOOL,
+            PreferredLifetime: u32,
+            ValidLifetime: u32,
+            T1: u32,
+            T2: u32,
+            PreferredLifetimeIATA: u32,
+            ValidLifetimeIATA: u32,
+            fAuditLog: BOOL,
+        }
+        struct DHCP_SERVER_CONFIG_INFO_VQ {
+            APIProtocolSupport: u32,
+            DatabaseName: PWSTR,
+            DatabasePath: PWSTR,
+            BackupPath: PWSTR,
+            BackupInterval: u32,
+            DatabaseLoggingFlag: u32,
+            RestoreFlag: u32,
+            DatabaseCleanupInterval: u32,
+            DebugFlag: u32,
+            dwPingRetries: u32,
+            cbBootTableString: u32,
+            wszBootTableString: *mut u16,
+            fAuditLog: BOOL,
+            QuarantineOn: BOOL,
+            QuarDefFail: u32,
+            QuarRuntimeStatus: BOOL,
+        }
+        type DHCP_SERVER_INFO = DHCPDS_SERVER;
+        type DHCP_SERVER_INFO_ARRAY = DHCPDS_SERVERS;
+        struct DHCP_SERVER_SPECIFIC_STRINGS {
+            DefaultVendorClassName: PWSTR,
+            DefaultUserClassName: PWSTR,
+        }
+        struct DHCP_SUBNET_ELEMENT_DATA {
+            ElementType: DHCP_SUBNET_ELEMENT_TYPE,
+            Element: DHCP_SUBNET_ELEMENT_DATA_0,
+        }
+        union DHCP_SUBNET_ELEMENT_DATA_0 {
+            IpRange: *mut DHCP_IP_RANGE,
+            SecondaryHost: *mut DHCP_HOST_INFO,
+            ReservedIp: *mut DHCP_IP_RESERVATION,
+            ExcludeIpRange: *mut DHCP_IP_RANGE,
+            IpUsedCluster: *mut DHCP_IP_CLUSTER,
+        }
+        struct DHCP_SUBNET_ELEMENT_DATA_V4 {
+            ElementType: DHCP_SUBNET_ELEMENT_TYPE,
+            Element: DHCP_SUBNET_ELEMENT_DATA_V4_0,
+        }
+        union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
+            IpRange: *mut DHCP_IP_RANGE,
+            SecondaryHost: *mut DHCP_HOST_INFO,
+            ReservedIp: *mut DHCP_IP_RESERVATION_V4,
+            ExcludeIpRange: *mut DHCP_IP_RANGE,
+            IpUsedCluster: *mut DHCP_IP_CLUSTER,
+        }
+        struct DHCP_SUBNET_ELEMENT_DATA_V5 {
+            ElementType: DHCP_SUBNET_ELEMENT_TYPE,
+            Element: DHCP_SUBNET_ELEMENT_DATA_V5_0,
+        }
+        union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
+            IpRange: *mut DHCP_BOOTP_IP_RANGE,
+            SecondaryHost: *mut DHCP_HOST_INFO,
+            ReservedIp: *mut DHCP_IP_RESERVATION_V4,
+            ExcludeIpRange: *mut DHCP_IP_RANGE,
+            IpUsedCluster: *mut DHCP_IP_CLUSTER,
+        }
+        struct DHCP_SUBNET_ELEMENT_DATA_V6 {
+            ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6,
+            Element: DHCP_SUBNET_ELEMENT_DATA_V6_0,
+        }
+        union DHCP_SUBNET_ELEMENT_DATA_V6_0 {
+            IpRange: *mut DHCP_IP_RANGE_V6,
+            ReservedIp: *mut DHCP_IP_RESERVATION_V6,
+            ExcludeIpRange: *mut DHCP_IP_RANGE_V6,
+        }
+        struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
+            NumElements: u32,
+            Elements: LPDHCP_SUBNET_ELEMENT_DATA,
+        }
+        struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
+            NumElements: u32,
+            Elements: LPDHCP_SUBNET_ELEMENT_DATA_V4,
+        }
+        struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
+            NumElements: u32,
+            Elements: LPDHCP_SUBNET_ELEMENT_DATA_V5,
+        }
+        struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
+            NumElements: u32,
+            Elements: LPDHCP_SUBNET_ELEMENT_DATA_V6,
+        }
+        #[repr(i32)]
+        enum DHCP_SUBNET_ELEMENT_TYPE {
+            DhcpIpRanges = 0,
+            DhcpSecondaryHosts = 1,
+            DhcpReservedIps = 2,
+            DhcpExcludedIpRanges = 3,
+            DhcpIpUsedClusters = 4,
+            DhcpIpRangesDhcpOnly = 5,
+            DhcpIpRangesDhcpBootp = 6,
+            DhcpIpRangesBootpOnly = 7,
+        }
+        #[repr(i32)]
+        enum DHCP_SUBNET_ELEMENT_TYPE_V6 {
+            Dhcpv6IpRanges = 0,
+            Dhcpv6ReservedIps = 1,
+            Dhcpv6ExcludedIpRanges = 2,
+        }
+        type DHCP_SUBNET_ELEMENT_UNION = DHCP_SUBNET_ELEMENT_DATA_0;
+        type DHCP_SUBNET_ELEMENT_UNION_V4 = DHCP_SUBNET_ELEMENT_DATA_V4_0;
+        type DHCP_SUBNET_ELEMENT_UNION_V6 = DHCP_SUBNET_ELEMENT_DATA_V6_0;
+        struct DHCP_SUBNET_INFO {
+            SubnetAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            SubnetName: PWSTR,
+            SubnetComment: PWSTR,
+            PrimaryHost: DHCP_HOST_INFO,
+            SubnetState: DHCP_SUBNET_STATE,
+        }
+        struct DHCP_SUBNET_INFO_V6 {
+            SubnetAddress: DHCP_IPV6_ADDRESS,
+            Prefix: u32,
+            Preference: u16,
+            SubnetName: PWSTR,
+            SubnetComment: PWSTR,
+            State: u32,
+            ScopeId: u32,
+        }
+        struct DHCP_SUBNET_INFO_VQ {
+            SubnetAddress: DHCP_IP_ADDRESS,
+            SubnetMask: DHCP_IP_MASK,
+            SubnetName: PWSTR,
+            SubnetComment: PWSTR,
+            PrimaryHost: DHCP_HOST_INFO,
+            SubnetState: DHCP_SUBNET_STATE,
+            QuarantineOn: u32,
+            Reserved1: u32,
+            Reserved2: u32,
+            Reserved3: i64,
+            Reserved4: i64,
+        }
+        const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1;
+        #[repr(i32)]
+        enum DHCP_SUBNET_STATE {
+            DhcpSubnetEnabled = 0,
+            DhcpSubnetDisabled = 1,
+            DhcpSubnetEnabledSwitched = 2,
+            DhcpSubnetDisabledSwitched = 3,
+            DhcpSubnetInvalidState = 4,
+        }
+        struct DHCP_SUPER_SCOPE_TABLE {
+            cEntries: u32,
+            pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
+        }
+        struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
+            SubnetAddress: DHCP_IP_ADDRESS,
+            SuperScopeNumber: u32,
+            NextInSuperScope: u32,
+            SuperScopeName: PWSTR,
+        }
+        const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4;
+        const DNS_FLAG_DISABLE_PTR_UPDATE: u32 = 64;
+        const DNS_FLAG_ENABLED: u32 = 1;
+        const DNS_FLAG_HAS_DNS_SUFFIX: u32 = 128;
+        const DNS_FLAG_UPDATE_BOTH_ALWAYS: u32 = 16;
+        const DNS_FLAG_UPDATE_DHCID: u32 = 32;
+        const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2;
+        struct DWORD_DWORD {
+            DWord1: u32,
+            DWord2: u32,
+        }
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpAddFilterV4(#[opt] ServerIpAddress: PCWSTR, AddFilterInfo: *const DHCP_FILTER_ADD_INFO, ForceFlag: BOOL) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpAddSecurityGroup(#[opt] pServer: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpAddServer(Flags: u32, IdInfo: *mut void, NewServer: LPDHCP_SERVER_INFO, CallbackFn: *mut void, CallbackData: *mut void) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpAddSubnetElement(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpAddSubnetElementV4(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpAddSubnetElementV5(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpAddSubnetElementV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, AddElementInfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpAuditLogGetParams(#[opt] ServerIpAddress: PCWSTR, Flags: u32, AuditLogDir: *mut PWSTR, DiskCheckInterval: *mut u32, MaxLogFilesSize: *mut u32, MinSpaceOnDisk: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpAuditLogSetParams(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] AuditLogDir: PCWSTR, DiskCheckInterval: u32, MaxLogFilesSize: u32, MinSpaceOnDisk: u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpCreateClass(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassInfo: *mut DHCP_CLASS_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateClassV6(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassInfo: *mut DHCP_CLASS_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateClientInfo(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_CLIENT_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateClientInfoV4(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_CLIENT_INFO_V4) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateClientInfoVQ(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_CLIENT_INFO_VQ) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateOption(#[opt] ServerIpAddress: PCWSTR, OptionID: DHCP_OPTION_ID, OptionInfo: *const DHCP_OPTION) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpCreateOptionV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionId: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: *mut DHCP_OPTION) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateOptionV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionId: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: *mut DHCP_OPTION) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateSubnet(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateSubnetV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: *mut DHCP_SUBNET_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateSubnetVQ(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpDeleteClass(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassName: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteClassV6(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassName: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteClientInfo(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_SEARCH_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteClientInfoV6(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_SEARCH_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteFilterV4(#[opt] ServerIpAddress: PCWSTR, DeleteFilterInfo: *const DHCP_ADDR_PATTERN) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpDeleteServer(Flags: u32, IdInfo: *mut void, NewServer: LPDHCP_SERVER_INFO, CallbackFn: *mut void, CallbackData: *mut void) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteSubnet(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteSubnetV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpDeleteSuperScopeV4(#[opt] ServerIpAddress: PCWSTR, SuperScopeName: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpDsCleanup();
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpDsInit() -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpEnumClasses(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY, nRead: *mut u32, nTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumClassesV6(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY_V6, nRead: *mut u32, nTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumFilterV4(#[opt] ServerIpAddress: PCWSTR, #[in] #[out] ResumeHandle: *mut DHCP_ADDR_PATTERN, PreferredMaximum: u32, ListType: DHCP_FILTER_LIST_TYPE, EnumFilterInfo: *mut LPDHCP_FILTER_ENUM_INFO, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumOptionValues(#[opt] ServerIpAddress: PCWSTR, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpEnumOptionValuesV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumOptionValuesV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumOptions(#[opt] ServerIpAddress: PCWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpEnumOptionsV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumOptionsV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpEnumServers(Flags: u32, IdInfo: *mut void, Servers: *mut LPDHCP_SERVER_INFO_ARRAY, CallbackFn: *mut void, CallbackData: *mut void) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetClients(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetClientsFilterStatusInfo(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetClientsV4(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V4, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetClientsV5(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V5, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetClientsV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, ResumeHandle: *mut DHCP_RESUME_IPV6_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V6, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetClientsVQ(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_VQ, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetElements(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetElementsV4(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetElementsV5(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetElementsV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE_V6, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnets(#[opt] ServerIpAddress: PCWSTR, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, #[in] #[out] EnumInfo: *mut LPDHCP_IP_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetsV6(#[opt] ServerIpAddress: PCWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumInfo: *mut LPDHCPV6_IP_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetAllOptionValues(#[opt] ServerIpAddress: PCWSTR, Flags: u32, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetAllOptionValuesV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetAllOptions(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetAllOptionsV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetClassInfo(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, PartialClassInfo: *mut DHCP_CLASS_INFO, FilledClassInfo: *mut LPDHCP_CLASS_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetClientInfo(#[opt] ServerIpAddress: PCWSTR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetClientInfoV4(#[opt] ServerIpAddress: PCWSTR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_V4) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetClientInfoV6(#[opt] ServerIpAddress: PCWSTR, SearchInfo: *const DHCP_SEARCH_INFO_V6, ClientInfo: *mut LPDHCP_CLIENT_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetClientInfoVQ(#[opt] ServerIpAddress: PCWSTR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_VQ) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetClientOptions(#[opt] ServerIpAddress: PCWSTR, ClientIpAddress: DHCP_IP_ADDRESS, ClientSubnetMask: DHCP_IP_MASK, ClientOptions: *mut LPDHCP_OPTION_LIST) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetFilterV4(#[opt] ServerIpAddress: PCWSTR, GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetMibInfo(#[opt] ServerIpAddress: PCWSTR, MibInfo: *mut LPDHCP_MIB_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetMibInfoV5(#[opt] ServerIpAddress: PCWSTR, MibInfo: *mut LPDHCP_MIB_INFO_V5) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetMibInfoV6(#[opt] ServerIpAddress: PCWSTR, MibInfo: *mut LPDHCP_MIB_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetOptionInfo(#[opt] ServerIpAddress: PCWSTR, OptionID: DHCP_OPTION_ID, OptionInfo: *mut LPDHCP_OPTION) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetOptionInfoV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: *mut LPDHCP_OPTION) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetOptionInfoV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: *mut LPDHCP_OPTION) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetOptionValue(#[opt] ServerIpAddress: PCWSTR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetOptionValueV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetOptionValueV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, OptionValue: *mut LPDHCP_OPTION_VALUE) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetServerBindingInfo(#[opt] ServerIpAddress: PCWSTR, Flags: u32, BindElementsInfo: *mut LPDHCP_BIND_ELEMENT_ARRAY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetServerBindingInfoV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, BindElementsInfo: *mut LPDHCPV6_BIND_ELEMENT_ARRAY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetServerSpecificStrings(#[opt] ServerIpAddress: PCWSTR, ServerSpecificStrings: *mut LPDHCP_SERVER_SPECIFIC_STRINGS) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetSubnetDelayOffer(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, TimeDelayInMilliseconds: *mut u16) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetSubnetInfo(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetSubnetInfoV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetSubnetInfoVQ(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO_VQ) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetSuperScopeInfoV4(#[opt] ServerIpAddress: PCWSTR, SuperScopeTable: *mut LPDHCP_SUPER_SCOPE_TABLE) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetThreadOptions(pFlags: *mut u32, Reserved: *mut void) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetVersion(#[opt] ServerIpAddress: PCWSTR, MajorVersion: *mut u32, MinorVersion: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprAddV4PolicyCondition(#[in] #[out] Policy: *mut DHCP_POLICY, ParentExpr: u32, Type: DHCP_POL_ATTR_TYPE, OptionID: u32, SubOptionID: u32, #[opt] VendorName: PCWSTR, Operator: DHCP_POL_COMPARATOR, #[size_param(8)] Value: *const u8, ValueLength: u32, ConditionIndex: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprAddV4PolicyExpr(#[in] #[out] Policy: *mut DHCP_POLICY, ParentExpr: u32, Operator: DHCP_POL_LOGIC_OPER, ExprIndex: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprAddV4PolicyRange(#[in] #[out] Policy: *mut DHCP_POLICY, Range: *const DHCP_IP_RANGE) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprCreateV4Policy(PolicyName: PCWSTR, fGlobalPolicy: BOOL, Subnet: DHCP_IP_ADDRESS, ProcessingOrder: u32, RootOperator: DHCP_POL_LOGIC_OPER, Description: PCWSTR, Enabled: BOOL, Policy: *mut LPDHCP_POLICY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprCreateV4PolicyEx(PolicyName: PCWSTR, fGlobalPolicy: BOOL, Subnet: DHCP_IP_ADDRESS, ProcessingOrder: u32, RootOperator: DHCP_POL_LOGIC_OPER, Description: PCWSTR, Enabled: BOOL, Policy: *mut LPDHCP_POLICY_EX) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpHlprFindV4DhcpProperty(PropertyArray: *const DHCP_PROPERTY_ARRAY, ID: DHCP_PROPERTY_ID, Type: DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprFreeV4DhcpProperty(#[in] #[out] Property: *mut DHCP_PROPERTY);
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprFreeV4DhcpPropertyArray(#[in] #[out] PropertyArray: *mut DHCP_PROPERTY_ARRAY);
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprFreeV4Policy(#[in] #[out] Policy: *mut DHCP_POLICY);
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprFreeV4PolicyArray(#[in] #[out] PolicyArray: *mut DHCP_POLICY_ARRAY);
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprFreeV4PolicyEx(#[in] #[out] PolicyEx: *mut DHCP_POLICY_EX);
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprFreeV4PolicyExArray(#[in] #[out] PolicyExArray: *mut DHCP_POLICY_EX_ARRAY);
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprIsV4PolicySingleUC(Policy: *const DHCP_POLICY) -> BOOL;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprIsV4PolicyValid(pPolicy: *const DHCP_POLICY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprIsV4PolicyWellFormed(pPolicy: *const DHCP_POLICY) -> BOOL;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprModifyV4PolicyExpr(#[in] #[out] Policy: *mut DHCP_POLICY, Operator: DHCP_POL_LOGIC_OPER) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpHlprResetV4PolicyExpr(#[in] #[out] Policy: *mut DHCP_POLICY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpModifyClass(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassInfo: *mut DHCP_CLASS_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpModifyClassV6(#[opt] ServerIpAddress: PCWSTR, ReservedMustBeZero: u32, ClassInfo: *mut DHCP_CLASS_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveOption(#[opt] ServerIpAddress: PCWSTR, OptionID: DHCP_OPTION_ID) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpRemoveOptionV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveOptionV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveOptionValue(#[opt] ServerIpAddress: PCWSTR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpRemoveOptionValueV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveOptionValueV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveSubnetElement(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveSubnetElementV4(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveSubnetElementV5(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveSubnetElementV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, RemoveElementInfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRpcFreeMemory(BufferPointer: *mut void);
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpScanDatabase(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, FixFlag: u32, ScanList: *mut LPDHCP_SCAN_LIST) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerAuditlogParamsFree(ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO_VQ);
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerBackupDatabase(#[opt] ServerIpAddress: PCWSTR, Path: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerGetConfig(#[opt] ServerIpAddress: PCWSTR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerGetConfigV4(#[opt] ServerIpAddress: PCWSTR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_V4) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerGetConfigV6(#[opt] ServerIpAddress: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerGetConfigVQ(#[opt] ServerIpAddress: PCWSTR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_VQ) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerQueryAttribute(#[opt] ServerIpAddr: PCWSTR, dwReserved: u32, DhcpAttribId: DHCP_ATTRIB_ID, pDhcpAttrib: *mut LPDHCP_ATTRIB) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerQueryAttributes(#[opt] ServerIpAddr: PCWSTR, dwReserved: u32, dwAttribCount: u32, pDhcpAttribs: *mut DHCP_ATTRIB_ID, pDhcpAttribArr: *mut LPDHCP_ATTRIB_ARRAY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerQueryDnsRegCredentials(#[opt] ServerIpAddress: PCWSTR, UnameSize: u32, #[len_param(1)] #[out] Uname: PWSTR, DomainSize: u32, #[len_param(3)] #[out] Domain: PWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerRedoAuthorization(#[opt] ServerIpAddr: PCWSTR, dwReserved: u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerRestoreDatabase(#[opt] ServerIpAddress: PCWSTR, Path: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerSetConfig(#[opt] ServerIpAddress: PCWSTR, FieldsToSet: u32, ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerSetConfigV4(#[opt] ServerIpAddress: PCWSTR, FieldsToSet: u32, ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerSetConfigV6(#[opt] ServerIpAddress: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, FieldsToSet: u32, ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerSetConfigVQ(#[opt] ServerIpAddress: PCWSTR, FieldsToSet: u32, ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerSetDnsRegCredentials(#[opt] ServerIpAddress: PCWSTR, #[opt] Uname: PCWSTR, #[opt] Domain: PCWSTR, #[opt] Passwd: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerSetDnsRegCredentialsV5(#[opt] ServerIpAddress: PCWSTR, #[opt] Uname: PCWSTR, #[opt] Domain: PCWSTR, #[opt] Passwd: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetClientInfo(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_CLIENT_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetClientInfoV4(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_CLIENT_INFO_V4) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetClientInfoV6(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_CLIENT_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetClientInfoVQ(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_CLIENT_INFO_VQ) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetFilterV4(#[opt] ServerIpAddress: PCWSTR, GlobalFilterInfo: *const DHCP_FILTER_GLOBAL_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetOptionInfo(#[opt] ServerIpAddress: PCWSTR, OptionID: DHCP_OPTION_ID, OptionInfo: *const DHCP_OPTION) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetOptionInfoV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: *mut DHCP_OPTION) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetOptionInfoV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, OptionInfo: *mut DHCP_OPTION) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetOptionValue(#[opt] ServerIpAddress: PCWSTR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValue: *const DHCP_OPTION_DATA) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetOptionValueV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionId: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValue: *mut DHCP_OPTION_DATA) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetOptionValueV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionId: DHCP_OPTION_ID, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, OptionValue: *mut DHCP_OPTION_DATA) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetOptionValues(#[opt] ServerIpAddress: PCWSTR, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValues: *const DHCP_OPTION_VALUE_ARRAY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetOptionValuesV5(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] ClassName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetServerBindingInfo(#[opt] ServerIpAddress: PCWSTR, Flags: u32, BindElementInfo: *mut DHCP_BIND_ELEMENT_ARRAY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetServerBindingInfoV6(#[opt] ServerIpAddress: PCWSTR, Flags: u32, BindElementInfo: *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetSubnetDelayOffer(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, TimeDelayInMilliseconds: u16) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetSubnetInfo(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetSubnetInfoV6(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: *mut DHCP_SUBNET_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetSubnetInfoVQ(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetSuperScopeV4(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, #[opt] SuperScopeName: PCWSTR, ChangeExisting: BOOL) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetThreadOptions(Flags: u32, Reserved: *mut void) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4AddPolicyRange(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Range: *const DHCP_IP_RANGE) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4CreateClientInfo(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_CLIENT_INFO_PB) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4CreateClientInfoEx(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_CLIENT_INFO_EX) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4CreatePolicy(#[opt] ServerIpAddress: PCWSTR, pPolicy: *const DHCP_POLICY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4CreatePolicyEx(#[opt] ServerIpAddress: PCWSTR, PolicyEx: *const DHCP_POLICY_EX) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4DeletePolicy(#[opt] ServerIpAddress: PCWSTR, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4EnumPolicies(#[opt] ServerIpAddress: PCWSTR, #[in] #[out] ResumeHandle: *mut u32, PreferredMaximum: u32, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, EnumInfo: *mut LPDHCP_POLICY_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4EnumPoliciesEx(#[opt] ServerIpAddress: PCWSTR, #[in] #[out] ResumeHandle: *mut u32, PreferredMaximum: u32, GlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, EnumInfo: *mut LPDHCP_POLICY_EX_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4EnumSubnetClients(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_PB_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4EnumSubnetClientsEx(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, ClientInfo: *mut LPDHCP_CLIENT_INFO_EX_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4EnumSubnetReservations(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, EnumElementInfo: *mut LPDHCP_RESERVATION_INFO_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverAddScopeToRelationship(#[opt] ServerIpAddress: PCWSTR, pRelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverCreateRelationship(#[opt] ServerIpAddress: PCWSTR, pRelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverDeleteRelationship(#[opt] ServerIpAddress: PCWSTR, pRelationshipName: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverDeleteScopeFromRelationship(#[opt] ServerIpAddress: PCWSTR, pRelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverEnumRelationship(#[opt] ServerIpAddress: PCWSTR, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: u32, pRelationship: *mut LPDHCP_FAILOVER_RELATIONSHIP_ARRAY, RelationshipRead: *mut u32, RelationshipTotal: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverGetAddressStatus(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] pStatus: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverGetClientInfo(#[opt] ServerIpAddress: PCWSTR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCPV4_FAILOVER_CLIENT_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverGetRelationship(#[opt] ServerIpAddress: PCWSTR, pRelationshipName: PCWSTR, pRelationship: *mut LPDHCP_FAILOVER_RELATIONSHIP) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverGetScopeRelationship(#[opt] ServerIpAddress: PCWSTR, ScopeId: DHCP_IP_ADDRESS, pRelationship: *mut LPDHCP_FAILOVER_RELATIONSHIP) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverGetScopeStatistics(#[opt] ServerIpAddress: PCWSTR, ScopeId: DHCP_IP_ADDRESS, pStats: *mut LPDHCP_FAILOVER_STATISTICS) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverGetSystemTime(#[opt] ServerIpAddress: PCWSTR, pTime: *mut u32, pMaxAllowedDeltaTime: *mut u32) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverSetRelationship(#[opt] ServerIpAddress: PCWSTR, Flags: u32, pRelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4FailoverTriggerAddrAllocation(#[opt] ServerIpAddress: PCWSTR, pFailRelName: PCWSTR) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4GetAllOptionValues(#[opt] ServerIpAddress: PCWSTR, Flags: u32, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES_PB) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4GetClientInfo(#[opt] ServerIpAddress: PCWSTR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_PB) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4GetClientInfoEx(#[opt] ServerIpAddress: PCWSTR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_EX) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4GetFreeIPAddress(#[opt] ServerIpAddress: PCWSTR, ScopeId: DHCP_IP_ADDRESS, StartIP: DHCP_IP_ADDRESS, EndIP: DHCP_IP_ADDRESS, NumFreeAddrReq: u32, IPAddrList: *mut LPDHCP_IP_ARRAY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4GetOptionValue(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] PolicyName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4GetPolicy(#[opt] ServerIpAddress: PCWSTR, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Policy: *mut LPDHCP_POLICY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4GetPolicyEx(#[opt] ServerIpAddress: PCWSTR, GlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Policy: *mut LPDHCP_POLICY_EX) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4QueryPolicyEnforcement(#[opt] ServerIpAddress: PCWSTR, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, Enabled: *mut BOOL) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4RemoveOptionValue(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionID: DHCP_OPTION_ID, #[opt] PolicyName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4RemovePolicyRange(#[opt] ServerIpAddress: PCWSTR, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Range: *const DHCP_IP_RANGE) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4SetOptionValue(#[opt] ServerIpAddress: PCWSTR, Flags: u32, OptionId: DHCP_OPTION_ID, #[opt] PolicyName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValue: *mut DHCP_OPTION_DATA) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4SetOptionValues(#[opt] ServerIpAddress: PCWSTR, Flags: u32, #[opt] PolicyName: PCWSTR, #[opt] VendorName: PCWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4SetPolicy(#[opt] ServerIpAddress: PCWSTR, FieldsModified: u32, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Policy: *const DHCP_POLICY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4SetPolicyEnforcement(#[opt] ServerIpAddress: PCWSTR, fGlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, Enable: BOOL) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV4SetPolicyEx(#[opt] ServerIpAddress: PCWSTR, FieldsModified: u32, GlobalPolicy: BOOL, SubnetAddress: DHCP_IP_ADDRESS, PolicyName: PCWSTR, Policy: *const DHCP_POLICY_EX) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV6CreateClientInfo(#[opt] ServerIpAddress: PCWSTR, ClientInfo: *const DHCP_CLIENT_INFO_V6) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV6GetFreeIPAddress(#[opt] ServerIpAddress: PCWSTR, ScopeId: DHCP_IPV6_ADDRESS, StartIP: DHCP_IPV6_ADDRESS, EndIP: DHCP_IPV6_ADDRESS, NumFreeAddrReq: u32, IPAddrList: *mut LPDHCPV6_IP_ARRAY) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV6GetStatelessStatistics(#[opt] ServerIpAddress: PCWSTR, StatelessStats: *mut LPDHCPV6_STATELESS_STATS) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV6GetStatelessStoreParams(#[opt] ServerIpAddress: PCWSTR, fServerLevel: BOOL, SubnetAddress: DHCP_IPV6_ADDRESS, Params: *mut LPDHCPV6_STATELESS_PARAMS) -> u32;
+        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpV6SetStatelessStoreParams(#[opt] ServerIpAddress: PCWSTR, fServerLevel: BOOL, SubnetAddress: DHCP_IPV6_ADDRESS, FieldModified: u32, Params: *const DHCPV6_STATELESS_PARAMS) -> u32;
+        const ERROR_DDS_CLASS_DOES_NOT_EXIST: u32 = 20078;
+        const ERROR_DDS_CLASS_EXISTS: u32 = 20077;
+        const ERROR_DDS_DHCP_SERVER_NOT_FOUND: u32 = 20074;
+        const ERROR_DDS_NO_DHCP_ROOT: u32 = 20071;
+        const ERROR_DDS_NO_DS_AVAILABLE: u32 = 20070;
+        const ERROR_DDS_OPTION_ALREADY_EXISTS: u32 = 20075;
+        const ERROR_DDS_OPTION_DOES_NOT_EXIST: u32 = 20076;
+        const ERROR_DDS_POSSIBLE_RANGE_CONFLICT: u32 = 20087;
+        const ERROR_DDS_RANGE_DOES_NOT_EXIST: u32 = 20088;
+        const ERROR_DDS_RESERVATION_CONFLICT: u32 = 20086;
+        const ERROR_DDS_RESERVATION_NOT_PRESENT: u32 = 20085;
+        const ERROR_DDS_SERVER_ADDRESS_MISMATCH: u32 = 20081;
+        const ERROR_DDS_SERVER_ALREADY_EXISTS: u32 = 20079;
+        const ERROR_DDS_SERVER_DOES_NOT_EXIST: u32 = 20080;
+        const ERROR_DDS_SUBNET_EXISTS: u32 = 20082;
+        const ERROR_DDS_SUBNET_HAS_DIFF_SSCOPE: u32 = 20083;
+        const ERROR_DDS_SUBNET_NOT_PRESENT: u32 = 20084;
+        const ERROR_DDS_TOO_MANY_ERRORS: u32 = 20073;
+        const ERROR_DDS_UNEXPECTED_ERROR: u32 = 20072;
+        const ERROR_DHCP_ADDRESS_NOT_AVAILABLE: u32 = 20011;
+        const ERROR_DHCP_CANNOT_MODIFY_BINDINGS: u32 = 20051;
+        const ERROR_DHCP_CANT_CHANGE_ATTRIBUTE: u32 = 20048;
+        const ERROR_DHCP_CLASS_ALREADY_EXISTS: u32 = 20045;
+        const ERROR_DHCP_CLASS_NOT_FOUND: u32 = 20044;
+        const ERROR_DHCP_CLIENT_EXISTS: u32 = 20014;
+        const ERROR_DHCP_DATABASE_INIT_FAILED: u32 = 20001;
+        const ERROR_DHCP_DEFAULT_SCOPE_EXITS: u32 = 20047;
+        const ERROR_DHCP_DELETE_BUILTIN_CLASS: u32 = 20089;
+        const ERROR_DHCP_ELEMENT_CANT_REMOVE: u32 = 20007;
+        const ERROR_DHCP_EXEMPTION_EXISTS: u32 = 20055;
+        const ERROR_DHCP_EXEMPTION_NOT_PRESENT: u32 = 20056;
+        const ERROR_DHCP_FO_ADDSCOPE_LEASES_NOT_SYNCED: u32 = 20127;
+        const ERROR_DHCP_FO_BOOT_NOT_SUPPORTED: u32 = 20131;
+        const ERROR_DHCP_FO_FEATURE_NOT_SUPPORTED: u32 = 20134;
+        const ERROR_DHCP_FO_IPRANGE_TYPE_CONV_ILLEGAL: u32 = 20129;
+        const ERROR_DHCP_FO_MAX_ADD_SCOPES: u32 = 20130;
+        const ERROR_DHCP_FO_MAX_RELATIONSHIPS: u32 = 20128;
+        const ERROR_DHCP_FO_NOT_SUPPORTED: u32 = 20118;
+        const ERROR_DHCP_FO_RANGE_PART_OF_REL: u32 = 20132;
+        const ERROR_DHCP_FO_RELATIONSHIP_DOES_NOT_EXIST: u32 = 20115;
+        const ERROR_DHCP_FO_RELATIONSHIP_EXISTS: u32 = 20114;
+        const ERROR_DHCP_FO_RELATIONSHIP_NAME_TOO_LONG: u32 = 20125;
+        const ERROR_DHCP_FO_RELATION_IS_SECONDARY: u32 = 20117;
+        const ERROR_DHCP_FO_SCOPE_ALREADY_IN_RELATIONSHIP: u32 = 20113;
+        const ERROR_DHCP_FO_SCOPE_NOT_IN_RELATIONSHIP: u32 = 20116;
+        const ERROR_DHCP_FO_SCOPE_SYNC_IN_PROGRESS: u32 = 20133;
+        const ERROR_DHCP_FO_STATE_NOT_NORMAL: u32 = 20120;
+        const ERROR_DHCP_FO_TIME_OUT_OF_SYNC: u32 = 20119;
+        const ERROR_DHCP_HARDWARE_ADDRESS_TYPE_ALREADY_EXEMPT: u32 = 20101;
+        const ERROR_DHCP_INVALID_DELAY: u32 = 20092;
+        const ERROR_DHCP_INVALID_DHCP_CLIENT: u32 = 20016;
+        const ERROR_DHCP_INVALID_DHCP_MESSAGE: u32 = 20015;
+        const ERROR_DHCP_INVALID_PARAMETER_OPTION32: u32 = 20057;
+        const ERROR_DHCP_INVALID_POLICY_EXPRESSION: u32 = 20109;
+        const ERROR_DHCP_INVALID_PROCESSING_ORDER: u32 = 20110;
+        const ERROR_DHCP_INVALID_RANGE: u32 = 20023;
+        const ERROR_DHCP_INVALID_SUBNET_PREFIX: u32 = 20091;
+        const ERROR_DHCP_IPRANGE_CONV_ILLEGAL: u32 = 20049;
+        const ERROR_DHCP_IPRANGE_EXITS: u32 = 20021;
+        const ERROR_DHCP_IP_ADDRESS_IN_USE: u32 = 20032;
+        const ERROR_DHCP_JET97_CONV_REQUIRED: u32 = 20036;
+        const ERROR_DHCP_JET_CONV_REQUIRED: u32 = 20027;
+        const ERROR_DHCP_JET_ERROR: u32 = 20013;
+        const ERROR_DHCP_LINKLAYER_ADDRESS_DOES_NOT_EXIST: u32 = 20095;
+        const ERROR_DHCP_LINKLAYER_ADDRESS_EXISTS: u32 = 20093;
+        const ERROR_DHCP_LINKLAYER_ADDRESS_RESERVATION_EXISTS: u32 = 20094;
+        const ERROR_DHCP_LOG_FILE_PATH_TOO_LONG: u32 = 20033;
+        const ERROR_DHCP_MSCOPE_EXISTS: u32 = 20053;
+        const ERROR_DHCP_NAP_NOT_SUPPORTED: u32 = 20138;
+        const ERROR_DHCP_NETWORK_CHANGED: u32 = 20050;
+        const ERROR_DHCP_NETWORK_INIT_FAILED: u32 = 20003;
+        const ERROR_DHCP_NOT_RESERVED_CLIENT: u32 = 20018;
+        const ERROR_DHCP_NO_ADMIN_PERMISSION: u32 = 20121;
+        const ERROR_DHCP_OPTION_EXITS: u32 = 20009;
+        const ERROR_DHCP_OPTION_NOT_PRESENT: u32 = 20010;
+        const ERROR_DHCP_OPTION_TYPE_MISMATCH: u32 = 20103;
+        const ERROR_DHCP_POLICY_BAD_PARENT_EXPR: u32 = 20104;
+        const ERROR_DHCP_POLICY_EDIT_FQDN_UNSUPPORTED: u32 = 20137;
+        const ERROR_DHCP_POLICY_EXISTS: u32 = 20105;
+        const ERROR_DHCP_POLICY_FQDN_OPTION_UNSUPPORTED: u32 = 20136;
+        const ERROR_DHCP_POLICY_FQDN_RANGE_UNSUPPORTED: u32 = 20135;
+        const ERROR_DHCP_POLICY_NOT_FOUND: u32 = 20111;
+        const ERROR_DHCP_POLICY_RANGE_BAD: u32 = 20107;
+        const ERROR_DHCP_POLICY_RANGE_EXISTS: u32 = 20106;
+        const ERROR_DHCP_PRIMARY_NOT_FOUND: u32 = 20006;
+        const ERROR_DHCP_RANGE_EXTENDED: u32 = 20024;
+        const ERROR_DHCP_RANGE_FULL: u32 = 20012;
+        const ERROR_DHCP_RANGE_INVALID_IN_SERVER_POLICY: u32 = 20108;
+        const ERROR_DHCP_RANGE_TOO_SMALL: u32 = 20020;
+        const ERROR_DHCP_REACHED_END_OF_SELECTION: u32 = 20126;
+        const ERROR_DHCP_REGISTRY_INIT_FAILED: u32 = 20000;
+        const ERROR_DHCP_RESERVEDIP_EXITS: u32 = 20022;
+        const ERROR_DHCP_RESERVED_CLIENT: u32 = 20019;
+        const ERROR_DHCP_ROGUE_DS_CONFLICT: u32 = 20041;
+        const ERROR_DHCP_ROGUE_DS_UNREACHABLE: u32 = 20040;
+        const ERROR_DHCP_ROGUE_INIT_FAILED: u32 = 20037;
+        const ERROR_DHCP_ROGUE_NOT_AUTHORIZED: u32 = 20039;
+        const ERROR_DHCP_ROGUE_NOT_OUR_ENTERPRISE: u32 = 20042;
+        const ERROR_DHCP_ROGUE_SAMSHUTDOWN: u32 = 20038;
+        const ERROR_DHCP_ROGUE_STANDALONE_IN_DS: u32 = 20043;
+        const ERROR_DHCP_RPC_INIT_FAILED: u32 = 20002;
+        const ERROR_DHCP_SCOPE_NAME_TOO_LONG: u32 = 20046;
+        const ERROR_DHCP_SERVER_NAME_NOT_RESOLVED: u32 = 20124;
+        const ERROR_DHCP_SERVER_NOT_REACHABLE: u32 = 20122;
+        const ERROR_DHCP_SERVER_NOT_RUNNING: u32 = 20123;
+        const ERROR_DHCP_SERVICE_PAUSED: u32 = 20017;
+        const ERROR_DHCP_SUBNET_EXISTS: u32 = 20052;
+        const ERROR_DHCP_SUBNET_EXITS: u32 = 20004;
+        const ERROR_DHCP_SUBNET_NOT_PRESENT: u32 = 20005;
+        const ERROR_DHCP_SUPER_SCOPE_NAME_TOO_LONG: u32 = 20030;
+        const ERROR_DHCP_UNDEFINED_HARDWARE_ADDRESS_TYPE: u32 = 20102;
+        const ERROR_DHCP_UNSUPPORTED_CLIENT: u32 = 20034;
+        const ERROR_EXTEND_TOO_SMALL: u32 = 20025;
+        const ERROR_LAST_DHCP_SERVER_ERROR: u32 = 20139;
+        const ERROR_MSCOPE_RANGE_TOO_SMALL: u32 = 20054;
+        const ERROR_SCOPE_RANGE_POLICY_RANGE_CONFLICT: u32 = 20112;
+        const ERROR_SERVER_INVALID_BOOT_FILE_TABLE: u32 = 20028;
+        const ERROR_SERVER_UNKNOWN_BOOT_FILE_NAME: u32 = 20029;
+        const FILTER_STATUS_FULL_MATCH_IN_ALLOW_LIST: u32 = 2;
+        const FILTER_STATUS_FULL_MATCH_IN_DENY_LIST: u32 = 4;
+        const FILTER_STATUS_NONE: u32 = 1;
+        const FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST: u32 = 8;
+        const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16;
+        #[repr(i32)]
+        enum FSM_STATE {
+            NO_STATE = 0,
+            INIT = 1,
+            STARTUP = 2,
+            NORMAL = 3,
+            COMMUNICATION_INT = 4,
+            PARTNER_DOWN = 5,
+            POTENTIAL_CONFLICT = 6,
+            CONFLICT_DONE = 7,
+            RESOLUTION_INT = 8,
+            RECOVER = 9,
+            RECOVER_WAIT = 10,
+            RECOVER_DONE = 11,
+            PAUSED = 12,
+            SHUTDOWN = 13,
+        }
+        const HWTYPE_ETHERNET_10MB: u32 = 1;
+        type LPDATE_TIME = *mut DATE_TIME;
+        type LPDHCPDS_SERVER = *mut DHCPDS_SERVER;
+        type LPDHCPDS_SERVERS = *mut DHCPDS_SERVERS;
+        type LPDHCPV4_FAILOVER_CLIENT_INFO = *mut DHCPV4_FAILOVER_CLIENT_INFO;
+        type LPDHCPV4_FAILOVER_CLIENT_INFO_ARRAY = *mut DHCPV4_FAILOVER_CLIENT_INFO_ARRAY;
+        type LPDHCPV4_FAILOVER_CLIENT_INFO_EX = *mut DHCPV4_FAILOVER_CLIENT_INFO_EX;
+        type LPDHCPV6_BIND_ELEMENT = *mut DHCPV6_BIND_ELEMENT;
+        type LPDHCPV6_BIND_ELEMENT_ARRAY = *mut DHCPV6_BIND_ELEMENT_ARRAY;
+        type LPDHCPV6_IP_ARRAY = *mut DHCPV6_IP_ARRAY;
+        type LPDHCPV6_STATELESS_PARAMS = *mut DHCPV6_STATELESS_PARAMS;
+        type LPDHCPV6_STATELESS_SCOPE_STATS = *mut DHCPV6_STATELESS_SCOPE_STATS;
+        type LPDHCPV6_STATELESS_STATS = *mut DHCPV6_STATELESS_STATS;
+        type LPDHCP_ADDR_PATTERN = *mut DHCP_ADDR_PATTERN;
+        type LPDHCP_ALL_OPTIONS = *mut DHCP_ALL_OPTIONS;
+        type LPDHCP_ALL_OPTION_VALUES = *mut DHCP_ALL_OPTION_VALUES;
+        type LPDHCP_ALL_OPTION_VALUES_PB = *mut DHCP_ALL_OPTION_VALUES_PB;
+        type LPDHCP_ATTRIB = *mut DHCP_ATTRIB;
+        type LPDHCP_ATTRIB_ARRAY = *mut DHCP_ATTRIB_ARRAY;
+        type LPDHCP_ATTRIB_ID = *mut u32;
+        type LPDHCP_BINARY_DATA = *mut DHCP_BINARY_DATA;
+        type LPDHCP_BIND_ELEMENT = *mut DHCP_BIND_ELEMENT;
+        type LPDHCP_BIND_ELEMENT_ARRAY = *mut DHCP_BIND_ELEMENT_ARRAY;
+        type LPDHCP_BOOT_IP_RANGE = *mut DHCP_BOOTP_IP_RANGE;
+        type LPDHCP_CLASS_INFO = *mut DHCP_CLASS_INFO;
+        type LPDHCP_CLASS_INFO_ARRAY = *mut DHCP_CLASS_INFO_ARRAY;
+        type LPDHCP_CLASS_INFO_ARRAY_V6 = *mut DHCP_CLASS_INFO_ARRAY_V6;
+        type LPDHCP_CLASS_INFO_V6 = *mut DHCP_CLASS_INFO_V6;
+        type LPDHCP_CLIENT_FILTER_STATUS_INFO = *mut DHCP_CLIENT_FILTER_STATUS_INFO;
+        type LPDHCP_CLIENT_FILTER_STATUS_INFO_ARRAY = *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY;
+        type LPDHCP_CLIENT_INFO = *mut DHCP_CLIENT_INFO;
+        type LPDHCP_CLIENT_INFO_ARRAY = *mut DHCP_CLIENT_INFO_ARRAY;
+        type LPDHCP_CLIENT_INFO_ARRAY_V4 = *mut DHCP_CLIENT_INFO_ARRAY_V4;
+        type LPDHCP_CLIENT_INFO_ARRAY_V5 = *mut DHCP_CLIENT_INFO_ARRAY_V5;
+        type LPDHCP_CLIENT_INFO_ARRAY_V6 = *mut DHCP_CLIENT_INFO_ARRAY_V6;
+        type LPDHCP_CLIENT_INFO_ARRAY_VQ = *mut DHCP_CLIENT_INFO_ARRAY_VQ;
+        type LPDHCP_CLIENT_INFO_EX = *mut DHCP_CLIENT_INFO_EX;
+        type LPDHCP_CLIENT_INFO_EX_ARRAY = *mut DHCP_CLIENT_INFO_EX_ARRAY;
+        type LPDHCP_CLIENT_INFO_PB = *mut DHCP_CLIENT_INFO_PB;
+        type LPDHCP_CLIENT_INFO_PB_ARRAY = *mut DHCP_CLIENT_INFO_PB_ARRAY;
+        type LPDHCP_CLIENT_INFO_V4 = *mut DHCP_CLIENT_INFO_V4;
+        type LPDHCP_CLIENT_INFO_V5 = *mut DHCP_CLIENT_INFO_V5;
+        type LPDHCP_CLIENT_INFO_V6 = *mut DHCP_CLIENT_INFO_V6;
+        type LPDHCP_CLIENT_INFO_VQ = *mut DHCP_CLIENT_INFO_VQ;
+        type LPDHCP_CLIENT_SEARCH_UNION = *mut DHCP_SEARCH_INFO_0;
+        type LPDHCP_FAILOVER_MODE = *mut DHCP_FAILOVER_MODE;
+        type LPDHCP_FAILOVER_RELATIONSHIP = *mut DHCP_FAILOVER_RELATIONSHIP;
+        type LPDHCP_FAILOVER_RELATIONSHIP_ARRAY = *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY;
+        type LPDHCP_FAILOVER_SERVER = *mut DHCP_FAILOVER_SERVER;
+        type LPDHCP_FAILOVER_STATISTICS = *mut DHCP_FAILOVER_STATISTICS;
+        type LPDHCP_FILTER_ADD_INFO = *mut DHCP_FILTER_ADD_INFO;
+        type LPDHCP_FILTER_ENUM_INFO = *mut DHCP_FILTER_ENUM_INFO;
+        type LPDHCP_FILTER_GLOBAL_INFO = *mut DHCP_FILTER_GLOBAL_INFO;
+        type LPDHCP_FILTER_LIST_TYPE = *mut DHCP_FILTER_LIST_TYPE;
+        type LPDHCP_FILTER_RECORD = *mut DHCP_FILTER_RECORD;
+        type LPDHCP_FORCE_FLAG = *mut DHCP_FORCE_FLAG;
+        type LPDHCP_HOST_INFO = *mut DHCP_HOST_INFO;
+        type LPDHCP_HOST_INFO_V6 = *mut DHCP_HOST_INFO_V6;
+        type LPDHCP_IPV6_ADDRESS = *mut DHCP_IPV6_ADDRESS;
+        type LPDHCP_IP_ADDRESS = *mut u32;
+        type LPDHCP_IP_ARRAY = *mut DHCP_IP_ARRAY;
+        type LPDHCP_IP_CLUSTER = *mut DHCP_IP_CLUSTER;
+        type LPDHCP_IP_RANGE = *mut DHCP_IP_RANGE;
+        type LPDHCP_IP_RANGE_ARRAY = *mut DHCP_IP_RANGE_ARRAY;
+        type LPDHCP_IP_RANGE_V6 = *mut DHCP_IP_RANGE_V6;
+        type LPDHCP_IP_RESERVATION = *mut DHCP_IP_RESERVATION;
+        type LPDHCP_IP_RESERVATION_INFO = *mut DHCP_IP_RESERVATION_INFO;
+        type LPDHCP_IP_RESERVATION_V4 = *mut DHCP_IP_RESERVATION_V4;
+        type LPDHCP_IP_RESERVATION_V6 = *mut DHCP_IP_RESERVATION_V6;
+        type LPDHCP_MIB_INFO = *mut DHCP_MIB_INFO;
+        type LPDHCP_MIB_INFO_V5 = *mut DHCP_MIB_INFO_V5;
+        type LPDHCP_MIB_INFO_V6 = *mut DHCP_MIB_INFO_V6;
+        type LPDHCP_MIB_INFO_VQ = *mut DHCP_MIB_INFO_VQ;
+        type LPDHCP_OPTION = *mut DHCP_OPTION;
+        type LPDHCP_OPTION_ARRAY = *mut DHCP_OPTION_ARRAY;
+        type LPDHCP_OPTION_DATA = *mut DHCP_OPTION_DATA;
+        type LPDHCP_OPTION_DATA_ELEMENT = *mut DHCP_OPTION_DATA_ELEMENT;
+        type LPDHCP_OPTION_DATA_TYPE = *mut DHCP_OPTION_DATA_TYPE;
+        type LPDHCP_OPTION_ELEMENT_UNION = *mut DHCP_OPTION_DATA_ELEMENT_0;
+        type LPDHCP_OPTION_LIST = *mut DHCP_OPTION_LIST;
+        type LPDHCP_OPTION_SCOPE_INFO = *mut DHCP_OPTION_SCOPE_INFO;
+        type LPDHCP_OPTION_SCOPE_INFO6 = *mut DHCP_OPTION_SCOPE_INFO6;
+        type LPDHCP_OPTION_SCOPE_TYPE = *mut DHCP_OPTION_SCOPE_TYPE;
+        type LPDHCP_OPTION_SCOPE_TYPE6 = *mut DHCP_OPTION_SCOPE_TYPE6;
+        type LPDHCP_OPTION_SCOPE_UNION6 = *mut DHCP_OPTION_SCOPE_INFO6_0;
+        type LPDHCP_OPTION_TYPE = *mut DHCP_OPTION_TYPE;
+        type LPDHCP_OPTION_VALUE = *mut DHCP_OPTION_VALUE;
+        type LPDHCP_OPTION_VALUE_ARRAY = *mut DHCP_OPTION_VALUE_ARRAY;
+        type LPDHCP_PERF_STATS = *mut DHCP_PERF_STATS;
+        type LPDHCP_POLICY = *mut DHCP_POLICY;
+        type LPDHCP_POLICY_ARRAY = *mut DHCP_POLICY_ARRAY;
+        type LPDHCP_POLICY_EX = *mut DHCP_POLICY_EX;
+        type LPDHCP_POLICY_EX_ARRAY = *mut DHCP_POLICY_EX_ARRAY;
+        type LPDHCP_POL_COND = *mut DHCP_POL_COND;
+        type LPDHCP_POL_COND_ARRAY = *mut DHCP_POL_COND_ARRAY;
+        type LPDHCP_POL_EXPR = *mut DHCP_POL_EXPR;
+        type LPDHCP_POL_EXPR_ARRAY = *mut DHCP_POL_EXPR_ARRAY;
+        type LPDHCP_PROPERTY = *mut DHCP_PROPERTY;
+        type LPDHCP_PROPERTY_ARRAY = *mut DHCP_PROPERTY_ARRAY;
+        type LPDHCP_RESERVATION_INFO_ARRAY = *mut DHCP_RESERVATION_INFO_ARRAY;
+        type LPDHCP_RESERVED_SCOPE = *mut DHCP_RESERVED_SCOPE;
+        type LPDHCP_RESERVED_SCOPE6 = *mut DHCP_RESERVED_SCOPE6;
+        type LPDHCP_SCAN_FLAG = *mut DHCP_SCAN_FLAG;
+        type LPDHCP_SCAN_ITEM = *mut DHCP_SCAN_ITEM;
+        type LPDHCP_SCAN_LIST = *mut DHCP_SCAN_LIST;
+        type LPDHCP_SEARCH_INFO = *mut DHCP_SEARCH_INFO;
+        type LPDHCP_SEARCH_INFO_TYPE = *mut DHCP_SEARCH_INFO_TYPE;
+        type LPDHCP_SEARCH_INFO_TYPE_V6 = *mut DHCP_SEARCH_INFO_TYPE_V6;
+        type LPDHCP_SEARCH_INFO_V6 = *mut DHCP_SEARCH_INFO_V6;
+        type LPDHCP_SERVER_CONFIG_INFO = *mut DHCP_SERVER_CONFIG_INFO;
+        type LPDHCP_SERVER_CONFIG_INFO_V4 = *mut DHCP_SERVER_CONFIG_INFO_V4;
+        type LPDHCP_SERVER_CONFIG_INFO_V6 = *mut DHCP_SERVER_CONFIG_INFO_V6;
+        type LPDHCP_SERVER_CONFIG_INFO_VQ = *mut DHCP_SERVER_CONFIG_INFO_VQ;
+        type LPDHCP_SERVER_INFO = LPDHCPDS_SERVER;
+        type LPDHCP_SERVER_INFO_ARRAY = LPDHCPDS_SERVERS;
+        type LPDHCP_SERVER_SPECIFIC_STRINGS = *mut DHCP_SERVER_SPECIFIC_STRINGS;
+        type LPDHCP_SUBNET_ELEMENT_DATA = *mut DHCP_SUBNET_ELEMENT_DATA;
+        type LPDHCP_SUBNET_ELEMENT_DATA_V4 = *mut DHCP_SUBNET_ELEMENT_DATA_V4;
+        type LPDHCP_SUBNET_ELEMENT_DATA_V5 = *mut DHCP_SUBNET_ELEMENT_DATA_V5;
+        type LPDHCP_SUBNET_ELEMENT_DATA_V6 = *mut DHCP_SUBNET_ELEMENT_DATA_V6;
+        type LPDHCP_SUBNET_ELEMENT_INFO_ARRAY = *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY;
+        type LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 = *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4;
+        type LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 = *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5;
+        type LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 = *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6;
+        type LPDHCP_SUBNET_ELEMENT_TYPE = *mut DHCP_SUBNET_ELEMENT_TYPE;
+        type LPDHCP_SUBNET_ELEMENT_TYPE_V6 = *mut DHCP_SUBNET_ELEMENT_TYPE_V6;
+        type LPDHCP_SUBNET_ELEMENT_UNION = *mut DHCP_SUBNET_ELEMENT_DATA_0;
+        type LPDHCP_SUBNET_ELEMENT_UNION_V4 = *mut DHCP_SUBNET_ELEMENT_DATA_V4_0;
+        type LPDHCP_SUBNET_ELEMENT_UNION_V6 = *mut DHCP_SUBNET_ELEMENT_DATA_V6_0;
+        type LPDHCP_SUBNET_INFO = *mut DHCP_SUBNET_INFO;
+        type LPDHCP_SUBNET_INFO_V6 = *mut DHCP_SUBNET_INFO_V6;
+        type LPDHCP_SUBNET_INFO_VQ = *mut DHCP_SUBNET_INFO_VQ;
+        type LPDHCP_SUBNET_STATE = *mut DHCP_SUBNET_STATE;
+        type LPDHCP_SUPER_SCOPE_TABLE = *mut DHCP_SUPER_SCOPE_TABLE;
+        type LPDHCP_SUPER_SCOPE_TABLE_ENTRY = *mut DHCP_SUPER_SCOPE_TABLE_ENTRY;
+        type LPDWORD_DWORD = *mut DWORD_DWORD;
+        type LPSCOPE_MIB_INFO = *mut SCOPE_MIB_INFO;
+        type LPSCOPE_MIB_INFO_V5 = *mut SCOPE_MIB_INFO_V5;
+        type LPSCOPE_MIB_INFO_V6 = *mut SCOPE_MIB_INFO_V6;
+        type LPSCOPE_MIB_INFO_VQ = *mut SCOPE_MIB_INFO_VQ;
+        const MAC_ADDRESS_LENGTH: u32 = 6;
+        const MAX_PATTERN_LENGTH: u32 = 255;
+        const MCLT: u32 = 1;
+        const MODE: u32 = 16;
+        type PDATE_TIME = *mut DATE_TIME;
+        type PDHCPDS_SERVER = *mut DHCPDS_SERVER;
+        type PDHCPDS_SERVERS = *mut DHCPDS_SERVERS;
+        type PDHCPV6_STATELESS_PARAMS = *mut DHCPV6_STATELESS_PARAMS;
+        type PDHCPV6_STATELESS_SCOPE_STATS = *mut DHCPV6_STATELESS_SCOPE_STATS;
+        type PDHCPV6_STATELESS_STATS = *mut DHCPV6_STATELESS_STATS;
+        type PDHCP_ATTRIB = *mut DHCP_ATTRIB;
+        type PDHCP_ATTRIB_ARRAY = *mut DHCP_ATTRIB_ARRAY;
+        type PDHCP_ATTRIB_ID = *mut u32;
+        type PDHCP_IPV6_ADDRESS = *mut DHCP_IPV6_ADDRESS;
+        type PDHCP_IP_ADDRESS = *mut u32;
+        type PDHCP_IP_RANGE_ARRAY = *mut DHCP_IP_RANGE_ARRAY;
+        type PDHCP_POLICY = *mut DHCP_POLICY;
+        type PDHCP_POLICY_ARRAY = *mut DHCP_POLICY_ARRAY;
+        type PDHCP_POLICY_EX = *mut DHCP_POLICY_EX;
+        type PDHCP_POLICY_EX_ARRAY = *mut DHCP_POLICY_EX_ARRAY;
+        type PDHCP_POL_COND = *mut DHCP_POL_COND;
+        type PDHCP_POL_COND_ARRAY = *mut DHCP_POL_COND_ARRAY;
+        type PDHCP_POL_EXPR = *mut DHCP_POL_EXPR;
+        type PDHCP_POL_EXPR_ARRAY = *mut DHCP_POL_EXPR_ARRAY;
+        type PDHCP_PROPERTY = *mut DHCP_PROPERTY;
+        type PDHCP_PROPERTY_ARRAY = *mut DHCP_PROPERTY_ARRAY;
+        type PDHCP_SERVER_INFO = PDHCPDS_SERVER;
+        type PDHCP_SERVER_INFO_ARRAY = PDHCPDS_SERVERS;
+        type PDHCP_SUBNET_INFO_V6 = *mut DHCP_SUBNET_INFO_V6;
+        const PERCENTAGE: u32 = 8;
+        const PREVSTATE: u32 = 32;
+        const QUARANTINE_CONFIG_OPTION: u32 = 43222;
+        const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221;
+        const QUARANTIN_OPTION_BASE: u32 = 43220;
+        #[repr(i32)]
+        enum QuarantineStatus {
+            NOQUARANTINE = 0,
+            RESTRICTEDACCESS = 1,
+            DROPPACKET = 2,
+            PROBATION = 3,
+            EXEMPT = 4,
+            DEFAULTQUARSETTING = 5,
+            NOQUARINFO = 6,
+        }
+        const SAFEPERIOD: u32 = 2;
+        struct SCOPE_MIB_INFO {
+            Subnet: DHCP_IP_ADDRESS,
+            NumAddressesInuse: u32,
+            NumAddressesFree: u32,
+            NumPendingOffers: u32,
+        }
+        struct SCOPE_MIB_INFO_V5 {
+            Subnet: DHCP_IP_ADDRESS,
+            NumAddressesInuse: u32,
+            NumAddressesFree: u32,
+            NumPendingOffers: u32,
+        }
+        struct SCOPE_MIB_INFO_V6 {
+            Subnet: DHCP_IPV6_ADDRESS,
+            NumAddressesInuse: u64,
+            NumAddressesFree: u64,
+            NumPendingAdvertises: u64,
+        }
+        struct SCOPE_MIB_INFO_VQ {
+            Subnet: DHCP_IP_ADDRESS,
+            NumAddressesInuse: u32,
+            NumAddressesFree: u32,
+            NumPendingOffers: u32,
+            QtnNumLeases: u32,
+            QtnPctQtnLeases: u32,
+            QtnProbationLeases: u32,
+            QtnNonQtnLeases: u32,
+            QtnExemptLeases: u32,
+            QtnCapableClients: u32,
+        }
+        const SCOPE_STATE_DISABLED: u32 = 1;
+        const SCOPE_STATE_ENABLED: u32 = 0;
+        const SHAREDSECRET: u32 = 64;
+        const Set_APIProtocolSupport: u32 = 1;
+        const Set_AuditLogState: u32 = 2048;
+        const Set_BackupInterval: u32 = 16;
+        const Set_BackupPath: u32 = 8;
+        const Set_BootFileTable: u32 = 1024;
+        const Set_DatabaseCleanupInterval: u32 = 128;
+        const Set_DatabaseLoggingFlag: u32 = 32;
+        const Set_DatabaseName: u32 = 2;
+        const Set_DatabasePath: u32 = 4;
+        const Set_DebugFlag: u32 = 256;
+        const Set_PingRetries: u32 = 512;
+        const Set_PreferredLifetime: u32 = 4;
+        const Set_PreferredLifetimeIATA: u32 = 64;
+        const Set_QuarantineDefFail: u32 = 8192;
+        const Set_QuarantineON: u32 = 4096;
+        const Set_RapidCommitFlag: u32 = 2;
+        const Set_RestoreFlag: u32 = 64;
+        const Set_T1: u32 = 16;
+        const Set_T2: u32 = 32;
+        const Set_UnicastFlag: u32 = 1;
+        const Set_ValidLifetime: u32 = 8;
+        const Set_ValidLifetimeIATA: u32 = 128;
+        const V5_ADDRESS_BIT_BOTH_REC: u32 = 32;
+        const V5_ADDRESS_BIT_DELETED: u32 = 128;
+        const V5_ADDRESS_BIT_UNREGISTERED: u32 = 64;
+        const V5_ADDRESS_EX_BIT_DISABLE_PTR_RR: u32 = 1;
+        const V5_ADDRESS_STATE_ACTIVE: u32 = 1;
+        const V5_ADDRESS_STATE_DECLINED: u32 = 2;
+        const V5_ADDRESS_STATE_DOOM: u32 = 3;
+        const V5_ADDRESS_STATE_OFFERED: u32 = 0;
+        const WARNING_EXTENDED_LESS: u32 = 20026;
+    }
+}

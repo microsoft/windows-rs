@@ -1,0 +1,555 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ACTIVATIONTYPE {
+            ACTIVATIONTYPE_UNCATEGORIZED = 0,
+            ACTIVATIONTYPE_FROM_MONIKER = 1,
+            ACTIVATIONTYPE_FROM_DATA = 2,
+            ACTIVATIONTYPE_FROM_STORAGE = 4,
+            ACTIVATIONTYPE_FROM_STREAM = 8,
+            ACTIVATIONTYPE_FROM_FILE = 16,
+        }
+        type APARTMENTID = u32;
+        #[repr(i32)]
+        enum APTTYPE {
+            APTTYPE_CURRENT = -1,
+            APTTYPE_STA = 0,
+            APTTYPE_MTA = 1,
+            APTTYPE_NA = 2,
+            APTTYPE_MAINSTA = 3,
+        }
+        #[repr(i32)]
+        enum APTTYPEQUALIFIER {
+            APTTYPEQUALIFIER_NONE = 0,
+            APTTYPEQUALIFIER_IMPLICIT_MTA = 1,
+            APTTYPEQUALIFIER_NA_ON_MTA = 2,
+            APTTYPEQUALIFIER_NA_ON_STA = 3,
+            APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA = 4,
+            APTTYPEQUALIFIER_NA_ON_MAINSTA = 5,
+            APTTYPEQUALIFIER_APPLICATION_STA = 6,
+            APTTYPEQUALIFIER_RESERVED_1 = 7,
+        }
+        #[guid(0x000e0020_0000_0000_c000_000000000046)]
+        interface AsyncIMultiQI: IUnknown {
+            fn Begin_QueryMultipleInterfaces(&self, cMQIs: u32, #[len_param(0)] #[in] #[out] pMQIs: *mut MULTI_QI) -> HRESULT;
+            fn Finish_QueryMultipleInterfaces(&self, #[in] #[out] pMQIs: *mut MULTI_QI) -> HRESULT;
+        }
+        #[guid(0xdb2f3acb_2f86_11d1_8e04_00c04fb9989a)]
+        interface AsyncIPipeByte: IUnknown {
+            fn Begin_Pull(&self, cRequest: u32) -> HRESULT;
+            fn Finish_Pull(&self, buf: *mut u8, pcReturned: *mut u32) -> HRESULT;
+            fn Begin_Push(&self, buf: *const u8, cSent: u32) -> HRESULT;
+            fn Finish_Push(&self) -> HRESULT;
+        }
+        #[guid(0xdb2f3acf_2f86_11d1_8e04_00c04fb9989a)]
+        interface AsyncIPipeDouble: IUnknown {
+            fn Begin_Pull(&self, cRequest: u32) -> HRESULT;
+            fn Finish_Pull(&self, buf: *mut f64, pcReturned: *mut u32) -> HRESULT;
+            fn Begin_Push(&self, buf: *const f64, cSent: u32) -> HRESULT;
+            fn Finish_Push(&self) -> HRESULT;
+        }
+        #[guid(0xdb2f3acd_2f86_11d1_8e04_00c04fb9989a)]
+        interface AsyncIPipeLong: IUnknown {
+            fn Begin_Pull(&self, cRequest: u32) -> HRESULT;
+            fn Finish_Pull(&self, buf: *mut i32, pcReturned: *mut u32) -> HRESULT;
+            fn Begin_Push(&self, buf: *const i32, cSent: u32) -> HRESULT;
+            fn Finish_Push(&self) -> HRESULT;
+        }
+        struct COSERVERINFO {
+            dwReserved1: u32,
+            pwszName: PWSTR,
+            pAuthInfo: *mut COAUTHINFO,
+            dwReserved2: u32,
+        }
+        #[repr(i32)]
+        enum CO_MARSHALING_CONTEXT_ATTRIBUTES {
+            CO_MARSHALING_SOURCE_IS_APP_CONTAINER = 0,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1 = -2147483648,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2 = -2147483647,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3 = -2147483646,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4 = -2147483645,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5 = -2147483644,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6 = -2147483643,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7 = -2147483642,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8 = -2147483641,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9 = -2147483640,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10 = -2147483639,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11 = -2147483638,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12 = -2147483637,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13 = -2147483636,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14 = -2147483635,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15 = -2147483634,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16 = -2147483633,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17 = -2147483632,
+            CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18 = -2147483631,
+        }
+        #[repr(i32)]
+        enum DCOM_CALL_STATE {
+            DCOM_NONE = 0,
+            DCOM_CALL_COMPLETE = 1,
+            DCOM_CALL_CANCELED = 2,
+        }
+        #[repr(i32)]
+        enum EOLE_AUTHENTICATION_CAPABILITIES {
+            EOAC_NONE = 0,
+            EOAC_MUTUAL_AUTH = 1,
+            EOAC_STATIC_CLOAKING = 32,
+            EOAC_DYNAMIC_CLOAKING = 64,
+            EOAC_ANY_AUTHORITY = 128,
+            EOAC_MAKE_FULLSIC = 256,
+            EOAC_DEFAULT = 2048,
+            EOAC_SECURE_REFS = 2,
+            EOAC_ACCESS_CONTROL = 4,
+            EOAC_APPID = 8,
+            EOAC_DYNAMIC = 16,
+            EOAC_REQUIRE_FULLSIC = 512,
+            EOAC_AUTO_IMPERSONATE = 1024,
+            EOAC_DISABLE_AAA = 4096,
+            EOAC_NO_CUSTOM_MARSHAL = 8192,
+            EOAC_RESERVED1 = 16384,
+        }
+        #[repr(i32)]
+        enum EXTCONN {
+            EXTCONN_STRONG = 1,
+            EXTCONN_WEAK = 2,
+            EXTCONN_CALLABLE = 4,
+        }
+        #[repr(i32)]
+        enum GLOBALOPT_EH_VALUES {
+            COMGLB_EXCEPTION_HANDLE = 0,
+            COMGLB_EXCEPTION_DONOT_HANDLE_FATAL = 1,
+            COMGLB_EXCEPTION_DONOT_HANDLE = 1,
+            COMGLB_EXCEPTION_DONOT_HANDLE_ANY = 2,
+        }
+        #[repr(i32)]
+        enum GLOBALOPT_PROPERTIES {
+            COMGLB_EXCEPTION_HANDLING = 1,
+            COMGLB_APPID = 2,
+            COMGLB_RPC_THREADPOOL_SETTING = 3,
+            COMGLB_RO_SETTINGS = 4,
+            COMGLB_UNMARSHALING_POLICY = 5,
+            COMGLB_PROPERTIES_RESERVED1 = 6,
+            COMGLB_PROPERTIES_RESERVED2 = 7,
+            COMGLB_PROPERTIES_RESERVED3 = 8,
+        }
+        #[repr(i32)]
+        enum GLOBALOPT_RO_FLAGS {
+            COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES = 1,
+            COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES = 2,
+            COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES = 4,
+            COMGLB_FAST_RUNDOWN = 8,
+            COMGLB_RESERVED1 = 16,
+            COMGLB_RESERVED2 = 32,
+            COMGLB_RESERVED3 = 64,
+            COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES = 128,
+            COMGLB_RESERVED4 = 256,
+            COMGLB_RESERVED5 = 512,
+            COMGLB_RESERVED6 = 1024,
+        }
+        #[repr(i32)]
+        enum GLOBALOPT_RPCTP_VALUES {
+            COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL = 0,
+            COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL = 1,
+        }
+        #[repr(i32)]
+        enum GLOBALOPT_UNMARSHALING_POLICY_VALUES {
+            COMGLB_UNMARSHALING_POLICY_NORMAL = 0,
+            COMGLB_UNMARSHALING_POLICY_STRONG = 1,
+            COMGLB_UNMARSHALING_POLICY_HYBRID = 2,
+        }
+        #[guid(0x00000017_0000_0000_c000_000000000046)]
+        interface IActivationFilter: IUnknown {
+            fn HandleActivation(&self, dwActivationType: u32, rclsid: *const GUID, pReplacementClsId: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x00000148_0000_0000_c000_000000000046)]
+        interface IAddrExclusionControl: IUnknown {
+            fn GetCurrentAddrExclusionList(&self, riid: *const GUID, #[iid_is] ppEnumerator: *mut *mut void) -> HRESULT;
+            fn UpdateAddrExclusionList(&self, pEnumerator: IUnknown) -> HRESULT;
+        }
+        #[guid(0x00000147_0000_0000_c000_000000000046)]
+        interface IAddrTrackingControl: IUnknown {
+            fn EnableCOMDynamicAddrTracking(&self) -> HRESULT;
+            fn DisableCOMDynamicAddrTracking(&self) -> HRESULT;
+        }
+        #[guid(0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90)]
+        interface IAgileObject: IUnknown {}
+        #[guid(0xc03f6a43_65a4_9818_987e_e0b810d2a6f2)]
+        interface IAgileReference: IUnknown {
+            fn Resolve(&self, riid: *const GUID, #[retval] #[iid_is] ppvObjectReference: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0000002a_0000_0000_c000_000000000046)]
+        interface IAsyncManager: IUnknown {
+            fn CompleteCall(&self, Result: HRESULT) -> HRESULT;
+            fn GetCallContext(&self, riid: *const GUID, pInterface: *mut *mut void) -> HRESULT;
+            fn GetState(&self, pulStateFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0xa5029fb6_3c34_11d1_9c99_00c04fb998aa)]
+        interface IAsyncRpcChannelBuffer: IRpcChannelBuffer2 {
+            fn Send(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, pSync: ISynchronize, pulStatus: *mut u32) -> HRESULT;
+            fn Receive(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, pulStatus: *mut u32) -> HRESULT;
+            fn GetDestCtxEx(&self, pMsg: *const RPCOLEMESSAGE, pdwDestContext: *mut u32, ppvDestContext: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x1c733a30_2a1c_11ce_ade5_00aa0044773d)]
+        interface ICallFactory: IUnknown {
+            fn CreateCall(&self, riid: *const GUID, #[opt] pCtrlUnk: IUnknown, riid2: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x00000029_0000_0000_c000_000000000046)]
+        interface ICancelMethodCalls: IUnknown {
+            fn Cancel(&self, ulSeconds: u32) -> HRESULT;
+            fn TestCancel(&self) -> HRESULT;
+        }
+        #[guid(0x1008c4a0_7613_11cf_9af1_0020af6e72f4)]
+        interface IChannelHook: IUnknown {
+            fn ClientGetSize(&self, uExtent: *const GUID, riid: *const GUID, pDataSize: *mut u32);
+            fn ClientFillBuffer(&self, uExtent: *const GUID, riid: *const GUID, #[in] #[out] pDataSize: *mut u32, pDataBuffer: *const void);
+            fn ClientNotify(&self, uExtent: *const GUID, riid: *const GUID, cbDataSize: u32, pDataBuffer: *const void, lDataRep: u32, hrFault: HRESULT);
+            fn ServerNotify(&self, uExtent: *const GUID, riid: *const GUID, cbDataSize: u32, pDataBuffer: *const void, lDataRep: u32);
+            fn ServerGetSize(&self, uExtent: *const GUID, riid: *const GUID, hrFault: HRESULT, pDataSize: *mut u32);
+            fn ServerFillBuffer(&self, uExtent: *const GUID, riid: *const GUID, #[in] #[out] pDataSize: *mut u32, pDataBuffer: *const void, hrFault: HRESULT);
+        }
+        #[guid(0x0000013d_0000_0000_c000_000000000046)]
+        interface IClientSecurity: IUnknown {
+            fn QueryBlanket(&self, pProxy: IUnknown, pAuthnSvc: *mut u32, #[opt] pAuthzSvc: *mut u32, pServerPrincName: *mut *mut OLECHAR, #[opt] pAuthnLevel: *mut u32, #[opt] pImpLevel: *mut u32, pAuthInfo: *mut *mut void, #[opt] pCapabilites: *mut u32) -> HRESULT;
+            fn SetBlanket(&self, pProxy: IUnknown, dwAuthnSvc: u32, dwAuthzSvc: u32, pServerPrincName: *const OLECHAR, dwAuthnLevel: u32, dwImpLevel: u32, #[opt] pAuthInfo: *const void, dwCapabilities: u32) -> HRESULT;
+            fn CopyProxy(&self, pProxy: IUnknown, ppCopy: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x000001ce_0000_0000_c000_000000000046)]
+        interface IComThreadingInfo: IUnknown {
+            fn GetCurrentApartmentType(&self, pAptType: *mut APTTYPE) -> HRESULT;
+            fn GetCurrentThreadType(&self, pThreadType: *mut THDTYPE) -> HRESULT;
+            fn GetCurrentLogicalThreadId(&self, pguidLogicalThreadId: *mut GUID) -> HRESULT;
+            fn SetCurrentLogicalThreadId(&self, rguid: *const GUID) -> HRESULT;
+        }
+        struct IContext {}
+        struct IEnumContextProps {}
+        #[guid(0x00000101_0000_0000_c000_000000000046)]
+        interface IEnumString: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut PWSTR, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumString) -> HRESULT;
+        }
+        #[guid(0x00000100_0000_0000_c000_000000000046)]
+        interface IEnumUnknown: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut IUnknown, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumUnknown) -> HRESULT;
+        }
+        #[guid(0x00000019_0000_0000_c000_000000000046)]
+        interface IExternalConnection: IUnknown {
+            fn AddConnection(&self, extconn: u32, reserved: u32) -> u32;
+            fn ReleaseConnection(&self, extconn: u32, reserved: u32, fLastReleaseCloses: BOOL) -> u32;
+        }
+        #[guid(0x00000040_0000_0000_c000_000000000046)]
+        interface IFastRundown: IUnknown {}
+        #[guid(0x00000146_0000_0000_c000_000000000046)]
+        interface IGlobalInterfaceTable: IUnknown {
+            fn RegisterInterfaceInGlobal(&self, pUnk: IUnknown, riid: *const GUID, pdwCookie: *mut u32) -> HRESULT;
+            fn RevokeInterfaceFromGlobal(&self, dwCookie: u32) -> HRESULT;
+            fn GetInterfaceFromGlobal(&self, dwCookie: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0000015b_0000_0000_c000_000000000046)]
+        interface IGlobalOptions: IUnknown {
+            fn Set(&self, dwProperty: GLOBALOPT_PROPERTIES, dwValue: usize) -> HRESULT;
+            fn Query(&self, dwProperty: GLOBALOPT_PROPERTIES, pdwValue: *mut usize) -> HRESULT;
+        }
+        #[guid(0x00000021_0000_0000_c000_000000000046)]
+        interface IInternalUnknown: IUnknown {
+            fn QueryInternalInterface(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x26d709ac_f70b_4421_a96f_d2878fafb00d)]
+        interface IMachineGlobalObjectTable: IUnknown {
+            fn RegisterObject(&self, clsid: *const GUID, identifier: PCWSTR, object: IUnknown, token: *mut MachineGlobalObjectTableRegistrationToken) -> HRESULT;
+            fn GetObject(&self, clsid: *const GUID, identifier: PCWSTR, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn RevokeObject(&self, token: MachineGlobalObjectTableRegistrationToken) -> HRESULT;
+        }
+        #[guid(0x00000002_0000_0000_c000_000000000046)]
+        interface IMalloc: IUnknown {
+            fn Alloc(&self, cb: usize) -> *mut void;
+            fn Realloc(&self, #[opt] pv: *const void, cb: usize) -> *mut void;
+            fn Free(&self, #[opt] pv: *const void);
+            fn GetSize(&self, #[opt] pv: *const void) -> usize;
+            fn DidAlloc(&self, #[opt] pv: *const void) -> i32;
+            fn HeapMinimize(&self);
+        }
+        #[guid(0x00000003_0000_0000_c000_000000000046)]
+        interface IMarshal: IUnknown {
+            fn GetUnmarshalClass(&self, riid: *const GUID, #[opt] pv: *const void, dwDestContext: u32, #[reserved] pvDestContext: *const void, mshlflags: u32, pCid: *mut GUID) -> HRESULT;
+            fn GetMarshalSizeMax(&self, riid: *const GUID, #[opt] pv: *const void, dwDestContext: u32, #[reserved] pvDestContext: *const void, mshlflags: u32, pSize: *mut u32) -> HRESULT;
+            fn MarshalInterface(&self, pStm: IStream, riid: *const GUID, #[opt] pv: *const void, dwDestContext: u32, #[reserved] pvDestContext: *const void, mshlflags: u32) -> HRESULT;
+            fn UnmarshalInterface(&self, pStm: IStream, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn ReleaseMarshalData(&self, pStm: IStream) -> HRESULT;
+            fn DisconnectObject(&self, dwReserved: u32) -> HRESULT;
+        }
+        #[guid(0x000001cf_0000_0000_c000_000000000046)]
+        interface IMarshal2: IMarshal {}
+        #[guid(0xd8f2f5e6_6102_4863_9f26_389a4676efde)]
+        interface IMarshalingStream: IStream {
+            fn GetMarshalingContextAttribute(&self, attribute: CO_MARSHALING_CONTEXT_ATTRIBUTES, pAttributeValue: *mut usize) -> HRESULT;
+        }
+        #[guid(0x00000020_0000_0000_c000_000000000046)]
+        interface IMultiQI: IUnknown {
+            fn QueryMultipleInterfaces(&self, cMQIs: u32, #[len_param(0)] #[in] #[out] pMQIs: *mut MULTI_QI) -> HRESULT;
+        }
+        #[guid(0xecc8691b_c1db_4dc0_855e_65f6c551af49)]
+        interface INoMarshal: IUnknown {}
+        struct IObjContext {}
+        #[guid(0xd5f569d0_593b_101a_b569_08002b2dbf7a)]
+        interface IPSFactoryBuffer: IUnknown {
+            fn CreateProxy(&self, pUnkOuter: IUnknown, riid: *const GUID, ppProxy: *mut IRpcProxyBuffer, ppv: *mut *mut void) -> HRESULT;
+            fn CreateStub(&self, riid: *const GUID, #[opt] pUnkServer: IUnknown, ppStub: *mut IRpcStubBuffer) -> HRESULT;
+        }
+        #[guid(0x8f146474_b228_48fb_a58c_105ebb273abc)]
+        interface IPackagedComSyntaxSupport: IUnknown {
+            fn GetSupportedVersion(&self, supportedVersion: *mut u32) -> HRESULT;
+        }
+        #[guid(0xdb2f3aca_2f86_11d1_8e04_00c04fb9989a)]
+        interface IPipeByte: IUnknown {
+            fn Pull(&self, buf: *mut u8, cRequest: u32, pcReturned: *mut u32) -> HRESULT;
+            fn Push(&self, buf: *const u8, cSent: u32) -> HRESULT;
+        }
+        #[guid(0xdb2f3ace_2f86_11d1_8e04_00c04fb9989a)]
+        interface IPipeDouble: IUnknown {
+            fn Pull(&self, buf: *mut f64, cRequest: u32, pcReturned: *mut u32) -> HRESULT;
+            fn Push(&self, buf: *const f64, cSent: u32) -> HRESULT;
+        }
+        #[guid(0xdb2f3acc_2f86_11d1_8e04_00c04fb9989a)]
+        interface IPipeLong: IUnknown {
+            fn Pull(&self, buf: *mut i32, cRequest: u32, pcReturned: *mut u32) -> HRESULT;
+            fn Push(&self, buf: *const i32, cSent: u32) -> HRESULT;
+        }
+        #[guid(0x72380d55_8d2b_43a3_8513_2b6ef31434e9)]
+        interface IProcessInitControl: IUnknown {
+            fn ResetInitializerTimeout(&self, dwSecondsRemaining: u32) -> HRESULT;
+        }
+        #[guid(0xeb0cb9e8_7996_11d2_872e_0000f8080859)]
+        interface IReleaseMarshalBuffers: IUnknown {
+            fn ReleaseMarshalBuffer(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, dwFlags: u32, #[opt] pChnl: IUnknown) -> HRESULT;
+        }
+        #[guid(0xd5f56b60_593b_101a_b569_08002b2dbf7a)]
+        interface IRpcChannelBuffer: IUnknown {
+            fn GetBuffer(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE, riid: *const GUID) -> HRESULT;
+            fn SendReceive(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE, #[opt] pStatus: *mut u32) -> HRESULT;
+            fn FreeBuffer(&self, #[in] #[out] pMessage: *mut RPCOLEMESSAGE) -> HRESULT;
+            fn GetDestCtx(&self, pdwDestContext: *mut u32, ppvDestContext: *mut *mut void) -> HRESULT;
+            fn IsConnected(&self) -> HRESULT;
+        }
+        #[guid(0x594f31d0_7f19_11d0_b194_00a0c90dc8bf)]
+        interface IRpcChannelBuffer2: IRpcChannelBuffer {
+            fn GetProtocolVersion(&self, pdwVersion: *mut u32) -> HRESULT;
+        }
+        #[guid(0x25b15600_0115_11d0_bf0d_00aa00b8dfd2)]
+        interface IRpcChannelBuffer3: IRpcChannelBuffer2 {
+            fn Send(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, pulStatus: *mut u32) -> HRESULT;
+            fn Receive(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, ulSize: u32, pulStatus: *mut u32) -> HRESULT;
+            fn Cancel(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE) -> HRESULT;
+            fn GetCallContext(&self, pMsg: *const RPCOLEMESSAGE, riid: *const GUID, pInterface: *mut *mut void) -> HRESULT;
+            fn GetDestCtxEx(&self, pMsg: *const RPCOLEMESSAGE, pdwDestContext: *mut u32, ppvDestContext: *mut *mut void) -> HRESULT;
+            fn GetState(&self, pMsg: *const RPCOLEMESSAGE, pState: *mut u32) -> HRESULT;
+            fn RegisterAsync(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, pAsyncMgr: IAsyncManager) -> HRESULT;
+        }
+        #[guid(0x00000149_0000_0000_c000_000000000046)]
+        interface IRpcHelper: IUnknown {
+            fn GetDCOMProtocolVersion(&self, pComVersion: *mut u32) -> HRESULT;
+            fn GetIIDFromOBJREF(&self, pObjRef: *const void, piid: *mut *mut GUID) -> HRESULT;
+        }
+        #[guid(0x00000144_0000_0000_c000_000000000046)]
+        interface IRpcOptions: IUnknown {
+            fn Set(&self, pPrx: IUnknown, dwProperty: RPCOPT_PROPERTIES, dwValue: usize) -> HRESULT;
+            fn Query(&self, pPrx: IUnknown, dwProperty: RPCOPT_PROPERTIES, pdwValue: *mut usize) -> HRESULT;
+        }
+        #[guid(0xd5f56a34_593b_101a_b569_08002b2dbf7a)]
+        interface IRpcProxyBuffer: IUnknown {
+            fn Connect(&self, pRpcChannelBuffer: IRpcChannelBuffer) -> HRESULT;
+            fn Disconnect(&self);
+        }
+        #[guid(0xd5f56afc_593b_101a_b569_08002b2dbf7a)]
+        interface IRpcStubBuffer: IUnknown {
+            fn Connect(&self, pUnkServer: IUnknown) -> HRESULT;
+            fn Disconnect(&self);
+            fn Invoke(&self, #[in] #[out] _prpcmsg: *mut RPCOLEMESSAGE, _pRpcChannelBuffer: IRpcChannelBuffer) -> HRESULT;
+            fn IsIIDSupported(&self, riid: *const GUID) -> IRpcStubBuffer;
+            fn CountRefs(&self) -> u32;
+            fn DebugServerQueryInterface(&self, ppv: *mut *mut void) -> HRESULT;
+            fn DebugServerRelease(&self, pv: *const void);
+        }
+        #[guid(0x58a08519_24c8_4935_b482_3fd823333a4f)]
+        interface IRpcSyntaxNegotiate: IUnknown {
+            fn NegotiateSyntax(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE) -> HRESULT;
+        }
+        #[guid(0x0c733a30_2a1c_11ce_ade5_00aa0044773d)]
+        interface ISequentialStream: IUnknown {
+            fn Read(&self, #[size_param(1)] pv: *mut void, cb: u32, #[opt] pcbRead: *mut u32) -> HRESULT;
+            fn Write(&self, #[size_param(1)] pv: *const void, cb: u32, #[opt] pcbWritten: *mut u32) -> HRESULT;
+        }
+        #[guid(0x0000013e_0000_0000_c000_000000000046)]
+        interface IServerSecurity: IUnknown {
+            fn QueryBlanket(&self, #[opt] pAuthnSvc: *mut u32, #[opt] pAuthzSvc: *mut u32, pServerPrincName: *mut *mut OLECHAR, #[opt] pAuthnLevel: *mut u32, #[opt] pImpLevel: *mut u32, pPrivs: *mut *mut void, #[in] #[out] #[opt] pCapabilities: *mut u32) -> HRESULT;
+            fn ImpersonateClient(&self) -> HRESULT;
+            fn RevertToSelf(&self) -> HRESULT;
+            fn IsImpersonating(&self) -> BOOL;
+        }
+        #[guid(0x00000018_0000_0000_c000_000000000046)]
+        interface IStdMarshalInfo: IUnknown {
+            fn GetClassForHandler(&self, dwDestContext: u32, #[reserved] pvDestContext: *const void, pClsid: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x0000000c_0000_0000_c000_000000000046)]
+        interface IStream: ISequentialStream {
+            fn Seek(&self, dlibMove: LARGE_INTEGER, dwOrigin: u32, #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
+            fn SetSize(&self, libNewSize: ULARGE_INTEGER) -> HRESULT;
+            fn CopyTo(&self, pstm: IStream, cb: ULARGE_INTEGER, #[opt] pcbRead: *mut ULARGE_INTEGER, #[opt] pcbWritten: *mut ULARGE_INTEGER) -> HRESULT;
+            fn Commit(&self, grfCommitFlags: u32) -> HRESULT;
+            fn Revert(&self) -> HRESULT;
+            fn LockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: u32) -> HRESULT;
+            fn UnlockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: u32) -> HRESULT;
+            fn Stat(&self, pstatstg: *mut STATSTG, grfStatFlag: u32) -> HRESULT;
+            fn Clone(&self, ppstm: *mut IStream) -> HRESULT;
+        }
+        #[guid(0x765d1df2_f0af_4ef8_aa50_84789ca330ed)]
+        interface ISupportActivateAsActivatorPackaged: IUnknown {}
+        #[guid(0x0a18aae5_5caa_48c5_a9f4_6e46dcd58ad5)]
+        interface ISupportActivationFromPackage: IUnknown {}
+        #[guid(0xe9956ef2_3828_4b4b_8fa9_7db61dee4954)]
+        interface ISupportAllowLowerTrustActivation: IUnknown {}
+        #[guid(0xc8059efc_4e98_4fd0_bfc6_44190b80b823)]
+        interface ISupportCoAddComDependencyOnPackage: IUnknown {}
+        #[guid(0x40aefe22_3ff6_43dc_8108_c8c402d57b5c)]
+        interface ISupportDoNotElevateServerActivation: IUnknown {}
+        #[guid(0xb4219019_f712_4d4f_ade7_f468276af0b8)]
+        interface ISupportPackagedComElevationEnabledClasses: IUnknown {}
+        #[guid(0x8dc3444e_c7ee_449a_9fb8_b9173988d66a)]
+        interface ISupportPackagedComRegistrationVisibility: IUnknown {}
+        #[guid(0x5bdb3ee2_46bc_4313_b5fb_801c360ba5f9)]
+        interface ISupportServerMustBeEqualOrGreaterPrivilegeActivation: IUnknown {}
+        #[guid(0x00000022_0000_0000_c000_000000000046)]
+        interface ISurrogate: IUnknown {
+            fn LoadDllServer(&self, Clsid: *const GUID) -> HRESULT;
+            fn FreeSurrogate(&self) -> HRESULT;
+        }
+        #[guid(0x00000030_0000_0000_c000_000000000046)]
+        interface ISynchronize: IUnknown {
+            fn Wait(&self, dwFlags: u32, dwMilliseconds: u32) -> HRESULT;
+            fn Signal(&self) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+        }
+        #[guid(0x00000033_0000_0000_c000_000000000046)]
+        interface ISynchronizeContainer: IUnknown {
+            fn AddSynchronize(&self, pSync: ISynchronize) -> HRESULT;
+            fn WaitMultiple(&self, dwFlags: u32, dwTimeOut: u32, ppSync: *mut ISynchronize) -> HRESULT;
+        }
+        #[guid(0x00000032_0000_0000_c000_000000000046)]
+        interface ISynchronizeEvent: ISynchronizeHandle {
+            fn SetEventHandle(&self, ph: *const HANDLE) -> HRESULT;
+        }
+        #[guid(0x00000031_0000_0000_c000_000000000046)]
+        interface ISynchronizeHandle: IUnknown {
+            fn GetHandle(&self, ph: *mut HANDLE) -> HRESULT;
+        }
+        #[guid(0x00000025_0000_0000_c000_000000000046)]
+        interface ISynchronizeMutex: ISynchronize {
+            fn ReleaseMutex(&self) -> HRESULT;
+        }
+        #[guid(0x0000002b_0000_0000_c000_000000000046)]
+        interface IWaitMultiple: IUnknown {
+            fn WaitMultiple(&self, timeout: u32, pSync: *mut ISynchronize) -> HRESULT;
+            fn AddSynchronize(&self, pSync: ISynchronize) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum LOCKTYPE {
+            LOCK_WRITE = 1,
+            LOCK_EXCLUSIVE = 2,
+            LOCK_ONLYONCE = 4,
+        }
+        struct MULTI_QI {
+            pIID: *const GUID,
+            pItf: IUnknown,
+            hr: HRESULT,
+        }
+        type MachineGlobalObjectTableRegistrationToken = *mut void;
+        type PRPCOLEMESSAGE = *mut RPCOLEMESSAGE;
+        type PSOLE_AUTHENTICATION_INFO = *mut SOLE_AUTHENTICATION_INFO;
+        type PSOLE_AUTHENTICATION_LIST = *mut SOLE_AUTHENTICATION_LIST;
+        type PSOLE_AUTHENTICATION_SERVICE = *mut SOLE_AUTHENTICATION_SERVICE;
+        type RPCOLEDATAREP = u32;
+        struct RPCOLEMESSAGE {
+            reserved1: *mut void,
+            dataRepresentation: RPCOLEDATAREP,
+            Buffer: *mut void,
+            cbBuffer: u32,
+            iMethod: u32,
+            reserved2: [*mut void; 5],
+            rpcFlags: u32,
+        }
+        #[repr(i32)]
+        enum RPCOPT_PROPERTIES {
+            COMBND_RPCTIMEOUT = 1,
+            COMBND_SERVER_LOCALITY = 2,
+            COMBND_RESERVED1 = 4,
+            COMBND_RESERVED2 = 5,
+            COMBND_RESERVED3 = 8,
+            COMBND_RESERVED4 = 16,
+        }
+        #[repr(i32)]
+        enum RPCOPT_SERVER_LOCALITY_VALUES {
+            SERVER_LOCALITY_PROCESS_LOCAL = 0,
+            SERVER_LOCALITY_MACHINE_LOCAL = 1,
+            SERVER_LOCALITY_REMOTE = 2,
+        }
+        struct SChannelHookCallInfo {
+            iid: GUID,
+            cbSize: u32,
+            uCausality: GUID,
+            dwServerPid: u32,
+            iMethod: u32,
+            pObject: *mut void,
+        }
+        struct SOLE_AUTHENTICATION_INFO {
+            dwAuthnSvc: u32,
+            dwAuthzSvc: u32,
+            pAuthInfo: *mut void,
+        }
+        struct SOLE_AUTHENTICATION_LIST {
+            cAuthInfo: u32,
+            aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
+        }
+        struct SOLE_AUTHENTICATION_SERVICE {
+            dwAuthnSvc: u32,
+            dwAuthzSvc: u32,
+            pPrincipalName: *mut OLECHAR,
+            hr: HRESULT,
+        }
+        struct STATSTG {
+            pwcsName: PWSTR,
+            r#type: u32,
+            cbSize: ULARGE_INTEGER,
+            mtime: FILETIME,
+            ctime: FILETIME,
+            atime: FILETIME,
+            grfMode: u32,
+            grfLocksSupported: u32,
+            clsid: GUID,
+            grfStateBits: u32,
+            reserved: u32,
+        }
+        #[repr(i32)]
+        enum STGTY {
+            STGTY_STORAGE = 1,
+            STGTY_STREAM = 2,
+            STGTY_LOCKBYTES = 3,
+            STGTY_PROPERTY = 4,
+        }
+        #[repr(i32)]
+        enum STREAM_SEEK {
+            STREAM_SEEK_SET = 0,
+            STREAM_SEEK_CUR = 1,
+            STREAM_SEEK_END = 2,
+        }
+        #[repr(i32)]
+        enum THDTYPE {
+            THDTYPE_BLOCKMESSAGES = 0,
+            THDTYPE_PROCESSMESSAGES = 1,
+        }
+    }
+}

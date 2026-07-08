@@ -1,0 +1,691 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(u32)]
+        #[flags]
+        enum APPLY_SNAPSHOT_VHDSET_FLAG {
+            APPLY_SNAPSHOT_VHDSET_FLAG_NONE = 0,
+            APPLY_SNAPSHOT_VHDSET_FLAG_WRITEABLE = 1,
+        }
+        struct APPLY_SNAPSHOT_VHDSET_PARAMETERS {
+            Version: APPLY_SNAPSHOT_VHDSET_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    SnapshotId: GUID,
+                    LeafSnapshotId: GUID,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum APPLY_SNAPSHOT_VHDSET_VERSION {
+            APPLY_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED = 0,
+            APPLY_SNAPSHOT_VHDSET_VERSION_1 = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum ATTACH_VIRTUAL_DISK_FLAG {
+            ATTACH_VIRTUAL_DISK_FLAG_NONE = 0,
+            ATTACH_VIRTUAL_DISK_FLAG_READ_ONLY = 1,
+            ATTACH_VIRTUAL_DISK_FLAG_NO_DRIVE_LETTER = 2,
+            ATTACH_VIRTUAL_DISK_FLAG_PERMANENT_LIFETIME = 4,
+            ATTACH_VIRTUAL_DISK_FLAG_NO_LOCAL_HOST = 8,
+            ATTACH_VIRTUAL_DISK_FLAG_NO_SECURITY_DESCRIPTOR = 16,
+            ATTACH_VIRTUAL_DISK_FLAG_BYPASS_DEFAULT_ENCRYPTION_POLICY = 32,
+            ATTACH_VIRTUAL_DISK_FLAG_NON_PNP = 64,
+            ATTACH_VIRTUAL_DISK_FLAG_RESTRICTED_RANGE = 128,
+            ATTACH_VIRTUAL_DISK_FLAG_SINGLE_PARTITION = 256,
+            ATTACH_VIRTUAL_DISK_FLAG_REGISTER_VOLUME = 512,
+            ATTACH_VIRTUAL_DISK_FLAG_AT_BOOT = 1024,
+        }
+        struct ATTACH_VIRTUAL_DISK_PARAMETERS {
+            Version: ATTACH_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    Reserved: u32,
+                },
+                Version2: struct {
+                    RestrictedOffset: u64,
+                    RestrictedLength: u64,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum ATTACH_VIRTUAL_DISK_VERSION {
+            ATTACH_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+            ATTACH_VIRTUAL_DISK_VERSION_1 = 1,
+            ATTACH_VIRTUAL_DISK_VERSION_2 = 2,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn AddVirtualDiskParent(VirtualDiskHandle: HANDLE, ParentPath: PCWSTR) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn ApplySnapshotVhdSet(VirtualDiskHandle: HANDLE, Parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, Flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn AttachVirtualDisk(VirtualDiskHandle: HANDLE, #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, Flags: ATTACH_VIRTUAL_DISK_FLAG, ProviderSpecificFlags: u32, #[opt] Parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn BreakMirrorVirtualDisk(VirtualDiskHandle: HANDLE) -> u32;
+        #[repr(u32)]
+        #[flags]
+        enum COMPACT_VIRTUAL_DISK_FLAG {
+            COMPACT_VIRTUAL_DISK_FLAG_NONE = 0,
+            COMPACT_VIRTUAL_DISK_FLAG_NO_ZERO_SCAN = 1,
+            COMPACT_VIRTUAL_DISK_FLAG_NO_BLOCK_MOVES = 2,
+        }
+        struct COMPACT_VIRTUAL_DISK_PARAMETERS {
+            Version: COMPACT_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    Reserved: u32,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum COMPACT_VIRTUAL_DISK_VERSION {
+            COMPACT_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+            COMPACT_VIRTUAL_DISK_VERSION_1 = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum CREATE_VIRTUAL_DISK_FLAG {
+            CREATE_VIRTUAL_DISK_FLAG_NONE = 0,
+            CREATE_VIRTUAL_DISK_FLAG_FULL_PHYSICAL_ALLOCATION = 1,
+            CREATE_VIRTUAL_DISK_FLAG_PREVENT_WRITES_TO_SOURCE_DISK = 2,
+            CREATE_VIRTUAL_DISK_FLAG_DO_NOT_COPY_METADATA_FROM_PARENT = 4,
+            CREATE_VIRTUAL_DISK_FLAG_CREATE_BACKING_STORAGE = 8,
+            CREATE_VIRTUAL_DISK_FLAG_USE_CHANGE_TRACKING_SOURCE_LIMIT = 16,
+            CREATE_VIRTUAL_DISK_FLAG_PRESERVE_PARENT_CHANGE_TRACKING_STATE = 32,
+            CREATE_VIRTUAL_DISK_FLAG_VHD_SET_USE_ORIGINAL_BACKING_STORAGE = 64,
+            CREATE_VIRTUAL_DISK_FLAG_SPARSE_FILE = 128,
+            CREATE_VIRTUAL_DISK_FLAG_PMEM_COMPATIBLE = 256,
+            CREATE_VIRTUAL_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES = 512,
+            CREATE_VIRTUAL_DISK_FLAG_SUPPORT_SPARSE_FILES_ANY_FS = 1024,
+        }
+        const CREATE_VIRTUAL_DISK_FLAG_USE_RCT_SOURCE_LIMIT: u32 = 16;
+        struct CREATE_VIRTUAL_DISK_PARAMETERS {
+            Version: CREATE_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    UniqueId: GUID,
+                    MaximumSize: u64,
+                    BlockSizeInBytes: u32,
+                    SectorSizeInBytes: u32,
+                    ParentPath: PCWSTR,
+                    SourcePath: PCWSTR,
+                },
+                Version2: struct {
+                    UniqueId: GUID,
+                    MaximumSize: u64,
+                    BlockSizeInBytes: u32,
+                    SectorSizeInBytes: u32,
+                    PhysicalSectorSizeInBytes: u32,
+                    ParentPath: PCWSTR,
+                    SourcePath: PCWSTR,
+                    OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
+                    ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                    SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                    ResiliencyGuid: GUID,
+                },
+                Version3: struct {
+                    UniqueId: GUID,
+                    MaximumSize: u64,
+                    BlockSizeInBytes: u32,
+                    SectorSizeInBytes: u32,
+                    PhysicalSectorSizeInBytes: u32,
+                    ParentPath: PCWSTR,
+                    SourcePath: PCWSTR,
+                    OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
+                    ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                    SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                    ResiliencyGuid: GUID,
+                    SourceLimitPath: PCWSTR,
+                    BackingStorageType: VIRTUAL_STORAGE_TYPE,
+                },
+                Version4: struct {
+                    UniqueId: GUID,
+                    MaximumSize: u64,
+                    BlockSizeInBytes: u32,
+                    SectorSizeInBytes: u32,
+                    PhysicalSectorSizeInBytes: u32,
+                    ParentPath: PCWSTR,
+                    SourcePath: PCWSTR,
+                    OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
+                    ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                    SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                    ResiliencyGuid: GUID,
+                    SourceLimitPath: PCWSTR,
+                    BackingStorageType: VIRTUAL_STORAGE_TYPE,
+                    PmemAddressAbstractionType: GUID,
+                    DataAlignment: u64,
+                },
+            },
+        }
+        const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0;
+        const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0;
+        #[repr(i32)]
+        enum CREATE_VIRTUAL_DISK_VERSION {
+            CREATE_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+            CREATE_VIRTUAL_DISK_VERSION_1 = 1,
+            CREATE_VIRTUAL_DISK_VERSION_2 = 2,
+            CREATE_VIRTUAL_DISK_VERSION_3 = 3,
+            CREATE_VIRTUAL_DISK_VERSION_4 = 4,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn CompactVirtualDisk(VirtualDiskHandle: HANDLE, Flags: COMPACT_VIRTUAL_DISK_FLAG, #[opt] Parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn CompleteForkVirtualDisk(VirtualDiskHandle: HANDLE) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn CreateVirtualDisk(VirtualStorageType: *const VIRTUAL_STORAGE_TYPE, Path: PCWSTR, VirtualDiskAccessMask: VIRTUAL_DISK_ACCESS_MASK, #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, Flags: CREATE_VIRTUAL_DISK_FLAG, ProviderSpecificFlags: u32, Parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: *const OVERLAPPED, Handle: *mut HANDLE) -> u32;
+        #[repr(u32)]
+        #[flags]
+        enum DELETE_SNAPSHOT_VHDSET_FLAG {
+            DELETE_SNAPSHOT_VHDSET_FLAG_NONE = 0,
+            DELETE_SNAPSHOT_VHDSET_FLAG_PERSIST_RCT = 1,
+        }
+        struct DELETE_SNAPSHOT_VHDSET_PARAMETERS {
+            Version: DELETE_SNAPSHOT_VHDSET_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    SnapshotId: GUID,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum DELETE_SNAPSHOT_VHDSET_VERSION {
+            DELETE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED = 0,
+            DELETE_SNAPSHOT_VHDSET_VERSION_1 = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum DEPENDENT_DISK_FLAG {
+            DEPENDENT_DISK_FLAG_NONE = 0,
+            DEPENDENT_DISK_FLAG_MULT_BACKING_FILES = 1,
+            DEPENDENT_DISK_FLAG_FULLY_ALLOCATED = 2,
+            DEPENDENT_DISK_FLAG_READ_ONLY = 4,
+            DEPENDENT_DISK_FLAG_REMOTE = 8,
+            DEPENDENT_DISK_FLAG_SYSTEM_VOLUME = 16,
+            DEPENDENT_DISK_FLAG_SYSTEM_VOLUME_PARENT = 32,
+            DEPENDENT_DISK_FLAG_REMOVABLE = 64,
+            DEPENDENT_DISK_FLAG_NO_DRIVE_LETTER = 128,
+            DEPENDENT_DISK_FLAG_PARENT = 256,
+            DEPENDENT_DISK_FLAG_NO_HOST_DISK = 512,
+            DEPENDENT_DISK_FLAG_PERMANENT_LIFETIME = 1024,
+            DEPENDENT_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES = 2048,
+            DEPENDENT_DISK_FLAG_ALWAYS_ALLOW_SPARSE = 4096,
+            DEPENDENT_DISK_FLAG_SUPPORT_ENCRYPTED_FILES = 8192,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum DETACH_VIRTUAL_DISK_FLAG {
+            DETACH_VIRTUAL_DISK_FLAG_NONE = 0,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn DeleteSnapshotVhdSet(VirtualDiskHandle: HANDLE, Parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, Flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn DeleteVirtualDiskMetadata(VirtualDiskHandle: HANDLE, Item: *const GUID) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn DetachVirtualDisk(VirtualDiskHandle: HANDLE, Flags: DETACH_VIRTUAL_DISK_FLAG, ProviderSpecificFlags: u32) -> u32;
+        #[repr(u32)]
+        #[flags]
+        enum EXPAND_VIRTUAL_DISK_FLAG {
+            EXPAND_VIRTUAL_DISK_FLAG_NONE = 0,
+            EXPAND_VIRTUAL_DISK_FLAG_NOTIFY_CHANGE = 1,
+        }
+        struct EXPAND_VIRTUAL_DISK_PARAMETERS {
+            Version: EXPAND_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    NewSize: u64,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum EXPAND_VIRTUAL_DISK_VERSION {
+            EXPAND_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+            EXPAND_VIRTUAL_DISK_VERSION_1 = 1,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn EnumerateVirtualDiskMetadata(VirtualDiskHandle: HANDLE, #[in] #[out] NumberOfItems: *mut u32, #[len_param(1)] Items: *mut GUID) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn ExpandVirtualDisk(VirtualDiskHandle: HANDLE, Flags: EXPAND_VIRTUAL_DISK_FLAG, Parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        #[repr(u32)]
+        #[flags]
+        enum FORK_VIRTUAL_DISK_FLAG {
+            FORK_VIRTUAL_DISK_FLAG_NONE = 0,
+            FORK_VIRTUAL_DISK_FLAG_EXISTING_FILE = 1,
+        }
+        struct FORK_VIRTUAL_DISK_PARAMETERS {
+            Version: FORK_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    ForkedVirtualDiskPath: PCWSTR,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum FORK_VIRTUAL_DISK_VERSION {
+            FORK_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+            FORK_VIRTUAL_DISK_VERSION_1 = 1,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn ForkVirtualDisk(VirtualDiskHandle: HANDLE, Flags: FORK_VIRTUAL_DISK_FLAG, Parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, #[in] #[out] Overlapped: *mut OVERLAPPED) -> u32;
+        #[repr(u32)]
+        #[flags]
+        enum GET_STORAGE_DEPENDENCY_FLAG {
+            GET_STORAGE_DEPENDENCY_FLAG_NONE = 0,
+            GET_STORAGE_DEPENDENCY_FLAG_HOST_VOLUMES = 1,
+            GET_STORAGE_DEPENDENCY_FLAG_DISK_HANDLE = 2,
+        }
+        const GET_STORAGE_DEPENDENCY_FLAG_PARENTS: u32 = 1;
+        struct GET_VIRTUAL_DISK_INFO {
+            Version: GET_VIRTUAL_DISK_INFO_VERSION,
+            Anonymous: union {
+                Size: struct {
+                    VirtualSize: u64,
+                    PhysicalSize: u64,
+                    BlockSize: u32,
+                    SectorSize: u32,
+                },
+                Identifier: GUID,
+                ParentLocation: struct {
+                    ParentResolved: BOOL,
+                    ParentLocationBuffer: [u16; 1],
+                },
+                ParentIdentifier: GUID,
+                ParentTimestamp: u32,
+                VirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                ProviderSubtype: u32,
+                Is4kAligned: BOOL,
+                IsLoaded: BOOL,
+                PhysicalDisk: struct {
+                    LogicalSectorSize: u32,
+                    PhysicalSectorSize: u32,
+                    IsRemote: BOOL,
+                },
+                VhdPhysicalSectorSize: u32,
+                SmallestSafeVirtualSize: u64,
+                FragmentationPercentage: u32,
+                VirtualDiskId: GUID,
+                ChangeTrackingState: struct {
+                    Enabled: BOOL,
+                    NewerChanges: BOOL,
+                    MostRecentId: [u16; 1],
+                },
+            },
+        }
+        #[repr(i32)]
+        enum GET_VIRTUAL_DISK_INFO_VERSION {
+            GET_VIRTUAL_DISK_INFO_UNSPECIFIED = 0,
+            GET_VIRTUAL_DISK_INFO_SIZE = 1,
+            GET_VIRTUAL_DISK_INFO_IDENTIFIER = 2,
+            GET_VIRTUAL_DISK_INFO_PARENT_LOCATION = 3,
+            GET_VIRTUAL_DISK_INFO_PARENT_IDENTIFIER = 4,
+            GET_VIRTUAL_DISK_INFO_PARENT_TIMESTAMP = 5,
+            GET_VIRTUAL_DISK_INFO_VIRTUAL_STORAGE_TYPE = 6,
+            GET_VIRTUAL_DISK_INFO_PROVIDER_SUBTYPE = 7,
+            GET_VIRTUAL_DISK_INFO_IS_4K_ALIGNED = 8,
+            GET_VIRTUAL_DISK_INFO_PHYSICAL_DISK = 9,
+            GET_VIRTUAL_DISK_INFO_VHD_PHYSICAL_SECTOR_SIZE = 10,
+            GET_VIRTUAL_DISK_INFO_SMALLEST_SAFE_VIRTUAL_SIZE = 11,
+            GET_VIRTUAL_DISK_INFO_FRAGMENTATION = 12,
+            GET_VIRTUAL_DISK_INFO_IS_LOADED = 13,
+            GET_VIRTUAL_DISK_INFO_VIRTUAL_DISK_ID = 14,
+            GET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE = 15,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn GetAllAttachedVirtualDiskPhysicalPaths(#[in] #[out] PathsBufferSizeInBytes: *mut u32, #[size_param(0)] #[out] PathsBuffer: PWSTR) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn GetStorageDependencyInformation(ObjectHandle: HANDLE, Flags: GET_STORAGE_DEPENDENCY_FLAG, StorageDependencyInfoSize: u32, #[in] #[out] StorageDependencyInfo: *mut STORAGE_DEPENDENCY_INFO, #[in] #[out] #[opt] SizeUsed: *mut u32) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn GetVirtualDiskInformation(VirtualDiskHandle: HANDLE, #[in] #[out] VirtualDiskInfoSize: *mut u32, #[size_param(1)] #[in] #[out] VirtualDiskInfo: *mut GET_VIRTUAL_DISK_INFO, #[opt] SizeUsed: *mut u32) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn GetVirtualDiskMetadata(VirtualDiskHandle: HANDLE, Item: *const GUID, #[in] #[out] MetaDataSize: *mut u32, #[size_param(2)] MetaData: *mut void) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn GetVirtualDiskOperationProgress(VirtualDiskHandle: HANDLE, Overlapped: *const OVERLAPPED, Progress: *mut VIRTUAL_DISK_PROGRESS) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn GetVirtualDiskPhysicalPath(VirtualDiskHandle: HANDLE, #[in] #[out] DiskPathSizeInBytes: *mut u32, #[size_param(1)] #[out] DiskPath: PWSTR) -> u32;
+        const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1;
+        #[repr(u32)]
+        #[flags]
+        enum MERGE_VIRTUAL_DISK_FLAG {
+            MERGE_VIRTUAL_DISK_FLAG_NONE = 0,
+        }
+        struct MERGE_VIRTUAL_DISK_PARAMETERS {
+            Version: MERGE_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    MergeDepth: u32,
+                },
+                Version2: struct {
+                    MergeSourceDepth: u32,
+                    MergeTargetDepth: u32,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum MERGE_VIRTUAL_DISK_VERSION {
+            MERGE_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+            MERGE_VIRTUAL_DISK_VERSION_1 = 1,
+            MERGE_VIRTUAL_DISK_VERSION_2 = 2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum MIRROR_VIRTUAL_DISK_FLAG {
+            MIRROR_VIRTUAL_DISK_FLAG_NONE = 0,
+            MIRROR_VIRTUAL_DISK_FLAG_EXISTING_FILE = 1,
+            MIRROR_VIRTUAL_DISK_FLAG_SKIP_MIRROR_ACTIVATION = 2,
+            MIRROR_VIRTUAL_DISK_FLAG_ENABLE_SMB_COMPRESSION = 4,
+            MIRROR_VIRTUAL_DISK_FLAG_IS_LIVE_MIGRATION = 8,
+        }
+        struct MIRROR_VIRTUAL_DISK_PARAMETERS {
+            Version: MIRROR_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    MirrorVirtualDiskPath: PCWSTR,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum MIRROR_VIRTUAL_DISK_VERSION {
+            MIRROR_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+            MIRROR_VIRTUAL_DISK_VERSION_1 = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum MODIFY_VHDSET_FLAG {
+            MODIFY_VHDSET_FLAG_NONE = 0,
+            MODIFY_VHDSET_FLAG_WRITEABLE_SNAPSHOT = 1,
+        }
+        struct MODIFY_VHDSET_PARAMETERS {
+            Version: MODIFY_VHDSET_VERSION,
+            Anonymous: union {
+                SnapshotPath: struct {
+                    SnapshotId: GUID,
+                    SnapshotFilePath: PCWSTR,
+                },
+                SnapshotId: GUID,
+                DefaultFilePath: PCWSTR,
+            },
+        }
+        #[repr(i32)]
+        enum MODIFY_VHDSET_VERSION {
+            MODIFY_VHDSET_UNSPECIFIED = 0,
+            MODIFY_VHDSET_SNAPSHOT_PATH = 1,
+            MODIFY_VHDSET_REMOVE_SNAPSHOT = 2,
+            MODIFY_VHDSET_DEFAULT_SNAPSHOT_PATH = 3,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn MergeVirtualDisk(VirtualDiskHandle: HANDLE, Flags: MERGE_VIRTUAL_DISK_FLAG, Parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn MirrorVirtualDisk(VirtualDiskHandle: HANDLE, Flags: MIRROR_VIRTUAL_DISK_FLAG, Parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS, Overlapped: *const OVERLAPPED) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn ModifyVhdSet(VirtualDiskHandle: HANDLE, Parameters: *const MODIFY_VHDSET_PARAMETERS, Flags: MODIFY_VHDSET_FLAG) -> u32;
+        #[repr(u32)]
+        #[flags]
+        enum OPEN_VIRTUAL_DISK_FLAG {
+            OPEN_VIRTUAL_DISK_FLAG_NONE = 0,
+            OPEN_VIRTUAL_DISK_FLAG_NO_PARENTS = 1,
+            OPEN_VIRTUAL_DISK_FLAG_BLANK_FILE = 2,
+            OPEN_VIRTUAL_DISK_FLAG_BOOT_DRIVE = 4,
+            OPEN_VIRTUAL_DISK_FLAG_CACHED_IO = 8,
+            OPEN_VIRTUAL_DISK_FLAG_CUSTOM_DIFF_CHAIN = 16,
+            OPEN_VIRTUAL_DISK_FLAG_PARENT_CACHED_IO = 32,
+            OPEN_VIRTUAL_DISK_FLAG_VHDSET_FILE_ONLY = 64,
+            OPEN_VIRTUAL_DISK_FLAG_IGNORE_RELATIVE_PARENT_LOCATOR = 128,
+            OPEN_VIRTUAL_DISK_FLAG_NO_WRITE_HARDENING = 256,
+            OPEN_VIRTUAL_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES = 512,
+            OPEN_VIRTUAL_DISK_FLAG_SUPPORT_SPARSE_FILES_ANY_FS = 1024,
+            OPEN_VIRTUAL_DISK_FLAG_SUPPORT_ENCRYPTED_FILES = 2048,
+        }
+        struct OPEN_VIRTUAL_DISK_PARAMETERS {
+            Version: OPEN_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    RWDepth: u32,
+                },
+                Version2: struct {
+                    GetInfoOnly: BOOL,
+                    ReadOnly: BOOL,
+                    ResiliencyGuid: GUID,
+                },
+                Version3: struct {
+                    GetInfoOnly: BOOL,
+                    ReadOnly: BOOL,
+                    ResiliencyGuid: GUID,
+                    SnapshotId: GUID,
+                },
+            },
+        }
+        const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1;
+        #[repr(i32)]
+        enum OPEN_VIRTUAL_DISK_VERSION {
+            OPEN_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+            OPEN_VIRTUAL_DISK_VERSION_1 = 1,
+            OPEN_VIRTUAL_DISK_VERSION_2 = 2,
+            OPEN_VIRTUAL_DISK_VERSION_3 = 3,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn OpenVirtualDisk(VirtualStorageType: *const VIRTUAL_STORAGE_TYPE, Path: PCWSTR, VirtualDiskAccessMask: VIRTUAL_DISK_ACCESS_MASK, Flags: OPEN_VIRTUAL_DISK_FLAG, #[opt] Parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, Handle: *mut HANDLE) -> u32;
+        type PAPPLY_SNAPSHOT_VHDSET_FLAG = *mut APPLY_SNAPSHOT_VHDSET_FLAG;
+        type PAPPLY_SNAPSHOT_VHDSET_PARAMETERS = *mut APPLY_SNAPSHOT_VHDSET_PARAMETERS;
+        type PATTACH_VIRTUAL_DISK_PARAMETERS = *mut ATTACH_VIRTUAL_DISK_PARAMETERS;
+        type PCOMPACT_VIRTUAL_DISK_PARAMETERS = *mut COMPACT_VIRTUAL_DISK_PARAMETERS;
+        type PCREATE_VIRTUAL_DISK_PARAMETERS = *mut CREATE_VIRTUAL_DISK_PARAMETERS;
+        type PDELETE_SNAPSHOT_VHDSET_FLAG = *mut DELETE_SNAPSHOT_VHDSET_FLAG;
+        type PDELETE_SNAPSHOT_VHDSET_PARAMETERS = *mut DELETE_SNAPSHOT_VHDSET_PARAMETERS;
+        type PEXPAND_VIRTUAL_DISK_PARAMETERS = *mut EXPAND_VIRTUAL_DISK_PARAMETERS;
+        type PFORK_VIRTUAL_DISK_PARAMETERS = *mut FORK_VIRTUAL_DISK_PARAMETERS;
+        type PGET_VIRTUAL_DISK_INFO = *mut GET_VIRTUAL_DISK_INFO;
+        type PMERGE_VIRTUAL_DISK_PARAMETERS = *mut MERGE_VIRTUAL_DISK_PARAMETERS;
+        type PMIRROR_VIRTUAL_DISK_PARAMETERS = *mut MIRROR_VIRTUAL_DISK_PARAMETERS;
+        type PMODIFY_VHDSET_FLAG = *mut MODIFY_VHDSET_FLAG;
+        type PMODIFY_VHDSET_PARAMETERS = *mut MODIFY_VHDSET_PARAMETERS;
+        type PMODIFY_VHDSET_VERSION = *mut MODIFY_VHDSET_VERSION;
+        type POPEN_VIRTUAL_DISK_PARAMETERS = *mut OPEN_VIRTUAL_DISK_PARAMETERS;
+        type PQUERY_CHANGES_VIRTUAL_DISK_RANGE = *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE;
+        type PRAW_SCSI_VIRTUAL_DISK_FLAG = *mut RAW_SCSI_VIRTUAL_DISK_FLAG;
+        type PRAW_SCSI_VIRTUAL_DISK_PARAMETERS = *mut RAW_SCSI_VIRTUAL_DISK_PARAMETERS;
+        type PRAW_SCSI_VIRTUAL_DISK_RESPONSE = *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE;
+        type PRESIZE_VIRTUAL_DISK_PARAMETERS = *mut RESIZE_VIRTUAL_DISK_PARAMETERS;
+        type PSET_VIRTUAL_DISK_INFO = *mut SET_VIRTUAL_DISK_INFO;
+        type PSTORAGE_DEPENDENCY_INFO = *mut STORAGE_DEPENDENCY_INFO;
+        type PSTORAGE_DEPENDENCY_INFO_TYPE_1 = *mut STORAGE_DEPENDENCY_INFO_TYPE_1;
+        type PSTORAGE_DEPENDENCY_INFO_TYPE_2 = *mut STORAGE_DEPENDENCY_INFO_TYPE_2;
+        type PTAKE_SNAPSHOT_VHDSET_FLAG = *mut TAKE_SNAPSHOT_VHDSET_FLAG;
+        type PTAKE_SNAPSHOT_VHDSET_PARAMETERS = *mut TAKE_SNAPSHOT_VHDSET_PARAMETERS;
+        type PVIRTUAL_DISK_PROGRESS = *mut VIRTUAL_DISK_PROGRESS;
+        #[repr(u32)]
+        #[flags]
+        enum QUERY_CHANGES_VIRTUAL_DISK_FLAG {
+            QUERY_CHANGES_VIRTUAL_DISK_FLAG_NONE = 0,
+        }
+        struct QUERY_CHANGES_VIRTUAL_DISK_RANGE {
+            ByteOffset: u64,
+            ByteLength: u64,
+            Reserved: u64,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn QueryChangesVirtualDisk(VirtualDiskHandle: HANDLE, ChangeTrackingId: PCWSTR, ByteOffset: u64, ByteLength: u64, Flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, #[len_param(6)] Ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, #[in] #[out] RangeCount: *mut u32, ProcessedLength: *mut u64) -> u32;
+        #[repr(u32)]
+        #[flags]
+        enum RAW_SCSI_VIRTUAL_DISK_FLAG {
+            RAW_SCSI_VIRTUAL_DISK_FLAG_NONE = 0,
+        }
+        struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
+            Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    RSVDHandle: BOOL,
+                    DataIn: u8,
+                    CdbLength: u8,
+                    SenseInfoLength: u8,
+                    SrbFlags: u32,
+                    DataTransferLength: u32,
+                    DataBuffer: *mut void,
+                    SenseInfo: *mut u8,
+                    Cdb: *mut u8,
+                },
+            },
+        }
+        struct RAW_SCSI_VIRTUAL_DISK_RESPONSE {
+            Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    ScsiStatus: u8,
+                    SenseInfoLength: u8,
+                    DataTransferLength: u32,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum RAW_SCSI_VIRTUAL_DISK_VERSION {
+            RAW_SCSI_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+            RAW_SCSI_VIRTUAL_DISK_VERSION_1 = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum RESIZE_VIRTUAL_DISK_FLAG {
+            RESIZE_VIRTUAL_DISK_FLAG_NONE = 0,
+            RESIZE_VIRTUAL_DISK_FLAG_ALLOW_UNSAFE_VIRTUAL_SIZE = 1,
+            RESIZE_VIRTUAL_DISK_FLAG_RESIZE_TO_SMALLEST_SAFE_VIRTUAL_SIZE = 2,
+        }
+        struct RESIZE_VIRTUAL_DISK_PARAMETERS {
+            Version: RESIZE_VIRTUAL_DISK_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    NewSize: u64,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum RESIZE_VIRTUAL_DISK_VERSION {
+            RESIZE_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+            RESIZE_VIRTUAL_DISK_VERSION_1 = 1,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn RawSCSIVirtualDisk(VirtualDiskHandle: HANDLE, Parameters: *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, Flags: RAW_SCSI_VIRTUAL_DISK_FLAG, Response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn ResizeVirtualDisk(VirtualDiskHandle: HANDLE, Flags: RESIZE_VIRTUAL_DISK_FLAG, Parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        struct SET_VIRTUAL_DISK_INFO {
+            Version: SET_VIRTUAL_DISK_INFO_VERSION,
+            Anonymous: union {
+                ParentFilePath: PCWSTR,
+                UniqueIdentifier: GUID,
+                ParentPathWithDepthInfo: struct {
+                    ChildDepth: u32,
+                    ParentFilePath: PCWSTR,
+                },
+                VhdPhysicalSectorSize: u32,
+                VirtualDiskId: GUID,
+                ChangeTrackingEnabled: BOOL,
+                ParentLocator: struct {
+                    LinkageId: GUID,
+                    ParentFilePath: PCWSTR,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum SET_VIRTUAL_DISK_INFO_VERSION {
+            SET_VIRTUAL_DISK_INFO_UNSPECIFIED = 0,
+            SET_VIRTUAL_DISK_INFO_PARENT_PATH = 1,
+            SET_VIRTUAL_DISK_INFO_IDENTIFIER = 2,
+            SET_VIRTUAL_DISK_INFO_PARENT_PATH_WITH_DEPTH = 3,
+            SET_VIRTUAL_DISK_INFO_PHYSICAL_SECTOR_SIZE = 4,
+            SET_VIRTUAL_DISK_INFO_VIRTUAL_DISK_ID = 5,
+            SET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE = 6,
+            SET_VIRTUAL_DISK_INFO_PARENT_LOCATOR = 7,
+        }
+        struct STORAGE_DEPENDENCY_INFO {
+            Version: STORAGE_DEPENDENCY_INFO_VERSION,
+            NumberEntries: u32,
+            Anonymous: union {
+                Version1Entries: [STORAGE_DEPENDENCY_INFO_TYPE_1; 0],
+                Version2Entries: [STORAGE_DEPENDENCY_INFO_TYPE_2; 0],
+            },
+        }
+        struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
+            DependencyTypeFlags: DEPENDENT_DISK_FLAG,
+            ProviderSpecificFlags: u32,
+            VirtualStorageType: VIRTUAL_STORAGE_TYPE,
+        }
+        struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
+            DependencyTypeFlags: DEPENDENT_DISK_FLAG,
+            ProviderSpecificFlags: u32,
+            VirtualStorageType: VIRTUAL_STORAGE_TYPE,
+            AncestorLevel: u32,
+            DependencyDeviceName: PWSTR,
+            HostVolumeName: PWSTR,
+            DependentVolumeName: PWSTR,
+            DependentVolumeRelativePath: PWSTR,
+        }
+        #[repr(i32)]
+        enum STORAGE_DEPENDENCY_INFO_VERSION {
+            STORAGE_DEPENDENCY_INFO_VERSION_UNSPECIFIED = 0,
+            STORAGE_DEPENDENCY_INFO_VERSION_1 = 1,
+            STORAGE_DEPENDENCY_INFO_VERSION_2 = 2,
+        }
+        const SURFACE_VIRTUAL_DISK_FLAG_BYPASS_DEFAULT_ENCRYPTION_POLICY: u32 = 32;
+        const SURFACE_VIRTUAL_DISK_FLAG_NONE: u32 = 0;
+        const SURFACE_VIRTUAL_DISK_FLAG_NO_DRIVE_LETTER: u32 = 2;
+        const SURFACE_VIRTUAL_DISK_FLAG_NO_LOCAL_HOST: u32 = 8;
+        const SURFACE_VIRTUAL_DISK_FLAG_NO_SECURITY_DESCRIPTOR: u32 = 16;
+        const SURFACE_VIRTUAL_DISK_FLAG_PERMANENT_LIFETIME: u32 = 4;
+        const SURFACE_VIRTUAL_DISK_FLAG_READ_ONLY: u32 = 1;
+        const SURFACE_VIRTUAL_DISK_VERSION_1: u32 = 1;
+        const SURFACE_VIRTUAL_DISK_VERSION_UNSPECIFIED: u32 = 0;
+        #[library("VirtDisk.dll")]
+        extern fn SetVirtualDiskInformation(VirtualDiskHandle: HANDLE, VirtualDiskInfo: *const SET_VIRTUAL_DISK_INFO) -> u32;
+        #[library("VirtDisk.dll")]
+        extern fn SetVirtualDiskMetadata(VirtualDiskHandle: HANDLE, Item: *const GUID, MetaDataSize: u32, #[size_param(2)] MetaData: *const void) -> u32;
+        #[repr(u32)]
+        #[flags]
+        enum TAKE_SNAPSHOT_VHDSET_FLAG {
+            TAKE_SNAPSHOT_VHDSET_FLAG_NONE = 0,
+            TAKE_SNAPSHOT_VHDSET_FLAG_WRITEABLE = 1,
+        }
+        struct TAKE_SNAPSHOT_VHDSET_PARAMETERS {
+            Version: TAKE_SNAPSHOT_VHDSET_VERSION,
+            Anonymous: union {
+                Version1: struct {
+                    SnapshotId: GUID,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum TAKE_SNAPSHOT_VHDSET_VERSION {
+            TAKE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED = 0,
+            TAKE_SNAPSHOT_VHDSET_VERSION_1 = 1,
+        }
+        #[library("VirtDisk.dll")]
+        extern fn TakeSnapshotVhdSet(VirtualDiskHandle: HANDLE, Parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, Flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> u32;
+        const UNSURFACE_VIRTUAL_DISK_FLAG_NONE: u32 = 0;
+        #[repr(u32)]
+        #[flags]
+        enum VIRTUAL_DISK_ACCESS_MASK {
+            VIRTUAL_DISK_ACCESS_NONE = 0,
+            VIRTUAL_DISK_ACCESS_ATTACH_RO = 65536,
+            VIRTUAL_DISK_ACCESS_ATTACH_RW = 131072,
+            VIRTUAL_DISK_ACCESS_DETACH = 262144,
+            VIRTUAL_DISK_ACCESS_GET_INFO = 524288,
+            VIRTUAL_DISK_ACCESS_CREATE = 1048576,
+            VIRTUAL_DISK_ACCESS_METAOPS = 2097152,
+            VIRTUAL_DISK_ACCESS_READ = 851968,
+            VIRTUAL_DISK_ACCESS_ALL = 4128768,
+            VIRTUAL_DISK_ACCESS_WRITABLE = 3276800,
+        }
+        const VIRTUAL_DISK_ACCESS_SURFACE_RO: u32 = 65536;
+        const VIRTUAL_DISK_ACCESS_SURFACE_RW: u32 = 131072;
+        const VIRTUAL_DISK_ACCESS_UNSURFACE: u32 = 262144;
+        const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256;
+        struct VIRTUAL_DISK_PROGRESS {
+            OperationStatus: u32,
+            CurrentValue: u64,
+            CompletionValue: u64,
+        }
+        const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1;
+        const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0;
+        const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2;
+        const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4;
+        const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3;
+        const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: GUID = 0xec984aec_a0f9_47e9_901f_71415a66345b;
+        const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: GUID = 0x00000000_0000_0000_0000_000000000000;
+    }
+}

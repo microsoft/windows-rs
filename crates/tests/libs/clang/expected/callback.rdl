@@ -1,5 +1,14 @@
 #[win32]
 mod Test {
+    extern fn BufferCallback(#[len_param(1)] data: *const i32, count: i32, result: *mut i32);
+    extern fn CallbackType(code: i32, message: *const i8);
+    extern "C" fn CdeclBase(value: i32) -> i32;
+    extern "C" fn CdeclCallback(value: i32) -> i32;
     extern fn CompareFunc(a: *const void, b: *const void) -> i32;
+    type DbgPrint = *mut u8;
+    extern "fastcall" fn FastcallCallback(value: i32) -> i32;
     extern fn NotifyCallback(code: i32, message: *const i8);
+    extern fn PCallbackType(code: i32, message: *const i8);
+    extern "C" fn PCdeclBase(value: i32) -> i32;
+    extern fn UnnamedCallback(param0: i32, param1: *const i32) -> i32;
 }

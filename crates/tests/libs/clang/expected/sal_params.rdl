@@ -1,25 +1,51 @@
 #[win32]
 mod Test {
+    #[library("kernel32.dll")]
+    extern "C" fn AllocBuffer(buffer: *mut *mut void, count: u32) -> i32;
     type BOOL = i32;
     #[library("kernel32.dll")]
-    extern "C" fn CloseObject(object: HANDLE) -> BOOL;
+    extern "C" fn CloseObject(object: HANDLE) -> i32;
     type DWORD = u32;
     #[library("kernel32.dll")]
-    extern "C" fn GetValue(result: *mut DWORD) -> BOOL;
+    extern "C" fn DoWork(object: HANDLE, #[reserved] reserved: u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn FillAll(#[len_param(1)] buffer: *mut u32, count: u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn FillFixed(#[len_const(16)] buffer: *mut u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn GetName(#[len_param(1)] #[opt] buffer: *mut u16, size: u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn GetPath(#[len_param(1)] buffer: *mut u16, #[r#in] #[out] len: *mut u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn GetValue(result: *mut u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn GrowBuffer(#[len_param(1)] #[r#in] #[out] buffer: *mut u32, count: u32) -> i32;
     type HANDLE = *mut void;
     type LPCSTR = *const i8;
     #[library("kernel32.dll")]
-    extern "C" fn OpenByName(#[opt] name: LPCSTR, object: *mut HANDLE) -> BOOL;
+    extern "C" fn OpenByName(#[opt] name: PCSTR, object: *mut HANDLE) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn ReadBuffer(buffer: *const void, size: DWORD) -> BOOL;
+    extern "C" fn ReadBuffer(#[len_param(1)] buffer: *const void, size: u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn ScanValue(#[r#in] value: *mut DWORD) -> BOOL;
+    extern "C" fn ReadBytes(#[size_param(1)] buffer: *const void, cb: u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn TryGetValue(#[opt] result: *mut DWORD) -> BOOL;
+    extern "C" fn ReadScaled(buffer: *const void, cb: u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn UpdateOptional(#[r#in] #[out] #[opt] value: *mut DWORD) -> BOOL;
+    extern "C" fn ScanValue(value: *const u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn UpdateValue(#[r#in] #[out] value: *mut DWORD) -> BOOL;
+    extern "C" fn TryGetValue(#[opt] result: *mut u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn WriteBuffer(buffer: *mut void, size: DWORD) -> BOOL;
+    extern "C" fn UpdateBuffer(#[len_param(1)] #[r#in] #[out] buffer: *mut u32, count: u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn UpdateOptional(#[r#in] #[out] #[opt] value: *mut u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn UpdateString(#[len_param(1)] #[r#in] #[out] buffer: *mut u16, count: u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn UpdateValue(#[r#in] #[out] value: *mut u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn WriteBuffer(#[len_param(1)] buffer: *mut void, size: u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn WriteBytes(#[size_param(1)] buffer: *mut void, cb: u32) -> i32;
+    #[library("kernel32.dll")]
+    extern "C" fn WriteString(#[len_param(1)] buffer: *mut u16, size: u32) -> i32;
 }

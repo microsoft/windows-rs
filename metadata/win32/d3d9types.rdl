@@ -1,0 +1,1561 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const D3D9_RESOURCE_PRIORITY_HIGH: u32 = 2684354560;
+        const D3D9_RESOURCE_PRIORITY_LOW: u32 = 1342177280;
+        const D3D9_RESOURCE_PRIORITY_MAXIMUM: u32 = 3355443200;
+        const D3D9_RESOURCE_PRIORITY_MINIMUM: u32 = 671088640;
+        const D3D9_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920;
+        #[arch(X64 | Arm64)]
+        struct D3DADAPTER_IDENTIFIER9 {
+            Driver: [i8; 512],
+            Description: [i8; 512],
+            DeviceName: [i8; 32],
+            DriverVersion: LARGE_INTEGER,
+            VendorId: u32,
+            DeviceId: u32,
+            SubSysId: u32,
+            Revision: u32,
+            DeviceIdentifier: GUID,
+            WHQLLevel: u32,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DADAPTER_IDENTIFIER9 {
+            Driver: [i8; 512],
+            Description: [i8; 512],
+            DeviceName: [i8; 32],
+            DriverVersion: LARGE_INTEGER,
+            VendorId: u32,
+            DeviceId: u32,
+            SubSysId: u32,
+            Revision: u32,
+            DeviceIdentifier: GUID,
+            WHQLLevel: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct D3DAES_CTR_IV {
+            IV: u64,
+            Count: u64,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAES_CTR_IV {
+            IV: u64,
+            Count: u64,
+        }
+        #[repr(i32)]
+        enum D3DAUTHENTICATEDCHANNELTYPE {
+            D3DAUTHENTICATEDCHANNEL_D3D9 = 1,
+            D3DAUTHENTICATEDCHANNEL_DRIVER_SOFTWARE = 2,
+            D3DAUTHENTICATEDCHANNEL_DRIVER_HARDWARE = 3,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
+            Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+            DXVA2DecodeHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+            DeviceHandle: HANDLE,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
+            Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+            StartSequenceQuery: u32,
+            StartSequenceConfigure: u32,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
+            Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+            Protections: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
+            Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+            ProcessIdentiferType: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
+            ProcessHandle: HANDLE,
+            AllowAccess: BOOL,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
+            Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+            EncryptionGuid: GUID,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
+            omac: D3D_OMAC,
+            ConfigureType: GUID,
+            hChannel: HANDLE,
+            SequenceNumber: u32,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
+            omac: D3D_OMAC,
+            ConfigureType: GUID,
+            hChannel: HANDLE,
+            SequenceNumber: u32,
+            ReturnCode: HRESULT,
+        }
+        #[repr(i32)]
+        enum D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE {
+            PROCESSIDTYPE_UNKNOWN = 0,
+            PROCESSIDTYPE_DWM = 1,
+            PROCESSIDTYPE_HANDLE = 2,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
+            Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+            DXVA2DecodeHandle: HANDLE,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            DXVA2DecodeHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+            DeviceHandle: HANDLE,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            DeviceHandle: HANDLE,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            NumEncryptionGuids: u32,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
+            Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+            EncryptionGuidIndex: u32,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            EncryptionGuidIndex: u32,
+            EncryptionGuid: GUID,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            BusType: D3DBUSTYPE,
+            bAccessibleInContiguousBlocks: BOOL,
+            bAccessibleInNonContiguousBlocks: BOOL,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
+            Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+            DeviceHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            DeviceHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+            NumOutputIDs: u32,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
+            Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+            DeviceHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+            OutputIDIndex: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            DeviceHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+            OutputIDIndex: u32,
+            OutputID: u64,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            DeviceHandle: HANDLE,
+            CryptoSessionHandle: HANDLE,
+            OutputIDIndex: u32,
+            OutputID: u64,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            ProtectionFlags: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            NumRestrictedSharedResourceProcesses: u32,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
+            Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+            ProcessIndex: u32,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            ProcessIndex: u32,
+            ProcessIdentifer: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
+            ProcessHandle: HANDLE,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            EncryptionGuid: GUID,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
+            Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+            NumUnrestrictedProtectedSharedResources: u32,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
+            QueryType: GUID,
+            hChannel: HANDLE,
+            SequenceNumber: u32,
+        }
+        struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
+            omac: D3D_OMAC,
+            QueryType: GUID,
+            hChannel: HANDLE,
+            SequenceNumber: u32,
+            ReturnCode: HRESULT,
+        }
+        const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: GUID = 0x6346cc54_2cfc_4ad4_8224_d15837de7700;
+        const D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE: GUID = 0x41fff286_6ae0_4d43_9d55_a46e9efd158a;
+        const D3DAUTHENTICATEDCONFIGURE_INITIALIZE: GUID = 0x06114bdb_3523_470a_8dca_fbc2845154f0;
+        const D3DAUTHENTICATEDCONFIGURE_PROTECTION: GUID = 0x50455658_3f47_4362_bf99_bfdfcde9ed29;
+        const D3DAUTHENTICATEDCONFIGURE_SHAREDRESOURCE: GUID = 0x0772d047_1b40_48e8_9ca6_b5f510de9f01;
+        const D3DAUTHENTICATEDQUERY_ACCESSIBILITYATTRIBUTES: GUID = 0x6214d9d2_432c_4abb_9fce_216eea269e3b;
+        const D3DAUTHENTICATEDQUERY_CHANNELTYPE: GUID = 0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be;
+        const D3DAUTHENTICATEDQUERY_CRYPTOSESSION: GUID = 0x2634499e_d018_4d74_ac17_7f724059528d;
+        const D3DAUTHENTICATEDQUERY_CURRENTENCRYPTIONWHENACCESSIBLE: GUID = 0xec1791c7_dad3_4f15_9ec3_faa93d60d4f0;
+        const D3DAUTHENTICATEDQUERY_DEVICEHANDLE: GUID = 0xec1c539d_8cff_4e2a_bcc4_f5692f99f480;
+        const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUID: GUID = 0xf83a5958_e986_4bda_beb0_411f6a7a01b7;
+        const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUIDCOUNT: GUID = 0xb30f7066_203c_4b07_93fc_ceaafd61241e;
+        const D3DAUTHENTICATEDQUERY_OUTPUTID: GUID = 0x839ddca3_9b4e_41e4_b053_892bd2a11ee7;
+        const D3DAUTHENTICATEDQUERY_OUTPUTIDCOUNT: GUID = 0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31;
+        const D3DAUTHENTICATEDQUERY_PROTECTION: GUID = 0xa84eb584_c495_48aa_b94d_8bd2d6fbce05;
+        const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS: GUID = 0x649bbadb_f0f4_4639_a15b_24393fc3abac;
+        const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT: GUID = 0x0db207b3_9450_46a6_82de_1b96d44f9cf2;
+        const D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT: GUID = 0x012f0bd6_e662_4474_befd_aa53e5143c6d;
+        #[repr(i32)]
+        enum D3DBACKBUFFER_TYPE {
+            D3DBACKBUFFER_TYPE_MONO = 0,
+            D3DBACKBUFFER_TYPE_LEFT = 1,
+            D3DBACKBUFFER_TYPE_RIGHT = 2,
+            D3DBACKBUFFER_TYPE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DBASISTYPE {
+            D3DBASIS_BEZIER = 0,
+            D3DBASIS_BSPLINE = 1,
+            D3DBASIS_CATMULL_ROM = 2,
+            D3DBASIS_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DBLEND {
+            D3DBLEND_ZERO = 1,
+            D3DBLEND_ONE = 2,
+            D3DBLEND_SRCCOLOR = 3,
+            D3DBLEND_INVSRCCOLOR = 4,
+            D3DBLEND_SRCALPHA = 5,
+            D3DBLEND_INVSRCALPHA = 6,
+            D3DBLEND_DESTALPHA = 7,
+            D3DBLEND_INVDESTALPHA = 8,
+            D3DBLEND_DESTCOLOR = 9,
+            D3DBLEND_INVDESTCOLOR = 10,
+            D3DBLEND_SRCALPHASAT = 11,
+            D3DBLEND_BOTHSRCALPHA = 12,
+            D3DBLEND_BOTHINVSRCALPHA = 13,
+            D3DBLEND_BLENDFACTOR = 14,
+            D3DBLEND_INVBLENDFACTOR = 15,
+            D3DBLEND_SRCCOLOR2 = 16,
+            D3DBLEND_INVSRCCOLOR2 = 17,
+            D3DBLEND_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DBLENDOP {
+            D3DBLENDOP_ADD = 1,
+            D3DBLENDOP_SUBTRACT = 2,
+            D3DBLENDOP_REVSUBTRACT = 3,
+            D3DBLENDOP_MIN = 4,
+            D3DBLENDOP_MAX = 5,
+            D3DBLENDOP_FORCE_DWORD = 2147483647,
+        }
+        struct D3DBOX {
+            Left: u32,
+            Top: u32,
+            Right: u32,
+            Bottom: u32,
+            Front: u32,
+            Back: u32,
+        }
+        #[repr(i32)]
+        enum D3DBUSTYPE {
+            D3DBUSTYPE_OTHER = 0,
+            D3DBUSTYPE_PCI = 1,
+            D3DBUSTYPE_PCIX = 2,
+            D3DBUSTYPE_PCIEXPRESS = 3,
+            D3DBUSTYPE_AGP = 4,
+            D3DBUSIMPL_MODIFIER_INSIDE_OF_CHIPSET = 65536,
+            D3DBUSIMPL_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_CHIP = 131072,
+            D3DBUSIMPL_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_SOCKET = 196608,
+            D3DBUSIMPL_MODIFIER_DAUGHTER_BOARD_CONNECTOR = 262144,
+            D3DBUSIMPL_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE = 327680,
+            D3DBUSIMPL_MODIFIER_NON_STANDARD = -2147483648,
+        }
+        const D3DCLEAR_STENCIL: u32 = 4;
+        const D3DCLEAR_TARGET: u32 = 1;
+        const D3DCLEAR_ZBUFFER: u32 = 2;
+        const D3DCLIPPLANE0: u32 = 1;
+        const D3DCLIPPLANE1: u32 = 2;
+        const D3DCLIPPLANE2: u32 = 4;
+        const D3DCLIPPLANE3: u32 = 8;
+        const D3DCLIPPLANE4: u32 = 16;
+        const D3DCLIPPLANE5: u32 = 32;
+        struct D3DCLIPSTATUS9 {
+            ClipUnion: u32,
+            ClipIntersection: u32,
+        }
+        #[repr(i32)]
+        enum D3DCMPFUNC {
+            D3DCMP_NEVER = 1,
+            D3DCMP_LESS = 2,
+            D3DCMP_EQUAL = 3,
+            D3DCMP_LESSEQUAL = 4,
+            D3DCMP_GREATER = 5,
+            D3DCMP_NOTEQUAL = 6,
+            D3DCMP_GREATEREQUAL = 7,
+            D3DCMP_ALWAYS = 8,
+            D3DCMP_FORCE_DWORD = 2147483647,
+        }
+        const D3DCOLORWRITEENABLE_ALPHA: u32 = 8;
+        const D3DCOLORWRITEENABLE_BLUE: u32 = 4;
+        const D3DCOLORWRITEENABLE_GREEN: u32 = 2;
+        const D3DCOLORWRITEENABLE_RED: u32 = 1;
+        struct D3DCOMPOSERECTDESC {
+            X: u16,
+            Y: u16,
+            Width: u16,
+            Height: u16,
+        }
+        struct D3DCOMPOSERECTDESTINATION {
+            SrcRectIndex: u16,
+            Reserved: u16,
+            X: i16,
+            Y: i16,
+        }
+        #[repr(i32)]
+        enum D3DCOMPOSERECTSOP {
+            D3DCOMPOSERECTS_COPY = 1,
+            D3DCOMPOSERECTS_OR = 2,
+            D3DCOMPOSERECTS_AND = 3,
+            D3DCOMPOSERECTS_NEG = 4,
+            D3DCOMPOSERECTS_FORCE_DWORD = 2147483647,
+        }
+        const D3DCOMPOSERECTS_MAXNUMRECTS: u32 = 65535;
+        const D3DCONVOLUTIONMONO_MAXHEIGHT: u32 = 7;
+        const D3DCONVOLUTIONMONO_MAXWIDTH: u32 = 7;
+        const D3DCS_ALL: u32 = 4095;
+        const D3DCS_BACK: u32 = 32;
+        const D3DCS_BOTTOM: u32 = 8;
+        const D3DCS_FRONT: u32 = 16;
+        const D3DCS_LEFT: u32 = 1;
+        const D3DCS_PLANE0: u32 = 64;
+        const D3DCS_PLANE1: u32 = 128;
+        const D3DCS_PLANE2: u32 = 256;
+        const D3DCS_PLANE3: u32 = 512;
+        const D3DCS_PLANE4: u32 = 1024;
+        const D3DCS_PLANE5: u32 = 2048;
+        const D3DCS_RIGHT: u32 = 2;
+        const D3DCS_TOP: u32 = 4;
+        #[repr(i32)]
+        enum D3DCUBEMAP_FACES {
+            D3DCUBEMAP_FACE_POSITIVE_X = 0,
+            D3DCUBEMAP_FACE_NEGATIVE_X = 1,
+            D3DCUBEMAP_FACE_POSITIVE_Y = 2,
+            D3DCUBEMAP_FACE_NEGATIVE_Y = 3,
+            D3DCUBEMAP_FACE_POSITIVE_Z = 4,
+            D3DCUBEMAP_FACE_NEGATIVE_Z = 5,
+            D3DCUBEMAP_FACE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DCULL {
+            D3DCULL_NONE = 1,
+            D3DCULL_CW = 2,
+            D3DCULL_CCW = 3,
+            D3DCULL_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DDEBUGMONITORTOKENS {
+            D3DDMT_ENABLE = 0,
+            D3DDMT_DISABLE = 1,
+            D3DDMT_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DDECLMETHOD {
+            D3DDECLMETHOD_DEFAULT = 0,
+            D3DDECLMETHOD_PARTIALU = 1,
+            D3DDECLMETHOD_PARTIALV = 2,
+            D3DDECLMETHOD_CROSSUV = 3,
+            D3DDECLMETHOD_UV = 4,
+            D3DDECLMETHOD_LOOKUP = 5,
+            D3DDECLMETHOD_LOOKUPPRESAMPLED = 6,
+        }
+        #[repr(i32)]
+        enum D3DDECLTYPE {
+            D3DDECLTYPE_FLOAT1 = 0,
+            D3DDECLTYPE_FLOAT2 = 1,
+            D3DDECLTYPE_FLOAT3 = 2,
+            D3DDECLTYPE_FLOAT4 = 3,
+            D3DDECLTYPE_D3DCOLOR = 4,
+            D3DDECLTYPE_UBYTE4 = 5,
+            D3DDECLTYPE_SHORT2 = 6,
+            D3DDECLTYPE_SHORT4 = 7,
+            D3DDECLTYPE_UBYTE4N = 8,
+            D3DDECLTYPE_SHORT2N = 9,
+            D3DDECLTYPE_SHORT4N = 10,
+            D3DDECLTYPE_USHORT2N = 11,
+            D3DDECLTYPE_USHORT4N = 12,
+            D3DDECLTYPE_UDEC3 = 13,
+            D3DDECLTYPE_DEC3N = 14,
+            D3DDECLTYPE_FLOAT16_2 = 15,
+            D3DDECLTYPE_FLOAT16_4 = 16,
+            D3DDECLTYPE_UNUSED = 17,
+        }
+        #[repr(i32)]
+        enum D3DDECLUSAGE {
+            D3DDECLUSAGE_POSITION = 0,
+            D3DDECLUSAGE_BLENDWEIGHT = 1,
+            D3DDECLUSAGE_BLENDINDICES = 2,
+            D3DDECLUSAGE_NORMAL = 3,
+            D3DDECLUSAGE_PSIZE = 4,
+            D3DDECLUSAGE_TEXCOORD = 5,
+            D3DDECLUSAGE_TANGENT = 6,
+            D3DDECLUSAGE_BINORMAL = 7,
+            D3DDECLUSAGE_TESSFACTOR = 8,
+            D3DDECLUSAGE_POSITIONT = 9,
+            D3DDECLUSAGE_COLOR = 10,
+            D3DDECLUSAGE_FOG = 11,
+            D3DDECLUSAGE_DEPTH = 12,
+            D3DDECLUSAGE_SAMPLE = 13,
+        }
+        #[repr(i32)]
+        enum D3DDEGREETYPE {
+            D3DDEGREE_LINEAR = 1,
+            D3DDEGREE_QUADRATIC = 2,
+            D3DDEGREE_CUBIC = 3,
+            D3DDEGREE_QUINTIC = 5,
+            D3DDEGREE_FORCE_DWORD = 2147483647,
+        }
+        struct D3DDEVICE_CREATION_PARAMETERS {
+            AdapterOrdinal: u32,
+            DeviceType: D3DDEVTYPE,
+            hFocusWindow: HWND,
+            BehaviorFlags: u32,
+        }
+        struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
+            MaxBandwidthUtilized: f32,
+            FrontEndUploadMemoryUtilizedPercent: f32,
+            VertexRateUtilizedPercent: f32,
+            TriangleSetupRateUtilizedPercent: f32,
+            FillRateUtilizedPercent: f32,
+        }
+        struct D3DDEVINFO_D3D9CACHEUTILIZATION {
+            TextureCacheHitRate: f32,
+            PostTransformVertexCacheHitRate: f32,
+        }
+        struct D3DDEVINFO_D3D9INTERFACETIMINGS {
+            WaitingForGPUToUseApplicationResourceTimePercent: f32,
+            WaitingForGPUToAcceptMoreCommandsTimePercent: f32,
+            WaitingForGPUToStayWithinLatencyTimePercent: f32,
+            WaitingForGPUExclusiveResourceTimePercent: f32,
+            WaitingForGPUOtherTimePercent: f32,
+        }
+        struct D3DDEVINFO_D3D9PIPELINETIMINGS {
+            VertexProcessingTimePercent: f32,
+            PixelProcessingTimePercent: f32,
+            OtherGPUProcessingTimePercent: f32,
+            GPUIdleTimePercent: f32,
+        }
+        struct D3DDEVINFO_D3D9STAGETIMINGS {
+            MemoryProcessingPercent: f32,
+            ComputationProcessingPercent: f32,
+        }
+        struct D3DDEVINFO_D3DVERTEXSTATS {
+            NumRenderedTriangles: u32,
+            NumExtraClippingTriangles: u32,
+        }
+        struct D3DDEVINFO_RESOURCEMANAGER {
+            stats: [D3DRESOURCESTATS; 8],
+        }
+        struct D3DDEVINFO_VCACHE {
+            Pattern: u32,
+            OptMethod: u32,
+            CacheSize: u32,
+            MagicNumber: u32,
+        }
+        #[repr(i32)]
+        enum D3DDEVTYPE {
+            D3DDEVTYPE_HAL = 1,
+            D3DDEVTYPE_REF = 2,
+            D3DDEVTYPE_SW = 3,
+            D3DDEVTYPE_NULLREF = 4,
+            D3DDEVTYPE_FORCE_DWORD = 2147483647,
+        }
+        struct D3DDISPLAYMODE {
+            Width: u32,
+            Height: u32,
+            RefreshRate: u32,
+            Format: D3DFORMAT,
+        }
+        struct D3DDISPLAYMODEEX {
+            Size: u32,
+            Width: u32,
+            Height: u32,
+            RefreshRate: u32,
+            Format: D3DFORMAT,
+            ScanLineOrdering: D3DSCANLINEORDERING,
+        }
+        struct D3DDISPLAYMODEFILTER {
+            Size: u32,
+            Format: D3DFORMAT,
+            ScanLineOrdering: D3DSCANLINEORDERING,
+        }
+        #[repr(i32)]
+        enum D3DDISPLAYROTATION {
+            D3DDISPLAYROTATION_IDENTITY = 1,
+            D3DDISPLAYROTATION_90 = 2,
+            D3DDISPLAYROTATION_180 = 3,
+            D3DDISPLAYROTATION_270 = 4,
+        }
+        const D3DDMAPSAMPLER: u32 = 256;
+        const D3DDP_MAXTEXCOORD: u32 = 8;
+        struct D3DENCRYPTED_BLOCK_INFO {
+            NumEncryptedBytesAtBeginning: u32,
+            NumBytesInSkipPattern: u32,
+            NumBytesInEncryptPattern: u32,
+        }
+        #[repr(i32)]
+        enum D3DFILLMODE {
+            D3DFILL_POINT = 1,
+            D3DFILL_WIREFRAME = 2,
+            D3DFILL_SOLID = 3,
+            D3DFILL_FORCE_DWORD = 2147483647,
+        }
+        const D3DFMT_A1_SURFACE_MAXHEIGHT: u32 = 2048;
+        const D3DFMT_A1_SURFACE_MAXWIDTH: u32 = 8192;
+        #[repr(i32)]
+        enum D3DFOGMODE {
+            D3DFOG_NONE = 0,
+            D3DFOG_EXP = 1,
+            D3DFOG_EXP2 = 2,
+            D3DFOG_LINEAR = 3,
+            D3DFOG_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DFORMAT {
+            D3DFMT_UNKNOWN = 0,
+            D3DFMT_R8G8B8 = 20,
+            D3DFMT_A8R8G8B8 = 21,
+            D3DFMT_X8R8G8B8 = 22,
+            D3DFMT_R5G6B5 = 23,
+            D3DFMT_X1R5G5B5 = 24,
+            D3DFMT_A1R5G5B5 = 25,
+            D3DFMT_A4R4G4B4 = 26,
+            D3DFMT_R3G3B2 = 27,
+            D3DFMT_A8 = 28,
+            D3DFMT_A8R3G3B2 = 29,
+            D3DFMT_X4R4G4B4 = 30,
+            D3DFMT_A2B10G10R10 = 31,
+            D3DFMT_A8B8G8R8 = 32,
+            D3DFMT_X8B8G8R8 = 33,
+            D3DFMT_G16R16 = 34,
+            D3DFMT_A2R10G10B10 = 35,
+            D3DFMT_A16B16G16R16 = 36,
+            D3DFMT_A8P8 = 40,
+            D3DFMT_P8 = 41,
+            D3DFMT_L8 = 50,
+            D3DFMT_A8L8 = 51,
+            D3DFMT_A4L4 = 52,
+            D3DFMT_V8U8 = 60,
+            D3DFMT_L6V5U5 = 61,
+            D3DFMT_X8L8V8U8 = 62,
+            D3DFMT_Q8W8V8U8 = 63,
+            D3DFMT_V16U16 = 64,
+            D3DFMT_A2W10V10U10 = 67,
+            D3DFMT_UYVY = 1498831189,
+            D3DFMT_R8G8_B8G8 = 1195525970,
+            D3DFMT_YUY2 = 844715353,
+            D3DFMT_G8R8_G8B8 = 1111970375,
+            D3DFMT_DXT1 = 827611204,
+            D3DFMT_DXT2 = 844388420,
+            D3DFMT_DXT3 = 861165636,
+            D3DFMT_DXT4 = 877942852,
+            D3DFMT_DXT5 = 894720068,
+            D3DFMT_D16_LOCKABLE = 70,
+            D3DFMT_D32 = 71,
+            D3DFMT_D15S1 = 73,
+            D3DFMT_D24S8 = 75,
+            D3DFMT_D24X8 = 77,
+            D3DFMT_D24X4S4 = 79,
+            D3DFMT_D16 = 80,
+            D3DFMT_D32F_LOCKABLE = 82,
+            D3DFMT_D24FS8 = 83,
+            D3DFMT_D32_LOCKABLE = 84,
+            D3DFMT_S8_LOCKABLE = 85,
+            D3DFMT_L16 = 81,
+            D3DFMT_VERTEXDATA = 100,
+            D3DFMT_INDEX16 = 101,
+            D3DFMT_INDEX32 = 102,
+            D3DFMT_Q16W16V16U16 = 110,
+            D3DFMT_MULTI2_ARGB8 = 827606349,
+            D3DFMT_R16F = 111,
+            D3DFMT_G16R16F = 112,
+            D3DFMT_A16B16G16R16F = 113,
+            D3DFMT_R32F = 114,
+            D3DFMT_G32R32F = 115,
+            D3DFMT_A32B32G32R32F = 116,
+            D3DFMT_CxV8U8 = 117,
+            D3DFMT_A1 = 118,
+            D3DFMT_A2B10G10R10_XR_BIAS = 119,
+            D3DFMT_BINARYBUFFER = 199,
+            D3DFMT_FORCE_DWORD = 2147483647,
+        }
+        const D3DFVF_DIFFUSE: u32 = 64;
+        const D3DFVF_LASTBETA_D3DCOLOR: u32 = 32768;
+        const D3DFVF_LASTBETA_UBYTE4: u32 = 4096;
+        const D3DFVF_NORMAL: u32 = 16;
+        const D3DFVF_POSITION_MASK: u32 = 16398;
+        const D3DFVF_PSIZE: u32 = 32;
+        const D3DFVF_RESERVED0: u32 = 1;
+        const D3DFVF_RESERVED2: u32 = 24576;
+        const D3DFVF_SPECULAR: u32 = 128;
+        const D3DFVF_TEX0: u32 = 0;
+        const D3DFVF_TEX1: u32 = 256;
+        const D3DFVF_TEX2: u32 = 512;
+        const D3DFVF_TEX3: u32 = 768;
+        const D3DFVF_TEX4: u32 = 1024;
+        const D3DFVF_TEX5: u32 = 1280;
+        const D3DFVF_TEX6: u32 = 1536;
+        const D3DFVF_TEX7: u32 = 1792;
+        const D3DFVF_TEX8: u32 = 2048;
+        const D3DFVF_TEXCOUNT_MASK: u32 = 3840;
+        const D3DFVF_TEXCOUNT_SHIFT: u32 = 8;
+        const D3DFVF_TEXTUREFORMAT1: u32 = 3;
+        const D3DFVF_TEXTUREFORMAT2: u32 = 0;
+        const D3DFVF_TEXTUREFORMAT3: u32 = 1;
+        const D3DFVF_TEXTUREFORMAT4: u32 = 2;
+        const D3DFVF_XYZ: u32 = 2;
+        const D3DFVF_XYZB1: u32 = 6;
+        const D3DFVF_XYZB2: u32 = 8;
+        const D3DFVF_XYZB3: u32 = 10;
+        const D3DFVF_XYZB4: u32 = 12;
+        const D3DFVF_XYZB5: u32 = 14;
+        const D3DFVF_XYZRHW: u32 = 4;
+        const D3DFVF_XYZW: u32 = 16386;
+        struct D3DGAMMARAMP {
+            red: [u16; 256],
+            green: [u16; 256],
+            blue: [u16; 256],
+        }
+        const D3DGETDATA_FLUSH: u32 = 1;
+        struct D3DINDEXBUFFER_DESC {
+            Format: D3DFORMAT,
+            Type: D3DRESOURCETYPE,
+            Usage: u32,
+            Pool: D3DPOOL,
+            Size: u32,
+        }
+        const D3DISSUE_BEGIN: u32 = 2;
+        const D3DISSUE_END: u32 = 1;
+        struct D3DLIGHT9 {
+            Type: D3DLIGHTTYPE,
+            Diffuse: D3DCOLORVALUE,
+            Specular: D3DCOLORVALUE,
+            Ambient: D3DCOLORVALUE,
+            Position: D3DVECTOR,
+            Direction: D3DVECTOR,
+            Range: f32,
+            Falloff: f32,
+            Attenuation0: f32,
+            Attenuation1: f32,
+            Attenuation2: f32,
+            Theta: f32,
+            Phi: f32,
+        }
+        #[repr(i32)]
+        enum D3DLIGHTTYPE {
+            D3DLIGHT_POINT = 1,
+            D3DLIGHT_SPOT = 2,
+            D3DLIGHT_DIRECTIONAL = 3,
+            D3DLIGHT_FORCE_DWORD = 2147483647,
+        }
+        struct D3DLOCKED_BOX {
+            RowPitch: i32,
+            SlicePitch: i32,
+            pBits: *mut void,
+        }
+        struct D3DLOCKED_RECT {
+            Pitch: i32,
+            pBits: *mut void,
+        }
+        const D3DLOCK_DISCARD: u32 = 8192;
+        const D3DLOCK_DONOTWAIT: u32 = 16384;
+        const D3DLOCK_NOOVERWRITE: u32 = 4096;
+        const D3DLOCK_NOSYSLOCK: u32 = 2048;
+        const D3DLOCK_NO_DIRTY_UPDATE: u32 = 32768;
+        const D3DLOCK_READONLY: u32 = 16;
+        struct D3DMATERIAL9 {
+            Diffuse: D3DCOLORVALUE,
+            Ambient: D3DCOLORVALUE,
+            Specular: D3DCOLORVALUE,
+            Emissive: D3DCOLORVALUE,
+            Power: f32,
+        }
+        #[repr(i32)]
+        enum D3DMATERIALCOLORSOURCE {
+            D3DMCS_MATERIAL = 0,
+            D3DMCS_COLOR1 = 1,
+            D3DMCS_COLOR2 = 2,
+            D3DMCS_FORCE_DWORD = 2147483647,
+        }
+        struct D3DMATRIX {
+            Anonymous: union {
+                Anonymous: struct {
+                    _11: f32,
+                    _12: f32,
+                    _13: f32,
+                    _14: f32,
+                    _21: f32,
+                    _22: f32,
+                    _23: f32,
+                    _24: f32,
+                    _31: f32,
+                    _32: f32,
+                    _33: f32,
+                    _34: f32,
+                    _41: f32,
+                    _42: f32,
+                    _43: f32,
+                    _44: f32,
+                },
+                m: [[f32; 4]; 4],
+            },
+        }
+        const D3DMAXUSERCLIPPLANES: u32 = 32;
+        #[arch(X64 | Arm64)]
+        struct D3DMEMORYPRESSURE {
+            BytesEvictedFromProcess: u64,
+            SizeOfInefficientAllocation: u64,
+            LevelOfEfficiency: u32,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DMEMORYPRESSURE {
+            BytesEvictedFromProcess: u64,
+            SizeOfInefficientAllocation: u64,
+            LevelOfEfficiency: u32,
+        }
+        #[repr(i32)]
+        enum D3DMULTISAMPLE_TYPE {
+            D3DMULTISAMPLE_NONE = 0,
+            D3DMULTISAMPLE_NONMASKABLE = 1,
+            D3DMULTISAMPLE_2_SAMPLES = 2,
+            D3DMULTISAMPLE_3_SAMPLES = 3,
+            D3DMULTISAMPLE_4_SAMPLES = 4,
+            D3DMULTISAMPLE_5_SAMPLES = 5,
+            D3DMULTISAMPLE_6_SAMPLES = 6,
+            D3DMULTISAMPLE_7_SAMPLES = 7,
+            D3DMULTISAMPLE_8_SAMPLES = 8,
+            D3DMULTISAMPLE_9_SAMPLES = 9,
+            D3DMULTISAMPLE_10_SAMPLES = 10,
+            D3DMULTISAMPLE_11_SAMPLES = 11,
+            D3DMULTISAMPLE_12_SAMPLES = 12,
+            D3DMULTISAMPLE_13_SAMPLES = 13,
+            D3DMULTISAMPLE_14_SAMPLES = 14,
+            D3DMULTISAMPLE_15_SAMPLES = 15,
+            D3DMULTISAMPLE_16_SAMPLES = 16,
+            D3DMULTISAMPLE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DPATCHEDGESTYLE {
+            D3DPATCHEDGE_DISCRETE = 0,
+            D3DPATCHEDGE_CONTINUOUS = 1,
+            D3DPATCHEDGE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DPOOL {
+            D3DPOOL_DEFAULT = 0,
+            D3DPOOL_MANAGED = 1,
+            D3DPOOL_SYSTEMMEM = 2,
+            D3DPOOL_SCRATCH = 3,
+            D3DPOOL_FORCE_DWORD = 2147483647,
+        }
+        const D3DPRESENTFLAG_DEVICECLIP: u32 = 4;
+        const D3DPRESENTFLAG_DISCARD_DEPTHSTENCIL: u32 = 2;
+        const D3DPRESENTFLAG_LOCKABLE_BACKBUFFER: u32 = 1;
+        const D3DPRESENTFLAG_NOAUTOROTATE: u32 = 32;
+        const D3DPRESENTFLAG_OVERLAY_LIMITEDRGB: u32 = 128;
+        const D3DPRESENTFLAG_OVERLAY_YCbCr_BT709: u32 = 256;
+        const D3DPRESENTFLAG_OVERLAY_YCbCr_xvYCC: u32 = 512;
+        const D3DPRESENTFLAG_RESTRICTED_CONTENT: u32 = 1024;
+        const D3DPRESENTFLAG_RESTRICT_SHARED_RESOURCE_DRIVER: u32 = 2048;
+        const D3DPRESENTFLAG_UNPRUNEDMODE: u32 = 64;
+        const D3DPRESENTFLAG_VIDEO: u32 = 16;
+        #[arch(X64 | Arm64)]
+        struct D3DPRESENTSTATS {
+            PresentCount: u32,
+            PresentRefreshCount: u32,
+            SyncRefreshCount: u32,
+            SyncQPCTime: LARGE_INTEGER,
+            SyncGPUTime: LARGE_INTEGER,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DPRESENTSTATS {
+            PresentCount: u32,
+            PresentRefreshCount: u32,
+            SyncRefreshCount: u32,
+            SyncQPCTime: LARGE_INTEGER,
+            SyncGPUTime: LARGE_INTEGER,
+        }
+        struct D3DPRESENT_PARAMETERS {
+            BackBufferWidth: u32,
+            BackBufferHeight: u32,
+            BackBufferFormat: D3DFORMAT,
+            BackBufferCount: u32,
+            MultiSampleType: D3DMULTISAMPLE_TYPE,
+            MultiSampleQuality: u32,
+            SwapEffect: D3DSWAPEFFECT,
+            hDeviceWindow: HWND,
+            Windowed: BOOL,
+            EnableAutoDepthStencil: BOOL,
+            AutoDepthStencilFormat: D3DFORMAT,
+            Flags: u32,
+            FullScreen_RefreshRateInHz: u32,
+            PresentationInterval: u32,
+        }
+        const D3DPRESENT_RATE_DEFAULT: u32 = 0;
+        #[repr(i32)]
+        enum D3DPRIMITIVETYPE {
+            D3DPT_POINTLIST = 1,
+            D3DPT_LINELIST = 2,
+            D3DPT_LINESTRIP = 3,
+            D3DPT_TRIANGLELIST = 4,
+            D3DPT_TRIANGLESTRIP = 5,
+            D3DPT_TRIANGLEFAN = 6,
+            D3DPT_FORCE_DWORD = 2147483647,
+        }
+        const D3DPV_DONOTCOPYDATA: u32 = 1;
+        #[repr(i32)]
+        enum D3DQUERYTYPE {
+            D3DQUERYTYPE_VCACHE = 4,
+            D3DQUERYTYPE_RESOURCEMANAGER = 5,
+            D3DQUERYTYPE_VERTEXSTATS = 6,
+            D3DQUERYTYPE_EVENT = 8,
+            D3DQUERYTYPE_OCCLUSION = 9,
+            D3DQUERYTYPE_TIMESTAMP = 10,
+            D3DQUERYTYPE_TIMESTAMPDISJOINT = 11,
+            D3DQUERYTYPE_TIMESTAMPFREQ = 12,
+            D3DQUERYTYPE_PIPELINETIMINGS = 13,
+            D3DQUERYTYPE_INTERFACETIMINGS = 14,
+            D3DQUERYTYPE_VERTEXTIMINGS = 15,
+            D3DQUERYTYPE_PIXELTIMINGS = 16,
+            D3DQUERYTYPE_BANDWIDTHTIMINGS = 17,
+            D3DQUERYTYPE_CACHEUTILIZATION = 18,
+            D3DQUERYTYPE_MEMORYPRESSURE = 19,
+        }
+        struct D3DRANGE {
+            Offset: u32,
+            Size: u32,
+        }
+        struct D3DRASTER_STATUS {
+            InVBlank: BOOL,
+            ScanLine: u32,
+        }
+        struct D3DRECT {
+            x1: i32,
+            y1: i32,
+            x2: i32,
+            y2: i32,
+        }
+        struct D3DRECTPATCH_INFO {
+            StartVertexOffsetWidth: u32,
+            StartVertexOffsetHeight: u32,
+            Width: u32,
+            Height: u32,
+            Stride: u32,
+            Basis: D3DBASISTYPE,
+            Degree: D3DDEGREETYPE,
+        }
+        #[repr(i32)]
+        enum D3DRENDERSTATETYPE {
+            D3DRS_ZENABLE = 7,
+            D3DRS_FILLMODE = 8,
+            D3DRS_SHADEMODE = 9,
+            D3DRS_ZWRITEENABLE = 14,
+            D3DRS_ALPHATESTENABLE = 15,
+            D3DRS_LASTPIXEL = 16,
+            D3DRS_SRCBLEND = 19,
+            D3DRS_DESTBLEND = 20,
+            D3DRS_CULLMODE = 22,
+            D3DRS_ZFUNC = 23,
+            D3DRS_ALPHAREF = 24,
+            D3DRS_ALPHAFUNC = 25,
+            D3DRS_DITHERENABLE = 26,
+            D3DRS_ALPHABLENDENABLE = 27,
+            D3DRS_FOGENABLE = 28,
+            D3DRS_SPECULARENABLE = 29,
+            D3DRS_FOGCOLOR = 34,
+            D3DRS_FOGTABLEMODE = 35,
+            D3DRS_FOGSTART = 36,
+            D3DRS_FOGEND = 37,
+            D3DRS_FOGDENSITY = 38,
+            D3DRS_RANGEFOGENABLE = 48,
+            D3DRS_STENCILENABLE = 52,
+            D3DRS_STENCILFAIL = 53,
+            D3DRS_STENCILZFAIL = 54,
+            D3DRS_STENCILPASS = 55,
+            D3DRS_STENCILFUNC = 56,
+            D3DRS_STENCILREF = 57,
+            D3DRS_STENCILMASK = 58,
+            D3DRS_STENCILWRITEMASK = 59,
+            D3DRS_TEXTUREFACTOR = 60,
+            D3DRS_WRAP0 = 128,
+            D3DRS_WRAP1 = 129,
+            D3DRS_WRAP2 = 130,
+            D3DRS_WRAP3 = 131,
+            D3DRS_WRAP4 = 132,
+            D3DRS_WRAP5 = 133,
+            D3DRS_WRAP6 = 134,
+            D3DRS_WRAP7 = 135,
+            D3DRS_CLIPPING = 136,
+            D3DRS_LIGHTING = 137,
+            D3DRS_AMBIENT = 139,
+            D3DRS_FOGVERTEXMODE = 140,
+            D3DRS_COLORVERTEX = 141,
+            D3DRS_LOCALVIEWER = 142,
+            D3DRS_NORMALIZENORMALS = 143,
+            D3DRS_DIFFUSEMATERIALSOURCE = 145,
+            D3DRS_SPECULARMATERIALSOURCE = 146,
+            D3DRS_AMBIENTMATERIALSOURCE = 147,
+            D3DRS_EMISSIVEMATERIALSOURCE = 148,
+            D3DRS_VERTEXBLEND = 151,
+            D3DRS_CLIPPLANEENABLE = 152,
+            D3DRS_POINTSIZE = 154,
+            D3DRS_POINTSIZE_MIN = 155,
+            D3DRS_POINTSPRITEENABLE = 156,
+            D3DRS_POINTSCALEENABLE = 157,
+            D3DRS_POINTSCALE_A = 158,
+            D3DRS_POINTSCALE_B = 159,
+            D3DRS_POINTSCALE_C = 160,
+            D3DRS_MULTISAMPLEANTIALIAS = 161,
+            D3DRS_MULTISAMPLEMASK = 162,
+            D3DRS_PATCHEDGESTYLE = 163,
+            D3DRS_DEBUGMONITORTOKEN = 165,
+            D3DRS_POINTSIZE_MAX = 166,
+            D3DRS_INDEXEDVERTEXBLENDENABLE = 167,
+            D3DRS_COLORWRITEENABLE = 168,
+            D3DRS_TWEENFACTOR = 170,
+            D3DRS_BLENDOP = 171,
+            D3DRS_POSITIONDEGREE = 172,
+            D3DRS_NORMALDEGREE = 173,
+            D3DRS_SCISSORTESTENABLE = 174,
+            D3DRS_SLOPESCALEDEPTHBIAS = 175,
+            D3DRS_ANTIALIASEDLINEENABLE = 176,
+            D3DRS_MINTESSELLATIONLEVEL = 178,
+            D3DRS_MAXTESSELLATIONLEVEL = 179,
+            D3DRS_ADAPTIVETESS_X = 180,
+            D3DRS_ADAPTIVETESS_Y = 181,
+            D3DRS_ADAPTIVETESS_Z = 182,
+            D3DRS_ADAPTIVETESS_W = 183,
+            D3DRS_ENABLEADAPTIVETESSELLATION = 184,
+            D3DRS_TWOSIDEDSTENCILMODE = 185,
+            D3DRS_CCW_STENCILFAIL = 186,
+            D3DRS_CCW_STENCILZFAIL = 187,
+            D3DRS_CCW_STENCILPASS = 188,
+            D3DRS_CCW_STENCILFUNC = 189,
+            D3DRS_COLORWRITEENABLE1 = 190,
+            D3DRS_COLORWRITEENABLE2 = 191,
+            D3DRS_COLORWRITEENABLE3 = 192,
+            D3DRS_BLENDFACTOR = 193,
+            D3DRS_SRGBWRITEENABLE = 194,
+            D3DRS_DEPTHBIAS = 195,
+            D3DRS_WRAP8 = 198,
+            D3DRS_WRAP9 = 199,
+            D3DRS_WRAP10 = 200,
+            D3DRS_WRAP11 = 201,
+            D3DRS_WRAP12 = 202,
+            D3DRS_WRAP13 = 203,
+            D3DRS_WRAP14 = 204,
+            D3DRS_WRAP15 = 205,
+            D3DRS_SEPARATEALPHABLENDENABLE = 206,
+            D3DRS_SRCBLENDALPHA = 207,
+            D3DRS_DESTBLENDALPHA = 208,
+            D3DRS_BLENDOPALPHA = 209,
+            D3DRS_FORCE_DWORD = 2147483647,
+        }
+        const D3DRENDERSTATE_WRAPBIAS: u32 = 128;
+        struct D3DRESOURCESTATS {
+            bThrashing: BOOL,
+            ApproxBytesDownloaded: u32,
+            NumEvicts: u32,
+            NumVidCreates: u32,
+            LastPri: u32,
+            NumUsed: u32,
+            NumUsedInVidMem: u32,
+            WorkingSet: u32,
+            WorkingSetBytes: u32,
+            TotalManaged: u32,
+            TotalBytes: u32,
+        }
+        #[repr(i32)]
+        enum D3DRESOURCETYPE {
+            D3DRTYPE_SURFACE = 1,
+            D3DRTYPE_VOLUME = 2,
+            D3DRTYPE_TEXTURE = 3,
+            D3DRTYPE_VOLUMETEXTURE = 4,
+            D3DRTYPE_CUBETEXTURE = 5,
+            D3DRTYPE_VERTEXBUFFER = 6,
+            D3DRTYPE_INDEXBUFFER = 7,
+            D3DRTYPE_FORCE_DWORD = 2147483647,
+        }
+        const D3DRTYPECOUNT: u32 = 8;
+        #[repr(i32)]
+        enum D3DSAMPLERSTATETYPE {
+            D3DSAMP_ADDRESSU = 1,
+            D3DSAMP_ADDRESSV = 2,
+            D3DSAMP_ADDRESSW = 3,
+            D3DSAMP_BORDERCOLOR = 4,
+            D3DSAMP_MAGFILTER = 5,
+            D3DSAMP_MINFILTER = 6,
+            D3DSAMP_MIPFILTER = 7,
+            D3DSAMP_MIPMAPLODBIAS = 8,
+            D3DSAMP_MAXMIPLEVEL = 9,
+            D3DSAMP_MAXANISOTROPY = 10,
+            D3DSAMP_SRGBTEXTURE = 11,
+            D3DSAMP_ELEMENTINDEX = 12,
+            D3DSAMP_DMAPOFFSET = 13,
+            D3DSAMP_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DSAMPLER_TEXTURE_TYPE {
+            D3DSTT_UNKNOWN = 0,
+            D3DSTT_2D = 268435456,
+            D3DSTT_CUBE = 402653184,
+            D3DSTT_VOLUME = 536870912,
+            D3DSTT_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DSCANLINEORDERING {
+            D3DSCANLINEORDERING_UNKNOWN = 0,
+            D3DSCANLINEORDERING_PROGRESSIVE = 1,
+            D3DSCANLINEORDERING_INTERLACED = 2,
+        }
+        #[repr(i32)]
+        enum D3DSHADEMODE {
+            D3DSHADE_FLAT = 1,
+            D3DSHADE_GOURAUD = 2,
+            D3DSHADE_PHONG = 3,
+            D3DSHADE_FORCE_DWORD = 2147483647,
+        }
+        const D3DSHADER_ADDRESSMODE_MASK: u32 = 8192;
+        const D3DSHADER_ADDRESSMODE_SHIFT: u32 = 13;
+        #[repr(i32)]
+        enum D3DSHADER_ADDRESSMODE_TYPE {
+            D3DSHADER_ADDRMODE_ABSOLUTE = 0,
+            D3DSHADER_ADDRMODE_RELATIVE = 8192,
+            D3DSHADER_ADDRMODE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DSHADER_COMPARISON {
+            D3DSPC_RESERVED0 = 0,
+            D3DSPC_GT = 1,
+            D3DSPC_EQ = 2,
+            D3DSPC_GE = 3,
+            D3DSPC_LT = 4,
+            D3DSPC_NE = 5,
+            D3DSPC_LE = 6,
+            D3DSPC_RESERVED1 = 7,
+        }
+        const D3DSHADER_COMPARISON_MASK: u32 = 458752;
+        const D3DSHADER_COMPARISON_SHIFT: u32 = 16;
+        #[repr(i32)]
+        enum D3DSHADER_INSTRUCTION_OPCODE_TYPE {
+            D3DSIO_NOP = 0,
+            D3DSIO_MOV = 1,
+            D3DSIO_ADD = 2,
+            D3DSIO_SUB = 3,
+            D3DSIO_MAD = 4,
+            D3DSIO_MUL = 5,
+            D3DSIO_RCP = 6,
+            D3DSIO_RSQ = 7,
+            D3DSIO_DP3 = 8,
+            D3DSIO_DP4 = 9,
+            D3DSIO_MIN = 10,
+            D3DSIO_MAX = 11,
+            D3DSIO_SLT = 12,
+            D3DSIO_SGE = 13,
+            D3DSIO_EXP = 14,
+            D3DSIO_LOG = 15,
+            D3DSIO_LIT = 16,
+            D3DSIO_DST = 17,
+            D3DSIO_LRP = 18,
+            D3DSIO_FRC = 19,
+            D3DSIO_M4x4 = 20,
+            D3DSIO_M4x3 = 21,
+            D3DSIO_M3x4 = 22,
+            D3DSIO_M3x3 = 23,
+            D3DSIO_M3x2 = 24,
+            D3DSIO_CALL = 25,
+            D3DSIO_CALLNZ = 26,
+            D3DSIO_LOOP = 27,
+            D3DSIO_RET = 28,
+            D3DSIO_ENDLOOP = 29,
+            D3DSIO_LABEL = 30,
+            D3DSIO_DCL = 31,
+            D3DSIO_POW = 32,
+            D3DSIO_CRS = 33,
+            D3DSIO_SGN = 34,
+            D3DSIO_ABS = 35,
+            D3DSIO_NRM = 36,
+            D3DSIO_SINCOS = 37,
+            D3DSIO_REP = 38,
+            D3DSIO_ENDREP = 39,
+            D3DSIO_IF = 40,
+            D3DSIO_IFC = 41,
+            D3DSIO_ELSE = 42,
+            D3DSIO_ENDIF = 43,
+            D3DSIO_BREAK = 44,
+            D3DSIO_BREAKC = 45,
+            D3DSIO_MOVA = 46,
+            D3DSIO_DEFB = 47,
+            D3DSIO_DEFI = 48,
+            D3DSIO_TEXCOORD = 64,
+            D3DSIO_TEXKILL = 65,
+            D3DSIO_TEX = 66,
+            D3DSIO_TEXBEM = 67,
+            D3DSIO_TEXBEML = 68,
+            D3DSIO_TEXREG2AR = 69,
+            D3DSIO_TEXREG2GB = 70,
+            D3DSIO_TEXM3x2PAD = 71,
+            D3DSIO_TEXM3x2TEX = 72,
+            D3DSIO_TEXM3x3PAD = 73,
+            D3DSIO_TEXM3x3TEX = 74,
+            D3DSIO_RESERVED0 = 75,
+            D3DSIO_TEXM3x3SPEC = 76,
+            D3DSIO_TEXM3x3VSPEC = 77,
+            D3DSIO_EXPP = 78,
+            D3DSIO_LOGP = 79,
+            D3DSIO_CND = 80,
+            D3DSIO_DEF = 81,
+            D3DSIO_TEXREG2RGB = 82,
+            D3DSIO_TEXDP3TEX = 83,
+            D3DSIO_TEXM3x2DEPTH = 84,
+            D3DSIO_TEXDP3 = 85,
+            D3DSIO_TEXM3x3 = 86,
+            D3DSIO_TEXDEPTH = 87,
+            D3DSIO_CMP = 88,
+            D3DSIO_BEM = 89,
+            D3DSIO_DP2ADD = 90,
+            D3DSIO_DSX = 91,
+            D3DSIO_DSY = 92,
+            D3DSIO_TEXLDD = 93,
+            D3DSIO_SETP = 94,
+            D3DSIO_TEXLDL = 95,
+            D3DSIO_BREAKP = 96,
+            D3DSIO_PHASE = 65533,
+            D3DSIO_COMMENT = 65534,
+            D3DSIO_END = 65535,
+            D3DSIO_FORCE_DWORD = 2147483647,
+        }
+        const D3DSHADER_INSTRUCTION_PREDICATED: u32 = 268435456;
+        #[repr(i32)]
+        enum D3DSHADER_MIN_PRECISION {
+            D3DMP_DEFAULT = 0,
+            D3DMP_16 = 1,
+            D3DMP_2_8 = 2,
+        }
+        #[repr(i32)]
+        enum D3DSHADER_MISCTYPE_OFFSETS {
+            D3DSMO_POSITION = 0,
+            D3DSMO_FACE = 1,
+        }
+        #[repr(i32)]
+        enum D3DSHADER_PARAM_REGISTER_TYPE {
+            D3DSPR_TEMP = 0,
+            D3DSPR_INPUT = 1,
+            D3DSPR_CONST = 2,
+            D3DSPR_ADDR = 3,
+            D3DSPR_TEXTURE = 3,
+            D3DSPR_RASTOUT = 4,
+            D3DSPR_ATTROUT = 5,
+            D3DSPR_TEXCRDOUT = 6,
+            D3DSPR_OUTPUT = 6,
+            D3DSPR_CONSTINT = 7,
+            D3DSPR_COLOROUT = 8,
+            D3DSPR_DEPTHOUT = 9,
+            D3DSPR_SAMPLER = 10,
+            D3DSPR_CONST2 = 11,
+            D3DSPR_CONST3 = 12,
+            D3DSPR_CONST4 = 13,
+            D3DSPR_CONSTBOOL = 14,
+            D3DSPR_LOOP = 15,
+            D3DSPR_TEMPFLOAT16 = 16,
+            D3DSPR_MISCTYPE = 17,
+            D3DSPR_LABEL = 18,
+            D3DSPR_PREDICATE = 19,
+            D3DSPR_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DSHADER_PARAM_SRCMOD_TYPE {
+            D3DSPSM_NONE = 0,
+            D3DSPSM_NEG = 16777216,
+            D3DSPSM_BIAS = 33554432,
+            D3DSPSM_BIASNEG = 50331648,
+            D3DSPSM_SIGN = 67108864,
+            D3DSPSM_SIGNNEG = 83886080,
+            D3DSPSM_COMP = 100663296,
+            D3DSPSM_X2 = 117440512,
+            D3DSPSM_X2NEG = 134217728,
+            D3DSPSM_DZ = 150994944,
+            D3DSPSM_DW = 167772160,
+            D3DSPSM_ABS = 184549376,
+            D3DSPSM_ABSNEG = 201326592,
+            D3DSPSM_NOT = 218103808,
+            D3DSPSM_FORCE_DWORD = 2147483647,
+        }
+        const D3DSI_COISSUE: u32 = 1073741824;
+        const D3DSI_COMMENTSIZE_MASK: u32 = 2147418112;
+        const D3DSI_COMMENTSIZE_SHIFT: u32 = 16;
+        const D3DSI_INSTLENGTH_MASK: u32 = 251658240;
+        const D3DSI_INSTLENGTH_SHIFT: u32 = 24;
+        const D3DSI_OPCODE_MASK: u32 = 65535;
+        const D3DSI_TEXLD_BIAS: u32 = 131072;
+        const D3DSI_TEXLD_PROJECT: u32 = 65536;
+        const D3DSPDM_MSAMPCENTROID: u32 = 4194304;
+        const D3DSPDM_NONE: u32 = 0;
+        const D3DSPDM_PARTIALPRECISION: u32 = 2097152;
+        const D3DSPDM_SATURATE: u32 = 1048576;
+        const D3DSP_DCL_USAGEINDEX_MASK: u32 = 983040;
+        const D3DSP_DCL_USAGEINDEX_SHIFT: u32 = 16;
+        const D3DSP_DCL_USAGE_MASK: u32 = 15;
+        const D3DSP_DCL_USAGE_SHIFT: u32 = 0;
+        const D3DSP_DSTMOD_MASK: u32 = 15728640;
+        const D3DSP_DSTMOD_SHIFT: u32 = 20;
+        const D3DSP_DSTSHIFT_MASK: u32 = 251658240;
+        const D3DSP_DSTSHIFT_SHIFT: u32 = 24;
+        const D3DSP_MIN_PRECISION_MASK: u32 = 49152;
+        const D3DSP_MIN_PRECISION_SHIFT: u32 = 14;
+        const D3DSP_NOSWIZZLE: u32 = 14942208;
+        const D3DSP_OPCODESPECIFICCONTROL_MASK: u32 = 16711680;
+        const D3DSP_OPCODESPECIFICCONTROL_SHIFT: u32 = 16;
+        const D3DSP_REGNUM_MASK: u32 = 2047;
+        const D3DSP_REGTYPE_MASK: u32 = 1879048192;
+        const D3DSP_REGTYPE_MASK2: u32 = 6144;
+        const D3DSP_REGTYPE_SHIFT: u32 = 28;
+        const D3DSP_REGTYPE_SHIFT2: u32 = 8;
+        const D3DSP_REPLICATEALPHA: u32 = 16711680;
+        const D3DSP_REPLICATEBLUE: u32 = 11141120;
+        const D3DSP_REPLICATEGREEN: u32 = 5570560;
+        const D3DSP_REPLICATERED: u32 = 0;
+        const D3DSP_SRCMOD_MASK: u32 = 251658240;
+        const D3DSP_SRCMOD_SHIFT: u32 = 24;
+        const D3DSP_SWIZZLE_MASK: u32 = 16711680;
+        const D3DSP_SWIZZLE_SHIFT: u32 = 16;
+        const D3DSP_TEXTURETYPE_MASK: u32 = 2013265920;
+        const D3DSP_TEXTURETYPE_SHIFT: u32 = 27;
+        const D3DSP_WRITEMASK_0: u32 = 65536;
+        const D3DSP_WRITEMASK_1: u32 = 131072;
+        const D3DSP_WRITEMASK_2: u32 = 262144;
+        const D3DSP_WRITEMASK_3: u32 = 524288;
+        const D3DSP_WRITEMASK_ALL: u32 = 983040;
+        #[repr(i32)]
+        enum D3DSTATEBLOCKTYPE {
+            D3DSBT_ALL = 1,
+            D3DSBT_PIXELSTATE = 2,
+            D3DSBT_VERTEXSTATE = 3,
+            D3DSBT_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DSTENCILOP {
+            D3DSTENCILOP_KEEP = 1,
+            D3DSTENCILOP_ZERO = 2,
+            D3DSTENCILOP_REPLACE = 3,
+            D3DSTENCILOP_INCRSAT = 4,
+            D3DSTENCILOP_DECRSAT = 5,
+            D3DSTENCILOP_INVERT = 6,
+            D3DSTENCILOP_INCR = 7,
+            D3DSTENCILOP_DECR = 8,
+            D3DSTENCILOP_FORCE_DWORD = 2147483647,
+        }
+        const D3DSTREAMSOURCE_INDEXEDDATA: u32 = 1073741824;
+        const D3DSTREAMSOURCE_INSTANCEDATA: i32 = -2147483648;
+        struct D3DSURFACE_DESC {
+            Format: D3DFORMAT,
+            Type: D3DRESOURCETYPE,
+            Usage: u32,
+            Pool: D3DPOOL,
+            MultiSampleType: D3DMULTISAMPLE_TYPE,
+            MultiSampleQuality: u32,
+            Width: u32,
+            Height: u32,
+        }
+        #[repr(i32)]
+        enum D3DSWAPEFFECT {
+            D3DSWAPEFFECT_DISCARD = 1,
+            D3DSWAPEFFECT_FLIP = 2,
+            D3DSWAPEFFECT_COPY = 3,
+            D3DSWAPEFFECT_OVERLAY = 4,
+            D3DSWAPEFFECT_FLIPEX = 5,
+            D3DSWAPEFFECT_FORCE_DWORD = 2147483647,
+        }
+        const D3DTA_ALPHAREPLICATE: u32 = 32;
+        const D3DTA_COMPLEMENT: u32 = 16;
+        const D3DTA_CONSTANT: u32 = 6;
+        const D3DTA_CURRENT: u32 = 1;
+        const D3DTA_DIFFUSE: u32 = 0;
+        const D3DTA_SELECTMASK: u32 = 15;
+        const D3DTA_SPECULAR: u32 = 4;
+        const D3DTA_TEMP: u32 = 5;
+        const D3DTA_TEXTURE: u32 = 2;
+        const D3DTA_TFACTOR: u32 = 3;
+        #[repr(i32)]
+        enum D3DTEXTUREADDRESS {
+            D3DTADDRESS_WRAP = 1,
+            D3DTADDRESS_MIRROR = 2,
+            D3DTADDRESS_CLAMP = 3,
+            D3DTADDRESS_BORDER = 4,
+            D3DTADDRESS_MIRRORONCE = 5,
+            D3DTADDRESS_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DTEXTUREFILTERTYPE {
+            D3DTEXF_NONE = 0,
+            D3DTEXF_POINT = 1,
+            D3DTEXF_LINEAR = 2,
+            D3DTEXF_ANISOTROPIC = 3,
+            D3DTEXF_PYRAMIDALQUAD = 6,
+            D3DTEXF_GAUSSIANQUAD = 7,
+            D3DTEXF_CONVOLUTIONMONO = 8,
+            D3DTEXF_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DTEXTUREOP {
+            D3DTOP_DISABLE = 1,
+            D3DTOP_SELECTARG1 = 2,
+            D3DTOP_SELECTARG2 = 3,
+            D3DTOP_MODULATE = 4,
+            D3DTOP_MODULATE2X = 5,
+            D3DTOP_MODULATE4X = 6,
+            D3DTOP_ADD = 7,
+            D3DTOP_ADDSIGNED = 8,
+            D3DTOP_ADDSIGNED2X = 9,
+            D3DTOP_SUBTRACT = 10,
+            D3DTOP_ADDSMOOTH = 11,
+            D3DTOP_BLENDDIFFUSEALPHA = 12,
+            D3DTOP_BLENDTEXTUREALPHA = 13,
+            D3DTOP_BLENDFACTORALPHA = 14,
+            D3DTOP_BLENDTEXTUREALPHAPM = 15,
+            D3DTOP_BLENDCURRENTALPHA = 16,
+            D3DTOP_PREMODULATE = 17,
+            D3DTOP_MODULATEALPHA_ADDCOLOR = 18,
+            D3DTOP_MODULATECOLOR_ADDALPHA = 19,
+            D3DTOP_MODULATEINVALPHA_ADDCOLOR = 20,
+            D3DTOP_MODULATEINVCOLOR_ADDALPHA = 21,
+            D3DTOP_BUMPENVMAP = 22,
+            D3DTOP_BUMPENVMAPLUMINANCE = 23,
+            D3DTOP_DOTPRODUCT3 = 24,
+            D3DTOP_MULTIPLYADD = 25,
+            D3DTOP_LERP = 26,
+            D3DTOP_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DTEXTURESTAGESTATETYPE {
+            D3DTSS_COLOROP = 1,
+            D3DTSS_COLORARG1 = 2,
+            D3DTSS_COLORARG2 = 3,
+            D3DTSS_ALPHAOP = 4,
+            D3DTSS_ALPHAARG1 = 5,
+            D3DTSS_ALPHAARG2 = 6,
+            D3DTSS_BUMPENVMAT00 = 7,
+            D3DTSS_BUMPENVMAT01 = 8,
+            D3DTSS_BUMPENVMAT10 = 9,
+            D3DTSS_BUMPENVMAT11 = 10,
+            D3DTSS_TEXCOORDINDEX = 11,
+            D3DTSS_BUMPENVLSCALE = 22,
+            D3DTSS_BUMPENVLOFFSET = 23,
+            D3DTSS_TEXTURETRANSFORMFLAGS = 24,
+            D3DTSS_COLORARG0 = 26,
+            D3DTSS_ALPHAARG0 = 27,
+            D3DTSS_RESULTARG = 28,
+            D3DTSS_CONSTANT = 32,
+            D3DTSS_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DTEXTURETRANSFORMFLAGS {
+            D3DTTFF_DISABLE = 0,
+            D3DTTFF_COUNT1 = 1,
+            D3DTTFF_COUNT2 = 2,
+            D3DTTFF_COUNT3 = 3,
+            D3DTTFF_COUNT4 = 4,
+            D3DTTFF_PROJECTED = 256,
+            D3DTTFF_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum D3DTRANSFORMSTATETYPE {
+            D3DTS_VIEW = 2,
+            D3DTS_PROJECTION = 3,
+            D3DTS_TEXTURE0 = 16,
+            D3DTS_TEXTURE1 = 17,
+            D3DTS_TEXTURE2 = 18,
+            D3DTS_TEXTURE3 = 19,
+            D3DTS_TEXTURE4 = 20,
+            D3DTS_TEXTURE5 = 21,
+            D3DTS_TEXTURE6 = 22,
+            D3DTS_TEXTURE7 = 23,
+            D3DTS_FORCE_DWORD = 2147483647,
+        }
+        struct D3DTRIPATCH_INFO {
+            StartVertexOffset: u32,
+            NumVertices: u32,
+            Basis: D3DBASISTYPE,
+            Degree: D3DDEGREETYPE,
+        }
+        const D3DTSS_TCI_CAMERASPACENORMAL: u32 = 65536;
+        const D3DTSS_TCI_CAMERASPACEPOSITION: u32 = 131072;
+        const D3DTSS_TCI_CAMERASPACEREFLECTIONVECTOR: u32 = 196608;
+        const D3DTSS_TCI_PASSTHRU: u32 = 0;
+        const D3DTSS_TCI_SPHEREMAP: u32 = 262144;
+        const D3DTS_WORLD: u32 = 256;
+        const D3DTS_WORLD1: u32 = 257;
+        const D3DTS_WORLD2: u32 = 258;
+        const D3DTS_WORLD3: u32 = 259;
+        const D3DUSAGE_AUTOGENMIPMAP: u32 = 1024;
+        const D3DUSAGE_DEPTHSTENCIL: u32 = 2;
+        const D3DUSAGE_DMAP: u32 = 16384;
+        const D3DUSAGE_DONOTCLIP: u32 = 32;
+        const D3DUSAGE_DYNAMIC: u32 = 512;
+        const D3DUSAGE_NONSECURE: u32 = 8388608;
+        const D3DUSAGE_NPATCHES: u32 = 256;
+        const D3DUSAGE_POINTS: u32 = 64;
+        const D3DUSAGE_QUERY_FILTER: u32 = 131072;
+        const D3DUSAGE_QUERY_LEGACYBUMPMAP: u32 = 32768;
+        const D3DUSAGE_QUERY_POSTPIXELSHADER_BLENDING: u32 = 524288;
+        const D3DUSAGE_QUERY_SRGBREAD: u32 = 65536;
+        const D3DUSAGE_QUERY_SRGBWRITE: u32 = 262144;
+        const D3DUSAGE_QUERY_VERTEXTEXTURE: u32 = 1048576;
+        const D3DUSAGE_QUERY_WRAPANDMIP: u32 = 2097152;
+        const D3DUSAGE_RENDERTARGET: u32 = 1;
+        const D3DUSAGE_RESTRICTED_CONTENT: u32 = 2048;
+        const D3DUSAGE_RESTRICT_SHARED_RESOURCE: u32 = 8192;
+        const D3DUSAGE_RESTRICT_SHARED_RESOURCE_DRIVER: u32 = 4096;
+        const D3DUSAGE_RTPATCHES: u32 = 128;
+        const D3DUSAGE_SOFTWAREPROCESSING: u32 = 16;
+        const D3DUSAGE_TEXTAPI: u32 = 268435456;
+        const D3DUSAGE_WRITEONLY: u32 = 8;
+        #[repr(i32)]
+        enum D3DVERTEXBLENDFLAGS {
+            D3DVBF_DISABLE = 0,
+            D3DVBF_1WEIGHTS = 1,
+            D3DVBF_2WEIGHTS = 2,
+            D3DVBF_3WEIGHTS = 3,
+            D3DVBF_TWEENING = 255,
+            D3DVBF_0WEIGHTS = 256,
+            D3DVBF_FORCE_DWORD = 2147483647,
+        }
+        struct D3DVERTEXBUFFER_DESC {
+            Format: D3DFORMAT,
+            Type: D3DRESOURCETYPE,
+            Usage: u32,
+            Pool: D3DPOOL,
+            Size: u32,
+            FVF: u32,
+        }
+        struct D3DVERTEXELEMENT9 {
+            Stream: u16,
+            Offset: u16,
+            Type: u8,
+            Method: u8,
+            Usage: u8,
+            UsageIndex: u8,
+        }
+        const D3DVERTEXTEXTURESAMPLER0: u32 = 257;
+        const D3DVERTEXTEXTURESAMPLER1: u32 = 258;
+        const D3DVERTEXTEXTURESAMPLER2: u32 = 259;
+        const D3DVERTEXTEXTURESAMPLER3: u32 = 260;
+        struct D3DVIEWPORT9 {
+            X: u32,
+            Y: u32,
+            Width: u32,
+            Height: u32,
+            MinZ: f32,
+            MaxZ: f32,
+        }
+        struct D3DVOLUME_DESC {
+            Format: D3DFORMAT,
+            Type: D3DRESOURCETYPE,
+            Usage: u32,
+            Pool: D3DPOOL,
+            Width: u32,
+            Height: u32,
+            Depth: u32,
+        }
+        const D3DVS_ADDRESSMODE_MASK: u32 = 8192;
+        const D3DVS_ADDRESSMODE_SHIFT: u32 = 13;
+        #[repr(i32)]
+        enum D3DVS_ADDRESSMODE_TYPE {
+            D3DVS_ADDRMODE_ABSOLUTE = 0,
+            D3DVS_ADDRMODE_RELATIVE = 8192,
+            D3DVS_ADDRMODE_FORCE_DWORD = 2147483647,
+        }
+        const D3DVS_NOSWIZZLE: u32 = 14942208;
+        #[repr(i32)]
+        enum D3DVS_RASTOUT_OFFSETS {
+            D3DSRO_POSITION = 0,
+            D3DSRO_FOG = 1,
+            D3DSRO_POINT_SIZE = 2,
+            D3DSRO_FORCE_DWORD = 2147483647,
+        }
+        const D3DVS_SWIZZLE_MASK: u32 = 16711680;
+        const D3DVS_SWIZZLE_SHIFT: u32 = 16;
+        const D3DVS_W_W: u32 = 12582912;
+        const D3DVS_W_X: u32 = 0;
+        const D3DVS_W_Y: u32 = 4194304;
+        const D3DVS_W_Z: u32 = 8388608;
+        const D3DVS_X_W: u32 = 196608;
+        const D3DVS_X_X: u32 = 0;
+        const D3DVS_X_Y: u32 = 65536;
+        const D3DVS_X_Z: u32 = 131072;
+        const D3DVS_Y_W: u32 = 786432;
+        const D3DVS_Y_X: u32 = 0;
+        const D3DVS_Y_Y: u32 = 262144;
+        const D3DVS_Y_Z: u32 = 524288;
+        const D3DVS_Z_W: u32 = 3145728;
+        const D3DVS_Z_X: u32 = 0;
+        const D3DVS_Z_Y: u32 = 1048576;
+        const D3DVS_Z_Z: u32 = 2097152;
+        const D3DWRAPCOORD_0: u32 = 1;
+        const D3DWRAPCOORD_1: u32 = 2;
+        const D3DWRAPCOORD_2: u32 = 4;
+        const D3DWRAPCOORD_3: u32 = 8;
+        const D3DWRAP_U: u32 = 1;
+        const D3DWRAP_V: u32 = 2;
+        const D3DWRAP_W: u32 = 4;
+        #[repr(i32)]
+        enum D3DZBUFFERTYPE {
+            D3DZB_FALSE = 0,
+            D3DZB_TRUE = 1,
+            D3DZB_USEW = 2,
+            D3DZB_FORCE_DWORD = 2147483647,
+        }
+        const D3D_MAX_SIMULTANEOUS_RENDERTARGETS: u32 = 4;
+        struct D3D_OMAC {
+            Omac: [u8; 16],
+        }
+        const D3D_OMAC_SIZE: u32 = 16;
+        const DIRECT3D_VERSION: u32 = 2304;
+        type LPD3DDEVINFO_D3DVERTEXSTATS = *mut D3DDEVINFO_D3DVERTEXSTATS;
+        type LPD3DDEVINFO_RESOURCEMANAGER = *mut D3DDEVINFO_RESOURCEMANAGER;
+        type LPD3DDEVINFO_VCACHE = *mut D3DDEVINFO_VCACHE;
+        type LPD3DVERTEXELEMENT9 = *mut D3DVERTEXELEMENT9;
+        const MAXD3DDECLLENGTH: u32 = 64;
+        const MAXD3DDECLMETHOD: u32 = 6;
+        const MAXD3DDECLTYPE: u32 = 17;
+        const MAXD3DDECLUSAGE: u32 = 13;
+        const MAXD3DDECLUSAGEINDEX: u32 = 15;
+        const MAX_DEVICE_IDENTIFIER_STRING: u32 = 512;
+    }
+}

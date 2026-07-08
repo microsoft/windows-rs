@@ -1,0 +1,21 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn ChangeTimerQueueTimer(#[opt] TimerQueue: HANDLE, #[in] #[out] Timer: HANDLE, DueTime: u32, Period: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateTimerQueue() -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateTimerQueueTimer(phNewTimer: *mut HANDLE, #[opt] TimerQueue: HANDLE, Callback: WAITORTIMERCALLBACK, #[opt] Parameter: *const void, DueTime: u32, Period: u32, Flags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteTimerQueue(TimerQueue: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteTimerQueueEx(TimerQueue: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteTimerQueueTimer(#[opt] TimerQueue: HANDLE, Timer: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn QueueUserWorkItem(Function: LPTHREAD_START_ROUTINE, #[opt] Context: *const void, Flags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn UnregisterWaitEx(WaitHandle: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
+    }
+}

@@ -1,0 +1,24 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x802302b0_82de_45e1_b421_f19ee5bdaf23)]
+        interface IMFD3D12SynchronizationObject: IUnknown {
+            fn SignalEventOnFinalResourceRelease(&self, hEvent: HANDLE) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+        }
+        #[guid(0x09d0f835_92ff_4e53_8efa_40faa551f233)]
+        interface IMFD3D12SynchronizationObjectCommands: IUnknown {
+            fn EnqueueResourceReady(&self, pProducerCommandQueue: ID3D12CommandQueue) -> HRESULT;
+            fn EnqueueResourceReadyWait(&self, pConsumerCommandQueue: ID3D12CommandQueue) -> HRESULT;
+            fn SignalEventOnResourceReady(&self, hEvent: HANDLE) -> HRESULT;
+            fn EnqueueResourceRelease(&self, pConsumerCommandQueue: ID3D12CommandQueue) -> HRESULT;
+        }
+        #[library("MFPlat.DLL")]
+        extern "C" fn MFCreateD3D12SynchronizationObject(pDevice: ID3D12Device, riid: *const GUID, ppvSyncObject: *mut *mut void) -> HRESULT;
+        #[repr(i32)]
+        enum MF_MT_D3D_RESOURCE_VERSION_ENUM {
+            MF_D3D11_RESOURCE = 0,
+            MF_D3D12_RESOURCE = 1,
+        }
+    }
+}

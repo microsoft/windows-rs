@@ -1,0 +1,334 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
+        extern fn AddPackageDependency(packageDependencyId: PCWSTR, rank: i32, options: AddPackageDependencyOptions, packageDependencyContext: *mut PACKAGEDEPENDENCY_CONTEXT, packageFullName: *mut PWSTR) -> HRESULT;
+        #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
+        extern fn AddPackageDependency2(packageDependencyId: PCWSTR, rank: i32, options: AddPackageDependencyOptions2, packageDependencyContext: *mut PACKAGEDEPENDENCY_CONTEXT, packageFullName: *mut PWSTR) -> HRESULT;
+        #[repr(u32)]
+        #[flags]
+        enum AddPackageDependencyOptions {
+            AddPackageDependencyOptions_None = 0,
+            AddPackageDependencyOptions_PrependIfRankCollision = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum AddPackageDependencyOptions2 {
+            AddPackageDependencyOptions2_None = 0,
+            AddPackageDependencyOptions2_PrependIfRankCollision = 1,
+            AddPackageDependencyOptions2_SpecifiedPackageFamilyOnly = 2,
+        }
+        #[repr(i32)]
+        enum AppModelPackageFeature {
+            AppModelPackageFeature_SignedSBOM = 1,
+        }
+        #[repr(i32)]
+        enum AppPolicyClrCompat {
+            AppPolicyClrCompat_Other = 0,
+            AppPolicyClrCompat_ClassicDesktop = 1,
+            AppPolicyClrCompat_Universal = 2,
+            AppPolicyClrCompat_PackagedDesktop = 3,
+        }
+        #[repr(i32)]
+        enum AppPolicyCreateFileAccess {
+            AppPolicyCreateFileAccess_Full = 0,
+            AppPolicyCreateFileAccess_Limited = 1,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn AppPolicyGetClrCompat(processToken: HANDLE, policy: *mut AppPolicyClrCompat) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn AppPolicyGetCreateFileAccess(processToken: HANDLE, policy: *mut AppPolicyCreateFileAccess) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn AppPolicyGetLifecycleManagement(processToken: HANDLE, policy: *mut AppPolicyLifecycleManagement) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn AppPolicyGetMediaFoundationCodecLoading(processToken: HANDLE, policy: *mut AppPolicyMediaFoundationCodecLoading) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn AppPolicyGetProcessTerminationMethod(processToken: HANDLE, policy: *mut AppPolicyProcessTerminationMethod) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn AppPolicyGetShowDeveloperDiagnostic(processToken: HANDLE, policy: *mut AppPolicyShowDeveloperDiagnostic) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn AppPolicyGetThreadInitializationType(processToken: HANDLE, policy: *mut AppPolicyThreadInitializationType) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn AppPolicyGetWindowingModel(processToken: HANDLE, policy: *mut AppPolicyWindowingModel) -> i32;
+        #[repr(i32)]
+        enum AppPolicyLifecycleManagement {
+            AppPolicyLifecycleManagement_Unmanaged = 0,
+            AppPolicyLifecycleManagement_Managed = 1,
+        }
+        #[repr(i32)]
+        enum AppPolicyMediaFoundationCodecLoading {
+            AppPolicyMediaFoundationCodecLoading_All = 0,
+            AppPolicyMediaFoundationCodecLoading_InboxOnly = 1,
+        }
+        #[repr(i32)]
+        enum AppPolicyProcessTerminationMethod {
+            AppPolicyProcessTerminationMethod_ExitProcess = 0,
+            AppPolicyProcessTerminationMethod_TerminateProcess = 1,
+        }
+        #[repr(i32)]
+        enum AppPolicyShowDeveloperDiagnostic {
+            AppPolicyShowDeveloperDiagnostic_None = 0,
+            AppPolicyShowDeveloperDiagnostic_ShowUI = 1,
+        }
+        #[repr(i32)]
+        enum AppPolicyThreadInitializationType {
+            AppPolicyThreadInitializationType_None = 0,
+            AppPolicyThreadInitializationType_InitializeWinRT = 1,
+        }
+        #[repr(i32)]
+        enum AppPolicyWindowingModel {
+            AppPolicyWindowingModel_None = 0,
+            AppPolicyWindowingModel_Universal = 1,
+            AppPolicyWindowingModel_ClassicDesktop = 2,
+            AppPolicyWindowingModel_ClassicPhone = 3,
+        }
+        #[library("api-ms-win-appmodel-runtime-l1-1-4.dll")]
+        extern fn CheckIsMSIXPackage(packageFullName: PCWSTR, isMSIXPackage: *mut BOOL) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn ClosePackageInfo(packageInfoReference: *const _PACKAGE_INFO_REFERENCE) -> i32;
+        #[repr(u32)]
+        #[flags]
+        enum CreatePackageDependencyOptions {
+            CreatePackageDependencyOptions_None = 0,
+            CreatePackageDependencyOptions_DoNotVerifyDependencyResolution = 1,
+            CreatePackageDependencyOptions_ScopeIsSystem = 2,
+        }
+        #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
+        extern fn DeletePackageDependency(packageDependencyId: PCWSTR) -> HRESULT;
+        #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
+        extern fn FindPackageDependency(findPackageDependencyCriteria: *const FindPackageDependencyCriteria, packageDependencyIdsCount: *mut u32, packageDependencyIds: *mut *mut PWSTR) -> HRESULT;
+        struct FindPackageDependencyCriteria {
+            User: PSID,
+            ScopeIsSystem: BOOL,
+            PackageFamilyName: PCWSTR,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn FindPackagesByPackageFamily(packageFamilyName: PCWSTR, packageFilters: u32, #[in] #[out] count: *mut u32, #[len_param(2)] #[opt] packageFullNames: *mut PWSTR, #[in] #[out] bufferLength: *mut u32, #[len_param(4)] #[opt] buffer: *mut u16, #[len_param(2)] #[opt] packageProperties: *mut u32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn FormatApplicationUserModelId(packageFamilyName: PCWSTR, packageRelativeApplicationId: PCWSTR, #[in] #[out] applicationUserModelIdLength: *mut u32, #[len_param(2)] #[out] #[opt] applicationUserModelId: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetApplicationUserModelId(hProcess: HANDLE, #[in] #[out] applicationUserModelIdLength: *mut u32, #[len_param(1)] #[out] #[opt] applicationUserModelId: PWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
+        extern fn GetApplicationUserModelIdFromToken(token: HANDLE, #[in] #[out] applicationUserModelIdLength: *mut u32, #[len_param(1)] #[out] #[opt] applicationUserModelId: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentApplicationUserModelId(#[in] #[out] applicationUserModelIdLength: *mut u32, #[len_param(0)] #[out] #[opt] applicationUserModelId: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentPackageFamilyName(#[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(0)] #[out] #[opt] packageFamilyName: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentPackageFullName(#[in] #[out] packageFullNameLength: *mut u32, #[len_param(0)] #[out] #[opt] packageFullName: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentPackageId(#[in] #[out] bufferLength: *mut u32, #[size_param(0)] #[opt] buffer: *mut u8) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentPackageInfo(flags: u32, #[in] #[out] bufferLength: *mut u32, #[size_param(1)] #[opt] buffer: *mut u8, #[opt] count: *mut u32) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
+        extern fn GetCurrentPackageInfo2(flags: u32, packagePathType: PackagePathType, #[in] #[out] bufferLength: *mut u32, #[size_param(2)] #[opt] buffer: *mut u8, #[opt] count: *mut u32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentPackagePath(#[in] #[out] pathLength: *mut u32, #[len_param(0)] #[out] #[opt] path: PWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
+        extern fn GetCurrentPackagePath2(packagePathType: PackagePathType, #[in] #[out] pathLength: *mut u32, #[len_param(1)] #[out] #[opt] path: PWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
+        extern fn GetIdForPackageDependencyContext(packageDependencyContext: PACKAGEDEPENDENCY_CONTEXT, packageDependencyId: *mut PWSTR) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn GetPackageApplicationIds(packageInfoReference: *const _PACKAGE_INFO_REFERENCE, #[in] #[out] bufferLength: *mut u32, #[size_param(1)] #[opt] buffer: *mut u8, #[opt] count: *mut u32) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
+        extern fn GetPackageDependencyInformation(packageDependencyId: PCWSTR, user: *mut PSID, packageFamilyName: *mut PWSTR, #[opt] minVersion: *mut PACKAGE_VERSION, #[opt] packageDependencyProcessorArchitectures: *mut PackageDependencyProcessorArchitectures, #[opt] lifetimeKind: *mut PackageDependencyLifetimeKind, lifetimeArtifact: *mut PWSTR, #[opt] options: *mut CreatePackageDependencyOptions, #[opt] lifetimeExpiration: *mut FILETIME) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn GetPackageFamilyName(hProcess: HANDLE, #[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFamilyName: PWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
+        extern fn GetPackageFamilyNameFromToken(token: HANDLE, #[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFamilyName: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPackageFullName(hProcess: HANDLE, #[in] #[out] packageFullNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFullName: PWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
+        extern fn GetPackageFullNameFromToken(token: HANDLE, #[in] #[out] packageFullNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFullName: PWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-6.dll")]
+        extern fn GetPackageGraphRevisionId() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPackageId(hProcess: HANDLE, #[in] #[out] bufferLength: *mut u32, #[size_param(1)] #[opt] buffer: *mut u8) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPackageInfo(packageInfoReference: *const _PACKAGE_INFO_REFERENCE, flags: u32, #[in] #[out] bufferLength: *mut u32, #[size_param(2)] #[opt] buffer: *mut u8, #[opt] count: *mut u32) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
+        extern fn GetPackageInfo2(packageInfoReference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagePathType: PackagePathType, #[in] #[out] bufferLength: *mut u32, #[size_param(3)] #[opt] buffer: *mut u8, #[opt] count: *mut u32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPackagePath(packageId: *const PACKAGE_ID, #[reserved] reserved: u32, #[in] #[out] pathLength: *mut u32, #[len_param(2)] #[out] #[opt] path: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPackagePathByFullName(packageFullName: PCWSTR, #[in] #[out] pathLength: *mut u32, #[len_param(1)] #[out] #[opt] path: PWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
+        extern fn GetPackagePathByFullName2(packageFullName: PCWSTR, packagePathType: PackagePathType, #[in] #[out] pathLength: *mut u32, #[len_param(2)] #[out] #[opt] path: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPackagesByPackageFamily(packageFamilyName: PCWSTR, #[in] #[out] count: *mut u32, #[len_param(1)] #[opt] packageFullNames: *mut PWSTR, #[in] #[out] bufferLength: *mut u32, #[len_param(3)] #[opt] buffer: *mut u16) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
+        extern fn GetProcessesUsingPackageDependency(packageDependencyId: PCWSTR, #[opt] user: PSID, scopeIsSystem: BOOL, processIdsCount: *mut u32, processIds: *mut *mut u32) -> HRESULT;
+        #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
+        extern fn GetResolvedPackageFullNameForPackageDependency(packageDependencyId: PCWSTR, packageFullName: *mut PWSTR) -> HRESULT;
+        #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
+        extern fn GetResolvedPackageFullNameForPackageDependency2(packageDependencyId: PCWSTR, packageFullName: *mut PWSTR) -> HRESULT;
+        #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
+        extern fn GetStagedPackageOrigin(packageFullName: PCWSTR, origin: *mut PackageOrigin) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
+        extern fn GetStagedPackageOrigin2(packageFullName: PCWSTR, origin: *mut PackageOrigin2) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn GetStagedPackagePathByFullName(packageFullName: PCWSTR, #[in] #[out] pathLength: *mut u32, #[len_param(1)] #[out] #[opt] path: PWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
+        extern fn GetStagedPackagePathByFullName2(packageFullName: PCWSTR, packagePathType: PackagePathType, #[in] #[out] pathLength: *mut u32, #[len_param(2)] #[out] #[opt] path: PWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
+        extern fn IsPackageFeatureSupported(feature: AppModelPackageFeature) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn OpenPackageInfoByFullName(packageFullName: PCWSTR, #[reserved] reserved: u32, packageInfoReference: *mut PACKAGE_INFO_REFERENCE) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
+        extern fn OpenPackageInfoByFullNameForUser(#[opt] userSid: PSID, packageFullName: PCWSTR, #[reserved] reserved: u32, packageInfoReference: *mut PACKAGE_INFO_REFERENCE) -> i32;
+        type PACKAGEDEPENDENCY_CONTEXT = *mut void;
+        const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0;
+        const PACKAGE_FILTER_ALL_LOADED: u32 = 0;
+        const PACKAGE_FILTER_BUNDLE: u32 = 128;
+        const PACKAGE_FILTER_DIRECT: u32 = 32;
+        const PACKAGE_FILTER_DYNAMIC: u32 = 1048576;
+        const PACKAGE_FILTER_HEAD: u32 = 16;
+        const PACKAGE_FILTER_HOSTRUNTIME: u32 = 2097152;
+        const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144;
+        const PACKAGE_FILTER_OPTIONAL: u32 = 131072;
+        const PACKAGE_FILTER_RESOURCE: u32 = 64;
+        const PACKAGE_FILTER_STATIC: u32 = 524288;
+        #[arch(X86)]
+        struct PACKAGE_ID {
+            reserved: u32,
+            processorArchitecture: u32,
+            version: PACKAGE_VERSION,
+            name: PWSTR,
+            publisher: PWSTR,
+            resourceId: PWSTR,
+            publisherId: PWSTR,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct PACKAGE_ID {
+            reserved: u32,
+            processorArchitecture: u32,
+            version: PACKAGE_VERSION,
+            name: PWSTR,
+            publisher: PWSTR,
+            resourceId: PWSTR,
+            publisherId: PWSTR,
+        }
+        #[arch(X86)]
+        struct PACKAGE_INFO {
+            reserved: u32,
+            flags: u32,
+            path: PWSTR,
+            packageFullName: PWSTR,
+            packageFamilyName: PWSTR,
+            packageId: PACKAGE_ID,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct PACKAGE_INFO {
+            reserved: u32,
+            flags: u32,
+            path: PWSTR,
+            packageFullName: PWSTR,
+            packageFamilyName: PWSTR,
+            packageId: PACKAGE_ID,
+        }
+        const PACKAGE_INFORMATION_BASIC: u32 = 0;
+        const PACKAGE_INFORMATION_FULL: u32 = 256;
+        type PACKAGE_INFO_REFERENCE = *mut _PACKAGE_INFO_REFERENCE;
+        const PACKAGE_PROPERTY_BUNDLE: u32 = 4;
+        const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536;
+        const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576;
+        const PACKAGE_PROPERTY_FRAMEWORK: u32 = 1;
+        const PACKAGE_PROPERTY_HOSTRUNTIME: u32 = 2097152;
+        const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144;
+        const PACKAGE_PROPERTY_OPTIONAL: u32 = 8;
+        const PACKAGE_PROPERTY_RESOURCE: u32 = 2;
+        const PACKAGE_PROPERTY_STATIC: u32 = 524288;
+        struct PACKAGE_VERSION {
+            Anonymous: #[packed(4)] union {
+                Version: u64,
+                Anonymous: struct {
+                    Revision: u16,
+                    Build: u16,
+                    Minor: u16,
+                    Major: u16,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum PackageDependencyLifetimeKind {
+            PackageDependencyLifetimeKind_Process = 0,
+            PackageDependencyLifetimeKind_FilePath = 1,
+            PackageDependencyLifetimeKind_RegistryKey = 2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum PackageDependencyProcessorArchitectures {
+            PackageDependencyProcessorArchitectures_None = 0,
+            PackageDependencyProcessorArchitectures_Neutral = 1,
+            PackageDependencyProcessorArchitectures_X86 = 2,
+            PackageDependencyProcessorArchitectures_X64 = 4,
+            PackageDependencyProcessorArchitectures_Arm = 8,
+            PackageDependencyProcessorArchitectures_Arm64 = 16,
+            PackageDependencyProcessorArchitectures_X86A64 = 32,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn PackageFamilyNameFromFullName(packageFullName: PCWSTR, #[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFamilyName: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn PackageFamilyNameFromId(packageId: *const PACKAGE_ID, #[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFamilyName: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn PackageFullNameFromId(packageId: *const PACKAGE_ID, #[in] #[out] packageFullNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFullName: PWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn PackageIdFromFullName(packageFullName: PCWSTR, flags: u32, #[in] #[out] bufferLength: *mut u32, #[size_param(2)] #[opt] buffer: *mut u8) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn PackageNameAndPublisherIdFromFamilyName(packageFamilyName: PCWSTR, #[in] #[out] packageNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageName: PWSTR, #[in] #[out] packagePublisherIdLength: *mut u32, #[len_param(3)] #[out] #[opt] packagePublisherId: PWSTR) -> i32;
+        #[repr(i32)]
+        enum PackageOrigin {
+            PackageOrigin_Unknown = 0,
+            PackageOrigin_Unsigned = 1,
+            PackageOrigin_Inbox = 2,
+            PackageOrigin_Store = 3,
+            PackageOrigin_DeveloperUnsigned = 4,
+            PackageOrigin_DeveloperSigned = 5,
+            PackageOrigin_LineOfBusiness = 6,
+            PackageOrigin_SignedSBOM = 7,
+        }
+        #[repr(i32)]
+        enum PackageOrigin2 {
+            PackageOrigin2_Unknown = 0,
+            PackageOrigin2_Unsigned = 1,
+            PackageOrigin2_Inbox = 2,
+            PackageOrigin2_Store = 3,
+            PackageOrigin2_DeveloperUnsigned = 4,
+            PackageOrigin2_DeveloperSigned = 5,
+            PackageOrigin2_LineOfBusiness = 6,
+            PackageOrigin2_SignedSBOM = 7,
+        }
+        #[repr(i32)]
+        enum PackagePathType {
+            PackagePathType_Install = 0,
+            PackagePathType_Mutable = 1,
+            PackagePathType_Effective = 2,
+            PackagePathType_MachineExternal = 3,
+            PackagePathType_UserExternal = 4,
+            PackagePathType_EffectiveExternal = 5,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn ParseApplicationUserModelId(applicationUserModelId: PCWSTR, #[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFamilyName: PWSTR, #[in] #[out] packageRelativeApplicationIdLength: *mut u32, #[len_param(3)] #[out] #[opt] packageRelativeApplicationId: PWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
+        extern fn RemovePackageDependency(packageDependencyContext: PACKAGEDEPENDENCY_CONTEXT) -> HRESULT;
+        #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
+        extern fn TryCreatePackageDependency(user: PSID, packageFamilyName: PCWSTR, minVersion: PACKAGE_VERSION, packageDependencyProcessorArchitectures: PackageDependencyProcessorArchitectures, lifetimeKind: PackageDependencyLifetimeKind, lifetimeArtifact: PCWSTR, options: CreatePackageDependencyOptions, packageDependencyId: *mut PWSTR) -> HRESULT;
+        #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
+        extern fn TryCreatePackageDependency2(user: PSID, packageFamilyName: PCWSTR, minVersion: PACKAGE_VERSION, packageDependencyProcessorArchitectures: PackageDependencyProcessorArchitectures, lifetimeKind: PackageDependencyLifetimeKind, lifetimeArtifact: PCWSTR, options: CreatePackageDependencyOptions, lifetimeExpiration: *const FILETIME, packageDependencyId: *mut PWSTR) -> HRESULT;
+        #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
+        extern fn VerifyApplicationUserModelId(applicationUserModelId: PCWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
+        extern fn VerifyPackageFamilyName(packageFamilyName: PCWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
+        extern fn VerifyPackageFullName(packageFullName: PCWSTR) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
+        extern fn VerifyPackageId(packageId: *const PACKAGE_ID) -> i32;
+        #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
+        extern fn VerifyPackageRelativeApplicationId(packageRelativeApplicationId: PCWSTR) -> i32;
+        struct _PACKAGE_INFO_REFERENCE {
+            reserved: *mut void,
+        }
+    }
+}

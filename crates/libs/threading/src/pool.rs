@@ -18,8 +18,8 @@ impl Pool {
         };
 
         unsafe {
-            e.Pool = check(CreateThreadpool(core::ptr::null()));
-            e.CleanupGroup = check(CreateThreadpoolCleanupGroup());
+            e.Pool = check_ptr(CreateThreadpool(core::ptr::null()));
+            e.CleanupGroup = check_ptr(CreateThreadpoolCleanupGroup());
         }
 
         // Box the environment so its address remains stable for the lifetime of the `Pool`.

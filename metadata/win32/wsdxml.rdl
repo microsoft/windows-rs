@@ -1,0 +1,89 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0)]
+        interface IWSDXMLContext: IUnknown {
+            fn AddNamespace(&self, pszUri: PCWSTR, pszSuggestedPrefix: PCWSTR, ppNamespace: *mut *mut WSDXML_NAMESPACE) -> HRESULT;
+            fn AddNameToNamespace(&self, pszUri: PCWSTR, pszName: PCWSTR, ppName: *mut *mut WSDXML_NAME) -> HRESULT;
+            fn SetNamespaces(&self, #[len_param(1)] pNamespaces: *const PCWSDXML_NAMESPACE, wNamespacesCount: u16, bLayerNumber: u8) -> HRESULT;
+            fn SetTypes(&self, #[len_param(1)] pTypes: *const PCWSDXML_TYPE, dwTypesCount: u32, bLayerNumber: u8) -> HRESULT;
+        }
+        const OpAnyElement: i32 = 6;
+        const OpAnyElements: i32 = 7;
+        const OpAnyNumber: i32 = 17;
+        const OpAnyText: i32 = 8;
+        const OpAnything: i32 = 16;
+        const OpAttribute_: i32 = 9;
+        const OpBeginAll: i32 = 14;
+        const OpBeginAnyElement: i32 = 3;
+        const OpBeginChoice: i32 = 10;
+        const OpBeginElement_: i32 = 2;
+        const OpBeginSequence: i32 = 12;
+        const OpElement_: i32 = 5;
+        const OpEndAll: i32 = 15;
+        const OpEndChoice: i32 = 11;
+        const OpEndElement: i32 = 4;
+        const OpEndOfTable: i32 = 1;
+        const OpEndSequence: i32 = 13;
+        const OpFormatBool_: i32 = 20;
+        const OpFormatDateTime_: i32 = 40;
+        const OpFormatDom_: i32 = 30;
+        const OpFormatDouble_: i32 = 42;
+        const OpFormatDuration_: i32 = 39;
+        const OpFormatDynamicType_: i32 = 37;
+        const OpFormatFloat_: i32 = 41;
+        const OpFormatInt16_: i32 = 22;
+        const OpFormatInt32_: i32 = 23;
+        const OpFormatInt64_: i32 = 24;
+        const OpFormatInt8_: i32 = 21;
+        const OpFormatListInsertTail_: i32 = 35;
+        const OpFormatLookupType_: i32 = 38;
+        const OpFormatMax: i32 = 46;
+        const OpFormatName_: i32 = 34;
+        const OpFormatStruct_: i32 = 31;
+        const OpFormatType_: i32 = 36;
+        const OpFormatUInt16_: i32 = 26;
+        const OpFormatUInt32_: i32 = 27;
+        const OpFormatUInt64_: i32 = 28;
+        const OpFormatUInt8_: i32 = 25;
+        const OpFormatUnicodeString_: i32 = 29;
+        const OpFormatUri_: i32 = 32;
+        const OpFormatUuidUri_: i32 = 33;
+        const OpFormatXMLDeclaration_: i32 = 45;
+        const OpNone: i32 = 0;
+        const OpOneOrMore: i32 = 18;
+        const OpOptional: i32 = 19;
+        const OpProcess_: i32 = 43;
+        const OpQualifiedAttribute_: i32 = 44;
+        type PCWSDXML_NAMESPACE = *const WSDXML_NAMESPACE;
+        type PCWSDXML_TYPE = *const WSDXML_TYPE;
+        #[library("wsdapi.dll")]
+        extern fn WSDXMLCreateContext(ppContext: *mut IWSDXMLContext) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDXMLGetNameFromBuiltinNamespace(pszNamespace: PCWSTR, pszName: PCWSTR, ppName: *mut *mut WSDXML_NAME) -> HRESULT;
+        struct WSD_DATETIME {
+            isPositive: BOOL,
+            year: u32,
+            month: u8,
+            day: u8,
+            hour: u8,
+            minute: u8,
+            second: u8,
+            millisecond: u32,
+            TZIsLocal: BOOL,
+            TZIsPositive: BOOL,
+            TZHour: u8,
+            TZMinute: u8,
+        }
+        struct WSD_DURATION {
+            isPositive: BOOL,
+            year: u32,
+            month: u32,
+            day: u32,
+            hour: u32,
+            minute: u32,
+            second: u32,
+            millisecond: u32,
+        }
+    }
+}

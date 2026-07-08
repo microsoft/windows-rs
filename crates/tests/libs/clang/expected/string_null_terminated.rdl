@@ -1,0 +1,19 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("")]
+        extern fn EditName(#[r#in] #[out] buffer: PWSTR);
+        #[library("")]
+        extern fn GetName(#[out] buffer: PWSTR);
+        #[library("")]
+        extern fn ReadChars(#[len_param(1)] chars: *const u16, count: u32);
+        #[library("")]
+        extern fn SetName(name: PCWSTR);
+        #[library("")]
+        extern fn SetNameAnsi(name: PCSTR);
+        #[library("")]
+        extern fn SetNameMut(name: PCWSTR);
+        #[library("")]
+        extern fn SetNameOpt(#[opt] name: PCWSTR);
+    }
+}

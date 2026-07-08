@@ -7,12 +7,16 @@ pub(crate) const WEB_RESOURCE_CONTEXT_ALL: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 0
 
 /// Request sources matching every kind (`COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL`),
 /// so a filter also intercepts requests from iframes and workers.
-const WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = -1;
+const WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
+    u32::MAX;
 
 /// Registers a web-resource-requested filter for `uri`. On runtimes that support
 /// it (`ICoreWebView2_22`) the filter covers every request source — including
 /// iframes and workers — falling back to the document-only filter otherwise.
-pub(crate) unsafe fn add_requested_filter(webview: &ICoreWebView2, uri: LPCWSTR) -> Result<()> {
+pub(crate) unsafe fn add_requested_filter(
+    webview: &ICoreWebView2,
+    uri: impl Param<PCWSTR>,
+) -> Result<()> {
     unsafe {
         match webview.cast::<ICoreWebView2_22>() {
             Ok(webview) => webview.AddWebResourceRequestedFilterWithRequestSourceKinds(
@@ -27,7 +31,7 @@ pub(crate) unsafe fn add_requested_filter(webview: &ICoreWebView2, uri: LPCWSTR)
 
 /// Removes a filter registered with [`add_requested_filter`], matching whichever
 /// API registered it.
-pub(crate) unsafe fn remove_requested_filter(webview: &ICoreWebView2, uri: LPCWSTR) {
+pub(crate) unsafe fn remove_requested_filter(webview: &ICoreWebView2, uri: impl Param<PCWSTR>) {
     let _ = unsafe {
         match webview.cast::<ICoreWebView2_22>() {
             Ok(webview) => webview.RemoveWebResourceRequestedFilterWithRequestSourceKinds(
@@ -65,8 +69,8 @@ impl WebResourceRequest {
         let mut headers = Vec::new();
 
         while unsafe { iterator.HasCurrentHeader()? }.as_bool() {
-            let mut name = std::ptr::null_mut();
-            let mut value = std::ptr::null_mut();
+            let mut name: LPWSTR = std::ptr::null_mut();
+            let mut value: LPWSTR = std::ptr::null_mut();
             unsafe { iterator.GetCurrentHeader(&mut name, &mut value)? };
             headers.push((unsafe { string::take(name) }, unsafe {
                 string::take(value)
@@ -137,15 +141,15 @@ impl WebResourceResponse {
             headers.push_str("\r\n");
         }
 
-        let reason = string::encode(&self.reason_phrase);
-        let headers = string::encode(&headers);
+        let reason = HSTRING::from(&self.reason_phrase);
+        let headers = HSTRING::from(&headers);
 
         unsafe {
             environment.CreateWebResourceResponse(
                 stream.as_ref(),
                 self.status_code,
-                reason.as_ptr(),
-                headers.as_ptr(),
+                &reason,
+                &headers,
             )
         }
     }

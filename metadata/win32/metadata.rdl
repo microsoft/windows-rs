@@ -1,0 +1,76 @@
+// Hand-authored metadata vocabulary seed (NOT generated from headers).
+//
+// These attribute types live only in metadata, not in any C header, so the
+// scraper cannot derive them. They are the `Windows.Win32.Metadata` attributes
+// that the converter emits and that bindgen consumes, making the merged
+// `Windows.Win32.winmd` self-contained without an upstream reference winmd.
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            // Marks a function that never returns (`__declspec(noreturn)`). RDL: `#[noreturn]`.
+            attribute DoesNotReturnAttribute {
+                fn();
+            }
+            // Records the native character encoding of a string constant or field.
+            // RDL: `#[encoding("…")]`.
+            attribute NativeEncodingAttribute {
+                fn(encoding: String);
+            }
+            // Marks a typedef of a primitive that should retain its distinct identity.
+            // RDL: written as the `type NAME = TYPE;` form.
+            attribute NativeTypedefAttribute {
+                fn();
+            }
+            // Marks the return-value parameter of a COM method. RDL: `#[retval]`.
+            attribute RetValAttribute {
+                fn();
+            }
+            // Restricts a declaration to specific processor architectures.
+            // RDL: `#[arch(X86|X64|Arm64)]`.
+            attribute SupportedArchitectureAttribute {
+                fn(architecture: i32);
+            }
+            // Carries a raised structure alignment that packing alone cannot express.
+            // RDL: `#[align(N)]`.
+            attribute AlignmentAttribute {
+                fn(alignment: i32);
+            }
+            // Records that a pointer parameter/field is a counted array. The element
+            // count is either given by another parameter (`CountParamIndex`) or is a
+            // compile-time constant (`CountConst`); derived from SAL `_*_reads_`/
+            // `_*_writes_`/`_*_updates_` element-count macros.
+            // RDL: `#[len_param(N)]` (CountParamIndex) or `#[len_const(N)]` (CountConst).
+            attribute NativeArrayInfoAttribute {
+                fn();
+                CountParamIndex: i16,
+                CountConst: i32,
+                CountFieldName: String,
+            }
+            // Records that a pointer parameter is a byte buffer whose size in bytes is
+            // given by another parameter (`BytesParamIndex`); derived from SAL
+            // `_*_bytes_` buffer macros.
+            // RDL: `#[size_param(N)]`.
+            attribute MemorySizeAttribute {
+                fn();
+                BytesParamIndex: i16,
+            }
+            // Marks a parameter that is reserved and must be zero/null (SAL `_Reserved_`).
+            // RDL: `#[reserved]`.
+            attribute ReservedAttribute {
+                fn();
+            }
+            // Marks a COM out-pointer parameter (SAL `_COM_Outptr_` and variants).
+            // RDL: `#[iid_is]`.
+            attribute ComOutPtrAttribute {
+                fn();
+            }
+            // Marks an enum derived from a C++ scoped enum (`enum class`/`enum struct`),
+            // which has distinct name-lookup/conversion semantics from a plain C enum.
+            // RDL: `#[scoped]`.
+            attribute ScopedEnumAttribute {
+                fn();
+            }
+        }
+    }
+}

@@ -1,5 +1,9 @@
 #[win32]
 mod Test {
+    struct Public {
+        a: i32,
+    }
+    type PublicAlias = Public;
     struct Size {
         width: i32,
         height: i32,

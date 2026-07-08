@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[library("user32.dll")]
+    extern "system" fn MixedNames(first: i32, param1: i32, third: i32) -> i32;
+    #[library("user32.dll")]
+    extern "system" fn TwoUnnamed(param0: i32, param1: i32) -> i32;
+}

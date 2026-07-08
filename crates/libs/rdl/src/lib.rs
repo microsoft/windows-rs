@@ -1,22 +1,125 @@
 #![doc = include_str!("../readme.md")]
 
-mod clang;
+/// RDL source-emission primitives shared with the `windows-clang` scraper.
+pub mod emit;
 mod error;
 /// Helpers for formatting generated RDL source.
 pub mod formatter;
+/// Reader for COFF import libraries (the SDK `.lib` archives), used to recover
+/// the faithful function → DLL mapping that headers do not carry.
+pub mod implib;
 mod reader;
 mod writer;
 
+use emit::*;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use syn::spanned::Spanned;
 use windows_metadata as metadata;
 
-pub use clang::Clang;
 pub use error::Error;
 use proc_macro2::{Literal, Span, TokenStream};
-use quote::{format_ident, quote};
+use quote::quote;
 pub use reader::Reader;
 pub use writer::Writer;
+
+/// The metadata namespace that owns the Win32 attribute vocabulary.
+pub(crate) const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
+
+/// A naturalized pseudo-attribute: the short SAL/IDL-style RDL spelling paired with the
+/// `Windows.Win32.Metadata` attribute it maps to.
+///
+/// The RDL carries the concise source-style spelling (e.g. `#[len_param(2)]`, `#[reserved]`);
+/// the metadata-vocabulary mapping (e.g. `NativeArrayInfoAttribute`, `ReservedAttribute`) lives
+/// here in one place. The reader emits the metadata attribute from the short spelling and the
+/// writer re-emits the short spelling from the metadata attribute, so the winmd is unaffected.
+pub(crate) struct PseudoAttr {
+    /// Short RDL spelling, e.g. `"len_param"`.
+    pub short: &'static str,
+    /// Metadata attribute type name, e.g. `"NativeArrayInfoAttribute"`.
+    pub metadata: &'static str,
+    /// When the short spelling takes a single positional argument that binds to a *named*
+    /// metadata property (the attribute's constructor is parameterless), the property name —
+    /// e.g. `len_param(2)` binds `2` to `NativeArrayInfoAttribute::CountParamIndex`. `None`
+    /// means the pseudo is a bare marker or its argument maps to a positional constructor
+    /// argument that passes through unchanged (e.g. `encoding("ansi")`).
+    pub prop: Option<&'static str>,
+}
+
+/// The pseudo-attribute table. For parameters this is also the winmd custom-attribute emission
+/// order (see `encode_params`), kept stable so the metadata layout is byte-identical.
+pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
+    PseudoAttr {
+        short: "retval",
+        metadata: "RetValAttribute",
+        prop: None,
+    },
+    PseudoAttr {
+        short: "iid_is",
+        metadata: "ComOutPtrAttribute",
+        prop: None,
+    },
+    PseudoAttr {
+        short: "len_param",
+        metadata: "NativeArrayInfoAttribute",
+        prop: Some("CountParamIndex"),
+    },
+    PseudoAttr {
+        short: "len_const",
+        metadata: "NativeArrayInfoAttribute",
+        prop: Some("CountConst"),
+    },
+    PseudoAttr {
+        short: "size_param",
+        metadata: "MemorySizeAttribute",
+        prop: Some("BytesParamIndex"),
+    },
+    PseudoAttr {
+        short: "reserved",
+        metadata: "ReservedAttribute",
+        prop: None,
+    },
+    PseudoAttr {
+        short: "noreturn",
+        metadata: "DoesNotReturnAttribute",
+        prop: None,
+    },
+    PseudoAttr {
+        short: "scoped",
+        metadata: "ScopedEnumAttribute",
+        prop: None,
+    },
+    PseudoAttr {
+        short: "encoding",
+        metadata: "NativeEncodingAttribute",
+        prop: None,
+    },
+];
+
+pub(crate) fn pseudo_by_short(short: &str) -> Option<&'static PseudoAttr> {
+    PSEUDO_ATTRS.iter().find(|p| p.short == short)
+}
+
+/// Finds the pseudo-attribute that renders the given metadata attribute. When several pseudos
+/// share a metadata type — differing only by which named property they carry (e.g.
+/// `NativeArrayInfoAttribute` → `len_param`/`len_const`) — `arg_names` disambiguates by the
+/// property present on the attribute. Property-less pseudos match by metadata name alone.
+///
+/// A property-bound pseudo only matches when its property is the attribute's *sole* argument:
+/// the short form emits its value positionally and the reader binds a single positional back to
+/// that one property, so an instance carrying additional values must fall back to the
+/// fully-qualified named spelling (which round-trips) rather than the short form (which would
+/// not parse back).
+pub(crate) fn pseudo_for_metadata(name: &str, arg_names: &[String]) -> Option<&'static PseudoAttr> {
+    let mut fallback = None;
+    for pseudo in PSEUDO_ATTRS.iter().filter(|p| p.metadata == name) {
+        match pseudo.prop {
+            Some(prop) if arg_names.len() == 1 && arg_names[0] == prop => return Some(pseudo),
+            None => fallback = Some(pseudo),
+            _ => {}
+        }
+    }
+    fallback
+}
 
 /// Creates a [`Reader`] that compiles RDL files into `.winmd` metadata.
 pub fn reader() -> Reader {
@@ -28,18 +131,129 @@ pub fn writer() -> Writer {
     Writer::new()
 }
 
-/// Creates a [`Clang`] that generates RDL from C/C++ headers using libclang.
-pub fn clang() -> Clang {
-    Clang::new()
+/// One architecture's scrape outputs: the per-header RDL directory it wrote, the winmd
+/// compiled from that directory, and the `SupportedArchitecture` bitmask for the arch
+/// (1=X86, 2=X64, 4=Arm64).
+pub struct ArchInput {
+    /// Directory of per-header `<stem>.rdl` files for this architecture.
+    pub rdl_dir: String,
+    /// The winmd compiled from `rdl_dir` (used as the merge input).
+    pub winmd: String,
+    /// Architecture bitmask: 1=X86, 2=X64, 4=Arm64.
+    pub bits: i32,
 }
 
-/// Returns the version string of the loaded libclang library,
-/// e.g. `"clang version 18.1.0 (...)"`.
-pub fn clang_version() -> Result<String, Error> {
-    Clang::version()
+/// Arch-merges the per-architecture scrape outputs into a single merged RDL directory that
+/// faithfully describes every architecture, then leaves the unified winmd derivable by
+/// re-reading that directory.
+///
+/// The winmd carries no defining-header information, so the per-header file layout is
+/// recovered from the per-arch RDL directories: each item is routed back to the
+/// `<stem>.rdl` it came from, with `SupportedArchitecture` attributes on items that are
+/// absent on (or differ across) some architectures. `seed` is the hand-authored metadata
+/// vocabulary `.rdl` (attribute definitions); it is preserved verbatim in `output_dir` and
+/// is needed to compile each partition. The heavy lifting is done by [`Reader`], [`Writer`]
+/// and [`metadata::merge()`]; the per-partition name discovery runs in parallel.
+pub fn merge_arch_rdl(inputs: &[ArchInput], seed: &str, output_dir: &str) -> Result<(), Error> {
+    if inputs.is_empty() {
+        return Err(writer_err!(
+            "merge_arch_rdl requires at least one arch input"
+        ));
+    }
+
+    // Preserve the hand-authored seed: the Writer clears `*.rdl` from the output directory
+    // (which is typically the committed corpus that already holds the seed) before writing.
+    let seed_name = std::path::Path::new(seed)
+        .file_name()
+        .and_then(|n| n.to_str())
+        .ok_or_else(|| writer_err!("invalid seed path `{seed}`"))?
+        .to_string();
+    let seed_text =
+        std::fs::read(seed).map_err(|e| writer_err!("failed to read seed `{seed}`: {e}"))?;
+
+    // 1. Arch-merge the per-arch winmds into one merged winmd with SupportedArchitecture.
+    //    The scratch dir is uniquely named (pid + nanos) so concurrent merges never share it,
+    //    and a `Drop` guard removes it on every return path — including the `?` early-returns
+    //    below, which the previous end-of-function cleanup missed.
+    let temp = std::env::temp_dir().join(format!(
+        "win32-arch-merge-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .map_or(0, |d| d.as_nanos())
+    ));
+    std::fs::create_dir_all(&temp)
+        .map_err(|e| writer_err!("failed to create temp dir `{}`: {e}", temp.display()))?;
+    let _scratch = ScratchDir(temp.clone());
+    let merged = temp.join("Windows.Win32.merged.winmd");
+    let merged = merged.to_string_lossy().to_string();
+    let mut merger = metadata::merge();
+    for input in inputs {
+        merger.arch_input(&input.winmd, input.bits);
+    }
+    merger
+        .output(&merged)
+        .merge()
+        .map_err(|e| writer_err!("arch-merge failed: {e}"))?;
+
+    // 2. Build the item-name -> defining-header-stem map by parsing each per-arch
+    //    `<stem>.rdl` and reading back the names it defines. This is a pure syntactic walk
+    //    (cross-header references are not resolved), so a partition that references types
+    //    defined in another partition still parses cleanly. Names are unioned across
+    //    architectures (arch-divergent headers such as winnt.rdl define different names per
+    //    arch but share the stem).
+    let mut map = HashMap::<String, String>::new();
+    for input in inputs {
+        for entry in std::fs::read_dir(&input.rdl_dir)
+            .map_err(|e| writer_err!("failed to read `{}`: {e}", input.rdl_dir))?
+            .flatten()
+        {
+            let path = entry.path();
+            if !path.extension().is_some_and(|x| x == "rdl")
+                || path.file_name().and_then(|n| n.to_str()) == Some(seed_name.as_str())
+            {
+                continue;
+            }
+            let Some(stem) = path.file_stem().and_then(|s| s.to_str()) else {
+                continue;
+            };
+            let rdl_path = path.to_string_lossy().to_string();
+            for name in reader::item_names(&rdl_path, "Windows.Win32")? {
+                map.entry(name).or_insert_with(|| stem.to_string());
+            }
+        }
+    }
+
+    // 3. Decompile the merged winmd into per-stem RDL files using the name->stem map.
+    writer()
+        .input(&merged)
+        .partition(map)
+        .output(output_dir)
+        .write()?;
+
+    // 4. Restore the hand-authored seed verbatim.
+    write_to_file(
+        std::path::Path::new(output_dir)
+            .join(&seed_name)
+            .to_str()
+            .ok_or_else(|| writer_err!("output path contains non-UTF-8 characters"))?,
+        seed_text,
+    )?;
+
+    Ok(())
 }
 
-fn expand_input_paths(
+/// Removes a scratch directory when dropped, so it is cleaned up on every return path
+/// (including error `?` early-returns), not just a single end-of-function call.
+struct ScratchDir(std::path::PathBuf);
+
+impl Drop for ScratchDir {
+    fn drop(&mut self) {
+        let _ = std::fs::remove_dir_all(&self.0);
+    }
+}
+
+pub fn expand_input_paths(
     inputs: &[String],
     ext1: &str,
     ext2: &str,
@@ -105,30 +319,13 @@ fn expand_input_paths(
     Ok((paths1, paths2))
 }
 
-fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {
+pub fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {
     if let Some(parent) = std::path::Path::new(path).parent() {
         std::fs::create_dir_all(parent)
             .map_err(|_| writer_err!("failed to create directory `{path}`"))?;
     }
 
     std::fs::write(path, contents).map_err(|_| writer_err!("failed to write file `{path}`"))
-}
-
-fn write_ident(name: &str) -> TokenStream {
-    // keywords list based on https://doc.rust-lang.org/reference/keywords.html
-    let name = match name {
-        "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do"
-        | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in"
-        | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv"
-        | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type"
-        | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield"
-        | "try" | "async" | "await" | "dyn" => format_ident!("r#{name}"),
-        "Self" | "self" => format_ident!("{name}_"),
-        "_" => format_ident!("unused"),
-        _ => format_ident!("{}", windows_metadata::trim_tick(name)),
-    };
-
-    quote! { #name }
 }
 
 macro_rules! writer_err {
@@ -139,202 +336,34 @@ macro_rules! writer_err {
 
 use writer_err;
 
-fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
-    use metadata::Type::*;
-    match item {
-        Bool => quote! { bool },
-        Char => quote! { u16 },
-        I8 => quote! { i8 },
-        U8 => quote! { u8 },
-        I16 => quote! { i16 },
-        U16 => quote! { u16 },
-        I32 => quote! { i32 },
-        U32 => quote! { u32 },
-        I64 => quote! { i64 },
-        U64 => quote! { u64 },
-        F32 => quote! { f32 },
-        F64 => quote! { f64 },
-        ISize => quote! { isize },
-        USize => quote! { usize },
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-        Void => quote! { void },
-        String => quote! { String },
-        Object => quote! { Object },
-        ClassName(tn) if tn == ("System", "Type") => quote! { Type },
-        ValueName(tn) if tn == ("System", "Guid") => quote! { GUID },
-        ValueName(tn) if tn == ("Windows.Foundation", "HResult") => quote! { HRESULT },
+    /// A property-bound pseudo (`NativeArrayInfoAttribute` → `len_param` via `CountParamIndex`)
+    /// is only used when its property is the attribute's sole argument. The short form emits its
+    /// value positionally and the reader binds a single positional back to that one property, so
+    /// a multi-valued instance must fall back to the fully-qualified spelling (returns `None`)
+    /// rather than a short form that would not parse back.
+    #[test]
+    fn prop_bound_pseudo_requires_sole_argument() {
+        let sole = ["CountParamIndex".to_string()];
+        let pseudo = pseudo_for_metadata("NativeArrayInfoAttribute", &sole)
+            .expect("single-property NativeArrayInfo should map to a short pseudo");
+        assert_eq!(pseudo.short, "len_param");
 
-        Array(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { [#ty] }
-        }
-        ArrayFixed(ty, len) => {
-            let ty = write_type(namespace, ty);
-            let len = Literal::usize_unsuffixed(*len);
-            quote! { [#ty; #len] }
-        }
-        RefMut(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { &mut #ty }
-        }
-        RefConst(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { & #ty }
-        }
-        PtrMut(ty, pointers) => {
-            let mut ty = write_type(namespace, ty);
-
-            for _ in 0..*pointers {
-                ty = quote! { *mut #ty };
-            }
-
-            ty
-        }
-        PtrConst(ty, pointers) => {
-            let mut ty = write_type(namespace, ty);
-
-            for _ in 0..*pointers {
-                ty = quote! { *const #ty };
-            }
-
-            ty
-        }
-        ClassName(type_name) | ValueName(type_name) => {
-            let name = write_ident(&type_name.name);
-
-            let name = if type_name.generics.is_empty() {
-                name
-            } else {
-                let generics = type_name
-                    .generics
-                    .iter()
-                    .map(|ty| write_type(namespace, ty));
-                quote! { #name <#(#generics),*> }
-            };
-
-            // The empty namespace test is for nested types.
-            if namespace == type_name.namespace || type_name.namespace.is_empty() {
-                name
-            } else {
-                let mut relative = namespace.split('.').peekable();
-                let mut namespace = type_name.namespace.split('.').peekable();
-                let shares_root = relative.peek() == namespace.peek();
-
-                while relative.peek() == namespace.peek() {
-                    if relative.next().is_none() {
-                        break;
-                    }
-
-                    namespace.next();
-                }
-
-                let mut tokens = TokenStream::new();
-
-                if shares_root {
-                    for _ in 0..relative.count() {
-                        tokens = quote! { #tokens super:: };
-                    }
-                }
-
-                for namespace in namespace {
-                    let namespace = write_ident(namespace);
-                    tokens = quote! { #tokens #namespace ::};
-                }
-
-                quote! { #tokens #name }
-            }
-        }
-        Generic(name, _) => {
-            let name = write_ident(name);
-            quote! { #name }
-        }
+        let extra = ["CountParamIndex".to_string(), "CountConst".to_string()];
+        assert!(
+            pseudo_for_metadata("NativeArrayInfoAttribute", &extra).is_none(),
+            "a multi-valued property-bound attribute must fall back to the fully-qualified spelling"
+        );
     }
-}
 
-fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
-    match value {
-        metadata::Value::Bool(value) => quote! { #value },
-        metadata::Value::U8(value) => {
-            let literal = Literal::u8_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::I8(value) => {
-            let literal = Literal::i8_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::U16(value) => {
-            let literal = Literal::u16_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::I16(value) => {
-            let literal = Literal::i16_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::U32(value) => {
-            let literal = Literal::u32_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::I32(value) => {
-            let literal = Literal::i32_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::U64(value) => {
-            let literal = Literal::u64_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::I64(value) => {
-            let literal = Literal::i64_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::F32(value) => {
-            let literal = Literal::f32_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::F64(value) => {
-            let literal = Literal::f64_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::Utf8(value) => quote! { #value },
-        metadata::Value::Utf16(value) => quote! { #value },
-        metadata::Value::TypeName(tn) => {
-            write_type(namespace, &metadata::Type::ClassName(tn.clone()))
-        }
-        metadata::Value::EnumValue(_, inner) => write_value(namespace, inner),
+    /// Property-less pseudos match by metadata name regardless of argument count.
+    #[test]
+    fn property_less_pseudo_matches_by_name() {
+        let pseudo = pseudo_for_metadata("RetValAttribute", &[])
+            .expect("RetValAttribute should map to a pseudo");
+        assert_eq!(pseudo.short, "retval");
     }
-}
-
-/// Formats GUID components as a UUID-style hex u128 literal, e.g.
-/// `0x005023ca_72b1_11d3_9fc4_00c04f79a0a3`.
-fn format_guid_u128(d1: u32, d2: u16, d3: u16, d4: [u8; 8]) -> String {
-    let d4_word = u16::from_be_bytes([d4[0], d4[1]]);
-    let d4_node = u64::from_be_bytes([0, 0, d4[2], d4[3], d4[4], d4[5], d4[6], d4[7]]);
-    format!("0x{d1:08x}_{d2:04x}_{d3:04x}_{d4_word:04x}_{d4_node:012x}")
-}
-
-/// Converts a UUID string (`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`) into the u128 hex literal
-/// format used in RDL GUID attributes, e.g. `"0x00000000_0000_0000_c000_000000000046"`.
-///
-/// # Panics
-///
-/// Panics if `uuid` does not have exactly five hyphen-separated groups of 8-4-4-4-12 hex digits.
-fn uuid_to_u128_literal(uuid: &str) -> String {
-    let parts: Vec<&str> = uuid.split('-').collect();
-    assert_eq!(
-        parts.len(),
-        5,
-        "uuid_to_u128_literal: expected 5 hyphen-separated groups in `{uuid}`"
-    );
-    let d1 = u32::from_str_radix(parts[0], 16)
-        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d1 in `{uuid}`"));
-    let d2 = u16::from_str_radix(parts[1], 16)
-        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d2 in `{uuid}`"));
-    let d3 = u16::from_str_radix(parts[2], 16)
-        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d3 in `{uuid}`"));
-    let d4_str = format!("{}{}", parts[3], parts[4]);
-    let mut d4 = [0u8; 8];
-    for i in 0..8 {
-        d4[i] = u8::from_str_radix(&d4_str[i * 2..i * 2 + 2], 16)
-            .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d4[{i}] in `{uuid}`"));
-    }
-    format_guid_u128(d1, d2, d3, d4)
 }

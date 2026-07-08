@@ -1,0 +1,85 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PGUID = *mut GUID;
+        type PTXF_ID = *mut TXF_ID;
+        type PTXF_LOG_RECORD_AFFECTED_FILE = *mut TXF_LOG_RECORD_AFFECTED_FILE;
+        type PTXF_LOG_RECORD_BASE = *mut TXF_LOG_RECORD_BASE;
+        type PTXF_LOG_RECORD_TRUNCATE = *mut TXF_LOG_RECORD_TRUNCATE;
+        type PTXF_LOG_RECORD_WRITE = *mut TXF_LOG_RECORD_WRITE;
+        const TXFS_MINIVERSION_COMMITTED_VIEW: u32 = 0;
+        const TXFS_MINIVERSION_DEFAULT_VIEW: u32 = 65534;
+        const TXFS_MINIVERSION_DIRTY_VIEW: u32 = 65535;
+        struct TXF_ID {
+            Anonymous: #[packed(4)] struct {
+                LowPart: i64,
+                HighPart: i64,
+            },
+        }
+        struct TXF_LOG_RECORD_AFFECTED_FILE {
+            Version: u16,
+            RecordLength: u32,
+            Flags: u32,
+            TxfFileId: TXF_ID,
+            KtmGuid: GUID,
+            FileNameLength: u32,
+            FileNameByteOffsetInStructure: u32,
+        }
+        struct TXF_LOG_RECORD_BASE {
+            Version: u16,
+            RecordType: u16,
+            RecordLength: u32,
+        }
+        const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2;
+        const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1;
+        const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8;
+        const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4;
+        #[packed(4)]
+        struct TXF_LOG_RECORD_TRUNCATE {
+            Version: u16,
+            RecordType: u16,
+            RecordLength: u32,
+            Flags: u32,
+            TxfFileId: TXF_ID,
+            KtmGuid: GUID,
+            NewFileSize: i64,
+            FileNameLength: u32,
+            FileNameByteOffsetInStructure: u32,
+        }
+        const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: u32 = 4;
+        const TXF_LOG_RECORD_TYPE_TRUNCATE: u32 = 2;
+        const TXF_LOG_RECORD_TYPE_WRITE: u32 = 1;
+        #[packed(4)]
+        struct TXF_LOG_RECORD_WRITE {
+            Version: u16,
+            RecordType: u16,
+            RecordLength: u32,
+            Flags: u32,
+            TxfFileId: TXF_ID,
+            KtmGuid: GUID,
+            ByteOffsetInFile: i64,
+            NumBytesWritten: u32,
+            ByteOffsetInStructure: u32,
+            FileNameLength: u32,
+            FileNameByteOffsetInStructure: u32,
+        }
+        #[library("txfw32.dll")]
+        extern fn TxfGetThreadMiniVersionForCreate(MiniVersion: *mut u16);
+        #[library("txfw32.dll")]
+        extern fn TxfLogCreateFileReadContext(LogPath: PCWSTR, BeginningLsn: CLFS_LSN, EndingLsn: CLFS_LSN, TxfFileId: *const TXF_ID, TxfLogContext: *mut *mut void) -> BOOL;
+        #[library("txfw32.dll")]
+        extern fn TxfLogCreateRangeReadContext(LogPath: PCWSTR, BeginningLsn: CLFS_LSN, EndingLsn: CLFS_LSN, BeginningVirtualClock: *const LARGE_INTEGER, EndingVirtualClock: *const LARGE_INTEGER, RecordTypeMask: u32, TxfLogContext: *mut *mut void) -> BOOL;
+        #[library("txfw32.dll")]
+        extern fn TxfLogDestroyReadContext(TxfLogContext: *const void) -> BOOL;
+        #[library("txfw32.dll")]
+        extern fn TxfLogReadRecords(TxfLogContext: *const void, BufferLength: u32, #[size_param(1)] Buffer: *mut void, BytesUsed: *mut u32, RecordCount: *mut u32) -> BOOL;
+        #[library("txfw32.dll")]
+        extern fn TxfLogRecordGetFileName(#[size_param(1)] RecordBuffer: *const void, RecordBufferLengthInBytes: u32, #[size_param(3)] #[out] NameBuffer: PWSTR, #[in] #[out] NameBufferLengthInBytes: *mut u32, #[opt] TxfId: *mut TXF_ID) -> BOOL;
+        #[library("txfw32.dll")]
+        extern fn TxfLogRecordGetGenericType(RecordBuffer: *const void, RecordBufferLengthInBytes: u32, GenericType: *mut u32, #[opt] VirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        #[library("txfw32.dll")]
+        extern fn TxfReadMetadataInfo(FileHandle: HANDLE, TxfFileId: *mut TXF_ID, LastLsn: *mut CLFS_LSN, TransactionState: *mut u32, LockingTransaction: *mut GUID) -> BOOL;
+        #[library("txfw32.dll")]
+        extern fn TxfSetThreadMiniVersionForCreate(MiniVersion: u16);
+    }
+}

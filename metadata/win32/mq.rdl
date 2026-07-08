@@ -1,0 +1,635 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const LONG_LIVED: u32 = 4294967294;
+        #[encoding("utf-16")]
+        const MACHINE_ACTION_CONNECT: String = "CONNECT";
+        #[encoding("utf-16")]
+        const MACHINE_ACTION_DISCONNECT: String = "DISCONNECT";
+        #[encoding("utf-16")]
+        const MACHINE_ACTION_TIDY: String = "TIDY";
+        type MGMTPROPID = PROPID;
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_CORRECT_TYPE: String = "YES";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_FOREIGN_TYPE: String = "YES";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_INCORRECT_TYPE: String = "NO";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_LOCAL_LOCATION: String = "LOCAL";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_NOT_FOREIGN_TYPE: String = "NO";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_NOT_TRANSACTIONAL_TYPE: String = "NO";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_REMOTE_LOCATION: String = "REMOTE";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_STATE_CONNECTED: String = "CONNECTED";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_STATE_DISCONNECTED: String = "DISCONNECTED";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_STATE_DISCONNECTING: String = "DISCONNECTING";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_STATE_LOCAL: String = "LOCAL CONNECTION";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_STATE_LOCKED: String = "LOCKED";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_STATE_NEED_VALIDATE: String = "NEED VALIDATION";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_STATE_NONACTIVE: String = "INACTIVE";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_STATE_ONHOLD: String = "ONHOLD";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_STATE_WAITING: String = "WAITING";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_TRANSACTIONAL_TYPE: String = "YES";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_TYPE_CONNECTOR: String = "CONNECTOR";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_TYPE_MACHINE: String = "MACHINE";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_TYPE_MULTICAST: String = "MULTICAST";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_TYPE_PRIVATE: String = "PRIVATE";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_TYPE_PUBLIC: String = "PUBLIC";
+        #[encoding("utf-16")]
+        const MGMT_QUEUE_UNKNOWN_TYPE: String = "UNKNOWN";
+        #[encoding("utf-16")]
+        const MO_MACHINE_TOKEN: String = "MACHINE";
+        #[encoding("utf-16")]
+        const MO_QUEUE_TOKEN: String = "QUEUE";
+        #[library("mqrt.dll")]
+        extern fn MQADsPathToFormatName(lpwcsADsPath: PCWSTR, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: *mut u32) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQBeginTransaction(ppTransaction: *mut ITransaction) -> HRESULT;
+        const MQCERT_REGISTER_ALWAYS: u32 = 1;
+        const MQCERT_REGISTER_IF_NOT_EXIST: u32 = 2;
+        struct MQCOLUMNSET {
+            cCol: u32,
+            aCol: *mut PROPID,
+        }
+        #[library("mqrt.dll")]
+        extern fn MQCloseCursor(hCursor: HANDLE) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQCloseQueue(hQueue: QUEUEHANDLE) -> HRESULT;
+        #[repr(i32)]
+        enum MQConnectionState {
+            MQCONN_NOFAILURE = 0,
+            MQCONN_ESTABLISH_PACKET_RECEIVED = 1,
+            MQCONN_READY = 2,
+            MQCONN_UNKNOWN_FAILURE = -2147483648,
+            MQCONN_PING_FAILURE = -2147483647,
+            MQCONN_CREATE_SOCKET_FAILURE = -2147483646,
+            MQCONN_BIND_SOCKET_FAILURE = -2147483645,
+            MQCONN_CONNECT_SOCKET_FAILURE = -2147483644,
+            MQCONN_TCP_NOT_ENABLED = -2147483643,
+            MQCONN_SEND_FAILURE = -2147483642,
+            MQCONN_NOT_READY = -2147483641,
+            MQCONN_NAME_RESOLUTION_FAILURE = -2147483640,
+            MQCONN_INVALID_SERVER_CERT = -2147483639,
+            MQCONN_LIMIT_REACHED = -2147483638,
+            MQCONN_REFUSED_BY_OTHER_SIDE = -2147483637,
+            MQCONN_ROUTING_FAILURE = -2147483636,
+            MQCONN_OUT_OF_MEMORY = -2147483635,
+        }
+        #[library("mqrt.dll")]
+        extern fn MQCreateCursor(hQueue: QUEUEHANDLE, phCursor: *mut HANDLE) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQCreateQueue(#[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS, #[len_param(3)] #[out] #[opt] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: *mut u32) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQDeleteQueue(lpwcsFormatName: PCWSTR) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQFreeMemory(pvMemory: *const void);
+        #[library("mqrt.dll")]
+        extern fn MQFreeSecurityContext(hSecurityContext: HANDLE);
+        #[library("mqrt.dll")]
+        extern fn MQGetMachineProperties(#[opt] lpwcsMachineName: PCWSTR, #[opt] pguidMachineId: *const GUID, #[in] #[out] pQMProps: *mut MQQMPROPS) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQGetOverlappedResult(lpOverlapped: *const OVERLAPPED) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQGetPrivateComputerInformation(#[opt] lpwcsComputerName: PCWSTR, #[in] #[out] pPrivateProps: *mut MQPRIVATEPROPS) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQGetQueueProperties(lpwcsFormatName: PCWSTR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQGetQueueSecurity(lpwcsFormatName: PCWSTR, RequestedInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, lpnLengthNeeded: *mut u32) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQGetSecurityContext(#[size_param(1)] #[opt] lpCertBuffer: *const void, dwCertBufferLength: u32, phSecurityContext: *mut HANDLE) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQGetSecurityContextEx(#[size_param(1)] #[opt] lpCertBuffer: *const void, dwCertBufferLength: u32, phSecurityContext: *mut HANDLE) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQHandleToFormatName(hQueue: QUEUEHANDLE, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: *mut u32) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQInstanceToFormatName(pGuid: *const GUID, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: *mut u32) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQLocateBegin(#[opt] lpwcsContext: PCWSTR, #[opt] pRestriction: *const MQRESTRICTION, pColumns: *const MQCOLUMNSET, pSort: *const MQSORTSET, phEnum: *mut HANDLE) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQLocateEnd(hEnum: HANDLE) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQLocateNext(hEnum: HANDLE, #[in] #[out] pcProps: *mut u32, aPropVar: *mut MQPROPVARIANT) -> HRESULT;
+        struct MQMGMTPROPS {
+            cProp: u32,
+            aPropID: *mut MGMTPROPID,
+            aPropVar: *mut MQPROPVARIANT,
+            aStatus: *mut HRESULT,
+        }
+        struct MQMSGPROPS {
+            cProp: u32,
+            aPropID: *mut MSGPROPID,
+            aPropVar: *mut MQPROPVARIANT,
+            aStatus: *mut HRESULT,
+        }
+        const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: u32 = 5;
+        const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: u32 = 14;
+        const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: u32 = 4;
+        const MQMSG_ACKNOWLEDGMENT_NACK_RECEIVE: u32 = 12;
+        const MQMSG_ACKNOWLEDGMENT_NEG_ARRIVAL: u32 = 4;
+        const MQMSG_ACKNOWLEDGMENT_NEG_RECEIVE: u32 = 8;
+        const MQMSG_ACKNOWLEDGMENT_NONE: u32 = 0;
+        const MQMSG_ACKNOWLEDGMENT_POS_ARRIVAL: u32 = 1;
+        const MQMSG_ACKNOWLEDGMENT_POS_RECEIVE: u32 = 2;
+        const MQMSG_AUTHENTICATED_QM_MESSAGE: u32 = 11;
+        const MQMSG_AUTHENTICATED_SIG10: u32 = 1;
+        const MQMSG_AUTHENTICATED_SIG20: u32 = 3;
+        const MQMSG_AUTHENTICATED_SIG30: u32 = 5;
+        const MQMSG_AUTHENTICATED_SIGXML: u32 = 9;
+        const MQMSG_AUTHENTICATION_NOT_REQUESTED: u32 = 0;
+        const MQMSG_AUTHENTICATION_REQUESTED: u32 = 1;
+        const MQMSG_AUTHENTICATION_REQUESTED_EX: u32 = 3;
+        const MQMSG_AUTH_LEVEL_ALWAYS: u32 = 1;
+        const MQMSG_AUTH_LEVEL_MSMQ10: u32 = 2;
+        const MQMSG_AUTH_LEVEL_MSMQ20: u32 = 4;
+        const MQMSG_AUTH_LEVEL_NONE: u32 = 0;
+        const MQMSG_AUTH_LEVEL_SIG10: u32 = 2;
+        const MQMSG_AUTH_LEVEL_SIG20: u32 = 4;
+        const MQMSG_AUTH_LEVEL_SIG30: u32 = 8;
+        const MQMSG_CLASS_ACK_REACH_QUEUE: u32 = 2;
+        const MQMSG_CLASS_ACK_RECEIVE: u32 = 16384;
+        const MQMSG_CLASS_NACK_ACCESS_DENIED: u32 = 32772;
+        const MQMSG_CLASS_NACK_BAD_DST_Q: u32 = 32768;
+        const MQMSG_CLASS_NACK_BAD_ENCRYPTION: u32 = 32775;
+        const MQMSG_CLASS_NACK_BAD_SIGNATURE: u32 = 32774;
+        const MQMSG_CLASS_NACK_COULD_NOT_ENCRYPT: u32 = 32776;
+        const MQMSG_CLASS_NACK_HOP_COUNT_EXCEEDED: u32 = 32773;
+        const MQMSG_CLASS_NACK_MESSAGE_TOO_LARGE: u32 = 32781;
+        const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_MSG: u32 = 32778;
+        const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_Q: u32 = 32777;
+        const MQMSG_CLASS_NACK_PURGED: u32 = 32769;
+        const MQMSG_CLASS_NACK_Q_DELETED: u32 = 49152;
+        const MQMSG_CLASS_NACK_Q_EXCEED_QUOTA: u32 = 32771;
+        const MQMSG_CLASS_NACK_Q_PURGED: u32 = 49153;
+        const MQMSG_CLASS_NACK_REACH_QUEUE_TIMEOUT: u32 = 32770;
+        const MQMSG_CLASS_NACK_RECEIVE_REJECTED: u32 = 49156;
+        const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT: u32 = 49154;
+        const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT_AT_SENDER: u32 = 49155;
+        const MQMSG_CLASS_NACK_SOURCE_COMPUTER_GUID_CHANGED: u32 = 32780;
+        const MQMSG_CLASS_NACK_UNSUPPORTED_CRYPTO_PROVIDER: u32 = 32779;
+        const MQMSG_CLASS_NORMAL: u32 = 0;
+        const MQMSG_CLASS_REPORT: u32 = 1;
+        const MQMSG_DEADLETTER: u32 = 1;
+        const MQMSG_DELIVERY_EXPRESS: u32 = 0;
+        const MQMSG_DELIVERY_RECOVERABLE: u32 = 1;
+        const MQMSG_FIRST_IN_XACT: u32 = 1;
+        const MQMSG_JOURNAL: u32 = 2;
+        const MQMSG_JOURNAL_NONE: u32 = 0;
+        const MQMSG_LAST_IN_XACT: u32 = 1;
+        const MQMSG_NOT_FIRST_IN_XACT: u32 = 0;
+        const MQMSG_NOT_LAST_IN_XACT: u32 = 0;
+        const MQMSG_PRIV_LEVEL_BODY_AES: u32 = 5;
+        const MQMSG_PRIV_LEVEL_BODY_BASE: u32 = 1;
+        const MQMSG_PRIV_LEVEL_BODY_ENHANCED: u32 = 3;
+        const MQMSG_PRIV_LEVEL_NONE: u32 = 0;
+        const MQMSG_SENDERID_TYPE_NONE: u32 = 0;
+        const MQMSG_SENDERID_TYPE_SID: u32 = 1;
+        const MQMSG_SEND_ROUTE_TO_REPORT_QUEUE: u32 = 1;
+        const MQMSG_TRACE_NONE: u32 = 0;
+        #[library("mqrt.dll")]
+        extern fn MQMarkMessageRejected(hQueue: HANDLE, ullLookupId: u64) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQMgmtAction(#[opt] pComputerName: PCWSTR, pObjectName: PCWSTR, pAction: PCWSTR) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQMgmtGetInfo(#[opt] pComputerName: PCWSTR, pObjectName: PCWSTR, #[in] #[out] pMgmtProps: *mut MQMGMTPROPS) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQMoveMessage(hSourceQueue: QUEUEHANDLE, hDestinationQueue: QUEUEHANDLE, ullLookupId: u64, #[opt] pTransaction: ITransaction) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQOpenQueue(lpwcsFormatName: PCWSTR, dwAccess: u32, dwShareMode: u32, phQueue: *mut QUEUEHANDLE) -> HRESULT;
+        struct MQPRIVATEPROPS {
+            cProp: u32,
+            aPropID: *mut QMPROPID,
+            aPropVar: *mut MQPROPVARIANT,
+            aStatus: *mut HRESULT,
+        }
+        struct MQPROPERTYRESTRICTION {
+            rel: u32,
+            prop: PROPID,
+            prval: MQPROPVARIANT,
+        }
+        type MQPROPVARIANT = tagMQPROPVARIANT;
+        #[library("mqrt.dll")]
+        extern fn MQPathNameToFormatName(lpwcsPathName: PCWSTR, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: *mut u32) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQPurgeQueue(hQueue: QUEUEHANDLE) -> HRESULT;
+        struct MQQMPROPS {
+            cProp: u32,
+            aPropID: *mut QMPROPID,
+            aPropVar: *mut MQPROPVARIANT,
+            aStatus: *mut HRESULT,
+        }
+        struct MQQUEUEPROPS {
+            cProp: u32,
+            aPropID: *mut QUEUEPROPID,
+            aPropVar: *mut MQPROPVARIANT,
+            aStatus: *mut HRESULT,
+        }
+        struct MQRESTRICTION {
+            cRes: u32,
+            paPropRes: *mut MQPROPERTYRESTRICTION,
+        }
+        #[library("mqrt.dll")]
+        extern fn MQReceiveMessage(hSource: QUEUEHANDLE, dwTimeout: u32, dwAction: u32, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[opt] hCursor: HANDLE, #[opt] pTransaction: ITransaction) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQReceiveMessageByLookupId(hSource: QUEUEHANDLE, ullLookupId: u64, dwLookupAction: u32, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[opt] pTransaction: ITransaction) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQRegisterCertificate(dwFlags: u32, lpCertBuffer: *const void, dwCertBufferLength: u32) -> HRESULT;
+        const MQSEC_CHANGE_QUEUE_PERMISSIONS: u32 = 262144;
+        const MQSEC_DELETE_JOURNAL_MESSAGE: u32 = 8;
+        const MQSEC_DELETE_MESSAGE: u32 = 1;
+        const MQSEC_DELETE_QUEUE: u32 = 65536;
+        const MQSEC_GET_QUEUE_PERMISSIONS: u32 = 131072;
+        const MQSEC_GET_QUEUE_PROPERTIES: u32 = 32;
+        const MQSEC_PEEK_MESSAGE: u32 = 2;
+        const MQSEC_QUEUE_GENERIC_ALL: u32 = 983103;
+        const MQSEC_QUEUE_GENERIC_EXECUTE: u32 = 0;
+        const MQSEC_QUEUE_GENERIC_READ: u32 = 131115;
+        const MQSEC_QUEUE_GENERIC_WRITE: u32 = 131108;
+        const MQSEC_RECEIVE_JOURNAL_MESSAGE: u32 = 10;
+        const MQSEC_RECEIVE_MESSAGE: u32 = 3;
+        const MQSEC_SET_QUEUE_PROPERTIES: u32 = 16;
+        const MQSEC_TAKE_QUEUE_OWNERSHIP: u32 = 524288;
+        const MQSEC_WRITE_MESSAGE: u32 = 4;
+        struct MQSORTKEY {
+            propColumn: PROPID,
+            dwOrder: u32,
+        }
+        struct MQSORTSET {
+            cCol: u32,
+            aCol: *mut MQSORTKEY,
+        }
+        #[library("mqrt.dll")]
+        extern fn MQSendMessage(hDestinationQueue: QUEUEHANDLE, pMessageProps: *const MQMSGPROPS, #[opt] pTransaction: ITransaction) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQSetQueueProperties(lpwcsFormatName: PCWSTR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS) -> HRESULT;
+        #[library("mqrt.dll")]
+        extern fn MQSetQueueSecurity(lpwcsFormatName: PCWSTR, SecurityInformation: SECURITY_INFORMATION, #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> HRESULT;
+        const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648;
+        const MQ_ACTION_PEEK_NEXT: u32 = 2147483649;
+        const MQ_ACTION_RECEIVE: u32 = 0;
+        const MQ_ADMIN_ACCESS: u32 = 128;
+        const MQ_AUTHENTICATE: u32 = 1;
+        const MQ_AUTHENTICATE_NONE: u32 = 0;
+        const MQ_CORRUPTED_QUEUE_WAS_DELETED: HRESULT = -1072824216;
+        const MQ_DENY_NONE: u32 = 0;
+        const MQ_DENY_RECEIVE_SHARE: u32 = 1;
+        const MQ_ERROR: HRESULT = -1072824319;
+        const MQ_ERROR_ACCESS_DENIED: HRESULT = -1072824283;
+        const MQ_ERROR_BAD_SECURITY_CONTEXT: HRESULT = -1072824267;
+        const MQ_ERROR_BAD_XML_FORMAT: HRESULT = -1072824174;
+        const MQ_ERROR_BUFFER_OVERFLOW: HRESULT = -1072824294;
+        const MQ_ERROR_CANNOT_CREATE_CERT_STORE: HRESULT = -1072824209;
+        const MQ_ERROR_CANNOT_CREATE_HASH_EX: HRESULT = -1072824191;
+        const MQ_ERROR_CANNOT_CREATE_ON_GC: HRESULT = -1072824201;
+        const MQ_ERROR_CANNOT_CREATE_PSC_OBJECTS: HRESULT = -1072824171;
+        const MQ_ERROR_CANNOT_DELETE_PSC_OBJECTS: HRESULT = -1072824189;
+        const MQ_ERROR_CANNOT_GET_DN: HRESULT = -1072824194;
+        const MQ_ERROR_CANNOT_GRANT_ADD_GUID: HRESULT = -1072824206;
+        const MQ_ERROR_CANNOT_HASH_DATA_EX: HRESULT = -1072824193;
+        const MQ_ERROR_CANNOT_IMPERSONATE_CLIENT: HRESULT = -1072824284;
+        const MQ_ERROR_CANNOT_JOIN_DOMAIN: HRESULT = -1072824202;
+        const MQ_ERROR_CANNOT_LOAD_MQAD: HRESULT = -1072824187;
+        const MQ_ERROR_CANNOT_LOAD_MQDSSRV: HRESULT = -1072824186;
+        const MQ_ERROR_CANNOT_LOAD_MSMQOCM: HRESULT = -1072824205;
+        const MQ_ERROR_CANNOT_OPEN_CERT_STORE: HRESULT = -1072824208;
+        const MQ_ERROR_CANNOT_SET_CRYPTO_SEC_DESCR: HRESULT = -1072824212;
+        const MQ_ERROR_CANNOT_SIGN_DATA_EX: HRESULT = -1072824192;
+        const MQ_ERROR_CANNOT_UPDATE_PSC_OBJECTS: HRESULT = -1072824170;
+        const MQ_ERROR_CANT_RESOLVE_SITES: HRESULT = -1072824183;
+        const MQ_ERROR_CERTIFICATE_NOT_PROVIDED: HRESULT = -1072824211;
+        const MQ_ERROR_COMPUTER_DOES_NOT_SUPPORT_ENCRYPTION: HRESULT = -1072824269;
+        const MQ_ERROR_CORRUPTED_INTERNAL_CERTIFICATE: HRESULT = -1072824275;
+        const MQ_ERROR_CORRUPTED_PERSONAL_CERT_STORE: HRESULT = -1072824271;
+        const MQ_ERROR_CORRUPTED_SECURITY_DATA: HRESULT = -1072824272;
+        const MQ_ERROR_COULD_NOT_GET_ACCOUNT_INFO: HRESULT = -1072824265;
+        const MQ_ERROR_COULD_NOT_GET_USER_SID: HRESULT = -1072824266;
+        const MQ_ERROR_DELETE_CN_IN_USE: HRESULT = -1072824248;
+        const MQ_ERROR_DEPEND_WKS_LICENSE_OVERFLOW: HRESULT = -1072824217;
+        const MQ_ERROR_DS_BIND_ROOT_FOREST: HRESULT = -1072824177;
+        const MQ_ERROR_DS_ERROR: HRESULT = -1072824253;
+        const MQ_ERROR_DS_IS_FULL: HRESULT = -1072824254;
+        const MQ_ERROR_DS_LOCAL_USER: HRESULT = -1072824176;
+        const MQ_ERROR_DTC_CONNECT: HRESULT = -1072824244;
+        const MQ_ERROR_ENCRYPTION_PROVIDER_NOT_SUPPORTED: HRESULT = -1072824213;
+        const MQ_ERROR_FAIL_VERIFY_SIGNATURE_EX: HRESULT = -1072824190;
+        const MQ_ERROR_FORMATNAME_BUFFER_TOO_SMALL: HRESULT = -1072824289;
+        const MQ_ERROR_GC_NEEDED: HRESULT = -1072824178;
+        const MQ_ERROR_GUID_NOT_MATCHING: HRESULT = -1072824200;
+        const MQ_ERROR_ILLEGAL_CONTEXT: HRESULT = -1072824229;
+        const MQ_ERROR_ILLEGAL_CURSOR_ACTION: HRESULT = -1072824292;
+        const MQ_ERROR_ILLEGAL_ENTERPRISE_OPERATION: HRESULT = -1072824207;
+        const MQ_ERROR_ILLEGAL_FORMATNAME: HRESULT = -1072824290;
+        const MQ_ERROR_ILLEGAL_MQCOLUMNS: HRESULT = -1072824264;
+        const MQ_ERROR_ILLEGAL_MQPRIVATEPROPS: HRESULT = -1072824197;
+        const MQ_ERROR_ILLEGAL_MQQMPROPS: HRESULT = -1072824255;
+        const MQ_ERROR_ILLEGAL_MQQUEUEPROPS: HRESULT = -1072824259;
+        const MQ_ERROR_ILLEGAL_OPERATION: HRESULT = -1072824220;
+        const MQ_ERROR_ILLEGAL_PROPERTY_SIZE: HRESULT = -1072824261;
+        const MQ_ERROR_ILLEGAL_PROPERTY_VALUE: HRESULT = -1072824296;
+        const MQ_ERROR_ILLEGAL_PROPERTY_VT: HRESULT = -1072824295;
+        const MQ_ERROR_ILLEGAL_PROPID: HRESULT = -1072824263;
+        const MQ_ERROR_ILLEGAL_QUEUE_PATHNAME: HRESULT = -1072824300;
+        const MQ_ERROR_ILLEGAL_RELATION: HRESULT = -1072824262;
+        const MQ_ERROR_ILLEGAL_RESTRICTION_PROPID: HRESULT = -1072824260;
+        const MQ_ERROR_ILLEGAL_SECURITY_DESCRIPTOR: HRESULT = -1072824287;
+        const MQ_ERROR_ILLEGAL_SORT: HRESULT = -1072824304;
+        const MQ_ERROR_ILLEGAL_SORT_PROPID: HRESULT = -1072824228;
+        const MQ_ERROR_ILLEGAL_USER: HRESULT = -1072824303;
+        const MQ_ERROR_INSUFFICIENT_PROPERTIES: HRESULT = -1072824257;
+        const MQ_ERROR_INSUFFICIENT_RESOURCES: HRESULT = -1072824281;
+        const MQ_ERROR_INTERNAL_USER_CERT_EXIST: HRESULT = -1072824274;
+        const MQ_ERROR_INVALID_CERTIFICATE: HRESULT = -1072824276;
+        const MQ_ERROR_INVALID_HANDLE: HRESULT = -1072824313;
+        const MQ_ERROR_INVALID_OWNER: HRESULT = -1072824252;
+        const MQ_ERROR_INVALID_PARAMETER: HRESULT = -1072824314;
+        const MQ_ERROR_IO_TIMEOUT: HRESULT = -1072824293;
+        const MQ_ERROR_LABEL_BUFFER_TOO_SMALL: HRESULT = -1072824226;
+        const MQ_ERROR_LABEL_TOO_LONG: HRESULT = -1072824227;
+        const MQ_ERROR_MACHINE_EXISTS: HRESULT = -1072824256;
+        const MQ_ERROR_MACHINE_NOT_FOUND: HRESULT = -1072824307;
+        const MQ_ERROR_MESSAGE_ALREADY_RECEIVED: HRESULT = -1072824291;
+        const MQ_ERROR_MESSAGE_LOCKED_UNDER_TRANSACTION: HRESULT = -1072824164;
+        const MQ_ERROR_MESSAGE_NOT_AUTHENTICATED: HRESULT = -1072824165;
+        const MQ_ERROR_MESSAGE_NOT_FOUND: HRESULT = -1072824184;
+        const MQ_ERROR_MESSAGE_STORAGE_FAILED: HRESULT = -1072824278;
+        const MQ_ERROR_MISSING_CONNECTOR_TYPE: HRESULT = -1072824235;
+        const MQ_ERROR_MQIS_READONLY_MODE: HRESULT = -1072824224;
+        const MQ_ERROR_MQIS_SERVER_EMPTY: HRESULT = -1072824225;
+        const MQ_ERROR_MULTI_SORT_KEYS: HRESULT = -1072824179;
+        const MQ_ERROR_NOT_A_CORRECT_OBJECT_CLASS: HRESULT = -1072824180;
+        const MQ_ERROR_NOT_SUPPORTED_BY_DEPENDENT_CLIENTS: HRESULT = -1072824182;
+        const MQ_ERROR_NO_DS: HRESULT = -1072824301;
+        const MQ_ERROR_NO_ENTRY_POINT_MSMQOCM: HRESULT = -1072824204;
+        const MQ_ERROR_NO_GC_IN_DOMAIN: HRESULT = -1072824196;
+        const MQ_ERROR_NO_INTERNAL_USER_CERT: HRESULT = -1072824273;
+        const MQ_ERROR_NO_MQUSER_OU: HRESULT = -1072824188;
+        const MQ_ERROR_NO_MSMQ_SERVERS_ON_DC: HRESULT = -1072824203;
+        const MQ_ERROR_NO_MSMQ_SERVERS_ON_GC: HRESULT = -1072824195;
+        const MQ_ERROR_NO_RESPONSE_FROM_OBJECT_SERVER: HRESULT = -1072824247;
+        const MQ_ERROR_OBJECT_SERVER_NOT_AVAILABLE: HRESULT = -1072824246;
+        const MQ_ERROR_OPERATION_CANCELLED: HRESULT = -1072824312;
+        const MQ_ERROR_OPERATION_NOT_SUPPORTED_BY_REMOTE_COMPUTER: HRESULT = -1072824181;
+        const MQ_ERROR_PRIVILEGE_NOT_HELD: HRESULT = -1072824282;
+        const MQ_ERROR_PROPERTIES_CONFLICT: HRESULT = -1072824185;
+        const MQ_ERROR_PROPERTY: HRESULT = -1072824318;
+        const MQ_ERROR_PROPERTY_NOTALLOWED: HRESULT = -1072824258;
+        const MQ_ERROR_PROV_NAME_BUFFER_TOO_SMALL: HRESULT = -1072824221;
+        const MQ_ERROR_PUBLIC_KEY_DOES_NOT_EXIST: HRESULT = -1072824198;
+        const MQ_ERROR_PUBLIC_KEY_NOT_FOUND: HRESULT = -1072824199;
+        const MQ_ERROR_QUEUE_DELETED: HRESULT = -1072824230;
+        const MQ_ERROR_QUEUE_EXISTS: HRESULT = -1072824315;
+        const MQ_ERROR_QUEUE_NOT_ACTIVE: HRESULT = -1072824316;
+        const MQ_ERROR_QUEUE_NOT_AVAILABLE: HRESULT = -1072824245;
+        const MQ_ERROR_QUEUE_NOT_FOUND: HRESULT = -1072824317;
+        const MQ_ERROR_Q_ADS_PROPERTY_NOT_SUPPORTED: HRESULT = -1072824175;
+        const MQ_ERROR_Q_DNS_PROPERTY_NOT_SUPPORTED: HRESULT = -1072824210;
+        const MQ_ERROR_REMOTE_MACHINE_NOT_AVAILABLE: HRESULT = -1072824215;
+        const MQ_ERROR_RESOLVE_ADDRESS: HRESULT = -1072824167;
+        const MQ_ERROR_RESULT_BUFFER_TOO_SMALL: HRESULT = -1072824250;
+        const MQ_ERROR_SECURITY_DESCRIPTOR_TOO_SMALL: HRESULT = -1072824285;
+        const MQ_ERROR_SENDERID_BUFFER_TOO_SMALL: HRESULT = -1072824286;
+        const MQ_ERROR_SENDER_CERT_BUFFER_TOO_SMALL: HRESULT = -1072824277;
+        const MQ_ERROR_SERVICE_NOT_AVAILABLE: HRESULT = -1072824309;
+        const MQ_ERROR_SHARING_VIOLATION: HRESULT = -1072824311;
+        const MQ_ERROR_SIGNATURE_BUFFER_TOO_SMALL: HRESULT = -1072824222;
+        const MQ_ERROR_STALE_HANDLE: HRESULT = -1072824234;
+        const MQ_ERROR_SYMM_KEY_BUFFER_TOO_SMALL: HRESULT = -1072824223;
+        const MQ_ERROR_TOO_MANY_PROPERTIES: HRESULT = -1072824166;
+        const MQ_ERROR_TRANSACTION_ENLIST: HRESULT = -1072824232;
+        const MQ_ERROR_TRANSACTION_IMPORT: HRESULT = -1072824242;
+        const MQ_ERROR_TRANSACTION_SEQUENCE: HRESULT = -1072824239;
+        const MQ_ERROR_TRANSACTION_USAGE: HRESULT = -1072824240;
+        const MQ_ERROR_UNINITIALIZED_OBJECT: HRESULT = -1072824172;
+        const MQ_ERROR_UNSUPPORTED_ACCESS_MODE: HRESULT = -1072824251;
+        const MQ_ERROR_UNSUPPORTED_CLASS: HRESULT = -1072824173;
+        const MQ_ERROR_UNSUPPORTED_FORMATNAME_OPERATION: HRESULT = -1072824288;
+        const MQ_ERROR_UNSUPPORTED_OPERATION: HRESULT = -1072824214;
+        const MQ_ERROR_USER_BUFFER_TOO_SMALL: HRESULT = -1072824280;
+        const MQ_ERROR_WKS_CANT_SERVE_CLIENT: HRESULT = -1072824218;
+        const MQ_ERROR_WRITE_NOT_ALLOWED: HRESULT = -1072824219;
+        const MQ_INFORMATION_DUPLICATE_PROPERTY: HRESULT = 1074659333;
+        const MQ_INFORMATION_FORMATNAME_BUFFER_TOO_SMALL: HRESULT = 1074659337;
+        const MQ_INFORMATION_ILLEGAL_PROPERTY: HRESULT = 1074659330;
+        const MQ_INFORMATION_INTERNAL_USER_CERT_EXIST: HRESULT = 1074659338;
+        const MQ_INFORMATION_OPERATION_PENDING: HRESULT = 1074659334;
+        const MQ_INFORMATION_OWNER_IGNORED: HRESULT = 1074659339;
+        const MQ_INFORMATION_PROPERTY: HRESULT = 1074659329;
+        const MQ_INFORMATION_PROPERTY_IGNORED: HRESULT = 1074659331;
+        const MQ_INFORMATION_UNSUPPORTED_PROPERTY: HRESULT = 1074659332;
+        const MQ_JOURNAL: u32 = 1;
+        const MQ_JOURNAL_NONE: u32 = 0;
+        const MQ_LOOKUP_PEEK_CURRENT: u32 = 1073741840;
+        const MQ_LOOKUP_PEEK_FIRST: u32 = 1073741844;
+        const MQ_LOOKUP_PEEK_LAST: u32 = 1073741848;
+        const MQ_LOOKUP_PEEK_NEXT: u32 = 1073741841;
+        const MQ_LOOKUP_PEEK_PREV: u32 = 1073741842;
+        const MQ_LOOKUP_RECEIVE_ALLOW_PEEK: u32 = 1073742112;
+        const MQ_LOOKUP_RECEIVE_CURRENT: u32 = 1073741856;
+        const MQ_LOOKUP_RECEIVE_FIRST: u32 = 1073741860;
+        const MQ_LOOKUP_RECEIVE_LAST: u32 = 1073741864;
+        const MQ_LOOKUP_RECEIVE_NEXT: u32 = 1073741857;
+        const MQ_LOOKUP_RECEIVE_PREV: u32 = 1073741858;
+        const MQ_MAX_MSG_LABEL_LEN: u32 = 250;
+        const MQ_MAX_PRIORITY: u32 = 7;
+        const MQ_MAX_Q_LABEL_LEN: u32 = 124;
+        const MQ_MAX_Q_NAME_LEN: u32 = 124;
+        const MQ_MIN_PRIORITY: u32 = 0;
+        const MQ_MOVE_ACCESS: u32 = 4;
+        const MQ_NO_TRANSACTION: u32 = 0;
+        const MQ_OK: HRESULT = 0;
+        const MQ_PEEK_ACCESS: u32 = 32;
+        const MQ_PRIV_LEVEL_BODY: u32 = 2;
+        const MQ_PRIV_LEVEL_NONE: u32 = 0;
+        const MQ_PRIV_LEVEL_OPTIONAL: u32 = 1;
+        const MQ_RECEIVE_ACCESS: u32 = 1;
+        const MQ_SEND_ACCESS: u32 = 2;
+        const MQ_TRANSACTIONAL: u32 = 1;
+        const MQ_TRANSACTIONAL_NONE: u32 = 0;
+        type MSGPROPID = PROPID;
+        #[encoding("utf-16")]
+        const MSMQ_CONNECTED: String = "CONNECTED";
+        #[encoding("utf-16")]
+        const MSMQ_DISCONNECTED: String = "DISCONNECTED";
+        extern fn PMQRECEIVECALLBACK(hrStatus: HRESULT, hSource: QUEUEHANDLE, dwTimeout: u32, dwAction: u32, pMessageProps: *mut MQMSGPROPS, lpOverlapped: *mut OVERLAPPED, hCursor: HANDLE);
+        const PREQ: u32 = 4;
+        const PRGE: u32 = 3;
+        const PRGT: u32 = 2;
+        const PRLE: u32 = 1;
+        const PRLT: u32 = 0;
+        const PRNE: u32 = 5;
+        const PROPID_MGMT_MSMQ_ACTIVEQUEUES: u32 = 1;
+        const PROPID_MGMT_MSMQ_BASE: u32 = 0;
+        const PROPID_MGMT_MSMQ_BYTES_IN_ALL_QUEUES: u32 = 6;
+        const PROPID_MGMT_MSMQ_CONNECTED: u32 = 4;
+        const PROPID_MGMT_MSMQ_DSSERVER: u32 = 3;
+        const PROPID_MGMT_MSMQ_PRIVATEQ: u32 = 2;
+        const PROPID_MGMT_MSMQ_TYPE: u32 = 5;
+        const PROPID_MGMT_QUEUE_BASE: u32 = 0;
+        const PROPID_MGMT_QUEUE_BYTES_IN_JOURNAL: u32 = 10;
+        const PROPID_MGMT_QUEUE_BYTES_IN_QUEUE: u32 = 8;
+        const PROPID_MGMT_QUEUE_CONNECTION_HISTORY: u32 = 25;
+        const PROPID_MGMT_QUEUE_EOD_FIRST_NON_ACK: u32 = 16;
+        const PROPID_MGMT_QUEUE_EOD_LAST_ACK: u32 = 13;
+        const PROPID_MGMT_QUEUE_EOD_LAST_ACK_COUNT: u32 = 15;
+        const PROPID_MGMT_QUEUE_EOD_LAST_ACK_TIME: u32 = 14;
+        const PROPID_MGMT_QUEUE_EOD_LAST_NON_ACK: u32 = 17;
+        const PROPID_MGMT_QUEUE_EOD_NEXT_SEQ: u32 = 18;
+        const PROPID_MGMT_QUEUE_EOD_NO_ACK_COUNT: u32 = 20;
+        const PROPID_MGMT_QUEUE_EOD_NO_READ_COUNT: u32 = 19;
+        const PROPID_MGMT_QUEUE_EOD_RESEND_COUNT: u32 = 23;
+        const PROPID_MGMT_QUEUE_EOD_RESEND_INTERVAL: u32 = 22;
+        const PROPID_MGMT_QUEUE_EOD_RESEND_TIME: u32 = 21;
+        const PROPID_MGMT_QUEUE_EOD_SOURCE_INFO: u32 = 24;
+        const PROPID_MGMT_QUEUE_FOREIGN: u32 = 6;
+        const PROPID_MGMT_QUEUE_FORMATNAME: u32 = 2;
+        const PROPID_MGMT_QUEUE_JOURNAL_MESSAGE_COUNT: u32 = 9;
+        const PROPID_MGMT_QUEUE_JOURNAL_USED_QUOTA: u32 = 10;
+        const PROPID_MGMT_QUEUE_LOCATION: u32 = 4;
+        const PROPID_MGMT_QUEUE_MESSAGE_COUNT: u32 = 7;
+        const PROPID_MGMT_QUEUE_NEXTHOPS: u32 = 12;
+        const PROPID_MGMT_QUEUE_PATHNAME: u32 = 1;
+        const PROPID_MGMT_QUEUE_STATE: u32 = 11;
+        const PROPID_MGMT_QUEUE_SUBQUEUE_COUNT: u32 = 26;
+        const PROPID_MGMT_QUEUE_SUBQUEUE_NAMES: u32 = 27;
+        const PROPID_MGMT_QUEUE_TYPE: u32 = 3;
+        const PROPID_MGMT_QUEUE_USED_QUOTA: u32 = 8;
+        const PROPID_MGMT_QUEUE_XACT: u32 = 5;
+        const PROPID_M_ABORT_COUNT: u32 = 69;
+        const PROPID_M_ACKNOWLEDGE: u32 = 6;
+        const PROPID_M_ADMIN_QUEUE: u32 = 17;
+        const PROPID_M_ADMIN_QUEUE_LEN: u32 = 18;
+        const PROPID_M_APPSPECIFIC: u32 = 8;
+        const PROPID_M_ARRIVEDTIME: u32 = 32;
+        const PROPID_M_AUTHENTICATED: u32 = 25;
+        const PROPID_M_AUTHENTICATED_EX: u32 = 53;
+        const PROPID_M_AUTH_LEVEL: u32 = 24;
+        const PROPID_M_BASE: u32 = 0;
+        const PROPID_M_BODY: u32 = 9;
+        const PROPID_M_BODY_SIZE: u32 = 10;
+        const PROPID_M_BODY_TYPE: u32 = 42;
+        const PROPID_M_CLASS: u32 = 1;
+        const PROPID_M_COMPOUND_MESSAGE: u32 = 63;
+        const PROPID_M_COMPOUND_MESSAGE_SIZE: u32 = 64;
+        const PROPID_M_CONNECTOR_TYPE: u32 = 38;
+        const PROPID_M_CORRELATIONID: u32 = 3;
+        const PROPID_M_CORRELATIONID_SIZE: u32 = 20;
+        const PROPID_M_DEADLETTER_QUEUE: u32 = 67;
+        const PROPID_M_DEADLETTER_QUEUE_LEN: u32 = 68;
+        const PROPID_M_DELIVERY: u32 = 5;
+        const PROPID_M_DEST_FORMAT_NAME: u32 = 58;
+        const PROPID_M_DEST_FORMAT_NAME_LEN: u32 = 59;
+        const PROPID_M_DEST_QUEUE: u32 = 33;
+        const PROPID_M_DEST_QUEUE_LEN: u32 = 34;
+        const PROPID_M_DEST_SYMM_KEY: u32 = 43;
+        const PROPID_M_DEST_SYMM_KEY_LEN: u32 = 44;
+        const PROPID_M_ENCRYPTION_ALG: u32 = 27;
+        const PROPID_M_EXTENSION: u32 = 35;
+        const PROPID_M_EXTENSION_LEN: u32 = 36;
+        const PROPID_M_FIRST_IN_XACT: u32 = 50;
+        const PROPID_M_HASH_ALG: u32 = 26;
+        const PROPID_M_JOURNAL: u32 = 7;
+        const PROPID_M_LABEL: u32 = 11;
+        const PROPID_M_LABEL_LEN: u32 = 12;
+        const PROPID_M_LAST_IN_XACT: u32 = 51;
+        const PROPID_M_LAST_MOVE_TIME: u32 = 75;
+        const PROPID_M_LOOKUPID: u32 = 60;
+        const PROPID_M_MOVE_COUNT: u32 = 70;
+        const PROPID_M_MSGID: u32 = 2;
+        const PROPID_M_MSGID_SIZE: u32 = 20;
+        const PROPID_M_PRIORITY: u32 = 4;
+        const PROPID_M_PRIV_LEVEL: u32 = 23;
+        const PROPID_M_PROV_NAME: u32 = 48;
+        const PROPID_M_PROV_NAME_LEN: u32 = 49;
+        const PROPID_M_PROV_TYPE: u32 = 47;
+        const PROPID_M_RESP_FORMAT_NAME: u32 = 54;
+        const PROPID_M_RESP_FORMAT_NAME_LEN: u32 = 55;
+        const PROPID_M_RESP_QUEUE: u32 = 15;
+        const PROPID_M_RESP_QUEUE_LEN: u32 = 16;
+        const PROPID_M_SECURITY_CONTEXT: u32 = 37;
+        const PROPID_M_SENDERID: u32 = 20;
+        const PROPID_M_SENDERID_LEN: u32 = 21;
+        const PROPID_M_SENDERID_TYPE: u32 = 22;
+        const PROPID_M_SENDER_CERT: u32 = 28;
+        const PROPID_M_SENDER_CERT_LEN: u32 = 29;
+        const PROPID_M_SENTTIME: u32 = 31;
+        const PROPID_M_SIGNATURE: u32 = 45;
+        const PROPID_M_SIGNATURE_LEN: u32 = 46;
+        const PROPID_M_SOAP_BODY: u32 = 66;
+        const PROPID_M_SOAP_ENVELOPE: u32 = 61;
+        const PROPID_M_SOAP_ENVELOPE_LEN: u32 = 62;
+        const PROPID_M_SOAP_HEADER: u32 = 65;
+        const PROPID_M_SRC_MACHINE_ID: u32 = 30;
+        const PROPID_M_TIME_TO_BE_RECEIVED: u32 = 14;
+        const PROPID_M_TIME_TO_REACH_QUEUE: u32 = 13;
+        const PROPID_M_TRACE: u32 = 41;
+        const PROPID_M_VERSION: u32 = 19;
+        const PROPID_M_XACTID: u32 = 52;
+        const PROPID_M_XACTID_SIZE: u32 = 20;
+        const PROPID_M_XACT_STATUS_QUEUE: u32 = 39;
+        const PROPID_M_XACT_STATUS_QUEUE_LEN: u32 = 40;
+        const PROPID_PC_BASE: u32 = 5800;
+        const PROPID_PC_DS_ENABLED: u32 = 5802;
+        const PROPID_PC_VERSION: u32 = 5801;
+        const PROPID_QM_BASE: u32 = 200;
+        const PROPID_QM_CONNECTION: u32 = 204;
+        const PROPID_QM_ENCRYPTION_PK: u32 = 205;
+        const PROPID_QM_ENCRYPTION_PK_AES: u32 = 244;
+        const PROPID_QM_ENCRYPTION_PK_BASE: u32 = 231;
+        const PROPID_QM_ENCRYPTION_PK_ENHANCED: u32 = 232;
+        const PROPID_QM_MACHINE_ID: u32 = 202;
+        const PROPID_QM_PATHNAME: u32 = 203;
+        const PROPID_QM_PATHNAME_DNS: u32 = 233;
+        const PROPID_QM_SITE_ID: u32 = 201;
+        const PROPID_Q_ADS_PATH: u32 = 126;
+        const PROPID_Q_AUTHENTICATE: u32 = 111;
+        const PROPID_Q_BASE: u32 = 100;
+        const PROPID_Q_BASEPRIORITY: u32 = 106;
+        const PROPID_Q_CREATE_TIME: u32 = 109;
+        const PROPID_Q_INSTANCE: u32 = 101;
+        const PROPID_Q_JOURNAL: u32 = 104;
+        const PROPID_Q_JOURNAL_QUOTA: u32 = 107;
+        const PROPID_Q_LABEL: u32 = 108;
+        const PROPID_Q_MODIFY_TIME: u32 = 110;
+        const PROPID_Q_MULTICAST_ADDRESS: u32 = 125;
+        const PROPID_Q_PATHNAME: u32 = 103;
+        const PROPID_Q_PATHNAME_DNS: u32 = 124;
+        const PROPID_Q_PRIV_LEVEL: u32 = 112;
+        const PROPID_Q_QUOTA: u32 = 105;
+        const PROPID_Q_TRANSACTION: u32 = 113;
+        const PROPID_Q_TYPE: u32 = 102;
+        type QMPROPID = PROPID;
+        const QUERY_SORTASCEND: u32 = 0;
+        const QUERY_SORTDESCEND: u32 = 1;
+        type QUEUEHANDLE = HANDLE;
+        type QUEUEPROPID = PROPID;
+        #[encoding("utf-16")]
+        const QUEUE_ACTION_EOD_RESEND: String = "EOD_RESEND";
+        #[encoding("utf-16")]
+        const QUEUE_ACTION_PAUSE: String = "PAUSE";
+        #[encoding("utf-16")]
+        const QUEUE_ACTION_RESUME: String = "RESUME";
+        struct SEQUENCE_INFO {
+            SeqID: i64,
+            SeqNo: u32,
+            PrevNo: u32,
+        }
+        type tagMQPROPVARIANT = PROPVARIANT;
+    }
+}

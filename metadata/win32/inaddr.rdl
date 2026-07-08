@@ -1,0 +1,22 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct IN_ADDR {
+            S_un: union {
+                S_un_b: struct {
+                    s_b1: u8,
+                    s_b2: u8,
+                    s_b3: u8,
+                    s_b4: u8,
+                },
+                S_un_w: struct {
+                    s_w1: u16,
+                    s_w2: u16,
+                },
+                S_addr: u32,
+            },
+        }
+        type LPIN_ADDR = *mut IN_ADDR;
+        type PIN_ADDR = *mut IN_ADDR;
+    }
+}

@@ -1,0 +1,759 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum AutoPathFormat {
+            plaNone = 0,
+            plaPattern = 1,
+            plaComputer = 2,
+            plaMonthDayHour = 256,
+            plaSerialNumber = 512,
+            plaYearDayOfYear = 1024,
+            plaYearMonth = 2048,
+            plaYearMonthDay = 4096,
+            plaYearMonthDayHour = 8192,
+            plaMonthDayHourMinute = 16384,
+        }
+        const BootTraceSession: GUID = 0x03837538_098b_11d8_9414_505054503030;
+        const BootTraceSessionCollection: GUID = 0x03837539_098b_11d8_9414_505054503030;
+        #[repr(i32)]
+        enum ClockType {
+            plaTimeStamp = 0,
+            plaPerformance = 1,
+            plaSystem = 2,
+            plaCycle = 3,
+        }
+        #[repr(i32)]
+        enum CommitMode {
+            plaCreateNew = 1,
+            plaModify = 2,
+            plaCreateOrModify = 3,
+            plaUpdateRunningInstance = 16,
+            plaFlushTrace = 32,
+            plaValidateOnly = 4096,
+        }
+        const DataCollectorSet: GUID = 0x03837521_098b_11d8_9414_505054503030;
+        const DataCollectorSetCollection: GUID = 0x03837525_098b_11d8_9414_505054503030;
+        #[repr(i32)]
+        enum DataCollectorSetStatus {
+            plaStopped = 0,
+            plaRunning = 1,
+            plaCompiling = 2,
+            plaPending = 3,
+            plaUndefined = 4,
+        }
+        #[repr(i32)]
+        enum DataCollectorType {
+            plaPerformanceCounter = 0,
+            plaTrace = 1,
+            plaConfiguration = 2,
+            plaAlert = 3,
+            plaApiTrace = 4,
+        }
+        #[repr(i32)]
+        enum DataManagerSteps {
+            plaCreateReport = 1,
+            plaRunRules = 2,
+            plaCreateHtml = 4,
+            plaFolderActions = 8,
+            plaResourceFreeing = 16,
+        }
+        #[repr(i32)]
+        enum FileFormat {
+            plaCommaSeparated = 0,
+            plaTabSeparated = 1,
+            plaSql = 2,
+            plaBinary = 3,
+        }
+        #[repr(i32)]
+        enum FolderActionSteps {
+            plaCreateCab = 1,
+            plaDeleteData = 2,
+            plaSendCab = 4,
+            plaDeleteCab = 8,
+            plaDeleteReport = 16,
+        }
+        #[guid(0x03837516_098b_11d8_9414_505054503030)]
+        interface IAlertDataCollector: IDataCollector {
+            #[special]
+            fn get_AlertThresholds(&self, #[retval] alerts: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_AlertThresholds(&self, alerts: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_EventLog(&self, #[retval] log: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_EventLog(&self, log: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SampleInterval(&self, #[retval] interval: *mut u32) -> HRESULT;
+            #[special]
+            fn put_SampleInterval(&self, interval: u32) -> HRESULT;
+            #[special]
+            fn get_Task(&self, #[retval] task: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Task(&self, task: BSTR) -> HRESULT;
+            #[special]
+            fn get_TaskRunAsSelf(&self, #[retval] RunAsSelf: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_TaskRunAsSelf(&self, RunAsSelf: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_TaskArguments(&self, #[retval] task: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_TaskArguments(&self, task: BSTR) -> HRESULT;
+            #[special]
+            fn get_TaskUserTextArguments(&self, #[retval] task: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_TaskUserTextArguments(&self, task: BSTR) -> HRESULT;
+            #[special]
+            fn get_TriggerDataCollectorSet(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_TriggerDataCollectorSet(&self, name: BSTR) -> HRESULT;
+        }
+        #[guid(0x0383751a_098b_11d8_9414_505054503030)]
+        interface IApiTracingDataCollector: IDataCollector {
+            #[special]
+            fn get_LogApiNamesOnly(&self, #[retval] logapinames: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_LogApiNamesOnly(&self, logapinames: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_LogApisRecursively(&self, #[retval] logrecursively: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_LogApisRecursively(&self, logrecursively: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ExePath(&self, #[retval] exepath: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ExePath(&self, exepath: BSTR) -> HRESULT;
+            #[special]
+            fn get_LogFilePath(&self, #[retval] logfilepath: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LogFilePath(&self, logfilepath: BSTR) -> HRESULT;
+            #[special]
+            fn get_IncludeModules(&self, #[retval] includemodules: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_IncludeModules(&self, includemodules: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_IncludeApis(&self, #[retval] includeapis: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_IncludeApis(&self, includeapis: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_ExcludeApis(&self, #[retval] excludeapis: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_ExcludeApis(&self, excludeapis: *const SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x03837514_098b_11d8_9414_505054503030)]
+        interface IConfigurationDataCollector: IDataCollector {
+            #[special]
+            fn get_FileMaxCount(&self, #[retval] count: *mut u32) -> HRESULT;
+            #[special]
+            fn put_FileMaxCount(&self, count: u32) -> HRESULT;
+            #[special]
+            fn get_FileMaxRecursiveDepth(&self, #[retval] depth: *mut u32) -> HRESULT;
+            #[special]
+            fn put_FileMaxRecursiveDepth(&self, depth: u32) -> HRESULT;
+            #[special]
+            fn get_FileMaxTotalSize(&self, #[retval] size: *mut u32) -> HRESULT;
+            #[special]
+            fn put_FileMaxTotalSize(&self, size: u32) -> HRESULT;
+            #[special]
+            fn get_Files(&self, #[retval] Files: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_Files(&self, Files: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_ManagementQueries(&self, #[retval] Queries: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_ManagementQueries(&self, Queries: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_QueryNetworkAdapters(&self, #[retval] network: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_QueryNetworkAdapters(&self, network: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RegistryKeys(&self, #[retval] query: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_RegistryKeys(&self, query: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_RegistryMaxRecursiveDepth(&self, #[retval] depth: *mut u32) -> HRESULT;
+            #[special]
+            fn put_RegistryMaxRecursiveDepth(&self, depth: u32) -> HRESULT;
+            #[special]
+            fn get_SystemStateFile(&self, #[retval] FileName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SystemStateFile(&self, FileName: BSTR) -> HRESULT;
+        }
+        #[guid(0x038374ff_098b_11d8_9414_505054503030)]
+        interface IDataCollector: IDispatch {
+            #[special]
+            fn get_DataCollectorSet(&self, #[retval] group: *mut IDataCollectorSet) -> HRESULT;
+            #[special]
+            fn put_DataCollectorSet(&self, group: IDataCollectorSet) -> HRESULT;
+            #[special]
+            fn get_DataCollectorType(&self, #[retval] r#type: *mut DataCollectorType) -> HRESULT;
+            #[special]
+            fn get_FileName(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FileName(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_FileNameFormat(&self, #[retval] format: *mut AutoPathFormat) -> HRESULT;
+            #[special]
+            fn put_FileNameFormat(&self, format: AutoPathFormat) -> HRESULT;
+            #[special]
+            fn get_FileNameFormatPattern(&self, #[retval] pattern: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FileNameFormatPattern(&self, pattern: BSTR) -> HRESULT;
+            #[special]
+            fn get_LatestOutputLocation(&self, #[retval] path: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LatestOutputLocation(&self, path: BSTR) -> HRESULT;
+            #[special]
+            fn get_LogAppend(&self, #[retval] append: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_LogAppend(&self, append: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_LogCircular(&self, #[retval] circular: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_LogCircular(&self, circular: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_LogOverwrite(&self, #[retval] overwrite: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_LogOverwrite(&self, overwrite: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_OutputLocation(&self, #[retval] path: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Index(&self, #[retval] index: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Index(&self, index: i32) -> HRESULT;
+            #[special]
+            fn get_Xml(&self, #[retval] Xml: *mut BSTR) -> HRESULT;
+            fn SetXml(&self, Xml: BSTR, #[retval] Validation: *mut IValueMap) -> HRESULT;
+            fn CreateOutputLocation(&self, Latest: VARIANT_BOOL, #[retval] Location: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x03837502_098b_11d8_9414_505054503030)]
+        interface IDataCollectorCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: VARIANT, #[retval] collector: *mut IDataCollector) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, collector: IDataCollector) -> HRESULT;
+            fn Remove(&self, collector: VARIANT) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn AddRange(&self, collectors: IDataCollectorCollection) -> HRESULT;
+            fn CreateDataCollectorFromXml(&self, bstrXml: BSTR, pValidation: *mut IValueMap, #[retval] pCollector: *mut IDataCollector) -> HRESULT;
+            fn CreateDataCollector(&self, Type: DataCollectorType, #[retval] Collector: *mut IDataCollector) -> HRESULT;
+        }
+        #[guid(0x03837520_098b_11d8_9414_505054503030)]
+        interface IDataCollectorSet: IDispatch {
+            #[special]
+            fn get_DataCollectors(&self, #[retval] collectors: *mut IDataCollectorCollection) -> HRESULT;
+            #[special]
+            fn get_Duration(&self, #[retval] seconds: *mut u32) -> HRESULT;
+            #[special]
+            fn put_Duration(&self, seconds: u32) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] description: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, description: BSTR) -> HRESULT;
+            #[special]
+            fn get_DescriptionUnresolved(&self, #[retval] Descr: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] DisplayName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DisplayName(&self, DisplayName: BSTR) -> HRESULT;
+            #[special]
+            fn get_DisplayNameUnresolved(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Keywords(&self, #[retval] keywords: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_Keywords(&self, keywords: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_LatestOutputLocation(&self, #[retval] path: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LatestOutputLocation(&self, path: BSTR) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_OutputLocation(&self, #[retval] path: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RootPath(&self, #[retval] folder: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RootPath(&self, folder: BSTR) -> HRESULT;
+            #[special]
+            fn get_Segment(&self, #[retval] segment: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Segment(&self, segment: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SegmentMaxDuration(&self, #[retval] seconds: *mut u32) -> HRESULT;
+            #[special]
+            fn put_SegmentMaxDuration(&self, seconds: u32) -> HRESULT;
+            #[special]
+            fn get_SegmentMaxSize(&self, #[retval] size: *mut u32) -> HRESULT;
+            #[special]
+            fn put_SegmentMaxSize(&self, size: u32) -> HRESULT;
+            #[special]
+            fn get_SerialNumber(&self, #[retval] index: *mut u32) -> HRESULT;
+            #[special]
+            fn put_SerialNumber(&self, index: u32) -> HRESULT;
+            #[special]
+            fn get_Server(&self, #[retval] server: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Status(&self, #[retval] status: *mut DataCollectorSetStatus) -> HRESULT;
+            #[special]
+            fn get_Subdirectory(&self, #[retval] folder: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Subdirectory(&self, folder: BSTR) -> HRESULT;
+            #[special]
+            fn get_SubdirectoryFormat(&self, #[retval] format: *mut AutoPathFormat) -> HRESULT;
+            #[special]
+            fn put_SubdirectoryFormat(&self, format: AutoPathFormat) -> HRESULT;
+            #[special]
+            fn get_SubdirectoryFormatPattern(&self, #[retval] pattern: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SubdirectoryFormatPattern(&self, pattern: BSTR) -> HRESULT;
+            #[special]
+            fn get_Task(&self, #[retval] task: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Task(&self, task: BSTR) -> HRESULT;
+            #[special]
+            fn get_TaskRunAsSelf(&self, #[retval] RunAsSelf: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_TaskRunAsSelf(&self, RunAsSelf: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_TaskArguments(&self, #[retval] task: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_TaskArguments(&self, task: BSTR) -> HRESULT;
+            #[special]
+            fn get_TaskUserTextArguments(&self, #[retval] UserText: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_TaskUserTextArguments(&self, UserText: BSTR) -> HRESULT;
+            #[special]
+            fn get_Schedules(&self, #[retval] ppSchedules: *mut IScheduleCollection) -> HRESULT;
+            #[special]
+            fn get_SchedulesEnabled(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_SchedulesEnabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UserAccount(&self, #[retval] user: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Xml(&self, #[retval] xml: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Security(&self, #[retval] pbstrSecurity: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Security(&self, bstrSecurity: BSTR) -> HRESULT;
+            #[special]
+            fn get_StopOnCompletion(&self, #[retval] Stop: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_StopOnCompletion(&self, Stop: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_DataManager(&self, #[retval] DataManager: *mut IDataManager) -> HRESULT;
+            fn SetCredentials(&self, user: BSTR, password: BSTR) -> HRESULT;
+            fn Query(&self, name: BSTR, server: BSTR) -> HRESULT;
+            fn Commit(&self, name: BSTR, server: BSTR, mode: CommitMode, #[retval] validation: *mut IValueMap) -> HRESULT;
+            fn Delete(&self) -> HRESULT;
+            fn Start(&self, Synchronous: VARIANT_BOOL) -> HRESULT;
+            fn Stop(&self, Synchronous: VARIANT_BOOL) -> HRESULT;
+            fn SetXml(&self, xml: BSTR, #[retval] validation: *mut IValueMap) -> HRESULT;
+            fn SetValue(&self, key: BSTR, value: BSTR) -> HRESULT;
+            fn GetValue(&self, key: BSTR, #[retval] value: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x03837524_098b_11d8_9414_505054503030)]
+        interface IDataCollectorSetCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: VARIANT, #[retval] set: *mut IDataCollectorSet) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, set: IDataCollectorSet) -> HRESULT;
+            fn Remove(&self, set: VARIANT) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn AddRange(&self, sets: IDataCollectorSetCollection) -> HRESULT;
+            fn GetDataCollectorSets(&self, server: BSTR, filter: BSTR) -> HRESULT;
+        }
+        #[guid(0x03837541_098b_11d8_9414_505054503030)]
+        interface IDataManager: IDispatch {
+            #[special]
+            fn get_Enabled(&self, #[retval] pfEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, fEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CheckBeforeRunning(&self, #[retval] pfCheck: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_CheckBeforeRunning(&self, fCheck: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MinFreeDisk(&self, #[retval] MinFreeDisk: *mut u32) -> HRESULT;
+            #[special]
+            fn put_MinFreeDisk(&self, MinFreeDisk: u32) -> HRESULT;
+            #[special]
+            fn get_MaxSize(&self, #[retval] pulMaxSize: *mut u32) -> HRESULT;
+            #[special]
+            fn put_MaxSize(&self, ulMaxSize: u32) -> HRESULT;
+            #[special]
+            fn get_MaxFolderCount(&self, #[retval] pulMaxFolderCount: *mut u32) -> HRESULT;
+            #[special]
+            fn put_MaxFolderCount(&self, ulMaxFolderCount: u32) -> HRESULT;
+            #[special]
+            fn get_ResourcePolicy(&self, #[retval] pPolicy: *mut ResourcePolicy) -> HRESULT;
+            #[special]
+            fn put_ResourcePolicy(&self, Policy: ResourcePolicy) -> HRESULT;
+            #[special]
+            fn get_FolderActions(&self, #[retval] Actions: *mut IFolderActionCollection) -> HRESULT;
+            #[special]
+            fn get_ReportSchema(&self, #[retval] ReportSchema: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ReportSchema(&self, ReportSchema: BSTR) -> HRESULT;
+            #[special]
+            fn get_ReportFileName(&self, #[retval] pbstrFilename: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ReportFileName(&self, pbstrFilename: BSTR) -> HRESULT;
+            #[special]
+            fn get_RuleTargetFileName(&self, #[retval] Filename: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RuleTargetFileName(&self, Filename: BSTR) -> HRESULT;
+            #[special]
+            fn get_EventsFileName(&self, #[retval] pbstrFilename: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_EventsFileName(&self, pbstrFilename: BSTR) -> HRESULT;
+            #[special]
+            fn get_Rules(&self, #[retval] pbstrXml: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Rules(&self, bstrXml: BSTR) -> HRESULT;
+            fn Run(&self, Steps: DataManagerSteps, bstrFolder: BSTR, #[retval] Errors: *mut IValueMap) -> HRESULT;
+            fn Extract(&self, CabFilename: BSTR, DestinationPath: BSTR) -> HRESULT;
+        }
+        #[guid(0x03837543_098b_11d8_9414_505054503030)]
+        interface IFolderAction: IDispatch {
+            #[special]
+            fn get_Age(&self, #[retval] pulAge: *mut u32) -> HRESULT;
+            #[special]
+            fn put_Age(&self, ulAge: u32) -> HRESULT;
+            #[special]
+            fn get_Size(&self, #[retval] pulAge: *mut u32) -> HRESULT;
+            #[special]
+            fn put_Size(&self, ulAge: u32) -> HRESULT;
+            #[special]
+            fn get_Actions(&self, #[retval] Steps: *mut FolderActionSteps) -> HRESULT;
+            #[special]
+            fn put_Actions(&self, Steps: FolderActionSteps) -> HRESULT;
+            #[special]
+            fn get_SendCabTo(&self, #[retval] pbstrDestination: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SendCabTo(&self, bstrDestination: BSTR) -> HRESULT;
+        }
+        #[guid(0x03837544_098b_11d8_9414_505054503030)]
+        interface IFolderActionCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut u32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, Index: VARIANT, #[retval] Action: *mut IFolderAction) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] Enum: *mut IUnknown) -> HRESULT;
+            fn Add(&self, Action: IFolderAction) -> HRESULT;
+            fn Remove(&self, Index: VARIANT) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn AddRange(&self, Actions: IFolderActionCollection) -> HRESULT;
+            fn CreateFolderAction(&self, #[retval] FolderAction: *mut IFolderAction) -> HRESULT;
+        }
+        #[guid(0x03837506_098b_11d8_9414_505054503030)]
+        interface IPerformanceCounterDataCollector: IDataCollector {
+            #[special]
+            fn get_DataSourceName(&self, #[retval] dsn: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DataSourceName(&self, dsn: BSTR) -> HRESULT;
+            #[special]
+            fn get_PerformanceCounters(&self, #[retval] counters: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_PerformanceCounters(&self, counters: *const SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_LogFileFormat(&self, #[retval] format: *mut FileFormat) -> HRESULT;
+            #[special]
+            fn put_LogFileFormat(&self, format: FileFormat) -> HRESULT;
+            #[special]
+            fn get_SampleInterval(&self, #[retval] interval: *mut u32) -> HRESULT;
+            #[special]
+            fn put_SampleInterval(&self, interval: u32) -> HRESULT;
+            #[special]
+            fn get_SegmentMaxRecords(&self, #[retval] records: *mut u32) -> HRESULT;
+            #[special]
+            fn put_SegmentMaxRecords(&self, records: u32) -> HRESULT;
+        }
+        #[guid(0x0383753a_098b_11d8_9414_505054503030)]
+        interface ISchedule: IDispatch {
+            #[special]
+            fn get_StartDate(&self, #[retval] start: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_StartDate(&self, start: VARIANT) -> HRESULT;
+            #[special]
+            fn get_EndDate(&self, #[retval] end: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_EndDate(&self, end: VARIANT) -> HRESULT;
+            #[special]
+            fn get_StartTime(&self, #[retval] start: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_StartTime(&self, start: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Days(&self, #[retval] days: *mut WeekDays) -> HRESULT;
+            #[special]
+            fn put_Days(&self, days: WeekDays) -> HRESULT;
+        }
+        #[guid(0x0383753d_098b_11d8_9414_505054503030)]
+        interface IScheduleCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: VARIANT, #[retval] ppSchedule: *mut ISchedule) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ienum: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pSchedule: ISchedule) -> HRESULT;
+            fn Remove(&self, vSchedule: VARIANT) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn AddRange(&self, pSchedules: IScheduleCollection) -> HRESULT;
+            fn CreateSchedule(&self, #[retval] Schedule: *mut ISchedule) -> HRESULT;
+        }
+        #[guid(0x0383750b_098b_11d8_9414_505054503030)]
+        interface ITraceDataCollector: IDataCollector {
+            #[special]
+            fn get_BufferSize(&self, #[retval] size: *mut u32) -> HRESULT;
+            #[special]
+            fn put_BufferSize(&self, size: u32) -> HRESULT;
+            #[special]
+            fn get_BuffersLost(&self, #[retval] buffers: *mut u32) -> HRESULT;
+            #[special]
+            fn put_BuffersLost(&self, buffers: u32) -> HRESULT;
+            #[special]
+            fn get_BuffersWritten(&self, #[retval] buffers: *mut u32) -> HRESULT;
+            #[special]
+            fn put_BuffersWritten(&self, buffers: u32) -> HRESULT;
+            #[special]
+            fn get_ClockType(&self, #[retval] clock: *mut ClockType) -> HRESULT;
+            #[special]
+            fn put_ClockType(&self, clock: ClockType) -> HRESULT;
+            #[special]
+            fn get_EventsLost(&self, #[retval] events: *mut u32) -> HRESULT;
+            #[special]
+            fn put_EventsLost(&self, events: u32) -> HRESULT;
+            #[special]
+            fn get_ExtendedModes(&self, #[retval] mode: *mut u32) -> HRESULT;
+            #[special]
+            fn put_ExtendedModes(&self, mode: u32) -> HRESULT;
+            #[special]
+            fn get_FlushTimer(&self, #[retval] seconds: *mut u32) -> HRESULT;
+            #[special]
+            fn put_FlushTimer(&self, seconds: u32) -> HRESULT;
+            #[special]
+            fn get_FreeBuffers(&self, #[retval] buffers: *mut u32) -> HRESULT;
+            #[special]
+            fn put_FreeBuffers(&self, buffers: u32) -> HRESULT;
+            #[special]
+            fn get_Guid(&self, #[retval] guid: *mut GUID) -> HRESULT;
+            #[special]
+            fn put_Guid(&self, guid: GUID) -> HRESULT;
+            #[special]
+            fn get_IsKernelTrace(&self, #[retval] kernel: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MaximumBuffers(&self, #[retval] buffers: *mut u32) -> HRESULT;
+            #[special]
+            fn put_MaximumBuffers(&self, buffers: u32) -> HRESULT;
+            #[special]
+            fn get_MinimumBuffers(&self, #[retval] buffers: *mut u32) -> HRESULT;
+            #[special]
+            fn put_MinimumBuffers(&self, buffers: u32) -> HRESULT;
+            #[special]
+            fn get_NumberOfBuffers(&self, #[retval] buffers: *mut u32) -> HRESULT;
+            #[special]
+            fn put_NumberOfBuffers(&self, buffers: u32) -> HRESULT;
+            #[special]
+            fn get_PreallocateFile(&self, #[retval] allocate: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_PreallocateFile(&self, allocate: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ProcessMode(&self, #[retval] process: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_ProcessMode(&self, process: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RealTimeBuffersLost(&self, #[retval] buffers: *mut u32) -> HRESULT;
+            #[special]
+            fn put_RealTimeBuffersLost(&self, buffers: u32) -> HRESULT;
+            #[special]
+            fn get_SessionId(&self, #[retval] id: *mut u64) -> HRESULT;
+            #[special]
+            fn put_SessionId(&self, id: u64) -> HRESULT;
+            #[special]
+            fn get_SessionName(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SessionName(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_SessionThreadId(&self, #[retval] tid: *mut u32) -> HRESULT;
+            #[special]
+            fn put_SessionThreadId(&self, tid: u32) -> HRESULT;
+            #[special]
+            fn get_StreamMode(&self, #[retval] mode: *mut StreamMode) -> HRESULT;
+            #[special]
+            fn put_StreamMode(&self, mode: StreamMode) -> HRESULT;
+            #[special]
+            fn get_TraceDataProviders(&self, #[retval] providers: *mut ITraceDataProviderCollection) -> HRESULT;
+        }
+        #[guid(0x03837512_098b_11d8_9414_505054503030)]
+        interface ITraceDataProvider: IDispatch {
+            #[special]
+            fn get_DisplayName(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DisplayName(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_Guid(&self, #[retval] guid: *mut GUID) -> HRESULT;
+            #[special]
+            fn put_Guid(&self, guid: GUID) -> HRESULT;
+            #[special]
+            fn get_Level(&self, #[retval] ppLevel: *mut IValueMap) -> HRESULT;
+            #[special]
+            fn get_KeywordsAny(&self, #[retval] ppKeywords: *mut IValueMap) -> HRESULT;
+            #[special]
+            fn get_KeywordsAll(&self, #[retval] ppKeywords: *mut IValueMap) -> HRESULT;
+            #[special]
+            fn get_Properties(&self, #[retval] ppProperties: *mut IValueMap) -> HRESULT;
+            #[special]
+            fn get_FilterEnabled(&self, #[retval] FilterEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_FilterEnabled(&self, FilterEnabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_FilterType(&self, #[retval] pulType: *mut u32) -> HRESULT;
+            #[special]
+            fn put_FilterType(&self, ulType: u32) -> HRESULT;
+            #[special]
+            fn get_FilterData(&self, #[retval] ppData: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_FilterData(&self, pData: *const SAFEARRAY) -> HRESULT;
+            fn Query(&self, bstrName: BSTR, bstrServer: BSTR) -> HRESULT;
+            fn Resolve(&self, pFrom: IDispatch) -> HRESULT;
+            fn SetSecurity(&self, Sddl: BSTR) -> HRESULT;
+            fn GetSecurity(&self, SecurityInfo: u32, #[retval] Sddl: *mut BSTR) -> HRESULT;
+            fn GetRegisteredProcesses(&self, Processes: *mut IValueMap) -> HRESULT;
+        }
+        #[guid(0x03837510_098b_11d8_9414_505054503030)]
+        interface ITraceDataProviderCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: VARIANT, #[retval] ppProvider: *mut ITraceDataProvider) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retVal: *mut IUnknown) -> HRESULT;
+            fn Add(&self, pProvider: ITraceDataProvider) -> HRESULT;
+            fn Remove(&self, vProvider: VARIANT) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn AddRange(&self, providers: ITraceDataProviderCollection) -> HRESULT;
+            fn CreateTraceDataProvider(&self, #[retval] Provider: *mut ITraceDataProvider) -> HRESULT;
+            fn GetTraceDataProviders(&self, server: BSTR) -> HRESULT;
+            fn GetTraceDataProvidersByProcess(&self, Server: BSTR, Pid: u32) -> HRESULT;
+        }
+        #[guid(0x03837534_098b_11d8_9414_505054503030)]
+        interface IValueMap: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: VARIANT, #[retval] value: *mut IValueMapItem) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retVal: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] description: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, description: BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] Value: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Value(&self, Value: VARIANT) -> HRESULT;
+            #[special]
+            fn get_ValueMapType(&self, #[retval] r#type: *mut ValueMapType) -> HRESULT;
+            #[special]
+            fn put_ValueMapType(&self, r#type: ValueMapType) -> HRESULT;
+            fn Add(&self, value: VARIANT) -> HRESULT;
+            fn Remove(&self, value: VARIANT) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn AddRange(&self, map: IValueMap) -> HRESULT;
+            fn CreateValueMapItem(&self, #[retval] Item: *mut IValueMapItem) -> HRESULT;
+        }
+        #[guid(0x03837533_098b_11d8_9414_505054503030)]
+        interface IValueMapItem: IDispatch {
+            #[special]
+            fn get_Description(&self, #[retval] description: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, description: BSTR) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Key(&self, #[retval] key: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Key(&self, key: BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] Value: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Value(&self, Value: VARIANT) -> HRESULT;
+            #[special]
+            fn get_ValueMapType(&self, #[retval] r#type: *mut ValueMapType) -> HRESULT;
+            #[special]
+            fn put_ValueMapType(&self, r#type: ValueMapType) -> HRESULT;
+        }
+        const LegacyDataCollectorSet: GUID = 0x03837526_098b_11d8_9414_505054503030;
+        const LegacyDataCollectorSetCollection: GUID = 0x03837527_098b_11d8_9414_505054503030;
+        const LegacyTraceSession: GUID = 0x03837528_098b_11d8_9414_505054503030;
+        const LegacyTraceSessionCollection: GUID = 0x03837529_098b_11d8_9414_505054503030;
+        const PLAL_ALERT_CMD_LINE_A_NAME: u32 = 512;
+        const PLAL_ALERT_CMD_LINE_C_NAME: u32 = 1024;
+        const PLAL_ALERT_CMD_LINE_D_TIME: u32 = 2048;
+        const PLAL_ALERT_CMD_LINE_L_VAL: u32 = 4096;
+        const PLAL_ALERT_CMD_LINE_MASK: u32 = 32512;
+        const PLAL_ALERT_CMD_LINE_M_VAL: u32 = 8192;
+        const PLAL_ALERT_CMD_LINE_SINGLE: u32 = 256;
+        const PLAL_ALERT_CMD_LINE_U_TEXT: u32 = 16384;
+        extern fn PLA_CABEXTRACT_CALLBACK(FileName: PCWSTR, Context: *mut void);
+        const PLA_CAPABILITY_AUTOLOGGER: u32 = 32;
+        const PLA_CAPABILITY_LEGACY_SESSION: u32 = 8;
+        const PLA_CAPABILITY_LEGACY_SVC: u32 = 16;
+        const PLA_CAPABILITY_LOCAL: u32 = 268435456;
+        const PLA_CAPABILITY_V1_SESSION: u32 = 2;
+        const PLA_CAPABILITY_V1_SVC: u32 = 1;
+        const PLA_CAPABILITY_V1_SYSTEM: u32 = 4;
+        #[repr(i32)]
+        enum ResourcePolicy {
+            plaDeleteLargest = 0,
+            plaDeleteOldest = 1,
+        }
+        const ServerDataCollectorSet: GUID = 0x03837531_098b_11d8_9414_505054503030;
+        const ServerDataCollectorSetCollection: GUID = 0x03837532_098b_11d8_9414_505054503030;
+        #[repr(i32)]
+        enum StreamMode {
+            plaFile = 1,
+            plaRealTime = 2,
+            plaBoth = 3,
+            plaBuffering = 4,
+        }
+        const SystemDataCollectorSet: GUID = 0x03837546_098b_11d8_9414_505054503030;
+        const SystemDataCollectorSetCollection: GUID = 0x03837547_098b_11d8_9414_505054503030;
+        const TraceDataProvider: GUID = 0x03837513_098b_11d8_9414_505054503030;
+        const TraceDataProviderCollection: GUID = 0x03837511_098b_11d8_9414_505054503030;
+        const TraceSession: GUID = 0x0383751c_098b_11d8_9414_505054503030;
+        const TraceSessionCollection: GUID = 0x03837530_098b_11d8_9414_505054503030;
+        #[repr(i32)]
+        enum ValueMapType {
+            plaIndex = 1,
+            plaFlag = 2,
+            plaFlagArray = 3,
+            plaValidation = 4,
+        }
+        #[repr(i32)]
+        enum WeekDays {
+            plaRunOnce = 0,
+            plaSunday = 1,
+            plaMonday = 2,
+            plaTuesday = 4,
+            plaWednesday = 8,
+            plaThursday = 16,
+            plaFriday = 32,
+            plaSaturday = 64,
+            plaEveryday = 127,
+        }
+    }
+}
