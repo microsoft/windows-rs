@@ -367,9 +367,7 @@ impl Drop for DrawingSession<'_> {
     fn drop(&mut self) {
         unsafe {
             let result = self.context.EndDraw(None, None);
-            if let Err(e) = &result
-                && is_device_lost(e.code())
-            {
+            if is_device_lost(result) {
                 self.device_lost_flag.set(true);
             }
         }

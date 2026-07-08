@@ -13,7 +13,7 @@ impl Variable {
     pub fn get_curve(&self, animation: &impl Interface) -> Result<()> {
         unsafe {
             let dcomp: IDCompositionAnimation = animation.cast()?;
-            self.0.GetCurve(&dcomp)
+            self.0.GetCurve(&dcomp).ok()
         }
     }
 }

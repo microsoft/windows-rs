@@ -132,6 +132,38 @@ are curated allowlists of names that collapse to a Rust primitive (`DWORD` → `
 everything else stays a distinct `NativeTypedef`, and `HANDLE` is recognized
 structurally.
 
+### Faithful signatures that look less ergonomic are not defects
+
+Because the scrape emits only what the source expresses, some signatures look
+lower-level than the hand-curated `windows` crate. These are **correct**: the extra
+ergonomics in `windows` come from win32metadata hand-patches with no basis in the
+header, not from anything the scraper is missing. Four representative cases, all
+exercised by `crates/samples/reactor/direct2d`:
+
+- **`D2D1CreateFactory`.** The header is `_In_ REFIID riid, _Out_ void **ppIFactory`
+  with **no SAL linking the two**, so the faithful signature is the raw
+  `riid: *const GUID, ppIFactory: *mut *mut void`. The `windows` crate's generic
+  `D2D1CreateFactory<T>() -> Result<T>` is a manual win32metadata remap, not
+  header-derived — the same `REFIID`+`void**` creator idiom as `CoCreateInstance`.
+- **`IDXGISwapChain::Present`.** The header returns `HRESULT` with no signal that it
+  can yield multiple *success* codes (e.g. `DXGI_STATUS_OCCLUDED`), so the faithful
+  binding returns `Result<()>`. The `windows` crate returns raw `HRESULT` only because
+  win32metadata tags it `CanReturnMultipleSuccessValues`; a caller that needs the
+  success code calls the vtable directly.
+- **`D3D11CreateDevice` `Flags`.** The header parameter is `UINT`, so it projects as
+  `u32`; the matching `D3D11_CREATE_DEVICE_FLAG` values are a separate scoped enum
+  (hence a `.0 as u32` bridge at the call site). win32metadata retypes the parameter
+  to the enum.
+- **`D3D11CreateDevice` `Software`.** The header is a bare `HMODULE` with **no
+  `_In_opt_`**, so it is required, not `Option` — pass `HMODULE::default()` for the
+  null case. Optionality that lives only in prose documentation is out of scope (see
+  above).
+
+None of these is a scrape gap. The one genuine bug found in this area — `_COM_Outptr_opt_`
+losing its `[Optional]` flag (the `specstrings_strict.h` shim clobber) — was fixed and is
+covered by `crates/tests/libs/clang/input/interface_outptr_opt.h`; contrast that with the
+four above, which are faithful by design.
+
 ### UNICODE is deliberately not defined
 
 The translation unit is built *without* `UNICODE`/`_UNICODE` (only `SECURITY_WIN32`

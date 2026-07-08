@@ -167,7 +167,7 @@ mod Windows {
             fn GetContentRect(&self, contentSize: *mut RECT) -> HRESULT;
             fn SetContentRect(&self, contentSize: *const RECT) -> HRESULT;
             fn GetViewport(&self, riid: *const GUID, #[retval] #[iid_is] object: *mut *mut void) -> HRESULT;
-            fn GetTag(&self, riid: *const GUID, #[iid_is] object: *mut *mut void, #[opt] id: *mut u32) -> HRESULT;
+            fn GetTag(&self, riid: *const GUID, #[iid_is] #[opt] object: *mut *mut void, #[opt] id: *mut u32) -> HRESULT;
             fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
             fn GetOutputTransform(&self, #[len_param(1)] matrix: *mut f32, pointCount: u32) -> HRESULT;
             fn GetContentTransform(&self, #[len_param(1)] matrix: *mut f32, pointCount: u32) -> HRESULT;
@@ -252,7 +252,7 @@ mod Windows {
             fn ReleaseContact(&self, pointerId: u32) -> HRESULT;
             fn ReleaseAllContacts(&self) -> HRESULT;
             fn GetStatus(&self, status: *mut DIRECTMANIPULATION_STATUS) -> HRESULT;
-            fn GetTag(&self, riid: *const GUID, #[iid_is] object: *mut *mut void, #[opt] id: *mut u32) -> HRESULT;
+            fn GetTag(&self, riid: *const GUID, #[iid_is] #[opt] object: *mut *mut void, #[opt] id: *mut u32) -> HRESULT;
             fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
             fn GetViewportRect(&self, viewport: *mut RECT) -> HRESULT;
             fn SetViewportRect(&self, viewport: *const RECT) -> HRESULT;

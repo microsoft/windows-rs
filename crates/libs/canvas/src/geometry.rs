@@ -109,7 +109,7 @@ impl PathBuilder {
 
     /// Finalize the path geometry.
     pub fn build(self) -> Result<Path> {
-        unsafe { self.sink.Close()? };
+        unsafe { self.sink.Close().ok()? };
         Ok(Path { raw: self.geometry })
     }
 

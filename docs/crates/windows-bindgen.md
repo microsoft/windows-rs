@@ -384,6 +384,41 @@ behavioral intent rather than clarify it.
 - *Finish naming the sys policies.* Extend the named-predicate treatment to the
   remaining compound `cpp_*` `is_sys()` sites (struct copyability/`Drop`, flag ops,
   `link!`-vs-`extern` function emission, raw-pointer interface representation).
+- *Unify referenced-type inclusion across styles (silent method drop).* The default
+  and `--minimal` styles disagree on whether a filter must list every type a method's
+  signature *references*, and the disagreement is silent. The two paths are chosen at
+  `lib.rs:521`: `--minimal` (with a non-broad filter, non-package layout) builds the
+  type set with `MinimalTypeMap::build`, which treats the filter as a **seed** and
+  transitively pulls in every referenced param/return type (`minimal_type_map.rs:54`
+  discovers them from each method signature, `:85` back-fills the filter). The default
+  full-fidelity path uses `TypeMap::filter`, which keeps a method only when **every**
+  referenced type is *already* matched by the filter — `Interface::method_is_skipped`
+  (`types/interface.rs:25`) drops it otherwise, via `dependencies.included(config)`
+  (`type_map.rs:95`), with no warning. So a default-style filter must hand-list types it
+  never names directly — e.g. `crates/samples/reactor/direct2d/build.rs` must list
+  `IDXGIOutput` purely because `IDXGIFactory2::CreateSwapChainForComposition` takes an
+  `Option<&IDXGIOutput>`; omit it and the whole method silently vanishes from the
+  projection. `canvas.txt` (`--minimal`) never lists `IDXGIOutput` and works. This is an
+  implementation artifact ("explicit filter only" vs "seed + dependency closure"), not
+  intended policy: whether a method survives should not depend on the style, and a
+  method should never disappear without a diagnostic. Investigate either running the same
+  dependency closure on the default path, or — if callers should stay in control of the
+  emitted surface — making the drop a hard error that names the dropped method and the
+  missing type.
+- *Preserve success `HRESULT` codes without the `-> HRESULT` ergonomic tax.* A void
+  COM/Win32 method whose `HRESULT` can be a non-`S_OK` success (`S_FALSE`,
+  `DXGI_STATUS_OCCLUDED`, …) currently forces a choice between two bad options:
+  `-> Result<()>` throws the success code away (`.ok()` maps every success to `()`),
+  while `-> HRESULT` keeps it but pushes error handling back onto every caller (they
+  must remember to `.ok()?`, losing the `?`-on-`Result` ergonomics that make the
+  projection pleasant). Neither is satisfying, and flipping wholesale to `-> HRESULT`
+  is painful at the call site. Explore a design that keeps a `Result`-shaped return
+  *and* the success code — e.g. a success-carrying `Result` (an `Ok` payload that
+  preserves the original `HRESULT`, so `?` still works but `S_FALSE`/`DXGI_STATUS_*`
+  remain inspectable), or a projection that only emits `-> HRESULT` for the specific
+  methods that can actually return multiple success values rather than for every void
+  `HRESULT`. The goal is to stop trading success-code fidelity against caller
+  ergonomics.
 
 ### Unifying the WinRT and Win32/COM type system fork
 

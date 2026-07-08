@@ -103,7 +103,8 @@ impl SwapChain {
         unsafe {
             self.d2d_context.SetTarget(None);
             self.swap_chain
-                .ResizeBuffers(0, width, height, DXGI_FORMAT_UNKNOWN, 0)?;
+                .ResizeBuffers(0, width, height, DXGI_FORMAT_UNKNOWN, 0)
+                .ok()?;
         }
         self.width = width;
         self.height = height;
@@ -123,10 +124,10 @@ impl SwapChain {
             return Ok(false);
         }
         let result = unsafe { self.swap_chain.Present(1, 0) };
-        if check_device_lost(&result) {
+        if is_device_lost(result) {
             return Ok(false);
         }
-        result.map(|()| true)
+        result.ok().map(|()| true)
     }
 
     /// Creates a solid color brush.

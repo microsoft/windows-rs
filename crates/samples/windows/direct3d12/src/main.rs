@@ -97,7 +97,8 @@ fn main() -> windows::core::Result<()> {
             // This sample does not support fullscreen transitions
             unsafe {
                 self.dxgi_factory
-                    .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)?;
+                    .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)
+                    .ok()?;
             }
 
             let frame_index = unsafe { swap_chain.GetCurrentBackBufferIndex() };
@@ -165,7 +166,7 @@ fn main() -> windows::core::Result<()> {
                 )
             }?;
             unsafe {
-                command_list.Close()?;
+                command_list.Close().ok()?;
             };
 
             let aspect_ratio = WIDTH as f32 / HEIGHT as f32;
@@ -290,7 +291,7 @@ fn main() -> windows::core::Result<()> {
         let signature = unsafe {
             D3D12SerializeRootSignature(&desc, D3D_ROOT_SIGNATURE_VERSION_1, &mut signature, None)
         }
-        .map(|()| signature.unwrap())?;
+        .map(|| signature.unwrap())?;
 
         unsafe {
             device.CreateRootSignature(
@@ -333,7 +334,7 @@ fn main() -> windows::core::Result<()> {
                 None,
             )
         }
-        .map(|()| vertex_shader.unwrap())?;
+        .map(|| vertex_shader.unwrap())?;
 
         let mut pixel_shader = None;
         let pixel_shader = unsafe {
@@ -349,7 +350,7 @@ fn main() -> windows::core::Result<()> {
                 None,
             )
         }
-        .map(|()| pixel_shader.unwrap())?;
+        .map(|| pixel_shader.unwrap())?;
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {
@@ -486,7 +487,7 @@ fn main() -> windows::core::Result<()> {
         // Copy the triangle data to the vertex buffer.
         unsafe {
             let mut data = std::ptr::null_mut();
-            vertex_buffer.Map(0, None, Some(&mut data))?;
+            vertex_buffer.Map(0, None, Some(&mut data)).ok()?;
             std::ptr::copy_nonoverlapping(vertices.as_ptr(), data as *mut Vertex, vertices.len());
             vertex_buffer.Unmap(0, None);
         }
@@ -505,7 +506,7 @@ fn main() -> windows::core::Result<()> {
         // command lists have finished execution on the GPU; apps should use
         // fences to determine GPU execution progress.
         unsafe {
-            resources.command_allocator.Reset()?;
+            resources.command_allocator.Reset().ok()?;
         }
 
         let command_list = &resources.command_list;
@@ -514,7 +515,9 @@ fn main() -> windows::core::Result<()> {
         // command list, that command list can then be reset at any time and
         // must be before re-recording.
         unsafe {
-            command_list.Reset(&resources.command_allocator, &resources.pso)?;
+            command_list
+                .Reset(&resources.command_allocator, &resources.pso)
+                .ok()?;
         }
 
         // Set necessary state.
@@ -558,7 +561,7 @@ fn main() -> windows::core::Result<()> {
             )]);
         }
 
-        unsafe { command_list.Close() }
+        unsafe { command_list.Close() }.ok()
     }
 
     fn transition_barrier(

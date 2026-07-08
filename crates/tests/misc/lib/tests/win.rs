@@ -47,7 +47,8 @@ fn clr() -> Result<()> {
             w!("../../../libs/bindgen/default/Windows.winmd"),
             Some(&mut version),
             &mut len,
-        )?;
+        )
+        .ok()?;
         let version = String::from_utf16_lossy(&version[..len as usize - 1]);
         assert_eq!(version, "WindowsRuntime 1.4");
         Ok(())

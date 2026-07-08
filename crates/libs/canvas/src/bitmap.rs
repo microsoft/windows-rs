@@ -28,14 +28,16 @@ impl Bitmap {
             let frame = decoder.GetFrame(0)?;
             let converter = wic_factory.CreateFormatConverter()?;
 
-            converter.Initialize(
-                &frame,
-                &GUID_WICPixelFormat32bppPBGRA,
-                WICBitmapDitherTypeNone,
-                None,
-                0.0,
-                WICBitmapPaletteTypeMedianCut,
-            )?;
+            converter
+                .Initialize(
+                    &frame,
+                    &GUID_WICPixelFormat32bppPBGRA,
+                    WICBitmapDitherTypeNone,
+                    None,
+                    0.0,
+                    WICBitmapPaletteTypeMedianCut,
+                )
+                .ok()?;
 
             let bitmap = context.CreateBitmapFromWicBitmap(&converter, None)?;
             Ok(Self(bitmap))

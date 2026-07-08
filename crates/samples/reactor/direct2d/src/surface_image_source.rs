@@ -1,9 +1,8 @@
 //! Demo of displaying a `SurfaceImageSource` with the reactor `Image` widget,
 //! drawing into it once with Direct2D using the app-wide shared device.
 
+use crate::bindings::*;
 use crate::device::{Device, Gpu, gpu_context, is_device_lost};
-use windows::Win32::Graphics::Direct2D::Common::*;
-use windows::Win32::Graphics::Direct2D::*;
 use windows_numerics::{Matrix3x2, Vector2};
 use windows_reactor::*;
 
@@ -26,7 +25,7 @@ fn build_surface(device: &Device) -> Result<SurfaceImageSource> {
         // them within the underlying shared atlas.
         context.SetTransform(&Matrix3x2::translation(offset_x as f32, offset_y as f32));
 
-        context.Clear(Some(&D2D1_COLOR_F {
+        context.Clear(Some(&D2D_COLOR_F {
             r: 0.39,
             g: 0.58,
             b: 0.93,
@@ -34,7 +33,7 @@ fn build_surface(device: &Device) -> Result<SurfaceImageSource> {
         }));
 
         let brush = context.CreateSolidColorBrush(
-            &D2D1_COLOR_F {
+            &D2D_COLOR_F {
                 r: 1.0,
                 g: 0.78,
                 b: 0.0,

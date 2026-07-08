@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("DirectML.dll")]
-        extern fn DMLCreateDevice(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn DMLCreateDevice(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, riid: *const GUID, #[iid_is] #[opt] ppv: *mut *mut void) -> HRESULT;
         #[library("DirectML.dll")]
-        extern fn DMLCreateDevice1(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, minimumFeatureLevel: DML_FEATURE_LEVEL, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn DMLCreateDevice1(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, minimumFeatureLevel: DML_FEATURE_LEVEL, riid: *const GUID, #[iid_is] #[opt] ppv: *mut *mut void) -> HRESULT;
         struct DML_ACTIVATION_CELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
@@ -1525,8 +1525,8 @@ mod Windows {
         #[guid(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f)]
         interface IDMLDevice: IDMLObject {
             fn CheckFeatureSupport(&self, feature: DML_FEATURE, featureQueryDataSize: u32, #[size_param(1)] #[opt] featureQueryData: *const void, featureSupportDataSize: u32, #[size_param(3)] featureSupportData: *mut void) -> HRESULT;
-            fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CompileOperator(&self, op: IDMLOperator, flags: DML_EXECUTION_FLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: *const GUID, #[iid_is] #[opt] ppv: *mut *mut void) -> HRESULT;
+            fn CompileOperator(&self, op: IDMLOperator, flags: DML_EXECUTION_FLAGS, riid: *const GUID, #[iid_is] #[opt] ppv: *mut *mut void) -> HRESULT;
             fn CreateOperatorInitializer(&self, operatorCount: u32, #[len_param(0)] #[opt] operators: *const IDMLCompiledOperator, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn CreateCommandRecorder(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn CreateBindingTable(&self, #[opt] desc: *const DML_BINDING_TABLE_DESC, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
@@ -1537,7 +1537,7 @@ mod Windows {
         }
         #[guid(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2)]
         interface IDMLDevice1: IDMLDevice {
-            fn CompileGraph(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CompileGraph(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const GUID, #[iid_is] #[opt] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x27e83142_8165_49e3_974e_2fd66e4cb69d)]
         interface IDMLDeviceChild: IDMLObject {

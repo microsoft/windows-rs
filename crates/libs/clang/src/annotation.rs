@@ -475,18 +475,26 @@ pub fn scan_method_param_annotations(
             // `GetParent<T>() -> Result<T>` projection; a concrete interface pointee
             // (e.g. `EnumAdapters` → `IDXGIAdapter**`) stays faithfully typed.
             //
-            // Only the ComOutPtr marker and the (definitional) output direction are
-            // recovered here: a `_COM_Outptr_` is always an out-parameter, so set
-            // `out_param` to stop the direction logic emitting a spurious `#[in]` on the
-            // mutable pointer (the SAL-only free-function case, e.g. `CoCreateInstance`,
-            // has no MIDL `[out]` comment). The `_COM_Outptr_opt_` optional flag is
-            // deliberately not applied, keeping the recovery scoped to the missing
-            // `#[iid_is]`; retval, if any, still comes from the MIDL block comment.
+            // The ComOutPtr marker, the (definitional) output direction, and the
+            // optionality are recovered here: a `_COM_Outptr_` is always an
+            // out-parameter, so set `out_param` to stop the direction logic emitting a
+            // spurious `#[in]` on the mutable pointer (the SAL-only free-function case,
+            // e.g. `CoCreateInstance`, has no MIDL `[out]` comment). The `_opt_` variants
+            // (`_COM_Outptr_opt_`, `_COM_Outptr_opt_result_maybenull_`) additionally mark
+            // the slot optional; `optional` is orthogonal to the deferred
+            // `void**`-vs-concrete `ComOutPtr` decision (`com_out_ptr_token`, promoted in
+            // `parse_params`), so capture it here — otherwise a `_COM_Outptr_opt_`
+            // out-pointer recovered from the token stream (e.g. `D3D11CreateDevice`
+            // `ppDevice`/`ppImmediateContext`) would silently drop its `[Optional]`.
+            // Retval, if any, still comes from the MIDL block comment.
             (CXToken_Identifier, s)
                 if in_params && paren_depth == 1 && s.starts_with("_COM_Outptr_") =>
             {
                 current.out_param = true;
                 current.com_out_ptr_token = true;
+                if s.starts_with("_COM_Outptr_opt") {
+                    current.optional = true;
+                }
             }
             // A *pure* null-terminated string SAL macro (`_In_z_` and friends) likewise
             // survives as a bare identifier token in an abstract-virtual COM method

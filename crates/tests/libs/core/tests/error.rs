@@ -41,11 +41,11 @@ fn hresult_last_error() {
 fn set_error_info() -> Result<()> {
     unsafe {
         let creator = CreateErrorInfo()?;
-        creator.SetDescription(w!("message"))?;
-        SetErrorInfo(0, &creator.cast::<IErrorInfo>()?)?;
+        creator.SetDescription(w!("message")).ok()?;
+        SetErrorInfo(0, &creator.cast::<IErrorInfo>()?).ok()?;
 
         assert_eq!(Error::from(E_FAIL).message(), "message");
-        SetErrorInfo(0, None)?;
+        SetErrorInfo(0, None).ok()?;
         assert_eq!(Error::from(E_FAIL).message(), "Unspecified error");
 
         Ok(())
@@ -55,11 +55,11 @@ fn set_error_info() -> Result<()> {
 // https://github.com/microsoft/cppwinrt/pull/1386
 #[test]
 fn suppressed_error_info() -> Result<()> {
-    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO.0 as u32)? };
+    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO.0 as u32).ok()? };
 
     assert_eq!(Error::new(E_FAIL, "message").message(), "Unspecified error");
 
-    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_USESETERRORINFO.0 as u32)? };
+    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_USESETERRORINFO.0 as u32).ok()? };
 
     assert_eq!(Error::new(E_FAIL, "message").message(), "message");
 

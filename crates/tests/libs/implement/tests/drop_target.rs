@@ -86,10 +86,10 @@ fn test() -> Result<()> {
         let object: IDataObject = DataObject().into();
 
         let target: IDropTarget = DropTarget().into();
-        target.DragLeave()?;
+        target.DragLeave().ok()?;
 
         let mut effect = DROPEFFECT_LINK;
-        target.DragEnter(&object, MK_MBUTTON, POINTL { x: 10, y: 20 }, &mut effect)?;
+        target.DragEnter(&object, MK_MBUTTON, POINTL { x: 10, y: 20 }, &mut effect).ok()?;
         assert_eq!(effect, DROPEFFECT_MOVE);
 
         Ok(())

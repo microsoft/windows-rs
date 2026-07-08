@@ -1446,14 +1446,13 @@ impl ID2D1RenderTarget {
         &self,
         tag1: Option<*mut D2D1_TAG>,
         tag2: Option<*mut D2D1_TAG>,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).EndDraw)(
                 windows_core::Interface::as_raw(self),
                 tag1.unwrap_or(core::mem::zeroed()) as _,
                 tag2.unwrap_or(core::mem::zeroed()) as _,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn SetDpi(&self, dpix: f32, dpiy: f32) {
@@ -1670,10 +1669,9 @@ impl ID2D1SimplifiedGeometrySink {
             );
         }
     }
-    pub(crate) unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
 }
@@ -2071,25 +2069,23 @@ impl IDWriteTextFormat {
     pub(crate) unsafe fn SetTextAlignment(
         &self,
         textalignment: DWRITE_TEXT_ALIGNMENT,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetTextAlignment)(
                 windows_core::Interface::as_raw(self),
                 textalignment,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn SetParagraphAlignment(
         &self,
         paragraphalignment: DWRITE_PARAGRAPH_ALIGNMENT,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetParagraphAlignment)(
                 windows_core::Interface::as_raw(self),
                 paragraphalignment,
             )
-            .ok()
         }
     }
 }
@@ -2455,14 +2451,13 @@ windows_core::imp::interface_hierarchy!(
     IDXGIDeviceSubObject
 );
 impl IDXGISwapChain {
-    pub(crate) unsafe fn Present(&self, syncinterval: u32, flags: u32) -> windows_core::Result<()> {
+    pub(crate) unsafe fn Present(&self, syncinterval: u32, flags: u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Present)(
                 windows_core::Interface::as_raw(self),
                 syncinterval,
                 flags,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn GetBuffer<T>(&self, buffer: u32) -> windows_core::Result<T>
@@ -2487,7 +2482,7 @@ impl IDXGISwapChain {
         height: u32,
         newformat: DXGI_FORMAT,
         swapchainflags: u32,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).ResizeBuffers)(
                 windows_core::Interface::as_raw(self),
@@ -2497,7 +2492,6 @@ impl IDXGISwapChain {
                 newformat,
                 swapchainflags,
             )
-            .ok()
         }
     }
 }
@@ -2586,13 +2580,12 @@ impl IDXGISwapChain2 {
     pub(crate) unsafe fn SetMatrixTransform(
         &self,
         pmatrix: *const DXGI_MATRIX_3X2_F,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetMatrixTransform)(
                 windows_core::Interface::as_raw(self),
                 pmatrix,
             )
-            .ok()
         }
     }
 }
@@ -2718,7 +2711,7 @@ impl IWICFormatConverter {
         pipalette: P3,
         alphathresholdpercent: f64,
         palettetranslate: WICBitmapPaletteType,
-    ) -> windows_core::Result<()>
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IWICBitmapSource>,
         P3: windows_core::Param<IWICPalette>,
@@ -2733,7 +2726,6 @@ impl IWICFormatConverter {
                 alphathresholdpercent,
                 palettetranslate,
             )
-            .ok()
         }
     }
 }

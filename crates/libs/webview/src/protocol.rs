@@ -19,12 +19,16 @@ pub(crate) unsafe fn add_requested_filter(
 ) -> Result<()> {
     unsafe {
         match webview.cast::<ICoreWebView2_22>() {
-            Ok(webview) => webview.AddWebResourceRequestedFilterWithRequestSourceKinds(
-                uri,
-                WEB_RESOURCE_CONTEXT_ALL,
-                WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL,
-            ),
-            Err(_) => webview.AddWebResourceRequestedFilter(uri, WEB_RESOURCE_CONTEXT_ALL),
+            Ok(webview) => webview
+                .AddWebResourceRequestedFilterWithRequestSourceKinds(
+                    uri,
+                    WEB_RESOURCE_CONTEXT_ALL,
+                    WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL,
+                )
+                .ok(),
+            Err(_) => webview
+                .AddWebResourceRequestedFilter(uri, WEB_RESOURCE_CONTEXT_ALL)
+                .ok(),
         }
     }
 }
@@ -71,7 +75,7 @@ impl WebResourceRequest {
         while unsafe { iterator.HasCurrentHeader()? }.as_bool() {
             let mut name: LPWSTR = std::ptr::null_mut();
             let mut value: LPWSTR = std::ptr::null_mut();
-            unsafe { iterator.GetCurrentHeader(&mut name, &mut value)? };
+            unsafe { iterator.GetCurrentHeader(&mut name, &mut value).ok()? };
             headers.push((unsafe { string::take(name) }, unsafe {
                 string::take(value)
             }));
@@ -195,7 +199,7 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Impl for WebResourceRequested
 
         if let Some(response) = (*self.handler.borrow_mut())(request) {
             let response = unsafe { response.into_response(&self.environment)? };
-            unsafe { args.SetResponse(&response)? };
+            unsafe { args.SetResponse(&response).ok()? };
         }
 
         Ok(())

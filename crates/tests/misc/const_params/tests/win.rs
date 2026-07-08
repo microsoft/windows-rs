@@ -27,7 +27,7 @@ fn uri() -> Result<()> {
 
         let mut host_len = 0u32;
         let mut host = PCWSTR::null();
-        builder.GetHost(&mut host_len, &mut host)?;
+        builder.GetHost(&mut host_len, &mut host).ok()?;
         assert_eq!(host_len, 12);
         assert_eq!(host.to_string()?, "kennykerr.ca");
 

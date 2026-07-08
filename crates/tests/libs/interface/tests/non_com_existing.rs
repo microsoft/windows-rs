@@ -146,7 +146,7 @@ fn test() -> Result<()> {
 
         let reflection = ID3D12FunctionParameterReflection::new(&Reflection);
         let mut desc = Default::default();
-        reflection.GetDesc(&mut desc)?;
+        reflection.GetDesc(&mut desc).ok()?;
         assert_eq!("test", desc.Name.to_string().unwrap());
 
         let variable = Variable::default();
@@ -158,7 +158,7 @@ fn test() -> Result<()> {
         assert_eq!(interface_variable.IsValid(), true);
 
         let mut audio = None;
-        XAudio2CreateWithVersionInfo(&mut audio, 0, XAUDIO2_DEFAULT_PROCESSOR, NTDDI_VERSION)?;
+        XAudio2CreateWithVersionInfo(&mut audio, 0, XAUDIO2_DEFAULT_PROCESSOR, NTDDI_VERSION).ok()?;
         let audio = audio.unwrap();
 
         // Call the callback interface directly...
