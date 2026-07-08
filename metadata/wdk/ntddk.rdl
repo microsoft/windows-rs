@@ -3245,7 +3245,7 @@ mod Windows {
         const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295;
         extern fn PTIMER_APC_ROUTINE(TimerContext: *const void, TimerLowValue: u32, TimerHighValue: i32);
         type PTIMER_SET_COALESCABLE_TIMER_INFO = *mut TIMER_SET_COALESCABLE_TIMER_INFO;
-        extern fn PTRANSLATE_RESOURCE_HANDLER(#[r#in] #[out] #[opt] Context: *mut void, Source: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, Direction: RESOURCE_TRANSLATION_DIRECTION, #[opt] AlternativesCount: u32, #[len_param(3)] #[opt] Alternatives: [IO_RESOURCE_DESCRIPTOR; 0], PhysicalDeviceObject: *const DEVICE_OBJECT, Target: *mut CM_PARTIAL_RESOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern fn PTRANSLATE_RESOURCE_HANDLER(#[r#in] #[out] #[opt] Context: *mut void, Source: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, Direction: RESOURCE_TRANSLATION_DIRECTION, #[opt] AlternativesCount: u32, #[len_param(3)] #[opt] Alternatives: *const IO_RESOURCE_DESCRIPTOR, PhysicalDeviceObject: *const DEVICE_OBJECT, Target: *mut CM_PARTIAL_RESOURCE_DESCRIPTOR) -> NTSTATUS;
         extern fn PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER(#[r#in] #[out] #[opt] Context: *mut void, Source: *const IO_RESOURCE_DESCRIPTOR, PhysicalDeviceObject: *const DEVICE_OBJECT, TargetCount: *mut u32, #[len_param(3)] Target: *mut PIO_RESOURCE_DESCRIPTOR) -> NTSTATUS;
         type PTRANSLATOR_INTERFACE = *mut TRANSLATOR_INTERFACE;
         type PTXN_PARAMETER_BLOCK = *mut TXN_PARAMETER_BLOCK;
