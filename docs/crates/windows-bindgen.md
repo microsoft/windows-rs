@@ -407,12 +407,13 @@ behavioral intent rather than clarify it.
   missing type.
 - *Preserve success `HRESULT` codes without the `-> HRESULT` ergonomic tax.* A void
   COM/Win32 method whose `HRESULT` can be a non-`S_OK` success (`S_FALSE`,
-  `DXGI_STATUS_OCCLUDED`, …) currently forces a choice between two bad options:
-  `-> Result<()>` throws the success code away (`.ok()` maps every success to `()`),
-  while `-> HRESULT` keeps it but pushes error handling back onto every caller (they
-  must remember to `.ok()?`, losing the `?`-on-`Result` ergonomics that make the
-  projection pleasant). Neither is satisfying, and flipping wholesale to `-> HRESULT`
-  is painful at the call site. Explore a design that keeps a `Result`-shaped return
+  `DXGI_STATUS_OCCLUDED`, …) trades off two options: `-> Result<()>` throws the
+  success code away (`.ok()` maps every success to `()`), while `-> HRESULT` keeps it
+  but pushes error handling back onto every caller (they must remember to `.ok()?`,
+  losing the `?`-on-`Result` ergonomics that make the projection pleasant). Non-WinRT
+  non-`[retval]` `HRESULT` methods currently take the second option — they project as
+  raw `-> HRESULT` so the success code survives — which is the safer default but is
+  more work at the call site. Explore a design that keeps a `Result`-shaped return
   *and* the success code — e.g. a success-carrying `Result` (an `Ok` payload that
   preserves the original `HRESULT`, so `?` still works but `S_FALSE`/`DXGI_STATUS_*`
   remain inspectable), or a projection that only emits `-> HRESULT` for the specific
@@ -540,27 +541,31 @@ two `write()` bodies gives the realistic numbers:
    *Success-code (`S_FALSE`) finding.* `SUCCEEDED` codes are correctly treated as
    `Ok` on both paths (so `S_FALSE` is never an error), but projecting to
    `Result<()>` / `Result<T>` **discards the specific success code** — a method that
-   returns `S_FALSE` meaningfully loses that signal. This is a *shared* limitation,
-   not a fork: it applies to WinRT too (a WinRT method can return `S_FALSE`, just more
-   rarely), and there is no metadata distinguishing meaningful-success methods. The
-   only escape hatch today is to project the raw `HRESULT` (COM `ReturnHint::None`),
-   but `CppMethod::new` always classifies an `HRESULT` return as `ResultVoid` /
-   `ResultValue`, so there is currently no way to opt a specific method out on either
-   side. The worthwhile follow-up here is therefore a *feature*, not a dedup: an
-   opt-in (e.g. a filter directive, since metadata can't express it) to preserve the
-   raw `HRESULT` so callers can observe `S_FALSE` — applicable uniformly to WinRT and
-   COM. The deeper reason it can't be uniform is an **information-capacity
-   mismatch**, not a codegen choice: a vtable method `HRESULT M([out] T*)` produces up
+   returns `S_FALSE` meaningfully loses that signal. For the *void* case this is now
+   solved on the COM path: a non-`[retval]` `HRESULT` method classifies as
+   `ReturnHint::HResult` and projects raw `-> HRESULT`, so callers observe `S_FALSE` /
+   `DXGI_STATUS_*` directly and `.ok()` when they only want a `Result<()>`. The
+   remaining gap is a *shared* limitation, not a fork: it still applies to WinRT (a
+   WinRT method can return `S_FALSE`, just more rarely, and always projects
+   `Result`), and to the COM *value* case (`[retval]`), and there is no metadata
+   distinguishing meaningful-success methods. `CppMethod::new` classifies a `[retval]`
+   `HRESULT` return as `ResultValue`, so there is currently no way to opt a specific
+   value-returning method out on either side. The worthwhile follow-up here is
+   therefore a *feature*: an opt-in (e.g. a filter directive, since metadata can't
+   express it) to preserve the raw `HRESULT` for those cases too — applicable
+   uniformly to WinRT and COM. The deeper reason it can't be uniform is an
+   **information-capacity mismatch**, not a codegen choice: a vtable method
+   `HRESULT M([out] T*)` produces up
    to three distinct states — a failure code, a *success* code (`S_OK` vs `S_FALSE`),
    and the out-param value — but `Result<T>` has only two slots (`Ok(T)` | `Err(code)`).
    Collapsing always drops one: the `Ok` arm keeps the value and drops the
    success code; the `Err` arm keeps the code and drops the value. So `S_FALSE` cannot
    ride along "for free" in a `Result<T>` projection.
 
-   *Void vs. value asymmetry.* The void case is solvable losslessly: `HRESULT M()`
-   with meaningful `S_FALSE` has no out-param, so the free slot can carry the success
-   code — project it as `Result<bool>` (`Ok(true)` = `S_OK`, `Ok(false)` = `S_FALSE`,
-   `Err` = `FAILED`) instead of the lossy `ResultVoid` → `Result<()>`. The value case
+   *Void vs. value asymmetry.* The void case is solvable losslessly and is now handled
+   by the raw `-> HRESULT` projection above; a richer alternative would be
+   `Result<bool>` (`Ok(true)` = `S_OK`, `Ok(false)` = `S_FALSE`, `Err` = `FAILED`)
+   instead of the lossy `ResultVoid` → `Result<()>`. The value case
    (`HRESULT M([out] T*)`) is genuinely lossy and needs a heavier shape
    (`Result<Option<T>>` with `S_FALSE` → `Ok(None)`, or raw `HRESULT` + caller reads
    the out-param).

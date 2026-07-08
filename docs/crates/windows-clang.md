@@ -146,10 +146,13 @@ exercised by `crates/samples/reactor/direct2d`:
   `D2D1CreateFactory<T>() -> Result<T>` is a manual win32metadata remap, not
   header-derived — the same `REFIID`+`void**` creator idiom as `CoCreateInstance`.
 - **`IDXGISwapChain::Present`.** The header returns `HRESULT` with no signal that it
-  can yield multiple *success* codes (e.g. `DXGI_STATUS_OCCLUDED`), so the faithful
-  binding returns `Result<()>`. The `windows` crate returns raw `HRESULT` only because
-  win32metadata tags it `CanReturnMultipleSuccessValues`; a caller that needs the
-  success code calls the vtable directly.
+  can yield multiple *success* codes (e.g. `DXGI_STATUS_OCCLUDED`). Because it has no
+  `[retval]`, `windows-bindgen` projects it faithfully as `-> HRESULT`, so a caller can
+  observe the success code directly and call `.ok()` when they only want a `Result<()>`.
+  This matches the `windows` crate, which returns raw `HRESULT` because win32metadata
+  tags it `CanReturnMultipleSuccessValues` — but here it falls out of the header with no
+  hand-patch. (See the "prefer `HRESULT` over `Result` for methods that lack `retval`"
+  behavior in `docs/crates/windows-bindgen.md`.)
 - **`D3D11CreateDevice` `Flags`.** The header parameter is `UINT`, so it projects as
   `u32`; the matching `D3D11_CREATE_DEVICE_FLAG` values are a separate scoped enum
   (hence a `.0 as u32` bridge at the call site). win32metadata retypes the parameter
