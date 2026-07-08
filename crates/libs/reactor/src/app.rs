@@ -28,6 +28,8 @@ pub struct App {
     eager_templated_realization: bool,
     presenter: PresenterKind,
     backdrop: Option<Backdrop>,
+    icon: Option<String>,
+    on_fault: Option<Box<dyn Fn(&Fault) + Send>>,
 }
 
 impl Default for App {
@@ -45,6 +47,8 @@ impl App {
             eager_templated_realization: false,
             presenter: PresenterKind::Default,
             backdrop: None,
+            icon: None,
+            on_fault: None,
         }
     }
 
@@ -89,6 +93,30 @@ impl App {
         self
     }
 
+    /// Set the window icon from a path to an `.ico` file. WinUI 3 does not adopt
+    /// the executable's embedded icon for the window, so set it explicitly to
+    /// control the title-bar and taskbar icon. [`App::run`] returns an error if
+    /// the file does not exist.
+    pub fn icon(mut self, path: impl Into<String>) -> Self {
+        self.icon = Some(path.into());
+        self
+    }
+
+    /// Set a handler invoked when a panic is caught at a reactor callback
+    /// boundary — an event handler, a timer tick, or the render pass. Without a
+    /// handler such panics are logged and execution continues (a panic that
+    /// reaches WinUI's `extern "system"` delegate boundary would otherwise abort
+    /// the process). The handler runs on the UI thread and does not replace
+    /// [`error_boundary`](crate::error_boundary), which still recovers individual
+    /// render subtrees first.
+    pub fn on_fault<F>(mut self, f: F) -> Self
+    where
+        F: Fn(&Fault) + Send + 'static,
+    {
+        self.on_fault = Some(Box::new(f));
+        self
+    }
+
     /// Run with custom WinUI setup; the caller manages windows and content.
     pub fn run_custom<F>(self, setup: F) -> Result<()>
     where
@@ -96,14 +124,19 @@ impl App {
     {
         init_app_platform()?;
         let setup = Mutex::new(Some(setup));
+        let on_fault = Mutex::new(self.on_fault);
         let result_slot: Arc<Mutex<Result<()>>> = Arc::new(Mutex::new(Ok(())));
         let result_slot_cb = Arc::clone(&result_slot);
         let start_result =
             Application::Start(&ApplicationInitializationCallback::new(move |_params| {
                 let inner = || -> Result<()> {
                     let setup = setup.lock().unwrap().take().unwrap();
+                    let on_fault = on_fault.lock().unwrap().take();
 
                     let on_launched: Box<dyn FnOnce() -> Result<()>> = Box::new(move || {
+                        if let Some(on_fault) = on_fault {
+                            fault::set_handler(on_fault);
+                        }
                         let app = APP_SLOT.with(|slot| slot.borrow().clone()).unwrap();
                         install_xaml_controls_resources(&app)?;
                         run_callback("setup", || setup(&app))
@@ -138,6 +171,16 @@ impl App {
         let constraints = self.inner_constraints;
         let presenter = self.presenter;
         let backdrop = self.backdrop;
+        let icon = self.icon;
+        let on_fault = Mutex::new(self.on_fault);
+        if let Some(icon) = &icon
+            && !std::path::Path::new(icon).is_file()
+        {
+            return Err(Error::new(
+                E_FAIL,
+                format!("windows_reactor::App::icon: icon file not found: {icon}"),
+            ));
+        }
         let factory = Mutex::new(Some(root_factory));
         let result_slot: Arc<Mutex<Result<()>>> = Arc::new(Mutex::new(Ok(())));
         let result_slot_cb = Arc::clone(&result_slot);
@@ -145,9 +188,14 @@ impl App {
             Application::Start(&ApplicationInitializationCallback::new(move |_params| {
                 let inner = || -> Result<()> {
                     let factory = factory.lock().unwrap().take().unwrap();
+                    let on_fault = on_fault.lock().unwrap().take();
 
                     let title = title.clone();
+                    let icon = icon.clone();
                     let on_launched: Box<dyn FnOnce() -> Result<()>> = Box::new(move || {
+                        if let Some(on_fault) = on_fault {
+                            fault::set_handler(on_fault);
+                        }
                         let app = APP_SLOT.with(|slot| slot.borrow().clone()).unwrap();
                         install_xaml_controls_resources(&app)?;
 
@@ -165,6 +213,9 @@ impl App {
                             host.set_presenter(presenter);
                             if let Some(bd) = backdrop {
                                 host.set_backdrop(bd);
+                            }
+                            if let Some(icon) = icon {
+                                host.set_icon(icon);
                             }
                             host.activate()?;
                             // Exit the process on window close. Application.Exit()

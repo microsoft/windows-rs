@@ -130,7 +130,7 @@ impl_rc_fn_wrapper! {
 
 impl<T> Callback<T> {
     pub fn invoke(&self, arg: T) {
-        (self.inner)(arg);
+        fault::catch("event handler", || (self.inner)(arg));
     }
 
     /// Construct a `Callback` from a raw `Rc<dyn Fn(T)>`. Used internally

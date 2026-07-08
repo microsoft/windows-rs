@@ -888,4 +888,19 @@ mod tests {
         }
         chain.present().unwrap();
     }
+
+    #[test]
+    fn animated_canvas_installs_unmount_teardown() {
+        // Regression: `animated_canvas` must register an `on_unmounted` handler
+        // so its render loop and swap chain are released when the panel leaves
+        // the tree. Its `RenderState` holds the `CompositionTarget::Rendering`
+        // subscription in a reference cycle, so without unmount teardown it
+        // leaks forever and keeps presenting orphaned surfaces.
+        use windows_reactor::Widget;
+        let panel = animated_canvas(|_| {});
+        assert!(
+            panel.on_unmounted_callback().is_some(),
+            "animated_canvas must install an on_unmounted teardown"
+        );
+    }
 }

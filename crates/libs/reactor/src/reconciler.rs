@@ -214,9 +214,38 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.request_rerender = request_rerender;
         match (existing, old) {
             (None, _) => self.mount(new),
-            (Some(id), Some(old_el)) => self.update(old_el, new, id),
+            (Some(id), Some(old_el)) => {
+                let seeded = self.force_state_dirty_components();
+                let result = self.update(old_el, new, id);
+                debug_assert!(
+                    seeded
+                        .iter()
+                        .all(|cid| !self.is_component_state_dirty(*cid)),
+                    "a state-dirty component was not re-rendered by the pass"
+                );
+                result
+            }
             (Some(_id), None) => self.mount(new),
         }
+    }
+
+    /// Seed [`Self::forced_components`] with every mounted component instance
+    /// whose own `use_state` was written since the last pass, and enable
+    /// [`Self::force_component_rerender`] so `can_skip_update` pruning cannot
+    /// drop a dirty component nested under unchanged parents. Returns the seeded
+    /// ids. Mirrors [`Self::force_context_subscribers`] for plain state writes.
+    fn force_state_dirty_components(&mut self) -> Vec<ControlId> {
+        let dirty: Vec<ControlId> = self
+            .component_instances
+            .iter()
+            .filter(|(_, inst)| inst.render_cx.peek_state_dirty())
+            .map(|(id, _)| *id)
+            .collect();
+        if !dirty.is_empty() {
+            self.force_component_rerender = true;
+            self.forced_components.extend(dirty.iter().copied());
+        }
+        dirty
     }
 
     pub fn mount(&mut self, el: &Element) -> Option<ControlId> {

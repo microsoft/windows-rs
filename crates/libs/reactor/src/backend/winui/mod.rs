@@ -521,7 +521,7 @@ fn apply_theme_resource_style(handle: &Handle, bindings: &[(Prop, ThemeRef)]) {
     }
 
     if setters.is_empty() {
-        let _ = fe.SetStyle(None);
+        diag::dropped(fe.SetStyle(None));
         return;
     }
 
@@ -533,12 +533,14 @@ fn apply_theme_resource_style(handle: &Handle, bindings: &[(Prop, ThemeRef)]) {
         Ok(obj) => {
             if let Ok(style) = obj.cast::<bindings::Style>() {
                 // Clear first to force WinUI to re-resolve {ThemeResource} values
-                let _ = fe.SetStyle(None);
-                let _ = fe.SetStyle(&style);
+                diag::dropped(fe.SetStyle(None));
+                diag::dropped(fe.SetStyle(&style));
             }
         }
         Err(e) => {
-            eprintln!("[ThemeStyle] XamlReader::Load failed: {e:?} xaml={xaml}");
+            diag::warn(format_args!(
+                "ThemeStyle: XamlReader::Load failed: {e:?} xaml={xaml}"
+            ));
         }
     }
 }
@@ -686,15 +688,15 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
             let w = fe.ActualWidth().unwrap_or(0.0) as f32;
             let h = fe.ActualHeight().unwrap_or(0.0) as f32;
             if w > 0.0 && h > 0.0 {
-                let _ = iv.SetCenterPoint(windows_numerics::Vector3 {
+                diag::dropped(iv.SetCenterPoint(windows_numerics::Vector3 {
                     x: w / 2.0,
                     y: h / 2.0,
                     z: 0.0,
-                });
-            } else if cfg!(debug_assertions) {
-                eprintln!(
-                    "windows-reactor: animation: skipping CenterPoint — element not yet laid out"
-                );
+                }));
+            } else {
+                diag::warn(format_args!(
+                    "animation: skipping CenterPoint — element not yet laid out"
+                ));
             }
         }
         // Preserve current Scale.Z; cfg.scale is a uniform X/Y scalar.
@@ -1290,27 +1292,13 @@ impl Backend for WinUIBackend {
                             .next();
                         match xroot {
                             Some(root) => {
-                                if let Err(e) = d.cast::<bindings::IUIElement>()?.SetXamlRoot(&root)
-                                    && cfg!(debug_assertions)
-                                {
-                                    eprintln!(
-                                        "windows-reactor: ContentDialog.SetXamlRoot failed: {e}"
-                                    );
-                                }
-                                if let Err(e) = d.ShowAsync()
-                                    && cfg!(debug_assertions)
-                                {
-                                    eprintln!(
-                                        "windows-reactor: ContentDialog.ShowAsync failed: {e}"
-                                    );
-                                }
+                                diag::dropped(d.cast::<bindings::IUIElement>()?.SetXamlRoot(&root));
+                                diag::dropped(d.ShowAsync());
                             }
                             None => {
-                                if cfg!(debug_assertions) {
-                                    eprintln!(
-                                        "windows-reactor: ContentDialog.is_open ignored — no XamlRoot available"
-                                    );
-                                }
+                                diag::warn(format_args!(
+                                    "ContentDialog.is_open ignored — no XamlRoot available"
+                                ));
                             }
                         }
                         Ok(())
@@ -1675,9 +1663,10 @@ impl Backend for WinUIBackend {
                 (Prop::FlyoutPlacement, PropValue::I32(v), Handle::Button(b)) => {
                     // The flyout must already exist (FlyoutContent set first).
                     if let Ok(fb) = b.Flyout() {
-                        let _ = fb
-                            .cast::<bindings::IFlyoutBase>()?
-                            .SetPlacement(FlyoutPlacementMode(*v));
+                        diag::dropped(
+                            fb.cast::<bindings::IFlyoutBase>()?
+                                .SetPlacement(FlyoutPlacementMode(*v)),
+                        );
                     }
                     Ok(())
                 }
@@ -1689,7 +1678,7 @@ impl Backend for WinUIBackend {
             }
         })();
         if let Err(e) = result {
-            diag::com_error("set_prop", id, &e);
+            diag::warn(format_args!("set_prop on {id}: {e:?}"));
         }
     }
     fn append_child(&mut self, parent: ControlId, child: ControlId) {
@@ -1882,7 +1871,7 @@ impl Backend for WinUIBackend {
             Handle::FlipView(fv) => fv.cast().unwrap(),
             _ => return,
         };
-        let _ = selector.SetSelectedIndex(index);
+        diag::dropped(selector.SetSelectedIndex(index));
     }
 
     fn set_templated_selection_mode(&mut self, id: ControlId, mode: SelectionMode) {
@@ -1901,7 +1890,7 @@ impl Backend for WinUIBackend {
             SelectionMode::Multiple => bindings::ListViewSelectionMode::Multiple,
             SelectionMode::Extended => bindings::ListViewSelectionMode::Extended,
         };
-        let _ = lvb.SetSelectionMode(winui_mode);
+        diag::dropped(lvb.SetSelectionMode(winui_mode));
     }
 
     fn set_templated_can_drag_items(&mut self, id: ControlId, value: bool) {
@@ -1912,7 +1901,7 @@ impl Backend for WinUIBackend {
             Handle::GridView(gv) => gv.cast().unwrap(),
             _ => return,
         };
-        let _ = lvb.SetCanDragItems(value);
+        diag::dropped(lvb.SetCanDragItems(value));
     }
 
     fn set_templated_can_reorder_items(&mut self, id: ControlId, value: bool) {
@@ -1923,7 +1912,7 @@ impl Backend for WinUIBackend {
             Handle::GridView(gv) => gv.cast().unwrap(),
             _ => return,
         };
-        let _ = lvb.SetCanReorderItems(value);
+        diag::dropped(lvb.SetCanReorderItems(value));
     }
 
     fn set_templated_allow_drop(&mut self, id: ControlId, value: bool) {
@@ -1935,7 +1924,7 @@ impl Backend for WinUIBackend {
             Handle::FlipView(fv) => fv.cast().unwrap(),
             _ => return,
         };
-        let _ = ui.SetAllowDrop(value);
+        diag::dropped(ui.SetAllowDrop(value));
     }
 
     fn set_header_element(&mut self, id: ControlId, header_id: Option<ControlId>) {
@@ -1945,19 +1934,19 @@ impl Backend for WinUIBackend {
             if let Some(hdr_id) = header_id {
                 if let Some(hdr_handle) = map.get(&hdr_id) {
                     let ui_elem = hdr_handle.as_ui_element();
-                    let _ = e.SetHeader(&ui_elem);
+                    diag::dropped(e.SetHeader(&ui_elem));
                 }
             } else {
-                let _ = e.SetHeader(None);
+                diag::dropped(e.SetHeader(None));
             }
         } else if let Handle::TitleBar(tb) = handle {
             if let Some(hdr_id) = header_id {
                 if let Some(hdr_handle) = map.get(&hdr_id) {
                     let ui_elem = hdr_handle.as_ui_element();
-                    let _ = tb.SetContent(&ui_elem);
+                    diag::dropped(tb.SetContent(&ui_elem));
                 }
             } else {
-                let _ = tb.SetContent(None);
+                diag::dropped(tb.SetContent(None));
             }
         }
     }
@@ -1969,28 +1958,28 @@ impl Backend for WinUIBackend {
             if let Some(pid) = pane_id {
                 if let Some(pane_handle) = map.get(&pid) {
                     let ui_elem = pane_handle.as_ui_element();
-                    let _ = sv.SetPane(&ui_elem);
+                    diag::dropped(sv.SetPane(&ui_elem));
                 }
             } else {
-                let _ = sv.SetPane(None);
+                diag::dropped(sv.SetPane(None));
             }
         } else if let Handle::TitleBar(tb) = handle {
             if let Some(pid) = pane_id {
                 if let Some(pane_handle) = map.get(&pid) {
                     let ui_elem = pane_handle.as_ui_element();
-                    let _ = tb.SetRightHeader(&ui_elem);
+                    diag::dropped(tb.SetRightHeader(&ui_elem));
                 }
             } else {
-                let _ = tb.SetRightHeader(None);
+                diag::dropped(tb.SetRightHeader(None));
             }
         } else if let Handle::NavigationView(nv) = handle {
             if let Some(pid) = pane_id {
                 if let Some(pane_handle) = map.get(&pid) {
                     let ui_elem = pane_handle.as_ui_element();
-                    let _ = nv.SetPaneFooter(&ui_elem);
+                    diag::dropped(nv.SetPaneFooter(&ui_elem));
                 }
             } else {
-                let _ = nv.SetPaneFooter(None);
+                diag::dropped(nv.SetPaneFooter(None));
             }
         }
     }
@@ -2007,10 +1996,11 @@ impl Backend for WinUIBackend {
             Handle::ListView(lv) => lv.cast().ok(),
             Handle::GridView(gv) => gv.cast().ok(),
             Handle::FlipView(fv) => {
-                let _ = fv
-                    .cast::<bindings::ISelector>()
-                    .unwrap()
-                    .SetSelectedIndex(index);
+                diag::dropped(
+                    fv.cast::<bindings::ISelector>()
+                        .unwrap()
+                        .SetSelectedIndex(index),
+                );
                 None
             }
             _ => return,
@@ -2029,7 +2019,7 @@ impl Backend for WinUIBackend {
                 if (index as u32) < len
                     && let Ok(item) = coll.GetAt(index as u32)
                 {
-                    let _ = lvb.ScrollIntoView(&item);
+                    diag::dropped(lvb.ScrollIntoView(&item));
                 }
             }
         }
@@ -2494,7 +2484,7 @@ impl Backend for WinUIBackend {
             if let Some(handle) = map.get(&id)
                 && let Some((_, fe)) = style_target_for_handle(handle)
             {
-                let _ = fe.SetStyle(None);
+                diag::dropped(fe.SetStyle(None));
             }
             return;
         }
@@ -2529,26 +2519,28 @@ impl Backend for WinUIBackend {
             Ok(d) => d,
             Err(_) => return,
         };
-        let _ = bindings::AutomationProperties::SetName(
+        diag::dropped(bindings::AutomationProperties::SetName(
             &dep,
             accessibility.automation_name.as_deref().unwrap_or(""),
-        );
-        let _ = bindings::AutomationProperties::SetAutomationId(
+        ));
+        diag::dropped(bindings::AutomationProperties::SetAutomationId(
             &dep,
             accessibility.automation_id.as_deref().unwrap_or(""),
-        );
-        let _ = bindings::AutomationProperties::SetHelpText(
+        ));
+        diag::dropped(bindings::AutomationProperties::SetHelpText(
             &dep,
             accessibility.help_text.as_deref().unwrap_or(""),
-        );
+        ));
         let live = accessibility
             .live_setting
             .unwrap_or(AutomationLiveSetting::Off);
-        let _ = bindings::AutomationProperties::SetLiveSetting(&dep, live);
+        diag::dropped(bindings::AutomationProperties::SetLiveSetting(&dep, live));
         let heading = accessibility
             .heading_level
             .unwrap_or(AutomationHeadingLevel::None);
-        let _ = bindings::AutomationProperties::SetHeadingLevel(&dep, heading);
+        diag::dropped(bindings::AutomationProperties::SetHeadingLevel(
+            &dep, heading,
+        ));
     }
     fn set_keyboard_accelerators(&mut self, id: ControlId, accelerators: &[KeyboardAccelerator]) {
         let map = self.controls.borrow();
@@ -2565,12 +2557,12 @@ impl Backend for WinUIBackend {
                 Ok(v) => v,
                 Err(_) => return,
             };
-        let _ = vec.Clear();
+        diag::dropped(vec.Clear());
 
         // Suppress the default accelerator tooltip that WinUI would otherwise show.
-        let _ = iue.SetKeyboardAcceleratorPlacementMode(
+        diag::dropped(iue.SetKeyboardAcceleratorPlacementMode(
             bindings::KeyboardAcceleratorPlacementMode::Hidden,
-        );
+        ));
 
         for accel in accelerators {
             let Ok(ka) = bindings::KeyboardAccelerator::new() else {
@@ -2579,19 +2571,19 @@ impl Backend for WinUIBackend {
             let Ok(ika) = ka.cast::<bindings::IKeyboardAccelerator>() else {
                 continue;
             };
-            let _ = ika.SetKey(accel.key);
-            let _ = ika.SetModifiers(accel.modifiers);
+            diag::dropped(ika.SetKey(accel.key));
+            diag::dropped(ika.SetModifiers(accel.modifiers));
             let cb = accel.on_invoked.clone();
             let _ = ika
                 .Invoked(move |_sender, args| {
                     if let Some(a) = args.as_ref() {
-                        let _ = a.SetHandled(true);
+                        diag::dropped(a.SetHandled(true));
                     }
                     cb.invoke(());
                 })
                 .ok()
                 .map(|r| r.into_token());
-            let _ = vec.Append(&ka);
+            diag::dropped(vec.Append(&ka));
         }
     }
     fn set_implicit_transitions(
@@ -2604,10 +2596,8 @@ impl Backend for WinUIBackend {
             return;
         };
         let ui: bindings::UIElement = handle.as_ui_element();
-        if let Err(e) = apply_implicit_transitions(&ui, transitions)
-            && cfg!(debug_assertions)
-        {
-            eprintln!("windows-reactor: set_implicit_transitions failed: {e:?}");
+        if let Err(e) = apply_implicit_transitions(&ui, transitions) {
+            diag::warn(format_args!("set_implicit_transitions failed: {e:?}"));
         }
     }
     fn set_layout_animation(&mut self, _id: ControlId, _config: Option<LayoutAnimationConfig>) {
@@ -2623,10 +2613,8 @@ impl Backend for WinUIBackend {
             return;
         };
         let ui: bindings::UIElement = handle.as_ui_element();
-        if let Err(e) = run_property_animation_inner(&ui, cfg)
-            && cfg!(debug_assertions)
-        {
-            eprintln!("windows-reactor: run_property_animation failed: {e:?}");
+        if let Err(e) = run_property_animation_inner(&ui, cfg) {
+            diag::warn(format_args!("run_property_animation failed: {e:?}"));
         }
     }
     fn set_rich_text_paragraphs(&mut self, id: ControlId, paragraphs: &[RichTextParagraph]) {
@@ -2638,7 +2626,7 @@ impl Backend for WinUIBackend {
             return;
         };
         let Ok(blocks) = rtb.Blocks() else { return };
-        let _ = blocks.Clear();
+        diag::dropped(blocks.Clear());
         for para_def in paragraphs {
             let Ok(para) = bindings::Paragraph::new() else {
                 continue;
@@ -2652,41 +2640,45 @@ impl Backend for WinUIBackend {
                         let Ok(run) = bindings::Run::new() else {
                             continue;
                         };
-                        let _ = run.SetText(&r.text);
+                        diag::dropped(run.SetText(&r.text));
                         if r.is_bold {
-                            let _ = run.cast::<bindings::ITextElement>().and_then(|te| {
+                            diag::dropped(run.cast::<bindings::ITextElement>().and_then(|te| {
                                 te.SetFontWeight(bindings::FontWeight { weight: 700 })
-                            });
+                            }));
                         }
-                        let _ = run
-                            .cast::<bindings::Inline>()
-                            .and_then(|i| inlines.Append(&i));
+                        diag::dropped(
+                            run.cast::<bindings::Inline>()
+                                .and_then(|i| inlines.Append(&i)),
+                        );
                     }
                     RichTextInline::LineBreak => {
                         // LineBreak inline — use a Run with newline.
                         let Ok(run) = bindings::Run::new() else {
                             continue;
                         };
-                        let _ = run.SetText("\n");
-                        let _ = run
-                            .cast::<bindings::Inline>()
-                            .and_then(|i| inlines.Append(&i));
+                        diag::dropped(run.SetText("\n"));
+                        diag::dropped(
+                            run.cast::<bindings::Inline>()
+                                .and_then(|i| inlines.Append(&i)),
+                        );
                     }
                     RichTextInline::Hyperlink(h) => {
                         // Hyperlink rendered as plain text (no navigation support yet).
                         let Ok(run) = bindings::Run::new() else {
                             continue;
                         };
-                        let _ = run.SetText(&h.text);
-                        let _ = run
-                            .cast::<bindings::Inline>()
-                            .and_then(|i| inlines.Append(&i));
+                        diag::dropped(run.SetText(&h.text));
+                        diag::dropped(
+                            run.cast::<bindings::Inline>()
+                                .and_then(|i| inlines.Append(&i)),
+                        );
                     }
                 }
             }
-            let _ = para
-                .cast::<bindings::Block>()
-                .and_then(|b| blocks.Append(&b));
+            diag::dropped(
+                para.cast::<bindings::Block>()
+                    .and_then(|b| blocks.Append(&b)),
+            );
         }
     }
 
@@ -2714,28 +2706,29 @@ impl Backend for WinUIBackend {
                     let tt = match bindings::ToolTip::new() {
                         Ok(t) => t,
                         Err(e) => {
-                            if cfg!(debug_assertions) {
-                                eprintln!("windows-reactor: ToolTip::new failed: {e:?}");
-                            }
+                            diag::warn(format_args!("ToolTip::new failed: {e:?}"));
                             return;
                         }
                     };
                     if let Some(ui) = mount_static_tooltip_element(elem)
                         && let Ok(cc) = tt.cast::<bindings::IContentControl>()
                     {
-                        let _ = cc.SetContent(&ui);
+                        diag::dropped(cc.SetContent(&ui));
                     }
                     Some(tt.into())
                 }
             },
         };
-        let _ = bindings::ToolTipService::SetToolTip(&dep, inspectable.as_ref());
+        diag::dropped(bindings::ToolTipService::SetToolTip(
+            &dep,
+            inspectable.as_ref(),
+        ));
 
         // Fall back to Top so cleared placements actually reset the slot.
         let placement = tooltip
             .and_then(|t| t.placement)
             .map_or(bindings::PlacementMode::Top, map_placement);
-        let _ = bindings::ToolTipService::SetPlacement(&dep, placement);
+        diag::dropped(bindings::ToolTipService::SetPlacement(&dep, placement));
     }
 
     fn set_pointer_handlers(&mut self, id: ControlId, handlers: Option<&PointerHandlers>) {
@@ -2866,7 +2859,7 @@ impl Backend for WinUIBackend {
                             if let Some(deferral) =
                                 agile_deferral.and_then(|agile_ref| agile_ref.resolve().ok())
                             {
-                                let _ = deferral.Complete();
+                                diag::dropped(deferral.Complete());
                             }
                             return;
                         };
@@ -2978,7 +2971,7 @@ impl Backend for WinUIBackend {
                             if let Some(deferral) =
                                 agile_deferral.and_then(|agile_ref| agile_ref.resolve().ok())
                             {
-                                let _ = deferral.Complete();
+                                diag::dropped(deferral.Complete());
                             }
                             return;
                         };
@@ -3148,25 +3141,25 @@ fn dispatch_accept(
                 DragOperation::Move => bindings::DataPackageOperation::Move,
                 DragOperation::Link => bindings::DataPackageOperation::Link,
             };
-            let _ = iargs.SetAcceptedOperation(accepted);
+            diag::dropped(iargs.SetAcceptedOperation(accepted));
             if (ctx.caption.is_some()
                 || ctx.glyph_visible.is_some()
                 || ctx.content_visible.is_some())
                 && let Ok(ui) = iargs.DragUIOverride()
             {
                 if let Some(v) = ctx.caption {
-                    let _ = ui.SetCaption(&v);
+                    diag::dropped(ui.SetCaption(&v));
                 }
                 if let Some(v) = ctx.glyph_visible {
-                    let _ = ui.SetIsGlyphVisible(v);
+                    diag::dropped(ui.SetIsGlyphVisible(v));
                 }
                 if let Some(v) = ctx.content_visible {
-                    let _ = ui.SetIsContentVisible(v);
+                    diag::dropped(ui.SetIsContentVisible(v));
                 }
             }
         }
         if let Some(d) = deferral_agile.and_then(|a| a.resolve().ok()) {
-            let _ = d.Complete();
+            diag::dropped(d.Complete());
         }
     });
 }
@@ -3199,19 +3192,19 @@ fn accept_or_reject<C: CallAccept>(cb: &C, args: Option<&bindings::DragEventArgs
         DragOperation::Move => bindings::DataPackageOperation::Move,
         DragOperation::Link => bindings::DataPackageOperation::Link,
     };
-    let _ = a.SetAcceptedOperation(accepted);
+    diag::dropped(a.SetAcceptedOperation(accepted));
 
     if (ctx.caption.is_some() || ctx.glyph_visible.is_some() || ctx.content_visible.is_some())
         && let Ok(ui) = a.DragUIOverride()
     {
         if let Some(v) = ctx.caption {
-            let _ = ui.SetCaption(&v);
+            diag::dropped(ui.SetCaption(&v));
         }
         if let Some(v) = ctx.glyph_visible {
-            let _ = ui.SetIsGlyphVisible(v);
+            diag::dropped(ui.SetIsGlyphVisible(v));
         }
         if let Some(v) = ctx.content_visible {
-            let _ = ui.SetIsContentVisible(v);
+            diag::dropped(ui.SetIsContentVisible(v));
         }
     }
 }
@@ -3275,7 +3268,7 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
             let children = sp.cast::<bindings::IPanel>().ok()?.Children().ok()?;
             for child in &s.children {
                 if let Some(cui) = mount_static_tooltip_element(child) {
-                    let _ = children.Append(&cui);
+                    diag::dropped(children.Append(&cui));
                 }
             }
             sp.cast::<bindings::UIElement>().ok()
@@ -3287,15 +3280,15 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
                     if let Ok(uri) = bindings::Uri::CreateUri(uri_str.as_str())
                         && let Ok(bmp) = bindings::BitmapImage::new()
                     {
-                        let _ = bmp.SetUriSource(&uri);
+                        diag::dropped(bmp.SetUriSource(&uri));
                         if let Ok(src) = bmp.cast::<bindings::ImageSource>() {
-                            let _ = i.SetSource(&src);
+                            diag::dropped(i.SetSource(&src));
                         }
                     }
                 }
                 ImageSource::Surface(sis) => {
                     if let Ok(src) = sis.image_source() {
-                        let _ = i.SetSource(&src);
+                        diag::dropped(i.SetSource(&src));
                     }
                 }
                 ImageSource::None => {}
