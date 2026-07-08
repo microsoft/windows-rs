@@ -39,7 +39,7 @@ Microsoft::UI::Windowing::AppWindowPresenter
 Microsoft::UI::Windowing::AppWindowPresenterKind
 Microsoft::UI::Windowing::AppWindowTitleBar
 Microsoft::UI::Windowing::IAppWindow2::{ResizeClient, get_ClientSize}
-Microsoft::UI::Windowing::IAppWindow::{SetPresenterByKind, get_Presenter, get_Size, get_TitleBar}
+Microsoft::UI::Windowing::IAppWindow::{SetPresenterByKind, SetIcon, get_Presenter, get_Size, get_TitleBar}
 Microsoft::UI::Windowing::IAppWindowTitleBar2::put_PreferredHeightOption
 Microsoft::UI::Windowing::IAppWindowTitleBar3::put_PreferredTheme
 Microsoft::UI::Windowing::IOverlappedPresenter3::{put_PreferredMinimumWidth, put_PreferredMinimumHeight, put_PreferredMaximumWidth, put_PreferredMaximumHeight}

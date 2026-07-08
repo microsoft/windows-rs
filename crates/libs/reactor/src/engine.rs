@@ -1498,6 +1498,12 @@ fn render_loop<B: Backend + 'static, D: Dispatcher + 'static>(inner: &Rc<RenderH
 }
 
 fn render_once<B: Backend + 'static, D: Dispatcher + 'static>(inner: &Rc<RenderHostInner<B, D>>) {
+    fault::render_scope(|| render_once_inner(inner));
+}
+
+fn render_once_inner<B: Backend + 'static, D: Dispatcher + 'static>(
+    inner: &Rc<RenderHostInner<B, D>>,
+) {
     let tree_build_started = Instant::now();
     let new_tree = {
         let mut cx = inner.render_cx.borrow_mut();

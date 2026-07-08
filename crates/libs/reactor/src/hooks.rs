@@ -34,7 +34,7 @@ impl DispatcherTimer {
         timer.SetIsRepeating(repeating)?;
 
         let tick_revoker = timer.Tick(move |_, _| {
-            f();
+            fault::catch("timer", &f);
         })?;
         timer.Start()?;
         Ok(Self {
@@ -69,7 +69,7 @@ where
     F: Fn() + 'static,
 {
     let revoker = CompositionTarget::Rendering(move |_, _| {
-        f();
+        fault::catch("rendering", &f);
     })?;
     Ok(Rendering { _revoker: revoker })
 }

@@ -93,7 +93,15 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
     let ready_size = size.clone();
     let ready_scale = scale.clone();
     let ready_changed = changed.clone();
+    let unmount_state = state.clone();
     swap_chain_panel()
+        .on_unmounted(move |_| {
+            // Drop the render state in place: this revokes the
+            // `CompositionTarget::Rendering` subscription and releases the swap
+            // chain. Without it the state would leak forever, because its
+            // rendering callback holds an `Rc` back to the cell that owns it.
+            *unmount_state.borrow_mut() = None;
+        })
         .on_mounted(move |panel| {
             let s = panel.composition_scale().map_or(1.0, |(x, _)| x);
             ready_scale.set(s);

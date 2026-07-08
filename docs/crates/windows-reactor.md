@@ -63,7 +63,8 @@ fn main() -> Result<()> {
 
 `bootstrap()` initializes the Windows App SDK runtime and must be called once at
 startup. `App::new()` is then a builder — `title`, `inner_size`, `backdrop`
-(e.g. `Backdrop::Mica`), `fullscreen`, and `presenter` are common. `render(app)`
+(e.g. `Backdrop::Mica`), `icon` (path to an `.ico` file), `fullscreen`, and
+`presenter` are common. `render(app)`
 takes your `Fn(&mut RenderCx) -> Element` and runs the message loop.
 
 Reactor catches panics at the FFI boundaries it owns (render/event callbacks and
@@ -318,6 +319,120 @@ slots. Two categories exist, and the distinction matters when refactoring:
   current color scheme) are thread-local only because the public API exposes them
   as free functions (`set_requested_theme`, etc.). They could move onto the host
   struct if those functions took a host reference.
+
+### Error handling and panics
+
+Reactor sits between the developer's Rust closures and WinUI's COM/`extern
+"system"` delegates. Failures can originate on either side, and *where* a failure
+happens dictates what can be done with it. This section records the current
+behavior, the inconsistencies it creates, and the target design.
+
+#### The five failure boundaries
+
+| Boundary | Where it runs | Current handling | Reaches the developer? |
+|---|---|---|---|
+| **Synchronous setup** — `bootstrap`, `init_app_platform`, icon validation | main thread, before the message loop | `Result` from `run`/`bootstrap` | **Yes** — genuinely propagates |
+| **`OnLaunched` / setup callback** — host creation, `activate` | UI thread, inside `Application::Start` | `run_callback` (`catch_unwind` → `Result`) → `diagnostics::emit` | **No** — the `Result` dies inside `OnLaunched`; `Application::Start` never returns it, the loop keeps pumping |
+| **Render pass** — `root.render`, component renders | dispatcher-posted `render_loop` | uncaught, **except** subtrees under `error_boundary` (`catch_unwind` → fallback UI) | Only if wrapped in `error_boundary` |
+| **Event handlers / timer ticks / `on_rendering`** | invoked directly from WinUI delegates | **uncaught** | **No** — a panic aborts the process |
+| **Backend prop / COM application** | applying props to controls | four different ways (see below) | mostly debug-only or silent |
+
+The structural reason the last two boundaries abort: the generated delegate
+`Invoke` thunks in `bindings.rs` are `extern "system"` with **no** `catch_unwind`.
+A panic in an `on_click`, a `DispatcherTimer` tick, or `on_rendering` unwinds into
+that boundary and aborts (after the default panic hook prints). The only two
+places reactor catches panics today are `run_callback` (setup) and `error_boundary`
+(render subtrees).
+
+#### The inconsistencies
+
+- **`Result` that cannot propagate.** `App::run` / `activate` return `Result`, but
+  every failure inside `OnLaunched` is caught, logged, and then the app limps on
+  (often windowless). The signature promises propagation the runtime cannot honor.
+  This is distinct from the COM-plumbing `Result`s in `backend/winui/mod.rs`,
+  `app_shim.rs`, and `convert.rs`, which are *mandatory* and correct.
+- **Same failure, different fate.** A panic during render under an `error_boundary`
+  degrades to fallback UI; the *identical* panic in that component's `on_click`
+  aborts the process. Developers cannot predict which, and nothing documents it.
+- **Best-effort backend drops handled four ways:** `let _ = fe.SetStyle(...)`
+  (silent), `diag::com_error` (debug log), `diag::unhandled_prop` /
+  `unhandled_modifier` (debug log), and inline `if cfg!(debug_assertions) {
+  eprintln! }` (debug log). Three express the same intent with different code.
+- **Three logging conventions:** `diagnostics::emit` (unconditional stderr, FFI/app
+  level), `diag::*` (debug-only, backend), and raw `eprintln!` (debug-only,
+  scattered). The first two overlap in purpose.
+- **No documented contract** for what panics, what returns `Result`, and what is
+  silently dropped.
+
+`panic!` usage itself is already consistent — the sites are rules-of-hooks and
+invariant violations (hook order, type mismatch, `EventHandler` variant mismatch)
+in `engine.rs` and `backend/mod.rs`. That is the correct use of `panic!` and stays.
+
+#### Target design — differentiate by failure *class*
+
+The unifying principle: **`Result` only where it can propagate (synchronous,
+pre-loop); one fault hook for everything inside WinUI callbacks; `panic!` only for
+bugs; one debug-log helper for best-effort drops.**
+
+1. **Programmer errors / invariants → `panic!` (now *caught*, not fail-fast).** The
+   panic sites are unchanged (rules-of-hooks, type mismatches), but the *outcome*
+   changed: a panic at a reactor-owned boundary unwinds into the fault boundary and
+   is reported to `on_fault` (default: log-and-continue) rather than aborting the
+   process. `panic!` is therefore **decoupled from fail-fast** — it now means "isolate
+   and report this callback," not "kill the process." This relies on `panic = "unwind"`
+   (the Cargo default); under a `panic = "abort"` profile the entire model is bypassed
+   (`catch_unwind` never runs) and every panic aborts — the traditional whole-binary
+   fail-fast posture, chosen by the app, not the library. When a specific fault is
+   genuinely unrecoverable, escalate with the *uncatchable* primitives —
+   `std::process::abort()` / `exit()`, either directly in the callback or as a branch
+   inside `on_fault` — because `catch_unwind` cannot intercept those.
+2. **Synchronous, pre-loop configuration errors → `Result` from `run`/`bootstrap`
+   *(implemented)*.** Validate up front so the `Result` is meaningful (as
+   `App::icon` path validation already does — it runs on the calling thread before
+   `Application::Start`).
+3. **Failures inside UI-thread callbacks (render, event handlers, timers,
+   `on_rendering`) → one reactor-owned fault boundary, not `Result` *(implemented)*.**
+   Reactor catches panics at the entry points it owns — `Callback::invoke` (every
+   event handler), the `DispatcherTimer` tick, `on_rendering`, and the render pass
+   (`render_once`) — turning a panic into a *controlled, logged fault* instead of an
+   abort, and delivering it to a developer-supplied `App::on_fault(|fault| ...)`
+   hook (default: log-and-continue). The catch is **context-aware**: a callback that
+   panics *during* a render pass is left to propagate so
+   `error_boundary` can recover the subtree first; only panics outside render
+   (or escaping every boundary) are reported to `on_fault`. Implemented as the
+   `fault` module (`fault.rs`): a thread-local `IN_RENDER` guard makes
+   `fault::catch` transparent during render and active outside it, while
+   `fault::render_scope` wraps the render pass. This makes "panic for bugs" *safe*
+   (panics stop aborting) and makes the event-handler / render split predictable.
+4. **Best-effort backend prop application → one helper, one policy *(implemented)*.**
+   Collapsed the `let _ =`, `diag::com_error`, and ad-hoc `eprintln!` variants into a
+   single debug-warn / release-noop helper (`diag::warn` core plus `diag::dropped`,
+   which reports the dropped `Result`'s call site via `#[track_caller]`). Within the
+   backend apply path (`backend/winui/mod.rs`) the silent and raw-`eprintln` forms are
+   gone; the only bare `let _ =` sites left there drop a non-`Result` (an unused
+   parameter and a fire-and-forget event token). (`host.rs` retains a few `let _ =`
+   drops on genuinely fire-and-forget window plumbing — `WindowHandle`, `Activate`,
+   the cursor `PostMessageW` — which are not developer-requested configuration.)
+5. **Make `activate()` honest *(implemented)*.** `activate` keeps `Result` only for
+   its genuinely synchronous failures — the dispatcher lookup
+   (`DispatcherQueue::GetForCurrentThread`) and enqueue (`TryEnqueueWithPriority`),
+   both of which run on the calling thread and propagate to the caller. The deferred
+   work that runs later inside the enqueued UI-thread callback (presenter / icon /
+   backdrop) can no longer return a `Result` to anyone, so it routes to the fault
+   path instead: the whole callback is wrapped in `fault::catch("activate", …)` so a
+   panic is a controlled fault rather than a process abort, and each best-effort
+   configuration failure is delivered to `on_fault` via `fault::report` (replacing the
+   swallowed inner `Result` and the ad-hoc `eprintln!`). This required a
+   `fault::report(context, message)` companion to `fault::catch` for reporting an
+   explicit failure (not a panic) through the same handler.
+6. **Document the contract** (this section) and surface it in the readme.
+
+Answering the three framing questions directly: *panic more?* yes for bugs, but
+only once the callback catch boundaries exist (otherwise more panics = more
+aborts). *`println` more?* consolidate to one helper, but logging alone is invisible
+in release — a fault hook, not just logging, is what makes failures actionable.
+*stop using `Result`?* trim the semi-functional app/host-boundary `Result`; keep the
+COM-plumbing and synchronous-setup `Result`s, which work.
 
 ### Performance notes
 
@@ -609,6 +724,92 @@ matching `test_*` crate. If it needs an internal item, expose that item behind t
 existing `test` feature rather than adding bespoke scaffolding (the engine/
 reconciler/widget inspectors work this way). Don't invent a feature — or a public
 helper — just to test a trivial pure function; leave it private and untested.
+
+### Field-reported friction
+
+Concrete friction hit by an external app built on a pinned reactor rev
+([netmon-rs](https://github.com/damyanp/netmon-rs), a WinUI 3 network monitor;
+see its `reactor-notes.md`). Unlike the C# parity catalog below, these are
+specific bugs/gaps with a known reproduction. Recorded so we can track progress
+and, where possible, close the "had to drop to the raw `windows` crate" cases.
+
+1. **Nested component doesn't re-render from its own `use_state` *(fixed)*.** A
+   component that mutates only its own `use_state`, buried under structurally
+   *unchanged non-component* parents (e.g. `scroll_viewer` → `grid`), never
+   re-rendered: its `state_dirty` flag was set and `request_rerender` fired, but the
+   pass pruned the subtree before descending to it. Root cause: `peek_state_dirty`
+   (`engine.rs`) was consulted only via `is_component_state_dirty` at the node
+   *currently being visited* (`reconciler.rs` `update`, `reconciler/child.rs`), so a
+   dirty component below a pruned parent was skipped. Context changes avoided this
+   because `force_context_subscribers` sets the global `force_component_rerender`
+   flag that punches through pruning (`reconciler.rs`); plain `use_state` writes had
+   no equivalent path — that asymmetry was the whole bug (the root component itself
+   was never affected: the host re-renders it every pass via its own `RenderCx`, and
+   the symptom was also masked whenever some prop on the path changed anyway, e.g. a
+   sibling chart's per-tick `revision`, forcing descent for an unrelated reason).
+   Fixed: `Reconciler::reconcile` now calls `force_state_dirty_components`, which
+   scans `component_instances` for any entry reporting `peek_state_dirty()` and seeds
+   `forced_components` / sets `force_component_rerender` the same way the context path
+   does, plus a `debug_assert!` that no seeded instance is still dirty after the pass
+   (a dropped re-render failed silently before). Regression:
+   `test_reactor::nested_state_rerender`. Related trap still worth documenting:
+   reactor's `TextBox` is *controlled* (pushes `Prop::Value` every render), so
+   round-tripping a controlled field through global state on every keystroke races
+   persistence and can truncate long values — add uncontrolled-input guidance or a
+   first-class uncontrolled text mode.
+
+2. **Window icon *(fixed)*.** WinUI 3 doesn't adopt the exe's embedded icon for
+   the title-bar/taskbar icon, and reactor previously exposed no way to set it —
+   `AppWindow.SetIcon` was stubbed out of the bindings and `IAppWindow`/
+   `IWindowNative::WindowHandle` are `pub(crate)`, forcing apps to add
+   `Win32_System_LibraryLoader` + `Win32_System_Threading` +
+   `Win32_UI_WindowsAndMessaging` to the raw `windows` dependency and re-find their
+   own window (`EnumThreadWindows` by title — `FindWindowW` doesn't find WinUI
+   windows) to `SendMessageW(WM_SETICON)`. Now: `SetIcon` is un-stubbed in the
+   reactor bindings filter (`crates/tools/reactor/src/base.txt`, the `IAppWindow`
+   method list), and `App::icon(path)` sets the window icon from a path to an `.ico`
+   file. `ReactorHost::set_icon` applies it on the UI thread in `activate()` via
+   `AppWindow.SetIcon` (`host.rs`), alongside the presenter/backdrop application.
+   The application is best-effort (a failure is logged, not fatal), matching how
+   presenter/backdrop degrade — surfacing it as a `Result` from `activate()` is not
+   viable because host setup runs inside WinUI's `OnLaunched`, whose error does not
+   propagate out of `Application::Start` (the loop keeps pumping). `AppWindow.SetIcon`
+   also silently tolerates a missing file, so `App::run` instead validates the path
+   up front on the calling thread — before `Application::Start` — and returns a real
+   `Result` error for a missing icon, which is the only architecturally sound place
+   to give the caller one. Sample: `cargo run -p reactor_samples --example icon`.
+
+3. **Swapping a canvas out of the tree leaks its render loop *(fixed)*.** A field
+   report described conditionally swapping one keyless subtree for a shorter,
+   differently shaped one (a per-target card `vstack` with a nested
+   `component(spark_view)` → a compact legend `hstack`), which left orphaned
+   sparkline surfaces on screen; adding distinct `.with_key(...)` to each layout
+   appeared to fix it. Investigation showed the reconciler is **not** at fault —
+   keyless positional reconcile correctly unmounts and destroys nested
+   `SwapChainPanel`s when a container shrinks (`reconciler/child.rs`; verified
+   against the exact card/legend shape). The real leak was in
+   [`windows-canvas`](windows-canvas.md)'s `animated_canvas`: its per-frame
+   `RenderState` holds the `CompositionTarget::Rendering` subscription and the
+   swap chain in a **reference cycle** (the rendering callback captures an `Rc`
+   back to the cell that owns it), and it registered no `on_unmounted` handler —
+   so refcounting alone could never drop it. When the panel left the tree the
+   render loop kept firing and presenting to the detached swap chain (the
+   "leftover mini-charts"). Keying only masked it by reshuffling which panels
+   survived. Fixed by adding an `on_unmounted` teardown that clears the state
+   cell, dropping the `RenderState` in place (revoking the subscription and
+   releasing the swap chain). Regression: `test_canvas::animated_canvas_installs_unmount_teardown`.
+
+4. **On-demand D2D drawing surface pulls in the raw `windows` crate *(gap)*.** The
+   app draws a once-per-second chart into reactor's `SurfaceImageSource` with
+   hand-rolled D3D11/D2D/DXGI/DirectWrite, plus a hand-managed shared `ID2D1Device`.
+   [`windows-canvas`](windows-canvas.md) already wraps D2D safely (device, drawing
+   session, text) but only targets a continuously-rendered `SwapChainPanel` via
+   `animated_canvas` — there is no canvas-backed *on-demand* `SurfaceImageSource`
+   path, and reactor's `SurfaceImageSource` widget requires a caller-supplied
+   `ID2D1Device`. For content that redraws on a data change rather than every frame, a
+   continuous swap chain is the wrong tool, so raw D2D was the only option. A
+   canvas-backed on-demand surface (shared device + safe drawing into a
+   `SurfaceImageSource`) would let such apps avoid the `windows` crate entirely.
 
 ### Future work — C# reactor parity
 

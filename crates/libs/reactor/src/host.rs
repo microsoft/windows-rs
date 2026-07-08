@@ -164,6 +164,7 @@ pub struct ReactorHost {
     window: Window,
     presenter: Cell<PresenterKind>,
     backdrop: Cell<Option<Backdrop>>,
+    icon: RefCell<Option<String>>,
 }
 
 impl ReactorHost {
@@ -271,6 +272,7 @@ impl ReactorHost {
             window,
             presenter: Cell::new(PresenterKind::Default),
             backdrop: Cell::new(None),
+            icon: RefCell::new(None),
         })
     }
 
@@ -286,26 +288,41 @@ impl ReactorHost {
         self.backdrop.set(Some(backdrop));
     }
 
+    /// Set the window icon from a path to an `.ico` file, used for the
+    /// title-bar and taskbar. Must be called before [`Self::activate`].
+    pub fn set_icon(&self, path: impl Into<String>) {
+        *self.icon.borrow_mut() = Some(path.into());
+    }
+
     pub fn activate(&self) -> Result<()> {
         let presenter = self.presenter.get();
         let backdrop = self.backdrop.get();
+        let icon = self.icon.borrow().clone();
         let window = self.window.clone();
         let handler = DispatcherQueueHandler::new(move || {
-            let _ = (|| -> Result<()> {
+            fault::catch("activate", || {
                 let mut hwnd: HWND = HWND::default();
                 if let Ok(native) = window.cast::<IWindowNative>() {
                     let _ = unsafe { native.WindowHandle(&mut hwnd) };
                 }
 
-                if let Some(native_kind) = presenter.to_native()
-                    && let Ok(app_window) = window.cast::<IWindow2>()?.AppWindow()
-                {
-                    let _ = app_window.SetPresenterByKind(native_kind);
+                let app_window = window.cast::<IWindow2>().and_then(|w| w.AppWindow()).ok();
+                if let Some(app_window) = &app_window {
+                    if let Some(native_kind) = presenter.to_native()
+                        && let Err(err) = app_window.SetPresenterByKind(native_kind)
+                    {
+                        fault::report("window presenter", format!("{err}"));
+                    }
+                    if let Some(icon) = &icon
+                        && let Err(err) = app_window.SetIcon(icon)
+                    {
+                        fault::report("window icon", format!("{err}"));
+                    }
                 }
                 if let Some(bd) = backdrop
                     && let Err(err) = bd.apply_to(&window)
                 {
-                    eprintln!("windows-reactor: backdrop failed: {err}");
+                    fault::report("backdrop", format!("{err}"));
                 }
                 let _ = window.Activate();
 
@@ -319,8 +336,7 @@ impl ReactorHost {
                         let _ = PostMessageW(hwnd, WM_SETCURSOR, hwnd as WPARAM, lparam);
                     }
                 }
-                Ok(())
-            })();
+            });
         });
         let queue = DispatcherQueue::GetForCurrentThread()?;
         queue.TryEnqueueWithPriority(DispatcherQueuePriority::High, &handler)?;
