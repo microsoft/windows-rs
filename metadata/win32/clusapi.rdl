@@ -3505,12 +3505,12 @@ mod Windows {
         extern fn PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION_EX(hGroupSet: *const _HGROUPSET, lpszDependencyExpression: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         extern fn PCLUSAPI_SET_CLUSTER_GROUP_NAME(hGroup: *mut _HGROUP, lpszGroupName: PCWSTR) -> u32;
         extern fn PCLUSAPI_SET_CLUSTER_GROUP_NAME_EX(hGroup: *const _HGROUP, lpszGroupName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST(hGroup: *const _HGROUP, NodeCount: u32, #[len_param(1)] #[opt] NodeList: [HNODE; 0]) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST_EX(hGroup: *const _HGROUP, NodeCount: u32, #[len_param(1)] #[opt] NodeList: [HNODE; 0], #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST(hGroup: *const _HGROUP, NodeCount: u32, #[len_param(1)] #[opt] NodeList: *const HNODE) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST_EX(hGroup: *const _HGROUP, NodeCount: u32, #[len_param(1)] #[opt] NodeList: *const HNODE, #[opt] lpszReason: PCWSTR) -> u32;
         extern fn PCLUSAPI_SET_CLUSTER_NAME_EX(hCluster: *const _HCLUSTER, lpszNewClusterName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         extern fn PCLUSAPI_SET_CLUSTER_NETWORK_NAME(hNetwork: *const _HNETWORK, lpszName: PCWSTR) -> u32;
         extern fn PCLUSAPI_SET_CLUSTER_NETWORK_NAME_EX(hNetwork: *const _HNETWORK, lpszName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER(hCluster: *const _HCLUSTER, NetworkCount: u32, #[len_param(1)] NetworkList: [HNETWORK; 0]) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER(hCluster: *const _HCLUSTER, NetworkCount: u32, #[len_param(1)] NetworkList: *const HNETWORK) -> u32;
         extern fn PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE(hResource: *const _HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuoLogSize: u32) -> u32;
         extern fn PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE_EX(hResource: *const _HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuorumLogSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
         extern fn PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(hResource: *const _HRESOURCE, lpszDependencyExpression: PCWSTR) -> u32;
@@ -3845,9 +3845,9 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn SetClusterGroupNameEx(hGroup: *const _HGROUP, lpszGroupName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterGroupNodeList(hGroup: *const _HGROUP, NodeCount: u32, #[len_param(1)] #[opt] NodeList: [HNODE; 0]) -> u32;
+        extern fn SetClusterGroupNodeList(hGroup: *const _HGROUP, NodeCount: u32, #[len_param(1)] #[opt] NodeList: *const HNODE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterGroupNodeListEx(hGroup: *mut _HGROUP, NodeCount: u32, NodeList: [HNODE; 0], #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn SetClusterGroupNodeListEx(hGroup: *mut _HGROUP, NodeCount: u32, NodeList: *mut HNODE, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn SetClusterGroupSetDependencyExpression(hGroupSet: *const _HGROUPSET, lpszDependencyExprssion: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
@@ -3861,7 +3861,7 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn SetClusterNetworkNameEx(hNetwork: *const _HNETWORK, lpszName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterNetworkPriorityOrder(hCluster: *const _HCLUSTER, NetworkCount: u32, #[len_param(1)] NetworkList: [HNETWORK; 0]) -> u32;
+        extern fn SetClusterNetworkPriorityOrder(hCluster: *const _HCLUSTER, NetworkCount: u32, #[len_param(1)] NetworkList: *const HNETWORK) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn SetClusterQuorumResource(hResource: *const _HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuoLogSize: u32) -> u32;
         #[library("CLUSAPI.dll")]

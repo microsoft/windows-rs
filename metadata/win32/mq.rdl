@@ -126,7 +126,7 @@ mod Windows {
         #[library("mqrt.dll")]
         extern fn MQLocateEnd(hEnum: HANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQLocateNext(hEnum: HANDLE, #[in] #[out] pcProps: *mut u32, #[out] aPropVar: [MQPROPVARIANT; 0]) -> HRESULT;
+        extern fn MQLocateNext(hEnum: HANDLE, #[in] #[out] pcProps: *mut u32, aPropVar: *mut MQPROPVARIANT) -> HRESULT;
         struct MQMGMTPROPS {
             cProp: u32,
             aPropID: *mut MGMTPROPID,

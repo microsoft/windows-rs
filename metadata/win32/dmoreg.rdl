@@ -14,7 +14,7 @@ mod Windows {
         #[library("msdmo.dll")]
         extern fn DMOEnum(guidCategory: *const GUID, dwFlags: u32, cInTypes: u32, pInTypes: *const DMO_PARTIAL_MEDIATYPE, cOutTypes: u32, pOutTypes: *const DMO_PARTIAL_MEDIATYPE, ppEnum: *mut IEnumDMO) -> HRESULT;
         #[library("msdmo.dll")]
-        extern fn DMOGetName(clsidDMO: *const GUID, #[len_const(80)] #[out] szName: [u16; 80]) -> HRESULT;
+        extern fn DMOGetName(clsidDMO: *const GUID, #[len_const(80)] szName: *mut u16) -> HRESULT;
         #[library("msdmo.dll")]
         extern fn DMOGetTypes(clsidDMO: *const GUID, ulInputTypesRequested: u32, pulInputTypesSupplied: *mut u32, pInputTypes: *mut DMO_PARTIAL_MEDIATYPE, ulOutputTypesRequested: u32, pulOutputTypesSupplied: *mut u32, pOutputTypes: *mut DMO_PARTIAL_MEDIATYPE) -> HRESULT;
         #[library("msdmo.dll")]

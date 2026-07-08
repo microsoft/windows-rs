@@ -1349,7 +1349,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHCreateShellItem(#[opt] pidlParent: *const ITEMIDLIST, #[opt] psfParent: IShellFolder, pidl: *const ITEMIDLIST, ppsi: *mut IShellItem) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateStdEnumFmtEtc(cfmt: u32, #[len_param(0)] afmt: [FORMATETC; 0], ppenumFormatEtc: *mut IEnumFORMATETC) -> HRESULT;
+        extern fn SHCreateStdEnumFmtEtc(cfmt: u32, #[len_param(0)] afmt: *const FORMATETC, ppenumFormatEtc: *mut IEnumFORMATETC) -> HRESULT;
         struct SHDESCRIPTIONID {
             dwDescriptionId: u32,
             clsid: GUID,
@@ -1577,9 +1577,9 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHPropStgCreate(psstg: IPropertySetStorage, fmtid: *const GUID, #[opt] pclsid: *const GUID, grfFlags: u32, grfMode: u32, dwDisposition: u32, ppstg: *mut IPropertyStorage, #[opt] puCodePage: *mut u32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHPropStgReadMultiple(pps: IPropertyStorage, uCodePage: u32, cpspec: u32, #[len_param(2)] rgpspec: [PROPSPEC; 0], #[len_param(2)] #[out] rgvar: [PROPVARIANT; 0]) -> HRESULT;
+        extern fn SHPropStgReadMultiple(pps: IPropertyStorage, uCodePage: u32, cpspec: u32, #[len_param(2)] rgpspec: *const PROPSPEC, #[len_param(2)] rgvar: *mut PROPVARIANT) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHPropStgWriteMultiple(pps: IPropertyStorage, #[in] #[out] #[opt] puCodePage: *mut u32, cpspec: u32, #[len_param(2)] rgpspec: [PROPSPEC; 0], #[len_param(2)] #[in] #[out] rgvar: [PROPVARIANT; 0], propidNameFirst: PROPID) -> HRESULT;
+        extern fn SHPropStgWriteMultiple(pps: IPropertyStorage, #[in] #[out] #[opt] puCodePage: *mut u32, cpspec: u32, #[len_param(2)] rgpspec: *const PROPSPEC, #[len_param(2)] #[in] #[out] rgvar: *mut PROPVARIANT, propidNameFirst: PROPID) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, uPageID: u32, lpfnReplaceWith: LPFNADDPROPSHEETPAGE, lParam: LPARAM) -> u32;
         #[library("SHELL32.dll")]

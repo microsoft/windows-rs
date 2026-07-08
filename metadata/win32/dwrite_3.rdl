@@ -280,7 +280,7 @@ mod Windows {
         }
         #[guid(0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35)]
         interface IDWriteColorGlyphRunEnumerator1: IDWriteColorGlyphRunEnumerator {
-            fn GetCurrentRun(&self, colorGlyphRun: *const *const DWRITE_COLOR_GLYPH_RUN1) -> HRESULT;
+            fn GetCurrentRun(&self, colorGlyphRun: *mut *mut DWRITE_COLOR_GLYPH_RUN1) -> HRESULT;
         }
         #[guid(0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65)]
         interface IDWriteFactory3: IDWriteFactory2 {

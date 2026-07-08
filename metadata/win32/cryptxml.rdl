@@ -289,7 +289,7 @@ mod Windows {
         const CRYPT_XML_X509DATA_TYPE_SKI: u32 = 2;
         const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: u32 = 3;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlAddObject(hSignatureOrObject: HCRYPTXML, dwFlags: u32, #[len_param(3)] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, cProperty: u32, pEncoded: *const CRYPT_XML_BLOB, ppObject: *const *const CRYPT_XML_OBJECT) -> HRESULT;
+        extern fn CryptXmlAddObject(hSignatureOrObject: HCRYPTXML, dwFlags: u32, #[len_param(3)] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, cProperty: u32, pEncoded: *const CRYPT_XML_BLOB, ppObject: *mut *mut CRYPT_XML_OBJECT) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlClose(hCryptXml: HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
@@ -316,15 +316,15 @@ mod Windows {
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlGetAlgorithmInfo(pXmlAlgorithm: *const CRYPT_XML_ALGORITHM, dwFlags: u32, ppAlgInfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetDocContext(hCryptXml: HCRYPTXML, ppStruct: *const *const CRYPT_XML_DOC_CTXT) -> HRESULT;
+        extern fn CryptXmlGetDocContext(hCryptXml: HCRYPTXML, ppStruct: *mut *mut CRYPT_XML_DOC_CTXT) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetReference(hCryptXml: HCRYPTXML, ppStruct: *const *const CRYPT_XML_REFERENCE) -> HRESULT;
+        extern fn CryptXmlGetReference(hCryptXml: HCRYPTXML, ppStruct: *mut *mut CRYPT_XML_REFERENCE) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetSignature(hCryptXml: HCRYPTXML, ppStruct: *const *const CRYPT_XML_SIGNATURE) -> HRESULT;
+        extern fn CryptXmlGetSignature(hCryptXml: HCRYPTXML, ppStruct: *mut *mut CRYPT_XML_SIGNATURE) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlGetStatus(hCryptXml: HCRYPTXML, pStatus: *mut CRYPT_XML_STATUS) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetTransforms(ppConfig: *const *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> HRESULT;
+        extern fn CryptXmlGetTransforms(ppConfig: *mut *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlImportPublicKey(dwFlags: u32, pKeyValue: *const CRYPT_XML_KEY_VALUE, phKey: *mut BCRYPT_KEY_HANDLE) -> HRESULT;
         #[library("CRYPTXML.dll")]

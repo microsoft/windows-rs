@@ -9,7 +9,7 @@ mod Windows {
         }
         #[guid(0x4cec0d02_def7_4158_813a_c32a46945ff7)]
         interface IBackgroundCopyServerCertificateValidationCallback: IUnknown {
-            fn ValidateServerCertificate(&self, job: IBackgroundCopyJob, file: IBackgroundCopyFile, certLength: u32, certData: [u8; 0], certEncodingType: u32, certStoreLength: u32, certStoreData: [u8; 0]) -> HRESULT;
+            fn ValidateServerCertificate(&self, job: IBackgroundCopyJob, file: IBackgroundCopyFile, certLength: u32, certData: *const u8, certEncodingType: u32, certStoreLength: u32, certStoreData: *const u8) -> HRESULT;
         }
     }
 }

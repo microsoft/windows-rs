@@ -232,7 +232,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn ReadFileEx(hFile: HANDLE, #[size_param(2)] #[opt] lpBuffer: *mut void, nNumberOfBytesToRead: u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED, lpCompletionRoutine: LPOVERLAPPED_COMPLETION_ROUTINE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReadFileScatter(hFile: HANDLE, aSegmentArray: [FILE_SEGMENT_ELEMENT; 0], nNumberOfBytesToRead: u32, #[reserved] lpReserved: *const u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn ReadFileScatter(hFile: HANDLE, aSegmentArray: *const FILE_SEGMENT_ELEMENT, nNumberOfBytesToRead: u32, #[reserved] lpReserved: *const u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn RemoveDirectory2A(lpPathName: PCSTR, DirectoryFlags: DIRECTORY_FLAGS) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -290,6 +290,6 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn WriteFileEx(hFile: HANDLE, #[size_param(2)] #[opt] lpBuffer: *const void, nNumberOfBytesToWrite: u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED, lpCompletionRoutine: LPOVERLAPPED_COMPLETION_ROUTINE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WriteFileGather(hFile: HANDLE, aSegmentArray: [FILE_SEGMENT_ELEMENT; 0], nNumberOfBytesToWrite: u32, #[reserved] lpReserved: *const u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn WriteFileGather(hFile: HANDLE, aSegmentArray: *const FILE_SEGMENT_ELEMENT, nNumberOfBytesToWrite: u32, #[reserved] lpReserved: *const u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
     }
 }

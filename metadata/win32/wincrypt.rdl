@@ -3478,7 +3478,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertAddRefServerOcspResponseContext(#[opt] pServerOcspResponseContext: *const CERT_SERVER_OCSP_RESPONSE_CONTEXT);
         #[library("CRYPT32.dll")]
-        extern fn CertAddSerializedElementToStore(#[opt] hCertStore: HCERTSTORE, #[size_param(2)] pbElement: *const u8, cbElement: u32, dwAddDisposition: u32, dwFlags: u32, dwContextTypeFlags: u32, #[opt] pdwContextType: *mut u32, ppvContext: *const *const void) -> BOOL;
+        extern fn CertAddSerializedElementToStore(#[opt] hCertStore: HCERTSTORE, #[size_param(2)] pbElement: *const u8, cbElement: u32, dwAddDisposition: u32, dwFlags: u32, dwContextTypeFlags: u32, #[opt] pdwContextType: *mut u32, ppvContext: *mut *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertAddStoreToCollection(hCollectionStore: HCERTSTORE, #[opt] hSiblingStore: HCERTSTORE, dwUpdateFlags: u32, dwPriority: u32) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3548,7 +3548,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertEnumSystemStoreLocation(dwFlags: u32, #[in] #[out] #[opt] pvArg: *mut void, pfnEnum: PFN_CERT_ENUM_SYSTEM_STORE_LOCATION) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertFindAttribute(pszObjId: PCSTR, cAttr: u32, #[len_param(1)] rgAttr: [CRYPT_ATTRIBUTE; 0]) -> PCRYPT_ATTRIBUTE;
+        extern fn CertFindAttribute(pszObjId: PCSTR, cAttr: u32, #[len_param(1)] rgAttr: *const CRYPT_ATTRIBUTE) -> PCRYPT_ATTRIBUTE;
         #[library("CRYPT32.dll")]
         extern fn CertFindCRLInStore(hCertStore: HCERTSTORE, dwCertEncodingType: u32, dwFindFlags: u32, dwFindType: u32, #[opt] pvFindPara: *const void, #[opt] pPrevCrlContext: *const CRL_CONTEXT) -> PCCRL_CONTEXT;
         #[library("CRYPT32.dll")]
@@ -3560,7 +3560,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertFindChainInStore(hCertStore: HCERTSTORE, dwCertEncodingType: u32, dwFindFlags: u32, dwFindType: u32, #[opt] pvFindPara: *const void, #[opt] pPrevChainContext: *const CERT_CHAIN_CONTEXT) -> PCCERT_CHAIN_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertFindExtension(pszObjId: PCSTR, cExtensions: u32, #[len_param(1)] rgExtensions: [CERT_EXTENSION; 0]) -> PCERT_EXTENSION;
+        extern fn CertFindExtension(pszObjId: PCSTR, cExtensions: u32, #[len_param(1)] rgExtensions: *const CERT_EXTENSION) -> PCERT_EXTENSION;
         #[library("CRYPT32.dll")]
         extern fn CertFindRDNAttr(pszObjId: PCSTR, pName: *const CERT_NAME_INFO) -> PCERT_RDN_ATTR;
         #[library("CRYPT32.dll")]
@@ -3692,7 +3692,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertUnregisterSystemStore(pvSystemStore: *const void, dwFlags: u32) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertVerifyCRLRevocation(dwCertEncodingType: u32, pCertId: *const CERT_INFO, cCrlInfo: u32, #[len_param(2)] rgpCrlInfo: [PCRL_INFO; 0]) -> BOOL;
+        extern fn CertVerifyCRLRevocation(dwCertEncodingType: u32, pCertId: *const CERT_INFO, cCrlInfo: u32, #[len_param(2)] rgpCrlInfo: *const PCRL_INFO) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertVerifyCRLTimeValidity(#[opt] pTimeToVerify: *const FILETIME, pCrlInfo: *const CRL_INFO) -> i32;
         #[library("CRYPT32.dll")]
@@ -3700,7 +3700,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertVerifyCertificateChainPolicy(pszPolicyOID: PCSTR, pChainContext: *const CERT_CHAIN_CONTEXT, pPolicyPara: *const CERT_CHAIN_POLICY_PARA, #[in] #[out] pPolicyStatus: *mut CERT_CHAIN_POLICY_STATUS) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertVerifyRevocation(dwEncodingType: u32, dwRevType: u32, cContext: u32, #[len_param(2)] rgpvContext: [*mut void; 0], dwFlags: u32, #[opt] pRevPara: *const CERT_REVOCATION_PARA, #[in] #[out] pRevStatus: *mut CERT_REVOCATION_STATUS) -> BOOL;
+        extern fn CertVerifyRevocation(dwEncodingType: u32, dwRevType: u32, cContext: u32, #[len_param(2)] rgpvContext: *const *const void, dwFlags: u32, #[opt] pRevPara: *const CERT_REVOCATION_PARA, #[in] #[out] pRevStatus: *mut CERT_REVOCATION_STATUS) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertVerifySubjectCertificateContext(pSubject: *const CERT_CONTEXT, #[opt] pIssuer: *const CERT_CONTEXT, #[in] #[out] pdwFlags: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3756,7 +3756,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CryptEncrypt(hKey: HCRYPTKEY, hHash: HCRYPTHASH, Final: BOOL, dwFlags: u32, #[size_param(6)] #[in] #[out] #[opt] pbData: *mut u8, #[in] #[out] pdwDataLen: *mut u32, dwBufLen: u32) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptEncryptMessage(pEncryptPara: *const CRYPT_ENCRYPT_MESSAGE_PARA, cRecipientCert: u32, #[len_param(1)] rgpRecipientCert: [PCCERT_CONTEXT; 0], #[size_param(4)] #[opt] pbToBeEncrypted: *const u8, cbToBeEncrypted: u32, #[size_param(6)] #[opt] pbEncryptedBlob: *mut u8, #[in] #[out] pcbEncryptedBlob: *mut u32) -> BOOL;
+        extern fn CryptEncryptMessage(pEncryptPara: *const CRYPT_ENCRYPT_MESSAGE_PARA, cRecipientCert: u32, #[len_param(1)] rgpRecipientCert: *const PCCERT_CONTEXT, #[size_param(4)] #[opt] pbToBeEncrypted: *const u8, cbToBeEncrypted: u32, #[size_param(6)] #[opt] pbEncryptedBlob: *mut u8, #[in] #[out] pcbEncryptedBlob: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptEnumKeyIdentifierProperties(#[opt] pKeyIdentifier: *const CRYPT_HASH_BLOB, dwPropId: u32, dwFlags: u32, #[opt] pwszComputerName: PCWSTR, #[reserved] pvReserved: *const void, #[in] #[out] #[opt] pvArg: *mut void, pfnEnum: PFN_CRYPT_ENUM_KEYID_PROP) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3832,7 +3832,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CryptHashData(hHash: HCRYPTHASH, #[size_param(2)] pbData: *const u8, dwDataLen: u32, dwFlags: u32) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptHashMessage(pHashPara: *const CRYPT_HASH_MESSAGE_PARA, fDetachedHash: BOOL, cToBeHashed: u32, #[len_param(2)] rgpbToBeHashed: [*const u8; 0], #[len_param(2)] rgcbToBeHashed: [u32; 0], #[size_param(6)] #[opt] pbHashedBlob: *mut u8, #[in] #[out] #[opt] pcbHashedBlob: *mut u32, #[size_param(8)] #[opt] pbComputedHash: *mut u8, #[in] #[out] #[opt] pcbComputedHash: *mut u32) -> BOOL;
+        extern fn CryptHashMessage(pHashPara: *const CRYPT_HASH_MESSAGE_PARA, fDetachedHash: BOOL, cToBeHashed: u32, #[len_param(2)] rgpbToBeHashed: *const *const u8, #[len_param(2)] rgcbToBeHashed: *const u32, #[size_param(6)] #[opt] pbHashedBlob: *mut u8, #[in] #[out] #[opt] pcbHashedBlob: *mut u32, #[size_param(8)] #[opt] pbComputedHash: *mut u8, #[in] #[out] #[opt] pcbComputedHash: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptHashPublicKeyInfo(#[opt] hCryptProv: HCRYPTPROV_LEGACY, Algid: ALG_ID, dwFlags: u32, dwCertEncodingType: u32, pInfo: *const CERT_PUBLIC_KEY_INFO, #[size_param(6)] #[opt] pbComputedHash: *mut u8, #[in] #[out] pcbComputedHash: *mut u32) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -3856,7 +3856,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptInstallDefaultContext(hCryptProv: HCRYPTPROV, dwDefaultType: u32, #[opt] pvDefaultPara: *const void, dwFlags: u32, #[reserved] pvReserved: *const void, phDefaultContext: *mut HCRYPTDEFAULTCONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptInstallOIDFunctionAddress(#[opt] hModule: HMODULE, dwEncodingType: u32, pszFuncName: PCSTR, cFuncEntry: u32, #[len_param(3)] rgFuncEntry: [CRYPT_OID_FUNC_ENTRY; 0], dwFlags: u32) -> BOOL;
+        extern fn CryptInstallOIDFunctionAddress(#[opt] hModule: HMODULE, dwEncodingType: u32, pszFuncName: PCSTR, cFuncEntry: u32, #[len_param(3)] rgFuncEntry: *const CRYPT_OID_FUNC_ENTRY, dwFlags: u32) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptMemAlloc(cbSize: u32) -> *mut void;
         #[library("CRYPT32.dll")]
@@ -3894,7 +3894,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptMsgVerifyCountersignatureEncodedEx(#[opt] hCryptProv: HCRYPTPROV_LEGACY, dwEncodingType: u32, #[size_param(3)] pbSignerInfo: *const u8, cbSignerInfo: u32, #[size_param(5)] pbSignerInfoCountersignature: *const u8, cbSignerInfoCountersignature: u32, dwSignerType: u32, pvSigner: *const void, dwFlags: u32, #[in] #[out] #[opt] pvExtra: *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptQueryObject(dwObjectType: u32, pvObject: *const void, dwExpectedContentTypeFlags: u32, dwExpectedFormatTypeFlags: u32, dwFlags: u32, #[opt] pdwMsgAndCertEncodingType: *mut u32, #[opt] pdwContentType: *mut u32, #[opt] pdwFormatType: *mut u32, #[opt] phCertStore: *mut HCERTSTORE, #[opt] phMsg: *mut HCRYPTMSG, ppvContext: *const *const void) -> BOOL;
+        extern fn CryptQueryObject(dwObjectType: u32, pvObject: *const void, dwExpectedContentTypeFlags: u32, dwExpectedFormatTypeFlags: u32, dwFlags: u32, #[opt] pdwMsgAndCertEncodingType: *mut u32, #[opt] pdwContentType: *mut u32, #[opt] pdwFormatType: *mut u32, #[opt] phCertStore: *mut HCERTSTORE, #[opt] phMsg: *mut HCRYPTMSG, ppvContext: *mut *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptRegisterDefaultOIDFunction(dwEncodingType: u32, pszFuncName: PCSTR, dwIndex: u32, pwszDll: PCWSTR) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3932,7 +3932,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptSignAndEncodeCertificate(#[opt] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[opt] dwKeySpec: u32, dwCertEncodingType: u32, lpszStructType: PCSTR, pvStructInfo: *const void, pSignatureAlgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, #[opt] pvHashAuxInfo: *const void, #[size_param(8)] #[opt] pbEncoded: *mut u8, #[in] #[out] pcbEncoded: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSignAndEncryptMessage(pSignPara: *const CRYPT_SIGN_MESSAGE_PARA, pEncryptPara: *const CRYPT_ENCRYPT_MESSAGE_PARA, cRecipientCert: u32, #[len_param(2)] rgpRecipientCert: [PCCERT_CONTEXT; 0], #[size_param(5)] pbToBeSignedAndEncrypted: *const u8, cbToBeSignedAndEncrypted: u32, #[size_param(7)] #[opt] pbSignedAndEncryptedBlob: *mut u8, #[in] #[out] pcbSignedAndEncryptedBlob: *mut u32) -> BOOL;
+        extern fn CryptSignAndEncryptMessage(pSignPara: *const CRYPT_SIGN_MESSAGE_PARA, pEncryptPara: *const CRYPT_ENCRYPT_MESSAGE_PARA, cRecipientCert: u32, #[len_param(2)] rgpRecipientCert: *const PCCERT_CONTEXT, #[size_param(5)] pbToBeSignedAndEncrypted: *const u8, cbToBeSignedAndEncrypted: u32, #[size_param(7)] #[opt] pbSignedAndEncryptedBlob: *mut u8, #[in] #[out] pcbSignedAndEncryptedBlob: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptSignCertificate(#[opt] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[opt] dwKeySpec: u32, dwCertEncodingType: u32, #[size_param(4)] pbEncodedToBeSigned: *const u8, cbEncodedToBeSigned: u32, pSignatureAlgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, #[opt] pvHashAuxInfo: *const void, #[size_param(8)] #[opt] pbSignature: *mut u8, #[in] #[out] pcbSignature: *mut u32) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -3940,7 +3940,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CryptSignHashW(hHash: HCRYPTHASH, dwKeySpec: u32, #[opt] szDescription: PCWSTR, dwFlags: u32, #[size_param(5)] #[opt] pbSignature: *mut u8, #[in] #[out] pdwSigLen: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSignMessage(pSignPara: *const CRYPT_SIGN_MESSAGE_PARA, fDetachedSignature: BOOL, cToBeSigned: u32, #[len_param(2)] #[opt] rgpbToBeSigned: [*const u8; 0], #[len_param(2)] rgcbToBeSigned: [u32; 0], #[size_param(6)] #[opt] pbSignedBlob: *mut u8, #[in] #[out] pcbSignedBlob: *mut u32) -> BOOL;
+        extern fn CryptSignMessage(pSignPara: *const CRYPT_SIGN_MESSAGE_PARA, fDetachedSignature: BOOL, cToBeSigned: u32, #[len_param(2)] #[opt] rgpbToBeSigned: *const *const u8, #[len_param(2)] rgcbToBeSigned: *const u32, #[size_param(6)] #[opt] pbSignedBlob: *mut u8, #[in] #[out] pcbSignedBlob: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptSignMessageWithKey(pSignPara: *const CRYPT_KEY_SIGN_MESSAGE_PARA, #[size_param(2)] pbToBeSigned: *const u8, cbToBeSigned: u32, #[size_param(4)] #[opt] pbSignedBlob: *mut u8, #[in] #[out] pcbSignedBlob: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3962,9 +3962,9 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptVerifyCertificateSignatureEx(#[opt] hCryptProv: HCRYPTPROV_LEGACY, dwCertEncodingType: u32, dwSubjectType: u32, pvSubject: *const void, dwIssuerType: u32, #[opt] pvIssuer: *const void, dwFlags: u32, #[in] #[out] #[opt] pvExtra: *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptVerifyDetachedMessageHash(pHashPara: *const CRYPT_HASH_MESSAGE_PARA, #[size_param(2)] pbDetachedHashBlob: *const u8, cbDetachedHashBlob: u32, cToBeHashed: u32, #[len_param(3)] rgpbToBeHashed: [*const u8; 0], #[len_param(3)] rgcbToBeHashed: [u32; 0], #[size_param(7)] #[opt] pbComputedHash: *mut u8, #[in] #[out] #[opt] pcbComputedHash: *mut u32) -> BOOL;
+        extern fn CryptVerifyDetachedMessageHash(pHashPara: *const CRYPT_HASH_MESSAGE_PARA, #[size_param(2)] pbDetachedHashBlob: *const u8, cbDetachedHashBlob: u32, cToBeHashed: u32, #[len_param(3)] rgpbToBeHashed: *const *const u8, #[len_param(3)] rgcbToBeHashed: *const u32, #[size_param(7)] #[opt] pbComputedHash: *mut u8, #[in] #[out] #[opt] pcbComputedHash: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptVerifyDetachedMessageSignature(pVerifyPara: *const CRYPT_VERIFY_MESSAGE_PARA, dwSignerIndex: u32, #[size_param(3)] pbDetachedSignBlob: *const u8, cbDetachedSignBlob: u32, cToBeSigned: u32, #[len_param(4)] rgpbToBeSigned: [*const u8; 0], #[len_param(4)] rgcbToBeSigned: [u32; 0], ppSignerCert: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn CryptVerifyDetachedMessageSignature(pVerifyPara: *const CRYPT_VERIFY_MESSAGE_PARA, dwSignerIndex: u32, #[size_param(3)] pbDetachedSignBlob: *const u8, cbDetachedSignBlob: u32, cToBeSigned: u32, #[len_param(4)] rgpbToBeSigned: *const *const u8, #[len_param(4)] rgcbToBeSigned: *const u32, ppSignerCert: *mut PCCERT_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptVerifyMessageHash(pHashPara: *const CRYPT_HASH_MESSAGE_PARA, #[size_param(2)] pbHashedBlob: *const u8, cbHashedBlob: u32, #[size_param(4)] #[opt] pbToBeHashed: *mut u8, #[in] #[out] #[opt] pcbToBeHashed: *mut u32, #[size_param(6)] #[opt] pbComputedHash: *mut u8, #[in] #[out] #[opt] pcbComputedHash: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -4588,7 +4588,7 @@ mod Windows {
         extern fn PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC(#[in] #[out] #[opt] pvCompletion: *mut void, dwCompletionCode: u32, pszUrl: PCSTR, #[opt] pszObjectOid: PCSTR, pvObject: *const void);
         extern fn PFN_CRYPT_CANCEL_RETRIEVAL(dwFlags: u32, #[in] #[out] #[opt] pvArg: *mut void) -> BOOL;
         extern fn PFN_CRYPT_ENUM_KEYID_PROP(pKeyIdentifier: *const CRYPT_HASH_BLOB, dwFlags: u32, #[reserved] pvReserved: *const void, #[in] #[out] #[opt] pvArg: *mut void, cProp: u32, #[len_param(4)] rgdwPropId: *const u32, #[len_param(4)] rgpvData: *const *const void, #[len_param(4)] rgcbData: *const u32) -> BOOL;
-        extern fn PFN_CRYPT_ENUM_OID_FUNC(dwEncodingType: u32, pszFuncName: PCSTR, pszOID: PCSTR, cValue: u32, #[len_param(3)] rgdwValueType: [u32; 0], #[len_param(3)] rgpwszValueName: [PCWSTR; 0], #[len_param(3)] rgpbValueData: [*const u8; 0], #[len_param(3)] rgcbValueData: [u32; 0], #[in] #[out] #[opt] pvArg: *mut void) -> BOOL;
+        extern fn PFN_CRYPT_ENUM_OID_FUNC(dwEncodingType: u32, pszFuncName: PCSTR, pszOID: PCSTR, cValue: u32, #[len_param(3)] rgdwValueType: *const u32, #[len_param(3)] rgpwszValueName: *const PCWSTR, #[len_param(3)] rgpbValueData: *const *const u8, #[len_param(3)] rgcbValueData: *const u32, #[in] #[out] #[opt] pvArg: *mut void) -> BOOL;
         extern fn PFN_CRYPT_ENUM_OID_INFO(pInfo: *const CRYPT_OID_INFO, #[in] #[out] #[opt] pvArg: *mut void) -> BOOL;
         extern fn PFN_CRYPT_EXPORT_PUBLIC_KEY_INFO_EX2_FUNC(hNCryptKey: NCRYPT_KEY_HANDLE, dwCertEncodingType: u32, pszPublicKeyObjId: PCSTR, dwFlags: u32, #[opt] pvAuxInfo: *const void, #[size_param(6)] #[opt] pInfo: *mut CERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut u32) -> BOOL;
         extern fn PFN_CRYPT_EXPORT_PUBLIC_KEY_INFO_FROM_BCRYPT_HANDLE_FUNC(hBCryptKey: BCRYPT_KEY_HANDLE, dwCertEncodingType: u32, pszPublicKeyObjId: PCSTR, dwFlags: u32, #[opt] pvAuxInfo: *const void, #[size_param(6)] #[opt] pInfo: *mut CERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut u32) -> BOOL;

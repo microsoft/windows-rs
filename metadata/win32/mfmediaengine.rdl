@@ -350,7 +350,7 @@ mod Windows {
         }
         #[guid(0x4ae3a412_0545_43c4_bf6f_6b97a5c6c432)]
         interface IMFTimedTextBinary: IUnknown {
-            fn GetData(&self, data: *const *const u8, length: *mut u32) -> HRESULT;
+            fn GetData(&self, data: *mut *mut u8, length: *mut u32) -> HRESULT;
         }
         #[guid(0x3c5f3e8a_90c0_464e_8136_898d2975f847)]
         interface IMFTimedTextBouten: IUnknown {

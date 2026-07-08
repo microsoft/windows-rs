@@ -504,7 +504,7 @@ mod Windows {
             fn GetGlyphCount(&self) -> u16;
             fn GetDesignGlyphMetrics(&self, #[len_param(1)] glyphIndices: *const u16, glyphCount: u32, #[len_param(1)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, isSideways: BOOL) -> HRESULT;
             fn GetGlyphIndices(&self, #[len_param(1)] codePoints: *const u32, codePointCount: u32, #[len_param(1)] glyphIndices: *mut u16) -> HRESULT;
-            fn TryGetFontTable(&self, openTypeTableTag: u32, tableData: *const *const void, tableSize: *mut u32, tableContext: *mut *mut void, exists: *mut BOOL) -> HRESULT;
+            fn TryGetFontTable(&self, openTypeTableTag: u32, tableData: *mut *mut void, tableSize: *mut u32, tableContext: *mut *mut void, exists: *mut BOOL) -> HRESULT;
             fn ReleaseFontTable(&self, tableContext: *const void);
             fn GetGlyphRunOutline(&self, emSize: f32, #[len_param(4)] glyphIndices: *const u16, #[len_param(4)] #[opt] glyphAdvances: *const f32, #[len_param(4)] #[opt] glyphOffsets: *const DWRITE_GLYPH_OFFSET, glyphCount: u32, isSideways: BOOL, isRightToLeft: BOOL, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
             fn GetRecommendedRenderingMode(&self, emSize: f32, pixelsPerDip: f32, measuringMode: DWRITE_MEASURING_MODE, renderingParams: IDWriteRenderingParams, renderingMode: *mut DWRITE_RENDERING_MODE) -> HRESULT;
@@ -519,7 +519,7 @@ mod Windows {
         }
         #[guid(0x739d886a_cef5_47dc_8769_1a8b41bebbb0)]
         interface IDWriteFontFile: IUnknown {
-            fn GetReferenceKey(&self, fontFileReferenceKey: *const *const void, fontFileReferenceKeySize: *mut u32) -> HRESULT;
+            fn GetReferenceKey(&self, fontFileReferenceKey: *mut *mut void, fontFileReferenceKeySize: *mut u32) -> HRESULT;
             fn GetLoader(&self, fontFileLoader: *mut IDWriteFontFileLoader) -> HRESULT;
             fn Analyze(&self, isSupportedFontType: *mut BOOL, fontFileType: *mut DWRITE_FONT_FILE_TYPE, #[opt] fontFaceType: *mut DWRITE_FONT_FACE_TYPE, numberOfFaces: *mut u32) -> HRESULT;
         }
@@ -534,7 +534,7 @@ mod Windows {
         }
         #[guid(0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0)]
         interface IDWriteFontFileStream: IUnknown {
-            fn ReadFileFragment(&self, fragmentStart: *const *const void, fileOffset: u64, fragmentSize: u64, fragmentContext: *mut *mut void) -> HRESULT;
+            fn ReadFileFragment(&self, fragmentStart: *mut *mut void, fileOffset: u64, fragmentSize: u64, fragmentContext: *mut *mut void) -> HRESULT;
             fn ReleaseFileFragment(&self, fragmentContext: *mut void);
             fn GetFileSize(&self, fileSize: *mut u64) -> HRESULT;
             fn GetLastWriteTime(&self, lastWriteTime: *mut u64) -> HRESULT;
@@ -606,10 +606,10 @@ mod Windows {
         }
         #[guid(0x688e1a58_5094_47c8_adc8_fbcea60ae92b)]
         interface IDWriteTextAnalysisSource: IUnknown {
-            fn GetTextAtPosition(&self, textPosition: u32, textString: *const *const u16, textLength: *mut u32) -> HRESULT;
-            fn GetTextBeforePosition(&self, textPosition: u32, textString: *const *const u16, textLength: *mut u32) -> HRESULT;
+            fn GetTextAtPosition(&self, textPosition: u32, textString: *mut *mut u16, textLength: *mut u32) -> HRESULT;
+            fn GetTextBeforePosition(&self, textPosition: u32, textString: *mut *mut u16, textLength: *mut u32) -> HRESULT;
             fn GetParagraphReadingDirection(&self) -> DWRITE_READING_DIRECTION;
-            fn GetLocaleName(&self, textPosition: u32, textLength: *mut u32, localeName: *const *const u16) -> HRESULT;
+            fn GetLocaleName(&self, textPosition: u32, textLength: *mut u32, localeName: *mut *mut u16) -> HRESULT;
             fn GetNumberSubstitution(&self, textPosition: u32, textLength: *mut u32, numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
         }
         #[guid(0xb7e6163e_7f46_43b4_84b3_e4e6249c365d)]

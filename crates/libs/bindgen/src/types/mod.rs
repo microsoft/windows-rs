@@ -1158,3 +1158,25 @@ pub fn write_arches<R: HasAttributes<'static>>(row: R) -> TokenStream {
 
     tokens
 }
+
+/// Wraps a primitive `value` through the nested newtype layers of `ty` so it can
+/// stand in for a full-mode handle / scalar-typedef value. The new metadata
+/// preserves scalar typedefs (e.g. `JET_UINT32`, `DBLENGTH`) as named types; in
+/// full mode these render as newtype structs, so a bare integer (a constant, or an
+/// array length via `len().try_into()`) must be wrapped in one constructor per
+/// layer, bottoming out at the primitive or pointer. In `--sys`/`--minimal` mode
+/// these typedefs collapse to bare aliases, so no wrapping is applied and output is
+/// unchanged (which is also why the published bindings are byte-identical).
+pub(crate) fn write_newtype_wrap(ty: &Type, value: &TokenStream, config: &Config) -> TokenStream {
+    if !config.bindgen.style.emit_bare_typedef() {
+        if let Type::CppStruct(s) = ty {
+            if s.is_handle(config.reader) {
+                let name = ty.write_name(config);
+                let inner = ty.underlying_type(config.reader);
+                let arg = write_newtype_wrap(&inner, value, config);
+                return quote! { #name(#arg) };
+            }
+        }
+    }
+    value.clone()
+}

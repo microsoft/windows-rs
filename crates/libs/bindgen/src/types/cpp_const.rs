@@ -160,9 +160,19 @@ impl CppConst {
                         }
                         _ => ty.clone(),
                     };
+                    // In full mode a handle may wrap another newtype handle (e.g.
+                    // `HCERTCHAINENGINE(HANDLE)` or `JET_GRBIT(JET_UINT32)`). A bare
+                    // `value as _` cannot cast to that wrapper, so build the argument
+                    // through each intervening newtype layer.
+                    let arg = match &field_ty {
+                        Type::CppStruct(s) if s.is_handle(config.reader) => {
+                            write_newtype_wrap(&underlying_ty, &value, config)
+                        }
+                        _ => value,
+                    };
                     quote! {
                         #cfg
-                        pub const #name: #ty = #ctor(#value);
+                        pub const #name: #ty = #ctor(#arg);
                     }
                 }
             }

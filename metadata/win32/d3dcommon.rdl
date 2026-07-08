@@ -753,7 +753,7 @@ mod Windows {
         }
         #[no_guid]
         interface ID3DInclude {
-            fn Open(&self, IncludeType: D3D_INCLUDE_TYPE, pFileName: PCSTR, pParentData: *const void, ppData: *const *const void, pBytes: *mut u32) -> HRESULT;
+            fn Open(&self, IncludeType: D3D_INCLUDE_TYPE, pFileName: PCSTR, pParentData: *const void, ppData: *mut *mut void, pBytes: *mut u32) -> HRESULT;
             fn Close(&self, pData: *const void) -> HRESULT;
         }
         type LPD3D_SHADER_MACRO = *mut D3D_SHADER_MACRO;

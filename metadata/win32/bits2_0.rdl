@@ -20,7 +20,7 @@ mod Windows {
         #[guid(0x443c8934_90ff_48ed_bcde_26f5c7450042)]
         interface IBackgroundCopyJob3: IBackgroundCopyJob2 {
             fn ReplaceRemotePrefix(&self, OldPrefix: PCWSTR, NewPrefix: PCWSTR) -> HRESULT;
-            fn AddFileWithRanges(&self, RemoteUrl: PCWSTR, LocalName: PCWSTR, RangeCount: u32, Ranges: [BG_FILE_RANGE; 0]) -> HRESULT;
+            fn AddFileWithRanges(&self, RemoteUrl: PCWSTR, LocalName: PCWSTR, RangeCount: u32, Ranges: *const BG_FILE_RANGE) -> HRESULT;
             fn SetFileACLFlags(&self, Flags: u32) -> HRESULT;
             fn GetFileACLFlags(&self, Flags: *mut u32) -> HRESULT;
         }

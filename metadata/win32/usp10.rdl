@@ -141,7 +141,7 @@ mod Windows {
         #[library("USP10.dll")]
         extern fn ScriptGetLogicalWidths(#[len_const(1)] psa: *const SCRIPT_ANALYSIS, cChars: i32, cGlyphs: i32, #[len_param(2)] piGlyphWidth: *const i32, #[len_param(1)] pwLogClust: *const u16, #[len_param(2)] psva: *const SCRIPT_VISATTR, #[len_param(1)] piDx: *const i32) -> HRESULT;
         #[library("USP10.dll")]
-        extern fn ScriptGetProperties(ppSp: *const *const *const SCRIPT_PROPERTIES, piNumScripts: *mut i32) -> HRESULT;
+        extern fn ScriptGetProperties(ppSp: *mut *mut *mut SCRIPT_PROPERTIES, piNumScripts: *mut i32) -> HRESULT;
         #[library("USP10.dll")]
         extern fn ScriptIsComplex(#[len_param(1)] pwcInChars: *const u16, cInChars: i32, dwFlags: u32) -> HRESULT;
         #[library("USP10.dll")]

@@ -424,29 +424,29 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_abandon(ld: *mut LDAP, msgid: u32) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_add(ld: *mut LDAP, dn: PCSTR, attrs: [*mut LDAPModA; 0]) -> u32;
+        extern "C" fn ldap_add(ld: *mut LDAP, dn: PCSTR, attrs: *mut *mut LDAPModA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_addA(ld: *mut LDAP, dn: PCSTR, attrs: [*mut LDAPModA; 0]) -> u32;
+        extern "C" fn ldap_addA(ld: *mut LDAP, dn: PCSTR, attrs: *mut *mut LDAPModA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_addW(ld: *mut LDAP, dn: PCWSTR, attrs: [*mut LDAPModW; 0]) -> u32;
+        extern "C" fn ldap_addW(ld: *mut LDAP, dn: PCWSTR, attrs: *mut *mut LDAPModW) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_add_ext(ld: *mut LDAP, dn: PSTR, attrs: [*mut LDAPModA; 0], ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA, MessageNumber: *mut u32) -> u32;
+        extern "C" fn ldap_add_ext(ld: *mut LDAP, dn: PSTR, attrs: *mut *mut LDAPModA, ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA, MessageNumber: *mut u32) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_add_extA(ld: *mut LDAP, dn: PCSTR, attrs: [*mut LDAPModA; 0], ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA, MessageNumber: *mut u32) -> u32;
+        extern "C" fn ldap_add_extA(ld: *mut LDAP, dn: PCSTR, attrs: *mut *mut LDAPModA, ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA, MessageNumber: *mut u32) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_add_extW(ld: *mut LDAP, dn: PCWSTR, attrs: [*mut LDAPModW; 0], ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW, MessageNumber: *mut u32) -> u32;
+        extern "C" fn ldap_add_extW(ld: *mut LDAP, dn: PCWSTR, attrs: *mut *mut LDAPModW, ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW, MessageNumber: *mut u32) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_add_ext_s(ld: *mut LDAP, dn: PSTR, attrs: [*mut LDAPModA; 0], ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA) -> u32;
+        extern "C" fn ldap_add_ext_s(ld: *mut LDAP, dn: PSTR, attrs: *mut *mut LDAPModA, ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_add_ext_sA(ld: *mut LDAP, dn: PCSTR, attrs: [*mut LDAPModA; 0], ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA) -> u32;
+        extern "C" fn ldap_add_ext_sA(ld: *mut LDAP, dn: PCSTR, attrs: *mut *mut LDAPModA, ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_add_ext_sW(ld: *mut LDAP, dn: PCWSTR, attrs: [*mut LDAPModW; 0], ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW) -> u32;
+        extern "C" fn ldap_add_ext_sW(ld: *mut LDAP, dn: PCWSTR, attrs: *mut *mut LDAPModW, ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_add_s(ld: *mut LDAP, dn: PCSTR, attrs: [*mut LDAPModA; 0]) -> u32;
+        extern "C" fn ldap_add_s(ld: *mut LDAP, dn: PCSTR, attrs: *mut *mut LDAPModA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_add_sA(ld: *mut LDAP, dn: PCSTR, attrs: [*mut LDAPModA; 0]) -> u32;
+        extern "C" fn ldap_add_sA(ld: *mut LDAP, dn: PCSTR, attrs: *mut *mut LDAPModA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_add_sW(ld: *mut LDAP, dn: PCWSTR, attrs: [*mut LDAPModW; 0]) -> u32;
+        extern "C" fn ldap_add_sW(ld: *mut LDAP, dn: PCWSTR, attrs: *mut *mut LDAPModW) -> u32;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_bind(ld: *mut LDAP, #[opt] dn: PCSTR, #[opt] cred: *const i8, method: u32) -> u32;
         #[library("WLDAP32.dll")]
@@ -654,29 +654,29 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_memfreeW(Block: *const u16);
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modify(ld: *mut LDAP, dn: PCSTR, mods: [*mut LDAPModA; 0]) -> u32;
+        extern "C" fn ldap_modify(ld: *mut LDAP, dn: PCSTR, mods: *mut *mut LDAPModA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modifyA(ld: *mut LDAP, dn: PCSTR, mods: [*mut LDAPModA; 0]) -> u32;
+        extern "C" fn ldap_modifyA(ld: *mut LDAP, dn: PCSTR, mods: *mut *mut LDAPModA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modifyW(ld: *mut LDAP, dn: PCWSTR, mods: [*mut LDAPModW; 0]) -> u32;
+        extern "C" fn ldap_modifyW(ld: *mut LDAP, dn: PCWSTR, mods: *mut *mut LDAPModW) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modify_ext(ld: *mut LDAP, dn: PSTR, mods: [*mut LDAPModA; 0], ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA, MessageNumber: *mut u32) -> u32;
+        extern "C" fn ldap_modify_ext(ld: *mut LDAP, dn: PSTR, mods: *mut *mut LDAPModA, ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA, MessageNumber: *mut u32) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modify_extA(ld: *mut LDAP, dn: PCSTR, mods: [*mut LDAPModA; 0], ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA, MessageNumber: *mut u32) -> u32;
+        extern "C" fn ldap_modify_extA(ld: *mut LDAP, dn: PCSTR, mods: *mut *mut LDAPModA, ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA, MessageNumber: *mut u32) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modify_extW(ld: *mut LDAP, dn: PCWSTR, mods: [*mut LDAPModW; 0], ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW, MessageNumber: *mut u32) -> u32;
+        extern "C" fn ldap_modify_extW(ld: *mut LDAP, dn: PCWSTR, mods: *mut *mut LDAPModW, ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW, MessageNumber: *mut u32) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modify_ext_s(ld: *mut LDAP, dn: PSTR, mods: [*mut LDAPModA; 0], ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA) -> u32;
+        extern "C" fn ldap_modify_ext_s(ld: *mut LDAP, dn: PSTR, mods: *mut *mut LDAPModA, ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modify_ext_sA(ld: *mut LDAP, dn: PCSTR, mods: [*mut LDAPModA; 0], ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA) -> u32;
+        extern "C" fn ldap_modify_ext_sA(ld: *mut LDAP, dn: PCSTR, mods: *mut *mut LDAPModA, ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modify_ext_sW(ld: *mut LDAP, dn: PCWSTR, mods: [*mut LDAPModW; 0], ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW) -> u32;
+        extern "C" fn ldap_modify_ext_sW(ld: *mut LDAP, dn: PCWSTR, mods: *mut *mut LDAPModW, ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modify_s(ld: *mut LDAP, dn: PCSTR, mods: [*mut LDAPModA; 0]) -> u32;
+        extern "C" fn ldap_modify_s(ld: *mut LDAP, dn: PCSTR, mods: *mut *mut LDAPModA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modify_sA(ld: *mut LDAP, dn: PCSTR, mods: [*mut LDAPModA; 0]) -> u32;
+        extern "C" fn ldap_modify_sA(ld: *mut LDAP, dn: PCSTR, mods: *mut *mut LDAPModA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_modify_sW(ld: *mut LDAP, dn: PCWSTR, mods: [*mut LDAPModW; 0]) -> u32;
+        extern "C" fn ldap_modify_sW(ld: *mut LDAP, dn: PCWSTR, mods: *mut *mut LDAPModW) -> u32;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_modrdn(ExternalHandle: *mut LDAP, DistinguishedName: PCSTR, NewDistinguishedName: PCSTR) -> u32;
         #[library("WLDAP32.dll")]

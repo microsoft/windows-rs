@@ -63,8 +63,8 @@ mod Windows {
             fn TxDeactivate(&self, lNewState: i32) -> HRESULT;
             fn TxGetClientRect(&self, prc: *mut RECT) -> HRESULT;
             fn TxGetViewInset(&self, prc: *mut RECT) -> HRESULT;
-            fn TxGetCharFormat(&self, ppCF: *const *const CHARFORMATW) -> HRESULT;
-            fn TxGetParaFormat(&self, ppPF: *const *const PARAFORMAT) -> HRESULT;
+            fn TxGetCharFormat(&self, ppCF: *mut *mut CHARFORMATW) -> HRESULT;
+            fn TxGetParaFormat(&self, ppPF: *mut *mut PARAFORMAT) -> HRESULT;
             fn TxGetSysColor(&self, nIndex: i32) -> COLORREF;
             fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> HRESULT;
             fn TxGetMaxLength(&self, plength: *mut u32) -> HRESULT;

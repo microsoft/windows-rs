@@ -17,7 +17,7 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetServiceGetInfo(#[opt] servername: PCWSTR, service: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceInstall(#[opt] servername: PCWSTR, service: PCWSTR, argc: u32, #[len_param(2)] argv: [PCWSTR; 0], bufptr: *mut LPBYTE) -> u32;
+        extern fn NetServiceInstall(#[opt] servername: PCWSTR, service: PCWSTR, argc: u32, #[len_param(2)] argv: *const PCWSTR, bufptr: *mut LPBYTE) -> u32;
         type PSERVICE_INFO_0 = *mut SERVICE_INFO_0;
         type PSERVICE_INFO_1 = *mut SERVICE_INFO_1;
         type PSERVICE_INFO_2 = *mut SERVICE_INFO_2;

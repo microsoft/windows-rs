@@ -50,7 +50,7 @@ mod Windows {
         interface IBDA_ConditionalAccess: IUnknown {
             fn get_SmartCardStatus(&self, pCardStatus: *mut SmartCardStatusType, pCardAssociation: *mut SmartCardAssociationType, pbstrCardError: *mut BSTR, pfOOBLocked: *mut VARIANT_BOOL) -> HRESULT;
             fn get_SmartCardInfo(&self, pbstrCardName: *mut BSTR, pbstrCardManufacturer: *mut BSTR, pfDaylightSavings: *mut VARIANT_BOOL, pbyRatingRegion: *mut u8, plTimeZoneOffsetMinutes: *mut i32, pbstrLanguage: *mut BSTR, pEALocationCode: *mut EALocationCodeType) -> HRESULT;
-            fn get_SmartCardApplications(&self, #[in] #[out] pulcApplications: *mut u32, ulcApplicationsMax: u32, #[in] #[out] rgApplications: [SmartCardApplication; 0]) -> HRESULT;
+            fn get_SmartCardApplications(&self, #[in] #[out] pulcApplications: *mut u32, ulcApplicationsMax: u32, #[in] #[out] rgApplications: *mut SmartCardApplication) -> HRESULT;
             fn get_Entitlement(&self, usVirtualChannel: u16, pEntitlement: *mut EntitlementType) -> HRESULT;
             fn TuneByChannel(&self, usVirtualChannel: u16) -> HRESULT;
             fn SetProgram(&self, usProgramNumber: u16) -> HRESULT;
@@ -144,7 +144,7 @@ mod Windows {
             fn put_DiseqUseToneBurst(&self, bUseToneBurst: BOOLEAN) -> HRESULT;
             fn put_DiseqRepeats(&self, ulRepeats: u32) -> HRESULT;
             fn put_DiseqSendCommand(&self, ulRequestId: u32, ulcbCommandLen: u32, pbCommand: *const u8) -> HRESULT;
-            fn get_DiseqResponse(&self, ulRequestId: u32, #[in] #[out] pulcbResponseLen: *mut u32, #[in] #[out] pbResponse: [u8; 0]) -> HRESULT;
+            fn get_DiseqResponse(&self, ulRequestId: u32, #[in] #[out] pulcbResponseLen: *mut u32, #[in] #[out] pbResponse: *mut u8) -> HRESULT;
         }
         #[guid(0xd806973d_3ebe_46de_8fbb_6358fe784208)]
         interface IBDA_EasMessage: IUnknown {
@@ -161,8 +161,8 @@ mod Windows {
         #[guid(0x71985f43_1ca1_11d3_9cc8_00c04f7971e0)]
         interface IBDA_EthernetFilter: IUnknown {
             fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut u32) -> HRESULT;
-            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: [u8; 0]) -> HRESULT;
-            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, #[in] #[out] pAddressList: [u8; 0]) -> HRESULT;
+            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: *const u8) -> HRESULT;
+            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, #[in] #[out] pAddressList: *mut u8) -> HRESULT;
             fn PutMulticastMode(&self, ulModeMask: u32) -> HRESULT;
             fn GetMulticastMode(&self, pulModeMask: *mut u32) -> HRESULT;
         }
@@ -218,16 +218,16 @@ mod Windows {
         #[guid(0x71985f44_1ca1_11d3_9cc8_00c04f7971e0)]
         interface IBDA_IPV4Filter: IUnknown {
             fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut u32) -> HRESULT;
-            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: [u8; 0]) -> HRESULT;
-            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, #[out] pAddressList: [u8; 0]) -> HRESULT;
+            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: *const u8) -> HRESULT;
+            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, pAddressList: *mut u8) -> HRESULT;
             fn PutMulticastMode(&self, ulModeMask: u32) -> HRESULT;
             fn GetMulticastMode(&self, pulModeMask: *mut u32) -> HRESULT;
         }
         #[guid(0xe1785a74_2a23_4fb3_9245_a8f88017ef33)]
         interface IBDA_IPV6Filter: IUnknown {
             fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut u32) -> HRESULT;
-            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: [u8; 0]) -> HRESULT;
-            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, #[out] pAddressList: [u8; 0]) -> HRESULT;
+            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: *const u8) -> HRESULT;
+            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, pAddressList: *mut u8) -> HRESULT;
             fn PutMulticastMode(&self, ulModeMask: u32) -> HRESULT;
             fn GetMulticastMode(&self, pulModeMask: *mut u32) -> HRESULT;
         }
@@ -300,11 +300,11 @@ mod Windows {
         }
         #[guid(0x79b56888_7fea_4690_b45d_38fd3c7849be)]
         interface IBDA_Topology: IUnknown {
-            fn GetNodeTypes(&self, #[in] #[out] pulcNodeTypes: *mut u32, ulcNodeTypesMax: u32, #[in] #[out] rgulNodeTypes: [u32; 0]) -> HRESULT;
-            fn GetNodeDescriptors(&self, #[in] #[out] ulcNodeDescriptors: *mut u32, ulcNodeDescriptorsMax: u32, #[in] #[out] rgNodeDescriptors: [BDANODE_DESCRIPTOR; 0]) -> HRESULT;
-            fn GetNodeInterfaces(&self, ulNodeType: u32, #[in] #[out] pulcInterfaces: *mut u32, ulcInterfacesMax: u32, #[in] #[out] rgguidInterfaces: [GUID; 0]) -> HRESULT;
-            fn GetPinTypes(&self, #[in] #[out] pulcPinTypes: *mut u32, ulcPinTypesMax: u32, #[in] #[out] rgulPinTypes: [u32; 0]) -> HRESULT;
-            fn GetTemplateConnections(&self, #[in] #[out] pulcConnections: *mut u32, ulcConnectionsMax: u32, #[in] #[out] rgConnections: [BDA_TEMPLATE_CONNECTION; 0]) -> HRESULT;
+            fn GetNodeTypes(&self, #[in] #[out] pulcNodeTypes: *mut u32, ulcNodeTypesMax: u32, #[in] #[out] rgulNodeTypes: *mut u32) -> HRESULT;
+            fn GetNodeDescriptors(&self, #[in] #[out] ulcNodeDescriptors: *mut u32, ulcNodeDescriptorsMax: u32, #[in] #[out] rgNodeDescriptors: *mut BDANODE_DESCRIPTOR) -> HRESULT;
+            fn GetNodeInterfaces(&self, ulNodeType: u32, #[in] #[out] pulcInterfaces: *mut u32, ulcInterfacesMax: u32, #[in] #[out] rgguidInterfaces: *mut GUID) -> HRESULT;
+            fn GetPinTypes(&self, #[in] #[out] pulcPinTypes: *mut u32, ulcPinTypesMax: u32, #[in] #[out] rgulPinTypes: *mut u32) -> HRESULT;
+            fn GetTemplateConnections(&self, #[in] #[out] pulcConnections: *mut u32, ulcConnectionsMax: u32, #[in] #[out] rgConnections: *mut BDA_TEMPLATE_CONNECTION) -> HRESULT;
             fn CreatePin(&self, ulPinType: u32, #[in] #[out] pulPinId: *mut u32) -> HRESULT;
             fn DeletePin(&self, ulPinId: u32) -> HRESULT;
             fn SetMediaType(&self, ulPinId: u32, pMediaType: *const AM_MEDIA_TYPE) -> HRESULT;
@@ -389,7 +389,7 @@ mod Windows {
         #[guid(0x06fb45c1_693c_4ea7_b79f_7a6a54d8def2)]
         interface IFrequencyMap: IUnknown {
             fn get_FrequencyMapping(&self, ulCount: *mut u32, ppulList: *mut *mut u32) -> HRESULT;
-            fn put_FrequencyMapping(&self, ulCount: u32, pList: [u32; 0]) -> HRESULT;
+            fn put_FrequencyMapping(&self, ulCount: u32, pList: *const u32) -> HRESULT;
             fn get_CountryCode(&self, pulCountryCode: *mut u32) -> HRESULT;
             fn put_CountryCode(&self, ulCountryCode: u32) -> HRESULT;
             fn get_DefaultFrequencyMapping(&self, ulCountryCode: u32, pulCount: *mut u32, ppulList: *mut *mut u32) -> HRESULT;

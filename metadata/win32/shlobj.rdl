@@ -268,7 +268,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHMultiFileProperties(pdtobj: IDataObject, dwFlags: u32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHOpenPropSheetW(#[opt] pszCaption: PCWSTR, #[len_param(2)] #[opt] ahkeys: [HKEY; 0], ckeys: u32, #[opt] pclsidDefault: *const GUID, pdtobj: IDataObject, #[opt] psb: IShellBrowser, #[opt] pStartPage: PCWSTR) -> BOOL;
+        extern fn SHOpenPropSheetW(#[opt] pszCaption: PCWSTR, #[len_param(2)] #[opt] ahkeys: *const HKEY, ckeys: u32, #[opt] pclsidDefault: *const GUID, pdtobj: IDataObject, #[opt] psb: IShellBrowser, #[opt] pStartPage: PCWSTR) -> BOOL;
         const SSM_CLEAR: u32 = 0;
         const SSM_REFRESH: u32 = 2;
         const SSM_SET: u32 = 1;

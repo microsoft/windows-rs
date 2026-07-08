@@ -527,20 +527,117 @@ fn normalize_string_alias(namespace: &str, name: &str) -> Option<metadata::Type>
     string_alias_canonical(name).map(|canonical| metadata::Type::value_named(namespace, canonical))
 }
 
-/// Resolve a parameter's metadata type: collapse `LP*`/`P*` pointer aliases to raw
-/// pointers ([`collapse_pointer_alias_param`], ledger #5) then apply SAL-driven pointer
-/// const-ness ([`apply_sal_constness`], ledger #4). Fields, returns and constants keep
-/// their named aliases; only parameters are collapsed.
+/// Decay a C array parameter to a pointer (C11 §6.7.6.3p7). [`Type::to_type`] maps both
+/// `T[]` and `T[N]` to `ArrayFixed` — faithful for a *struct field*, but wrong for a
+/// parameter (a by-value array is not a real ABI: an unsized `[T; 0]` is a zero-byte value
+/// that drops the argument and corrupts the call). Two cases decay to a pointer:
+///
+/// 1. An *unsized* flexible array (`T name[]` → `[T; 0]`).
+/// 2. A *counted* fixed-size buffer — an array that also carries a SAL count
+///    (`_Out_writes_(80) WCHAR szName[80]`): the `NativeArrayInfo` (`#[len_const]`/
+///    `#[len_param]`) already encodes the length, so keeping the `[T; N]` *type* as well
+///    would double-encode it (bindgen would wrap `&mut [[T; N]; N]`). The reference
+///    (win32metadata) representation is a pointer plus the count attribute.
+///
+/// A *plain* fixed-size array parameter with no count (`FLOAT ColorRGBA[4]`) is kept as
+/// `[T; N]` so bindgen can project a length-checked `&[T; N]`, matching the reference.
+///
+/// The pointee const-ness follows the array element's C const-ness; SAL direction may
+/// override it in [`apply_sal_constness`]. See ledger #13.
+fn decay_array_param(
+    cursor_ty: &Type,
+    base: metadata::Type,
+    annotation: &ParamAnnotation,
+) -> metadata::Type {
+    let metadata::Type::ArrayFixed(element, size) = base else {
+        return base;
+    };
+    if size != 0 && annotation.size.is_none() {
+        // A plain fixed-size buffer with no count — keep the length-checked array.
+        return metadata::Type::ArrayFixed(element, size);
+    }
+    let canonical = cursor_ty.canonical_type();
+    let is_const = matches!(
+        canonical.kind(),
+        CXType_ConstantArray | CXType_IncompleteArray
+    ) && canonical.array_element_type().is_const();
+    if is_const {
+        match *element {
+            metadata::Type::PtrConst(t, n) => metadata::Type::PtrConst(t, n + 1),
+            other => metadata::Type::PtrConst(Box::new(other), 1),
+        }
+    } else {
+        match *element {
+            metadata::Type::PtrMut(t, n) => metadata::Type::PtrMut(t, n + 1),
+            other => metadata::Type::PtrMut(Box::new(other), 1),
+        }
+    }
+}
+
+/// Resolve a parameter's metadata type: decay array parameters to pointers
+/// ([`decay_array_param`]), collapse `LP*`/`P*` pointer aliases to raw pointers
+/// ([`collapse_pointer_alias_param`], ledger #5) then apply SAL-driven pointer const-ness
+/// ([`apply_sal_constness`], ledger #4). Fields, returns and constants keep their named
+/// aliases and array shapes; only parameters are collapsed and decayed.
 pub(crate) fn param_metadata_type(
     cursor_ty: &Type,
     annotation: &ParamAnnotation,
     parser: &mut Parser<'_>,
 ) -> metadata::Type {
     let base = cursor_ty.to_type(parser);
+    let base = decay_array_param(cursor_ty, base, annotation);
     let base = collapse_pointer_alias_param(cursor_ty, base, parser);
     let ty = apply_sal_constness(base, annotation);
+    let ty = normalize_pointer_const_chain(ty);
     let ty = promote_null_terminated_string(ty, annotation, parser);
     requalify_string_alias(ty, parser)
+}
+
+/// Collapse a mixed-constness pointer chain (`*mut *const T`, `*const *mut T`) to a
+/// uniform chain governed by its *outermost* level.
+///
+/// The winmd `Type` model stores an entire pointer run as a single const bit plus a depth
+/// (`PtrMut(leaf, n)` / `PtrConst(leaf, n)`), so it structurally cannot represent a chain
+/// whose levels differ in const-ness: serialising a `PtrMut(PtrConst(T))` silently corrupts
+/// it on the winmd round-trip (the inner `IsConst` modifier, no longer at the front of the
+/// signature, is misread and the run degrades to `*const *const T`). A pointer-to-const-pointer
+/// output parameter (`_Out_`/`[retval] const wchar_t **`) would then project to a `*const *const`
+/// the callee cannot write through. The outermost level carries the parameter's real read/write
+/// direction (already set by [`apply_sal_constness`]), so it governs the whole chain: an output
+/// `const wchar_t **` becomes `*mut *mut u16` (matching the canonical projection) and an input
+/// `const wchar_t * const *` stays `*const *const u16`. Uniform chains are already collapsed to a
+/// single node by [`Type::to_type`]'s pointer const-flattening, so only a genuinely mixed chain
+/// nests here. See ledger #14.
+fn normalize_pointer_const_chain(ty: metadata::Type) -> metadata::Type {
+    fn flatten(inner: metadata::Type, depth: usize) -> (metadata::Type, usize) {
+        match inner {
+            metadata::Type::PtrMut(deeper, n) | metadata::Type::PtrConst(deeper, n) => {
+                flatten(*deeper, depth + n)
+            }
+            leaf => (leaf, depth),
+        }
+    }
+    match ty {
+        metadata::Type::PtrMut(inner, n)
+            if matches!(
+                *inner,
+                metadata::Type::PtrMut(..) | metadata::Type::PtrConst(..)
+            ) =>
+        {
+            let (leaf, depth) = flatten(*inner, n);
+            metadata::Type::PtrMut(Box::new(leaf), depth)
+        }
+        metadata::Type::PtrConst(inner, n)
+            if matches!(
+                *inner,
+                metadata::Type::PtrMut(..) | metadata::Type::PtrConst(..)
+            ) =>
+        {
+            let (leaf, depth) = flatten(*inner, n);
+            metadata::Type::PtrConst(Box::new(leaf), depth)
+        }
+        other => other,
+    }
 }
 
 /// Collapse an `LP*`/`P*` *pointer* typedef parameter (`LPDWORD`, `PHKEY`,

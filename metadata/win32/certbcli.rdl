@@ -57,9 +57,9 @@ mod Windows {
         #[library("certadm.dll")]
         extern fn CertSrvRestoreRegisterComplete(hbc: HCSBC, hrRestoreState: HRESULT) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: [CSEDB_RSTMAPW; 0], crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
+        extern fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvRestoreRegisterW(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: [CSEDB_RSTMAPW; 0], crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
+        extern fn CertSrvRestoreRegisterW(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
         #[library("certadm.dll")]
         extern fn CertSrvServerControlW(pwszServerName: *const u16, dwControlFlags: u32, pcbOut: *mut u32, ppbOut: *mut *mut u8) -> HRESULT;
         extern fn FNCERTSRVBACKUPCLOSE(hbc: HCSBC) -> HRESULT;
@@ -77,7 +77,7 @@ mod Windows {
         extern fn FNCERTSRVRESTOREGETDATABASELOCATIONSW(hbc: HCSBC, ppwszzDatabaseLocationList: *mut *mut u16, pcbSize: *mut u32) -> HRESULT;
         extern fn FNCERTSRVRESTOREPREPAREW(pwszServerName: *const u16, dwRestoreFlags: u32, phbc: *mut HCSBC) -> HRESULT;
         extern fn FNCERTSRVRESTOREREGISTERCOMPLETE(hbc: HCSBC, hrRestoreState: HRESULT) -> HRESULT;
-        extern fn FNCERTSRVRESTOREREGISTERW(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: [CSEDB_RSTMAPW; 0], crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
+        extern fn FNCERTSRVRESTOREREGISTERW(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
         extern fn FNCERTSRVSERVERCONTROLW(pwszServerName: *const u16, dwControlFlags: u32, pcbOut: *mut u32, ppbOut: *mut *mut u8) -> HRESULT;
         type HCSBC = *mut void;
         #[encoding("ansi")]

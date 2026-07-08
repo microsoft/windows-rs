@@ -564,7 +564,7 @@ mod Windows {
         extern fn WS_FREE_DECODER_CALLBACK(decoderContext: *const void);
         extern fn WS_FREE_ENCODER_CALLBACK(encoderContext: *const void);
         extern fn WS_FREE_LISTENER_CALLBACK(listenerInstance: *const void);
-        extern fn WS_GET_CERT_CALLBACK(#[opt] getCertCallbackState: *const void, #[opt] targetAddress: *const WS_ENDPOINT_ADDRESS, #[opt] viaUri: *const WS_STRING, cert: *const *const CERT_CONTEXT, #[opt] error: *const WS_ERROR) -> HRESULT;
+        extern fn WS_GET_CERT_CALLBACK(#[opt] getCertCallbackState: *const void, #[opt] targetAddress: *const WS_ENDPOINT_ADDRESS, #[opt] viaUri: *const WS_STRING, cert: *mut *mut CERT_CONTEXT, #[opt] error: *const WS_ERROR) -> HRESULT;
         extern fn WS_GET_CHANNEL_PROPERTY_CALLBACK(channelInstance: *const void, id: WS_CHANNEL_PROPERTY_ID, #[size_param(3)] value: *mut void, valueSize: u32, #[opt] error: *const WS_ERROR) -> HRESULT;
         extern fn WS_GET_LISTENER_PROPERTY_CALLBACK(listenerInstance: *const void, id: WS_LISTENER_PROPERTY_ID, #[size_param(3)] value: *mut void, valueSize: u32, #[opt] error: *const WS_ERROR) -> HRESULT;
         struct WS_GUID_DESCRIPTION {
@@ -2701,7 +2701,7 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, address: *mut *mut WS_ENDPOINT_ADDRESS, #[opt] error: *const WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetNamespaceFromPrefix(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: BOOL, ns: *const *const WS_XML_STRING, #[opt] error: *const WS_ERROR) -> HRESULT;
+        extern fn WsGetNamespaceFromPrefix(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: BOOL, ns: *mut *mut WS_XML_STRING, #[opt] error: *const WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsGetOperationContextProperty(context: *const WS_OPERATION_CONTEXT, id: WS_OPERATION_CONTEXT_PROPERTY_ID, #[size_param(3)] value: *mut void, valueSize: u32, #[opt] error: *const WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -2709,9 +2709,9 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPERTY_ID, #[size_param(3)] value: *mut void, valueSize: u32, #[opt] error: *const WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetPrefixFromNamespace(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: BOOL, prefix: *const *const WS_XML_STRING, #[opt] error: *const WS_ERROR) -> HRESULT;
+        extern fn WsGetPrefixFromNamespace(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: BOOL, prefix: *mut *mut WS_XML_STRING, #[opt] error: *const WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetReaderNode(xmlReader: *const WS_XML_READER, node: *const *const WS_XML_NODE, #[opt] error: *const WS_ERROR) -> HRESULT;
+        extern fn WsGetReaderNode(xmlReader: *const WS_XML_READER, node: *mut *mut WS_XML_NODE, #[opt] error: *const WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsGetReaderPosition(reader: *const WS_XML_READER, nodePosition: *mut WS_XML_NODE_POSITION, #[opt] error: *const WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]

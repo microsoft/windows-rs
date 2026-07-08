@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    type HRESULT = i32;
+    #[guid(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e)]
+    interface ISAXLocator {
+        fn getPublicId(&self, #[retval] ppwchPublicId: *mut *mut u16) -> i32;
+        fn setPrefixes(&self, ppwchPrefixes: *const *const u16) -> i32;
+    }
+}

@@ -30,7 +30,7 @@ mod Windows {
         const INSTALL_SCOPE_USER: u32 = 2;
         #[guid(0xb722bccb_4e68_101b_a2bc_00aa00404770)]
         interface IOleCommandTarget: IUnknown {
-            fn QueryStatus(&self, pguidCmdGroup: *const GUID, cCmds: u32, #[in] #[out] prgCmds: [OLECMD; 0], #[in] #[out] pCmdText: *mut OLECMDTEXT) -> HRESULT;
+            fn QueryStatus(&self, pguidCmdGroup: *const GUID, cCmds: u32, #[in] #[out] prgCmds: *mut OLECMD, #[in] #[out] pCmdText: *mut OLECMDTEXT) -> HRESULT;
             fn Exec(&self, pguidCmdGroup: *const GUID, nCmdID: u32, nCmdexecopt: u32, pvaIn: *const VARIANT, #[in] #[out] pvaOut: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xb722bcc5_4e68_101b_a2bc_00aa00404770)]

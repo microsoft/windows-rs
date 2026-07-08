@@ -4076,7 +4076,7 @@ mod Windows {
             fn IASetPrimitiveTopology(&self, PrimitiveTopology: D3D12_PRIMITIVE_TOPOLOGY);
             fn RSSetViewports(&self, NumViewports: u32, #[len_param(0)] pViewports: *const D3D12_VIEWPORT);
             fn RSSetScissorRects(&self, NumRects: u32, #[len_param(0)] pRects: *const D3D12_RECT);
-            fn OMSetBlendFactor(&self, #[len_const(4)] #[opt] BlendFactor: [f32; 4]);
+            fn OMSetBlendFactor(&self, #[len_const(4)] #[opt] BlendFactor: *const f32);
             fn OMSetStencilRef(&self, StencilRef: u32);
             fn SetPipelineState(&self, pPipelineState: ID3D12PipelineState);
             fn ResourceBarrier(&self, NumBarriers: u32, #[len_param(0)] pBarriers: *const D3D12_RESOURCE_BARRIER);
@@ -4319,7 +4319,7 @@ mod Windows {
         }
         #[guid(0x7f91ce67_090c_4bb7_b78e_ed8ff2e31da0)]
         interface ID3D12VersionedRootSignatureDeserializer: IUnknown {
-            fn GetRootSignatureDescAtVersion(&self, convertToVersion: D3D_ROOT_SIGNATURE_VERSION, ppDesc: *const *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> HRESULT;
+            fn GetRootSignatureDescAtVersion(&self, convertToVersion: D3D_ROOT_SIGNATURE_VERSION, ppDesc: *mut *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> HRESULT;
             fn GetUnconvertedRootSignatureDesc(&self) -> *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC;
         }
         #[guid(0xbc66d368_7373_4943_8757_fc87dc79e476)]

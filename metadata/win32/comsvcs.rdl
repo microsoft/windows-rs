@@ -328,8 +328,8 @@ mod Windows {
         interface ICOMLBArguments: IUnknown {
             fn GetCLSID(&self, pCLSID: *mut GUID) -> HRESULT;
             fn SetCLSID(&self, pCLSID: *const GUID) -> HRESULT;
-            fn GetMachineName(&self, cchSvr: u32, #[len_param(0)] #[out] szServerName: [u16; 0]) -> HRESULT;
-            fn SetMachineName(&self, cchSvr: u32, #[len_param(0)] szServerName: [u16; 0]) -> HRESULT;
+            fn GetMachineName(&self, cchSvr: u32, #[len_param(0)] szServerName: *mut u16) -> HRESULT;
+            fn SetMachineName(&self, cchSvr: u32, #[len_param(0)] szServerName: *const u16) -> HRESULT;
         }
         #[guid(0x0ff5a96f_11fc_47d1_baa6_25dd347e7242)]
         interface ICheckSxsConfig: IUnknown {
@@ -636,7 +636,7 @@ mod Windows {
             fn ForceLog(&self) -> HRESULT;
             fn ForgetLogRecord(&self) -> HRESULT;
             fn ForceTransactionToAbort(&self) -> HRESULT;
-            fn WriteLogRecord(&self, rgBlob: [BLOB; 0], cBlob: u32) -> HRESULT;
+            fn WriteLogRecord(&self, rgBlob: *const BLOB, cBlob: u32) -> HRESULT;
         }
         #[guid(0x70c8e443_c7ed_11d1_82fb_00a0c91eede9)]
         interface ICrmMonitor: IUnknown {

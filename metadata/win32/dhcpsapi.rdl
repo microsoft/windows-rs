@@ -1295,7 +1295,7 @@ mod Windows {
         #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpServerQueryAttribute(#[opt] ServerIpAddr: PCWSTR, dwReserved: u32, DhcpAttribId: DHCP_ATTRIB_ID, pDhcpAttrib: *mut LPDHCP_ATTRIB) -> u32;
         #[library("DHCPSAPI.DLL")]
-        extern "C" fn DhcpServerQueryAttributes(#[opt] ServerIpAddr: PCWSTR, dwReserved: u32, dwAttribCount: u32, pDhcpAttribs: [DHCP_ATTRIB_ID; 0], pDhcpAttribArr: *mut LPDHCP_ATTRIB_ARRAY) -> u32;
+        extern "C" fn DhcpServerQueryAttributes(#[opt] ServerIpAddr: PCWSTR, dwReserved: u32, dwAttribCount: u32, pDhcpAttribs: *mut DHCP_ATTRIB_ID, pDhcpAttribArr: *mut LPDHCP_ATTRIB_ARRAY) -> u32;
         #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpServerQueryDnsRegCredentials(#[opt] ServerIpAddress: PCWSTR, UnameSize: u32, #[len_param(1)] #[out] Uname: PWSTR, DomainSize: u32, #[len_param(3)] #[out] Domain: PWSTR) -> u32;
         #[library("DHCPSAPI.DLL")]

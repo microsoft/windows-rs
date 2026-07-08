@@ -109,7 +109,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtDeviceIoControlFile(FileHandle: HANDLE, Event: HANDLE, ApcRoutine: PIO_APC_ROUTINE, ApcContext: *mut void, IoStatusBlock: *mut IO_STATUS_BLOCK, IoControlCode: u32, InputBuffer: *mut void, InputBufferLength: u32, OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtNotifyChangeMultipleKeys(MasterKeyHandle: HANDLE, #[opt] Count: u32, #[len_param(1)] #[opt] SubordinateObjects: [OBJECT_ATTRIBUTES; 0], #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: BOOLEAN, #[size_param(10)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: BOOLEAN) -> NTSTATUS;
+        extern fn NtNotifyChangeMultipleKeys(MasterKeyHandle: HANDLE, #[opt] Count: u32, #[len_param(1)] #[opt] SubordinateObjects: *const OBJECT_ATTRIBUTES, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: BOOLEAN, #[size_param(10)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtOpenFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *mut OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, ShareAccess: u32, OpenOptions: u32) -> NTSTATUS;
         #[library("ntdll.dll")]

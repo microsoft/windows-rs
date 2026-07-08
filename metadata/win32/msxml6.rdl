@@ -112,18 +112,18 @@ mod Windows {
         #[guid(0xf078abe1_45d2_4832_91ea_4466ce2f25c9)]
         interface ISAXAttributes: IUnknown {
             fn getLength(&self, #[retval] pnLength: *mut i32) -> HRESULT;
-            fn getURI(&self, nIndex: i32, ppwchUri: *const *const u16, pcchUri: *mut i32) -> HRESULT;
-            fn getLocalName(&self, nIndex: i32, ppwchLocalName: *const *const u16, pcchLocalName: *mut i32) -> HRESULT;
-            fn getQName(&self, nIndex: i32, ppwchQName: *const *const u16, pcchQName: *mut i32) -> HRESULT;
-            fn getName(&self, nIndex: i32, ppwchUri: *const *const u16, pcchUri: *mut i32, ppwchLocalName: *const *const u16, pcchLocalName: *mut i32, ppwchQName: *const *const u16, pcchQName: *mut i32) -> HRESULT;
+            fn getURI(&self, nIndex: i32, ppwchUri: *mut *mut u16, pcchUri: *mut i32) -> HRESULT;
+            fn getLocalName(&self, nIndex: i32, ppwchLocalName: *mut *mut u16, pcchLocalName: *mut i32) -> HRESULT;
+            fn getQName(&self, nIndex: i32, ppwchQName: *mut *mut u16, pcchQName: *mut i32) -> HRESULT;
+            fn getName(&self, nIndex: i32, ppwchUri: *mut *mut u16, pcchUri: *mut i32, ppwchLocalName: *mut *mut u16, pcchLocalName: *mut i32, ppwchQName: *mut *mut u16, pcchQName: *mut i32) -> HRESULT;
             fn getIndexFromName(&self, pwchUri: *const u16, cchUri: i32, pwchLocalName: *const u16, cchLocalName: i32, #[retval] pnIndex: *mut i32) -> HRESULT;
             fn getIndexFromQName(&self, pwchQName: *const u16, cchQName: i32, #[retval] pnIndex: *mut i32) -> HRESULT;
-            fn getType(&self, nIndex: i32, ppwchType: *const *const u16, pcchType: *mut i32) -> HRESULT;
-            fn getTypeFromName(&self, pwchUri: *const u16, cchUri: i32, pwchLocalName: *const u16, cchLocalName: i32, ppwchType: *const *const u16, pcchType: *mut i32) -> HRESULT;
-            fn getTypeFromQName(&self, pwchQName: *const u16, cchQName: i32, ppwchType: *const *const u16, pcchType: *mut i32) -> HRESULT;
-            fn getValue(&self, nIndex: i32, ppwchValue: *const *const u16, pcchValue: *mut i32) -> HRESULT;
-            fn getValueFromName(&self, pwchUri: *const u16, cchUri: i32, pwchLocalName: *const u16, cchLocalName: i32, ppwchValue: *const *const u16, pcchValue: *mut i32) -> HRESULT;
-            fn getValueFromQName(&self, pwchQName: *const u16, cchQName: i32, ppwchValue: *const *const u16, pcchValue: *mut i32) -> HRESULT;
+            fn getType(&self, nIndex: i32, ppwchType: *mut *mut u16, pcchType: *mut i32) -> HRESULT;
+            fn getTypeFromName(&self, pwchUri: *const u16, cchUri: i32, pwchLocalName: *const u16, cchLocalName: i32, ppwchType: *mut *mut u16, pcchType: *mut i32) -> HRESULT;
+            fn getTypeFromQName(&self, pwchQName: *const u16, cchQName: i32, ppwchType: *mut *mut u16, pcchType: *mut i32) -> HRESULT;
+            fn getValue(&self, nIndex: i32, ppwchValue: *mut *mut u16, pcchValue: *mut i32) -> HRESULT;
+            fn getValueFromName(&self, pwchUri: *const u16, cchUri: i32, pwchLocalName: *const u16, cchLocalName: i32, ppwchValue: *mut *mut u16, pcchValue: *mut i32) -> HRESULT;
+            fn getValueFromQName(&self, pwchQName: *const u16, cchQName: i32, ppwchValue: *mut *mut u16, pcchValue: *mut i32) -> HRESULT;
         }
         #[guid(0x1545cdfa_9e4e_4497_a8a4_2bf7d0112c44)]
         interface ISAXContentHandler: IUnknown {
@@ -175,8 +175,8 @@ mod Windows {
         interface ISAXLocator: IUnknown {
             fn getColumnNumber(&self, #[retval] pnColumn: *mut i32) -> HRESULT;
             fn getLineNumber(&self, #[retval] pnLine: *mut i32) -> HRESULT;
-            fn getPublicId(&self, #[retval] ppwchPublicId: *const *const u16) -> HRESULT;
-            fn getSystemId(&self, #[retval] ppwchSystemId: *const *const u16) -> HRESULT;
+            fn getPublicId(&self, #[retval] ppwchPublicId: *mut *mut u16) -> HRESULT;
+            fn getSystemId(&self, #[retval] ppwchSystemId: *mut *mut u16) -> HRESULT;
         }
         #[guid(0x70409222_ca09_4475_acb8_40312fe8d145)]
         interface ISAXXMLFilter: ISAXXMLReader {
@@ -197,9 +197,9 @@ mod Windows {
             fn putDTDHandler(&self, pHandler: ISAXDTDHandler) -> HRESULT;
             fn getErrorHandler(&self, #[retval] ppHandler: *mut ISAXErrorHandler) -> HRESULT;
             fn putErrorHandler(&self, pHandler: ISAXErrorHandler) -> HRESULT;
-            fn getBaseURL(&self, #[retval] ppwchBaseUrl: *const *const u16) -> HRESULT;
+            fn getBaseURL(&self, #[retval] ppwchBaseUrl: *mut *mut u16) -> HRESULT;
             fn putBaseURL(&self, pwchBaseUrl: *const u16) -> HRESULT;
-            fn getSecureBaseURL(&self, #[retval] ppwchSecureBaseUrl: *const *const u16) -> HRESULT;
+            fn getSecureBaseURL(&self, #[retval] ppwchSecureBaseUrl: *mut *mut u16) -> HRESULT;
             fn putSecureBaseURL(&self, pwchSecureBaseUrl: *const u16) -> HRESULT;
             fn parse(&self, #[opt] varInput: VARIANT) -> HRESULT;
             fn parseURL(&self, pwchUrl: *const u16) -> HRESULT;

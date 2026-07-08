@@ -112,12 +112,12 @@ mod Windows {
         }
         #[guid(0x00000138_0000_0000_c000_000000000046)]
         interface IPropertyStorage: IUnknown {
-            fn ReadMultiple(&self, cpspec: u32, rgpspec: [PROPSPEC; 0], #[out] rgpropvar: [PROPVARIANT; 0]) -> HRESULT;
-            fn WriteMultiple(&self, cpspec: u32, rgpspec: [PROPSPEC; 0], rgpropvar: [PROPVARIANT; 0], propidNameFirst: PROPID) -> HRESULT;
-            fn DeleteMultiple(&self, cpspec: u32, rgpspec: [PROPSPEC; 0]) -> HRESULT;
-            fn ReadPropertyNames(&self, cpropid: u32, rgpropid: [PROPID; 0], #[out] rglpwstrName: [PWSTR; 0]) -> HRESULT;
-            fn WritePropertyNames(&self, cpropid: u32, rgpropid: [PROPID; 0], rglpwstrName: [PWSTR; 0]) -> HRESULT;
-            fn DeletePropertyNames(&self, cpropid: u32, rgpropid: [PROPID; 0]) -> HRESULT;
+            fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> HRESULT;
+            fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidNameFirst: PROPID) -> HRESULT;
+            fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> HRESULT;
+            fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *mut PWSTR) -> HRESULT;
+            fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *const PWSTR) -> HRESULT;
+            fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID) -> HRESULT;
             fn Commit(&self, grfCommitFlags: u32) -> HRESULT;
             fn Revert(&self) -> HRESULT;
             fn Enum(&self, ppenum: *mut IEnumSTATPROPSTG) -> HRESULT;

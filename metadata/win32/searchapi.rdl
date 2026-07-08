@@ -166,7 +166,7 @@ mod Windows {
         interface ISearchItemsChangedSink: IUnknown {
             fn StartedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
             fn StoppedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
-            fn OnItemsChanged(&self, dwNumberOfChanges: u32, rgDataChangeEntries: [SEARCH_ITEM_CHANGE; 0], #[out] rgdwDocIds: [u32; 0], #[out] rghrCompletionCodes: [HRESULT; 0]) -> HRESULT;
+            fn OnItemsChanged(&self, dwNumberOfChanges: u32, rgDataChangeEntries: *const SEARCH_ITEM_CHANGE, rgdwDocIds: *mut u32, rghrCompletionCodes: *mut HRESULT) -> HRESULT;
         }
         #[guid(0x24c3cbaa_ebc1_491a_9ef1_9f6d8deb1b8f)]
         interface ISearchLanguageSupport: IUnknown {
@@ -206,14 +206,14 @@ mod Windows {
         }
         #[guid(0xb5702e61_e75c_4b64_82a1_6cb4f832fccf)]
         interface ISearchNotifyInlineSite: IUnknown {
-            fn OnItemIndexedStatusChange(&self, sipStatus: SEARCH_INDEXING_PHASE, dwNumEntries: u32, rgItemStatusEntries: [SEARCH_ITEM_INDEXING_STATUS; 0]) -> HRESULT;
+            fn OnItemIndexedStatusChange(&self, sipStatus: SEARCH_INDEXING_PHASE, dwNumEntries: u32, rgItemStatusEntries: *const SEARCH_ITEM_INDEXING_STATUS) -> HRESULT;
             fn OnCatalogStatusChange(&self, guidCatalogResetSignature: *const GUID, guidCheckPointSignature: *const GUID, dwLastCheckPointNumber: u32) -> HRESULT;
         }
         #[guid(0xa2ffdf9b_4758_4f84_b729_df81a1a0612f)]
         interface ISearchPersistentItemsChangedSink: IUnknown {
             fn StartedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
             fn StoppedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
-            fn OnItemsChanged(&self, dwNumberOfChanges: u32, DataChangeEntries: [SEARCH_ITEM_PERSISTENT_CHANGE; 0], #[out] hrCompletionCodes: [HRESULT; 0]) -> HRESULT;
+            fn OnItemsChanged(&self, dwNumberOfChanges: u32, DataChangeEntries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrCompletionCodes: *mut HRESULT) -> HRESULT;
         }
         #[guid(0xc73106ba_ac80_11d1_8df3_00c04fb6ef4f)]
         interface ISearchProtocol: IUnknown {
@@ -348,24 +348,24 @@ mod Windows {
         #[guid(0x0b63e318_9ccc_11d0_bcdb_00805fccce04)]
         interface IUrlAccessor: IUnknown {
             fn AddRequestParameter(&self, pSpec: *const PROPSPEC, pVar: *const PROPVARIANT) -> HRESULT;
-            fn GetDocFormat(&self, #[out] wszDocFormat: [u16; 0], dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetDocFormat(&self, wszDocFormat: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
             fn GetCLSID(&self, pClsid: *mut GUID) -> HRESULT;
-            fn GetHost(&self, #[out] wszHost: [u16; 0], dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetHost(&self, wszHost: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
             fn IsDirectory(&self) -> HRESULT;
             fn GetSize(&self, pllSize: *mut u64) -> HRESULT;
             fn GetLastModified(&self, pftLastModified: *mut FILETIME) -> HRESULT;
-            fn GetFileName(&self, #[out] wszFileName: [u16; 0], dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetFileName(&self, wszFileName: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
             fn GetSecurityDescriptor(&self, pSD: *mut u8, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
-            fn GetRedirectedURL(&self, #[out] wszRedirectedURL: [u16; 0], dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetRedirectedURL(&self, wszRedirectedURL: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
             fn GetSecurityProvider(&self, pSPClsid: *mut GUID) -> HRESULT;
             fn BindToStream(&self, ppStream: *mut IStream) -> HRESULT;
             fn BindToFilter(&self, ppFilter: *mut IFilter) -> HRESULT;
         }
         #[guid(0xc7310734_ac80_11d1_8df3_00c04fb6ef4f)]
         interface IUrlAccessor2: IUrlAccessor {
-            fn GetDisplayUrl(&self, #[out] wszDocUrl: [u16; 0], dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetDisplayUrl(&self, wszDocUrl: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
             fn IsDocument(&self) -> HRESULT;
-            fn GetCodePage(&self, #[out] wszCodePage: [u16; 0], dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetCodePage(&self, wszCodePage: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
         }
         #[guid(0x6fbc7005_0455_4874_b8ff_7439450241a3)]
         interface IUrlAccessor3: IUrlAccessor2 {

@@ -8,7 +8,7 @@ mod Windows {
         #[library("clfsw32.dll")]
         extern fn AdvanceLogBase(pvMarshal: *mut void, plsnBase: *mut CLFS_LSN, fFlags: u32, pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn AlignReservedLog(pvMarshal: *mut void, cReservedRecords: u32, rgcbReservation: [i64; 0], pcbAlignReservation: *mut i64) -> BOOL;
+        extern fn AlignReservedLog(pvMarshal: *mut void, cReservedRecords: u32, rgcbReservation: *mut i64, pcbAlignReservation: *mut i64) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn AllocReservedLog(pvMarshal: *mut void, cReservedRecords: u32, pcbAdjustment: *mut i64) -> BOOL;
         type CLFS_LOG_ARCHIVE_CONTEXT = *mut void;
@@ -44,7 +44,7 @@ mod Windows {
         #[library("clfsw32.dll")]
         extern fn GetLogReservationInfo(pvMarshal: *const void, pcbRecordNumber: *mut u32, pcbUserReservation: *mut i64, pcbCommitReservation: *mut i64) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn GetNextLogArchiveExtent(pvArchiveContext: CLFS_LOG_ARCHIVE_CONTEXT, rgadExtent: [CLFS_ARCHIVE_DESCRIPTOR; 0], cDescriptors: u32, pcDescriptorsReturned: *mut u32) -> BOOL;
+        extern fn GetNextLogArchiveExtent(pvArchiveContext: CLFS_LOG_ARCHIVE_CONTEXT, rgadExtent: *mut CLFS_ARCHIVE_DESCRIPTOR, cDescriptors: u32, pcDescriptorsReturned: *mut u32) -> BOOL;
         extern fn PCLFS_COMPLETION_ROUTINE(pvOverlapped: *mut void, ulReserved: u32);
         type PCLFS_LOG_ARCHIVE_CONTEXT = *mut *mut void;
         #[library("clfsw32.dll")]
@@ -64,9 +64,9 @@ mod Windows {
         #[library("clfsw32.dll")]
         extern fn RemoveLogContainerSet(hLog: HANDLE, cContainer: u16, #[len_param(1)] rgwszContainerPath: *const PWSTR, fForce: BOOL, #[in] #[out] #[opt] pReserved: *mut void) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ReserveAndAppendLog(pvMarshal: *mut void, rgWriteEntries: *mut CLFS_WRITE_ENTRY, cWriteEntries: u32, plsnUndoNext: *mut CLFS_LSN, plsnPrevious: *mut CLFS_LSN, cReserveRecords: u32, rgcbReservation: [i64; 0], fFlags: u32, plsn: *mut CLFS_LSN, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn ReserveAndAppendLog(pvMarshal: *mut void, rgWriteEntries: *mut CLFS_WRITE_ENTRY, cWriteEntries: u32, plsnUndoNext: *mut CLFS_LSN, plsnPrevious: *mut CLFS_LSN, cReserveRecords: u32, rgcbReservation: *mut i64, fFlags: u32, plsn: *mut CLFS_LSN, pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ReserveAndAppendLogAligned(pvMarshal: *mut void, rgWriteEntries: *mut CLFS_WRITE_ENTRY, cWriteEntries: u32, cbEntryAlignment: u32, plsnUndoNext: *mut CLFS_LSN, plsnPrevious: *mut CLFS_LSN, cReserveRecords: u32, rgcbReservation: [i64; 0], fFlags: u32, plsn: *mut CLFS_LSN, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn ReserveAndAppendLogAligned(pvMarshal: *mut void, rgWriteEntries: *mut CLFS_WRITE_ENTRY, cWriteEntries: u32, cbEntryAlignment: u32, plsnUndoNext: *mut CLFS_LSN, plsnPrevious: *mut CLFS_LSN, cReserveRecords: u32, rgcbReservation: *mut i64, fFlags: u32, plsn: *mut CLFS_LSN, pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn ScanLogContainers(pcxScan: *mut CLFS_SCAN_CONTEXT, eScanMode: CLFS_SCAN_MODE, pReserved: *mut void) -> BOOL;
         #[library("clfsw32.dll")]

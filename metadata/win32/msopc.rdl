@@ -5,7 +5,7 @@ mod Windows {
         interface IOpcCertificateEnumerator: IUnknown {
             fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
             fn MovePrevious(&self, #[retval] hasPrevious: *mut BOOL) -> HRESULT;
-            fn GetCurrent(&self, #[retval] certificate: *const *const CERT_CONTEXT) -> HRESULT;
+            fn GetCurrent(&self, #[retval] certificate: *mut *mut CERT_CONTEXT) -> HRESULT;
             fn Clone(&self, #[retval] copy: *mut IOpcCertificateEnumerator) -> HRESULT;
         }
         #[guid(0x56ea4325_8e2d_4167_b1a4_e486d24c8fa7)]

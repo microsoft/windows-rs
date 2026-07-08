@@ -25,10 +25,15 @@ impl Config<'_> {
                 pub type #name = #ty_name;
             }
         } else {
+            // Called once per metadata row, so an arch-divergent handle (e.g.
+            // `HALF_PTR` or `PCONTEXT`) reaches here twice. Every emitted item must
+            // carry the def's arch cfg or the variants collide.
+            let arches = write_arches(def);
             let mut derive = quote! { Clone, Copy, Debug, PartialEq, Eq, };
 
             let default = if ty.is_pointer() {
                 quote! {
+                    #arches
                     impl Default for #name {
                         fn default() -> Self {
                             unsafe { core::mem::zeroed() }
@@ -44,6 +49,7 @@ impl Config<'_> {
 
             let is_invalid = if ty.is_pointer() && (invalid.is_empty() || invalid == [0]) {
                 quote! {
+                    #arches
                     impl #name {
                         pub fn is_invalid(&self) -> bool {
                             self.0.is_null()
@@ -63,6 +69,7 @@ impl Config<'_> {
                     }
                 });
                 quote! {
+                    #arches
                     impl #name {
                         pub fn is_invalid(&self) -> bool {
                             #(#invalid)||*
@@ -80,6 +87,7 @@ impl Config<'_> {
                     let free = to_ident(function.method.name());
 
                     quote! {
+                        #arches
                         impl windows_core::Free for #name {
                             #[inline]
                             unsafe fn free(&mut self) {
@@ -96,6 +104,7 @@ impl Config<'_> {
             };
 
             let mut result = quote! {
+                #arches
                 #[repr(transparent)]
                 #[derive(#derive)]
                 pub struct #name(pub #ty_name);
@@ -111,7 +120,9 @@ impl Config<'_> {
                     let ty = ty.write_name(self);
 
                     result.combine(quote! {
+                        #arches
                         impl windows_core::imp::CanInto<#ty> for #name {}
+                        #arches
                         impl From<#name> for #ty {
                             fn from(value: #name) -> Self {
                                 Self(value.0)

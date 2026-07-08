@@ -11,19 +11,19 @@ mod Windows {
         interface ICatInformation: IUnknown {
             fn EnumCategories(&self, lcid: LCID, ppenumCategoryInfo: *mut IEnumCATEGORYINFO) -> HRESULT;
             fn GetCategoryDesc(&self, rcatid: REFCATID, lcid: LCID, pszDesc: *mut PWSTR) -> HRESULT;
-            fn EnumClassesOfCategories(&self, cImplemented: u32, rgcatidImpl: [CATID; 0], cRequired: u32, rgcatidReq: [CATID; 0], ppenumClsid: *mut IEnumGUID) -> HRESULT;
-            fn IsClassOfCategories(&self, rclsid: *const GUID, cImplemented: u32, rgcatidImpl: [CATID; 0], cRequired: u32, rgcatidReq: [CATID; 0]) -> HRESULT;
+            fn EnumClassesOfCategories(&self, cImplemented: u32, rgcatidImpl: *const CATID, cRequired: u32, rgcatidReq: *const CATID, ppenumClsid: *mut IEnumGUID) -> HRESULT;
+            fn IsClassOfCategories(&self, rclsid: *const GUID, cImplemented: u32, rgcatidImpl: *const CATID, cRequired: u32, rgcatidReq: *const CATID) -> HRESULT;
             fn EnumImplCategoriesOfClass(&self, rclsid: *const GUID, ppenumCatid: *mut IEnumGUID) -> HRESULT;
             fn EnumReqCategoriesOfClass(&self, rclsid: *const GUID, ppenumCatid: *mut IEnumGUID) -> HRESULT;
         }
         #[guid(0x0002e012_0000_0000_c000_000000000046)]
         interface ICatRegister: IUnknown {
-            fn RegisterCategories(&self, cCategories: u32, rgCategoryInfo: [CATEGORYINFO; 0]) -> HRESULT;
-            fn UnRegisterCategories(&self, cCategories: u32, rgcatid: [CATID; 0]) -> HRESULT;
-            fn RegisterClassImplCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: [CATID; 0]) -> HRESULT;
-            fn UnRegisterClassImplCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: [CATID; 0]) -> HRESULT;
-            fn RegisterClassReqCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: [CATID; 0]) -> HRESULT;
-            fn UnRegisterClassReqCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: [CATID; 0]) -> HRESULT;
+            fn RegisterCategories(&self, cCategories: u32, rgCategoryInfo: *const CATEGORYINFO) -> HRESULT;
+            fn UnRegisterCategories(&self, cCategories: u32, rgcatid: *const CATID) -> HRESULT;
+            fn RegisterClassImplCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: *const CATID) -> HRESULT;
+            fn UnRegisterClassImplCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: *const CATID) -> HRESULT;
+            fn RegisterClassReqCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: *const CATID) -> HRESULT;
+            fn UnRegisterClassReqCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: *const CATID) -> HRESULT;
         }
         #[guid(0x0002e011_0000_0000_c000_000000000046)]
         interface IEnumCATEGORYINFO: IUnknown {
