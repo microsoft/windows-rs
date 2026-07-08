@@ -1,0 +1,14 @@
+[package]
+name = "sample_vss_backup"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-core = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

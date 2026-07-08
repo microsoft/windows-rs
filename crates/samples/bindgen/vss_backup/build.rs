@@ -4,8 +4,11 @@ fn main() {
 
     windows_bindgen::builder()
         .output(&bindings)
-        .filter("CONTEXT")
-        .sys()
+        .filters([
+            "CreateVssBackupComponentsInternal",
+            "CoIncrementMTAUsage",
+            "VSS_BT_FULL",
+        ])
         .flat()
         .write();
 }
