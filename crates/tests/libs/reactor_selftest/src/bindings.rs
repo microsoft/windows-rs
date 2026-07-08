@@ -16696,16 +16696,12 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ISurfaceImageSourceNativeWithD2D, windows_core::IUnknown);
 impl ISurfaceImageSourceNativeWithD2D {
-    pub(crate) unsafe fn SetDevice(
-        &self,
-        device: *mut core::ffi::c_void,
-    ) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetDevice(&self, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetDevice)(
                 windows_core::Interface::as_raw(self),
                 device as _,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn BeginDraw(
@@ -16714,7 +16710,7 @@ impl ISurfaceImageSourceNativeWithD2D {
         iid: *const windows_core::GUID,
         updateobject: *mut *mut core::ffi::c_void,
         offset: *mut POINT,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).BeginDraw)(
                 windows_core::Interface::as_raw(self),
@@ -16723,29 +16719,25 @@ impl ISurfaceImageSourceNativeWithD2D {
                 updateobject as _,
                 offset as _,
             )
-            .ok()
         }
     }
-    pub(crate) unsafe fn EndDraw(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn EndDraw(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
-    pub(crate) unsafe fn SuspendDraw(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SuspendDraw(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SuspendDraw)(windows_core::Interface::as_raw(
                 self,
             ))
-            .ok()
         }
     }
-    pub(crate) unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn ResumeDraw(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(
                 self,
             ))
-            .ok()
         }
     }
 }
@@ -16981,13 +16973,12 @@ impl ISwapChainPanelNative {
     pub(crate) unsafe fn SetSwapChain(
         &self,
         swapchain: *mut core::ffi::c_void,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetSwapChain)(
                 windows_core::Interface::as_raw(self),
                 swapchain as _,
             )
-            .ok()
         }
     }
 }
@@ -17455,10 +17446,9 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ITaskbarList, windows_core::IUnknown);
 impl ITaskbarList {
-    pub(crate) unsafe fn HrInit(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn HrInit(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).HrInit)(windows_core::Interface::as_raw(self))
-                .ok()
         }
     }
 }
@@ -17513,7 +17503,7 @@ impl ITaskbarList3 {
         hwnd: HWND,
         ullcompleted: u64,
         ulltotal: u64,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetProgressValue)(
                 windows_core::Interface::as_raw(self),
@@ -17521,21 +17511,19 @@ impl ITaskbarList3 {
                 ullcompleted,
                 ulltotal,
             )
-            .ok()
         }
     }
     pub(crate) unsafe fn SetProgressState(
         &self,
         hwnd: HWND,
         tbpflags: TBPFLAG,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetProgressState)(
                 windows_core::Interface::as_raw(self),
                 hwnd,
                 tbpflags,
             )
-            .ok()
         }
     }
 }
@@ -20514,13 +20502,12 @@ impl IWindowNative {
     pub(crate) unsafe fn WindowHandle(
         &self,
         hwnd: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()> {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).WindowHandle)(
                 windows_core::Interface::as_raw(self),
                 hwnd as _,
             )
-            .ok()
         }
     }
 }
