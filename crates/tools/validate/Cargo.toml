@@ -6,6 +6,7 @@ publish = false
 
 [dependencies]
 windows-bindgen = { workspace = true }
+windows-threading = { workspace = true }
 windows-core = { workspace = true }
 windows-link = { workspace = true }
 windows-collections = { workspace = true }
