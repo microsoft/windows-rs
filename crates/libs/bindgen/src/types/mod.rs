@@ -130,10 +130,44 @@ impl Type {
             Self::CppFn(ty) => ty.method.arches(),
             Self::CppStruct(ty) => ty.def.arches(),
             Self::CppDelegate(ty) => ty.def.arches(),
+            Self::CppConst(ty) => ty.field.arches(),
             _ => 0,
         };
 
         (kind != 0, self.type_name(), arches, kind)
+    }
+
+    /// A stable secondary key that breaks ties between two distinct types sharing
+    /// the same `sort_key`. Such collisions only arise in `--flat` layouts, where
+    /// collapsing namespaces lands two same-name types in one bucket (e.g.
+    /// `D3DFMT_P8` defined as both the `D3DFORMAT` enum and a raw `u32`). Ordering
+    /// by the underlying metadata row — whose `(file, pos)` is stable across runs
+    /// for identical inputs — makes the resulting collapse deterministic.
+    fn row_key(&self) -> (usize, usize) {
+        let row = match self {
+            Self::CppFn(ty) => Some(ty.method.to_row()),
+            Self::CppStruct(ty) => Some(ty.def.to_row()),
+            Self::CppEnum(ty) => Some(ty.def.to_row()),
+            Self::CppInterface(ty) => Some(ty.def.to_row()),
+            Self::CppDelegate(ty) => Some(ty.def.to_row()),
+            Self::CppConst(ty) => Some(ty.field.to_row()),
+            Self::Class(ty) => Some(ty.def.to_row()),
+            Self::Interface(ty) => Some(ty.def.to_row()),
+            Self::Enum(ty) => Some(ty.def.to_row()),
+            Self::Struct(ty) => Some(ty.def.to_row()),
+            Self::Delegate(ty) => Some(ty.def.to_row()),
+            _ => None,
+        };
+        row.map(|r| (r.file, r.pos)).unwrap_or_default()
+    }
+
+    /// Total ordering used when inserting into the codegen `BTreeSet`. Extends
+    /// `sort_key` with `row_key` so that when two distinct types collapse to one
+    /// (equal `sort_key`), the surviving element is chosen deterministically.
+    pub(crate) fn dedup_cmp(&self, other: &Self) -> Ordering {
+        self.sort_key()
+            .cmp(&other.sort_key())
+            .then_with(|| self.row_key().cmp(&other.row_key()))
     }
 
     pub(crate) fn is_intrinsic(&self) -> bool {

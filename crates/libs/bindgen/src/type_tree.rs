@@ -14,7 +14,12 @@ impl TypeTree {
 
         for (tn, types) in dependencies.iter() {
             let tree = tree.insert_namespace(tn.namespace());
-            types.iter().for_each(|ty| {
+            // Insert in a deterministic total order so that when two distinct
+            // types share a `sort_key` (same-name collisions in `--flat` layouts),
+            // the `BTreeSet` keeps a stable winner (first insert wins on ties).
+            let mut sorted: Vec<&Type> = types.iter().collect();
+            sorted.sort_by(|a, b| a.dedup_cmp(b));
+            sorted.into_iter().for_each(|ty| {
                 tree.types.insert(ty.clone());
             });
         }
